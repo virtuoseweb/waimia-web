@@ -1,0 +1,316 @@
+---
+// Header · pure Astro + <script> interne pour state
+// Refonte v3 (refactor/clean-architecture) :
+//   — Tout le HTML (nav, mega-panels, mobile sheet) est rendu par Astro côté serveur
+//   — Indexable LLM : tous les liens et labels sont dans le HTML servi
+//   — Le <script> en bas (~50 LoC) gère l'état : openKey, scrolled, mobileOpen
+//   — Plus de React island = ~6 KB JS économisés vs Header.tsx legacy
+//
+// Cf docs/07-component-patterns.md · Pattern 2 (Astro + <script> interne)
+
+import { PRIMARY_NAV, type MegaMenu, type SimpleNav } from '../../data/sitemap';
+import { langFromPath, alternateHref, t } from '../../lib/i18n';
+
+const lang = langFromPath(Astro.url.pathname);
+const altHref = alternateHref(Astro.url.pathname, lang);
+const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
+
+// Cast utilitaire pour différencier mega-menus (cols) et simple links
+const isMega = (n: MegaMenu | SimpleNav): n is MegaMenu => !('simple' in n);
+---
+<header class="hdr" data-open="" id="hdr">
+  <div class="hdr-inner">
+    {/* Logo */}
+    <a href={lang === 'fr' ? '/' : '/en'} class="wm" aria-label="Waimia">
+      Waim<i>i</i>a<span class="dot">.</span>
+    </a>
+
+    {/* Nav · 5 boutons (4 mega + 1 simple) */}
+    <nav class="hdr-nav" aria-label={lang === 'fr' ? 'Navigation principale' : 'Main navigation'}>
+      {PRIMARY_NAV.map((item) => isMega(item) ? (
+        <div class="hdr-nav-item" data-nav-item={item.key}>
+          <button
+            class="hdr-nav-trigger"
+            data-mega-trigger={item.key}
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls={`mega-${item.key}`}
+          >
+            <span>{t(item.label, lang)}</span>
+            <span class="caret" aria-hidden>▾</span>
+          </button>
+        </div>
+      ) : (
+        <div class="hdr-nav-item">
+          <a class="hdr-nav-trigger" href={item.href}>
+            <span>{t(item.label, lang)}</span>
+          </a>
+        </div>
+      ))}
+    </nav>
+
+    {/* Lang toggle + CTA + burger (mobile) */}
+    <div class="hdr-end">
+      <a href={altHref} class="lang-toggle" aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}>
+        <span class={lang === 'fr' ? 'on' : ''}>FR</span>
+        <span class="sep">/</span>
+        <span class={lang === 'en' ? 'on' : ''}>EN</span>
+      </a>
+      <a href={ctaHref} class="cta" data-mag="0.18">
+        {lang === 'fr' ? 'Réserver un audit' : 'Book an audit'}
+        <span aria-hidden>→</span>
+      </a>
+      <button class="burger" data-burger aria-label={lang === 'fr' ? 'Ouvrir le menu' : 'Open menu'} aria-expanded="false" aria-controls="m-sheet">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+{/* Mega panels · un par mega-menu · cachés par défaut, révélés par data-open du header */}
+{PRIMARY_NAV.filter(isMega).map((item) => {
+  const cols = item.cols.length === 2 ? '2' : item.cols.length === 4 ? '4' : '3';
+  return (
+    <div class="mega" data-mega-panel={item.key} id={`mega-${item.key}`} aria-hidden="true">
+      <div class="mega-inner" data-cols={cols}>
+        {item.cols.map((col) => (
+          <div class="mega-col">
+            <div class="mega-col-hd">
+              <div class="k">{t(col.kicker, lang)}</div>
+              <div class="t">{t(col.label, lang)}</div>
+            </div>
+            <ul>
+              {col.items.map((sub) => (
+                <li>
+                  <a class="mega-link" href={sub.href}>
+                    <span class="t">{t(sub.label, lang)}</span>
+                    {sub.lead && <span class="sub">{t(sub.lead, lang)}</span>}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        {item.featured && (
+          <div class="mega-featured">
+            <div class="badge">{t(item.featured.kicker, lang)}</div>
+            <div class="ttl">{t(item.featured.label, lang)}</div>
+            <div class="bd">{t(item.featured.body, lang)}</div>
+            <a class="img lift" href={item.featured.href} aria-hidden></a>
+            <a class="cta" href={item.featured.href}>
+              {t(item.featured.cta, lang)}
+            </a>
+          </div>
+        )}
+      </div>
+      <div class="mega-bottom">
+        <span>{t(item.lead, lang)}</span>
+        <a href={item.href}>
+          {lang === 'fr' ? `Voir le hub ${t(item.label, lang)} →` : `See the ${t(item.label, lang)} hub →`}
+        </a>
+      </div>
+    </div>
+  );
+})}
+
+{/* Scrim overlay derrière les mega panels */}
+<div class="mega-scrim" data-mega-scrim aria-hidden="true"></div>
+
+{/* Mobile sheet · accordéon des mega-menus */}
+<div class="m-sheet" id="m-sheet" data-mobile-sheet aria-hidden="true">
+  <div class="m-sheet-top">
+    <span class="wm">Waim<i>i</i>a<span class="dot">.</span></span>
+    <button class="m-sheet-close" data-mobile-close aria-label={lang === 'fr' ? 'Fermer' : 'Close'}>×</button>
+  </div>
+  <div class="m-sheet-body">
+    {PRIMARY_NAV.map((item, idx) => isMega(item) ? (
+      <div class="m-sheet-acc" data-acc={item.key}>
+        <button class="m-sheet-acc-head" data-acc-trigger={item.key} aria-expanded="false">
+          <span class="num">0{idx + 1}</span>
+          <span class="ttl">{t(item.label, lang)}</span>
+          <span class="plus" aria-hidden>+</span>
+        </button>
+        <div class="m-sheet-acc-body">
+          <div class="m-sheet-acc-inner">
+            {item.cols.map((col) => (
+              <div class="m-sheet-acc-col">
+                <div class="k">{t(col.kicker, lang)}</div>
+                <div class="t">{t(col.label, lang)}</div>
+                {col.items.map((sub) => (
+                  <a href={sub.href}>{t(sub.label, lang)}</a>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ) : (
+      <a class="m-sheet-simple" href={item.href}>{t(item.label, lang)}</a>
+    ))}
+  </div>
+  <div class="m-sheet-end">
+    <a href={altHref} class="btn btn-ghost">
+      {lang === 'fr' ? 'English →' : 'Français →'}
+    </a>
+    <a href={ctaHref} class="btn btn-primary">
+      {lang === 'fr' ? 'Réserver un audit →' : 'Book an audit →'}
+    </a>
+  </div>
+</div>
+
+{/* Logique state · `is:inline` pour bypass le bug Astro 6 + adapter Vercel
+   en dev (script bundlé via virtual path Vite retourne 500). En prod, c'est
+   inlined direct dans le HTML SSR — slightly bigger HTML mais aucun fetch
+   supplémentaire et fonctionne en local + prod identique.
+   A11y · WCAG 2.4.5 (Multiple Ways) + 2.1.1 (Keyboard) + 4.1.2 (Name, Role, Value) */}
+<script is:inline>
+  // ─── 1. Refs · groupées en une passe DOM ───────────────────────────────
+  const hdrEl = document.getElementById('hdr');
+  if (hdrEl) {
+    const hdr = hdrEl;
+    const triggers = Array.from(document.querySelectorAll('[data-mega-trigger]'));
+    const panels   = Array.from(document.querySelectorAll('[data-mega-panel]'));
+    const navItems = Array.from(document.querySelectorAll('[data-nav-item]'));
+    const scrim      = document.querySelector('[data-mega-scrim]');
+    const burger     = document.querySelector('[data-burger]');
+    const sheet      = document.querySelector('[data-mobile-sheet]');
+    const closeSheet = document.querySelector('[data-mobile-close]');
+    const navRoot    = document.querySelector('.hdr-nav');
+
+    // ─── 2. State ────────────────────────────────────────────────────────
+    let closeTimer = null;
+    let openKey = '';
+
+    const triggerByKey = new Map(triggers.map((t) => [t.getAttribute('data-mega-trigger') || '', t]));
+    const panelByKey   = new Map(panels.map((p) => [p.getAttribute('data-mega-panel') || '', p]));
+    const navItemByKey = new Map(navItems.map((n) => [n.getAttribute('data-nav-item') || '', n]));
+
+    function clearCloseTimer() {
+      if (closeTimer !== null) {
+        window.clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    }
+
+    // ─── 3. Open / close mega panel ──────────────────────────────────────
+    function setOpen(nextKey) {
+      clearCloseTimer();
+      if (nextKey === openKey) return;
+
+      if (openKey) {
+        const t = triggerByKey.get(openKey); if (t) t.setAttribute('aria-expanded', 'false');
+        const p = panelByKey.get(openKey); if (p) { p.setAttribute('aria-hidden', 'true'); p.classList.remove('is-open'); }
+        const n = navItemByKey.get(openKey); if (n) n.classList.remove('is-open');
+      }
+      if (nextKey) {
+        const t = triggerByKey.get(nextKey); if (t) t.setAttribute('aria-expanded', 'true');
+        const p = panelByKey.get(nextKey); if (p) { p.setAttribute('aria-hidden', 'false'); p.classList.add('is-open'); }
+        const n = navItemByKey.get(nextKey); if (n) n.classList.add('is-open');
+      }
+
+      openKey = nextKey;
+      hdr.setAttribute('data-open', nextKey);
+      if (scrim) scrim.classList.toggle('is-open', Boolean(nextKey));
+    }
+
+    function scheduleClose() {
+      clearCloseTimer();
+      closeTimer = window.setTimeout(() => setOpen(''), 180);
+    }
+
+    // ─── 4. Mega trigger interactions (mouse + keyboard) ────────────────
+    for (const trigger of triggers) {
+      const key = trigger.getAttribute('data-mega-trigger') || '';
+      const item = trigger.closest('[data-nav-item]');
+      if (!item) continue;
+
+      item.addEventListener('mouseenter', () => setOpen(key));
+      item.addEventListener('focusin', () => setOpen(key));
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearCloseTimer();
+        setOpen(openKey === key ? '' : key);
+      });
+
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          setOpen(key);
+          requestAnimationFrame(() => {
+            const p = panelByKey.get(key);
+            const firstLink = p && p.querySelector('a');
+            if (firstLink) firstLink.focus();
+          });
+        }
+      });
+    }
+
+    if (navRoot) navRoot.addEventListener('mouseleave', scheduleClose);
+
+    for (const panel of panels) {
+      panel.addEventListener('mouseenter', () => {
+        const key = panel.getAttribute('data-mega-panel');
+        if (key) setOpen(key);
+      });
+      panel.addEventListener('mouseleave', scheduleClose);
+      panel.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const key = panel.getAttribute('data-mega-panel') || '';
+          setOpen('');
+          const t = triggerByKey.get(key); if (t) t.focus();
+        } else if (e.key === 'ArrowUp' && e.target && e.target.matches && e.target.matches('a')) {
+          const links = panel.querySelectorAll('a');
+          if (links[0] === e.target) {
+            e.preventDefault();
+            const key = panel.getAttribute('data-mega-panel') || '';
+            const t = triggerByKey.get(key); if (t) t.focus();
+          }
+        }
+      });
+    }
+
+    // ─── 5. Scrim + global keyboard ─────────────────────────────────────
+    if (scrim) scrim.addEventListener('click', () => setOpen(''));
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && openKey) setOpen('');
+    });
+
+    // ─── 6. Scroll-state for shrink ─────────────────────────────────────
+    const onScroll = () => hdr.classList.toggle('is-scrolled', window.scrollY > 24);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ─── 7. Mobile sheet ────────────────────────────────────────────────
+    function setSheetOpen(open) {
+      if (sheet) { sheet.classList.toggle('is-open', open); sheet.setAttribute('aria-hidden', open ? 'false' : 'true'); }
+      if (burger) { burger.classList.toggle('is-open', open); burger.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    if (burger) burger.addEventListener('click', () => {
+      setSheetOpen(!(sheet && sheet.classList.contains('is-open')));
+    });
+    if (closeSheet) closeSheet.addEventListener('click', () => setSheetOpen(false));
+
+    window.addEventListener('pagehide', () => {
+      document.body.style.overflow = '';
+    });
+
+    for (const tr of document.querySelectorAll('[data-acc-trigger]')) {
+      tr.addEventListener('click', () => {
+        const key = tr.getAttribute('data-acc-trigger') || '';
+        const acc = document.querySelector(`[data-acc="${key}"]`);
+        const isOpen = acc ? acc.classList.toggle('is-open') : false;
+        tr.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    if (sheet) for (const link of sheet.querySelectorAll('a')) {
+      link.addEventListener('click', () => setSheetOpen(false));
+    }
+  }
+</script>
+
+{/* Styles `.mega` et `.mega.is-open` sont déjà dans src/styles/global.css.
+   Pas de <style> ici pour éviter le bug de scoping Astro qui ferait perdre
+   l'override sur la classe React-added au runtime. */}

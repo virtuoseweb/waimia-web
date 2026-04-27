@@ -1,0 +1,63 @@
+---
+// Molécule · MastheadRow · « Vol. 03 · № 01 · Paris/Genève · Bilingue · ◉ Booking »
+// Pattern « couverture de revue » · présent sur Hero (/), /manifesto, /atlas
+// 4 colonnes mono uppercase séparées par des hairlines fins
+//
+// Composition rigoureuse Atomic Design : 4× Kicker atom dans une grille
+// (déplacé d'atoms/ vers molecules/ car compose plusieurs atomes).
+//
+// Usage :
+//   <MastheadRow tone="paper" />              (defaults)
+//   <MastheadRow tone="ink" volume="02" status="Q3 2026" />
+
+import Kicker from '../atoms/Kicker.astro';
+import { langFromPath } from '../../../lib/i18n';
+
+interface Props {
+  /** Volume éditorial · ex: "Vol. 03 · № 01" */
+  volume?: string;
+  /** Lieux · ex: "Paris / Genève" */
+  locations?: string;
+  /** Status booking · texte après le ◉ */
+  status?: string;
+  /** Fond · `paper` (clair) ou `ink` (dark) */
+  tone?: 'paper' | 'ink';
+}
+
+const lang = langFromPath(Astro.url.pathname);
+
+const {
+  volume = 'Vol. 03 · № 01',
+  locations = 'Paris / Genève',
+  status = lang === 'fr' ? 'Booking T3 2026' : 'Booking Q3 2026',
+  tone = 'paper',
+} = Astro.props;
+
+const isInk = tone === 'ink';
+const borderColor = isInk ? 'rgba(246,241,232,.12)' : 'var(--hairline)';
+const lang_label = lang === 'fr' ? 'Bilingue FR · EN' : 'Bilingual EN · FR';
+const kickerTone = isInk ? 'dim' : 'muted';
+---
+<div
+  class="u-masthead-row"
+  style={`display:grid;grid-template-columns:repeat(4,1fr);gap:32px;border-bottom:1px solid ${borderColor};padding-bottom:18px`}
+>
+  <Kicker as="span" tone={kickerTone}>{volume}</Kicker>
+  <Kicker as="span" tone={kickerTone}>{locations}</Kicker>
+  <Kicker as="span" tone={kickerTone}>{lang_label}</Kicker>
+  <Kicker as="span" tone={kickerTone} class="u-masthead-status">
+    <span style="color:var(--accent)">◉</span> {status}
+  </Kicker>
+</div>
+
+<style>
+  /* Status aligné à droite + Mobile · stack en 2 col pour rester lisible */
+  :global(.u-masthead-status){text-align:right}
+  @media (max-width: 900px) {
+    .u-masthead-row {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 14px !important;
+    }
+    :global(.u-masthead-status){text-align:left}
+  }
+</style>

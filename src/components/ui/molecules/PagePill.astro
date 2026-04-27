@@ -1,0 +1,47 @@
+---
+// DirectionSwitcher · barre flottante bottom-left · 4 directions de la homepage
+// Refonte v3 · pattern Slots Astro :
+//   — Astro rend les 4 boutons + état actif en HTML pur (indexable LLM, fonctionne sans JS)
+//   — PagePillIsland (React, client:visible) ne gère que .is-visible (apparition au scroll)
+//
+// Les 4 directions :
+//   A · Apparatus = /            (manifeste linéaire 5 actes · current home)
+//   B · Manifesto = /manifesto   (LiquidHero canvas + asymmetric services · DirectionB legacy)
+//   C · Console   = /console     (terminal hero + ProductReel sticky · DirectionC legacy)
+//   ✦ Atlas       = /atlas       (cartographie 4 piliers + persona switcher · ma proposition)
+
+import PagePillIsland from './PagePillIsland.tsx';
+import { langFromPath, localizeHref } from '../../../lib/i18n';
+
+const lang = langFromPath(Astro.url.pathname);
+const path = Astro.url.pathname.replace(/^\/en/, '') || '/';
+
+// Détermine la direction active selon le pathname
+function isActive(p: string) {
+  if (p === '/') return path === '/' || path === '';
+  return path.startsWith(p);
+}
+
+const directions = [
+  { k: 'A', label: 'Apparatus', href: localizeHref('/', lang),         active: isActive('/') && !isActive('/manifesto') && !isActive('/console') && !isActive('/atlas') },
+  { k: 'B', label: 'Manifesto', href: localizeHref('/manifesto', lang), active: isActive('/manifesto') },
+  { k: 'C', label: 'Console',   href: localizeHref('/console', lang),   active: isActive('/console') },
+  { k: '✦', label: 'Atlas',     href: localizeHref('/atlas', lang),     active: isActive('/atlas') },
+];
+---
+<PagePillIsland client:visible>
+  {directions.map((d) => (
+    <a
+      href={d.href}
+      class={'page-pill-btn' + (d.active ? ' is-active' : '')}
+      aria-current={d.active ? 'page' : undefined}
+      aria-label={`${d.k} · ${d.label}`}
+    >
+      <span class="page-pill-k">{d.k}</span>
+      <span class="page-pill-l">{d.label}</span>
+    </a>
+  ))}
+</PagePillIsland>
+
+{/* Styles dans src/styles/global.css (.page-pill, .page-pill-btn, .is-active)
+    pour éviter le scoping Astro qui empêche le React island de matcher .is-visible. */}

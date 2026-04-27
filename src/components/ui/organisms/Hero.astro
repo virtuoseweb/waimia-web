@@ -1,0 +1,132 @@
+---
+// Section · Hero · Direction 1 (Apparatus)
+// Variant : statique · masthead newspaper + headline ancré + lede + shipments + footnotes
+// Motion : reveal-fade au mount, parallax léger sur la masthead
+// Mémorable : « Une couverture de revue qui clive — Revenue ops sans le théâtre. »
+//
+// Composé de · MastheadRow + Kicker + ShipmentRow + Button + Footnotes + MetricStrip
+// (refactor atomic-components 2026-04-26)
+
+import { langFromPath, t, localizeHref } from '../../../lib/i18n';
+import { HERO_METRICS, FIELD_NOTES } from '../../../data/sitemap';
+
+import MastheadRow from '../molecules/MastheadRow.astro';
+import Kicker from '../atoms/Kicker.astro';
+import Button from '../atoms/Button.astro';
+import ShipmentRow from '../molecules/ShipmentRow.astro';
+import Footnotes from '../molecules/Footnotes.astro';
+import MetricStrip from '../molecules/MetricStrip.astro';
+
+const lang = langFromPath(Astro.url.pathname);
+const ctaHref = localizeHref('/contact', lang);
+const platformHref = localizeHref('/technologies/claude-surfaces', lang);
+
+const shipmentsHead = FIELD_NOTES.slice(0, 3);
+
+const footnotes = [
+  { mark: '¹', text: lang === 'fr' ? 'Tous les chiffres sont re-mesurables sous NDA.' : 'All figures are re-measurable under NDA.' },
+  { mark: '²', text: lang === 'fr' ? 'Claude Opus 4.7 · Sonnet 4.6 · Haiku 4.5 · fallback open-source.' : 'Claude Opus 4.7 · Sonnet 4.6 · Haiku 4.5 · open-source fallback.' },
+  { mark: '³', text: lang === 'fr' ? 'Règles typographiques françaises observées : espaces insécables et guillemets « ».' : 'French typographic rules observed: espaces insécables and « guillemets ».' },
+];
+
+// Le MetricStrip prend des `label: string` · on résout les BiText ici
+const metrics = HERO_METRICS.map((m) => ({ k: m.k, n: m.n, label: t(m.label, lang) }));
+---
+<section class="hero-a" aria-labelledby="hero-heading">
+  <div class="signature-grid"></div>
+
+  <div class="wrap-wide">
+    {/* Masthead newspaper · atome MastheadRow */}
+    <div class="par" data-par="-0.04" style="margin-bottom:42px">
+      <MastheadRow />
+    </div>
+
+    {/* Headline · ancré, statique */}
+    <h1 id="hero-heading" class="hero-headline">
+      {lang === 'fr' ? (
+        <>
+          Les <i>opérations</i> revenue,<br />
+          refondues avec l'<i class="acc">IA</i> —<br />
+          sans le <i>théâtre</i>.
+        </>
+      ) : (
+        <>
+          Revenue <i>operations</i>,<br />
+          rebuilt with <i class="acc">AI</i> —<br />
+          without the <i>theatre</i>.
+        </>
+      )}
+    </h1>
+
+    {/* Sub-block · 2 colonnes · lede + shipments */}
+    <div class="hero-sub">
+      <div>
+        <Kicker class="hero-fig">§ 01 · {lang === 'fr' ? 'Lede' : 'Lede'}</Kicker>
+        <p class="hero-lede">
+          {lang === 'fr' ? (
+            <>Waimia est une <i>agence IA experte Claude</i> pour les entreprises dont le moteur revenue ne peut pas se permettre une refonte. On déploie stratégie, opérations et notre plateforme — <i>VirtuoseOS</i> — comme une seule couche continue.</>
+          ) : (
+            <>Waimia is a <i>Claude-native AI agency</i> for companies whose revenue engine cannot afford a rewrite. We deploy strategy, operations, and our own platform — <i>VirtuoseOS</i> — as one continuous layer.</>
+          )}
+        </p>
+        <div class="hero-ctas">
+          <Button href={ctaHref} variant="primary" size="lg" mag={0.18}>
+            {lang === 'fr' ? 'Réserver 45 min →' : 'Book 45 min →'}
+          </Button>
+          <Button href={platformHref} variant="ghost" size="lg">
+            {lang === 'fr' ? 'Voir VirtuoseOS' : 'Meet VirtuoseOS'}
+          </Button>
+        </div>
+      </div>
+
+      <div>
+        <Kicker class="hero-fig">§ 02 · {lang === 'fr' ? 'Dernières livraisons' : 'Latest shipments'}</Kicker>
+        <div class="hero-ships">
+          {shipmentsHead.map((s) => (
+            <ShipmentRow
+              date={s.date}
+              tag={t(s.tag, lang)}
+              href={localizeHref('/ressources/blog', lang)}
+              compact
+            >
+              {t(s.text, lang)}
+            </ShipmentRow>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Footnotes · molécule Footnotes */}
+    <div style="margin-top:clamp(48px,5vw,72px);padding-bottom:clamp(48px,5vw,80px)">
+      <Footnotes items={footnotes} />
+    </div>
+  </div>
+</section>
+
+{/* Metrics strip · molécule MetricStrip */}
+<MetricStrip metrics={metrics} />
+
+<style>
+  .hero-a { position:relative; padding:calc(140px + var(--gut)) 0 0; border-bottom:1px solid var(--hairline); overflow:hidden; display:flex; flex-direction:column; }
+  .hero-a > *:not(.signature-grid) { position:relative; z-index:1; }
+  .hero-a .signature-grid { z-index:0; }
+
+  .hero-headline { font-family:var(--font-display); font-size:clamp(48px,9vw,148px); line-height:.96; letter-spacing:-0.025em; font-weight:400; margin:0 0 32px; }
+  .hero-headline i { font-style:italic; }
+  /* Mot relevé en accent (mot-clé central : IA / AI) */
+  .hero-headline i.acc { color: var(--accent); }
+
+  .hero-sub { display:grid; grid-template-columns:1.05fr 1fr; gap:clamp(40px,5vw,80px); margin-top:clamp(40px,4vw,56px); padding-top:clamp(28px,3vw,40px); border-top:1px solid var(--hairline); align-items:start; }
+  .hero-fig { margin-bottom:16px; }
+
+  .hero-lede { font-family:var(--font-display); font-size:clamp(18px,1.6vw,21px); line-height:1.42; color:var(--ink-2); max-width:520px; text-wrap:pretty; }
+  .hero-lede i { font-style:italic; color:var(--accent); }
+
+  .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-top:clamp(24px,2.5vw,36px); }
+
+  .hero-ships { display:flex; flex-direction:column; }
+
+  @media (max-width:900px) {
+    .hero-sub { grid-template-columns:1fr; gap:48px; }
+  }
+</style>
