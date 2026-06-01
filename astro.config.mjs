@@ -6,6 +6,8 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import robotsTxt from 'astro-robots-txt';
+import llmsTxt from '@4hse/astro-llms-txt';
+import llmsMdPages from './src/integrations/llms-md-pages';
 
 // Waimia · Astro 6 config · Static-first + API routes SSR via Vercel Functions
 // - output: 'static' : 100 % SSG par défaut, fichiers CDN immuables (T1.1 activé 2026-05-17)
@@ -98,6 +100,42 @@ export default defineConfig({
       ],
       sitemap: 'https://waimia.com/sitemap-index.xml',
       host: 'waimia.com',
+    }),
+    llmsTxt({
+      title: 'Waimia',
+      description:
+        "Waimia est une agence qui aide les PME B2B (20 à 500 personnes) à adopter l'IA de façon concrète : automatisation des workflows, acquisition, productivité opérationnelle et gouvernance.",
+      details: [
+        "Waimia accompagne les dirigeants (DG, DAF, COO) de PME B2B dans l'intégration de l'intelligence artificielle au cœur de leurs opérations.",
+        "Approche IA-first : chaque solution combine stratégie, mise en œuvre et montée en compétence des équipes.",
+        "Domaines : automatisation (CRM, relances, process), acquisition (SEO/GEO, contenu), productivité opérationnelle, pilotage et gouvernance IA.",
+        "Ressources : guides, cookbooks actionnables, études de cas, glossaire IA, comparatifs et école (formations).",
+        '',
+        "Chaque page est aussi disponible en version markdown : ajoutez .md à l'URL.",
+      ].join('\n\n'),
+      notes:
+        '- Site officiel : https://waimia.com\n- Pages markdown individuelles : ajoutez .md à toute URL.',
+      docSet: [
+        {
+          title: 'Contenu complet',
+          description: 'Toutes les pages Waimia avec contenu intégral',
+          url: '/llms-full.txt',
+          include: ['**/*'],
+          promote: ['solutions/**', 'offres/**', 'agence/**', 'contact/**'],
+        },
+        {
+          title: 'Structure du site',
+          description: 'Arborescence et titres des pages Waimia',
+          url: '/llms-small.txt',
+          include: ['**/*'],
+          onlyStructure: true,
+          promote: ['solutions/**', 'offres/**', 'agence/**'],
+        },
+      ],
+    }),
+    llmsMdPages({
+      siteUrl: 'https://waimia.com',
+      exclude: ['404', 'api/**', 'bienvenue/**', 'agence/design-system'],
     }),
   ],
   // Cast `as any` parce que tailwindcss/vite et Astro embarquent leur propre
