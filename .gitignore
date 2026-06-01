@@ -1,6 +1,51 @@
-.vercel
-.env*.local
+# Dependencies
+node_modules/
 
-# Playwright/Browser screenshots & MCP cache
+# Build output
+dist/
+.astro/
+.vercel/
+.cache/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env (secrets jamais commités · seul .env.example l'est)
+.env
+.env.local
+.env*.local
+.env.development
+.env.production
+.env.test
+
+# Tests
+test-results/
+playwright-report/
+.playwright/
+coverage/
+
+# Playwright / Browser screenshots & MCP cache
 .playwright-mcp/
 design-system-*.png
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+*.swp
+*.swo
+
+# Tmp
+*.tmp
+.tmp/
+tmp/
