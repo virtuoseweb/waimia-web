@@ -39,7 +39,7 @@ Tous les 5 axes stratégiques **VALIDÉS** :
 ### Reste (vrai backlog Site Ready — détail Tier ci-dessous + doc 35)
 
 - ~~**M05 SEO** (`@4hse/astro-llms-txt`)~~ ✅ **FAIT 2026-06-01** (commit d6a836a, Bloc A migration polyrepo)
-- **Consolidation 01-06 → main** (gel api-to-actions levable) avec gates build + Playwright (rule 40/33) — **Bloc B en cours**
+- ~~**Consolidation 01-06**~~ ✅ **Bloc B FAIT 2026-06-01** : phase-5-drifts + phase-6-pages mergées dans `feat/phase-1-design` (merge-tree conflict-free, commits `--no-ff`). Gates : `pnpm build` ✅ (433 .md) + GF-1 Playwright getComputedStyle ✅ (6 pages, H1+CTA opacity 1 visibles). Merge → `main` = après Bloc D (relink Vercel)
 - Tier 14 axes 2/4/5 : rendering final static/ISR (T14.2e-h), CSS coherence (T14.4a-d), DS showcase + CI lock (T14.3d-h, T14.5)
 - Tier 13 QA finale (Lighthouse 10p, schema validator, Playwright 20p, preview verte)
 - Tier 9 contenu business (blog pillar 4/5, articles cluster, cookbooks, livres blancs, produits/abos)
@@ -260,6 +260,9 @@ Capitalisation : [feedback_waimia_w6_sections_layout_pitfalls.md](file:///Users/
 - [ ] **T13.8** · Update doc 12 statuses avec ✅ final
 - [ ] **T13.9** · Commit + push final → Vercel deploy preview
 - [ ] **T13.10** · Validation Vercel preview HTTP 200 sur 50+ URLs échantillon
+- [✅] **T13.11** · Lien Newsletter cassé corrigé (commit `640cb74`, Bloc B) · `/ressources/newsletter` (404 prefetché sur toutes pages via mega-menu ×2 + sitemap) → ancre `/ressources/#newsletter` (section formulaire). Preuve : re-capture 404 Playwright post-build = absent
+- [ ] **T13.12** · ⚠️ **Gap 404 bloqué-CONTENU `/en/agence/trust-center`** : switcher/footer (`Footer.astro:259`) pointe la version EN de trust-center, non traduite. Décision Simon requise : (a) produire la traduction EN de trust-center, ou (b) dégradation gracieuse du switcher pour pages sans contrepartie EN (changement i18n systémique — vérifier ampleur, d'autres pages FR peuvent linker des `/en/*` absents). Détecté Playwright 404-capture 2026-06-01
+- [ ] **T13.13** · ⚠️ **Gap 404 bloqué-ASSET `/authors/simon-beros.jpg`** : `src/content/authors/simon-beros.mdx:34` `photo:` référence un fichier absent (`public/authors/` n'existe pas). Simon doit fournir la photo (asset réel, non fabricable). Détecté Playwright 404-capture 2026-06-01
 
 ### TIER 14 · Closure Audit — Lock infra + DS (insérée 2026-05-17)
 
