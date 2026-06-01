@@ -19,6 +19,36 @@ Tous les 5 axes stratégiques **VALIDÉS** :
 
 ---
 
+## 🔄 Réconciliation état réel — 2026-06-01 (audit branches post-cal)
+
+> Le corps du tracker ci-dessous reflète le travail livré **Sessions 01-06**, MAIS ce travail
+> **n'est PAS dans `main`** : il vit sur 3 branches parallèles non-mergées
+> (`feat/phase-1-design`, `feat/phase-5-drifts`, `feat/phase-6-pages`). `main` (= `origin/main`)
+> est au tip `5b57257` (batch-d, 17 mai). Le compteur historique « 0/135 » était faux (rule 16).
+
+### Livré (sur branches, NON-mergé main)
+
+- **Session-01 Phase 1 Design** : 9/9 batchs (J/H/F/D/G/C/A/B/E E1+E2+E3) — inclut Tier 14 batches A/B/C/E/G ✅
+- **Session-02 A11y** : 3/3 (landmarks, focus, ARIA, contraste WCAG AA, reduced-motion)
+- **Session-03 Perf** : 3/3 (`output: static` T1.1, route matrix, self-host fonts T1.5b/c)
+- **Session-04 SEO/GEO** : **4/5** (M01 schema JSON-LD, M02 hreflang/sitemap/llms.txt, M03 OG endpoint, M04 astro-seo/robots) — **M05 reste (0%, voir handoff)**
+- **Session-05 Drifts** : 3/3 (suppression pages legacy secteurs/cas doublons, ressources hub data-driven)
+- **Session-06 Pages** : 3/3 (About + Méthode, trust-center + 3 welcome, agence crédibilité)
+- **apps/cal** (hors ce tracker) : ✅ CLOS, mergé `origin/main`, déployé cal.waimia.com
+
+### Reste (vrai backlog Site Ready — détail Tier ci-dessous + doc 35)
+
+- **M05 SEO** (`@4hse/astro-llms-txt`) — action immédiate
+- **Consolidation 01-06 → main** (gel api-to-actions levable) avec gates build + Playwright (rule 40/33)
+- Tier 14 axes 2/4/5 : rendering final static/ISR (T14.2e-h), CSS coherence (T14.4a-d), DS showcase + CI lock (T14.3d-h, T14.5)
+- Tier 13 QA finale (Lighthouse 10p, schema validator, Playwright 20p, preview verte)
+- Tier 9 contenu business (blog pillar 4/5, articles cluster, cookbooks, livres blancs, produits/abos)
+- Tier 6 conversion (Session-07 : forms typés + BotID, quiz A/B, Stripe)
+
+> ⚠️ Les `[✅]` du corps = « livré sur branche » — **pas encore en prod** tant que la consolidation vers `main` n'est pas faite avec ses gates.
+
+---
+
 ## 📋 Inventaire complet par Tier (135 actions)
 
 ### TIER 1 · Quick wins (10h) — IMPACT IMMÉDIAT
@@ -271,11 +301,11 @@ Bloque l'avancée du tracker T6.6 / T7 / T9 jusqu'à validation des 5 axes ci-de
 - [✅] **T14.4-H** · Batch H legacy templates + dead code (commit `4e65af0`, Worker Codex) · 3 éliminations chirurgicales (FormationDetail 484 LoC + BreadcrumbSchema + MetricStrip) + migration `/ecole/cours/[slug]` vers CourseDetailTemplate · 667 LoC modifiées · audit visuel before/after versionné
 - [✅] **T14.4-F** · Batch F ProcessSteps → MethodTimeline (commit `83e8098`, Worker Sonnet fallback Codex limit) · 3 templates migrés (CaseStudy/ServiceDetail/DetailMenu) + MethodTimeline header conditionnel · ProcessSteps 124 LoC supprimé · audit visuel before/after versionné
 - [✅] **T14.4-D** · Batch D TrustMarquee → SocialProof (commit `012ee9c` sur branche `feat/phase-1-design`, Worker Codex strict) · 4 pages migrées (home FR/EN + tech FR/EN) + Footer/design-system cleanup textuel + TrustMarquee organism supprimé · audit visuel before/after versionné · branche dédiée pour éviter collision multi-agents
-- [🔄] **T14.4-G** · Batch G FAQ + Related + Pricing arbitrage (Worker Sonnet `b6os4qvld` en cours sur branche `feat/phase-1-design`) · FAQ → FaqAccordion avec JSON-LD · RelatedByCluster délégation RelatedCards · PricingTier @internal
-- [ ] **T14.4-C** · Batch C CapabilityStrip → FeatureGrid (brief préparé `/tmp/codex-missions/waimia-batch-C/mission-strict.md`) · home FR/EN
-- [ ] **T14.4-B** · Batch B Proof metrics rationalisation (brief préparé) · home + ServiceDetail + DetailMenu + ProofBar/StatRow/MetricStrip suppression
-- [ ] **T14.4-A** · Batch A Hero family lock (brief préparé) · Hero.astro `@home-only` commentaire + règle
-- [ ] **T14.4-E** · Batch E CTA family Phase E1 (brief préparé) · 8 templates migrés CtaBand → CtaFinal/CtaBandSection/CtaInline (Phase E2+E3 itération suivante)
+- [✅] **T14.4-G** · Batch G FAQ + Related + Pricing arbitrage (commit `bac7d5b`, branche `feat/phase-1-design`) · FAQ → FaqAccordion avec JSON-LD · RelatedByCluster délégation RelatedCards · PricingTier @internal
+- [✅] **T14.4-C** · Batch C CapabilityStrip → FeatureGrid (commit `40bc0fa`, branche `feat/phase-1-design`) · home FR/EN
+- [✅] **T14.4-B** · Batch B Proof metrics rationalisation (commit `d9950d2`, branche `feat/phase-1-design`) · home + 2 templates · ProofBar → ProofBarSection
+- [✅] **T14.4-A** · Batch A Hero family lock (commit `b5eb607`, branche `feat/phase-1-design`) · Hero.astro `@home-only` lock
+- [✅] **T14.4-E** · Batch E CTA family Phase E1+E2+E3 (commit `31974f9`, branche `feat/phase-1-design`) · 8 templates migrés CtaBand → CtaFinal/CtaBandSection/CtaInline
 - [✅] **T14.5-Verdicts** · 5 doublons ambigus tranchés selon contrat doc 28 (commit `64cb585`, doc 34-AMBIGUS-VERDICTS-OPUS) · ProofBand Tier 2 WIP · Related 2 rôles distincts · PricingTier @internal · 3 timelines scopes distincts · Hero variants Tier 2 licites
 
 #### Axe 4 · Cohérence CSS — tokens vs hardcoded
@@ -315,7 +345,8 @@ Bloque l'avancée du tracker T6.6 / T7 / T9 jusqu'à validation des 5 axes ci-de
 | Tier 12 | 7 | ☐ × 7 |
 | Tier 13 | 10 | ☐ × 10 |
 
-**Progress** : 0 / 135 (0%)
+**Progress** : ⚠️ compteur historique obsolète. Voir « 🔄 Réconciliation état réel — 2026-06-01 » en tête de doc.
+Réalité : Sessions 01-06 livrées **sur branches non-mergées** (Tiers 1-6 + 10-11 largement ✅, Tier 14 batches A-J ✅), M05 SEO + Tiers 7/8/9/12/13 + Tier 14 axes 2/4/5 = reste. Le travail n'est **pas en prod** tant que la consolidation vers `main` n'est pas faite.
 
 ---
 

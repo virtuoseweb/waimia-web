@@ -8,6 +8,17 @@
 
 ---
 
+## 🔄 MAJ 2026-06-01 — addendum reprise (post-cal, audit branches)
+
+> Ce plan reste valide. Le point d'arrêt opérationnel a évolué depuis le 17 mai. **Bootstrap fresh-session = `SESSION-HANDOFF-CURRENT.md`** (à lire en premier).
+
+- **apps/cal** (cal.waimia.com) : ✅ chantier annexe CLOS depuis le 17 mai — booking + email Resend HTTPS mergés `origin/main`, déployés. Hors périmètre de ce plan (`apps/web`).
+- **apps/web** : Sessions 01-06 **livrées mais NON-MERGÉES dans `main`** — elles vivent sur 3 branches parallèles (`feat/phase-1-design` SEO, `feat/phase-5-drifts`, `feat/phase-6-pages`) partageant une base commune. `main` est au tip `5b57257` (batch-d). **Le vrai blocker n'est plus le contenu mais la consolidation vers `main`** (gel api-to-actions désormais levable).
+- **Phase 4 SEO** : 4/5 (M01-M04 ✅). **M05 `@4hse/astro-llms-txt` = 0%** (vérifié : `src/integrations/` absent) — action immédiate.
+- **Avant tout merge vers `main`** : gates `pnpm build` + Playwright above-fold + `getComputedStyle()` H1/CTA (rule 40 + rule 33 + GF-1).
+
+---
+
 ## Section 0 · Statut + critères « Site Ready »
 
 ### 0.1 · Statut réel au 17 mai 2026
