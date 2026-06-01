@@ -442,7 +442,7 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'AI watch', fr: 'Veille IA' },
       },
       {
-        href: '/ressources/newsletter',
+        href: '/ressources/#newsletter',
         label: { en: 'Newsletter', fr: 'Newsletter' },
       },
     ],

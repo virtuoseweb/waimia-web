@@ -125,7 +125,7 @@ const RESSOURCES: MegaMenuSection = {
         },
         {
           label: { fr: 'Newsletter', en: 'Newsletter' },
-          href: '/ressources/newsletter',
+          href: '/ressources/#newsletter',
           description: {
             fr: 'Archives des éditions envoyées.',
             en: 'Archive of sent editions.',
@@ -285,7 +285,7 @@ const AGENCE: MegaMenuSection = {
         },
         {
           label: { fr: 'Newsletter', en: 'Newsletter' },
-          href: '/ressources/newsletter',
+          href: '/ressources/#newsletter',
           description: {
             fr: 'Recevoir les analyses et annonces Waimia.',
             en: 'Receive Waimia analysis and announcements.',
