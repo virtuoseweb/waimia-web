@@ -31,15 +31,15 @@ Tous les 5 axes stratégiques **VALIDÉS** :
 - **Session-01 Phase 1 Design** : 9/9 batchs (J/H/F/D/G/C/A/B/E E1+E2+E3) — inclut Tier 14 batches A/B/C/E/G ✅
 - **Session-02 A11y** : 3/3 (landmarks, focus, ARIA, contraste WCAG AA, reduced-motion)
 - **Session-03 Perf** : 3/3 (`output: static` T1.1, route matrix, self-host fonts T1.5b/c)
-- **Session-04 SEO/GEO** : **4/5** (M01 schema JSON-LD, M02 hreflang/sitemap/llms.txt, M03 OG endpoint, M04 astro-seo/robots) — **M05 reste (0%, voir handoff)**
+- **Session-04 SEO/GEO** : **5/5 ✅** (M01 schema JSON-LD, M02 hreflang/sitemap/llms.txt, M03 OG endpoint, M04 astro-seo/robots, **M05 llms.txt + 433 pages .md auto-générées — commit d6a836a 2026-06-01**)
 - **Session-05 Drifts** : 3/3 (suppression pages legacy secteurs/cas doublons, ressources hub data-driven)
 - **Session-06 Pages** : 3/3 (About + Méthode, trust-center + 3 welcome, agence crédibilité)
 - **apps/cal** (hors ce tracker) : ✅ CLOS, mergé `origin/main`, déployé cal.waimia.com
 
 ### Reste (vrai backlog Site Ready — détail Tier ci-dessous + doc 35)
 
-- **M05 SEO** (`@4hse/astro-llms-txt`) — action immédiate
-- **Consolidation 01-06 → main** (gel api-to-actions levable) avec gates build + Playwright (rule 40/33)
+- ~~**M05 SEO** (`@4hse/astro-llms-txt`)~~ ✅ **FAIT 2026-06-01** (commit d6a836a, Bloc A migration polyrepo)
+- **Consolidation 01-06 → main** (gel api-to-actions levable) avec gates build + Playwright (rule 40/33) — **Bloc B en cours**
 - Tier 14 axes 2/4/5 : rendering final static/ISR (T14.2e-h), CSS coherence (T14.4a-d), DS showcase + CI lock (T14.3d-h, T14.5)
 - Tier 13 QA finale (Lighthouse 10p, schema validator, Playwright 20p, preview verte)
 - Tier 9 contenu business (blog pillar 4/5, articles cluster, cookbooks, livres blancs, produits/abos)
@@ -346,7 +346,7 @@ Bloque l'avancée du tracker T6.6 / T7 / T9 jusqu'à validation des 5 axes ci-de
 | Tier 13 | 10 | ☐ × 10 |
 
 **Progress** : ⚠️ compteur historique obsolète. Voir « 🔄 Réconciliation état réel — 2026-06-01 » en tête de doc.
-Réalité : Sessions 01-06 livrées **sur branches non-mergées** (Tiers 1-6 + 10-11 largement ✅, Tier 14 batches A-J ✅), M05 SEO + Tiers 7/8/9/12/13 + Tier 14 axes 2/4/5 = reste. Le travail n'est **pas en prod** tant que la consolidation vers `main` n'est pas faite.
+Réalité : Sessions 01-06 livrées **sur branches non-mergées** (Tiers 1-6 + 10-11 largement ✅, Tier 14 batches A-J ✅, **M05 SEO ✅ 2026-06-01 commit d6a836a**), Tiers 7/8/9/12/13 + Tier 14 axes 2/4/5 = reste. Le travail n'est **pas en prod** tant que la consolidation vers `main` n'est pas faite (Bloc B).
 
 ---
 
