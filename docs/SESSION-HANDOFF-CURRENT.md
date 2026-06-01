@@ -6,6 +6,26 @@
 
 ---
 
+## ⭐ Plan directeur 2026-06-01 — migration POLYREPO (gouverne la reprise)
+
+**Décision Simon** : `apps/web` devient un **repo standalone propre** (`virtuoseweb/waimia-web`) que Vercel build au push. Le monorepo `waimia-v2` devient un **agrégateur léger** (submodules) pour centraliser sur GitHub sans alourdir. ADR complet : [`../../docs/architecture.md`](../../docs/architecture.md).
+
+Blocs (ordre verrouillé anti-rework — consolider AVANT d'extraire) :
+
+| Bloc | Tâche | Gate | Statut |
+|---|---|---|---|
+| 0 | ADR + docs cible | — | ✅ 2026-06-01 |
+| A | M05 SEO (§3) | build → `dist/llms*.txt` | ☐ |
+| B | Consolider Sessions 01-06 (§4.2) | build + Playwright (rule 40/33) | ☐ |
+| C | Extraire apps/web → `waimia-web` (subtree split + `pnpm install` + build) | build vert | ☐ |
+| D | Vercel relink `waimia-v2` → `waimia-web` (root `.`) | preview 200 + Playwright | ☐ (OAuth = Simon) |
+| E | Monorepo → submodules + docs | clone léger vérifié | ☐ |
+| F | Cleanup branches (§6) | — | ☐ |
+
+> `apps/web` est **self-contained vérifié** (name déjà `waimia-web`, 0 dep workspace) → extraction propre.
+
+---
+
 ## 0. Garde-fous compte (ne JAMAIS confondre avec Amploi)
 
 | | **Waimia** (ce repo) | Amploi (NE PAS toucher) |
