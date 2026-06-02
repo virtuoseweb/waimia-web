@@ -60,6 +60,18 @@ formel de `docs/20` (P1 « GF-1 visuel exhaustif sur preview Vercel ») reste à
 le **même** harnais sur l'URL de preview Vercel une fois la branche déployée :
 `node scripts/gf1-cloud-sweep.mjs --base https://<preview>.vercel.app --dist-preview dist/client/preview`.
 
+> ⚠️ **Contrainte réseau cloud découverte le 2026-06-02 (capitalisation GF-3)** : depuis la VM
+> cloud (claude.ai/code), l'egress proxy **bloque `*.vercel.app`** (`HTTP 403`, `x-deny-reason:
+> host_not_allowed`, body « Host not in allowlist » — idem `cdn.playwright.dev`). GitHub est en
+> allowlist (200) mais **pas** les déploiements Vercel. Conséquence : le gate « GF-1 sur preview
+> Vercel **déployée** » **ne peut pas tourner depuis le cloud** (ni curl, ni Playwright). Le MCP
+> `web_fetch_vercel_url` accède bien à la preview protégée (fetch server-side) mais ne renvoie que
+> du HTML — pas de `getComputedStyle`/screenshot, donc insuffisant pour GF-1 visuel.
+> → Ce gate doit être exécuté depuis une surface qui atteint `*.vercel.app` (**poste local Simon**
+> ou un **runner CI** avec accès réseau). Le harnais est prêt et surface-agnostique (`--base`).
+> La preview de la PR #1 est protégée (Vercel Deployment Protection) ; un accès temporaire
+> `_vercel_share` est mintable via le MCP Vercel (`get_access_to_vercel_url`) pour la surface qui y accède.
+
 ## Tableau de preuve (57/57)
 
 | Type | Hauteur above-fold | Heading | opacity | transform | Verdict |
