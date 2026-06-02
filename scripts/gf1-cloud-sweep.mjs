@@ -46,6 +46,17 @@ const DIST_PREVIEW = resolve(args['dist-preview'] || 'dist/preview');
 const TIMEOUT = parseInt(args.timeout || '20000', 10);
 const VIEWPORT = { width: 1440, height: 900 };
 
+// Header(s) custom, ex. bypass de la Vercel Deployment Protection en CI :
+//   --header "x-vercel-protection-bypass: <secret>" --header "x-vercel-set-bypass-cookie: true"
+// Répétable. Sert à atteindre une preview Vercel protégée depuis un runner réseau-ouvert.
+const extraHTTPHeaders = {};
+for (let i = 0; i < argv.length; i++) {
+  if (argv[i] === '--header' && argv[i + 1]) {
+    const idx = argv[i + 1].indexOf(':');
+    if (idx > 0) extraHTTPHeaders[argv[i + 1].slice(0, idx).trim()] = argv[i + 1].slice(idx + 1).trim();
+  }
+}
+
 // Auto-détection du chromium pré-installé (cloud) ou bundle local.
 function findChromium() {
   if (process.env.PW_CHROME && existsSync(process.env.PW_CHROME)) return process.env.PW_CHROME;
@@ -85,7 +96,11 @@ const browser = await chromium.launch({
 const results = [];
 for (const type of types) {
   const url = `${BASE}/preview/${type}`;
-  const ctx = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 1 });
+  const ctx = await browser.newContext({
+    viewport: VIEWPORT,
+    deviceScaleFactor: 1,
+    ...(Object.keys(extraHTTPHeaders).length ? { extraHTTPHeaders } : {}),
+  });
   const page = await ctx.newPage();
   // JS errors (réels) vs ressources 4xx (artefacts d'isolation preview : prefetch de
   // liens internes absents du build /preview/*, images OG placeholder). On distingue.

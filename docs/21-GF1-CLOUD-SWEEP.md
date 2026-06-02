@@ -72,6 +72,21 @@ le **même** harnais sur l'URL de preview Vercel une fois la branche déployée 
 > La preview de la PR #1 est protégée (Vercel Deployment Protection) ; un accès temporaire
 > `_vercel_share` est mintable via le MCP Vercel (`get_access_to_vercel_url`) pour la surface qui y accède.
 
+## Gate CI automatisé (`.github/workflows/gf1-vercel-sweep.yml`)
+
+Puisque le cloud ne peut atteindre `*.vercel.app`, le gate GF-1 sur preview **déployée** est
+automatisé en **GitHub Actions** (runner réseau-ouvert) :
+
+- **Trigger** `deployment_status` (preview Vercel réussie) → checkout du sha déployé, `pnpm build`,
+  `playwright install chromium`, puis `gf1-cloud-sweep.mjs --base <environment_url>`. Artefact
+  `gf1-vercel-sweep` (screenshots + `summary.json`) uploadé. Exit ≠ 0 = gate rouge.
+- **Trigger** `workflow_dispatch` (input `preview_url`) → lancement à la demande **avant merge**.
+- **Secret requis** : `VERCEL_AUTOMATION_BYPASS_SECRET` (Vercel ▸ Deployment Protection ▸ Protection
+  Bypass for Automation → GitHub repo Secrets). Le sweep l'injecte via `--header
+  "x-vercel-protection-bypass: <secret>"` pour traverser la protection des previews.
+- ⚠️ `deployment_status` utilise le workflow de la **branche par défaut** : actif sur les PR une fois
+  ce fichier mergé sur `main`. D'ici là, utiliser `workflow_dispatch` avec l'URL de preview.
+
 ## Tableau de preuve (57/57)
 
 | Type | Hauteur above-fold | Heading | opacity | transform | Verdict |
