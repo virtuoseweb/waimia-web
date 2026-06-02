@@ -15,6 +15,7 @@
 import Base from '../../layouts/Base.astro';
 import Bi from '../ui/atoms/Bi.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
+import HeroDetailMenu from '../sections/HeroDetailMenu.astro';
 import ProofBarSection from '../sections/ProofBarSection.astro';
 import MethodTimeline from '../sections/MethodTimeline.astro';
 import { langFromPath, localizeHref } from '../../lib/i18n';
@@ -38,6 +39,12 @@ interface Props {
   /** Kicker sous-section (ex: "OFFRE · Conseil & audit") */
   parentKickerFr: string;
   parentKickerEn: string;
+  /** Masthead · headline (HTML riche : <i> pour l'accent terracotta italique) */
+  h1Fr: string;
+  h1En: string;
+  /** Masthead · lede */
+  ledeFr: string;
+  ledeEn: string;
   /** Annotation problem (3 stats avec contexte) */
   annotation: Stat[];
   /** Steps approach */
@@ -54,11 +61,24 @@ interface Props {
   relatedCards: RelatedCard[];
 }
 const {
-  title, description, detailNum, parentKickerFr, parentKickerEn, annotation, steps,
+  title, description, detailNum, parentKickerFr, parentKickerEn,
+  h1Fr, h1En, ledeFr, ledeEn, annotation, steps,
   proofQuoteFr, proofQuoteEn, proofAttrFr, proofAttrEn, proofMetrics,
   techPills, relatedCards,
 } = Astro.props as Props;
 const lang = langFromPath(Astro.url.pathname);
+// Masthead · consomme le composant catalogué `hero-detail-menu` (source unique
+// structure + CSS). Contenu par instance via props du template.
+const heroData = {
+  type: 'hero-detail-menu',
+  parent_kicker_fr: parentKickerFr,
+  parent_kicker_en: parentKickerEn,
+  detail_num: detailNum,
+  h1_fr: h1Fr,
+  h1_en: h1En,
+  lede_fr: ledeFr,
+  lede_en: ledeEn,
+} satisfies SectionByType<'hero-detail-menu'>;
 const detailLabel = title.split(' · ')[0];
 const collectionHref = Astro.url.pathname.includes('/technologies/')
   ? localizeHref('/technologies', lang)
@@ -97,15 +117,11 @@ const ctaData = {
 } satisfies SectionByType<'cta-final'>;
 ---
 <Base title={title} description={description}>
-  {/* HERO · masthead avec parent kicker + numéro */}
-  <section class="dt-hero">
-    <div class="wrap-wide">
-      <Kicker class="dt-parent"><Bi fr={parentKickerFr} en={parentKickerEn} /></Kicker>
-      <Kicker tone="accent" class="dt-num">§ {detailNum}</Kicker>
-      <h1 class="dt-h1"><slot name="headline" /></h1>
-      <p class="dt-lede"><slot name="lede" /></p>
-    </div>
-  </section>
+  {/* HERO · masthead · composant catalogué hero-detail-menu (contenu via props).
+      topPad par défaut (140px) = rythme vertical d'origine du template.
+      wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut
+      du composant — 1200px — reste inchangé pour la preview catalogue. */}
+  <HeroDetailMenu data={heroData} lang={lang} wrapMaxWidth="var(--wrap-wide)" />
 
   {/* PROBLEM · annotation (3 stats avec contexte) */}
   <section class="dt-problem">
@@ -201,29 +217,9 @@ const ctaData = {
 </Base>
 
 <style>
-  .dt-hero { padding: 140px 32px 0; }
-  :global(.dt-parent) { display: block; margin-bottom: var(--space-4); }
-  :global(.dt-num) { display: block; margin-bottom: 24px; }
-  .dt-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 156px);
-    line-height: 0.92;
-    letter-spacing: -0.028em;
-    text-wrap: balance;
-    font-weight: 400;
-    margin: 0 0 32px;
-  }
-  .dt-h1 :global(i) { font-style: italic; color: var(--accent); }
-  .dt-lede {
-    font-family: var(--font-display);
-    font-size: clamp(18px, 2vw, 24px);
-    line-height: 1.45;
-    max-width: 880px;
-    color: var(--muted);
-    text-wrap: balance;
-    margin: 0;
-  }
-
+  /* Masthead migré vers le composant catalogué `HeroDetailMenu` (sections/).
+     Règles `.dt-hero/.dt-parent/.dt-num/.dt-h1/.dt-lede` supprimées (structure + CSS
+     désormais portés par le composant — source unique). */
   .dt-problem,
   .dt-approach,
   .dt-deliverables,

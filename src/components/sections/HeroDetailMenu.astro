@@ -8,12 +8,26 @@ import Kicker from '../ui/atoms/Kicker.astro';
 interface Props {
   data: SectionByType<'hero-detail-menu'>;
   lang: 'fr' | 'en';
+  /**
+   * Padding-top de la section. Optionnel — par défaut `140px` (comportement
+   * historique du composant, inchangé pour la preview catalogue).
+   */
+  topPad?: string;
+  /**
+   * Largeur max du conteneur `.wrap-wide`. Optionnel — par défaut le composant
+   * conserve sa largeur catalogue (`1200px`, via la règle scopée ci-dessous,
+   * inchangée pour la preview). Les templates live peuvent passer la largeur
+   * d'origine (ex. `var(--wrap-wide)` = 1560px) pour préserver leur rythme.
+   */
+  wrapMaxWidth?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, topPad, wrapMaxWidth } = Astro.props;
 const isFr = lang === 'fr';
+const sectionStyle = topPad ? `padding-top:${topPad}` : undefined;
+const wrapStyle = wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined;
 ---
-<section class="hero-detail-menu">
-  <div class="wrap-wide">
+<section class="hero-detail-menu" style={sectionStyle}>
+  <div class="wrap-wide" style={wrapStyle}>
     <Kicker class="hero-detail-menu__parent">{isFr ? data.parent_kicker_fr : data.parent_kicker_en}</Kicker>
     <Kicker tone="accent" class="hero-detail-menu__num">§ {data.detail_num}</Kicker>
     <h1 class="hero-detail-menu__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
