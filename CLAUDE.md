@@ -29,12 +29,17 @@ Catalogue de sections composables. **4 touchpoints par type, TOUS synchronisés*
 Pages catalogue : `/agence/design-system`, `/preview/[type]`, `/components/[type]`, `/categories/[slug]`.
 **DS figé** : on catalogue/compose l'existant, **0 nouveau token CSS**, 0 modif des templates/pages live sans tâche dédiée.
 
-## 🛑 Garde-fous NON négociables
-- **GF-1 (preuve visuelle)** : jamais « validé/fini/parfait » sur du rendu sans **Playwright screenshot above-fold + `getComputedStyle`** (opacity ≠ 0, transform neutre) sur la **preview/prod déployée**. Lighthouse ne suffit JAMAIS.
+## 🛑 Garde-fous NON négociables (fallback inline complet — GF-1..GF-6)
+> Le plugin `vw-guardrails` recharge ces GF au boot (cloud + local). Ce bloc est le **filet de secours** si l'install du plugin échoue (réseau cloud) — il doit donc rester **autoporteur**.
+- **GF-1 — preuve EMPIRIQUE** : jamais « validé/fini/parfait » sans preuve, dans le même turn. **Visuel** → Playwright screenshot above-fold + `getComputedStyle` (opacity ≠ 0, transform neutre) sur la preview/prod déployée (Lighthouse ne suffit JAMAIS). **Backend/API/DB** → appel réel + assertion sur la réponse (pas juste 200) + write→read DB vérifié + cas limite + flow E2E si full-stack. « ça build / 200 OK » ≠ « ça marche ». Reviewer : agent `visual-proof-reviewer`.
+- **GF-2 — délégation** : ≤ 3 lignes de code applicatif écrites en direct ; au-delà → worker/sous-agent. Décomposer, ne pas tout faire en mono-bloc.
+- **GF-3 — auto-évolution** : après une correction, capitaliser (rule/doc + validation) dans le même tour.
+- **GF-4 — triangulation** : grep + source `fichier:ligne` avant toute affirmation négative (« X n'existe pas / ne marche pas »).
+- **GF-5 — action directe** : si N actions parallélisables sans collision → agir, ne pas demander « lequel d'abord ». Validation conversationnelle seulement pour : paiement > 1 €, destructif, install non-demandée, envoi externe, sécurité.
+- **GF-6 — officiel/doc d'abord + invoquer l'arsenal** : lire la doc + leviers supportés avant tout sur-mesure ; invoquer directement skills/commandes/agents/MCP (ne pas suggérer à l'humain de taper).
 - **Prod** : `waimia.com` sert `main`. **Ne merger sur `main` qu'après GF-1 sur une preview Vercel.** Auto-merge GitHub = OFF.
 - **Branches isolées** : 1 scope = 1 branche `feat/<scope>`, jamais `git add -A` global. Push :
   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin <branche>`
-- **Délégation/orchestration** : décomposer en sous-agents + branches isolées + worktrees ; orchestrer comme un ingénieur senior, ne pas tout faire en mono-bloc.
 
 ## Orchestration multi-agents (cloud + local)
 Branches isolées (`git worktree`), agent teams (debate/cross-layer), **workflows** pour le balayage à grande échelle (ex. GF-1 sur les 57 previews), `claude --bg` pour les missions longues supervisées. Détail + découpe suggérée : `docs/20`.
