@@ -7,14 +7,33 @@
 
 import type { SectionType } from '../schemas/sections';
 
-// Astro component type — workaround puisque 'astro' n'expose pas AstroComponent nativement.
-// Tout composant .astro est typé comme une fonction qui retourne une AstroComponentFactory.
-type AstroComponent = (...args: unknown[]) => unknown;
+// Astro component type — opaque côté registry ; le rendu passe par SectionsRenderer.
+export type AstroComponent = (_props: never) => unknown;
+
+export type SectionCategory = 'marketing' | 'ecommerce' | 'app-ui';
+export type SectionStatus = 'stable' | 'wip' | 'deprecated';
+
+export interface SectionDescriptor {
+  component: AstroComponent;
+  category: SectionCategory;
+  subcategory: string;
+  categorySlug: string;
+  tags: string[];
+  status: SectionStatus;
+  description_fr: string;
+  description_en: string;
+  preview?: string;
+}
 
 // Imports section components (sera étendu Wave T2.2 par worker Sonnet)
 import HeroSplit from '../components/sections/HeroSplit.astro';
 import HeroCentered from '../components/sections/HeroCentered.astro';
 import HeroFullBleed from '../components/sections/HeroFullBleed.astro';
+import HeroHubListing from '../components/sections/HeroHubListing.astro';
+import HeroServiceDetail from '../components/sections/HeroServiceDetail.astro';
+import HeroPillarHub from '../components/sections/HeroPillarHub.astro';
+import HeroCaseStudy from '../components/sections/HeroCaseStudy.astro';
+import HeroEssay from '../components/sections/HeroEssay.astro';
 import ProofBarSection from '../components/sections/ProofBarSection.astro';
 import StatBlock from '../components/sections/StatBlock.astro';
 import SocialProof from '../components/sections/SocialProof.astro';
@@ -31,36 +50,408 @@ import CtaBandSection from '../components/sections/CtaBandSection.astro';
 import CtaInline from '../components/sections/CtaInline.astro';
 import TestimonialBlock from '../components/sections/TestimonialBlock.astro';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock.astro';
+import ArchitectureDiagram from '../components/sections/ArchitectureDiagram.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import MaturityPyramid from '../components/sections/MaturityPyramid.astro';
+import UseCaseIndex from '../components/sections/UseCaseIndex.astro';
+import CaseCardGrid from '../components/sections/CaseCardGrid.astro';
+import CommitmentsGrid from '../components/sections/CommitmentsGrid.astro';
+import BrandedCallout from '../components/sections/BrandedCallout.astro';
+import EditorialPreview from '../components/sections/EditorialPreview.astro';
+import NewsletterBand from '../components/sections/NewsletterBand.astro';
+import SpecBar from '../components/sections/SpecBar.astro';
 
 /**
- * Section registry — single source of truth pour mapping type → component.
- * Le SectionsRenderer.astro itère sur sections[] et appelle le bon composant via ce registry.
+ * Section registry — single source of truth pour composants et métadonnées marketplace.
  */
-export const SECTION_REGISTRY: Record<SectionType, AstroComponent> = {
-  'hero-split': HeroSplit,
-  'hero-centered': HeroCentered,
-  'hero-full-bleed': HeroFullBleed,
-  'proof-bar': ProofBarSection,
-  'stat-block': StatBlock,
-  'social-proof': SocialProof,
-  'method-timeline': MethodTimeline,
-  'feature-grid': FeatureGrid,
-  'comparison-table': ComparisonTable,
-  'timeline-block': TimelineBlock,
-  'media-block': MediaBlock,
-  'pricing-table': PricingTable,
-  'faq-accordion': FaqAccordion,
-  'objection-handler': ObjectionHandler,
-  'cta-final': CtaFinal,
-  'cta-band': CtaBandSection,
-  'cta-inline': CtaInline,
-  'testimonial-block': TestimonialBlock,
-  'guarantee-block': GuaranteeBlock,
+export const SECTIONS: Record<SectionType, SectionDescriptor> = {
+  'hero-split': {
+    component: HeroSplit,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'split', 'cta'],
+    status: 'stable',
+    description_fr: "Hero en deux colonnes pour présenter une offre avec visuel et appel à l'action principal.",
+    description_en: 'Two-column hero section for presenting an offer with a visual and primary call to action.',
+  },
+  'hero-centered': {
+    component: HeroCentered,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'centered', 'cta'],
+    status: 'stable',
+    description_fr: 'Hero centré pour poser une proposition de valeur claire et guider vers une action principale.',
+    description_en: 'Centered hero section for stating a clear value proposition and guiding users to a primary action.',
+  },
+  'hero-full-bleed': {
+    component: HeroFullBleed,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'full-bleed', 'canvas', 'motion'],
+    status: 'stable',
+    description_fr: 'Hero immersif plein écran pour créer un impact visuel fort avec mouvement ou canvas.',
+    description_en: 'Immersive full-bleed hero section for creating strong visual impact with motion or canvas.',
+  },
+  'hero-hub-listing': {
+    component: HeroHubListing,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'hub', 'listing', 'editorial'],
+    status: 'stable',
+    description_fr: "Hero éditorial de hub avec titre monumental et lede courte, sans appel à l'action, pour pages de listing.",
+    description_en: 'Editorial hub hero with a monumental headline and short lede, without a call to action, for listing pages.',
+  },
+  'hero-service-detail': {
+    component: HeroServiceDetail,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'service', 'detail', 'metrics'],
+    status: 'stable',
+    description_fr: 'Hero de page service avec numéro éditorial, titre, accroche et barre de preuves chiffrées optionnelle.',
+    description_en: 'Service page hero with an editorial number, headline, lede, and optional inline proof metrics bar.',
+  },
+  'hero-pillar-hub': {
+    component: HeroPillarHub,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'pillar', 'hub', 'stats'],
+    status: 'stable',
+    description_fr: 'Hero de page pilier avec titre maximal et grille de statistiques quatre colonnes optionnelle.',
+    description_en: 'Pillar page hero with a maximal headline and an optional four-column statistics grid.',
+  },
+  'hero-case-study': {
+    component: HeroCaseStudy,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'case-study', 'specs', 'decoration'],
+    status: 'stable',
+    description_fr: "Hero d'étude de cas avec décor géométrique, titre et barre de spécifications (client, secteur, durée).",
+    description_en: 'Case study hero with geometric decoration, headline, and a specification bar (client, sector, duration).',
+  },
+  'hero-essay': {
+    component: HeroEssay,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'essay', 'editorial', 'meta'],
+    status: 'stable',
+    description_fr: "Hero d'article éditorial avec accroche italique et métadonnées auteur, date et temps de lecture.",
+    description_en: 'Editorial article hero with an italic lede and author, date, and reading-time metadata.',
+  },
+  'proof-bar': {
+    component: ProofBarSection,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['proof', 'metrics', 'bar'],
+    status: 'stable',
+    description_fr: 'Barre de preuve compacte pour afficher des métriques clés et renforcer la crédibilité.',
+    description_en: 'Compact proof bar for displaying key metrics and reinforcing credibility.',
+  },
+  'stat-block': {
+    component: StatBlock,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['stats', 'metrics', 'grid'],
+    status: 'stable',
+    description_fr: "Bloc de statistiques en grille pour mettre en avant des chiffres de performance ou d'impact.",
+    description_en: 'Grid-based stats block for highlighting performance or impact figures.',
+  },
+  'social-proof': {
+    component: SocialProof,
+    category: 'marketing',
+    subcategory: 'Logo Sections',
+    categorySlug: 'logo-sections',
+    tags: ['logos', 'social-proof', 'marquee'],
+    status: 'stable',
+    description_fr: 'Section de logos clients ou partenaires pour installer une preuve sociale immédiate.',
+    description_en: 'Client or partner logo section for establishing immediate social proof.',
+  },
+  'method-timeline': {
+    component: MethodTimeline,
+    category: 'marketing',
+    subcategory: 'Timeline Sections',
+    categorySlug: 'timelines',
+    tags: ['method', 'timeline', 'steps'],
+    status: 'stable',
+    description_fr: "Timeline méthodologique pour expliquer les étapes d'un accompagnement ou d'un processus.",
+    description_en: 'Method timeline for explaining the steps of a service process or engagement.',
+  },
+  'feature-grid': {
+    component: FeatureGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['features', 'grid'],
+    status: 'stable',
+    description_fr: "Grille de fonctionnalités pour structurer les bénéfices ou capacités principales d'une offre.",
+    description_en: 'Feature grid for structuring the core benefits or capabilities of an offer.',
+  },
+  'comparison-table': {
+    component: ComparisonTable,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['comparison', 'table'],
+    status: 'stable',
+    description_fr: 'Tableau comparatif pour clarifier les différences entre offres, options ou approches.',
+    description_en: 'Comparison table for clarifying differences between offers, options, or approaches.',
+  },
+  'timeline-block': {
+    component: TimelineBlock,
+    category: 'marketing',
+    subcategory: 'Timeline Sections',
+    categorySlug: 'timelines',
+    tags: ['timeline', 'events', 'history'],
+    status: 'stable',
+    description_fr: "Bloc chronologique pour raconter une progression, un historique ou une séquence d'événements.",
+    description_en: 'Timeline block for telling a progression, history, or sequence of events.',
+  },
+  'media-block': {
+    component: MediaBlock,
+    category: 'marketing',
+    subcategory: 'Gallery Sections',
+    categorySlug: 'gallery-sections',
+    tags: ['media', 'image', 'video', 'embed'],
+    status: 'stable',
+    description_fr: 'Bloc média pour intégrer une image, une vidéo ou un contenu embarqué dans une page marketing.',
+    description_en: 'Media block for embedding an image, video, or external content in a marketing page.',
+  },
+  'pricing-table': {
+    component: PricingTable,
+    category: 'marketing',
+    subcategory: 'Pricing Sections',
+    categorySlug: 'pricing-sections',
+    tags: ['pricing', 'tiers', 'plans'],
+    status: 'stable',
+    description_fr: 'Table de prix pour présenter clairement les formules, paliers et options commerciales.',
+    description_en: 'Pricing table for clearly presenting plans, tiers, and commercial options.',
+  },
+  'faq-accordion': {
+    component: FaqAccordion,
+    category: 'marketing',
+    subcategory: 'FAQ Sections',
+    categorySlug: 'faq-sections',
+    tags: ['faq', 'accordion'],
+    status: 'stable',
+    description_fr: 'FAQ en accordéon pour répondre aux questions fréquentes sans surcharger la page.',
+    description_en: 'Accordion FAQ for answering common questions without overloading the page.',
+  },
+  'objection-handler': {
+    component: ObjectionHandler,
+    category: 'marketing',
+    subcategory: 'FAQ Sections',
+    categorySlug: 'faq-sections',
+    tags: ['objections', 'faq', 'reassurance'],
+    status: 'stable',
+    description_fr: 'Bloc de traitement des objections pour lever les freins et rassurer avant conversion.',
+    description_en: 'Objection-handling block for reducing friction and reassuring users before conversion.',
+  },
+  'cta-final': {
+    component: CtaFinal,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['cta', 'final', 'conversion'],
+    status: 'stable',
+    description_fr: "CTA final pour conclure une page et orienter vers l'action de conversion principale.",
+    description_en: 'Final CTA section for closing a page and directing users to the main conversion action.',
+  },
+  'cta-band': {
+    component: CtaBandSection,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['cta', 'band', 'inline'],
+    status: 'stable',
+    description_fr: 'Bandeau CTA horizontal pour relancer une action au milieu ou en fin de parcours.',
+    description_en: 'Horizontal CTA band for prompting action mid-page or near the end of the journey.',
+  },
+  'cta-inline': {
+    component: CtaInline,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['cta', 'inline'],
+    status: 'stable',
+    description_fr: 'CTA inline discret pour insérer une action contextuelle dans un contenu existant.',
+    description_en: 'Subtle inline CTA for inserting a contextual action within existing content.',
+  },
+  'testimonial-block': {
+    component: TestimonialBlock,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['testimonial', 'social-proof', 'quote'],
+    status: 'stable',
+    description_fr: 'Bloc témoignage pour mettre en avant une citation client et renforcer la confiance.',
+    description_en: 'Testimonial block for highlighting a customer quote and strengthening trust.',
+  },
+  'guarantee-block': {
+    component: GuaranteeBlock,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['guarantee', 'trust', 'reassurance'],
+    status: 'stable',
+    description_fr: 'Bloc garantie pour expliciter les engagements, réduire le risque perçu et rassurer.',
+    description_en: 'Guarantee block for explaining commitments, reducing perceived risk, and reassuring users.',
+  },
+  'architecture-diagram': {
+    component: ArchitectureDiagram,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['architecture', 'diagram', 'svg', 'system'],
+    status: 'stable',
+    description_fr: "Diagramme d'architecture signature : N canaux d'entrée vers un système central et M sorties, avec boucle d'amélioration continue.",
+    description_en: 'Signature architecture diagram: N input channels flowing into a central system with M outputs, plus a continuous improvement loop.',
+  },
+  'services-grid': {
+    component: ServicesGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['services', 'grid', 'metrics', 'connectors'],
+    status: 'stable',
+    description_fr: 'Grille éditoriale de services 3×2 avec figure, métrique, body et ligne de connecteurs en pied de cellule.',
+    description_en: 'Editorial 3×2 services grid with figure index, metric, body, and a connectors line at the foot of each cell.',
+  },
+  'maturity-pyramid': {
+    component: MaturityPyramid,
+    category: 'marketing',
+    subcategory: 'Timeline Sections',
+    categorySlug: 'timelines',
+    tags: ['maturity', 'pyramid', 'timeline', 'tiers'],
+    status: 'stable',
+    description_fr: "Pyramide de maturité à quatre paliers avec timeline d'étapes, SVG progressif et grille de cartes asymétriques.",
+    description_en: 'Four-tier maturity pyramid with a steps timeline, a progressive SVG, and an asymmetric card grid.',
+  },
+  'use-case-index': {
+    component: UseCaseIndex,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['use-case', 'index', 'editorial', 'rows'],
+    status: 'stable',
+    description_fr: "Index éditorial de cas d'usage en lignes numérotées avec libellé italique, tag mono et lien d'ancrage solution.",
+    description_en: 'Editorial use-case index as numbered rows with italic label, mono tag, and solution anchor link.',
+  },
+  'case-card-grid': {
+    component: CaseCardGrid,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['case-study', 'grid', 'proof', 'editorial'],
+    status: 'stable',
+    description_fr: "Table éditoriale de cas clients en six colonnes (index, client, secteur, stack, impact, flèche) façon compte rendu d'audit.",
+    description_en: 'Editorial six-column case-study table (index, client, sector, stack, impact, arrow) styled like an audit report.',
+  },
+  'commitments-grid': {
+    component: CommitmentsGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['commitments', 'guarantees', 'grid', 'trust'],
+    status: 'stable',
+    description_fr: 'Grille hairline de 2 à 6 engagements ou garanties, titre display et corps sans — extrait de la page Méthode.',
+    description_en: 'Hairline grid of 2–6 commitments or guarantees, display title and sans body — sourced from the Méthode page.',
+  },
+  'branded-callout': {
+    component: BrandedCallout,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['callout', 'brand', 'os', 'paper-2'],
+    status: 'stable',
+    description_fr: 'Callout de marque fond paper-2 avec kicker §, titre display italique et corps de deux paragraphes, CTA optionnel.',
+    description_en: 'Brand callout on paper-2 background with § kicker, italic display headline, two-paragraph body, and optional CTA.',
+  },
+  'editorial-preview': {
+    component: EditorialPreview,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['editorial', 'preview', 'blog', 'rows', 'numbered'],
+    status: 'stable',
+    description_fr: 'Index éditorial de publications en lignes numérotées (num · date · tag · titre italique · flèche) — extrait de FieldNotes.',
+    description_en: 'Editorial publication index as numbered rows (num · date · tag · italic title · arrow) — sourced from FieldNotes.',
+  },
+  'newsletter-band': {
+    component: NewsletterBand,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['newsletter', 'email', 'capture', 'dark', 'band'],
+    status: 'stable',
+    description_fr: 'Bande newsletter fond sombre : titre éditorial large à gauche, formulaire capture email à droite.',
+    description_en: 'Dark newsletter band: large editorial headline on the left, email capture form on the right.',
+  },
+  'spec-bar': {
+    component: SpecBar,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['specs', 'meta', 'case-study', 'grid', 'mono'],
+    status: 'stable',
+    description_fr: 'Barre de spécifications projet N colonnes (label mono + valeur) avec grille CSS var — extrait de CaseStudyTemplate.',
+    description_en: 'N-column project spec bar (mono label + value) with CSS var grid — sourced from CaseStudyTemplate.',
+  },
 };
+
+export const SECTION_REGISTRY: Record<SectionType, AstroComponent> = Object.fromEntries(
+  Object.entries(SECTIONS).map(([type, d]) => [type, d.component]),
+) as Record<SectionType, AstroComponent>;
 
 /**
  * Helper : récupère le composant pour un type donné. Retourne undefined si type inconnu.
  */
 export function getSectionComponent(type: SectionType): AstroComponent | undefined {
-  return SECTION_REGISTRY[type];
+  return SECTIONS[type]?.component;
+}
+
+export function getSectionMeta(type: SectionType): SectionDescriptor | undefined {
+  return SECTIONS[type];
+}
+
+export interface SectionListItem extends SectionDescriptor {
+  type: SectionType;
+}
+
+export function listSections(): SectionListItem[] {
+  return (Object.keys(SECTIONS) as SectionType[]).map((type) => ({ type, ...SECTIONS[type] }));
+}
+
+export interface CategoryGroup {
+  slug: string;
+  label: string;
+  count: number;
+  sectionTypes: SectionType[];
+}
+
+export function listCategories(): CategoryGroup[] {
+  const map = new Map<string, CategoryGroup>();
+
+  for (const section of listSections()) {
+    const current = map.get(section.categorySlug) ?? {
+      slug: section.categorySlug,
+      label: section.subcategory,
+      count: 0,
+      sectionTypes: [],
+    };
+
+    current.count += 1;
+    current.sectionTypes.push(section.type);
+    map.set(section.categorySlug, current);
+  }
+
+  return [...map.values()].sort((a, b) => a.label.localeCompare(b.label));
 }

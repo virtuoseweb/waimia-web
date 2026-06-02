@@ -99,11 +99,11 @@ const categoryLabels: Record<string, { fr: string; en: string }> = {
 
 <script>
   const buttons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.integrations-index__card');
+  const cards = document.querySelectorAll<HTMLElement>('.integrations-index__card');
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter ?? 'all';
+      const filter = (btn as HTMLElement).dataset.filter ?? 'all';
       buttons.forEach((button) => button.classList.remove('active'));
       btn.classList.add('active');
       cards.forEach((card) => {

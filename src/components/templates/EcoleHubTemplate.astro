@@ -3,9 +3,9 @@ import type { CollectionEntry } from 'astro:content';
 import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
-  formations: Array<CollectionEntry<"formations">>;
-  parcours: Array<CollectionEntry<"parcours">>;
-  ateliers: Array<CollectionEntry<"ateliers">>;
+  formations: Array<CollectionEntry<"courses">>;
+  parcours: Array<CollectionEntry<"courses">>;
+  ateliers: Array<CollectionEntry<"courses">>;
   lang: "fr" | "en";
 }
 
@@ -64,9 +64,10 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
           <span class="col-action"></span>
         </div>
         {formations.map((entry, i) => {
-          const title = lang === 'fr' ? entry.data.title_fr : entry.data.title_en;
-          const level = levelLabels[lang][entry.data.level] ?? entry.data.level;
-          const price = entry.data.pricing?.one_time_eur;
+          const d = entry.data as any;
+          const title = lang === 'fr' ? d.title_fr : d.title_en;
+          const level = levelLabels[lang][d.level] ?? d.level;
+          const price = d.pricing?.one_time_eur;
           const priceStr = price === 0
             ? (lang === 'fr' ? 'Gratuit' : 'Free')
             : price != null
@@ -77,9 +78,9 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
               <span class="col-num mono">{String(i + 1).padStart(2, '0')}</span>
               <span class="col-titre row-title">{title}</span>
               <span class="col-niveau">
-                <span class={`pill pill--${entry.data.level}`}>{level}</span>
+                <span class={`pill pill--${d.level}`}>{level}</span>
               </span>
-              <span class="col-duree mono">{entry.data.duration_hours}h</span>
+              <span class="col-duree mono">{d.duration_hours}h</span>
               <span class="col-prix mono">{priceStr}</span>
               <span class="col-action arrow">→</span>
             </a>

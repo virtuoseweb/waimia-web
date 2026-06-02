@@ -1,0 +1,88 @@
+---
+// Section W6 · spec-bar
+// Barre de spécifications projet N colonnes (label mono + valeur). Source : `case-specs` (CaseStudyTemplate.astro).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'spec-bar'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const cols = data.specs.length;
+---
+
+<section
+  class="spec-bar"
+  style={`--spec-cols: ${cols}`}
+  aria-label={isFr ? (data.kicker_fr ?? 'Spécifications') : (data.kicker_en ?? 'Specifications')}
+>
+  <div class="wrap-wide spec-bar__grid reveal-stagger">
+    {data.specs.map((s) => (
+      <div class="spec-bar__item">
+        <span class="spec-bar__label">{isFr ? s.label_fr : s.label_en}</span>
+        <span class="spec-bar__value">{s.value}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .spec-bar {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper-2);
+  }
+  .spec-bar__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--spec-cols, 5), 1fr);
+  }
+  .spec-bar__item {
+    padding: clamp(20px, 2.5vw, 32px) clamp(18px, 2vw, 28px);
+    border-right: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .spec-bar__item:last-child {
+    border-right: none;
+  }
+  .spec-bar__label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .spec-bar__value {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  @media (max-width: 800px) {
+    .spec-bar__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .spec-bar__item {
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .spec-bar__item:nth-child(odd) {
+      border-right: 1px solid var(--hairline);
+    }
+    .spec-bar__item:last-child {
+      border-bottom: none;
+    }
+  }
+  @media (max-width: 480px) {
+    .spec-bar__grid {
+      grid-template-columns: 1fr;
+    }
+    .spec-bar__item {
+      border-right: none !important;
+      border-bottom: 1px solid var(--hairline);
+    }
+  }
+</style>

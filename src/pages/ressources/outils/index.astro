@@ -1,0 +1,77 @@
+---
+// Page · /ressources/outils · Hub outils actionnables · Waimia
+export const prerender = true;
+
+// Composé de · ListIndexTemplate (variant outils · cards 2 cols)
+
+import { getCollection } from 'astro:content';
+import ListIndexTemplate from '../../../components/templates/ListIndexTemplate.astro';
+import Kicker from '../../../components/ui/atoms/Kicker.astro';
+
+const TYPE_LABELS: Record<string, string> = {
+  calculator: 'Calculateur',
+  checklist:  'Checklist',
+  template:   'Template',
+  audit:      'Audit',
+};
+
+const allEntries = await getCollection('outils');
+
+const entries = allEntries
+  .filter((e) => !e.data.seo?.noindex)
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// Types présents, dédupliqués, ordre d'apparition
+const presentTypes = [...new Set(entries.map((e) => e.data.type))];
+
+const count   = entries.length;
+const kicker  = `§ Outils · ${count} disponible${count > 1 ? 's' : ''}`;
+---
+<ListIndexTemplate
+  title="Outils · Calculateurs et templates actionnables · Waimia"
+  description="Calculateurs ROI, checklists d'audit et templates prêts à l'emploi pour PME B2B. Gratuits, actionnables, sans inscription."
+  kicker={kicker}
+>
+  <Fragment slot="headline">
+    Des <i>outils</i>. Pas des gadgets.
+  </Fragment>
+  <Fragment slot="lede">
+    Des ressources concrètes pour mesurer, décider et agir. Chaque outil est calibré pour des équipes B2B qui n'ont pas de temps à perdre.
+  </Fragment>
+
+  <Fragment slot="filters">
+    {presentTypes.map((type) => (
+      <Kicker>{TYPE_LABELS[type] ?? type}</Kicker>
+    ))}
+  </Fragment>
+
+  <Fragment slot="list">
+    <div class="cb-grid reveal-stagger">
+      {entries.map((entry) => (
+        <a class="cb-card" href={`/ressources/outils/${entry.id}`}>
+          <div class="cb-meta">
+            <span class="cb-code">{entry.data.category_fr ?? 'Outil'}</span>
+            <span class="cb-tag">{TYPE_LABELS[entry.data.type] ?? entry.data.type}</span>
+          </div>
+          <h3 class="cb-title">{entry.data.title_fr}</h3>
+          <p class="cb-lead">{entry.data.description_fr}</p>
+          <span class="cb-go">Ouvrir l'outil →</span>
+        </a>
+      ))}
+    </div>
+  </Fragment>
+</ListIndexTemplate>
+
+<style>
+  .cb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--hairline-strong); border-bottom: 1px solid var(--hairline-strong); }
+  .cb-card { padding: clamp(28px, 3vw, 44px); border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 14px; color: inherit; transition: background 240ms var(--ease); }
+  .cb-card:nth-child(2n) { border-right: none; }
+  .cb-card:nth-last-child(-n+2) { border-bottom: none; }
+  .cb-card:hover { background: var(--paper-2); }
+  .cb-meta { display: flex; gap: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .cb-code { color: var(--accent); }
+  .cb-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; margin: 0; text-wrap: balance; }
+  .cb-lead { font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty; margin: 0; max-width: 520px; }
+  .cb-go { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--accent); margin-top: auto; }
+  @media (max-width: 800px) { .cb-grid { grid-template-columns: 1fr; } .cb-card { border-right: none; border-bottom: 1px solid var(--hairline); } .cb-card:last-child { border-bottom: none; } }
+</style>

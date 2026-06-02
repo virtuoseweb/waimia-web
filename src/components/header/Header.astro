@@ -9,10 +9,11 @@
 // Cf docs/07-component-patterns.md · Pattern 2 (Astro + <script> interne)
 
 import { MEGA_MENU } from '../../data/mega-menu';
-import { langFromPath, alternateHref, t } from '../../lib/i18n';
+import { langFromPath, alternateHref, t, hasBilingualMirror } from '../../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
 const altHref = alternateHref(Astro.url.pathname, lang);
+const enMirror = hasBilingualMirror(Astro.url.pathname);
 const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
 ---
 <header class="hdr" data-open="" id="hdr">
@@ -44,11 +45,19 @@ const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
 
     {/* Lang toggle + CTA + burger (mobile) */}
     <div class="hdr-end">
-      <a href={altHref} class="lang-toggle" aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}>
-        <span class={lang === 'fr' ? 'on' : ''}>FR</span>
-        <span class="sep">·</span>
-        <span class={lang === 'en' ? 'on' : ''}>EN</span>
-      </a>
+      {(lang === 'en' || enMirror) ? (
+        <a href={altHref} class="lang-toggle" aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}>
+          <span class={lang === 'fr' ? 'on' : ''}>FR</span>
+          <span class="sep">·</span>
+          <span class={lang === 'en' ? 'on' : ''}>EN</span>
+        </a>
+      ) : (
+        <span class="lang-toggle lang-toggle-disabled" aria-disabled="true" title="Version anglaise indisponible pour cette page">
+          <span class="on">FR</span>
+          <span class="sep">·</span>
+          <span>EN</span>
+        </span>
+      )}
       <a href={ctaHref} class="cta" data-mag="0.18">
         {lang === 'fr' ? 'Réserver un audit' : 'Book an audit'}
         <span aria-hidden>→</span>
@@ -157,9 +166,15 @@ const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
     ))}
   </nav>
   <div class="m-sheet-end">
-    <a href={altHref} class="btn btn-ghost">
-      {lang === 'fr' ? 'English →' : 'Français →'}
-    </a>
+    {(lang === 'en' || enMirror) ? (
+      <a href={altHref} class="btn btn-ghost">
+        {lang === 'fr' ? 'English →' : 'Français →'}
+      </a>
+    ) : (
+      <span class="btn btn-ghost lang-toggle-disabled" aria-disabled="true" title="Version anglaise indisponible pour cette page">
+        English →
+      </span>
+    )}
     <a href={ctaHref} class="btn btn-primary">
       {lang === 'fr' ? 'Réserver un audit →' : 'Book an audit →'}
     </a>
@@ -480,4 +495,6 @@ const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
     color: var(--ink);
     border-color: var(--accent);
   }
+
+  .lang-toggle-disabled { opacity: .5; cursor: default; pointer-events: none; }
 </style>

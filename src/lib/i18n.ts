@@ -60,6 +60,7 @@ const FR_ONLY_PREFIXES = [
   '/ressources/personas/', '/ressources/testimonials/', '/ressources/veille-ia/',
   '/ressources/categorie/', '/ressources/outils/', '/ressources/silo/', '/ressources/tag/',
   '/equipe/', '/ecole/', '/commerce/',
+  '/categories/', // catalogue marketplace (FR-only, v1.5)
 ];
 
 /**

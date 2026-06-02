@@ -4,41 +4,20 @@ export const prerender = true;
 
 import Base from '../../../layouts/Base.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
+import { getCollection } from 'astro:content';
 
-const featuredCases = [
-  {
-    slug: 'plateau',
-    caseNum: '01',
-    sector: 'B2B SaaS',
-    title: 'Plateau · pipeline reconnected',
-    headline: '+€2.4M pipeline recovered.',
-    duration: '10 wks',
-  },
-  {
-    slug: 'halcyon',
-    caseNum: '02',
-    sector: 'Healthtech',
-    title: 'Halcyon · automated triage',
-    headline: '−38% triage time. +14 CSAT pts.',
-    duration: '6 wks',
-  },
-  {
-    slug: 'northbound',
-    caseNum: '03',
-    sector: 'EU Fintech',
-    title: 'Northbound · continuous scoring',
-    headline: '×3.1 lead → SQL conversion.',
-    duration: '14 wks',
-  },
-  {
-    slug: 'caserne',
-    caseNum: '04',
-    sector: 'French Industry',
-    title: 'Caserne · finance streamlined',
-    headline: '1,200 hours/year reclaimed.',
-    duration: '8 wks',
-  },
-];
+const caseEntries = (await getCollection('cases'))
+  .filter((e) => e.data.card)
+  .sort((a, b) => (a.data.card!.order) - (b.data.card!.order));
+
+const featuredCases = caseEntries.map((e) => ({
+  slug: e.data.slug ?? e.id,
+  caseNum: String(e.data.card!.order).padStart(2, '0'),
+  sector: e.data.card!.sector_en,
+  title: e.data.card!.title_en,
+  headline: e.data.card!.headline_en,
+  duration: e.data.card!.duration_en,
+}));
 
 const [featured, ...rest] = featuredCases;
 ---

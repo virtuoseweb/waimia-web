@@ -37,26 +37,10 @@ import StatRow from '../../components/ui/molecules/StatRow.astro';
 import TechPillRow from '../../components/ui/molecules/TechPillRow.astro';
 import RelatedCards from '../../components/ui/molecules/RelatedCards.astro';
 
-// Sections W6 composable V2 — showcase live §6
-import HeroSplit from '../../components/sections/HeroSplit.astro';
-import HeroCentered from '../../components/sections/HeroCentered.astro';
-import HeroFullBleed from '../../components/sections/HeroFullBleed.astro';
-import ProofBarSection from '../../components/sections/ProofBarSection.astro';
-import StatBlock from '../../components/sections/StatBlock.astro';
-import SocialProof from '../../components/sections/SocialProof.astro';
-import MethodTimeline from '../../components/sections/MethodTimeline.astro';
-import FeatureGrid from '../../components/sections/FeatureGrid.astro';
-import ComparisonTable from '../../components/sections/ComparisonTable.astro';
-import TimelineBlock from '../../components/sections/TimelineBlock.astro';
-import MediaBlock from '../../components/sections/MediaBlock.astro';
-import PricingTable from '../../components/sections/PricingTable.astro';
-import FaqAccordion from '../../components/sections/FaqAccordion.astro';
-import ObjectionHandler from '../../components/sections/ObjectionHandler.astro';
-import CtaBandSection from '../../components/sections/CtaBandSection.astro';
-import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
-import GuaranteeBlock from '../../components/sections/GuaranteeBlock.astro';
-import CtaInline from '../../components/sections/CtaInline.astro';
-import CtaFinal from '../../components/sections/CtaFinal.astro';
+import { listCategories, listSections } from '../../lib/section-registry';
+
+const sectionCategories = listCategories();
+const sectionItems = listSections();
 ---
 
 <Base
@@ -687,350 +671,34 @@ import CtaFinal from '../../components/sections/CtaFinal.astro';
 
         <div class="ds-subsection">
           <h3 class="ds-h3">19 sections disponibles</h3>
-          <ul class="ds-sections-list">
-            <li><strong>HeroSplit</strong> · hero avec right-block (mini-map, workflow, stats)</li>
-            <li><strong>HeroCentered</strong> · hero centré + CTA stack</li>
-            <li><strong>HeroFullBleed</strong> · hero full-width edge-to-edge</li>
-            <li><strong>ProofBarSection</strong> · 4-6 métriques en grille</li>
-            <li><strong>StatBlock</strong> · stats riches avec h2 + lede</li>
-            <li><strong>SocialProof</strong> · logos marquee ou grid (full-bleed)</li>
-            <li><strong>MethodTimeline</strong> · timeline horizontale numérotée</li>
-            <li><strong>FeatureGrid</strong> · 3-8 features en grid (2/3/4 cols)</li>
-            <li><strong>ComparisonTable</strong> · comparatif features × tiers</li>
-            <li><strong>TimelineBlock</strong> · timeline narrative avec dates</li>
-            <li><strong>MediaBlock</strong> · image/video/svg/embed avec caption</li>
-            <li><strong>PricingTable</strong> · 1-5 tiers tarifaires</li>
-            <li><strong>FaqAccordion</strong> · FAQ avec details/summary</li>
-            <li><strong>ObjectionHandler</strong> · objection/réponse en table</li>
-            <li><strong>CtaFinal</strong> · CTA fin de page (bg ink/accent/paper)</li>
-            <li><strong>CtaBandSection</strong> · band horizontal full-bleed</li>
-            <li><strong>CtaInline</strong> · CTA discret en milieu de page</li>
-            <li><strong>TestimonialBlock</strong> · témoignages (carousel/grid/rows)</li>
-            <li><strong>GuaranteeBlock</strong> · garanties numérotées</li>
-          </ul>
-          <p class="ds-help">
-            Preview live : <a href="/test-composable" class="ds-link">/test-composable</a>
-            (5 sections inline pour démo end-to-end)
-          </p>
-        </div>
-
-        <div class="ds-subsection">
-          <h3 class="ds-h3">Showcase live · 6 sections les plus utilisées</h3>
-          <p class="ds-help">Démos avec mock data. Pattern d'usage in-page.</p>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>HeroSplit · type "hero-split" (right_block: mockup)</Kicker>
-            <div class="ds-section-demo-frame ds-demo-hero">
-              <HeroSplit data={{
-                type: 'hero-split',
-                kicker_fr: 'Démo Hero · Split layout',
-                kicker_en: 'Demo Hero · Split layout',
-                h1_fr: 'L\'agent IA <i>pioche</i>, ne réinvente pas.',
-                h1_en: 'The AI agent <i>picks</i>, never reinvents.',
-                lede_fr: 'Le composable W6 expose 19 sections cataloguées. Chaque section atomique, testée, validée.',
-                lede_en: 'W6 composable exposes 19 catalogued sections. Each atomic, tested, validated.',
-                cta_primary: { label_fr: 'Voir le catalogue →', label_en: 'View catalogue →', href: '/agence/design-system', variant: 'primary' },
-                cta_secondary: { label_fr: 'Lire la doc', label_en: 'Read the docs', href: '/agence/docs', variant: 'ghost' },
-                right_block: { kind: 'workflow-svg' },
-              }} lang="fr" />
-            </div>
+          <div class="ds-section-filters" data-section-filters>
+            <button class="ds-filter-chip is-active" type="button" data-filter="all" aria-pressed="true">
+              Toutes ({sectionItems.length})
+            </button>
+            {sectionCategories.map((category) => (
+              <button class="ds-filter-chip" type="button" data-filter={category.slug} aria-pressed="false">
+                {category.label} ({category.count})
+              </button>
+            ))}
           </div>
 
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>HeroCentered · type "hero-centered"</Kicker>
-            <div class="ds-section-demo-frame ds-demo-hero">
-              <HeroCentered data={{
-                type: 'hero-centered',
-                kicker_fr: 'Démo · Centred layout',
-                kicker_en: 'Demo · Centred layout',
-                h1_fr: 'Hero <i>centered</i> pour pages standalone',
-                h1_en: 'Hero <i>centered</i> for standalone pages',
-                lede_fr: 'Variante minimaliste pour manifestes ou pages d\'introduction sans right-block.',
-                lede_en: 'Minimal variant for manifestos or intro pages without right-block.',
-                cta_primary: { label_fr: 'Continuer →', label_en: 'Continue →', href: '#', variant: 'primary' },
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>ProofBarSection · type "proof-bar" (layout: horizontal)</Kicker>
-            <div class="ds-section-demo-frame">
-              <ProofBarSection data={{
-                type: 'proof-bar',
-                kicker_fr: 'Preuves · démo design system',
-                kicker_en: 'Proof · design system demo',
-                metrics: [
-                  { value: '118', label_fr: 'tokens canoniques', label_en: 'canonical tokens', emphasis: true },
-                  { value: '19', label_fr: 'sections W6', label_en: 'W6 sections', emphasis: false },
-                  { value: '114', label_fr: 'composants atomic', label_en: 'atomic components', emphasis: false },
-                  { value: '0', label_fr: 'hallucinations', label_en: 'hallucinations', emphasis: false },
-                ],
-                layout: 'horizontal',
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>FeatureGrid · type "feature-grid" (columns: 3)</Kicker>
-            <div class="ds-section-demo-frame">
-              <FeatureGrid data={{
-                type: 'feature-grid',
-                kicker_fr: 'Démo · grille features',
-                kicker_en: 'Demo · features grid',
-                h2_fr: 'Trois <i>piliers</i> du DS Waimia',
-                h2_en: 'Three <i>pillars</i> of Waimia DS',
-                features: [
-                  { title_fr: 'Tokens canoniques', title_en: 'Canonical tokens', body_fr: '118 tokens CSS exposés à :root. Pioche, n\'invente pas.', body_en: '118 CSS tokens at :root. Pick, never invent.' },
-                  { title_fr: 'Composants atomiques', title_en: 'Atomic components', body_fr: '114 composants en 7 couches Tier 1.', body_en: '114 components across 7 Tier 1 layers.' },
-                  { title_fr: 'Anti-hallucination', title_en: 'Anti-hallucination', body_fr: '5 anti-patterns documentés avec commandes de détection.', body_en: '5 anti-patterns documented with detection commands.' },
-                ],
-                columns: '3',
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>MethodTimeline · type "method-timeline"</Kicker>
-            <div class="ds-section-demo-frame">
-              <MethodTimeline data={{
-                type: 'method-timeline',
-                kicker_fr: 'Méthode · 4 étapes',
-                kicker_en: 'Method · 4 steps',
-                h2_fr: 'Le <i>processus</i> en quatre temps',
-                h2_en: 'The <i>process</i> in four steps',
-                lede_fr: 'De l\'audit initial au déploiement, chaque étape produit un livrable mesurable.',
-                lede_en: 'From initial audit to deployment, each step ships a measurable artifact.',
-                steps: [
-                  { num: '01', label_fr: 'Audit', label_en: 'Audit', body_fr: 'Cartographie stack, données, équipe, frictions.', body_en: 'Map stack, data, team, frictions.' },
-                  { num: '02', label_fr: 'Diagnostic', label_en: 'Diagnostic', body_fr: 'Priorisation des chantiers par ROI mesurable.', body_en: 'Prioritization by measurable ROI.' },
-                  { num: '03', label_fr: 'Pilote', label_en: 'Pilot', body_fr: 'Premier workflow en production sous 5 jours.', body_en: 'First workflow in production in 5 days.' },
-                  { num: '04', label_fr: 'Industrialisation', label_en: 'Industrialization', body_fr: 'Extension à 6-10 semaines après mesure.', body_en: 'Extension over 6-10 weeks after measurement.' },
-                ],
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>FaqAccordion · type "faq-accordion"</Kicker>
-            <div class="ds-section-demo-frame">
-              <FaqAccordion data={{
-                type: 'faq-accordion',
-                kicker_fr: 'FAQ · 3 questions',
-                kicker_en: 'FAQ · 3 questions',
-                h2_fr: 'Questions <i>fréquentes</i>',
-                h2_en: '<i>Frequent</i> questions',
-                items: [
-                  { q_fr: 'Combien de temps prend un projet ?', q_en: 'How long does a project take?', a_fr: 'AI Activation · 1 semaine. Growth System · 6 à 10 semaines.', a_en: 'AI Activation · 1 week. Growth System · 6 to 10 weeks.' },
-                  { q_fr: 'Quels sont vos tarifs ?', q_en: 'What are your rates?', a_fr: 'AI Activation à partir de 1 500€. Growth System à partir de 5 000€.', a_en: 'AI Activation starts at €1,500. Growth System starts at €5,000.' },
-                  { q_fr: 'Compatible avec notre stack actuelle ?', q_en: 'Compatible with our current stack?', a_fr: 'Oui — HubSpot, Salesforce, Notion, Excel, GA4, etc.', a_en: 'Yes — HubSpot, Salesforce, Notion, Excel, GA4, etc.' },
-                ],
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>HeroFullBleed · type "hero-full-bleed" (bg signature-grid)</Kicker>
-            <div class="ds-section-demo-frame ds-demo-hero">
-              <HeroFullBleed data={{
-                type: 'hero-full-bleed',
-                h1_fr: 'Hero <i>full-bleed</i>',
-                h1_en: 'Full-bleed <i>hero</i>',
-                lede_fr: 'Variant signature pour pages d\'impact maximal.',
-                lede_en: 'Signature variant for max-impact pages.',
-                background_kind: 'signature-grid',
-                cta_primary: { label_fr: 'Action →', label_en: 'Action →', href: '#', variant: 'primary' },
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>SocialProof · type "social-proof" (marquee)</Kicker>
-            <div class="ds-section-demo-frame">
-              <SocialProof data={{
-                type: 'social-proof',
-                kicker_fr: 'Ils ont câblé l\'IA avec Waimia',
-                kicker_en: 'They wired AI with Waimia',
-                logos: [
-                  { name: 'PME Services' }, { name: 'ETI Industrie' }, { name: 'Cabinet Conseil' },
-                  { name: 'Startup B2B' }, { name: 'Agence Marketing' }, { name: 'Cabinet Compta' },
-                ],
-                marquee: true,
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>ComparisonTable · type "comparison-table"</Kicker>
-            <div class="ds-section-demo-frame">
-              <ComparisonTable data={{
-                type: 'comparison-table',
-                h2_fr: 'Comparatif <i>tiers</i>',
-                h2_en: 'Tiers <i>comparison</i>',
-                column_headers_fr: ['Capacité', 'Activation 1 sem.', 'Growth System', 'Sur-mesure'],
-                column_headers_en: ['Capability', 'Activation 1wk', 'Growth System', 'Custom'],
-                rows: [
-                  { feature_fr: 'Audit complet', feature_en: 'Full audit', values: [true, true, true] },
-                  { feature_fr: 'Workflows IA', feature_en: 'AI workflows', values: ['1', '5-8', 'illimité'] },
-                  { feature_fr: 'Formation équipe', feature_en: 'Team training', values: [false, true, true] },
-                  { feature_fr: 'Support 90j', feature_en: '90d support', values: [false, true, true] },
-                ],
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>PricingTable · type "pricing-table" (3 tiers)</Kicker>
-            <div class="ds-section-demo-frame">
-              <PricingTable data={{
-                type: 'pricing-table',
-                kicker_fr: 'Tarifs · démo',
-                kicker_en: 'Pricing · demo',
-                h2_fr: 'Trois <i>paliers</i>',
-                h2_en: 'Three <i>tiers</i>',
-                tiers: [
-                  { name_fr: 'Activation', name_en: 'Activation', price: '€1,500', features_fr: ['1 workflow', 'Audit 5 jours', 'Formation 1 jour'], features_en: ['1 workflow', '5-day audit', '1-day training'], cta: { label_fr: 'Démarrer', label_en: 'Start', href: '#', variant: 'ghost' }, featured: false },
-                  { name_fr: 'Growth', name_en: 'Growth', price: '€5,000', features_fr: ['5-8 workflows', 'Système complet 6-10 sem.', 'Support 90j'], features_en: ['5-8 workflows', 'Full system 6-10wk', '90d support'], cta: { label_fr: 'Choisir', label_en: 'Choose', href: '#', variant: 'primary' }, featured: true },
-                  { name_fr: 'Sur-mesure', name_en: 'Custom', price: 'Devis', features_fr: ['Workflows illimités', 'Architecture dédiée', 'Support 12 mois'], features_en: ['Unlimited workflows', 'Custom architecture', '12mo support'], cta: { label_fr: 'Discuter', label_en: 'Talk', href: '#', variant: 'ghost' }, featured: false },
-                ],
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>StatBlock · type "stat-block" (layout: grid-3)</Kicker>
-            <div class="ds-section-demo-frame">
-              <StatBlock data={{
-                type: 'stat-block',
-                h2_fr: 'Mesures <i>vérifiables</i>',
-                h2_en: '<i>Verifiable</i> measurements',
-                lede_fr: 'Statistiques observées sur 12 mois d\'engagements PME/ETI.',
-                lede_en: 'Stats observed over 12 months of SMB engagements.',
-                metrics: [
-                  { value: '43', label_fr: 'engagements', label_en: 'engagements', emphasis: true },
-                  { value: '€18M+', label_fr: 'pipeline audité', label_en: 'pipeline audited', emphasis: false },
-                  { value: '× 3.7', label_fr: 'ROI moyen 12 mois', label_en: 'avg ROI 12 months', emphasis: false },
-                ],
-                layout: 'grid-3',
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>TestimonialBlock · type "testimonial-block" (layout: grid-2)</Kicker>
-            <div class="ds-section-demo-frame">
-              <TestimonialBlock data={{
-                type: 'testimonial-block',
-                kicker_fr: 'Témoignages · démo',
-                kicker_en: 'Testimonials · demo',
-                h2_fr: 'Ce que disent les <i>clients</i>',
-                h2_en: 'What <i>clients</i> say',
-                testimonials: [
-                  { quote_fr: 'En 5 jours, on a câblé l\'IA dans nos workflows. Premier ROI à 6 semaines.', quote_en: 'In 5 days we wired AI into our workflows. First ROI at 6 weeks.', author: 'Marie L.', role_fr: 'COO', role_en: 'COO', company: 'PME B2B Services' },
-                  { quote_fr: 'Méthodologie carrée. Mesure avant/après. On a su exactement ce qui marchait.', quote_en: 'Solid methodology. Before/after measurement. We knew exactly what worked.', author: 'Thomas R.', role_fr: 'CFO', role_en: 'CFO', company: 'ETI Industrie' },
-                ],
-                layout: 'grid-2',
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>GuaranteeBlock · type "guarantee-block" (3 garanties)</Kicker>
-            <div class="ds-section-demo-frame">
-              <GuaranteeBlock data={{
-                type: 'guarantee-block',
-                guarantees: [
-                  { title_fr: 'Tu peux ramener le système en interne', title_en: 'Bring the system in-house', body_fr: 'Tout est documenté, ouvert, transférable. Pas de boîte noire, pas de lock-in.', body_en: 'Everything documented, open, transferable. No black box, no lock-in.' },
-                  { title_fr: 'ROI mesuré avant après', title_en: 'Measured before/after ROI', body_fr: 'Baseline observée. Métriques cibles définies. Mesure post-déploiement.', body_en: 'Baseline observed. Target metrics defined. Post-deployment measurement.' },
-                  { title_fr: 'Sortie sous 4 semaines si non-fit', title_en: 'Exit within 4 weeks if no-fit', body_fr: 'Si l\'audit révèle un non-match, on sort propre — pas de tunnel de plusieurs mois.', body_en: 'If audit reveals no-match, we exit clean — no months-long tunnel.' },
-                ],
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>TimelineBlock · type "timeline-block"</Kicker>
-            <div class="ds-section-demo-frame">
-              <TimelineBlock data={{
-                type: 'timeline-block',
-                h2_fr: '<i>Roadmap</i> Waimia 2026',
-                h2_en: '<i>Roadmap</i> Waimia 2026',
-                events: [
-                  { date: 'Q1 2026', title_fr: 'Lancement Activation', title_en: 'Activation launch', body_fr: 'Audit + 1 workflow IA en 5 jours.', body_en: 'Audit + 1 AI workflow in 5 days.' },
-                  { date: 'Q2 2026', title_fr: 'Growth System v2', title_en: 'Growth System v2', body_fr: 'Système complet 6-10 semaines.', body_en: 'Full system 6-10 weeks.' },
-                  { date: 'Q3 2026', title_fr: 'École Waimia', title_en: 'Waimia School', body_fr: 'Formations équipes internes.', body_en: 'Internal team training.' },
-                ],
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>MediaBlock · type "media-block" (svg)</Kicker>
-            <div class="ds-section-demo-frame">
-              <MediaBlock data={{
-                type: 'media-block',
-                caption_fr: 'Architecture composable Waimia · 19 sections atomiques',
-                caption_en: 'Waimia composable architecture · 19 atomic sections',
-                media_kind: 'svg',
-                src: '/og/default.png',
-                alt_fr: 'Diagramme architecture composable Waimia',
-                alt_en: 'Waimia composable architecture diagram',
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>ObjectionHandler · type "objection-handler"</Kicker>
-            <div class="ds-section-demo-frame">
-              <ObjectionHandler data={{
-                type: 'objection-handler',
-                h2_fr: '<i>Objections</i> fréquentes',
-                h2_en: 'Frequent <i>objections</i>',
-                objections: [
-                  { objection_fr: 'On n\'a pas le temps maintenant.', objection_en: 'We don\'t have time now.', response_fr: 'L\'Activation prend 5 jours, dont 3 sans implication équipe.', response_en: 'Activation takes 5 days, 3 without team involvement.' },
-                  { objection_fr: 'On a déjà essayé sans succès.', objection_en: 'We already tried unsuccessfully.', response_fr: 'On commence par cartographier ce qui a échoué pour éviter de répéter.', response_en: 'We start by mapping past failures to avoid repeating.' },
-                ],
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>CtaBandSection · type "cta-band" (bg paper-2 full-bleed)</Kicker>
-            <div class="ds-section-demo-frame">
-              <CtaBandSection data={{
-                type: 'cta-band',
-                text_fr: 'Audit IA gratuit · 30 minutes · sans engagement',
-                text_en: 'Free AI audit · 30 minutes · no commitment',
-                cta: { label_fr: 'Réserver →', label_en: 'Book →', href: '/contact', variant: 'primary' },
-                background: 'paper-2',
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>CtaInline · type "cta-inline" (CTA discret)</Kicker>
-            <div class="ds-section-demo-frame">
-              <CtaInline data={{
-                type: 'cta-inline',
-                text_fr: 'Tu veux pousser un projet pilote en 1 semaine ?',
-                text_en: 'Want to push a pilot project in 1 week?',
-                cta: { label_fr: 'Réserver →', label_en: 'Book →', href: '/contact', variant: 'primary' },
-              }} lang="fr" />
-            </div>
-          </div>
-
-          <div class="ds-section-demo">
-            <Kicker tone="muted" size={10}>CtaFinal · type "cta-final" (bg paper)</Kicker>
-            <div class="ds-section-demo-frame">
-              <CtaFinal data={{
-                type: 'cta-final',
-                h2_fr: 'Prêt à <i>câbler</i> votre système ?',
-                h2_en: 'Ready to <i>wire</i> your system?',
-                body_fr: 'Audit en 5 jours. Premier workflow en production sous 1 semaine.',
-                body_en: 'Audit in 5 days. First workflow in production in 1 week.',
-                cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact', variant: 'primary' },
-                background: 'paper',
-              }} lang="fr" />
-            </div>
+          <div class="ds-sections-grid" data-section-grid>
+            {sectionItems.map((section) => (
+              <article class="ds-section-card" data-category={section.categorySlug}>
+                <div class="ds-card-preview" data-preview-frame data-max-height="230" aria-hidden="true">
+                  <iframe class="ds-card-frame" src={`/preview/${section.type}`} title={`Aperçu ${section.type}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
+                </div>
+                <div class="ds-section-card-top">
+                  <a class="ds-section-card-link" href={`/categories/${section.categorySlug}`}><code>{section.type}</code></a>
+                  <span class={`ds-status ds-status--${section.status}`}>{section.status}</span>
+                </div>
+                <span class="ds-category-badge">{section.subcategory}</span>
+                <p>{section.description_fr}</p>
+                <div class="ds-tag-row" aria-label={`Tags ${section.type}`}>
+                  {section.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -1124,6 +792,36 @@ import CtaFinal from '../../components/sections/CtaFinal.astro';
       </section>
     </main>
   </div>
+
+  <script is:inline>
+    (() => {
+      const filterRoot = document.querySelector('[data-section-filters]');
+      const cards = Array.from(document.querySelectorAll('[data-section-grid] [data-category]'));
+      if (!filterRoot || cards.length === 0) return;
+
+      const chips = Array.from(filterRoot.querySelectorAll('[data-filter]'));
+
+      filterRoot.addEventListener('click', (event) => {
+        const chip = event.target instanceof HTMLElement ? event.target.closest('[data-filter]') : null;
+        if (!(chip instanceof HTMLElement)) return;
+
+        const filter = chip.dataset.filter ?? 'all';
+
+        chips.forEach((item) => {
+          const active = item === chip;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+
+        cards.forEach((card) => {
+          const visible = filter === 'all' || card.getAttribute('data-category') === filter;
+          card.toggleAttribute('hidden', !visible);
+        });
+      });
+    })();
+  </script>
+
+  <script>import '../../scripts/preview-frame.ts';</script>
 </Base>
 
 <style>
@@ -1508,17 +1206,43 @@ import CtaFinal from '../../components/sections/CtaFinal.astro';
     color: var(--muted);
   }
 
-  /* ─── SECTIONS W6 LIST ─── */
-  .ds-sections-list,
+  /* ─── SECTIONS W6 CATALOG ─── */
+  .ds-section-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 20px;
+  }
+  .ds-filter-chip {
+    appearance: none;
+    border: 1px solid var(--hairline);
+    background: var(--paper-2);
+    color: var(--ink-2);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1;
+    padding: 9px 12px;
+    transition:
+      background 160ms var(--ease),
+      border-color 160ms var(--ease),
+      color 160ms var(--ease);
+  }
+  .ds-filter-chip:hover,
+  .ds-filter-chip.is-active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .ds-sections-grid,
   .ds-templates-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 12px;
   }
-  .ds-sections-list li,
   .ds-templates-list li {
     font-family: var(--font-sans);
     font-size: 13px;
@@ -1527,6 +1251,116 @@ import CtaFinal from '../../components/sections/CtaFinal.astro';
     background: var(--paper-2);
     border: 1px solid var(--hairline);
     line-height: 1.4;
+  }
+  .ds-section-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 220px;
+    padding: 18px;
+    background: var(--paper-2);
+    border: 1px solid var(--hairline);
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    transition:
+      background 180ms var(--ease),
+      border-color 180ms var(--ease),
+      transform 180ms var(--ease);
+  }
+  .ds-section-card-link { text-decoration: none; color: inherit; }
+  .ds-section-card-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+  .ds-section-card:hover {
+    background: var(--paper);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .ds-section-card[hidden] { display: none; }
+  .ds-card-preview {
+    position: relative;
+    min-height: 140px;
+    overflow: hidden;
+    margin: -18px -18px 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hairline);
+    border-radius: 8px 8px 0 0;
+  }
+  /* transform + height pilotés par src/scripts/preview-frame.ts (scale responsive) */
+  .ds-card-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    border: 0;
+    transform-origin: top left;
+    pointer-events: none;
+  }
+  .ds-section-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .ds-section-card code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+    background: transparent;
+  }
+  .ds-status,
+  .ds-category-badge,
+  .ds-tag-row span {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    font-family: var(--font-mono);
+    line-height: 1;
+  }
+  .ds-status {
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-size: 9px;
+    padding: 5px 7px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ds-status--stable {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .ds-status--wip {
+    border-color: var(--muted-2);
+    color: var(--muted);
+  }
+  .ds-status--deprecated {
+    border-color: var(--hairline-strong);
+    color: var(--muted-2);
+  }
+  .ds-category-badge {
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .ds-section-card p {
+    flex: 1;
+    margin: 0;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .ds-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .ds-tag-row span {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-size: 10px;
+    padding: 6px 7px;
   }
   .ds-templates-list li code {
     font-family: var(--font-mono);

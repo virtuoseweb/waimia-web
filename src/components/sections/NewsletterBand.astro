@@ -1,0 +1,159 @@
+---
+// Section W6 · newsletter-band
+// Bande newsletter fond sombre : titre éditorial (1.2fr) + formulaire email (1fr). Source : `hub-nl` (ressources/index.astro).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'newsletter-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const placeholder = isFr ? (data.placeholder_fr ?? 'votre@email.com') : (data.placeholder_en ?? 'your@email.com');
+const ctaLabel = isFr ? (data.cta_label_fr ?? "S'abonner →") : (data.cta_label_en ?? 'Subscribe →');
+const hint = isFr ? data.hint_fr : data.hint_en;
+---
+
+<section class="newsletter-band" aria-labelledby="newsletter-band-h2">
+  <div class="newsletter-band__inner wrap-wide">
+    <div class="newsletter-band__left reveal">
+      {(data.kicker_fr || data.kicker_en) && (
+        <p class="newsletter-band__kicker">
+          {isFr ? data.kicker_fr : data.kicker_en}
+        </p>
+      )}
+      <h2
+        id="newsletter-band-h2"
+        class="newsletter-band__h2"
+        set:html={isFr ? data.h2_fr : data.h2_en}
+      />
+      {(data.lead_fr || data.lead_en) && (
+        <p class="newsletter-band__lead">
+          {isFr ? data.lead_fr : data.lead_en}
+        </p>
+      )}
+    </div>
+
+    <div class="newsletter-band__right reveal">
+      <form
+        class="newsletter-band__form"
+        method="post"
+        action={data.form_action ?? '#'}
+      >
+        <div class="newsletter-band__field">
+          <label for="nl-email" class="sr-only">Email</label>
+          <input
+            id="nl-email"
+            type="email"
+            name="email"
+            class="newsletter-band__input"
+            placeholder={placeholder}
+            required
+            autocomplete="email"
+          />
+          <button type="submit" class="newsletter-band__btn">
+            {ctaLabel}
+          </button>
+        </div>
+        {hint && (
+          <p class="newsletter-band__hint">{hint}</p>
+        )}
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .newsletter-band {
+    background: var(--ink);
+    color: var(--paper);
+    padding: clamp(80px, 10vw, 120px) 0;
+  }
+  .newsletter-band__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: center;
+  }
+  .newsletter-band__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 232, 0.5);
+    margin: 0 0 16px;
+  }
+  .newsletter-band__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: 1.06;
+    letter-spacing: -0.024em;
+    font-weight: 400;
+    color: var(--paper);
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  .newsletter-band__h2 :global(i) {
+    font-style: italic;
+    color: rgba(246, 241, 232, 0.7);
+  }
+  .newsletter-band__lead {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(246, 241, 232, 0.55);
+    margin: 0;
+    max-width: 400px;
+  }
+  .newsletter-band__field {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(246, 241, 232, 0.2);
+  }
+  .newsletter-band__input {
+    flex: 1;
+    min-width: 0;
+    background: rgba(246, 241, 232, 0.08);
+    border: none;
+    padding: 14px 18px;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--paper);
+    outline: none;
+  }
+  .newsletter-band__input::placeholder {
+    color: rgba(246, 241, 232, 0.35);
+  }
+  .newsletter-band__input:focus {
+    background: rgba(246, 241, 232, 0.12);
+  }
+  .newsletter-band__btn {
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    padding: 14px 22px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 240ms var(--ease);
+  }
+  .newsletter-band__btn:hover {
+    background: color-mix(in srgb, var(--accent) 85%, black);
+  }
+  .newsletter-band__hint {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(246, 241, 232, 0.35);
+    margin: 10px 0 0;
+  }
+  @media (max-width: 860px) {
+    .newsletter-band__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

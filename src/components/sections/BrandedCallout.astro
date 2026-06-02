@@ -1,0 +1,90 @@
+---
+// Section W6 · branded-callout
+// Callout de marque fond paper-2 : kicker §, h2 display italic, corps + CTA. Source : `meth-os` (methode.astro).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'branded-callout'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="branded-callout" aria-labelledby="branded-callout-h2">
+  <div class="wrap-wide">
+    <div class="branded-callout__box reveal">
+      <p class="branded-callout__kicker">{isFr ? data.kicker_fr : data.kicker_en}</p>
+      <h2
+        id="branded-callout-h2"
+        class="branded-callout__h2"
+        set:html={isFr ? data.h2_fr : data.h2_en}
+      />
+      <p class="branded-callout__body1">{isFr ? data.body1_fr : data.body1_en}</p>
+      {(data.body2_fr || data.body2_en) && (
+        <p class="branded-callout__body2">{isFr ? data.body2_fr : data.body2_en}</p>
+      )}
+      {data.cta && (
+        <a href={data.cta.href} class={`btn btn--${data.cta.variant ?? 'primary'} branded-callout__cta`}>
+          {isFr ? data.cta.label_fr : data.cta.label_en}
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .branded-callout {
+    padding: clamp(56px, 7vw, 88px) 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .branded-callout__box {
+    background: var(--paper-2);
+    border: 1px solid var(--hairline);
+    padding: clamp(32px, 4vw, 56px);
+    max-width: 800px;
+  }
+  .branded-callout__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 18px;
+  }
+  .branded-callout__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.8vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.022em;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  .branded-callout__h2 :global(i) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .branded-callout__body1 {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0 0 12px;
+    max-width: 640px;
+  }
+  .branded-callout__body2 {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+    max-width: 640px;
+  }
+  .branded-callout__cta {
+    margin-top: 24px;
+    display: inline-flex;
+  }
+</style>

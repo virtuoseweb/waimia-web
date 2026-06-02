@@ -1,0 +1,54 @@
+---
+// Waimia · Route preview chrome-less d'une section (WORKSTREAM PREVIEW-FIDELITY)
+// Rendu UNIQUEMENT de la section, pleine largeur desktop, sans header/footer/nav.
+// Consommé en iframe par /agence/design-system §6 et /categories/[slug].
+// Ces routes sont des fragments techniques : noindex + hors sitemap.
+//
+// N'utilise PAS Base.astro (qui injecte Header/Footer/CookiesBanner/skip-link).
+// Reprend les imports CSS réels de Base : global.css (→ tailwind + fonts + tokens),
+// grid.css, scroll-reveal.css.
+
+import '../../styles/global.css';
+import '../../styles/grid.css';
+import '../../styles/scroll-reveal.css';
+import { listSections, SECTION_REGISTRY } from '../../lib/section-registry';
+import { SECTION_DEMOS } from '../../lib/section-demos';
+
+export function getStaticPaths() {
+  return listSections().map((section) => ({ params: { type: section.type } }));
+}
+
+const { type } = Astro.params as { type: string };
+const C = SECTION_REGISTRY[type as keyof typeof SECTION_REGISTRY] as any;
+const demo = SECTION_DEMOS[type as keyof typeof SECTION_DEMOS];
+---
+<!doctype html>
+<html lang="fr" data-lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{`Aperçu · ${type}`}</title>
+    {/* Force l'état révélé : ces previews sont des iframes statiques non scrollées,
+        les classes scroll-reveal démarrent opacity:0 et ne se révèlent qu'au scroll
+        via IntersectionObserver (absent ici). On force l'état final. */}
+    <style is:inline>
+      html, body { margin: 0; padding: 0; background: var(--paper, #fff); }
+      .reveal, .reveal-up, .reveal-fade, .reveal-slide, .reveal-snap,
+      .scale-in, .blur-in, .clip-up, .hair-draw, .row-lines,
+      .reveal-mask-up, .reveal-zoom-in, .reveal-blur-clip,
+      .reveal-curtain, .reveal-split-letter,
+      .reveal-stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        clip-path: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    {C && demo ? <C data={demo} lang="fr" /> : <p style="font-family:monospace;padding:24px">Section inconnue : {type}</p>}
+  </body>
+</html>

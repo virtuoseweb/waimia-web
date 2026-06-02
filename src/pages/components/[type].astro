@@ -1,0 +1,216 @@
+---
+export const prerender = true;
+
+// Waimia · Library — page détail par section (façon relume.io / tailwindui).
+// Grand aperçu live (iframe chrome-less /preview/[type]) + bloc « copier le code » + métadonnées.
+// Route : /components/[type] · une page par section.type du registry.
+
+import Base from '../../layouts/Base.astro';
+import CopyCode from '../../components/library/CopyCode.tsx';
+import {
+  listSections,
+  listCategories,
+  type SectionListItem,
+} from '../../lib/section-registry';
+import { SECTION_DEMOS } from '../../lib/section-demos';
+
+export function getStaticPaths() {
+  return listSections().map((section) => ({
+    params: { type: section.type },
+    props: { section },
+  }));
+}
+
+interface Props {
+  section: SectionListItem;
+}
+
+const { section } = Astro.props;
+
+const categoryLabel =
+  listCategories().find((c) => c.slug === section.categorySlug)?.label ?? section.subcategory;
+
+// Code copiable : l'entrée telle qu'on la placerait dans le sections[] d'une page W6.
+const demo = SECTION_DEMOS[section.type];
+const sectionEntry = JSON.stringify(demo, null, 2);
+---
+
+<Base
+  title={`${section.type} · Composant Waimia`}
+  description={section.description_fr}
+  alternate={false}
+  noindex
+>
+  <article class="component-detail">
+    <div class="wrap-wide">
+      <a class="component-back" href={`/categories/${section.categorySlug}`}>
+        ← {categoryLabel}
+      </a>
+
+      <header class="component-head">
+        <div class="component-head-top">
+          <h1>{section.type}</h1>
+          <span class={`component-status component-status--${section.status}`}>{section.status}</span>
+        </div>
+        <p class="component-subcat">{section.subcategory}</p>
+        <p class="component-lede">{section.description_fr}</p>
+        <div class="component-tags" aria-label={`Tags ${section.type}`}>
+          {section.tags.map((tag) => <span>{tag}</span>)}
+        </div>
+      </header>
+
+      <section class="component-block" aria-label="Aperçu live">
+        <h2 class="component-block-title">Aperçu</h2>
+        <div class="component-preview" data-preview-frame data-max-height="620">
+          <iframe
+            src={`/preview/${section.type}`}
+            title={`Aperçu ${section.type}`}
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="component-block" aria-label="Code de la section">
+        <h2 class="component-block-title">Code</h2>
+        <CopyCode
+          client:visible
+          code={sectionEntry}
+          label="Données de la section (à placer dans sections[])"
+        />
+      </section>
+    </div>
+  </article>
+
+  <script>import '../../scripts/preview-frame.ts';</script>
+</Base>
+
+<style>
+  .component-detail {
+    padding: clamp(72px, 9vw, 112px) 0 clamp(72px, 9vw, 120px);
+  }
+  .component-detail .wrap-wide {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .component-back {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-decoration: none;
+  }
+  .component-back:hover { color: var(--accent); }
+  .component-head {
+    margin-bottom: clamp(40px, 5vw, 64px);
+  }
+  .component-head-top {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .component-head h1 {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .component-status {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    line-height: 1;
+    padding: 6px 8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .component-status--stable {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .component-status--wip {
+    border-color: var(--muted-2);
+    color: var(--muted);
+  }
+  .component-status--deprecated {
+    border-color: var(--hairline-strong);
+    color: var(--muted-2);
+  }
+  .component-subcat {
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .component-lede {
+    max-width: 680px;
+    margin: 16px 0 0;
+    color: var(--ink-2);
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.55;
+  }
+  .component-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 22px;
+  }
+  .component-tags span {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    background: var(--paper-2);
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    line-height: 1;
+    padding: 6px 7px;
+  }
+  .component-block {
+    margin-top: clamp(40px, 5vw, 64px);
+  }
+  .component-block-title {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .component-preview {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  /* iframe rendue à largeur desktop 1280 puis mise à l'échelle responsive
+     (scale = largeurConteneur / 1280) par src/scripts/preview-frame.ts ; la
+     hauteur du conteneur suit la hauteur naturelle scalée du contenu (capée). */
+  .component-preview iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    border: 0;
+    transform-origin: top left;
+  }
+  @media (max-width: 720px) {
+    .component-detail .wrap-wide {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>

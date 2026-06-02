@@ -1,9 +1,29 @@
 /* ProductReel · sticky scroll-driven console viewer
  * 4 panels (Workspace · Kernel · Agent runtime · Pipeline) qui scrollent ensemble.
- * Hydraté `client:visible` · pas de children (data interne pour rester typé). */
+ * Hydraté `client:visible` · data surchargeable via props. */
 import { Fragment, useEffect, useRef, useState } from 'react';
 
-const SCREENS = [
+export interface ProductReelScreen {
+  label: string;
+  title: { en: string; fr: string };
+  rows: readonly (readonly string[])[];
+}
+
+export interface ProductReelCopy {
+  liveScrollLabel: string;
+  continueScroll: { en: string; fr: string };
+  appName: string;
+  liveStatus: string;
+  workspacesHeading: string;
+  kernelHeading: string;
+  kernelCommand: string;
+  kernelStatus: string;
+  agentsHeading: string;
+  pipelineHeading: string;
+  pipelineActiveValue: string;
+}
+
+export const DEFAULT_SCREENS = [
   {
     label: '00 · Workspace',
     title: { en: 'A workspace per client, isolated.', fr: 'Un workspace par client, isolé.' },
@@ -47,10 +67,28 @@ const SCREENS = [
       ['Won',       '2',  '€ 19,5 k'],
     ],
   },
-] as const;
+] as const satisfies readonly ProductReelScreen[];
+
+const DEFAULT_COPY: ProductReelCopy = {
+  liveScrollLabel: 'Live scroll',
+  continueScroll: { en: 'SCROLL TO CONTINUE', fr: 'CONTINUER LE SCROLL' },
+  appName: 'virtuoseos',
+  liveStatus: '◉ live',
+  workspacesHeading: 'Workspaces · 4 active',
+  kernelHeading: 'Kernel · plateau-saas',
+  kernelCommand: '$ virtuose kernel.status --workspace=plateau-saas',
+  kernelStatus: 'kernel ok · 14 agents running · 0 errors · rev 2.4.1',
+  agentsHeading: 'Agents · 14 active',
+  pipelineHeading: 'Pipeline · plateau-saas',
+  pipelineActiveValue: '€ 19 540 active',
+};
 
 interface Props {
   lang: 'fr' | 'en';
+  screens?: readonly ProductReelScreen[];
+  copy?: Omit<Partial<ProductReelCopy>, 'continueScroll'> & {
+    continueScroll?: Partial<ProductReelCopy['continueScroll']>;
+  };
 }
 
 /* Rend une chaîne en remplaçant chaque `◉` par un span accent — safe (pas de innerHTML). */
@@ -63,7 +101,14 @@ function withAccentDot(text: string) {
   );
 }
 
-export default function ProductReel({ lang }: Props) {
+export default function ProductReel({ lang, screens = DEFAULT_SCREENS, copy }: Props) {
+  const reelScreens = screens.length > 0 ? screens : DEFAULT_SCREENS;
+  const reelCopy = {
+    ...DEFAULT_COPY,
+    ...copy,
+    continueScroll: { ...DEFAULT_COPY.continueScroll, ...copy?.continueScroll },
+  };
+  const screenCount = reelScreens.length;
   const [step, setStep] = useState(0);
   const wrapRef = useRef<HTMLDivElement>(null);
 
@@ -73,14 +118,15 @@ export default function ProductReel({ lang }: Props) {
       const r = wrapRef.current.getBoundingClientRect();
       const vh = window.innerHeight;
       const p = Math.max(0, Math.min(1, -r.top / (r.height - vh)));
-      setStep(Math.min(SCREENS.length - 1, Math.floor(p * SCREENS.length)));
+      setStep(Math.min(screenCount - 1, Math.floor(p * screenCount)));
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [screenCount]);
 
-  const cur = SCREENS[step];
+  const activeStep = Math.min(step, screenCount - 1);
+  const cur = reelScreens[activeStep];
   const screenLabel = cur.label.split(' · ')[1]?.toLowerCase() ?? '';
 
   return (
@@ -90,15 +136,15 @@ export default function ProductReel({ lang }: Props) {
           {/* Steps left */}
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>
-              Live scroll · {step + 1} / {SCREENS.length}
+              {reelCopy.liveScrollLabel} · {activeStep + 1} / {screenCount}
             </div>
-            {SCREENS.map((s, i) => (
+            {reelScreens.map((s, i) => (
               <div
                 key={i}
                 style={{
                   padding: '14px 0',
                   borderTop: '1px solid var(--hairline)',
-                  opacity: i === step ? 1 : 0.28,
+                  opacity: i === activeStep ? 1 : 0.28,
                   transition: 'opacity 500ms var(--ease)',
                 }}
               >
@@ -111,26 +157,26 @@ export default function ProductReel({ lang }: Props) {
               </div>
             ))}
             <div style={{ marginTop: 24, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--muted)', letterSpacing: '.08em' }}>
-              ↓ {lang === 'fr' ? 'CONTINUER LE SCROLL' : 'SCROLL TO CONTINUE'}
+              ↓ {reelCopy.continueScroll[lang]}
             </div>
           </div>
 
           {/* Console right */}
-          <div style={{ background: 'var(--paper)', border: '1px solid var(--ink)', borderRadius: 12, overflow: 'hidden', boxShadow: '0 40px 120px rgba(12,11,9,.14)' }}>
+          <div style={{ background: 'var(--paper)', border: '1px solid var(--ink)', borderRadius: 12, overflow: 'hidden', boxShadow: '0 40px 120px var(--shadow-reel, rgba(12,11,9,.14))' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderBottom: '1px solid var(--hairline)', background: 'var(--paper-2)' }}>
               {[0, 1, 2].map((i) => (
                 <span key={i} style={{ width: 9, height: 9, borderRadius: 9, background: 'var(--hairline-strong)' }} />
               ))}
               <span style={{ marginLeft: 14, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--muted)' }}>
-                virtuoseos · {screenLabel}
+                {reelCopy.appName} · {screenLabel}
               </span>
-              <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>◉ live</span>
+              <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>{reelCopy.liveStatus}</span>
             </div>
             <div style={{ minHeight: 360, padding: 14, fontFamily: 'var(--font-mono)', fontSize: 11.5, color: 'var(--ink)' }}>
-              {step === 0 && (
+              {activeStep === 0 && (
                 <>
                   <div style={{ fontSize: 10, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10 }}>
-                    Workspaces · 4 active
+                    {reelCopy.workspacesHeading}
                   </div>
                   {cur.rows.map((row, i) => (
                     <div
@@ -153,10 +199,10 @@ export default function ProductReel({ lang }: Props) {
                   ))}
                 </>
               )}
-              {step === 1 && (
+              {activeStep === 1 && (
                 <>
                   <div style={{ fontSize: 10, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10 }}>
-                    Kernel · plateau-saas
+                    {reelCopy.kernelHeading}
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: 8 }}>
                     {cur.rows.map((row, i) => (
@@ -167,15 +213,15 @@ export default function ProductReel({ lang }: Props) {
                     ))}
                   </div>
                   <div style={{ marginTop: 16, padding: 12, background: 'var(--paper-2)', borderRadius: 6 }}>
-                    <div style={{ color: 'var(--accent)' }}>$ virtuose kernel.status --workspace=plateau-saas</div>
-                    <div style={{ color: 'var(--muted)', marginTop: 6 }}>kernel ok · 14 agents running · 0 errors · rev 2.4.1</div>
+                    <div style={{ color: 'var(--accent)' }}>{reelCopy.kernelCommand}</div>
+                    <div style={{ color: 'var(--muted)', marginTop: 6 }}>{reelCopy.kernelStatus}</div>
                   </div>
                 </>
               )}
-              {step === 2 && (
+              {activeStep === 2 && (
                 <>
                   <div style={{ fontSize: 10, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10 }}>
-                    Agents · 14 active
+                    {reelCopy.agentsHeading}
                   </div>
                   {cur.rows.map((row, i) => (
                     <div
@@ -197,11 +243,11 @@ export default function ProductReel({ lang }: Props) {
                   ))}
                 </>
               )}
-              {step === 3 && (
+              {activeStep === 3 && (
                 <>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 14 }}>
-                    <span>Pipeline · plateau-saas</span>
-                    <span style={{ color: 'var(--accent)' }}>€ 19 540 active</span>
+                    <span>{reelCopy.pipelineHeading}</span>
+                    <span style={{ color: 'var(--accent)' }}>{reelCopy.pipelineActiveValue}</span>
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 6 }}>
                     {cur.rows.map((row, i) => (

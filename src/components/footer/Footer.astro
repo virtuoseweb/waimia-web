@@ -1,10 +1,11 @@
 ---
 // Footer · 5 colonnes éditoriales · pur Astro (pas d'interactivité)
 import { FOOTER_COLS, TRUST_BADGES } from '../../data/sitemap';
-import { langFromPath, t } from '../../lib/i18n';
+import { langFromPath, t, hasBilingualMirror } from '../../lib/i18n';
 import NewsletterSignup from '../ui/molecules/NewsletterSignup.astro';
 
 const lang = langFromPath(Astro.url.pathname);
+const enMirror = hasBilingualMirror(Astro.url.pathname);
 // `year` est résolu au build (SSG). En cas de site non rebuilt en début d'année,
 // le copyright reste figé. Atténuation : Vercel cron annuel ou simplement push
 // d'un commit start-of-year. À défaut, accepter le glissement (faible criticité).
@@ -94,7 +95,7 @@ const year = new Date().getFullYear();
         <li><span class="ft-dev-num">03</span><span class="ft-dev-name">ServiceDetailTemplate</span><span class="ft-dev-type">{lang === 'fr' ? 'Service détaillé' : 'Service detail'}</span><a href="/offres/revops" class="ft-link">/offres/revops ↗</a></li>
         <li><span class="ft-dev-num">04</span><span class="ft-dev-name">ServiceDetail · variant</span><span class="ft-dev-type">{lang === 'fr' ? 'Solution industry' : 'Industry solution'}</span><a href="/solutions/fintech" class="ft-link">/solutions/fintech ↗</a></li>
         <li><span class="ft-dev-num">05</span><span class="ft-dev-name">DetailMenuTemplate</span><span class="ft-dev-type">{lang === 'fr' ? 'Sous-page mega-menu' : 'Mega-menu detail'}</span><a href="/offres/audit-maturite-ia" class="ft-link">/offres/audit-maturite-ia ↗</a></li>
-        <li><span class="ft-dev-num">06</span><span class="ft-dev-name">CaseStudyTemplate</span><span class="ft-dev-type">{lang === 'fr' ? 'Cas client long-form' : 'Case study'}</span><a href="/ressources/cas/plateau" class="ft-link">/ressources/cas/plateau ↗</a></li>
+        <li><span class="ft-dev-num">06</span><span class="ft-dev-name">CaseStudyTemplate</span><span class="ft-dev-type">{lang === 'fr' ? 'Cas client long-form' : 'Case study'}</span><a href="/cas/plateau" class="ft-link">/cas/plateau ↗</a></li>
         <li><span class="ft-dev-num">07</span><span class="ft-dev-name">EssayTemplate</span><span class="ft-dev-type">{lang === 'fr' ? 'Essai éditorial' : 'Editorial essay'}</span><a href="/ressources/blog/brain-circuit" class="ft-link">/ressources/blog/brain-circuit ↗</a></li>
         <li><span class="ft-dev-num">08</span><span class="ft-dev-name">ListIndexTemplate</span><span class="ft-dev-type">{lang === 'fr' ? 'Index cas (cards)' : 'Cases index (cards)'}</span><a href="/ressources/cas" class="ft-link">/ressources/cas ↗</a></li>
         <li><span class="ft-dev-num">09</span><span class="ft-dev-name">ListIndex · variant</span><span class="ft-dev-type">{lang === 'fr' ? 'Blog (rows)' : 'Blog (rows)'}</span><a href="/ressources/blog" class="ft-link">/ressources/blog ↗</a></li>
@@ -230,9 +231,9 @@ const year = new Date().getFullYear();
         <div>
           <span class="ft-dev-stub-cat">{lang === 'fr' ? 'Cas restants' : 'Remaining cases'}</span>
           <ul>
-            <li><a href="/ressources/cas/halcyon" class="ft-link">halcyon</a></li>
-            <li><a href="/ressources/cas/northbound" class="ft-link">northbound</a></li>
-            <li><a href="/ressources/cas/caserne" class="ft-link">caserne</a></li>
+            <li><a href="/cas/halcyon" class="ft-link">halcyon</a></li>
+            <li><a href="/cas/northbound" class="ft-link">northbound</a></li>
+            <li><a href="/cas/caserne" class="ft-link">caserne</a></li>
             <li><a href="/ressources/cas/virtuoseos" class="ft-link">virtuoseos</a></li>
           </ul>
         </div>
@@ -256,7 +257,7 @@ const year = new Date().getFullYear();
   <div class="wrap hline ft-bottom">
     <div class="ft-bottom-left">
       <span>© {year} Waimia · {lang === 'fr' ? 'Partenaire Intégrateur IA' : 'AI Integration Partner'}</span>
-      <a href={lang === 'fr' ? '/agence/trust-center' : '/en/agence/trust-center'} class="ft-link">
+      <a href="/agence/trust-center" class="ft-link">
         {lang === 'fr' ? 'Mentions légales' : 'Legal'}
       </a>
     </div>
@@ -269,12 +270,16 @@ const year = new Date().getFullYear();
           aria-current={lang === 'fr' ? 'page' : undefined}
         >FR</a>
         <span aria-hidden="true" class="ft-lang-sep">·</span>
-        <a
-          href={lang === 'en' ? Astro.url.pathname : `/en${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`}
-          class={`ft-link ft-lang-a ${lang === 'en' ? 'ft-lang-active' : ''}`}
-          aria-label="English version"
-          aria-current={lang === 'en' ? 'page' : undefined}
-        >EN</a>
+        {(lang === 'en' || enMirror) ? (
+          <a
+            href={lang === 'en' ? Astro.url.pathname : `/en${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`}
+            class={`ft-link ft-lang-a ${lang === 'en' ? 'ft-lang-active' : ''}`}
+            aria-label="English version"
+            aria-current={lang === 'en' ? 'page' : undefined}
+          >EN</a>
+        ) : (
+          <span class="ft-link ft-lang-a ft-lang-disabled" aria-disabled="true" title="Version anglaise indisponible pour cette page">EN</span>
+        )}
       </div>
       <a href="https://www.linkedin.com/company/waimia" target="_blank" rel="noopener" class="ft-link">LinkedIn</a>
       <a href="https://x.com/waimia_ai" target="_blank" rel="noopener" class="ft-link">X</a>
@@ -342,6 +347,7 @@ const year = new Date().getFullYear();
   .ft-lang-sep{opacity:.4}
   .ft-lang-a{color:var(--muted);transition:color 220ms var(--ease)}
   .ft-lang-active{color:var(--ink);font-weight:600}
+  .ft-lang-disabled{opacity:.4;cursor:default;pointer-events:none}
   @media(max-width:640px){
     .ft-bottom{flex-direction:column;align-items:flex-start}
   }

@@ -68,7 +68,7 @@ const relatedCards = allCases
   description={d.description_en ?? d.description_fr}
   caseNum={String(idx + 1).padStart(2, '0')}
   specs={specs}
-  steps={[]}
+  steps={[] as any[]}
   proofQuoteFr={d.impact_fr}
   proofQuoteEn={d.impact_en}
   proofAttrFr={d.ndaProtected ? 'Confidentiel' : d.client}
@@ -76,7 +76,6 @@ const relatedCards = allCases
   proofMetrics={proofMetrics}
   techPills={d.stack.map((s) => ({ label: s, kind: 'primary' as const }))}
   relatedCards={relatedCards}
-  lang="en"
 >
   <Fragment slot="headline">{d.title_en}</Fragment>
   <Fragment slot="context">

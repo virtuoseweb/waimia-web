@@ -1,0 +1,71 @@
+---
+// Section W6 · hero-hub-listing
+// Masthead éditorial d'un hub de listing (Ressources, Offres, Solutions…).
+// h1 monumental italic, lede courte, 0 CTA, SVG déco optionnel.
+// Source markup : pattern `.hub-mast` inline (src/pages/ressources/index.astro).
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'hero-hub-listing'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="hero-hub-listing">
+  {data.decoration && (
+    <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
+      <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
+      <line x1="0" y1="320" x2="600" y2="220" stroke="var(--accent)" stroke-width=".4" opacity=".18" />
+    </svg>
+  )}
+  <div class="wrap-wide">
+    <Kicker class="hero-hub-listing__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    <h1 class="hero-hub-listing__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <p class="hero-hub-listing__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+  </div>
+</section>
+
+<style>
+  .hero-hub-listing {
+    position: relative;
+    overflow: hidden;
+    padding: calc(var(--header-height) + 40px) 32px clamp(40px, 5vw, 72px);
+  }
+  .hero-hub-listing .wrap-wide { position: relative; z-index: 1; }
+  .hero-hub-listing__deco {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 480px;
+    height: 320px;
+    pointer-events: none;
+    z-index: 0;
+    color: var(--ink);
+  }
+  :global(.hero-hub-listing__kicker) { display: block; margin-bottom: 24px; }
+  .hero-hub-listing__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+    color: var(--ink);
+    margin: 0;
+  }
+  .hero-hub-listing__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-hub-listing__lede {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2.2vw, 28px);
+    color: var(--ink-2);
+    margin: 32px 0 0;
+    max-width: 760px;
+    line-height: 1.4;
+  }
+  @media (max-width: 768px) {
+    .hero-hub-listing__deco { width: 260px; height: 200px; opacity: 0.6; }
+  }
+</style>

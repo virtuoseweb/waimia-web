@@ -1,0 +1,114 @@
+---
+// Section W6 · commitments-grid
+// Grille de garanties/engagements (2–6 colonnes hairline). Source : `meth-garanties-grid` (methode.astro).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'commitments-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="commitments-grid" aria-labelledby="commitments-grid-h2">
+  <div class="wrap-wide">
+    {(data.kicker_fr || data.kicker_en) && (
+      <p class="commitments-grid__kicker">
+        {isFr ? data.kicker_fr : data.kicker_en}
+      </p>
+    )}
+    <h2 id="commitments-grid-h2" class="commitments-grid__h2 reveal">
+      {isFr ? data.h2_fr : data.h2_en}
+    </h2>
+    {(data.body_fr || data.body_en) && (
+      <p class="commitments-grid__body">
+        {isFr ? data.body_fr : data.body_en}
+      </p>
+    )}
+
+    <div class="commitments-grid__grid reveal-stagger">
+      {data.commitments.map((c) => (
+        <div class="commitments-grid__cell">
+          <h3 class="commitments-grid__cell-title">{isFr ? c.title_fr : c.title_en}</h3>
+          <p class="commitments-grid__cell-body">{isFr ? c.body_fr : c.body_en}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .commitments-grid {
+    padding: clamp(56px, 7vw, 88px) 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .commitments-grid__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  .commitments-grid__h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.025em;
+    font-weight: 400;
+    max-width: 760px;
+    margin: 0 0 clamp(28px, 3vw, 44px);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .commitments-grid__body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 0 clamp(28px, 3vw, 44px);
+  }
+  .commitments-grid__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--hairline);
+  }
+  .commitments-grid__cell {
+    padding: clamp(28px, 3.5vw, 48px);
+    border-right: 1px solid var(--hairline);
+  }
+  .commitments-grid__cell:last-child {
+    border-right: none;
+  }
+  .commitments-grid__cell-title {
+    font-family: var(--font-display);
+    font-size: clamp(17px, 1.6vw, 22px);
+    line-height: 1.25;
+    letter-spacing: -0.018em;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .commitments-grid__cell-body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+  }
+  @media (max-width: 800px) {
+    .commitments-grid__grid {
+      grid-template-columns: 1fr;
+    }
+    .commitments-grid__cell {
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .commitments-grid__cell:last-child {
+      border-bottom: none;
+    }
+  }
+</style>

@@ -6,7 +6,8 @@ export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
-import { langFromPath, t } from '../../lib/i18n';
+import { getCollection } from 'astro:content';
+import { langFromPath } from '../../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
 const transitionIdFromHref = (href: string) =>
@@ -16,40 +17,18 @@ const transitionIdFromHref = (href: string) =>
     .replace(/[^a-z0-9]+/gi, '-')
     .replace(/^-|-$/g, '') || 'home';
 
-const featuredCases = [
-  {
-    slug: 'plateau',
-    caseNum: '01',
-    sector: { fr: 'SaaS B2B', en: 'B2B SaaS' },
-    title: { fr: 'Plateau · pipeline reconnecté', en: 'Plateau · pipeline reconnected' },
-    headline: { fr: '+€2,4 M de pipeline récupéré.', en: '+€2.4M pipeline recovered.' },
-    duration: '10 sem',
-  },
-  {
-    slug: 'halcyon',
-    caseNum: '02',
-    sector: { fr: 'Santé-tech', en: 'Healthtech' },
-    title: { fr: 'Halcyon · triage automatisé', en: 'Halcyon · automated triage' },
-    headline: { fr: '−38 % de temps de triage. CSAT +14 points.', en: '−38% triage time. +14 CSAT pts.' },
-    duration: '6 sem',
-  },
-  {
-    slug: 'northbound',
-    caseNum: '03',
-    sector: { fr: 'Fintech EU', en: 'EU Fintech' },
-    title: { fr: 'Northbound · scoring continu', en: 'Northbound · continuous scoring' },
-    headline: { fr: '×3,1 conversion lead → SQL.', en: '×3.1 lead → SQL conversion.' },
-    duration: '14 sem',
-  },
-  {
-    slug: 'caserne',
-    caseNum: '04',
-    sector: { fr: 'Industrie FR', en: 'French Industry' },
-    title: { fr: 'Caserne · finance fluidifiée', en: 'Caserne · finance streamlined' },
-    headline: { fr: '1 200 h/an récupérées.', en: '1,200 hours/year reclaimed.' },
-    duration: '8 sem',
-  },
-];
+const caseEntries = (await getCollection('cases'))
+  .filter((e) => e.data.card)
+  .sort((a, b) => (a.data.card!.order) - (b.data.card!.order));
+
+const featuredCases = caseEntries.map((e) => ({
+  slug: e.data.slug ?? e.id,
+  caseNum: String(e.data.card!.order).padStart(2, '0'),
+  sector: lang === 'fr' ? e.data.card!.sector_fr : e.data.card!.sector_en,
+  title: lang === 'fr' ? e.data.card!.title_fr : e.data.card!.title_en,
+  headline: lang === 'fr' ? e.data.card!.headline_fr : e.data.card!.headline_en,
+  duration: lang === 'fr' ? e.data.card!.duration_fr : e.data.card!.duration_en,
+}));
 
 const [featured, ...rest] = featuredCases;
 ---
@@ -77,17 +56,17 @@ const [featured, ...rest] = featuredCases;
   <section class="cas-grid-outer wrap-wide">
     <div class="cas-grid reveal-stagger">
       <a href={`/cas/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/cas/${featured.slug}`)}`}>
-        <div class="cas-card-kicker">§ Case {featured.caseNum} · {t(featured.sector, lang)} · {featured.duration}</div>
-        <h2 class="cas-card-title">{t(featured.title, lang)}</h2>
-        <p class="cas-card-headline">{t(featured.headline, lang)}</p>
+        <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector} · {featured.duration}</div>
+        <h2 class="cas-card-title">{featured.title}</h2>
+        <p class="cas-card-headline">{featured.headline}</p>
         <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
       </a>
       <div class="cas-secondary">
         {rest.map((c) => (
           <a href={`/cas/${c.slug}`} class="cas-card" transition:name={`card-${transitionIdFromHref(`/cas/${c.slug}`)}`}>
-            <div class="cas-card-kicker">§ Case {c.caseNum} · {t(c.sector, lang)} · {c.duration}</div>
-            <h2 class="cas-card-title">{t(c.title, lang)}</h2>
-            <p class="cas-card-headline">{t(c.headline, lang)}</p>
+            <div class="cas-card-kicker">§ Case {c.caseNum} · {c.sector} · {c.duration}</div>
+            <h2 class="cas-card-title">{c.title}</h2>
+            <p class="cas-card-headline">{c.headline}</p>
             <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
           </a>
         ))}

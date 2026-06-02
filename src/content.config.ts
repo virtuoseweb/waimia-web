@@ -123,6 +123,20 @@ const cases = defineCollection({
     contributors: z.array(reference('authors')).default([]),
     // Composable V2 (D.7 extension) : sections optionnelles
     sections: sectionsArraySchema.optional(),
+    // Card de listing pour le hub /cas (copy spécifique au listing, ≠ title détail)
+    card: z
+      .object({
+        order: z.number(),
+        sector_fr: z.string(),
+        sector_en: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        headline_fr: z.string(),
+        headline_en: z.string(),
+        duration_fr: z.string(),
+        duration_en: z.string(),
+      })
+      .optional(),
   }),
 });
 

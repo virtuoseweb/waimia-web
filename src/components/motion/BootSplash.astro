@@ -15,16 +15,28 @@
 
 interface Props {
   lang?: 'fr' | 'en';
+  brand?: string;
+  subtitleFr?: string;
+  subtitleEn?: string;
 }
 
-const { lang = 'fr' } = Astro.props;
-const subtitle = lang === 'fr' ? 'Architectes de systèmes agentiques' : 'Architects of agentic systems';
+const {
+  lang = 'fr',
+  brand = 'Waimia',
+  subtitleFr = 'Architectes de systèmes agentiques',
+  subtitleEn = 'Architects of agentic systems',
+} = Astro.props;
+const subtitle = lang === 'fr' ? subtitleFr : subtitleEn;
 ---
 
 <div class="boot" aria-hidden="true">
   <div class="boot-inner">
     <div class="boot-mark">
-      Waim<i>i</i>a<span class="boot-dot">.</span>
+      {brand === 'Waimia' ? (
+        <>Waim<i>i</i>a<span class="boot-dot">.</span></>
+      ) : (
+        <>{brand}<span class="boot-dot">.</span></>
+      )}
     </div>
     <div class="boot-sub">{subtitle}</div>
   </div>

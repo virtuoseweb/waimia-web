@@ -36,7 +36,7 @@ const cases = CASE_FEED.slice(0, 4);
 
     <div class="cases-tbl row-lines reveal-stagger">
       {cases.map((c, i) => (
-        <a class="cases-row" href={localizeHref(`/ressources/cas/${c.slug}`, lang)}>
+        <a class="cases-row" href={localizeHref(`/cas/${c.slug}`, lang)}>
           <span class="cases-idx">CASE 0{i + 1}</span>
           <span class="cases-client">{c.client}</span>
           <span class="cases-col">
