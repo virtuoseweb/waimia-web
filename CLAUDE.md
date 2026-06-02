@@ -7,10 +7,11 @@ Org GitHub : **`virtuoseweb`**. ⚠️ NE PAS toucher le repo `waimia-v2` (monor
 **`docs/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md`** = état courant + plan + reste à faire (dont **§6 = init hooks cloud vs local**).
 Point d'arrêt : branche `feat/library-heroes-enrich`, bibliothèque à **57 types** (build vert, GF-1 ✅).
 
-## ⚙️ Initialisation (cloud vs local)
-- **Cloud** (claude.ai/code) : seuls **ce `CLAUDE.md`** + le **`.claude/` du repo** s'activent. Le `~/.claude` global (rules, `rules-enforcer`, ecc, MCP perso) **n'est PAS cloné** (doc Anthropic : « only hooks committed to the repo run »). Le hook repo `.claude/hooks/session-guardrails.sh` recharge les garde-fous au boot et affiche la surface (`☁️ CLOUD`).
-- **Local** : `.claude/` repo **+** `~/.claude` global (tout l'arsenal) sont actifs.
-- Repo `.claude/settings.json` : agent teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) + `teammateMode: auto`. Agent GF-1 délégable : `.claude/agents/visual-proof-reviewer.md`.
+## ⚙️ Initialisation (cloud vs local) — via le plugin partagé `vw-guardrails`
+- **Cloud** (claude.ai/code) : seuls **ce `CLAUDE.md`** + le **`.claude/` du repo** s'activent (le `~/.claude` global n'est PAS cloné — doc Anthropic : « only hooks committed to the repo run »). Le `.claude/settings.json` **déclare le marketplace `virtuoseweb` + le plugin `vw-guardrails@virtuoseweb`** → au démarrage de session cloud, Claude Code **installe le plugin** depuis `github.com/virtuoseweb/claude-config` (public) : hook SessionStart (recharge GF-1..GF-6, affiche `☁️ CLOUD`), agent `visual-proof-reviewer`, commande `/vw-guardrails:guardrails`.
+- **Local** : `.claude/` repo (plugin) **+** `~/.claude` global (arsenal complet). Le hook plugin émet une ligne courte en local (le global couvre déjà les GF).
+- Source unique des garde-fous portables = repo **`virtuoseweb/claude-config`** (mise à jour = push + bump version ; cloud récupère au prochain boot, local via `claude plugin update`).
+- Fallback : si le réseau cloud bloque l'install du plugin, **ce `CLAUDE.md` reste lu** (garde-fous inline ci-dessous).
 - Checklist de vérif d'init (les 2 surfaces) : `docs/20` §6.
 - **Autonomie** : local = `bypassPermissions` déjà global (`~/.claude/settings.json`) ; cloud = autonome par design (sandbox isolée). Rien à taper. Détail : `docs/20` §7.
 

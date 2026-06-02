@@ -83,16 +83,14 @@ une session **cloud** (Claude Code on the web) démarre d'un **clone frais du re
 |---|:---:|:---:|---|
 | Repo `CLAUDE.md` (garde-fous inline) | ✅ | ✅ | part of the clone |
 | Repo `.claude/settings.json` (env teams, teammateMode, hooks) | ✅ | ✅ (merge avec global) | part of the clone |
-| Repo `.claude/hooks/session-guardrails.sh` (SessionStart) | ✅ | ✅ | part of the clone |
-| Repo `.claude/agents/visual-proof-reviewer.md` | ✅ | ✅ | part of the clone |
+| Plugin `vw-guardrails` déclaré dans `.claude/settings.json` (hook SessionStart + agent `visual-proof-reviewer` + cmd) | ✅ | ✅ | installé au boot depuis le marketplace public |
 | `~/.claude/CLAUDE.md` + rules + `rules-enforcer.sh` + ecc | ❌ | ✅ | user-scoped, hors clone |
 | Plugins user `enabledPlugins` / MCP `claude mcp add` | ❌ | ✅ | user-scoped |
 
-**Ce qui a été commité dans le repo pour que le cloud s'initialise correctement** (fait le 2026-06-02) :
-- `.claude/settings.json` → `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` + `teammateMode: "auto"` + hook `SessionStart`.
-- `.claude/hooks/session-guardrails.sh` → recharge GF-1 / prod / branches isolées / DS figé / orchestration au boot, détecte la surface (`CLAUDE_CODE_REMOTE_SESSION_ID` présent = cloud), pointe vers ce doc. Portable (bash + python3, présents dans le sandbox cloud), 0 dépendance `~/.claude`. Testé : JSON SessionStart valide.
-- `.claude/agents/visual-proof-reviewer.md` → reviewer GF-1 portable (délégable pour le sweep P1).
-- `CLAUDE.md` repo → garde-fous inline (contrat cloud).
+**Ce qui a été commité pour que le cloud s'initialise correctement** (fait le 2026-06-02, MAJ plugin) :
+- `.claude/settings.json` → `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` + `teammateMode: "auto"` + **`extraKnownMarketplaces` (virtuoseweb) + `enabledPlugins` (vw-guardrails@virtuoseweb)**. Au démarrage de session cloud, Claude Code **installe le plugin** depuis `github.com/virtuoseweb/claude-config` (public).
+- **Plugin `vw-guardrails`** (source unique partagée par TOUS les repos) fournit : hook SessionStart (GF-1..GF-6, full en cloud / 1-ligne en local + détection surface), agent `visual-proof-reviewer` (preuve visuelle ET fonctionnelle), commande `/vw-guardrails:guardrails`. Plus d'inline `.claude/hooks` ni `.claude/agents` dans le repo → zéro duplication, mise à jour centralisée (push + bump version sur claude-config).
+- `CLAUDE.md` repo → garde-fous inline = **fallback** si le réseau cloud bloque l'install du plugin.
 
 **En cloud, NE PAS compter sur** : le routage `rules-enforcer` (pas de surfaçage auto de l'arsenal), les 56 rules globales, les MCP perso (Playwright/Vercel/Neon… via `claude mcp add`). En cloud, les **outils GitHub intégrés** remplacent `gh` (non pré-installé) ; pour Playwright/MCP en cloud, les déclarer dans un `.mcp.json` repo (non fait — le sweep GF-1 visuel se fait donc plutôt en **local** ou via un `.mcp.json` à ajouter).
 
@@ -100,13 +98,13 @@ une session **cloud** (Claude Code on the web) démarre d'un **clone frais du re
 
 **LOCAL** (terminal / Desktop) — vérifier en début de session :
 1. Le bloc « Session resume » + GF-1→GF-6 + instinct est injecté (= `session-start.sh` + `session-resume-context.sh` ont tourné). Sinon : `bash -n ~/.claude/hooks/session-start.sh` et vérifier `settings.json` `hooks.SessionStart`.
-2. Le hook repo `session-guardrails.sh` ajoute le bloc « Garde-fous waimia-web » avec surface = `💻 LOCAL`.
+2. Le hook du plugin `vw-guardrails` ajoute une ligne « vw-guardrails actif (💻 LOCAL) ».
 3. Sur le 1er prompt à mots-clés (ex. « workflow », « gf-1 », « déléguer »), `rules-enforcer.sh` injecte les rules pertinentes (bandeau « 🤖 / 📐 »). Sinon : `bash -n ~/.claude/hooks/rules-enforcer.sh`.
 4. Canari : `grep CANARY_CLAUDE_GLOBAL_SIMON_V19 ~/.claude/CLAUDE.md` (présent = global chargé).
 
 **CLOUD** (claude.ai/code) — vérifier en début de session :
 1. Le repo `CLAUDE.md` est lu (Claude cite les garde-fous waimia-web).
-2. Le hook repo `session-guardrails.sh` injecte le bloc « Garde-fous waimia-web » avec surface = `☁️ CLOUD` (preuve que le SessionStart repo tourne).
+2. Le hook du plugin `vw-guardrails` injecte le bloc complet « Garde-fous VirtuoseWeb » avec surface = `☁️ CLOUD` (= preuve que le plugin s'est installé depuis le marketplace + que le SessionStart tourne). Si absent → vérifier `claude plugin list` (le plugin doit apparaître) ; sinon le réseau a bloqué l'install → le `CLAUDE.md` repo reste le fallback.
 3. `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` actif (teams dispo) — sinon vérifier que le repo `.claude/settings.json` a bien été cloné (committé sur la branche lancée).
 4. **Conscience que les rules/hooks globaux NE tournent PAS** → s'auto-discipliner via le repo CLAUDE.md + ce doc (pas d'attente du routage `rules-enforcer`).
 

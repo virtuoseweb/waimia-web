@@ -1,14 +1,14 @@
 # Session handoff — waimia-web
 
 > Auto-snapshot par `session-snapshot.sh` (rule 35 anti-perte de flow).
-> Date : 2026-06-02 14:26:41
+> Date : 2026-06-02 14:50:00
 
 > ⚠️ **REBOOT EN COURS — config agentique V19** : lire `~/.claude/REBOOT-CHECKLIST-V19.md` EN PREMIER (vérif plugins/hooks ecc actifs, `/evolve`, migration tsc/prettier→ecc boot+1).
 
 ## Git state
 
 - Branche : `feat/library-heroes-enrich`
-- Dernier commit : 0ff7267 chore: CLAUDE.md repo (garde-fous cloud+local : GF-1, push, DS figé, orchestration → docs
+- Dernier commit : e2107b7 chore(.claude): GF-1 = preuve empirique (visuel+backend) + autonomie/init cloud documentés
 - Working tree :
 
 ```
