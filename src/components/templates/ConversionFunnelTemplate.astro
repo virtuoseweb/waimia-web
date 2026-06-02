@@ -15,6 +15,8 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
+import HeroConversionFunnel from '../sections/HeroConversionFunnel.astro';
+import type { SectionByType } from '../../schemas/sections';
 import { langFromPath } from '../../lib/i18n';
 import PricingTier from '../ui/molecules/PricingTier.astro';
 import TechPillRow from '../ui/molecules/TechPillRow.astro';
@@ -39,11 +41,32 @@ interface Pill { label: string; kind?: 'primary' | 'open' | 'neutral'; }
 interface Metric { k: string; label_fr: string; label_en: string; }
 interface RelatedCard { kicker: string; title_fr: string; title_en: string; lead_fr: string; lead_en: string; href: string; }
 
+interface BiLabel { label_fr: string; label_en: string; }
+
 interface Props {
   title: string;
   description: string;
   /** Numéro éditorial (Funnel 01, Flagship 02…) */
   funnelNum: string;
+  /** Masthead · headline (HTML riche : <i> pour l'accent terracotta italique) */
+  heroH1Fr: string;
+  heroH1En: string;
+  /** Masthead · lede */
+  heroLedeFr: string;
+  heroLedeEn: string;
+  /** Masthead · meta pills (repères de l'offre). Défaut historique si omis. */
+  heroMetaPills?: BiLabel[];
+  /** Masthead · benefits checklist (optionnel) */
+  heroBenefits?: BiLabel[];
+  /** Masthead · ligne preuve (optionnel) */
+  heroProofFr?: string;
+  heroProofEn?: string;
+  /** Masthead · CTA primaire (label bilingue ; href = heroPrimaryHref) */
+  heroCtaPrimaryFr?: string;
+  heroCtaPrimaryEn?: string;
+  /** Masthead · CTA secondaire (label bilingue ; href = heroSecondaryHref) */
+  heroCtaSecondaryFr?: string;
+  heroCtaSecondaryEn?: string;
   /** Stats hero (4 chiffres clés) */
   heroStats: Stat[];
   /** Process steps (4 étapes) */
@@ -72,7 +95,12 @@ interface Props {
   stickyCtaMeta?: string;
 }
 const {
-  title, description, funnelNum, heroStats, steps, tiers, techPills,
+  title, description, funnelNum,
+  heroH1Fr, heroH1En, heroLedeFr, heroLedeEn,
+  heroMetaPills, heroBenefits, heroProofFr, heroProofEn,
+  heroCtaPrimaryFr = 'Voir les tarifs ↓', heroCtaPrimaryEn = 'See pricing ↓',
+  heroCtaSecondaryFr = 'Voir la démo', heroCtaSecondaryEn = 'See the demo',
+  heroStats, steps, tiers, techPills,
   proofQuoteFr, proofAttrFr, proofMetrics,
   faq, relatedCards, slug,
   heroPrimaryHref = '#pricing',
@@ -81,6 +109,13 @@ const {
   stickyCtaLabel = 'Réserver un audit 45 min',
   stickyCtaMeta = 'Audit 45 min · diagnostic conversion',
 } = Astro.props as Props;
+
+// Repères meta par défaut (= valeurs hardcodées historiques du masthead).
+const defaultMetaPills: BiLabel[] = [
+  { label_fr: 'Offre signature', label_en: 'Signature offer' },
+  { label_fr: 'Acquisition → conversion → activation', label_en: 'Acquisition → conversion → activation' },
+  { label_fr: 'Agent éditeur inclus', label_en: 'Editor agent included' },
+];
 
 const phaseMetas = ['Acquisition', 'Conversion', 'Activation', 'Optimisation', 'Transmission'];
 const timelineEvents = steps.map((step, idx) => ({
@@ -121,6 +156,36 @@ const lang = langFromPath(Astro.url.pathname);
 const offresHref = lang === 'fr' ? '/offres' : '/en/offres';
 const homeHref = lang === 'fr' ? '/' : '/en';
 
+// Masthead · consomme le composant catalogué `hero-conversion-funnel` (source
+// unique structure + CSS). Contenu par instance via props du template.
+// Stats rendues via KeyMetric (statsAsKeyMetric) pour préserver la typographie
+// d'origine ; wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px).
+const heroData = {
+  type: 'hero-conversion-funnel',
+  funnel_num: funnelNum,
+  h1_fr: heroH1Fr,
+  h1_en: heroH1En,
+  lede_fr: heroLedeFr,
+  lede_en: heroLedeEn,
+  meta_pills: heroMetaPills ?? defaultMetaPills,
+  ...(heroBenefits && heroBenefits.length > 0 ? { benefits: heroBenefits } : {}),
+  ...(heroProofFr ? { proof_fr: heroProofFr, proof_en: heroProofEn ?? heroProofFr } : {}),
+  cta_primary: {
+    label_fr: heroCtaPrimaryFr,
+    label_en: heroCtaPrimaryEn,
+    href: heroPrimaryHref,
+    variant: 'primary' as const,
+    mag: 0.18,
+  },
+  cta_secondary: {
+    label_fr: heroCtaSecondaryFr,
+    label_en: heroCtaSecondaryEn,
+    href: heroSecondaryHref,
+    variant: 'ghost' as const,
+  },
+  stats: heroStats.map((s) => ({ value: s.k, label_fr: s.label_fr, label_en: s.label_en })),
+} satisfies SectionByType<'hero-conversion-funnel'>;
+
 // JSON-LD Service + Offer (GEO/AIO indexable par crawlers IA)
 const serviceLd = {
   '@context': 'https://schema.org',
@@ -150,47 +215,17 @@ const offerLd = {
       { label: title.split(' · ')[0] },
     ]}
   />
-  {/* HERO MAGNÉTIQUE */}
-  <section class="cf-hero">
-    <div class="wrap-wide">
-      <Kicker tone="accent" class="cf-num reveal">§ Flagship {funnelNum}</Kicker>
-      <h1 class="cf-h1 reveal-mask-up"><slot name="headline" /></h1>
-      <p class="cf-lede reveal"><slot name="lede" /></p>
-      <div class="cf-hero-meta reveal-stagger" aria-label="Repères de l'offre">
-        <span>Offre signature</span>
-        <span>Acquisition → conversion → activation</span>
-        <span>Agent éditeur inclus</span>
-      </div>
-      {Astro.slots.has('hero-benefits') && (
-        <div class="cf-hero-benefits reveal">
-          <slot name="hero-benefits" />
-        </div>
-      )}
-      {Astro.slots.has('hero-proof') && (
-        <p class="cf-hero-proof reveal">
-          <slot name="hero-proof" />
-        </p>
-      )}
-      <div class="cf-hero-cta">
-        <Button href={heroPrimaryHref} variant="primary" size="lg" mag={0.18}>
-          <slot name="cta-primary">Voir les tarifs ↓</slot>
-        </Button>
-        <Button href={heroSecondaryHref} variant="ghost" size="lg">
-          <slot name="cta-secondary">Voir la démo</slot>
-        </Button>
-      </div>
-      <div class="cf-hero-stats reveal-stagger">
-        {heroStats.map((stat, idx) => (
-          <KeyMetric
-            value={stat.k}
-            label={stat.label_fr}
-            size={idx === 0 ? 'lg' : 'md'}
-            variant={idx === 0 ? 'accent' : 'default'}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
+  {/* HERO MAGNÉTIQUE · composant catalogué hero-conversion-funnel (contenu via props).
+      wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut du
+      composant — 1200px — reste inchangé pour la preview catalogue.
+      statsAsKeyMetric préserve la typographie KeyMetric d'origine des stats. */}
+  <HeroConversionFunnel
+    data={heroData}
+    lang={lang}
+    wrapMaxWidth="var(--wrap-wide)"
+    statsAsKeyMetric={true}
+    kickerReveal={true}
+  />
 
   {/* DEMO · slot ouvert pour mockup interactif */}
   <section id="demo" class="cf-demo">
@@ -388,97 +423,10 @@ const offerLd = {
 </Base>
 
 <style>
-  .cf-hero { padding: 140px 32px clamp(60px, 8vw, 100px); }
-  :global(.cf-num) { display: block; margin-bottom: 20px; }
-  .cf-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(64px, 12vw, 200px);
-    line-height: 0.88;
-    letter-spacing: 0;
-    text-wrap: balance;
-    font-weight: 400;
-    margin: 0 0 32px;
-  }
-  .cf-h1 :global(i) { font-style: italic; color: var(--accent); }
-  .cf-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(20px, 2.4vw, 30px);
-    line-height: 1.3;
-    margin: 0 0 36px;
-    max-width: 980px;
-    color: var(--muted);
-    text-wrap: balance;
-  }
-  .cf-hero-meta {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 0 0 32px;
-  }
-  .cf-hero-meta span {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid var(--hairline-strong);
-    border-radius: 999px;
-    padding: 7px 11px;
-    background: color-mix(in srgb, var(--paper) 86%, transparent);
-  }
-  .cf-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 60px; }
-  .cf-hero-benefits {
-    max-width: 920px;
-    margin: 0 0 24px;
-  }
-  .cf-hero-benefits :global(ul) {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px clamp(18px, 3vw, 34px);
-  }
-  .cf-hero-benefits :global(li) {
-    position: relative;
-    padding-left: 18px;
-    font-family: var(--font-display);
-    font-size: clamp(16px, 1.4vw, 19px);
-    line-height: 1.42;
-    color: var(--ink);
-  }
-  .cf-hero-benefits :global(li)::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.7em;
-    width: 7px;
-    height: 7px;
-    border-top: 1px solid var(--ink-2);
-    border-right: 1px solid var(--ink-2);
-    transform: rotate(45deg);
-  }
-  .cf-hero-proof {
-    margin: 0 0 28px;
-    max-width: 760px;
-    padding-top: 16px;
-    border-top: 1px solid var(--hairline);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-  .cf-hero-stats {
-    margin-top: 60px;
-    display: grid;
-    grid-template-columns: 1.25fr repeat(3, 1fr);
-    gap: clamp(20px, 4vw, 56px);
-    border-top: 1px solid var(--hairline);
-    padding-top: 28px;
-  }
-
+  /* Masthead migré vers le composant catalogué `HeroConversionFunnel` (sections/).
+     Règles `.cf-hero/.cf-num/.cf-h1/.cf-lede/.cf-hero-meta/.cf-hero-benefits/
+     .cf-hero-proof/.cf-hero-cta/.cf-hero-stats` supprimées (structure + CSS désormais
+     portés par le composant — source unique). */
   .cf-demo,
   .cf-features,
   .cf-pricing,
@@ -745,9 +693,7 @@ const offerLd = {
   }
 
   @media (max-width: 800px) {
-    .cf-hero { padding-top: 104px; }
-    .cf-hero-stats,
-    .cf-hero-benefits :global(ul),
+    /* `.cf-hero*` responsive géré désormais par le composant `HeroConversionFunnel`. */
     .cf-split,
     .cf-proof-grid,
     .cf-devis-grid,

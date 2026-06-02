@@ -5,17 +5,42 @@
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
+import KeyMetric from '../editorial/KeyMetric.astro';
 
 interface Props {
   data: SectionByType<'hero-conversion-funnel'>;
   lang: 'fr' | 'en';
+  /**
+   * Largeur max du conteneur `.wrap-wide`. Optionnel — par défaut le composant
+   * conserve sa largeur catalogue (`1200px`, via la règle scopée ci-dessous,
+   * inchangée pour la preview). Les templates live peuvent passer la largeur
+   * d'origine (ex. `var(--wrap-wide)` = 1560px) pour préserver leur rythme.
+   */
+  wrapMaxWidth?: string;
+  /**
+   * Rendu des stats via l'atome `KeyMetric` (au lieu des `.hero-conversion-funnel__stat`
+   * internes). Optionnel — par défaut `false` (rendu catalogue inchangé → preview
+   * intacte). Les templates live qui rendaient historiquement leurs stats avec
+   * `KeyMetric` (idx 0 = lg/accent, autres = md/default) passent `true` pour
+   * préserver leur typographie d'origine au pixel près.
+   */
+  statsAsKeyMetric?: boolean;
+  /**
+   * Ajoute la classe d'animation `reveal` au kicker. Optionnel — par défaut
+   * `false` (rendu catalogue inchangé → preview intacte). Les templates live qui
+   * révélaient historiquement leur kicker passent `true` pour conserver la même
+   * couche de composition (rastérisation du texte au pixel près).
+   */
+  kickerReveal?: boolean;
 }
-const { data, lang } = Astro.props;
+const { data, lang, wrapMaxWidth, statsAsKeyMetric = false, kickerReveal = false } = Astro.props;
 const isFr = lang === 'fr';
+const wrapStyle = wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined;
+const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-conversion-funnel__num';
 ---
 <section class="hero-conversion-funnel">
-  <div class="wrap-wide">
-    <Kicker tone="accent" class="hero-conversion-funnel__num">§ Flagship {data.funnel_num}</Kicker>
+  <div class="wrap-wide" style={wrapStyle}>
+    <Kicker tone="accent" class={numClass}>§ Flagship {data.funnel_num}</Kicker>
     <h1 class="hero-conversion-funnel__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
     <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
     {data.meta_pills && data.meta_pills.length > 0 && (
@@ -51,12 +76,21 @@ const isFr = lang === 'fr';
     </div>
     {data.stats && data.stats.length > 0 && (
       <div class="hero-conversion-funnel__stats reveal-stagger">
-        {data.stats.map((s, idx) => (
-          <div class:list={['hero-conversion-funnel__stat', idx === 0 && 'hero-conversion-funnel__stat--lead']}>
-            <div class="hero-conversion-funnel__stat-value">{s.value}</div>
-            <div class="hero-conversion-funnel__stat-label">{isFr ? s.label_fr : s.label_en}</div>
-          </div>
-        ))}
+        {statsAsKeyMetric
+          ? data.stats.map((s, idx) => (
+              <KeyMetric
+                value={s.value}
+                label={isFr ? s.label_fr : s.label_en}
+                size={idx === 0 ? 'lg' : 'md'}
+                variant={idx === 0 ? 'accent' : 'default'}
+              />
+            ))
+          : data.stats.map((s, idx) => (
+              <div class:list={['hero-conversion-funnel__stat', idx === 0 && 'hero-conversion-funnel__stat--lead']}>
+                <div class="hero-conversion-funnel__stat-value">{s.value}</div>
+                <div class="hero-conversion-funnel__stat-label">{isFr ? s.label_fr : s.label_en}</div>
+              </div>
+            ))}
       </div>
     )}
   </div>
