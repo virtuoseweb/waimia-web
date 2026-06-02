@@ -4,6 +4,14 @@
 > Repo standalone : `virtuoseweb/waimia-web` · prod `waimia.com` (Vercel `waimia-web`, projectId `prj_MHc3bkMf2mxa5U2gFCiaH7RlbuWj`).
 > ⚠️ NE PAS toucher `virtuoseweb/waimia-v2` (monorepo agrégateur) — waimia.com prod tourne sur **waimia-web** depuis le cutover R4.
 
+## 0bis. MAJ session cloud 2026-06-02 (PR #1, branche `claude/focused-bardeen-0GySr`)
+
+Avancement P1 sur PR #1 (draft, base `main`, **auto-merge OFF**) :
+- ✅ **GF-1 sweep 57/57** des previews (harnais cloud `scripts/gf1-cloud-sweep.mjs` + `serve-dist.mjs`) — cf `docs/21`.
+- ✅ **Gate CI** GF-1 vs preview Vercel déployée (`.github/workflows/gf1-vercel-sweep.yml`) — requiert secret repo `VERCEL_AUTOMATION_BYPASS_SECRET` ; sans lui le gate skip neutre.
+- ⚠️ **Contrainte cloud** : egress bloque `*.vercel.app` → GF-1 sur preview Vercel = CI/local, pas cloud.
+- ✅ **Migration templates→registry (Option B) : pilote `ServiceDetailTemplate`→`HeroServiceDetail` prouvé** (`7c41d4c`, 0 régression). Runbook + mapping des **17 restants** = **`docs/22-TEMPLATE-REGISTRY-MIGRATION.md`**.
+
 ## 0. État à la reprise (point d'arrêt)
 
 - **Branche active** : `feat/library-heroes-enrich` (poussée sur `origin`). Base = `main` (HEAD pré-session `7597e02`).
