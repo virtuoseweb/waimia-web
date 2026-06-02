@@ -44,10 +44,10 @@ before/after pixel-identiques, `getComputedStyle` h1 identique (opacity 1, trans
 
 | Template | h1 live | `vt` | Composant catalogué candidat | Statut |
 |---|---|:--:|---|---|
-| ServiceDetailTemplate | `svc-h1` | 0 | `HeroServiceDetail` | ✅ migré (`7c41d4c`) |
+| ServiceDetailTemplate | `svc-h1` | 0 | `HeroServiceDetail` | ✅ migré (`7c41d4c`) — prop `topPad` |
+| DetailMenuTemplate | `dt-h1` | 0 | `HeroDetailMenu` | ✅ migré (`d582554`) — props `topPad`+`wrapMaxWidth` ; 0 modif e2e |
+| ConversionFunnelTemplate | `cf-h1` | 0 | `HeroConversionFunnel` | 🔄 en cours |
 | UtilityTemplate | `util-h1` | 0 | `HeroUtilityMasthead` | à faire (multi-instances : /contact, /agence/about, /agence/careers) |
-| DetailMenuTemplate | `dt-h1` | 0 | `HeroDetailMenu` | à faire |
-| ConversionFunnelTemplate | `cf-h1` | 0 | `HeroConversionFunnel` | à faire |
 | HubTemplate | `hub-h1` | 0 | `HeroHubMasthead` / `HeroHubStats` / `HeroPillarHub` (selon variante page) | à faire (vérifier variantes) |
 | TrustLegalTemplate | `trust-h1` | 0 | `HeroUtilityMasthead` (?) | à faire (header atypique) |
 | WelcomeTemplate | `welcome-h1` | 0 | à déterminer (confirmation tunnel) | à faire |
