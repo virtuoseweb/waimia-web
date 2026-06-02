@@ -9,12 +9,19 @@ import Kicker from '../ui/atoms/Kicker.astro';
 interface Props {
   data: SectionByType<'hero-service-detail'>;
   lang: 'fr' | 'en';
+  /**
+   * Padding-top du masthead. Optionnel — par défaut `calc(var(--header-height) + 24px)`
+   * (comportement historique du composant, inchangé pour les previews catalogue).
+   * Permet aux templates live de préserver leur rythme vertical d'origine.
+   */
+  topPad?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, topPad } = Astro.props;
 const isFr = lang === 'fr';
+const sectionStyle = topPad ? `padding-top:${topPad}` : undefined;
 ---
 
-<section class="hero-service-detail">
+<section class="hero-service-detail" style={sectionStyle}>
   <div class="wrap-wide">
     <Kicker class="hero-service-detail__num">§ Service {data.service_num}</Kicker>
     <h1 class="hero-service-detail__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />

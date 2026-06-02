@@ -1,0 +1,116 @@
+name: GF-1 · Vercel preview visual sweep
+
+# Gate GF-1 (preuve visuelle empirique) sur les 57 /preview/<type> de la bibliothèque,
+# exécuté contre la PREVIEW VERCEL déployée — ce que la VM cloud claude.ai/code ne peut
+# PAS faire (egress proxy bloque *.vercel.app : « Host not in allowlist »). Le runner CI a
+# le réseau ouvert. Cf docs/21-GF1-CLOUD-SWEEP.md.
+#
+# ⚠️ Activation : le trigger `deployment_status` utilise TOUJOURS le fichier workflow de la
+# branche par défaut (main) — il ne se déclenchera donc pour les PR qu'une fois ce fichier
+# mergé sur `main`. Avant merge, lancer à la demande via `workflow_dispatch` (input preview_url).
+#
+# Secret requis : VERCEL_AUTOMATION_BYPASS_SECRET
+#   Vercel ▸ Project Settings ▸ Deployment Protection ▸ Protection Bypass for Automation
+#   → copier le secret dans GitHub ▸ repo Settings ▸ Secrets and variables ▸ Actions.
+#   (Sans lui, les previews protégées renvoient 401/403 ; le sweep les compterait en échec.)
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      preview_url:
+        description: "URL de la preview Vercel (ex. https://waimia-web-git-<branch>-<team>.vercel.app)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gf1-sweep-${{ github.event.deployment_status.environment_url || github.event.inputs.preview_url }}
+  cancel-in-progress: true
+
+jobs:
+  gf1-sweep:
+    # deployment_status : uniquement les déploiements Preview réussis. workflow_dispatch : toujours.
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       contains(github.event.deployment_status.environment, 'Preview') &&
+       github.event.deployment_status.environment_url != '')
+    runs-on: ubuntu-latest
+    steps:
+      # Le gate ne s'enforce que si le secret de bypass est configuré : sans lui, les previews
+      # Vercel protégées renvoient 401/403 et le sweep serait rouge pour une raison de config,
+      # pas un vrai échec GF-1. Dans ce cas → warning + skip neutre (ne bloque pas la PR).
+      - name: Préflight — secret de bypass présent ?
+        id: preflight
+        env:
+          BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          if [ -z "$BYPASS" ]; then
+            echo "::warning title=GF-1 gate inactif::Secret VERCEL_AUTOMATION_BYPASS_SECRET absent — sweep GF-1 sauté. Ajoute-le (Vercel ▸ Deployment Protection ▸ Protection Bypass for Automation → GitHub repo Secrets) pour activer le gate."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout (sha déployé si deployment_status)
+        if: steps.preflight.outputs.run == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment_status.deployment.sha || github.sha }}
+
+      - name: Setup pnpm
+        if: steps.preflight.outputs.run == 'true'
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+
+      - name: Setup Node
+        if: steps.preflight.outputs.run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install deps
+        if: steps.preflight.outputs.run == 'true'
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright chromium (réseau CI ouvert)
+        if: steps.preflight.outputs.run == 'true'
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Build (pour énumérer les 57 types depuis dist/client/preview)
+        if: steps.preflight.outputs.run == 'true'
+        run: pnpm build
+
+      - name: Résoudre l'URL de preview
+        id: url
+        if: steps.preflight.outputs.run == 'true'
+        run: |
+          URL="${{ github.event.inputs.preview_url }}"
+          [ -z "$URL" ] && URL="${{ github.event.deployment_status.environment_url }}"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "Cible GF-1 : $URL"
+
+      - name: GF-1 sweep contre la preview Vercel
+        if: steps.preflight.outputs.run == 'true'
+        env:
+          BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          node scripts/gf1-cloud-sweep.mjs \
+            --base "${{ steps.url.outputs.url }}" \
+            --dist-preview dist/client/preview \
+            --out gf1-artifacts \
+            --header "x-vercel-protection-bypass: $BYPASS" \
+            --header "x-vercel-set-bypass-cookie: true"
+
+      - name: Upload screenshots + summary
+        if: steps.preflight.outputs.run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gf1-vercel-sweep
+          path: gf1-artifacts/
+          retention-days: 14

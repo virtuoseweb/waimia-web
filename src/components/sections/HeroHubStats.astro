@@ -1,0 +1,96 @@
+---
+// Section catalogue · hero-hub-stats
+// COPIE FIDÈLE du `.hub-masthead` de `src/components/templates/HubTemplate.astro:123-159`
+// Meta kicker + numéro § + h1 monumental + lede et grille de stats 4-col en pied (KeyMetric).
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'hero-hub-stats'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="hero-hub-stats">
+  <div class="wrap-wide">
+    <Kicker class="hero-hub-stats__meta">{isFr ? data.meta_kicker_fr : data.meta_kicker_en}</Kicker>
+    <Kicker tone="accent" class="hero-hub-stats__num">§ {data.hub_num}</Kicker>
+    <h1 class="hero-hub-stats__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <div class="hero-hub-stats__lede reveal">
+      <p set:html={isFr ? data.lede_fr : data.lede_en} />
+    </div>
+    {data.stats && data.stats.length > 0 && (
+      <div class="hero-hub-stats__grid reveal-stagger">
+        {data.stats.map((s, idx) => (
+          <div class:list={['hero-hub-stats__cell', idx === 0 && 'hero-hub-stats__cell--lead', s.emphasis && 'hero-hub-stats__cell--accent']}>
+            <div class="hero-hub-stats__value">{s.value}</div>
+            <div class="hero-hub-stats__label">{isFr ? s.label_fr : s.label_en}</div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero-hub-stats { padding: 140px 32px 0; }
+  .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-hub-stats__meta) { display: inline-flex; gap: 8px; margin-bottom: var(--space-5); }
+  :global(.hero-hub-stats__num) { display: block; margin-bottom: var(--space-5); }
+  .hero-hub-stats__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 13vw, 200px);
+    line-height: 0.88;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+    font-weight: 400;
+    margin: 0;
+  }
+  .hero-hub-stats__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-hub-stats__lede {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2.4vw, 30px);
+    line-height: 1.3;
+    margin-top: 32px;
+    max-width: 980px;
+    color: var(--muted);
+    text-wrap: balance;
+  }
+  .hero-hub-stats__lede p { margin: 0; }
+
+  .hero-hub-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 70px;
+    border-top: 1px solid var(--hairline-strong);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-hub-stats__cell {
+    min-height: 100%;
+    padding: clamp(24px, 3vw, 36px) clamp(14px, 2vw, 22px);
+    border-right: 1px solid var(--hairline);
+  }
+  .hero-hub-stats__cell:last-child { border-right: none; }
+  .hero-hub-stats__value {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: clamp(40px, 4.5vw, 60px); }
+  .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent); }
+  .hero-hub-stats__label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  @media (max-width: 900px) {
+    .hero-hub-stats__grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-hub-stats__cell:nth-child(2n) { border-right: none; }
+  }
+</style>

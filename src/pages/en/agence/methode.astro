@@ -47,12 +47,11 @@ const timelineEvents = phases.map(p => ({
   kicker="§ Our method · Process Intelligence"
   align="left"
   showCta={true}
+  headlineFr="Cinq <i>phases</i>. Pas de <i>diaporama</i>."
+  headlineEn="Five <i>phases</i>. No <i>slideshow</i>."
+  ledeFr="On documente, on mesure, on corrige. Un protocole rejouable — pas un cabinet."
+  ledeEn="We have a method. We write it. We measure it. We correct it. Not a cabinet secret — a protocol that can be replayed."
 >
-  <Fragment slot="headline">Five <i>phases</i>. No <i>slideshow</i>.</Fragment>
-  <Fragment slot="lede">
-    We have a method. We write it. We measure it. We correct it. Not a cabinet secret — a protocol that can be replayed.
-  </Fragment>
-
   <Fragment slot="body">
     {/* ── PHASES via Timeline ── */}
     <Timeline events={timelineEvents} numbered={true} />

@@ -1,0 +1,257 @@
+---
+// Section catalogue · hero-home
+// COPIE FIDÈLE du hero home `src/components/ui/organisms/Hero.astro` adaptée au pattern
+// `{ data, lang }` du registry. Le composant home live reste intouché.
+// Mini-map 6 territoires (3×2) + 3 preuves verticales + CTA dual.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-home'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const ctaHref = data.cta_href ?? (isFr ? '/contact' : '/en/contact');
+const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/offres/growth-system-ia');
+---
+<section class="hero-home" aria-labelledby="hero-home-heading">
+  <div class="signature-grid"></div>
+
+  <div class="hero-sig-mark" aria-hidden="true">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5"/>
+      <text x="60" y="67" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="currentColor" letter-spacing="0.14em">V · 9</text>
+    </svg>
+  </div>
+
+  <div class="wrap-wide">
+    <h1 id="hero-home-heading" class="hero-home__headline reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+
+    <div class="hero-home__sub">
+      <div>
+        <Kicker class="hero-home__fig">§ 01 · {isFr ? 'Promesse' : 'Promise'}</Kicker>
+        <p class="hero-home__lede reveal reveal-fade" set:html={isFr ? data.lede_fr : data.lede_en} />
+
+        <ul class="hero-home__minimap reveal reveal-fade" aria-label={isFr ? 'Périmètre opérationnel · 6 territoires' : 'Operational scope · 6 territories'}>
+          {data.minimap.map((t) => (
+            <li class="hero-home__mm-item">
+              <span class="hero-home__mm-label">{isFr ? t.label_fr : t.label_en}</span>
+              <span class="hero-home__mm-items">{isFr ? t.items_fr : t.items_en}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="hero-home__ctas reveal reveal-snap">
+          <Button href={ctaHref} variant="primary" size="lg" mag={0.18}>
+            {isFr ? data.cta_primary_fr : data.cta_primary_en}
+          </Button>
+          <Button href={offerHref} variant="ghost" size="lg">
+            {isFr ? data.cta_secondary_fr : data.cta_secondary_en}
+          </Button>
+        </div>
+        <p class="hero-home__cta-sub" set:html={isFr ? data.cta_sub_fr : data.cta_sub_en} />
+      </div>
+
+      <div>
+        <Kicker class="hero-home__fig">§ 02 · {isFr ? 'Résultats concrets' : 'Concrete results'}</Kicker>
+        <ul class="hero-home__proofs reveal reveal-fade" aria-label={isFr ? 'Preuves de résultats' : 'Result proofs'}>
+          {data.proofs.map((p) => (
+            <li class="hero-home__proof">
+              <span class="hero-home__proof-num">{p.num}</span>
+              <span class="hero-home__proof-label" set:html={isFr ? p.label_fr : p.label_en} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-home {
+    position: relative;
+    padding: clamp(72px, 5.5vw, 92px) 0 0;
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-home > *:not(.signature-grid):not(.hero-sig-mark) { position: relative; z-index: 1; }
+  .hero-home .signature-grid { z-index: 0; }
+  .hero-home .wrap-wide { max-width: 1560px; margin-inline: auto; }
+
+  .hero-sig-mark {
+    position: absolute;
+    right: calc(var(--gut) * 2);
+    top: calc(var(--section-loose) * 0.55);
+    width: 88px;
+    height: 88px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    color: var(--ink);
+    opacity: 0.18;
+  }
+  .hero-sig-mark svg { width: 100%; height: 100%; display: block; }
+
+  .hero-home__headline {
+    font-family: var(--font-display);
+    font-size: var(--text-h1-hero);
+    line-height: var(--leading-h1, .96);
+    letter-spacing: var(--tracking-display, -0.025em);
+    font-weight: 400;
+    max-width: 980px;
+    margin: 0 0 var(--space-5);
+  }
+  .hero-home__headline :global(i) { font-style: italic; }
+  .hero-home__headline :global(i.acc) { color: var(--accent); }
+
+  .hero-home__sub {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    margin-top: var(--space-7);
+    padding: var(--space-7) 0 var(--space-7);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    align-items: stretch;
+  }
+  .hero-home__sub > div { display: flex; flex-direction: column; }
+  :global(.hero-home__fig) { margin-bottom: var(--space-4); }
+
+  .hero-home__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    line-height: var(--leading-body, 1.5);
+    color: var(--ink-2);
+    max-width: 520px;
+    text-wrap: pretty;
+    transition-delay: 200ms;
+  }
+  .hero-home__lede :global(i) { font-style: italic; color: var(--accent); }
+
+  .hero-home__minimap {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-5) 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+    transition-delay: 280ms;
+  }
+  .hero-home__mm-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-3) var(--space-3) var(--space-3) 0;
+    border-bottom: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+  }
+  .hero-home__mm-item:nth-child(3n) { border-right: none; }
+  .hero-home__mm-item:nth-last-child(-n+3) { border-bottom: none; }
+  .hero-home__mm-item:not(:nth-child(3n+1)) { padding-left: var(--space-3); }
+
+  .hero-home__mm-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .hero-home__mm-items {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: var(--ink-2);
+  }
+
+  @media (max-width: 700px) {
+    .hero-home__minimap { grid-template-columns: repeat(2, 1fr); }
+    .hero-home__mm-item:nth-child(3n) { border-right: 1px solid var(--hairline); }
+    .hero-home__mm-item:nth-child(2n) { border-right: none; }
+    .hero-home__mm-item:nth-last-child(-n+2) { border-bottom: none; }
+    .hero-home__mm-item:nth-last-child(-n+3):not(:nth-last-child(-n+2)) { border-bottom: 1px solid var(--hairline); }
+    .hero-home__mm-item:not(:nth-child(2n+1)) { padding-left: var(--space-3); }
+    .hero-home__mm-item:nth-child(2n+1) { padding-left: 0; }
+  }
+  @media (max-width: 440px) {
+    .hero-home__minimap { grid-template-columns: 1fr; }
+    .hero-home__mm-item, .hero-home__mm-item:nth-child(n) { border-right: none; padding-left: 0; }
+    .hero-home__mm-item:not(:last-child) { border-bottom: 1px solid var(--hairline); }
+    .hero-home__mm-item:last-child { border-bottom: none; }
+  }
+
+  .hero-home__ctas {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-6);
+    transition-delay: 400ms;
+  }
+
+  .hero-home__cta-sub {
+    margin-top: auto;
+    padding-top: var(--space-5);
+    font-family: var(--font-sans);
+    font-size: clamp(13px, 1vw, 14px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    letter-spacing: 0.005em;
+    transition-delay: 520ms;
+  }
+  .hero-home__cta-sub :global(i) { font-style: italic; color: var(--accent); }
+
+  .hero-home__proofs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    transition-delay: 320ms;
+  }
+  .hero-home__proof {
+    display: grid;
+    grid-template-columns: minmax(110px, 0.4fr) 1fr;
+    gap: clamp(16px, 1.8vw, 28px);
+    align-items: baseline;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-home__proof:first-child { padding-top: 0; }
+  .hero-home__proof:last-child { border-bottom: 0; }
+  .hero-home__proof-num {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4.6vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .hero-home__proof-label {
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1.05vw, 16px);
+    line-height: 1.4;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .hero-home__proof-label :global(i) { font-style: italic; color: var(--ink-2); }
+
+  @media (max-width: 900px) {
+    .hero-home__sub { grid-template-columns: 1fr; gap: var(--space-9); }
+    .hero-sig-mark { display: none; }
+    .hero-home__proof { grid-template-columns: 90px 1fr; gap: var(--space-4); }
+  }
+  @media (max-width: 560px) {
+    .hero-home__proof { grid-template-columns: 1fr; gap: 4px; padding: var(--space-3) 0; }
+  }
+  @media (max-height: 850px) and (min-width: 900px) {
+    .hero-home { padding-top: clamp(64px, 5vw, 80px); }
+    .hero-home__sub { margin-top: var(--space-5); padding: var(--space-4) 0 var(--space-7); }
+    .hero-home__headline { font-size: clamp(44px, 7vw, 92px); }
+  }
+</style>

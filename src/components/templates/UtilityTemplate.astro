@@ -17,7 +17,7 @@
 
 import Base from '../../layouts/Base.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
-import Kicker from '../ui/atoms/Kicker.astro';
+import HeroUtilityMasthead from '../sections/HeroUtilityMasthead.astro';
 import CtaFinal from '../sections/CtaFinal.astro';
 import type { SectionByType } from '../../schemas/sections';
 import { langFromPath, localizeHref } from '../../lib/i18n';
@@ -30,8 +30,14 @@ interface Crumb {
 interface Props {
   title: string;
   description: string;
-  /** Kicker section (Contact, Careers, À propos…) */
+  /** Kicker section (Contact, Careers, À propos…) · déjà localisé par la page */
   kicker?: string;
+  /** Masthead · headline (HTML riche : <i> pour l'accent terracotta italique) */
+  headlineFr: string;
+  headlineEn: string;
+  /** Masthead · lede (HTML riche autorisé) */
+  ledeFr: string;
+  ledeEn: string;
   /** Alignement masthead · `left` (défaut, narrative) ou `centered` (action focus) */
   align?: 'left' | 'centered';
   /** Afficher le CTA final en fin de page · défaut true */
@@ -41,9 +47,25 @@ interface Props {
   /** JSON-LD spécifique à la page (forwarded to Base) */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
-const { title, description, kicker, align = 'left', showCta = true, breadcrumb, jsonLd } = Astro.props as Props;
+const { title, description, kicker, headlineFr, headlineEn, ledeFr, ledeEn, align = 'left', showCta = true, breadcrumb, jsonLd } = Astro.props as Props;
 
 const lang = langFromPath(Astro.url.pathname);
+
+// Masthead · consomme le composant catalogué `hero-utility-masthead` (source
+// unique structure + CSS). Contenu par instance via props du template.
+// `reveal` préserve la couche d'animation d'origine du masthead (kicker/h1/lede
+// avaient la classe `reveal`) ; le défaut du composant — sans reveal — reste
+// inchangé pour la preview catalogue. Le `kicker` est déjà localisé par la page,
+// donc passé identique en fr/en (l'instance ne sert qu'une langue à la fois).
+const heroData = {
+  type: 'hero-utility-masthead',
+  ...(kicker ? { kicker_fr: kicker, kicker_en: kicker } : {}),
+  h1_fr: headlineFr,
+  h1_en: headlineEn,
+  lede_fr: ledeFr,
+  lede_en: ledeEn,
+  align,
+} satisfies SectionByType<'hero-utility-masthead'>;
 const isContactPage = Astro.url.pathname === '/contact' || Astro.url.pathname === '/en/contact';
 const utilityLabel = title.split(' · ')[0];
 const ctaData: SectionByType<'cta-final'> = isContactPage
@@ -103,14 +125,12 @@ const autoCrumbs: Crumb[] = breadcrumb ?? (() => {
 ---
 <Base title={title} description={description} jsonLd={jsonLd}>
   {autoCrumbs.length > 0 && <Breadcrumb lang={lang} items={autoCrumbs} />}
-  {/* MASTHEAD */}
-  <section class:list={['util-hd', `util-hd-${align}`]}>
-    <div class="wrap-wide">
-      {kicker && <Kicker class="util-kicker reveal">{kicker}</Kicker>}
-      <h1 class="util-h1 reveal"><slot name="headline" /></h1>
-      <p class="util-lede reveal"><slot name="lede" /></p>
-    </div>
-  </section>
+  {/* MASTHEAD · composant catalogué hero-utility-masthead (contenu via props).
+      align (left/centered) piloté par `data.align` → géré nativement par le composant.
+      wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut du
+      composant — 1200px — reste inchangé pour la preview catalogue.
+      reveal préserve la couche d'animation d'origine (kicker/h1/lede en `reveal`). */}
+  <HeroUtilityMasthead data={heroData} lang={lang} wrapMaxWidth="var(--wrap-wide)" reveal={true} />
 
   {/* BODY · slot libre (form, story, jobs list…) */}
   <section class="util-body reveal">
@@ -124,39 +144,8 @@ const autoCrumbs: Crumb[] = breadcrumb ?? (() => {
 </Base>
 
 <style>
-  .util-hd {
-    padding: 140px 32px clamp(40px, 5vw, 72px);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .util-hd-centered { text-align: center; }
-  :global(.util-kicker) { display: block; margin-bottom: 24px; }
-  .util-hd-centered :global(.util-kicker) { display: inline-block; }
-
-  .util-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 11vw, 180px);
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    font-weight: 400;
-    text-wrap: balance;
-    margin: 0;
-  }
-  .util-h1 :global(i) { font-style: italic; color: var(--accent); }
-
-  .util-lede {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(20px, 2.2vw, 32px);
-    color: var(--ink-2);
-    margin: 32px 0 0;
-    max-width: 760px;
-    line-height: 1.4;
-    text-wrap: pretty;
-  }
-  .util-hd-centered .util-lede {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  /* Masthead migré vers le composant catalogué `HeroUtilityMasthead` (sections/).
+     Règles `.util-hd/.util-hd-centered/.util-kicker/.util-h1/.util-lede` supprimées
+     (structure + CSS désormais portés par le composant — source unique). */
   .util-body { padding: clamp(60px, 8vw, 100px) 32px; }
 </style>

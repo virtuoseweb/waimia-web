@@ -1,0 +1,79 @@
+---
+// Section catalogue · problems-grid
+// COPIE FIDÈLE du `.tnl-problems / .tnl-cards / .tnl-card` de `site-web-ia-landing.astro:80+`
+// h2 sous-titre + grille auto-fit de 3 cards (num + kicker + h3 + body).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'problems-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="problems-grid wrap-wide reveal-blur-clip">
+  <h2 class="problems-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+  <div class="problems-grid__cards">
+    {data.problems.map((p, i) => (
+      <div class="problems-grid__card">
+        <div class="problems-grid__num">{p.num ?? String(i + 1).padStart(2, '0')}</div>
+        <div class="problems-grid__kicker">{isFr ? p.kicker_fr : p.kicker_en}</div>
+        <h3 set:html={isFr ? p.title_fr : p.title_en} />
+        <p>{isFr ? p.body_fr : p.body_en}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
+  .problems-grid { padding-block: clamp(64px, 8vw, 112px); border-top: 1px solid rgba(0,0,0,.07); }
+  .problems-grid__h2 {
+    font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+    font-size: clamp(24px, 3vw, 40px);
+    letter-spacing: -.01em;
+    margin-bottom: clamp(32px, 4vw, 56px);
+    color: var(--ink);
+  }
+  .problems-grid__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: rgba(0,0,0,.08);
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .problems-grid__card {
+    background: var(--paper);
+    padding: clamp(24px, 3vw, 40px);
+  }
+  .problems-grid__num {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .08em;
+    margin-bottom: 8px;
+  }
+  .problems-grid__kicker {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .problems-grid__card h3 {
+    font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .problems-grid__card p {
+    font-family: var(--font-body, 'Inter Tight', sans-serif);
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+</style>

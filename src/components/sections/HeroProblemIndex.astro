@@ -1,0 +1,69 @@
+---
+// Section catalogue · hero-problem-index
+// COPIE FIDÈLE du `.hub-mast` de `src/pages/solutions/index.astro:64-80`
+// Masthead "Solutions par problème" : SVG rectangle rotated 12°, h1 monumental + lede + canonical.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'hero-problem-index'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="hero-problem-index">
+  <svg class="hero-problem-index__geo" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <rect x="1060" y="-20" width="360" height="360" fill="none" stroke="currentColor" stroke-width="0.6" transform="rotate(12 1240 160)"/>
+    <rect x="1140" y="60" width="220" height="220" fill="none" stroke="currentColor" stroke-width="0.4" transform="rotate(12 1250 170)"/>
+    <line x1="0" y1="380" x2="1440" y2="260" stroke="currentColor" stroke-width="0.4"/>
+  </svg>
+  <div class="wrap-wide">
+    <Kicker class="hero-problem-index__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    <h1 class="hero-problem-index__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <p class="hero-problem-index__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+    {data.canonical_fr && (
+      <p class="hero-problem-index__canonical" set:html={isFr ? data.canonical_fr : (data.canonical_en ?? data.canonical_fr)} />
+    )}
+  </div>
+</section>
+
+<style>
+  .hero-problem-index { position: relative; overflow: hidden; padding: 140px 32px clamp(44px, 6vw, 84px); }
+  .hero-problem-index__geo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+  }
+  .wrap-wide { max-width: 1200px; margin-inline: auto; position: relative; z-index: 1; }
+  :global(.hero-problem-index__kicker) { display: block; margin-bottom: 24px; }
+  .hero-problem-index__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .hero-problem-index__h1 :global(i) { font-style: italic; color: var(--ink); }
+  .hero-problem-index__lede {
+    font-family: var(--font-sans);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px);
+    color: var(--ink-2);
+    margin: 32px 0 0;
+    max-width: 760px;
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .hero-problem-index__canonical {
+    max-width: 720px;
+    margin: 22px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .hero-problem-index__canonical :global(strong) { color: var(--ink); font-weight: 500; }
+</style>

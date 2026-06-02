@@ -1,0 +1,79 @@
+---
+// Section catalogue · hero-utility-masthead
+// COPIE FIDÈLE du `.util-hd` de `src/components/templates/UtilityTemplate.astro:106-113`
+// Masthead générique utilitaire (about / méthode / academy intro) : kicker + h1 + lede.
+// Variante align : left (défaut) ou centered.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'hero-utility-masthead'>;
+  lang: 'fr' | 'en';
+  /**
+   * Largeur max du conteneur `.wrap-wide`. Optionnel — par défaut le composant
+   * conserve sa largeur catalogue (`1200px`, via la règle scopée ci-dessous,
+   * inchangée pour la preview). Les templates live peuvent passer la largeur
+   * d'origine (ex. `var(--wrap-wide)` = 1560px) pour préserver leur rythme.
+   */
+  wrapMaxWidth?: string;
+  /**
+   * Ajoute la classe d'animation `reveal` au kicker, au h1 et au lede.
+   * Optionnel — par défaut `false` (rendu catalogue inchangé → preview
+   * hero-utility-masthead intacte). Les templates live qui révélaient
+   * historiquement leur masthead passent `true` pour conserver la même couche
+   * de composition (rastérisation du texte au pixel près après settle).
+   */
+  reveal?: boolean;
+}
+const { data, lang, wrapMaxWidth, reveal = false } = Astro.props;
+const isFr = lang === 'fr';
+const align = data.align ?? 'left';
+const wrapStyle = wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined;
+const rv = reveal ? ' reveal' : '';
+---
+<section class:list={['hero-utility', `hero-utility--${align}`]}>
+  <div class="wrap-wide" style={wrapStyle}>
+    {data.kicker_fr && (
+      <Kicker class={`hero-utility__kicker${rv}`}>{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
+    )}
+    <h1 class={`hero-utility__h1${rv}`} set:html={isFr ? data.h1_fr : data.h1_en} />
+    <p class={`hero-utility__lede${rv}`} set:html={isFr ? data.lede_fr : data.lede_en} />
+  </div>
+</section>
+
+<style>
+  .hero-utility {
+    padding: 140px 32px clamp(40px, 5vw, 72px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-utility--centered { text-align: center; }
+  .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-utility__kicker) { display: block; margin-bottom: 24px; }
+  .hero-utility--centered :global(.hero-utility__kicker) { display: inline-block; }
+
+  .hero-utility__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .hero-utility__h1 :global(i) { font-style: italic; color: var(--accent); }
+
+  .hero-utility__lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 32px);
+    color: var(--ink-2);
+    margin: 32px 0 0;
+    max-width: 760px;
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .hero-utility--centered .hero-utility__lede {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

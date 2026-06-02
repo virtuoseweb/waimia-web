@@ -30,19 +30,11 @@ const livresBlancs = [
     : 'In-depth dossiers signed Waimia: compliance, governance, method. Downloadable without sales funnel.'}
   kicker={lang === 'fr' ? '§ Hub · Livres blancs' : '§ Hub · White papers'}
   align="left"
+  headlineFr="Des <i>dossiers</i>. Pas des brochures."
+  headlineEn="Real <i>dossiers</i>. Not brochures."
+  ledeFr="Documents de fond, signés, datés. Vous repartez avec un PDF utile — pas avec une séquence email de relance."
+  ledeEn="In-depth documents, signed, dated. You leave with a useful PDF — not with a follow-up email sequence."
 >
-  <Fragment slot="headline">
-    {lang === 'fr' ? (
-      <>Des <i>dossiers</i>. Pas des brochures.</>
-    ) : (
-      <>Real <i>dossiers</i>. Not brochures.</>
-    )}
-  </Fragment>
-  <Fragment slot="lede">
-    {lang === 'fr'
-      ? 'Documents de fond, signés, datés. Vous repartez avec un PDF utile — pas avec une séquence email de relance.'
-      : 'In-depth documents, signed, dated. You leave with a useful PDF — not with a follow-up email sequence.'}
-  </Fragment>
 
   <Fragment slot="body">
     <ul class="lb-list">

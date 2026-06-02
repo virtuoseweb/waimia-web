@@ -1,0 +1,137 @@
+---
+// Section catalogue · hero-offer-detail
+// COPIE FIDÈLE du `.off-hero` de `src/components/templates/OffresDetailTemplate.astro:253-298`
+// Cercles concentriques SVG signature + breadcrumb + tier + h1 monumental + lead + CTA + meta.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'hero-offer-detail'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="hero-offer-detail reveal">
+  <svg class="hero-offer-detail__geo" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <line x1="0" y1="280" x2="1440" y2="280" stroke="currentColor" stroke-width=".4" opacity=".05"/>
+    <line x1="0" y1="440" x2="1440" y2="440" stroke="currentColor" stroke-width=".3" opacity=".03"/>
+    <line x1="720" y1="0" x2="720" y2="700" stroke="currentColor" stroke-width=".3" opacity=".04"/>
+    <line x1="960" y1="0" x2="960" y2="700" stroke="currentColor" stroke-width=".25" opacity=".03"/>
+    <circle cx="1200" cy="120" r="340" fill="none" stroke="currentColor" stroke-width=".5" opacity=".09"/>
+    <circle cx="1200" cy="120" r="220" fill="none" stroke="var(--accent)" stroke-width=".35" opacity=".16"/>
+    <circle cx="1200" cy="120" r="110" fill="none" stroke="var(--accent)" stroke-width=".25" opacity=".10"/>
+    <line x1="0" y1="420" x2="880" y2="170" stroke="currentColor" stroke-width=".3" opacity=".07"/>
+    <line x1="1196" y1="118" x2="1204" y2="118" stroke="currentColor" stroke-width=".7" opacity=".22"/>
+    <line x1="1200" y1="114" x2="1200" y2="122" stroke="currentColor" stroke-width=".7" opacity=".22"/>
+  </svg>
+  <div class="hero-offer-detail__wrap">
+    {data.breadcrumb_label_fr && (
+      <nav class="hero-offer-detail__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
+        <a href={data.breadcrumb_href ?? '#'}>{isFr ? data.breadcrumb_label_fr : (data.breadcrumb_label_en ?? data.breadcrumb_label_fr)}</a>
+        <span aria-hidden="true">/</span>
+        <span>{isFr ? data.tier_fr : data.tier_en}</span>
+      </nav>
+    )}
+    <div class="hero-offer-detail__tier">{isFr ? data.tier_fr : data.tier_en}</div>
+    <h1 class="hero-offer-detail__title reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <div class="hero-offer-detail__sub">
+      <p class="hero-offer-detail__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
+      <div class="hero-offer-detail__actions">
+        <a class="hero-offer-detail__cta" href={data.cta.href}>{isFr ? data.cta.label_fr : data.cta.label_en}</a>
+        {data.meta_fr && (
+          <div class="hero-offer-detail__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-offer-detail {
+    position: relative;
+    padding: clamp(72px, 8vw, 112px) 0 clamp(48px, 5.5vw, 88px);
+    overflow: hidden;
+    color: var(--ink);
+  }
+  .hero-offer-detail__geo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .hero-offer-detail__wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 4vw, 48px);
+  }
+  .hero-offer-detail__bc {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex; gap: 8px; align-items: center;
+    margin-bottom: 24px;
+  }
+  .hero-offer-detail__bc a { color: var(--muted); transition: color 220ms ease; text-decoration: none; }
+  .hero-offer-detail__bc a:hover { color: var(--accent); }
+  .hero-offer-detail__tier {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hero-offer-detail__title {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 148px);
+    line-height: 0.92;
+    letter-spacing: -0.028em;
+    font-weight: 400;
+    margin: 0 0 32px;
+    text-wrap: balance;
+  }
+  .hero-offer-detail__title :global(i) { color: var(--accent); font-style: italic; }
+  .hero-offer-detail__sub {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: end;
+    max-width: 1100px;
+  }
+  .hero-offer-detail__lead {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.4;
+    color: var(--ink);
+    font-style: italic;
+    margin: 0;
+  }
+  .hero-offer-detail__lead :global(span) { color: var(--accent); display: block; margin-top: 8px; }
+  .hero-offer-detail__actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .hero-offer-detail__cta {
+    display: inline-block;
+    padding: 14px 24px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: -0.005em;
+    border: 1.5px solid var(--ink);
+    transition: background 240ms ease, color 240ms ease, transform 200ms ease;
+  }
+  .hero-offer-detail__cta:hover { background: transparent; color: var(--ink); transform: translateY(-1px); }
+  .hero-offer-detail__meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  @media (max-width: 768px) {
+    .hero-offer-detail__sub { grid-template-columns: 1fr; }
+  }
+</style>

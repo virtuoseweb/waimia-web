@@ -17,19 +17,11 @@ const lang = langFromPath(Astro.url.pathname);
     : 'AI watch signed Waimia: what matters for SMBs each week. No noise, no hype, no sales follow-up.'}
   kicker={lang === 'fr' ? '§ Hub · Veille IA' : '§ Hub · AI watch'}
   align="left"
+  headlineFr="Ce qui <i>compte</i>. Pas ce qui <i>buzz</i>."
+  headlineEn="What <i>matters</i>. Not what <i>buzzes</i>."
+  ledeFr="Une lecture par semaine. Cinq minutes. Trois faits, une analyse, une action concrète à tester chez vous."
+  ledeEn="One read per week. Five minutes. Three facts, one analysis, one action to try at your shop."
 >
-  <Fragment slot="headline">
-    {lang === 'fr' ? (
-      <>Ce qui <i>compte</i>. Pas ce qui <i>buzz</i>.</>
-    ) : (
-      <>What <i>matters</i>. Not what <i>buzzes</i>.</>
-    )}
-  </Fragment>
-  <Fragment slot="lede">
-    {lang === 'fr'
-      ? 'Une lecture par semaine. Cinq minutes. Trois faits, une analyse, une action concrète à tester chez vous.'
-      : 'One read per week. Five minutes. Three facts, one analysis, one action to try at your shop.'}
-  </Fragment>
 
   <Fragment slot="body">
     <div class="vi-empty">
