@@ -1,14 +1,16 @@
 # Session handoff — waimia-web
 
 > Auto-snapshot par `session-snapshot.sh` (rule 35 anti-perte de flow).
-> Date : 2026-06-02 13:41:10
+> Date : 2026-06-02 14:11:22
+
+> ➡️ **REPRISE NEXT SESSION — LIRE `docs/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md` EN PREMIER** (état bibliothèque + plan orchestration cloud+local multi-agents + config Claude Code 2.1.160). Branche `feat/library-heroes-enrich` (poussée GitHub) : 3 blocs catalogués → registry **57 types** (heroes 8→25), build vert, **GF-1 ✅** (Playwright `hero-sector` opacity:1 + 57/57 previews). Reste : migration templates → consommer le registry + GF-1 sweep sur preview Vercel.
 
 > ⚠️ **REBOOT EN COURS — config agentique V19** : lire `~/.claude/REBOOT-CHECKLIST-V19.md` EN PREMIER (vérif plugins/hooks ecc actifs, `/evolve`, migration tsc/prettier→ecc boot+1).
 
 ## Git state
 
-- Branche : `main`
-- Dernier commit : 7597e02 chore: redeploy production avec env vars (Resend forms + Cal + PUBLIC_SITE_URL)
+- Branche : `feat/library-heroes-enrich`
+- Dernier commit : a786e24 feat(lib): catalogue bloc 3 sections non-hero (marquee + grid + 4 organisms)
 - Working tree :
 
 ```
