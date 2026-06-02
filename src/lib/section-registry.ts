@@ -57,6 +57,7 @@ import HowWeShip from '../components/sections/HowWeShip.astro';
 import OperatingLayer from '../components/sections/OperatingLayer.astro';
 import ManifestoBlock from '../components/sections/ManifestoBlock.astro';
 import HeroEssay from '../components/sections/HeroEssay.astro';
+import HeroLiquid from '../components/sections/HeroLiquid.astro';
 import ProofBarSection from '../components/sections/ProofBarSection.astro';
 import StatBlock from '../components/sections/StatBlock.astro';
 import SocialProof from '../components/sections/SocialProof.astro';
@@ -397,6 +398,16 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Hero d'article éditorial avec accroche italique et métadonnées auteur, date et temps de lecture.",
     description_en: 'Editorial article hero with an italic lede and author, date, and reading-time metadata.',
+  },
+  'hero-liquid': {
+    component: HeroLiquid,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'manifesto', 'canvas', 'react-island', 'dark'],
+    status: 'stable',
+    description_fr: 'Hero manifeste à fond canvas liquide (terracotta animé) : eyebrow, grand titre display italique, lede et CTAs sur fond sombre.',
+    description_en: 'Liquid-canvas manifesto hero (animated terracotta): eyebrow, large italic display headline, lede and CTAs on a dark background.',
   },
   'proof-bar': {
     component: ProofBarSection,
