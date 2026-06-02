@@ -6,6 +6,7 @@ dist/
 .astro/
 .vercel/
 .cache/
+.turbo/
 
 # Logs
 *.log
@@ -30,6 +31,7 @@ coverage/
 
 # Playwright / Browser screenshots & MCP cache
 .playwright-mcp/
+.playwright-cli/
 design-system-*.png
 
 # OS
@@ -49,3 +51,6 @@ Thumbs.db
 *.tmp
 .tmp/
 tmp/
+
+# Audit visuels ponctuels (jetés — pas dans le template ; récupérables via git history)
+audit-snapshots/
