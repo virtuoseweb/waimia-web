@@ -1,0 +1,48 @@
+---
+// Section catalogue · hero-detail-menu
+// COPIE FIDÈLE du `.dt-hero` de `src/components/templates/DetailMenuTemplate.astro:100-108`
+// Parent kicker + numéro § accent + h1 display + lede sobre.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'hero-detail-menu'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="hero-detail-menu">
+  <div class="wrap-wide">
+    <Kicker class="hero-detail-menu__parent">{isFr ? data.parent_kicker_fr : data.parent_kicker_en}</Kicker>
+    <Kicker tone="accent" class="hero-detail-menu__num">§ {data.detail_num}</Kicker>
+    <h1 class="hero-detail-menu__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <p class="hero-detail-menu__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+  </div>
+</section>
+
+<style>
+  .hero-detail-menu { padding: 140px 32px 0; }
+  .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-detail-menu__parent) { display: block; margin-bottom: var(--space-4); }
+  :global(.hero-detail-menu__num) { display: block; margin-bottom: 24px; }
+  .hero-detail-menu__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 156px);
+    line-height: 0.92;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+    font-weight: 400;
+    margin: 0 0 32px;
+  }
+  .hero-detail-menu__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-detail-menu__lede {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.45;
+    max-width: 880px;
+    color: var(--muted);
+    text-wrap: balance;
+    margin: 0;
+  }
+</style>

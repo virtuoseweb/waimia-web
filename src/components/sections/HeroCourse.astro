@@ -1,0 +1,105 @@
+---
+// Section catalogue · hero-course
+// COPIE FIDÈLE du `.course-detail__hd` de `src/components/templates/CourseDetailTemplate.astro:122-161`
+// Kicker accent + title display + lede + meta-pills + cta-group (primary + ghost).
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'hero-course'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="hero-course">
+  <div class="wrap-wide">
+    <header class="hero-course__hd">
+      <Kicker tone="accent">§ {isFr ? data.type_label_fr : data.type_label_en}</Kicker>
+      <h1 class="hero-course__title">{isFr ? data.title_fr : data.title_en}</h1>
+      <p class="hero-course__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      <div class="hero-course__pills">
+        {data.pills.map((p) => (
+          <span class:list={['hero-course__pill', p.variant === 'accent' && 'hero-course__pill--accent', p.variant === 'price' && 'hero-course__pill--price']}>
+            {isFr ? p.label_fr : p.label_en}
+          </span>
+        ))}
+      </div>
+      <div class="hero-course__cta">
+        <a class="hero-course__btn-primary" href={data.cta_primary.href}>{isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}</a>
+        {data.cta_secondary && (
+          <a class="hero-course__btn-ghost" href={data.cta_secondary.href}>{isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}</a>
+        )}
+      </div>
+    </header>
+  </div>
+</section>
+
+<style>
+  .hero-course { padding-top: 24px; }
+  .wrap-wide { max-width: 1100px; margin-inline: auto; padding-inline: var(--space-page-x, 24px); }
+  .hero-course__hd {
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-course__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h1-hero);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 16px 0 20px;
+  }
+  .hero-course__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede);
+    line-height: 1.5;
+    color: var(--text-secondary, #444);
+    margin: 0 0 28px;
+    max-width: 68ch;
+  }
+  .hero-course__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .hero-course__pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--hairline);
+    color: var(--text-muted, #888);
+  }
+  .hero-course__pill--accent { border-color: var(--accent); color: var(--accent); }
+  .hero-course__pill--price { border-color: var(--ink, #111); color: var(--ink, #111); font-weight: 600; }
+  .hero-course__cta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-course__btn-primary {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    background: var(--ink, #111);
+    color: var(--paper);
+    text-decoration: none;
+    border: 1px solid var(--ink, #111);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .hero-course__btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .hero-course__btn-ghost {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 2px;
+  }
+  .hero-course__btn-ghost:hover { color: var(--accent); border-bottom-color: var(--accent); }
+</style>

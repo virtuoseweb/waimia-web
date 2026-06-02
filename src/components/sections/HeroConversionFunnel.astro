@@ -1,0 +1,176 @@
+---
+// Section catalogue · hero-conversion-funnel
+// COPIE FIDÈLE du `.cf-hero` de `src/components/templates/ConversionFunnelTemplate.astro:153-193`
+// Hero magnétique flagship : kicker num + h1 monumental + lede + meta pills + benefits + proof + 2 CTA + stats grid.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-conversion-funnel'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="hero-conversion-funnel">
+  <div class="wrap-wide">
+    <Kicker tone="accent" class="hero-conversion-funnel__num">§ Flagship {data.funnel_num}</Kicker>
+    <h1 class="hero-conversion-funnel__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
+    {data.meta_pills && data.meta_pills.length > 0 && (
+      <div class="hero-conversion-funnel__meta reveal-stagger" aria-label={isFr ? "Repères de l'offre" : 'Offer markers'}>
+        {data.meta_pills.map((pill) => (
+          <span>{isFr ? pill.label_fr : pill.label_en}</span>
+        ))}
+      </div>
+    )}
+    {data.benefits && data.benefits.length > 0 && (
+      <div class="hero-conversion-funnel__benefits reveal">
+        <ul>
+          {data.benefits.map((b) => (
+            <li>{isFr ? b.label_fr : b.label_en}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+    {data.proof_fr && (
+      <p class="hero-conversion-funnel__proof reveal">
+        {isFr ? data.proof_fr : (data.proof_en ?? data.proof_fr)}
+      </p>
+    )}
+    <div class="hero-conversion-funnel__cta">
+      <Button href={data.cta_primary.href} variant="primary" size="lg" mag={0.18}>
+        {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+      </Button>
+      {data.cta_secondary && (
+        <Button href={data.cta_secondary.href} variant="ghost" size="lg">
+          {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+        </Button>
+      )}
+    </div>
+    {data.stats && data.stats.length > 0 && (
+      <div class="hero-conversion-funnel__stats reveal-stagger">
+        {data.stats.map((s, idx) => (
+          <div class:list={['hero-conversion-funnel__stat', idx === 0 && 'hero-conversion-funnel__stat--lead']}>
+            <div class="hero-conversion-funnel__stat-value">{s.value}</div>
+            <div class="hero-conversion-funnel__stat-label">{isFr ? s.label_fr : s.label_en}</div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero-conversion-funnel { padding: 140px 32px clamp(60px, 8vw, 100px); }
+  .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-conversion-funnel__num) { display: block; margin-bottom: 20px; }
+  .hero-conversion-funnel__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 12vw, 200px);
+    line-height: 0.88;
+    letter-spacing: 0;
+    text-wrap: balance;
+    font-weight: 400;
+    margin: 0 0 32px;
+  }
+  .hero-conversion-funnel__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-conversion-funnel__lede {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2.4vw, 30px);
+    line-height: 1.3;
+    margin: 0 0 36px;
+    max-width: 980px;
+    color: var(--muted);
+    text-wrap: balance;
+  }
+  .hero-conversion-funnel__meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 0 0 32px;
+  }
+  .hero-conversion-funnel__meta span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    padding: 7px 11px;
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+  }
+  .hero-conversion-funnel__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 60px; }
+  .hero-conversion-funnel__benefits {
+    max-width: 920px;
+    margin: 0 0 24px;
+  }
+  .hero-conversion-funnel__benefits ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px clamp(18px, 3vw, 34px);
+  }
+  .hero-conversion-funnel__benefits li {
+    position: relative;
+    padding-left: 18px;
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.4vw, 19px);
+    line-height: 1.42;
+    color: var(--ink);
+  }
+  .hero-conversion-funnel__benefits li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid var(--ink-2);
+    border-right: 1px solid var(--ink-2);
+    transform: rotate(45deg);
+  }
+  .hero-conversion-funnel__proof {
+    margin: 0 0 28px;
+    max-width: 760px;
+    padding-top: 16px;
+    border-top: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .hero-conversion-funnel__stats {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1.25fr repeat(3, 1fr);
+    gap: clamp(20px, 4vw, 56px);
+    border-top: 1px solid var(--hairline);
+    padding-top: 28px;
+  }
+  .hero-conversion-funnel__stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent); font-size: clamp(48px, 6vw, 80px); }
+  .hero-conversion-funnel__stat-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  @media (max-width: 768px) {
+    .hero-conversion-funnel__stats { grid-template-columns: 1fr 1fr; }
+    .hero-conversion-funnel__benefits ul { grid-template-columns: 1fr; }
+  }
+</style>

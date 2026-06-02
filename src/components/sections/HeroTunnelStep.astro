@@ -1,0 +1,93 @@
+---
+// Section catalogue · hero-tunnel-step
+// COPIE FIDÈLE du `.tnl-hero` de `src/components/templates/TunnelStepTemplate.astro:50-72`
+// Kicker label + progress bar [01][02]... + h1 (hero/section variant) + lede.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'hero-tunnel-step'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const isHero = data.step === 1;
+const padStep = (n: number) => String(n).padStart(2, '0');
+---
+<section class="hero-tunnel-step wrap-wide">
+  <p class="hero-tunnel-step__kicker">{isFr ? data.kicker_fr : data.kicker_en}</p>
+  <div
+    class="hero-tunnel-step__progress"
+    aria-label={isFr ? `Progression : étape ${data.step} sur ${data.progress_total}` : `Progress: step ${data.step} of ${data.progress_total}`}
+  >
+    {Array.from({ length: data.progress_total }, (_, i) => {
+      const n = i + 1;
+      const active = n === data.step;
+      return (
+        <span class:list={['hero-tunnel-step__progress-step', active && 'is-active']} aria-current={active ? 'step' : undefined}>
+          [{padStep(n)}]
+        </span>
+      );
+    })}
+  </div>
+  <h1
+    class:list={['hero-tunnel-step__h1 reveal-mask-up', isHero ? 'hero-tunnel-step__h1--hero' : 'hero-tunnel-step__h1--section']}
+    set:html={isFr ? data.h1_fr : data.h1_en}
+  />
+  <p class="hero-tunnel-step__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+</section>
+
+<style>
+  .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: var(--gut, 24px); }
+  .hero-tunnel-step { padding-bottom: clamp(48px, 6vw, 80px); }
+  .hero-tunnel-step__kicker {
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.1vw, 12px);
+    line-height: 1;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-6);
+    padding-top: clamp(48px, 8vw, 96px);
+  }
+  .hero-tunnel-step__progress {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: var(--space-7);
+  }
+  .hero-tunnel-step__progress-step {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: .06em;
+    color: var(--muted);
+    padding-inline: 10px;
+    border-right: 1px solid var(--hairline);
+  }
+  .hero-tunnel-step__progress-step:first-child { padding-left: 0; }
+  .hero-tunnel-step__progress-step:last-child { border-right: none; }
+  .hero-tunnel-step__progress-step.is-active { color: var(--accent); }
+  .hero-tunnel-step__h1 {
+    font-family: var(--font-display);
+    letter-spacing: -.02em;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: clamp(24px, 3vw, 40px);
+    max-width: 18ch;
+  }
+  .hero-tunnel-step__h1--hero { font-size: var(--text-h1-hero); }
+  .hero-tunnel-step__h1--section { font-size: var(--text-h2-grand); }
+  .hero-tunnel-step__h1 :global(i),
+  .hero-tunnel-step__h1 :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-tunnel-step__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede);
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 62ch;
+    margin-bottom: clamp(48px, 7vw, 96px);
+  }
+</style>

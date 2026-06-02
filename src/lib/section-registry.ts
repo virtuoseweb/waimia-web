@@ -39,6 +39,17 @@ import HeroProblemIndex from '../components/sections/HeroProblemIndex.astro';
 import HeroSector from '../components/sections/HeroSector.astro';
 import HeroUtilityMasthead from '../components/sections/HeroUtilityMasthead.astro';
 import HeroAcademyHub from '../components/sections/HeroAcademyHub.astro';
+import HeroHubMasthead from '../components/sections/HeroHubMasthead.astro';
+import HeroOfferDetail from '../components/sections/HeroOfferDetail.astro';
+import HeroTechLayer from '../components/sections/HeroTechLayer.astro';
+import HeroConversionFunnel from '../components/sections/HeroConversionFunnel.astro';
+import HeroHubStats from '../components/sections/HeroHubStats.astro';
+import HeroServiceMasthead from '../components/sections/HeroServiceMasthead.astro';
+import HeroDetailMenu from '../components/sections/HeroDetailMenu.astro';
+import HeroAuthor from '../components/sections/HeroAuthor.astro';
+import HeroLeadMagnet from '../components/sections/HeroLeadMagnet.astro';
+import HeroCourse from '../components/sections/HeroCourse.astro';
+import HeroTunnelStep from '../components/sections/HeroTunnelStep.astro';
 import HeroEssay from '../components/sections/HeroEssay.astro';
 import ProofBarSection from '../components/sections/ProofBarSection.astro';
 import StatBlock from '../components/sections/StatBlock.astro';
@@ -200,6 +211,116 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Hero hub académie : kicker mono, h1 display, lede et bande de stats mono (cours, parcours, alumni).',
     description_en: 'Academy hub hero: mono kicker, display h1, lede, and mono stats strip (courses, paths, alumni).',
+  },
+  'hero-hub-masthead': {
+    component: HeroHubMasthead,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'hub', 'masthead', 'index'],
+    status: 'stable',
+    description_fr: 'Masthead mutualisé pour pages d\'index (offres, cas, secteurs, technologies) : kicker mono, h1 italique display, lede court.',
+    description_en: 'Shared masthead for index pages (services, cases, sectors, technologies): mono kicker, italic display h1, short lede.',
+  },
+  'hero-offer-detail': {
+    component: HeroOfferDetail,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'offer', 'detail', 'concentric-svg', 'tier'],
+    status: 'stable',
+    description_fr: 'Hero de page offre détail : SVG cercles concentriques signature, breadcrumb, tier kicker, h1 + lead italique, CTA et meta.',
+    description_en: 'Offer detail hero: signature concentric circles SVG, breadcrumb, tier kicker, h1 + italic lead, CTA and meta.',
+  },
+  'hero-tech-layer': {
+    component: HeroTechLayer,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'technology', 'layer', 'triangles'],
+    status: 'stable',
+    description_fr: 'Hero de couche technologique : triangles SVG signature, layer badge (claude/os/orch), h1 + lead italique, CTA et meta.',
+    description_en: 'Technology layer hero: signature triangles SVG, layer badge (claude/os/orch), h1 + italic lead, CTA and meta.',
+  },
+  'hero-conversion-funnel': {
+    component: HeroConversionFunnel,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'conversion', 'funnel', 'flagship', 'stats', 'benefits'],
+    status: 'stable',
+    description_fr: 'Hero magnétique flagship : kicker num + h1 monumental, lede, meta pills, benefits checklist, ligne preuve mono, double CTA et grille stats 4-col.',
+    description_en: 'Flagship magnetic hero: num kicker + monumental h1, lede, meta pills, benefits checklist, mono proof line, dual CTA and 4-col stats grid.',
+  },
+  'hero-hub-stats': {
+    component: HeroHubStats,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'hub', 'stats', 'pillar', 'masthead'],
+    status: 'stable',
+    description_fr: 'Hero hub avec stats : meta kicker double + numéro § accent + h1 maximal, lede, grille KeyMetric 4-col en pied avec accent.',
+    description_en: 'Hub hero with stats: dual meta kicker + accent § number + maximal h1, lede, 4-col KeyMetric grid at the foot with accent.',
+  },
+  'hero-service-masthead': {
+    component: HeroServiceMasthead,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'service', 'masthead', 'simple'],
+    status: 'stable',
+    description_fr: 'Masthead service sobre : kicker § Service N + h1 display + lede display muted, sans décor SVG.',
+    description_en: 'Plain service masthead: § Service N kicker + display h1 + muted display lede, no SVG decoration.',
+  },
+  'hero-detail-menu': {
+    component: HeroDetailMenu,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'detail', 'menu', 'nested'],
+    status: 'stable',
+    description_fr: 'Hero d\'entrée de menu détail : kicker parent + numéro § accent + h1 + lede sobre, idéal pour sous-pages catalogue.',
+    description_en: 'Detail-menu entry hero: parent kicker + accent § number + h1 + plain lede, ideal for sub-catalogue pages.',
+  },
+  'hero-author': {
+    component: HeroAuthor,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'author', 'portrait', 'profile'],
+    status: 'stable',
+    description_fr: 'Hero de page auteur : 2-col copy/portrait, breadcrumb équipe, role eyebrow, h1 split prénom+nom italic accent, lede display.',
+    description_en: 'Author page hero: 2-col copy/portrait, team breadcrumb, role eyebrow, h1 split first-name + italic accent surname, display lede.',
+  },
+  'hero-lead-magnet': {
+    component: HeroLeadMagnet,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'lead-magnet', 'whitepaper', 'cover', 'download'],
+    status: 'stable',
+    description_fr: 'Hero lead magnet (livre blanc) : 2-col texte/cover PDF, kicker + h1 + lede italique, meta format/date, carte download CTA.',
+    description_en: 'Lead magnet hero (whitepaper): 2-col text/PDF cover, kicker + h1 + italic lede, format/date meta, download card CTA.',
+  },
+  'hero-course': {
+    component: HeroCourse,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'course', 'training', 'pills', 'meta'],
+    status: 'stable',
+    description_fr: 'Hero de page cours/formation : kicker accent + title + lede + meta-pills (niveau/durée/format/prix) + cta-group primary/ghost.',
+    description_en: 'Course/training hero: accent kicker + title + lede + meta-pills (level/duration/format/price) + primary/ghost cta-group.',
+  },
+  'hero-tunnel-step': {
+    component: HeroTunnelStep,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'tunnel', 'step', 'progress', 'funnel'],
+    status: 'stable',
+    description_fr: 'Hero d\'étape de tunnel : kicker accent + barre de progression [01][02]... + h1 (variante hero ou section) + lede.',
+    description_en: 'Tunnel step hero: accent kicker + progress bar [01][02]... + h1 (hero or section variant) + lede.',
   },
   'hero-essay': {
     component: HeroEssay,

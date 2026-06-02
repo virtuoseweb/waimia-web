@@ -1,0 +1,126 @@
+---
+// Section catalogue · hero-tech-layer
+// COPIE FIDÈLE du `.tech-hero` de `src/components/templates/TechnologiesDetailTemplate.astro:214-234`
+// Triangles SVG signature + layer badge (claude/os/orch) + h1 + lead italique + CTA + meta.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'hero-tech-layer'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const layerType = data.layer_type ?? 'claude';
+---
+<section class:list={['hero-tech-layer', `hero-tech-layer--${layerType}`]}>
+  <svg class="hero-tech-layer__geo" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <polygon points="1100,80 1340,80 1220,300" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18"/>
+    <polygon points="1160,140 1320,140 1240,280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25"/>
+    <polygon points="60,420 280,420 170,580" fill="none" stroke="currentColor" stroke-width=".4" opacity=".12"/>
+    <line x1="0" y1="500" x2="1440" y2="380" stroke="currentColor" stroke-width=".3" opacity=".1"/>
+  </svg>
+  <div class="hero-tech-layer__wrap">
+    <div class:list={['hero-tech-layer__layer', `hero-tech-layer__layer--${layerType}`]}>
+      {isFr ? data.layer_label_fr : data.layer_label_en}
+    </div>
+    <h1 class="hero-tech-layer__title reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <div class="hero-tech-layer__sub">
+      <p class="hero-tech-layer__lead reveal" set:html={isFr ? data.lead_fr : data.lead_en} />
+      <div class="hero-tech-layer__actions">
+        <a class="hero-tech-layer__cta" href={data.cta.href}>{isFr ? data.cta.label_fr : data.cta.label_en}</a>
+        {data.meta_fr && (
+          <div class="hero-tech-layer__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-tech-layer {
+    position: relative;
+    padding: clamp(80px, 10vw, 140px) 0 clamp(64px, 8vw, 120px);
+    overflow: hidden;
+    color: var(--ink);
+  }
+  .hero-tech-layer__geo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .hero-tech-layer__wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 4vw, 48px);
+  }
+  .hero-tech-layer__layer {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-tech-layer__layer::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 999px;
+    background: currentColor;
+  }
+  .hero-tech-layer__layer--claude { color: var(--accent); }
+  .hero-tech-layer__layer--os { color: var(--ink); opacity: 0.85; }
+  .hero-tech-layer__layer--orch { color: var(--ink); opacity: 0.65; }
+  .hero-tech-layer__title {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 148px);
+    line-height: 0.92;
+    letter-spacing: -0.028em;
+    font-weight: 400;
+    margin: 0 0 32px;
+    text-wrap: balance;
+  }
+  .hero-tech-layer__title :global(i) { color: var(--accent); font-style: italic; }
+  .hero-tech-layer__sub {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: end;
+    max-width: 1100px;
+  }
+  .hero-tech-layer__lead {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.4;
+    color: var(--ink);
+    font-style: italic;
+    margin: 0;
+  }
+  .hero-tech-layer__lead :global(span) { color: var(--accent); display: block; margin-top: 8px; }
+  .hero-tech-layer__actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .hero-tech-layer__cta {
+    display: inline-block;
+    padding: 14px 24px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: -0.005em;
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+  .hero-tech-layer__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .hero-tech-layer__meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  @media (max-width: 768px) {
+    .hero-tech-layer__sub { grid-template-columns: 1fr; }
+  }
+</style>
