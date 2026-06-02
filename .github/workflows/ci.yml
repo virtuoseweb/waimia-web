@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Annule les runs obsolètes quand on pousse plusieurs fois sur la même PR
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build (astro)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # astro check : surfacé mais non-bloquant tant que la suite type n'est pas figée
+      - name: Type / content check (non-blocking)
+        run: pnpm check
+        continue-on-error: true
+
+      # Le build doit passer : c'est la garantie que toute PR reste déployable sur Vercel
+      - name: Build
+        run: pnpm build
