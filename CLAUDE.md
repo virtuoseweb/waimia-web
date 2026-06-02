@@ -12,6 +12,7 @@ Point d'arrêt : branche `feat/library-heroes-enrich`, bibliothèque à **57 typ
 - **Local** : `.claude/` repo **+** `~/.claude` global (tout l'arsenal) sont actifs.
 - Repo `.claude/settings.json` : agent teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) + `teammateMode: auto`. Agent GF-1 délégable : `.claude/agents/visual-proof-reviewer.md`.
 - Checklist de vérif d'init (les 2 surfaces) : `docs/20` §6.
+- **Autonomie** : local = `bypassPermissions` déjà global (`~/.claude/settings.json`) ; cloud = autonome par design (sandbox isolée). Rien à taper. Détail : `docs/20` §7.
 
 ## Stack & commandes
 - Astro 6 (`output: 'static'` + `@astrojs/vercel`), React islands, Tailwind 4, pnpm.

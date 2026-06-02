@@ -25,7 +25,7 @@ CTX="## 🛡️ Garde-fous waimia-web rechargés (hook repo SessionStart)
 Surface : $SURFACE
 Branche : \`$BRANCH\` · dernier commit : \`$LAST\`
 
-**GF-1 (preuve visuelle)** — jamais « validé / fini / parfait » sur du rendu sans Playwright screenshot above-fold + \`getComputedStyle\` (opacity≠0, transform neutre) sur la **preview/prod déployée**. Lighthouse ne suffit JAMAIS. Reviewer dédié : agent \`visual-proof-reviewer\`.
+**GF-1 (preuve EMPIRIQUE)** — jamais « validé / fini / parfait » sans preuve. Visuel : Playwright screenshot above-fold + \`getComputedStyle\` (opacity≠0, transform neutre) sur la **preview/prod déployée** (Lighthouse ne suffit JAMAIS). Backend/API/DB/full-stack : appel réel + assertion réponse + write→read DB + flow E2E (Playwright/computer-use) — « ça build / 200 OK » ≠ preuve. Reviewer dédié : agent \`visual-proof-reviewer\` (2 pistes).
 **Prod** — \`waimia.com\` sert \`main\`. Ne merger sur \`main\` qu'après GF-1 sur une preview Vercel. **Auto-merge GitHub = OFF.**
 **Branches isolées** — 1 scope = 1 branche \`feat/<scope>\`, jamais \`git add -A\` global. Push :
 \`git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin <branche>\` (local) ou outils GitHub intégrés (cloud).

@@ -111,3 +111,12 @@ une session **cloud** (Claude Code on the web) démarre d'un **clone frais du re
 4. **Conscience que les rules/hooks globaux NE tournent PAS** → s'auto-discipliner via le repo CLAUDE.md + ce doc (pas d'attente du routage `rules-enforcer`).
 
 Si un de ces points échoue → le corriger AVANT de produire (rule 10 session-start-audit côté local ; côté cloud, vérifier que la branche lancée contient bien `.claude/`).
+
+## 7. Autonomie / permissions (cloud + local) — source : `code.claude.com/docs/en/permissions`
+
+L'autonomie totale (zéro prompt de permission) est **déjà active**, par config — **rien à taper** (`--dangerously-skip-permissions` / claude-yolo redondants) :
+
+- **LOCAL** : `~/.claude/settings.json` a **déjà** `permissions.defaultMode: "bypassPermissions"` + un `allow` exhaustif (`Bash(*)`, `Edit(*)`, `mcp__*`, `Agent(*)`…). Mode `bypassPermissions` = *« Skips all permission prompts »* (seul `rm -rf /` ou `~` re-prompte, circuit-breaker). S'applique à **tous les projets locaux** (réglage user-scoped) → lancer simplement `claude` (binaire `/Users/simonberos/.local/bin/claude`), l'autonomie est héritée. Ne PAS passer par un wrapper qui surcharge le mode.
+- **CLOUD** (claude.ai/code) : la VM Anthropic est **isolée par design** → la doc cadre les sessions cloud comme **exécution autonome** (*« letting Claude execute autonomously in the cloud »*, pattern `claude --remote "..."`). Pas besoin de committer `bypassPermissions` dans le repo (et on évite de le faire : commiter un mode bypass dans un repo = mauvais signal si le repo est partagé). L'isolation sandbox EST la ceinture de sécurité.
+- **Ne PAS** mettre `permissions.disableBypassPermissionsMode` (verrouillerait l'autonomie). Vérif locale : `grep -A2 defaultMode ~/.claude/settings.json`.
+- Pour piloter une exécution cloud depuis le terminal local : `claude --permission-mode plan` (cadrer le plan) → commit/push → `claude --remote "exécute le plan docs/<...>"` (exécution autonome cloud). Plusieurs `--remote` = sessions cloud parallèles.
