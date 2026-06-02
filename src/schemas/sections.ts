@@ -643,6 +643,23 @@ export const heroEssaySchema = z.object({
   hero_image_alt_en: z.string().optional(),
 });
 
+// Hero · manifeste liquide (fond canvas React LiquidHero + headline display + lede + CTAs)
+export const heroLiquidSchema = z.object({
+  type: z.literal('hero-liquid'),
+  eyebrow_fr: z.string().optional(),
+  eyebrow_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  cta_primary_label_fr: z.string().optional(),
+  cta_primary_label_en: z.string().optional(),
+  cta_primary_href: z.string().optional(),
+  cta_secondary_label_fr: z.string().optional(),
+  cta_secondary_label_en: z.string().optional(),
+  cta_secondary_href: z.string().optional(),
+});
+
 // PROOF / STATS
 export const proofBarSchema = z.object({
   type: z.literal('proof-bar'),
@@ -1105,6 +1122,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   operatingLayerSchema,
   manifestoBlockSchema,
   heroEssaySchema,
+  heroLiquidSchema,
   proofBarSchema,
   statBlockSchema,
   socialProofSchema,

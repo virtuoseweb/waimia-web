@@ -1,0 +1,62 @@
+---
+// Section W6 · hero-liquid — fond canvas React LiquidHero + manifeste paramétré.
+// Source markup : src/pages/manifesto.astro (.manifesto-hero). DS figé, composition only.
+import type { SectionByType } from '../../schemas/sections';
+import LiquidHero from '../motion/LiquidHero.tsx';
+import Kicker from '../ui/atoms/Kicker.astro';
+import PillCTA from '../ui/atoms/PillCTA.astro';
+
+interface Props { data: SectionByType<'hero-liquid'>; lang: 'fr' | 'en'; }
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const eyebrow = isFr ? data.eyebrow_fr : data.eyebrow_en;
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const ctaPrimary = isFr ? data.cta_primary_label_fr : data.cta_primary_label_en;
+const ctaSecondary = isFr ? data.cta_secondary_label_fr : data.cta_secondary_label_en;
+---
+<section class="hero-liquid">
+  <LiquidHero client:visible />
+  <div class="hero-liquid__inner">
+    {eyebrow && <Kicker class="hero-liquid__eyebrow">{eyebrow}</Kicker>}
+    <h1 class="hero-liquid__h1 reveal-mask-up" set:html={h1} />
+    {lede && <p class="hero-liquid__lede reveal reveal-fade">{lede}</p>}
+    {(ctaPrimary || ctaSecondary) && (
+      <div class="hero-liquid__cta">
+        {ctaPrimary && data.cta_primary_href && (
+          <PillCTA href={data.cta_primary_href} variant="accent" mag={0.18}>{ctaPrimary}</PillCTA>
+        )}
+        {ctaSecondary && data.cta_secondary_href && (
+          <PillCTA href={data.cta_secondary_href} variant="ghost-dark">{ctaSecondary}</PillCTA>
+        )}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero-liquid { position: relative; overflow: hidden; background: var(--ink); }
+  .hero-liquid__inner {
+    position: relative; z-index: 2; color: var(--paper);
+    min-height: clamp(440px, 62vh, 680px);
+    padding: clamp(48px,5vw,88px) clamp(20px,4vw,48px);
+    display: flex; flex-direction: column; justify-content: center;
+    gap: clamp(20px,2.5vw,36px); max-width: 1560px; margin-inline: auto; width: 100%;
+  }
+  .hero-liquid__h1 {
+    font-family: var(--font-display); font-size: clamp(40px,7vw,100px);
+    line-height: .94; letter-spacing: -0.035em; color: var(--paper);
+    text-wrap: balance; font-weight: 400; margin: 0; max-width: 1400px;
+  }
+  .hero-liquid__h1 :global(i) { font-style: italic; }
+  .hero-liquid__h1 :global(i.accent) { color: var(--accent); }
+  .hero-liquid__lede {
+    font-family: var(--font-display); font-size: clamp(18px,1.8vw,26px);
+    line-height: 1.35; color: rgba(246,241,232,.72); margin: 0; max-width: 720px; text-wrap: pretty;
+  }
+  .hero-liquid__cta { display: flex; gap: 10px; flex-wrap: wrap; }
+  @media (prefers-reduced-motion: reduce) {
+    :global(.hero-liquid .liquid-hero canvas) { display: none !important; }
+    :global(.hero-liquid .liquid-hero) { background: var(--ink); }
+  }
+</style>
