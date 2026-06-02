@@ -191,6 +191,118 @@ export const heroCaseStudySchema = z.object({
     .optional(),
 });
 
+// Hero · home Waimia (réservé `/` et `/en/`) · mini-map 6 territoires + 3 preuves verticales
+export const heroHomeSchema = z.object({
+  type: z.literal('hero-home'),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  minimap: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+        items_fr: z.string(),
+        items_en: z.string(),
+      }),
+    )
+    .length(6),
+  proofs: z
+    .array(
+      z.object({
+        num: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .length(3),
+  cta_primary_fr: z.string(),
+  cta_primary_en: z.string(),
+  cta_secondary_fr: z.string(),
+  cta_secondary_en: z.string(),
+  cta_sub_fr: z.string(),
+  cta_sub_en: z.string(),
+  cta_href: z.string().optional(),
+  offer_href: z.string().optional(),
+});
+
+// Hero · landing magnétique (offres/site-web-ia-landing) · eyebrow + h1 italic + 2 CTA + dispo
+export const heroLandingSchema = z.object({
+  type: z.literal('hero-landing'),
+  eyebrow_fr: z.string(),
+  eyebrow_en: z.string(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  availability_fr: z.string().optional(),
+  availability_en: z.string().optional(),
+});
+
+// Hero · solutions par problème (solutions/index) · masthead SVG rect rotated 12° + h1 monumental
+export const heroProblemIndexSchema = z.object({
+  type: z.literal('hero-problem-index'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  canonical_fr: z.string().optional(),
+  canonical_en: z.string().optional(),
+});
+
+// Hero · cas client par secteur (SolutionsDetailTemplate) · dept + h1 + lead italique + CTA + tags
+export const heroSectorSchema = z.object({
+  type: z.literal('hero-sector'),
+  dept_fr: z.string(),
+  dept_en: z.string(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lead_fr: z.string(),
+  lead_en: z.string(),
+  cta: ctaSchema,
+  meta_fr: z.string().optional(),
+  meta_en: z.string().optional(),
+  tags: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .max(8)
+    .optional(),
+});
+
+// Hero · masthead générique utilitaire (about / méthode / academy) · kicker + h1 + lede + align
+export const heroUtilityMastheadSchema = z.object({
+  type: z.literal('hero-utility-masthead'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  align: z.enum(['left', 'centered']).default('left'),
+});
+
+// Hero · hub académie (EcoleHubTemplate) · kicker mono + h1 + lede + bande stats
+export const heroAcademyHubSchema = z.object({
+  type: z.literal('hero-academy-hub'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  stats_label_fr: z.string().optional(),
+  stats_label_en: z.string().optional(),
+});
+
 // Hero · essai éditorial (kicker + h1 + lede italique + meta auteur/date/temps)
 export const heroEssaySchema = z.object({
   type: z.literal('hero-essay'),
@@ -647,6 +759,12 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroServiceDetailSchema,
   heroPillarHubSchema,
   heroCaseStudySchema,
+  heroHomeSchema,
+  heroLandingSchema,
+  heroProblemIndexSchema,
+  heroSectorSchema,
+  heroUtilityMastheadSchema,
+  heroAcademyHubSchema,
   heroEssaySchema,
   proofBarSchema,
   statBlockSchema,

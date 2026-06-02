@@ -1,0 +1,96 @@
+---
+// Section catalogue · hero-landing
+// COPIE FIDÈLE du `.lp-hero` de `src/pages/offres/site-web-ia-landing.astro:29-51`
+// Eyebrow mono + h1 italic (em) + lede + 2 CTA + ligne dispo.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'hero-landing'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="hero-landing wrap-wide">
+  <p class="hero-landing__eyebrow reveal">{isFr ? data.eyebrow_fr : data.eyebrow_en}</p>
+  <h1 class="hero-landing__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+  <p class="hero-landing__lede reveal">{isFr ? data.lede_fr : data.lede_en}</p>
+  <div class="hero-landing__ctas reveal">
+    <a href={data.cta_primary.href} class="hero-landing__btn-primary">
+      {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+    </a>
+    {data.cta_secondary && (
+      <a href={data.cta_secondary.href} class="hero-landing__btn-secondary">
+        {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+      </a>
+    )}
+  </div>
+  {data.availability_fr && (
+    <p class="hero-landing__avail reveal">{isFr ? data.availability_fr : (data.availability_en ?? data.availability_fr)}</p>
+  )}
+</section>
+
+<style>
+  .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
+  .hero-landing { padding-bottom: clamp(48px, 6vw, 80px); }
+  .hero-landing__eyebrow {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: clamp(11px, 1.2vw, 13px);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 24px;
+    padding-top: clamp(48px, 8vw, 96px);
+  }
+  .hero-landing__h1 {
+    font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 1.03;
+    letter-spacing: -.025em;
+    color: var(--ink);
+    margin-bottom: clamp(24px, 4vw, 48px);
+    max-width: 18ch;
+  }
+  .hero-landing__h1 :global(em) { font-style: italic; color: var(--accent); }
+  .hero-landing__lede {
+    font-family: var(--font-body, 'Inter Tight', sans-serif);
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 62ch;
+    margin-bottom: clamp(48px, 8vw, 96px);
+  }
+  .hero-landing__ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+  .hero-landing__btn-primary {
+    font-family: var(--font-body, 'Inter Tight', sans-serif);
+    font-size: 15px;
+    font-weight: 600;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 28px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .hero-landing__btn-primary:hover { opacity: .85; }
+  .hero-landing__btn-secondary {
+    font-family: var(--font-body, 'Inter Tight', sans-serif);
+    font-size: 15px;
+    color: var(--ink);
+    border: 1px solid rgba(0,0,0,.18);
+    padding: 14px 28px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color .2s;
+  }
+  .hero-landing__btn-secondary:hover { border-color: var(--ink); }
+  .hero-landing__avail {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .08em;
+  }
+  @media (max-width: 640px) {
+    .hero-landing__ctas { flex-direction: column; }
+  }
+</style>

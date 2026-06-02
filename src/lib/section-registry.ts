@@ -33,6 +33,12 @@ import HeroHubListing from '../components/sections/HeroHubListing.astro';
 import HeroServiceDetail from '../components/sections/HeroServiceDetail.astro';
 import HeroPillarHub from '../components/sections/HeroPillarHub.astro';
 import HeroCaseStudy from '../components/sections/HeroCaseStudy.astro';
+import HeroHome from '../components/sections/HeroHome.astro';
+import HeroLanding from '../components/sections/HeroLanding.astro';
+import HeroProblemIndex from '../components/sections/HeroProblemIndex.astro';
+import HeroSector from '../components/sections/HeroSector.astro';
+import HeroUtilityMasthead from '../components/sections/HeroUtilityMasthead.astro';
+import HeroAcademyHub from '../components/sections/HeroAcademyHub.astro';
 import HeroEssay from '../components/sections/HeroEssay.astro';
 import ProofBarSection from '../components/sections/ProofBarSection.astro';
 import StatBlock from '../components/sections/StatBlock.astro';
@@ -134,6 +140,66 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Hero d'étude de cas avec décor géométrique, titre et barre de spécifications (client, secteur, durée).",
     description_en: 'Case study hero with geometric decoration, headline, and a specification bar (client, sector, duration).',
+  },
+  'hero-home': {
+    component: HeroHome,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'home', 'minimap', 'proofs', 'signature'],
+    status: 'stable',
+    description_fr: 'Hero d\'accueil Waimia : mini-map 3×2 de 6 territoires opérationnels, 3 preuves verticales, double CTA et signature géométrique V·9.',
+    description_en: 'Waimia home hero: 3×2 mini-map of 6 operational territories, 3 vertical proofs, dual CTA, and V·9 geometric signature.',
+  },
+  'hero-landing': {
+    component: HeroLanding,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'landing', 'magnetic', 'cta'],
+    status: 'stable',
+    description_fr: 'Hero magnétique landing : eyebrow mono, h1 italique avec emphasis, lede, double CTA et bandeau de disponibilité.',
+    description_en: 'Magnetic landing hero: mono eyebrow, italic emphasis h1, lede, dual CTA, and availability strip.',
+  },
+  'hero-problem-index': {
+    component: HeroProblemIndex,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'hub', 'problem', 'svg', 'decoration'],
+    status: 'stable',
+    description_fr: 'Hero d\'index par problème : décor SVG rectangle rotated 12°, h1 monumental, lede italique et phrase canonique.',
+    description_en: 'Problem index hero: 12° rotated rectangle SVG decoration, monumental h1, italic lede, and canonical line.',
+  },
+  'hero-sector': {
+    component: HeroSector,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'sector', 'department', 'tags'],
+    status: 'stable',
+    description_fr: 'Hero de page secteur ou département : SVG rotated 15° accent, dept kicker, h1 + lead italique, CTA et meta, tags secteurs.',
+    description_en: 'Sector or department hero: 15° rotated SVG with accent, dept kicker, italic h1 + lead, CTA and meta, sector tags.',
+  },
+  'hero-utility-masthead': {
+    component: HeroUtilityMasthead,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'utility', 'masthead', 'editorial'],
+    status: 'stable',
+    description_fr: 'Masthead utilitaire générique (about, méthode, academy intro) : kicker, h1 monumental, lede display italique, alignement gauche ou centré.',
+    description_en: 'Generic utility masthead (about, method, academy intro): kicker, monumental h1, italic display lede, left or centered alignment.',
+  },
+  'hero-academy-hub': {
+    component: HeroAcademyHub,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'academy', 'school', 'stats'],
+    status: 'stable',
+    description_fr: 'Hero hub académie : kicker mono, h1 display, lede et bande de stats mono (cours, parcours, alumni).',
+    description_en: 'Academy hub hero: mono kicker, display h1, lede, and mono stats strip (courses, paths, alumni).',
   },
   'hero-essay': {
     component: HeroEssay,
