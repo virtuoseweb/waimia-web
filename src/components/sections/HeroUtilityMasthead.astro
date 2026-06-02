@@ -9,18 +9,35 @@ import Kicker from '../ui/atoms/Kicker.astro';
 interface Props {
   data: SectionByType<'hero-utility-masthead'>;
   lang: 'fr' | 'en';
+  /**
+   * Largeur max du conteneur `.wrap-wide`. Optionnel — par défaut le composant
+   * conserve sa largeur catalogue (`1200px`, via la règle scopée ci-dessous,
+   * inchangée pour la preview). Les templates live peuvent passer la largeur
+   * d'origine (ex. `var(--wrap-wide)` = 1560px) pour préserver leur rythme.
+   */
+  wrapMaxWidth?: string;
+  /**
+   * Ajoute la classe d'animation `reveal` au kicker, au h1 et au lede.
+   * Optionnel — par défaut `false` (rendu catalogue inchangé → preview
+   * hero-utility-masthead intacte). Les templates live qui révélaient
+   * historiquement leur masthead passent `true` pour conserver la même couche
+   * de composition (rastérisation du texte au pixel près après settle).
+   */
+  reveal?: boolean;
 }
-const { data, lang } = Astro.props;
+const { data, lang, wrapMaxWidth, reveal = false } = Astro.props;
 const isFr = lang === 'fr';
 const align = data.align ?? 'left';
+const wrapStyle = wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined;
+const rv = reveal ? ' reveal' : '';
 ---
 <section class:list={['hero-utility', `hero-utility--${align}`]}>
-  <div class="wrap-wide">
+  <div class="wrap-wide" style={wrapStyle}>
     {data.kicker_fr && (
-      <Kicker class="hero-utility__kicker">{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
+      <Kicker class={`hero-utility__kicker${rv}`}>{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
     )}
-    <h1 class="hero-utility__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
-    <p class="hero-utility__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+    <h1 class={`hero-utility__h1${rv}`} set:html={isFr ? data.h1_fr : data.h1_en} />
+    <p class={`hero-utility__lede${rv}`} set:html={isFr ? data.lede_fr : data.lede_en} />
   </div>
 </section>
 

@@ -24,14 +24,11 @@ const otherError = result?.error && !isInputError(result.error)
   description="Un diagnostic IA gratuit en 12 questions. 5 minutes. Résultat immédiat avec vos points forts, lacunes, et 3 prochaines actions priorisées."
   kicker="§ Academy · Diagnostic gratuit · 5 min"
   align="centered"
+  headlineFr="Où en êtes-vous <i>vraiment</i> sur l'IA ?"
+  headlineEn="Where do you <i>really</i> stand on AI?"
+  ledeFr="Un diagnostic structuré en 12 questions. 5 minutes. Vous recevez un scorecard immédiat — pas de rappel commercial."
+  ledeEn="A structured diagnostic in 12 questions. 5 minutes. You get an immediate scorecard — no sales follow-up."
 >
-  <Fragment slot="headline">
-    Où en êtes-vous <i>vraiment</i> sur l'IA ?
-  </Fragment>
-  <Fragment slot="lede">
-    Un diagnostic structuré en 12 questions. 5 minutes. Vous recevez un scorecard immédiat — pas de rappel commercial.
-  </Fragment>
-
   <Fragment slot="body">
     <form class="acad-form" method="POST" action={actions.academy} name="academy" data-enhanced novalidate>
         <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden">
