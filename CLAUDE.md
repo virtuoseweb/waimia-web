@@ -4,8 +4,14 @@ Repo **standalone** Astro 6 SSG → déployé sur **`waimia.com`** (Vercel proje
 Org GitHub : **`virtuoseweb`**. ⚠️ NE PAS toucher le repo `waimia-v2` (monorepo agrégateur).
 
 ## 🚀 Reprise de session — LIRE EN PREMIER
-**`docs/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md`** = état courant + plan + reste à faire.
+**`docs/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md`** = état courant + plan + reste à faire (dont **§6 = init hooks cloud vs local**).
 Point d'arrêt : branche `feat/library-heroes-enrich`, bibliothèque à **57 types** (build vert, GF-1 ✅).
+
+## ⚙️ Initialisation (cloud vs local)
+- **Cloud** (claude.ai/code) : seuls **ce `CLAUDE.md`** + le **`.claude/` du repo** s'activent. Le `~/.claude` global (rules, `rules-enforcer`, ecc, MCP perso) **n'est PAS cloné** (doc Anthropic : « only hooks committed to the repo run »). Le hook repo `.claude/hooks/session-guardrails.sh` recharge les garde-fous au boot et affiche la surface (`☁️ CLOUD`).
+- **Local** : `.claude/` repo **+** `~/.claude` global (tout l'arsenal) sont actifs.
+- Repo `.claude/settings.json` : agent teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) + `teammateMode: auto`. Agent GF-1 délégable : `.claude/agents/visual-proof-reviewer.md`.
+- Checklist de vérif d'init (les 2 surfaces) : `docs/20` §6.
 
 ## Stack & commandes
 - Astro 6 (`output: 'static'` + `@astrojs/vercel`), React islands, Tailwind 4, pnpm.
