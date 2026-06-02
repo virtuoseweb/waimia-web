@@ -40,33 +40,55 @@ jobs:
        github.event.deployment_status.environment_url != '')
     runs-on: ubuntu-latest
     steps:
+      # Le gate ne s'enforce que si le secret de bypass est configuré : sans lui, les previews
+      # Vercel protégées renvoient 401/403 et le sweep serait rouge pour une raison de config,
+      # pas un vrai échec GF-1. Dans ce cas → warning + skip neutre (ne bloque pas la PR).
+      - name: Préflight — secret de bypass présent ?
+        id: preflight
+        env:
+          BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          if [ -z "$BYPASS" ]; then
+            echo "::warning title=GF-1 gate inactif::Secret VERCEL_AUTOMATION_BYPASS_SECRET absent — sweep GF-1 sauté. Ajoute-le (Vercel ▸ Deployment Protection ▸ Protection Bypass for Automation → GitHub repo Secrets) pour activer le gate."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Checkout (sha déployé si deployment_status)
+        if: steps.preflight.outputs.run == 'true'
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.deployment_status.deployment.sha || github.sha }}
 
       - name: Setup pnpm
+        if: steps.preflight.outputs.run == 'true'
         uses: pnpm/action-setup@v4
         with:
           version: 9.15.0
 
       - name: Setup Node
+        if: steps.preflight.outputs.run == 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
       - name: Install deps
+        if: steps.preflight.outputs.run == 'true'
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright chromium (réseau CI ouvert)
+        if: steps.preflight.outputs.run == 'true'
         run: pnpm exec playwright install --with-deps chromium
 
       - name: Build (pour énumérer les 57 types depuis dist/client/preview)
+        if: steps.preflight.outputs.run == 'true'
         run: pnpm build
 
       - name: Résoudre l'URL de preview
         id: url
+        if: steps.preflight.outputs.run == 'true'
         run: |
           URL="${{ github.event.inputs.preview_url }}"
           [ -z "$URL" ] && URL="${{ github.event.deployment_status.environment_url }}"
@@ -74,6 +96,7 @@ jobs:
           echo "Cible GF-1 : $URL"
 
       - name: GF-1 sweep contre la preview Vercel
+        if: steps.preflight.outputs.run == 'true'
         env:
           BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: |
@@ -85,7 +108,7 @@ jobs:
             --header "x-vercel-set-bypass-cookie: true"
 
       - name: Upload screenshots + summary
-        if: always()
+        if: steps.preflight.outputs.run == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: gf1-vercel-sweep
