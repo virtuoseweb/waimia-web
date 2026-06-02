@@ -83,20 +83,25 @@ une session **cloud** (Claude Code on the web) démarre d'un **clone frais du re
 |---|:---:|:---:|---|
 | Repo `CLAUDE.md` (garde-fous inline) | ✅ | ✅ | part of the clone |
 | Repo `.claude/settings.json` (env teams, teammateMode, hooks) | ✅ | ✅ (merge avec global) | part of the clone |
-| Plugin `vw-guardrails` déclaré dans `.claude/settings.json` (hook SessionStart + agent `visual-proof-reviewer` + cmd) | ✅ | ✅ | installé au boot depuis le marketplace public |
-| `~/.claude/CLAUDE.md` + rules + `rules-enforcer.sh` + ecc | ❌ | ✅ | user-scoped, hors clone |
-| Plugins user `enabledPlugins` / MCP `claude mcp add` | ❌ | ✅ | user-scoped |
+| Plugin `vw-guardrails` v0.3.0 (SessionStart GF + **UserPromptSubmit rules-router** + **playbook** + agents `visual-proof-reviewer`/`code-reviewer`/`code-explorer` + cmd) | ✅ | ✅ | installé au boot depuis le marketplace public |
+| MCP repo via `.mcp.json` (playwright + context7) | ✅ | ✅ | committé dans le repo |
+| `~/.claude/CLAUDE.md` + 46 rules situationnelles + ecc + MEMORY | ❌ | ✅ | user-scoped, hors clone |
+| Plugins user `enabledPlugins` / MCP perso `claude mcp add` | ❌ | ✅ | user-scoped |
 
 **Ce qui a été commité pour que le cloud s'initialise correctement** (fait le 2026-06-02, MAJ plugin) :
 - `.claude/settings.json` → `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` + `teammateMode: "auto"` + **`extraKnownMarketplaces` (virtuoseweb) + `enabledPlugins` (vw-guardrails@virtuoseweb)**. Au démarrage de session cloud, Claude Code **installe le plugin** depuis `github.com/virtuoseweb/claude-config` (public).
-- **Plugin `vw-guardrails`** (source unique partagée par TOUS les repos) fournit : hook SessionStart (GF-1..GF-6, full en cloud / 1-ligne en local + détection surface), agent `visual-proof-reviewer` (preuve visuelle ET fonctionnelle), commande `/vw-guardrails:guardrails`. Plus d'inline `.claude/hooks` ni `.claude/agents` dans le repo → zéro duplication, mise à jour centralisée (push + bump version sur claude-config).
+- **Plugin `vw-guardrails` v0.3.0** (source unique partagée par TOUS les repos) **mire l'archi hybride locale côté cloud** :
+  - hook **SessionStart** = GF-1..GF-6 + discipline condensée (full en cloud / 1-ligne en local + détection surface) + annonce du playbook et des agents dispo ;
+  - hook **UserPromptSubmit `rules-router.sh`** (cloud-gated, **muet en local**) = sur mot-clé du prompt → hint situationnel + pointeur playbook = **équivalent cloud du `rules-enforcer` global** ;
+  - **`reference/vw-cloud-playbook.md`** = rules dev/qualité/orchestration condensées + cloud-adaptées (référence profonde) ;
+  - agents `visual-proof-reviewer` (preuve), `code-reviewer` (qualité/sécu), `code-explorer` (cartographie) ;
+  - commande `/vw-guardrails:guardrails`. Plus d'inline `.claude/hooks` ni `.claude/agents` repo → zéro duplication, MAJ centralisée (push + bump version sur claude-config).
 - `CLAUDE.md` repo → garde-fous inline = **fallback** si le réseau cloud bloque l'install du plugin.
-- **`.mcp.json`** repo → déclare le MCP **Playwright** (`npx @playwright/mcp`) → dispo en cloud pour la preuve GF-1 visuelle (sinon aucun MCP en cloud). Neon/computer-use restent absents en cloud (à ajouter au `.mcp.json` si besoin).
-- **Plugin v0.2.0** : en cloud le hook injecte AUSSI la discipline d'orchestration/qualité condensée (délégation, preuve-avant-validé, no-passive, source-before-claim, plan, branches isolées) — car les 10 rules fondamentales du `~/.claude` ne sont PAS en cloud.
+- **`.mcp.json`** repo → déclare **Playwright** (preuve GF-1 visuelle) + **context7** (docs lib à jour) → dispo en cloud. Neon/computer-use restent absents (à ajouter au `.mcp.json` si un repo en a besoin ; ceux à auth requièrent une variable d'env).
 
-**Ce que le cloud N'A PAS (assumé)** : les 46 rules situationnelles, le routage `rules-enforcer` (pas d'injection auto par mot-clé), l'apprentissage ecc, MEMORY.md, les MCP perso non déclarés. Le cloud = GF + discipline condensée + projet ; le **gros du raisonnement orchestré + la preuve visuelle lourde se font mieux en LOCAL**.
+**Ce que le cloud A désormais** (via le plugin v0.3.0) : GF-1..6 + discipline condensée (boot) + **routage situationnel par mot-clé** (rules-router) + **playbook des rules dev/qualité/orchestration** + 3 agents + MCP repo (playwright/context7). C'est un **sous-ensemble portable fidèle** de l'arsenal local.
 
-**En cloud, NE PAS compter sur** : le routage `rules-enforcer` (pas de surfaçage auto de l'arsenal), les 56 rules globales, les MCP perso (Playwright/Vercel/Neon… via `claude mcp add`). En cloud, les **outils GitHub intégrés** remplacent `gh` (non pré-installé) ; pour Playwright/MCP en cloud, les déclarer dans un `.mcp.json` repo (non fait — le sweep GF-1 visuel se fait donc plutôt en **local** ou via un `.mcp.json` à ajouter).
+**Ce que le cloud N'A PAS (assumé, par design sandbox)** : les 46 rules situationnelles *in extenso* (le playbook en est une synthèse, pas la copie), l'apprentissage ecc, MEMORY.md, les MCP perso non déclarés dans `.mcp.json`. Le **gros du raisonnement orchestré + le sweep GF-1 visuel exhaustif restent préférables en LOCAL** (arsenal complet) ; le cloud excelle pour l'exécution parallèle sur branches isolées. Note : en cloud les **outils GitHub intégrés** remplacent `gh` (non pré-installé).
 
 ### Checklist de vérification d'init au démarrage de la PROCHAINE session
 
