@@ -505,6 +505,126 @@ export const heroTunnelStepSchema = z.object({
   lede_en: z.string(),
 });
 
+// Bandeau marquee mono uppercase infini scroll (avec respect prefers-reduced-motion)
+export const marqueeBandSchema = z.object({
+  type: z.literal('marquee-band'),
+  items_fr: z.array(z.string()).min(2).max(12),
+  items_en: z.array(z.string()).min(2).max(12).optional(),
+  separator: z.string().default('·'),
+  repeat: z.number().int().min(1).max(4).default(2),
+});
+
+// Grille de 3 problèmes/frictions : num + kicker + h3 + body, grid auto-fit minmax 280px
+export const problemsGridSchema = z.object({
+  type: z.literal('problems-grid'),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  problems: z
+    .array(
+      z.object({
+        num: z.string().optional(),
+        kicker_fr: z.string(),
+        kicker_en: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+      }),
+    )
+    .min(2)
+    .max(6),
+});
+
+// Section "Why X stalls" — sticky chapter label + N FIG rows row-lines
+export const whyStallsSchema = z.object({
+  type: z.literal('why-stalls'),
+  chapter_num: z.string(),
+  chapter_title_fr: z.string(),
+  chapter_title_en: z.string(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  aside_lead_fr: z.string(),
+  aside_lead_en: z.string(),
+  rows: z
+    .array(
+      z.object({
+        fig: z.string(),
+        text_fr: z.string(),
+        text_en: z.string(),
+      }),
+    )
+    .min(2)
+    .max(8),
+});
+
+// Section "How we ship" — sticky pin scrub avec 4 étapes (numline + stage cards animées)
+export const howWeShipSchema = z.object({
+  type: z.literal('how-we-ship'),
+  roman: z.string(),
+  section_label_fr: z.string(),
+  section_label_en: z.string(),
+  heading_fr: z.string(),
+  heading_en: z.string(),
+  aside_fr: z.string(),
+  aside_en: z.string(),
+  steps: z
+    .array(
+      z.object({
+        n: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+      }),
+    )
+    .min(3)
+    .max(6),
+});
+
+// Section operating layer — dark + console mockup + 4 attribute strip
+export const operatingLayerSchema = z.object({
+  type: z.literal('operating-layer'),
+  chapter_num: z.string(),
+  chapter_title_fr: z.string(),
+  chapter_title_en: z.string(),
+  spec_label: z.string(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  terminal_label: z.string(),
+  console_lines: z
+    .array(
+      z.object({
+        k: z.string(),
+        v: z.string(),
+      }),
+    )
+    .min(2)
+    .max(8),
+  console_cmd: z.string(),
+  attrs: z
+    .array(
+      z.object({
+        k: z.string(),
+        v_fr: z.string(),
+        v_en: z.string(),
+      }),
+    )
+    .length(4),
+});
+
+// Manifesto block — grand bloc display italique, kicker mono
+export const manifestoBlockSchema = z.object({
+  type: z.literal('manifesto-block'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  text_fr: z.string(),
+  text_en: z.string(),
+});
+
 // Hero · essai éditorial (kicker + h1 + lede italique + meta auteur/date/temps)
 export const heroEssaySchema = z.object({
   type: z.literal('hero-essay'),
@@ -978,6 +1098,12 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroLeadMagnetSchema,
   heroCourseSchema,
   heroTunnelStepSchema,
+  marqueeBandSchema,
+  problemsGridSchema,
+  whyStallsSchema,
+  howWeShipSchema,
+  operatingLayerSchema,
+  manifestoBlockSchema,
   heroEssaySchema,
   proofBarSchema,
   statBlockSchema,

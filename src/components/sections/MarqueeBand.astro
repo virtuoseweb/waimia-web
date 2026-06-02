@@ -1,0 +1,64 @@
+---
+// Section catalogue · marquee-band
+// COPIE FIDÈLE du `.lp-marquee-*` de `src/pages/offres/site-web-ia-landing.astro:53-77`
+// Bandeau infini scroll mono uppercase, items + separators · respecte prefers-reduced-motion.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'marquee-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const items = (isFr ? data.items_fr : data.items_en) ?? data.items_fr;
+const sep = data.separator ?? '·';
+const loops = data.repeat ?? 2;
+---
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-band__track">
+    {Array.from({ length: loops }).map(() => (
+      items.map((item) => (
+        <>
+          <span class="marquee-band__item">{item}</span>
+          <span class="marquee-band__sep">{sep}</span>
+        </>
+      ))
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-band {
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,.07);
+    border-bottom: 1px solid rgba(0,0,0,.07);
+    padding-block: 18px;
+  }
+  .marquee-band__track {
+    display: flex;
+    width: max-content;
+    animation: marquee-band-scroll 36s linear infinite;
+  }
+  .marquee-band__item {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding-inline: 28px;
+    white-space: nowrap;
+  }
+  .marquee-band__sep {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 12px;
+    color: var(--accent);
+    align-self: center;
+  }
+  @keyframes marquee-band-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-band__track { animation: none; }
+  }
+</style>
