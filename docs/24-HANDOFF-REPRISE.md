@@ -4,6 +4,51 @@
 > docs/20 comme point d'entrée le plus à jour. Tout est **commité + poussé**. **Rien mergé sur `main`**
 > (gate GF-1 Vercel non exécutable depuis le cloud + auto-merge OFF — voir §5).
 
+## 0. MAJ 2026-06-02 — POINT CONSOLIDÉ (session cloud #1 + session locale #2) ⭐ LIRE EN PREMIER
+
+### `main` A BOUGÉ : `7597e02` → `12ef26b` (PR #2 mergée) → `910968b` (template-clean)
+La session locale #2 a transformé le repo en **template propre, connecté au repo config, prod saine** :
+- **PR #2 mergée sur `main`** (`12ef26b` squash) : README standalone + CONTRIBUTING + CI (`.github/workflows/ci.yml`, build astro = gate dur) + **`CLAUDE.md`** + **`.claude/settings.json`** (marketplace `virtuoseweb/claude-config` + plugin `vw-guardrails`) + **`.mcp.json`** (playwright/context7).
+- **Template clean** (`910968b`) : `tasks/` (notes process dev) untracké+gitignoré ; `audit-snapshots/` (−20 Mo) retirés ; `.env.example` complété (Upstash/ISR). Repo `is_template=true` (bouton « Use this template »).
+- **Vercel nettoyé** : legacy `waimia` + `waimia-v2` supprimés → 2 projets (`waimia-web` + `waimia-cal`). `cal` sur repo dédié, `cal.waimia.com` READY (DB/env intactes).
+- **Branches** : `chore/*` supprimées (local+remote) ; PR #4 (doublon hero-liquid base=main) **fermée** → la canonique est **#5** (`feat/lib-hero-liquid`, stackée sur `feat/library-heroes-enrich`).
+- **GF-1 prod** (`910968b`) : `waimia.com` H1 « L'IA dans vos outils… » + CTA « Réserver un audit → » `opacity:1`/transform neutre/visibles · 0 erreur console · deploy Vercel success.
+- ⚠️ `main` **n'a PAS** le registry-57 (commit `32deb1d` absent de main) — il garde le registry pré-heroes. La fondation 57 arrive via les PR library.
+
+### ✅ CORRECTION du plan de merge (GF-4, `git merge-tree --write-tree` exit 0) — PAS de conflit
+Vérifié empiriquement le 2026-06-02 contre le **nouveau** `main` (`910968b`) :
+| PR | Branche | merge-tree vs main | Note |
+|---|---|:--:|---|
+| **#1** | `claude/focused-bardeen-0GySr` | **CLEAN** (exit 0) | fondation 57 + 4 migrations + sweep + CI gate + docs |
+| **#3** | `feat/build-order-noise` | **CLEAN** (exit 0) | fix bruit build |
+| **#5** | `feat/lib-hero-liquid` | **CLEAN** (exit 0) | hero-liquid 57→58 |
+
+La prédiction « conflits both-added sur `CLAUDE.md`/`.claude/` » était une **fausse alerte** : ces fichiers
+(+`.mcp.json`) sont **byte-identiques** entre `main` et les branches library (both-added identique → auto-résolu
+par git). **Aucune résolution de conflit nécessaire.** (Le §3 plus bas, qui supposait `main`=`7597e02` vide, est **caduc** — voir ce §0.)
+
+### Plan de merge consolidé (À EXÉCUTER avec le gate GF-1 Vercel — pas en cloud)
+Chaque PR merge **clean** sur `main`. Ordre logique (chacun précédé de GF-1 sur SA preview Vercel) :
+1. **PR #1** (apporte la fondation registry-57 + 4 migrations + sweep + CI gate + docs). Une fois sur `main`,
+   le workflow `gf1-vercel-sweep` devient actif sur les PR suivantes (+ secret `VERCEL_AUTOMATION_BYPASS_SECRET`).
+2. **PR #5** (hero-liquid → **58**) : commits-fondation partagés dédupliqués par git ; ne reste que `e95e3b0`.
+   Après merge, le sweep couvre 58 (énumération dynamique `dist/client/preview/*`).
+3. **PR #3** (build-noise, config-only).
+   ⚠️ Vérifier après le 1er merge que le **gate dur `ci.yml`** (astro check) passe : ma branche #1 = **0 erreur**
+   astro check (la fondation 57 corrige les ~40 erreurs pré-heroes que la session #2 voyait sur `main`).
+4. Nettoyage post-merge : supprimer `feat/library-heroes-enrich` (subsumée par #5) + branches mergées.
+
+### Reste à faire (consolidé, par priorité)
+- **Standardisation** : 14 templates restants (`docs/22`, §4 ci-dessous) — priorité #1 validée Simon.
+- **Issues session #2** : (a) **branch-protection `main`** = payant (Team) ou repo public → décision Simon (hors mandat) ;
+  (b) **`vercel login`** = token CLI expiré (`invalidToken`, contourné via commit-status GitHub) → re-loguer pour l'API Vercel ;
+  (c) **`CLAUDE.md` sur main** encore un peu library-specific (« Point d'arrêt feat/library-heroes-enrich ») → généraliser pour le template ;
+  (d) `project_waimia_master_index_persistent.md` (Bloc F) = source persistante cross-session de Simon.
+- **Puis** : variations de sections → audit tokens-only (DS verrouillé) → refacto → peaufinage (cf §4 + `docs/23`).
+- **Backlog visuel** V1–V5 (`docs/23` §C) : V1 = markdown `**gras**` littéral `src/content/cases/plateau.mdx:83` (bug, à corriger).
+
+---
+
 ## 1. Ce qui a été fait (cette session, PR #1, branche `claude/focused-bardeen-0GySr`)
 
 ### Infra GF-1 (preuve visuelle empirique en cloud)
