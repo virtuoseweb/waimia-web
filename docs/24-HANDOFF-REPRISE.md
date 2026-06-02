@@ -49,13 +49,17 @@ centralement quand on les migrera).
 
 | PR | Branche | Scope | Base réelle | État |
 |---|---|---|---|---|
-| **#1** | `claude/focused-bardeen-0GySr` | CETTE session (registry 57 + .claude + sweep + CI gate + 4 migrations + docs 20-24) | main, **20 commits** | draft, Vercel ✅ |
+| **#1** | `claude/focused-bardeen-0GySr` | CETTE session (registry 57 + .claude + sweep + CI gate + 4 migrations + docs 20-24) | **main**, 20 commits | draft, Vercel ✅ |
 | **#2** | `chore/collaborator-readiness` | README + CONTRIBUTING + (CI ci.yml à coller manuellement, scope workflow manquant) | main, 3 commits, **sans** la fondation heroes | draft |
-| **#3** | `feat/build-order-noise` | fix bruit build `❌ File not found` (config llms-txt) | fondation + `.mcp.json` (b49aa13) + `1e7935f` | draft, Vercel ✅ |
-| **#4** | `feat/lib-hero-liquid` | hero-liquid catalogué (registry **57→58**) | fondation + `.mcp.json` (b49aa13) + `e95e3b0` | draft, Vercel ✅ |
+| **#3** | `feat/build-order-noise` | fix bruit build `❌ File not found` (config llms-txt) | **main** (créée cloud → diff « gras », inclut la fondation) | draft, Vercel ✅ |
+| **#5** | `feat/lib-hero-liquid` | hero-liquid catalogué (registry **57→58**) | **`feat/library-heroes-enrich`** (PR *stackée* = diff propre du seul delta) | open, Vercel ✅ |
+| ~~#4~~ | ~~`feat/lib-hero-liquid`~~ | doublon de #5 (base=main) | — | **fermée** (ne pas rouvrir) |
 
-`feat/library-heroes-enrich` (`b49aa13`) = ancêtre commun de #3/#4 (apporte `.mcp.json` Playwright/context7
-cloud + plugin v0.3.0), **pas de PR**, subsumé par #3/#4 une fois mergés.
+⚠️ **Deux lignées de « fondation » parallèles** (contiennent toutes deux le registry-57, divergent à `23a9351`) :
+(a) **PR #1** (ma branche, base main) — fondation + 4 migrations + sweep + CI gate + docs ;
+(b) **`feat/library-heroes-enrich`** (`b49aa13`, base des stacks #5) — fondation + `.mcp.json` (Playwright/context7 cloud) + plugin v0.3.0.
+**Laquelle merge en 1er sur `main` = décision d'orchestration de Simon.** #5 est stackée sur (b) ; #3 est sur main
+(pourrait être re-basée sur (b) pour un diff propre). `feat/library-heroes-enrich` n'a pas de PR propre (mergé via la stack).
 
 ## 3. Topologie & plan de merge (À EXÉCUTER là où le gate GF-1 Vercel tourne — pas le cloud)
 
@@ -68,18 +72,20 @@ main 7597e02 (ne contient AUCUN travail de session)
             └─ [PR #4] e95e3b0 (hero-liquid 57→58)
 ```
 
-**Séquence recommandée** (chaque merge précédé de GF-1 sur SA preview Vercel) :
-1. **PR #1** en premier (apporte toute la fondation : registry 57 + .claude + 4 migrations + sweep + CI gate
-   + docs). Une fois sur `main`, le gate `gf1-vercel-sweep` devient actif sur les PR suivantes.
+**Séquence recommandée** (chaque merge précédé de GF-1 sur SA preview Vercel) — ⚠️ suppose la **lignée (a) = PR #1**
+comme fondation ; si Simon préfère la **lignée (b) = `feat/library-heroes-enrich`**, inverser (merger (b) + sa stack
+#5 d'abord, puis rebaser PR #1 dessus pour ne garder que sweep+CI+migrations+docs) :
+1. **PR #1** en premier (registry 57 + .claude + 4 migrations + sweep + CI gate + docs). Une fois sur `main`,
+   le gate `gf1-vercel-sweep` devient actif sur les PR suivantes.
 2. **Rebaser PR #3** sur le nouveau `main` → ne reste que le delta `1e7935f` (+ les commits `.mcp.json`
    `ee5bc53/2bea1bc/b49aa13` que #1 n'a pas). ⚠️ **Conflit attendu sur `docs/20`** (b49aa13 modifie §6 ;
    #1 a ajouté §0bis) et possiblement `.claude/settings.json` → réconcilier (garder le `.mcp.json` + v0.3.0).
-3. **Rebaser PR #4** de même (delta `e95e3b0`). Après #4, le sweep couvre **58** automatiquement
-   (`gf1-cloud-sweep` énumère `dist/client/preview/*` dynamiquement).
+3. **PR #5** (hero-liquid, stackée sur `feat/library-heroes-enrich`) : une fois sa base intégrée, ne reste que
+   le delta `e95e3b0`. Après merge, le sweep couvre **58** automatiquement (énumération dynamique `dist/client/preview/*`).
 4. **PR #2** (orthogonal, sans fondation) : rebaser sur main, coller `ci.yml` via l'UI GitHub (scope workflow).
-5. Alternative plus simple si la divergence `.mcp.json` n'est pas voulue tout de suite : merger **seulement
-   PR #1**, puis **cherry-pick** `1e7935f` (build-noise) et `e95e3b0` (hero-liquid) sur des branches fraîches
-   issues du nouveau `main` (évite de retraîner `b49aa13`/`.mcp.json`). À décider selon qu'on veut le `.mcp.json` cloud.
+5. Alternative si la divergence `.mcp.json`/lignées n'est pas voulue tout de suite : merger **seulement PR #1**,
+   puis **cherry-pick** `1e7935f` (build-noise) et `e95e3b0` (hero-liquid) sur des branches fraîches issues du
+   nouveau `main` (évite de retraîner `b49aa13`). À décider selon qu'on veut le `.mcp.json` cloud + le plugin v0.3.0.
 
 **Nettoyage branches (après merges, NON fait — destructif)** : supprimer `feat/library-heroes-enrich`
 (subsumée), et les branches de PR mergées (option « delete branch on merge » GitHub). Ne rien supprimer
