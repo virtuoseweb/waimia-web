@@ -1,9 +1,10 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import Kicker from '../ui/atoms/Kicker.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+import HeroCourse from '../sections/HeroCourse.astro';
 import { buildCourseSchema, buildBreadcrumbList } from '../../lib/seo/schema-builder';
+import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
   entry: CollectionEntry<'courses'>;
@@ -64,27 +65,91 @@ const MODULE_TYPE: Record<string, [string, string]> = {
 // ── Pricing & CTA ──────────────────────────────────────────────────────────
 let stripeLink: string | undefined;
 let priceStr: string | null = null;
+let priceStrFr: string | null = null;
+let priceStrEn: string | null = null;
 
 if (fd) {
   stripeLink = fd.pricing?.stripe_payment_link;
   const p = fd.pricing?.one_time_eur ?? fd.pricing?.subscription_eur;
-  priceStr = p === 0 ? (fr ? 'Gratuit' : 'Free') : p != null ? `${p} €` : null;
+  priceStrFr = p === 0 ? 'Gratuit' : p != null ? `${p} €` : null;
+  priceStrEn = p === 0 ? 'Free' : p != null ? `${p} €` : null;
 } else if (pd) {
   stripeLink = pd.stripe_payment_link;
-  priceStr = `${pd.pricing_eur} €`;
+  priceStrFr = `${pd.pricing_eur} €`;
+  priceStrEn = `${pd.pricing_eur} €`;
 } else if (ad) {
   stripeLink = ad.stripe_payment_link;
-  priceStr = ad.pricing_eur === 0 ? (fr ? 'Gratuit' : 'Free') : `${ad.pricing_eur} €`;
+  priceStrFr = ad.pricing_eur === 0 ? 'Gratuit' : `${ad.pricing_eur} €`;
+  priceStrEn = ad.pricing_eur === 0 ? 'Free' : `${ad.pricing_eur} €`;
 } else if (cd) {
   stripeLink = cd.stripe_payment_link;
-  priceStr = cd.pricing_eur === 0 ? (fr ? 'Gratuit' : 'Free') : `${cd.pricing_eur} €`;
+  priceStrFr = cd.pricing_eur === 0 ? 'Gratuit' : `${cd.pricing_eur} €`;
+  priceStrEn = cd.pricing_eur === 0 ? 'Free' : `${cd.pricing_eur} €`;
 }
+priceStr = fr ? priceStrFr : priceStrEn;
 
 const isPlaceholder = !stripeLink || stripeLink.includes('PLACEHOLDER');
 const ctaEnroll = fr
   ? `S'inscrire${priceStr ? ` — ${priceStr}` : ''}`
   : `Enroll${priceStr ? ` — ${priceStr}` : ''}`;
-const ctaSoon = fr ? 'Inscriptions bientôt disponibles' : 'Enrollment coming soon';
+type HeroCoursePill = SectionByType<'hero-course'>['pills'][number];
+const heroPills: HeroCoursePill[] = [];
+if (fd) {
+  heroPills.push(
+    { label_fr: LEVEL_LABELS[fd.level]?.[0] ?? fd.level, label_en: LEVEL_LABELS[fd.level]?.[1] ?? fd.level, variant: 'default' },
+    { label_fr: `${fd.duration_hours}h`, label_en: `${fd.duration_hours}h`, variant: 'default' },
+    { label_fr: fd.format, label_en: fd.format, variant: 'default' },
+  );
+  if (fd.certification) heroPills.push({ label_fr: 'Certifiant', label_en: 'Certificate', variant: 'accent' });
+}
+if (pd) {
+  heroPills.push(
+    { label_fr: LEVEL_LABELS[pd.level]?.[0] ?? pd.level, label_en: LEVEL_LABELS[pd.level]?.[1] ?? pd.level, variant: 'default' },
+    { label_fr: `${pd.duration_weeks} semaines`, label_en: `${pd.duration_weeks} weeks`, variant: 'default' },
+    { label_fr: `${pd.total_hours}h au total`, label_en: `${pd.total_hours}h total`, variant: 'default' },
+  );
+  if (pd.certification) heroPills.push({ label_fr: 'Certifiant', label_en: 'Certificate', variant: 'accent' });
+}
+if (ad) {
+  heroPills.push(
+    { label_fr: FORMAT_ATELIER[ad.format]?.[0] ?? ad.format, label_en: FORMAT_ATELIER[ad.format]?.[1] ?? ad.format, variant: 'default' },
+    { label_fr: `${ad.duration_hours}h`, label_en: `${ad.duration_hours}h`, variant: 'default' },
+    { label_fr: `${ad.seats_remaining}/${ad.seats_total} places`, label_en: `${ad.seats_remaining}/${ad.seats_total} seats`, variant: 'default' },
+  );
+}
+if (cd) {
+  heroPills.push(
+    { label_fr: LEVEL_LABELS[cd.certification_level]?.[0] ?? cd.certification_level, label_en: LEVEL_LABELS[cd.certification_level]?.[1] ?? cd.certification_level, variant: 'default' },
+    { label_fr: `${cd.duration_hours}h`, label_en: `${cd.duration_hours}h`, variant: 'default' },
+    { label_fr: EXAM_FORMAT[cd.exam_format]?.[0] ?? cd.exam_format, label_en: EXAM_FORMAT[cd.exam_format]?.[1] ?? cd.exam_format, variant: 'default' },
+  );
+  if (cd.passing_score != null) heroPills.push({ label_fr: `${cd.passing_score}% requis`, label_en: `${cd.passing_score}% required`, variant: 'default' });
+}
+if (priceStrFr && priceStrEn) {
+  heroPills.push({ label_fr: priceStrFr, label_en: priceStrEn, variant: 'price' });
+}
+const heroData = {
+  type: 'hero-course',
+  type_label_fr: TYPE_LABELS[data.course_type]?.[0] ?? data.course_type.toUpperCase(),
+  type_label_en: TYPE_LABELS[data.course_type]?.[1] ?? data.course_type.toUpperCase(),
+  title_fr: data.title_fr,
+  title_en: data.title_en,
+  lede_fr: data.description_fr,
+  lede_en: data.description_en,
+  pills: heroPills,
+  cta_primary: {
+    label_fr: isPlaceholder ? 'Inscriptions bientôt disponibles' : `S'inscrire${priceStrFr ? ` — ${priceStrFr}` : ''}`,
+    label_en: isPlaceholder ? 'Enrollment coming soon' : `Enroll${priceStrEn ? ` — ${priceStrEn}` : ''}`,
+    href: stripeLink ?? '#',
+    variant: 'primary',
+  },
+  cta_secondary: {
+    label_fr: 'Une question ? →',
+    label_en: 'Have a question? →',
+    href: '/contact',
+    variant: 'ghost',
+  },
+} satisfies SectionByType<'hero-course'>;
 
 // ── Breadcrumb ─────────────────────────────────────────────────────────────
 const crumbs = [
@@ -119,58 +184,16 @@ const jsonLd = [
 
       <Breadcrumb items={crumbs} lang={lang} noJsonLd />
 
-      <!-- ── HERO ────────────────────────────────────────────────────────── -->
-      <header class="course-detail__hd">
-        <Kicker tone="accent">§ {typeLabel}</Kicker>
-        <h1 class="hd-title">{title}</h1>
-        <p class="hd-lede">{description}</p>
-
-        <div class="meta-pills">
-          {fd && (
-            <>
-              <span class="pill">{LEVEL_LABELS[fd.level]?.[fr ? 0 : 1]}</span>
-              <span class="pill">{fd.duration_hours}h</span>
-              <span class="pill">{fd.format}</span>
-              {fd.certification && <span class="pill pill--accent">{fr ? 'Certifiant' : 'Certificate'}</span>}
-            </>
-          )}
-          {pd && (
-            <>
-              <span class="pill">{LEVEL_LABELS[pd.level]?.[fr ? 0 : 1]}</span>
-              <span class="pill">{pd.duration_weeks} {fr ? 'semaines' : 'weeks'}</span>
-              <span class="pill">{pd.total_hours}h {fr ? 'au total' : 'total'}</span>
-              {pd.certification && <span class="pill pill--accent">{fr ? 'Certifiant' : 'Certificate'}</span>}
-            </>
-          )}
-          {ad && (
-            <>
-              <span class="pill">{FORMAT_ATELIER[ad.format]?.[fr ? 0 : 1]}</span>
-              <span class="pill">{ad.duration_hours}h</span>
-              <span class="pill">{ad.seats_remaining}/{ad.seats_total} {fr ? 'places' : 'seats'}</span>
-            </>
-          )}
-          {cd && (
-            <>
-              <span class="pill">{LEVEL_LABELS[cd.certification_level]?.[fr ? 0 : 1]}</span>
-              <span class="pill">{cd.duration_hours}h</span>
-              <span class="pill">{EXAM_FORMAT[cd.exam_format]?.[fr ? 0 : 1]}</span>
-              {cd.passing_score != null && <span class="pill">{cd.passing_score}% {fr ? 'requis' : 'required'}</span>}
-            </>
-          )}
-          {priceStr && <span class="pill pill--price">{priceStr}</span>}
-        </div>
-
-        <div class="cta-group">
-          {!isPlaceholder ? (
-            <a class="btn-primary" href={stripeLink} target="_blank" rel="noopener noreferrer">{ctaEnroll}</a>
-          ) : (
-            <span class="btn-primary btn-disabled">{ctaSoon}</span>
-          )}
-          <a class="btn-ghost" href="/contact">
-            {fr ? 'Une question ?' : 'Have a question?'} →
-          </a>
-        </div>
-      </header>
+      <!-- ── HERO · composant catalogué hero-course (contenu via props). ── -->
+      <HeroCourse
+        data={heroData}
+        lang={lang}
+        topPad="0"
+        wrap={false}
+        ctaPrimaryDisabled={isPlaceholder}
+        ctaPrimaryExternal={!isPlaceholder}
+        ghostStyle="legacy"
+      />
 
       <!-- ── FORMATION ──────────────────────────────────────────────────── -->
       {fd && (
@@ -368,65 +391,9 @@ const jsonLd = [
     padding: 0 var(--space-page-x, 24px);
   }
 
-  /* HEADER */
-  .course-detail__hd {
-    padding: 56px 0 48px;
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .hd-title {
-    font-family: var(--font-display);
-    font-size: var(--text-h1-hero);
-    font-weight: 400;
-    line-height: 1.05;
-    margin: 16px 0 20px;
-  }
-
-  .hd-lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-lede);
-    line-height: 1.5;
-    color: var(--text-secondary, #444);
-    margin: 0 0 28px;
-    max-width: 68ch;
-  }
-
-  /* META PILLS */
-  .meta-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 28px;
-  }
-
-  .pill {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border: 1px solid var(--hairline);
-    color: var(--text-muted, #888);
-  }
-
-  .pill--accent {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .pill--price {
-    border-color: var(--ink, #111);
-    color: var(--ink, #111);
-    font-weight: 600;
-  }
-
-  /* CTA GROUP */
-  .cta-group {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+  /* Masthead migré vers le composant catalogué `HeroCourse` (sections/).
+     Règles `.course-detail__hd/.hd-title/.hd-lede/.meta-pills/.pill/.pill--accent/.pill--price/.cta-group`
+     supprimées (structure + CSS désormais portés par le composant — source unique). */
 
   .btn-primary {
     display: inline-block;

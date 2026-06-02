@@ -79,6 +79,24 @@ test("ServiceDetailTemplate · /offres/revops rend problem + steps + proof + sta
   expect(contentH1).toBe(1);
 });
 
+/* ───── Template CourseDetailTemplate · /ecole/cours/intro-ia-pme-b2b ───── */
+test("CourseDetailTemplate · /ecole/cours/intro-ia-pme-b2b rend hero catalogué + contenu", async ({
+  page,
+}) => {
+  const resp = await page.goto("/ecole/cours/intro-ia-pme-b2b");
+  expect(resp?.status()).toBe(200);
+  await waitNoBoot(page);
+
+  const html = await page.content();
+  expect(html).toContain("Introduction à l'IA pour PME B2B");
+  expect(html).toContain("Comprendre ce que l'IA peut faire pour votre PME B2B");
+  expect(html).toContain("Ce que vous allez apprendre");
+  expect(html).toContain("Plan d'action 90 jours");
+
+  const contentH1 = await page.locator("h1.hero-course__title").count();
+  expect(contentH1).toBe(1);
+});
+
 /* ───── Template CaseStudyTemplate · /ressources/cas/plateau ───── */
 test("CaseStudyTemplate · /ressources/cas/plateau rend masthead + specs + steps + proof", async ({
   page,
