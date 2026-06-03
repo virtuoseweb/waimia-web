@@ -26,18 +26,12 @@ import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
 import FitColumns from '../ui/molecules/FitColumns.astro';
 import RelatedCards from '../ui/molecules/RelatedCards.astro';
 import CtaFinal from '../sections/CtaFinal.astro';
+import HeroHubStats from '../sections/HeroHubStats.astro';
 import Callout from '../editorial/Callout.astro';
-import KeyMetric from '../editorial/KeyMetric.astro';
-import DropCap from '../editorial/DropCap.astro';
 import PullQuote from '../editorial/PullQuote.astro';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 import type { SectionByType } from '../../schemas/sections';
 
-interface Stat {
-  k: string;
-  label_fr: string;
-  label_en: string;
-}
 interface RelatedCard {
   kicker: string;
   title_fr: string;
@@ -53,11 +47,8 @@ interface Props {
   description: string;
   /** Numéro éditorial (FIG · 02 / § 02 · ...) */
   hubNum: string;
-  /** Kicker label (Hub · §02, Pillar · ...) */
-  metaKickerFr: string;
-  metaKickerEn: string;
-  /** Stats pour la masthead */
-  stats: Stat[];
+  /** Données masthead (composant HeroHubStats) */
+  heroData: SectionByType<'hero-hub-stats'>;
   /** Fit columns */
   fitYesTitleFr: string;
   fitYesTitleEn: string;
@@ -71,7 +62,7 @@ interface Props {
   relatedCards: RelatedCard[];
 }
 const {
-  title, description, hubNum, metaKickerFr, metaKickerEn, stats,
+  title, description, hubNum, heroData,
   fitYesTitleFr, fitYesTitleEn, fitYesItems,
   fitNoTitleFr, fitNoTitleEn, fitNoItems,
   relatedKickerFr, relatedKickerEn, relatedCards,
@@ -121,42 +112,7 @@ const ctaData = {
     ]}
   />
   {/* MASTHEAD */}
-  <section class="hub-masthead">
-    <div class="wrap-wide">
-      <Kicker class="hub-meta">
-        <Bi fr={metaKickerFr} en={metaKickerEn} />
-      </Kicker>
-      <Kicker tone="accent" class="hub-num">§ {hubNum}</Kicker>
-      <h1 class="hub-h1 reveal-mask-up">
-        <slot name="headline" />
-      </h1>
-      <div class="hub-lede reveal">
-        <p>
-          <DropCap variant="mono">§</DropCap>
-          <slot name="lede" />
-        </p>
-      </div>
-
-      {Astro.slots.has('hero-visual') && (
-        <div class="hub-hero-visual">
-          <slot name="hero-visual" />
-        </div>
-      )}
-
-      {stats && stats.length > 0 && (
-        <div class="hub-stats reveal-stagger">
-          {stats.map((stat, index) => (
-            <KeyMetric
-              value={stat.k}
-              label={isFr ? stat.label_fr : stat.label_en}
-              size={index === 0 ? 'lg' : 'md'}
-              variant={index === 1 ? 'accent' : 'default'}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  </section>
+  <HeroHubStats data={heroData} lang={lang} ledeDropCap="§" />
 
   {/* MANIFESTO PULL (optionnel) */}
   {Astro.slots.has('manifesto') && (
@@ -231,59 +187,6 @@ const ctaData = {
 </Base>
 
 <style>
-  .hub-masthead { padding: 140px 32px 0; }
-  /* :global parce que les Kicker sont rendus par sous-composants */
-  :global(.hub-meta) { display: inline-flex; gap: 8px; margin-bottom: var(--space-5); }
-  :global(.hub-num) { display: block; margin-bottom: var(--space-5); }
-  .hub-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(64px, 13vw, 200px);
-    line-height: 0.88;
-    letter-spacing: -0.035em;
-    text-wrap: balance;
-    font-weight: 400;
-    margin: 0;
-  }
-  .hub-h1 :global(i) { font-style: italic; color: var(--accent); }
-  .hub-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(20px, 2.4vw, 30px);
-    line-height: 1.3;
-    margin-top: 32px;
-    max-width: 980px;
-    color: var(--muted);
-    text-wrap: balance;
-  }
-  .hub-lede p { margin: 0; }
-  .hub-hero-visual {
-    aspect-ratio: 16/9;
-    margin: clamp(48px, 6vw, 80px) 0;
-    overflow: hidden;
-    border-radius: 2px;
-  }
-  .hub-hero-visual :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .hub-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    margin-top: 70px;
-    border-top: 1px solid var(--hairline-strong);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .hub-stats :global(.key-metric) {
-    min-height: 100%;
-    padding: clamp(24px, 3vw, 36px) clamp(14px, 2vw, 22px);
-    border-right: 1px solid var(--hairline);
-  }
-  .hub-stats :global(.key-metric:last-child) { border-right: none; }
-  .hub-stats :global(.key-metric-value) { font-style: normal; }
-
   .hub-manifesto {
     padding: clamp(80px, 10vw, 100px) 32px;
     background: var(--paper-2);
@@ -399,18 +302,6 @@ const ctaData = {
   .hub-closing :global(.pull-quote) { margin-block: 0; }
 
   @media (max-width: 900px) {
-    .hub-masthead { padding-top: 100px; }
     .hub-manifesto-grid { grid-template-columns: 1fr; }
-    .hub-stats { grid-template-columns: repeat(2, 1fr); }
-    .hub-stats :global(.key-metric:nth-child(2n)) { border-right: none; }
-  }
-
-  @media (max-width: 640px) {
-    .hub-stats { grid-template-columns: 1fr; }
-    .hub-stats :global(.key-metric) {
-      border-right: none;
-      border-bottom: 1px solid var(--hairline);
-    }
-    .hub-stats :global(.key-metric:last-child) { border-bottom: none; }
   }
 </style>
