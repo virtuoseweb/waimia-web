@@ -55,6 +55,8 @@ const {
 const lang = langFromPath(Astro.url.pathname);
 const siteUrl = 'https://waimia.com';
 const canonicalUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
+// Staging non-indexable : forcé sur les projets Vercel de preview (env PUBLIC_STAGING_NOINDEX=1), inactif sur waimia.com.
+const robotsNoindex = noindex || import.meta.env.PUBLIC_STAGING_NOINDEX === '1';
 
 // altUrl : URL du miroir linguistique pour hreflang.
 // - alternate===false → page FR-only, pas de hreflang alternatif
@@ -94,7 +96,7 @@ const additionalLd = additionalJsonLd
     <SEO
       title={title}
       description={description}
-      noindex={noindex}
+      noindex={robotsNoindex}
       openGraph={{
         basic: {
           title: title,
