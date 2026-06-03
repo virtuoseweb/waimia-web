@@ -9,18 +9,29 @@ import Kicker from '../ui/atoms/Kicker.astro';
 interface Props {
   data: SectionByType<'hero-essay'>;
   lang: 'fr' | 'en';
+  transitionId?: string;
+  cardTransitionId?: string;
+  topPad?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, transitionId, cardTransitionId, topPad } = Astro.props;
 const isFr = lang === 'fr';
 const readingTime = isFr ? data.reading_time_fr : data.reading_time_en;
 const imageAlt = (isFr ? data.hero_image_alt_fr : data.hero_image_alt_en) ?? '';
 ---
 
 <section class="hero-essay">
-  <header class="hero-essay__hd">
+  <header
+    class="hero-essay__hd"
+    transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}
+    style={topPad ? `--he-top-pad: ${topPad}` : undefined}
+  >
     <div class="wrap-wide">
       <Kicker class="hero-essay__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-      <h1 class="hero-essay__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <h1
+        class="hero-essay__h1 reveal-mask-up"
+        transition:name={transitionId ? `hero-h1-${transitionId}` : undefined}
+        set:html={isFr ? data.h1_fr : data.h1_en}
+      />
       <p class="hero-essay__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
       <div class="hero-essay__meta">
         <span>{data.author}</span>
@@ -39,7 +50,7 @@ const imageAlt = (isFr ? data.hero_image_alt_fr : data.hero_image_alt_en) ?? '';
 
 <style>
   .hero-essay__hd {
-    padding: calc(var(--header-height) + 24px) 32px clamp(40px, 6vw, 80px);
+    padding: var(--he-top-pad, calc(var(--header-height) + 24px)) 32px clamp(40px, 6vw, 80px);
     border-bottom: 1px solid var(--hairline);
   }
   :global(.hero-essay__kicker) { display: block; margin-bottom: 24px; }

@@ -17,6 +17,7 @@ import Kicker from '../ui/atoms/Kicker.astro';
 import RelatedCards from '../ui/molecules/RelatedCards.astro';
 import AuthorCard from '../ui/molecules/AuthorCard.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
+import HeroEssay from '../sections/HeroEssay.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import TableOfContents from '../ui/molecules/TableOfContents.astro';
@@ -103,6 +104,22 @@ const {
   articleId,
 } = Astro.props as Props;
 
+const headlineHtml = (await Astro.slots.render('headline')).trim();
+const ledeHtml = (await Astro.slots.render('lede')).trim();
+const heroData = {
+  type: 'hero-essay',
+  kicker_fr: kicker,
+  kicker_en: kicker,
+  h1_fr: headlineHtml,
+  h1_en: headlineHtml,
+  lede_fr: ledeHtml,
+  lede_en: ledeHtml,
+  author,
+  date,
+  reading_time_fr: readingTime,
+  reading_time_en: readingTime,
+} satisfies SectionByType<'hero-essay'>;
+
 const siteUrl = 'https://waimia.com';
 const pageTransitionId = Astro.url.pathname
   .replace(/^\/(?:en\/)?/, '')
@@ -156,25 +173,13 @@ const articleLd = buildArticle({
   )}
   <article class="essay">
     {/* MASTHEAD */}
-    <header class="essay-hd" transition:name={`card-${pageTransitionId}`}>
-      <div class="wrap-wide">
-        <Kicker class="essay-kicker">{kicker}</Kicker>
-        <h1 class="essay-h1 reveal-mask-up" transition:name={`hero-h1-${pageTransitionId}`}>
-          <slot name="headline" />
-        </h1>
-        <p class="essay-lede">
-          <slot name="lede" />
-        </p>
-        <div class="essay-meta">
-          <span>{author}</span>
-          <span aria-hidden>·</span>
-          <time datetime={date}>{date}</time>
-          {readingTime && (<><span aria-hidden>·</span><span>{readingTime}</span></>)}
-        </div>
-      </div>
-    </header>
-
-    {Astro.slots.has('hero-image') && <div class="essay-hero-image"><slot name="hero-image" /></div>}
+    <HeroEssay
+      data={heroData}
+      lang={lang}
+      transitionId={pageTransitionId}
+      cardTransitionId={pageTransitionId}
+      topPad="140px"
+    />
 
     {/* BODY */}
     <div class="essay-body">
@@ -298,47 +303,6 @@ const articleLd = buildArticle({
 </script>
 
 <style>
-/* ── Hero ─────────────────────────────────────────────── */
-.essay-hd {
-  padding: 140px 32px clamp(40px, 6vw, 80px);
-  border-bottom: 1px solid var(--hairline);
-}
-:global(.essay-kicker) { display: block; margin-bottom: 24px; }
-.essay-h1 {
-  font-family: var(--font-display);
-  font-size: clamp(48px, 7vw, 96px);
-  line-height: 0.96;
-  letter-spacing: -0.026em;
-  font-weight: 400;
-  text-wrap: balance;
-  margin: 0;
-  max-width: 1200px;
-}
-.essay-h1 :global(i) { font-style: italic; color: var(--accent); }
-.essay-lede {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(20px, 2.2vw, 28px);
-  line-height: 1.4;
-  color: var(--muted);
-  margin: 24px 0 32px;
-  max-width: 760px;
-  text-wrap: pretty;
-}
-.essay-meta {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  text-transform: uppercase;
-}
-
-.essay-hero-image { aspect-ratio: 16/9; margin: clamp(48px, 6vw, 80px) 32px 0; overflow: hidden; }
-.essay-hero-image :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
-
 /* ── Body layout ──────────────────────────────────────── */
 .essay-body {
   padding: clamp(60px, 8vw, 100px) 32px;
