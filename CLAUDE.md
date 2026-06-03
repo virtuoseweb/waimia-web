@@ -29,6 +29,18 @@ Catalogue de sections composables. **4 touchpoints par type, TOUS synchronisés*
 Pages catalogue : `/agence/design-system`, `/preview/[type]`, `/components/[type]`, `/categories/[slug]`.
 **DS figé** : on catalogue/compose l'existant, **0 nouveau token CSS**, 0 modif des templates/pages live sans tâche dédiée.
 
+### 🧭 Règle d'or ANTI-ORPHELIN (source de vérité = le composant, jamais le markup inline)
+3 familles de blocs — ne pas les confondre :
+- `src/components/sections/*.astro` (~68) = sections **cataloguées** (registry → design-system). **Éditer CE fichier propage partout** où il est importé (catalogue + templates + pages composables) : c'est la source de vérité de son markup/CSS.
+- `src/components/ui/organisms/*.astro` (~21) = organisms bespoke composés à la main par les pages (ex. home `src/pages/index.astro`) — **hors catalogue** (les modifier propage aussi, mais ils n'apparaissent pas dans `/agence/design-system`).
+- `src/components/templates/*.astro` (~18) = templates qui **importent** les composants ci-dessus.
+
+Deux rendus de page : **composable** = frontmatter MDX `sections: [...]` → `<SectionsRenderer>` → `section-registry` (cf `src/pages/offres/[...slug].astro` `useComposable`) = **cible** ; **template legacy** (props) = backward-compat.
+
+➡️ Pour TOUTE modif d'apparence/structure d'une section ou du header/footer : **éditer le composant** (`sections/`, `ui/organisms/`, `header/`, `footer/`) — **JAMAIS inliner du markup neuf dans une page ou un template** (= orphelin déconnecté du catalogue, dette garantie). Le header est global (`src/layouts/Base.astro` → `Header.astro`) : 1 édition → toutes les pages.
+➡️ **Contenu textuel** = props / frontmatter MDX `src/content/**` / `src/data/*` → 0 impact design.
+➡️ **Nouveau type de section** = tâche dédiée Simon (les 4 touchpoints ci-dessus synchronisés, sinon build cassé) — **hors scope contenu** d'un collaborateur.
+
 ## 🛑 Garde-fous NON négociables (fallback inline complet — GF-1..GF-6)
 > Le plugin `vw-guardrails` recharge ces GF au boot (cloud + local). Ce bloc est le **filet de secours** si l'install du plugin échoue (réseau cloud) — il doit donc rester **autoporteur**.
 - **GF-1 — preuve EMPIRIQUE** : jamais « validé/fini/parfait » sans preuve, dans le même turn. **Visuel** → Playwright screenshot above-fold + `getComputedStyle` (opacity ≠ 0, transform neutre) sur la preview/prod déployée (Lighthouse ne suffit JAMAIS). **Backend/API/DB** → appel réel + assertion sur la réponse (pas juste 200) + write→read DB vérifié + cas limite + flow E2E si full-stack. « ça build / 200 OK » ≠ « ça marche ». Reviewer : agent `visual-proof-reviewer`.
