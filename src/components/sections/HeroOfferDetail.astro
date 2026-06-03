@@ -7,12 +7,17 @@ import type { SectionByType } from '../../schemas/sections';
 interface Props {
   data: SectionByType<'hero-offer-detail'>;
   lang: 'fr' | 'en';
+  transitionId?: string;
+  cardTransitionId?: string;
+  wrapMax?: string;
+  geoReveal?: boolean;
+  breadcrumbCurrent?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, transitionId, cardTransitionId, wrapMax, geoReveal, breadcrumbCurrent } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="hero-offer-detail reveal">
-  <svg class="hero-offer-detail__geo" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<section class="hero-offer-detail reveal" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+  <svg class:list={['hero-offer-detail__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
     <line x1="0" y1="280" x2="1440" y2="280" stroke="currentColor" stroke-width=".4" opacity=".05"/>
     <line x1="0" y1="440" x2="1440" y2="440" stroke="currentColor" stroke-width=".3" opacity=".03"/>
     <line x1="720" y1="0" x2="720" y2="700" stroke="currentColor" stroke-width=".3" opacity=".04"/>
@@ -24,16 +29,16 @@ const isFr = lang === 'fr';
     <line x1="1196" y1="118" x2="1204" y2="118" stroke="currentColor" stroke-width=".7" opacity=".22"/>
     <line x1="1200" y1="114" x2="1200" y2="122" stroke="currentColor" stroke-width=".7" opacity=".22"/>
   </svg>
-  <div class="hero-offer-detail__wrap">
+  <div class="hero-offer-detail__wrap" style={wrapMax ? `--hod-wrap: ${wrapMax}` : undefined}>
     {data.breadcrumb_label_fr && (
       <nav class="hero-offer-detail__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
         <a href={data.breadcrumb_href ?? '#'}>{isFr ? data.breadcrumb_label_fr : (data.breadcrumb_label_en ?? data.breadcrumb_label_fr)}</a>
         <span aria-hidden="true">/</span>
-        <span>{isFr ? data.tier_fr : data.tier_en}</span>
+        <span>{breadcrumbCurrent ?? (isFr ? data.tier_fr : data.tier_en)}</span>
       </nav>
     )}
     <div class="hero-offer-detail__tier">{isFr ? data.tier_fr : data.tier_en}</div>
-    <h1 class="hero-offer-detail__title reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <h1 class="hero-offer-detail__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
     <div class="hero-offer-detail__sub">
       <p class="hero-offer-detail__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
       <div class="hero-offer-detail__actions">
@@ -60,7 +65,7 @@ const isFr = lang === 'fr';
   .hero-offer-detail__wrap {
     position: relative;
     z-index: 1;
-    max-width: 1320px;
+    max-width: var(--hod-wrap, 1320px);
     margin-inline: auto;
     padding-inline: clamp(20px, 4vw, 48px);
   }
