@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Kicker from '../ui/atoms/Kicker.astro';
+import HeroAcademyHub from '../sections/HeroAcademyHub.astro';
+import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
   formations: Array<CollectionEntry<"courses">>;
@@ -11,21 +12,26 @@ interface Props {
 
 const { formations, parcours, ateliers, lang } = Astro.props;
 
-const heroTitle = lang === 'fr'
-  ? "Apprendre à câbler l'<i>IA</i>"
-  : "Learn to wire <i>AI</i>";
+const heroTitleFr = "Apprendre à câbler l'<i>IA</i>";
+const heroTitleEn = "Learn to wire <i>AI</i>";
+const heroLedeFr = "Formations courtes, cas réels, zéro bullshit. Pour dirigeants et équipes PME B2B qui veulent des résultats mesurables dans les 30 jours.";
+const heroLedeEn = "Short courses, real cases, no fluff. For SMB leaders and teams who want measurable results within 30 days.";
+const kickerTextFr = `École Waimia · Catalogue · Inscriptions ouvertes`;
+const kickerTextEn = `Waimia School · Catalog · Enrollments open`;
+const statsLabelFr = `${formations.length} formation${formations.length > 1 ? 's' : ''} · ${parcours.length} parcours · ${ateliers.length} atelier${ateliers.length > 1 ? 's' : ''}`;
+const statsLabelEn = `${formations.length} course${formations.length > 1 ? 's' : ''} · ${parcours.length} program${parcours.length > 1 ? 's' : ''} · ${ateliers.length} workshop${ateliers.length > 1 ? 's' : ''}`;
 
-const heroLede = lang === 'fr'
-  ? "Formations courtes, cas réels, zéro bullshit. Pour dirigeants et équipes PME B2B qui veulent des résultats mesurables dans les 30 jours."
-  : "Short courses, real cases, no fluff. For SMB leaders and teams who want measurable results within 30 days.";
-
-const kickerText = lang === 'fr'
-  ? `École Waimia · Catalogue · Inscriptions ouvertes`
-  : `Waimia School · Catalog · Enrollments open`;
-
-const statsLabel = lang === 'fr'
-  ? `${formations.length} formation${formations.length > 1 ? 's' : ''} · ${parcours.length} parcours · ${ateliers.length} atelier${ateliers.length > 1 ? 's' : ''}`
-  : `${formations.length} course${formations.length > 1 ? 's' : ''} · ${parcours.length} program${parcours.length > 1 ? 's' : ''} · ${ateliers.length} workshop${ateliers.length > 1 ? 's' : ''}`;
+const heroData = {
+  type: 'hero-academy-hub',
+  kicker_fr: kickerTextFr,
+  kicker_en: kickerTextEn,
+  h1_fr: heroTitleFr,
+  h1_en: heroTitleEn,
+  lede_fr: heroLedeFr,
+  lede_en: heroLedeEn,
+  stats_label_fr: statsLabelFr,
+  stats_label_en: statsLabelEn,
+} satisfies SectionByType<'hero-academy-hub'>;
 
 const levelLabels: Record<string, Record<string, string>> = {
   fr: { debutant: 'Débutant', intermediaire: 'Intermédiaire', avance: 'Avancé', expert: 'Expert' },
@@ -39,16 +45,7 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
 
 <section class="ecole-hub">
   <!-- HERO -->
-  <div class="hero">
-    <Kicker as="p">{kickerText}</Kicker>
-    <h1 class="heading" set:html={heroTitle} />
-    <p class="lede">{heroLede}</p>
-  </div>
-
-  <!-- STATS BANDE MONO -->
-  <div class="stats-bande">
-    <span class="stats-text">{statsLabel}</span>
-  </div>
+  <HeroAcademyHub data={heroData} lang={lang} wrap={false} topPad="48px" />
 
   <!-- CATALOGUE FORMATIONS -->
   {formations.length > 0 && (
@@ -123,58 +120,9 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
     background: var(--paper);
   }
 
-  /* HERO */
-  .hero {
-    padding-top: 72px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .kicker {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    line-height: 1;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 24px;
-  }
-
-  .heading {
-    font-size: var(--text-h1-hero);
-    font-family: var(--font-display);
-    font-weight: 400;
-    line-height: 1.05;
-    margin: 0 0 24px;
-  }
-
-  .heading i {
-    font-style: italic;
-  }
-
-  .lede {
-    font-size: var(--text-lede);
-    font-family: var(--font-sans);
-    line-height: 1.5;
-    max-width: 640px;
-    margin: 0;
-    color: var(--text-secondary, #444);
-  }
-
-  /* STATS BANDE */
-  .stats-bande {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .stats-text {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    line-height: 1;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted, #888);
-  }
+  /* Masthead migré vers le composant catalogué `HeroAcademyHub` (sections/).
+     Règles `.hero/.kicker/.heading/.lede/.stats-bande/.stats-text`
+     supprimées (structure + CSS désormais portés par le composant — source unique). */
 
   /* CATALOGUE */
   .catalogue {

@@ -8,11 +8,13 @@ import Kicker from '../ui/atoms/Kicker.astro';
 interface Props {
   data: SectionByType<'hero-academy-hub'>;
   lang: 'fr' | 'en';
+  wrap?: boolean;
+  topPad?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, wrap = true, topPad } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="hero-academy-hub">
+<section class:list={['hero-academy-hub', !wrap && 'hero-academy-hub--unwrapped']} style={topPad ? `--hahub-top-pad: ${topPad}` : undefined}>
   <div class="hero-academy-hub__hero">
     <Kicker as="p" class="hero-academy-hub__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     <h1 class="hero-academy-hub__heading" set:html={isFr ? data.h1_fr : data.h1_en} />
@@ -32,8 +34,14 @@ const isFr = lang === 'fr';
     padding: 0 var(--space-page-x, 24px);
     background: var(--paper);
   }
+  .hero-academy-hub--unwrapped {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
   .hero-academy-hub__hero {
-    padding-top: 72px;
+    padding-top: var(--hahub-top-pad, 72px);
     padding-bottom: 48px;
     border-bottom: 1px solid var(--hairline);
   }
