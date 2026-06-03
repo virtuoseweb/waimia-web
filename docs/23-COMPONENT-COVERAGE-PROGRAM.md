@@ -71,7 +71,17 @@ Vérifié empiriquement (anti-hallucination) : le modèle « définition unique 
 
 ## Suivi des vagues
 
-- [⏳] Phase A — 6 types récurrents (worker `feat/catalog-reusable-sections`, en cours `b2rax30zn`)
-- [ ] Phase A.2 — types one-off (variante-first)
-- [ ] Phase B — conversion 18 templates → data-driven `sections[]` + SectionsRenderer (par template)
+- [x] **Phase A — 6 types récurrents + 3 vt=0 = 9 types intégrés sur `main` (`2129b27`, registry 58→67)** — build vert + GF-1 9/9 (`/preview` parité prod, screenshot+getComputedStyle opacity=1/transform none/0 err console). Push `17ca677`. Travail SALVÉ de la fleet pré-compactage (Codex `wf-foundation-sections` + `waimia-components-missing`), PAS refait.
+- [ ] Phase A.2 — types one-off (variante-first : réutiliser type+variante avant nouveau type ; ~12 candidats)
+- [ ] Phase B — conversion 18 templates → data-driven `sections[]` + SectionsRenderer (par template, 1 worker/template)
+- [ ] Couche éditable Tina (post-catalogue) — bridge documenté `docs/36` : `data-tina-field` dans SectionsRenderer + `IslandRegistry` + route `/tina-edit/` + `includeFiles` astro.config
 - [ ] Track 2 — atomes/molécules (chiffrage + showcase)
+
+## Leçon multi-session / post-compactage (GF-3 — 2026-06-03)
+
+Le compactage efface la mémoire des **workers en vol**. Résultat ce jour : j'ai re-planifié + lancé un worker Opus **doublon** de la fondation qu'un worker Codex d'une session précédente produisait déjà (même worktree). Coût évité de justesse en vérifiant l'état AVANT de continuer.
+**Réflexe à acquérir (à porter aussi en rule 35 global) — AVANT de planifier/lancer après une reprise ou un compactage :**
+1. `ps aux | grep -E "claude -p|codex exec"` + `lsof -d cwd | grep <repo>` → workers en vol ?
+2. `ls -lt /tmp/codex-missions/` → missions récentes d'autres sessions ?
+3. `git status` + `git log --oneline -5` + `git worktree list` → artefacts non commités / branches actives ?
+4. **Multi-session = frontière de FICHIERS, pas seulement de branche** : 2 sessions sur `main` mobile cohabitent SANS conflit tant que leurs ensembles de fichiers sont disjoints (ici : moi sections/schema/registry/templates, `3bcf2a5f` layouts/SEO/contenu). C'est la vraie règle anti-collision.
