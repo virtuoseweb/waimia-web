@@ -1,0 +1,235 @@
+---
+// Section catalogue · trust-legal-section
+// Extraction du masthead + TOC sticky de TrustLegalTemplate.astro.
+import type { SectionByType } from '../../schemas/sections';
+import { langFromPath } from '../../lib/i18n';
+import Bi from '../ui/atoms/Bi.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface TrustSection {
+  id: string;
+  title_fr: string;
+  title_en: string;
+}
+
+interface Props {
+  data?: SectionByType<'trust-legal-section'>;
+  lang?: 'fr' | 'en';
+  title?: string;
+  description?: string;
+  kickerFr?: string;
+  kickerEn?: string;
+  revisedAt?: string;
+  version?: string;
+  sections?: TrustSection[];
+}
+
+const {
+  data,
+  lang = langFromPath(Astro.url.pathname),
+  title,
+  description,
+  kickerFr,
+  kickerEn,
+  revisedAt,
+  version,
+  sections,
+} = Astro.props as Props;
+
+const isFr = lang === 'fr';
+const finalTitle = title ?? (isFr ? data?.h1_fr : data?.h1_en) ?? '';
+const finalDescription = description ?? (isFr ? data?.lede_fr : data?.lede_en) ?? '';
+const finalKickerFr = kickerFr ?? data?.kicker_fr ?? '';
+const finalKickerEn = kickerEn ?? data?.kicker_en ?? finalKickerFr;
+const finalRevisedAt = revisedAt ?? data?.revised_at ?? '';
+const finalVersion = version ?? data?.version;
+const tocSections = sections ?? data?.sections ?? [];
+const legalFooterFr = data?.legal_footer_fr ?? 'Document interne';
+const legalFooterEn = data?.legal_footer_en ?? 'Internal document';
+
+const revisedLabel = finalRevisedAt
+  ? new Date(finalRevisedAt).toLocaleDateString(isFr ? 'fr-FR' : 'en-GB', { month: 'long', year: 'numeric' })
+  : null;
+---
+
+<section class="trust-hd">
+  <div class="wrap-wide">
+    <Kicker class="trust-kicker"><Bi fr={finalKickerFr} en={finalKickerEn} /></Kicker>
+    <h1 class="trust-h1 reveal">
+      {Astro.slots.has('headline') ? <slot name="headline" /> : <Fragment set:html={finalTitle} />}
+    </h1>
+    <p class="trust-lede reveal">
+      {Astro.slots.has('lede') ? <slot name="lede" /> : <Fragment set:html={finalDescription} />}
+    </p>
+    {revisedLabel && (
+      <div class="trust-meta">
+        <Bi fr="Dernière révision" en="Last revised" /> ·
+        <time datetime={finalRevisedAt}>{revisedLabel}</time>
+        {finalVersion && <><span aria-hidden> · </span><span>{finalVersion}</span></>}
+      </div>
+    )}
+    <footer class="trust-legal-footer">
+      {finalVersion
+        ? <><Bi fr={legalFooterFr} en={legalFooterEn} /> <span class="trust-footer-version">— {finalVersion}</span></>
+        : <><slot name="footer-legal"><Bi fr={legalFooterFr} en={legalFooterEn} /></slot></>
+      }
+    </footer>
+  </div>
+</section>
+
+<div class="trust-body">
+  <div class="wrap-wide trust-grid">
+    <aside class="trust-toc reveal-stagger" aria-label={isFr ? 'Sommaire' : 'Table of contents'}>
+      <Kicker class="trust-toc-k"><Bi fr="Sommaire" en="Contents" /></Kicker>
+      <ol>
+        {tocSections.map((s, i) => (
+          <li>
+            <a href={`#${s.id}`}>
+              <span class="trust-toc-num">{String(i + 1).padStart(2, '0')}</span>
+              <span><Bi fr={s.title_fr} en={s.title_en} /></span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </aside>
+
+    <article class="trust-sections reveal-stagger">
+      <slot name="sections" />
+    </article>
+  </div>
+</div>
+
+<style>
+  .trust-hd {
+    padding: 140px 32px clamp(40px, 5vw, 72px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  :global(.trust-kicker) { display: block; margin-bottom: 24px; }
+  .trust-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 128px);
+    line-height: 0.94;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+    font-weight: 400;
+    margin: 0;
+  }
+  .trust-h1 :global(i) { font-style: italic; color: var(--accent); }
+  .trust-lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px);
+    color: var(--ink-2);
+    margin: 32px 0 24px;
+    max-width: 760px;
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .trust-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .trust-legal-footer {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hairline);
+    letter-spacing: 0.08em;
+  }
+  .trust-footer-version { color: var(--muted); }
+
+  .trust-body { padding: clamp(60px, 8vw, 100px) 32px; }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: clamp(40px, 6vw, 80px);
+  }
+  .trust-toc {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+  :global(.trust-toc-k) { display: block; margin-bottom: var(--space-4); }
+  .trust-toc ol {
+    list-style: none;
+    padding: 14px 0 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    line-height: 1.4;
+    border-top: 1px solid var(--hairline);
+  }
+  .trust-toc a {
+    color: var(--ink-2);
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 8px;
+    align-items: baseline;
+    transition: color 240ms var(--ease);
+  }
+  .trust-toc a:hover { color: var(--accent); }
+  .trust-toc-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .trust-sections {
+    font-family: var(--font-display);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 780px;
+  }
+  .trust-sections :global(section) {
+    padding: clamp(40px, 5vw, 72px) 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .trust-sections :global(section):first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .trust-sections :global(h2) {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.022em;
+    font-weight: 400;
+    margin: 0 0 36px;
+    text-wrap: balance;
+  }
+  .trust-sections :global(h2 i) { font-style: italic; color: var(--accent); }
+  .trust-sections :global(h3) {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.2;
+    font-weight: 400;
+    margin: clamp(28px, 3vw, 40px) 0 12px;
+    color: var(--ink);
+  }
+  .trust-sections :global(p) { margin: 0 0 1.2em; }
+  .trust-sections :global(ul) { margin: 0 0 1.4em 1.5em; }
+  .trust-sections :global(li) { margin-bottom: 0.5em; }
+  .trust-sections :global(a) {
+    color: var(--accent);
+    border-bottom: 1px solid currentColor;
+  }
+
+  @media (max-width: 900px) {
+    .trust-grid { grid-template-columns: 1fr; }
+    .trust-toc {
+      position: static;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--hairline);
+    }
+  }
+</style>

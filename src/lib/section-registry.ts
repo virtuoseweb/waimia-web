@@ -40,6 +40,9 @@ import HeroSector from '../components/sections/HeroSector.astro';
 import HeroUtilityMasthead from '../components/sections/HeroUtilityMasthead.astro';
 import HeroAcademyHub from '../components/sections/HeroAcademyHub.astro';
 import HeroHubMasthead from '../components/sections/HeroHubMasthead.astro';
+import TrustLegalSection from '../components/sections/TrustLegalSection.astro';
+import WelcomeSection from '../components/sections/WelcomeSection.astro';
+import ListIndexSection from '../components/sections/ListIndexSection.astro';
 import HeroOfferDetail from '../components/sections/HeroOfferDetail.astro';
 import HeroTechLayer from '../components/sections/HeroTechLayer.astro';
 import HeroConversionFunnel from '../components/sections/HeroConversionFunnel.astro';
@@ -234,6 +237,36 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Masthead mutualisé pour pages d\'index (offres, cas, secteurs, technologies) : kicker mono, h1 italique display, lede court.',
     description_en: 'Shared masthead for index pages (services, cases, sectors, technologies): mono kicker, italic display h1, short lede.',
+  },
+  'trust-legal-section': {
+    component: TrustLegalSection,
+    category: 'marketing',
+    subcategory: 'Trust Sections',
+    categorySlug: 'trust-sections',
+    tags: ['trust', 'legal', 'toc', 'governance'],
+    status: 'stable',
+    description_fr: 'Masthead documentaire avec meta de révision et sommaire sticky pour pages confiance, gouvernance et légales.',
+    description_en: 'Documentary masthead with revision metadata and sticky contents for trust, governance, and legal pages.',
+  },
+  'welcome-section': {
+    component: WelcomeSection,
+    category: 'marketing',
+    subcategory: 'Utility Sections',
+    categorySlug: 'utility-sections',
+    tags: ['welcome', 'confirmation', 'post-conversion', 'steps'],
+    status: 'stable',
+    description_fr: 'Écran de confirmation post-conversion avec checkmark, message central, trois prochaines étapes et lien retour.',
+    description_en: 'Post-conversion confirmation screen with checkmark, centered message, three next steps, and back link.',
+  },
+  'list-index-section': {
+    component: ListIndexSection,
+    category: 'marketing',
+    subcategory: 'Index Sections',
+    categorySlug: 'index-sections',
+    tags: ['index', 'listing', 'filters', 'resources'],
+    status: 'stable',
+    description_fr: 'Masthead de listing avec filtres optionnels, conteneur de liste ouvert et footer custom.',
+    description_en: 'Listing masthead with optional filters, open list container, and custom footer.',
   },
   'hero-offer-detail': {
     component: HeroOfferDetail,

@@ -1,0 +1,97 @@
+---
+// Section catalogue · list-index-section
+// Extraction du masthead + conteneur liste de ListIndexTemplate.astro.
+import type { SectionByType } from '../../schemas/sections';
+import { langFromPath } from '../../lib/i18n';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data?: SectionByType<'list-index-section'>;
+  lang?: 'fr' | 'en';
+  title?: string;
+  description?: string;
+  kicker?: string;
+}
+
+const {
+  data,
+  lang = langFromPath(Astro.url.pathname),
+  title,
+  description,
+  kicker,
+} = Astro.props as Props;
+
+const isFr = lang === 'fr';
+const finalTitle = title ?? (isFr ? data?.h1_fr : data?.h1_en) ?? '';
+const finalDescription = description ?? (isFr ? data?.lede_fr : data?.lede_en) ?? '';
+const finalKicker = kicker ?? (isFr ? data?.kicker_fr : data?.kicker_en) ?? '';
+const filtersHtml = isFr ? data?.filters_html_fr : data?.filters_html_en;
+const listHtml = isFr ? data?.list_html_fr : data?.list_html_en;
+const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
+---
+
+<section class="list-hd">
+  <div class="wrap-wide">
+    <Kicker class="list-kicker">{finalKicker}</Kicker>
+    <h1 class="list-h1 reveal-mask-up">
+      {Astro.slots.has('headline') ? <slot name="headline" /> : <Fragment set:html={finalTitle} />}
+    </h1>
+    <p class="list-lede">
+      {Astro.slots.has('lede') ? <slot name="lede" /> : <Fragment set:html={finalDescription} />}
+    </p>
+
+    {hasFilters && (
+      <div class="list-filters">
+        {Astro.slots.has('filters') ? <slot name="filters" /> : <Fragment set:html={filtersHtml ?? ''} />}
+      </div>
+    )}
+  </div>
+</section>
+
+<section class="list-body">
+  <div class="wrap-wide">
+    {Astro.slots.has('list') ? <slot name="list" /> : <Fragment set:html={listHtml ?? ''} />}
+  </div>
+</section>
+
+{(Astro.slots.has('footer') || data?.footer_html_fr || data?.footer_html_en) && (
+  <footer class="list-footer">
+    {Astro.slots.has('footer') ? <slot name="footer" /> : <Fragment set:html={(isFr ? data?.footer_html_fr : data?.footer_html_en) ?? ''} />}
+  </footer>
+)}
+
+<style>
+  .list-hd {
+    padding: 140px 32px clamp(40px, 5vw, 72px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  :global(.list-kicker) { display: block; margin-bottom: 24px; }
+  .list-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .list-h1 :global(i) { font-style: italic; color: var(--accent); }
+  .list-lede {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2.2vw, 32px);
+    color: var(--ink-2);
+    margin: 32px 0 0;
+    max-width: 760px;
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .list-filters {
+    margin-top: clamp(36px, 4vw, 56px);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .list-body { padding: clamp(60px, 8vw, 100px) 32px; }
+  .list-footer { border-top: 1px solid var(--hairline); }
+</style>
