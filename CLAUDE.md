@@ -5,7 +5,7 @@ Org GitHub : **`virtuoseweb`**. ⚠️ NE PAS toucher le repo `waimia-v2` (monor
 
 ## 🚀 Reprise de session — LIRE EN PREMIER
 **`docs/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md`** = état courant + plan + reste à faire (dont **§6 = init hooks cloud vs local**).
-État : **consolidé sur `main`** (HEAD `e9f9b66`) — bibliothèque à **58 types** (hero-liquid inclus), **6/18 templates** migrés vers le registry (+ CourseDetail `c4fcf2b`, + EcoleHub `e9f9b66` GF-1 prod y=89 ✅), build vert + **GF-1 prod ✅** (`waimia.com`). 🔄 Hub→HeroHubStats en cours (7/18). Reste P1 : standardiser les **12 templates restants** (cf §Reste à faire + `docs/22` mapping sourcé).
+État : **consolidé sur `main`** (HEAD `6857d78`) — bibliothèque à **58 types** (hero-liquid inclus), **7/18 templates** migrés vers le registry (+ CourseDetail `c4fcf2b`, + EcoleHub `e9f9b66` GF-1 prod y=89, + Hub→HeroHubStats `6857d78` GF-1 prod y=259 ✅), build vert + **GF-1 prod ✅** (`waimia.com`). 🔄 AuthorPage→HeroAuthor en cours (8/18, 1ʳᵉ famille VT). Reste P1 : standardiser les **11 templates restants** (cf §Reste à faire + `docs/22` mapping sourcé).
 
 ## ⚙️ Initialisation (cloud vs local) — via le plugin partagé `vw-guardrails`
 - **Cloud** (claude.ai/code) : seuls **ce `CLAUDE.md`** + le **`.claude/` du repo** s'activent (le `~/.claude` global n'est PAS cloné — doc Anthropic : « only hooks committed to the repo run »). Le `.claude/settings.json` **déclare le marketplace `virtuoseweb` + le plugin `vw-guardrails@virtuoseweb`** → au démarrage de session cloud, Claude Code **installe le plugin** depuis `github.com/virtuoseweb/claude-config` (public) : hook SessionStart (recharge GF-1..GF-6, affiche `☁️ CLOUD`), agent `visual-proof-reviewer`, commande `/vw-guardrails:guardrails`.
@@ -45,5 +45,5 @@ Pages catalogue : `/agence/design-system`, `/preview/[type]`, `/components/[type
 Branches isolées (`git worktree`), agent teams (debate/cross-layer), **workflows** pour le balayage à grande échelle (ex. GF-1 sur les 57 previews), `claude --bg` pour les missions longues supervisées. Détail + découpe suggérée : `docs/20`.
 
 ## Reste à faire (P1)
-1. **Migration templates (12/18 restants)** → faire consommer le registry par `src/components/templates/*` (6 migrés : ConversionFunnel/DetailMenu/ServiceDetail/Utility/CourseDetail/EcoleHub ; Hub→HeroHubStats en cours). GF-1 par page. Runbook + mapping sourcé : `docs/22`. ⚠️ 3 vt=0 (TrustLegal/Welcome/ListIndex) sans composant catalogué dédié → arbitrage requis.
+1. **Migration templates (11/18 restants)** → faire consommer le registry par `src/components/templates/*` (7 migrés : ConversionFunnel/DetailMenu/ServiceDetail/Utility/CourseDetail/EcoleHub/Hub ; AuthorPage→HeroAuthor en cours = 1ʳᵉ famille VT). GF-1 par page. Runbook + mapping sourcé : `docs/22`. ⚠️ 3 vt=0 (TrustLegal/Welcome/ListIndex) sans composant catalogué dédié → arbitrage requis.
 2. **GF-1 sweep** sur preview Vercel (les 58 `/preview/<type>`) — secret `VERCEL_AUTOMATION_BYPASS_SECRET` requis pour le gate auto (sinon sweep local via `scripts/serve-dist.mjs`, parité prod).

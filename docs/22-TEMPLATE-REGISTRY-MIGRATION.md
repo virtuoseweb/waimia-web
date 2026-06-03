@@ -50,11 +50,11 @@ before/after pixel-identiques, `getComputedStyle` h1 identique (opacity 1, trans
 | UtilityTemplate | `util-h1` | 0 | `HeroUtilityMasthead` | ✅ migré — **10 pages** (contact, about, careers, methode, academy, veille-ia, livres-blancs + 3 EN) ; props `wrapMaxWidth`+`reveal` ; `align` natif ; 0 modif e2e |
 | CourseDetailTemplate | `hd-title` | 0 | `HeroCourse` | ✅ migré (`c4fcf2b`, 5/18) — props `topPad`+`wrap`+`ctaPrimaryDisabled/External`+`ghostStyle` ; e2e `/ecole/cours/intro-ia-pme-b2b` |
 | EcoleHubTemplate | `heading` | 0 | `HeroAcademyHub` | ✅ migré (`e9f9b66`, 6/18) — props `wrap`(=false)+`topPad`("48px") ; GF-1 prod y=89 ; 0 e2e |
-| HubTemplate | `hub-h1` | 0 | **`HeroHubStats`** (source `// .hub-masthead` HubTemplate:123-159) | 🔄 en cours (`feat/template-hub-herohubstats`, 7/18) — 1 page `/offres/conseil` ; slots→props (approche A) + prop `ledeDropCap` + EN à valider |
+| HubTemplate | `hub-h1` | 0 | **`HeroHubStats`** (source `// .hub-masthead` HubTemplate:123-159) | ✅ migré (`6857d78`, 7/18) — GF-1 prod `/offres/conseil` y=259 0-régression ; prop `ledeDropCap="§"` + `emphasis` stat 2 ; e2e 10→8 (−2 préexistants) |
 | TrustLegalTemplate | `trust-h1` | 0 | ⚠️ aucun composant ne cite `trust-h1`/TrustLegalTemplate | à faire — **pas de copie fidèle catalogue** ; header atypique → mapping générique (`HeroUtilityMasthead` ?) à arbitrer |
 | WelcomeTemplate | `welcome-h1` | 0 | ⚠️ aucun composant dédié | à faire — **pas de copie fidèle** ; à déterminer |
 | ListIndexTemplate | `list-h1` | 0 | ⚠️ `HeroHubListing` cite `ressources/index.astro` inline, **pas** ListIndexTemplate | à faire — mapping à confirmer (route ≠ source composant) |
-| AuthorPageTemplate | `author-h1` | 3 | `HeroAuthor` (source `.author-hero` AuthorPageTemplate:294-311) ✅ confirmé | à faire (+ View Transitions) |
+| AuthorPageTemplate | `author-h1` | 3 | `HeroAuthor` (source `.author-hero` AuthorPageTemplate:294-311) ✅ confirmé | 🔄 8/18 (1ʳᵉ de la famille VT) — 1 page `/equipe/[slug]` (FR-only), masthead en props (pas slots) ; **portrait via slot optionnel** (catalogue rend placeholder ≠ vrai PortraitSimon) + **prop `transitionId`** forwardant `card-/hero-h1-/hero-img-${id}` |
 | CaseStudyTemplate | `case-h1` | 3 | `HeroCaseStudy` (source `.case-masthead` CaseStudyTemplate) ✅ confirmé | à faire (+ VT) |
 | EssayTemplate | `essay-h1` | 2 | `HeroEssay` (source `.essay-hd` EssayTemplate) ✅ confirmé | à faire (+ VT) |
 | LeadMagnetTemplate | `lm-h1` | 3 | `HeroLeadMagnet` (source `.lm-hero` LeadMagnetTemplate:115-142) ✅ confirmé | à faire (+ VT) |
