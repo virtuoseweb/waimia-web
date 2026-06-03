@@ -1,166 +1,143 @@
-# 🚀 Guide de démarrage — Collaborateur waimia-web
+# 🚀 Guide collaborateur — waimia-web (Claude Code / Sonnet)
 
-Bienvenue ! Ce repo est **le site en production `waimia.com`** (Astro 6 + React 19 + Tailwind 4, déployé sur Vercel). Ce guide te permet de démarrer proprement en ~20 min et de travailler **avec Claude Code** dans les meilleures conditions.
+Tu vas travailler sur **`waimia.com`** (site Astro 6) avec **Claude Code en Sonnet** (Claude Pro). Ce guide est court et ciblé : on configure ton poste (Phase A), puis on travaille (Phase B).
 
-> **Ta branche de travail : `feat/contenu`** (déjà créée). Ton périmètre : le **menu**, le **contenu des sections** et des **pages**.
-> **Règle d'or : tu ne merges JAMAIS sur `main` toi-même.** Tu pousses ta branche, tu ouvres une Pull Request, et **Simon valide et merge**. (Détail § Workflow.)
+> 🎯 **Ta branche : `feat/contenu`.** Périmètre : **menu, contenu des sections, pages.**
+> 🔒 **Tu ne merges JAMAIS sur `main`.** Tu pousses, tu ouvres une PR, **Simon valide et met en prod.**
 
 ---
 
-## 1. Accès & prérequis
+# PHASE A — Configurer ton poste (tu pars de zéro)
 
-1. **Accepter l'invitation GitHub** : tu as reçu une invitation à collaborer sur `virtuoseweb/waimia-web` (email + notification GitHub). Clique « Accept ». Tu as le rôle **Write** : tu peux cloner, créer des branches, pousser, ouvrir des PR.
-2. **Compte Claude** : Claude Code nécessite un abonnement **Claude Pro/Max** *ou* une clé API Anthropic. Prépare l'un des deux avant l'étape 3.
+## A.1 — Installer les outils
 
-### Outils à installer (CLI)
-
-| Outil | Version | Installation |
+| Outil | Version | Commande |
 | --- | --- | --- |
-| **Git** | récente | `brew install git` (macOS) / `apt install git` (Linux) |
-| **GitHub CLI** (`gh`) | récente | `brew install gh` puis `gh auth login` (choisir HTTPS) |
-| **Node.js** | **22.12.0** (épinglé `.nvmrc`) | via [nvm](https://github.com/nvm-sh/nvm) : `nvm install 22.12.0 && nvm use` |
-| **pnpm** | **9.15.0** (épinglé) | `corepack enable && corepack prepare pnpm@9.15.0 --activate` |
-| **Claude Code** | dernière | `npm install -g @anthropic-ai/claude-code` |
+| Node.js | **22.12.0** | via [nvm](https://github.com/nvm-sh/nvm) : `nvm install 22.12.0 && nvm use` |
+| pnpm | **9.15.0** | `corepack enable && corepack prepare pnpm@9.15.0 --activate` |
+| GitHub CLI | récente | `brew install gh && gh auth login` (choisir **HTTPS**) |
+| Claude Code | dernière | `npm install -g @anthropic-ai/claude-code@latest` |
 
----
+➕ **Compte Claude Pro** (accès Sonnet). Le plan Pro a des **limites d'usage par tranche de ~5 h** → voir A.5 pour rester productif.
 
-## 2. Cloner le projet et démarrer en local
+## A.2 — Récupérer le projet
 
 ```bash
-gh repo clone virtuoseweb/waimia-web      # ou : git clone https://github.com/virtuoseweb/waimia-web.git
+gh repo clone virtuoseweb/waimia-web
 cd waimia-web
-
-git checkout feat/contenu                 # ⚠️ ta branche de travail (PAS main)
-nvm use                                   # Node 22.12.0
-corepack enable                           # active pnpm 9.15.0
-
-pnpm install                              # dépendances
-cp .env.example .env                      # variables locales (voir note ci-dessous)
-pnpm dev                                  # → http://localhost:4321
+git checkout feat/contenu      # ta branche (jamais main)
+nvm use                        # Node 22.12.0
+corepack enable                # pnpm 9.15.0
+pnpm install
+cp .env.example .env           # clés API PAS nécessaires pour le contenu
+pnpm dev                       # → http://localhost:4321
 ```
 
-> **Note `.env`** : les vraies clés API (Resend, Upstash, Cal.com) vivent dans Vercel, **pas dans le repo**. Pour éditer du **contenu / des sections / le menu**, tu n'en as **pas besoin** : le rendu des pages fonctionne sans. (Seuls les formulaires/envois d'emails nécessitent les clés réelles.)
+## A.3 — Lancer Claude Code : tu ne configures RIEN, tout est déjà dans le repo ✅
 
----
+Le repo embarque **toute** sa config Claude — **tu ne crées et ne modifies aucun fichier**. Ces 3 fichiers sont versionnés et arrivent avec le clone :
 
-## 3. Configurer Claude Code (le repo est déjà pré-équipé ✅)
-
-Le dépôt embarque sa propre config Claude — **tu n'as quasiment rien à configurer**. Au **premier lancement de `claude` dans le dossier**, Claude Code charge automatiquement :
-
-### a) Les serveurs MCP (`.mcp.json` du repo)
-
-| MCP | Rôle pour ton travail |
+| Fichier (versionné) | Ce qu'il fait pour toi |
 | --- | --- |
-| **playwright** | Claude **ouvre une vraie page** pour vérifier visuellement le rendu (screenshots, vérifs DOM). Indispensable pour valider que tes changements de contenu/sections s'affichent correctement. |
-| **context7** | Documentation **à jour** d'Astro / Tailwind / des libs — évite les réponses périmées de Claude. |
+| **`CLAUDE.md`** | Le **contrat principal** : les garde-fous qualité (GF-1…GF-6) + les règles du projet (Design System figé, prod). Claude le lit **automatiquement** au démarrage. |
+| **`.claude/settings.json`** | Déclare le marketplace `virtuoseweb` + active le plugin garde-fous **`vw-guardrails`** (agents de relecture + commande). |
+| **`.mcp.json`** | 2 outils MCP : **playwright** (Claude ouvre une vraie page → screenshots de vérif) + **context7** (doc Astro/Tailwind à jour). |
 
-➡️ Au 1ᵉʳ lancement, Claude te demandera d'**autoriser ces serveurs MCP** : accepte-les. (playwright télécharge un navigateur la première fois ; si besoin : `npx playwright install chromium`.)
-
-### b) Le plugin garde-fous `vw-guardrails` (`.claude/settings.json` du repo)
-
-Le repo déclare le marketplace `virtuoseweb/claude-config` et active le plugin **`vw-guardrails`** : il s'installe tout seul au démarrage et apporte les **garde-fous qualité GF-1…GF-6** + un agent reviewer (`visual-proof-reviewer`) + la commande `/vw-guardrails:guardrails`. Le plus important pour toi :
-
-- **GF-1 — preuve avant de dire « fini »** : ne jamais affirmer qu'un changement visuel est OK sans **screenshot de la preview/du localhost** (Claude le fait via playwright).
-- **GF-5 — branches isolées** : 1 sujet = 1 branche, jamais de `git add -A` global.
-
-### c) Lancement
+### Au **premier** `claude` dans le dossier, tu acceptes 3 demandes (par sécurité, c'est normal) :
 
 ```bash
-claude          # depuis la racine du repo
+claude        # depuis le dossier waimia-web
 ```
 
-La première fois, Claude te demandera de te connecter (compte Claude Pro/Max ou clé API). Il lira aussi automatiquement le **`CLAUDE.md`** du repo (règles projet) et le **`README.md`**.
+1. **« Trust the files in this folder ? »** → **Yes** (autorise le repo à charger sa config).
+2. **Proposition d'installer le marketplace `virtuoseweb` + le plugin `vw-guardrails`** → **accepte**. Le plugin s'installe depuis `github.com/virtuoseweb/claude-config` (public).
+3. **Autoriser les serveurs MCP `playwright` et `context7`** → **accepte**.
 
-> **CLI dont Claude se sert pour toi** : `git`, `gh`, `pnpm`, `node`. Tous installés à l'étape 1. Tu n'as **pas** besoin du CLI Vercel : les previews se génèrent automatiquement (§ Workflow).
+✅ Après ça, Claude a : les garde-fous (via `CLAUDE.md`), 3 agents de relecture + la commande `/vw-guardrails:guardrails` (via le plugin), playwright + context7 (via MCP).
+
+### Si le plugin ne s'installe pas tout seul (fallback manuel, 2 commandes) :
+
+```bash
+# dans claude, ou en CLI :
+claude plugin marketplace add virtuoseweb/claude-config
+claude plugin install vw-guardrails@virtuoseweb
+```
+
+Puis `/reload-plugins` (ou relance `claude`). Vérifie avec `/help` que `/vw-guardrails:guardrails` apparaît.
+
+## A.4 — Pourquoi cette config ne « remplit » pas ton contexte (rassurant pour Sonnet)
+
+- Le plugin n'ajoute que **~650 tokens** à chaque session (**0,35 %** de ta fenêtre) — ce sont les **descriptions** des 3 agents. Le contenu lourd d'un agent n'est chargé **que si tu l'invoques**.
+- Les **hooks ne coûtent rien** en contexte (ils tournent côté outil, pas dans le modèle) et **rien n'est réinjecté à chaque message** → le **cache de Claude reste stable**, tes prompts restent rapides et économes.
+- Le plugin **n'embarque aucun serveur MCP** → installer/recharger le plugin n'invalide pas ton cache.
+
+👉 En clair : tu as **toute** la méthode (GF + agents + playwright/context7) pour un coût quasi nul. Le « petit poids » = config bien rangée, pas config incomplète.
+
+## A.5 — Bien travailler avec Sonnet (fenêtre + quota réduits) ⭐
+
+1. **Une tâche = une session courte.** Fais **`/clear`** en changeant de sujet → contexte propre + quota économisé.
+2. **Pointe le bon fichier**, ne demande pas « analyse tout le site » (charger 40 fichiers = quota brûlé).
+3. **Doc = context7**, pas de lecture massive.
+4. **N'utilise pas les “agent teams”** (multi-agents) : c'est très coûteux en quota Pro et inutile pour du contenu.
 
 ---
 
-## 4. Où se trouve quoi (ton périmètre)
+# PHASE B — Ton travail sur waimia
+
+## B.1 — Les 4 règles (rien de plus)
+
+1. **Preuve avant « c'est bon ».** Demande **toujours** un screenshot (Claude a playwright) qui montre que ton changement s'affiche et ne casse rien (GF-1).
+2. **1 sujet = 1 sous-branche → PR → Simon merge.** Tu ne pousses jamais sur `main`, tu n'appuies jamais sur « Merge ».
+3. **Design System figé : on COMPOSE, on ne crée pas.** Pas de nouveau type de section ni de token CSS (ça casse le build). Le **contenu** (textes, libellés, items de menu) → tu édites librement.
+4. **`pnpm build` doit passer avant de pousser.** (`pnpm check` a ~40 erreurs préexistantes connues → à ignorer si ton diff n'y touche pas ; `pnpm lint` n'est pas branché.)
+
+## B.2 — Où éditer quoi
 
 | Tu veux modifier… | Va dans… |
 | --- | --- |
 | **Le menu / la navigation** | `src/components/header/` |
-| **Le contenu d'une section** | `src/components/sections/*.astro` (1 fichier par type de section) |
-| **Une page** (FR) | `src/pages/…` (ex. `agence/`, `offres/`, `solutions/`, `secteurs/`, `ressources/`, `ecole/`) |
+| **Le contenu d'une section** | `src/components/sections/*.astro` |
+| **Une page** (FR) | `src/pages/…` (`agence/`, `offres/`, `solutions/`, `secteurs/`, `ressources/`, `ecole/`) |
 | **Une page** (EN) | `src/pages/en/…` |
-| **Contenu éditorial** (articles blog, cas, glossaire…) | `src/content/` (fichiers MDX) |
+| **Articles / contenu éditorial** | `src/content/` (MDX) |
 | **Le pied de page** | `src/components/footer/` |
 
-### ⚠️ Design System « figé »
-
-Le DS est **verrouillé** : on **compose / réédite l'existant**, on **ne crée pas** de nouveau type de section ni de nouveau token CSS sans tâche dédiée validée par Simon. Si tu touches à un **type de section**, sache qu'il est synchronisé sur **4 fichiers** (sinon le build casse) : `src/schemas/sections.ts`, `src/lib/section-demos.ts`, `src/lib/section-registry.ts`, `src/components/sections/*.astro`. Pour du **contenu** (textes, libellés, items de menu), tu édites simplement les fichiers concernés.
-
----
-
-## 5. Workflow de travail (⚠️ ne jamais merger sur main)
+## B.3 — Workflow (à chaque sujet)
 
 ```bash
-# 1. Toujours partir de ta branche à jour
-git checkout feat/contenu
-git pull
+git checkout feat/contenu && git pull
+git checkout -b feat/contenu-menu     # une sous-branche par sujet
 
-# 2. (recommandé) une sous-branche par sujet
-git checkout -b feat/contenu-menu        # ex. travail sur le menu
+# … tu travailles avec Claude …
 
-# 3. Travailler (avec Claude), puis vérifier AVANT de pousser
-pnpm build                                # DOIT terminer sans erreur (obligatoire)
-# pnpm check → ~40 erreurs PRÉEXISTANTES connues : à ignorer si ton diff n'y touche pas
-# pnpm lint  → stub non implémenté : ne pas s'y fier
-
-# 4. Commit (style conventionnel) + push
-git add <fichiers-de-ton-sujet>           # jamais "git add -A" global
-git commit -m "feat(menu): reformule les libellés de navigation"
+pnpm build                            # DOIT réussir
+git add <tes-fichiers>                # jamais "git add -A"
+git commit -m "feat(menu): reformule les libellés"
 git push -u origin feat/contenu-menu
-```
 
-> Si `git push` demande un mot de passe / échoue sur l'auth, utilise le helper `gh` :
-> `git -c credential.helper= -c credential.helper='!gh auth git-credential' push -u origin <ta-branche>`
-
-### Voir ton travail sur une URL Vercel (preview)
-
-Dès que tu pousses une branche, **Vercel build automatiquement une preview** (un build de prod complet, **isolé de waimia.com**) :
-
-```
-https://waimia-web-git-<ta-branche>-simonberos-projects.vercel.app
-```
-
-Ex. pour `feat/contenu` → `https://waimia-web-git-feat-contenu-simonberos-projects.vercel.app`. Si tu ouvres une **Pull Request**, Vercel poste aussi le lien de preview en commentaire de la PR.
-
-### Mise en production = via Simon uniquement
-
-```bash
-# Ouvre une PR de ta branche vers main (ne la merge PAS)
 gh pr create --base main --head feat/contenu-menu \
-  --title "Contenu : menu" \
-  --body "Changements de contenu sur le menu. Preview ci-dessus. A valider."
+  --title "Contenu : menu" --body "Aperçu Vercel ci-dessous. À valider."
+# ⚠️ NE PAS merger — Simon relit l'aperçu et met en prod.
 ```
 
-➡️ **Tu n'appuies jamais sur « Merge ».** Simon relit la preview, valide, et **merge lui-même** sur `main`. C'est seulement à ce moment que `waimia.com` est mis à jour.
+> Si `git push` échoue sur l'authentification :
+> `git -c credential.helper='!gh auth git-credential' push -u origin <ta-branche>`
+
+> Chaque push génère un **aperçu Vercel** (lien posté sur la PR). Simon te donnera l'URL d'aperçu à consulter.
+
+## B.4 — Exemples de prompts efficaces
+
+- « Dans `src/components/header/`, renomme l'entrée *Offres* en *Solutions*, puis montre-moi un screenshot du menu. »
+- « Change le titre de la section hero de la page d'accueil par “…”, et vérifie le rendu sur localhost. »
+- « Ajoute un article de blog dans `src/content/` à partir de ce texte : … »
+- « Avant que je pousse : lance `pnpm build` + un screenshot qui prouve que rien n'est cassé. »
 
 ---
 
-## 6. Utiliser Claude efficacement (exemples)
+## Récap (30 secondes)
 
-Lance `claude` dans le dossier, puis décris ce que tu veux en langage naturel. Exemples adaptés à ton périmètre :
-
-- « Dans le menu de navigation (`src/components/header/`), renomme l'entrée *Offres* en *Solutions* et montre-moi le rendu sur localhost. »
-- « Change le titre et le sous-titre de la section hero de la page d'accueil, puis vérifie avec un screenshot que le texte s'affiche bien. »
-- « Ajoute un nouvel article de blog dans `src/content/` à partir de ce texte : … »
-- « Relis mon changement et prouve-moi via une capture de la preview que rien n'est cassé (GF-1). »
-
-Bonnes pratiques :
-- Demande **toujours** à Claude de **vérifier visuellement** (il a playwright) avant de dire que c'est bon.
-- Garde **un sujet par branche / PR** — c'est plus simple à relire et à mettre en prod.
-- En cas de doute sur une API Astro/Tailwind, Claude utilisera **context7** pour la doc à jour.
-
----
-
-## 7. Récapitulatif express
-
-1. Accepter l'invitation GitHub → cloner → `git checkout feat/contenu`.
-2. `nvm use` · `corepack enable` · `pnpm install` · `pnpm dev` (localhost:4321).
-3. `claude` dans le dossier → autoriser les MCP (playwright, context7) → plugin garde-fous auto.
-4. Travailler (sous-branche par sujet) → `pnpm build` OK → commit ciblé → push.
-5. Preview auto sur `waimia-web-git-<branche>-…vercel.app` → ouvrir une PR → **Simon valide et merge**.
-
-Des questions ? Demande à Simon. Bon travail 🙌
+1. Installer Node 22.12 · pnpm 9.15 · gh · Claude Code → cloner → `git checkout feat/contenu`.
+2. `pnpm install` · `pnpm dev` · `claude` → accepter **3 demandes** (trust dossier · install plugin · MCP). Rien d'autre à configurer.
+3. Sonnet : sessions **courtes et ciblées**, `/clear` entre sujets, pas de « agent teams ».
+4. 4 règles : **preuve visuelle · 1 sous-branche/sujet + PR · DS figé · build OK**.
+5. Pousser → PR → **Simon valide et met en prod**. Bon travail 🙌
