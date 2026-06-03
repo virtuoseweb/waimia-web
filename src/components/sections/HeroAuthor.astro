@@ -1,18 +1,19 @@
 ---
 // Section catalogue · hero-author
-// COPIE FIDÈLE du `.author-hero` de `src/components/templates/AuthorPageTemplate.astro:294-311`
-// 2-col : copy (breadcrumb + role eyebrow + h1 italic em + lede) + portrait optionnel.
-// Le portrait SVG concret est remplacé par un placeholder hairline frame pour le catalogue.
+// 2-col : copy (breadcrumb + role eyebrow + h1 italic em + lede) + portrait.
+// Portrait : slot "portrait" si fourni, sinon placeholder hairline frame (catalogue).
+// transitionId : active les View Transitions Astro quand présent (templates VT).
 import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
   data: SectionByType<'hero-author'>;
   lang: 'fr' | 'en';
+  transitionId?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, transitionId } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="hero-author">
+<section class="hero-author" transition:name={transitionId ? `card-${transitionId}` : undefined}>
   <div class="hero-author__copy">
     {data.team_label_fr && (
       <nav class="hero-author__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
@@ -22,33 +23,43 @@ const isFr = lang === 'fr';
       </nav>
     )}
     <span class="hero-author__eyebrow">§ {isFr ? data.role_fr : data.role_en}</span>
-    <h1 class="hero-author__h1 reveal-mask-up">
+    <h1 class="hero-author__h1 reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined}>
       {data.name_lead}<em>{data.name_accent}</em>
     </h1>
     <p class="hero-author__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
   </div>
-  <figure class="hero-author__portrait" aria-label={isFr ? 'Portrait signature' : 'Signature portrait'}>
-    <div class="hero-author__portrait-frame" aria-hidden="true" />
-    <svg viewBox="0 0 220 280" aria-hidden="true">
-      <rect x="20" y="40" width="180" height="220" fill="none" stroke="currentColor" stroke-width="0.6"/>
-      <circle cx="110" cy="120" r="44" fill="none" stroke="currentColor" stroke-width="0.5"/>
-      <path d="M50 230 Q110 170 170 230" fill="none" stroke="currentColor" stroke-width="0.5"/>
-    </svg>
+  <figure class="hero-author__portrait" aria-label={isFr ? 'Portrait signature' : 'Signature portrait'} transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+    {Astro.slots.has('portrait') ? (
+      <slot name="portrait" />
+    ) : (
+      <Fragment>
+        <div class="hero-author__portrait-frame" aria-hidden="true" />
+        <svg viewBox="0 0 220 280" aria-hidden="true">
+          <rect x="20" y="40" width="180" height="220" fill="none" stroke="currentColor" stroke-width="0.6"/>
+          <circle cx="110" cy="120" r="44" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          <path d="M50 230 Q110 170 170 230" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        </svg>
+      </Fragment>
+    )}
   </figure>
 </section>
 
 <style>
   .hero-author {
+    /* Reproduit fidèlement le masthead legacy .author-hero.g12.g12--full :
+       grille 12 colonnes, copy = span 7, portrait = col 9 / span 4. */
     display: grid;
-    grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr);
-    gap: clamp(32px, 5vw, 80px);
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--gut, 32px);
+    row-gap: var(--space-6, 32px);
     padding-inline: clamp(20px, 4vw, 48px);
     padding-top: clamp(92px, 12vw, 164px);
     padding-bottom: clamp(28px, 5vw, 72px);
     align-items: start;
-    max-width: 1320px;
+    max-width: var(--wrap, 1440px);
     margin-inline: auto;
   }
+  .hero-author__copy { grid-column: span 7; }
   .hero-author__bc {
     display: flex;
     gap: 8px;
@@ -75,42 +86,59 @@ const isFr = lang === 'fr';
     font-size: clamp(72px, 9vw, 148px);
     font-weight: 400;
     line-height: 0.92;
-    letter-spacing: -0.03em;
-    margin: 12px 0 32px;
+    letter-spacing: var(--tracking-display, -0.03em);
+    margin: var(--space-3, 12px) 0 var(--space-6, 32px);
     color: var(--ink);
     text-wrap: balance;
   }
   .hero-author__h1 em { font-style: italic; color: var(--accent); }
   .hero-author__lede {
     font-family: var(--font-display);
-    font-size: clamp(21px, 2vw, 30px);
+    font-size: var(--text-lede, clamp(21px, 2vw, 30px));
     line-height: 1.45;
     color: var(--ink-2);
     max-width: 540px;
     margin: 0;
   }
   .hero-author__portrait {
+    /* legacy : .author-portrait avait `col-4 start-9` mais `.start-9` n'existe
+       PAS dans grid.css (start-1..8 seulement) → auto-placement = col 8/span 4
+       après le copy (col-7). On reproduit ce placement réel : cols 8→11. */
+    grid-column: 8 / span 4;
     position: relative;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     margin: 0;
-    padding-top: 40px;
+    padding-top: var(--space-7, 40px);
     color: var(--ink);
   }
   .hero-author__portrait-frame {
     position: absolute;
-    width: min(70%, 240px);
+    width: min(28vw, 360px);
     aspect-ratio: 3 / 4;
     border: 1px solid var(--hairline);
     transform: translate(18px, 18px);
     pointer-events: none;
   }
-  .hero-author__portrait svg {
+  .hero-author__portrait svg,
+  .hero-author__portrait :global(svg) {
     position: relative;
-    width: min(100%, 220px);
+    width: min(100%, 280px);
+  }
+  @media (max-width: 900px) {
+    .hero-author {
+      grid-template-columns: 1fr;
+    }
+    .hero-author__copy { grid-column: 1; }
+    .hero-author__portrait {
+      grid-column: 1;
+      justify-content: flex-start;
+      padding-top: 16px;
+    }
+    .hero-author__portrait-frame { width: min(72vw, 320px); }
   }
   @media (max-width: 768px) {
-    .hero-author { grid-template-columns: 1fr; }
+    .hero-author__h1 { font-size: clamp(64px, 18vw, 92px); }
   }
 </style>
