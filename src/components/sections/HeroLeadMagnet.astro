@@ -6,18 +6,24 @@ import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
 
-interface Props {
+interface VTProps {
+  transitionId?: string;
+  cardTransitionId?: string;
+  /** Affiche le placeholder SVG quand pas de cover_url (défaut catalogue = true ; template live passe false pour parité legacy). */
+  coverFallback?: boolean;
+}
+interface Props extends VTProps {
   data: SectionByType<'hero-lead-magnet'>;
   lang: 'fr' | 'en';
 }
-const { data, lang } = Astro.props;
+const { data, lang, transitionId, cardTransitionId, coverFallback = true } = Astro.props as Props;
 const isFr = lang === 'fr';
 ---
-<section class="hero-lead-magnet">
+<section class="hero-lead-magnet" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
   <div class="wrap-wide hero-lead-magnet__grid">
     <div class="hero-lead-magnet__text">
       <Kicker tone="accent" class="hero-lead-magnet__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-      <h1 class="hero-lead-magnet__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <h1 class="hero-lead-magnet__h1 reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
       <p class="hero-lead-magnet__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
       <div class="hero-lead-magnet__meta">
         <span>{isFr ? data.format_fr : data.format_en}</span>
@@ -27,18 +33,20 @@ const isFr = lang === 'fr';
         <span>{isFr ? 'Gratuit' : 'Free'}</span>
       </div>
     </div>
-    <aside class="hero-lead-magnet__panel reveal-stagger" aria-label={isFr ? 'Résumé du livre blanc' : 'Whitepaper summary'}>
-      <div class="hero-lead-magnet__cover" aria-hidden="true">
-        {data.cover_url ? (
-          <img src={data.cover_url} alt="" loading="eager" />
-        ) : (
-          <svg viewBox="0 0 180 240" aria-hidden="true">
-            <rect x="0" y="0" width="180" height="240" fill="var(--paper-2)" />
-            <text x="90" y="120" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--muted)" letter-spacing="0.14em">PDF</text>
-            <text x="90" y="140" text-anchor="middle" font-family="var(--font-display)" font-size="18" font-style="italic" fill="var(--ink)">Livre blanc</text>
-          </svg>
-        )}
-      </div>
+    <aside class="hero-lead-magnet__panel reveal-stagger" aria-label={isFr ? 'Résumé du livre blanc' : 'Whitepaper summary'} transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+      {(data.cover_url || coverFallback) && (
+        <div class="hero-lead-magnet__cover" aria-hidden="true">
+          {data.cover_url ? (
+            <img src={data.cover_url} alt="" loading="eager" />
+          ) : (
+            <svg viewBox="0 0 180 240" aria-hidden="true">
+              <rect x="0" y="0" width="180" height="240" fill="var(--paper-2)" />
+              <text x="90" y="120" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--muted)" letter-spacing="0.14em">PDF</text>
+              <text x="90" y="140" text-anchor="middle" font-family="var(--font-display)" font-size="18" font-style="italic" fill="var(--ink)">Livre blanc</text>
+            </svg>
+          )}
+        </div>
+      )}
       <div class="hero-lead-magnet__download">
         <span class="hero-lead-magnet__download-label">{isFr ? data.download_label_fr : (data.download_label_en ?? data.download_label_fr)}</span>
         <Button href={data.cta_href ?? '#'} variant="primary" size="md">
