@@ -29,8 +29,12 @@ before/after pixel-identiques, `getComputedStyle` h1 identique (opacity 1, trans
    divergence → **prop optionnelle rétro-compatible** sur le composant (défaut = comportement
    catalogue **inchangé** → previews restent vertes), pilotée depuis le template. Ex. pilote : `topPad`.
    **Ne JAMAIS modifier le rendu par défaut du composant** (casserait le sweep 57/57).
-6. **View Transitions** : si le template avait `transition:name` sur le h1 (cf colonne `vt` ci-dessous),
-   ajouter une prop optionnelle `transitionName?` au composant qui la forwarde (défaut : absente).
+6. **View Transitions** (pattern ÉTABLI sur `HeroAuthor`, `de0f2b2` — réplicable aux 6 vt>0) : les
+   templates vt>0 calculent `const pageTransitionId = Astro.url.pathname…` puis posent 2-3 `transition:name`
+   (`card-${id}` sur le conteneur, `hero-h1-${id}` sur le h1, parfois `hero-img-${id}` sur la figure/visuel).
+   → Ajouter au composant une prop optionnelle **`transitionId?: string`** ; appliquer
+   `transition:name={transitionId ? \`card-${transitionId}\` : undefined}` (idem `hero-h1-`, `hero-img-`).
+   `undefined` = inerte → **catalogue `/preview` inchangé, sweep 58/58 vert**. Le template passe `transitionId={pageTransitionId}`.
 7. **Pages consommatrices** : slots → props, texte FR **identique au caractère près**, accents `<i>`
    préservés (les composants rendent en `set:html`). Fournir l'EN (schéma le requiert) — **à valider éditorialement**.
 8. **Tests e2e** : sélecteur `old-class` → `nouvelle-classe BEM`, uniquement pour les pages réellement
@@ -54,7 +58,7 @@ before/after pixel-identiques, `getComputedStyle` h1 identique (opacity 1, trans
 | TrustLegalTemplate | `trust-h1` | 0 | ⚠️ aucun composant ne cite `trust-h1`/TrustLegalTemplate | à faire — **pas de copie fidèle catalogue** ; header atypique → mapping générique (`HeroUtilityMasthead` ?) à arbitrer |
 | WelcomeTemplate | `welcome-h1` | 0 | ⚠️ aucun composant dédié | à faire — **pas de copie fidèle** ; à déterminer |
 | ListIndexTemplate | `list-h1` | 0 | ⚠️ `HeroHubListing` cite `ressources/index.astro` inline, **pas** ListIndexTemplate | à faire — mapping à confirmer (route ≠ source composant) |
-| AuthorPageTemplate | `author-h1` | 3 | `HeroAuthor` (source `.author-hero` AuthorPageTemplate:294-311) ✅ confirmé | 🔄 8/18 (1ʳᵉ de la famille VT) — 1 page `/equipe/[slug]` (FR-only), masthead en props (pas slots) ; **portrait via slot optionnel** (catalogue rend placeholder ≠ vrai PortraitSimon) + **prop `transitionId`** forwardant `card-/hero-h1-/hero-img-${id}` |
+| AuthorPageTemplate | `author-h1` | 3 | `HeroAuthor` (source `.author-hero` AuthorPageTemplate:294-311) ✅ confirmé | ✅ migré (`de0f2b2`, 8/18) — GF-1 prod `/equipe/simon-beros` h1 669/lede 21.76px/portrait 368-749 0-régression ; **prop `transitionId`** (VT card/h1/img) + **slot `portrait`** ; **fix 3 infidélités CSS** (lede `var(--text-lede)`, h1 `letter-spacing`, grille `g12`) |
 | CaseStudyTemplate | `case-h1` | 3 | `HeroCaseStudy` (source `.case-masthead` CaseStudyTemplate) ✅ confirmé | à faire (+ VT) |
 | EssayTemplate | `essay-h1` | 2 | `HeroEssay` (source `.essay-hd` EssayTemplate) ✅ confirmé | à faire (+ VT) |
 | LeadMagnetTemplate | `lm-h1` | 3 | `HeroLeadMagnet` (source `.lm-hero` LeadMagnetTemplate:115-142) ✅ confirmé | à faire (+ VT) |
@@ -65,6 +69,18 @@ before/after pixel-identiques, `getComputedStyle` h1 identique (opacity 1, trans
 > ⚠️ **Mapping sourcé (2026-06-03)** : les composants candidats ci-dessus sont désormais confirmés par le marqueur `// COPIE FIDÈLE`/`// Source markup:` en tête de chaque `sections/Hero*.astro` (pas par le nom). Piège évité : `HeroHubMasthead` copie le `.hub-mast` des pages **index** (offres/cas/secteurs), **pas** le `.hub-masthead` de HubTemplate → le bon composant pour HubTemplate est **`HeroHubStats`**. Trois templates vt=0 (TrustLegal/Welcome/ListIndex) **n'ont aucun composant catalogué dédié** → soit mapping générique (régression possible), soit création d'un composant (hors scope « composition de l'existant ») → à arbitrer avec Simon.
 
 Ordre suggéré : Hub (7/18, en cours) → vt>0 à copie fidèle confirmée (Author/CaseStudy/Essay/LeadMagnet/OffresDetail/Solutions/Tech — réintégrer View Transitions via prop `transitionName?`) → enfin TrustLegal/Welcome/ListIndex (mapping à arbitrer).
+
+## ⚠️ Leçon GF-1 (capitalisée sur HeroAuthor, `de0f2b2`) — mesurer COMPLET, pas juste opacity/y
+
+Un composant catalogue peut diverger du legacy sur des **détails CSS invisibles à un GF-1 partiel** :
+`HeroAuthor` rendait le lede à **25.6px au lieu de 21.76px** (token `var(--text-lede)` omis → fallback
+`clamp(21px,2vw,30px)`), le h1 **+34px de large** (`letter-spacing` omis), le portrait **+34px/décalé**
+(grille propre ≠ `g12` du template ; `.start-9` n'existe pas dans `grid.css` → legacy auto-place col 8).
+Le worker avait déclaré « GF-1 OK » car il n'avait mesuré que `opacity`/`visibility`/`y` — **tous corrects**
+malgré les écarts de taille/largeur. **Règle** : le GF-1 d'une migration DOIT mesurer `fontSize` + `width` +
+`x`/position (pas seulement opacity/y), et **comparer au legacy mesuré en vérité terrain** (worktree `main`
+buildé+servi). Les écarts de token/letter-spacing/grille se corrigent en alignant la CSS du composant sur
+le legacy exact (le composant devient la source fidèle ; sweep reste vert car pur diff pixel, 0 disparition).
 
 ## Caveats ouverts (à arbitrer)
 
