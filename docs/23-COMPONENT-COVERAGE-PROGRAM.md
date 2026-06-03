@@ -17,6 +17,32 @@ Vérifié empiriquement (anti-hallucination) : le modèle « définition unique 
 
 → Le travail = finir l'adoption (inline→instance) + compléter le catalogue. **Discipline ajoutée : variante-first** (réutiliser type existant + prop `variant` avant de créer un nouveau type ; ~25→~12) + override par instance via CSS custom props + curation différée (`status:'provisional'` + scorecard).
 
+## 🔬 Vérifié 2026-06-03 (file:line) — le niveau-3 data-driven EXISTE et tourne en PROD
+
+Triangulation anti-hallucination avant de planifier la suite (Simon : « éviter l'écart entre ce qu'on veut et ce qui est »). L'infra composable n'est ni à construire ni dormante :
+
+| Brique | Preuve | État |
+|---|---|---|
+| Dispatcher data-driven | `src/components/sections/SectionsRenderer.astro` (`sections[]` → registry → `<Component data lang/>`) | ✅ construit |
+| Schéma contenu accepte `sections` | `src/content.config.ts:125, 215, 282` `sections: sectionsArraySchema.optional()` (+ z-variants 529, 903) | ✅ sur plusieurs collections |
+| Switch page | `src/pages/offres/[...slug].astro:44` `useComposable = Array.isArray(data.sections) && length>0` → `:51` `<SectionsRenderer>` sinon legacy. Jumeau EN `src/pages/en/offres/[...slug].astro` | ✅ câblé |
+| Page composable LIVE en prod | `src/content/offres/composable-pilot.mdx` (4 sections : hero-split + proof-bar + method-timeline + cta-final), rendue via SectionsRenderer | ✅ servie |
+| Banc de validation | `src/pages/test-composable.astro` (19 sections inline → renderer) | ✅ |
+| Catalogue | 67 types (Phase A close, GF-1 prod ✅) | ✅ |
+
+**Conclusion : l'écart est l'ADOPTION, pas l'architecture.** ~1 page composable sur des dizaines ; le reste rend via templates legacy (props).
+
+### ⇒ Phase B RECADRÉE (vs la formulation initiale « réécrire les templates »)
+
+Le niveau-3 cible n'est PAS « template embarque `const sections=[]` ». Le contrat réel (prouvé par `composable-pilot.mdx`) = **`sections:` vit dans le FRONTMATTER MDX du contenu** (`src/content/**`) = **de la DATA bilingue**, pas du code applicatif. Donc :
+
+- **Phase B = AUTHORING de contenu** : pour chaque entrée de contenu (offres, solutions, technologies, école, tunnels, auteurs…), peupler `sections: [...]` en frontmatter MDX avec les types du catalogue, **fidèle au rendu legacy actuel**, page par page, GF-1 par page.
+- La plupart des routes consommatrices ont DÉJÀ le switch `useComposable` (pattern `[...slug]`) ; celles qui ne l'ont pas reçoivent un micro-ajout du switch (worker).
+- **Endgame** : quand toutes les entrées d'une collection sont composables → le template legacy correspondant est **retiré** (mort). C'est la vraie « digestion des composants » voulue.
+- **Tina-ready par construction** : le contenu étant déjà dans `src/content/**`, la couche éditable (docs/36) se branche directement sur `sections[]` du frontmatter — pas de déplacement ultérieur.
+
+A.2 (catalogue complet) reste le prérequis : on ne peut authorer `sections: [{type:'curriculum-table'}]` que si le type existe.
+
 ## État de départ (mesuré 2026-06-03)
 
 - **Registry** : 58 types (`section-registry.ts`), tous `category: 'marketing'`, groupés par `subcategory` : Hero Header ×26, Feature ×11, CTA ×5, Timeline ×4, Stats ×3, Testimonial ×2, Logo ×2, FAQ ×2, Pricing/Gallery/Comparison ×1.
@@ -72,7 +98,8 @@ Vérifié empiriquement (anti-hallucination) : le modèle « définition unique 
 ## Suivi des vagues
 
 - [x] **Phase A — 6 types récurrents + 3 vt=0 = 9 types intégrés sur `main` (`2129b27`, registry 58→67)** — build vert + GF-1 9/9 (`/preview` parité prod, screenshot+getComputedStyle opacity=1/transform none/0 err console). Push `17ca677`. Travail SALVÉ de la fleet pré-compactage (Codex `wf-foundation-sections` + `waimia-components-missing`), PAS refait.
-- [ ] Phase A.2 — types one-off (variante-first : réutiliser type+variante avant nouveau type ; ~12 candidats)
+  - **GF-1 PROD final ✅ (2026-06-03, `2559f5e`)** : les 9 `/preview/<type>` répondent **HTTP 200 sur `waimia.com`** (deploy `bepspntuo` DEPLOYED). Échantillon Playwright sur prod déployée (3 types contrastés) = **3/3 OK** : `deliverables-grid` (H2 opacity 1, fontSize 51px), `welcome-section` (H1 opacity 1, 96px), `trust-legal-section` (H1 opacity 1, 102px, screenshot confirmé) — tous `transform:none`, `visibility:visible`, section opacity 1, bodyH 699-1311px, **0 erreur console**. Phase A close et servie en prod. **Tâche #10 (3 vt=0) = RÉSOLUE** : TrustLegal/Welcome/ListIndex ont désormais des composants catalogués dédiés (registry-driven, showcase auto).
+- [ ] Phase A.2 — types one-off **restants** (variante-first). ⚠️ Scope réduit : les one-offs vt=0 (`doc-masthead`, `toc-editorial-layout`, `conversion-confirmation`, `next-steps-checklist`, `hero-list-index`) sont **ABSORBÉS** par les sections Phase A (trust-legal-section inclut masthead+TOC — confirmé screenshot prod ; welcome-section inclut confirmation+checklist ; list-index-section inclut le hero d'index). Restent à arbitrer (variante-first) : **Tech** (positioning-split, decision-dual, ecosystem-grid), **Solutions** (workflow-table, case-study-split), **École/Course** (curriculum-objectives, curriculum-table, course-chain, course-catalog-table, learning-path-list), **Author** (publications-index, social-links, expertise-bar, editorial-prose), **LeadMagnet** (abstract-strip, lead-magnet-form), **Funnel** (demo-mockup-band, contact-form-band, editorial-body) — le worker collapse en variantes quand un type existant + prop `variant` couvre le besoin (objectif harmonisation DA, ~19 candidats → ~12 types réels).
 - [ ] Phase B — conversion 18 templates → data-driven `sections[]` + SectionsRenderer (par template, 1 worker/template)
 - [ ] Couche éditable Tina (post-catalogue) — bridge documenté `docs/36` : `data-tina-field` dans SectionsRenderer + `IslandRegistry` + route `/tina-edit/` + `includeFiles` astro.config
 - [ ] Track 2 — atomes/molécules (chiffrage + showcase)
