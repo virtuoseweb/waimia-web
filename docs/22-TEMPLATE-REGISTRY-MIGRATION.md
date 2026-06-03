@@ -59,7 +59,7 @@ before/after pixel-identiques, `getComputedStyle` h1 identique (opacity 1, trans
 | WelcomeTemplate | `welcome-h1` | 0 | ⚠️ aucun composant dédié | à faire — **pas de copie fidèle** ; à déterminer |
 | ListIndexTemplate | `list-h1` | 0 | ⚠️ `HeroHubListing` cite `ressources/index.astro` inline, **pas** ListIndexTemplate | à faire — mapping à confirmer (route ≠ source composant) |
 | AuthorPageTemplate | `author-h1` | 3 | `HeroAuthor` (source `.author-hero` AuthorPageTemplate:294-311) ✅ confirmé | ✅ migré (`de0f2b2`, 8/18) — GF-1 prod `/equipe/simon-beros` h1 669/lede 21.76px/portrait 368-749 0-régression ; **prop `transitionId`** (VT card/h1/img) + **slot `portrait`** ; **fix 3 infidélités CSS** (lede `var(--text-lede)`, h1 `letter-spacing`, grille `g12`) |
-| CaseStudyTemplate | `case-h1` | 3 | `HeroCaseStudy` (source `.case-masthead` CaseStudyTemplate) ✅ confirmé | à faire (+ VT) |
+| CaseStudyTemplate | `case-h1` | 3 | `HeroCaseStudy` (source `.case-masthead` CaseStudyTemplate) ✅ confirmé | ✅ migré (`81da432`, 9/18) — GF-1 prod `/cas/plateau` h1 102.4px / y226 / letterSpacing -3.072px / 4 specs / SVG 2c+1l / 0-régression ; props VT `transitionId`+`cardTransitionId` (card/h1/img) + `topPad`+`h1Gap` (2 écarts fidélité legacy corrigés) ; e2e `h1.case-h1`→`.hero-case-study__h1` ×4 |
 | EssayTemplate | `essay-h1` | 2 | `HeroEssay` (source `.essay-hd` EssayTemplate) ✅ confirmé | à faire (+ VT) |
 | LeadMagnetTemplate | `lm-h1` | 3 | `HeroLeadMagnet` (source `.lm-hero` LeadMagnetTemplate:115-142) ✅ confirmé | à faire (+ VT) |
 | OffresDetailTemplate | `off-hero-title` | 3 | `HeroOfferDetail` (source `.off-hero` OffresDetailTemplate:253-298) ✅ confirmé | à faire (+ VT) |
@@ -68,7 +68,9 @@ before/after pixel-identiques, `getComputedStyle` h1 identique (opacity 1, trans
 
 > ⚠️ **Mapping sourcé (2026-06-03)** : les composants candidats ci-dessus sont désormais confirmés par le marqueur `// COPIE FIDÈLE`/`// Source markup:` en tête de chaque `sections/Hero*.astro` (pas par le nom). Piège évité : `HeroHubMasthead` copie le `.hub-mast` des pages **index** (offres/cas/secteurs), **pas** le `.hub-masthead` de HubTemplate → le bon composant pour HubTemplate est **`HeroHubStats`**. Trois templates vt=0 (TrustLegal/Welcome/ListIndex) **n'ont aucun composant catalogué dédié** → soit mapping générique (régression possible), soit création d'un composant (hors scope « composition de l'existant ») → à arbitrer avec Simon.
 
-Ordre suggéré : Hub (7/18, en cours) → vt>0 à copie fidèle confirmée (Author/CaseStudy/Essay/LeadMagnet/OffresDetail/Solutions/Tech — réintégrer View Transitions via prop `transitionName?`) → enfin TrustLegal/Welcome/ListIndex (mapping à arbitrer).
+Ordre suggéré : ✅ Hub/Author/CaseStudy faits → vt>0 restants à copie fidèle confirmée (Essay/LeadMagnet/OffresDetail/Solutions/Tech — pattern VT `transitionId`/`cardTransitionId` établi, cf §6) → enfin TrustLegal/Welcome/ListIndex (mapping à arbitrer avec Simon).
+
+> ✅ **2e confirmation du pattern fidélité (CaseStudy `81da432`)** : la leçon HeroAuthor (mesurer COMPLET + comparer legacy) a été appliquée **préventivement en lecture source-à-source** — 2 écarts détectés AVANT build (`.case-masthead` padding-top `clamp(80px,10vw,120px)` vs composant `calc(--header-height+8px)` ; `.case-h1` `margin: 0 0 48px` vs composant `0`) → corrigés via props rétro-compat `topPad`/`h1Gap` (valeurs legacy exactes). Résultat : parité parfaite du 1er coup (h1 y=226, pas de retouche post-build). Méthode plus économe que worktree-main buildé (qui avait fait thrasher un worker Sonnet sur les 519 lignes du template).
 
 ## ⚠️ Leçon GF-1 (capitalisée sur HeroAuthor, `de0f2b2`) — mesurer COMPLET, pas juste opacity/y
 
