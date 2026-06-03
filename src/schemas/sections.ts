@@ -314,6 +314,76 @@ export const heroHubMastheadSchema = z.object({
   lede_en: z.string(),
 });
 
+// Trust/legal pages : masthead documentaire + TOC sticky gauche.
+export const trustLegalSectionSchema = z.object({
+  type: z.literal('trust-legal-section'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  revised_at: z.string(),
+  version: z.string().optional(),
+  legal_footer_fr: z.string().optional(),
+  legal_footer_en: z.string().optional(),
+  sections: z
+    .array(
+      z.object({
+        id: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+      }),
+    )
+    .min(1)
+    .max(12),
+});
+
+// Welcome confirmation : checkmark, confirmation copy, next steps and back link.
+export const welcomeSectionSchema = z.object({
+  type: z.literal('welcome-section'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  next_steps: z
+    .array(
+      z.object({
+        num: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        ctaLabel: z.string().optional(),
+        ctaHref: z.string().optional(),
+      }),
+    )
+    .min(1)
+    .max(3),
+  back_label_fr: z.string().optional(),
+  back_label_en: z.string().optional(),
+  back_href: z.string().optional(),
+});
+
+// Listing/index pages : masthead + optional filters + list body + optional footer.
+export const listIndexSectionSchema = z.object({
+  type: z.literal('list-index-section'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  filters_html_fr: z.string().optional(),
+  filters_html_en: z.string().optional(),
+  list_html_fr: z.string().optional(),
+  list_html_en: z.string().optional(),
+  footer_html_fr: z.string().optional(),
+  footer_html_en: z.string().optional(),
+});
+
 // Hero · détail d'une offre (OffresDetailTemplate) · cercles concentriques + tier + h1 + lead + CTA
 export const heroOfferDetailSchema = z.object({
   type: z.literal('hero-offer-detail'),
@@ -1105,6 +1175,9 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroUtilityMastheadSchema,
   heroAcademyHubSchema,
   heroHubMastheadSchema,
+  trustLegalSectionSchema,
+  welcomeSectionSchema,
+  listIndexSectionSchema,
   heroOfferDetailSchema,
   heroTechLayerSchema,
   heroConversionFunnelSchema,
