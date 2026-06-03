@@ -1,0 +1,104 @@
+---
+// Section W6 · problem-statement
+// Énoncé macro-typo + stats optionnelles. Sources : `off-problem`, `svc-problem`, `dt-problem`.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'problem-statement'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="problem-statement">
+  <div class="wrap-wide">
+    <span class="problem-statement__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+    <p class="problem-statement__text" set:html={isFr ? data.statement_fr : data.statement_en} />
+
+    {data.stats && data.stats.length > 0 && (
+      <div class="problem-statement__stats" style={`--problem-statement-cols: ${data.stats.length}`}>
+        {data.stats.map((stat) => (
+          <div class="problem-statement__stat">
+            <div class="problem-statement__value">{stat.value}</div>
+            <div class="problem-statement__label">{isFr ? stat.label_fr : stat.label_en}</div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .problem-statement {
+    padding: var(--problem-statement-pad, clamp(var(--space-11), 12vw, var(--section-loose))) var(--problem-statement-inline, var(--space-6));
+  }
+  .problem-statement__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-md);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-6);
+  }
+  .problem-statement__text {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-h2-section), 4vw, var(--text-display-md));
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: 400;
+    color: var(--ink);
+    text-wrap: balance;
+    max-width: 1100px;
+    margin: 0 0 clamp(var(--space-8), 5vw, var(--space-12));
+  }
+  .problem-statement__text :global(i),
+  .problem-statement__text :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .problem-statement__stats {
+    display: grid;
+    grid-template-columns: repeat(var(--problem-statement-cols, 3), 1fr);
+    gap: 0;
+    margin-top: var(--space-8);
+    border-top: 1px solid var(--hairline-strong);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .problem-statement__stat {
+    padding: var(--space-6) var(--space-5);
+    border-right: 1px solid var(--hairline);
+  }
+  .problem-statement__stat:last-child {
+    border-right: none;
+  }
+  .problem-statement__value {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-h2-tight), 4vw, var(--text-display-md));
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+    font-weight: 400;
+  }
+  .problem-statement__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-md);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    line-height: var(--leading-body);
+  }
+  @media (max-width: 800px) {
+    .problem-statement__stats {
+      grid-template-columns: 1fr;
+    }
+    .problem-statement__stat {
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .problem-statement__stat:last-child {
+      border-bottom: none;
+    }
+  }
+</style>

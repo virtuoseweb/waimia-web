@@ -1,0 +1,53 @@
+---
+// Section W6 · related-cards-band
+// Bande de cards connexes : wrapper catalogue autour de `RelatedCards`.
+import type { SectionByType } from '../../schemas/sections';
+import RelatedCards from '../ui/molecules/RelatedCards.astro';
+
+interface Props {
+  data: SectionByType<'related-cards-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const cards = data.cards.map((c) => ({
+  kicker: isFr ? c.kicker_fr : c.kicker_en,
+  title_fr: c.title_fr,
+  title_en: c.title_en,
+  lead_fr: c.lead_fr,
+  lead_en: c.lead_en,
+  href: c.href,
+}));
+---
+
+<section class="related-cards-band">
+  <div class="wrap-wide">
+    {(isFr ? data.kicker_fr : data.kicker_en) && (
+      <span class="related-cards-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+    )}
+    <RelatedCards cards={cards} class="related-cards-band__grid reveal-stagger" />
+  </div>
+</section>
+
+<style>
+  .related-cards-band {
+    padding: var(--related-cards-band-pad, clamp(var(--space-11), 10vw, var(--section-loose))) var(--related-cards-band-inline, var(--space-6));
+  }
+  .related-cards-band__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-md);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--space-6);
+  }
+  :global(.related-cards-band__grid .related-card) {
+    border-top: 1px solid var(--hairline-strong);
+    transition: background 240ms var(--ease), transform 320ms var(--ease);
+  }
+  :global(.related-cards-band__grid .related-card:hover) {
+    background: var(--paper-2);
+    transform: translateY(-2px);
+  }
+</style>

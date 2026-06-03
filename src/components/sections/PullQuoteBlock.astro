@@ -1,0 +1,34 @@
+---
+// Section W6 · pull-quote-block
+// Wrapper catalogue autour de `PullQuote`. Sources : `hub-closing`, `author-pullquote`.
+import type { SectionByType } from '../../schemas/sections';
+import PullQuote from '../editorial/PullQuote.astro';
+
+interface Props {
+  data: SectionByType<'pull-quote-block'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="pull-quote-block">
+  <div class="wrap-wide">
+    <PullQuote
+      attribution={isFr ? data.cite_fr : data.cite_en}
+      variant={data.variant}
+    >
+      <Fragment set:html={isFr ? data.quote_fr : data.quote_en} />
+    </PullQuote>
+  </div>
+</section>
+
+<style>
+  .pull-quote-block {
+    padding: var(--pull-quote-block-pad, clamp(var(--space-6), 5vw, var(--space-10)) var(--space-6) clamp(var(--space-11), 10vw, var(--section-loose)));
+    border-top: 1px solid var(--hairline);
+  }
+  .pull-quote-block :global(.pull-quote) {
+    margin-block: 0;
+  }
+</style>
