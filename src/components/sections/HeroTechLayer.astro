@@ -7,23 +7,27 @@ import type { SectionByType } from '../../schemas/sections';
 interface Props {
   data: SectionByType<'hero-tech-layer'>;
   lang: 'fr' | 'en';
+  transitionId?: string;
+  cardTransitionId?: string;
+  wrapMax?: string;
+  geoReveal?: boolean;
 }
-const { data, lang } = Astro.props;
+const { data, lang, transitionId, cardTransitionId, wrapMax, geoReveal } = Astro.props;
 const isFr = lang === 'fr';
 const layerType = data.layer_type ?? 'claude';
 ---
-<section class:list={['hero-tech-layer', `hero-tech-layer--${layerType}`]}>
-  <svg class="hero-tech-layer__geo" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<section class:list={['hero-tech-layer', `hero-tech-layer--${layerType}`]} transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+  <svg class:list={['hero-tech-layer__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
     <polygon points="1100,80 1340,80 1220,300" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18"/>
     <polygon points="1160,140 1320,140 1240,280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25"/>
     <polygon points="60,420 280,420 170,580" fill="none" stroke="currentColor" stroke-width=".4" opacity=".12"/>
     <line x1="0" y1="500" x2="1440" y2="380" stroke="currentColor" stroke-width=".3" opacity=".1"/>
   </svg>
-  <div class="hero-tech-layer__wrap">
+  <div class="hero-tech-layer__wrap" style={wrapMax ? `--htl-wrap: ${wrapMax}` : undefined}>
     <div class:list={['hero-tech-layer__layer', `hero-tech-layer__layer--${layerType}`]}>
       {isFr ? data.layer_label_fr : data.layer_label_en}
     </div>
-    <h1 class="hero-tech-layer__title reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <h1 class="hero-tech-layer__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
     <div class="hero-tech-layer__sub">
       <p class="hero-tech-layer__lead reveal" set:html={isFr ? data.lead_fr : data.lead_en} />
       <div class="hero-tech-layer__actions">
@@ -50,7 +54,7 @@ const layerType = data.layer_type ?? 'claude';
   .hero-tech-layer__wrap {
     position: relative;
     z-index: 1;
-    max-width: 1320px;
+    max-width: var(--htl-wrap, 1320px);
     margin-inline: auto;
     padding-inline: clamp(20px, 4vw, 48px);
   }
