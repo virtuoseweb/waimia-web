@@ -31,7 +31,6 @@ import HeroCentered from '../components/sections/HeroCentered.astro';
 import HeroFullBleed from '../components/sections/HeroFullBleed.astro';
 import HeroHubListing from '../components/sections/HeroHubListing.astro';
 import HeroServiceDetail from '../components/sections/HeroServiceDetail.astro';
-import HeroPillarHub from '../components/sections/HeroPillarHub.astro';
 import HeroCaseStudy from '../components/sections/HeroCaseStudy.astro';
 import HeroHome from '../components/sections/HeroHome.astro';
 import HeroLanding from '../components/sections/HeroLanding.astro';
@@ -148,7 +147,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Service page hero with an editorial number, headline, lede, and optional inline proof metrics bar.',
   },
   'hero-pillar-hub': {
-    component: HeroPillarHub,
+    component: HeroHubStats,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
