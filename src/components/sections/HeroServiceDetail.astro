@@ -1,45 +1,58 @@
 ---
-// Section W6 · hero-service-detail
+// Section W6 · hero-service-detail + hero-service-masthead (fusionnés)
 // Masthead d'une page service détaillée : kicker § Service N.M, h1, lede,
-// + proof-bar metrics inline optionnelle.
+// + proof-bar metrics inline optionnelle (detail uniquement).
 // Source markup : `.svc-masthead` (src/components/templates/ServiceDetailTemplate.astro).
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
-  data: SectionByType<'hero-service-detail'>;
+  data: SectionByType<'hero-service-detail'> | SectionByType<'hero-service-masthead'>;
   lang: 'fr' | 'en';
   /**
    * Padding-top du masthead. Optionnel — par défaut `calc(var(--header-height) + 24px)`
    * (comportement historique du composant, inchangé pour les previews catalogue).
    * Permet aux templates live de préserver leur rythme vertical d'origine.
+   * S'applique uniquement au cas hero-service-detail.
    */
   topPad?: string;
 }
 const { data, lang, topPad } = Astro.props;
 const isFr = lang === 'fr';
-const sectionStyle = topPad ? `padding-top:${topPad}` : undefined;
+const isMasthead = data.type === 'hero-service-masthead';
+const sectionStyle = !isMasthead && topPad ? `padding-top:${topPad}` : undefined;
 ---
 
-<section class="hero-service-detail" style={sectionStyle}>
-  <div class="wrap-wide">
-    <Kicker class="hero-service-detail__num">§ Service {data.service_num}</Kicker>
-    <h1 class="hero-service-detail__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
-    <p class="hero-service-detail__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
-    {data.metrics && data.metrics.length > 0 && (
-      <div class="hero-service-detail__metrics reveal-stagger">
-        {data.metrics.map((m) => (
-          <div class="hero-service-detail__metric">
-            <span class="hero-service-detail__metric-v">{m.value}</span>
-            <span class="hero-service-detail__metric-l">{isFr ? m.label_fr : m.label_en}</span>
-          </div>
-        ))}
-      </div>
-    )}
-  </div>
-</section>
+{isMasthead ? (
+  <section class="hero-service-masthead">
+    <div class="wrap-wide">
+      <Kicker class="hero-service-masthead__num">§ Service {data.service_num}</Kicker>
+      <h1 class="hero-service-masthead__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-service-masthead__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+    </div>
+  </section>
+) : (
+  <section class="hero-service-detail" style={sectionStyle}>
+    <div class="wrap-wide">
+      <Kicker class="hero-service-detail__num">§ Service {data.service_num}</Kicker>
+      <h1 class="hero-service-detail__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-service-detail__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+      {data.type === 'hero-service-detail' && data.metrics && data.metrics.length > 0 && (
+        <div class="hero-service-detail__metrics reveal-stagger">
+          {data.metrics.map((m) => (
+            <div class="hero-service-detail__metric">
+              <span class="hero-service-detail__metric-v">{m.value}</span>
+              <span class="hero-service-detail__metric-l">{isFr ? m.label_fr : m.label_en}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+)}
 
 <style>
+  /* ── hero-service-detail ── */
   .hero-service-detail { padding: calc(var(--header-height) + 24px) 32px 0; }
   :global(.hero-service-detail__num) { display: block; margin-bottom: var(--space-5); }
   .hero-service-detail__h1 {
@@ -95,5 +108,29 @@ const sectionStyle = topPad ? `padding-top:${topPad}` : undefined;
   @media (max-width: 768px) {
     .hero-service-detail__metric { border-right: none; border-bottom: 1px solid var(--hairline); }
     .hero-service-detail__metric:last-child { border-bottom: none; }
+  }
+
+  /* ── hero-service-masthead ── */
+  .hero-service-masthead { padding: 140px 32px 0; }
+  .hero-service-masthead .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-service-masthead__num) { display: block; margin-bottom: var(--space-5); }
+  .hero-service-masthead__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 156px);
+    line-height: 0.92;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+    font-weight: 400;
+    margin: 0 0 32px;
+  }
+  .hero-service-masthead__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-service-masthead__lede {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.45;
+    max-width: 880px;
+    color: var(--muted);
+    text-wrap: balance;
+    margin: 0;
   }
 </style>

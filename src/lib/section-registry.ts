@@ -47,7 +47,6 @@ import HeroOfferDetail from '../components/sections/HeroOfferDetail.astro';
 import HeroTechLayer from '../components/sections/HeroTechLayer.astro';
 import HeroConversionFunnel from '../components/sections/HeroConversionFunnel.astro';
 import HeroHubStats from '../components/sections/HeroHubStats.astro';
-import HeroServiceMasthead from '../components/sections/HeroServiceMasthead.astro';
 import HeroDetailMenu from '../components/sections/HeroDetailMenu.astro';
 import HeroAuthor from '../components/sections/HeroAuthor.astro';
 import HeroLeadMagnet from '../components/sections/HeroLeadMagnet.astro';
@@ -309,7 +308,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Hub hero with stats: dual meta kicker + accent § number + maximal h1, lede, 4-col KeyMetric grid at the foot with accent.',
   },
   'hero-service-masthead': {
-    component: HeroServiceMasthead,
+    component: HeroServiceDetail,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
