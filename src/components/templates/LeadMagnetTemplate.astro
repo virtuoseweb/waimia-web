@@ -21,6 +21,8 @@ import Timeline from '../editorial/Timeline.astro';
 import PullQuote from '../editorial/PullQuote.astro';
 import Dingbat from '../editorial/Dingbat.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+import HeroLeadMagnet from '../sections/HeroLeadMagnet.astro';
+import type { SectionByType } from '../../schemas/sections';
 import { langFromPath } from '../../lib/i18n';
 
 interface ToCItem { num: string; title: string; }
@@ -65,6 +67,25 @@ const stripHtml = (html: string) =>
     .trim();
 
 const abstractText = stripHtml(ledeHtml || description);
+
+const heroData = {
+  type: 'hero-lead-magnet',
+  kicker_fr: kicker,
+  kicker_en: kicker,
+  h1_fr: headlineHtml,
+  h1_en: headlineHtml,
+  lede_fr: ledeHtml,
+  lede_en: ledeHtml,
+  format_fr: format,
+  format_en: format,
+  published_at: publishedAt,
+  cover_url: coverUrl,
+  download_label_fr: 'PDF gratuit · sur inscription',
+  download_label_en: 'PDF gratuit · sur inscription',
+  cta_label_fr: 'Recevoir le PDF',
+  cta_label_en: 'Recevoir le PDF',
+  cta_href: '#lead-magnet-form',
+} satisfies SectionByType<'hero-lead-magnet'>;
 
 const metricSource = [title, description, format, ...toc.map((item) => item.title)].join(' ');
 const metricDefs = [
@@ -112,34 +133,14 @@ const tocEvents = toc.map((item, index) => ({
       { label: breadcrumbLabel ?? title },
     ]}
   />
-  {/* HERO · titre + cover */}
-  <section class="lm-hero" transition:name={`card-${pageTransitionId}`}>
-    <div class="wrap-wide lm-hero-grid">
-      <div class="lm-hero-text">
-        <Kicker tone="accent" class="lm-kicker">{kicker}</Kicker>
-        <h1 class="lm-h1 reveal-mask-up" transition:name={`hero-h1-${pageTransitionId}`} set:html={headlineHtml} />
-        <p class="lm-lede reveal" set:html={ledeHtml} />
-        <div class="lm-meta">
-          <span>{format}</span>
-          <span aria-hidden>·</span>
-          <time datetime={publishedAt}>{publishedAt}</time>
-          <span aria-hidden>·</span>
-          <span>Gratuit</span>
-        </div>
-      </div>
-      <aside class="lm-hero-panel reveal-stagger" aria-label="Résumé du livre blanc" transition:name={`hero-img-${pageTransitionId}`}>
-        {coverUrl && (
-          <div class="lm-cover" aria-hidden>
-            <img src={coverUrl} alt="" loading="eager" fetchpriority="high" decoding="async" />
-          </div>
-        )}
-        <div class="lm-download-card">
-          <span class="lm-download-label">PDF gratuit · sur inscription</span>
-          <Button href="#lead-magnet-form" variant="primary" size="md">Recevoir le PDF</Button>
-        </div>
-      </aside>
-    </div>
-  </section>
+  {/* HERO · titre + cover → HeroLeadMagnet (sections/) */}
+  <HeroLeadMagnet
+    data={heroData}
+    lang={lang}
+    transitionId={pageTransitionId}
+    cardTransitionId={pageTransitionId}
+    coverFallback={false}
+  />
 
   <section class="lm-abstract">
     <div class="wrap-wide lm-abstract-grid reveal-stagger">
@@ -222,74 +223,6 @@ const tocEvents = toc.map((item, index) => ({
 </Base>
 
 <style>
-  .lm-hero { padding: 140px 32px clamp(40px, 5vw, 72px); border-bottom: 1px solid var(--hairline); }
-  .lm-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr);
-    gap: clamp(32px, 5vw, 80px);
-    align-items: center;
-  }
-  :global(.lm-kicker) { display: block; margin-bottom: 20px; }
-  .lm-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 120px);
-    line-height: 0.94;
-    letter-spacing: -0.03em;
-    text-wrap: balance;
-    font-weight: 400;
-    margin: 0 0 24px;
-  }
-  .lm-h1 :global(i) { font-style: italic; color: var(--accent); }
-  .lm-lede {
-    font-family: var(--font-sans);
-    font-style: italic;
-    font-size: clamp(18px, 2vw, 24px);
-    color: var(--ink-2);
-    margin: 0 0 24px;
-    max-width: 620px;
-    line-height: 1.4;
-    text-wrap: pretty;
-  }
-  .lm-meta {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .lm-hero-panel {
-    display: grid;
-    gap: 16px;
-    align-self: stretch;
-  }
-  .lm-cover {
-    aspect-ratio: 3/4;
-    border: 1px solid var(--hairline-strong);
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--paper-2);
-  }
-  .lm-cover img { width: 100%; height: 100%; object-fit: cover; }
-  .lm-download-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    border-top: 1px solid var(--hairline-strong);
-    border-bottom: 1px solid var(--hairline);
-    padding: 16px 0;
-  }
-  .lm-download-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
   .lm-abstract {
     padding: clamp(52px, 7vw, 88px) 32px;
     border-bottom: 1px solid var(--hairline);
