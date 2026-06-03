@@ -41,6 +41,8 @@ import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import { langFromPath } from '../../lib/i18n';
 import { buildService } from '../../lib/seo/schema-builder';
+import HeroTechLayer from '../sections/HeroTechLayer.astro';
+import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
   /** SEO meta · title de la page */
@@ -109,6 +111,21 @@ const whenUseHtml = await renderFirstSlot(['when-to-use', 'when-use']);
 const whenAvoidHtml = await renderFirstSlot(['when-not-to-use', 'when-avoid']);
 const integrationHtml = await renderFirstSlot(['integration-flow', 'integration-nodes']);
 const ecosystemHtml = await renderFirstSlot(['ecosystem-grid', 'ecosystem']);
+const heroTitleHtml = ((await renderFirstSlot(['title'])).trim()) || title;
+const heroLeadHtml = ((await renderFirstSlot(['lead'])).trim()) || description;
+const heroData = {
+  type: 'hero-tech-layer',
+  layer_type: layerType,
+  layer_label_fr: layer,
+  layer_label_en: layer,
+  h1_fr: heroTitleHtml,
+  h1_en: heroTitleHtml,
+  lead_fr: heroLeadHtml,
+  lead_en: heroLeadHtml,
+  cta: { href: ctaHref, label_fr: ctaLabel, label_en: ctaLabel, variant: 'primary' as const },
+  meta_fr: meta || undefined,
+  meta_en: meta || undefined,
+} satisfies SectionByType<'hero-tech-layer'>;
 
 const stripHtml = (html: string) =>
   html
@@ -212,26 +229,14 @@ const serviceLd = buildService({ name: title, description });
       ]}
     />
     {/* ────────── 1. HERO LAYER ────────── */}
-    <section class={`tech-hero tech-hero--${layerType}`} data-screen-label="01 Hero Layer" transition:name={`card-${pageTransitionId}`}>
-      <svg class="tech-hero-geo reveal-blur-clip" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={`hero-img-${pageTransitionId}`}>
-        {/* Triangles superposés — signature géométrique Technologies */}
-        <polygon points="1100,80 1340,80 1220,300" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18"/>
-        <polygon points="1160,140 1320,140 1240,280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25"/>
-        <polygon points="60,420 280,420 170,580" fill="none" stroke="currentColor" stroke-width=".4" opacity=".12"/>
-        <line x1="0" y1="500" x2="1440" y2="380" stroke="currentColor" stroke-width=".3" opacity=".1"/>
-      </svg>
-      <div class="wrap">
-        <div class={`tech-hero-layer tech-hero-layer--${layerType}`}>{layer}</div>
-        <h1 class="tech-hero-title reveal-mask-up" transition:name={`hero-h1-${pageTransitionId}`}><slot name="title" /></h1>
-        <div class="tech-hero-sub">
-          <p class="tech-hero-lead reveal"><slot name="lead" /></p>
-          <div class="tech-hero-actions">
-            <a class="tech-hero-cta" href={ctaHref}>{ctaLabel}</a>
-            {meta && <div class="tech-hero-meta">{meta}</div>}
-          </div>
-        </div>
-      </div>
-    </section>
+    <HeroTechLayer
+      data={heroData}
+      lang={lang}
+      transitionId={pageTransitionId}
+      cardTransitionId={pageTransitionId}
+      wrapMax="1240px"
+      geoReveal={true}
+    />
 
     {/* ────────── 2. POSITIONING SPLIT (signature) ────────── */}
     <section class="tech-sec tech-sec-paper tech-positioning reveal-stagger" data-screen-label="02 Positioning">
@@ -415,95 +420,6 @@ const serviceLd = buildService({ name: title, description });
 </Base>
 
 <style>
-  /* ───── Hero ───── */
-  .tech-hero {
-    position: relative;
-    padding: clamp(80px, 10vw, 140px) 0 clamp(64px, 8vw, 120px);
-    overflow: hidden;
-    color: var(--ink);
-  }
-  .tech-hero-geo {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none;
-  }
-  .tech-hero-bc {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: flex; gap: 8px; align-items: center;
-    margin-bottom: 24px;
-  }
-  .tech-hero-bc a { color: var(--muted); transition: color 220ms var(--ease); }
-  .tech-hero-bc a:hover { color: var(--accent); }
-  .tech-hero-layer {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .tech-hero-layer::before {
-    content: '';
-    width: 8px; height: 8px;
-    border-radius: 999px;
-    background: currentColor;
-  }
-  .tech-hero-layer--claude { color: var(--accent); }
-  .tech-hero-layer--os { color: var(--ink); opacity: 0.85; }
-  .tech-hero-layer--orch { color: var(--ink); opacity: 0.65; }
-  .tech-hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 148px);
-    line-height: 0.92;
-    letter-spacing: -0.028em;
-    font-weight: 400;
-    margin: 0 0 32px;
-    text-wrap: balance;
-  }
-  .tech-hero-title :global(i) { color: var(--accent); font-style: italic; }
-  .tech-hero-sub {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(24px, 4vw, 64px);
-    align-items: end;
-    max-width: 1100px;
-  }
-  .tech-hero-lead {
-    font-family: var(--font-sans);
-    font-size: clamp(20px, 2vw, 26px);
-    line-height: 1.4;
-    color: var(--ink);
-    font-style: italic;
-    margin: 0;
-  }
-  .tech-hero-lead :global(span) { color: var(--accent); display: block; margin-top: 8px; }
-  .tech-hero-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-  .tech-hero-cta {
-    display: inline-block;
-    padding: 14px 24px;
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    letter-spacing: -0.005em;
-    transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
-  }
-  .tech-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-  .tech-hero-meta {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
   /* ───── Sec common ───── */
   .tech-sec { padding: clamp(72px, 8vw, 120px) 0; position: relative; }
   .tech-sec-paper { background: var(--paper-2, #EFEBE2); }
@@ -986,7 +902,6 @@ const serviceLd = buildService({ name: title, description });
     }
   }
   @media (max-width: 800px) {
-    .tech-hero-sub { grid-template-columns: 1fr; }
     .tech-sec-hd { grid-template-columns: 1fr; }
     .tech-when-dual { grid-template-columns: 1fr; }
     .tech-pos-facts :global(.fact) {
