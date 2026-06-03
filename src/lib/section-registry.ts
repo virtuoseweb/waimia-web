@@ -84,6 +84,12 @@ import BrandedCallout from '../components/sections/BrandedCallout.astro';
 import EditorialPreview from '../components/sections/EditorialPreview.astro';
 import NewsletterBand from '../components/sections/NewsletterBand.astro';
 import SpecBar from '../components/sections/SpecBar.astro';
+import DeliverablesGrid from '../components/sections/DeliverablesGrid.astro';
+import TechStackBand from '../components/sections/TechStackBand.astro';
+import RelatedCardsBand from '../components/sections/RelatedCardsBand.astro';
+import PullQuoteBlock from '../components/sections/PullQuoteBlock.astro';
+import InclusionsList from '../components/sections/InclusionsList.astro';
+import ProblemStatement from '../components/sections/ProblemStatement.astro';
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -668,6 +674,66 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Barre de spécifications projet N colonnes (label mono + valeur) avec grille CSS var — extrait de CaseStudyTemplate.',
     description_en: 'N-column project spec bar (mono label + value) with CSS var grid — sourced from CaseStudyTemplate.',
+  },
+  'deliverables-grid': {
+    component: DeliverablesGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['deliverables', 'grid', 'cards', 'offer'],
+    status: 'stable',
+    description_fr: 'Grille de livrables tangibles avec cards numérotées et tag format/durée, extraite des pages offre et détail.',
+    description_en: 'Tangible deliverables grid with numbered cards and format/duration tag, sourced from offer and detail pages.',
+  },
+  'tech-stack-band': {
+    component: TechStackBand,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['technology', 'stack', 'pills', 'tools'],
+    status: 'stable',
+    description_fr: 'Bande stack technologique fond paper-2 avec kicker, lead et rangée de pills techniques.',
+    description_en: 'Paper-2 technology stack band with kicker, lead, and a row of technical pills.',
+  },
+  'related-cards-band': {
+    component: RelatedCardsBand,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['related', 'cards', 'navigation', 'editorial'],
+    status: 'stable',
+    description_fr: 'Bande de trois cards connexes pour relier cas, offres ou ressources en fin de page.',
+    description_en: 'Three-card related band for linking cases, offers, or resources near the end of a page.',
+  },
+  'pull-quote-block': {
+    component: PullQuoteBlock,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['quote', 'pullquote', 'editorial', 'closing'],
+    status: 'stable',
+    description_fr: 'Citation éditoriale isolée centrée ou inline, wrapper catalogue autour de la molécule PullQuote.',
+    description_en: 'Standalone editorial quote, centered or inline, as a catalogue wrapper around the PullQuote molecule.',
+  },
+  'inclusions-list': {
+    component: InclusionsList,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['scope', 'inclusions', 'inline-list', 'offer'],
+    status: 'stable',
+    description_fr: "Liste d'inclusions inline séparée par point médian pour expliciter le périmètre d'un engagement.",
+    description_en: 'Inline inclusions list separated by middle dots to clarify the scope of an engagement.',
+  },
+  'problem-statement': {
+    component: ProblemStatement,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['problem', 'statement', 'metrics', 'macro-typography'],
+    status: 'stable',
+    description_fr: 'Énoncé macro-typographique du problème avec stats optionnelles en grille hairline.',
+    description_en: 'Macro-typographic problem statement with optional hairline stats grid.',
   },
 };
 

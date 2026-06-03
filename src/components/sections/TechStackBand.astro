@@ -1,0 +1,58 @@
+---
+// Section W6 · tech-stack-band
+// Bande stack : wrapper catalogue autour de `TechPillRow`. Sources : `cf-stack`, `dt-stack`, `case-stack`.
+import type { SectionByType } from '../../schemas/sections';
+import TechPillRow from '../ui/molecules/TechPillRow.astro';
+
+interface Props {
+  data: SectionByType<'tech-stack-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const pills = data.pills.map((p) => ({
+  label: isFr ? p.label_fr : p.label_en,
+  kind: p.kind,
+}));
+---
+
+<section class="tech-stack-band">
+  <div class="wrap-wide">
+    <span class="tech-stack-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+    {(isFr ? data.lead_fr : data.lead_en) && (
+      <p class="tech-stack-band__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
+    )}
+    <TechPillRow pills={pills} class="tech-stack-band__pills" />
+  </div>
+</section>
+
+<style>
+  .tech-stack-band {
+    padding: var(--tech-stack-band-pad, clamp(var(--space-10), 7vw, var(--space-14))) var(--tech-stack-band-inline, var(--space-6));
+    background: var(--paper-2);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .tech-stack-band__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-md);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-4);
+  }
+  .tech-stack-band__lead {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-h3-card), 2.4vw, var(--text-h2-tight));
+    line-height: var(--leading-h3);
+    color: var(--muted);
+    max-width: 760px;
+    text-wrap: balance;
+    margin: 0 0 clamp(var(--space-6), 3vw, var(--space-8));
+  }
+  .tech-stack-band__lead :global(i) {
+    font-style: italic;
+    color: var(--accent);
+  }
+</style>

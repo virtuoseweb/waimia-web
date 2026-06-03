@@ -1,0 +1,165 @@
+---
+// Section W6 · deliverables-grid
+// Grille de cards livrables numérotées. Sources : `off-deliverables`, `dt-deliverables`.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'deliverables-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const cols = Math.min(data.items.length, 4);
+---
+
+<section class="deliverables-grid" style={`--deliverables-grid-cols: ${cols}`}>
+  <div class="wrap-wide">
+    <header class="deliverables-grid__hd">
+      <span class="deliverables-grid__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+      <h2 class="deliverables-grid__title" set:html={isFr ? data.title_fr : data.title_en} />
+      {(isFr ? data.lead_fr : data.lead_en) && (
+        <p class="deliverables-grid__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
+      )}
+    </header>
+
+    <div class="deliverables-grid__grid reveal-stagger">
+      {data.items.map((item) => {
+        const format = isFr ? item.format_fr : item.format_en;
+        const duration = isFr ? item.duration_fr : item.duration_en;
+        const tag = [format, duration].filter(Boolean).join(' · ');
+
+        return (
+          <article class="deliverables-grid__card reveal-zoom-in">
+            {tag && <span class="deliverables-grid__tag">{tag}</span>}
+            <h3 set:html={isFr ? item.title_fr : item.title_en} />
+            <p set:html={isFr ? item.body_fr : item.body_en} />
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .deliverables-grid {
+    padding: var(--deliverables-grid-pad, clamp(var(--space-11), 10vw, var(--section-loose))) var(--deliverables-grid-inline, var(--space-6));
+    border-bottom: 1px solid var(--hairline);
+  }
+  .deliverables-grid__hd {
+    margin-bottom: clamp(var(--space-8), 5vw, var(--space-12));
+  }
+  .deliverables-grid__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-md);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-4);
+  }
+  .deliverables-grid__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: 400;
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .deliverables-grid__title :global(i) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .deliverables-grid__lead {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: 680px;
+    margin: var(--space-5) 0 0;
+  }
+  .deliverables-grid__grid {
+    counter-reset: deliverable-counter;
+    display: grid;
+    grid-template-columns: repeat(var(--deliverables-grid-cols, 3), 1fr);
+    gap: 0;
+  }
+  .deliverables-grid__card {
+    position: relative;
+    counter-increment: deliverable-counter;
+    padding: var(--space-7) var(--space-6) var(--space-6) 0;
+    border-top: 1px solid var(--hairline-strong);
+    background: transparent;
+    transition: transform 220ms var(--ease), border-top-color 220ms var(--ease), background 220ms var(--ease);
+  }
+  .deliverables-grid__card::before {
+    content: counter(deliverable-counter, decimal-leading-zero);
+    position: absolute;
+    top: var(--space-5);
+    right: var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-md);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 220ms var(--ease);
+  }
+  .deliverables-grid__card:hover {
+    transform: translateY(-2px);
+    border-top-color: var(--accent);
+    background: var(--paper-2);
+  }
+  .deliverables-grid__card:hover::before {
+    color: var(--accent);
+  }
+  .deliverables-grid__tag {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+    transition: transform 220ms var(--ease), color 220ms var(--ease);
+  }
+  .deliverables-grid__card h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-row);
+    font-style: italic;
+    line-height: var(--leading-h3);
+    letter-spacing: var(--tracking-display);
+    margin: var(--space-3) 0;
+    font-weight: 400;
+    color: var(--ink);
+    text-wrap: balance;
+    transition: transform 220ms var(--ease);
+  }
+  .deliverables-grid__card p {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 38ch;
+    transition: transform 220ms var(--ease);
+  }
+  .deliverables-grid__card:hover h3,
+  .deliverables-grid__card:hover p,
+  .deliverables-grid__card:hover .deliverables-grid__tag {
+    transform: translateX(1px);
+  }
+  @media (max-width: 900px) {
+    .deliverables-grid__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .deliverables-grid__grid {
+      grid-template-columns: 1fr;
+    }
+    .deliverables-grid__card {
+      padding-right: 0;
+    }
+  }
+</style>

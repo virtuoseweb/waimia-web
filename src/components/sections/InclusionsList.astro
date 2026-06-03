@@ -1,0 +1,89 @@
+---
+// Section W6 · inclusions-list
+// Liste inline séparée par point médian. Sources : `off-inclusions`, `.ws-inclusions`.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'inclusions-list'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const items = isFr ? data.items_fr : data.items_en;
+---
+
+<section class="inclusions-list">
+  <div class="wrap-wide">
+    {((isFr ? data.kicker_fr : data.kicker_en) || (isFr ? data.title_fr : data.title_en)) && (
+      <header class="inclusions-list__hd">
+        {(isFr ? data.kicker_fr : data.kicker_en) && (
+          <span class="inclusions-list__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+        )}
+        {(isFr ? data.title_fr : data.title_en) && (
+          <h2 class="inclusions-list__title" set:html={isFr ? data.title_fr : data.title_en} />
+        )}
+      </header>
+    )}
+
+    <ul class="inclusions-list__items">
+      {items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .inclusions-list {
+    padding: var(--inclusions-list-pad, clamp(var(--space-10), 9vw, var(--section-loose)) var(--space-6));
+    border-block: 1px solid var(--hairline);
+  }
+  .inclusions-list__hd {
+    margin-bottom: clamp(var(--space-7), 4vw, var(--space-10));
+  }
+  .inclusions-list__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-md);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-4);
+  }
+  .inclusions-list__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: 400;
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .inclusions-list__title :global(i) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .inclusions-list__items {
+    list-style: none;
+    padding: clamp(var(--space-5), 2.5vw, var(--space-7)) 0 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: center;
+    border-top: 1px solid var(--hairline);
+  }
+  .inclusions-list__items li {
+    font-family: var(--font-sans);
+    font-size: clamp(var(--text-body-sm), 1.4vw, var(--text-body-md));
+    line-height: var(--leading-body);
+    color: var(--ink);
+  }
+  .inclusions-list__items li + li::before {
+    content: '·';
+    color: var(--accent);
+    margin: 0 var(--space-2);
+    font-family: var(--font-mono);
+  }
+</style>

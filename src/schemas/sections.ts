@@ -1088,6 +1088,112 @@ export const specBarSchema = z.object({
     .max(8),
 });
 
+// Grille de livrables tangibles : cards numérotées + tag format/durée
+export const deliverablesGridSchema = z.object({
+  type: z.literal('deliverables-grid'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  lead_fr: z.string().optional(),
+  lead_en: z.string().optional(),
+  items: z
+    .array(
+      z.object({
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        format_fr: z.string().optional(),
+        format_en: z.string().optional(),
+        duration_fr: z.string().optional(),
+        duration_en: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(8),
+});
+
+// Bande stack technologique : kicker + lead + rangée de pills
+export const techStackBandSchema = z.object({
+  type: z.literal('tech-stack-band'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  lead_fr: z.string().optional(),
+  lead_en: z.string().optional(),
+  pills: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+        kind: z.enum(['primary', 'open', 'neutral']).optional(),
+      }),
+    )
+    .min(2)
+    .max(16),
+});
+
+// Bande de cards connexes : header optionnel + molécule RelatedCards
+export const relatedCardsBandSchema = z.object({
+  type: z.literal('related-cards-band'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  cards: z
+    .array(
+      z.object({
+        kicker_fr: z.string(),
+        kicker_en: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        lead_fr: z.string(),
+        lead_en: z.string(),
+        href: z.string(),
+      }),
+    )
+    .min(2)
+    .max(3),
+});
+
+// Citation éditoriale isolée : wrapper catalogue autour de PullQuote
+export const pullQuoteBlockSchema = z.object({
+  type: z.literal('pull-quote-block'),
+  quote_fr: z.string(),
+  quote_en: z.string(),
+  cite_fr: z.string().optional(),
+  cite_en: z.string().optional(),
+  variant: z.enum(['breakout', 'inline', 'centered']).default('centered'),
+});
+
+// Liste d'inclusions inline séparée par point médian
+export const inclusionsListSchema = z.object({
+  type: z.literal('inclusions-list'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  title_fr: z.string().optional(),
+  title_en: z.string().optional(),
+  items_fr: z.array(z.string()).min(2).max(16),
+  items_en: z.array(z.string()).min(2).max(16),
+});
+
+// Énoncé macro-typo du problème avec stats optionnelles
+export const problemStatementSchema = z.object({
+  type: z.literal('problem-statement'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  statement_fr: z.string(),
+  statement_en: z.string(),
+  stats: z
+    .array(
+      z.object({
+        value: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .max(4)
+    .optional(),
+});
+
 /* ─── Union discriminée pour validation ─── */
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -1149,6 +1255,12 @@ export const sectionSchema = z.discriminatedUnion('type', [
   editorialPreviewSchema,
   newsletterBandSchema,
   specBarSchema,
+  deliverablesGridSchema,
+  techStackBandSchema,
+  relatedCardsBandSchema,
+  pullQuoteBlockSchema,
+  inclusionsListSchema,
+  problemStatementSchema,
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];
