@@ -17,6 +17,7 @@ import Kicker from '../ui/atoms/Kicker.astro';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
 import MethodTimeline from '../sections/MethodTimeline.astro';
+import HeroCaseStudy from '../sections/HeroCaseStudy.astro';
 import ProofBand from '../ui/molecules/ProofBand.astro';
 import TechPillRow from '../ui/molecules/TechPillRow.astro';
 import CtaFinal from '../sections/CtaFinal.astro';
@@ -62,6 +63,9 @@ interface Props {
   caseTitle?: string;
   /** Numéro éditorial (Case 04, Case 07…) */
   caseNum: string;
+  /** Titre h1 (était slot "headline" ; passé en prop pour HeroCaseStudy). */
+  h1_fr: string;
+  h1_en: string;
   /** Spec bar (5 items typiquement : Client, Sector, Duration, Stack, Services) */
   specs: SpecItem[];
   /** Steps process (4 typiquement) */
@@ -82,7 +86,7 @@ interface Props {
   transitionSlug?: string;
 }
 const {
-  title, description, caseTitle, caseNum, specs, steps,
+  title, description, caseTitle, caseNum, h1_fr, h1_en, specs, steps,
   proofQuoteFr, proofQuoteEn, proofAttrFr, proofAttrEn, proofMetrics,
   techPills, relatedCards, relatedOffresLinks, transitionSlug,
 } = Astro.props;
@@ -93,6 +97,15 @@ const pageTransitionId = Astro.url.pathname
   .replace(/[^a-z0-9]+/gi, '-')
   .replace(/^-|-$/g, '') || 'home';
 const cardTransitionId = transitionSlug ?? pageTransitionId;
+const heroData = {
+  type: 'hero-case-study',
+  case_num: caseNum,
+  eyebrow_fr: '§ Cas client',
+  eyebrow_en: '§ Cas client', // legacy hardcodait '§ Cas client' même en EN (parité 0-régression)
+  h1_fr,
+  h1_en,
+  specs: specs.map((s) => ({ label_fr: s.label_fr, label_en: s.label_en, value: s.value })),
+} satisfies SectionByType<'hero-case-study'>;
 const caseLabel = caseTitle ?? title.split(' · ')[0];
 const ctaData = {
   type: 'cta-final',
@@ -124,33 +137,15 @@ const ctaData = {
       { label: caseTitle ?? title },
     ]}
   />
-  {/* MASTHEAD */}
-  <section class="case-masthead" transition:name={`card-${cardTransitionId}`}>
-    <svg class="case-hero-decoration reveal-blur-clip" viewBox="0 0 600 500" aria-hidden="true" focusable="false" transition:name={`hero-img-${pageTransitionId}`}>
-      <circle cx="480" cy="80" r="220" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12"/>
-      <circle cx="460" cy="60" r="140" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".18"/>
-      <line x1="0" y1="400" x2="600" y2="280" stroke="currentColor" stroke-width=".4" opacity=".1"/>
-    </svg>
-    <div class="wrap-wide">
-      <span class="eyebrow">§ Cas client</span>
-      <Kicker class="case-num">§ Case {caseNum}</Kicker>
-      <h1 class="case-h1 reveal-mask-up" transition:name={`hero-h1-${pageTransitionId}`}>
-        <slot name="headline" />
-      </h1>
-    </div>
-  </section>
-
-  {/* SPEC BAR (Client · Sector · Duration · Stack · Services) */}
-  <section class="case-specs">
-    <div class="wrap-wide case-specs-grid" style={`--spec-cols:${specs.length}`}>
-      {specs.map((s, i) => (
-        <div class="case-spec" data-last={i === specs.length - 1 ? 'true' : 'false'}>
-          <Kicker class="case-spec-l"><Bi fr={s.label_fr} en={s.label_en} /></Kicker>
-          <div class="case-spec-v">{s.value}</div>
-        </div>
-      ))}
-    </div>
-  </section>
+  {/* MASTHEAD + SPEC BAR → HeroCaseStudy (sections/) */}
+  <HeroCaseStudy
+    data={heroData}
+    lang={lang}
+    transitionId={pageTransitionId}
+    cardTransitionId={cardTransitionId}
+    topPad="clamp(80px, 10vw, 120px)"
+    h1Gap="48px"
+  />
 
   {Astro.slots.has('hero-image') && <div class="case-hero-image"><slot name="hero-image" /></div>}
 
@@ -276,39 +271,6 @@ const ctaData = {
 </Base>
 
 <style>
-  .case-masthead { padding: clamp(80px, 10vw, 120px) 32px 40px; }
-  :global(.case-num) { display: block; margin-bottom: var(--space-5); }
-  .case-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(44px, 8vw, 128px);
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    text-wrap: balance;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    font-weight: 400;
-    margin: 0 0 48px;
-  }
-  .case-h1 :global(i) { font-style: italic; color: var(--accent); }
-
-  .case-specs { padding: 0 32px 40px; border-bottom: 1px solid var(--hairline); }
-  .case-specs-grid {
-    display: grid;
-    grid-template-columns: repeat(var(--spec-cols, 5), 1fr);
-    border-top: 1px solid var(--hairline);
-  }
-  .case-spec {
-    padding: 22px 20px;
-    border-right: 1px solid var(--hairline);
-  }
-  .case-spec[data-last='true'] { border-right: none; }
-  :global(.case-spec-l) { display: block; margin-bottom: 6px; }
-  .case-spec-v {
-    font-family: var(--font-display);
-    font-size: 22px;
-    letter-spacing: -0.01em;
-  }
-
   .case-context { padding: clamp(56px, 7vw, 80px) 32px; }
   .case-context-grid {
     display: grid;
@@ -423,24 +385,8 @@ const ctaData = {
   @media (max-width: 900px) {
     .case-context-grid,
     .case-section-hd { grid-template-columns: 1fr; }
-    .case-specs-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* Hero decoration SVG */
-  .case-hero-decoration {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 500px;
-    height: 400px;
-    pointer-events: none;
-    z-index: 0;
-    color: var(--ink);
-    opacity: 0.08;
-    mix-blend-mode: multiply;
-  }
-  .case-masthead { position: relative; overflow: hidden; }
-  .case-masthead .wrap-wide { position: relative; z-index: 1; }
   .case-hero-image { aspect-ratio: 16/9; margin: clamp(48px, 6vw, 80px) 32px; overflow: hidden; }
   .case-hero-image :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -503,17 +449,10 @@ const ctaData = {
     .case-related-grid { grid-template-columns: 1fr; }
     .related-case-card { border-right: none; border-bottom: 1px solid var(--hairline); }
     .related-case-card:last-child { border-bottom: none; }
-    .case-hero-decoration { width: 280px; height: 240px; opacity: 0.6; }
   }
 
   @keyframes mask-reveal {
     from { clip-path: inset(0 100% 0 0); }
     to   { clip-path: inset(0 0 0 0); }
-  }
-  .case-h1 {
-    animation: mask-reveal 1s cubic-bezier(0.16, 1, 0.30, 1) both;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .case-h1 { animation: none; }
   }
 </style>
