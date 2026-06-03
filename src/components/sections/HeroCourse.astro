@@ -97,7 +97,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-family: var(--font-sans);
     font-size: var(--text-lede);
     line-height: 1.5;
-    color: var(--text-secondary, #444);
+    color: var(--muted);
     margin: 0 0 28px;
     max-width: 68ch;
   }
@@ -114,10 +114,10 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     text-transform: uppercase;
     padding: 4px 10px;
     border: 1px solid var(--hairline);
-    color: var(--text-muted, #888);
+    color: var(--muted-2);
   }
   .hero-course__pill--accent { border-color: var(--accent); color: var(--accent); }
-  .hero-course__pill--price { border-color: var(--ink, #111); color: var(--ink, #111); font-weight: 600; }
+  .hero-course__pill--price { border-color: var(--ink); color: var(--ink); font-weight: 600; }
   .hero-course__cta {
     display: flex;
     align-items: center;
@@ -130,10 +130,10 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: 14px;
     font-weight: 600;
     padding: 12px 24px;
-    background: var(--ink, #111);
+    background: var(--ink);
     color: var(--paper);
     text-decoration: none;
-    border: 1px solid var(--ink, #111);
+    border: 1px solid var(--ink);
     transition: background 0.15s, border-color 0.15s;
   }
   .hero-course__btn-primary:hover { background: var(--accent); border-color: var(--accent); }
@@ -152,7 +152,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-course__btn-ghost:hover { color: var(--accent); border-bottom-color: var(--accent); }
   .hero-course__hd--legacy-ghost .hero-course__btn-ghost {
-    color: var(--text-secondary, #444);
+    color: var(--muted);
     text-decoration: underline;
     text-underline-offset: 3px;
     border-bottom: 0;

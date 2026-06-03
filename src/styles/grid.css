@@ -10,17 +10,20 @@
   width: 100%;
 }
 
-/* Containers · max-width centrés */
+/* Containers · max-width centrés (largeurs contenu/prose éditoriales)
+   Valeurs d'origine restaurées (cf git 372ad51 ; les tokens --col-* avaient été
+   supprimés Phase D.1 → classes silencieusement cassées). g12--standard=880px
+   = override local OffresDetailTemplate .wrap-tight → zéro régression. */
 .g12--narrow {
-  max-width: var(--col-narrow);
+  max-width: 640px;
   margin-inline: auto;
 }
 .g12--standard {
-  max-width: var(--col-standard);
+  max-width: 880px;
   margin-inline: auto;
 }
 .g12--wide {
-  max-width: var(--col-wide);
+  max-width: 1120px;
   margin-inline: auto;
 }
 .g12--full {
@@ -29,7 +32,7 @@
   padding-inline: var(--gut);
 }
 .g12--grand {
-  max-width: var(--col-grand);
+  max-width: var(--wrap-wide);
   margin-inline: auto;
   padding-inline: var(--gut);
 }

@@ -81,7 +81,7 @@ h3 {
 }
 h4 {
   font-family: var(--font-mono);
-  font-size: var(--text-mono-sm);
+  font-size: var(--text-mono-md);
   letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   font-weight: 400;
@@ -984,23 +984,26 @@ a:not([class]):hover,
   transform-origin: left;
 }
 
-/* ─── REVEALS · contemplative ─── */
-.reveal,
+/* ─── REVEALS · contemplative ───
+   `.reveal` (+ `.reveal-fade`/`.reveal-stagger` base) sont définis dans
+   scroll-reveal.css (chargé après → source de vérité, état `.is-visible`).
+   Ici on conserve uniquement les classes propres à global.css : `.reveal-up`,
+   `.scale-in`, `.blur-in` (état `.in`, hors sélecteur du JS scroll-reveal).
+   Timing migré : --reveal-slow → --dur-slow (1400ms), --reveal-med → --dur-reveal (1100ms). */
 .reveal-up {
   opacity: 0;
   transform: translateY(22px);
   transition:
-    opacity var(--reveal-slow) var(--ease-out),
-    transform var(--reveal-slow) var(--ease-out);
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
 }
-.reveal.in,
 .reveal-up.in {
   opacity: 1;
   transform: none;
 }
 .reveal-fade {
   opacity: 0;
-  transition: opacity var(--reveal-slow) var(--ease-out);
+  transition: opacity var(--dur-slow) var(--ease-out);
 }
 .reveal-fade.in {
   opacity: 1;
@@ -1009,8 +1012,8 @@ a:not([class]):hover,
   opacity: 0;
   transform: translateY(20px);
   transition:
-    opacity var(--reveal-med) var(--ease-out),
-    transform var(--reveal-med) var(--ease-out);
+    opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
 }
 .reveal-stagger.in > * {
   opacity: 1;
@@ -1045,8 +1048,8 @@ a:not([class]):hover,
   opacity: 0;
   transform: scale(0.96);
   transition:
-    opacity var(--reveal-slow) var(--ease-out),
-    transform var(--reveal-slow) var(--ease-out);
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
 }
 .scale-in.in {
   opacity: 1;
