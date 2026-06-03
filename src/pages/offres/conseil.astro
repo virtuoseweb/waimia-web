@@ -11,13 +11,24 @@ import HubTemplate from '../../components/templates/HubTemplate.astro';
 import ServiceCatalogRow from '../../components/ui/molecules/ServiceCatalogRow.astro';
 import EditorialTable from '../../components/editorial/EditorialTable.astro';
 import ConseilAuditDiagram from '../../components/svg/geometric/ConseilAuditDiagram.astro';
+import type { SectionByType } from '../../schemas/sections';
 
-const stats = [
-  { k: '43',    label_fr: 'interventions',         label_en: 'engagements' },
-  { k: '18 M€+', label_fr: 'pipeline restructuré', label_en: 'pipeline audited' },
-  { k: '0',     label_fr: 'ateliers vendus',       label_en: 'workshops sold' },
-  { k: '12',    label_fr: 'juridictions UE',       label_en: 'EU jurisdictions' },
-];
+const heroData = {
+  type: 'hero-hub-stats',
+  meta_kicker_fr: 'Hub · Pilier Entreprise · 7 services',
+  meta_kicker_en: 'Hub · Enterprise pillar · 7 services',
+  hub_num: '02',
+  h1_fr: "Le conseil qui commence par <i>lire</i> — pas par présenter.",
+  h1_en: "Consulting that begins by <i>reading</i> — not by presenting.",
+  lede_fr: "Nous refusons les ateliers de découverte vendus comme du conseil. Un engagement Waimia commence par la lecture de vos données réelles, se termine par un livrable écrit, et produit une décision — pas 72 slides dans un SharePoint.",
+  lede_en: "We refuse discovery workshops sold as consulting. A Waimia engagement starts by reading your real data, ends with a written deliverable, and produces a decision — not 72 slides in a SharePoint.",
+  stats: [
+    { value: '43',     label_fr: 'interventions',         label_en: 'engagements',     emphasis: false },
+    { value: '18 M€+', label_fr: 'pipeline restructuré', label_en: 'pipeline audited', emphasis: true  },
+    { value: '0',      label_fr: 'ateliers vendus',       label_en: 'workshops sold',   emphasis: false },
+    { value: '12',     label_fr: 'juridictions UE',       label_en: 'EU jurisdictions', emphasis: false },
+  ],
+} satisfies SectionByType<'hero-hub-stats'>;
 
 // Catalogue services · 7 services hub-consulting
 const services = [
@@ -102,9 +113,7 @@ const relatedCards = [
   title="Conseil, audit & stratégie · Waimia"
   description="Sept services pour solidifier une intervention IA : données, gouvernance, coût, sécurité. Faits par nous-mêmes, par écrit."
   hubNum="02"
-  metaKickerFr="Hub · Pilier Entreprise · 7 services"
-  metaKickerEn="Hub · Enterprise pillar · 7 services"
-  stats={stats}
+  heroData={heroData}
   fitYesTitleFr="Vous êtes fait pour nous si"
   fitYesTitleEn="You're a fit if"
   fitYesItems={fitYesItems}
@@ -115,14 +124,6 @@ const relatedCards = [
   relatedKickerEn="Cases that came out of this hub"
   relatedCards={relatedCards}
 >
-  {/* HEADLINE — méthode Slots Astro, JSX riche (italic, br) sans sérialisation */}
-  <Fragment slot="headline">
-    Le conseil qui commence par <i>lire</i> — pas par présenter.
-  </Fragment>
-  <Fragment slot="lede">
-    Nous refusons les ateliers de découverte vendus comme du conseil. Un engagement Waimia commence par la lecture de vos données réelles, se termine par un livrable écrit, et produit une décision — pas 72 slides dans un SharePoint.
-  </Fragment>
-
   {/* MANIFESTO PULL · stance éditorial */}
   <Fragment slot="manifesto">
     Une mission de conseil n'est pas un <i>diagnostic de 72 slides</i>. C'est une décision prise plus tôt, un risque nommé et un livrable que l'équipe peut exploiter. <i>Nous ne vendons pas d'ateliers. Nous livrons des documents signés.</i>

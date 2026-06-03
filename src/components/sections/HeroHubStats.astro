@@ -4,12 +4,14 @@
 // Meta kicker + numéro § + h1 monumental + lede et grille de stats 4-col en pied (KeyMetric).
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
+import DropCap from '../editorial/DropCap.astro';
 
 interface Props {
   data: SectionByType<'hero-hub-stats'>;
   lang: 'fr' | 'en';
+  ledeDropCap?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, ledeDropCap } = Astro.props;
 const isFr = lang === 'fr';
 ---
 <section class="hero-hub-stats">
@@ -18,7 +20,10 @@ const isFr = lang === 'fr';
     <Kicker tone="accent" class="hero-hub-stats__num">§ {data.hub_num}</Kicker>
     <h1 class="hero-hub-stats__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
     <div class="hero-hub-stats__lede reveal">
-      <p set:html={isFr ? data.lede_fr : data.lede_en} />
+      {ledeDropCap
+        ? <p><DropCap variant="mono">{ledeDropCap}</DropCap><Fragment set:html={isFr ? data.lede_fr : data.lede_en}/></p>
+        : <p set:html={isFr ? data.lede_fr : data.lede_en} />
+      }
     </div>
     {data.stats && data.stats.length > 0 && (
       <div class="hero-hub-stats__grid reveal-stagger">
