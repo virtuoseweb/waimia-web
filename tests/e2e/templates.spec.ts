@@ -41,7 +41,7 @@ test("HubTemplate · /offres/conseil rend masthead + catalogue + fit + related",
   // h1 unique dans le contenu (exclut les h1 d'Astro dev toolbar)
   const contentH1 = await page
     .locator(
-      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.case-h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
+      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.hero-case-study__h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
     )
     .count();
   expect(contentH1).toBe(1);
@@ -73,7 +73,7 @@ test("ServiceDetailTemplate · /offres/revops rend problem + steps + proof + sta
   // h1 unique dans le contenu (exclut les h1 d'Astro dev toolbar)
   const contentH1 = await page
     .locator(
-      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.case-h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
+      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.hero-case-study__h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
     )
     .count();
   expect(contentH1).toBe(1);
@@ -124,7 +124,7 @@ test("CaseStudyTemplate · /ressources/cas/plateau rend masthead + specs + steps
   // h1 unique dans le contenu (exclut les h1 d'Astro dev toolbar)
   const contentH1 = await page
     .locator(
-      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.case-h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
+      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.hero-case-study__h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
     )
     .count();
   expect(contentH1).toBe(1);
@@ -189,7 +189,7 @@ test("ListIndexTemplate · /ressources/cas rend grid case cards (5 items CASE_FE
   // h1 unique dans le contenu (exclut les h1 d'Astro dev toolbar)
   const contentH1 = await page
     .locator(
-      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.case-h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
+      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.hero-case-study__h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
     )
     .count();
   expect(contentH1).toBe(1);

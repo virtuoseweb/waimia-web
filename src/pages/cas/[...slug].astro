@@ -67,6 +67,8 @@ const relatedCards = allCases
   title={`${d.title_fr} · Waimia`}
   description={d.description_fr}
   caseNum={String(idx + 1).padStart(2, '0')}
+  h1_fr={d.title_fr}
+  h1_en={d.title_en}
   specs={specs}
   steps={[]}
   proofQuoteFr={d.impact_fr}
@@ -77,7 +79,6 @@ const relatedCards = allCases
   techPills={d.stack.map((s) => ({ label: s, kind: 'primary' as const }))}
   relatedCards={relatedCards}
 >
-  <Fragment slot="headline">{d.title_fr}</Fragment>
   <Fragment slot="context">
     <AuthorByline authorSlug={authorSlug} date={d.publishedAt} />
     <Content />
