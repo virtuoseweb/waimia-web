@@ -35,7 +35,6 @@ import HeroCaseStudy from '../components/sections/HeroCaseStudy.astro';
 import HeroHome from '../components/sections/HeroHome.astro';
 import HeroLanding from '../components/sections/HeroLanding.astro';
 import HeroProblemIndex from '../components/sections/HeroProblemIndex.astro';
-import HeroSector from '../components/sections/HeroSector.astro';
 import HeroUtilityMasthead from '../components/sections/HeroUtilityMasthead.astro';
 import HeroAcademyHub from '../components/sections/HeroAcademyHub.astro';
 import HeroHubMasthead from '../components/sections/HeroHubMasthead.astro';
@@ -43,7 +42,6 @@ import TrustLegalSection from '../components/sections/TrustLegalSection.astro';
 import WelcomeSection from '../components/sections/WelcomeSection.astro';
 import ListIndexSection from '../components/sections/ListIndexSection.astro';
 import HeroOfferDetail from '../components/sections/HeroOfferDetail.astro';
-import HeroTechLayer from '../components/sections/HeroTechLayer.astro';
 import HeroConversionFunnel from '../components/sections/HeroConversionFunnel.astro';
 import HeroHubStats from '../components/sections/HeroHubStats.astro';
 import HeroDetailMenu from '../components/sections/HeroDetailMenu.astro';
@@ -197,7 +195,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Problem index hero: 12° rotated rectangle SVG decoration, monumental h1, italic lede, and canonical line.',
   },
   'hero-sector': {
-    component: HeroSector,
+    component: HeroOfferDetail,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -277,7 +275,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Offer detail hero: signature concentric circles SVG, breadcrumb, tier kicker, h1 + italic lead, CTA and meta.',
   },
   'hero-tech-layer': {
-    component: HeroTechLayer,
+    component: HeroOfferDetail,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
