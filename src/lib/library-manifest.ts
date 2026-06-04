@@ -137,14 +137,9 @@ export const LIBRARY_ORGANISMS: LibraryOrganismEntry[] = [
   { id: 'Stub',               file: 'src/components/ui/organisms/Stub.astro',               twin: null,                   status: 'keep-bespoke', consumers: [] },
   { id: 'ManifestoAccent',    file: 'src/components/ui/organisms/ManifestoAccent.astro',    twin: null,                   status: 'keep-bespoke', consumers: ['src/pages/manifesto.astro', 'src/pages/en/manifesto.astro'] },
 
-  // ORPHAN / DEL? (7) — aucun consommateur live, dette à résorber
-  { id: 'HowWeShip',          file: 'src/components/ui/organisms/HowWeShip.astro',          twin: 'how-we-ship',          status: 'orphan',       consumers: [] },
-  { id: 'Manifesto',          file: 'src/components/ui/organisms/Manifesto.astro',          twin: 'manifesto-block',      status: 'orphan',       consumers: [] },
-  { id: 'OperatingLayer',     file: 'src/components/ui/organisms/OperatingLayer.astro',     twin: 'operating-layer',      status: 'orphan',       consumers: [] },
-  { id: 'WhyAIStalls',        file: 'src/components/ui/organisms/WhyAIStalls.astro',        twin: 'why-stalls',           status: 'orphan',       consumers: [] },
-  { id: 'WritingNotes',       file: 'src/components/ui/organisms/WritingNotes.astro',       twin: 'editorial-preview',    status: 'orphan',       consumers: [] },
-  { id: 'Offices',            file: 'src/components/ui/organisms/Offices.astro',            twin: null,                   status: 'orphan',       consumers: [] },
-  { id: 'SigBand',            file: 'src/components/ui/organisms/SigBand.astro',            twin: null,                   status: 'orphan',       consumers: [] },
+  // ORPHAN supprimés (7, dette-zéro 2026-06-04, 0 consommateur) : HowWeShip, Manifesto,
+  // OperatingLayer, WhyAIStalls, WritingNotes (jumeaux catalogués existants) + Offices, SigBand
+  // (sans jumeau). Historique complet : docs/cartography/13-COVERAGE-MATRIX.md §3.
 ];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
