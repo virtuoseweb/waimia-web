@@ -1,9 +1,9 @@
 ---
 // Section W6 · use-case-index
 // Index éditorial de cas d'usage par département (rows mono numérotées).
-// Source : `Departments.astro` (§ 05 — Cas d'usage horizontaux).
+// Source : `Departments.astro` (§ 05 — Cas d'usage horizontaux) — COPIE VERBATIM data-driven.
+import SectionHeader from '../ui/molecules/SectionHeader.astro';
 import type { SectionByType } from '../../schemas/sections';
-
 interface Props {
   data: SectionByType<'use-case-index'>;
   lang: 'fr' | 'en';
@@ -11,133 +11,94 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-
-<section class="use-case-index" aria-labelledby="use-case-index-h2">
+<section class="sec" aria-labelledby="dept-h2">
   <div class="wrap-wide">
-    <header class="use-case-index__hd">
-      <p class="use-case-index__kicker">
-        <span class="use-case-index__roman">{data.roman}</span>
-        <span>{isFr ? data.label_fr : data.label_en}</span>
-      </p>
-      <div>
-        <h2 id="use-case-index-h2" class="use-case-index__h2" set:html={isFr ? data.heading_fr : data.heading_en} />
-        {data.aside_fr && data.aside_en && (
-          <p class="use-case-index__aside">{isFr ? data.aside_fr : data.aside_en}</p>
-        )}
-      </div>
-    </header>
+    <SectionHeader
+      roman={data.roman}
+      label={isFr ? data.label_fr : data.label_en}
+      id="dept-h2"
+    >
+      <Fragment slot="heading" set:html={isFr ? data.heading_fr : data.heading_en} />
+      <Fragment slot="aside">
+        {isFr ? data.aside_fr : data.aside_en}
+      </Fragment>
+    </SectionHeader>
 
-    <ul class="use-case-index__list reveal-stagger">
+    <ul class="dept-index reveal-stagger">
       {data.items.map((item, i) => (
         <li>
-          <a class="use-case-index__row" href={item.href}>
-            <span class="use-case-index__row-num">
-              <span class="use-case-index__row-prefix">{isFr ? data.num_prefix_fr : data.num_prefix_en} </span>{`0${i + 1}`}
-            </span>
-            <span class="use-case-index__row-label">{isFr ? item.label_fr : item.label_en}</span>
-            <span class="use-case-index__row-tag">{isFr ? item.tag_fr : item.tag_en}</span>
-            <span class="use-case-index__row-arr" aria-hidden>→</span>
+          <a class="dept-row" href={item.href}>
+            <span class="dept-row-num"><span class="dept-row-num-prefix">{isFr ? data.num_prefix_fr : data.num_prefix_en} </span>{`0${i + 1}`}</span>
+            <span class="dept-row-label">{isFr ? item.label_fr : item.label_en}</span>
+            <span class="dept-row-tag">{isFr ? item.tag_fr : item.tag_en}</span>
+            <span class="dept-row-arr" aria-hidden>→</span>
           </a>
         </li>
       ))}
     </ul>
 
-    {data.footer_href && (
-      <a class="use-case-index__footer" href={data.footer_href}>
-        <span>{isFr ? data.footer_label_fr : data.footer_label_en}</span>
-      </a>
-    )}
+    <a class="dept-sector lift" href={data.footer_href}>
+      <span>{isFr ? data.footer_label_fr : data.footer_label_en}</span>
+    </a>
   </div>
 </section>
 
 <style>
-  .use-case-index {
+  /* V6 densification scoped · réduit padding section sans toucher global .sec */
+  .sec[aria-labelledby="dept-h2"] {
     padding: clamp(56px, 7vw, 88px) 0;
   }
-  .use-case-index__hd {
-    display: grid;
-    grid-template-columns: 1.3fr 2fr;
-    gap: clamp(24px, 3vw, 48px);
-    align-items: end;
-    margin-bottom: clamp(20px, 2.5vw, 32px);
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .use-case-index__kicker {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-  }
-  .use-case-index__roman {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 28px;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .use-case-index__h2 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h2);
-    letter-spacing: -0.025em;
-    font-weight: 400;
-    text-wrap: balance;
-    color: var(--ink);
-  }
-  .use-case-index__h2 :global(i) { font-style: italic; color: var(--accent); }
-  .use-case-index__aside {
-    margin: 14px 0 0;
-    font-family: var(--font-sans);
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--muted);
-    max-width: 540px;
-  }
-  .use-case-index__list {
+
+  .dept-index {
     list-style: none;
     padding: 0;
     margin: 0;
     margin-top: clamp(20px, 2.5vw, 32px);
     border-top: 1px solid var(--hairline-strong);
   }
-  .use-case-index__list li { display: contents; }
-  .use-case-index__row {
+
+  .dept-index li {
+    display: contents;
+  }
+
+  .dept-row {
     display: grid;
-    grid-template-columns: 110px 1.4fr 1fr 32px;
+    grid-template-columns: 70px 1.4fr 1fr 32px;
     gap: clamp(20px, 2vw, 32px);
     padding: clamp(16px, 1.8vw, 24px) 0;
     border-bottom: 1px solid var(--hairline);
     align-items: baseline;
     color: inherit;
     text-decoration: none;
-    transition: background 220ms var(--ease), padding-left 320ms var(--ease), padding-right 320ms var(--ease);
+    transition: background 220ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1)), padding-left 320ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1)), padding-right 320ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
   }
-  .use-case-index__row:hover {
+
+  .dept-row:hover {
     background: rgba(201, 79, 46, 0.04);
     padding-left: 14px;
     padding-right: 14px;
   }
-  .use-case-index__row:hover .use-case-index__row-label { color: var(--accent); }
-  .use-case-index__row:hover .use-case-index__row-arr {
+
+  .dept-row:hover .dept-row-label {
+    color: var(--accent);
+  }
+
+  .dept-row:hover .dept-row-arr {
     color: var(--accent);
     transform: translateX(4px);
   }
-  .use-case-index__row-num {
+
+  .dept-row-num {
     font-family: var(--font-mono);
     font-size: 11px;
-    letter-spacing: 0.16em;
+    letter-spacing: .16em;
     color: var(--muted);
     text-transform: uppercase;
     white-space: nowrap;
   }
-  .use-case-index__row-label {
+
+  /* H3 row token sémantique · cf tokens.css */
+  .dept-row-label {
     font-family: var(--font-display);
     font-size: var(--text-h3-row);
     font-style: italic;
@@ -145,44 +106,63 @@ const isFr = lang === 'fr';
     line-height: var(--leading-h3);
     letter-spacing: -0.02em;
     color: var(--ink);
-    transition: color 200ms var(--ease);
+    transition: color 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
   }
-  .use-case-index__row-tag {
+
+  .dept-row-tag {
     font-family: var(--font-mono);
     font-size: 11px;
-    letter-spacing: 0.12em;
+    letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--ink-2);
     align-self: center;
   }
-  .use-case-index__row-arr {
+
+  .dept-row-arr {
     font-family: var(--font-mono);
     font-size: 16px;
     color: var(--muted);
     text-align: right;
+    transition: color 240ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1)), transform 320ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
     align-self: center;
-    transition: color 240ms var(--ease), transform 320ms var(--ease);
   }
+
   @media (max-width: 900px) {
-    .use-case-index__hd { grid-template-columns: 1fr; }
-    .use-case-index__row {
+    .dept-row {
       grid-template-columns: 1fr;
       row-gap: 6px;
       padding: clamp(18px, 2vw, 28px) 0;
     }
-    .use-case-index__row-num { grid-column: 1 / -1; }
-    .use-case-index__row-label {
+
+    .dept-row-num {
+      grid-column: 1 / -1;
+    }
+
+    .dept-row-label {
       grid-column: 1 / -1;
       font-size: clamp(22px, 5vw, 28px);
     }
-    .use-case-index__row-tag { grid-column: 1 / -1; }
-    .use-case-index__row-arr { display: none; }
+
+    .dept-row-tag {
+      grid-column: 1 / -1;
+    }
+
+    .dept-row-arr {
+      display: none;
+    }
   }
+
   @media (max-width: 600px) {
-    .use-case-index__row-prefix { display: none; }
-    .use-case-index__row { padding: 16px 0; }
+    .dept-row-num-prefix {
+      display: none;
+    }
+
+    .dept-row {
+      padding: 16px 0;
+    }
   }
-  .use-case-index__footer {
+
+  .dept-sector {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -193,12 +173,12 @@ const isFr = lang === 'fr';
     border: 1px solid var(--hairline-strong);
     color: inherit;
     background: var(--paper);
-    text-decoration: none;
   }
-  .use-case-index__footer span {
+
+  .dept-sector span {
     font-family: var(--font-mono);
     font-size: 11px;
-    letter-spacing: 0.14em;
+    letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--accent);
   }
