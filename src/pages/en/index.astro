@@ -24,7 +24,7 @@ import SocialProof         from '../../components/sections/SocialProof.astro';
 import FeatureGrid         from '../../components/sections/FeatureGrid.astro';
 import SystemArchitecture  from '../../components/ui/organisms/SystemArchitecture.astro';
 import ServicesGrid        from '../../components/sections/ServicesGrid.astro';
-import Pyramid             from '../../components/ui/organisms/Pyramid.astro';
+import MaturityPyramid     from '../../components/sections/MaturityPyramid.astro';
 import Departments         from '../../components/ui/organisms/Departments.astro';
 import Cases               from '../../components/ui/organisms/Cases.astro';
 import FaqAccordion        from '../../components/sections/FaqAccordion.astro';
@@ -33,7 +33,7 @@ import BookSession         from '../../components/ui/organisms/BookSession.astro
 import FooterMarquee       from '../../components/ui/organisms/FooterMarquee.astro';
 import SectionTransition   from '../../components/ui/atoms/SectionTransition.astro';
 
-import { CLIENT_LOGOS, CAPABILITY_MAP, HERO_METRICS, SIX_SERVICES } from '../../data/sitemap';
+import { CLIENT_LOGOS, CAPABILITY_MAP, HERO_METRICS, SIX_SERVICES, PYRAMID_TIERS } from '../../data/sitemap';
 import { buildOrganization } from '../../lib/seo/schema-builder';
 
 const proofBarData = {
@@ -93,6 +93,42 @@ const servicesGridData = {
     body_en: s.body.en,
     connectors_fr: s.connectors.fr,
     connectors_en: s.connectors.en,
+  })),
+};
+
+const ACTION_LABELS = [
+  { fr: 'Cartographier', en: 'Map' },
+  { fr: 'Câbler', en: 'Wire' },
+  { fr: 'Orchestrer', en: 'Orchestrate' },
+  { fr: 'Industrialiser', en: 'Industrialize' },
+];
+const maturityPyramidData = {
+  type: 'maturity-pyramid' as const,
+  roman: 'II',
+  label_fr: "Acte II — La pyramide d'engagements",
+  label_en: 'Act II — The engagement pyramid',
+  heading_fr: '<i>Cartographier.</i> Câbler.<br/>Orchestrer. <i>Industrialiser.</i>',
+  heading_en: '<i>Map.</i> Wire.<br/>Orchestrate. <i>Industrialize.</i>',
+  aside_fr: "Du diagnostic process à l'infrastructure souveraine — chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
+  aside_en: "From process diagnostic to sovereign infrastructure — each tier sets up the next. You climb when you're ready.",
+  timeline_label_fr: 'Progression de maturité IA',
+  timeline_label_en: 'AI maturity path',
+  tier_cta_fr: 'Voir le palier →',
+  tier_cta_en: 'Open tier →',
+  steps: [
+    { roman: 'I', verb_fr: 'Cartographier', verb_en: 'Map', stage_fr: 'Audit', stage_en: 'Audit' },
+    { roman: 'II', verb_fr: 'Câbler', verb_en: 'Wire', stage_fr: 'Workflow', stage_en: 'Workflow' },
+    { roman: 'III', verb_fr: 'Orchestrer', verb_en: 'Orchestrate', stage_fr: 'Système', stage_en: 'System' },
+    { roman: 'IV', verb_fr: 'Industrialiser', verb_en: 'Industrialize', stage_fr: 'Infrastructure', stage_en: 'Infrastructure' },
+  ],
+  tiers: PYRAMID_TIERS.map((tier, idx) => ({
+    n: tier.n,
+    tag_fr: tier.tag.fr, tag_en: tier.tag.en,
+    label_fr: tier.label.fr, label_en: tier.label.en,
+    lead_fr: tier.lead.fr, lead_en: tier.lead.en,
+    items_fr: tier.items, items_en: tier.items,
+    action_fr: ACTION_LABELS[idx].fr, action_en: ACTION_LABELS[idx].en,
+    href: tier.href,
   })),
 };
 
@@ -168,7 +204,7 @@ const faqItems = [
   <SectionTransition phrase="Picking a system is easy. Deploying without breaking your stack takes a method." />
 
   {/* 07 — Pyramid · Method maturity timeline Map → Wire → Orchestrate → Industrialize (V7 §17) */}
-  <Pyramid />
+  <MaturityPyramid data={maturityPyramidData} lang="en" />
 
   <SectionTransition phrase="Same method. Different frictions." />
 

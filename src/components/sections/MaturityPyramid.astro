@@ -1,7 +1,12 @@
 ---
-// Section W6 · maturity-pyramid
-// Timeline 4 étapes de maturité + SVG pyramide à 4 paliers + grille 4 cards.
-// Source : `Pyramid.astro` (Acte II — Cartographier → Industrialiser).
+// Section W6 · maturity-pyramid · pyramide 4 tiers (paliers d'engagement)
+// Variant : ec-grid cols-4 d'editorial-cell + .scale-in · Source verbatim : `Pyramid.astro` (Acte II)
+// Motion : .scale-in stagger sur cards + .lift hover
+// Mémorable : « Quatre paliers, lus comme un escalier vers la souveraineté. »
+//
+// Composé de · SectionHeader (refactor atomic-components 2026-04-26)
+
+import SectionHeader from '../ui/molecules/SectionHeader.astro';
 import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
@@ -10,75 +15,67 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
-
-const tiers = data.tiers;
-const widths = [60, 116, 196, 416];
-const offsets = [0, 64, 184, 384];
-const numAt = [30, 122, 282, 592];
 ---
-
-<section class="maturity-pyramid" aria-labelledby="maturity-pyramid-h2">
+<section class="sec sec-paper" aria-labelledby="pyramid-h2">
   <div class="wrap-wide">
-    <header class="maturity-pyramid__hd">
-      <p class="maturity-pyramid__kicker">
-        <span class="maturity-pyramid__roman">{data.roman}</span>
-        <span>{isFr ? data.label_fr : data.label_en}</span>
-      </p>
-      <div>
-        <h2 id="maturity-pyramid-h2" class="maturity-pyramid__h2" set:html={isFr ? data.heading_fr : data.heading_en} />
-        {data.aside_fr && data.aside_en && (
-          <p class="maturity-pyramid__aside">{isFr ? data.aside_fr : data.aside_en}</p>
-        )}
-      </div>
-    </header>
+    <SectionHeader
+      roman={data.roman}
+      label={isFr ? data.label_fr : data.label_en}
+      id="pyramid-h2"
+    >
+      <Fragment slot="heading" set:html={isFr ? data.heading_fr : data.heading_en} />
+      <Fragment slot="aside">
+        {isFr ? data.aside_fr : data.aside_en}
+      </Fragment>
+    </SectionHeader>
 
-    <ol class="maturity-pyramid__timeline reveal reveal-fade" aria-label={isFr ? data.timeline_label_fr : data.timeline_label_en}>
+    {/* Timeline maturité V7 · 4 étapes Audit → Workflow → System → Infrastructure */}
+    <ol class="pyramid-timeline reveal reveal-fade" aria-label={isFr ? data.timeline_label_fr : data.timeline_label_en}>
       {data.steps.map((step) => (
-        <li class="maturity-pyramid__step">
-          <span class="maturity-pyramid__step-roman">{step.roman}</span>
-          <span class="maturity-pyramid__step-verb">{isFr ? step.verb_fr : step.verb_en}</span>
-          <span class="maturity-pyramid__step-stage">{isFr ? step.stage_fr : step.stage_en}</span>
+        <li class="pyramid-step">
+          <span class="pyramid-step-roman">{step.roman}</span>
+          <span class="pyramid-step-verb">{isFr ? step.verb_fr : step.verb_en}</span>
+          <span class="pyramid-step-stage">{isFr ? step.stage_fr : step.stage_en}</span>
         </li>
       ))}
     </ol>
 
-    <div class="maturity-pyramid__svg reveal-blur-clip">
+    <div class="pyramid-svg reveal-blur-clip">
       <svg viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
-        {tiers.slice(0, 4).map((tier, idx) => {
-          const x = offsets[idx];
-          const w = widths[idx];
-          const cx = numAt[idx];
-          const isFirst = idx === 0;
-          const isSecond = idx === 1;
-          const fillOpacity = isFirst ? 0.22 : isSecond ? 0.10 : idx === 2 ? 0.05 : 0;
-          const strokeColor = idx === 3 ? 'var(--hairline-strong)' : 'var(--accent)';
-          const strokeOpacity = isFirst ? 1 : isSecond ? 0.6 : idx === 2 ? 0.6 : 1;
-          const strokeWidth = isFirst ? 1.2 : 1;
-          const numFill = isFirst ? 'var(--accent)' : 'var(--ink)';
-          const tagFill = isFirst ? 'var(--accent)' : 'var(--ink-2)';
-          return (
-            <>
-              <rect x={x} y="20" width={w} height="120" fill={idx === 3 ? 'transparent' : 'var(--accent)'} fill-opacity={fillOpacity} stroke={strokeColor} stroke-width={strokeWidth} stroke-opacity={strokeOpacity}/>
-              <text x={cx} y="84" text-anchor="middle" font-family="var(--font-display)" font-size="22" fill={numFill} font-style="italic">{tier.n}</text>
-              <text x={cx} y="156" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill={tagFill} letter-spacing="0.14em">{isFr ? tier.tag_fr : tier.tag_en}</text>
-            </>
-          );
-        })}
+        {/* Palier I · accent solide · investment minimal mais signal max */}
+        <rect x="0" y="20" width="60" height="120" fill="var(--accent)" fill-opacity="0.22" stroke="var(--accent)" stroke-width="1.2"/>
+        <text x="30" y="84" text-anchor="middle" font-family="var(--font-display)" font-size="22" fill="var(--accent)" font-style="italic">I</text>
+        <text x="30" y="156" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--accent)" letter-spacing="0.14em">{isFr ? data.tiers[0].tag_fr : data.tiers[0].tag_en}</text>
+
+        {/* Palier II · accent tinté */}
+        <rect x="64" y="20" width="116" height="120" fill="var(--accent)" fill-opacity="0.10" stroke="var(--accent)" stroke-width="1" stroke-opacity="0.6"/>
+        <text x="122" y="84" text-anchor="middle" font-family="var(--font-display)" font-size="22" fill="var(--ink)" font-style="italic">II</text>
+        <text x="122" y="156" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--ink-2)" letter-spacing="0.14em">{isFr ? data.tiers[1].tag_fr : data.tiers[1].tag_en}</text>
+
+        {/* Palier III · ink-2 */}
+        <rect x="184" y="20" width="196" height="120" fill="var(--accent)" fill-opacity="0.05" stroke="var(--ink-2)" stroke-width="1" stroke-opacity="0.6"/>
+        <text x="282" y="84" text-anchor="middle" font-family="var(--font-display)" font-size="22" fill="var(--ink)" font-style="italic">III</text>
+        <text x="282" y="156" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--ink-2)" letter-spacing="0.14em">{isFr ? data.tiers[2].tag_fr : data.tiers[2].tag_en}</text>
+
+        {/* Palier IV · hairline */}
+        <rect x="384" y="20" width="416" height="120" fill="transparent" stroke="var(--hairline-strong)" stroke-width="1"/>
+        <text x="592" y="84" text-anchor="middle" font-family="var(--font-display)" font-size="22" fill="var(--ink)" font-style="italic">IV</text>
+        <text x="592" y="156" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--ink-2)" letter-spacing="0.14em">{isFr ? data.tiers[3].tag_fr : data.tiers[3].tag_en}</text>
       </svg>
     </div>
 
-    <div class="maturity-pyramid__cards reveal-stagger">
-      {tiers.map((tier) => (
-        <a class="maturity-pyramid__card" href={tier.href}>
-          <span class="maturity-pyramid__card-action">{isFr ? tier.action_fr : tier.action_en}</span>
-          <span class="maturity-pyramid__card-num">{tier.n}</span>
-          <span class="maturity-pyramid__card-tag">{isFr ? tier.tag_fr : tier.tag_en}</span>
-          <h3 class="maturity-pyramid__card-title">{isFr ? tier.label_fr : tier.label_en}</h3>
-          <p class="maturity-pyramid__card-body">{isFr ? tier.lead_fr : tier.lead_en}</p>
-          <ul class="maturity-pyramid__card-list">
-            {(isFr ? tier.items_fr : tier.items_en).map((it) => (<li>{it}</li>))}
+    <div class="ec-grid cols-4 pyramid-asym reveal-stagger">
+      {data.tiers.map((tier, idx) => (
+        <a class="editorial-cell lift" href={tier.href}>
+          <span class="e-action">{isFr ? tier.action_fr : tier.action_en}</span>
+          <span class="e-num">{tier.n}</span>
+          <span class="e-tag">{isFr ? tier.tag_fr : tier.tag_en}</span>
+          <h3 class="e-title">{isFr ? tier.label_fr : tier.label_en}</h3>
+          <p class="e-body">{isFr ? tier.lead_fr : tier.lead_en}</p>
+          <ul class="e-list">
+            {(isFr ? tier.items_fr : tier.items_en).map((it) => <li>{it}</li>)}
           </ul>
-          <span class="maturity-pyramid__card-go">{isFr ? data.tier_cta_fr : data.tier_cta_en}</span>
+          <span class="e-go">{isFr ? data.tier_cta_fr : data.tier_cta_en}</span>
         </a>
       ))}
     </div>
@@ -86,57 +83,90 @@ const numAt = [30, 122, 282, 592];
 </section>
 
 <style>
-  .maturity-pyramid {
+  /* V6 densification "1 viewport par section majeure" */
+  .sec[aria-labelledby="pyramid-h2"] {
     padding: clamp(56px, 7vw, 88px) 0;
-    background: var(--paper);
   }
-  .maturity-pyramid__hd {
-    display: grid;
-    grid-template-columns: 1.3fr 2fr;
-    gap: clamp(24px, 3vw, 48px);
-    align-items: end;
-    margin-bottom: clamp(24px, 3vw, 40px);
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--hairline);
+  .pyramid-svg {
+    margin: clamp(20px, 2.5vw, 36px) 0 clamp(28px, 3vw, 44px);
+    overflow: visible;
   }
-  .maturity-pyramid__kicker {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
+  .pyramid-svg svg {
+    width: 100%;
+    height: auto;
+    max-height: 140px;
   }
-  .maturity-pyramid__roman {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 28px;
-    color: var(--accent);
+
+  .pyramid-asym {
+    grid-template-columns: 7fr 5fr 4fr 8fr;
+  }
+
+  /* V6 densification · override editorial-cell pour cards plus compactes (Pyramid only) */
+  .pyramid-asym .editorial-cell {
+    padding: clamp(16px, 1.8vw, 24px) clamp(14px, 1.4vw, 20px);
+    gap: 8px;
+  }
+  .pyramid-asym .editorial-cell .e-num {
+    font-size: clamp(28px, 3.2vw, 44px);
     line-height: 1;
   }
-  .maturity-pyramid__h2 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h2);
-    letter-spacing: -0.025em;
-    font-weight: 400;
-    text-wrap: balance;
-    color: var(--ink);
+  .pyramid-asym .editorial-cell .e-title {
+    font-size: clamp(18px, 1.5vw, 24px);
+    line-height: 1.05;
+    margin-top: 4px;
   }
-  .maturity-pyramid__h2 :global(i) { font-style: italic; color: var(--accent); }
-  .maturity-pyramid__aside {
-    margin: 14px 0 0;
-    font-family: var(--font-sans);
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--muted);
-    max-width: 540px;
+  .pyramid-asym .editorial-cell .e-body {
+    font-size: 12.5px;
+    line-height: 1.45;
   }
-  .maturity-pyramid__timeline {
+  .pyramid-asym .editorial-cell .e-list {
+    font-size: 11px;
+    gap: 3px;
+  }
+  .pyramid-asym .editorial-cell .e-list li {
+    line-height: 1.4;
+  }
+
+  /* Tier I · primary visual weight · border accent + e-num accent par défaut */
+  .pyramid-asym .editorial-cell:first-child {
+    border-color: var(--accent);
+    background: rgba(201, 79, 46, 0.025);
+  }
+  .pyramid-asym .editorial-cell:first-child .e-num {
+    color: var(--accent);
+  }
+  .pyramid-asym .editorial-cell:first-child .e-tag {
+    color: var(--accent);
+  }
+
+  .editorial-cell {
+    transition: transform 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1)), border-color 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1)), background 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  .editorial-cell:hover {
+    border-color: var(--accent);
+    background: rgba(201, 79, 46, 0.04);
+  }
+
+  .editorial-cell:hover .e-num {
+    color: var(--accent);
+    transition: color 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  @media (max-width: 900px) {
+    .pyramid-asym {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .pyramid-asym {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* V7 · Timeline maturité Audit → Workflow → System → Infrastructure */
+  .pyramid-timeline {
     list-style: none;
     padding: 0;
     margin: 0 0 clamp(28px, 3vw, 44px);
@@ -145,8 +175,10 @@ const numAt = [30, 122, 282, 592];
     gap: 0;
     border-top: 1px solid var(--hairline-strong);
     border-bottom: 1px solid var(--hairline);
+    position: relative;
   }
-  .maturity-pyramid__step {
+
+  .pyramid-step {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
@@ -154,8 +186,9 @@ const numAt = [30, 122, 282, 592];
     border-right: 1px solid var(--hairline);
     position: relative;
   }
-  .maturity-pyramid__step:last-child { border-right: none; }
-  .maturity-pyramid__step::before {
+  .pyramid-step:last-child { border-right: none; }
+
+  .pyramid-step::before {
     content: '';
     position: absolute;
     top: -3px;
@@ -165,13 +198,15 @@ const numAt = [30, 122, 282, 592];
     border-radius: 50%;
     background: var(--accent);
   }
-  .maturity-pyramid__step-roman {
+
+  .pyramid-step-roman {
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.14em;
     color: var(--muted);
   }
-  .maturity-pyramid__step-verb {
+
+  .pyramid-step-verb {
     font-family: var(--font-display);
     font-style: italic;
     font-size: var(--text-h3-row);
@@ -179,46 +214,17 @@ const numAt = [30, 122, 282, 592];
     letter-spacing: -0.02em;
     color: var(--ink);
   }
-  .maturity-pyramid__step-stage {
+
+  .pyramid-step-stage {
     font-family: var(--font-mono);
     font-size: 10.5px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-2);
   }
-  .maturity-pyramid__svg {
-    margin: 0 0 clamp(28px, 3vw, 44px);
-    overflow: visible;
-  }
-  .maturity-pyramid__svg svg {
-    width: 100%;
-    height: auto;
-    max-height: 140px;
-  }
-  .maturity-pyramid__cards {
-    display: grid;
-    grid-template-columns: 7fr 5fr 4fr 8fr;
-    gap: 0;
-    border-top: 1px solid var(--hairline-strong);
-  }
-  .maturity-pyramid__card {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: clamp(16px, 1.8vw, 24px) clamp(14px, 1.4vw, 20px);
-    border-right: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-    color: inherit;
-    text-decoration: none;
-    transition: transform 200ms var(--ease), border-color 200ms var(--ease), background 200ms var(--ease);
-  }
-  .maturity-pyramid__card:last-child { border-right: none; }
-  .maturity-pyramid__card:hover { border-color: var(--accent); background: rgba(201, 79, 46, 0.04); }
-  .maturity-pyramid__card:first-child { border-color: var(--accent); background: rgba(201, 79, 46, 0.025); }
-  .maturity-pyramid__card:first-child .maturity-pyramid__card-num,
-  .maturity-pyramid__card:first-child .maturity-pyramid__card-tag { color: var(--accent); }
-  .maturity-pyramid__card:hover .maturity-pyramid__card-num { color: var(--accent); }
-  .maturity-pyramid__card-action {
+
+  /* Action verb override dans les cards */
+  .pyramid-asym .editorial-cell .e-action {
     display: block;
     font-family: var(--font-display);
     font-style: italic;
@@ -227,72 +233,15 @@ const numAt = [30, 122, 282, 592];
     margin-bottom: 4px;
     letter-spacing: -0.01em;
   }
-  .maturity-pyramid__card-num {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(28px, 3.2vw, 44px);
-    line-height: 1;
-    color: var(--ink);
-    transition: color 200ms var(--ease);
-  }
-  .maturity-pyramid__card-tag {
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-  }
-  .maturity-pyramid__card-title {
-    margin: 4px 0 0;
-    font-family: var(--font-display);
-    font-size: clamp(18px, 1.5vw, 24px);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    font-weight: 400;
-    color: var(--ink);
-    text-wrap: balance;
-  }
-  .maturity-pyramid__card-body {
-    margin: 0;
-    font-family: var(--font-sans);
-    font-size: 12.5px;
-    line-height: 1.45;
-    color: var(--muted);
-  }
-  .maturity-pyramid__card-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    line-height: 1.4;
-    color: var(--ink-2);
-  }
-  .maturity-pyramid__card-list li::before { content: '· '; color: var(--accent); }
-  .maturity-pyramid__card-go {
-    margin-top: auto;
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
+
   @media (max-width: 900px) {
-    .maturity-pyramid__hd { grid-template-columns: 1fr; }
-    .maturity-pyramid__timeline { grid-template-columns: repeat(2, 1fr); }
-    .maturity-pyramid__step:nth-child(2n) { border-right: none; }
-    .maturity-pyramid__step:nth-child(odd) { border-right: 1px solid var(--hairline); }
-    .maturity-pyramid__cards { grid-template-columns: repeat(2, 1fr); }
-    .maturity-pyramid__card:nth-child(2n) { border-right: none; }
+    .pyramid-timeline { grid-template-columns: repeat(2, 1fr); }
+    .pyramid-step:nth-child(2n) { border-right: none; }
+    .pyramid-step:nth-child(odd) { border-right: 1px solid var(--hairline); }
   }
   @media (max-width: 560px) {
-    .maturity-pyramid__timeline { grid-template-columns: 1fr; }
-    .maturity-pyramid__step { border-right: none; border-bottom: 1px solid var(--hairline); }
-    .maturity-pyramid__step:last-child { border-bottom: none; }
-    .maturity-pyramid__cards { grid-template-columns: 1fr; }
-    .maturity-pyramid__card { border-right: none; }
+    .pyramid-timeline { grid-template-columns: 1fr; }
+    .pyramid-step, .pyramid-step:nth-child(n) { border-right: none; border-bottom: 1px solid var(--hairline); }
+    .pyramid-step:last-child { border-bottom: none; }
   }
 </style>
