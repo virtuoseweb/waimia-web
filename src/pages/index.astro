@@ -23,7 +23,7 @@ import ProofBarSection     from '../components/sections/ProofBarSection.astro';
 import SocialProof         from '../components/sections/SocialProof.astro';
 import FeatureGrid         from '../components/sections/FeatureGrid.astro';
 import SystemArchitecture  from '../components/ui/organisms/SystemArchitecture.astro';
-import SixServices         from '../components/ui/organisms/SixServices.astro';
+import ServicesGrid        from '../components/sections/ServicesGrid.astro';
 import Pyramid             from '../components/ui/organisms/Pyramid.astro';
 import Departments         from '../components/ui/organisms/Departments.astro';
 import Cases               from '../components/ui/organisms/Cases.astro';
@@ -33,7 +33,7 @@ import BookSession         from '../components/ui/organisms/BookSession.astro';
 import FooterMarquee       from '../components/ui/organisms/FooterMarquee.astro';
 import SectionTransition   from '../components/ui/atoms/SectionTransition.astro';
 
-import { CLIENT_LOGOS, CAPABILITY_MAP, HERO_METRICS } from '../data/sitemap';
+import { CLIENT_LOGOS, CAPABILITY_MAP, HERO_METRICS, SIX_SERVICES } from '../data/sitemap';
 
 const proofBarData = {
   type: 'proof-bar' as const,
@@ -67,6 +67,31 @@ const featureGridData = {
     title_en: cat.label.en,
     body_fr: cat.lead.fr,
     body_en: cat.lead.en,
+  })),
+};
+
+// SixServices → services-grid (data-driven, byte-identique à l'organism Acte II)
+const servicesGridData = {
+  type: 'services-grid' as const,
+  fig_num: 'FIG II · 2.0',
+  fig_title_fr: 'Acte II — La méthode',
+  fig_title_en: 'Act II — The method',
+  spec_fr: '6 SERVICES · UNE COUCHE CONTINUE',
+  spec_en: '6 SERVICES · ONE CONTINUOUS LAYER',
+  h2_fr: 'Six services, appris en <i>livrant</i> — pas en PowerPoint.',
+  h2_en: 'Six services, taught by <i>doing</i> — not by slides.',
+  connectors_label_fr: 'Connecteurs',
+  connectors_label_en: 'Connectors',
+  services: SIX_SERVICES.map((s) => ({
+    fig: `2.${s.k}`,
+    metric_fr: s.metric.fr,
+    metric_en: s.metric.en,
+    label_fr: s.label.fr,
+    label_en: s.label.en,
+    body_fr: s.body.fr,
+    body_en: s.body.en,
+    connectors_fr: s.connectors.fr,
+    connectors_en: s.connectors.en,
   })),
 };
 
@@ -136,8 +161,8 @@ const faqItems = [
 
   <SectionTransition phrase="Une architecture ne vaut que si elle livre." />
 
-  {/* 06 — SixServices · 6 systèmes livrés + connecteurs */}
-  <SixServices />
+  {/* 06 — services-grid · 6 systèmes livrés + connecteurs (dédup organism SixServices) */}
+  <ServicesGrid data={servicesGridData} lang="fr" />
 
   <SectionTransition phrase="Choisir un système est simple. Le déployer sans casser vos outils demande une méthode." />
 
