@@ -8,7 +8,8 @@ export const prerender = true;
 import Base from '../layouts/Base.astro';
 import AtlasGrid       from '../components/ui/organisms/AtlasGrid.astro';
 import PersonaSwitcher from '../components/ui/organisms/PersonaSwitcher.astro';
-import Cases           from '../components/ui/organisms/Cases.astro';
+import CaseCardGrid    from '../components/sections/CaseCardGrid.astro';
+import { caseCardGridData } from '../lib/case-card-grid-data';
 import FieldNotes      from '../components/ui/organisms/FieldNotes.astro';
 import type { SectionByType } from '../schemas/sections';
 import CtaFinal from '../components/sections/CtaFinal.astro';
@@ -131,7 +132,7 @@ const ctaData = {
 
   <AtlasGrid />
   <PersonaSwitcher />
-  <Cases />
+  <CaseCardGrid data={caseCardGridData('fr')} lang="fr" />
   <FieldNotes />
   <CtaFinal data={ctaData} lang={lang} />
 </Base>
