@@ -54,7 +54,7 @@ const sectionItems = listSections();
       <Kicker class="ds-kicker">§ Design System · Catalogue Waimia · v2026.05</Kicker>
       <h1 class="ds-h1">Pioche, n'<i>invente</i> pas.</h1>
       <p class="ds-lede">
-        118 tokens canoniques. 64 classes utility Tier 1. 19 sections composables. 10 atomes.
+        118 tokens canoniques. 64 classes utility Tier 1. {sectionItems.length} sections composables. 10 atomes.
         L'agent IA visite cette page en premier réflexe — recherche par section, copie le snippet,
         n'invente jamais un pattern qui existe déjà.
       </p>
@@ -649,7 +649,7 @@ const sectionItems = listSections();
 
       {/* ───────────── 6. SECTIONS W6 composable V2 (Tier 1 cible) ───────────── */}
       <section id="sections" class="ds-section">
-        <ChapterLabel num="06" title="Sections W6 composable V2 (19 — Tier 1 cible)" />
+        <ChapterLabel num="06" title={`Sections W6 composable V2 (${sectionItems.length} — Tier 1 cible)`} />
         <p class="ds-section-lede">
           Architecture composable Tier 1 cible. Toutes les nouvelles pages doivent utiliser ces sections
           via <code>SectionsRenderer</code>. Cf <code>src/components/sections/</code>.
@@ -670,7 +670,7 @@ const sectionItems = listSections();
         </div>
 
         <div class="ds-subsection">
-          <h3 class="ds-h3">19 sections disponibles</h3>
+          <h3 class="ds-h3">{sectionItems.length} sections disponibles</h3>
           <div class="ds-section-filters" data-section-filters>
             <button class="ds-filter-chip is-active" type="button" data-filter="all" aria-pressed="true">
               Toutes ({sectionItems.length})
@@ -685,15 +685,18 @@ const sectionItems = listSections();
           <div class="ds-sections-grid" data-section-grid>
             {sectionItems.map((section) => (
               <article class="ds-section-card" data-category={section.categorySlug}>
-                <div class="ds-card-preview" data-preview-frame data-max-height="230" aria-hidden="true">
-                  <iframe class="ds-card-frame" src={`/preview/${section.type}`} title={`Aperçu ${section.type}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
-                </div>
+                <a class="ds-card-frame-link" href={`/preview/${section.type}`} aria-label={`Prévisualiser ${section.type}`}>
+                  <div class="ds-card-preview" data-preview-frame data-max-height="230" aria-hidden="true">
+                    <iframe class="ds-card-frame" src={`/preview/${section.type}`} title={`Aperçu ${section.type}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
+                  </div>
+                </a>
                 <div class="ds-section-card-top">
                   <a class="ds-section-card-link" href={`/categories/${section.categorySlug}`}><code>{section.type}</code></a>
                   <span class={`ds-status ds-status--${section.status}`}>{section.status}</span>
                 </div>
                 <span class="ds-category-badge">{section.subcategory}</span>
                 <p>{section.description_fr}</p>
+                <a class="ds-section-card-cmp" href={`/components/${section.type}`}>Voir composant →</a>
                 <div class="ds-tag-row" aria-label={`Tags ${section.type}`}>
                   {section.tags.map((tag) => <span>{tag}</span>)}
                 </div>
@@ -1295,6 +1298,8 @@ const sectionItems = listSections();
     transform-origin: top left;
     pointer-events: none;
   }
+  .ds-card-frame-link { display: block; position: relative; z-index: 2; }
+  .ds-section-card-cmp { position: relative; z-index: 2; font-size: 0.75rem; color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: 4px; }
   .ds-section-card-top {
     display: flex;
     align-items: flex-start;
