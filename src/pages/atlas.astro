@@ -10,7 +10,8 @@ import AtlasGrid       from '../components/ui/organisms/AtlasGrid.astro';
 import PersonaSwitcher from '../components/ui/organisms/PersonaSwitcher.astro';
 import CaseCardGrid    from '../components/sections/CaseCardGrid.astro';
 import { caseCardGridData } from '../lib/case-card-grid-data';
-import FieldNotes      from '../components/ui/organisms/FieldNotes.astro';
+import EditorialPreview from '../components/sections/EditorialPreview.astro';
+import { editorialPreviewData } from '../lib/editorial-preview-data';
 import type { SectionByType } from '../schemas/sections';
 import CtaFinal from '../components/sections/CtaFinal.astro';
 import AtlasConnections from '../components/motion/AtlasConnections.astro';
@@ -133,7 +134,7 @@ const ctaData = {
   <AtlasGrid />
   <PersonaSwitcher />
   <CaseCardGrid data={caseCardGridData('fr')} lang="fr" />
-  <FieldNotes />
+  <EditorialPreview data={editorialPreviewData('fr')} lang="fr" />
   <CtaFinal data={ctaData} lang={lang} />
 </Base>
 

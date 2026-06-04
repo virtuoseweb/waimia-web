@@ -29,7 +29,8 @@ import UseCaseIndex        from '../../components/sections/UseCaseIndex.astro';
 import CaseCardGrid        from '../../components/sections/CaseCardGrid.astro';
 import { caseCardGridData } from '../../lib/case-card-grid-data';
 import FaqAccordion        from '../../components/sections/FaqAccordion.astro';
-import FieldNotes          from '../../components/ui/organisms/FieldNotes.astro';
+import EditorialPreview    from '../../components/sections/EditorialPreview.astro';
+import { editorialPreviewData } from '../../lib/editorial-preview-data';
 import BookSession         from '../../components/ui/organisms/BookSession.astro';
 import FooterMarquee       from '../../components/ui/organisms/FooterMarquee.astro';
 import SectionTransition   from '../../components/ui/atoms/SectionTransition.astro';
@@ -270,7 +271,7 @@ const architectureDiagramData = {
   <SectionTransition phrase="For those who want to understand before booking." />
 
   {/* 11 — FieldNotes · doctrine + internal linking (V5 §20 + V7 §21) */}
-  <FieldNotes />
+  <EditorialPreview data={editorialPreviewData('en')} lang="en" />
 
   <SectionTransition phrase="Reading helps you understand. An audit puts numbers on it." />
 

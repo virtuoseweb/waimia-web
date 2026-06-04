@@ -1101,6 +1101,11 @@ export const editorialPreviewSchema = z.object({
   type: z.literal('editorial-preview'),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
+  roman: z.string().optional(),
+  act_label_fr: z.string().optional(),
+  act_label_en: z.string().optional(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
   items: z

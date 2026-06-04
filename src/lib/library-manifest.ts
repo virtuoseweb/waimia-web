@@ -93,7 +93,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'case-card-grid',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/pages/solutions/index.astro', 'src/pages/en/solutions/index.astro'] },
   { id: 'commitments-grid',      consumers: [] },
   { id: 'branded-callout',       consumers: [] },
-  { id: 'editorial-preview',     consumers: [] },
+  { id: 'editorial-preview',     consumers: ['src/pages/index.astro', 'src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // MERGE← FieldNotes (organism supprimé, pages data-driven verbatim)
   { id: 'newsletter-band',       consumers: [] },
   { id: 'spec-bar',              consumers: [] },
   { id: 'deliverables-grid',     consumers: [] },
@@ -122,7 +122,6 @@ export const LIBRARY_ORGANISMS: LibraryOrganismEntry[] = [
   // MERGE→ (4) — jumeau catalogué existe, cible conversion vers le registry
   //              (SixServices→services-grid + Pyramid→maturity-pyramid + Departments→use-case-index + SystemArchitecture→architecture-diagram + Cases→case-card-grid : organisms supprimés, pages data-driven)
   { id: 'Hero',               file: 'src/components/ui/organisms/Hero.astro',               twin: 'hero-home',            status: 'merge',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'FieldNotes',         file: 'src/components/ui/organisms/FieldNotes.astro',         twin: 'editorial-preview',    status: 'merge',        consumers: ['src/pages/atlas.astro', 'src/pages/en/atlas.astro'] },
   { id: 'BookSession',        file: 'src/components/ui/organisms/BookSession.astro',        twin: 'cta-final',            status: 'merge',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'FooterMarquee',      file: 'src/components/ui/organisms/FooterMarquee.astro',      twin: 'marquee-band',         status: 'merge',        consumers: ['src/layouts/Base.astro'] },
 

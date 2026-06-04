@@ -1,6 +1,8 @@
 ---
 // Section W6 · editorial-preview
-// Index de publications en lignes numérotées : num · date · tag · titre · flèche. Source : FieldNotes.astro.
+// Index de publications en lignes : num · date · tag · titre · flèche.
+// Markup + style = copie VERBATIM de `FieldNotes.astro` (Acte VI — Notes de terrain).
+import SectionHeader from '../ui/molecules/SectionHeader.astro';
 import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
@@ -10,164 +12,153 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-
-<section class="editorial-preview" aria-labelledby="editorial-preview-h2">
+<section class="sec" aria-labelledby="notes-h2">
   <div class="wrap-wide">
-    {(data.kicker_fr || data.kicker_en) && (
-      <p class="editorial-preview__kicker">
-        {isFr ? data.kicker_fr : data.kicker_en}
-      </p>
-    )}
-    <h2 id="editorial-preview-h2" class="editorial-preview__h2 reveal">
-      {isFr ? data.h2_fr : data.h2_en}
-    </h2>
+    <SectionHeader
+      roman={data.roman}
+      label={isFr ? data.act_label_fr : data.act_label_en}
+      id="notes-h2"
+    >
+      <Fragment slot="heading" set:html={isFr ? data.h2_fr : data.h2_en} />
+      <Fragment slot="aside">
+        {isFr ? data.aside_fr : data.aside_en}
+      </Fragment>
+    </SectionHeader>
 
-    <div class="editorial-preview__list reveal-stagger" role="list">
-      {data.items.map((item) => (
-        <a
-          href={item.href}
-          class="editorial-preview__row"
-          role="listitem"
-        >
-          <span class="editorial-preview__num">{item.num}</span>
-          <span class="editorial-preview__date">{isFr ? item.date_fr : item.date_en}</span>
-          <span class="editorial-preview__tag">{isFr ? item.tag_fr : item.tag_en}</span>
-          <span class="editorial-preview__label">
-            <i>{isFr ? item.label_fr : item.label_en}</i>
-          </span>
-          <span class="editorial-preview__arr" aria-hidden>→</span>
-        </a>
+    <ul class="notes-index reveal-stagger">
+      {data.items.map((note, i) => (
+        <li>
+          <a class="notes-row" href={note.href}>
+            <span class="notes-row-num">{`0${i + 1}`}</span>
+            <span class="notes-row-date">{isFr ? note.date_fr : note.date_en}</span>
+            <span class="notes-row-tag">{isFr ? note.tag_fr : note.tag_en}</span>
+            <span class="notes-row-text">{isFr ? note.label_fr : note.label_en}</span>
+            <span class="notes-row-arr" aria-hidden>→</span>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
 
-    {data.all_href && (
-      <div class="editorial-preview__footer">
-        <a href={data.all_href} class="editorial-preview__all">
-          {isFr ? (data.all_label_fr ?? 'Tout voir →') : (data.all_label_en ?? 'View all →')}
-        </a>
-      </div>
-    )}
+    <div class="notes-foot">
+      <a href={data.all_href} class="notes-foot-link">
+        {isFr ? data.all_label_fr : data.all_label_en}
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
-  .editorial-preview {
+  /* V6 densification · refactor card grid → index éditorial linéaire (anti-card-fatigue) */
+  .sec[aria-labelledby="notes-h2"] {
     padding: clamp(56px, 7vw, 88px) 0;
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
   }
-  .editorial-preview__kicker {
+
+  .notes-index {
+    list-style: none;
+    padding: 0;
+    margin: clamp(20px, 2.5vw, 32px) 0 0;
+    border-top: 1px solid var(--hairline-strong);
+  }
+
+  .notes-row {
+    display: grid;
+    grid-template-columns: 48px 80px 110px 1fr 32px;
+    gap: clamp(16px, 1.8vw, 28px);
+    padding: clamp(16px, 1.8vw, 24px) 0;
+    border-bottom: 1px solid var(--hairline);
+    align-items: baseline;
+    color: inherit;
+    text-decoration: none;
+    transition: background 220ms var(--ease), padding-left 320ms var(--ease), padding-right 320ms var(--ease);
+  }
+
+  .notes-row:hover {
+    background: rgba(201, 79, 46, 0.04);
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .notes-row:hover .notes-row-text {
+    color: var(--accent);
+  }
+
+  .notes-row:hover .notes-row-arr {
+    color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .notes-row-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .notes-row-date {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .notes-row-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+
+  /* H3 row token sémantique · cf tokens.css */
+  .notes-row-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-h3-row);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    transition: color 200ms var(--ease);
+    text-wrap: balance;
+  }
+
+  .notes-row-arr {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--muted);
+    text-align: right;
+    transition: color 240ms var(--ease), transform 320ms var(--ease);
+  }
+
+  .notes-foot {
+    margin-top: clamp(20px, 2.5vw, 36px);
+    text-align: right;
+  }
+
+  .notes-foot-link {
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 14px;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
   }
-  .editorial-preview__h2 {
-    font-family: var(--font-display);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h2);
-    letter-spacing: -0.025em;
-    font-weight: 400;
-    max-width: 760px;
-    margin: 0 0 clamp(28px, 3vw, 44px);
-    color: var(--ink);
-    text-wrap: balance;
-  }
-  .editorial-preview__list {
-    border-top: 1px solid var(--hairline-strong);
-  }
-  .editorial-preview__row {
-    display: grid;
-    grid-template-columns: 48px 80px 110px 1fr 32px;
-    align-items: baseline;
-    gap: 0 16px;
-    padding: 18px 0;
-    border-bottom: 1px solid var(--hairline);
-    text-decoration: none;
-    color: inherit;
-    transition: background 280ms var(--ease);
-  }
-  .editorial-preview__row:hover {
-    background: rgba(201, 79, 46, 0.05);
-  }
-  .editorial-preview__num {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-  }
-  .editorial-preview__date {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-  }
-  .editorial-preview__tag {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .editorial-preview__label {
-    font-family: var(--font-display);
-    font-size: var(--text-h3-row);
-    line-height: var(--leading-h3);
-    letter-spacing: -0.015em;
-    color: var(--ink);
-    font-weight: 400;
-  }
-  .editorial-preview__row:hover .editorial-preview__label {
-    color: var(--accent);
-  }
-  .editorial-preview__arr {
-    font-family: var(--font-mono);
-    font-size: 14px;
-    color: var(--muted);
-    text-align: right;
-    transition: transform 280ms var(--ease);
-  }
-  .editorial-preview__row:hover .editorial-preview__arr {
-    transform: translateX(4px);
-    color: var(--accent);
-  }
-  .editorial-preview__footer {
-    margin-top: 24px;
-    display: flex;
-    justify-content: flex-end;
-  }
-  .editorial-preview__all {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .editorial-preview__all:hover {
-    text-decoration: underline;
-  }
-  @media (max-width: 720px) {
-    .editorial-preview__row {
-      grid-template-columns: 40px 1fr 24px;
-      grid-template-rows: auto auto;
+
+  @media (max-width: 900px) {
+    .notes-row {
+      grid-template-columns: 60px 1fr;
+      row-gap: 6px;
     }
-    .editorial-preview__date,
-    .editorial-preview__tag {
-      display: none;
-    }
-    .editorial-preview__label {
+    .notes-row-date, .notes-row-tag {
       grid-column: 2;
-      grid-row: 1;
     }
-    .editorial-preview__arr {
-      grid-column: 3;
-      grid-row: 1;
+    .notes-row-text {
+      grid-column: 1 / -1;
+      font-size: clamp(18px, 4.5vw, 22px);
+    }
+    .notes-row-arr {
+      display: none;
     }
   }
 </style>
