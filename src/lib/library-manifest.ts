@@ -119,11 +119,10 @@ export const LIBRARY_SECTIONS: LibrarySectionEntry[] = SECTION_USAGE.map(
 // ── LIBRARY_ORGANISMS (hand-authored — §3 matrice 2026-06-04) ────────────────
 
 export const LIBRARY_ORGANISMS: LibraryOrganismEntry[] = [
-  // MERGE→ (4) — jumeau catalogué existe, cible conversion vers le registry
-  //              (SixServices→services-grid + Pyramid→maturity-pyramid + Departments→use-case-index + SystemArchitecture→architecture-diagram + Cases→case-card-grid : organisms supprimés, pages data-driven)
-  { id: 'Hero',               file: 'src/components/ui/organisms/Hero.astro',               twin: 'hero-home',            status: 'merge',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'BookSession',        file: 'src/components/ui/organisms/BookSession.astro',        twin: 'cta-final',            status: 'merge',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'FooterMarquee',      file: 'src/components/ui/organisms/FooterMarquee.astro',      twin: 'marquee-band',         status: 'merge',        consumers: ['src/layouts/Base.astro'] },
+  // MERGE→ (3) — décision Simon 2026-06-04 : jumeau catalogue retenu comme canonique (Hero→hero-home, BookSession→cta-final CENTRÉ, FooterMarquee→marquee-band). Organisms encore live sur la home ; migration dans les templates/pages DIFFÉRÉE jusqu'à l'audit complet catalogue. View Transitions Hero + border-radius BookSession abandonnés (non visibles / sans impact).
+  { id: 'Hero',               file: 'src/components/ui/organisms/Hero.astro',               twin: 'hero-home',            status: 'merge', consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
+  { id: 'BookSession',        file: 'src/components/ui/organisms/BookSession.astro',        twin: 'cta-final',            status: 'merge', consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
+  { id: 'FooterMarquee',      file: 'src/components/ui/organisms/FooterMarquee.astro',      twin: 'marquee-band',         status: 'merge', consumers: ['src/layouts/Base.astro'] },
 
   // KEEP-bespoke (5) — chrome/infra, hors catalogue
   { id: 'AtlasGrid',          file: 'src/components/ui/organisms/AtlasGrid.astro',          twin: null,                   status: 'keep-bespoke', consumers: ['src/pages/atlas.astro', 'src/pages/en/atlas.astro'] },

@@ -14,6 +14,7 @@ import HeroSplit from '../../../components/sections/HeroSplit.astro';
 import HeroCentered from '../../../components/sections/HeroCentered.astro';
 import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
 ---
 
 <Base
@@ -243,10 +244,28 @@ import CtaFinal from '../../../components/sections/CtaFinal.astro';
       </section>
 
       <section id="organisms" class="ds-section">
-        <ChapterLabel num="05" title="Organisms" />
+        <ChapterLabel num="05" title="Organisms (5 — permanent bespoke)" />
         <p class="ds-section-lede">
-          Legacy or page-specific assemblies remain useful, but they are no longer the preferred default for new pages.
-          W6 sections below are the main composition target.
+          These 5 components are <strong>permanently bespoke</strong> — outside the composable Tier 1 registry.
+          Chrome/infra: AtlasGrid, CookiesBanner, PersonaSwitcher, Stub, ManifestoAccent.
+          Former duplicate organisms were converted to catalogued sections (see §6) or deleted. Zero orphans.
+        </p>
+        <p class="ds-help">3 transitional organisms (Hero, BookSession, FooterMarquee) are no longer listed here: their catalogue twin is now canonical (hero-home, cta-final, marquee-band — see §6). Still live on the home page, they will be replaced during the template migration.</p>
+        <div class="ds-organisms-grid">
+          {LIBRARY_ORGANISMS.filter((o) => o.status === 'keep-bespoke').map((o) => (
+            <article class="ds-organism-card">
+              <div class="ds-organism-card-top">
+                <code>{o.id}</code>
+                <span class="ds-status ds-status--bespoke">bespoke</span>
+              </div>
+              <span class="ds-help">{o.file}</span>
+              <span class="ds-help">twin: {o.twin ? <code>{o.twin}</code> : 'no twin'}</span>
+              <span class="ds-help">used by: {o.consumers.length ? o.consumers.join(', ') : '—'}</span>
+            </article>
+          ))}
+        </div>
+        <p class="ds-help" style="margin-top:16px;">
+          Live preview: <a href="/" class="ds-link">/ (home FR)</a> · <a href="/manifesto" class="ds-link">/manifesto</a> · <a href="/atlas" class="ds-link">/atlas</a>
         </p>
       </section>
 
@@ -689,6 +708,13 @@ import CtaFinal from '../../../components/sections/CtaFinal.astro';
     font-size: 11px;
     color: var(--muted);
   }
+
+  .ds-status--bespoke { border-color: var(--accent); color: var(--accent); }
+  .ds-organisms-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-top:16px; }
+  .ds-organism-card { padding:14px 16px; background:var(--paper-2); border:1px solid var(--hairline); display:flex; flex-direction:column; gap:6px; }
+  .ds-organism-card-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .ds-organism-card code { font-family:var(--font-mono); font-size:13px; color:var(--ink); background:transparent; }
+  .ds-organism-card .ds-help { margin:0; font-size:12px; }
 
   @media (max-width: 900px) {
     .ds-layout { grid-template-columns: 1fr; gap: 32px; }
