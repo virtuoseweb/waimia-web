@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import HeroAcademyHub from '../sections/HeroAcademyHub.astro';
+import HeroCentered from '../sections/HeroCentered.astro';
 import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
@@ -45,7 +45,7 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
 
 <section class="ecole-hub">
   <!-- HERO -->
-  <HeroAcademyHub data={heroData} lang={lang} wrap={false} topPad="48px" />
+  <HeroCentered data={heroData} lang={lang} wrap={false} topPad="48px" />
 
   <!-- CATALOGUE FORMATIONS -->
   {formations.length > 0 && (

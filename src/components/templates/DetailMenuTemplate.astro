@@ -15,7 +15,7 @@
 import Base from '../../layouts/Base.astro';
 import Bi from '../ui/atoms/Bi.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
-import HeroDetailMenu from '../sections/HeroDetailMenu.astro';
+import HeroCentered from '../sections/HeroCentered.astro';
 import ProofBarSection from '../sections/ProofBarSection.astro';
 import MethodTimeline from '../sections/MethodTimeline.astro';
 import { langFromPath, localizeHref } from '../../lib/i18n';
@@ -121,7 +121,7 @@ const ctaData = {
       topPad par défaut (140px) = rythme vertical d'origine du template.
       wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut
       du composant — 1200px — reste inchangé pour la preview catalogue. */}
-  <HeroDetailMenu data={heroData} lang={lang} wrapMaxWidth="var(--wrap-wide)" />
+  <HeroCentered data={heroData} lang={lang} wrapMaxWidth="var(--wrap-wide)" />
 
   {/* PROBLEM · annotation (3 stats avec contexte) */}
   <section class="dt-problem">

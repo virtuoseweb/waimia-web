@@ -29,25 +29,18 @@ export interface SectionDescriptor {
 import HeroSplit from '../components/sections/HeroSplit.astro';
 import HeroCentered from '../components/sections/HeroCentered.astro';
 import HeroFullBleed from '../components/sections/HeroFullBleed.astro';
-import HeroHubListing from '../components/sections/HeroHubListing.astro';
 import HeroServiceDetail from '../components/sections/HeroServiceDetail.astro';
 import HeroCaseStudy from '../components/sections/HeroCaseStudy.astro';
 import HeroHome from '../components/sections/HeroHome.astro';
 import HeroLanding from '../components/sections/HeroLanding.astro';
-import HeroProblemIndex from '../components/sections/HeroProblemIndex.astro';
-import HeroUtilityMasthead from '../components/sections/HeroUtilityMasthead.astro';
-import HeroAcademyHub from '../components/sections/HeroAcademyHub.astro';
-import HeroHubMasthead from '../components/sections/HeroHubMasthead.astro';
 import TrustLegalSection from '../components/sections/TrustLegalSection.astro';
 import WelcomeSection from '../components/sections/WelcomeSection.astro';
 import ListIndexSection from '../components/sections/ListIndexSection.astro';
 import HeroOfferDetail from '../components/sections/HeroOfferDetail.astro';
 import HeroConversionFunnel from '../components/sections/HeroConversionFunnel.astro';
 import HeroHubStats from '../components/sections/HeroHubStats.astro';
-import HeroDetailMenu from '../components/sections/HeroDetailMenu.astro';
 import HeroAuthor from '../components/sections/HeroAuthor.astro';
 import HeroLeadMagnet from '../components/sections/HeroLeadMagnet.astro';
-import HeroCourse from '../components/sections/HeroCourse.astro';
 import HeroTunnelStep from '../components/sections/HeroTunnelStep.astro';
 import MarqueeBand from '../components/sections/MarqueeBand.astro';
 import ProblemsGrid from '../components/sections/ProblemsGrid.astro';
@@ -125,7 +118,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Immersive full-bleed hero section for creating strong visual impact with motion or canvas.',
   },
   'hero-hub-listing': {
-    component: HeroHubListing,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -185,7 +178,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Magnetic landing hero: mono eyebrow, italic emphasis h1, lede, dual CTA, and availability strip.',
   },
   'hero-problem-index': {
-    component: HeroProblemIndex,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -205,7 +198,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Sector or department hero: 15° rotated SVG with accent, dept kicker, italic h1 + lead, CTA and meta, sector tags.',
   },
   'hero-utility-masthead': {
-    component: HeroUtilityMasthead,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -215,7 +208,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Generic utility masthead (about, method, academy intro): kicker, monumental h1, italic display lede, left or centered alignment.',
   },
   'hero-academy-hub': {
-    component: HeroAcademyHub,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -225,7 +218,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Academy hub hero: mono kicker, display h1, lede, and mono stats strip (courses, paths, alumni).',
   },
   'hero-hub-masthead': {
-    component: HeroHubMasthead,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -315,7 +308,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Plain service masthead: § Service N kicker + display h1 + muted display lede, no SVG decoration.',
   },
   'hero-detail-menu': {
-    component: HeroDetailMenu,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -345,7 +338,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Lead magnet hero (whitepaper): 2-col text/PDF cover, kicker + h1 + italic lede, format/date meta, download card CTA.',
   },
   'hero-course': {
-    component: HeroCourse,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',

@@ -1,39 +1,207 @@
 ---
+// Section catalogue · héros centrés FUSIONNÉS (H4) — 1 composant générique → 8 type-ids.
+// Branche sur `data.type` ; chaque variante conserve markup + CSS BYTE-IDENTIQUES à
+// son composant d'origine (classes distinctes → coexistent sans collision). Les seuls
+// ajustements CSS = qualifications de scope (`h1`/`p` nus → `.hero-centered …`,
+// `.wrap-wide` → `.hero-X .wrap-wide`) rendues nécessaires par la colocalisation —
+// résultat visuel inchangé. Absorbe : hero-hub-masthead, hero-hub-listing,
+// hero-problem-index, hero-utility-masthead, hero-academy-hub, hero-course,
+// hero-detail-menu (+ hero-centered, noyau).
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
 
 interface Props {
-  data: SectionByType<'hero-centered'>;
+  data:
+    | SectionByType<'hero-centered'>
+    | SectionByType<'hero-hub-masthead'>
+    | SectionByType<'hero-hub-listing'>
+    | SectionByType<'hero-problem-index'>
+    | SectionByType<'hero-utility-masthead'>
+    | SectionByType<'hero-academy-hub'>
+    | SectionByType<'hero-course'>
+    | SectionByType<'hero-detail-menu'>;
   lang: 'fr' | 'en';
+  /** hero-academy-hub / hero-course : encapsulation wrapper (défaut true). */
+  wrap?: boolean;
+  /** hero-academy-hub / hero-course / hero-detail-menu : padding-top custom. */
+  topPad?: string;
+  /** hero-utility-masthead / hero-detail-menu : largeur max du `.wrap-wide`. */
+  wrapMaxWidth?: string;
+  /** hero-utility-masthead : ajoute la classe d'animation `reveal` (défaut false). */
+  reveal?: boolean;
+  /** hero-course : CTA primaire désactivé (placeholder). */
+  ctaPrimaryDisabled?: boolean;
+  /** hero-course : CTA primaire externe (target `_blank`). */
+  ctaPrimaryExternal?: boolean;
+  /** hero-course : style du lien ghost (`catalog` | `legacy`). */
+  ghostStyle?: 'catalog' | 'legacy';
 }
-const { data, lang } = Astro.props;
+const {
+  data,
+  lang,
+  wrap = true,
+  topPad,
+  wrapMaxWidth,
+  reveal = false,
+  ctaPrimaryDisabled = false,
+  ctaPrimaryExternal = false,
+  ghostStyle = 'catalog',
+} = Astro.props;
 const isFr = lang === 'fr';
+const rv = reveal ? ' reveal' : '';
+const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
-
-<section class="hero-centered">
-  <div class="wrap-wide">
-  <div class="hero-centered__inner">
-    {(isFr ? data.kicker_fr : data.kicker_en) && (
-      <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+{data.type === 'hero-hub-masthead' ? (
+  <section class="hero-hub-masthead">
+    <div class="wrap-wide">
+      <Kicker class="hero-hub-masthead__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      <h1 class="hero-hub-masthead__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-hub-masthead__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+    </div>
+  </section>
+) : data.type === 'hero-hub-listing' ? (
+  <section class="hero-hub-listing">
+    {data.decoration && (
+      <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
+        <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
+        <line x1="0" y1="320" x2="600" y2="220" stroke="var(--accent)" stroke-width=".4" opacity=".18" />
+      </svg>
     )}
-    <h1 class="reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
-    <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
-    <div class="hero-centered__ctas">
-      <Button href={data.cta_primary.href} variant={data.cta_primary.variant as any} size="lg" mag={data.cta_primary.mag ?? 0.18}>
-        {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
-      </Button>
-      {data.cta_secondary && (
-        <Button href={data.cta_secondary.href} variant={data.cta_secondary.variant as any} size="md">
-          {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
-        </Button>
+    <div class="wrap-wide">
+      <Kicker class="hero-hub-listing__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      <h1 class="hero-hub-listing__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-hub-listing__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+    </div>
+  </section>
+) : data.type === 'hero-problem-index' ? (
+  <section class="hero-problem-index">
+    <svg class="hero-problem-index__geo" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect x="1060" y="-20" width="360" height="360" fill="none" stroke="currentColor" stroke-width="0.6" transform="rotate(12 1240 160)"/>
+      <rect x="1140" y="60" width="220" height="220" fill="none" stroke="currentColor" stroke-width="0.4" transform="rotate(12 1250 170)"/>
+      <line x1="0" y1="380" x2="1440" y2="260" stroke="currentColor" stroke-width="0.4"/>
+    </svg>
+    <div class="wrap-wide">
+      <Kicker class="hero-problem-index__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      <h1 class="hero-problem-index__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-problem-index__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+      {data.canonical_fr && (
+        <p class="hero-problem-index__canonical" set:html={isFr ? data.canonical_fr : (data.canonical_en ?? data.canonical_fr)} />
       )}
     </div>
-  </div>
-  </div>
-</section>
+  </section>
+) : data.type === 'hero-utility-masthead' ? (
+  <section class:list={['hero-utility', `hero-utility--${data.align ?? 'left'}`]}>
+    <div class="wrap-wide" style={wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined}>
+      {data.kicker_fr && (
+        <Kicker class={`hero-utility__kicker${rv}`}>{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
+      )}
+      <h1 class={`hero-utility__h1${rv}`} set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class={`hero-utility__lede${rv}`} set:html={isFr ? data.lede_fr : data.lede_en} />
+    </div>
+  </section>
+) : data.type === 'hero-academy-hub' ? (
+  <section class:list={['hero-academy-hub', !wrap && 'hero-academy-hub--unwrapped']} style={topPad ? `--hahub-top-pad: ${topPad}` : undefined}>
+    <div class="hero-academy-hub__hero">
+      <Kicker as="p" class="hero-academy-hub__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      <h1 class="hero-academy-hub__heading" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-academy-hub__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+    </div>
+    {data.stats_label_fr && (
+      <div class="hero-academy-hub__stats">
+        <span class="hero-academy-hub__stats-text">{isFr ? data.stats_label_fr : (data.stats_label_en ?? data.stats_label_fr)}</span>
+      </div>
+    )}
+  </section>
+) : data.type === 'hero-course' ? (
+  <section class="hero-course" style={topPad ? `--hero-course-top-pad: ${topPad}` : undefined}>
+    {wrap ? (
+      <div class="wrap-wide">
+        <header class:list={['hero-course__hd', ghostStyle === 'legacy' && 'hero-course__hd--legacy-ghost']}>
+          <Kicker tone="accent">§ {isFr ? data.type_label_fr : data.type_label_en}</Kicker>
+          <h1 class="hero-course__title">{isFr ? data.title_fr : data.title_en}</h1>
+          <p class="hero-course__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+          <div class="hero-course__pills">
+            {data.pills.map((p) => (
+              <span class:list={['hero-course__pill', p.variant === 'accent' && 'hero-course__pill--accent', p.variant === 'price' && 'hero-course__pill--price']}>
+                {isFr ? p.label_fr : p.label_en}
+              </span>
+            ))}
+          </div>
+          <div class="hero-course__cta">
+            {ctaPrimaryDisabled ? (
+              <span class="hero-course__btn-primary hero-course__btn-primary--disabled">{isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}</span>
+            ) : (
+              <a class="hero-course__btn-primary" href={data.cta_primary.href} {...primaryAttrs}>{isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}</a>
+            )}
+            {data.cta_secondary && (
+              <a class="hero-course__btn-ghost" href={data.cta_secondary.href}>{isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}</a>
+            )}
+          </div>
+        </header>
+      </div>
+    ) : (
+      <header class:list={['hero-course__hd', ghostStyle === 'legacy' && 'hero-course__hd--legacy-ghost']}>
+        <Kicker tone="accent">§ {isFr ? data.type_label_fr : data.type_label_en}</Kicker>
+        <h1 class="hero-course__title">{isFr ? data.title_fr : data.title_en}</h1>
+        <p class="hero-course__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+        <div class="hero-course__pills">
+          {data.pills.map((p) => (
+            <span class:list={['hero-course__pill', p.variant === 'accent' && 'hero-course__pill--accent', p.variant === 'price' && 'hero-course__pill--price']}>
+              {isFr ? p.label_fr : p.label_en}
+            </span>
+          ))}
+        </div>
+        <div class="hero-course__cta">
+          {ctaPrimaryDisabled ? (
+            <span class="hero-course__btn-primary hero-course__btn-primary--disabled">{isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}</span>
+          ) : (
+            <a class="hero-course__btn-primary" href={data.cta_primary.href} {...primaryAttrs}>{isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}</a>
+          )}
+          {data.cta_secondary && (
+            <a class="hero-course__btn-ghost" href={data.cta_secondary.href}>{isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}</a>
+          )}
+        </div>
+      </header>
+    )}
+  </section>
+) : data.type === 'hero-detail-menu' ? (
+  <section class="hero-detail-menu" style={topPad ? `padding-top:${topPad}` : undefined}>
+    <div class="wrap-wide" style={wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined}>
+      <Kicker class="hero-detail-menu__parent">{isFr ? data.parent_kicker_fr : data.parent_kicker_en}</Kicker>
+      <Kicker tone="accent" class="hero-detail-menu__num">§ {data.detail_num}</Kicker>
+      <h1 class="hero-detail-menu__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-detail-menu__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+    </div>
+  </section>
+) : (
+  <section class="hero-centered">
+    <div class="wrap-wide">
+    <div class="hero-centered__inner">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h1 class="reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+      <div class="hero-centered__ctas">
+        <Button href={data.cta_primary.href} variant={data.cta_primary.variant as any} size="lg" mag={data.cta_primary.mag ?? 0.18}>
+          {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+        </Button>
+        {data.cta_secondary && (
+          <Button href={data.cta_secondary.href} variant={data.cta_secondary.variant as any} size="md">
+            {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+          </Button>
+        )}
+      </div>
+    </div>
+    </div>
+  </section>
+)}
 
 <style>
+  /* ── hero-centered (noyau) ─────────────────────────────────────────────
+     `h1`/`p` nus qualifiés par `.hero-centered` pour éviter la contamination
+     des autres variantes colocalisées (scope partagé). Visuel inchangé. */
   .hero-centered {
     padding-top: calc(var(--spacing-section) + var(--header-height));
     padding-bottom: var(--spacing-section);
@@ -48,15 +216,15 @@ const isFr = lang === 'fr';
     align-items: center;
     gap: var(--spacing-block);
   }
-  h1 {
+  .hero-centered h1 {
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
     line-height: 1.02;
     color: var(--ink);
     margin: 0;
   }
-  h1 :global(i) { font-style: italic; }
-  p {
+  .hero-centered h1 :global(i) { font-style: italic; }
+  .hero-centered p {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
     line-height: 1.6;
@@ -72,5 +240,304 @@ const isFr = lang === 'fr';
   }
   @media (max-width: 768px) {
     .hero-centered__inner { max-width: 100%; }
+  }
+
+  /* ── hero-hub-masthead ─────────────────────────────────────────────────
+     `.wrap-wide` qualifié par `.hero-hub-masthead` (collision max-width). */
+  .hero-hub-masthead { padding: 140px 32px clamp(48px, 6vw, 88px); }
+  .hero-hub-masthead .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-hub-masthead__kicker) { display: block; margin-bottom: 24px; }
+  .hero-hub-masthead__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(60px, 11vw, 180px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .hero-hub-masthead__h1 :global(i) { color: var(--accent); font-style: italic; }
+  .hero-hub-masthead__lede {
+    font-family: var(--font-sans);
+    font-size: clamp(17px, 1.6vw, 19px);
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 32px 0 0;
+    max-width: 580px;
+  }
+
+  /* ── hero-hub-listing (déjà qualifié à la source) ──────────────────────── */
+  .hero-hub-listing {
+    position: relative;
+    overflow: hidden;
+    padding: calc(var(--header-height) + 40px) 32px clamp(40px, 5vw, 72px);
+  }
+  .hero-hub-listing .wrap-wide { position: relative; z-index: 1; }
+  .hero-hub-listing__deco {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 480px;
+    height: 320px;
+    pointer-events: none;
+    z-index: 0;
+    color: var(--ink);
+  }
+  :global(.hero-hub-listing__kicker) { display: block; margin-bottom: 24px; }
+  .hero-hub-listing__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+    color: var(--ink);
+    margin: 0;
+  }
+  .hero-hub-listing__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-hub-listing__lede {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2.2vw, 28px);
+    color: var(--ink-2);
+    margin: 32px 0 0;
+    max-width: 760px;
+    line-height: 1.4;
+  }
+  @media (max-width: 768px) {
+    .hero-hub-listing__deco { width: 260px; height: 200px; opacity: 0.6; }
+  }
+
+  /* ── hero-problem-index ────────────────────────────────────────────────
+     `.wrap-wide` qualifié par `.hero-problem-index` (collision max-width). */
+  .hero-problem-index { position: relative; overflow: hidden; padding: 140px 32px clamp(44px, 6vw, 84px); }
+  .hero-problem-index__geo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+  }
+  .hero-problem-index .wrap-wide { max-width: 1200px; margin-inline: auto; position: relative; z-index: 1; }
+  :global(.hero-problem-index__kicker) { display: block; margin-bottom: 24px; }
+  .hero-problem-index__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .hero-problem-index__h1 :global(i) { font-style: italic; color: var(--ink); }
+  .hero-problem-index__lede {
+    font-family: var(--font-sans);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px);
+    color: var(--ink-2);
+    margin: 32px 0 0;
+    max-width: 760px;
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .hero-problem-index__canonical {
+    max-width: 720px;
+    margin: 22px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .hero-problem-index__canonical :global(strong) { color: var(--ink); font-weight: 500; }
+
+  /* ── hero-utility-masthead ─────────────────────────────────────────────
+     `.wrap-wide` qualifié par `.hero-utility` (collision max-width). */
+  .hero-utility {
+    padding: 140px 32px clamp(40px, 5vw, 72px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-utility--centered { text-align: center; }
+  .hero-utility .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-utility__kicker) { display: block; margin-bottom: 24px; }
+  .hero-utility--centered :global(.hero-utility__kicker) { display: inline-block; }
+
+  .hero-utility__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .hero-utility__h1 :global(i) { font-style: italic; color: var(--accent); }
+
+  .hero-utility__lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 32px);
+    color: var(--ink-2);
+    margin: 32px 0 0;
+    max-width: 760px;
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .hero-utility--centered .hero-utility__lede {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── hero-academy-hub ──────────────────────────────────────────────────── */
+  .hero-academy-hub {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-page-x, 24px);
+    background: var(--paper);
+  }
+  .hero-academy-hub--unwrapped {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+  .hero-academy-hub__hero {
+    padding-top: var(--hahub-top-pad, 72px);
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  :global(.hero-academy-hub__kicker) { margin: 0 0 24px; }
+  .hero-academy-hub__heading {
+    font-size: var(--text-h1-hero);
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0 0 24px;
+  }
+  .hero-academy-hub__heading :global(i) { font-style: italic; }
+  .hero-academy-hub__lede {
+    font-size: var(--text-lede);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    max-width: 640px;
+    margin: 0;
+    color: var(--muted);
+  }
+  .hero-academy-hub__stats {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-academy-hub__stats-text {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+  }
+
+  /* ── hero-course ───────────────────────────────────────────────────────
+     `.wrap-wide` qualifié par `.hero-course` (collision max-width 1100px). */
+  .hero-course { padding-top: var(--hero-course-top-pad, 24px); }
+  .hero-course .wrap-wide { max-width: 1100px; margin-inline: auto; padding-inline: var(--space-page-x, 24px); }
+  .hero-course__hd {
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-course__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h1-hero);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 16px 0 20px;
+  }
+  .hero-course__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede);
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0 0 28px;
+    max-width: 68ch;
+  }
+  .hero-course__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .hero-course__pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--hairline);
+    color: var(--muted-2);
+  }
+  .hero-course__pill--accent { border-color: var(--accent); color: var(--accent); }
+  .hero-course__pill--price { border-color: var(--ink); color: var(--ink); font-weight: 600; }
+  .hero-course__cta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-course__btn-primary {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .hero-course__btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .hero-course__btn-primary--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .hero-course__btn-ghost {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 2px;
+  }
+  .hero-course__btn-ghost:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .hero-course__hd--legacy-ghost .hero-course__btn-ghost {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    border-bottom: 0;
+    padding-bottom: 0;
+    transition: color 0.15s;
+  }
+  .hero-course__hd--legacy-ghost .hero-course__btn-ghost:hover { color: var(--accent); }
+
+  /* ── hero-detail-menu ──────────────────────────────────────────────────
+     `.wrap-wide` qualifié par `.hero-detail-menu` (collision max-width). */
+  .hero-detail-menu { padding: 140px 32px 0; }
+  .hero-detail-menu .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-detail-menu__parent) { display: block; margin-bottom: var(--space-4); }
+  :global(.hero-detail-menu__num) { display: block; margin-bottom: 24px; }
+  .hero-detail-menu__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 156px);
+    line-height: 0.92;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+    font-weight: 400;
+    margin: 0 0 32px;
+  }
+  .hero-detail-menu__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-detail-menu__lede {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.45;
+    max-width: 880px;
+    color: var(--muted);
+    text-wrap: balance;
+    margin: 0;
   }
 </style>

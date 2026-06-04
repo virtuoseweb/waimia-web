@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
-import HeroCourse from '../sections/HeroCourse.astro';
+import HeroCentered from '../sections/HeroCentered.astro';
 import { buildCourseSchema, buildBreadcrumbList } from '../../lib/seo/schema-builder';
 import type { SectionByType } from '../../schemas/sections';
 
@@ -185,7 +185,7 @@ const jsonLd = [
       <Breadcrumb items={crumbs} lang={lang} noJsonLd />
 
       <!-- ── HERO · composant catalogué hero-course (contenu via props). ── -->
-      <HeroCourse
+      <HeroCentered
         data={heroData}
         lang={lang}
         topPad="0"
