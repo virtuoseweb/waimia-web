@@ -1,7 +1,8 @@
 ---
 // Section W6 · architecture-diagram
-// Diagramme SVG signature : N canaux entrée → système central → M sorties.
-// Source markup : `SystemArchitecture.astro` (FIG II · 2.5).
+// Diagramme SVG signature : 6 canaux entrée → système central → 4 sorties.
+// Source markup : promotion VERBATIM de `SystemArchitecture.astro` (FIG II · 2.5).
+import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
 import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
@@ -11,60 +12,60 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 
-const inputs = (isFr ? data.inputs_fr : data.inputs_en).slice(0, 8);
-const outputs = (isFr ? data.outputs_fr : data.outputs_en).slice(0, 6);
-
-const inputStep = inputs.length > 1 ? Math.min(52, 280 / inputs.length) : 52;
-const outputStep = outputs.length > 1 ? Math.min(62, 256 / outputs.length) : 62;
-const inputStart = (320 - inputStep * (inputs.length - 1)) / 2;
-const outputStart = (320 - outputStep * (outputs.length - 1)) / 2;
+const inputs = isFr ? data.inputs_fr : data.inputs_en;
+const outputs = isFr ? data.outputs_fr : data.outputs_en;
 ---
-
-<section class="arch-diagram" aria-labelledby="arch-diagram-h2">
+<section id="system-architecture" class="sysarch" aria-labelledby="sysarch-h2">
   <div class="wrap-wide">
-    <header class="arch-diagram__hd">
-      <div class="arch-diagram__chapter">
-        <span class="arch-diagram__dot" aria-hidden></span>
-        <span class="arch-diagram__num">{data.fig_num}</span>
-        <span class="arch-diagram__sep" aria-hidden>·</span>
-        <span>{isFr ? data.fig_title_fr : data.fig_title_en}</span>
-      </div>
-      <span class="arch-diagram__spec">{isFr ? data.spec_fr : data.spec_en}</span>
+    <header class="sysarch-hd">
+      <ChapterLabel
+        num={data.fig_num}
+        title={isFr ? data.fig_title_fr : data.fig_title_en}
+      />
+      <span class="sysarch-spec">
+        {isFr ? data.spec_fr : data.spec_en}
+      </span>
     </header>
 
-    <h2 id="arch-diagram-h2" class="arch-diagram__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+    <h2 id="sysarch-h2" class="sysarch-h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
 
-    <figure class="arch-diagram__fig reveal reveal-fade">
+    <figure class="sysarch-fig reveal reveal-fade">
       <svg
-        class="arch-diagram__svg"
+        class="sysarch-svg"
         viewBox="0 0 880 360"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"
         role="presentation"
       >
+        {/* 6 channels (left column) · pills rect + label mono */}
         {inputs.map((label, i) => {
-          const y = inputStart + i * inputStep;
+          const y = 24 + i * 52;
           return (
             <>
               <rect x="20" y={y} width="148" height="36" rx="2" fill="transparent" stroke="var(--ink-2)" stroke-width="1" stroke-opacity="0.6"/>
               <text x="94" y={y + 23} text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--ink)" letter-spacing="0.08em">{label.toUpperCase()}</text>
+              {/* connector curve channel → system */}
               <path d={`M168 ${y + 18} C 260 ${y + 18}, 320 180, 412 180`} stroke="var(--accent)" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+              {/* small dot at channel exit */}
               <circle cx="168" cy={y + 18} r="2" fill="var(--accent)"/>
             </>
           );
         })}
 
+        {/* Central system node · large circle accent · double-stroke */}
         <circle cx="440" cy="180" r="84" fill="rgba(201, 79, 46, 0.06)" stroke="var(--accent)" stroke-width="1.4"/>
         <circle cx="440" cy="180" r="92" fill="transparent" stroke="var(--accent)" stroke-width="0.6" stroke-opacity="0.4" stroke-dasharray="2 4"/>
         <text x="440" y="172" text-anchor="middle" font-family="var(--font-display)" font-size="20" fill="var(--accent)" font-style="italic">{data.system_label}</text>
         <text x="440" y="192" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--ink)" letter-spacing="0.14em">{data.system_kicker}</text>
         <text x="440" y="206" text-anchor="middle" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-2)" letter-spacing="0.1em">{data.system_subtitle}</text>
 
+        {/* 4 outputs (right column) · pills + label */}
         {outputs.map((label, i) => {
-          const y = outputStart + i * outputStep;
+          const y = 56 + i * 62;
           return (
             <>
+              {/* connector curve system → output */}
               <path d={`M532 180 C 624 180, 660 ${y + 18}, 716 ${y + 18}`} stroke="var(--accent)" stroke-width="1" stroke-opacity="0.6" fill="none"/>
               <circle cx="716" cy={y + 18} r="2" fill="var(--accent)"/>
               <rect x="716" y={y} width="148" height="36" rx="2" fill="rgba(201, 79, 46, 0.04)" stroke="var(--accent)" stroke-width="1" stroke-opacity="0.7"/>
@@ -73,6 +74,7 @@ const outputStart = (320 - outputStep * (outputs.length - 1)) / 2;
           );
         })}
 
+        {/* Feedback loop arc · output → system → channel (cycle d'amélioration continue) */}
         {data.show_loop && (
           <>
             <path d="M790 332 C 600 350, 280 350, 94 332" stroke="var(--ink-2)" stroke-width="0.8" stroke-opacity="0.35" fill="none" stroke-dasharray="4 4"/>
@@ -81,18 +83,19 @@ const outputStart = (320 - outputStep * (outputs.length - 1)) / 2;
         )}
       </svg>
 
-      <figcaption class="arch-diagram__cap" set:html={isFr ? data.caption_fr : data.caption_en} />
+      <figcaption class="sysarch-cap" set:html={isFr ? data.caption_fr : data.caption_en} />
     </figure>
   </div>
 </section>
 
 <style>
-  .arch-diagram {
+  .sysarch {
     padding: clamp(56px, 7vw, 88px) 0;
     border-bottom: 1px solid var(--hairline);
     background: var(--paper);
   }
-  .arch-diagram__hd {
+
+  .sysarch-hd {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -102,33 +105,15 @@ const outputStart = (320 - outputStep * (outputs.length - 1)) / 2;
     flex-wrap: wrap;
     gap: 10px;
   }
-  .arch-diagram__chapter {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 10px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .arch-diagram__dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    display: inline-block;
-    transform: translateY(-2px);
-  }
-  .arch-diagram__num { color: var(--accent); font-weight: 500; }
-  .arch-diagram__sep { color: var(--muted); }
-  .arch-diagram__spec {
+  .sysarch-spec {
     font-family: var(--font-mono);
     font-size: 11px;
     color: var(--muted);
     letter-spacing: 0.1em;
   }
-  .arch-diagram__h2 {
+
+  /* H2 token sémantique unifié · cf tokens.css */
+  .sysarch-h2 {
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h2);
@@ -139,8 +124,9 @@ const outputStart = (320 - outputStep * (outputs.length - 1)) / 2;
     text-wrap: balance;
     color: var(--ink);
   }
-  .arch-diagram__h2 :global(i) { font-style: italic; color: var(--accent); }
-  .arch-diagram__fig {
+  .sysarch-h2 :global(i) { font-style: italic; color: var(--accent); }
+
+  .sysarch-fig {
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -148,14 +134,16 @@ const outputStart = (320 - outputStep * (outputs.length - 1)) / 2;
     gap: clamp(16px, 2vw, 28px);
     transition-delay: 180ms;
   }
-  .arch-diagram__svg {
+
+  .sysarch-svg {
     width: 100%;
     max-width: 860px;
     height: auto;
     max-height: 320px;
     display: block;
   }
-  .arch-diagram__cap {
+
+  .sysarch-cap {
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 20px);
     line-height: 1.35;
@@ -165,9 +153,11 @@ const outputStart = (320 - outputStep * (outputs.length - 1)) / 2;
     text-wrap: balance;
     margin: 0;
   }
-  .arch-diagram__cap :global(i) { font-style: italic; color: var(--accent); }
+  .sysarch-cap :global(i) { font-style: italic; color: var(--accent); }
+
+  /* Mobile : SVG plus petit, H2 réduit */
   @media (max-width: 700px) {
-    .arch-diagram__h2 { font-size: clamp(24px, 6.5vw, 38px); }
-    .arch-diagram__svg { max-height: 240px; }
+    .sysarch-h2 { font-size: clamp(24px, 6.5vw, 38px); }
+    .sysarch-svg { max-height: 240px; }
   }
 </style>

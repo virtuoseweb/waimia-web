@@ -86,7 +86,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'cta-inline',            consumers: [] },
   { id: 'testimonial-block',     consumers: [] },
   { id: 'guarantee-block',       consumers: [] },
-  { id: 'architecture-diagram',  consumers: [] },
+  { id: 'architecture-diagram',  consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'services-grid',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'maturity-pyramid',      consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'use-case-index',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
@@ -119,10 +119,9 @@ export const LIBRARY_SECTIONS: LibrarySectionEntry[] = SECTION_USAGE.map(
 // ── LIBRARY_ORGANISMS (hand-authored — §3 matrice 2026-06-04) ────────────────
 
 export const LIBRARY_ORGANISMS: LibraryOrganismEntry[] = [
-  // MERGE→ (6) — jumeau catalogué existe, cible conversion vers le registry
-  //              (SixServices→services-grid + Pyramid→maturity-pyramid + Departments→use-case-index : organisms supprimés, home FR+EN data-driven)
+  // MERGE→ (5) — jumeau catalogué existe, cible conversion vers le registry
+  //              (SixServices→services-grid + Pyramid→maturity-pyramid + Departments→use-case-index + SystemArchitecture→architecture-diagram : organisms supprimés, home FR+EN data-driven)
   { id: 'Hero',               file: 'src/components/ui/organisms/Hero.astro',               twin: 'hero-home',            status: 'merge',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'SystemArchitecture', file: 'src/components/ui/organisms/SystemArchitecture.astro', twin: 'architecture-diagram', status: 'merge',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'Cases',              file: 'src/components/ui/organisms/Cases.astro',              twin: 'case-card-grid',       status: 'merge',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/pages/solutions/index.astro'] },
   { id: 'FieldNotes',         file: 'src/components/ui/organisms/FieldNotes.astro',         twin: 'editorial-preview',    status: 'merge',        consumers: ['src/pages/atlas.astro', 'src/pages/en/atlas.astro'] },
   { id: 'BookSession',        file: 'src/components/ui/organisms/BookSession.astro',        twin: 'cta-final',            status: 'merge',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
