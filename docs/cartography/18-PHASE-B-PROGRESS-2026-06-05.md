@@ -11,6 +11,17 @@
 | `26feada`(equipe préalable) | — | equipe grid+masthead (sessions antérieures) | team-card-grid + hub | — |
 | `e041c69` | B3 atlas | atlas FR+EN `.hero-atlas`→hero-atlas | hero-atlas | 4/4 piliers, h1 94px op=1 |
 | `835fe72` | B5 listing | glossaire·testimonials·personas-index·field-notes·integrations(FR+EN)·comparer(FR+EN) | `hero-hub-masthead` variant **listing** | 6/6 listing, h1 158px op=1, ledes dyn préservés, 0 err* |
+| `8f5814e` | docs | journal d'avancement (ce fichier) | — |
+| `e942a07` | **B6 detail** | personas/[slug] `__hd` → variant **detail** (+ext `role` opt.) | detail OK (h1+role mono+lede op=1), **non-régression hub/listing confirmée** |
+
+### ✅ UNIFICATION MASTHEAD COMPLÈTE — `hero-hub-masthead` à 3 variants, tous branchés en prod-branch
+- **hub** (B2) offres·cas·ressources·technologies · **listing** (B5) glossaire·testimonials·personas-index·field-notes·integrations·comparer · **detail** (B6) personas/[slug]
+- Schéma : `variant` + opt `decoration`/`align`/`transition_id`/`role_fr,en`. Dispatch dans `HeroCentered.astro`. **Champs opt + rendus conditionnels isolés par variant → 0 régression croisée (GF-1 prouvé).**
+
+### Décisions de curation (restant) — proposées, veto Simon possible
+- **secteurs `.hub-mast`** → **KEEP-BESPOKE** proposé : `sector-svg-sig` (signature SVG dessinée unique) + `hub-canonical` (2ᵉ p) sont spécifiques, non réutilisés → les forcer dans le composant masthead partagé = blast radius élevé pour 0 réutilisation. Garder inline.
+- **cas `.cas-grid`** (featured 7fr/5fr + VT) + **`.cas-cta`** (eyebrow + 1 CTA) → **KEEP-BESPOKE** proposé : structures uniques ≠ case-card-grid/cta-final (≠ 0-delta). Branchement = restyle non justifié.
+- **B8 content-bands** (technologies layers/flagship/frameworks · ressources tools/cases/cookbooks) → candidats use-case-index/related-cards-band **+ext** : à évaluer cas par cas (prochain fire boucle).
 
 ## ⚠️ DELTAS À VALIDER SIMON (veto = revert du commit isolé)
 1. **atlas EN** (`e041c69`) : l'ancien hero EN était un **test A/B explicite** (kicker `Vol. 03 — Atlas (direction 3 test)`, CTA `← See the home (direction 1)`, markup monocolonne désync du FR) → uniformisé sur le hero 2-col canonique. Rendu en/atlas change (monocolonne → 2-col). Hors scope : l'organism `<AtlasGrid>` qui suit garde un vestige texte « Direction 3 test ».
