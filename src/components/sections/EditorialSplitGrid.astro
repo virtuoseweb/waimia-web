@@ -1,0 +1,71 @@
+---
+// Section catalogue · editorial-split-grid
+// Source fidèle : `src/pages/ressources/index.astro` `.hub-blog-lb`.
+import RelatedCards from '../ui/molecules/RelatedCards.astro';
+import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'editorial-split-grid'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const columns = [data.left, data.right];
+---
+
+<section class="hub-blog-lb">
+  <div class="wrap-wide hub-blog-lb-grid reveal-stagger">
+    {columns.map((column) => (
+      <div>
+        <Kicker tone="accent" class={column.slot === 'right' ? 'hub-lb-k' : 'hub-blog-k'}>{isFr ? column.kicker_fr : column.kicker_en}</Kicker>
+        <h2 class={column.slot === 'right' ? 'hub-lb-h2' : 'hub-blog-h2'} set:html={isFr ? column.h2_fr : column.h2_en} />
+        <p class={column.slot === 'right' ? 'hub-lb-lead' : 'hub-blog-lead'}>{isFr ? column.lede_fr : column.lede_en}</p>
+        <RelatedCards cards={column.cards} />
+        <div class={column.slot === 'right' ? 'hub-lb-cta' : 'hub-blog-cta'}>
+          <Button href={column.cta.href} variant="ghost" size="md">{isFr ? column.cta.label_fr : column.cta.label_en}</Button>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .hub-blog-lb { padding: clamp(80px, 10vw, 120px) 32px; border-top: 1px solid var(--hairline); }
+  .hub-blog-lb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+  }
+  :global(.hub-blog-k),
+  :global(.hub-lb-k) { display: block; margin-bottom: 14px; }
+  .hub-blog-h2,
+  .hub-lb-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.022em;
+    font-weight: 400;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .hub-blog-h2 :global(i),
+  .hub-lb-h2 :global(i) { font-style: italic; color: var(--accent); }
+  .hub-blog-lead,
+  .hub-lb-lead {
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: var(--muted);
+    margin: 0 0 28px;
+    line-height: 1.45;
+  }
+  .hub-blog-cta,
+  .hub-lb-cta { margin-top: clamp(20px, 2.5vw, 32px); }
+  @media (max-width: 800px) {
+    .hub-blog-lb-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

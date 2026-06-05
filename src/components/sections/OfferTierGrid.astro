@@ -1,0 +1,223 @@
+---
+// Section catalogue · offer-tier-grid
+// Source fidèle : `src/pages/offres/index.astro` `.tier-section.tier-i/ii/iii`.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'offer-tier-grid'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const variant = data.variant ?? 'standard';
+const sectionClass = [
+  'tier-section',
+  variant === 'featured' && 'tier-ii',
+  variant === 'transparent' && 'tier-iii',
+  data.wrap ? 'wrap-wide' : '',
+].filter(Boolean).join(' ');
+const gridClass = [
+  'tier-grid',
+  variant === 'featured' && 'tier-ii-grid',
+  variant === 'transparent' && 'tier-iii-grid',
+].filter(Boolean).join(' ');
+---
+
+<section class={sectionClass}>
+  <div class={data.wrap ? undefined : 'wrap-wide'}>
+    <p class="tier-eyebrow reveal-snap">{isFr ? data.eyebrow_fr : data.eyebrow_en}</p>
+    <h2 class="tier-h2 reveal">{isFr ? data.h2_fr : data.h2_en}</h2>
+    <p class="tier-lede reveal" style={`transition-delay:100ms${data.lede_max_width ? `; max-width:${data.lede_max_width}` : ''}`}>
+      {isFr ? data.lede_fr : data.lede_en}
+    </p>
+
+    {data.featured_card && (
+      <a href={data.featured_card.href} class="hero-card reveal">
+        <p class="hero-card-eyebrow">{isFr ? data.featured_card.eyebrow_fr : data.featured_card.eyebrow_en}</p>
+        <h3 class="hero-card-title">{isFr ? data.featured_card.title_fr : data.featured_card.title_en}</h3>
+        <p class="hero-card-sub">{isFr ? data.featured_card.sub_fr : data.featured_card.sub_en}</p>
+        <p class="hero-card-lead">{isFr ? data.featured_card.lead_fr : data.featured_card.lead_en}</p>
+        <span class="hero-card-cta">{isFr ? data.featured_card.cta_fr : data.featured_card.cta_en}</span>
+      </a>
+    )}
+
+    <div class={`${gridClass} reveal-stagger`}>
+      {data.offers.map((offer) => (
+        <a href={offer.href} class={`offer-card ${variant === 'transparent' ? 'offer-card--transparent' : ''}`.trim()}>
+          <p class="card-price">{isFr ? offer.price_fr : offer.price_en}</p>
+          <h3 class="card-title">{isFr ? offer.title_fr : offer.title_en}</h3>
+          <p class="card-lead">{isFr ? offer.lead_fr : offer.lead_en}</p>
+          <span class="card-cta">{isFr ? offer.cta_fr : offer.cta_en}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tier-section {
+    padding-top: clamp(80px, 10vw, 128px);
+    padding-bottom: clamp(80px, 10vw, 128px);
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .tier-ii {
+    background: var(--paper-2);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .tier-ii .wrap-wide {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .tier-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin: 0 0 20px;
+  }
+  .tier-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 88px);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: -0.024em;
+    margin: 0 0 18px;
+  }
+  .tier-lede {
+    font-family: var(--font-sans);
+    font-size: clamp(16px, 1.5vw, 18px);
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0 0 clamp(36px, 5vw, 60px);
+    max-width: 580px;
+  }
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+  .tier-ii-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: clamp(20px, 3vw, 32px);
+  }
+  .tier-iii-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .offer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: clamp(24px, 3.5vw, 44px);
+    border: 1px solid var(--hairline);
+    background: var(--paper-2);
+    color: var(--ink);
+    transition: border-color 220ms var(--ease), transform 200ms var(--ease);
+  }
+  .offer-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .offer-card--transparent {
+    background: transparent;
+  }
+  .offer-card--transparent:hover {
+    background: var(--paper-2);
+    border-color: var(--accent);
+  }
+  .card-price {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin: 0;
+  }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .card-lead {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+  .card-cta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-top: auto;
+  }
+  .hero-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: clamp(36px, 5vw, 64px);
+    background: var(--ink);
+    color: var(--paper);
+    border: 2px solid var(--accent);
+    transition: transform 260ms var(--ease);
+  }
+  .hero-card:hover {
+    transform: translateY(-3px);
+  }
+  .hero-card-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  .hero-card-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 96px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .hero-card-sub {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.15;
+    margin: 0;
+  }
+  .hero-card-lead {
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.6vw, 17px);
+    line-height: 1.6;
+    color: rgba(246, 241, 232, 0.78);
+    margin: 0;
+    max-width: 640px;
+  }
+  .hero-card-cta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+  @media (max-width: 900px) {
+    .tier-grid,
+    .tier-ii-grid,
+    .tier-iii-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

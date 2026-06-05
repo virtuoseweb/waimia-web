@@ -71,6 +71,13 @@ import ServicesGrid from '../components/sections/ServicesGrid.astro';
 import MaturityPyramid from '../components/sections/MaturityPyramid.astro';
 import UseCaseIndex from '../components/sections/UseCaseIndex.astro';
 import CaseCardGrid from '../components/sections/CaseCardGrid.astro';
+import TierPyramidSvg from '../components/sections/TierPyramidSvg.astro';
+import OfferTierGrid from '../components/sections/OfferTierGrid.astro';
+import TeamCardGrid from '../components/sections/TeamCardGrid.astro';
+import HeroAtlas from '../components/sections/HeroAtlas.astro';
+import PersonaAttributesGrid from '../components/sections/PersonaAttributesGrid.astro';
+import EditorialSplitGrid from '../components/sections/EditorialSplitGrid.astro';
+import ComingSoonPills from '../components/sections/ComingSoonPills.astro';
 import CommitmentsGrid from '../components/sections/CommitmentsGrid.astro';
 import BrandedCallout from '../components/sections/BrandedCallout.astro';
 import EditorialPreview from '../components/sections/EditorialPreview.astro';
@@ -646,6 +653,76 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Table éditoriale de cas clients en six colonnes (index, client, secteur, stack, impact, flèche) façon compte rendu d'audit.",
     description_en: 'Editorial six-column case-study table (index, client, sector, stack, impact, arrow) styled like an audit report.',
+  },
+  'tier-pyramid-svg': {
+    component: TierPyramidSvg,
+    category: 'marketing',
+    subcategory: 'Hero Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['offers', 'pyramid', 'tiers', 'svg'],
+    status: 'stable',
+    description_fr: 'Pyramide SVG isocèle à trois niveaux pour visualiser la progression Découverte · Transformation · Partenariat.',
+    description_en: 'Three-tier isosceles SVG pyramid showing the Discovery · Transformation · Partnership offer progression.',
+  },
+  'offer-tier-grid': {
+    component: OfferTierGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['offers', 'tiers', 'pricing', 'cards'],
+    status: 'stable',
+    description_fr: 'Section de palier d’offres avec eyebrow, H2, lede, grille de cartes et variante hero sombre optionnelle.',
+    description_en: 'Offer-tier section with eyebrow, headline, lede, card grid, and optional dark featured hero variant.',
+  },
+  'team-card-grid': {
+    component: TeamCardGrid,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['team', 'authors', 'cards', 'profiles'],
+    status: 'stable',
+    description_fr: 'Grille auto-fill de cartes auteurs avec photo, rôle, description, compteur de publications et CTA profil.',
+    description_en: 'Auto-fill author card grid with photo, role, description, publication count, and profile CTA.',
+  },
+  'hero-atlas': {
+    component: HeroAtlas,
+    category: 'marketing',
+    subcategory: 'Hero Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'atlas', 'pillars', 'map'],
+    status: 'stable',
+    description_fr: 'Hero Atlas en deux colonnes avec signature grid, copy éditoriale, CTAs et mini-map des quatre piliers.',
+    description_en: 'Two-column Atlas hero with signature grid, editorial copy, CTAs, and a four-pillar mini-map.',
+  },
+  'persona-attributes-grid': {
+    component: PersonaAttributesGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['persona', 'attributes', 'grid', 'meta'],
+    status: 'stable',
+    description_fr: 'Grille persona 2×2 pain points / critères / objections / preuves avec footer méta sombre en trois colonnes.',
+    description_en: 'Persona 2×2 grid for pain points, criteria, objections, and proof points with a dark three-column meta footer.',
+  },
+  'editorial-split-grid': {
+    component: EditorialSplitGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['editorial', 'resources', 'blog', 'whitepapers'],
+    status: 'stable',
+    description_fr: 'Split éditorial deux colonnes pour lister blog et livres blancs, chacun avec cartes connexes et CTA.',
+    description_en: 'Two-column editorial split for blog and white papers, each with related cards and CTA.',
+  },
+  'coming-soon-pills': {
+    component: ComingSoonPills,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['coming-soon', 'pills', 'sectors', 'teaser'],
+    status: 'stable',
+    description_fr: 'Bande teaser fond paper-2 avec kicker, H2 et liste de pills pour éléments à venir.',
+    description_en: 'Paper-2 teaser band with kicker, headline, and pill list for upcoming items.',
   },
   'commitments-grid': {
     component: CommitmentsGrid,

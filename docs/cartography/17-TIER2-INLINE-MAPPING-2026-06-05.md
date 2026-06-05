@@ -103,10 +103,22 @@
 
 ---
 
-## Décisions Simon (gate Tier 2 — la migration reste différée)
+## Décisions Simon — TRANCHÉES 2026-06-05 (gate « tout traité + référencé » CLOS)
 
-- **Q1 — Mastheads** : brancher les 3 types existants (`hero-hub-masthead`/`hero-hub-listing`/`hero-utility-masthead`, 0 adoption) sur les ~15 mastheads inline ? (gisement #1, risque faible). Faut-il **unifier** les 3 en 1 type paramétrable, ou garder la distinction hub/listing/détail ?
-- **Q2 — Politique APPROX** : autoriser les extensions **optionnelles** (champ schema opt. / variante `theme:dark`,`tone:ink`) sur types existants ? Ou geler les types et router les APPROX vers bespoke jusqu'à une passe dédiée ?
-- **Q3 — Nouveaux types (C)** : lesquels des ~11 deviennent canoniques ? Consolidations proposées : `sector-grid` (fusion ×2), `offer-tier-grid` (3 variantes), `solutions-card-grid`→variante `services-grid` ?, `chapter-stats`→variante `stat-block` ?, `product-card-grid`→rester bespoke.
+- **Q1 — Mastheads → UNIFIER en 1 type paramétrable.** Les 3 mastheads (`hero-hub-masthead`/`hero-hub-listing`/`hero-utility-masthead`) fusionnent en **un seul type masthead** avec `variant: 'hub' | 'listing' | 'detail'` + champs optionnels (`role`, `logo_url`, `svg_signature`, `canonical_line`). Canonique probable = `hero-hub-masthead` étendu ; réconcilier l'adoption template existante de `hero-utility-masthead` (Utility) à l'exécution. **~15 mastheads** s'y branchent.
+- **Q2 — APPROX → extensions optionnelles AUTORISÉES.** Champs schema optionnels + variantes CSS (`theme:dark`, `tone:ink`, `featured_asymmetric`, variante SVG linéaire, rows asymétriques…) ajoutés aux types existants (0 nouveau token → compatible rule 28). Les ~22 APPROX se branchent ainsi.
+- **Q3 — Nouveaux types → MINIMAL (7 irréductibles only).** Créés : `tier-pyramid-svg`, `offer-tier-grid` (3 variantes), `team-card-grid`, `hero-atlas`, `persona-attributes-grid`, `editorial-split-grid`, `coming-soon-pills`. **Reclassés** (≠ nouveau type) : `solutions-card-grid`→**variante `services-grid`** ; `chapter-stats`→**variante `stat-block`** ; `sector-satellite-grid`+`sector-card-grid`→**variante grille existante OU bespoke** (trancher à l'exécution) ; `product-card-grid`→**bespoke**.
 
-→ Après ton arbitrage : le gate « tout traité + référencé » est **clos** (chaque inline a une disposition documentée) → on pourra séquencer Tier 2 (brancher/créer) puis la migration templates.
+### Bilan dispositions finales (chaque inline référencé)
+| disposition | nb | action exécution Tier 2 |
+|---|---|---|
+| Brancher existant (FAITHFUL) | ~13 | 0 modif catalogue |
+| Brancher existant + extension opt. (APPROX) | ~22 | +champ/variante opt. |
+| Masthead unifié (1 type, variant) | ~15 mastheads | fusion 3→1 + branchement |
+| Nouveau type (7 irréductibles) | 7 | 4 touchpoints chacun |
+| KEEP-BESPOKE | ~22 | 0 (assumé) |
+
+## Séquence d'exécution Tier 2 (post-gate — workers, GF-2/GF-1)
+**Phase A — additions catalogue (n'altère AUCUNE page live)** : (1) unifier le masthead (variant + champs opt.) ; (2) créer les 7 nouveaux types (schéma+demo+registry+composant+preview) ; (3) ajouter les variantes/champs opt. des APPROX. → build vert + GF-1 sur `/preview/<type>` de chaque nouveauté.
+**Phase B — branchement pages live (GF-1 par page)** : router chaque inline vers son type (composable `sections:[...]` ou import direct), page par page, diff prod↔preview = 0. Surfaces à risque visuel = mastheads + grilles hub.
+**Phase C — migration templates** : faire consommer le registry par les 18 templates (déjà amorcé, cf doc 22).

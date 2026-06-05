@@ -852,6 +852,13 @@ export const ctaFinalSchema = z.object({
   body_en: z.string().optional(),
   cta_primary: ctaSchema,
   cta_secondary: ctaSchema.optional(),
+  chapter_num: z.string().optional(),
+  chapter_title_fr: z.string().optional(),
+  chapter_title_en: z.string().optional(),
+  availability_fr: z.string().optional(),
+  availability_en: z.string().optional(),
+  reassurance_fr: z.string().optional(),
+  reassurance_en: z.string().optional(),
   background: z.enum(['paper', 'paper-2', 'ink', 'accent']).default('ink'),
 });
 
@@ -1058,6 +1065,201 @@ export const caseCardGridSchema = z.object({
   all_label_fr: z.string().optional(),
   all_label_en: z.string().optional(),
   all_href: z.string().optional(),
+});
+
+// Pyramide SVG isocèle de l'offre · 3 tiers labellisés
+export const tierPyramidSvgSchema = z.object({
+  type: z.literal('tier-pyramid-svg'),
+  aria_label_fr: z.string(),
+  aria_label_en: z.string(),
+  tiers: z
+    .array(
+      z.object({
+        roman: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .length(3),
+});
+
+// Grille de palier d'offres · standard / featured hero dark / transparent
+export const offerTierGridSchema = z.object({
+  type: z.literal('offer-tier-grid'),
+  variant: z.enum(['standard', 'featured', 'transparent']).default('standard'),
+  wrap: z.boolean().default(true),
+  eyebrow_fr: z.string(),
+  eyebrow_en: z.string(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  lede_max_width: z.string().optional(),
+  featured_card: z
+    .object({
+      eyebrow_fr: z.string(),
+      eyebrow_en: z.string(),
+      title_fr: z.string(),
+      title_en: z.string(),
+      sub_fr: z.string(),
+      sub_en: z.string(),
+      lead_fr: z.string(),
+      lead_en: z.string(),
+      cta_fr: z.string(),
+      cta_en: z.string(),
+      href: z.string(),
+    })
+    .optional(),
+  offers: z
+    .array(
+      z.object({
+        price_fr: z.string(),
+        price_en: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        lead_fr: z.string(),
+        lead_en: z.string(),
+        cta_fr: z.string(),
+        cta_en: z.string(),
+        href: z.string(),
+      }),
+    )
+    .min(1)
+    .max(6),
+});
+
+// Grille auteurs · cartes photo / rôle / description / compteur / CTA
+export const teamCardGridSchema = z.object({
+  type: z.literal('team-card-grid'),
+  cta_label_fr: z.string().default('Voir le profil →'),
+  cta_label_en: z.string().default('View profile →'),
+  count_singular_fr: z.string().default('publication'),
+  count_singular_en: z.string().default('publication'),
+  count_plural_fr: z.string().default('publications'),
+  count_plural_en: z.string().default('publications'),
+  members: z
+    .array(
+      z.object({
+        name: z.string(),
+        role_fr: z.string(),
+        role_en: z.string(),
+        description_fr: z.string(),
+        description_en: z.string(),
+        href: z.string(),
+        photo: z.string().optional(),
+        photo_alt_fr: z.string().default('Portrait auteur Waimia'),
+        photo_alt_en: z.string().default('Waimia author portrait'),
+        count: z.number().int().min(0).default(0),
+      }),
+    )
+    .min(1)
+    .max(6),
+});
+
+// Hero Atlas · 2 colonnes avec mini-map des piliers
+export const heroAtlasSchema = z.object({
+  type: z.literal('hero-atlas'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  subhead_fr: z.string(),
+  subhead_en: z.string(),
+  lead_fr: z.string(),
+  lead_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  map_aria_label_fr: z.string(),
+  map_aria_label_en: z.string(),
+  map_kicker_fr: z.string(),
+  map_kicker_en: z.string(),
+  pillars: z
+    .array(
+      z.object({
+        num: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+        desc_fr: z.string(),
+        desc_en: z.string(),
+        deliverable_fr: z.string(),
+        deliverable_en: z.string(),
+      }),
+    )
+    .length(4),
+});
+
+// Persona detail · grille 2×2 + footer méta sombre
+export const personaAttributesGridSchema = z.object({
+  type: z.literal('persona-attributes-grid'),
+  blocks: z
+    .array(
+      z.object({
+        kicker_fr: z.string(),
+        kicker_en: z.string(),
+        items_fr: z.array(z.string()).min(1),
+        items_en: z.array(z.string()).min(1),
+      }),
+    )
+    .length(4),
+  meta: z
+    .array(
+      z.object({
+        kicker_fr: z.string(),
+        kicker_en: z.string(),
+        value_fr: z.string(),
+        value_en: z.string(),
+      }),
+    )
+    .length(3),
+});
+
+const relatedCardSchema = z.object({
+  kicker: z.string(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  lead_fr: z.string(),
+  lead_en: z.string(),
+  href: z.string(),
+});
+
+// Split éditorial ressources · blog / livres blancs
+export const editorialSplitGridSchema = z.object({
+  type: z.literal('editorial-split-grid'),
+  left: z.object({
+    slot: z.literal('left').default('left'),
+    kicker_fr: z.string(),
+    kicker_en: z.string(),
+    h2_fr: z.string(),
+    h2_en: z.string(),
+    lede_fr: z.string(),
+    lede_en: z.string(),
+    cards: z.array(relatedCardSchema).min(1).max(3),
+    cta: ctaSchema,
+  }),
+  right: z.object({
+    slot: z.literal('right').default('right'),
+    kicker_fr: z.string(),
+    kicker_en: z.string(),
+    h2_fr: z.string(),
+    h2_en: z.string(),
+    lede_fr: z.string(),
+    lede_en: z.string(),
+    cards: z.array(relatedCardSchema).min(1).max(3),
+    cta: ctaSchema,
+  }),
+});
+
+// Bande secteurs à venir · kicker + H2 + pills
+export const comingSoonPillsSchema = z.object({
+  type: z.literal('coming-soon-pills'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  aria_label_fr: z.string(),
+  aria_label_en: z.string(),
+  pills_fr: z.array(z.string()).min(1).max(16),
+  pills_en: z.array(z.string()).min(1).max(16),
 });
 
 // Grille de 3 engagements / garanties (hairline border, titre display + body sans)
@@ -1328,6 +1530,13 @@ export const sectionSchema = z.discriminatedUnion('type', [
   maturityPyramidSchema,
   useCaseIndexSchema,
   caseCardGridSchema,
+  tierPyramidSvgSchema,
+  offerTierGridSchema,
+  teamCardGridSchema,
+  heroAtlasSchema,
+  personaAttributesGridSchema,
+  editorialSplitGridSchema,
+  comingSoonPillsSchema,
   commitmentsGridSchema,
   brandedCalloutSchema,
   editorialPreviewSchema,

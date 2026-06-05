@@ -1,0 +1,56 @@
+---
+// Section catalogue · tier-pyramid-svg
+// Source fidèle : `src/pages/offres/index.astro` `.pyramid-wrap`.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'tier-pyramid-svg'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const tiers = [
+  { yRoman: 101, yLabel: 118, roman: data.tiers[2]?.roman, label: isFr ? data.tiers[2]?.label_fr : data.tiers[2]?.label_en },
+  { yRoman: 227, yLabel: 244, roman: data.tiers[1]?.roman, label: isFr ? data.tiers[1]?.label_fr : data.tiers[1]?.label_en },
+  { yRoman: 340, yLabel: 357, roman: data.tiers[0]?.roman, label: isFr ? data.tiers[0]?.label_fr : data.tiers[0]?.label_en },
+];
+---
+
+<div class="pyramid-wrap reveal">
+  <svg
+    viewBox="0 0 800 440"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label={isFr ? data.aria_label_fr : data.aria_label_en}
+  >
+    <polygon
+      points="400,40 80,400 720,400"
+      fill="none"
+      stroke="var(--ink)"
+      stroke-width="0.5"
+    />
+    <line x1="280" y1="175" x2="520" y2="175" stroke="var(--ink)" stroke-width="0.5" />
+    <line x1="173" y1="295" x2="627" y2="295" stroke="var(--ink)" stroke-width="0.5" />
+
+    {tiers.map((tier) => (
+      <>
+        <text x="400" y={tier.yRoman} text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--muted)" letter-spacing="0.1em">{tier.roman}</text>
+        <text x="400" y={tier.yLabel} text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" fill="var(--muted-2)">{tier.label}</text>
+      </>
+    ))}
+  </svg>
+</div>
+
+<style>
+  .pyramid-wrap {
+    display: flex;
+    justify-content: center;
+    padding: clamp(48px, 6vw, 80px) 32px;
+  }
+  .pyramid-wrap svg {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+</style>

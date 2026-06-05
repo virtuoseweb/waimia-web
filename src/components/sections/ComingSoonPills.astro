@@ -1,0 +1,63 @@
+---
+// Section catalogue · coming-soon-pills
+// Source fidèle : `src/pages/secteurs/index.astro` `.hub-coming`.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'coming-soon-pills'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="hub-coming">
+  <div class="wrap-wide">
+    <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    <h2 class="coming-h2">{isFr ? data.h2_fr : data.h2_en}</h2>
+    <ul class="coming-list" aria-label={isFr ? data.aria_label_fr : data.aria_label_en}>
+      {(isFr ? data.pills_fr : data.pills_en).map((label) => (
+        <li class="coming-pill">{label}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .hub-coming {
+    padding: clamp(80px, 10vw, 120px) 32px;
+    background: var(--paper-2);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .coming-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.022em;
+    font-weight: 400;
+    margin: 18px 0 clamp(32px, 4vw, 56px);
+    max-width: 640px;
+    text-wrap: balance;
+  }
+  .coming-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .coming-pill {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--hairline-strong);
+    padding: 8px 18px;
+    border-radius: 2px;
+  }
+</style>
