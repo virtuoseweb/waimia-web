@@ -5,13 +5,27 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
-import Kicker from '../../../components/ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../../schemas/sections';
+import HeroCentered from '../../../components/sections/HeroCentered.astro';
 
 const allIntegrations = await getCollection('integrations');
 const lang = 'en' as const;
 const sortedIntegrations = [...allIntegrations].sort((a, b) =>
   a.data.tool_name.localeCompare(b.data.tool_name, lang),
 );
+
+const headerData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'listing' as const,
+  decoration: true,
+  align: 'left' as const,
+  kicker_fr: '§ Intégrations',
+  kicker_en: '§ Integrations',
+  h1_fr: `${allIntegrations.length} <i>intégrations</i> disponibles`,
+  h1_en: `${allIntegrations.length} <i>integrations</i> available`,
+  lede_fr: 'Connectez vos outils existants aux workflows IA Waimia. Synchronisation native, API ou via Make/Zapier.',
+  lede_en: 'Connect your existing tools to Waimia AI workflows. Native sync, API, or via Make/Zapier.',
+} satisfies SectionByType<'hero-hub-masthead'>;
 
 const categoryLabels: Record<string, { fr: string; en: string }> = {
   crm: { fr: 'CRM', en: 'CRM' },
@@ -31,16 +45,8 @@ const categoryLabels: Record<string, { fr: string; en: string }> = {
   description="Connect your business tools to Waimia: HubSpot, Salesforce, Notion, Slack, Make, Zapier, and more."
 >
   <section class="integrations-index">
+    <HeroCentered data={headerData} lang="en" />
     <div class="wrap-wide">
-      <header class="integrations-index__hd">
-        <Kicker tone="muted">§ Integrations</Kicker>
-        <h1 class="integrations-index__title">
-          {allIntegrations.length} <i>integrations</i> available
-        </h1>
-        <p class="integrations-index__lede">
-          Connect your existing tools to Waimia AI workflows. Native sync, API, or via Make/Zapier.
-        </p>
-      </header>
 
       <nav class="integrations-index__filters" aria-label="Filter by category">
         <button class="filter-btn active" data-filter="all">All</button>
@@ -105,9 +111,6 @@ const categoryLabels: Record<string, { fr: string; en: string }> = {
     padding-top: calc(var(--spacing-section, 4rem) + var(--header-height, 64px));
     padding-bottom: var(--spacing-section, 4rem);
   }
-  .integrations-index__hd { margin-bottom: 2rem; }
-  .integrations-index__title { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin: 0.5rem 0 1rem; }
-  .integrations-index__lede { font-size: 1.125rem; color: var(--color-muted, #6B7280); max-width: 60ch; }
   .integrations-index__filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
   .filter-btn {
     padding: 0.375rem 1rem; border: 1px solid var(--color-border, #e5e7eb);

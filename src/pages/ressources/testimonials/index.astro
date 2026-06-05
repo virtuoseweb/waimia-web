@@ -5,21 +5,36 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
-import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../../lib/i18n';
+import type { SectionByType } from '../../../schemas/sections';
+import HeroCentered from '../../../components/sections/HeroCentered.astro';
 
 const entries = await getCollection('testimonials');
 const lang = langFromPath(Astro.url.pathname);
 
 const featured = entries.filter((e) => e.data.featured);
 const others = entries.filter((e) => !e.data.featured);
+
+const headerData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'listing' as const,
+  decoration: true,
+  align: 'left' as const,
+  kicker_fr: '§ Témoignages clients',
+  kicker_en: '§ Client testimonials',
+  h1_fr: `${entries.length} clients · <i>une seule</i> doctrine`,
+  h1_en: `${entries.length} clients · <i>one</i> doctrine`,
+  lede_fr: `Mesure avant/après, pas de pitch automatisé. Voici ce qu'en disent les clients qui ont câblé l'IA avec nous.`,
+  lede_en: `Before/after measurement, no automated pitch. Here's what clients who wired AI with us say.`,
+} satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
   title={lang === 'fr' ? "Témoignages · Clients Waimia · Cas IA câblée" : "Testimonials · Waimia clients · Wired AI cases"}
   description={lang === 'fr' ? "Témoignages clients Waimia : COO, CTO, CFO sur les engagements activation IA et growth system. Sectors PME B2B, industrie, finance, tech, agence." : "Waimia client testimonials: COO, CTO, CFO on AI activation and growth system engagements. SMB sectors B2B, industry, finance, tech, agency."}
 >
   <section class="testimonials-index">
+    <HeroCentered data={headerData} lang={lang} />
     <div class="wrap-wide">
       <Breadcrumb
         items={[
@@ -27,18 +42,6 @@ const others = entries.filter((e) => !e.data.featured);
           { href: '/ressources/testimonials', label: lang === 'fr' ? 'Témoignages' : 'Testimonials', current: true },
         ]}
       />
-
-      <header class="testimonials-index__hd">
-        <Kicker tone="muted">§ {lang === 'fr' ? 'Témoignages clients' : 'Client testimonials'}</Kicker>
-        <h1 class="testimonials-index__h1">
-          {lang === 'fr' ? <>{entries.length} clients · <i>une seule</i> doctrine</> : <>{entries.length} clients · <i>one</i> doctrine</>}
-        </h1>
-        <p class="testimonials-index__lede">
-          {lang === 'fr'
-            ? "Mesure avant/après, pas de pitch automatisé. Voici ce qu'en disent les clients qui ont câblé l'IA avec nous."
-            : "Before/after measurement, no automated pitch. Here's what clients who wired AI with us say."}
-        </p>
-      </header>
 
       {featured.length > 0 && (
         <section class="testimonials-index__featured">
@@ -92,27 +95,6 @@ const others = entries.filter((e) => !e.data.featured);
   .testimonials-index {
     padding-top: calc(var(--spacing-section) + var(--header-height));
     padding-bottom: var(--spacing-section);
-  }
-  .testimonials-index__hd {
-    margin-bottom: clamp(48px, 6vw, 80px);
-    border-bottom: 1px solid var(--hairline);
-    padding-bottom: 32px;
-  }
-  .testimonials-index__h1 {
-    font-family: var(--font-display);
-    font-size: var(--text-h1-hero);
-    line-height: 1.02;
-    color: var(--ink);
-    margin: 24px 0 0;
-  }
-  .testimonials-index__h1 i { font-style: italic; color: var(--accent); }
-  .testimonials-index__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-lede);
-    line-height: 1.5;
-    color: var(--ink-2);
-    margin: 24px 0 0;
-    max-width: 60ch;
   }
   .testimonials-index__cat {
     font-family: var(--font-mono);

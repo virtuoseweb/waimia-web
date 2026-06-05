@@ -3,8 +3,9 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import Kicker from '../../components/ui/atoms/Kicker.astro';
 import { langFromPath } from '../../lib/i18n';
+import type { SectionByType } from '../../schemas/sections';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
 
 const allComparisons = await getCollection('comparisons');
 const lang = langFromPath(Astro.url.pathname);
@@ -26,6 +27,19 @@ const grouped = allComparisons.reduce((acc, entry) => {
   acc[cat].push(entry);
   return acc;
 }, {} as Record<string, typeof allComparisons>);
+
+const headerData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'listing' as const,
+  decoration: true,
+  align: 'left' as const,
+  kicker_fr: '§ Comparaisons',
+  kicker_en: '§ Comparisons',
+  h1_fr: `${allComparisons.length} <i>comparaisons</i> detaillees`,
+  h1_en: `${allComparisons.length} <i>detailed</i> comparisons`,
+  lede_fr: 'Guides de choix objectifs pour selectionner les bons logiciels.',
+  lede_en: 'Objective selection guides to choose the right software.',
+} satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
   title={lang === 'fr' ? 'Comparaisons outils · Choisir le bon logiciel · Waimia' : 'Tool comparisons · Choose the right software · Waimia'}
@@ -34,20 +48,8 @@ const grouped = allComparisons.reduce((acc, entry) => {
     : 'Objective tool comparisons: CRM, automation, AI, analytics, hosting.'}
 >
   <section class="comparisons-index">
+    <HeroCentered data={headerData} lang={lang} />
     <div class="wrap-wide">
-      <header class="comparisons-index__hd">
-        <Kicker tone="muted">§ {lang === 'fr' ? 'Comparaisons' : 'Comparisons'}</Kicker>
-        <h1 class="comparisons-index__title">
-          {lang === 'fr'
-            ? <>{allComparisons.length} <i>comparaisons</i> detaillees</>
-            : <>{allComparisons.length} <i>detailed</i> comparisons</>}
-        </h1>
-        <p class="comparisons-index__lede">
-          {lang === 'fr'
-            ? 'Guides de choix objectifs pour selectionner les bons logiciels.'
-            : 'Objective selection guides to choose the right software.'}
-        </p>
-      </header>
 
       {Object.entries(grouped).map(([cat, entries]) => (
         <div class="comparisons-index__group">
@@ -78,9 +80,6 @@ const grouped = allComparisons.reduce((acc, entry) => {
 
 <style>
 .comparisons-index { padding: 4rem 0 6rem; }
-.comparisons-index__hd { margin-bottom: 3rem; }
-.comparisons-index__title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin: 0.5rem 0; }
-.comparisons-index__lede { color: var(--color-muted, #6b7280); max-width: 60ch; }
 .comparisons-index__group { margin-bottom: 3rem; }
 .comparisons-index__group-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid var(--color-border, #e5e7eb); padding-bottom: 0.5rem; }
 .comparisons-index__grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }

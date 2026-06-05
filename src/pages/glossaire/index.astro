@@ -6,8 +6,9 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import Kicker from '../../components/ui/atoms/Kicker.astro';
 import { langFromPath } from '../../lib/i18n';
+import type { SectionByType } from '../../schemas/sections';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
 
 const entries = await getCollection('glossary');
 const lang = langFromPath(Astro.url.pathname);
@@ -34,24 +35,27 @@ const categoryLabels = {
   'workflow': lang === 'fr' ? 'Workflows & Automatisation' : 'Workflows & Automation',
   'gouvernance': lang === 'fr' ? 'Gouvernance & Compliance' : 'Governance & Compliance',
 };
+
+const headerData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'listing' as const,
+  decoration: true,
+  align: 'left' as const,
+  kicker_fr: '§ Référence · Glossaire IA',
+  kicker_en: '§ Reference · AI Glossary',
+  h1_fr: 'Vocabulaire <i>IA</i> · Définitions courtes',
+  h1_en: 'AI <i>vocabulary</i> · Short definitions',
+  lede_fr: `${entries.length} termes définis. Vulgarisation accessible pour décideurs PME et ETI — pas de jargon, juste l'essentiel.`,
+  lede_en: `${entries.length} terms defined. Accessible vocabulary for SMB decision-makers — no jargon, just essentials.`,
+} satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
   title={lang === 'fr' ? "Glossaire IA · Termes essentiels · Waimia" : "AI Glossary · Essential terms · Waimia"}
   description={lang === 'fr' ? "Définitions courtes des termes IA pour PME/ETI. Agent IA, RAG, prompt engineering, ROI IA, gouvernance — vulgarisation accessible." : "Short definitions of AI terms for SMBs. AI agent, RAG, prompt engineering, AI ROI, governance — accessible vocabulary."}
 >
   <section class="glossary-index">
+    <HeroCentered data={headerData} lang={lang} />
     <div class="wrap-wide">
-      <header class="glossary-index__hd">
-        <Kicker tone="muted">§ Référence · Glossaire IA</Kicker>
-        <h1 class="glossary-index__h1">
-          {lang === 'fr' ? <>Vocabulaire <i>IA</i> · Définitions courtes</> : <>AI <i>vocabulary</i> · Short definitions</>}
-        </h1>
-        <p class="glossary-index__lede">
-          {lang === 'fr'
-            ? `${entries.length} termes définis. Vulgarisation accessible pour décideurs PME et ETI — pas de jargon, juste l'essentiel.`
-            : `${entries.length} terms defined. Accessible vocabulary for SMB decision-makers — no jargon, just essentials.`}
-        </p>
-      </header>
 
       {Object.entries(byCategory).map(([category, items]) => (
         <section class="glossary-index__cat">
@@ -82,27 +86,6 @@ const categoryLabels = {
   .glossary-index {
     padding-top: calc(var(--spacing-section) + var(--header-height));
     padding-bottom: var(--spacing-section);
-  }
-  .glossary-index__hd {
-    margin-bottom: clamp(48px, 6vw, 80px);
-    border-bottom: 1px solid var(--hairline);
-    padding-bottom: 32px;
-  }
-  .glossary-index__h1 {
-    font-family: var(--font-display);
-    font-size: var(--text-h1-hero);
-    line-height: 1.02;
-    color: var(--ink);
-    margin: 24px 0 0;
-  }
-  .glossary-index__h1 i { font-style: italic; color: var(--accent); }
-  .glossary-index__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-lede);
-    line-height: 1.5;
-    color: var(--ink-2);
-    margin: 24px 0 0;
-    max-width: 64ch;
   }
   .glossary-index__cat {
     margin-bottom: 64px;

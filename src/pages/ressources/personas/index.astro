@@ -8,15 +8,31 @@ import Base from '../../../layouts/Base.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../../lib/i18n';
+import type { SectionByType } from '../../../schemas/sections';
+import HeroCentered from '../../../components/sections/HeroCentered.astro';
 
 const entries = await getCollection('personas');
 const lang = langFromPath(Astro.url.pathname);
+
+const headerData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'listing' as const,
+  decoration: true,
+  align: 'left' as const,
+  kicker_fr: '§ Référence · Personas Waimia',
+  kicker_en: '§ Reference · Waimia Personas',
+  h1_fr: '3 <i>profils</i> d’acheteurs',
+  h1_en: '3 buyer <i>profiles</i>',
+  lede_fr: 'Profils des décideurs PME/ETI typiques pour qui Waimia conçoit ses engagements. Pain points · critères · objections · proof points.',
+  lede_en: 'Typical SMB decision-maker profiles for whom Waimia designs engagements. Pain points · criteria · objections · proof points.',
+} satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
   title={lang === 'fr' ? "Personas · Profils acheteurs IA · Waimia" : "Personas · AI Buyer Profiles · Waimia"}
   description={lang === 'fr' ? "Profils des décideurs PME/ETI typiques pour les engagements Waimia : CEO, CTO, CMO. Pain points, critères, objections." : "Typical SMB decision-maker profiles for Waimia engagements: CEO, CTO, CMO. Pain points, criteria, objections."}
 >
   <section class="personas-index">
+    <HeroCentered data={headerData} lang={lang} />
     <div class="wrap-wide">
       <Breadcrumb
         items={[
@@ -24,18 +40,6 @@ const lang = langFromPath(Astro.url.pathname);
           { href: '/ressources/personas', label: lang === 'fr' ? 'Personas' : 'Personas', current: true },
         ]}
       />
-
-      <header class="personas-index__hd">
-        <Kicker tone="muted">§ Référence · Personas Waimia</Kicker>
-        <h1 class="personas-index__h1">
-          {lang === 'fr' ? <>3 <i>profils</i> d'acheteurs</> : <>3 buyer <i>profiles</i></>}
-        </h1>
-        <p class="personas-index__lede">
-          {lang === 'fr'
-            ? "Profils des décideurs PME/ETI typiques pour qui Waimia conçoit ses engagements. Pain points · critères · objections · proof points."
-            : "Typical SMB decision-maker profiles for whom Waimia designs engagements. Pain points · criteria · objections · proof points."}
-        </p>
-      </header>
 
       <ul class="personas-index__list">
         {entries.map((entry) => (
@@ -63,27 +67,6 @@ const lang = langFromPath(Astro.url.pathname);
   .personas-index {
     padding-top: calc(var(--spacing-section) + var(--header-height));
     padding-bottom: var(--spacing-section);
-  }
-  .personas-index__hd {
-    margin-bottom: clamp(48px, 6vw, 80px);
-    border-bottom: 1px solid var(--hairline);
-    padding-bottom: 32px;
-  }
-  .personas-index__h1 {
-    font-family: var(--font-display);
-    font-size: var(--text-h1-hero);
-    line-height: 1.02;
-    color: var(--ink);
-    margin: 24px 0 0;
-  }
-  .personas-index__h1 i { font-style: italic; color: var(--accent); }
-  .personas-index__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-lede);
-    line-height: 1.5;
-    color: var(--ink-2);
-    margin: 24px 0 0;
-    max-width: 64ch;
   }
   .personas-index__list {
     list-style: none;

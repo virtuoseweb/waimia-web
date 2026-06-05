@@ -8,16 +8,32 @@ import Base from '../../../layouts/Base.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../../lib/i18n';
+import type { SectionByType } from '../../../schemas/sections';
+import HeroCentered from '../../../components/sections/HeroCentered.astro';
 
 const entries = await getCollection('fieldNotes');
 const lang = langFromPath(Astro.url.pathname);
 const sorted = entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const headerData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'listing' as const,
+  decoration: true,
+  align: 'left' as const,
+  kicker_fr: '§ Field Notes · Waimia',
+  kicker_en: '§ Field Notes · Waimia',
+  h1_fr: 'Le <i>carnet de bord</i>',
+  h1_en: 'The <i>logbook</i>',
+  lede_fr: `${entries.length} notes courtes · cas, recettes, essais, notes. Mis à jour au fil des engagements.`,
+  lede_en: `${entries.length} short notes · cases, cookbooks, essays, field notes. Updated as engagements unfold.`,
+} satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
   title={lang === 'fr' ? "Field Notes · Carnet de bord Waimia" : "Field Notes · Waimia logbook"}
   description={lang === 'fr' ? "Notes courtes, essais, cas et recettes. Le carnet de bord Waimia, mis à jour au fil des engagements." : "Short notes, essays, cases and cookbooks. Waimia's logbook, updated as engagements unfold."}
 >
   <section class="fieldnotes-index">
+    <HeroCentered data={headerData} lang={lang} />
     <div class="wrap-tight">
       <Breadcrumb
         items={[
@@ -25,18 +41,6 @@ const sorted = entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTim
           { href: '/ressources/field-notes', label: lang === 'fr' ? 'Field notes' : 'Field notes', current: true },
         ]}
       />
-
-      <header class="fieldnotes-index__hd">
-        <Kicker tone="muted">§ Field Notes · Waimia</Kicker>
-        <h1 class="fieldnotes-index__h1">
-          {lang === 'fr' ? <>Le <i>carnet de bord</i></> : <>The <i>logbook</i></>}
-        </h1>
-        <p class="fieldnotes-index__lede">
-          {lang === 'fr'
-            ? `${entries.length} notes courtes · cas, recettes, essais, notes. Mis à jour au fil des engagements.`
-            : `${entries.length} short notes · cases, cookbooks, essays, field notes. Updated as engagements unfold.`}
-        </p>
-      </header>
 
       <ul class="fieldnotes-index__list">
         {sorted.map((entry: any) => {
@@ -66,27 +70,6 @@ const sorted = entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTim
   .fieldnotes-index {
     padding-top: calc(var(--spacing-section) + var(--header-height));
     padding-bottom: var(--spacing-section);
-  }
-  .fieldnotes-index__hd {
-    margin-bottom: clamp(48px, 6vw, 80px);
-    border-bottom: 1px solid var(--hairline);
-    padding-bottom: 32px;
-  }
-  .fieldnotes-index__h1 {
-    font-family: var(--font-display);
-    font-size: var(--text-h1-hero);
-    line-height: 1.02;
-    color: var(--ink);
-    margin: 24px 0 0;
-  }
-  .fieldnotes-index__h1 i { font-style: italic; color: var(--accent); }
-  .fieldnotes-index__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-lede);
-    color: var(--ink-2);
-    line-height: 1.5;
-    margin: 24px 0 0;
-    max-width: 60ch;
   }
   .fieldnotes-index__list {
     list-style: none;
