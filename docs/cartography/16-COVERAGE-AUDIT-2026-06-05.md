@@ -59,7 +59,8 @@ l.35 `Live (21)` → 27 ; l.58 `Catalogue-only (46)` → 40. Les 6 sections home
 → **NE PAS migrer en aveugle.** Cataloguer ces patterns = soit brancher des type-ids existants (hero-hub-masthead, hero-pillar-hub, etc. catalogue-only à 0 adoption), soit créer de nouveaux types (= tâche dédiée Simon, rule 28 DS figé). Curation requise : décider quels patterns inline deviennent canoniques.
 
 ## 3. Plan
-1. **Tier 1 (ce jour, worker)** : corriger manifest (1A-1D) + §10 FR/EN (1E). Build + GF-1 liens 200.
-2. **CLAUDE.md** : « 58 types » → 67 (doc).
-3. **Tier 2 (programme)** : cataloguer le markup inline orphelin, en commençant par `hub-mast` → brancher `hero-hub-masthead` (type existant, 0 adoption) sur les ~7 pages hub. Curation Simon sur le mapping inline→type avant exécution.
-4. **Puis seulement** : migration templates (faire consommer le registry par les 18 templates) — le gate sera levé quand Tier 1+2 finis.
+1. **Tier 1 (FAIT, `d13f0d3`)** : corriger manifest (1A-1D) + §10 FR/EN (1E). Build + GF-1 liens 200.
+2. **CLAUDE.md (FAIT)** : « 58 types » → 67 (doc).
+3. **Tier 2 — MAPPING (FAIT 2026-06-05)** : chaque `<section>` inline des ~24 pages référencée + disposition attribuée (brancher existant / nouveau type / keep-bespoke). Réconciliation source-vérifiée → **`docs/cartography/17-TIER2-INLINE-MAPPING-2026-06-05.md`**. Bilan : ~13 FAITHFUL (brancher existant), ~22 APPROX (extension mineure), ~11 NEW (curation Simon), ~22 keep-bespoke. Gisement #1 = masthead ×15 → 3 types existants 0-adoption. **Arbitrage Simon en attente** (doc 17 §Décisions Q1/Q2/Q3) avant exécution.
+4. **Tier 2 — EXÉCUTION (gated arbitrage)** : brancher/créer selon curation Simon. Le gate « tout traité + référencé » sera **clos** une fois les dispositions tranchées.
+5. **Puis seulement** : migration templates (faire consommer le registry par les 18 templates).
