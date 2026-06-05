@@ -25,7 +25,7 @@
 
 ## ⚠️ DELTAS À VALIDER SIMON (veto = revert du commit isolé)
 1. **atlas EN** (`e041c69`) : l'ancien hero EN était un **test A/B explicite** (kicker `Vol. 03 — Atlas (direction 3 test)`, CTA `← See the home (direction 1)`, markup monocolonne désync du FR) → uniformisé sur le hero 2-col canonique. Rendu en/atlas change (monocolonne → 2-col). Hors scope : l'organism `<AtlasGrid>` qui suit garde un vestige texte « Direction 3 test ».
-2. **6 mastheads listing** (`835fe72`) : **restyle monumental** des pages référence/listing (h1 86 → 158px, hero plus haut → contenu repoussé sous le fold). Look = le monumental déjà approuvé sur les hub. Si veto → revert `835fe72` (1 commit).
+2. ~~**6 mastheads listing** (`835fe72`) : restyle monumental.~~ **✅ RÉSOLU 2026-06-05 (`158bade`)** — décision Simon : **découpler `scale` du variant**. Le type `hero-hub-masthead` a un champ optionnel `scale` ('monumental'|'standard') orthogonal au variant ; défaut listing→standard (réutilise `--text-h1-hero` = `clamp(40,6vw,92)` → ~77px@1280, 0 nouveau token), hub/detail→monumental. Les 6 pages listing repassent au scale standard automatiquement (h1 de référence visible above-fold) **sans perdre** le branchement catalogue de 835fe72 (markup composant conservé). Hub & detail inchangés (GF-1 6/6 : listing 76.8px op=1, hub/detail 140.8px op=1). Catalogue template-ready : structure × échelle indépendantes. Détail : §« Découplage scale » ci-dessous.
 
 ## NOTÉ (préexistant / hors scope — tâches contenu séparées)
 - **404 hreflang** : `/en/ressources/testimonials` + `/en/ressources/personas` (liens switch/alternate EN vers pages **FR-only** inexistantes). Préexistant, non lié au refactor masthead. *(= les 2 « ❌ » du GF-1 listing.)*
@@ -45,6 +45,15 @@ Tout ce qui mappe **0-delta** est branché ; tout le reste est tranché **KEEP-B
 - **Solutions** : GATÉ (ne pas toucher).
 
 ## Phase C (après B, NON enchaînée automatiquement — GF-1 par template requis) : faire consommer le registry par les 18 templates via SectionsRenderer (doc 22).
+
+## 🏛️ Découplage `scale` du `variant` (décision archi catalogue-template — 2026-06-05, `158bade`)
+**Problème soulevé par Simon** : en unifiant le masthead en « 1 type / 3 variants », le `variant` confondait deux axes orthogonaux — la **structure** (hub/listing/detail : déco SVG, role, align) ET l'**échelle typo** (monumental 140px vs utilitaire). Conséquence : le variant listing héritait du monumental, enterrant le contenu de référence sous le fold (prouvé screenshot).
+**Décision** : découpler. Un seul type catalogue, mais `scale` ('monumental'|'standard') **indépendant** du variant.
+- **Schéma** (`sections.ts` `heroHubMastheadSchema`) : `scale: z.enum(['monumental','standard']).optional()`.
+- **Composant** (`HeroCentered.astro`) : `const mastScale = data.scale ?? (variant==='listing' ? 'standard' : 'monumental')`. Modificateur `--standard` sur les 3 branches (`.hero-hub-masthead--standard` / `.hero-hub-listing--standard` / `.hero-utility--standard`) → `font-size: var(--text-h1-hero)`. **0 nouveau token** (rule 28 respectée — réutilise un token DS existant ; on conçoit le catalogue, pas une page).
+- **0 édition de page** : les 6 listing passent standard via le défaut-par-variant ; n'importe quelle page peut surcharger (`scale`).
+**Pourquoi c'est template-ready** : structure × échelle se choisissent indépendamment → un hub compact ou un listing monumental devient possible sans nouveau type ni duplication. Pattern DS mature (un Heading a un `level` sémantique ≠ une `size` visuelle).
+**Défauts choisis pour 0 delta non demandé** : hub & detail restent monumental (inchangés). Seul listing change (= le delta que Simon voulait corriger). GF-1 : 6/6 PASS.
 
 ## Méthode GF-1 rodée (réutiliser)
 Harnais jetable `_gf1-*.mjs` à la racine repo (résolution node_modules locale) : `import { chromium } from '@playwright/test'`, addStyleTag force reveals (`opacity:1!important;transform:none!important`), getComputedStyle (opacity/fontPx/transform/viewTransitionName) + count d'éléments + screenshot clip above-fold, `rm -f` après. serve-dist : `node scripts/serve-dist.mjs --port 4330 --root dist/client` (parité prod statique, évite le bruit vite-dev 504). ⚠️ assertion transform : tolérer `matrix(1,0,0,1,0,~0.01)` (reveal résiduel sous-pixel, ≠ régression).
