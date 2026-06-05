@@ -16,7 +16,7 @@ const isFr = lang === 'fr';
   <div class="wrap">
     <div class="eq-grid">
       {data.members.map((member) => (
-        <a href={member.href} class="eq-card">
+        <a href={member.href} class="eq-card" transition:name={member.transition_id ? `card-${member.transition_id}` : undefined}>
           {member.photo && (
             <img
               src={member.photo}

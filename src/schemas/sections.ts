@@ -1156,6 +1156,7 @@ export const teamCardGridSchema = z.object({
         photo_alt_fr: z.string().default('Portrait auteur Waimia'),
         photo_alt_en: z.string().default('Waimia author portrait'),
         count: z.number().int().min(0).default(0),
+        transition_id: z.string().optional(),
       }),
     )
     .min(1)

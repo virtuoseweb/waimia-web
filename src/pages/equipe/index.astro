@@ -14,6 +14,7 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
 import { langFromPath, t } from '../../lib/i18n';
 import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
+import TeamCardGrid from '../../components/sections/TeamCardGrid.astro';
 
 type AuthorLinkedEntry =
   | CollectionEntry<'blog'>
@@ -89,6 +90,32 @@ const collectionPageLd = {
   description: 'Les auteurs Waimia : fondateurs, contributeurs, invités. Bios, CV, publications.',
 };
 
+const gridData = {
+  type: 'team-card-grid' as const,
+  cta_label_fr: 'Voir le profil →',
+  cta_label_en: 'View profile →',
+  count_singular_fr: 'publication',
+  count_singular_en: 'publication',
+  count_plural_fr: 'publications',
+  count_plural_en: 'publications',
+  members: activeAuthors.map((author) => {
+    const href = lang === 'fr' ? `/equipe/${author.id}` : `/en/equipe/${author.id}`;
+    return {
+      name: author.data.title_fr,
+      role_fr: author.data.role_fr,
+      role_en: author.data.role_en ?? author.data.role_fr,
+      description_fr: author.data.description_fr,
+      description_en: author.data.description_en ?? author.data.description_fr,
+      href,
+      photo: author.data.photo,
+      photo_alt_fr: author.data.photoAlt_fr ?? author.data.title_fr,
+      photo_alt_en: author.data.photoAlt_en ?? author.data.photoAlt_fr ?? author.data.title_fr,
+      count: countByAuthor(author.id, author.data.title_fr),
+      transition_id: transitionIdFromHref(href),
+    };
+  }),
+} satisfies SectionByType<'team-card-grid'>;
+
 const ctaData = {
   type: 'cta-final' as const,
   h2_fr: 'Prêt à livrer un <em>agent</em>,<br />pas un slide deck ?',
@@ -135,42 +162,7 @@ const ctaData = {
   </section>
 
   {/* GRID auteurs */}
-  <section class="eq-grid-sec">
-    <div class="wrap">
-      <div class="eq-grid">
-        {activeAuthors.map((author) => {
-          const count = countByAuthor(author.id, author.data.title_fr);
-          const href = lang === 'fr' ? `/equipe/${author.id}` : `/en/equipe/${author.id}`;
-          return (
-            <a href={href} class="eq-card" transition:name={`card-${transitionIdFromHref(href)}`}>
-              {author.data.photo && (
-                <img
-                  src={author.data.photo}
-                  alt={author.data.photoAlt_fr ?? author.data.title_fr}
-                  class="eq-card-photo"
-                  loading="lazy"
-                  decoding="async"
-                />
-              )}
-              <div class="eq-card-body">
-                <h2 class="eq-card-name">{author.data.title_fr}</h2>
-                <p class="eq-card-role">{author.data.role_fr}</p>
-                <p class="eq-card-desc">{author.data.description_fr}</p>
-                {count > 0 && (
-                  <div class="eq-card-meta">
-                    <span class="eq-card-count">
-                      {count} publication{count > 1 ? 's' : ''}
-                    </span>
-                  </div>
-                )}
-                <span class="eq-card-cta">Voir le profil →</span>
-              </div>
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  </section>
+  <TeamCardGrid data={gridData} lang="fr" />
   <CtaFinal data={ctaData} lang="fr" />
 </Base>
 
@@ -201,102 +193,6 @@ const ctaData = {
     line-height: 1.55;
     color: var(--muted);
     max-width: 680px;
-  }
-
-  .eq-grid-sec {
-    padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px);
-  }
-  .eq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: clamp(24px, 3vw, 48px);
-  }
-  .eq-card {
-    background: var(--paper);
-    border: 1px solid rgba(0, 0, 0, .08);
-    border-top: 2px solid transparent;
-    border-radius: 2px;
-    padding: 32px;
-    text-decoration: none;
-    color: var(--ink);
-    transition: border-color 220ms var(--ease), border-top-color 220ms var(--ease), transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    overflow: hidden;
-  }
-  .eq-card:hover {
-    background: var(--paper-2);
-    border-color: var(--accent);
-    border-top-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, .06);
-  }
-  .eq-card-photo {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 2px;
-    transition: transform 360ms var(--ease-out);
-  }
-  .eq-card-body {
-    transition: transform 220ms var(--ease);
-  }
-  .eq-card:hover .eq-card-photo {
-    transform: scale(1.02);
-  }
-  .eq-card:hover .eq-card-body {
-    transform: translateX(1px);
-  }
-  .eq-card-name {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 2.6vw, 36px);
-    line-height: 1.05;
-    font-weight: 400;
-    margin: 0;
-  }
-  .eq-card-role {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0;
-  }
-  .eq-card-desc {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.55;
-    color: var(--muted);
-    margin: 0;
-  }
-  .eq-card-meta {
-    margin-top: auto;
-    padding-top: 16px;
-    border-top: 1px solid rgba(0, 0, 0, .08);
-  }
-  .eq-card-count {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .eq-card-cta {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    color: var(--accent);
-    margin-top: 8px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .eq-card,
-    .eq-card-photo,
-    .eq-card-body {
-      transition: none !important;
-      transform: none !important;
-      box-shadow: none !important;
-    }
   }
 
   .wrap {
