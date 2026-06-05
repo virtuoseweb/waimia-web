@@ -21,7 +21,7 @@
 ### Décisions de curation (restant) — proposées, veto Simon possible
 - **secteurs `.hub-mast`** → **KEEP-BESPOKE** proposé : `sector-svg-sig` (signature SVG dessinée unique) + `hub-canonical` (2ᵉ p) sont spécifiques, non réutilisés → les forcer dans le composant masthead partagé = blast radius élevé pour 0 réutilisation. Garder inline.
 - **cas `.cas-grid`** (featured 7fr/5fr + VT) + **`.cas-cta`** (eyebrow + 1 CTA) → **KEEP-BESPOKE** proposé : structures uniques ≠ case-card-grid/cta-final (≠ 0-delta). Branchement = restyle non justifié.
-- **B8 content-bands** (technologies layers/flagship/frameworks · ressources tools/cases/cookbooks) → candidats use-case-index/related-cards-band **+ext** : à évaluer cas par cas (prochain fire boucle).
+- **B8 content-bands** (technologies `.hub-frameworks` · ressources `.hub-tools`/`.hub-cookbooks`) → **KEEP-BESPOKE** (tranché 2026-06-05, branchements évalués puis revertés) : chaque bande porte un **titre h2 monumental** (`clamp(40px,6vw,88px)`, font-display, textes « Trois frameworks. Trois grammaires. » / « Trois lectures. Pas de funnel commercial. » / « Les recettes qu'on applique en mission. ») dont le style `<i>` **diffère même entre les sections** (frameworks `--muted`, tools/cookbooks `--accent`). Or `related-cards-band` n'expose **qu'un kicker mono + grille** — **aucun slot h2**. Les 3 voies possibles échouent au 0-delta : (a) drop le h2 = perte de contenu ; (b) h2 inline + section composant = delta de vertical-gap (double padding) ; (c) extension h2 dans le composant = restyle (styles `<i>` hétérogènes non reproductibles par une règle unique). Forcer = violer « 0-delta only ». Cards laissées bespoke avec leur titre.
 
 ## ⚠️ DELTAS À VALIDER SIMON (veto = revert du commit isolé)
 1. **atlas EN** (`e041c69`) : l'ancien hero EN était un **test A/B explicite** (kicker `Vol. 03 — Atlas (direction 3 test)`, CTA `← See the home (direction 1)`, markup monocolonne désync du FR) → uniformisé sur le hero 2-col canonique. Rendu en/atlas change (monocolonne → 2-col). Hors scope : l'organism `<AtlasGrid>` qui suit garde un vestige texte « Direction 3 test ».
@@ -32,14 +32,19 @@
 - **Typo source comparer** : `detaillees` / `selectionner` (sans accents) — **préservés verbatim** (branchement = pur refactor). À corriger en tâche contenu.
 - Variables orphelines laissées (inoffensives, build vert) : `sectorsToCome` (secteurs), `pains/criteria/objections/proofs` (personas [slug]).
 
-## RESTE Phase B (prochains batches)
-- **B4 secteurs `.hub-mast`** → ⚠️ a `hub-canonical` (2ᵉ p) + `sector-svg-sig` (signature SVG custom) NON couverts par variant hub → **extension schéma requise** (`canonical_*` + slot `svg_signature` optionnels sur heroHubMasthead, 4 touchpoints) OU garder bespoke. Arbitrage.
-- **B6 detail/utility mastheads** → variant **detail** (ex. personas/[slug] `__hd` +`role` mono, autres pages détail). Variant detail créé mais jamais branché → pilote requis.
-- **B7 FAITHFUL** : cas/index grille+cta (l.56 `.cas-grid` / l.77 `.cas-cta`) + manifesto → case-card-grid / cta-final / manifesto-block (types déjà live home/atlas). Vérifier 0-delta de la grille cas (≠ grille home ?).
-- **B8 APPROX** (extensions optionnelles) : secteurs `.hub-sectors-live` (sector-card-grid ?) · technologies `.hub-layers/.hub-flagship/.hub-frameworks` → use-case-index/related-cards-band +ext · ressources `.hub-tools/.hub-cases-detail/.hub-cookbooks` → related-cards-band/use-case-index +ext.
-- **Solutions** : GATÉ (HeroSector infidèle, décision Simon — ne pas toucher).
+## ✅ PHASE B TERMINÉE (2026-06-05)
+Tout ce qui mappe **0-delta** est branché ; tout le reste est tranché **KEEP-BESPOKE** avec raison sourcée (jamais forcé). Bilan :
+- **Branché** : masthead 3 variants (hub B2 · listing B5 · detail B6) + nouveaux types fidèles (B3 : coming-soon-pills, editorial-split-grid, persona-attributes-grid, hero-atlas).
+- **KEEP-BESPOKE** (non 0-delta, décisions ci-dessus) : secteurs `.hub-mast` (svg signature) · cas `.cas-grid`/`.cas-cta` · **B8 content-bands** (3 titres h2 monumentaux non hostables par related-cards-band).
+- **GATÉ** (hors scope, décision Simon) : solutions (HeroSector infidèle).
+- **2 deltas en attente de veto Simon** (cf section ci-dessus) : atlas EN restyle (`e041c69`) · 6 mastheads listing monumental (`835fe72`). Veto = revert du commit isolé.
 
-## Phase C (après B) : faire consommer le registry par les 18 templates via SectionsRenderer (doc 22).
+### Restes hors « 0-delta » (= tâches dédiées Simon, PAS de branchement auto)
+- **B4 secteurs `.hub-mast`** → KEEP-BESPOKE : `hub-canonical` (2ᵉ p) + `sector-svg-sig` (SVG signature custom) non couverts par variant hub. Extension schéma possible (`canonical_*` + slot `svg_signature` opt., 4 touchpoints) **si** Simon arbitre que ça vaut le blast-radius pour 0 réutilisation.
+- **B7 cas grille+cta** → KEEP-BESPOKE : `.cas-grid` (featured 7fr/5fr + VT) ≠ case-card-grid ; `.cas-cta` ≠ cta-final → branchement = restyle, pas 0-delta.
+- **Solutions** : GATÉ (ne pas toucher).
+
+## Phase C (après B, NON enchaînée automatiquement — GF-1 par template requis) : faire consommer le registry par les 18 templates via SectionsRenderer (doc 22).
 
 ## Méthode GF-1 rodée (réutiliser)
 Harnais jetable `_gf1-*.mjs` à la racine repo (résolution node_modules locale) : `import { chromium } from '@playwright/test'`, addStyleTag force reveals (`opacity:1!important;transform:none!important`), getComputedStyle (opacity/fontPx/transform/viewTransitionName) + count d'éléments + screenshot clip above-fold, `rm -f` après. serve-dist : `node scripts/serve-dist.mjs --port 4330 --root dist/client` (parité prod statique, évite le bruit vite-dev 504). ⚠️ assertion transform : tolérer `matrix(1,0,0,1,0,~0.01)` (reveal résiduel sous-pixel, ≠ régression).
