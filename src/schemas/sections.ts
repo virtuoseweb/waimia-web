@@ -318,6 +318,7 @@ export const heroHubMastheadSchema = z.object({
   variant: z.enum(['hub', 'listing', 'detail']).default('hub'),
   decoration: z.boolean().default(false),
   align: z.enum(['left', 'centered']).default('left'),
+  scale: z.enum(['monumental', 'standard']).optional(),
   transition_id: z.string().optional(),
   role_fr: z.string().optional(),
   role_en: z.string().optional(),
