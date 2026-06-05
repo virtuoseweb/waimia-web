@@ -81,7 +81,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     <section class="hero-hub-masthead">
       <div class="wrap-wide">
         <Kicker class="hero-hub-masthead__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-        <h1 class="hero-hub-masthead__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+        <h1 class="hero-hub-masthead__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} transition:name={data.transition_id ? `hero-h1-${data.transition_id}` : undefined} />
         <p class="hero-hub-masthead__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
       </div>
     </section>

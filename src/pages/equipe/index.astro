@@ -10,11 +10,11 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import Kicker from '../../components/ui/atoms/Kicker.astro';
-import { langFromPath, t } from '../../lib/i18n';
+import { langFromPath } from '../../lib/i18n';
 import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
 import TeamCardGrid from '../../components/sections/TeamCardGrid.astro';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
 
 type AuthorLinkedEntry =
   | CollectionEntry<'blog'>
@@ -116,6 +116,20 @@ const gridData = {
   }),
 } satisfies SectionByType<'team-card-grid'>;
 
+const mastheadData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'hub' as const,
+  decoration: false,
+  align: 'left' as const,
+  kicker_fr: `§ Hub · Équipe · ${activeAuthors.length} ${activeAuthors.length > 1 ? 'auteurs' : 'auteur'}`,
+  kicker_en: `§ Hub · Team · ${activeAuthors.length} ${activeAuthors.length > 1 ? 'authors' : 'author'}`,
+  h1_fr: 'Qui <i>écrit</i>. Qui <i>cable</i>.',
+  h1_en: 'Who <i>writes</i>. Who <i>ships</i>.',
+  lede_fr: "Pas de ghostwriting. Pas d'agence anonyme. Chaque article, chaque cas, chaque livre blanc est signé. Voici qui écrit pour Waimia.",
+  lede_en: "No ghostwriting. No anonymous agency. Every article, case, white paper is signed. Here's who writes for Waimia.",
+  transition_id: transitionIdFromHref(Astro.url.pathname),
+} satisfies SectionByType<'hero-hub-masthead'>;
+
 const ctaData = {
   type: 'cta-final' as const,
   h2_fr: 'Prêt à livrer un <em>agent</em>,<br />pas un slide deck ?',
@@ -134,32 +148,7 @@ const ctaData = {
   jsonLd={[breadcrumbLd, collectionPageLd]}
 >
   {/* MASTHEAD */}
-  <section class="eq-mast">
-    <div class="wrap-tight">
-      <Kicker class="eq-kicker">
-        § Hub · {t({ fr: "Équipe", en: 'Team' }, lang)} · {activeAuthors.length}{' '}
-        {activeAuthors.length > 1
-          ? t({ fr: 'auteurs', en: 'authors' }, lang)
-          : t({ fr: 'auteur', en: 'author' }, lang)}
-      </Kicker>
-      <h1 class="eq-h1 reveal reveal-mask-up" transition:name={`hero-h1-${transitionIdFromHref(Astro.url.pathname)}`}>
-        {lang === 'fr' ? (
-          <>
-            Qui <i>écrit</i>. Qui <i>cable</i>.
-          </>
-        ) : (
-          <>
-            Who <i>writes</i>. Who <i>ships</i>.
-          </>
-        )}
-      </h1>
-      <p class="eq-lede">
-        {lang === 'fr'
-          ? "Pas de ghostwriting. Pas d'agence anonyme. Chaque article, chaque cas, chaque livre blanc est signé. Voici qui écrit pour Waimia."
-          : "No ghostwriting. No anonymous agency. Every article, case, white paper is signed. Here's who writes for Waimia."}
-      </p>
-    </div>
-  </section>
+  <HeroCentered data={mastheadData} lang="fr" />
 
   {/* GRID auteurs */}
   <TeamCardGrid data={gridData} lang="fr" />
@@ -167,41 +156,8 @@ const ctaData = {
 </Base>
 
 <style>
-  .eq-mast {
-    padding: clamp(80px, 10vw, 140px) 0 clamp(40px, 5vw, 64px);
-    color: var(--ink);
-  }
-  :global(.eq-kicker) {
-    color: var(--accent);
-    margin-bottom: 24px;
-  }
-  .eq-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 120px);
-    line-height: .92;
-    letter-spacing: -.028em;
-    font-weight: 400;
-    margin: 0 0 32px;
-  }
-  .eq-h1 i {
-    color: var(--accent);
-    font-style: italic;
-  }
-  .eq-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(18px, 1.6vw, 22px);
-    line-height: 1.55;
-    color: var(--muted);
-    max-width: 680px;
-  }
-
   .wrap {
     max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 48px);
-  }
-  .wrap-tight {
-    max-width: 880px;
     margin: 0 auto;
     padding: 0 clamp(20px, 4vw, 48px);
   }

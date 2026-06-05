@@ -318,6 +318,7 @@ export const heroHubMastheadSchema = z.object({
   variant: z.enum(['hub', 'listing', 'detail']).default('hub'),
   decoration: z.boolean().default(false),
   align: z.enum(['left', 'centered']).default('left'),
+  transition_id: z.string().optional(),
 });
 
 // Trust/legal pages : masthead documentaire + TOC sticky gauche.
