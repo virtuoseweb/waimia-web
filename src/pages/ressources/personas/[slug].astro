@@ -6,10 +6,10 @@ export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
-import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../../lib/i18n';
 import PersonaAttributesGrid from '../../../components/sections/PersonaAttributesGrid.astro';
+import HeroCentered from '../../../components/sections/HeroCentered.astro';
 import type { SectionByType } from '../../../schemas/sections';
 
 export async function getStaticPaths() {
@@ -32,6 +32,21 @@ const pains = lang === 'fr' ? data.pain_points_fr : data.pain_points_en;
 const criteria = lang === 'fr' ? data.decision_criteria_fr : data.decision_criteria_en;
 const objections = lang === 'fr' ? data.objections_fr : data.objections_en;
 const proofs = lang === 'fr' ? data.proof_points_fr : data.proof_points_en;
+
+const headerData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'detail' as const,
+  align: 'left' as const,
+  decoration: false,
+  kicker_fr: '§ PERSONA',
+  kicker_en: '§ PERSONA',
+  h1_fr: data.title_fr,
+  h1_en: data.title_en,
+  role_fr: data.role_fr,
+  role_en: data.role_en,
+  lede_fr: data.description_fr,
+  lede_en: data.description_en,
+} satisfies SectionByType<'hero-hub-masthead'>;
 
 const attrData = {
   type: 'persona-attributes-grid' as const,
@@ -96,14 +111,11 @@ const attrData = {
           { href: `/ressources/personas/${entry.id}`, label: title, current: true },
         ]}
       />
+    </div>
 
-      <header class="persona-detail__hd">
-        <Kicker tone="accent">§ PERSONA</Kicker>
-        <h1 class="persona-detail__title">{title}</h1>
-        <p class="persona-detail__role">{role}</p>
-        <p class="persona-detail__lede">{lang === 'fr' ? data.description_fr : data.description_en}</p>
-      </header>
+    <HeroCentered data={headerData} lang={lang} />
 
+    <div class="wrap-wide">
       <PersonaAttributesGrid data={attrData} lang={lang} />
 
       <section class="persona-detail__content">
@@ -115,35 +127,7 @@ const attrData = {
 
 <style>
   .persona-detail {
-    padding-top: calc(var(--spacing-section) + var(--header-height));
     padding-bottom: var(--spacing-section);
-  }
-  .persona-detail__hd {
-    margin: 32px 0 48px;
-    border-bottom: 1px solid var(--hairline);
-    padding-bottom: 32px;
-  }
-  .persona-detail__title {
-    font-family: var(--font-display);
-    font-size: var(--text-h1-hero);
-    line-height: 1.02;
-    color: var(--ink);
-    margin: 16px 0 0;
-  }
-  .persona-detail__role {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    margin: 12px 0 0;
-  }
-  .persona-detail__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-lede);
-    line-height: 1.5;
-    color: var(--ink-2);
-    margin: 24px 0 0;
-    max-width: 64ch;
   }
   .persona-detail__content {
     max-width: 72ch;

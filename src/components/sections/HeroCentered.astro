@@ -74,6 +74,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
           <Kicker class={`hero-utility__kicker${rv}`}>{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
         )}
         <h1 class={`hero-utility__h1${rv}`} set:html={isFr ? data.h1_fr : data.h1_en} />
+        {(isFr ? data.role_fr : data.role_en) && <p class={`hero-utility__role${rv}`} set:html={isFr ? data.role_fr : (data.role_en ?? data.role_fr)} />}
         <p class={`hero-utility__lede${rv}`} set:html={isFr ? data.lede_fr : data.lede_en} />
       </div>
     </section>
@@ -394,6 +395,14 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     margin: 0;
   }
   .hero-utility__h1 :global(i) { font-style: italic; color: var(--accent); }
+
+  .hero-utility__role {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin: 12px 0 0;
+  }
 
   .hero-utility__lede {
     font-family: var(--font-display);

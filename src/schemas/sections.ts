@@ -319,6 +319,8 @@ export const heroHubMastheadSchema = z.object({
   decoration: z.boolean().default(false),
   align: z.enum(['left', 'centered']).default('left'),
   transition_id: z.string().optional(),
+  role_fr: z.string().optional(),
+  role_en: z.string().optional(),
 });
 
 // Trust/legal pages : masthead documentaire + TOC sticky gauche.
