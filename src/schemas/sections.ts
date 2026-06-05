@@ -304,6 +304,9 @@ export const heroAcademyHubSchema = z.object({
 });
 
 // Hero · masthead mutualisé pour pages d'index hub (offres/cas/secteurs/technologies)
+// variant 'hub' (défaut) = style hub masthead original
+// variant 'listing' = style hero-hub-listing (deco SVG optionnelle)
+// variant 'detail' = style hero-utility (kicker optionnel, align gauche|centré)
 export const heroHubMastheadSchema = z.object({
   type: z.literal('hero-hub-masthead'),
   kicker_fr: z.string(),
@@ -312,6 +315,9 @@ export const heroHubMastheadSchema = z.object({
   h1_en: z.string(),
   lede_fr: z.string(),
   lede_en: z.string(),
+  variant: z.enum(['hub', 'listing', 'detail']).default('hub'),
+  decoration: z.boolean().default(false),
+  align: z.enum(['left', 'centered']).default('left'),
 });
 
 // Trust/legal pages : masthead documentaire + TOC sticky gauche.

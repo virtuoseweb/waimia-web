@@ -53,13 +53,39 @@ const rv = reveal ? ' reveal' : '';
 const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
 {data.type === 'hero-hub-masthead' ? (
-  <section class="hero-hub-masthead">
-    <div class="wrap-wide">
-      <Kicker class="hero-hub-masthead__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-      <h1 class="hero-hub-masthead__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
-      <p class="hero-hub-masthead__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
-    </div>
-  </section>
+  data.variant === 'listing' ? (
+    <section class="hero-hub-listing">
+      {data.decoration && (
+        <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
+          <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
+          <line x1="0" y1="320" x2="600" y2="220" stroke="var(--accent)" stroke-width=".4" opacity=".18" />
+        </svg>
+      )}
+      <div class="wrap-wide">
+        <Kicker class="hero-hub-listing__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <h1 class="hero-hub-listing__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+        <p class="hero-hub-listing__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+      </div>
+    </section>
+  ) : data.variant === 'detail' ? (
+    <section class:list={['hero-utility', `hero-utility--${data.align ?? 'left'}`]}>
+      <div class="wrap-wide" style={wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined}>
+        {data.kicker_fr && (
+          <Kicker class={`hero-utility__kicker${rv}`}>{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
+        )}
+        <h1 class={`hero-utility__h1${rv}`} set:html={isFr ? data.h1_fr : data.h1_en} />
+        <p class={`hero-utility__lede${rv}`} set:html={isFr ? data.lede_fr : data.lede_en} />
+      </div>
+    </section>
+  ) : (
+    <section class="hero-hub-masthead">
+      <div class="wrap-wide">
+        <Kicker class="hero-hub-masthead__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <h1 class="hero-hub-masthead__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+        <p class="hero-hub-masthead__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+      </div>
+    </section>
+  )
 ) : data.type === 'hero-hub-listing' ? (
   <section class="hero-hub-listing">
     {data.decoration && (
