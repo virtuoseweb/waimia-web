@@ -13,9 +13,34 @@ import EditorialPreview from '../../components/sections/EditorialPreview.astro';
 import { editorialPreviewData } from '../../lib/editorial-preview-data';
 import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
+import HeroAtlas from '../../components/sections/HeroAtlas.astro';
 
 import { localizeHref } from '../../lib/i18n';
 const lang = 'en';
+
+const heroData = {
+  type: 'hero-atlas' as const,
+  kicker_fr: 'Atlas · Cartographier · Câbler · Orchestrer · Industrialiser',
+  kicker_en: 'Atlas · Map · Wire · Orchestrate · Industrialize',
+  h1_fr: 'Une <i>cartographie</i><br />pour les pressés.',
+  h1_en: 'A <i>map</i><br />for the time-pressed.',
+  subhead_fr: 'Une seule page pour comprendre comment Waimia <i>cÃ¢ble l’IA dans le revenu</i>. Pas dix slides. Pas de schÃ©ma d’architecture. Juste une carte, des piliers, et trois portes selon votre fonction.',
+  subhead_en: 'One page to understand how Waimia <i>wires AI into revenue</i>. Not ten slides. No architecture diagram. Just a map, four pillars, and three doors based on your role.',
+  lead_fr: 'Marketing, sales, contenu, web, CRM, analytics et marque â sept territoires sur une seule carte. Quatre piliers. Trois portes d’entrÃ©e par persona. RepÃ©rez votre douleur, on prend l’audit en charge.',
+  lead_en: 'Marketing, sales, content, web, CRM, analytics and brand â seven territories on one map. Four pillars. Three entry doors per persona. Spot your pain, we’ll handle the audit.',
+  cta_primary: { label_fr: 'Réserver un audit', label_en: 'Book an audit', href: localizeHref('/contact', lang), variant: 'primary' as const },
+  cta_secondary: { label_fr: 'â Retour Ã  l’accueil', label_en: 'â Back to home', href: localizeHref('/', lang), variant: 'ghost' as const },
+  map_aria_label_fr: 'Les 4 piliers Atlas',
+  map_aria_label_en: 'The 4 Atlas pillars',
+  map_kicker_fr: 'Atlas · 4 piliers',
+  map_kicker_en: 'Atlas · 4 pillars',
+  pillars: [
+    { num: '01', label_fr: 'Audit', label_en: 'Audit', desc_fr: 'Cartographier la stack et les frictions revenue.', desc_en: 'Map the stack and revenue friction points.', deliverable_fr: 'Rapport 12 pages · 5 jours', deliverable_en: '12-page report · 5 days' },
+    { num: '02', label_fr: 'Adoption', label_en: 'Adoption', desc_fr: 'Onboarder les équipes, ancrer la pratique.', desc_en: 'Onboard teams, embed the practice.', deliverable_fr: 'Playbooks · sessions hebdo', deliverable_en: 'Playbooks · weekly sessions' },
+    { num: '03', label_fr: 'Orchestration', label_en: 'Orchestration', desc_fr: 'Câbler les agents IA dans les outils existants.', desc_en: 'Wire AI agents into existing tools.', deliverable_fr: 'Workflows live · monitoring', deliverable_en: 'Live workflows · monitoring' },
+    { num: '04', label_fr: 'Souveraineté', label_en: 'Sovereignty', desc_fr: 'Garder la propriété de la couche AI.', desc_en: 'Retain ownership of the AI layer.', deliverable_fr: 'Code · données · runbook transmis', deliverable_en: 'Code · data · runbook transferred' },
+  ],
+} satisfies SectionByType<'hero-atlas'>;
 
 const ctaData = {
   type: 'cta-final' as const,
@@ -32,27 +57,8 @@ const ctaData = {
   title="Waimia · Atlas — four entry doors"
   description="Waimia Atlas: four pillars (Audit, Adoption, Orchestration, Sovereignty) and three entry doors per persona (CEO, CIO, CTO). Direction 3 test vs home."
 >
-  <section class="hero-atlas">
-    <div class="signature-grid"></div>
-    <div class="wrap-wide">
-      <div class="kick">
-        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent)"></span>
-        <span>Vol. 03 — Atlas (direction 3 test)</span>
-      </div>
-      <h1 class="hero-atlas-title">A <i>map</i><br/>for the time-pressed.</h1>
-      <p class="hero-atlas-lead">
-        Four pillars, three doors per persona, one engagement behind. Click where it speaks to you.
-      </p>
-      <div style="display:flex;gap:12px;margin-top:36px;flex-wrap:wrap;align-items:center">
-        <a href={localizeHref('/contact', lang)} class="btn btn-primary btn-lg" data-mag="0.18">
-          Book an audit <span aria-hidden>→</span>
-        </a>
-        <a href={localizeHref('/', lang)} class="btn btn-ghost btn-lg">
-          ← See the home (direction 1)
-        </a>
-      </div>
-    </div>
-  </section>
+  {/* Hero 2 colonnes · V7 — branché sur HeroAtlas catalogue */}
+  <HeroAtlas data={heroData} lang={lang} />
 
   <AtlasGrid />
   <PersonaSwitcher />
@@ -61,12 +67,3 @@ const ctaData = {
   <CtaFinal data={ctaData} lang={lang} />
 </Base>
 
-<style>
-  .hero-atlas{position:relative;padding:calc(140px + var(--gut)) var(--gut) clamp(80px,10vw,160px);overflow:hidden;border-bottom:1px solid var(--hairline)}
-  .hero-atlas .signature-grid{z-index:0}
-  .hero-atlas > *:not(.signature-grid){position:relative;z-index:1}
-  .hero-atlas .kick{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
-  .hero-atlas-title{font-family:var(--font-display);font-size:clamp(56px,11vw,180px);line-height:.92;letter-spacing:-0.03em;font-weight:400;text-wrap:balance}
-  .hero-atlas-title i{font-style:italic;color:var(--accent)}
-  .hero-atlas-lead{font-family:var(--font-display);font-style:italic;font-size:clamp(20px,2.2vw,32px);color:var(--ink-2);margin-top:32px;max-width:760px;line-height:1.4;text-wrap:pretty}
-</style>
