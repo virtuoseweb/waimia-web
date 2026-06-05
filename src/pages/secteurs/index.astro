@@ -12,6 +12,7 @@ import Base from '../../layouts/Base.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
+import ComingSoonPills from '../../components/sections/ComingSoonPills.astro';
 
 const sectorsLive = [
   {
@@ -50,6 +51,30 @@ const sectorsToCome = [
   'BTP',
   'Cabinets juridiques',
 ];
+
+const comingData = {
+  type: 'coming-soon-pills' as const,
+  kicker_fr: '§ À venir',
+  kicker_en: '§ Coming soon',
+  h2_fr: 'Quand on aura câblé assez de cas pour parler juste.',
+  h2_en: 'When we\'ve wired enough cases to speak plainly.',
+  aria_label_fr: 'Secteurs à venir',
+  aria_label_en: 'Upcoming sectors',
+  pills_fr: [
+    'Santé-tech',
+    'Retail & e-commerce',
+    'Immobilier',
+    'BTP',
+    'Cabinets juridiques',
+  ],
+  pills_en: [
+    'Health-tech',
+    'Retail & e-commerce',
+    'Real estate',
+    'Construction',
+    'Law firms',
+  ],
+} satisfies SectionByType<'coming-soon-pills'>;
 
 const ctaData = {
   type: 'cta-final' as const,
@@ -113,17 +138,7 @@ const ctaData = {
     ))}
   </section>
 
-  <section class="hub-coming">
-    <div class="wrap-wide">
-      <Kicker>§ À venir</Kicker>
-      <h2 class="coming-h2">Quand on aura câblé assez de cas pour parler juste.</h2>
-      <ul class="coming-list" aria-label="Secteurs à venir">
-        {sectorsToCome.map((label) => (
-          <li class="coming-pill">{label}</li>
-        ))}
-      </ul>
-    </div>
-  </section>
+  <ComingSoonPills data={comingData} lang="fr" />
 
   <section class="hub-cta-band">
     <div class="wrap-wide">
@@ -262,42 +277,6 @@ const ctaData = {
     font-size: 12px;
     color: var(--accent);
     margin-top: auto;
-  }
-
-  /* ── À venir ── */
-  .hub-coming {
-    padding: clamp(80px, 10vw, 120px) 32px;
-    background: var(--paper-2);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .coming-h2 {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 4vw, 60px);
-    line-height: 1.05;
-    letter-spacing: -0.022em;
-    font-weight: 400;
-    margin: 18px 0 clamp(32px, 4vw, 56px);
-    max-width: 640px;
-    text-wrap: balance;
-  }
-  .coming-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .coming-pill {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid var(--hairline-strong);
-    padding: 8px 18px;
-    border-radius: 2px;
   }
 
   /* ── CTA bande ── */

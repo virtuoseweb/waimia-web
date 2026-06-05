@@ -9,6 +9,7 @@ import CtaFinal from '../../../components/sections/CtaFinal.astro';
 import HeroCentered from '../../../components/sections/HeroCentered.astro';
 import RelatedCards from '../../../components/ui/molecules/RelatedCards.astro';
 import Button from '../../../components/ui/atoms/Button.astro';
+import EditorialSplitGrid from '../../../components/sections/EditorialSplitGrid.astro';
 import { buildCollectionPage } from '../../../lib/seo/schema-builder';
 
 const collectionLd = buildCollectionPage(
@@ -75,6 +76,32 @@ const whitePaperCards = [
     lead_en: 'EU compliance · 47 criteria checklist →',
     href: '/ressources/livres-blancs/ai-act-readiness' },
 ];
+
+const splitData = {
+  type: 'editorial-split-grid' as const,
+  left: {
+    slot: 'left' as const,
+    kicker_fr: '§ Blog · notes longues',
+    kicker_en: '§ Blog · long reads',
+    h2_fr: 'Une <i>note</i> à la fois.',
+    h2_en: 'One <i>note</i> at a time.',
+    lede_fr: 'Pas de calendrier éditorial. On publie quand on a vraiment quelque chose à dire.',
+    lede_en: 'No editorial calendar. We publish when we genuinely have something to say.',
+    cards: blogCards.map((c) => ({ ...c, title_fr: c.title_en, lead_fr: c.lead_en })),
+    cta: { label_fr: 'Tous les articles →', label_en: 'All articles →', href: '/ressources/blog', variant: 'ghost' as const },
+  },
+  right: {
+    slot: 'right' as const,
+    kicker_fr: '§ Livres blancs · documents PDF',
+    kicker_en: '§ White papers · PDF documents',
+    h2_fr: 'Un <i>document</i> par sujet.',
+    h2_en: 'One <i>document</i> per topic.',
+    lede_fr: 'Téléchargeable sans formulaire. Cité par nos clients en comité de direction.',
+    lede_en: 'Downloadable without a form. Cited by our clients in board meetings.',
+    cards: whitePaperCards.map((c) => ({ ...c, title_fr: c.title_en, lead_fr: c.lead_en })),
+    cta: { label_fr: 'Tous les livres blancs →', label_en: 'All white papers →', href: '/ressources/livres-blancs', variant: 'ghost' as const },
+  },
+} satisfies SectionByType<'editorial-split-grid'>;
 
 const mastheadData = {
   type: 'hero-hub-masthead' as const,
@@ -156,32 +183,7 @@ const ctaData = {
   </section>
 
   {/* BLOG + WHITE PAPERS · detailed pages */}
-  <section class="hub-blog-lb">
-    <div class="wrap-wide hub-blog-lb-grid reveal-stagger">
-      <div>
-        <Kicker tone="accent" class="hub-blog-k">§ Blog · long reads</Kicker>
-        <h2 class="hub-blog-h2">One <i>note</i> at a time.</h2>
-        <p class="hub-blog-lead">
-          No editorial calendar. We publish when we genuinely have something to say.
-        </p>
-        <RelatedCards cards={blogCards.map(c => ({ ...c, title_fr: c.title_en, lead_fr: c.lead_en }))} />
-        <div class="hub-blog-cta">
-          <Button href="/ressources/blog" variant="ghost" size="md">All articles →</Button>
-        </div>
-      </div>
-      <div>
-        <Kicker tone="accent" class="hub-lb-k">§ White papers · PDF documents</Kicker>
-        <h2 class="hub-lb-h2">One <i>document</i> per topic.</h2>
-        <p class="hub-lb-lead">
-          Downloadable without a form. Cited by our clients in board meetings.
-        </p>
-        <RelatedCards cards={whitePaperCards.map(c => ({ ...c, title_fr: c.title_en, lead_fr: c.lead_en }))} />
-        <div class="hub-lb-cta">
-          <Button href="/ressources/livres-blancs" variant="ghost" size="md">All white papers →</Button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <EditorialSplitGrid data={splitData} lang="en" />
 
   {/* NEWSLETTER BAND */}
   <section class="hub-nl">
@@ -307,40 +309,6 @@ const ctaData = {
   @media (max-width: 700px) {
     .hub-cd-link { grid-template-columns: 48px 1fr; }
     .hub-cd-arr { display: none; }
-  }
-
-  .hub-blog-lb { padding: clamp(80px, 10vw, 120px) 32px; border-top: 1px solid var(--hairline); }
-  .hub-blog-lb-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(40px, 5vw, 80px);
-  }
-  :global(.hub-blog-k),
-  :global(.hub-lb-k) { display: block; margin-bottom: 14px; }
-  .hub-blog-h2,
-  .hub-lb-h2 {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3.4vw, 44px);
-    line-height: 1;
-    letter-spacing: -0.022em;
-    margin: 0 0 18px;
-    text-wrap: balance;
-    font-weight: 400;
-  }
-  .hub-blog-h2 :global(i),
-  .hub-lb-h2 :global(i) { font-style: italic; color: var(--accent); }
-  .hub-blog-lead,
-  .hub-lb-lead {
-    font-family: var(--font-sans);
-    font-size: clamp(15px, 1.6vw, 18px);
-    color: var(--muted);
-    margin: 0 0 28px;
-    line-height: 1.45;
-  }
-  .hub-blog-cta,
-  .hub-lb-cta { margin-top: clamp(20px, 2.5vw, 32px); }
-  @media (max-width: 800px) {
-    .hub-blog-lb-grid { grid-template-columns: 1fr; }
   }
 
   .hub-nl { padding: clamp(80px, 10vw, 120px) 32px; background: var(--ink); color: var(--paper); }
