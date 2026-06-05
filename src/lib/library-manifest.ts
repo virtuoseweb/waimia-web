@@ -32,30 +32,31 @@ export interface LibraryOrganismEntry {
 // ── Usage par type-id (hand-authored — 67 entrées, consumers=[] si catalogue-only) ──
 
 const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
-  // ── Live (21) ───────────────────────────────────────────────────────────────
-  { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetail.astro'] },
-  { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetail.astro'] },
-  { id: 'hero-service-detail',   consumers: ['src/components/templates/ServiceDetail.astro'] },
-  { id: 'hero-case-study',       consumers: ['src/components/templates/CaseStudy.astro'] },
-  { id: 'hero-utility-masthead', consumers: ['src/components/templates/Utility.astro'] },
-  { id: 'hero-academy-hub',      consumers: ['src/components/templates/EcoleHub.astro'] },
-  { id: 'hero-conversion-funnel',consumers: ['src/components/templates/ConversionFunnel.astro'] },
-  { id: 'hero-hub-stats',        consumers: ['src/components/templates/Hub.astro'] },
-  { id: 'hero-detail-menu',      consumers: ['src/components/templates/DetailMenu.astro'] },
-  { id: 'hero-author',           consumers: ['src/components/templates/AuthorPage.astro'] },
-  { id: 'hero-lead-magnet',      consumers: ['src/components/templates/LeadMagnet.astro'] },
-  { id: 'hero-course',           consumers: ['src/components/templates/CourseDetail.astro'] },
-  { id: 'hero-essay',            consumers: ['src/components/templates/Essay.astro'] },
-  { id: 'hero-split',            consumers: ['src/content/mdx/composable-pilot'] },
-  { id: 'proof-bar',             consumers: ['src/components/templates/ServiceDetail.astro', 'src/components/templates/DetailMenu.astro', 'src/pages/index.astro', 'src/pages/en/index.astro', 'src/content/mdx'] },
-  { id: 'method-timeline',       consumers: ['src/components/templates/ServiceDetail.astro', 'src/components/templates/CaseStudy.astro', 'src/components/templates/DetailMenu.astro', 'src/content/mdx'] },
+  // ── Live (27) ───────────────────────────────────────────────────────────────
+  { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetailTemplate.astro'] },
+  { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetailTemplate.astro'] },
+  { id: 'hero-service-detail',   consumers: ['src/components/templates/ServiceDetailTemplate.astro'] },
+  { id: 'hero-case-study',       consumers: ['src/components/templates/CaseStudyTemplate.astro'] },
+  { id: 'hero-utility-masthead', consumers: ['src/components/templates/UtilityTemplate.astro'] },
+  { id: 'hero-academy-hub',      consumers: ['src/components/templates/EcoleHubTemplate.astro'] },
+  { id: 'hero-conversion-funnel',consumers: ['src/components/templates/ConversionFunnelTemplate.astro'] },
+  { id: 'hero-hub-stats',        consumers: ['src/components/templates/HubTemplate.astro'] },
+  { id: 'hero-detail-menu',      consumers: ['src/components/templates/DetailMenuTemplate.astro'] },
+  { id: 'hero-author',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'hero-lead-magnet',      consumers: ['src/components/templates/LeadMagnetTemplate.astro'] },
+  { id: 'hero-course',           consumers: ['src/components/templates/CourseDetailTemplate.astro'] },
+  { id: 'hero-essay',            consumers: ['src/components/templates/EssayTemplate.astro'] },
+  { id: 'hero-split',            consumers: ['src/content/offres/composable-pilot.mdx'] },
+  { id: 'proof-bar',             consumers: ['src/components/templates/ServiceDetailTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/pages/index.astro', 'src/pages/en/index.astro', 'src/content/offres/composable-pilot.mdx'] },
+  { id: 'method-timeline',       consumers: ['src/components/templates/ServiceDetailTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/content/offres/composable-pilot.mdx'] },
   { id: 'feature-grid',          consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'social-proof',          consumers: ['src/pages/index.astro', 'src/pages/technologies/index.astro'] },
   { id: 'faq-accordion',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnel.astro', 'src/components/templates/ServiceDetail.astro', 'src/components/templates/CaseStudy.astro', 'src/components/templates/DetailMenu.astro', 'src/components/templates/Hub.astro', 'src/pages/index.astro', 'src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'pages/hub-listing (~15)', 'src/content/mdx'] },
-  { id: 'cta-band',              consumers: ['src/components/templates/TrustLegal.astro', 'src/components/templates/ListIndex.astro', 'src/components/templates/Essay.astro'] },
+  { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/ServiceDetailTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/components/templates/HubTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/content/offres/composable-pilot.mdx'] }, // home = organism BookSession (twin merge) → cta-final après migration
+  { id: 'cta-band',              consumers: ['src/components/templates/TrustLegalTemplate.astro', 'src/components/templates/ListIndexTemplate.astro', 'src/components/templates/EssayTemplate.astro'] },
 
-  // ── Catalogue-only (46) ─────────────────────────────────────────────────────
+  // ── Catalogue-only (40) ─────────────────────────────────────────────────────
+  // NB: architecture-diagram/services-grid/maturity-pyramid/use-case-index/case-card-grid/editorial-preview sont LIVE (home) bien que listés ici.
   { id: 'hero-centered',         consumers: [] },
   { id: 'hero-full-bleed',       consumers: [] },
   { id: 'hero-hub-listing',      consumers: [] },
