@@ -9,6 +9,7 @@ import type { SectionByType } from '../../../schemas/sections';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
 import RelatedCards from '../../../components/ui/molecules/RelatedCards.astro';
 import TechPillRow from '../../../components/ui/molecules/TechPillRow.astro';
+import HeroCentered from '../../../components/sections/HeroCentered.astro';
 import { CLIENT_LOGOS } from '../../../data/sitemap';
 
 const stackLayers = [
@@ -67,6 +68,20 @@ const transitionIdFromHref = (href: string) =>
     .replace(/[^a-z0-9]+/gi, '-')
     .replace(/^-|-$/g, '') || 'home';
 
+const mastheadData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'hub' as const,
+  decoration: false,
+  align: 'left' as const,
+  kicker_fr: '§ Stack technique · 3 couches · 1 système',
+  kicker_en: '§ Tech stack · 3 layers · 1 system',
+  h1_fr: 'Trois <i>couches</i>. Une seule <i>OS</i>.',
+  h1_en: 'Three <i>layers</i>. One single <i>OS</i>.',
+  lede_fr: "Claude pour la cognition. L'open-source pour la souveraineté. VirtuoseOS pour la décision. Trois choix techniques, une seule architecture.",
+  lede_en: 'Claude for cognition. Open-source for sovereignty. VirtuoseOS for decisions. Three technical choices, one architecture.',
+  transition_id: transitionIdFromHref(Astro.url.pathname),
+} satisfies SectionByType<'hero-hub-masthead'>;
+
 const socialProofData = {
   type: 'social-proof' as const,
   logos: CLIENT_LOGOS.map((name) => ({ name })),
@@ -89,15 +104,7 @@ const ctaData = {
   description="Our technical stack: Claude (Opus, Sonnet, Haiku, Code, Skills, MCP), open-source models for sovereignty, and VirtuoseOS as decision layer."
 >
   {/* MASTHEAD */}
-  <section class="hub-mast">
-    <div class="wrap-wide">
-      <Kicker class="hub-kicker">§ Tech stack · 3 layers · 1 system</Kicker>
-      <h1 class="hub-h1 reveal-mask-up" transition:name={`hero-h1-${transitionIdFromHref(Astro.url.pathname)}`}>Three <i>layers</i>. One single <i>OS</i>.</h1>
-      <p class="hub-lede reveal" style="transition-delay:180ms">
-        Claude for cognition. Open-source for sovereignty. VirtuoseOS for decisions. Three technical choices, one architecture.
-      </p>
-    </div>
-  </section>
+  <HeroCentered data={mastheadData} lang="en" />
 
   {/* PARTNER BAND */}
   <SocialProof data={socialProofData} lang="en" />
@@ -182,27 +189,6 @@ const ctaData = {
 </Base>
 
 <style>
-  .hub-mast { padding: 140px 32px clamp(40px, 5vw, 72px); }
-  :global(.hub-kicker) { display: block; margin-bottom: 24px; }
-  .hub-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 11vw, 180px);
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    font-weight: 400;
-    text-wrap: balance;
-    margin: 0;
-  }
-  .hub-h1 :global(i) { font-style: italic; color: var(--accent); }
-  .hub-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(18px, 1.8vw, 22px);
-    color: var(--ink-2);
-    margin: 32px 0 0;
-    max-width: 760px;
-    line-height: 1.55;
-  }
-
   .hub-arch-svg {
     display: block;
     width: 100%;

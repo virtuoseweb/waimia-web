@@ -6,6 +6,7 @@ import Base from '../../../layouts/Base.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../../schemas/sections';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import HeroCentered from '../../../components/sections/HeroCentered.astro';
 import RelatedCards from '../../../components/ui/molecules/RelatedCards.astro';
 import Button from '../../../components/ui/atoms/Button.astro';
 import { buildCollectionPage } from '../../../lib/seo/schema-builder';
@@ -75,6 +76,19 @@ const whitePaperCards = [
     href: '/ressources/livres-blancs/ai-act-readiness' },
 ];
 
+const mastheadData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'hub' as const,
+  decoration: false,
+  align: 'left' as const,
+  kicker_fr: '§ Hub · Ressources',
+  kicker_en: '§ Hub · Resources',
+  h1_fr: 'Tout ce qu\'on <i>publie</i>.',
+  h1_en: 'Everything we <i>publish</i>.',
+  lede_fr: 'Cas mesurables, notes de terrain, cookbooks de méthodes, calculateurs gratuits. Pas de pensum SEO. Tout est relu, signé, et NDA-protected quand pertinent.',
+  lede_en: 'Measurable cases, field notes, method cookbooks, free calculators. No SEO padding. Everything is reviewed, signed, and NDA-protected when relevant.',
+} satisfies SectionByType<'hero-hub-masthead'>;
+
 const ctaData = {
   type: 'cta-final' as const,
   h2_fr: 'Prêt à livrer un <em>agent</em>,<br />pas un slide deck ?',
@@ -92,15 +106,7 @@ const ctaData = {
   jsonLd={collectionLd}
 >
   {/* MASTHEAD */}
-  <section class="hub-mast">
-    <div class="wrap-wide">
-      <Kicker class="hub-kicker">§ Hub · Resources</Kicker>
-      <h1 class="hub-h1 reveal-mask-up">Everything we <i>publish</i>.</h1>
-      <p class="hub-lede">
-        Measurable cases, field notes, method cookbooks, free calculators. No SEO padding. Everything is reviewed, signed, and NDA-protected when relevant.
-      </p>
-    </div>
-  </section>
+  <HeroCentered data={mastheadData} lang="en" />
 
   {/* FEATURED TOOLS */}
   <section class="hub-tools">
@@ -204,27 +210,6 @@ const ctaData = {
 </Base>
 
 <style>
-  .hub-mast { padding: 140px 32px clamp(40px, 5vw, 72px); }
-  :global(.hub-kicker) { display: block; margin-bottom: 24px; }
-  .hub-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 11vw, 180px);
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    font-weight: 400;
-    text-wrap: balance;
-    margin: 0;
-  }
-  .hub-h1 :global(i) { font-style: italic; color: var(--accent); }
-  .hub-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(20px, 2.2vw, 28px);
-    color: var(--ink-2);
-    margin: 32px 0 0;
-    max-width: 760px;
-    line-height: 1.4;
-  }
-
   .hub-tools,
   .hub-cookbooks { padding: clamp(80px, 10vw, 120px) 32px; }
   :global(.hub-tools-k),

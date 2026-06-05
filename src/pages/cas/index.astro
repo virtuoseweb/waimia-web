@@ -5,9 +5,10 @@ export const prerender = true;
 // Route principale de la nav — liste des 4 cas business.
 
 import Base from '../../layouts/Base.astro';
-import Kicker from '../../components/ui/atoms/Kicker.astro';
 import { getCollection } from 'astro:content';
 import { langFromPath } from '../../lib/i18n';
+import type { SectionByType } from '../../schemas/sections';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
 
 const lang = langFromPath(Astro.url.pathname);
 const transitionIdFromHref = (href: string) =>
@@ -31,27 +32,26 @@ const featuredCases = caseEntries.map((e) => ({
 }));
 
 const [featured, ...rest] = featuredCases;
+
+const mastheadData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'hub' as const,
+  decoration: false,
+  align: 'left' as const,
+  kicker_fr: '§ Cas clients · ROI mesurés, pas promis',
+  kicker_en: '§ Case studies · Measured ROI, not promised',
+  h1_fr: '<span>Pas de <i>marketing</i>.</span><br/><span>Des chiffres.</span>',
+  h1_en: '<span>No <i>marketing</i>.</span><br/><span>Numbers.</span>',
+  lede_fr: "Quatre cas. Quatre douleurs PME. Ce qu'on a câblé, ce qui a tenu, ce que ça a livré. Pas de témoignages mis en scène.",
+  lede_en: 'Four cases. Four SMB pain points. What we shipped, what held, what it delivered. No staged testimonials.',
+  transition_id: transitionIdFromHref(Astro.url.pathname),
+} satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
   title={lang === 'fr' ? "Cas clients · pipelines reconnectés, opérations fluidifiées · Waimia" : "Case studies · pipelines reconnected, operations streamlined · Waimia"}
   description={lang === 'fr' ? "Pas de marketing. Des chiffres, des problèmes, ce qu'on a câblé. Ce qui a tenu." : "No marketing. Numbers, problems, what we shipped. What held."}
 >
-  <section class="hub-mast reveal">
-    <div class="wrap-wide">
-      <Kicker>§ Cas clients · ROI mesurés, pas promis</Kicker>
-      <h1 class="hub-h1" transition:name={`hero-h1-${transitionIdFromHref(Astro.url.pathname)}`}>
-        {lang === 'fr'
-          ? <><span>Pas de <i>marketing</i>.</span><br/><span>Des chiffres.</span></>
-          : <><span>No <i>marketing</i>.</span><br/><span>Numbers.</span></>
-        }
-      </h1>
-      <p class="hub-lede">
-        {lang === 'fr'
-          ? "Quatre cas. Quatre douleurs PME. Ce qu'on a câblé, ce qui a tenu, ce que ça a livré. Pas de témoignages mis en scène."
-          : "Four cases. Four SMB pain points. What we shipped, what held, what it delivered. No staged testimonials."}
-      </p>
-    </div>
-  </section>
+  <HeroCentered data={mastheadData} lang={lang} />
 
   <section class="cas-grid-outer wrap-wide">
     <div class="cas-grid reveal-stagger">
@@ -91,24 +91,6 @@ const [featured, ...rest] = featuredCases;
 </Base>
 
 <style>
-  .hub-mast { padding: clamp(80px, 10vw, 120px) 32px 60px; }
-  .hub-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 10vw, 160px);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-    font-weight: 400;
-    margin: 20px 0 32px;
-    text-wrap: balance;
-  }
-  .hub-h1 i { font-style: italic; color: var(--accent); }
-  .hub-lede {
-    font-size: clamp(15px, 1.5vw, 18px);
-    color: var(--muted);
-    max-width: 560px;
-    line-height: 1.55;
-  }
-
   .cas-grid-outer { margin: 0 auto; padding: 0 32px; }
   .cas-grid {
     display: grid;
@@ -242,15 +224,7 @@ const [featured, ...rest] = featuredCases;
     .cas-card--featured { padding: 36px 28px 28px; }
   }
 
-  @keyframes mask-reveal {
-    from { clip-path: inset(0 100% 0 0); }
-    to   { clip-path: inset(0 0 0 0); }
-  }
-  .hub-h1 {
-    animation: mask-reveal 1s cubic-bezier(0.16, 1, 0.30, 1) both;
-  }
   @media (prefers-reduced-motion: reduce) {
-    .hub-h1 { animation: none; }
     .cas-card,
     .cas-card-title,
     .cas-card-headline,

@@ -3,9 +3,9 @@
 export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
-import Kicker from '../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
 import OfferTierGrid from '../../components/sections/OfferTierGrid.astro';
 import TierPyramidSvg from '../../components/sections/TierPyramidSvg.astro';
 import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
@@ -29,6 +29,17 @@ const offresJsonLd = {
     { '@type': 'ListItem', position: 11, name: 'Infrastructure IA', url: 'https://waimia.com/offres/infrastructure-ia' },
   ],
 };
+
+const mastheadData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'hub' as const,
+  kicker_fr: '§ Offres · Waimia',
+  kicker_en: '§ Offers · Waimia',
+  h1_fr: 'Trois <i>niveaux</i>.<br/>Une <i>méthode</i>.',
+  h1_en: 'Three <i>levels</i>.<br/>One <i>method</i>.',
+  lede_fr: 'Découverte, transformation, partenariat. Chaque offre est une marche. Choisissez la bonne.',
+  lede_en: 'Discovery, transformation, partnership. Each offer is a step. Choose the right one.',
+} satisfies SectionByType<'hero-hub-masthead'>;
 
 const ctaData = {
   type: 'cta-final' as const,
@@ -229,18 +240,7 @@ const tierPartnershipData = {
   </div>
 
   <!-- 1. HERO éditorial -->
-  <section class="hub-mast">
-    <div class="wrap-wide">
-      <Kicker class="hub-kicker">§ Offres · Waimia</Kicker>
-      <h1 class="hub-h1 reveal-mask-up">
-        Trois <i>niveaux</i>.<br/>Une <i>méthode</i>.
-      </h1>
-      <p class="hub-lede reveal" style="transition-delay:200ms">
-        Découverte, transformation, partenariat.
-        Chaque offre est une marche. Choisissez la bonne.
-      </p>
-    </div>
-  </section>
+  <HeroCentered data={mastheadData} lang="fr" />
 
   <!-- 2. SVG PYRAMIDE SIGNATURE -->
   <TierPyramidSvg data={pyramidData} lang="fr" />
@@ -270,36 +270,6 @@ const tierPartnershipData = {
 </Base>
 
 <style>
-  /* ── MAST ──────────────────────────────────────────────────── */
-  .hub-mast {
-    padding: 140px 32px clamp(48px, 6vw, 88px);
-  }
-  :global(.hub-kicker) {
-    display: block;
-    margin-bottom: 24px;
-  }
-  .hub-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(60px, 11vw, 180px);
-    font-style: italic;
-    font-weight: 400;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    margin: 0;
-  }
-  .hub-h1 i {
-    color: var(--accent);
-    font-style: italic;
-  }
-  .hub-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(17px, 1.6vw, 19px);
-    line-height: 1.65;
-    color: var(--muted);
-    margin: 32px 0 0;
-    max-width: 580px;
-  }
-
   /* ── MANIFESTO ─────────────────────────────────────────────── */
   .manifesto {
     padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 80px);
@@ -326,10 +296,6 @@ const tierPartnershipData = {
 
   /* ── RESPONSIVE ────────────────────────────────────────────── */
   @media (max-width: 640px) {
-    .hub-mast {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
     .manifesto {
       padding-left: 20px;
       padding-right: 20px;
