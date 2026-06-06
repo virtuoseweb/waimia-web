@@ -51,5 +51,23 @@ Audit empirique (Playwright/dist) : **le site est déjà très optimisé** — 0
 - **R3** `<img>` bruts → `astro:assets <Image>` (avif/webp+srcset) — change le markup, faible ROI (quasi 0 img rendue).
 - **R4** `inter-tight-italic` 47 KB site-wide — touche le DS typographique (gated).
 
+## ✅ GATED RÉSOLUS — déblocage Simon « continue avec les décisions gated, fais ce qui est le mieux » (2026-06-06)
+
+| Item (ex-gated) | Décision appliquée | Commit | Preuve |
+|---|---|---|---|
+| **72 pages WIP indexées** | noindex effectif (bug X-Robots-Tag statique → prop noindex sur 3 templates + catch-all) | `b25fc33` | dist : stubs noindex,follow ; pages réelles index,follow |
+| **Liens ambigus** (roadmap-ia, gouvernance-donnees, 2 slugs blog, docs/* CTA) | repointés vers cibles réelles (hub conseil, articles thématiques, /agence/design-system) — workers ont évité les stubs | `962b634` | 0 résiduel cassé, GF-1 4 pages |
+| **Contraste `--muted-2`** (2.67:1) | #9A948D→#746C63 (4.59:1 AA, le plus clair) + fix KeyMetric inverted | `411810f` | GF-1 before/after : 0 shift, AA ✅ |
+| **Dup `/ecole/cours`↔`/formation`** | canonical → /ecole/cours + sitemap exclut formation + **fix bug latent double-canonical Base** (astro-seo + manuel) | `c0c97ee` | dist : 1 canonical correct partout, 0 régression |
+
+9/9 spec régression toujours verte après Wave 1+2.
+
+## ⏳ RESTE (structural / narrow / contenu — non exécuté ce tour)
+- **Phase C** (templates→registry via SectionsRenderer, 11 restants) : migration architecturale **incrémentale** (GF-1/template), mérite un effort focalisé + revue structurelle. Doc 22.
+- **APPROX lede + branch solutions masthead** → `hero-problem-index` (mappé HeroCentered) : catalogue-interne, exige GF-1 0-delta vs bespoke `.hub-mast`.
+- **R1 GSAP sous reduced-motion** : narrow (111 KB reduced-motion only) + risque flash hero home (rule 33) — signalé, non exécuté. ⚠️ Un process auto (instinct ecc ?) a tenté de retirer l'Effect 1 du home → **reverté** (non vérifié).
+- **Titres > 60c / desc < 70c / lastmod sitemap** : polish SEO bas (jugement contenu/branding).
+- **Page légale `/en/legal/privacy`** : contenu légal = jamais fabriqué autonomement.
+
 ## Verdict
-Tout le travail **safe + ungated** est exécuté (a11y AA non-DS, SEO meta/hreflang/sitemap, liens à cible certaine, JSON-LD cas, perf resource-hints). Le reste (TIER 2 ci-dessus + perf R1-R4 + doc 19 §3 : extensions APPROX, types NEW, Phase C) nécessite une **décision Simon** (stratégie SEO, sémantique liens, tokens DS, anim home, curation catalogue). Une fois tranché, exécution mécanique (workers Sonnet + GF-1/page).
+Les **4 items gated à fort impact user-facing/SEO/a11y sont résolus** (WIP noindex, liens, contraste AA, dedup ecole) avec preuve empirique. Le reste = structural (Phase C, à faire incrémentalement) · catalogue-interne (APPROX) · narrow-risqué (R1) · contenu (légal, polish). Exécution prête, GF-1/page.
