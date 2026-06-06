@@ -36,5 +36,20 @@ Chaque fix = attribut/media-query/donnée/href invisible → **0 delta visuel** 
 - **`--muted-2` (#9A948D) sur `--paper`** ≈ **3.0:1** → échoue AA texte normal (4.5:1), 18 usages dont corps de texte (`OfferTierGrid:81,138`, `HeroCentered:475,514`). → assombrir `--muted-2` (~#7D766E) **ou** le réserver aux ≥18px/gras+bordures. **Modifie un token figé → arbitrage Simon.**
 - **`--accent` (#C94F2E) en texte courant petit** ≈ 3.6:1 → OK en label/gros, échoue en petit texte. Cas par cas, pas de fix global.
 
+## ⚡ Perf — audit + fixes
+
+Audit empirique (Playwright/dist) : **le site est déjà très optimisé** — 0 `client:load` (tout en `client:visible`/`only`), 12 `@font-face` tous en `font-display:swap` + 3 fonts critiques en preload, 0 script render-blocking, quasi 0 `<img>` (site CSS/SVG-driven, 1 seul img rendu sur 605 pages, déjà `loading=lazy`). Poids JS pages de contenu ~19 KB. Seule page lourde = `/contact` (3,2 MB = tiers Cal.com, incompressible côté nous).
+
+### ✅ EXÉCUTÉ (commit `59cf880`, 0 delta visuel prouvé GF-1 home+contact)
+- **S1** preconnect + dns-prefetch `app.cal.com` dans `CalEmbed.astro` → rendu **uniquement** sur les pages Cal (vérifié : 0 sur /offres) → accélère la connexion aux chunks Cal.
+- **S2** `fetchpriority="high"` sur le preload Inter Tight (Base.astro, 530 pages).
+- **S3** `decoding="async"` défensif sur les img logos integrations FR+EN.
+
+### ⏳ TIER 2 perf — SIGNALÉ À SIMON
+- **R1 — GSAP 111 KB chargé même sous `prefers-reduced-motion`** (`src/pages/index.astro:285-286` import statique). **Confirmé empiriquement** : sous reduced-motion, GSAP se télécharge (1 req) alors que `initHomepageNarrative()` early-return l.4 (aucune anim ne joue) → **111 KB gaspillés** pour la minorité reduced-motion/mobile. La home n'est PAS cassée sous reduced-motion (h1 op=1, pas de `.section-content` bloquée). **Fix safe esquissé** : déplacer le check `matchMedia('(prefers-reduced-motion: reduce)')` dans le `bootstrap()` du `<script>` home + passer `import('gsap/ScrollTrigger')` + `import('homepage-narrative')` en **dynamique** gardé par ce check (pattern déjà éprouvé dans `split-letter.ts:18`/`scroll-reveal.ts:25`). ⚠️ **Pourquoi gated (rule 33)** : l'import dynamique décale le timing de l'Effect 1 (`gsap.from` reveal H1 hero) → risque de flash/jump du hero pour les users **normaux** → exige une **GF-1 d'animation** (pas juste screenshot posé) sur le hero home avant merge. Gain étroit (111 KB pour reduced-motion only) vs risque sur la page joyau → arbitrage Simon.
+- **R2** preload mono+serif sur 530 pages (justifié home, peut-être pas pages contenu → preload conditionnel par template, audit above-fold requis).
+- **R3** `<img>` bruts → `astro:assets <Image>` (avif/webp+srcset) — change le markup, faible ROI (quasi 0 img rendue).
+- **R4** `inter-tight-italic` 47 KB site-wide — touche le DS typographique (gated).
+
 ## Verdict
-Tout le travail **safe + ungated** est exécuté (a11y AA non-DS, SEO meta/hreflang/sitemap, liens à cible certaine, JSON-LD cas). Le reste (TIER 2 ci-dessus + doc 19 §3 : extensions APPROX, types NEW, Phase C) nécessite une **décision Simon** (stratégie SEO, sémantique liens, tokens DS, curation catalogue). Une fois tranché, exécution mécanique (workers Sonnet + GF-1/page).
+Tout le travail **safe + ungated** est exécuté (a11y AA non-DS, SEO meta/hreflang/sitemap, liens à cible certaine, JSON-LD cas, perf resource-hints). Le reste (TIER 2 ci-dessus + perf R1-R4 + doc 19 §3 : extensions APPROX, types NEW, Phase C) nécessite une **décision Simon** (stratégie SEO, sémantique liens, tokens DS, anim home, curation catalogue). Une fois tranché, exécution mécanique (workers Sonnet + GF-1/page).
