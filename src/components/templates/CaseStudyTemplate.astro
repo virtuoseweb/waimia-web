@@ -84,11 +84,13 @@ interface Props {
   relatedOffresLinks?: Array<{ title: string; href: string }>;
   /** Slug pour ViewTransition (ex: "cas-plateau") */
   transitionSlug?: string;
+  /** Bloc(s) JSON-LD spécifiques (Article/CreativeWork…) injectés dans <Base>. */
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 const {
   title, description, caseTitle, caseNum, h1_fr, h1_en, specs, steps,
   proofQuoteFr, proofQuoteEn, proofAttrFr, proofAttrEn, proofMetrics,
-  techPills, relatedCards, relatedOffresLinks, transitionSlug,
+  techPills, relatedCards, relatedOffresLinks, transitionSlug, jsonLd,
 } = Astro.props;
 const lang = langFromPath(Astro.url.pathname);
 const pageTransitionId = Astro.url.pathname
@@ -128,7 +130,7 @@ const ctaData = {
   background: 'paper',
 } satisfies SectionByType<'cta-final'>;
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonLd={jsonLd}>
   <Breadcrumb
     lang={lang}
     items={[
