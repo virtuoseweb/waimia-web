@@ -85,7 +85,7 @@ const ctaData = {
       <a href={sol.href} class="hub-sol-card" transition:name={`card-${transitionIdFromHref(sol.href)}`}>
         <div class="hub-sol-num">{sol.num}</div>
         <div class="hub-sol-kicker">{sol.kicker}</div>
-        <h3 class="hub-sol-title">{sol.title_fr}</h3>
+        <h2 class="hub-sol-title">{sol.title_fr}</h2>
         <p class="hub-sol-sub">{sol.sub_fr}</p>
         <p class="hub-sol-lead">{sol.lead_fr}</p>
         <span class="hub-sol-cta">Voir la solution →</span>
@@ -104,13 +104,13 @@ const ctaData = {
         {sectorSatellites.map((s) => (
           <a href={s.href} class="hub-sector-card" transition:name={`card-${transitionIdFromHref(s.href)}`}>
             <div class="hub-sector-kicker">{s.kicker}</div>
-            <h4>{s.title_fr}</h4>
+            <h3>{s.title_fr}</h3>
             <p>{s.lead_fr}</p>
           </a>
         ))}
         <a href="/secteurs" class="hub-sector-card hub-sector-card--all">
           <div class="hub-sector-kicker">TOUS</div>
-          <h4>Tous les secteurs</h4>
+          <h3>Tous les secteurs</h3>
           <p>L'index complet, à venir →</p>
         </a>
       </div>
@@ -265,7 +265,7 @@ const ctaData = {
   .hub-sector-card:hover { background: var(--ink); color: var(--paper); }
   .hub-sector-card:hover .hub-sector-kicker,
   .hub-sector-card:hover p { color: rgba(246,241,232,0.72); }
-  .hub-sector-card h4 {
+  .hub-sector-card h3 {
     font-family: var(--font-display);
     font-size: clamp(24px, 2.5vw, 34px);
     line-height: 1.05;
