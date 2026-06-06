@@ -97,5 +97,10 @@ Audit intégrité (redirects Vercel + assets + /api exclus). 17 cibles mortes r�
 | `/legal/privacy` + `/en/legal/privacy` | /ressources, /en/ressources | page légale absente | **contenu légal = jamais fabriqué autonomement** |
 | `/docs/15-*` `/docs/17-*` | /test-composable | page de test dev, /docs non routé web | retirer la page de test ou ses liens |
 
+### 🔤 HEADING-ORDER restant (a11y mineur WCAG 1.3.1 — batch hétérogène)
+Audit hiérarchie titres (605 pages) : **0 sans-h1, 0 multi-h1** (confirme les fixes). 7 pages avec saut h1→h3. **1 résolu ce tour** : `/en/solutions` (parity gap du fix FR `719e27c` → `3903a44`, GF-1 parité 42px). **6 restants** (cards de contenu en h3 directement sous le h1, skip h2) :
+- **Inline, fixables simplement** : `/agence/careers` (`.careers-title` l.60), `/ressources/changelog` (`.cl-title` l.73) — h3→h2 + check sélecteur CSS tag, GF-1.
+- **Composants partagés, CARE requis** : `/agence/methode` (+ `/en/agence/methode`) via `editorial/Timeline.astro` (phases h3), `/ressources/cookbooks`, `/ressources/outils` — promouvoir le heading du composant risque de créer des skips sur SES AUTRES usages → décision a11y par composant (promouvoir vs ajouter un h2 de section vs rendre le niveau configurable). Non blasté autonomement.
+
 ## Verdict
 **4 items gated initiaux résolus** + **2 vrais bugs a11y/SEO trouvés & corrigés** (13 pages indexées : h1 vides/absents) + **suite e2e verte** (garde-fou anti-régression) + **3 audits systémiques** (h1 propre, SEO propre, inventaire liens). Tout prouvé GF-1, 0 régression de session. Reste = structural (Phase C incrémentale) · catalogue-interne (APPROX) · narrow-risqué (R1) · **gated produit/contenu** (liens morts conseil/commerce/EN-mirrors/légal, polish). Exécution prête dès arbitrage.
