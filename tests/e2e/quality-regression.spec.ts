@@ -202,4 +202,19 @@ test.describe("Quality sweep · régressions verrouillées", () => {
       "/components/",
     );
   });
+
+  /* ───── 7. /solutions/* : h1 hero non vide (anti-régression slot title) ─────
+   * Le catch-all collection rendait SolutionsDetailTemplate sans passer le slot
+   * `title`/`lead` → <h1 class="sol-hero-title"> VIDE sur 8 pages indexées (fix 4e5604b). */
+  test("solutions · h1 hero non vide sur les pages collection", async ({ page }) => {
+    const slugs = ["fintech", "acquisition-ia", "contenu-seo-geo-ia", "crm-relances-ia", "finance", "productivite-ia", "site-web-ia-pme", "support-client-ia"];
+    for (const slug of slugs) {
+      const resp = await page.goto(`/solutions/${slug}`);
+      expect(resp?.status(), `status /solutions/${slug}`).toBe(200);
+      const h1 = page.locator("h1.sol-hero-title");
+      await expect(h1, `h1 absent sur /solutions/${slug}`).toHaveCount(1);
+      const txt = ((await h1.textContent()) ?? "").trim();
+      expect(txt.length, `h1 VIDE sur /solutions/${slug}`).toBeGreaterThan(0);
+    }
+  });
 });
