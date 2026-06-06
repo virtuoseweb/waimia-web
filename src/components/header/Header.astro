@@ -15,6 +15,18 @@ const lang = langFromPath(Astro.url.pathname);
 const altHref = alternateHref(Astro.url.pathname, lang);
 const enMirror = hasBilingualMirror(Astro.url.pathname);
 const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
+
+// A11y · WCAG 4.1.2 — signale la branche de nav active (item top-level dont
+// le hub `parentHref` contient la page courante). Compare le pathname FR
+// normalisé (préfixe `/en` retiré, slash final ignoré).
+const currentPath = Astro.url.pathname.replace(/^\/en(?=\/|$)/, '') || '/';
+const normalize = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
+const isCurrentSection = (parentHref?: string) => {
+  if (!parentHref) return false;
+  const hub = normalize(parentHref);
+  const here = normalize(currentPath);
+  return here === hub || here.startsWith(`${hub}/`);
+};
 ---
 <header class="hdr" data-open="" id="hdr">
   <div class="hdr-inner">
@@ -35,6 +47,7 @@ const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
             aria-expanded="false"
             aria-haspopup="dialog"
             aria-controls={`mega-${item.parent}`}
+            aria-current={isCurrentSection(item.parentHref) ? 'page' : undefined}
           >
             <span>{t(item.label, lang)}</span>
             <span class="caret" aria-hidden="true">▾</span>

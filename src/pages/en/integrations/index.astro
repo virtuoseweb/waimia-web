@@ -49,9 +49,9 @@ const categoryLabels: Record<string, { fr: string; en: string }> = {
     <div class="wrap-wide">
 
       <nav class="integrations-index__filters" aria-label="Filter by category">
-        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
         {Object.entries(categoryLabels).map(([cat, labels]) => (
-          <button class="filter-btn" data-filter={cat}>
+          <button class="filter-btn" data-filter={cat} aria-pressed="false">
             {labels.en}
           </button>
         ))}
@@ -97,8 +97,12 @@ const categoryLabels: Record<string, { fr: string; en: string }> = {
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const filter = (btn as HTMLElement).dataset.filter ?? 'all';
-      buttons.forEach((button) => button.classList.remove('active'));
+      buttons.forEach((button) => {
+        button.classList.remove('active');
+        button.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       cards.forEach((card) => {
         card.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
       });
