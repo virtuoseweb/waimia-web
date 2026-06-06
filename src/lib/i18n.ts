@@ -48,6 +48,12 @@ const FR_ONLY_STATIC = new Set([
   '/ressources/cookbooks/claude-skills-tutorial', '/ressources/cookbooks/mcp-server-deploy',
   '/ressources/livres-blancs', '/ressources/livres-blancs/ai-act-readiness',
   '/ressources/field-notes',
+  // Pages FR-only « bare » (index sans sous-chemin) — non couvertes par les
+  // préfixes à slash final ci-dessous (`startsWith('/x/')` ne matche pas `/x`).
+  '/ressources/testimonials', '/ressources/outils', '/ressources/personas', '/ressources/veille-ia',
+  '/test-composable', '/technologies/virtuoseos',
+  // Thank-you pages post-conversion FR-only (audit/livre-blanc/newsletter SONT bilingues → exclus).
+  '/bienvenue/contact', '/bienvenue/commande', '/bienvenue/formation', '/bienvenue/abonnement',
   '/glossaire', '/secteurs', '/secteurs/finance-compta',
   '/secteurs/industrie', '/secteurs/services-b2b',
   '/equipe', '/archive', '/ecole', '/commerce',
@@ -63,12 +69,27 @@ const FR_ONLY_PREFIXES = [
   '/categories/', // catalogue marketplace (FR-only, v1.5)
 ];
 
+// Routes EN-only : pages servies uniquement sous /en/* sans miroir FR
+// (le FR a été redirigé ailleurs — cf astro.config redirects /ressources/cas → /cas).
+// Empêche l'émission d'un hreflang="fr-FR" pointant vers une 404.
+const EN_ONLY_PREFIXES = [
+  '/en/ressources/cas', // /en/ressources/cas + /en/ressources/cas/{plateau,halcyon,caserne,northbound,virtuoseos}
+];
+
+// Segments FR-only au milieu du chemin (pas un préfixe) — ex. tunnels de conversion
+// /offres/<offre>/tunnel/{1-4} : FR-only, aucun miroir /en/.../tunnel/.
+const FR_ONLY_PATH_SEGMENTS = ['/tunnel/'];
+
 /**
  * Retourne `true` si la page à `pathname` a un miroir anglais.
  * Utilisé pour n'émettre `hreflang="en-US"` que sur les pages effectivement traduites.
  */
 export function hasBilingualMirror(pathname: string): boolean {
+  // Pages EN-only (servies sous /en/* sans miroir FR) → pas de hreflang fr-FR (404).
+  if (EN_ONLY_PREFIXES.some((p) => pathname.startsWith(p))) return false;
   if (FR_ONLY_STATIC.has(pathname)) return false;
+  // Segments FR-only au milieu du chemin (ex. /offres/<offre>/tunnel/N).
+  if (FR_ONLY_PATH_SEGMENTS.some((s) => pathname.includes(s))) return false;
   return !FR_ONLY_PREFIXES.some((p) => pathname.startsWith(p));
 }
 

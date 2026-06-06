@@ -81,9 +81,14 @@ export default defineConfig({
       //  · /bienvenue/* : thank-you pages post-conversion (déjà noindex sur la page,
       //    pas de raison qu'elles soient crawlables/indexées)
       //  · /agence/design-system : showcase interne (déjà noindex)
+      //  · /preview/* + /components/* : pages catalogue DS internes (déjà noindex,follow
+      //    sur chaque page) — les lister dans le sitemap crée une incohérence
+      //    noindex↔sitemap qui gaspille le budget crawl (148 URLs). Cf docs SEO.
       filter: (page) =>
         !page.includes('/bienvenue/') &&
-        !page.includes('/agence/design-system'),
+        !page.includes('/agence/design-system') &&
+        !page.includes('/preview/') &&
+        !page.includes('/components/'),
     }),
     robotsTxt({
       policy: [
