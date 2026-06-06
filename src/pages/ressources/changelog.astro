@@ -70,7 +70,7 @@ const months = Object.keys(byMonth).sort().reverse();
                   <span class={`cl-tag cl-tag-${e.tag.toLowerCase()}`}>{e.tag}</span>
                   {e.version !== '—' && <span class="cl-version">{e.version}</span>}
                 </div>
-                <h3 class="cl-title">{e.title}</h3>
+                <h2 class="cl-title">{e.title}</h2>
                 <p class="cl-body">{e.body}</p>
               </article>
             ))}
