@@ -48,6 +48,8 @@ interface Props {
   title: string;
   /** SEO meta · description */
   description: string;
+  /** Pas d'index (pages WIP) — forwardé à Base */
+  noindex?: boolean;
   /** Department badge (kicker au-dessus du h1) ex: "DÉPARTEMENT" */
   dept: string;
   /** Label du breadcrumb second segment ex: "Finance & Comptabilité" */
@@ -77,6 +79,7 @@ interface Props {
 const {
   title,
   description,
+  noindex = false,
   dept,
   deptLabel,
   meta = '',
@@ -236,7 +239,7 @@ const sectorVisual =
         ? 'finance'
         : '';
 ---
-<Base {title} {description} jsonLd={[serviceLd]}>
+<Base {title} {description} {noindex} jsonLd={[serviceLd]}>
     <Breadcrumb
       lang={lang}
       items={[
