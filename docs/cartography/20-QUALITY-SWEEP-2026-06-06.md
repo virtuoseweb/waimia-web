@@ -69,5 +69,33 @@ Audit empirique (Playwright/dist) : **le site est déjà très optimisé** — 0
 - **Titres > 60c / desc < 70c / lastmod sitemap** : polish SEO bas (jugement contenu/branding).
 - **Page légale `/en/legal/privacy`** : contenu légal = jamais fabriqué autonomement.
 
+## ✅ TOUR 3 — audits systémiques + 2 VRAIS BUGS trouvés & corrigés (2026-06-06)
+
+Après les 4 gated, généralisation par audits systémiques read-only (le triage de la suite e2e a révélé un bug-class « catch-all ne remplit pas le slot »). **0 régression de session** sur les 12 échecs e2e triés (tous environnement ou périmés amont).
+
+| Bug RÉEL trouvé | Portée | Cause | Commit | Preuve GF-1 |
+|---|---|---|---|---|
+| **h1 + lead VIDES** | 8 pages `/solutions/*` indexées (FR+EN) | catch-all collection rendait SolutionsDetailTemplate sans passer slots `title`/`lead` | `4e5604b` | data h1 0→43-78c lead→95-140c · visuel getComputedStyle op=1 transform≈id y=189 · 10 WIP inchangées |
+| **h1 ABSENT** | 5 pages `/ressources/testimonials/*` indexées | template rendait `<blockquote>` sans aucun `<h1>` | `12810b7` | h1 sr-only rendu ×5 · getComputedStyle display:block 1×1px inA11yTree:true · quote hero op=1 inchangé |
+
+**Suite e2e VERTE** (`1e3f0e5`) : 12 failed → **43 passed / 11 skipped / 0 failed**. Garde-fou régression §7 (h1 solutions non vide) + 3 sélecteurs périmés post-migration héros + needles copy + env-tests skip-when-404 (CI-meaningful sur preview Vercel).
+
+**Audits systémiques (605 pages)** :
+- **h1** : après fix → **0 h1 vide, 0 h1 absent** hors `/preview/*` (par design). 2 multi-h1 (`/compare/organisms`, `/en/agence/design-system`) = noindex, bénin.
+- **SEO desc/title** : **0 description vide/absente** sur pages indexées (flow prop propre). 8 desc `/ressources/categorie/*` < 50c (polish contenu). `/en/technologies` titre = FR (language-neutral, hreflang-distingué, bénin). ecole dups déjà couverts.
+
+### 🔗 INVENTAIRE LIENS INTERNES MORTS (gated produit/contenu — décision Simon)
+Audit intégrité (redirects Vercel + assets + /api exclus). 17 cibles mortes réelles (`/` = faux positif normalisation) :
+
+| Cible morte | Réfs | Nature | Reco |
+|---|---|---|---|
+| `/offres/{roadmap-ia,gouvernance-donnees,dette-technique-ia,rpa-vers-agents,finops-ia,cybersecurite-ia}` | hub `/offres/conseil` (02.2-02.7) | 6 offres listées sans page détail | **construire** les 6 pages, ou coming-soon non-cliquable, ou repointer /contact |
+| `/commerce/product` + `/commerce/subscription` | 15 pages détail commerce | breadcrumb mid-level (listing inexistant ; `[type]/[slug].astro:52` + JSON-LD l.40) | construire listings, ou repointer `/commerce`, ou non-lien |
+| `/en/secteurs` · `/en/offres/conseil` · `/en/ressources/blog/brain-circuit` | /en, /en/bienvenue/* | liens EN vers sections **FR-only** | repointer version FR ou retirer le lien |
+| `/glossaire/workflow-ia` | 2 termes glossaire | terme cross-référencé inexistant | créer le terme ou retirer le renvoi |
+| `/mon-compte` | /bienvenue/abonnement | page compte absente | feature future ? repointer ou retirer |
+| `/legal/privacy` + `/en/legal/privacy` | /ressources, /en/ressources | page légale absente | **contenu légal = jamais fabriqué autonomement** |
+| `/docs/15-*` `/docs/17-*` | /test-composable | page de test dev, /docs non routé web | retirer la page de test ou ses liens |
+
 ## Verdict
-Les **4 items gated à fort impact user-facing/SEO/a11y sont résolus** (WIP noindex, liens, contraste AA, dedup ecole) avec preuve empirique. Le reste = structural (Phase C, à faire incrémentalement) · catalogue-interne (APPROX) · narrow-risqué (R1) · contenu (légal, polish). Exécution prête, GF-1/page.
+**4 items gated initiaux résolus** + **2 vrais bugs a11y/SEO trouvés & corrigés** (13 pages indexées : h1 vides/absents) + **suite e2e verte** (garde-fou anti-régression) + **3 audits systémiques** (h1 propre, SEO propre, inventaire liens). Tout prouvé GF-1, 0 régression de session. Reste = structural (Phase C incrémentale) · catalogue-interne (APPROX) · narrow-risqué (R1) · **gated produit/contenu** (liens morts conseil/commerce/EN-mirrors/légal, polish). Exécution prête dès arbitrage.
