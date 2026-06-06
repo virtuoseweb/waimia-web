@@ -84,11 +84,16 @@ export default defineConfig({
       //  · /preview/* + /components/* : pages catalogue DS internes (déjà noindex,follow
       //    sur chaque page) — les lister dans le sitemap crée une incohérence
       //    noindex↔sitemap qui gaspille le budget crawl (148 URLs). Cf docs SEO.
+      //  · /ecole/formation/* : route générique [type]/[slug] qui duplique la forme
+      //    canonique /ecole/cours/{slug} (les formations sont rendues 2× — cf
+      //    CourseDetailTemplate qui force le canonical vers /ecole/cours/). On retire
+      //    la forme dupliquée du sitemap pour ne garder que la forme canonique.
       filter: (page) =>
         !page.includes('/bienvenue/') &&
         !page.includes('/agence/design-system') &&
         !page.includes('/preview/') &&
-        !page.includes('/components/'),
+        !page.includes('/components/') &&
+        !page.includes('/ecole/formation/'),
     }),
     robotsTxt({
       policy: [
