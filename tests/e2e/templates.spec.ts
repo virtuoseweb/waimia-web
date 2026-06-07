@@ -16,6 +16,14 @@ async function waitNoBoot(page: import("@playwright/test").Page) {
   });
 }
 
+/* ───── Helper · fige reveals + transitions → hover déterministe (anti-flaky) ───── */
+async function freezeMotion(page: import("@playwright/test").Page) {
+  await page.addStyleTag({
+    content:
+      '*,*::before,*::after{animation:none!important;transition-duration:0s!important;}[class*="reveal"]{opacity:1!important;transform:none!important;}',
+  });
+}
+
 /* ───── Template HubTemplate · /offres/conseil ───── */
 test("HubTemplate · /offres/conseil rend masthead + catalogue + fit + related", async ({
   page,
@@ -203,6 +211,7 @@ test("HubTemplate · hover ServiceCatalogRow déclenche transition", async ({
 }) => {
   await page.goto("/offres/conseil");
   await waitNoBoot(page);
+  await freezeMotion(page);
 
   const firstRow = page.locator("a.svc-row").first();
   await expect(firstRow).toBeVisible();
@@ -227,6 +236,7 @@ test("ServiceDetailTemplate · hover tech-pill change border-color", async ({
 }) => {
   await page.goto("/offres/revops");
   await waitNoBoot(page);
+  await freezeMotion(page);
 
   const firstPill = page.locator(".tech-pill").first();
   await expect(firstPill).toBeVisible();
@@ -237,8 +247,8 @@ test("ServiceDetailTemplate · hover tech-pill change border-color", async ({
   const borderColor = await firstPill.evaluate(
     (el) => window.getComputedStyle(el).borderColor,
   );
-  // Border doit être terracotta (rgb(201, 79, 46))
-  expect(borderColor).toMatch(/rgb\(201[,\s]+79[,\s]+46/);
+  // Border doit être terracotta (201, 79, 46) — Chromium sérialise rgb() ou rgba(...,1)
+  expect(borderColor).toMatch(/rgba?\(201[,\s]+79[,\s]+46/);
 });
 
 /* ───── Accessibilité · liens descriptifs ───── */
