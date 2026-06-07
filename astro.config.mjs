@@ -97,7 +97,11 @@ export default defineConfig({
         !page.includes('/agence/design-system') &&
         !page.includes('/preview/') &&
         !page.includes('/components/') &&
-        !page.includes('/ecole/formation/'),
+        !page.includes('/ecole/formation/') &&
+        // Catalogue DS interne + page de comparaison : noindex,follow → hors sitemap
+        // (même famille que /preview/ et /components/, cohérence budget crawl).
+        !page.includes('/categories/') &&
+        !page.includes('/compare/'),
     }),
     robotsTxt({
       policy: [
