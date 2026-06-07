@@ -71,6 +71,10 @@ export default defineConfig({
     '/offres/site-web-ia-tunnel/mecanique': '/offres/site-web-ia/tunnel/2',
     '/offres/site-web-ia-tunnel/preuves': '/offres/site-web-ia/tunnel/3',
     '/offres/site-web-ia-tunnel/conversion': '/offres/site-web-ia/tunnel/4',
+    // SEO cleanup 2026-06-07 · vestiges de migration blog (migrated-*) dé-indexés
+    // (seo.noindex) → redirigés vers l'URL canonique pour résorber le duplicate content.
+    '/ressources/blog/migrated-veille-gpt-4o-vision-update': '/ressources/veille-ia/gpt-4o-vision-update',
+    '/ressources/blog/migrated-fieldnote-composable-adoption': '/ressources/field-notes/composable-adoption',
   },
   integrations: [
     react(),
