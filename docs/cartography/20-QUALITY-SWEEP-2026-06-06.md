@@ -104,5 +104,25 @@ Audit hiérarchie titres (605 pages) : **0 sans-h1, 0 multi-h1** (confirme les f
 
 **4 restants** (cards via **composants partagés** → CARE requis) : `/agence/methode` (+ `/en/agence/methode`) via `editorial/Timeline.astro` (phases h3), `/ressources/cookbooks`, `/ressources/outils`. Promouvoir le heading du composant risque de créer des skips sur SES AUTRES usages → décision a11y par composant (promouvoir vs **ajouter un h2 de section sr-only par page** — label dérivable du h1, ex. methode « Les cinq phases », non blasté pour éviter une placement structurel hâtif). Batch a11y dédié recommandé.
 
+## ✅ TOUR 4 — audit exhaustif a11y + SEO meta (2026-06-07, prouvé GF-1/build)
+
+### Socle a11y — IMPECCABLE sur les 351 pages INDEXÉES
+Audit grep `dist/client` (noindex exclus) :
+- **0** `<img>` sans `alt` (WCAG 1.1.1) · **0** `target="_blank"` sans `rel=noopener` (tabnabbing) · **0** racine `<html>` sans `lang` (WCAG 3.1.1)
+- **1 h1 par page** (les multi-h1 résiduels sont tous sur des pages **noindex internes** : design-system FR/EN, compare/organisms)
+- **Heading-order (script `_audit-headings.mjs`, logique axe-core) : 0 skip de niveau, 0 page dont le 1er heading ≠ h1, 0 page sans heading** → les « 4 restants » du Tour 3 (methode/cookbooks/outils) sont **tous résolus** (commits `1f3cf57` etc.). Dimension heading-order **100 % close**.
+
+### SEO meta (script `_audit-seo-meta.mjs`) — title/desc/canonical 0 manquant
+**✅ Fixés ce tour (prouvés build) :**
+- `304a24f` test(e2e) : durcit 2 tests hover flaky (`freezeMotion` neutralise reveals/transitions) + regex `rgba?` tolérante → suite **43 passed / 0 failed**.
+- `a69b1c0` fix(seo) : **duplicate content** des 2 vestiges `ressources/blog/migrated-*` (contenu identique aux URLs canoniques `veille-ia/`+`field-notes/`, canonical auto-référent) → `seo.noindex:true` (levier natif `[...slug].astro:12`) + **redirect 301** vers l'URL canonique. Preuve : 0 page générée, hors sitemap, 2 routes 301 dans `.vercel/output/config.json`.
+- `f6aa3d5` fix(seo) : `/categories/` (14) + `/compare/` (1) ajoutés au filtre sitemap (même famille catalogue DS interne que `/preview/`+`/components/`) → **noindex∩sitemap 94→79**, sitemap 909→894, vraies pages intactes ; meta desc testimonials `substring(140→90)` → 5 descriptions >165c (jusqu'à 204c) ramenées <154c.
+
+**⏳ Documenté / gated (non touché ce tour) :**
+- **79 stubs catch-all noindex∩sitemap** (`offres/*`, `solutions/*`, `technologies/*` détail FR+EN) : stubs placeholder **intentionnels** (`src/pages/[...slug].astro` getStaticPaths l.31-51, `noindex` by design en attendant le vrai contenu). Défaut = présence sitemap. **Préfixes partagés avec des hubs INDEXÉS** (`/offres`, `/solutions`…) → le filtre par-URL ne peut pas les distinguer sans risque. Solution propre = **post-build sitemap filter sur `<meta robots noindex>`** OU extraire la liste stub-routes en module partagé (catch-all + sitemap). Décision Simon (le statut noindex relève aussi du contenu : ces pages doivent-elles rester non-indexées ou recevoir du vrai contenu indexable ?).
+- **9 descriptions >165c rédigées** (`cas/caserne`, `commerce/product/*`, `commerce/subscription/*`, `technologies/virtuoseos`, `personas/cmo-mid-market`) : léger dépassement → **copy éditorial** (gated).
+- **8 descriptions <50c** (`ressources/categorie/*`) : trop courtes pour le SEO → **copy éditorial** (gated).
+- **Faux positifs vérifiés (GF-4, non-bugs)** : `ecole/cours/*`≡`ecole/formation/*` (canonical formation→cours **déjà** en place + retiré du sitemap, alias volontaire) · title `/en/technologies` ≡ FR (language-neutral : noms propres + « open-source », rien à traduire).
+
 ## Verdict
-**4 items gated initiaux résolus** + **2 vrais bugs a11y/SEO trouvés & corrigés** (13 pages indexées : h1 vides/absents) + **suite e2e verte** (garde-fou anti-régression) + **3 audits systémiques** (h1 propre, SEO propre, inventaire liens). Tout prouvé GF-1, 0 régression de session. Reste = structural (Phase C incrémentale) · catalogue-interne (APPROX) · narrow-risqué (R1) · **gated produit/contenu** (liens morts conseil/commerce/EN-mirrors/légal, polish). Exécution prête dès arbitrage.
+**4 items gated initiaux résolus** + **2 vrais bugs a11y/SEO Tour 3** (13 pages : h1 vides/absents) + **Tour 4 : socle a11y 100 % clean sur 351 pages indexées** (img/lang/h1/heading-order) + **3 fixes SEO Tour 4** (duplicate content migrated, sitemap catalogue, desc testimonials) + **suite e2e verte durcie**. Tout prouvé GF-1/build, **0 régression de session**. Reste = structural (Phase C) · catalogue-interne (APPROX) · narrow-risqué (R1) · **gated produit/contenu** (79 stubs noindex∩sitemap = arbitrage indexation, liens morts conseil/commerce/EN-mirrors/légal, copy descriptions, polish). Exécution prête dès arbitrage.
