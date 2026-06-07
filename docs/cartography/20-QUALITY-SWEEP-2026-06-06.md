@@ -111,6 +111,8 @@ Audit grep `dist/client` (noindex exclus) :
 - **0** `<img>` sans `alt` (WCAG 1.1.1) · **0** `target="_blank"` sans `rel=noopener` (tabnabbing) · **0** racine `<html>` sans `lang` (WCAG 3.1.1)
 - **1 h1 par page** (les multi-h1 résiduels sont tous sur des pages **noindex internes** : design-system FR/EN, compare/organisms)
 - **Heading-order (script `_audit-headings.mjs`, logique axe-core) : 0 skip de niveau, 0 page dont le 1er heading ≠ h1, 0 page sans heading** → les « 4 restants » du Tour 3 (methode/cookbooks/outils) sont **tous résolus** (commits `1f3cf57` etc.). Dimension heading-order **100 % close**.
+- **Noms accessibles (snapshot a11y Playwright sur 6 pages interactives, WCAG 4.1.2/3.3.2) : 0 vrai bug** — les 36 « issues » sont des **patterns intentionnels corrects** (`a.img lift aria-hidden=true tabindex=-1` = liens image décoratifs anti-duplication lecteur d'écran ; `input[name=website] aria-hidden=true tabindex=-1` = honeypot anti-spam). Champs réels du form `/contact` : tous labellisés.
+- **JSON-LD (`_audit-jsonld.mjs`, 343 pages / 1166 blocs) : 0 invalide, 0 sans `@type`** — répartition saine (Organization/WebSite/BreadcrumbList globaux + Article/Service/Offer/Product/Course/FAQPage/ContactPage par template). Rich snippets sains.
 
 ### SEO meta (script `_audit-seo-meta.mjs`) — title/desc/canonical 0 manquant
 **✅ Fixés ce tour (prouvés build) :**
