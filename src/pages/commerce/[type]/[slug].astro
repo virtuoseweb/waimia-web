@@ -37,7 +37,7 @@ const jsonLd = [
   buildBreadcrumbList([
     { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
     { name: 'Commerce', url: `${SITE_URL}/commerce` },
-    { name: data.commerce_type, url: `${SITE_URL}/commerce/${data.commerce_type}` },
+    { name: data.commerce_type, url: `${SITE_URL}/commerce` },
     { name: title },
   ]),
 ];
@@ -49,7 +49,7 @@ const jsonLd = [
         noJsonLd
         items={[
           { href: '/commerce', label: lang === 'fr' ? 'Commerce' : 'Commerce' },
-          { href: `/commerce/${data.commerce_type}`, label: data.commerce_type },
+          { href: '/commerce', label: data.commerce_type },
           { href: `/commerce/${data.commerce_type}/${entry.id}`, label: title },
         ]}
       />
