@@ -40,7 +40,7 @@ const variantStyle = {
   'ink':         'background:var(--ink);color:var(--paper)',
   'ink-ghost':   'border:1px solid var(--ink);color:var(--ink)',
   'accent':      'background:var(--accent);color:var(--paper)',
-  'ghost-dark':  'border:1px solid rgba(246,241,232,.3);color:var(--paper)',
+  'ghost-dark':  'border:1px solid rgba(var(--paper-rgb),.3);color:var(--paper)',
 }[variant];
 
 const baseStyle = 'display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);transition:background 280ms var(--ease),color 280ms var(--ease),transform 280ms var(--ease)';

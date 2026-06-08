@@ -38,7 +38,7 @@ const {
 
 // Couleurs · centralisées ici une fois pour toutes
 const color = tone === 'accent' ? 'var(--accent)'
-            : tone === 'dim'    ? 'rgba(246,241,232,.5)'  // dim · pour usage on-dark
+            : tone === 'dim'    ? 'rgba(var(--paper-rgb),.5)'  // dim · pour usage on-dark
             : 'var(--muted)';
 
 // Le style inline est minimal et stable · pas de scope Astro pour simplifier la composition

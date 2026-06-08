@@ -416,8 +416,42 @@ console.log(`\n⛔ Hex de marque en attribut SVG (BLOQUANT V9-SVG, repaintabilit
 if (svgHexHits.length) showSvg(svgHexHits).forEach(h => console.log(fmtSvg(h)));
 if (!REPORT && svgHexHits.length > 3) console.log(`    … +${svgHexHits.length - 3} (voir --report)`);
 
+// ══════════════════════════════════════════════════════════════════════════════
+// V9-RGBA — Gate rgba de marque exacte (BLOQUANT, repaintabilité)
+// Interdit tout rgba(246,241,232,*) / rgba(201,79,46,*) / rgba(12,11,9,*) résiduel.
+// Ces triplets doivent passer par rgba(var(--paper-rgb),*) / rgba(var(--accent-rgb),*)
+// / rgba(var(--ink-rgb),*) pour que l'outil identité repeigne sans conflit.
+// Scan : src/**/*.astro + src/**/*.css (contenu COMPLET — frontmatter inclus).
+// Exclusions : tokens.css (définitions du contrat), emails/, LiquidHero.tsx, og.png.ts.
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Détecte les rgba de marque EXACTE résiduels (préfixe triplet, tolère espaces)
+const RGBA_BRAND_RE = /rgba\(\s*(246\s*,\s*241\s*,\s*232|201\s*,\s*79\s*,\s*46|12\s*,\s*11\s*,\s*9)\s*,/gi;
+
+const rgbaBrandHits = [];
+
+// Réutilise allFilesV8 (déjà construite : .astro+.css de src/, hors exclusions V8)
+for (const fpath of allFilesV8) {
+  // Scanne le contenu BRUT complet (frontmatter inclus — c'est là que sont les rgba)
+  const raw = readFileSync(fpath, 'utf8');
+  const rel = relative(ROOT, fpath);
+
+  RGBA_BRAND_RE.lastIndex = 0;
+  for (const m of raw.matchAll(RGBA_BRAND_RE)) {
+    const line = raw.slice(0, m.index).split('\n').length;
+    rgbaBrandHits.push({ file: rel, line, value: m[0].replace(/\s+/g, '') });
+  }
+}
+
+const showRgba = (arr) => (REPORT ? arr : arr.slice(0, 3));
+const fmtRgba  = (h) => `    ${h.file}:${h.line}  ${h.value}  → doit être rgba(var(--paper-rgb|--accent-rgb|--ink-rgb),X)`;
+
+console.log(`\n⛔ rgba de marque exacte (BLOQUANT V9-RGBA, repaintabilité) : ${rgbaBrandHits.length}`);
+if (rgbaBrandHits.length) showRgba(rgbaBrandHits).forEach(h => console.log(fmtRgba(h)));
+if (!REPORT && rgbaBrandHits.length > 3) console.log(`    … +${rgbaBrandHits.length - 3} (voir --report)`);
+
 // ── Décision finale ────────────────────────────────────────────────────────────
-const totalBlocking = hexHits.length + literalHits.length + spacingHits.length + halfpxHits.length + svgHexHits.length;
+const totalBlocking = hexHits.length + literalHits.length + spacingHits.length + halfpxHits.length + svgHexHits.length + rgbaBrandHits.length;
 
 if (hexHits.length > 0) {
   console.log(`\n❌ FAIL — ${hexHits.length} hex brut(s). Migre vers var(--token) / color-mix.\n`);
@@ -434,8 +468,11 @@ if (halfpxHits.length > 0) {
 if (svgHexHits.length > 0) {
   console.log(`\n❌ FAIL — ${svgHexHits.length} hex de marque en attribut fill/stroke SVG. Migre via tokenize-svg-hex.mjs → var(--ink|--muted|--accent|--paper-2) (DS enforced V9-SVG).\n`);
 }
+if (rgbaBrandHits.length > 0) {
+  console.log(`\n❌ FAIL — ${rgbaBrandHits.length} rgba de marque exacte résiduel(s). Migre via tokenize-rgba-brand.mjs → rgba(var(--paper-rgb|--accent-rgb|--ink-rgb),X) (DS enforced V9-RGBA).\n`);
+}
 if (totalBlocking > 0) {
   process.exit(1);
 }
-console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut, 0 demi-pixel font-size, 0 hex SVG de marque. (${brandHits.length} rgba de marque = dette à tokeniser, non-bloquante.)\n`);
+console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut, 0 demi-pixel font-size, 0 hex SVG de marque, 0 rgba de marque exacte. (${brandHits.length} rgba de marque dans sections/ = dette non-bloquante.)\n`);
 process.exit(0);

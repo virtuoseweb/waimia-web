@@ -34,7 +34,7 @@ const baseStyle = 'display:inline-flex;align-items:center;gap:8px;border-radius:
 
 const variantStyle = {
   'accent':      'background:var(--accent);color:var(--paper);padding:16px 26px;font-size:var(--text-ui)',
-  'ghost-dark':  'border:1px solid rgba(246,241,232,.35);color:var(--paper);padding:16px 26px;font-size:var(--text-ui)',
+  'ghost-dark':  'border:1px solid rgba(var(--paper-rgb),.35);color:var(--paper);padding:16px 26px;font-size:var(--text-ui)',
   'accent-mono': 'background:var(--accent);color:var(--paper);padding:18px 32px;font-size:14px;font-family:var(--font-mono)',
 }[variant];
 
