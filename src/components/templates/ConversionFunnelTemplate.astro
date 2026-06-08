@@ -444,11 +444,11 @@ const offerLd = {
   .cf-section-h2 {
     font-family: var(--font-display);
     font-size: clamp(40px, 6vw, 88px);
-    line-height: 0.96;
+    line-height: var(--leading-h1);
     letter-spacing: 0;
     margin: 0 0 24px;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .cf-section-h2 :global(i) { font-style: italic; color: var(--accent); }
   .cf-section-lead,
@@ -464,7 +464,7 @@ const offerLd = {
   .cf-demo-mockup {
     margin-top: clamp(40px, 5vw, 60px);
     border: 1px solid var(--hairline-strong);
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--ink);
     color: var(--paper);
@@ -518,7 +518,7 @@ const offerLd = {
     display: block;
     margin-bottom: 10px;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
@@ -531,11 +531,11 @@ const offerLd = {
   }
 
   .cf-pricing-aside {
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--muted);
     max-width: 640px;
     margin: 0 0 clamp(40px, 5vw, 60px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
   .cf-tiers {
     display: grid;
@@ -621,7 +621,7 @@ const offerLd = {
   .cf-form-full { grid-column: 1 / -1; }
   .cf-form label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -636,7 +636,7 @@ const offerLd = {
     border-radius: 6px;
     background: var(--paper);
     color: var(--ink);
-    transition: border-color 200ms var(--ease);
+    transition: border-color var(--dur-fast) var(--ease);
   }
   .cf-form input:focus,
   .cf-form textarea:focus,
@@ -664,7 +664,7 @@ const offerLd = {
   .cf-sticky-copy {
     min-width: 0;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
@@ -679,9 +679,9 @@ const offerLd = {
     padding: 12px 18px;
     background: var(--ink);
     color: var(--paper);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: 0;
     transition: transform 220ms var(--ease), background 220ms var(--ease);

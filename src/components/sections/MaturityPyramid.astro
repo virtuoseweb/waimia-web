@@ -120,7 +120,7 @@ const isFr = lang === 'fr';
     line-height: 1.45;
   }
   .pyramid-asym .editorial-cell .e-list {
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     gap: 3px;
   }
   .pyramid-asym .editorial-cell .e-list li {
@@ -140,7 +140,7 @@ const isFr = lang === 'fr';
   }
 
   .editorial-cell {
-    transition: transform 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1)), border-color 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1)), background 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+    transition: transform var(--dur-fast) var(--ease, var(--ease)), border-color var(--dur-fast) var(--ease, var(--ease)), background var(--dur-fast) var(--ease, var(--ease));
   }
 
   .editorial-cell:hover {
@@ -150,10 +150,10 @@ const isFr = lang === 'fr';
 
   .editorial-cell:hover .e-num {
     color: var(--accent);
-    transition: color 200ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+    transition: color var(--dur-fast) var(--ease, var(--ease));
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .pyramid-asym {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -201,7 +201,7 @@ const isFr = lang === 'fr';
 
   .pyramid-step-roman {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     color: var(--muted);
   }
@@ -234,7 +234,7 @@ const isFr = lang === 'fr';
     letter-spacing: -0.01em;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .pyramid-timeline { grid-template-columns: repeat(2, 1fr); }
     .pyramid-step:nth-child(2n) { border-right: none; }
     .pyramid-step:nth-child(odd) { border-right: 1px solid var(--hairline); }

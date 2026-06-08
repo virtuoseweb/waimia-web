@@ -57,7 +57,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
         <Kicker class="b-hero-tag">
           {lang === 'fr' ? (<>Une agence IA · <span style="color:var(--accent)">artisanat français, finition internationale</span></>) : (<>An AI agency · <span style="color:var(--accent)">French craft, international polish</span></>)}
         </Kicker>
-        <h1 style="font-family:var(--font-display);font-size:clamp(64px,13vw,220px);line-height:.88;letter-spacing:-0.035em;color:var(--paper);text-wrap:balance;font-weight:400;margin:0">
+        <h1 style="font-family:var(--font-display);font-size:clamp(64px,13vw,220px);line-height:.88;letter-spacing:-0.035em;color:var(--paper);text-wrap:balance;font-weight:var(--fw-regular);margin:0">
           {lang === 'fr' ? (
             <>Construire du <i style="color:var(--accent)">revenue</i>,<br />pas des <i>démos</i>.</>
           ) : (
@@ -111,7 +111,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
           </Kicker>
           <Kicker class="b-acte-1-sub">{lang === 'fr' ? 'Acte I' : 'Act I'}</Kicker>
         </div>
-        <p class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,6.5vw,104px);line-height:1.02;letter-spacing:-0.025em;color:var(--paper);text-wrap:balance;font-weight:400">
+        <p class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,6.5vw,104px);line-height:var(--leading-h2);letter-spacing:var(--tracking-display);color:var(--paper);text-wrap:balance;font-weight:var(--fw-regular)">
           {lang === 'fr' ? (
             <>L'IA est <i style="color:var(--accent)">partout</i> et nulle part. Les stacks grossissent, les pipelines s'aplatissent. Le goulot n'est <i>jamais</i> le modèle.</>
           ) : (
@@ -123,7 +123,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
         {STATS.map((r) => (
           <div class="reveal">
             <div style="font-family:var(--font-display);font-size:clamp(72px,10vw,176px);line-height:.9;letter-spacing:-0.03em;color:var(--accent)">{r.n}</div>
-            <p style="margin-top:18px;font-size:17px;line-height:1.5;color:rgba(var(--paper-rgb), .7);max-width:280px;font-family:var(--font-display)">
+            <p style="margin-top:18px;font-size:var(--text-body-md);line-height:var(--leading-body);color:rgba(var(--paper-rgb), .7);max-width:280px;font-family:var(--font-display)">
               {ft(r.text, lang)}
             </p>
           </div>
@@ -141,7 +141,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
         </Kicker>
         <Kicker>6 · ALL IN HOUSE</Kicker>
       </div>
-      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(48px,8vw,148px);line-height:.94;letter-spacing:-0.03em;max-width:1400px;margin-bottom:clamp(80px,10vw,120px);text-wrap:balance;font-weight:400">
+      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(48px,8vw,148px);line-height:.94;letter-spacing:-0.03em;max-width:1400px;margin-bottom:clamp(80px,10vw,120px);text-wrap:balance;font-weight:var(--fw-regular)">
         {lang === 'fr' ? (
           <>On fait la couche <i style="color:var(--accent)">sans relief</i>. Exprès.</>
         ) : (
@@ -169,7 +169,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
       <Kicker class="b-acte-3">
         <span style="color:var(--accent)">III.</span> {lang === 'fr' ? 'La plateforme' : 'The platform'}
       </Kicker>
-      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(48px,8vw,128px);line-height:.94;letter-spacing:-0.03em;color:var(--paper);text-wrap:balance;font-weight:400;margin-bottom:32px">
+      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(48px,8vw,128px);line-height:.94;letter-spacing:-0.03em;color:var(--paper);text-wrap:balance;font-weight:var(--fw-regular);margin-bottom:32px">
         {lang === 'fr' ? (
           <>Virtuose<i style="color:var(--accent)">OS</i>.<br />Le <i>kernel</i> sous chaque intervention.</>
         ) : (
@@ -188,7 +188,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
       <Kicker class="manifesto-acte-iv">
         <span style="color:var(--accent)">IV.</span> {lang === 'fr' ? 'Les preuves' : 'The proof'}
       </Kicker>
-      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(48px,8vw,148px);line-height:.92;letter-spacing:-0.03em;max-width:1400px;margin-bottom:clamp(60px,8vw,100px);text-wrap:balance;font-weight:400">
+      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(48px,8vw,148px);line-height:.92;letter-spacing:-0.03em;max-width:1400px;margin-bottom:clamp(60px,8vw,100px);text-wrap:balance;font-weight:var(--fw-regular)">
         {lang === 'fr' ? (<>Pas des démos. Des <i style="color:var(--accent)">résultats</i>.</>) : (<>Not demos. <i style="color:var(--accent)">Results</i>.</>)}
       </h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
@@ -213,7 +213,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
     <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:400px 1fr;gap:clamp(40px,6vw,100px)">
       <div>
         <Kicker class="b-writing-tag">{lang === 'fr' ? 'Écrits' : 'Writing'}</Kicker>
-        <div style="font-family:var(--font-display);font-size:clamp(36px,6vw,88px);line-height:.96;letter-spacing:-0.025em;margin-top:28px;color:var(--paper)">
+        <div style="font-family:var(--font-display);font-size:clamp(36px,6vw,88px);line-height:.96;letter-spacing:var(--tracking-display);margin-top:28px;color:var(--paper)">
           {lang === 'fr' ? (<>Notes de <i style="color:var(--accent)">terrain</i>, lentement.</>) : (<>Field <i style="color:var(--accent)">notes</i>, slowly.</>)}
         </div>
       </div>
@@ -238,7 +238,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
       <Kicker class="manifesto-acte-v">
         <span style="color:var(--accent)">V.</span> {lang === 'fr' ? "Passer à l'action" : 'Act'}
       </Kicker>
-      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(72px,14vw,260px);line-height:.86;letter-spacing:-0.04em;text-wrap:balance;font-weight:400">
+      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(72px,14vw,260px);line-height:.86;letter-spacing:-0.04em;text-wrap:balance;font-weight:var(--fw-regular)">
         {lang === 'fr' ? (<>Arrêtez de <i style="color:var(--accent)">répéter</i>.<br />Livrez.</>) : (<>Stop <i style="color:var(--accent)">rehearsing</i>.<br />Ship.</>)}
       </h2>
       <div style="display:inline-flex;gap:14px;margin-top:60px;flex-wrap:wrap;justify-content:center">

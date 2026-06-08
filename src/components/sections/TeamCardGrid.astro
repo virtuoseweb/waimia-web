@@ -58,7 +58,7 @@ const isFr = lang === 'fr';
     background: var(--paper);
     border: 1px solid rgba(var(--ink-rgb), .08);
     border-top: 2px solid transparent;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     padding: 32px;
     text-decoration: none;
     color: var(--ink);
@@ -79,7 +79,7 @@ const isFr = lang === 'fr';
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     transition: transform 360ms var(--ease-out);
   }
   .eq-card-body {
@@ -95,12 +95,12 @@ const isFr = lang === 'fr';
     font-family: var(--font-display);
     font-size: clamp(28px, 2.6vw, 36px);
     line-height: 1.05;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0;
   }
   .eq-card-role {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--accent);
@@ -120,7 +120,7 @@ const isFr = lang === 'fr';
   }
   .eq-card-count {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--muted);

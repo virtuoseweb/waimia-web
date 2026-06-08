@@ -68,10 +68,10 @@ const cookbooks = [
   .cb-card:nth-child(2n) { border-right: none; }
   .cb-card:nth-last-child(-n+2) { border-bottom: none; }
   .cb-card:hover { background: var(--paper-2); }
-  .cb-meta { display: flex; gap: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .cb-meta { display: flex; gap: 14px; font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
   .cb-code { color: var(--accent); }
-  .cb-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; margin: 0; text-wrap: balance; }
-  .cb-lead { font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty; margin: 0; max-width: 520px; }
-  .cb-go { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--accent); margin-top: auto; }
+  .cb-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); line-height: 1.05; letter-spacing: -0.02em; font-weight: var(--fw-regular); margin: 0; text-wrap: balance; }
+  .cb-lead { font-size: var(--text-body-sm); line-height: 1.55; color: var(--muted); text-wrap: pretty; margin: 0; max-width: 520px; }
+  .cb-go { font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: 0.1em; color: var(--accent); margin-top: auto; }
   @media (max-width: 800px) { .cb-grid { grid-template-columns: 1fr; } .cb-card { border-right: none; border-bottom: 1px solid var(--hairline); } .cb-card:last-child { border-bottom: none; } }
 </style>

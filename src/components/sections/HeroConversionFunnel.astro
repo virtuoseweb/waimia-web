@@ -106,7 +106,7 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
     line-height: 0.88;
     letter-spacing: 0;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 32px;
   }
   .hero-conversion-funnel__h1 :global(i) { font-style: italic; color: var(--accent); }
@@ -127,12 +127,12 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
   }
   .hero-conversion-funnel__meta span {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
     border: 1px solid var(--hairline-strong);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     padding: 7px 11px;
     background: color-mix(in srgb, var(--paper) 86%, transparent);
   }
@@ -178,7 +178,7 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
   .hero-conversion-funnel__stats {
     margin-top: 60px;
@@ -198,7 +198,7 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
   .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent); font-size: clamp(48px, 6vw, 80px); }
   .hero-conversion-funnel__stat-label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);

@@ -53,7 +53,7 @@ const kickerTone = isInk ? 'dim' : 'muted';
 <style>
   /* Status aligné à droite + Mobile · stack en 2 col pour rester lisible */
   :global(.u-masthead-status){text-align:right}
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .u-masthead-row {
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 14px !important;

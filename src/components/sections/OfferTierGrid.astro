@@ -75,7 +75,7 @@ const gridClass = [
   }
   .tier-eyebrow {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted-2);
@@ -84,8 +84,8 @@ const gridClass = [
   .tier-h2 {
     font-family: var(--font-display);
     font-size: clamp(40px, 6vw, 88px);
-    font-weight: 400;
-    line-height: 0.96;
+    font-weight: var(--fw-regular);
+    line-height: var(--leading-h1);
     letter-spacing: -0.024em;
     margin: 0 0 18px;
   }
@@ -117,7 +117,7 @@ const gridClass = [
     border: 1px solid var(--hairline);
     background: var(--paper-2);
     color: var(--ink);
-    transition: border-color 220ms var(--ease), transform 200ms var(--ease);
+    transition: border-color 220ms var(--ease), transform var(--dur-fast) var(--ease);
   }
   .offer-card:hover {
     border-color: var(--accent);
@@ -132,8 +132,8 @@ const gridClass = [
   }
   .card-price {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted-2);
     margin: 0;
@@ -141,7 +141,7 @@ const gridClass = [
   .card-title {
     font-family: var(--font-display);
     font-size: clamp(28px, 3.5vw, 48px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     line-height: 1;
     letter-spacing: -0.02em;
     margin: 0;
@@ -156,7 +156,7 @@ const gridClass = [
   }
   .card-cta {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     color: var(--accent);
     margin-top: auto;
@@ -176,7 +176,7 @@ const gridClass = [
   }
   .hero-card-eyebrow {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -185,7 +185,7 @@ const gridClass = [
   .hero-card-title {
     font-family: var(--font-display);
     font-size: clamp(40px, 8vw, 96px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     font-style: italic;
     line-height: 0.92;
     letter-spacing: -0.03em;
@@ -213,7 +213,7 @@ const gridClass = [
     letter-spacing: 0.1em;
     color: var(--accent);
   }
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .tier-grid,
     .tier-ii-grid,
     .tier-iii-grid {

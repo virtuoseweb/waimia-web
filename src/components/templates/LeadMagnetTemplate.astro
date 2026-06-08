@@ -270,7 +270,7 @@ const tocEvents = toc.map((item, index) => ({
     font-size: clamp(28px, 3.6vw, 44px);
     line-height: 1.05;
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 12px;
     text-wrap: balance;
   }
@@ -278,7 +278,7 @@ const tocEvents = toc.map((item, index) => ({
   .form-row { display: flex; flex-direction: column; gap: 6px; }
   .form-row label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -288,17 +288,17 @@ const tocEvents = toc.map((item, index) => ({
   .form-row label span:last-child { color: var(--accent); }
   .form-row input {
     font-family: var(--font-display);
-    font-size: 17px;
+    font-size: var(--text-body-md);
     padding: 14px 0;
     border: 0;
     border-bottom: 1px solid var(--hairline-strong);
     border-radius: 0;
     background: var(--paper);
     color: var(--ink);
-    transition: border-color 200ms var(--ease), background 200ms var(--ease);
+    transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
   }
   .form-row input:focus { outline: none; border-color: var(--accent); background: var(--paper-2); }
-  .lm-foot { font-size: 12.5px; line-height: 1.5; color: var(--muted); margin: 8px 0 0; max-width: 540px; }
+  .lm-foot { font-size: 12.5px; line-height: var(--leading-body); color: var(--muted); margin: 8px 0 0; max-width: 540px; }
 
   .lm-toc {
     border-left: 1px solid var(--hairline);
@@ -351,12 +351,12 @@ const tocEvents = toc.map((item, index) => ({
     margin: 0;
     font-family: var(--font-display);
     font-size: clamp(32px, 4vw, 56px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     line-height: 1;
     text-wrap: balance;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .lm-hero-grid { grid-template-columns: 1fr; }
     .lm-abstract-grid { grid-template-columns: 1fr; }
     .lm-body-grid { grid-template-columns: 1fr; }

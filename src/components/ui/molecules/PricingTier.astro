@@ -106,7 +106,7 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     letter-spacing: 0.14em;
     text-transform: uppercase;
     padding: 6px 12px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
   }
   .pricing-hd {
     display: flex;
@@ -124,13 +124,13 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     font-size: clamp(28px, 3.2vw, 40px);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0;
   }
   .pricing-desc {
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--muted);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     margin: 0;
     text-wrap: pretty;
   }
@@ -146,12 +146,12 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     font-family: var(--font-display);
     font-size: clamp(32px, 4vw, 56px);
     line-height: 1;
-    letter-spacing: -0.025em;
-    font-weight: 400;
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
   }
   .pricing-price-period {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     letter-spacing: 0.06em;
   }
@@ -168,13 +168,13 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     display: flex;
     gap: var(--space-3);
     align-items: baseline;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
     color: var(--ink-2);
   }
   .pricing-check {
     color: var(--accent);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     flex-shrink: 0;
   }
 </style>

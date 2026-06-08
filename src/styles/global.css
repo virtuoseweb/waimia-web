@@ -1,6 +1,6 @@
 /* Waimia · global.css
    Tailwind v4 + tokens DS + classes legacy portées de handoff/site.css
-   Tempo contemplatif (reveals 1400ms). Tout token = tokens.css. */
+   Tempo contemplatif (reveals var(--dur-slow)). Tout token = tokens.css. */
 
 @import "tailwindcss";
 @import "./fonts.css";
@@ -33,7 +33,7 @@ a {
 a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 button {
   font: inherit;
@@ -63,28 +63,28 @@ h1 {
   font-size: var(--text-h1-hero);
   line-height: var(--leading-h1);
   letter-spacing: var(--tracking-display);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 h2 {
   font-family: var(--font-display);
   font-size: var(--text-h2-grand);
-  line-height: 0.96;
+  line-height: var(--leading-h1);
   letter-spacing: var(--tracking-display);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 h3 {
   font-family: var(--font-display);
   font-size: var(--text-h2-section);
   line-height: 1;
   letter-spacing: -0.02em;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 h4 {
   font-family: var(--font-mono);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   color: var(--muted);
 }
 p {
@@ -105,7 +105,7 @@ pre {
   align-items: baseline;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-eyebrow);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -153,7 +153,7 @@ pre {
   float: left;
   margin: 0.08em 0.12em -0.08em 0;
   color: var(--accent);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 
 /* Hairlines */
@@ -209,10 +209,10 @@ pre {
   align-items: center;
   gap: 8px;
   padding: 14px 22px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-body);
   transition:
     background 280ms var(--ease),
     color 280ms var(--ease),
@@ -256,7 +256,7 @@ pre {
 }
 .btn-lg {
   padding: 18px 30px;
-  font-size: 14px;
+  font-size: var(--text-body-sm);
 }
 .on-dark .btn-ghost {
   border-color: var(--paper);
@@ -429,7 +429,7 @@ a:not([class]):hover,
   font-family: var(--font-sans);
   font-weight: 450;
   font-size: 13px;
-  letter-spacing: -0.005em;
+  letter-spacing: var(--tracking-body);
 }
 .hdr-nav-item {
   position: relative;
@@ -440,7 +440,7 @@ a:not([class]):hover,
   gap: 5px;
   padding: 10px 14px;
   opacity: 0.82;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   transition:
     opacity 260ms var(--ease),
     background 300ms var(--ease),
@@ -477,10 +477,10 @@ a:not([class]):hover,
   padding: 6px 11px;
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-mono);
   color: var(--muted);
   border: 1px solid var(--hairline-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   transition:
     border-color 260ms var(--ease),
     color 260ms var(--ease);
@@ -490,7 +490,7 @@ a:not([class]):hover,
 }
 .lang-toggle .on {
   color: var(--ink);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 .lang-toggle .sep {
   opacity: 0.35;
@@ -503,10 +503,10 @@ a:not([class]):hover,
   background: var(--ink);
   color: var(--paper);
   padding: 10px 18px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-body);
   transition:
     background 300ms var(--ease),
     transform 300ms var(--ease),
@@ -523,7 +523,7 @@ a:not([class]):hover,
   width: 40px;
   height: 40px;
   border: 1px solid var(--hairline-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -607,7 +607,7 @@ a:not([class]):hover,
 }
 .mega-col-hd .k {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-mono-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
@@ -639,15 +639,15 @@ a:not([class]):hover,
   border-bottom-color: var(--hairline);
 }
 .mega-link .t {
-  font-size: 14px;
+  font-size: var(--text-body-sm);
   font-weight: 450;
-  letter-spacing: -0.005em;
+  letter-spacing: var(--tracking-body);
   display: block;
 }
 .mega-link .sub {
   font-size: 11.5px;
   color: var(--muted);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   margin-top: 3px;
   display: block;
   line-height: 1.4;
@@ -662,7 +662,7 @@ a:not([class]):hover,
 }
 .mega-featured .badge {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-mono-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
@@ -690,8 +690,8 @@ a:not([class]):hover,
 }
 .mega-featured .cta {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-mono);
   color: var(--accent);
   margin-top: 6px;
 }
@@ -705,7 +705,7 @@ a:not([class]):hover,
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-eyebrow);
   letter-spacing: 0.08em;
   color: var(--muted);
 }
@@ -792,7 +792,7 @@ a:not([class]):hover,
   width: 40px;
   height: 40px;
   border: 1px solid var(--hairline-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 16px;
 }
 .m-sheet-body {
@@ -852,7 +852,7 @@ a:not([class]):hover,
 }
 .m-sheet-acc-col .k {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-mono-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
@@ -866,7 +866,7 @@ a:not([class]):hover,
 }
 .m-sheet-acc-col a {
   display: block;
-  font-size: 14px;
+  font-size: var(--text-body-sm);
   padding: 8px 0;
   color: var(--ink);
   border-bottom: 1px solid var(--hairline);
@@ -910,7 +910,7 @@ a:not([class]):hover,
   gap: 8px;
   padding: 7px 12px;
   border: 1px solid var(--hairline-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.08em;
@@ -989,7 +989,7 @@ a:not([class]):hover,
    scroll-reveal.css (chargé après → source de vérité, état `.is-visible`).
    Ici on conserve uniquement les classes propres à global.css : `.reveal-up`,
    `.scale-in`, `.blur-in` (état `.in`, hors sélecteur du JS scroll-reveal).
-   Timing migré : --reveal-slow → --dur-slow (1400ms), --reveal-med → --dur-reveal (1100ms). */
+   Timing migré : --reveal-slow → --dur-slow (var(--dur-slow)), --reveal-med → --dur-reveal (var(--dur-reveal)). */
 .reveal-up {
   opacity: 0;
   transform: translateY(22px);
@@ -1200,7 +1200,7 @@ a:not([class]):hover,
   line-height: var(--leading-h2);
   letter-spacing: -0.026em;
   text-wrap: balance;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 .sec-hd h2 i {
   font-style: italic;
@@ -1241,7 +1241,7 @@ a:not([class]):hover,
 }
 .editorial-cell .e-tag {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-mono-xs);
   letter-spacing: 0.2em;
   color: var(--muted);
   text-transform: uppercase;
@@ -1251,7 +1251,7 @@ a:not([class]):hover,
   font-size: clamp(20px, 2.2vw, 30px);
   line-height: 1.08;
   letter-spacing: -0.016em;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   text-wrap: balance;
 }
 .editorial-cell .e-body {
@@ -1287,7 +1287,7 @@ a:not([class]):hover,
 .editorial-cell .e-go {
   margin-top: 16px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-eyebrow);
   letter-spacing: 0.1em;
   color: var(--accent);
 }
@@ -1314,7 +1314,7 @@ a:not([class]):hover,
   grid-template-columns: repeat(5, 1fr);
 }
 
-@media (max-width: 900px) {
+@media (max-width: var(--wrap-read)) {
   .ec-grid.cols-4,
   .ec-grid.cols-5,
   .ec-grid.cols-3 {
@@ -1354,16 +1354,16 @@ a:not([class]):hover,
 }
 .case-row .idx {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-eyebrow);
   color: var(--muted);
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-mono);
 }
 .case-row .client {
   font-family: var(--font-display);
   font-size: clamp(22px, 2.8vw, 38px);
   line-height: 1;
   letter-spacing: -0.02em;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 .case-row .sector,
 .case-row .dur {
@@ -1376,7 +1376,7 @@ a:not([class]):hover,
 .case-row .impact {
   font-size: clamp(12px, 1.3vw, 14.5px);
   color: var(--ink-2);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 .case-row .arr {
   font-family: var(--font-mono);
@@ -1421,9 +1421,9 @@ a:not([class]):hover,
 .how-row .ttl {
   font-family: var(--font-display);
   font-size: clamp(22px, 2.5vw, 38px);
-  line-height: 1.1;
+  line-height: var(--leading-h3);
   letter-spacing: -0.018em;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   text-wrap: balance;
 }
 .how-row .desc {
@@ -1446,7 +1446,7 @@ a:not([class]):hover,
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid var(--hairline-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   display: inline-flex;
   gap: 2px;
   align-items: center;
@@ -1470,10 +1470,10 @@ a:not([class]):hover,
   gap: 7px;
   align-items: baseline;
   padding: 7px 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   color: var(--muted);
   transition:
@@ -1489,7 +1489,7 @@ a:not([class]):hover,
   color: var(--paper);
 }
 .page-pill-btn .page-pill-k {
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: inherit;
   opacity: 0.7;
 }
@@ -1577,7 +1577,7 @@ a:not([class]):hover,
     width: 0;
     height: 1px;
     background: var(--accent);
-    transition: width var(--dur-fast, 200ms) var(--ease);
+    transition: width var(--dur-fast, var(--dur-fast)) var(--ease);
   }
   .hdr-nav-trigger:hover::after,
   .hdr-nav-trigger:focus-visible::after,

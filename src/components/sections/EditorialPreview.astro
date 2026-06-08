@@ -89,7 +89,7 @@ const isFr = lang === 'fr';
 
   .notes-row-num {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     color: var(--accent);
     text-transform: uppercase;
@@ -105,7 +105,7 @@ const isFr = lang === 'fr';
   .notes-row-tag {
     font-family: var(--font-mono);
     font-size: 10.5px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--ink-2);
   }
@@ -118,13 +118,13 @@ const isFr = lang === 'fr';
     line-height: var(--leading-h3);
     letter-spacing: -0.015em;
     color: var(--ink);
-    transition: color 200ms var(--ease);
+    transition: color var(--dur-fast) var(--ease);
     text-wrap: balance;
   }
 
   .notes-row-arr {
     font-family: var(--font-mono);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--muted);
     text-align: right;
     transition: color 240ms var(--ease), transform 320ms var(--ease);
@@ -137,7 +137,7 @@ const isFr = lang === 'fr';
 
   .notes-foot-link {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -145,7 +145,7 @@ const isFr = lang === 'fr';
     padding-bottom: 2px;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .notes-row {
       grid-template-columns: 60px 1fr;
       row-gap: 6px;

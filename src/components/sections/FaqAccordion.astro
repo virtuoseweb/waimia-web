@@ -95,7 +95,7 @@ if ('data' in Astro.props) {
   h2 {
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
@@ -131,7 +131,7 @@ if ('data' in Astro.props) {
   }
   .faq-accordion__arrow {
     font-family: var(--font-mono);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--muted);
     transition: transform .2s;
     flex-shrink: 0;

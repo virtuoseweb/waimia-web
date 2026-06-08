@@ -39,7 +39,7 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
 <style>
   .breadcrumb {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
@@ -58,7 +58,7 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
     color: var(--muted);
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    transition: color 200ms var(--ease), border-color 200ms var(--ease);
+    transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
   .breadcrumb a:hover {
     color: var(--accent);
@@ -69,7 +69,7 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
     border-bottom-color: var(--accent);
     outline: 2px solid var(--accent);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
   }
   .breadcrumb [aria-current="page"] {
     color: var(--ink);

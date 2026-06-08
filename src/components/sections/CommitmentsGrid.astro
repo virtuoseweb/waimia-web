@@ -46,7 +46,7 @@ const isFr = lang === 'fr';
   }
   .commitments-grid__kicker {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -56,8 +56,8 @@ const isFr = lang === 'fr';
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h2);
-    letter-spacing: -0.025em;
-    font-weight: 400;
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
     max-width: 760px;
     margin: 0 0 clamp(28px, 3vw, 44px);
     color: var(--ink);
@@ -88,13 +88,13 @@ const isFr = lang === 'fr';
     font-size: clamp(17px, 1.6vw, 22px);
     line-height: 1.25;
     letter-spacing: -0.018em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     margin: 0 0 12px;
   }
   .commitments-grid__cell-body {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     line-height: 1.55;
     color: var(--muted);
     margin: 0;

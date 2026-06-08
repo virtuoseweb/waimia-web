@@ -199,13 +199,13 @@ const sectionItems = listSections();
           <div class="ds-type-stacks">
             <div class="ds-type-stack">
               <Kicker tone="muted" size={10}>--font-display · Instrument Serif</Kicker>
-              <p style="font-family:var(--font-display);font-size:48px;line-height:1.02;margin:8px 0 0">
+              <p style="font-family:var(--font-display);font-size:48px;line-height:var(--leading-h2);margin:8px 0 0">
                 Pioche, n'<i>invente</i> pas.
               </p>
             </div>
             <div class="ds-type-stack">
               <Kicker tone="muted" size={10}>--font-sans · Inter Tight</Kicker>
-              <p style="font-family:var(--font-sans);font-size:17px;line-height:1.5;margin:8px 0 0">
+              <p style="font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-body);margin:8px 0 0">
                 Le système design est une librairie, pas un terrain d'invention.
                 Chaque atome existe pour une raison documentée.
               </p>
@@ -226,23 +226,23 @@ const sectionItems = listSections();
             </div>
             <div class="ds-type-row">
               <Kicker tone="muted" size={10}>--text-h2-grand</Kicker>
-              <p style="font-family:var(--font-display);font-size:var(--text-h2-grand);line-height:1.02;margin:6px 0 0">H2 grand · climax final</p>
+              <p style="font-family:var(--font-display);font-size:var(--text-h2-grand);line-height:var(--leading-h2);margin:6px 0 0">H2 grand · climax final</p>
             </div>
             <div class="ds-type-row">
               <Kicker tone="muted" size={10}>--text-h2-section</Kicker>
-              <p style="font-family:var(--font-display);font-size:var(--text-h2-section);line-height:1.1;margin:6px 0 0">H2 section · titre par défaut</p>
+              <p style="font-family:var(--font-display);font-size:var(--text-h2-section);line-height:var(--leading-h3);margin:6px 0 0">H2 section · titre par défaut</p>
             </div>
             <div class="ds-type-row">
               <Kicker tone="muted" size={10}>--text-h2-tight</Kicker>
-              <p style="font-family:var(--font-display);font-size:var(--text-h2-tight);line-height:1.1;margin:6px 0 0">H2 tight · FAQ, sidebar</p>
+              <p style="font-family:var(--font-display);font-size:var(--text-h2-tight);line-height:var(--leading-h3);margin:6px 0 0">H2 tight · FAQ, sidebar</p>
             </div>
             <div class="ds-type-row">
               <Kicker tone="muted" size={10}>--text-h3-row</Kicker>
-              <p style="font-family:var(--font-display);font-size:var(--text-h3-row);line-height:1.1;margin:6px 0 0">H3 row · Departments, Notes</p>
+              <p style="font-family:var(--font-display);font-size:var(--text-h3-row);line-height:var(--leading-h3);margin:6px 0 0">H3 row · Departments, Notes</p>
             </div>
             <div class="ds-type-row">
               <Kicker tone="muted" size={10}>--text-h3-card</Kicker>
-              <p style="font-family:var(--font-display);font-size:var(--text-h3-card);line-height:1.1;margin:6px 0 0">H3 card · CapabilityStrip, SixServices</p>
+              <p style="font-family:var(--font-display);font-size:var(--text-h3-card);line-height:var(--leading-h3);margin:6px 0 0">H3 card · CapabilityStrip, SixServices</p>
             </div>
           </div>
 
@@ -316,11 +316,11 @@ const sectionItems = listSections();
           <div class="ds-motion-grid">
             <div class="ds-motion-card">
               <code>--ease</code>
-              <span class="ds-help">cubic-bezier(0.22, 1, 0.36, 1) · défaut</span>
+              <span class="ds-help">var(--ease) · défaut</span>
             </div>
             <div class="ds-motion-card">
               <code>--ease-out</code>
-              <span class="ds-help">cubic-bezier(0.16, 1, 0.30, 1)</span>
+              <span class="ds-help">var(--ease-out)</span>
             </div>
             <div class="ds-motion-card">
               <code>--ease-sharp</code>
@@ -330,7 +330,7 @@ const sectionItems = listSections();
           <ul class="ds-durations">
             <li><code>--dur-instant</code> 0ms</li>
             <li><code>--dur-snap</code> 120ms</li>
-            <li><code>--dur-fast</code> 200ms</li>
+            <li><code>--dur-fast</code> var(--dur-fast)</li>
             <li><code>--dur-base</code> 400ms</li>
             <li><code>--dur-slow</code> 800ms</li>
             <li><code>--dur-deliberate</code> 1200ms</li>
@@ -848,7 +848,7 @@ const sectionItems = listSections();
     font-size: clamp(48px, 9vw, 156px);
     line-height: 0.94;
     letter-spacing: -0.03em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     text-wrap: balance;
     margin: 0;
     color: var(--ink);
@@ -859,8 +859,8 @@ const sectionItems = listSections();
     font-size: clamp(18px, 1.8vw, 24px);
     color: var(--ink-2);
     margin: 32px 0 0;
-    max-width: 720px;
-    line-height: 1.5;
+    max-width: var(--wrap-prose);
+    line-height: var(--leading-body);
   }
   .ds-meta {
     font-family: var(--font-mono);
@@ -908,7 +908,7 @@ const sectionItems = listSections();
   .ds-toc-list li:hover { border-left-color: var(--accent); }
   .ds-toc-list a {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--ink-2);
     text-decoration: none;
     line-height: 1.4;
@@ -930,7 +930,7 @@ const sectionItems = listSections();
     margin: 16px 0 32px;
   }
   .ds-section-lede code,
-  .ds-section-lede strong { font-weight: 600; }
+  .ds-section-lede strong { font-weight: var(--fw-semibold); }
   .ds-section-lede code,
   .ds-help code,
   .ds-meta code,
@@ -956,7 +956,7 @@ const sectionItems = listSections();
   }
   .ds-h4 {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
@@ -964,9 +964,9 @@ const sectionItems = listSections();
   }
   .ds-help {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--muted);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     margin: 8px 0 16px;
     max-width: 64ch;
   }
@@ -1004,12 +1004,12 @@ const sectionItems = listSections();
   }
   .ds-swatch-hex {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
   }
   .ds-swatch-role {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     font-style: italic;
     color: var(--muted-2);
   }
@@ -1122,7 +1122,7 @@ const sectionItems = listSections();
   }
   .ds-z-list li {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--ink-2);
     padding: 6px 12px;
     background: var(--paper-2);
@@ -1154,7 +1154,7 @@ const sectionItems = listSections();
   }
   .ds-hairlines div {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     margin-top: 16px;
   }
@@ -1164,13 +1164,13 @@ const sectionItems = listSections();
   /* Form elements */
   .ds-input, .ds-select, .ds-textarea {
     font-family: var(--font-sans);
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
     padding: 10px 12px;
     border: 1px solid var(--hairline-strong);
     background: var(--paper);
     color: var(--ink);
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     width: 100%;
     max-width: 320px;
   }
@@ -1181,7 +1181,7 @@ const sectionItems = listSections();
   .ds-label {
     font-family: var(--font-sans);
     font-size: 12px;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     letter-spacing: .06em;
     text-transform: uppercase;
     color: var(--muted);
@@ -1195,7 +1195,7 @@ const sectionItems = listSections();
     gap: 8px;
     margin-bottom: 10px;
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--ink-2);
   }
   .ds-check { width: 16px; height: 16px; accent-color: var(--ink); }
@@ -1213,7 +1213,7 @@ const sectionItems = listSections();
     padding: 40px 24px;
     text-align: center;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
   }
 
@@ -1231,7 +1231,7 @@ const sectionItems = listSections();
     color: var(--ink-2);
     cursor: pointer;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     line-height: 1;
     padding: 9px 12px;
     transition:
@@ -1294,7 +1294,7 @@ const sectionItems = listSections();
     margin: -18px -18px 0;
     background: var(--paper);
     border-bottom: 1px solid var(--hairline);
-    border-radius: 8px 8px 0 0;
+    border-radius: var(--radius-md) 8px 0 0;
   }
   /* transform + height pilotés par src/scripts/preview-frame.ts (scale responsive) */
   .ds-card-frame {
@@ -1357,7 +1357,7 @@ const sectionItems = listSections();
   .ds-organism-card .ds-help { margin:0; font-size:12px; }
   .ds-category-badge {
     color: var(--muted);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
@@ -1367,7 +1367,7 @@ const sectionItems = listSections();
     color: var(--ink-2);
     font-family: var(--font-sans);
     font-size: 13px;
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
   .ds-tag-row {
     display: flex;
@@ -1378,7 +1378,7 @@ const sectionItems = listSections();
     background: var(--paper);
     border: 1px solid var(--hairline);
     color: var(--muted);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     padding: 6px 7px;
   }
   .ds-templates-list li code {
@@ -1428,13 +1428,13 @@ const sectionItems = listSections();
     overflow-x: auto;
     font-family: var(--font-mono);
     font-size: 12px;
-    line-height: 1.5;
+    line-height: var(--leading-body);
     border-radius: 4px;
   }
   .ds-code code { color: inherit; font-family: inherit; }
 
   /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .ds-layout { grid-template-columns: 1fr; gap: 32px; }
     .ds-toc { display: none; }
   }

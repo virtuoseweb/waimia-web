@@ -75,7 +75,7 @@ const isPillar = data.type === 'hero-pillar-hub';
     line-height: 0.88;
     letter-spacing: -0.035em;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0;
   }
   .hero-hub-stats__h1 :global(i) { font-style: italic; color: var(--accent); }
@@ -115,12 +115,12 @@ const isPillar = data.type === 'hero-pillar-hub';
   .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent); }
   .hero-hub-stats__label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
   }
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .hero-hub-stats__grid { grid-template-columns: repeat(2, 1fr); }
     .hero-hub-stats__cell:nth-child(2n) { border-right: none; }
   }
@@ -135,7 +135,7 @@ const isPillar = data.type === 'hero-pillar-hub';
     line-height: 0.88;
     letter-spacing: -0.035em;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     margin: 0;
   }
@@ -164,7 +164,7 @@ const isPillar = data.type === 'hero-pillar-hub';
   }
   .hero-pillar-hub__stats :global(.key-metric:last-child) { border-right: none; }
   .hero-pillar-hub__stats :global(.key-metric-value) { font-style: normal; }
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .hero-pillar-hub { padding-top: calc(var(--header-height) + 8px); }
     .hero-pillar-hub__stats { grid-template-columns: repeat(2, 1fr); }
     .hero-pillar-hub__stats :global(.key-metric:nth-child(2n)) { border-right: none; }

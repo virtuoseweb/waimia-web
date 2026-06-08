@@ -354,7 +354,7 @@ const articleLd = buildArticle({
 
 /* ── Prose ────────────────────────────────────────────── */
 .essay-prose {
-  max-width: 720px;
+  max-width: var(--wrap-prose);
   font-family: var(--font-display);
   font-size: clamp(17px, 1.45vw, 19px);
   line-height: 1.65;
@@ -387,7 +387,7 @@ const articleLd = buildArticle({
   font-family: var(--font-display);
   font-size: clamp(28px, 3vw, 40px);
   font-style: italic;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   letter-spacing: -0.012em;
   line-height: 1.15;
   margin: clamp(48px, 6vw, 72px) 0 24px;
@@ -410,7 +410,7 @@ const articleLd = buildArticle({
 .essay-prose :global(h3) {
   font-family: var(--font-display);
   font-size: clamp(20px, 1.8vw, 24px);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   margin: clamp(32px, 4vw, 48px) 0 16px;
   line-height: 1.2;
 }
@@ -465,7 +465,7 @@ const articleLd = buildArticle({
   margin: 0 0 1.4em 1.5em;
   max-width: 640px;
 }
-.essay-prose :global(li) { margin-bottom: 0.4em; line-height: 1.5; }
+.essay-prose :global(li) { margin-bottom: 0.4em; line-height: var(--leading-body); }
 
 .essay-prose :global(hr) {
   border: none;
@@ -486,9 +486,9 @@ const articleLd = buildArticle({
 .essay-sources-label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-mono-xs);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-mono);
   color: var(--muted);
   margin-bottom: 16px;
 }
@@ -507,7 +507,7 @@ const articleLd = buildArticle({
 .essay-source-item:last-child { border-bottom: none; }
 .essay-source-link {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-eyebrow);
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -516,7 +516,7 @@ const articleLd = buildArticle({
 .essay-source-link:hover { color: var(--accent); }
 .essay-source-type {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-mono-xs);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
@@ -529,7 +529,7 @@ const articleLd = buildArticle({
 }
 .essay-related-cross__title {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-eyebrow);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -545,7 +545,7 @@ const articleLd = buildArticle({
   padding: var(--space-4, 1.5rem);
   border: 1px solid var(--hairline-strong, rgba(var(--ink-rgb), 0.18));
   text-decoration: none;
-  transition: border-color 200ms var(--ease);
+  transition: border-color var(--dur-fast) var(--ease);
 }
 .related-card:hover {
   border-color: var(--accent);
@@ -553,7 +553,7 @@ const articleLd = buildArticle({
 .related-card .kicker {
   display: block;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-mono-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);

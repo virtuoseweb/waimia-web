@@ -296,7 +296,7 @@ const ctaData = {
     line-height: 0.95;
     letter-spacing: -0.024em;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 14px 0 0;
   }
   .case-section-h2 :global(i) { font-style: italic; color: var(--accent); }
@@ -313,9 +313,9 @@ const ctaData = {
   .case-proof-quote {
     font-family: var(--font-display);
     font-size: clamp(24px, 3.5vw, 52px);
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     letter-spacing: -0.018em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     font-style: italic;
     text-wrap: pretty;
     max-width: 860px;
@@ -323,7 +323,7 @@ const ctaData = {
   }
   .case-proof-attr {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     letter-spacing: 0.06em;
     font-style: normal;
@@ -365,7 +365,7 @@ const ctaData = {
   }
   .case-related-offres__label {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -379,12 +379,12 @@ const ctaData = {
     color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid var(--hairline-strong);
-    transition: color 200ms var(--ease);
+    transition: color var(--dur-fast) var(--ease);
   }
   .case-offre-link:last-child { border-bottom: none; }
   .case-offre-link:hover { color: var(--accent); }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .case-context-grid,
     .case-section-hd { grid-template-columns: 1fr; }
   }
@@ -396,9 +396,9 @@ const ctaData = {
   .eyebrow {
     display: block;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     color: var(--accent);
     margin-bottom: 16px;
   }
@@ -424,7 +424,7 @@ const ctaData = {
   .related-case-card:hover { background: var(--paper-2); }
   .related-case-kicker {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--accent);
     letter-spacing: 0.14em;
   }
@@ -433,13 +433,13 @@ const ctaData = {
     font-size: clamp(20px, 2.4vw, 32px);
     line-height: 1.05;
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 8px 0 4px;
   }
   .related-case-lead {
     font-size: 13px;
     color: var(--muted);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     flex: 1;
   }
   .related-case-go {

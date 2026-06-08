@@ -277,11 +277,11 @@ const ctaData = {
   .hub-cookbooks-h2 {
     font-family: var(--font-display);
     font-size: clamp(40px, 6vw, 88px);
-    line-height: 0.96;
+    line-height: var(--leading-h1);
     letter-spacing: -0.024em;
     margin: 0 0 clamp(40px, 5vw, 72px);
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .hub-tools-h2 :global(i),
   .hub-cookbooks-h2 :global(i) { font-style: italic; color: var(--accent); }
@@ -294,11 +294,11 @@ const ctaData = {
   .hub-cd-h2 {
     font-family: var(--font-display);
     font-size: clamp(40px, 6vw, 88px);
-    line-height: 0.96;
+    line-height: var(--leading-h1);
     letter-spacing: -0.024em;
     margin: 0 0 24px;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .hub-cd-h2 :global(i) { font-style: italic; color: var(--accent); }
   .hub-cd-lead {
@@ -336,7 +336,7 @@ const ctaData = {
   .hub-cd-body { display: flex; flex-direction: column; gap: 6px; }
   .hub-cd-kicker {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--accent);
     letter-spacing: 0.14em;
   }
@@ -345,7 +345,7 @@ const ctaData = {
     font-size: clamp(22px, 2.6vw, 36px);
     line-height: 1.05;
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     text-wrap: balance;
   }
   .hub-cd-title :global(i) { font-style: italic; color: var(--muted); font-size: 0.7em; }
@@ -353,7 +353,7 @@ const ctaData = {
     font-size: clamp(13px, 1.3vw, 15px);
     line-height: 1.55;
     color: var(--muted);
-    max-width: 720px;
+    max-width: var(--wrap-prose);
     text-wrap: pretty;
   }
   .hub-cd-arr {
@@ -379,7 +379,7 @@ const ctaData = {
     color: var(--paper);
     margin: 0 0 18px;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .hub-nl-h2 :global(i) { font-style: italic; color: var(--accent); }
   .hub-nl-lead {
@@ -400,7 +400,7 @@ const ctaData = {
     padding: 14px 18px;
     background: rgba(var(--paper-rgb), 0.08);
     border: 1px solid rgba(var(--paper-rgb), 0.2);
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     color: var(--paper);
     font-family: var(--font-display);
     font-size: 16px;
@@ -410,7 +410,7 @@ const ctaData = {
     font-size: 13px;
     color: rgba(var(--paper-rgb), 0.5);
     margin: 10px 0 0;
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
   .nl-hint a { color: rgba(var(--paper-rgb), 0.7); text-decoration: underline; }
   .nl-hint a:hover { color: var(--paper); }

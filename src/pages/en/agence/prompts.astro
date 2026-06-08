@@ -103,7 +103,7 @@ const truncate = (value: string, max = 120) =>
     color: var(--ink);
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
-    line-height: 1.02;
+    line-height: var(--leading-h2);
   }
   .prompts-index__h1 i {
     color: var(--accent);
@@ -115,7 +115,7 @@ const truncate = (value: string, max = 120) =>
     color: var(--ink-2);
     font-family: var(--font-sans);
     font-size: var(--text-lede);
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
   .prompts-index__cat {
     margin-bottom: 64px;
@@ -162,7 +162,7 @@ const truncate = (value: string, max = 120) =>
     padding: 4px 8px;
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
@@ -180,7 +180,7 @@ const truncate = (value: string, max = 120) =>
     font-size: var(--text-body-sm);
     line-height: 1.6;
   }
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .prompts-index__grid {
       grid-template-columns: 1fr;
     }

@@ -62,7 +62,7 @@ const METRICS = [
           <Kicker tone="accent" class="c-platform-tag">
             [platform] · {lang === 'fr' ? "la couche opérationnelle sous chaque intervention" : 'the operating layer under every engagement'}
           </Kicker>
-          <h1 style="font-family:var(--font-display);font-size:clamp(48px,9vw,156px);line-height:.92;letter-spacing:-0.028em;text-wrap:balance;font-weight:400;margin:0">
+          <h1 style="font-family:var(--font-display);font-size:clamp(48px,9vw,156px);line-height:.92;letter-spacing:-0.028em;text-wrap:balance;font-weight:var(--fw-regular);margin:0">
             {lang === 'fr' ? (
               <>Un <i>système d'exploitation</i><br />pour les opérations revenue.</>
             ) : (
@@ -109,7 +109,7 @@ const METRICS = [
       <div style="margin-top:80px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)">
         {METRICS.map(([k, v], i) => (
           <div style={`padding:20px;border-right:${i < 4 ? '1px solid var(--hairline)' : 'none'}`}>
-            <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">{k}</div>
+            <div style="font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">{k}</div>
             <div style="font-family:var(--font-mono);font-size:15px;margin-top:6px;color:var(--ink)">{v}</div>
           </div>
         ))}
@@ -125,7 +125,7 @@ const METRICS = [
         <Kicker class="c-acte-sub">{lang === 'fr' ? 'Le constat' : 'The reckoning'}</Kicker>
       </div>
       <div>
-        <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(36px,5.5vw,88px);line-height:1;letter-spacing:-0.02em;margin-bottom:48px;font-weight:400;text-wrap:balance">
+        <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(36px,5.5vw,88px);line-height:1;letter-spacing:-0.02em;margin-bottom:48px;font-weight:var(--fw-regular);text-wrap:balance">
           {lang === 'fr' ? (
             <>La plupart des projets IA livrent une <i style="color:var(--accent)">démo</i>. Pas un produit.</>
           ) : (
@@ -155,7 +155,7 @@ const METRICS = [
         </Kicker>
         <Kicker>6 services · in-house</Kicker>
       </div>
-      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,7vw,112px);line-height:.96;letter-spacing:-0.025em;max-width:1300px;margin-bottom:60px;font-weight:400;text-wrap:balance">
+      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,7vw,112px);line-height:.96;letter-spacing:var(--tracking-display);max-width:1300px;margin-bottom:60px;font-weight:var(--fw-regular);text-wrap:balance">
         {lang === 'fr' ? (<>Six services. Une <i>seule</i> couche.</>) : (<>Six services. One <i>continuous</i> layer.</>)}
       </h2>
       <TerminalTable cols="60px 180px 1fr 120px" headers={['id', 'service', 'description', 'status']}>
@@ -164,7 +164,7 @@ const METRICS = [
             <span style="font-family:var(--font-mono);font-size:12px;color:var(--muted)">{s.k}</span>
             <span style="font-family:var(--font-display);font-size:clamp(20px,2vw,24px);line-height:1;letter-spacing:-0.01em">{ft(s.label, lang)}</span>
             <span style="font-size:13.5px;color:var(--muted);line-height:1.45;padding-right:20px">{ft(s.body, lang)}</span>
-            <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-align:right">◉ active</span>
+            <span style="font-family:var(--font-mono);font-size:var(--text-eyebrow);color:var(--accent);letter-spacing:.1em;text-align:right">◉ active</span>
           </a>
         ))}
       </TerminalTable>
@@ -175,7 +175,7 @@ const METRICS = [
   <section style="padding:clamp(140px,18vw,200px) clamp(20px,4vw,48px);background:var(--ink);color:var(--paper)">
     <div style="max-width:1400px;margin:0 auto">
       <Kicker tone="accent" class="c-manifesto-tag">[manifesto]</Kicker>
-      <p class="reveal" style="font-family:var(--font-display);font-size:clamp(32px,5.8vw,88px);line-height:1.05;letter-spacing:-0.02em;color:var(--paper);font-weight:400">
+      <p class="reveal" style="font-family:var(--font-display);font-size:clamp(32px,5.8vw,88px);line-height:1.05;letter-spacing:-0.02em;color:var(--paper);font-weight:var(--fw-regular)">
         {lang === 'fr' ? (
           <>On écrit en <span style="color:var(--accent)">français</span>, on lit la documentation Stripe, on livre du code le mardi, on mesure le pipeline le vendredi. Pas de cerveau-circuit. Pas de verre. Pas de <i>théâtre</i>.</>
         ) : (
@@ -194,7 +194,7 @@ const METRICS = [
         </Kicker>
         <Kicker>virtuoseos · live scroll · 4 steps</Kicker>
       </div>
-      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,7vw,120px);line-height:.96;letter-spacing:-0.025em;max-width:1400px;margin-top:40px;margin-bottom:10px;font-weight:400">
+      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,7vw,120px);line-height:.96;letter-spacing:var(--tracking-display);max-width:1400px;margin-top:40px;margin-bottom:10px;font-weight:var(--fw-regular)">
         {lang === 'fr' ? (<>Faites défiler la <i>console</i>.</>) : (<>Scroll the <i>console</i>.</>)}
       </h2>
     </div>
@@ -207,7 +207,7 @@ const METRICS = [
       <Kicker tone="accent" class="c-act-04">
         [act.04] · <span style="color:var(--muted)">{lang === 'fr' ? 'preuves' : 'proof'}</span>
       </Kicker>
-      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,7vw,112px);line-height:.96;letter-spacing:-0.025em;max-width:1300px;margin-bottom:60px;font-weight:400">
+      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,7vw,112px);line-height:.96;letter-spacing:var(--tracking-display);max-width:1300px;margin-bottom:60px;font-weight:var(--fw-regular)">
         {lang === 'fr' ? (<>Cas clients, en <i>table</i>.</>) : (<>Cases, as a <i>table</i>.</>)}
       </h2>
       <TerminalTable
@@ -221,7 +221,7 @@ const METRICS = [
             <span style="font-size:13px;color:var(--muted)">{ft(c.sector, lang)}</span>
             <span style="font-family:var(--font-mono);font-size:12px;color:var(--muted)">{c.duration}</span>
             <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink)">{c.stack}</span>
-            <span style="font-size:14px;color:var(--accent);font-weight:500">{ft(c.impact, lang)}</span>
+            <span style="font-size:var(--text-body-sm);color:var(--accent);font-weight:var(--fw-medium)">{ft(c.impact, lang)}</span>
             <span style="font-family:var(--font-mono);color:var(--muted);text-align:right">↗</span>
           </a>
         ))}
@@ -260,7 +260,7 @@ const METRICS = [
         [act.05] · <span style="color:rgba(var(--paper-rgb), .5)">{lang === 'fr' ? "passer à l'action" : 'act'}</span>
       </Kicker>
       <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,6vw,80px);align-items:end">
-        <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(56px,10vw,172px);line-height:.9;letter-spacing:-0.03em;color:var(--paper);text-wrap:balance;font-weight:400;margin:0">
+        <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(56px,10vw,172px);line-height:.9;letter-spacing:-0.03em;color:var(--paper);text-wrap:balance;font-weight:var(--fw-regular);margin:0">
           {lang === 'fr' ? (
             <>Ouvrir une <i style="color:var(--accent)">séance</i>.<br />Pas un <i>pitch</i>.</>
           ) : (

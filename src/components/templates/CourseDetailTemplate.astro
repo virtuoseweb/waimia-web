@@ -409,8 +409,8 @@ const jsonLd = [
   .btn-primary {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 600;
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-semibold);
     padding: 12px 24px;
     background: var(--ink, #111);
     color: var(--paper);
@@ -432,7 +432,7 @@ const jsonLd = [
 
   .btn-ghost {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--text-secondary, #444);
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -451,7 +451,7 @@ const jsonLd = [
   .section-heading {
     font-family: var(--font-display);
     font-size: clamp(20px, 2.8vw, 26px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 20px;
     padding-bottom: 14px;
     border-bottom: 1px solid var(--hairline);
@@ -476,13 +476,13 @@ const jsonLd = [
     border-bottom: 1px solid var(--hairline);
     font-family: var(--font-sans);
     font-size: 15px;
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
 
   .objective-item::before {
     content: counter(obj, decimal-leading-zero);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--accent);
     margin-top: 3px;
   }
@@ -501,8 +501,8 @@ const jsonLd = [
 
   .mod-title {
     font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     line-height: 1.4;
   }
 
@@ -511,12 +511,12 @@ const jsonLd = [
 
   .type-pill {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 2px 6px;
     border: 1px solid var(--hairline);
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     color: var(--text-muted, #888);
   }
 
@@ -538,8 +538,8 @@ const jsonLd = [
     padding: 14px 0 14px 18px;
     border-bottom: 1px solid var(--hairline);
     font-family: var(--font-sans);
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
   }
 
   .prereq-item::before {
@@ -563,20 +563,20 @@ const jsonLd = [
     padding: 14px 0;
     border-bottom: 1px solid var(--hairline);
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     margin: 0;
   }
 
   .info-grid dt {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted, #888);
     padding-right: 16px;
   }
 
-  .info-val { font-weight: 500; }
+  .info-val { font-weight: var(--fw-medium); }
 
   /* COURSES CHAIN */
   .courses-chain { border-top: 1px solid var(--hairline); }
@@ -591,15 +591,15 @@ const jsonLd = [
 
   .chain-num {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--text-muted, #888);
     min-width: 28px;
   }
 
   .chain-link {
     font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     color: var(--ink, #111);
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -613,7 +613,7 @@ const jsonLd = [
     text-decoration: underline;
     text-underline-offset: 3px;
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
   }
 
   /* MDX BODY */
@@ -626,7 +626,7 @@ const jsonLd = [
   .mdx-body :global(h2) {
     font-family: var(--font-display);
     font-size: clamp(18px, 2.4vw, 22px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 36px 0 14px;
   }
 
@@ -654,7 +654,7 @@ const jsonLd = [
 
   .cta-link {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--text-secondary, #444);
     text-decoration: underline;
     text-underline-offset: 3px;

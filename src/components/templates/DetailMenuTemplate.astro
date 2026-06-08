@@ -230,7 +230,7 @@ const ctaData = {
   .dt-problem-text {
     font-family: var(--font-display);
     font-size: clamp(28px, 4vw, 56px);
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     letter-spacing: -0.018em;
     text-wrap: balance;
     max-width: 1100px;
@@ -254,7 +254,7 @@ const ctaData = {
     line-height: 0.95;
     letter-spacing: -0.024em;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 14px 0 0;
   }
   .dt-section-h2 :global(i) { font-style: italic; color: var(--accent); }
@@ -279,7 +279,7 @@ const ctaData = {
 
   :global(.dt-related-k) { display: block; margin-bottom: 30px; }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .dt-section-hd { grid-template-columns: 1fr; }
   }
 </style>

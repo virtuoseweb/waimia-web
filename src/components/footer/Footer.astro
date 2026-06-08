@@ -18,7 +18,7 @@ const year = new Date().getFullYear();
 
   {/* Top — wordmark vibration · hover anime le dot pour ressentir l'identité */}
   <div class="wrap" style="padding-top:clamp(80px,10vw,160px);padding-bottom:clamp(40px,5vw,80px)">
-    <div class="ft-wordmark" style="font-family:var(--font-display);font-size:clamp(60px,12vw,200px);line-height:.88;letter-spacing:-0.03em;font-weight:400;color:var(--ink)">
+    <div class="ft-wordmark" style="font-family:var(--font-display);font-size:clamp(60px,12vw,200px);line-height:.88;letter-spacing:-0.03em;font-weight:var(--fw-regular);color:var(--ink)">
       Waim<i>i</i>a<span class="dot">.</span>
     </div>
     <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(20px,2vw,28px);color:var(--muted);max-width:640px;margin-top:clamp(16px,2vw,32px);line-height:1.4;text-wrap:balance">
@@ -44,10 +44,10 @@ const year = new Date().getFullYear();
   <div class="wrap hline" style="padding-top:clamp(40px,4vw,60px);padding-bottom:clamp(40px,4vw,60px)">
     <div class="ft-nl-grid">
       <div class="ft-nl-lead reveal-fade">
-        <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 16px">
+        <p style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 16px">
           {lang === 'fr' ? 'Restez informé' : 'Stay informed'}
         </p>
-        <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(18px,2vw,26px);color:var(--ink-2);max-width:320px;line-height:1.4;text-wrap:balance;margin:0;font-weight:400">
+        <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(18px,2vw,26px);color:var(--ink-2);max-width:320px;line-height:1.4;text-wrap:balance;margin:0;font-weight:var(--fw-regular)">
           {lang === 'fr'
             ? "Les décisions IA de la semaine, distillées pour les dirigeants."
             : "The week's AI decisions, distilled for leaders."}
@@ -62,7 +62,7 @@ const year = new Date().getFullYear();
     <div class="ft-tier1-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(24px,3vw,48px)">
       {FOOTER_COLS.map((col) => (
         <div>
-          <h3 style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;font-weight:500">
+          <h3 style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;font-weight:var(--fw-medium)">
             {t(col.heading, lang)}
           </h3>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
@@ -310,7 +310,7 @@ const year = new Date().getFullYear();
   .trust-pill{transition:border-color 240ms var(--ease),background 240ms var(--ease)}
   .trust-pill:hover{border-color:var(--accent)}
 
-  @media (max-width:900px){
+  @media (max-width:var(--wrap-read)){
     .ft-tier1-grid{grid-template-columns:repeat(2,1fr)!important}
   }
   @media (max-width:640px){
@@ -337,7 +337,7 @@ const year = new Date().getFullYear();
     flex-wrap:wrap;
     gap:16px;
     font-family:var(--font-mono);
-    font-size:11px;
+    font-size:var(--text-eyebrow);
     letter-spacing:.08em;
     color:var(--muted);
   }
@@ -346,7 +346,7 @@ const year = new Date().getFullYear();
   .ft-lang-switch{display:flex;align-items:center;gap:6px}
   .ft-lang-sep{opacity:.4}
   .ft-lang-a{color:var(--muted);transition:color 220ms var(--ease)}
-  .ft-lang-active{color:var(--ink);font-weight:600}
+  .ft-lang-active{color:var(--ink);font-weight:var(--fw-semibold)}
   .ft-lang-disabled{opacity:.4;cursor:default;pointer-events:none}
   @media(max-width:640px){
     .ft-bottom{flex-direction:column;align-items:flex-start}
@@ -367,7 +367,7 @@ const year = new Date().getFullYear();
     flex-wrap: wrap;
     gap: 12px;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: .14em;
     text-transform: uppercase;
   }
@@ -378,9 +378,9 @@ const year = new Date().getFullYear();
   .ft-dev-h4 {
     font-family: var(--font-display);
     font-size: clamp(20px, 2.4vw, 28px);
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     letter-spacing: -0.018em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 18px;
     text-wrap: balance;
   }
@@ -402,14 +402,14 @@ const year = new Date().getFullYear();
     font-size: 12.5px;
   }
   .ft-dev-num { color: var(--accent); letter-spacing: .1em; }
-  .ft-dev-name { font-weight: 500; color: var(--ink); }
+  .ft-dev-name { font-weight: var(--fw-medium); color: var(--ink); }
   .ft-dev-type { color: var(--muted); font-size: 11.5px; }
 
   .ft-dev-stub-lead {
     font-size: 13px;
     line-height: 1.55;
     color: var(--muted);
-    max-width: 720px;
+    max-width: var(--wrap-prose);
     margin: 0 0 24px;
     text-wrap: pretty;
   }
@@ -443,7 +443,7 @@ const year = new Date().getFullYear();
   }
   .ft-dev-more { color: var(--muted); font-style: italic; }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .ft-dev-list li { grid-template-columns: 32px 1fr; gap: 10px; row-gap: 4px; }
     .ft-dev-list li .ft-dev-type,
     .ft-dev-list li .ft-link { grid-column: 2; }

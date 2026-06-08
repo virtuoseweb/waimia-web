@@ -130,8 +130,8 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
   }
   .hero-offer-detail__bc {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
     display: flex; gap: 8px; align-items: center;
@@ -141,7 +141,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
   .hero-offer-detail__bc a:hover { color: var(--accent); }
   .hero-offer-detail__tier {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -152,7 +152,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     font-size: clamp(56px, 9vw, 148px);
     line-height: 0.92;
     letter-spacing: -0.028em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 32px;
     text-wrap: balance;
   }
@@ -179,18 +179,18 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     padding: 14px 24px;
     background: var(--ink);
     color: var(--paper);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     text-decoration: none;
-    letter-spacing: -0.005em;
+    letter-spacing: var(--tracking-body);
     border: 1.5px solid var(--ink);
-    transition: background 240ms ease, color 240ms ease, transform 200ms ease;
+    transition: background 240ms ease, color 240ms ease, transform var(--dur-fast) ease;
   }
   .hero-offer-detail__cta:hover { background: transparent; color: var(--ink); transform: translateY(-1px); }
   .hero-offer-detail__meta {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     color: var(--muted);
     text-transform: uppercase;
@@ -222,7 +222,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
   .hero-sector__copy { position: relative; z-index: 1; }
   .hero-sector__dept {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -233,7 +233,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     font-size: clamp(56px, 9vw, 148px);
     line-height: 0.92;
     letter-spacing: -0.028em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 32px;
     text-wrap: balance;
   }
@@ -261,17 +261,17 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     padding: 14px 24px;
     background: var(--ink);
     color: var(--paper);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     text-decoration: none;
-    letter-spacing: -0.005em;
+    letter-spacing: var(--tracking-body);
     transition: transform 220ms ease, box-shadow 220ms ease;
   }
   .hero-sector__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(var(--ink-rgb), 0.12); }
   .hero-sector__meta {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     color: var(--muted);
     text-transform: uppercase;
@@ -291,7 +291,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     padding: 8px 14px;
     background: rgba(var(--ink-rgb), 0.04);
     border: 1px solid var(--hairline);
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     transition: border-color 220ms ease, color 220ms ease;
   }
   .hero-sector__tag:hover { border-color: var(--accent); color: var(--accent); }
@@ -318,7 +318,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
   }
   .hero-tech-layer__layer {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -329,7 +329,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
   .hero-tech-layer__layer::before {
     content: '';
     width: 8px; height: 8px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: currentColor;
   }
   .hero-tech-layer__layer--claude { color: var(--accent); }
@@ -340,7 +340,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     font-size: clamp(56px, 9vw, 148px);
     line-height: 0.92;
     letter-spacing: -0.028em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 32px;
     text-wrap: balance;
   }
@@ -367,17 +367,17 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     padding: 14px 24px;
     background: var(--ink);
     color: var(--paper);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     text-decoration: none;
-    letter-spacing: -0.005em;
+    letter-spacing: var(--tracking-body);
     transition: transform 220ms ease, box-shadow 220ms ease;
   }
   .hero-tech-layer__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(var(--ink-rgb), 0.12); }
   .hero-tech-layer__meta {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     color: var(--muted);
     text-transform: uppercase;

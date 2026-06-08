@@ -31,12 +31,12 @@ if (!cluster && tags.length === 0) return Astro.redirect('');
   }
   .tag-pill {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     color: var(--muted);
     background: rgba(var(--ink-rgb), 0.04);
     border: 1px solid rgba(var(--ink-rgb), 0.08);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     padding: 6px 12px;
     text-decoration: none;
     transition: border-color 220ms, color 220ms;

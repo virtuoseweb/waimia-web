@@ -51,7 +51,7 @@ const kickerTone = tone === 'ink' ? 'dim' : 'muted';
     border-top:1px solid var(--hairline);
     align-items:baseline;
     color:inherit;
-    transition:color 200ms var(--ease),padding-left 320ms var(--ease);
+    transition:color var(--dur-fast) var(--ease),padding-left 320ms var(--ease);
   }
   .u-edit-write-row.on-ink{
     border-top-color:var(--paper-dim, rgba(var(--paper-rgb), .12));
@@ -65,7 +65,7 @@ const kickerTone = tone === 'ink' ? 'dim' : 'muted';
   /* Arrow aligné à droite + sans uppercase (override Kicker) */
   :global(.u-ewr-arr){text-align:right;text-transform:none}
 
-  @media (max-width:900px){
+  @media (max-width:var(--wrap-read)){
     .u-edit-write-row{grid-template-columns:1fr;gap:6px;padding:14px 0}
     :global(.u-ewr-arr){display:none}
   }

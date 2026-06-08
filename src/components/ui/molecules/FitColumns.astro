@@ -61,7 +61,7 @@ const { yesTitleFr, yesTitleEn, yesItems, noTitleFr, noTitleEn, noItems, class: 
   }
   .fit-k {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     margin-bottom: 24px;
@@ -86,7 +86,7 @@ const { yesTitleFr, yesTitleEn, yesItems, noTitleFr, noTitleEn, noItems, class: 
     letter-spacing: -0.01em;
     text-wrap: pretty;
   }
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .fit-cols {
       grid-template-columns: 1fr;
     }

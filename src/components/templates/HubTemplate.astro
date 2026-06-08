@@ -259,7 +259,7 @@ const ctaData = {
     color: var(--paper);
     margin: 0 0 60px;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .hub-fit-h2 :global(i) { font-style: italic; }
   .hub-fit-callout {
@@ -301,7 +301,7 @@ const ctaData = {
   }
   .hub-closing :global(.pull-quote) { margin-block: 0; }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .hub-manifesto-grid { grid-template-columns: 1fr; }
   }
 </style>
