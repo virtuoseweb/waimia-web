@@ -167,3 +167,25 @@ Audit liens externes (HEAD réels) → la chaîne de conversion pointe vers des 
 3. **Stripe** : brancher les vrais Payment Links pour **ré-indexer** les 15 pages commerce (retirer le `noindex` défensif).
 4. **McKinsey** `the-state-of-ai` → `000` (probable blocage anti-bot réseau, non concluant) : à vérifier manuellement.
 5. ✅ **RÉSOLU (2026-06-08, audit d'intégrité élargi)** — **4 fausses attributions LIVE** trouvées hors blog, dans les **pages secteurs** (titres de rapports fabriqués datés 2026) : `services-b2b.mdx` « McKinsey AI Survey 2026 : 67 %… », `finance-compta.mdx` « Gartner Finance Automation 2026… », `industrie.mdx` « Gartner 2026, 73 %… » + « McKinsey AI in Manufacturing 2026… ». Toutes reframées en observations/tendances Waimia (force persuasive des bullets « dans 12 mois » conservée, stats inventées + fausse source retirées). GF-1 build : 0 McKinsey/Gartner résiduel. ⚠️ **2 attributions MEDIUM laissées (à vérifier, vrais organismes FR)** : `finance-compta.mdx` « 35-45 % … selon l'Ordre des Experts-Comptables 2025 » (l.93) + « turnover 22 % selon APEC 2025 » (l.98) — plausibles mais non vérifiées → décision Simon : confirmer la source réelle ou reframer en observation Waimia.
+
+---
+
+## Tour 6 — clôture heading-order (noindex) + sweep axe-core complet (2026-06-08)
+
+> Mandat « continue le sweep a11y heading-skips, enchaîne sans demander, loop ». Heading-order était clos sur les **351 pages indexées** (Tour 4 l.113) ; restaient les **2 dernières pages noindex** avec un saut h1→h3. Puis sweep axe-core réel pour couvrir contraste/ARIA/focus (hors portée du regex).
+
+### ✅ Heading-skip design-system FR+EN (noindex) — CLOS → 0 skip **partout** (indexé + noindex)
+- Cause : `ChapterLabel` rend un `h3` directement sous le `h1` du hero → saut de niveau (WCAG 1.3.1) sur `/agence/design-system` (FR + EN).
+- Fix (`be8adbd`, merge `5f72edd`, PR #11) : **10 `<h2>` sr-only** (1×1px clippé, `style` inline `position:absolute;…;clip:rect(0,0,0,0)`), un par `<section.ds-section>` (`1. Tokens` … `10. Templates`). Hiérarchie → h1 → h2 → h3. **0 nouveau token, 0 CSS, 0 delta visuel.**
+- **GF-1 prouvé sur les 4 surfaces** : build local → preview Vercel (bypass header `x-vercel-protection-bypass`) → **prod `waimia.com`** (healthcheck `5f72edd`). getComputedStyle : h1 visible (opacity 1, 1361×122, transform none) ; 10 h2 sr-only **tous** 1×1px invisibles ; scan headings **skips = AUCUN** (FR + EN) ; screenshot above-fold 0 delta.
+- **Multi-h1 résiduel des pages démo noindex laissé tel quel** (design-system EN = 3 h1, compare/organisms = 3 h1) : les composants démo embarqués (HeroHome, Hero) portent légitimement leur propre h1 → **bénin** (HTML5 sectioning, **pas** un échec WCAG). Un `aria-hidden` introduirait une régression **4.1.2** sur leurs CTA focusables → non appliqué (décision conservée).
+
+### ✅ Sweep axe-core 4.10.2 (WCAG 2 A/AA + 2.1 A/AA) sur 4 archétypes
+Pages : home `/`, offre `/offres/growth-system-ia`, quiz interactif `/ressources/academy`, blog long-form. **Une seule famille de violation partout** : `color-contrast` (serious). **0** violation structurelle / ARIA / nom-accessible / label / focus / interactif sur tous les archétypes (le quiz academy `fieldset`+`legend`+`<label>` imbriqué passe axe → confirme que les 24 « inputs sans label » du regex étaient des faux positifs).
+- Scan regex complémentaire (328 pages indexées, exclut `aria-hidden`/`tabindex=-1`) : **noLang 0 · imgNoAlt 0 · liens focusables sans nom 0 · btnNoName 0 · inputs visibles sans label 0**. Socle structurel **intégralement propre**.
+
+### ⚠️ Contraste accent (raffine l.37, reste GATED DS/brand — décision Simon)
+Mesures axe-core exactes (cause racine **unique**, site-wide, rôle typographique « kicker ») :
+- `--accent #c94f2e` sur **paper `#f6f1e8`** = **4.02:1** · sur **paper-2 `#efe9dd`** = **3.74:1**, texte **10-11px normal** → sous le seuil AA **4.5:1** (texte normal). Touche : `feature-grid__icon.u-kicker`, `services-grid__num`, `faq-accordion__q-label`, `cases-hd`, `dept-sector`, `sysarch-hd`, `notes-foot-link`… (~29 nœuds/home).
+- **Pas de fix autonome sans violer le cadre** : assombrir `--accent` change la terracotta **signature** partout (hero « invente », CTA) = décision **brand** ; un token `--accent-text` dédié = **nouveau token interdit** (rule 28 DS figé) ; agrandir les kickers ≥18.66px gras (seuil large-text 3:1) = changement **DS/layout**. + tout changement de la couleur de marque = **GF-1 visuel + œil de Simon**.
+- **Recommandation CTO** : assombrir `--accent` d'un cran (cible ≥4.5:1 sur `#f6f1e8`, p.ex. autour de `#b8431f`) **OU** introduire un `--accent-ink` réservé au rôle kicker/petit-texte (tâche DS dédiée). Idem `--muted-2 #9A948D` ≈3.0:1 (l.36). Les deux relèvent d'un **batch « contraste DS » arbitré par Simon** (impact marque). Jusque-là : **conformité WCAG 2 A/AA atteinte sur tout sauf ce contraste de marque.**
