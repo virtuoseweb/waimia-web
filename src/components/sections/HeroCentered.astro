@@ -247,7 +247,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-centered h1 {
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
-    line-height: 1.02;
+    line-height: var(--leading-h2);
     color: var(--ink);
     margin: 0;
   }
@@ -279,7 +279,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-family: var(--font-display);
     font-size: clamp(60px, 11vw, 180px);
     font-style: italic;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     line-height: 0.92;
     letter-spacing: -0.03em;
     margin: 0;
@@ -317,7 +317,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: clamp(56px, 11vw, 180px);
     line-height: 0.92;
     letter-spacing: -0.03em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     text-wrap: balance;
     color: var(--ink);
     margin: 0;
@@ -351,7 +351,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: clamp(56px, 11vw, 180px);
     line-height: 0.92;
     letter-spacing: -0.03em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     text-wrap: balance;
     margin: 0;
   }
@@ -367,13 +367,13 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     text-wrap: pretty;
   }
   .hero-problem-index__canonical {
-    max-width: 720px;
+    max-width: var(--wrap-prose);
     margin: 22px 0 0;
     color: var(--muted);
     font-size: 15px;
     line-height: 1.6;
   }
-  .hero-problem-index__canonical :global(strong) { color: var(--ink); font-weight: 500; }
+  .hero-problem-index__canonical :global(strong) { color: var(--ink); font-weight: var(--fw-medium); }
 
   /* ── hero-utility-masthead ─────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-utility` (collision max-width). */
@@ -391,7 +391,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: clamp(56px, 11vw, 180px);
     line-height: 0.92;
     letter-spacing: -0.03em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     text-wrap: balance;
     margin: 0;
   }
@@ -449,7 +449,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-academy-hub__heading {
     font-size: var(--text-h1-hero);
     font-family: var(--font-display);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     line-height: 1.05;
     margin: 0 0 24px;
   }
@@ -457,7 +457,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-academy-hub__lede {
     font-size: var(--text-lede);
     font-family: var(--font-sans);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     max-width: 640px;
     margin: 0;
     color: var(--muted);
@@ -486,14 +486,14 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-course__title {
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     line-height: 1.05;
     margin: 16px 0 20px;
   }
   .hero-course__lede {
     font-family: var(--font-sans);
     font-size: var(--text-lede);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--muted);
     margin: 0 0 28px;
     max-width: 68ch;
@@ -506,7 +506,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-course__pill {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 4px 10px;
@@ -514,7 +514,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     color: var(--muted-2);
   }
   .hero-course__pill--accent { border-color: var(--accent); color: var(--accent); }
-  .hero-course__pill--price { border-color: var(--ink); color: var(--ink); font-weight: 600; }
+  .hero-course__pill--price { border-color: var(--ink); color: var(--ink); font-weight: var(--fw-semibold); }
   .hero-course__cta {
     display: flex;
     align-items: center;
@@ -524,8 +524,8 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-course__btn-primary {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 600;
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-semibold);
     padding: 12px 24px;
     background: var(--ink);
     color: var(--paper);
@@ -541,7 +541,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-course__btn-ghost {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid var(--hairline);
@@ -570,7 +570,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     line-height: 0.92;
     letter-spacing: -0.028em;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 32px;
   }
   .hero-detail-menu__h1 :global(i) { font-style: italic; color: var(--accent); }

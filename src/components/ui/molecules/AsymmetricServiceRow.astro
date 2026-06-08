@@ -61,7 +61,7 @@ const { num, label, body, reverse = false, class: extraClass = '' } = Astro.prop
   .u-asym-name-r{font-family:var(--font-display);font-size:clamp(32px,4.5vw,56px);line-height:1;letter-spacing:-0.02em;text-align:right}
   .u-asym-num-r{font-family:var(--font-display);font-size:clamp(40px,5vw,64px);line-height:.9;color:var(--accent);font-style:italic;text-align:right}
 
-  @media (max-width:900px){
+  @media (max-width:var(--wrap-read)){
     .u-asym-svc-row,
     .u-asym-svc-row[data-reverse="true"]{grid-template-columns:1fr;gap:8px;padding:24px 0}
     .u-asym-arr,.u-asym-arr-l{display:none}

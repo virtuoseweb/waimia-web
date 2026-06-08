@@ -55,7 +55,7 @@ const subtitle = lang === 'fr' ? subtitleFr : subtitleEn;
     will-change: opacity;
   }
 
-  /* 1100ms visible → fade 620ms → invisible et non-interactif */
+  /* var(--dur-reveal) visible → fade 620ms → invisible et non-interactif */
   @keyframes boot-fade {
     0% { opacity: 1; pointer-events: auto; }
     63.95% { opacity: 1; pointer-events: auto; } /* 1100/1720 */
@@ -81,7 +81,7 @@ const subtitle = lang === 'fr' ? subtitleFr : subtitleEn;
 
   .boot-sub {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.16em;
     color: var(--muted);
     margin-top: 16px;

@@ -67,7 +67,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
 
   .nl-eyebrow{
     font-family:var(--font-mono);
-    font-size:11px;
+    font-size:var(--text-eyebrow);
     letter-spacing:.16em;
     text-transform:uppercase;
     color:var(--muted);
@@ -80,10 +80,10 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     color:var(--ink);
     margin:0 0 10px;
     line-height:1.15;
-    font-weight:400;
+    font-weight:var(--fw-regular);
   }
   .nl-sub{
-    font-size:14px;
+    font-size:var(--text-body-sm);
     color:var(--muted);
     line-height:1.55;
     margin:0 0 24px;
@@ -100,7 +100,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     background:var(--paper);
     color:var(--ink);
     font-family:var(--font-sans);
-    font-size:14px;
+    font-size:var(--text-body-sm);
     border-radius:4px;
     transition:border-color 220ms ease;
     outline:none;
@@ -111,7 +111,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
   .nl-input--error{border-color:#c0392b}
   .nl-error{
     font-family:var(--font-mono);
-    font-size:11px;
+    font-size:var(--text-eyebrow);
     color:#c0392b;
     letter-spacing:.06em;
     margin:0;
@@ -121,12 +121,12 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     background:var(--ink);
     color:var(--paper);
     font-family:var(--font-sans);
-    font-size:14px;
-    font-weight:500;
+    font-size:var(--text-body-sm);
+    font-weight:var(--fw-medium);
     border:none;
     border-radius:4px;
     cursor:pointer;
-    transition:opacity 200ms ease;
+    transition:opacity var(--dur-fast) ease;
     white-space:nowrap;
     letter-spacing:.01em;
   }
@@ -134,15 +134,15 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
   .nl-btn:disabled{opacity:.5;cursor:not-allowed}
   .nl-hint{
     font-family:var(--font-mono);
-    font-size:11px;
+    font-size:var(--text-eyebrow);
     color:var(--muted);
     letter-spacing:.06em;
     margin:0;
   }
   .nl-confirm{
-    font-size:14px;
+    font-size:var(--text-body-sm);
     color:var(--ink);
-    font-weight:500;
+    font-weight:var(--fw-medium);
     margin:0;
   }
 </style>

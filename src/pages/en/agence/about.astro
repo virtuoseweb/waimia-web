@@ -73,19 +73,19 @@ import Kicker from '../../../components/ui/atoms/Kicker.astro';
   }
   .about-prose {
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: var(--text-body-md);
     line-height: 1.65;
     color: var(--ink-2);
-    max-width: 720px;
+    max-width: var(--wrap-prose);
   }
   :global(.about-kicker) { display: block; margin: clamp(40px, 5vw, 64px) 0 12px; }
   :global(.about-prose > *:first-child) { margin-top: 0; }
   .about-prose h2 {
     font-family: var(--font-display);
     font-size: clamp(28px, 3.5vw, 44px);
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 18px;
     text-wrap: balance;
   }
@@ -131,7 +131,7 @@ import Kicker from '../../../components/ui/atoms/Kicker.astro';
     line-height: 1.4;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .about-grid { grid-template-columns: 1fr; }
     .about-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: 32px; position: static; }
   }
@@ -144,9 +144,9 @@ import Kicker from '../../../components/ui/atoms/Kicker.astro';
   .about-cta-eyebrow {
     display: block;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     color: var(--accent);
     margin-bottom: 24px;
   }
@@ -154,8 +154,8 @@ import Kicker from '../../../components/ui/atoms/Kicker.astro';
     font-family: var(--font-display);
     font-size: clamp(32px, 4.5vw, 64px);
     line-height: 1.05;
-    letter-spacing: -0.025em;
-    font-weight: 400;
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
     text-wrap: balance;
     margin: 0 0 36px;
   }
@@ -164,7 +164,7 @@ import Kicker from '../../../components/ui/atoms/Kicker.astro';
     display: inline-block;
     font-family: var(--font-mono);
     font-size: 13px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--paper);
     background: var(--ink);

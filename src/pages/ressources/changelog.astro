@@ -88,12 +88,12 @@ const months = Object.keys(byMonth).sort().reverse();
   :global(.cl-month-k) { display: block; position: sticky; top: 100px; align-self: start; }
   .cl-entries { display: flex; flex-direction: column; gap: clamp(28px, 3vw, 40px); }
   .cl-entry { display: flex; flex-direction: column; gap: 10px; }
-  .cl-meta { display: flex; flex-wrap: wrap; gap: 14px; align-items: baseline; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; }
+  .cl-meta { display: flex; flex-wrap: wrap; gap: 14px; align-items: baseline; font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: 0.06em; }
   .cl-date { color: var(--muted); }
   .cl-tag { color: var(--accent); letter-spacing: 0.14em; }
-  .cl-version { color: var(--ink); padding: 2px 8px; background: var(--paper-2); border-radius: 2px; }
-  .cl-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 32px); line-height: 1.1; letter-spacing: -0.018em; font-weight: 400; margin: 0; text-wrap: balance; }
-  .cl-body { font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty; max-width: 720px; margin: 0; }
+  .cl-version { color: var(--ink); padding: 2px 8px; background: var(--paper-2); border-radius: var(--radius-sm); }
+  .cl-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 32px); line-height: var(--leading-h3); letter-spacing: -0.018em; font-weight: var(--fw-regular); margin: 0; text-wrap: balance; }
+  .cl-body { font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty; max-width: var(--wrap-prose); margin: 0; }
   @media (max-width: 700px) {
     .cl-month { grid-template-columns: 1fr; }
     :global(.cl-month-k) { position: static; }

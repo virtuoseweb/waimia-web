@@ -73,7 +73,7 @@ const isFr = lang === 'fr';
     line-height: 0.94;
     letter-spacing: -0.03em;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 24px;
   }
   .hero-lead-magnet__h1 :global(i) { font-style: italic; color: var(--accent); }
@@ -89,7 +89,7 @@ const isFr = lang === 'fr';
   }
   .hero-lead-magnet__meta {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -105,7 +105,7 @@ const isFr = lang === 'fr';
   .hero-lead-magnet__cover {
     aspect-ratio: 3/4;
     border: 1px solid var(--hairline-strong);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--paper-2);
   }
@@ -122,7 +122,7 @@ const isFr = lang === 'fr';
   }
   .hero-lead-magnet__download-label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;

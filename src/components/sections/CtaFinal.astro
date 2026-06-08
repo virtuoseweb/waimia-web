@@ -87,8 +87,8 @@ const isFr = lang === 'fr';
   .cta-final__chapter { display: flex; justify-content: center; }
   .cta-final__avail {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
     margin: 0;
@@ -97,7 +97,7 @@ const isFr = lang === 'fr';
   .cta-final__sub {
     font-family: var(--font-sans);
     font-size: clamp(13px, 1.05vw, 15px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--muted);
     max-width: 560px;
     margin: 0 auto;

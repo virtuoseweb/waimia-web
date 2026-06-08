@@ -42,7 +42,7 @@ const isFr = lang === 'fr';
     font-size: clamp(36px,4vw,56px);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin-top: 22px;
   }
   .why-stalls__h2 :global(i) { font-style: italic; color: var(--accent); }
@@ -52,7 +52,7 @@ const isFr = lang === 'fr';
     font-size: 13px;
     color: var(--muted);
     max-width: 240px;
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
   .why-stalls__row {
     display: grid;
@@ -64,8 +64,8 @@ const isFr = lang === 'fr';
   .why-stalls__row[data-first="true"] { border-top: 1px solid var(--ink); }
   .why-stalls__fig {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--ink);
     padding-top: 6px;
@@ -77,7 +77,7 @@ const isFr = lang === 'fr';
     letter-spacing: -0.01em;
     text-wrap: balance;
   }
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .why-stalls__grid { grid-template-columns: 1fr; gap: 48px; }
     .why-stalls__aside { position: static; }
     .why-stalls__row { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }

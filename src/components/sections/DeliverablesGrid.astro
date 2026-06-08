@@ -62,7 +62,7 @@ const cols = Math.min(data.items.length, 4);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h2);
     letter-spacing: var(--tracking-display);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     text-wrap: balance;
     margin: 0;
@@ -130,7 +130,7 @@ const cols = Math.min(data.items.length, 4);
     line-height: var(--leading-h3);
     letter-spacing: var(--tracking-display);
     margin: var(--space-3) 0;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     text-wrap: balance;
     transition: transform 220ms var(--ease);
@@ -149,7 +149,7 @@ const cols = Math.min(data.items.length, 4);
   .deliverables-grid__card:hover .deliverables-grid__tag {
     transform: translateX(1px);
   }
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .deliverables-grid__grid {
       grid-template-columns: repeat(2, 1fr);
     }

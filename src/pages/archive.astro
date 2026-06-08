@@ -126,7 +126,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
 
   .arc-kicker {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -138,7 +138,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     font-size: clamp(56px, 9vw, 120px);
     line-height: 0.92;
     letter-spacing: -0.028em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 32px;
   }
 
@@ -150,7 +150,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
   .arc-lede {
     font-family: var(--font-sans);
     font-size: clamp(18px, 1.6vw, 22px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--muted);
     max-width: 680px;
   }
@@ -181,8 +181,8 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
 
   .arc-section-kicker {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 12px;
@@ -193,7 +193,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     font-size: clamp(28px, 3vw, 40px);
     line-height: 1.05;
     letter-spacing: -0.018em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 24px;
   }
 
@@ -229,7 +229,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
 
   .arc-link-note {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     margin-left: 8px;
   }

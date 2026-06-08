@@ -68,7 +68,7 @@ const { cards, class: extraClass = '' } = Astro.props;
   }
   .related-k {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--accent);
     letter-spacing: 0.14em;
   }
@@ -77,14 +77,14 @@ const { cards, class: extraClass = '' } = Astro.props;
     font-size: clamp(20px, 2.4vw, 32px);
     line-height: 1.05;
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 8px 0 4px;
     text-wrap: balance;
   }
   .related-lead {
     font-size: 13px;
     color: var(--muted);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     text-wrap: pretty;
   }
   .related-go {

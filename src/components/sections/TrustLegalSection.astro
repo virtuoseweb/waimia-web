@@ -111,7 +111,7 @@ const revisedLabel = finalRevisedAt
     line-height: 0.94;
     letter-spacing: -0.028em;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0;
   }
   .trust-h1 :global(i) { font-style: italic; color: var(--accent); }
@@ -127,14 +127,14 @@ const revisedLabel = finalRevisedAt
   }
   .trust-meta {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     color: var(--muted);
     text-transform: uppercase;
   }
   .trust-legal-footer {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     margin-top: 48px;
     padding-top: 20px;
@@ -163,7 +163,7 @@ const revisedLabel = finalRevisedAt
     flex-direction: column;
     gap: 12px;
     font-family: var(--font-display);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     line-height: 1.4;
     border-top: 1px solid var(--hairline);
   }
@@ -178,14 +178,14 @@ const revisedLabel = finalRevisedAt
   .trust-toc a:hover { color: var(--accent); }
   .trust-toc-num {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     color: var(--muted);
     letter-spacing: 0.1em;
   }
 
   .trust-sections {
     font-family: var(--font-display);
-    font-size: 17px;
+    font-size: var(--text-body-md);
     line-height: 1.65;
     color: var(--ink-2);
     max-width: 780px;
@@ -203,7 +203,7 @@ const revisedLabel = finalRevisedAt
     font-size: clamp(36px, 5vw, 64px);
     line-height: 1;
     letter-spacing: -0.022em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 36px;
     text-wrap: balance;
   }
@@ -212,7 +212,7 @@ const revisedLabel = finalRevisedAt
     font-family: var(--font-display);
     font-size: clamp(20px, 2.2vw, 26px);
     line-height: 1.2;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: clamp(28px, 3vw, 40px) 0 12px;
     color: var(--ink);
   }
@@ -224,7 +224,7 @@ const revisedLabel = finalRevisedAt
     border-bottom: 1px solid currentColor;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .trust-grid { grid-template-columns: 1fr; }
     .trust-toc {
       position: static;

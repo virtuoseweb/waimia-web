@@ -64,11 +64,11 @@ const isFr = lang === 'fr';
   .hero-landing__btn-primary {
     font-family: var(--font-body, 'Inter Tight', sans-serif);
     font-size: 15px;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     background: var(--ink);
     color: var(--paper);
     padding: 14px 28px;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     text-decoration: none;
     transition: opacity .2s;
   }
@@ -79,14 +79,14 @@ const isFr = lang === 'fr';
     color: var(--ink);
     border: 1px solid rgba(var(--ink-rgb), .18);
     padding: 14px 28px;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     text-decoration: none;
     transition: border-color .2s;
   }
   .hero-landing__btn-secondary:hover { border-color: var(--ink); }
   .hero-landing__avail {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     letter-spacing: .08em;
   }

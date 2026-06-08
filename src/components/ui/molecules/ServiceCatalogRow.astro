@@ -83,13 +83,13 @@ const { num, title_fr, title_en, desc_fr, desc_en, meta, href, class: extraClass
   .svc-desc {
     color: var(--muted);
     font-size: 15.5px;
-    max-width: 720px;
-    line-height: 1.5;
+    max-width: var(--wrap-prose);
+    line-height: var(--leading-body);
     text-wrap: pretty;
   }
   .svc-meta {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     letter-spacing: 0.1em;
   }
@@ -100,7 +100,7 @@ const { num, title_fr, title_en, desc_fr, desc_en, meta, href, class: extraClass
     text-align: right;
     transition: color 240ms var(--ease), transform 320ms var(--ease);
   }
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .svc-row {
       grid-template-columns: 1fr;
       gap: 8px;

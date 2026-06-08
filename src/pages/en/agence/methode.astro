@@ -96,7 +96,7 @@ const timelineEvents = phases.map(p => ({
   .meth-os-h2 {
     font-family: var(--font-display);
     font-size: clamp(28px, 3.5vw, 52px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     letter-spacing: -0.022em;
     line-height: 1.05;
     margin: 0 0 28px;
@@ -128,9 +128,9 @@ const timelineEvents = phases.map(p => ({
   .meth-cta-h2 {
     font-family: var(--font-display);
     font-size: clamp(28px, 3.5vw, 52px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     letter-spacing: -0.022em;
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     margin: 0;
     flex: 1 1 360px;
     text-wrap: balance;
@@ -140,7 +140,7 @@ const timelineEvents = phases.map(p => ({
     display: inline-block;
     font-family: var(--font-mono);
     font-size: 13px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--paper);
     background: var(--ink);
@@ -159,6 +159,6 @@ const timelineEvents = phases.map(p => ({
 
   .meth-diagram {
     margin: clamp(48px, 6vw, 80px) 0;
-    max-width: 900px;
+    max-width: var(--wrap-read);
   }
 </style>

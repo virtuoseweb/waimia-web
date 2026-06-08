@@ -72,8 +72,8 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     border-radius: 4px;
     cursor: pointer;
     border: 1px solid var(--hairline);
-    transition: all 200ms ease;
-    font-weight: 500;
+    transition: all var(--dur-fast) ease;
+    font-weight: var(--fw-medium);
     letter-spacing: .01em;
   }
   .cb-btn--primary {

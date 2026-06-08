@@ -621,9 +621,9 @@ const growthToolRows = [
   .off-sec-hd h2 {
     font-family: var(--font-display);
     font-size: clamp(36px, 5vw, 72px);
-    line-height: 0.96;
+    line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 8px 0 0;
   }
   .off-sec-hd :global(i) { color: var(--accent); font-style: italic; }
@@ -631,7 +631,7 @@ const growthToolRows = [
     display: inline-block;
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
     color: var(--accent);
@@ -642,7 +642,7 @@ const growthToolRows = [
   .off-aside {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;
     max-width: 480px;
@@ -664,7 +664,7 @@ const growthToolRows = [
     font-size: clamp(28px, 4.6vw, 64px);
     line-height: 1.05;
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     margin-bottom: clamp(24px, 3vw, 40px);
     text-wrap: balance;
@@ -692,11 +692,11 @@ const growthToolRows = [
     color: var(--ink);
     line-height: 1;
     margin-bottom: 8px;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .off-problem-annotations :global(.ann-label) {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
@@ -720,11 +720,11 @@ const growthToolRows = [
     line-height: 0.85;
     color: var(--ink);
     margin-bottom: 16px;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .off-steps :global(.step-k) {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
@@ -735,7 +735,7 @@ const growthToolRows = [
     font-size: clamp(20px, 1.6vw, 24px);
     line-height: 1.2;
     margin: 0 0 12px;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .off-steps :global(.step p) { font-size: 15px; line-height: 1.55; color: var(--ink); margin: 0; }
 
@@ -743,7 +743,7 @@ const growthToolRows = [
   .off-del-lead {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;
     margin: var(--space-3) 0 0;
@@ -779,8 +779,8 @@ const growthToolRows = [
     top: var(--space-5);
     right: var(--space-6);
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
     transition: color 220ms var(--ease);
@@ -807,7 +807,7 @@ const growthToolRows = [
     line-height: 1.15;
     letter-spacing: -0.012em;
     margin: var(--space-3) 0 var(--space-3);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     text-wrap: balance;
     transition: transform 220ms var(--ease);
@@ -825,8 +825,8 @@ const growthToolRows = [
   .del-tag,
   .off-del-grid :global(.del-tag) {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
     padding: 0;
@@ -863,7 +863,7 @@ const growthToolRows = [
   }
   .off-proof-attr {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
@@ -880,7 +880,7 @@ const growthToolRows = [
     font-size: clamp(28px, 3vw, 40px);
     color: var(--ink);
     line-height: 1;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin-bottom: 4px;
   }
   .off-proof-metrics :global(.metric-l) {
@@ -914,7 +914,7 @@ const growthToolRows = [
   .off-related :global(th) {
     font-family: var(--font-mono) !important;
     font-size: var(--text-eyebrow) !important;
-    font-weight: 500 !important;
+    font-weight: var(--fw-medium) !important;
     text-transform: uppercase !important;
     letter-spacing: var(--tracking-mono) !important;
     color: var(--muted) !important;
@@ -950,7 +950,7 @@ const growthToolRows = [
     font-family: var(--font-display) !important;
     font-size: clamp(18px, 1.6vw, 22px) !important;
     line-height: 1.25 !important;
-    font-weight: 400 !important;
+    font-weight: var(--fw-regular) !important;
     color: var(--ink) !important;
     transition: color var(--dur-fast) var(--ease) !important;
   }
@@ -1010,13 +1010,13 @@ const growthToolRows = [
     font-size: clamp(48px, 7vw, 96px);
     line-height: 0.95;
     margin: 0 0 32px;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .off-cta-final h2 :global(i) { color: var(--accent); font-style: italic; }
   .off-cta-body p {
     font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 19px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--paper);
     font-style: italic;
     max-width: 540px;
@@ -1028,11 +1028,11 @@ const growthToolRows = [
     padding: 14px 28px;
     background: var(--accent);
     color: var(--paper);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     text-decoration: none;
-    letter-spacing: -0.005em;
+    letter-spacing: var(--tracking-body);
     transition: transform 220ms var(--ease);
   }
   .btn-accent:hover { transform: translateY(-2px); }
@@ -1042,11 +1042,11 @@ const growthToolRows = [
     background: transparent;
     color: var(--paper);
     border: 1px solid rgba(var(--paper-rgb), 0.3);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     text-decoration: none;
-    letter-spacing: -0.005em;
+    letter-spacing: var(--tracking-body);
     transition: border-color 220ms var(--ease);
   }
   .btn-light:hover { border-color: var(--paper); }
@@ -1150,14 +1150,14 @@ const growthToolRows = [
     font-size: clamp(44px, 5vw, 68px);
     line-height: 0.88;
     color: var(--ink);
-    font-weight: 400;
-    letter-spacing: -0.025em;
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-display);
   }
   .off-process-label {
     font-family: var(--font-display);
     font-size: clamp(19px, 1.8vw, 24px);
     line-height: 1.2;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 var(--space-3);
     letter-spacing: -0.01em;
     color: var(--ink);
@@ -1204,7 +1204,7 @@ const growthToolRows = [
     font-family: var(--font-display);
     font-size: clamp(17px, 1.5vw, 20px);
     line-height: 1.3;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     letter-spacing: -0.01em;
     display: flex;
@@ -1214,8 +1214,8 @@ const growthToolRows = [
   }
   .off-faq-mark {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
     flex-shrink: 0;
@@ -1239,7 +1239,7 @@ const growthToolRows = [
     font-family: var(--font-display);
     font-size: clamp(17px, 1.5vw, 20px);
     line-height: 1.3;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     display: flex;
     justify-content: space-between;
@@ -1308,7 +1308,7 @@ const growthToolRows = [
   .off-pricing-inner :global(thead th) {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
     color: var(--muted);
@@ -1330,7 +1330,7 @@ const growthToolRows = [
   .off-pricing-inner :global(tbody td:first-child) {
     font-family: var(--font-display);
     font-size: clamp(18px, 1.6vw, 22px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     letter-spacing: -0.01em;
   }

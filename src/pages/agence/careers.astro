@@ -95,7 +95,7 @@ const roles = [
     flex-wrap: wrap;
     gap: 16px;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     color: var(--muted);
     text-transform: uppercase;
@@ -106,17 +106,17 @@ const roles = [
     font-size: clamp(28px, 3.5vw, 48px);
     line-height: 1;
     letter-spacing: -0.022em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0;
     text-wrap: balance;
   }
   .careers-summary {
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: var(--text-body-md);
     line-height: 1.55;
     color: var(--muted);
     text-wrap: pretty;
-    max-width: 720px;
+    max-width: var(--wrap-prose);
     margin: 0;
   }
   .careers-apply {
@@ -127,18 +127,18 @@ const roles = [
     border-bottom: 1px solid var(--accent);
     padding-bottom: 2px;
     align-self: start;
-    transition: color 200ms var(--ease);
+    transition: color var(--dur-fast) var(--ease);
   }
   .careers-apply:hover { color: var(--accent-2, var(--accent)); }
 
   .careers-foot {
     border-top: 1px solid var(--hairline);
     padding-top: clamp(28px, 3vw, 40px);
-    max-width: 720px;
+    max-width: var(--wrap-prose);
   }
   .careers-foot p {
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: var(--text-body-md);
     line-height: 1.55;
     color: var(--ink-2);
     margin: 0;

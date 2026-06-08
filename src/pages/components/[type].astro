@@ -116,7 +116,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     color: var(--ink);
     font-family: var(--font-mono);
     font-size: clamp(32px, 5vw, 56px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     letter-spacing: -0.01em;
     line-height: 1;
   }
@@ -126,7 +126,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     border: 1px solid var(--hairline);
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     line-height: 1;
     padding: 6px 8px;
     text-transform: uppercase;
@@ -148,7 +148,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     margin: 18px 0 0;
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
@@ -173,7 +173,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     border: 1px solid var(--hairline);
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     line-height: 1;
     padding: 6px 7px;
   }
@@ -184,8 +184,8 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     margin: 0 0 18px;
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
+    font-size: var(--text-eyebrow);
+    font-weight: var(--fw-regular);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
@@ -207,7 +207,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     border: 0;
     transform-origin: top left;
   }
-  @media (max-width: 720px) {
+  @media (max-width: var(--wrap-prose)) {
     .component-detail .wrap-wide {
       padding-left: 20px;
       padding-right: 20px;

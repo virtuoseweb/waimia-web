@@ -51,7 +51,7 @@ const headers = isFr ? data.column_headers_fr : data.column_headers_en;
   h2 {
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0 0 var(--spacing-block);
   }
@@ -66,13 +66,13 @@ const headers = isFr ? data.column_headers_fr : data.column_headers_en;
   thead tr { border-bottom: 1px solid var(--hairline); }
   th {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--muted);
     text-align: left;
     padding: 12px 16px;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   th:first-child { min-width: 200px; }
   tbody tr {
@@ -91,7 +91,7 @@ const headers = isFr ? data.column_headers_fr : data.column_headers_en;
     color: var(--ink);
   }
   .comparison-table__cell { text-align: center; }
-  .comparison-table__bool { font-family: var(--font-mono); font-size: 14px; }
+  .comparison-table__bool { font-family: var(--font-mono); font-size: var(--text-body-sm); }
   .comparison-table__bool--yes { color: var(--accent); }
   .comparison-table__bool--no { color: var(--muted); }
 </style>

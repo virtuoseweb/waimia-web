@@ -432,7 +432,7 @@ const serviceLd = buildService({ name: title, description });
     display: block;
     margin-bottom: 10px;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -447,16 +447,16 @@ const serviceLd = buildService({ name: title, description });
   .tech-sec-hd h2 {
     font-family: var(--font-display);
     font-size: clamp(36px, 5vw, 72px);
-    line-height: 0.96;
+    line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 8px 0 0;
   }
   .tech-sec-hd :global(i) { color: var(--accent); font-style: italic; }
   .tech-aside {
     font-family: var(--font-display);
     font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;
     max-width: 480px;
@@ -491,7 +491,7 @@ const serviceLd = buildService({ name: title, description });
     font-size: clamp(36px, 5vw, 64px);
     line-height: 0.98;
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 8px 0 24px;
   }
   .tech-pos-title :global(i) { color: var(--accent); font-style: italic; }
@@ -522,7 +522,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-pos-facts :global(.fact-k) {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
@@ -532,7 +532,7 @@ const serviceLd = buildService({ name: title, description });
     font-size: clamp(18px, 1.8vw, 22px);
     color: var(--accent);
     line-height: 1;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     white-space: nowrap;
   }
   .tech-pos-facts :global(.fact-l) {
@@ -547,7 +547,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-models-table-wrap {
     overflow-x: auto;
     border: 1px solid rgba(var(--ink-rgb), 0.1);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     background: var(--paper);
     padding: clamp(18px, 3vw, 32px);
   }
@@ -559,33 +559,33 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-models-table thead th {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
     text-align: left;
     padding: 18px 20px;
     border-bottom: 1px solid rgba(var(--ink-rgb), 0.1);
-    font-weight: 500;
+    font-weight: var(--fw-medium);
   }
   .tech-models-table tbody :global(td) {
     padding: 18px 20px;
     border-bottom: 1px solid rgba(var(--ink-rgb), 0.06);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     vertical-align: top;
   }
   .tech-models-table tbody :global(tr:last-child td) { border-bottom: none; }
   .tech-models-table tbody :global(.mdl-name) {
     font-family: var(--font-display);
-    font-size: 17px;
+    font-size: var(--text-body-md);
     color: var(--ink);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     white-space: nowrap;
   }
   .tech-models-table tbody :global(.mdl-badge) {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     padding: 5px 10px;
     border-radius: 4px;
@@ -606,9 +606,9 @@ const serviceLd = buildService({ name: title, description });
     white-space: nowrap;
   }
   .tech-models-table tbody :global(.mdl-uses) {
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--muted);
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
 
   /* ───── When To Use Dual (signature) ───── */
@@ -643,7 +643,7 @@ const serviceLd = buildService({ name: title, description });
     font-family: var(--font-mono);
     font-size: 18px;
     color: var(--accent);
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     line-height: 1;
   }
   .tech-when-list--avoid :global(li) { color: var(--muted); }
@@ -682,7 +682,7 @@ const serviceLd = buildService({ name: title, description });
     position: absolute;
     top: 8px; left: 16px;
     width: 12px; height: 12px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--paper-2, #EFEBE2);
     border: 1px solid rgba(var(--ink-rgb), 0.2);
     z-index: 2;
@@ -695,7 +695,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-int-flow :global(.flow-layer) {
     font-family: var(--font-mono);
     font-size: 10.5px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 8px;
@@ -707,12 +707,12 @@ const serviceLd = buildService({ name: title, description });
     font-size: clamp(15px, 1.3vw, 18px);
     line-height: 1.2;
     margin: 0 0 8px;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
   }
   .tech-int-flow :global(.flow-body) {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.04em;
     line-height: 1.45;
     color: var(--muted);
@@ -731,14 +731,14 @@ const serviceLd = buildService({ name: title, description });
   }
   .tt-specs thead th {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
     text-align: left;
     padding: 0 24px 14px 0;
     border-bottom: 1px solid var(--hairline, rgba(var(--ink-rgb), 0.12));
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     white-space: nowrap;
   }
   .tt-specs thead th:last-child { padding-right: 0; text-align: right; }
@@ -751,7 +751,7 @@ const serviceLd = buildService({ name: title, description });
   .tt-spec-name {
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 18px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     padding: 20px 24px 20px 0;
     vertical-align: top;
@@ -794,7 +794,7 @@ const serviceLd = buildService({ name: title, description });
     display: inline;
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 18px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink);
     font-style: normal;
   }
@@ -803,7 +803,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tt-eco-inline :global(.eco-models) {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -845,13 +845,13 @@ const serviceLd = buildService({ name: title, description });
     font-size: clamp(48px, 7vw, 96px);
     line-height: 0.95;
     margin: 0 0 32px;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .tech-cta-final h2 :global(i) { color: var(--accent); font-style: italic; }
   .tech-cta-body p {
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 19px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--paper);
     font-style: italic;
     max-width: 560px;
@@ -863,11 +863,11 @@ const serviceLd = buildService({ name: title, description });
     padding: 14px 28px;
     background: var(--accent);
     color: var(--paper);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     text-decoration: none;
-    letter-spacing: -0.005em;
+    letter-spacing: var(--tracking-body);
     transition: transform 220ms var(--ease);
   }
   .btn-accent:hover { transform: translateY(-2px); }
@@ -877,11 +877,11 @@ const serviceLd = buildService({ name: title, description });
     background: transparent;
     color: var(--paper);
     border: 1px solid rgba(var(--paper-rgb), 0.3);
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
     text-decoration: none;
-    letter-spacing: -0.005em;
+    letter-spacing: var(--tracking-body);
     transition: border-color 220ms var(--ease);
   }
   .btn-light:hover { border-color: var(--paper); }
@@ -894,7 +894,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .wrap-tight { max-width: 880px; }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .tech-pos-split { grid-template-columns: 1fr; }
     .tech-pos-right { padding-left: 0; padding-top: 28px; }
     .tech-pos-right::before {

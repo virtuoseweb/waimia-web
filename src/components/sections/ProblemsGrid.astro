@@ -41,7 +41,7 @@ const isFr = lang === 'fr';
     gap: 1px;
     background: rgba(var(--ink-rgb), .08);
     border: 1px solid rgba(var(--ink-rgb), .08);
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
   }
   .problems-grid__card {
@@ -50,14 +50,14 @@ const isFr = lang === 'fr';
   }
   .problems-grid__num {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     letter-spacing: .08em;
     margin-bottom: 8px;
   }
   .problems-grid__kicker {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
     letter-spacing: .06em;
     color: var(--accent);
@@ -72,7 +72,7 @@ const isFr = lang === 'fr';
   }
   .problems-grid__card p {
     font-family: var(--font-body, 'Inter Tight', sans-serif);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     line-height: 1.65;
     color: var(--muted);
   }

@@ -65,7 +65,7 @@ const dateStr = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
   .fieldnote-detail__title {
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
-    line-height: 1.02;
+    line-height: var(--leading-h2);
     color: var(--ink);
     margin: 16px 0 0;
   }
@@ -94,7 +94,7 @@ const dateStr = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
     overflow-x: auto;
     font-family: var(--font-mono);
     font-size: 13px;
-    line-height: 1.5;
+    line-height: var(--leading-body);
     margin: 24px 0;
   }
   .fieldnote-detail__content :global(code) {

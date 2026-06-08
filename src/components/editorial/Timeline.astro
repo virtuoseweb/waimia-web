@@ -81,7 +81,7 @@ const { events, orientation = 'vertical', numbered = true } = Astro.props;
   .timeline-num {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
     font-size: var(--text-eyebrow);
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono, 0.12em);
     color: var(--accent, #C94F2E);
@@ -108,7 +108,7 @@ const { events, orientation = 'vertical', numbered = true } = Astro.props;
   .timeline-title {
     font-family: var(--font-display, 'Instrument Serif', serif);
     font-size: clamp(20px, 1.8vw, 26px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--ink, #0C0B09);
     margin: 0;
     line-height: 1.2;

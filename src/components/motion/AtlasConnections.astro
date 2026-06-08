@@ -82,7 +82,7 @@ const connections = pillars.length < 2
           if (!(line instanceof SVGLineElement)) return;
           var delay = i * 180;
           setTimeout(function () {
-            line.style.transition = 'stroke-dashoffset 0.9s cubic-bezier(0.22,1,0.36,1)';
+            line.style.transition = 'stroke-dashoffset 0.9s var(--ease)';
             line.style.strokeDashoffset = '0';
           }, delay);
         });
@@ -105,7 +105,7 @@ const connections = pillars.length < 2
   }
   .atlas-conn-node {
     cursor: default;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.3s var(--ease-spring);
     transform-origin: center;
     transform-box: fill-box;
   }

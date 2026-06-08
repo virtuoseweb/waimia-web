@@ -79,7 +79,7 @@ const {
     text-align: left;
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
     font-size: var(--text-eyebrow);
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono, 0.12em);
     color: var(--muted, #6B6560);
@@ -89,7 +89,7 @@ const {
   }
   .ed-table-th-right { text-align: right; }
   .ed-table-tr {
-    transition: background 200ms ease-out;
+    transition: background var(--dur-fast) ease-out;
   }
   .ed-table-tr:hover { background: var(--paper-2, rgba(var(--ink-rgb), 0.03)); }
   .ed-table-td {
@@ -129,7 +129,7 @@ const {
       font-size: var(--text-body-sm, 14px);
     }
     .ed-table-tr .ed-table-td:first-child {
-      font-weight: 500;
+      font-weight: var(--fw-medium);
       color: var(--ink, #0C0B09);
       font-family: var(--font-display, 'Instrument Serif', serif);
       font-size: var(--text-body-md, 17px);

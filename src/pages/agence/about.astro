@@ -109,7 +109,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   /* ── Prose ── */
   .about-prose {
     font-family: var(--font-sans);
-    font-size: 17px;
+    font-size: var(--text-body-md);
     line-height: 1.65;
     color: var(--ink-2);
   }
@@ -118,9 +118,9 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   .about-prose h2 {
     font-family: var(--font-display);
     font-size: clamp(26px, 3vw, 40px);
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     letter-spacing: -0.02em;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 16px;
     text-wrap: balance;
   }
@@ -157,7 +157,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   .about-facts > div:last-child { border-bottom: none; }
   .about-facts dt {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
@@ -193,7 +193,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   }
   .about-stat-l {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
     letter-spacing: 0.13em;
     color: var(--muted);
@@ -208,7 +208,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   .about-portrait :global(svg) { width: 100%; height: auto; }
 
   /* Responsive */
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .about-grid { grid-template-columns: 1fr; }
     .about-aside {
       border-left: none;
@@ -230,9 +230,9 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   .about-cta-eyebrow {
     display: block;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     color: var(--accent);
     margin-bottom: 24px;
   }
@@ -240,8 +240,8 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
     font-family: var(--font-display);
     font-size: clamp(32px, 4.5vw, 64px);
     line-height: 1.05;
-    letter-spacing: -0.025em;
-    font-weight: 400;
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
     text-wrap: balance;
     margin: 0 0 40px;
   }
@@ -256,7 +256,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
     display: inline-block;
     font-family: var(--font-mono);
     font-size: 13px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     padding: 16px 36px;
     border: 1px solid var(--ink);

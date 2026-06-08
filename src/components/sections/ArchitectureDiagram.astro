@@ -107,7 +107,7 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
   }
   .sysarch-spec {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     color: var(--muted);
     letter-spacing: 0.1em;
   }
@@ -117,10 +117,10 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h2);
-    letter-spacing: -0.025em;
+    letter-spacing: var(--tracking-display);
     max-width: 880px;
     margin: 0 0 clamp(24px, 3vw, 40px);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     text-wrap: balance;
     color: var(--ink);
   }
@@ -148,7 +148,7 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
     font-size: clamp(16px, 1.4vw, 20px);
     line-height: 1.35;
     color: var(--ink);
-    max-width: 720px;
+    max-width: var(--wrap-prose);
     text-align: center;
     text-wrap: balance;
     margin: 0;

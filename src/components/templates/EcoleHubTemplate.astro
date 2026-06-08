@@ -137,7 +137,7 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
     text-transform: uppercase;
     color: var(--text-muted, #888);
     margin: 0 0 24px;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
 
   .catalogue-table {
@@ -154,7 +154,7 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
 
   .table-header span {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     line-height: 1;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -186,7 +186,7 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
   .row-title {
     font-family: var(--font-sans);
     font-size: 15px;
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     color: var(--text-primary, #111);
   }
 
@@ -198,12 +198,12 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
   .pill {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-mono-xs);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 3px 8px;
     border: 1px solid var(--hairline);
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
   }
 
   .pill--debutant { color: #3a7d44; border-color: #3a7d44; }
@@ -213,7 +213,7 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
 
   .arrow {
     font-family: var(--font-mono);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--accent);
     text-align: right;
   }
@@ -236,17 +236,17 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
   .parcours-title {
     font-family: var(--font-sans);
     font-size: 15px;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     display: block;
     margin-bottom: 6px;
   }
 
   .parcours-desc {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-body-sm);
     color: var(--text-secondary, #444);
     margin: 0;
-    line-height: 1.5;
+    line-height: var(--leading-body);
   }
 
   /* CTA FINALE */
@@ -259,7 +259,7 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
   .cta-link {
     font-family: var(--font-sans);
     font-size: 15px;
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     color: var(--text-primary, #111);
     text-decoration: underline;
     text-underline-offset: 3px;

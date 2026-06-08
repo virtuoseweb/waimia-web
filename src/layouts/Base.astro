@@ -203,7 +203,7 @@ const additionalLd = additionalJsonLd
             if (!el.classList.contains('in')) io.observe(el);
           });
           // Fallback pour les éléments above-the-fold masqués par BootSplash overlay
-          // (~1100ms) : l'IO ne déclenche pas pendant que l'overlay z-index:200 couvre tout.
+          // (~var(--dur-reveal)) : l'IO ne déclenche pas pendant que l'overlay z-index:200 couvre tout.
           setTimeout(() => {
             document.querySelectorAll(sels).forEach((el) => {
               if (el.classList.contains('in')) return;

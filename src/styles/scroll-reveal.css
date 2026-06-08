@@ -9,9 +9,9 @@
   transform: translateY(12px);
   filter: blur(8px);
   transition:
-    opacity var(--dur-slow, 800ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1)),
-    transform var(--dur-slow, 800ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1)),
-    filter var(--dur-slow, 800ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+    opacity var(--dur-slow, 800ms) var(--ease, var(--ease)),
+    transform var(--dur-slow, 800ms) var(--ease, var(--ease)),
+    filter var(--dur-slow, 800ms) var(--ease, var(--ease));
   will-change: opacity, transform, filter;
 }
 
@@ -27,9 +27,9 @@
   transform: translateY(8px);
   filter: blur(4px);
   transition:
-    opacity var(--dur-base, 400ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1)),
-    transform var(--dur-base, 400ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1)),
-    filter var(--dur-base, 400ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+    opacity var(--dur-base, 400ms) var(--ease, var(--ease)),
+    transform var(--dur-base, 400ms) var(--ease, var(--ease)),
+    filter var(--dur-base, 400ms) var(--ease, var(--ease));
 }
 
 .reveal-stagger.is-visible > * {
@@ -67,8 +67,8 @@
   opacity: 0;
   transform: translateY(28px);
   transition:
-    opacity 900ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1)),
-    transform 1100ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1));
+    opacity 900ms var(--ease-out, var(--ease-out)),
+    transform var(--dur-reveal) var(--ease-out, var(--ease-out));
   will-change: opacity, transform;
 }
 
@@ -82,8 +82,8 @@
   opacity: 0;
   transform: scale(0.95);
   transition:
-    opacity 900ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1)),
-    transform 900ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1));
+    opacity 900ms var(--ease-out, var(--ease-out)),
+    transform 900ms var(--ease-out, var(--ease-out));
   will-change: opacity, transform;
 }
 
@@ -99,10 +99,10 @@
   clip-path: inset(0 0 24% 0);
   transform: translateY(18px);
   transition:
-    opacity 1200ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1)),
-    filter 1200ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1)),
-    clip-path 1200ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1)),
-    transform 1200ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1));
+    opacity 1200ms var(--ease-out, var(--ease-out)),
+    filter 1200ms var(--ease-out, var(--ease-out)),
+    clip-path 1200ms var(--ease-out, var(--ease-out)),
+    transform 1200ms var(--ease-out, var(--ease-out));
   will-change: opacity, filter, clip-path, transform;
 }
 
@@ -130,7 +130,7 @@
   background: var(--paper);
   pointer-events: none;
   transform: scaleX(1);
-  transition: transform 1100ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1));
+  transition: transform var(--dur-reveal) var(--ease-out, var(--ease-out));
   will-change: transform;
 }
 
@@ -160,8 +160,8 @@
   opacity: 0;
   transform: translateY(105%);
   transition:
-    opacity 520ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1)),
-    transform 520ms var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1));
+    opacity 520ms var(--ease-out, var(--ease-out)),
+    transform 520ms var(--ease-out, var(--ease-out));
   will-change: opacity, transform;
 }
 
@@ -205,7 +205,7 @@ a.link-editorial:visited {
   background-size: 0% 1px;
   background-repeat: no-repeat;
   background-position: 0 100%;
-  transition: background-size var(--dur-fast, 200ms) var(--ease-out, cubic-bezier(0.16, 1, 0.30, 1));
+  transition: background-size var(--dur-fast, var(--dur-fast)) var(--ease-out, var(--ease-out));
 }
 
 a.link-editorial:hover,
@@ -219,7 +219,7 @@ a.link-hairline {
   text-decoration: none;
   border-bottom: 1px solid var(--hairline-strong);
   padding-bottom: 1px;
-  transition: border-color var(--dur-fast, 200ms) var(--ease, ease-out);
+  transition: border-color var(--dur-fast, var(--dur-fast)) var(--ease, ease-out);
 }
 
 a.link-hairline:hover,

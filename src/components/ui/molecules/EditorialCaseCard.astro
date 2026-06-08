@@ -71,13 +71,13 @@ const offsetStyle = offset ? `margin-top:${offset}px` : '';
 
   .u-case-card-hd{display:flex;justify-content:space-between;align-items:baseline}
 
-  .u-case-card-client{font-family:var(--font-display);font-size:clamp(36px,5vw,72px);line-height:.95;letter-spacing:-0.025em;margin-top:18px;transition:transform 220ms var(--ease)}
+  .u-case-card-client{font-family:var(--font-display);font-size:clamp(36px,5vw,72px);line-height:.95;letter-spacing:var(--tracking-display);margin-top:18px;transition:transform 220ms var(--ease)}
 
   .u-case-card-foot{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:20px;border-top:1px solid var(--hairline)}
   :global(.u-case-card-k){margin-bottom:6px}
   .u-case-card-v{font-size:13.5px}
   .u-case-card-v,.u-case-card-impact{transition:transform 220ms var(--ease)}
-  .u-case-card-impact{font-size:16px;color:var(--accent);font-weight:500}
+  .u-case-card-impact{font-size:16px;color:var(--accent);font-weight:var(--fw-medium)}
   .u-case-card:hover .u-case-card-client,
   .u-case-card:hover .u-case-card-v,
   .u-case-card:hover .u-case-card-impact{transform:translateX(1px)}

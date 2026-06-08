@@ -174,7 +174,7 @@ const pageTransitionId = Astro.url.pathname
   /* Wrapper hero · max-width hard cap pour grands écrans · contrainte de
      lisibilité éditoriale (V6 : éviter casse design sur ultra-wide) */
   .hero-a .wrap-wide {
-    max-width: 1560px;
+    max-width: var(--wrap-wide);
     margin-inline: auto;
   }
 
@@ -199,7 +199,7 @@ const pageTransitionId = Astro.url.pathname
     font-size: var(--text-h1-hero);
     line-height: var(--leading-h1, .96);
     letter-spacing: var(--tracking-display, -0.025em);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     max-width: 980px;
     margin: 0 0 var(--space-5);
   }
@@ -227,7 +227,7 @@ const pageTransitionId = Astro.url.pathname
   }
   .hero-fig { margin-bottom: var(--space-4); }
 
-  /* Lede · Inter Tight (pas Serif) · reveal-fade delay 200ms */
+  /* Lede · Inter Tight (pas Serif) · reveal-fade delay var(--dur-fast) */
   .hero-lede {
     font-family: var(--font-sans);
     font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
@@ -235,7 +235,7 @@ const pageTransitionId = Astro.url.pathname
     color: var(--ink-2);
     max-width: 520px;
     text-wrap: pretty;
-    transition-delay: 200ms;
+    transition-delay: var(--dur-fast);
   }
   .hero-lede i { font-style: italic; color: var(--accent); }
 
@@ -266,7 +266,7 @@ const pageTransitionId = Astro.url.pathname
 
   .hero-mm-label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -311,7 +311,7 @@ const pageTransitionId = Astro.url.pathname
     padding-top: var(--space-5);
     font-family: var(--font-sans);
     font-size: clamp(13px, 1vw, 14px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--ink-2);
     letter-spacing: 0.005em;
     transition-delay: 520ms;
@@ -346,7 +346,7 @@ const pageTransitionId = Astro.url.pathname
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--accent);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .hero-proof-label {
     font-family: var(--font-sans);
@@ -363,7 +363,7 @@ const pageTransitionId = Astro.url.pathname
   /* Metrics wrapper · préserve le layout MetricStrip */
   .metrics-reveal { display: block; }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .hero-sub { grid-template-columns: 1fr; gap: var(--space-9); }
     .hero-sig-mark { display: none; }
     .hero-proof { grid-template-columns: 90px 1fr; gap: var(--space-4); }

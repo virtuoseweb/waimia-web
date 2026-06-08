@@ -80,7 +80,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
   }
   .hero-home > *:not(.signature-grid):not(.hero-sig-mark) { position: relative; z-index: 1; }
   .hero-home .signature-grid { z-index: 0; }
-  .hero-home .wrap-wide { max-width: 1560px; margin-inline: auto; }
+  .hero-home .wrap-wide { max-width: var(--wrap-wide); margin-inline: auto; }
 
   .hero-sig-mark {
     position: absolute;
@@ -101,7 +101,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
     font-size: var(--text-h1-hero);
     line-height: var(--leading-h1, .96);
     letter-spacing: var(--tracking-display, -0.025em);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     max-width: 980px;
     margin: 0 0 var(--space-5);
   }
@@ -128,7 +128,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
     color: var(--ink-2);
     max-width: 520px;
     text-wrap: pretty;
-    transition-delay: 200ms;
+    transition-delay: var(--dur-fast);
   }
   .hero-home__lede :global(i) { font-style: italic; color: var(--accent); }
 
@@ -156,7 +156,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
 
   .hero-home__mm-label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -197,7 +197,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
     padding-top: var(--space-5);
     font-family: var(--font-sans);
     font-size: clamp(13px, 1vw, 14px);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     color: var(--ink-2);
     letter-spacing: 0.005em;
     transition-delay: 520ms;
@@ -230,7 +230,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--accent);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
   }
   .hero-home__proof-label {
     font-family: var(--font-sans);
@@ -241,7 +241,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
   }
   .hero-home__proof-label :global(i) { font-style: italic; color: var(--ink-2); }
 
-  @media (max-width: 900px) {
+  @media (max-width: var(--wrap-read)) {
     .hero-home__sub { grid-template-columns: 1fr; gap: var(--space-9); }
     .hero-sig-mark { display: none; }
     .hero-home__proof { grid-template-columns: 90px 1fr; gap: var(--space-4); }

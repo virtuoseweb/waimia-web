@@ -66,7 +66,7 @@ const lang = langFromPath(Astro.url.pathname);
     line-height: 0.88;
     letter-spacing: -0.035em;
     text-wrap: balance;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     margin: 0 0 32px;
   }
   .err-h1 :global(i) { font-style: italic; color: var(--accent); }
@@ -102,10 +102,10 @@ const lang = langFromPath(Astro.url.pathname);
   .err-path-link {
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.2vw, 28px);
-    line-height: 1.1;
+    line-height: var(--leading-h3);
     letter-spacing: -0.02em;
     color: var(--ink);
-    transition: color 200ms var(--ease);
+    transition: color var(--dur-fast) var(--ease);
   }
   .err-path-link:hover { color: var(--accent); }
   .err-cta { display: flex; gap: 12px; flex-wrap: wrap; }
