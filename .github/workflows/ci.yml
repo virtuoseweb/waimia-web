@@ -53,3 +53,56 @@ jobs:
       # connues (gated produit/légal) sont listées non-bloquantes via ALLOWLIST documentée.
       - name: Gate qualité statique (a11y structurel + liens internes)
         run: node scripts/check-static-quality.mjs
+
+  # Suite Playwright e2e contre le BUILD servi (parité prod — le dev diverge du build).
+  # Job SÉPARÉ, hors required-checks pour l'instant : visible mais non-bloquant le temps
+  # de prouver sa stabilité en CI, puis promotion en gate. Couvre le DYNAMIQUE que le gate
+  # statique ne voit pas : aria-pressed, JSON-LD, hreflang, overflow mobile, rendu templates,
+  # formulaires. La suite est verte localement (45 passed / 9 skipped légitimes).
+  e2e:
+    name: E2E (Playwright · build servi)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright (chromium + deps)
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Build
+        run: pnpm build
+
+      # serve-dist (parité prod) : --port en ARG, --root dist/client (sortie adapter Vercel).
+      # On attend le 200 avant de lancer Playwright (baseURL externe → webServer désactivé).
+      - name: E2E contre le build servi
+        run: |
+          node scripts/serve-dist.mjs --port 4330 --root dist/client &
+          SERVE_PID=$!
+          for i in $(seq 1 30); do curl -sf http://localhost:4330/ >/dev/null 2>&1 && break; sleep 1; done
+          PLAYWRIGHT_BASE_URL=http://localhost:4330 pnpm exec playwright test
+          STATUS=$?
+          kill $SERVE_PID 2>/dev/null || true
+          exit $STATUS
+
+      - name: Upload traces/screenshots (si échec)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 7
