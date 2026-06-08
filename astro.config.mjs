@@ -8,6 +8,7 @@ import vercel from '@astrojs/vercel';
 import robotsTxt from 'astro-robots-txt';
 import llmsTxt from '@4hse/astro-llms-txt';
 import llmsMdPages from './src/integrations/llms-md-pages';
+import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 
 // Waimia · Astro 6 config · Static-first + API routes SSR via Vercel Functions
 // - output: 'static' : 100 % SSG par défaut, fichiers CDN immuables (T1.1 activé 2026-05-17)
@@ -92,16 +93,28 @@ export default defineConfig({
       //    canonique /ecole/cours/{slug} (les formations sont rendues 2× — cf
       //    CourseDetailTemplate qui force le canonical vers /ecole/cours/). On retire
       //    la forme dupliquée du sitemap pour ne garder que la forme canonique.
-      filter: (page) =>
-        !page.includes('/bienvenue/') &&
-        !page.includes('/agence/design-system') &&
-        !page.includes('/preview/') &&
-        !page.includes('/components/') &&
-        !page.includes('/ecole/formation/') &&
-        // Catalogue DS interne + page de comparaison : noindex,follow → hors sitemap
-        // (même famille que /preview/ et /components/, cohérence budget crawl).
-        !page.includes('/categories/') &&
-        !page.includes('/compare/'),
+      filter: (page) => {
+        // Stubs noindex du catch-all [...slug].astro (routes de nav sans contenu
+        // propre) : listés ici pour résorber l'incohérence noindex↔sitemap.
+        // Liste figée data-driven (cf src/data/sitemap-noindex-exclude.ts).
+        const path = new URL(page).pathname.replace(/\/$/, '');
+        if (NOINDEX_SITEMAP_PATHS.has(path)) return false;
+        return (
+          !page.includes('/bienvenue/') &&
+          !page.includes('/agence/design-system') &&
+          !page.includes('/preview/') &&
+          !page.includes('/components/') &&
+          !page.includes('/ecole/formation/') &&
+          // Catalogue DS interne + page de comparaison : noindex,follow → hors sitemap
+          // (même famille que /preview/ et /components/, cohérence budget crawl).
+          !page.includes('/categories/') &&
+          !page.includes('/compare/') &&
+          // Commerce détail (/commerce/product|subscription/*) : CTA Stripe placeholder
+          // (liens test_/portail fictif) → pages noindex défensif tant que le checkout
+          // réel n'est pas branché. Hors sitemap pour cohérence noindex↔crawl.
+          !page.includes('/commerce/')
+        );
+      },
     }),
     robotsTxt({
       policy: [
