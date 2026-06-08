@@ -106,11 +106,11 @@ const otherError = result?.error && !isInputError(result.error)
   :global(.acad-section-k) { display: block; margin: var(--space-5) 0 var(--space-2); }
   fieldset { border: 1px solid var(--hairline); border-radius: var(--radius-sm); padding: 22px var(--space-5); display: flex; flex-direction: column; gap: 10px; }
   legend { font-family: var(--font-display); font-size: clamp(17px, 1.8vw, 20px); line-height: 1.3; padding: 0 var(--space-2); }
-  fieldset label { font-size: 14.5px; line-height: var(--leading-lede); display: flex; align-items: baseline; gap: var(--space-2); cursor: pointer; padding: 6px 0; transition: color var(--dur-fast) var(--ease); }
+  fieldset label { font-size: var(--text-body-sm); line-height: var(--leading-lede); display: flex; align-items: baseline; gap: var(--space-2); cursor: pointer; padding: 6px 0; transition: color var(--dur-fast) var(--ease); }
   fieldset label:hover { color: var(--accent); }
   fieldset input[type="radio"] { accent-color: var(--accent); flex-shrink: 0; }
   .acad-cta { margin-top: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
-  .acad-foot { font-size: 12.5px; color: var(--muted); margin: 0; }
+  .acad-foot { font-size: var(--text-caption); color: var(--muted); margin: 0; }
   .acad-skip { margin-top: var(--space-5); font-size: var(--text-ui); color: var(--muted); }
   .acad-skip summary { cursor: pointer; font-family: var(--font-mono); letter-spacing: 0.06em; padding: var(--space-2) 0; }
   .acad-skip a { color: var(--accent); border-bottom: 1px solid currentColor; }

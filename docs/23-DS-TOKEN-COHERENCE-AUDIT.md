@@ -193,3 +193,37 @@ Le cas exact de Simon : valeur créée au lieu de réutiliser. À collapser pour
 3. **Bucket B** : snapper par famille, GF-1 (cadre restrictif voulu).
 4. **Bucket C** : créer échelles `--radius-*/--fw-*/--wrap-prose/--ease-spring` (rule 28).
 5. **Bucket D** : arbitrage Simon.
+
+## 8. ANALYSE FINE DU RÔLE (cran vs dérive) + arbitrage d'échelle — 2026-06-09
+
+> Trigger Simon : « le fait qu'un composant utilise une variable et pas une autre ne prouve pas qu'on n'a pas un doublon… cela demande un audit de profondeur de lecture et d'analyse réel » + « ne pas créer de variables même valeurs ≠ alors qu'on aurait dû réutiliser… un cadre restrictif, un DS réellement industrialisable ».
+
+3 agents read-only ont lu le **rôle réel** de chaque near-dup (pas juste le compte). **Principe d'arbitrage retenu** (réconcilie « tout snapper » + « cadre restrictif » + « ne pas dégrader ») :
+- **Cran intentionnel** (rôle distinct récurrent, ≥ ~15 usages, valeur ronde) → **FORMALISER** en token = créer le token à la valeur exacte + tokeniser les littéraux exacts = **byte-équivalent (0 pixel changé)**. Industrialise sans rien casser.
+- **Dérive** (même rôle qu'un cran voisin ; demi-pixels ; valeur « bâtarde ») → **COLLAPSE** vers le canonique = **changement de valeur perceptible** → vague séparée GF-1 (jamais mélangé à du byte-équiv).
+- **Stagger / ambiance / morph chorégraphique** → **INTOUCHABLE** (séquences arithmétiques de delay, loops infinis, state-machines couplées).
+
+État empirique confirmé (grep property-anchored, hors `var(`) : font-size 13px×66 / 12px×65 / 15px×39 / **demi-pixels** 10.5×32 13.5×9 12.5×9 11.5×7 14.5×6 (dérive systémique) ; line-height 1.55×62 1.6×51 1.4×56 1.65×20 ; tracking 0.14em×51 0.10em×48 0.08em×32 ; radius 4px×16 50%×15 ; durée 220ms×96 (≠ `--dur-fast` 200) 240×27 320×22 280×14.
+
+### V9c — FORMALISATIONS byte-équivalentes (0 risque, à exécuter) — 7 tokens
+| Nouveau token | Valeur | Rôle prouvé | Occ. exactes |
+|---|---|---|---|
+| `--text-caption` | 12px | captions / pills / badges mono | 65 |
+| `--text-ui` | 13px | boutons (`.btn`) / nav / chrome UI | 66 |
+| `--text-body-lead` | 15px | corps prose intermédiaire (14↔17) | 39 |
+| `--leading-lede` | 1.4 | lede hero / sous-titres display (18–32px) | 56 |
+| `--leading-prose` | 1.65 | corps long de lecture (articles, FAQ, glossaire) | 20 |
+| `--radius-xs` | 4px | inputs / focus-visible / form (cran manquant sm↔md) | 16 |
+| `--radius-full` | 50% | cercles / avatars / dots (distinct de pill 999px) | 15 |
+
+Tokeniser uniquement les **littéraux == valeur exacte** (lookahead strict : `1.4` ≠ `1.45`, `4px` ≠ `40px`). Gate `check-token-purity` étendu (anti-régression). ~280 occ → tokens, 0 pixel changé.
+
+### Vagues PERCEPTIBLES différées (changement de valeur → GF-1 visuel par page, NE PAS byte-équiv)
+- **V9d — demi-pixels** : 10.5/11.5/12.5/13.5/14.5/15.5px → entier proche (10.5→11, 12.5→13(`--text-ui`), 13.5→13, 14.5→14, 15.5→15). Sub-pixel, faible risque mais perceptible cumulé.
+- **V9e — line-height corps** : 1.55(62)+1.6(51) → `--leading-body` 1.5 (rythme vertical). Gros volume, reflow léger.
+- **V9f — tracking** : 0.08/0.10/0.14em — **probable dérive** autour de ~0.1em (continuum d'emphase, pas crans nets) ; arbitrage : 1 seul `--tracking-label` (~0.1em) + recalibrer `--tracking-mono` 0.12→ ? Letter-spacing perceptible sur uppercase.
+- **V9g — durées** : recalibrer `--dur-fast` 200→220ms (96 littéraux de facto) puis créer `--dur-hover:240` / `--dur-follow:320` (crans réels). Touche le « feel » (53 usages var existants passent 200→220). GF-1 difficile en statique.
+- **V9h — collapses divers** : 16px corps→15 ; radius 6→4 ; near-dups largeurs wrap 1100/1200/1240→`--wrap-tight` 1120.
+- **Outliers laissés** : flèches mono 16/18px (iconiques), drop-cap 0.85, H1 optical-sizing 0.88/0.92/0.94 (1 seul `--leading-h1` 0.96 suffit, sinon dérive de raffinement), 32px radius morph, durées d'ambiance s, stagger.
+
+**Refus explicite du sur-formalisme** (caveat « ne pas créer de tokens inutiles ») : on NE crée PAS de token demi-pixel (10.5/11.5…), NI 4 variantes `--leading-h1` (0.88/0.92/0.94/0.96 → un seul cran), NI 5 trackings entre 0.06–0.14em. Le DS reste restrictif : un cran = un rôle distinct + un volume réel.

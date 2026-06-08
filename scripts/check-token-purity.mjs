@@ -347,8 +347,44 @@ console.log(`\n⛔ Littéraux espacement on-grid (BLOQUANT V9b, DS enforced) : $
 if (spacingHits.length) showSp(spacingHits).forEach(h => console.log(fmtSp(h)));
 if (!REPORT && spacingHits.length > 3) console.log(`    … +${spacingHits.length - 3} (voir --report)`);
 
+// ══════════════════════════════════════════════════════════════════════════════
+// V9d — Gate demi-pixels font-size (BLOQUANT, DS enforced)
+// Interdit tout font-size: <n>.5px direct (hors clamp/calc).
+// Outliers whitelistés : 8.5px, 9.5px (pas de token proche).
+// Scope : src/**/*.astro (corps) + src/**/*.css (hors tokens.css)
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Demi-pixels tokenisables (10.5–15.5) = BLOQUANTS.
+// Outliers 8.5 / 9.5 : whitelistés (aucun token entier proche → préservés intentionnellement).
+const HALFPX_BLOCKED = new Set(['10.5px', '11.5px', '12.5px', '13.5px', '14.5px', '15.5px']);
+// Regex property-anchored : font-size: <n>.5px (valeur directe, pas var(), pas clamp)
+// La même exclusion clamp est gratuite : après "font-size: " vient "clamp" → ne matche pas.
+const HALFPX_RE = /font-size:\s*(?!var\()(\d+\.5px)(?![a-zA-Z0-9_-])/g;
+
+const halfpxHits = [];
+
+for (const fpath of allFilesV8) {
+  const raw  = readFileSync(fpath, 'utf8');
+  const text = extname(fpath) === '.astro' ? splitAstroBody(raw) : raw;
+  const rel  = relative(ROOT, fpath);
+
+  for (const m of text.matchAll(HALFPX_RE)) {
+    const val = m[1]; // ex "10.5px"
+    if (!HALFPX_BLOCKED.has(val)) continue; // outliers 8.5/9.5 → ignorés
+    const line = text.slice(0, m.index).split('\n').length;
+    halfpxHits.push({ file: rel, line, value: m[0].trim() });
+  }
+}
+
+const showHp = (arr) => (REPORT ? arr : arr.slice(0, 3));
+const fmtHp  = (h) => `    ${h.file}:${h.line}  ${h.value}  → doit être var(--text-*)`;
+
+console.log(`\n⛔ Demi-pixels font-size directs (BLOQUANT V9d, dérive éliminée) : ${halfpxHits.length}`);
+if (halfpxHits.length) showHp(halfpxHits).forEach(h => console.log(fmtHp(h)));
+if (!REPORT && halfpxHits.length > 3) console.log(`    … +${halfpxHits.length - 3} (voir --report)`);
+
 // ── Décision finale ────────────────────────────────────────────────────────────
-const totalBlocking = hexHits.length + literalHits.length + spacingHits.length;
+const totalBlocking = hexHits.length + literalHits.length + spacingHits.length + halfpxHits.length;
 
 if (hexHits.length > 0) {
   console.log(`\n❌ FAIL — ${hexHits.length} hex brut(s). Migre vers var(--token) / color-mix.\n`);
@@ -359,8 +395,11 @@ if (literalHits.length > 0) {
 if (spacingHits.length > 0) {
   console.log(`\n❌ FAIL — ${spacingHits.length} littéral(aux) espacement on-grid. Chaque px on-grid doit être var(--space-N) (DS enforced V9b).\n`);
 }
+if (halfpxHits.length > 0) {
+  console.log(`\n❌ FAIL — ${halfpxHits.length} demi-pixel(s) font-size direct(s). Snap vers var(--text-*) via snap-halfpixel-fontsize.mjs (DS enforced V9d).\n`);
+}
 if (totalBlocking > 0) {
   process.exit(1);
 }
-console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut. (${brandHits.length} rgba de marque = dette à tokeniser, non-bloquante.)\n`);
+console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut, 0 demi-pixel font-size. (${brandHits.length} rgba de marque = dette à tokeniser, non-bloquante.)\n`);
 process.exit(0);
