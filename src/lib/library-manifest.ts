@@ -32,7 +32,7 @@ export interface LibraryOrganismEntry {
 // ── Usage par type-id (hand-authored — 67 entrées, consumers=[] si catalogue-only) ──
 
 const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
-  // ── Live (27) ───────────────────────────────────────────────────────────────
+  // ── Live (34) ───────────────────────────────────────────────────────────────
   { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetailTemplate.astro'] },
   { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetailTemplate.astro'] },
   { id: 'hero-service-detail',   consumers: ['src/components/templates/ServiceDetailTemplate.astro'] },
@@ -54,6 +54,14 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'faq-accordion',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/ServiceDetailTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/components/templates/HubTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/content/offres/composable-pilot.mdx'] }, // home = organism BookSession (twin merge) → cta-final après migration
   { id: 'cta-band',              consumers: ['src/components/templates/TrustLegalTemplate.astro', 'src/components/templates/ListIndexTemplate.astro', 'src/components/templates/EssayTemplate.astro'] },
+  // backfill 2026-06-08 — 7 ids présents au registry, consommés par des pages live (vérifié grep src/pages)
+  { id: 'tier-pyramid-svg',      consumers: ['src/pages/offres/index.astro', 'src/pages/en/offres/index.astro'] },
+  { id: 'offer-tier-grid',       consumers: ['src/pages/offres/index.astro', 'src/pages/en/offres/index.astro'] },
+  { id: 'team-card-grid',        consumers: ['src/pages/equipe/index.astro'] },
+  { id: 'hero-atlas',            consumers: ['src/pages/atlas.astro', 'src/pages/en/atlas.astro'] },
+  { id: 'persona-attributes-grid', consumers: ['src/pages/ressources/personas/[slug].astro'] },
+  { id: 'editorial-split-grid',  consumers: ['src/pages/ressources/index.astro', 'src/pages/en/ressources/index.astro'] },
+  { id: 'coming-soon-pills',     consumers: ['src/pages/secteurs/index.astro'] },
 
   // ── Catalogue-only (40) ─────────────────────────────────────────────────────
   // NB: architecture-diagram/services-grid/maturity-pyramid/use-case-index/case-card-grid/editorial-preview sont LIVE (home) bien que listés ici.

@@ -1,0 +1,1735 @@
+[
+  {
+    "id": "architecture-diagram",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "ArchitectureDiagram",
+    "status": "stable",
+    "tags": [
+      "architecture",
+      "diagram",
+      "svg",
+      "system"
+    ],
+    "description_fr": "Diagramme d'architecture signature : N canaux d'entrée vers un système central et M sorties, avec boucle d'amélioration continue.",
+    "description_en": "Signature architecture diagram: N input channels flowing into a central system with M outputs, plus a continuous improvement loop.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/en/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "branded-callout",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "BrandedCallout",
+    "status": "stable",
+    "tags": [
+      "callout",
+      "brand",
+      "os",
+      "paper-2"
+    ],
+    "description_fr": "Callout de marque fond paper-2 avec kicker §, titre display italique et corps de deux paragraphes, CTA optionnel.",
+    "description_en": "Brand callout on paper-2 background with § kicker, italic display headline, two-paragraph body, and optional CTA.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "case-card-grid",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "CaseCardGrid",
+    "status": "stable",
+    "tags": [
+      "case-study",
+      "grid",
+      "proof",
+      "editorial"
+    ],
+    "description_fr": "Table éditoriale de cas clients en six colonnes (index, client, secteur, stack, impact, flèche) façon compte rendu d'audit.",
+    "description_en": "Editorial six-column case-study table (index, client, sector, stack, impact, arrow) styled like an audit report.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/en/index.astro",
+      "src/pages/atlas.astro",
+      "src/pages/en/atlas.astro",
+      "src/pages/solutions/index.astro",
+      "src/pages/en/solutions/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "coming-soon-pills",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "ComingSoonPills",
+    "status": "stable",
+    "tags": [
+      "coming-soon",
+      "pills",
+      "sectors",
+      "teaser"
+    ],
+    "description_fr": "Bande teaser fond paper-2 avec kicker, H2 et liste de pills pour éléments à venir.",
+    "description_en": "Paper-2 teaser band with kicker, headline, and pill list for upcoming items.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/secteurs/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "commitments-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "CommitmentsGrid",
+    "status": "stable",
+    "tags": [
+      "commitments",
+      "guarantees",
+      "grid",
+      "trust"
+    ],
+    "description_fr": "Grille hairline de 2 à 6 engagements ou garanties, titre display et corps sans — extrait de la page Méthode.",
+    "description_en": "Hairline grid of 2–6 commitments or guarantees, display title and sans body — sourced from the Méthode page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "comparison-table",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "ComparisonTable",
+    "status": "stable",
+    "tags": [
+      "comparison",
+      "table"
+    ],
+    "description_fr": "Tableau comparatif pour clarifier les différences entre offres, options ou approches.",
+    "description_en": "Comparison table for clarifying differences between offers, options, or approaches.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "cta-band",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "CtaBandSection",
+    "status": "stable",
+    "tags": [
+      "cta",
+      "band",
+      "inline"
+    ],
+    "description_fr": "Bandeau CTA horizontal pour relancer une action au milieu ou en fin de parcours.",
+    "description_en": "Horizontal CTA band for prompting action mid-page or near the end of the journey.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/TrustLegalTemplate.astro",
+      "src/components/templates/ListIndexTemplate.astro",
+      "src/components/templates/EssayTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "cta-final",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "CtaFinal",
+    "status": "stable",
+    "tags": [
+      "cta",
+      "final",
+      "conversion"
+    ],
+    "description_fr": "CTA final pour conclure une page et orienter vers l'action de conversion principale.",
+    "description_en": "Final CTA section for closing a page and directing users to the main conversion action.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/ConversionFunnelTemplate.astro",
+      "src/components/templates/ServiceDetailTemplate.astro",
+      "src/components/templates/CaseStudyTemplate.astro",
+      "src/components/templates/DetailMenuTemplate.astro",
+      "src/components/templates/HubTemplate.astro",
+      "src/pages/atlas.astro",
+      "src/pages/en/atlas.astro",
+      "src/content/offres/composable-pilot.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "cta-inline",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "CtaInline",
+    "status": "stable",
+    "tags": [
+      "cta",
+      "inline"
+    ],
+    "description_fr": "CTA inline discret pour insérer une action contextuelle dans un contenu existant.",
+    "description_en": "Subtle inline CTA for inserting a contextual action within existing content.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "deliverables-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "DeliverablesGrid",
+    "status": "stable",
+    "tags": [
+      "deliverables",
+      "grid",
+      "cards",
+      "offer"
+    ],
+    "description_fr": "Grille de livrables tangibles avec cards numérotées et tag format/durée, extraite des pages offre et détail.",
+    "description_en": "Tangible deliverables grid with numbered cards and format/duration tag, sourced from offer and detail pages.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "editorial-preview",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "EditorialPreview",
+    "status": "stable",
+    "tags": [
+      "editorial",
+      "preview",
+      "blog",
+      "rows",
+      "numbered"
+    ],
+    "description_fr": "Index éditorial de publications en lignes numérotées (num · date · tag · titre italique · flèche) — extrait de FieldNotes.",
+    "description_en": "Editorial publication index as numbered rows (num · date · tag · italic title · arrow) — sourced from FieldNotes.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/en/index.astro",
+      "src/pages/atlas.astro",
+      "src/pages/en/atlas.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "editorial-split-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "EditorialSplitGrid",
+    "status": "stable",
+    "tags": [
+      "editorial",
+      "resources",
+      "blog",
+      "whitepapers"
+    ],
+    "description_fr": "Split éditorial deux colonnes pour lister blog et livres blancs, chacun avec cartes connexes et CTA.",
+    "description_en": "Two-column editorial split for blog and white papers, each with related cards and CTA.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/ressources/index.astro",
+      "src/pages/en/ressources/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "faq-accordion",
+    "category": "marketing",
+    "categorySlug": "faq-sections",
+    "subcategory": "FAQ Sections",
+    "component": "FaqAccordion",
+    "status": "stable",
+    "tags": [
+      "faq",
+      "accordion"
+    ],
+    "description_fr": "FAQ en accordéon pour répondre aux questions fréquentes sans surcharger la page.",
+    "description_en": "Accordion FAQ for answering common questions without overloading the page.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/en/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "feature-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "FeatureGrid",
+    "status": "stable",
+    "tags": [
+      "features",
+      "grid"
+    ],
+    "description_fr": "Grille de fonctionnalités pour structurer les bénéfices ou capacités principales d'une offre.",
+    "description_en": "Feature grid for structuring the core benefits or capabilities of an offer.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/en/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "guarantee-block",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "GuaranteeBlock",
+    "status": "stable",
+    "tags": [
+      "guarantee",
+      "trust",
+      "reassurance"
+    ],
+    "description_fr": "Bloc garantie pour expliciter les engagements, réduire le risque perçu et rassurer.",
+    "description_en": "Guarantee block for explaining commitments, reducing perceived risk, and reassuring users.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-academy-hub",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCentered",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "academy",
+      "school",
+      "stats"
+    ],
+    "description_fr": "Hero hub académie : kicker mono, h1 display, lede et bande de stats mono (cours, parcours, alumni).",
+    "description_en": "Academy hub hero: mono kicker, display h1, lede, and mono stats strip (courses, paths, alumni).",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/EcoleHubTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-atlas",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Sections",
+    "component": "HeroAtlas",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "atlas",
+      "pillars",
+      "map"
+    ],
+    "description_fr": "Hero Atlas en deux colonnes avec signature grid, copy éditoriale, CTAs et mini-map des quatre piliers.",
+    "description_en": "Two-column Atlas hero with signature grid, editorial copy, CTAs, and a four-pillar mini-map.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/atlas.astro",
+      "src/pages/en/atlas.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-author",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroAuthor",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "author",
+      "portrait",
+      "profile"
+    ],
+    "description_fr": "Hero de page auteur : 2-col copy/portrait, breadcrumb équipe, role eyebrow, h1 split prénom+nom italic accent, lede display.",
+    "description_en": "Author page hero: 2-col copy/portrait, team breadcrumb, role eyebrow, h1 split first-name + italic accent surname, display lede.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-case-study",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCaseStudy",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "case-study",
+      "specs",
+      "decoration"
+    ],
+    "description_fr": "Hero d'étude de cas avec décor géométrique, titre et barre de spécifications (client, secteur, durée).",
+    "description_en": "Case study hero with geometric decoration, headline, and a specification bar (client, sector, duration).",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/CaseStudyTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-centered",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCentered",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "centered",
+      "cta"
+    ],
+    "description_fr": "Hero centré pour poser une proposition de valeur claire et guider vers une action principale.",
+    "description_en": "Centered hero section for stating a clear value proposition and guiding users to a primary action.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-conversion-funnel",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroConversionFunnel",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "conversion",
+      "funnel",
+      "flagship",
+      "stats",
+      "benefits"
+    ],
+    "description_fr": "Hero magnétique flagship : kicker num + h1 monumental, lede, meta pills, benefits checklist, ligne preuve mono, double CTA et grille stats 4-col.",
+    "description_en": "Flagship magnetic hero: num kicker + monumental h1, lede, meta pills, benefits checklist, mono proof line, dual CTA and 4-col stats grid.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/ConversionFunnelTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-course",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCentered",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "course",
+      "training",
+      "pills",
+      "meta"
+    ],
+    "description_fr": "Hero de page cours/formation : kicker accent + title + lede + meta-pills (niveau/durée/format/prix) + cta-group primary/ghost.",
+    "description_en": "Course/training hero: accent kicker + title + lede + meta-pills (level/duration/format/price) + primary/ghost cta-group.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/CourseDetailTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-detail-menu",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCentered",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "detail",
+      "menu",
+      "nested"
+    ],
+    "description_fr": "Hero d'entrée de menu détail : kicker parent + numéro § accent + h1 + lede sobre, idéal pour sous-pages catalogue.",
+    "description_en": "Detail-menu entry hero: parent kicker + accent § number + h1 + plain lede, ideal for sub-catalogue pages.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/DetailMenuTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-essay",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroEssay",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "essay",
+      "editorial",
+      "meta"
+    ],
+    "description_fr": "Hero d'article éditorial avec accroche italique et métadonnées auteur, date et temps de lecture.",
+    "description_en": "Editorial article hero with an italic lede and author, date, and reading-time metadata.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/EssayTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-full-bleed",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroFullBleed",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "full-bleed",
+      "canvas",
+      "motion"
+    ],
+    "description_fr": "Hero immersif plein écran pour créer un impact visuel fort avec mouvement ou canvas.",
+    "description_en": "Immersive full-bleed hero section for creating strong visual impact with motion or canvas.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-home",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroHome",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "home",
+      "minimap",
+      "proofs",
+      "signature"
+    ],
+    "description_fr": "Hero d'accueil Waimia : mini-map 3×2 de 6 territoires opérationnels, 3 preuves verticales, double CTA et signature géométrique V·9.",
+    "description_en": "Waimia home hero: 3×2 mini-map of 6 operational territories, 3 vertical proofs, dual CTA, and V·9 geometric signature.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-hub-listing",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCentered",
+    "status": "deprecated",
+    "tags": [
+      "hero",
+      "hub",
+      "listing",
+      "editorial"
+    ],
+    "description_fr": "(déprécié → hero-hub-masthead variant=listing) Hero éditorial de hub avec titre monumental et lede courte, sans appel à l'action, pour pages de listing.",
+    "description_en": "(deprecated → hero-hub-masthead variant=listing) Editorial hub hero with a monumental headline and short lede, without a call to action, for listing pages.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-hub-masthead",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCentered",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "hub",
+      "masthead",
+      "index",
+      "unified",
+      "variant"
+    ],
+    "description_fr": "Masthead unifié paramétrable (variant hub|listing|detail) : absorbe hero-hub-listing et hero-utility-masthead. hub = kicker mono + h1 italique display + lede court ; listing = deco SVG optionnelle + h1 monumental + lede révélée ; detail = kicker optionnel + h1 + lede display italique, alignement gauche ou centré.",
+    "description_en": "Unified configurable masthead (variant hub|listing|detail): absorbs hero-hub-listing and hero-utility-masthead. hub = mono kicker + italic display h1 + short lede; listing = optional SVG deco + monumental h1 + revealed lede; detail = optional kicker + h1 + italic display lede, left or centered alignment.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-hub-stats",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroHubStats",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "hub",
+      "stats",
+      "pillar",
+      "masthead"
+    ],
+    "description_fr": "Hero hub avec stats : meta kicker double + numéro § accent + h1 maximal, lede, grille KeyMetric 4-col en pied avec accent.",
+    "description_en": "Hub hero with stats: dual meta kicker + accent § number + maximal h1, lede, 4-col KeyMetric grid at the foot with accent.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/HubTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-landing",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroLanding",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "landing",
+      "magnetic",
+      "cta"
+    ],
+    "description_fr": "Hero magnétique landing : eyebrow mono, h1 italique avec emphasis, lede, double CTA et bandeau de disponibilité.",
+    "description_en": "Magnetic landing hero: mono eyebrow, italic emphasis h1, lede, dual CTA, and availability strip.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-lead-magnet",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroLeadMagnet",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "lead-magnet",
+      "whitepaper",
+      "cover",
+      "download"
+    ],
+    "description_fr": "Hero lead magnet (livre blanc) : 2-col texte/cover PDF, kicker + h1 + lede italique, meta format/date, carte download CTA.",
+    "description_en": "Lead magnet hero (whitepaper): 2-col text/PDF cover, kicker + h1 + italic lede, format/date meta, download card CTA.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/LeadMagnetTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-liquid",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroLiquid",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "manifesto",
+      "canvas",
+      "react-island",
+      "dark"
+    ],
+    "description_fr": "Hero manifeste à fond canvas liquide (terracotta animé) : eyebrow, grand titre display italique, lede et CTAs sur fond sombre.",
+    "description_en": "Liquid-canvas manifesto hero (animated terracotta): eyebrow, large italic display headline, lede and CTAs on a dark background.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-offer-detail",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroOfferDetail",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "offer",
+      "detail",
+      "concentric-svg",
+      "tier"
+    ],
+    "description_fr": "Hero de page offre détail : SVG cercles concentriques signature, breadcrumb, tier kicker, h1 + lead italique, CTA et meta.",
+    "description_en": "Offer detail hero: signature concentric circles SVG, breadcrumb, tier kicker, h1 + italic lead, CTA and meta.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/OffresDetailTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-pillar-hub",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroHubStats",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "pillar",
+      "hub",
+      "stats"
+    ],
+    "description_fr": "Hero de page pilier avec titre maximal et grille de statistiques quatre colonnes optionnelle.",
+    "description_en": "Pillar page hero with a maximal headline and an optional four-column statistics grid.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-problem-index",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCentered",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "hub",
+      "problem",
+      "svg",
+      "decoration"
+    ],
+    "description_fr": "Hero d'index par problème : décor SVG rectangle rotated 12°, h1 monumental, lede italique et phrase canonique.",
+    "description_en": "Problem index hero: 12° rotated rectangle SVG decoration, monumental h1, italic lede, and canonical line.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-sector",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroOfferDetail",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "sector",
+      "department",
+      "tags"
+    ],
+    "description_fr": "Hero de page secteur ou département : SVG rotated 15° accent, dept kicker, h1 + lead italique, CTA et meta, tags secteurs.",
+    "description_en": "Sector or department hero: 15° rotated SVG with accent, dept kicker, italic h1 + lead, CTA and meta, sector tags.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-service-detail",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroServiceDetail",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "service",
+      "detail",
+      "metrics"
+    ],
+    "description_fr": "Hero de page service avec numéro éditorial, titre, accroche et barre de preuves chiffrées optionnelle.",
+    "description_en": "Service page hero with an editorial number, headline, lede, and optional inline proof metrics bar.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/ServiceDetailTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-service-masthead",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroServiceDetail",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "service",
+      "masthead",
+      "simple"
+    ],
+    "description_fr": "Masthead service sobre : kicker § Service N + h1 display + lede display muted, sans décor SVG.",
+    "description_en": "Plain service masthead: § Service N kicker + display h1 + muted display lede, no SVG decoration.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-split",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroSplit",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "split",
+      "cta"
+    ],
+    "description_fr": "Hero en deux colonnes pour présenter une offre avec visuel et appel à l'action principal.",
+    "description_en": "Two-column hero section for presenting an offer with a visual and primary call to action.",
+    "rendering": "live",
+    "consumers": [
+      "src/content/offres/composable-pilot.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-tech-layer",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroOfferDetail",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "technology",
+      "layer",
+      "triangles"
+    ],
+    "description_fr": "Hero de couche technologique : triangles SVG signature, layer badge (claude/os/orch), h1 + lead italique, CTA et meta.",
+    "description_en": "Technology layer hero: signature triangles SVG, layer badge (claude/os/orch), h1 + italic lead, CTA and meta.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/TechnologiesDetailTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-tunnel-step",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroTunnelStep",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "tunnel",
+      "step",
+      "progress",
+      "funnel"
+    ],
+    "description_fr": "Hero d'étape de tunnel : kicker accent + barre de progression [01][02]... + h1 (variante hero ou section) + lede.",
+    "description_en": "Tunnel step hero: accent kicker + progress bar [01][02]... + h1 (hero or section variant) + lede.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-utility-masthead",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroCentered",
+    "status": "deprecated",
+    "tags": [
+      "hero",
+      "utility",
+      "masthead",
+      "editorial"
+    ],
+    "description_fr": "(déprécié → hero-hub-masthead variant=detail) Masthead utilitaire générique (about, méthode, academy intro) : kicker, h1 monumental, lede display italique, alignement gauche ou centré.",
+    "description_en": "(deprecated → hero-hub-masthead variant=detail) Generic utility masthead (about, method, academy intro): kicker, monumental h1, italic display lede, left or centered alignment.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/UtilityTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "how-we-ship",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timeline Sections",
+    "component": "HowWeShip",
+    "status": "stable",
+    "tags": [
+      "process",
+      "timeline",
+      "sticky",
+      "scrub",
+      "pin",
+      "steps"
+    ],
+    "description_fr": "Section \"comment on livre\" — sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).",
+    "description_en": "How-we-ship section — sticky pin scrub: N steps with numline and scroll-driven stage cards (graceful mobile degradation).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "inclusions-list",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "InclusionsList",
+    "status": "stable",
+    "tags": [
+      "scope",
+      "inclusions",
+      "inline-list",
+      "offer"
+    ],
+    "description_fr": "Liste d'inclusions inline séparée par point médian pour expliciter le périmètre d'un engagement.",
+    "description_en": "Inline inclusions list separated by middle dots to clarify the scope of an engagement.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "list-index-section",
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "component": "ListIndexSection",
+    "status": "stable",
+    "tags": [
+      "index",
+      "listing",
+      "filters",
+      "resources"
+    ],
+    "description_fr": "Masthead de listing avec filtres optionnels, conteneur de liste ouvert et footer custom.",
+    "description_en": "Listing masthead with optional filters, open list container, and custom footer.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "manifesto-block",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "ManifestoBlock",
+    "status": "stable",
+    "tags": [
+      "manifesto",
+      "editorial",
+      "large-display",
+      "italic",
+      "statement"
+    ],
+    "description_fr": "Bloc manifeste intercalary : kicker mono § + grand bloc display italique sans box, span accent terracotta, respiration éditoriale forte.",
+    "description_en": "Intercalary manifesto block: § mono kicker + large box-less italic display, terracotta accent span, strong editorial breathing.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "marquee-band",
+    "category": "marketing",
+    "categorySlug": "logo-sections",
+    "subcategory": "Logo Sections",
+    "component": "MarqueeBand",
+    "status": "stable",
+    "tags": [
+      "marquee",
+      "band",
+      "scroll",
+      "mono",
+      "infinite"
+    ],
+    "description_fr": "Bandeau marquee mono uppercase à défilement horizontal infini · items + séparateurs · respecte prefers-reduced-motion.",
+    "description_en": "Mono uppercase infinite-scroll marquee band · items + separators · respects prefers-reduced-motion.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "maturity-pyramid",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timeline Sections",
+    "component": "MaturityPyramid",
+    "status": "stable",
+    "tags": [
+      "maturity",
+      "pyramid",
+      "timeline",
+      "tiers"
+    ],
+    "description_fr": "Pyramide de maturité à quatre paliers avec timeline d'étapes, SVG progressif et grille de cartes asymétriques.",
+    "description_en": "Four-tier maturity pyramid with a steps timeline, a progressive SVG, and an asymmetric card grid.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/en/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "media-block",
+    "category": "marketing",
+    "categorySlug": "gallery-sections",
+    "subcategory": "Gallery Sections",
+    "component": "MediaBlock",
+    "status": "stable",
+    "tags": [
+      "media",
+      "image",
+      "video",
+      "embed"
+    ],
+    "description_fr": "Bloc média pour intégrer une image, une vidéo ou un contenu embarqué dans une page marketing.",
+    "description_en": "Media block for embedding an image, video, or external content in a marketing page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "method-timeline",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timeline Sections",
+    "component": "MethodTimeline",
+    "status": "stable",
+    "tags": [
+      "method",
+      "timeline",
+      "steps"
+    ],
+    "description_fr": "Timeline méthodologique pour expliquer les étapes d'un accompagnement ou d'un processus.",
+    "description_en": "Method timeline for explaining the steps of a service process or engagement.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/ServiceDetailTemplate.astro",
+      "src/components/templates/CaseStudyTemplate.astro",
+      "src/components/templates/DetailMenuTemplate.astro",
+      "src/content/offres/composable-pilot.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "newsletter-band",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "NewsletterBand",
+    "status": "stable",
+    "tags": [
+      "newsletter",
+      "email",
+      "capture",
+      "dark",
+      "band"
+    ],
+    "description_fr": "Bande newsletter fond sombre : titre éditorial large à gauche, formulaire capture email à droite.",
+    "description_en": "Dark newsletter band: large editorial headline on the left, email capture form on the right.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "objection-handler",
+    "category": "marketing",
+    "categorySlug": "faq-sections",
+    "subcategory": "FAQ Sections",
+    "component": "ObjectionHandler",
+    "status": "stable",
+    "tags": [
+      "objections",
+      "faq",
+      "reassurance"
+    ],
+    "description_fr": "Bloc de traitement des objections pour lever les freins et rassurer avant conversion.",
+    "description_en": "Objection-handling block for reducing friction and reassuring users before conversion.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "offer-tier-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "OfferTierGrid",
+    "status": "stable",
+    "tags": [
+      "offers",
+      "tiers",
+      "pricing",
+      "cards"
+    ],
+    "description_fr": "Section de palier d’offres avec eyebrow, H2, lede, grille de cartes et variante hero sombre optionnelle.",
+    "description_en": "Offer-tier section with eyebrow, headline, lede, card grid, and optional dark featured hero variant.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/offres/index.astro",
+      "src/pages/en/offres/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "operating-layer",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "OperatingLayer",
+    "status": "stable",
+    "tags": [
+      "platform",
+      "dark",
+      "terminal",
+      "console",
+      "mockup",
+      "attributes"
+    ],
+    "description_fr": "Section couche opérationnelle fond sombre : chapter label + h2 + lede + CTA, console terminal mockup à droite, strip 4 attributs en pied.",
+    "description_en": "Dark-background operating-layer section: chapter label + h2 + lede + CTA, terminal console mockup right, 4-attribute strip at foot.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "persona-attributes-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "PersonaAttributesGrid",
+    "status": "stable",
+    "tags": [
+      "persona",
+      "attributes",
+      "grid",
+      "meta"
+    ],
+    "description_fr": "Grille persona 2×2 pain points / critères / objections / preuves avec footer méta sombre en trois colonnes.",
+    "description_en": "Persona 2×2 grid for pain points, criteria, objections, and proof points with a dark three-column meta footer.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/ressources/personas/[slug].astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "pricing-table",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "component": "PricingTable",
+    "status": "stable",
+    "tags": [
+      "pricing",
+      "tiers",
+      "plans"
+    ],
+    "description_fr": "Table de prix pour présenter clairement les formules, paliers et options commerciales.",
+    "description_en": "Pricing table for clearly presenting plans, tiers, and commercial options.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "problem-statement",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "ProblemStatement",
+    "status": "stable",
+    "tags": [
+      "problem",
+      "statement",
+      "metrics",
+      "macro-typography"
+    ],
+    "description_fr": "Énoncé macro-typographique du problème avec stats optionnelles en grille hairline.",
+    "description_en": "Macro-typographic problem statement with optional hairline stats grid.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "problems-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "ProblemsGrid",
+    "status": "stable",
+    "tags": [
+      "problems",
+      "frictions",
+      "cards",
+      "grid",
+      "numbered"
+    ],
+    "description_fr": "Grille de problèmes/frictions auto-fit (3 cards min) : num + kicker + h3 + body, séparateurs hairline 1px.",
+    "description_en": "Auto-fit problems/frictions grid (3+ cards): num + kicker + h3 + body, 1px hairline separators.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "proof-bar",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "ProofBarSection",
+    "status": "stable",
+    "tags": [
+      "proof",
+      "metrics",
+      "bar"
+    ],
+    "description_fr": "Barre de preuve compacte pour afficher des métriques clés et renforcer la crédibilité.",
+    "description_en": "Compact proof bar for displaying key metrics and reinforcing credibility.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/ServiceDetailTemplate.astro",
+      "src/components/templates/DetailMenuTemplate.astro",
+      "src/pages/index.astro",
+      "src/pages/en/index.astro",
+      "src/content/offres/composable-pilot.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "pull-quote-block",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "PullQuoteBlock",
+    "status": "stable",
+    "tags": [
+      "quote",
+      "pullquote",
+      "editorial",
+      "closing"
+    ],
+    "description_fr": "Citation éditoriale isolée centrée ou inline, wrapper catalogue autour de la molécule PullQuote.",
+    "description_en": "Standalone editorial quote, centered or inline, as a catalogue wrapper around the PullQuote molecule.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "related-cards-band",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "RelatedCardsBand",
+    "status": "stable",
+    "tags": [
+      "related",
+      "cards",
+      "navigation",
+      "editorial"
+    ],
+    "description_fr": "Bande de trois cards connexes pour relier cas, offres ou ressources en fin de page.",
+    "description_en": "Three-card related band for linking cases, offers, or resources near the end of a page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "services-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "ServicesGrid",
+    "status": "stable",
+    "tags": [
+      "services",
+      "grid",
+      "metrics",
+      "connectors"
+    ],
+    "description_fr": "Grille éditoriale de services 3×2 avec figure, métrique, body et ligne de connecteurs en pied de cellule.",
+    "description_en": "Editorial 3×2 services grid with figure index, metric, body, and a connectors line at the foot of each cell.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/en/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "social-proof",
+    "category": "marketing",
+    "categorySlug": "logo-sections",
+    "subcategory": "Logo Sections",
+    "component": "SocialProof",
+    "status": "stable",
+    "tags": [
+      "logos",
+      "social-proof",
+      "marquee"
+    ],
+    "description_fr": "Section de logos clients ou partenaires pour installer une preuve sociale immédiate.",
+    "description_en": "Client or partner logo section for establishing immediate social proof.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/technologies/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "spec-bar",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "SpecBar",
+    "status": "stable",
+    "tags": [
+      "specs",
+      "meta",
+      "case-study",
+      "grid",
+      "mono"
+    ],
+    "description_fr": "Barre de spécifications projet N colonnes (label mono + valeur) avec grille CSS var — extrait de CaseStudyTemplate.",
+    "description_en": "N-column project spec bar (mono label + value) with CSS var grid — sourced from CaseStudyTemplate.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "stat-block",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "StatBlock",
+    "status": "stable",
+    "tags": [
+      "stats",
+      "metrics",
+      "grid"
+    ],
+    "description_fr": "Bloc de statistiques en grille pour mettre en avant des chiffres de performance ou d'impact.",
+    "description_en": "Grid-based stats block for highlighting performance or impact figures.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "team-card-grid",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "TeamCardGrid",
+    "status": "stable",
+    "tags": [
+      "team",
+      "authors",
+      "cards",
+      "profiles"
+    ],
+    "description_fr": "Grille auto-fill de cartes auteurs avec photo, rôle, description, compteur de publications et CTA profil.",
+    "description_en": "Auto-fill author card grid with photo, role, description, publication count, and profile CTA.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/equipe/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "tech-stack-band",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "TechStackBand",
+    "status": "stable",
+    "tags": [
+      "technology",
+      "stack",
+      "pills",
+      "tools"
+    ],
+    "description_fr": "Bande stack technologique fond paper-2 avec kicker, lead et rangée de pills techniques.",
+    "description_en": "Paper-2 technology stack band with kicker, lead, and a row of technical pills.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "testimonial-block",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "TestimonialBlock",
+    "status": "stable",
+    "tags": [
+      "testimonial",
+      "social-proof",
+      "quote"
+    ],
+    "description_fr": "Bloc témoignage pour mettre en avant une citation client et renforcer la confiance.",
+    "description_en": "Testimonial block for highlighting a customer quote and strengthening trust.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "tier-pyramid-svg",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Sections",
+    "component": "TierPyramidSvg",
+    "status": "stable",
+    "tags": [
+      "offers",
+      "pyramid",
+      "tiers",
+      "svg"
+    ],
+    "description_fr": "Pyramide SVG isocèle à trois niveaux pour visualiser la progression Découverte · Transformation · Partenariat.",
+    "description_en": "Three-tier isosceles SVG pyramid showing the Discovery · Transformation · Partnership offer progression.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/offres/index.astro",
+      "src/pages/en/offres/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "timeline-block",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timeline Sections",
+    "component": "TimelineBlock",
+    "status": "stable",
+    "tags": [
+      "timeline",
+      "events",
+      "history"
+    ],
+    "description_fr": "Bloc chronologique pour raconter une progression, un historique ou une séquence d'événements.",
+    "description_en": "Timeline block for telling a progression, history, or sequence of events.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "trust-legal-section",
+    "category": "marketing",
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
+    "component": "TrustLegalSection",
+    "status": "stable",
+    "tags": [
+      "trust",
+      "legal",
+      "toc",
+      "governance"
+    ],
+    "description_fr": "Masthead documentaire avec meta de révision et sommaire sticky pour pages confiance, gouvernance et légales.",
+    "description_en": "Documentary masthead with revision metadata and sticky contents for trust, governance, and legal pages.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "use-case-index",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "UseCaseIndex",
+    "status": "stable",
+    "tags": [
+      "use-case",
+      "index",
+      "editorial",
+      "rows"
+    ],
+    "description_fr": "Index éditorial de cas d'usage en lignes numérotées avec libellé italique, tag mono et lien d'ancrage solution.",
+    "description_en": "Editorial use-case index as numbered rows with italic label, mono tag, and solution anchor link.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro",
+      "src/pages/en/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "welcome-section",
+    "category": "marketing",
+    "categorySlug": "utility-sections",
+    "subcategory": "Utility Sections",
+    "component": "WelcomeSection",
+    "status": "stable",
+    "tags": [
+      "welcome",
+      "confirmation",
+      "post-conversion",
+      "steps"
+    ],
+    "description_fr": "Écran de confirmation post-conversion avec checkmark, message central, trois prochaines étapes et lien retour.",
+    "description_en": "Post-conversion confirmation screen with checkmark, centered message, three next steps, and back link.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "why-stalls",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "WhyStalls",
+    "status": "stable",
+    "tags": [
+      "why",
+      "stalls",
+      "sticky",
+      "figures",
+      "editorial"
+    ],
+    "description_fr": "Section éditoriale \"pourquoi X cale\" : chapter label sticky à gauche + N FIG rows à droite avec row-lines.",
+    "description_en": "Editorial \"why X stalls\" section: sticky chapter label left + N FIG rows right with row-lines.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  }
+]

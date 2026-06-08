@@ -18,7 +18,9 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:prod": "PLAYWRIGHT_BASE_URL=https://waimia.com playwright test",
     "clean": "rm -rf dist .astro .vercel .turbo",
-    "visual": "node scripts/visual-check.mjs"
+    "visual": "node scripts/visual-check.mjs",
+    "gen:catalog": "node scripts/gen-catalog.mjs",
+    "check:touchpoints": "node scripts/check-touchpoints.mjs"
   },
   "dependencies": {
     "@4hse/astro-llms-txt": "^1.0.5",
