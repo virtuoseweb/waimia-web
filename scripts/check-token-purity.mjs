@@ -261,8 +261,84 @@ console.log(`\n⛔ Littéraux property-anchored (BLOQUANT V8, DS enforced) : ${l
 if (literalHits.length) showLit(literalHits).forEach(h => console.log(fmtLit(h)));
 if (!REPORT && literalHits.length > 3) console.log(`    … +${literalHits.length - 3} (voir --report)`);
 
+// ══════════════════════════════════════════════════════════════════════════════
+// V9b — Gate espacement on-grid (BLOQUANT, DS enforced)
+// Détecte les px ∈ échelle --space-N dans les propriétés d'espacement ancrées.
+// Anti-régression : tout px on-grid dans padding/margin/gap doit être un var(--space-N).
+// Scan : src/**/*.astro (corps après frontmatter) + src/**/*.css (hors tokens.css)
+// ══════════════════════════════════════════════════════════════════════════════
+
+const SPACE_PX = new Set([
+  '4px','8px','12px','16px','24px','32px','40px','48px',
+  '64px','80px','96px','120px','160px','200px','256px',
+]);
+
+// Propriétés d'espacement ancrées — liste fermée (miroir de tokenize-spacing.mjs)
+const SPACING_PROPS_V9 = [
+  'padding','padding-top','padding-right','padding-bottom','padding-left',
+  'padding-inline','padding-block','padding-inline-start','padding-inline-end',
+  'padding-block-start','padding-block-end',
+  'margin','margin-top','margin-right','margin-bottom','margin-left',
+  'margin-inline','margin-block','margin-inline-start','margin-inline-end',
+  'margin-block-start','margin-block-end',
+  'gap','row-gap','column-gap',
+];
+
+function escV9(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// Regex property-anchored qui détecte les px on-grid encore bruts
+// (pas encore dans var() — lookahead négatif sur 'var(')
+function buildSpacingDetectRegex(prop) {
+  const ep = escV9(prop);
+  // Cherche le nom de propriété (avec boundary stricte) suivi de : puis une valeur contenant un px on-grid
+  // On ne capture pas toute la valeur ; on recherche token par token après le :.
+  // Pattern : (?:^|(?<=[{;\s>]))<prop>\s*:\s* puis dans la valeur (jusqu'à [;}\n]) un token <n>px on-grid
+  // Pour simplicité : on matche la propriété + la valeur entière, puis on inspecte les tokens.
+  return new RegExp(
+    `(?:^|(?<=[{;\\s>]))(${ep})(\\s*:\\s*)` +
+    `((?:(?!;|}|\\n|!important).)*?)` +
+    `(\\s*!important)?(?=[;}\n])`,
+    'gm'
+  );
+}
+
+// Vérifier si une valeur-courte (token) est un px on-grid brut (pas var())
+function hasRawSpacingPx(rawValue) {
+  const tokens = rawValue.split(/\s+/);
+  return tokens.some(t => SPACE_PX.has(t));
+}
+
+const spacingHits = [];
+
+for (const fpath of allFilesV8) {
+  const raw = readFileSync(fpath, 'utf8');
+  const text = extname(fpath) === '.astro' ? splitAstroBody(raw) : raw;
+  const rel  = relative(ROOT, fpath);
+
+  for (const prop of SPACING_PROPS_V9) {
+    const rx = buildSpacingDetectRegex(prop);
+    for (const m of text.matchAll(rx)) {
+      const rawValue = m[3] || '';
+      const tokens = rawValue.split(/\s+/);
+      for (const tok of tokens) {
+        if (SPACE_PX.has(tok)) {
+          const line = text.slice(0, m.index).split('\n').length;
+          spacingHits.push({ file: rel, line, prop, value: tok });
+        }
+      }
+    }
+  }
+}
+
+const showSp = (arr) => (REPORT ? arr : arr.slice(0, 3));
+const fmtSp  = (h) => `    ${h.file}:${h.line}  ${h.prop}: ${h.value}  → doit être var(--space-N)`;
+
+console.log(`\n⛔ Littéraux espacement on-grid (BLOQUANT V9b, DS enforced) : ${spacingHits.length}`);
+if (spacingHits.length) showSp(spacingHits).forEach(h => console.log(fmtSp(h)));
+if (!REPORT && spacingHits.length > 3) console.log(`    … +${spacingHits.length - 3} (voir --report)`);
+
 // ── Décision finale ────────────────────────────────────────────────────────────
-const totalBlocking = hexHits.length + literalHits.length;
+const totalBlocking = hexHits.length + literalHits.length + spacingHits.length;
 
 if (hexHits.length > 0) {
   console.log(`\n❌ FAIL — ${hexHits.length} hex brut(s). Migre vers var(--token) / color-mix.\n`);
@@ -270,8 +346,11 @@ if (hexHits.length > 0) {
 if (literalHits.length > 0) {
   console.log(`\n❌ FAIL — ${literalHits.length} littéral(aux) property-anchored. Chaque littéral doit être var(--token) (DS enforced V8).\n`);
 }
+if (spacingHits.length > 0) {
+  console.log(`\n❌ FAIL — ${spacingHits.length} littéral(aux) espacement on-grid. Chaque px on-grid doit être var(--space-N) (DS enforced V9b).\n`);
+}
 if (totalBlocking > 0) {
   process.exit(1);
 }
-console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored. (${brandHits.length} rgba de marque = dette à tokeniser, non-bloquante.)\n`);
+console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut. (${brandHits.length} rgba de marque = dette à tokeniser, non-bloquante.)\n`);
 process.exit(0);

@@ -199,20 +199,20 @@ const sectionItems = listSections();
           <div class="ds-type-stacks">
             <div class="ds-type-stack">
               <Kicker tone="muted" size={10}>--font-display · Instrument Serif</Kicker>
-              <p style="font-family:var(--font-display);font-size:48px;line-height:var(--leading-h2);margin:8px 0 0">
+              <p style="font-family:var(--font-display);font-size:48px;line-height:var(--leading-h2);margin:var(--space-2) 0 0">
                 Pioche, n'<i>invente</i> pas.
               </p>
             </div>
             <div class="ds-type-stack">
               <Kicker tone="muted" size={10}>--font-sans · Inter Tight</Kicker>
-              <p style="font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-body);margin:8px 0 0">
+              <p style="font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-body);margin:var(--space-2) 0 0">
                 Le système design est une librairie, pas un terrain d'invention.
                 Chaque atome existe pour une raison documentée.
               </p>
             </div>
             <div class="ds-type-stack">
               <Kicker tone="muted" size={10}>--font-mono · JetBrains Mono</Kicker>
-              <p style="font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;margin:8px 0 0">
+              <p style="font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;margin:var(--space-2) 0 0">
                 <code>grep -oE "var\(--[a-z0-9-]+\)" src/components/</code>
               </p>
             </div>
@@ -591,7 +591,7 @@ const sectionItems = listSections();
             <div style="flex:1 1 320px;min-width:280px">
               <NewsletterSignup variant="card" lang="fr" />
             </div>
-            <div style="flex:1 1 320px;min-width:280px;display:flex;align-items:center;padding:24px;border:1px solid var(--hairline);background:var(--paper-2)">
+            <div style="flex:1 1 320px;min-width:280px;display:flex;align-items:center;padding:var(--space-5);border:1px solid var(--hairline);background:var(--paper-2)">
               <NewsletterSignup variant="inline" lang="fr" />
             </div>
           </div>
@@ -842,7 +842,7 @@ const sectionItems = listSections();
     padding-bottom: clamp(40px, 5vw, 72px);
     border-bottom: 1px solid var(--hairline);
   }
-  :global(.ds-kicker) { display: block; margin-bottom: 24px; }
+  :global(.ds-kicker) { display: block; margin-bottom: var(--space-5); }
   .ds-h1 {
     font-family: var(--font-display);
     font-size: clamp(48px, 9vw, 156px);
@@ -858,7 +858,7 @@ const sectionItems = listSections();
     font-family: var(--font-sans);
     font-size: clamp(18px, 1.8vw, 24px);
     color: var(--ink-2);
-    margin: 32px 0 0;
+    margin: var(--space-6) 0 0;
     max-width: var(--wrap-prose);
     line-height: var(--leading-body);
   }
@@ -867,7 +867,7 @@ const sectionItems = listSections();
     font-size: 12px;
     letter-spacing: .06em;
     color: var(--muted);
-    margin: 24px 0 0;
+    margin: var(--space-5) 0 0;
   }
   .ds-meta code {
     background: var(--paper-2);
@@ -892,7 +892,7 @@ const sectionItems = listSections();
     position: sticky;
     top: calc(var(--header-height) + 24px);
   }
-  :global(.ds-toc-label) { display: block; margin-bottom: 16px; }
+  :global(.ds-toc-label) { display: block; margin-bottom: var(--space-4); }
   .ds-toc-list {
     list-style: none;
     margin: 0;
@@ -900,7 +900,7 @@ const sectionItems = listSections();
     border-left: 1px solid var(--hairline);
   }
   .ds-toc-list li {
-    padding: 6px 0 6px 16px;
+    padding: 6px 0 6px var(--space-4);
     border-left: 1px solid transparent;
     margin-left: -1px;
     transition: border-color var(--dur-fast) var(--ease);
@@ -927,7 +927,7 @@ const sectionItems = listSections();
     color: var(--ink-2);
     line-height: 1.6;
     max-width: 64ch;
-    margin: 16px 0 32px;
+    margin: var(--space-4) 0 var(--space-6);
   }
   .ds-section-lede code,
   .ds-section-lede strong { font-weight: var(--fw-semibold); }
@@ -943,16 +943,16 @@ const sectionItems = listSections();
   }
 
   /* ─── SUBSECTIONS ─── */
-  .ds-subsection { margin: 40px 0; }
+  .ds-subsection { margin: var(--space-7) 0; }
   .ds-h3 {
     font-family: var(--font-mono);
     font-size: 13px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 16px;
+    margin: 0 0 var(--space-4);
     border-bottom: 1px solid var(--hairline);
-    padding-bottom: 8px;
+    padding-bottom: var(--space-2);
   }
   .ds-h4 {
     font-family: var(--font-mono);
@@ -960,14 +960,14 @@ const sectionItems = listSections();
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
-    margin: 24px 0 12px;
+    margin: var(--space-5) 0 var(--space-3);
   }
   .ds-help {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     color: var(--muted);
     line-height: var(--leading-body);
-    margin: 8px 0 16px;
+    margin: var(--space-2) 0 var(--space-4);
     max-width: 64ch;
   }
   .ds-link {
@@ -980,12 +980,12 @@ const sectionItems = listSections();
   .ds-swatch-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
+    gap: var(--space-3);
   }
   .ds-swatch-card {
     display: flex;
-    gap: 12px;
-    padding: 12px;
+    gap: var(--space-3);
+    padding: var(--space-3);
     border: 1px solid var(--hairline);
     background: var(--paper);
   }
@@ -1018,19 +1018,19 @@ const sectionItems = listSections();
   .ds-type-stacks {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    margin: 16px 0 32px;
-    padding: 24px;
+    gap: var(--space-5);
+    margin: var(--space-4) 0 var(--space-6);
+    padding: var(--space-5);
     background: var(--paper-2);
     border: 1px solid var(--hairline);
   }
   .ds-type-scale {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-4);
   }
   .ds-type-row {
-    padding-block: 8px;
+    padding-block: var(--space-2);
     border-bottom: 1px dashed var(--hairline);
   }
 
@@ -1038,12 +1038,12 @@ const sectionItems = listSections();
   .ds-spacing-grid {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .ds-spacing-row {
     display: grid;
     grid-template-columns: 140px 1fr 80px;
-    gap: 16px;
+    gap: var(--space-4);
     align-items: center;
     font-family: var(--font-mono);
     font-size: 12px;
@@ -1062,11 +1062,11 @@ const sectionItems = listSections();
   .ds-shadow-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-    margin: 16px 0 24px;
+    gap: var(--space-5);
+    margin: var(--space-4) 0 var(--space-5);
   }
   .ds-shadow-card {
-    padding: 24px;
+    padding: var(--space-5);
     background: var(--paper);
     border-radius: 4px;
     display: flex;
@@ -1079,21 +1079,21 @@ const sectionItems = listSections();
   .ds-motion-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin: 16px 0 24px;
+    gap: var(--space-3);
+    margin: var(--space-4) 0 var(--space-5);
   }
   .ds-motion-card {
-    padding: 16px;
+    padding: var(--space-4);
     background: var(--paper-2);
     border: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
   }
   .ds-durations {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 8px;
+    gap: var(--space-2);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -1118,13 +1118,13 @@ const sectionItems = listSections();
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .ds-z-list li {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     color: var(--ink-2);
-    padding: 6px 12px;
+    padding: 6px var(--space-3);
     background: var(--paper-2);
     border-left: 2px solid var(--hairline);
   }
@@ -1137,12 +1137,12 @@ const sectionItems = listSections();
 
   /* ─── CLASS CARDS ─── */
   .ds-class-card {
-    padding: 12px 16px;
+    padding: var(--space-3) var(--space-4);
     border: 1px solid var(--hairline);
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: var(--space-4);
     flex-wrap: wrap;
   }
 
@@ -1150,13 +1150,13 @@ const sectionItems = listSections();
   .ds-hairlines {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .ds-hairlines div {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
     color: var(--muted);
-    margin-top: 16px;
+    margin-top: var(--space-4);
   }
   .hline { border: 0; border-top: 1px solid var(--hairline); margin: 0; }
   .hline-strong { border: 0; border-top: 1px solid var(--hairline-strong); margin: 0; }
@@ -1166,7 +1166,7 @@ const sectionItems = listSections();
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     line-height: var(--leading-body);
-    padding: 10px 12px;
+    padding: 10px var(--space-3);
     border: 1px solid var(--hairline-strong);
     background: var(--paper);
     color: var(--ink);
@@ -1192,7 +1192,7 @@ const sectionItems = listSections();
   .ds-check-group {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--space-2);
     margin-bottom: 10px;
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
@@ -1204,13 +1204,13 @@ const sectionItems = listSections();
   .ds-anim-demo {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 24px;
-    margin-top: 24px;
+    gap: var(--space-5);
+    margin-top: var(--space-5);
   }
   .ds-anim-box {
     background: var(--paper-2);
     border: 1px solid var(--hairline);
-    padding: 40px 24px;
+    padding: var(--space-7) var(--space-5);
     text-align: center;
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
@@ -1221,7 +1221,7 @@ const sectionItems = listSections();
   .ds-section-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: var(--space-2);
     margin: 0 0 20px;
   }
   .ds-filter-chip {
@@ -1233,7 +1233,7 @@ const sectionItems = listSections();
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
     line-height: 1;
-    padding: 9px 12px;
+    padding: 9px var(--space-3);
     transition:
       background 160ms var(--ease),
       border-color 160ms var(--ease),
@@ -1252,7 +1252,7 @@ const sectionItems = listSections();
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 12px;
+    gap: var(--space-3);
   }
   .ds-templates-list li {
     font-family: var(--font-sans);
@@ -1266,7 +1266,7 @@ const sectionItems = listSections();
   .ds-section-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-3);
     min-height: 220px;
     padding: 18px;
     background: var(--paper-2);
@@ -1307,12 +1307,12 @@ const sectionItems = listSections();
     pointer-events: none;
   }
   .ds-card-frame-link { display: block; position: relative; z-index: 2; }
-  .ds-section-card-cmp { position: relative; z-index: 2; font-size: 0.75rem; color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: 4px; }
+  .ds-section-card-cmp { position: relative; z-index: 2; font-size: 0.75rem; color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: var(--space-1); }
   .ds-section-card-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 12px;
+    gap: var(--space-3);
   }
   .ds-section-card code {
     font-family: var(--font-mono);
@@ -1350,9 +1350,9 @@ const sectionItems = listSections();
     color: var(--muted-2);
   }
   .ds-status--bespoke { border-color: var(--accent); color: var(--accent); }
-  .ds-organisms-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-top:16px; }
-  .ds-organism-card { padding:14px 16px; background:var(--paper-2); border:1px solid var(--hairline); display:flex; flex-direction:column; gap:6px; }
-  .ds-organism-card-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .ds-organisms-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--space-3); margin-top:var(--space-4); }
+  .ds-organism-card { padding:14px var(--space-4); background:var(--paper-2); border:1px solid var(--hairline); display:flex; flex-direction:column; gap:6px; }
+  .ds-organism-card-top { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); }
   .ds-organism-card code { font-family:var(--font-mono); font-size:13px; color:var(--ink); background:transparent; }
   .ds-organism-card .ds-help { margin:0; font-size:12px; }
   .ds-category-badge {
@@ -1386,15 +1386,15 @@ const sectionItems = listSections();
     font-size: 12px;
     background: transparent;
     color: var(--ink);
-    margin-right: 8px;
+    margin-right: var(--space-2);
   }
 
   /* ─── SECTION DEMOS ─── */
   .ds-section-demo {
-    margin: 32px 0;
+    margin: var(--space-6) 0;
     padding: 0;
   }
-  .ds-section-demo > :global(.u-kicker) { margin-bottom: 12px; display: block; }
+  .ds-section-demo > :global(.u-kicker) { margin-bottom: var(--space-3); display: block; }
   .ds-section-demo-frame {
     border: 1px dashed var(--hairline-strong);
     background: var(--paper);
@@ -1435,7 +1435,7 @@ const sectionItems = listSections();
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: var(--wrap-read)) {
-    .ds-layout { grid-template-columns: 1fr; gap: 32px; }
+    .ds-layout { grid-template-columns: 1fr; gap: var(--space-6); }
     .ds-toc { display: none; }
   }
 </style>

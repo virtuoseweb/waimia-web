@@ -104,7 +104,7 @@ const isFr = lang === 'fr';
   /* V6 densification · override editorial-cell pour cards plus compactes (Pyramid only) */
   .pyramid-asym .editorial-cell {
     padding: clamp(16px, 1.8vw, 24px) clamp(14px, 1.4vw, 20px);
-    gap: 8px;
+    gap: var(--space-2);
   }
   .pyramid-asym .editorial-cell .e-num {
     font-size: clamp(28px, 3.2vw, 44px);
@@ -113,7 +113,7 @@ const isFr = lang === 'fr';
   .pyramid-asym .editorial-cell .e-title {
     font-size: clamp(18px, 1.5vw, 24px);
     line-height: 1.05;
-    margin-top: 4px;
+    margin-top: var(--space-1);
   }
   .pyramid-asym .editorial-cell .e-body {
     font-size: 12.5px;
@@ -230,7 +230,7 @@ const isFr = lang === 'fr';
     font-style: italic;
     font-size: clamp(14px, 1.2vw, 17px);
     color: var(--accent);
-    margin-bottom: 4px;
+    margin-bottom: var(--space-1);
     letter-spacing: -0.01em;
   }
 

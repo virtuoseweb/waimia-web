@@ -39,16 +39,16 @@ const isFr = lang === 'fr';
   .guarantee-block__item {
     display: grid;
     grid-template-columns: 56px 1fr;
-    gap: 24px;
-    padding-block: 24px;
+    gap: var(--space-5);
+    padding-block: var(--space-5);
     border-top: 1px solid var(--hairline);
   }
   .guarantee-block__item:last-child { border-bottom: 1px solid var(--hairline); }
-  .guarantee-block__num { padding-top: 4px; }
+  .guarantee-block__num { padding-top: var(--space-1); }
   .guarantee-block__content {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .guarantee-block__title {
     font-family: var(--font-display);

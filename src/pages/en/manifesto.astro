@@ -44,7 +44,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
   {/* HERO · LiquidHero canvas */}
   <section style="position:relative;min-height:100vh;overflow:hidden;background:var(--ink)">
     <LiquidHero client:visible />
-    <div style="position:relative;z-index:2;padding:160px clamp(20px,4vw,48px) 80px;color:var(--paper);min-height:100vh;display:flex;flex-direction:column;justify-content:space-between">
+    <div style="position:relative;z-index:2;padding:var(--space-13) clamp(20px,4vw,48px) var(--space-10);color:var(--paper);min-height:100vh;display:flex;flex-direction:column;justify-content:space-between">
       {/* top meta */}
       <div class="b-hero-meta">
         <Kicker as="span" class="b-hero-dim">Waimia · Manifeste 02</Kicker>
@@ -67,7 +67,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
       </div>
 
       {/* bottom CTAs */}
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;align-items:end;max-width:1600px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-8);align-items:end;max-width:1600px">
         <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:1.4;color:rgba(var(--paper-rgb), .85);max-width:380px;margin:0">
           {lang === 'fr'
             ? "Une agence IA pour SaaS, fintech et industrie dont le moteur revenue doit livrer — pas répéter."
@@ -90,7 +90,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
   </section>
 
   {/* DARK MARQUEE · logos massifs */}
-  <div style="background:var(--ink);color:var(--paper);border-top:1px solid rgba(var(--paper-rgb), .12);border-bottom:1px solid rgba(var(--paper-rgb), .12);padding:24px 0;overflow:hidden;white-space:nowrap">
+  <div style="background:var(--ink);color:var(--paper);border-top:1px solid rgba(var(--paper-rgb), .12);border-bottom:1px solid rgba(var(--paper-rgb), .12);padding:var(--space-5) 0;overflow:hidden;white-space:nowrap">
     <div class="b-marquee-track">
       {tripled.map((logo) => (
         <>
@@ -119,7 +119,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
           )}
         </p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:80px;border-top:1px solid rgba(var(--paper-rgb), .12)">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-8);padding-top:var(--space-10);border-top:1px solid rgba(var(--paper-rgb), .12)">
         {STATS.map((r) => (
           <div class="reveal">
             <div style="font-family:var(--font-display);font-size:clamp(72px,10vw,176px);line-height:.9;letter-spacing:-0.03em;color:var(--accent)">{r.n}</div>
@@ -256,13 +256,13 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
 <style>
   /* Spacing/colors pour les Kicker atoms rendus par les sous-composants
      Note : :global est requis car le scoping Astro ne descend pas dans les composants enfants */
-  :global(.manifesto-acte-iv){margin-bottom:32px}
-  :global(.manifesto-acte-v){margin-bottom:40px}
+  :global(.manifesto-acte-iv){margin-bottom:var(--space-6)}
+  :global(.manifesto-acte-v){margin-bottom:var(--space-7)}
   :global(.b-hero-dim){color:rgba(var(--paper-rgb), .55) !important}
-  :global(.b-hero-tag){color:rgba(var(--paper-rgb), .55) !important;margin-bottom:24px}
+  :global(.b-hero-tag){color:rgba(var(--paper-rgb), .55) !important;margin-bottom:var(--space-5)}
   :global(.b-acte-1){color:rgba(var(--paper-rgb), .5) !important}
-  :global(.b-acte-1-sub){color:rgba(var(--paper-rgb), .3) !important;letter-spacing:.14em;margin-top:4px}
-  :global(.b-acte-3){color:rgba(var(--paper-rgb), .5) !important;margin-bottom:32px}
+  :global(.b-acte-1-sub){color:rgba(var(--paper-rgb), .3) !important;letter-spacing:.14em;margin-top:var(--space-1)}
+  :global(.b-acte-3){color:rgba(var(--paper-rgb), .5) !important;margin-bottom:var(--space-6)}
   :global(.b-writing-tag){color:rgba(var(--paper-rgb), .5) !important}
 
   /* Hero meta + foot · layout */

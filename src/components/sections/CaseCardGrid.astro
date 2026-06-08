@@ -67,7 +67,7 @@ const isFr = lang === 'fr';
   .cases-h2 :global(i){font-style:italic;color:var(--accent)}
 
   .cases-tbl{}
-  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:24px;padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-fast) var(--ease, var(--ease)),padding-left 320ms var(--ease)}
+  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-fast) var(--ease, var(--ease)),padding-left 320ms var(--ease)}
   .cases-row:hover{background:var(--paper-2);padding-left:14px;padding-right:14px}
   .cases-row:hover .cases-arr{color:var(--accent);transform:translateX(4px) translateY(-2px)}
   .cases-row:hover .cases-client{color:var(--accent);transition:color var(--dur-fast) var(--ease)}
@@ -75,7 +75,7 @@ const isFr = lang === 'fr';
   .cases-idx{font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
   /* Cases client titre · réutilise H2-tight token (entre row et h2 standard) */
   .cases-client{font-family:var(--font-display);font-size:var(--text-h2-tight);line-height:var(--leading-h2);letter-spacing:-0.02em;font-weight:var(--fw-regular);font-style:italic}
-  .cases-col{display:flex;flex-direction:column;gap:4px}
+  .cases-col{display:flex;flex-direction:column;gap:var(--space-1)}
   .cases-col-k{font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
   .cases-col-v{font-size:13px;color:var(--muted);line-height:1.4}
   .cases-impact{color:var(--ink);font-weight:var(--fw-medium);font-size:15px}
@@ -85,7 +85,7 @@ const isFr = lang === 'fr';
   .cases-foot a{font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
 
   @media (max-width:1100px){
-    .cases-row{grid-template-columns:1fr 1fr;row-gap:6px;padding:24px 0}
+    .cases-row{grid-template-columns:1fr 1fr;row-gap:6px;padding:var(--space-5) 0}
     .cases-idx{grid-column:1/-1}
     .cases-client{grid-column:1/-1;font-size:32px}
     .cases-arr{display:none}

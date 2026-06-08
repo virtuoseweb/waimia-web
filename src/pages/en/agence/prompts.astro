@@ -96,10 +96,10 @@ const truncate = (value: string, max = 120) =>
   .prompts-index__hd {
     margin-bottom: clamp(48px, 6vw, 80px);
     border-bottom: 1px solid var(--hairline);
-    padding-bottom: 32px;
+    padding-bottom: var(--space-6);
   }
   .prompts-index__h1 {
-    margin: 24px 0 0;
+    margin: var(--space-5) 0 0;
     color: var(--ink);
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
@@ -110,7 +110,7 @@ const truncate = (value: string, max = 120) =>
     font-style: italic;
   }
   .prompts-index__lede {
-    margin: 24px 0 0;
+    margin: var(--space-5) 0 0;
     max-width: 64ch;
     color: var(--ink-2);
     font-family: var(--font-sans);
@@ -118,11 +118,11 @@ const truncate = (value: string, max = 120) =>
     line-height: var(--leading-body);
   }
   .prompts-index__cat {
-    margin-bottom: 64px;
+    margin-bottom: var(--space-9);
   }
   .prompts-index__cat-title {
-    margin: 0 0 24px;
-    padding-bottom: 12px;
+    margin: 0 0 var(--space-5);
+    padding-bottom: var(--space-3);
     border-bottom: 1px solid var(--hairline);
     color: var(--accent);
     font-family: var(--font-mono);
@@ -152,14 +152,14 @@ const truncate = (value: string, max = 120) =>
   .prompts-index__card-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: var(--space-2);
     margin-bottom: 14px;
   }
   .prompts-index__badge {
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--hairline);
-    padding: 4px 8px;
+    padding: var(--space-1) var(--space-2);
     color: var(--muted);
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);

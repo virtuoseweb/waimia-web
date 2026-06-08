@@ -125,7 +125,7 @@ const METRICS = [
         <Kicker class="c-acte-sub">{lang === 'fr' ? 'Le constat' : 'The reckoning'}</Kicker>
       </div>
       <div>
-        <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(36px,5.5vw,88px);line-height:1;letter-spacing:-0.02em;margin-bottom:48px;font-weight:var(--fw-regular);text-wrap:balance">
+        <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(36px,5.5vw,88px);line-height:1;letter-spacing:-0.02em;margin-bottom:var(--space-8);font-weight:var(--fw-regular);text-wrap:balance">
           {lang === 'fr' ? (
             <>La plupart des projets IA livrent une <i style="color:var(--accent)">démo</i>. Pas un produit.</>
           ) : (
@@ -194,7 +194,7 @@ const METRICS = [
         </Kicker>
         <Kicker>virtuoseos · live scroll · 4 steps</Kicker>
       </div>
-      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,7vw,120px);line-height:.96;letter-spacing:var(--tracking-display);max-width:1400px;margin-top:40px;margin-bottom:10px;font-weight:var(--fw-regular)">
+      <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(40px,7vw,120px);line-height:.96;letter-spacing:var(--tracking-display);max-width:1400px;margin-top:var(--space-7);margin-bottom:10px;font-weight:var(--fw-regular)">
         {lang === 'fr' ? (<>Faites défiler la <i>console</i>.</>) : (<>Scroll the <i>console</i>.</>)}
       </h2>
     </div>
@@ -232,7 +232,7 @@ const METRICS = [
   {/* WRITING */}
   <section id="writing" style="padding:clamp(100px,12vw,140px) clamp(20px,4vw,48px);border-top:1px solid var(--hairline)">
     <div style="max-width:1500px;margin:0 auto">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;padding-bottom:16px;border-bottom:1px solid var(--hairline);flex-wrap:wrap;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-7);padding-bottom:var(--space-4);border-bottom:1px solid var(--hairline);flex-wrap:wrap;gap:10px">
         <Kicker tone="accent">
           [writing] · <span style="color:var(--muted)">{lang === 'fr' ? 'notes & changelog' : 'field notes & changelog'}</span>
         </Kicker>
@@ -287,11 +287,11 @@ const METRICS = [
 
 <style>
   /* Spacing pour les Kicker atom rendus par les sous-composants */
-  :global(.c-acte-sub){margin-top:4px}
-  :global(.c-manifesto-tag){margin-bottom:40px}
+  :global(.c-acte-sub){margin-top:var(--space-1)}
+  :global(.c-manifesto-tag){margin-bottom:var(--space-7)}
   :global(.c-act-04){margin-bottom:30px}
   :global(.c-act-05){margin-bottom:30px}
-  :global(.c-platform-tag){margin-bottom:24px}
+  :global(.c-platform-tag){margin-bottom:var(--space-5)}
 
   /* Meta bar hero · layout */
   .c-meta-bar{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:20px;border-bottom:1px solid var(--hairline);margin-bottom:50px;flex-wrap:wrap;gap:10px}

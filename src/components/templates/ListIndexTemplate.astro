@@ -68,10 +68,10 @@ const ctaData = {
 
 <style>
   .list-hd {
-    padding: 140px 32px clamp(40px, 5vw, 72px);
+    padding: 140px var(--space-6) clamp(40px, 5vw, 72px);
     border-bottom: 1px solid var(--hairline);
   }
-  :global(.list-kicker) { display: block; margin-bottom: 24px; }
+  :global(.list-kicker) { display: block; margin-bottom: var(--space-5); }
   .list-h1 {
     font-family: var(--font-display);
     font-size: clamp(56px, 11vw, 180px);
@@ -86,7 +86,7 @@ const ctaData = {
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.2vw, 32px);
     color: var(--ink-2);
-    margin: 32px 0 0;
+    margin: var(--space-6) 0 0;
     max-width: 760px;
     line-height: 1.4;
     text-wrap: pretty;
@@ -94,9 +94,9 @@ const ctaData = {
   .list-filters {
     margin-top: clamp(36px, 4vw, 56px);
     display: flex;
-    gap: 12px;
+    gap: var(--space-3);
     flex-wrap: wrap;
   }
 
-  .list-body { padding: clamp(60px, 8vw, 100px) 32px; }
+  .list-body { padding: clamp(60px, 8vw, 100px) var(--space-6); }
 </style>

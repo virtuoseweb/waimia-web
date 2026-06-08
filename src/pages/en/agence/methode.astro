@@ -144,7 +144,7 @@ const timelineEvents = phases.map(p => ({
     text-transform: uppercase;
     color: var(--paper);
     background: var(--ink);
-    padding: 16px 36px;
+    padding: var(--space-4) 36px;
     border: 1px solid var(--ink);
     transition: background 220ms var(--ease), border-color 220ms var(--ease);
     text-decoration: none;
@@ -153,7 +153,7 @@ const timelineEvents = phases.map(p => ({
   .meth-cta-btn:hover { background: var(--accent); border-color: var(--accent); }
 
   @media (max-width: 700px) {
-    .meth-os { padding-inline: 24px; }
+    .meth-os { padding-inline: var(--space-5); }
     .meth-cta { flex-direction: column; align-items: flex-start; }
   }
 

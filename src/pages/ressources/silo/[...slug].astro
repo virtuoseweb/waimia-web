@@ -145,7 +145,7 @@ const ctaData = {
 
 <style>
   .silo-mast { padding: clamp(80px, 10vw, 140px) 0 clamp(40px, 5vw, 64px); }
-  :global(.silo-kicker) { color: var(--accent); margin-bottom: 24px; }
+  :global(.silo-kicker) { color: var(--accent); margin-bottom: var(--space-5); }
   .silo-h1 {
     font-family: var(--font-display);
     font-size: clamp(56px, 9vw, 120px);
@@ -157,13 +157,13 @@ const ctaData = {
   .silo-pillar-sec { padding: clamp(40px, 5vw, 80px) 0; background: var(--paper-2); }
   .silo-pillar-card {
     display: block;
-    padding: 32px;
+    padding: var(--space-6);
     background: var(--paper);
     border: 1px solid var(--hairline);
     border-radius: var(--radius-sm);
     text-decoration: none;
     color: var(--ink);
-    margin-top: 16px;
+    margin-top: var(--space-4);
     transition: border-color 220ms;
   }
   .silo-pillar-card:hover { border-color: var(--accent); }
@@ -171,7 +171,7 @@ const ctaData = {
     font-family: var(--font-display);
     font-size: clamp(28px, 3vw, 40px);
     line-height: 1.05;
-    margin: 0 0 12px;
+    margin: 0 0 var(--space-3);
     font-weight: var(--fw-regular);
   }
   .silo-pillar-card p {
@@ -180,7 +180,7 @@ const ctaData = {
     line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;
-    margin: 0 0 16px;
+    margin: 0 0 var(--space-4);
   }
   .silo-pillar-card span {
     font-family: var(--font-mono);
@@ -189,19 +189,19 @@ const ctaData = {
     letter-spacing: .08em;
   }
   .silo-list-sec { padding: clamp(40px, 5vw, 80px) 0 clamp(80px, 10vw, 140px); }
-  .silo-list { list-style: none; padding: 0; margin: 16px 0 0; border-top: 1px solid var(--hairline-strong); }
+  .silo-list { list-style: none; padding: 0; margin: var(--space-4) 0 0; border-top: 1px solid var(--hairline-strong); }
   .silo-list li { border-bottom: 1px solid var(--hairline); }
   .silo-list a {
     display: grid;
     grid-template-columns: 100px 1fr auto;
-    gap: 24px;
+    gap: var(--space-5);
     padding: 18px 0;
     color: var(--ink);
     text-decoration: none;
     align-items: baseline;
     transition: padding 220ms;
   }
-  .silo-list a:hover { padding-left: 8px; color: var(--accent); }
+  .silo-list a:hover { padding-left: var(--space-2); color: var(--accent); }
   .silo-type {
     font-family: var(--font-mono);
     font-size: 10.5px;
@@ -217,7 +217,7 @@ const ctaData = {
     text-transform: uppercase;
     color: var(--muted);
   }
-  .silo-empty { font-family: var(--font-display); font-style: italic; color: var(--muted); padding: 32px 0; }
+  .silo-empty { font-family: var(--font-display); font-style: italic; color: var(--muted); padding: var(--space-6) 0; }
   .wrap-tight { max-width: 880px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
 </style>
 

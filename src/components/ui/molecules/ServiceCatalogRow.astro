@@ -50,7 +50,7 @@ const { num, title_fr, title_en, desc_fr, desc_en, meta, href, class: extraClass
   .svc-row {
     display: grid;
     grid-template-columns: 110px 1fr 180px 60px;
-    gap: 32px;
+    gap: var(--space-6);
     padding: var(--space-7) 0;
     border-bottom: 1px solid var(--hairline);
     align-items: center;
@@ -103,8 +103,8 @@ const { num, title_fr, title_en, desc_fr, desc_en, meta, href, class: extraClass
   @media (max-width: var(--wrap-read)) {
     .svc-row {
       grid-template-columns: 1fr;
-      gap: 8px;
-      padding: 24px 0;
+      gap: var(--space-2);
+      padding: var(--space-5) 0;
     }
     .svc-arr,
     .svc-meta {

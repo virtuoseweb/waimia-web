@@ -139,7 +139,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     line-height: 0.92;
     letter-spacing: -0.028em;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
   }
 
   .arc-h1 i {
@@ -185,7 +185,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 12px;
+    margin-bottom: var(--space-3);
   }
 
   .arc-section-h2 {
@@ -194,7 +194,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     line-height: 1.05;
     letter-spacing: -0.018em;
     font-weight: var(--fw-regular);
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
   }
 
   .arc-section-list {
@@ -203,12 +203,12 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 12px 32px;
+    gap: var(--space-3) var(--space-6);
   }
 
   .arc-link {
     display: block;
-    padding: 12px 0;
+    padding: var(--space-3) 0;
     border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
     color: var(--ink);
     text-decoration: none;
@@ -218,7 +218,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
   }
 
   .arc-link:hover {
-    padding-left: 8px;
+    padding-left: var(--space-2);
     color: var(--accent);
   }
 
@@ -231,7 +231,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
     color: var(--muted);
-    margin-left: 8px;
+    margin-left: var(--space-2);
   }
 
   .wrap {

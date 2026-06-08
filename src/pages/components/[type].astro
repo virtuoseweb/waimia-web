@@ -89,8 +89,8 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     padding: clamp(72px, 9vw, 112px) 0 clamp(72px, 9vw, 120px);
   }
   .component-detail .wrap-wide {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
   }
   .component-back {
     display: inline-flex;
@@ -109,7 +109,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: var(--space-4);
   }
   .component-head h1 {
     margin: 0;
@@ -128,7 +128,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
     line-height: 1;
-    padding: 6px 8px;
+    padding: 6px var(--space-2);
     text-transform: uppercase;
     white-space: nowrap;
   }
@@ -154,7 +154,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
   }
   .component-lede {
     max-width: 680px;
-    margin: 16px 0 0;
+    margin: var(--space-4) 0 0;
     color: var(--ink-2);
     font-size: clamp(15px, 1.4vw, 18px);
     line-height: 1.55;

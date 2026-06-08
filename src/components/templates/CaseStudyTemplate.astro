@@ -273,16 +273,16 @@ const ctaData = {
 </Base>
 
 <style>
-  .case-context { padding: clamp(56px, 7vw, 80px) 32px; }
+  .case-context { padding: clamp(56px, 7vw, 80px) var(--space-6); }
   .case-context-grid {
     display: grid;
     grid-template-columns: 240px 1fr;
-    gap: 64px;
+    gap: var(--space-9);
   }
   :global(.case-sticky) { position: sticky; top: 100px; }
-  :global(.case-context-k) { display: block; margin-bottom: 24px; }
+  :global(.case-context-k) { display: block; margin-bottom: var(--space-5); }
 
-  .case-approach { padding: clamp(56px, 7vw, 80px) 32px; background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .case-approach { padding: clamp(56px, 7vw, 80px) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
   .case-section-hd {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -309,7 +309,7 @@ const ctaData = {
     margin: 0;
   }
 
-  .case-proof { padding: clamp(56px, 7vw, 80px) 32px; }
+  .case-proof { padding: clamp(56px, 7vw, 80px) var(--space-6); }
   .case-proof-quote {
     font-family: var(--font-display);
     font-size: clamp(24px, 3.5vw, 52px);
@@ -319,7 +319,7 @@ const ctaData = {
     font-style: italic;
     text-wrap: pretty;
     max-width: 860px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
   }
   .case-proof-attr {
     font-family: var(--font-mono);
@@ -329,12 +329,12 @@ const ctaData = {
     font-style: normal;
   }
   .case-key-metrics {
-    padding: clamp(40px, 5vw, 72px) 32px;
+    padding: clamp(40px, 5vw, 72px) var(--space-6);
     background: var(--ink);
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
   }
-  .case-key-metrics .eyebrow { color: var(--accent); margin-bottom: 40px; }
+  .case-key-metrics .eyebrow { color: var(--accent); margin-bottom: var(--space-7); }
   .case-km-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -343,8 +343,8 @@ const ctaData = {
   }
   .case-key-metrics :global(.key-metric-value) { color: var(--paper); }
   .case-key-metrics :global(.key-metric-label) { color: rgba(var(--paper-rgb), 0.55); }
-  .case-stack { padding: clamp(56px, 7vw, 80px) 32px; background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-  :global(.case-stack-k) { display: block; margin-bottom: 16px; }
+  .case-stack { padding: clamp(56px, 7vw, 80px) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  :global(.case-stack-k) { display: block; margin-bottom: var(--space-4); }
   .case-stack-lead {
     font-family: var(--font-display);
     font-size: clamp(20px, 2.4vw, 30px);
@@ -355,7 +355,7 @@ const ctaData = {
     margin: 0 0 clamp(28px, 3vw, 44px);
   }
 
-  .case-related { padding: clamp(56px, 6vw, 80px) 32px; }
+  .case-related { padding: clamp(56px, 6vw, 80px) var(--space-6); }
   :global(.case-related-k) { display: block; margin-bottom: var(--space-6); }
   .case-related-offres {
     margin: var(--space-6, 2rem) 0;
@@ -389,7 +389,7 @@ const ctaData = {
     .case-section-hd { grid-template-columns: 1fr; }
   }
 
-  .case-hero-image { aspect-ratio: 16/9; margin: clamp(48px, 6vw, 80px) 32px; overflow: hidden; }
+  .case-hero-image { aspect-ratio: 16/9; margin: clamp(48px, 6vw, 80px) var(--space-6); overflow: hidden; }
   .case-hero-image :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* Eyebrow */
@@ -400,7 +400,7 @@ const ctaData = {
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
     color: var(--accent);
-    margin-bottom: 16px;
+    margin-bottom: var(--space-4);
   }
 
   /* Related cases with GSAP target class */
@@ -415,7 +415,7 @@ const ctaData = {
     border-right: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-2);
     color: inherit;
     text-decoration: none;
     transition: background 240ms ease;
@@ -434,7 +434,7 @@ const ctaData = {
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: var(--fw-regular);
-    margin: 8px 0 4px;
+    margin: var(--space-2) 0 var(--space-1);
   }
   .related-case-lead {
     font-size: 13px;

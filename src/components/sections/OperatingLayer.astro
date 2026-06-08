@@ -110,7 +110,7 @@ const isFr = lang === 'fr';
     max-width: 520px;
     font-family: var(--font-display);
   }
-  .operating-layer__ctas { margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .operating-layer__ctas { margin-top: var(--space-7); display: flex; gap: var(--space-3); flex-wrap: wrap; }
 
   .operating-layer__console-body {
     display: grid;
@@ -124,8 +124,8 @@ const isFr = lang === 'fr';
   .operating-layer__console-k { color: rgba(var(--paper-rgb), .4); }
   .operating-layer__console-v { color: rgba(var(--paper-rgb), .85); }
   .operating-layer__console-cmd {
-    margin-top: 12px;
-    padding: 12px 0;
+    margin-top: var(--space-3);
+    padding: var(--space-3) 0;
     border-top: 1px dashed rgba(var(--paper-rgb), .15);
     color: rgba(var(--paper-rgb), .5);
     font-size: var(--text-eyebrow);
@@ -152,10 +152,10 @@ const isFr = lang === 'fr';
   .operating-layer__attr-v {
     font-family: var(--font-display);
     font-size: clamp(20px,2.4vw,30px);
-    margin-top: 8px;
+    margin-top: var(--space-2);
   }
   @media (max-width: var(--wrap-read)) {
-    .operating-layer__grid { grid-template-columns: 1fr; gap: 48px; }
+    .operating-layer__grid { grid-template-columns: 1fr; gap: var(--space-8); }
     .operating-layer__attrs { grid-template-columns: repeat(2,1fr); }
     .operating-layer__attrs > div:nth-child(2) { border-right: none; }
     .operating-layer__attrs > div:nth-child(-n+2) { border-bottom: 1px solid rgba(var(--paper-rgb), .12); }

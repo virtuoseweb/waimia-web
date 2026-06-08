@@ -134,8 +134,8 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
-    display: flex; gap: 8px; align-items: center;
-    margin-bottom: 24px;
+    display: flex; gap: var(--space-2); align-items: center;
+    margin-bottom: var(--space-5);
   }
   .hero-offer-detail__bc a { color: var(--muted); transition: color 220ms ease; text-decoration: none; }
   .hero-offer-detail__bc a:hover { color: var(--accent); }
@@ -153,7 +153,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     line-height: 0.92;
     letter-spacing: -0.028em;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
     text-wrap: balance;
   }
   .hero-offer-detail__title :global(i) { color: var(--accent); font-style: italic; }
@@ -172,11 +172,11 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     font-style: italic;
     margin: 0;
   }
-  .hero-offer-detail__lead :global(span) { color: var(--accent); display: block; margin-top: 8px; }
-  .hero-offer-detail__actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .hero-offer-detail__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
+  .hero-offer-detail__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
   .hero-offer-detail__cta {
     display: inline-block;
-    padding: 14px 24px;
+    padding: 14px var(--space-5);
     background: var(--ink);
     color: var(--paper);
     border-radius: var(--radius-sm);
@@ -234,7 +234,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     line-height: 0.92;
     letter-spacing: -0.028em;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
     text-wrap: balance;
   }
   .hero-sector__title :global(i) { color: var(--accent); font-style: italic; }
@@ -254,11 +254,11 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     font-style: italic;
     margin: 0;
   }
-  .hero-sector__lead :global(span) { color: var(--accent); display: block; margin-top: 8px; }
-  .hero-sector__actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .hero-sector__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
+  .hero-sector__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
   .hero-sector__cta {
     display: inline-block;
-    padding: 14px 24px;
+    padding: 14px var(--space-5);
     background: var(--ink);
     color: var(--paper);
     border-radius: var(--radius-sm);
@@ -279,8 +279,8 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
   .hero-sector__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
   }
   .hero-sector__tag {
     font-family: var(--font-mono);
@@ -288,7 +288,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink);
-    padding: 8px 14px;
+    padding: var(--space-2) 14px;
     background: rgba(var(--ink-rgb), 0.04);
     border: 1px solid var(--hairline);
     border-radius: var(--radius-sm);
@@ -324,7 +324,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     margin-bottom: 20px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .hero-tech-layer__layer::before {
     content: '';
@@ -341,7 +341,7 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     line-height: 0.92;
     letter-spacing: -0.028em;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
     text-wrap: balance;
   }
   .hero-tech-layer__title :global(i) { color: var(--accent); font-style: italic; }
@@ -360,11 +360,11 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     font-style: italic;
     margin: 0;
   }
-  .hero-tech-layer__lead :global(span) { color: var(--accent); display: block; margin-top: 8px; }
-  .hero-tech-layer__actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .hero-tech-layer__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
+  .hero-tech-layer__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
   .hero-tech-layer__cta {
     display: inline-block;
-    padding: 14px 24px;
+    padding: 14px var(--space-5);
     background: var(--ink);
     color: var(--paper);
     border-radius: var(--radius-sm);

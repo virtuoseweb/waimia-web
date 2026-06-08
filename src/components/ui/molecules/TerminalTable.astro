@@ -69,6 +69,6 @@ const { cols, headers, tone = 'paper', class: extraClass = '' } = Astro.props;
 
   @media (max-width:var(--wrap-read)){
     .u-edit-tbl-head{display:none}
-    :global(.u-edit-tbl-row){grid-template-columns:1fr;gap:6px;padding:18px 16px}
+    :global(.u-edit-tbl-row){grid-template-columns:1fr;gap:6px;padding:18px var(--space-4)}
   }
 </style>

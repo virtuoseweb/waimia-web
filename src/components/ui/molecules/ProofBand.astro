@@ -80,7 +80,7 @@ const { quote_fr, quote_en, attr_fr, attr_en, metrics, class: extraClass = '' } 
   }
   /* :global parce que Kicker est rendu par sous-composant */
   :global(.proof-label) {
-    margin-bottom: 16px;
+    margin-bottom: var(--space-4);
   }
   .proof-quote {
     font-family: var(--font-display);
@@ -104,15 +104,15 @@ const { quote_fr, quote_en, attr_fr, attr_en, metrics, class: extraClass = '' } 
     grid-template-columns: 1fr 1fr;
   }
   .proof-metric {
-    padding: 16px 0;
+    padding: var(--space-4) 0;
     border-bottom: 1px solid var(--hairline);
   }
   .proof-metric:nth-child(odd) {
     border-right: 1px solid var(--hairline);
-    padding-right: 24px;
+    padding-right: var(--space-5);
   }
   .proof-metric:nth-child(even) {
-    padding-left: 24px;
+    padding-left: var(--space-5);
   }
   .proof-metric:nth-last-child(-n + 2) {
     border-bottom: none;
@@ -127,7 +127,7 @@ const { quote_fr, quote_en, attr_fr, attr_en, metrics, class: extraClass = '' } 
   .proof-metric-l {
     font-size: 11.5px;
     color: var(--muted);
-    margin-top: 4px;
+    margin-top: var(--space-1);
     line-height: 1.4;
   }
   @media (max-width: var(--wrap-read)) {
@@ -139,7 +139,7 @@ const { quote_fr, quote_en, attr_fr, attr_en, metrics, class: extraClass = '' } 
     }
     .proof-main,
     .proof-aside {
-      padding: 32px 0;
+      padding: var(--space-6) 0;
     }
     .proof-aside {
       border-top: 1px solid var(--hairline-strong);

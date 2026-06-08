@@ -145,14 +145,14 @@ const isFr = lang === 'fr';
       position: static;
       opacity: 1;
       transform: none;
-      padding-bottom: 48px;
+      padding-bottom: var(--space-8);
       border-bottom: 1px solid var(--hairline);
     }
     .how-we-ship__card:last-child { border-bottom: none; }
     .how-we-ship__numline { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .how-we-ship__card { opacity: 1; transform: none; position: static; padding-bottom: 48px; border-bottom: 1px solid var(--hairline); }
+    .how-we-ship__card { opacity: 1; transform: none; position: static; padding-bottom: var(--space-8); border-bottom: 1px solid var(--hairline); }
     .how-we-ship__wrap { height: auto; }
     .how-we-ship__sticky { position: static; height: auto; }
   }

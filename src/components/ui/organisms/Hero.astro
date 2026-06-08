@@ -255,7 +255,7 @@ const pageTransitionId = Astro.url.pathname
   .hero-mm-item {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
     padding: var(--space-3) var(--space-3) var(--space-3) 0;
     border-bottom: 1px solid var(--hairline);
     border-right: 1px solid var(--hairline);
@@ -369,7 +369,7 @@ const pageTransitionId = Astro.url.pathname
     .hero-proof { grid-template-columns: 90px 1fr; gap: var(--space-4); }
   }
   @media (max-width: 560px) {
-    .hero-proof { grid-template-columns: 1fr; gap: 4px; padding: var(--space-3) 0; }
+    .hero-proof { grid-template-columns: 1fr; gap: var(--space-1); padding: var(--space-3) 0; }
   }
   /* Low-height desktop · 1280×720 / 1366×768 / 1440×800 avec cookie banner visible
      → on resserre les rythmes verticaux sans toucher à l'identité typographique */

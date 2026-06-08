@@ -26,8 +26,8 @@ if (!cluster && tags.length === 0) return Astro.redirect('');
   .tag-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin: 24px 0;
+    gap: var(--space-2);
+    margin: var(--space-5) 0;
   }
   .tag-pill {
     font-family: var(--font-mono);
@@ -37,7 +37,7 @@ if (!cluster && tags.length === 0) return Astro.redirect('');
     background: rgba(var(--ink-rgb), 0.04);
     border: 1px solid rgba(var(--ink-rgb), 0.08);
     border-radius: var(--radius-pill);
-    padding: 6px 12px;
+    padding: 6px var(--space-3);
     text-decoration: none;
     transition: border-color 220ms, color 220ms;
   }

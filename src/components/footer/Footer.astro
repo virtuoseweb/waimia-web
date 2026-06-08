@@ -314,7 +314,7 @@ const year = new Date().getFullYear();
     .ft-tier1-grid{grid-template-columns:repeat(2,1fr)!important}
   }
   @media (max-width:640px){
-    .ft-tier1-grid{grid-template-columns:1fr!important;gap:32px!important}
+    .ft-tier1-grid{grid-template-columns:1fr!important;gap:var(--space-6)!important}
   }
 
   /* Newsletter grid */
@@ -330,12 +330,12 @@ const year = new Date().getFullYear();
 
   /* Bottom row */
   .ft-bottom{
-    padding:24px 0;
+    padding:var(--space-5) 0;
     display:flex;
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
-    gap:16px;
+    gap:var(--space-4);
     font-family:var(--font-mono);
     font-size:var(--text-eyebrow);
     letter-spacing:.08em;
@@ -361,11 +361,11 @@ const year = new Date().getFullYear();
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 32px;
+    margin-bottom: var(--space-6);
     padding-bottom: 14px;
     border-bottom: 1px solid var(--hairline);
     flex-wrap: wrap;
-    gap: 12px;
+    gap: var(--space-3);
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
     letter-spacing: .14em;
@@ -394,9 +394,9 @@ const year = new Date().getFullYear();
   .ft-dev-list li {
     display: grid;
     grid-template-columns: 40px 200px 1fr auto;
-    gap: 16px;
+    gap: var(--space-4);
     align-items: baseline;
-    padding: 12px 0;
+    padding: var(--space-3) 0;
     border-bottom: 1px solid var(--hairline);
     font-family: var(--font-mono);
     font-size: 12.5px;
@@ -410,13 +410,13 @@ const year = new Date().getFullYear();
     line-height: 1.55;
     color: var(--muted);
     max-width: var(--wrap-prose);
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
     text-wrap: pretty;
   }
   .ft-dev-stub-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: var(--space-5);
   }
   .ft-dev-stub-grid > div {
     border-top: 1px solid var(--hairline);
@@ -444,7 +444,7 @@ const year = new Date().getFullYear();
   .ft-dev-more { color: var(--muted); font-style: italic; }
 
   @media (max-width: var(--wrap-read)) {
-    .ft-dev-list li { grid-template-columns: 32px 1fr; gap: 10px; row-gap: 4px; }
+    .ft-dev-list li { grid-template-columns: 32px 1fr; gap: 10px; row-gap: var(--space-1); }
     .ft-dev-list li .ft-dev-type,
     .ft-dev-list li .ft-link { grid-column: 2; }
     .ft-dev-stub-grid { grid-template-columns: repeat(2, 1fr); }

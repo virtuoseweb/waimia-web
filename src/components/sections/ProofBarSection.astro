@@ -31,7 +31,7 @@ const isFr = lang === 'fr';
     padding-block: clamp(32px, 4vw, 56px);
     border-block: 1px solid var(--hairline);
   }
-  .proof-bar__kicker { margin-bottom: 24px; }
+  .proof-bar__kicker { margin-bottom: var(--space-5); }
   .proof-bar__list {
     list-style: none;
     margin: 0;
@@ -56,7 +56,7 @@ const isFr = lang === 'fr';
     border-bottom: 1px solid var(--hairline);
     flex-direction: row;
     align-items: baseline;
-    gap: 16px;
+    gap: var(--space-4);
   }
   .proof-bar[data-layout="vertical-stack"] .proof-bar__item:last-child { border-bottom: none; }
   .proof-bar__value {

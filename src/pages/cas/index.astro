@@ -91,14 +91,14 @@ const mastheadData = {
 </Base>
 
 <style>
-  .cas-grid-outer { margin: 0 auto; padding: 0 32px; }
+  .cas-grid-outer { margin: 0 auto; padding: 0 var(--space-6); }
   .cas-grid {
     display: grid;
     grid-template-columns: 7fr 5fr;
     gap: 1px;
     background: var(--hairline);
     border: 1px solid var(--hairline);
-    margin: 40px 0 80px;
+    margin: var(--space-7) 0 var(--space-10);
   }
   .cas-secondary {
     display: flex;
@@ -109,7 +109,7 @@ const mastheadData = {
   .cas-card {
     display: flex;
     flex-direction: column;
-    padding: 36px 32px 32px;
+    padding: 36px var(--space-6) var(--space-6);
     background: var(--paper);
     border-top: 1px solid transparent;
     text-decoration: none;
@@ -130,16 +130,16 @@ const mastheadData = {
     box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.06);
   }
   .cas-card--featured {
-    padding: 56px 48px 48px;
+    padding: 56px var(--space-8) var(--space-8);
   }
   .cas-card--featured .cas-card-title {
     font-size: clamp(28px, 4vw, 52px);
-    margin-top: 12px;
+    margin-top: var(--space-3);
   }
   .cas-card--featured .cas-card-headline {
     font-size: clamp(14px, 1.6vw, 18px);
     max-width: 480px;
-    margin-top: 8px;
+    margin-top: var(--space-2);
   }
   .cas-card-kicker {
     font-family: var(--font-mono, monospace);
@@ -154,7 +154,7 @@ const mastheadData = {
     font-weight: var(--fw-regular);
     letter-spacing: -0.015em;
     line-height: 1.05;
-    margin: 4px 0 0;
+    margin: var(--space-1) 0 0;
     text-wrap: balance;
     transition: transform 220ms var(--ease);
   }
@@ -171,7 +171,7 @@ const mastheadData = {
     color: var(--accent);
     font-family: var(--font-mono, monospace);
     letter-spacing: 0.04em;
-    margin-top: 16px;
+    margin-top: var(--space-4);
     transition: transform 220ms var(--ease);
   }
   .cas-card:hover .cas-card-title,
@@ -181,7 +181,7 @@ const mastheadData = {
   }
 
   .cas-cta {
-    padding: clamp(56px, 7vw, 80px) 32px;
+    padding: clamp(56px, 7vw, 80px) var(--space-6);
     background: var(--ink);
     border-top: 1px solid var(--hairline);
   }
@@ -193,7 +193,7 @@ const mastheadData = {
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
     color: var(--accent);
-    margin-bottom: 24px;
+    margin-bottom: var(--space-5);
   }
   .cas-cta-h {
     font-family: var(--font-display);
@@ -203,7 +203,7 @@ const mastheadData = {
     font-weight: var(--fw-regular);
     color: var(--paper);
     text-wrap: balance;
-    margin: 0 0 40px;
+    margin: 0 0 var(--space-7);
   }
   .cas-cta-h em { font-style: italic; color: var(--accent); }
   .cas-cta-btn {

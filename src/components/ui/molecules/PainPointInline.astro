@@ -111,7 +111,7 @@ const Tag   = slug ? 'a' : 'div';
 
   /* ── Corps ── */
   .pp-inline__body {
-    padding-left: 16px;
+    padding-left: var(--space-4);
     border-left: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;
@@ -150,7 +150,7 @@ const Tag   = slug ? 'a' : 'div';
       grid-template-columns: 36px 1fr;
     }
     .pp-inline__body {
-      padding-left: 12px;
+      padding-left: var(--space-3);
     }
     .pp-inline__tag {
       display: none;

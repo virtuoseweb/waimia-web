@@ -224,7 +224,7 @@ const tocEvents = toc.map((item, index) => ({
 
 <style>
   .lm-abstract {
-    padding: clamp(52px, 7vw, 88px) 32px;
+    padding: clamp(52px, 7vw, 88px) var(--space-6);
     border-bottom: 1px solid var(--hairline);
   }
   .lm-abstract-grid {
@@ -247,12 +247,12 @@ const tocEvents = toc.map((item, index) => ({
   .lm-metrics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 16px;
+    gap: var(--space-4);
     border-top: 1px solid var(--hairline-strong);
-    padding-top: 8px;
+    padding-top: var(--space-2);
   }
 
-  .lm-body { padding: clamp(60px, 8vw, 100px) 32px; }
+  .lm-body { padding: clamp(60px, 8vw, 100px) var(--space-6); }
   .lm-body-grid {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
@@ -271,7 +271,7 @@ const tocEvents = toc.map((item, index) => ({
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: var(--fw-regular);
-    margin: 0 0 12px;
+    margin: 0 0 var(--space-3);
     text-wrap: balance;
   }
   .lm-form-h2 :global(i) { font-style: italic; color: var(--accent); }
@@ -283,7 +283,7 @@ const tocEvents = toc.map((item, index) => ({
     text-transform: uppercase;
     color: var(--muted);
     display: flex;
-    gap: 4px;
+    gap: var(--space-1);
   }
   .form-row label span:last-child { color: var(--accent); }
   .form-row input {
@@ -298,7 +298,7 @@ const tocEvents = toc.map((item, index) => ({
     transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
   }
   .form-row input:focus { outline: none; border-color: var(--accent); background: var(--paper-2); }
-  .lm-foot { font-size: 12.5px; line-height: var(--leading-body); color: var(--muted); margin: 8px 0 0; max-width: 540px; }
+  .lm-foot { font-size: 12.5px; line-height: var(--leading-body); color: var(--muted); margin: var(--space-2) 0 0; max-width: 540px; }
 
   .lm-toc {
     border-left: 1px solid var(--hairline);
@@ -308,20 +308,20 @@ const tocEvents = toc.map((item, index) => ({
     top: 100px;
   }
   :global(.lm-toc-k) { display: block; margin-bottom: 18px; }
-  .lm-toc :global(.timeline-vertical) { margin: 28px 0 40px; }
+  .lm-toc :global(.timeline-vertical) { margin: 28px 0 var(--space-7); }
   .lm-toc :global(.timeline-title) { font-size: clamp(18px, 1.6vw, 23px); }
   .lm-toc :global(.timeline-body) { font-size: 15px; }
-  .lm-toc :global(.callout) { margin-block: 24px; }
+  .lm-toc :global(.callout) { margin-block: var(--space-5); }
   .lm-toc :global(.callout-manifesto) { text-align: left; }
   .lm-toc :global(.callout-manifesto .callout-body) { font-size: clamp(20px, 2vw, 28px); }
   .lm-toc :global(.callout p) { margin: 0; }
   .lm-extra-prose {
-    margin-top: 32px;
+    margin-top: var(--space-6);
   }
   .lm-extra-prose :global(blockquote) {
     border-left: 2px solid var(--accent);
-    margin: 40px 0;
-    padding-left: 24px;
+    margin: var(--space-7) 0;
+    padding-left: var(--space-5);
     font-family: var(--font-display);
     font-size: clamp(22px, 2.4vw, 34px);
     font-style: italic;
@@ -330,7 +330,7 @@ const tocEvents = toc.map((item, index) => ({
   }
 
   .lm-footer-cta {
-    padding: clamp(64px, 9vw, 112px) 32px;
+    padding: clamp(64px, 9vw, 112px) var(--space-6);
     background: var(--ink);
     color: var(--paper);
   }
@@ -360,7 +360,7 @@ const tocEvents = toc.map((item, index) => ({
     .lm-hero-grid { grid-template-columns: 1fr; }
     .lm-abstract-grid { grid-template-columns: 1fr; }
     .lm-body-grid { grid-template-columns: 1fr; }
-    .lm-toc { border-left: none; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: 32px; position: static; }
+    .lm-toc { border-left: none; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: var(--space-6); position: static; }
     .lm-footer-grid { grid-template-columns: 1fr; }
   }
 </style>

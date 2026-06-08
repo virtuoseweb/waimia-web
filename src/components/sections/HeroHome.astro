@@ -145,7 +145,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
   .hero-home__mm-item {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
     padding: var(--space-3) var(--space-3) var(--space-3) 0;
     border-bottom: 1px solid var(--hairline);
     border-right: 1px solid var(--hairline);
@@ -247,7 +247,7 @@ const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/o
     .hero-home__proof { grid-template-columns: 90px 1fr; gap: var(--space-4); }
   }
   @media (max-width: 560px) {
-    .hero-home__proof { grid-template-columns: 1fr; gap: 4px; padding: var(--space-3) 0; }
+    .hero-home__proof { grid-template-columns: 1fr; gap: var(--space-1); padding: var(--space-3) 0; }
   }
   @media (max-height: 850px) and (min-width: 900px) {
     .hero-home { padding-top: clamp(64px, 5vw, 80px); }

@@ -36,17 +36,17 @@ const isFr = lang === 'fr';
   .persona-detail__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-bottom: 48px;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
   }
   .persona-detail__block {
-    padding: 24px;
+    padding: var(--space-5);
     border: 1px solid var(--hairline);
     background: var(--paper-2);
   }
   .persona-kicker {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: var(--space-3);
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
     letter-spacing: .14em;
@@ -54,7 +54,7 @@ const isFr = lang === 'fr';
     color: var(--muted);
   }
   .persona-kicker--dark {
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);
   }
   .persona-detail__block ul {
     list-style: none;
@@ -69,7 +69,7 @@ const isFr = lang === 'fr';
     font-size: var(--text-body-sm);
     line-height: var(--leading-body);
     color: var(--ink-2);
-    padding-left: 16px;
+    padding-left: var(--space-4);
     position: relative;
   }
   .persona-detail__block li::before {
@@ -82,8 +82,8 @@ const isFr = lang === 'fr';
     grid-column: span 2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    padding: 24px;
+    gap: var(--space-5);
+    padding: var(--space-5);
     background: var(--ink);
     color: var(--paper);
   }
