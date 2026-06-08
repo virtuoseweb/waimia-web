@@ -123,3 +123,73 @@ page qui *montre* le DS, jamais dans une section produit. Enrichissement spécul
 
 > Chaque vague = 1 branche `feat/ds-coherence-vN`, worker délégué (GF-2), GF-1 sur preview Vercel avant merge `main`.
 > `scripts/check-token-purity.mjs` (déjà en CI) verrouille l'anti-régression hex brut ; à étendre aux rgba bruts après V5.
+
+> **ÉTAT 2026-06-08** : V1→V4a + V6 mergés sur `main` (tokens.css 111 → 100 défs). V4b foldé dans la finale couleur (conflit V4a∥V4b). Audit étendu ci-dessous (§7) → la finale couleur devient un **codemod byte-équiv** (rgba→channels) au lieu d'un rewire manuel.
+
+---
+
+## 7. AUDIT EXHAUSTIF near-duplicates (2026-06-08, 3 agents read-only) — reframe
+
+**Conclusion qui change le diagnostic** : le DS a un **bon jeu de tokens**, mais ils sont **massivement contournés par des littéraux** (+ variantes near-miss créées au lieu de réutiliser). L'incohérence n'est pas « trop de tokens » mais « tokens non-enforced ». Foyer = `src/styles/global.css` (~60 % des occurrences). 4 buckets :
+
+### Bucket A — Littéraux == valeur d'un token (BYTE-ÉQUIVALENT, tokeniser = 0 pixel changé)
+Grosse victoire d'industrialisation (DS vraiment token-driven → Tool D repeint en swappant 1 valeur). Sûr.
+
+| Littéral | = Token (valeur exacte) | Compte |
+|---|---|---|
+| `font-size: 11px` | `--text-eyebrow` | **202** |
+| `font-size: 14px` | `--text-body-sm` | 76 |
+| `font-size: 10px` | `--text-mono-xs` | 38 |
+| `font-size: 17px` | `--text-body-md` | 17 |
+| `line-height: 1.5` | `--leading-body` | 76 |
+| `line-height: 1.1` | `--leading-h3` | 45 |
+| `line-height: 0.96 / 1.02` | `--leading-h1 / -h2` | 26 / 12 |
+| `letter-spacing: 0.12em` | `--tracking-mono` | 42 |
+| `letter-spacing: -0.025em / -0.005em` | `--tracking-display / -body` | 26 / 16 |
+| `200ms / 1100ms / 1400ms` | `--dur-fast / -reveal / -slow` | 43 / 5 / 2 |
+| `cubic-bezier(.22,1,.36,1)` | `--ease` | 22 |
+| `rgba(246,241,232,x)` | `rgba(var(--paper-rgb),x)` | 82 |
+| `rgba(0,0,0,x)` *(noir→encre chaude)* | `rgba(var(--ink-rgb),x)` | 49 |
+| `rgba(12,11,9,x)` | `rgba(var(--ink-rgb),x)` / `--hairline(-strong)` | 36 |
+| `rgba(201,79,46,x)` | `rgba(var(--accent-rgb),x)` | 10 |
+| hex nus `#0C0B09/#C94F2E/#EFE9DD` *(CSS only, pas SVG/JS)* | `--ink / --accent / --color-paper-2` | 42 |
+
+### Bucket B — Near-dups (valeur légèrement ≠ → snapper) — NON byte-équiv, GF-1
+Le cas exact de Simon : valeur créée au lieu de réutiliser. À collapser pour un cadre restrictif.
+
+| Famille | Variantes créées | Canonique | Compte |
+|---|---|---|---|
+| Durée UI | `220ms` (114), 240/280/320ms | `--dur-fast` 200 (ou créer `--dur-ui` 220 si 114× justifie) | ~200 |
+| font-size corps | `13px` (68), `12px` (65), `15px` (40) | `--text-body-sm` 14 | ~250 |
+| line-height corps | `1.55` (62), `1.6` (51), `1.4` (56) | `--leading-body` 1.5 | ~250 |
+| tracking | `0.14em` (51), `0.1em` (48), `0.08em` (32) | `--tracking-mono` 0.12 | ~130 |
+| near-black | `#111` / `#1A1A1A` (14) | `--ink` | 14 |
+| Tailwind grays | `#6B7280/#F9FAFB/#e5e7eb` (comparer/integrations) | `--muted / --paper / --hairline` | ~30 |
+| largeurs | `1100/1200/1240px` ≈ `--wrap-tight` 1120 ; `1400/1500` ≈ `--wrap(-wide)` | wrap tokens | ~60 |
+| terracotta bâtard | `rgba(181,71,42)` | `--accent` (201,79,46) | 2 |
+
+### Bucket C — GAPS (aucun token → fragmentation pure ; créer échelle restreinte = rule 28 tâche dédiée)
+| Catégorie manquante | Paysage actuel | Échelle minimale proposée |
+|---|---|---|
+| **Rayons** (0 token) | `2px`×39, `4px`×12, `8px`×5, `12px`×3, `999px`×9, `50%`×12 | `--radius-sm:2 -md:8 -lg:12 -pill:999` + `50%` |
+| **Font-weight** (0 token) | 400×258, 500×57, 600×29, 100×8 | `--fw-regular:400 -medium:500 -semibold:600` |
+| **Largeur prose** (0 token) | 720×31, 900×46, 640×30 | `--wrap-prose:720 --wrap-read:900` |
+| **Easing spring** (0 token) | `cubic-bezier(.34,1.56,.64,1)` ×3 | `--ease-spring` |
+
+### Bucket D — Hors-palette sémantique (raison réelle possible → arbitrage)
+- Couleurs catégories pédagogiques `#3A7D44`/`#7B4EA6`/`#7FB069` (EcoleHub/CourseDetail) — système difficulté. Intentionnel ou brandifier ?
+- Taxonomy `#1E40AF/#7C3AED/#EA580C` (`taxonomies.ts`).
+- Feedback `--color-success/-error/-success-subtle` (verts/rouges hors-palette).
+
+### Bugs latents (à corriger quel que soit l'arbitrage)
+- Tokens **référencés mais supprimés/jamais définis** (marchent par fallback) : `--color-surface/-border/-success-subtle`, `--shadow-lift`, `--text-primary`, `--font-body`.
+- `EssayTemplate` : `rgba(255,255,255,0.15)` reliquat dark-mode, **polarité inversée** → `rgba(var(--ink-rgb),0.18)`.
+- `archive.astro` : fallback `cubic-bezier(0.2,0.8,0.2,1)` ≠ `--ease` (piège silencieux).
+- `design-system.astro:163` : label `--muted-2` avec valeur fausse `#9A948D`.
+
+### Recommandation d'industrialisation
+1. **Codemod déterministe** `scripts/tokenize-literals.mjs` pour Bucket A (byte-équiv, CSS-only `.astro <style>` + `.css`, exclut `.tsx/.ts/SVG`). 0 pixel changé.
+2. **Étendre `check-token-purity.mjs`** : interdire en CI un littéral == valeur d'un token (anti-régression → DS reste enforced).
+3. **Bucket B** : snapper par famille, GF-1 (cadre restrictif voulu).
+4. **Bucket C** : créer échelles `--radius-*/--fw-*/--wrap-prose/--ease-spring` (rule 28).
+5. **Bucket D** : arbitrage Simon.
