@@ -71,6 +71,13 @@ import ServicesGrid from '../components/sections/ServicesGrid.astro';
 import MaturityPyramid from '../components/sections/MaturityPyramid.astro';
 import UseCaseIndex from '../components/sections/UseCaseIndex.astro';
 import CaseCardGrid from '../components/sections/CaseCardGrid.astro';
+import TierPyramidSvg from '../components/sections/TierPyramidSvg.astro';
+import OfferTierGrid from '../components/sections/OfferTierGrid.astro';
+import TeamCardGrid from '../components/sections/TeamCardGrid.astro';
+import HeroAtlas from '../components/sections/HeroAtlas.astro';
+import PersonaAttributesGrid from '../components/sections/PersonaAttributesGrid.astro';
+import EditorialSplitGrid from '../components/sections/EditorialSplitGrid.astro';
+import ComingSoonPills from '../components/sections/ComingSoonPills.astro';
 import CommitmentsGrid from '../components/sections/CommitmentsGrid.astro';
 import BrandedCallout from '../components/sections/BrandedCallout.astro';
 import EditorialPreview from '../components/sections/EditorialPreview.astro';
@@ -123,9 +130,9 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
     tags: ['hero', 'hub', 'listing', 'editorial'],
-    status: 'stable',
-    description_fr: "Hero éditorial de hub avec titre monumental et lede courte, sans appel à l'action, pour pages de listing.",
-    description_en: 'Editorial hub hero with a monumental headline and short lede, without a call to action, for listing pages.',
+    status: 'deprecated',
+    description_fr: "(déprécié → hero-hub-masthead variant=listing) Hero éditorial de hub avec titre monumental et lede courte, sans appel à l'action, pour pages de listing.",
+    description_en: '(deprecated → hero-hub-masthead variant=listing) Editorial hub hero with a monumental headline and short lede, without a call to action, for listing pages.',
   },
   'hero-service-detail': {
     component: HeroServiceDetail,
@@ -203,9 +210,9 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
     tags: ['hero', 'utility', 'masthead', 'editorial'],
-    status: 'stable',
-    description_fr: 'Masthead utilitaire générique (about, méthode, academy intro) : kicker, h1 monumental, lede display italique, alignement gauche ou centré.',
-    description_en: 'Generic utility masthead (about, method, academy intro): kicker, monumental h1, italic display lede, left or centered alignment.',
+    status: 'deprecated',
+    description_fr: '(déprécié → hero-hub-masthead variant=detail) Masthead utilitaire générique (about, méthode, academy intro) : kicker, h1 monumental, lede display italique, alignement gauche ou centré.',
+    description_en: '(deprecated → hero-hub-masthead variant=detail) Generic utility masthead (about, method, academy intro): kicker, monumental h1, italic display lede, left or centered alignment.',
   },
   'hero-academy-hub': {
     component: HeroCentered,
@@ -222,10 +229,10 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
-    tags: ['hero', 'hub', 'masthead', 'index'],
+    tags: ['hero', 'hub', 'masthead', 'index', 'unified', 'variant'],
     status: 'stable',
-    description_fr: 'Masthead mutualisé pour pages d\'index (offres, cas, secteurs, technologies) : kicker mono, h1 italique display, lede court.',
-    description_en: 'Shared masthead for index pages (services, cases, sectors, technologies): mono kicker, italic display h1, short lede.',
+    description_fr: "Masthead unifié paramétrable (variant hub|listing|detail) : absorbe hero-hub-listing et hero-utility-masthead. hub = kicker mono + h1 italique display + lede court ; listing = deco SVG optionnelle + h1 monumental + lede révélée ; detail = kicker optionnel + h1 + lede display italique, alignement gauche ou centré.",
+    description_en: 'Unified configurable masthead (variant hub|listing|detail): absorbs hero-hub-listing and hero-utility-masthead. hub = mono kicker + italic display h1 + short lede; listing = optional SVG deco + monumental h1 + revealed lede; detail = optional kicker + h1 + italic display lede, left or centered alignment.',
   },
   'trust-legal-section': {
     component: TrustLegalSection,
@@ -646,6 +653,76 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Table éditoriale de cas clients en six colonnes (index, client, secteur, stack, impact, flèche) façon compte rendu d'audit.",
     description_en: 'Editorial six-column case-study table (index, client, sector, stack, impact, arrow) styled like an audit report.',
+  },
+  'tier-pyramid-svg': {
+    component: TierPyramidSvg,
+    category: 'marketing',
+    subcategory: 'Hero Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['offers', 'pyramid', 'tiers', 'svg'],
+    status: 'stable',
+    description_fr: 'Pyramide SVG isocèle à trois niveaux pour visualiser la progression Découverte · Transformation · Partenariat.',
+    description_en: 'Three-tier isosceles SVG pyramid showing the Discovery · Transformation · Partnership offer progression.',
+  },
+  'offer-tier-grid': {
+    component: OfferTierGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['offers', 'tiers', 'pricing', 'cards'],
+    status: 'stable',
+    description_fr: 'Section de palier d’offres avec eyebrow, H2, lede, grille de cartes et variante hero sombre optionnelle.',
+    description_en: 'Offer-tier section with eyebrow, headline, lede, card grid, and optional dark featured hero variant.',
+  },
+  'team-card-grid': {
+    component: TeamCardGrid,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['team', 'authors', 'cards', 'profiles'],
+    status: 'stable',
+    description_fr: 'Grille auto-fill de cartes auteurs avec photo, rôle, description, compteur de publications et CTA profil.',
+    description_en: 'Auto-fill author card grid with photo, role, description, publication count, and profile CTA.',
+  },
+  'hero-atlas': {
+    component: HeroAtlas,
+    category: 'marketing',
+    subcategory: 'Hero Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'atlas', 'pillars', 'map'],
+    status: 'stable',
+    description_fr: 'Hero Atlas en deux colonnes avec signature grid, copy éditoriale, CTAs et mini-map des quatre piliers.',
+    description_en: 'Two-column Atlas hero with signature grid, editorial copy, CTAs, and a four-pillar mini-map.',
+  },
+  'persona-attributes-grid': {
+    component: PersonaAttributesGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['persona', 'attributes', 'grid', 'meta'],
+    status: 'stable',
+    description_fr: 'Grille persona 2×2 pain points / critères / objections / preuves avec footer méta sombre en trois colonnes.',
+    description_en: 'Persona 2×2 grid for pain points, criteria, objections, and proof points with a dark three-column meta footer.',
+  },
+  'editorial-split-grid': {
+    component: EditorialSplitGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['editorial', 'resources', 'blog', 'whitepapers'],
+    status: 'stable',
+    description_fr: 'Split éditorial deux colonnes pour lister blog et livres blancs, chacun avec cartes connexes et CTA.',
+    description_en: 'Two-column editorial split for blog and white papers, each with related cards and CTA.',
+  },
+  'coming-soon-pills': {
+    component: ComingSoonPills,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['coming-soon', 'pills', 'sectors', 'teaser'],
+    status: 'stable',
+    description_fr: 'Bande teaser fond paper-2 avec kicker, H2 et liste de pills pour éléments à venir.',
+    description_en: 'Paper-2 teaser band with kicker, headline, and pill list for upcoming items.',
   },
   'commitments-grid': {
     component: CommitmentsGrid,

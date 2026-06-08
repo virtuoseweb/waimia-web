@@ -1,0 +1,101 @@
+---
+// Section catalogue · persona-attributes-grid
+// Source fidèle : `src/pages/ressources/personas/[slug].astro` `.persona-detail__grid`.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'persona-attributes-grid'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<div class="persona-detail__grid">
+  {data.blocks.map((block) => (
+    <section class="persona-detail__block">
+      <span class="persona-kicker">{isFr ? block.kicker_fr : block.kicker_en}</span>
+      <ul>
+        {(isFr ? block.items_fr : block.items_en).map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+  ))}
+
+  <section class="persona-detail__meta">
+    {data.meta.map((item) => (
+      <div>
+        <span class="persona-kicker persona-kicker--dark">{isFr ? item.kicker_fr : item.kicker_en}</span>
+        <p>{isFr ? item.value_fr : item.value_en}</p>
+      </div>
+    ))}
+  </section>
+</div>
+
+<style>
+  .persona-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .persona-detail__block {
+    padding: 24px;
+    border: 1px solid var(--hairline);
+    background: var(--paper-2);
+  }
+  .persona-kicker {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .persona-kicker--dark {
+    margin-bottom: 8px;
+  }
+  .persona-detail__block ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .persona-detail__block li {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: 1.5;
+    color: var(--ink-2);
+    padding-left: 16px;
+    position: relative;
+  }
+  .persona-detail__block li::before {
+    content: '▸';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+  }
+  .persona-detail__meta {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px;
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .persona-detail__meta p {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.2;
+    color: var(--paper);
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .persona-detail__grid { grid-template-columns: 1fr; }
+    .persona-detail__meta { grid-template-columns: 1fr; grid-column: span 1; }
+  }
+</style>

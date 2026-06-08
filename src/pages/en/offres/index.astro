@@ -3,9 +3,11 @@
 export const prerender = true;
 
 import Base from '../../../layouts/Base.astro';
-import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../../schemas/sections';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import HeroCentered from '../../../components/sections/HeroCentered.astro';
+import OfferTierGrid from '../../../components/sections/OfferTierGrid.astro';
+import TierPyramidSvg from '../../../components/sections/TierPyramidSvg.astro';
 import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 
 const offresJsonLd = {
@@ -29,6 +31,18 @@ const offresJsonLd = {
   ],
 };
 
+const mastheadData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'hub' as const,
+  kicker_fr: '§ Offres · Waimia',
+  kicker_en: '§ Offers · Waimia',
+  h1_fr: 'Trois <i>niveaux</i>.<br/>Une <i>méthode</i>.',
+  h1_en: 'Three <i>levels</i>.<br/>One <i>method</i>.',
+  lede_fr: 'Découverte, transformation, partenariat. Chaque offre est une marche. Choisissez la bonne.',
+  lede_en: 'Discovery, transformation, partnership. Each offer is a step. Choose the right one.',
+  decoration: false as const, align: 'left' as const,
+} satisfies SectionByType<'hero-hub-masthead'>;
+
 const ctaData = {
   type: 'cta-final' as const,
   h2_fr: 'Prêt à livrer un <em>agent</em>,<br />pas un slide deck ?',
@@ -39,6 +53,183 @@ const ctaData = {
   cta_secondary: { label_fr: 'Voir la pyramide →', label_en: 'See the pyramid →', href: '/en/offres', variant: 'ghost' as const },
   background: 'paper' as const,
 } satisfies SectionByType<'cta-final'>;
+
+const pyramidData = {
+  type: 'tier-pyramid-svg' as const,
+  aria_label_fr: 'Pyramide des offres Waimia — trois tiers',
+  aria_label_en: 'Waimia offer pyramid — three tiers',
+  tiers: [
+    { roman: 'I', label_fr: 'Découverte', label_en: 'Discovery' },
+    { roman: 'II', label_fr: 'Transformation', label_en: 'Transformation' },
+    { roman: 'III', label_fr: 'Partenariat', label_en: 'Partnership' },
+  ],
+} satisfies SectionByType<'tier-pyramid-svg'>;
+
+const tierDiscoveryData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'standard' as const,
+  wrap: true,
+  eyebrow_fr: 'I · DÉCOUVERTE',
+  eyebrow_en: 'I · DISCOVERY',
+  h2_fr: 'Comprendre avant de décider.',
+  h2_en: 'Understand before deciding.',
+  lede_fr: "Avant d'investir dans un système, posez le diagnostic.",
+  lede_en: 'Before investing in a system, run the diagnosis.',
+  offers: [
+    {
+      price_fr: 'À PARTIR DE 5 K€',
+      price_en: 'FROM €5K',
+      title_fr: 'Audit Maturité IA',
+      title_en: 'AI Maturity Audit',
+      lead_fr: 'Cartographie de vos process, identification des leviers IA prioritaires, feuille de route chiffrée.',
+      lead_en: 'Process mapping, identification of priority AI levers, costed roadmap.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/audit-maturite-ia',
+    },
+    {
+      price_fr: '1 À 5 K€',
+      price_en: '€1K TO €5K',
+      title_fr: 'Activation IA',
+      title_en: 'AI Activation',
+      lead_fr: 'Cinq jours. Un workflow en production. Pas un POC, pas une démo. Un résultat mesurable dès le vendredi.',
+      lead_en: 'Five days. One workflow in production. Not a POC, not a demo. A measurable result by Friday.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/activation-ia',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
+
+const tierTransformationData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'featured' as const,
+  wrap: false,
+  eyebrow_fr: 'II · TRANSFORMATION',
+  eyebrow_en: 'II · TRANSFORMATION',
+  h2_fr: 'Construire les systèmes qui durent.',
+  h2_en: 'Build systems that last.',
+  lede_fr: 'Site, CRM, analytics, productivité — connectés et mesurés.',
+  lede_en: 'Website, CRM, analytics, productivity — connected and measured.',
+  featured_card: {
+    eyebrow_fr: 'OFFRE PHARE · 5 À 20 K€',
+    eyebrow_en: 'FLAGSHIP OFFER · €5K TO €20K',
+    title_fr: 'Growth System IA',
+    title_en: 'Growth System AI',
+    sub_fr: 'Pas un site. Pas un CRM. Un système.',
+    sub_en: 'Not a website. Not a CRM. A system.',
+    lead_fr: 'Site, CRM, relances, pilotage — connectés et mesurés. Le mardi on câble. Le vendredi on mesure.',
+    lead_en: 'Website, CRM, follow-ups, reporting — connected and measured. Tuesday we wire. Friday we measure.',
+    cta_fr: 'Activer →',
+    cta_en: 'Activate →',
+    href: '/offres/growth-system-ia',
+  },
+  offers: [
+    {
+      price_fr: '8 À 35 K€',
+      price_en: '€8K TO €35K',
+      title_fr: 'Growth Intelligence',
+      title_en: 'Growth Intelligence',
+      lead_fr: 'KPI commerciaux et opérationnels en temps réel. Des chiffres lisibles avant la réunion.',
+      lead_en: 'Commercial and operational KPIs in real time. Readable numbers before the meeting.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/growth-intelligence',
+    },
+    {
+      price_fr: '6 À 25 K€',
+      price_en: '€6K TO €25K',
+      title_fr: 'Productivité Opérationnelle IA',
+      title_en: 'Operational Productivity AI',
+      lead_fr: 'Excel augmenté, Office connecté, workflows internes qui tournent sans relance humaine.',
+      lead_en: 'Augmented Excel, connected Office, internal workflows that run without human follow-up.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/productivite-operationnelle-ia',
+    },
+    {
+      price_fr: 'SITE WEB',
+      price_en: 'WEBSITE',
+      title_fr: 'Site Web IA',
+      title_en: 'AI Website',
+      lead_fr: 'Un site conçu pour convertir, mesuré, relié à votre CRM. Pas une vitrine statique.',
+      lead_en: 'A site built to convert, measured, connected to your CRM. Not a static brochure.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/site-web-ia',
+    },
+    {
+      price_fr: 'APPLICATION',
+      price_en: 'APPLICATION',
+      title_fr: 'Application IA PME',
+      title_en: 'AI App for SMEs',
+      lead_fr: 'Un outil métier sur-mesure, entraîné sur vos données, intégré dans vos workflows existants.',
+      lead_en: 'A bespoke business tool, trained on your data, integrated into your existing workflows.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/application-ia-pme',
+    },
+    {
+      price_fr: 'REVOPS',
+      price_en: 'REVOPS',
+      title_fr: 'RevOps',
+      title_en: 'RevOps',
+      lead_fr: 'Alignement commercial, marketing, support sur un pipeline unique. Chaque friction identifiée et éliminée.',
+      lead_en: 'Sales, marketing, and support aligned on a single pipeline. Every friction identified and eliminated.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/revops',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
+
+const tierPartnershipData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'transparent' as const,
+  wrap: true,
+  eyebrow_fr: 'III · PARTENARIAT',
+  eyebrow_en: 'III · PARTNERSHIP',
+  h2_fr: 'Pour ceux qui veulent aller plus loin.',
+  h2_en: 'For those who want to go further.',
+  lede_fr: 'Un engagement dans la durée. Une équipe dédiée. Une ambition partagée.',
+  lede_en: 'A long-term commitment. A dedicated team. A shared ambition.',
+  lede_max_width: '560px',
+  offers: [
+    {
+      price_fr: 'À PARTIR DE 3 500 €',
+      price_en: 'FROM €3,500',
+      title_fr: 'Claude Cowork',
+      title_en: 'Claude Cowork',
+      lead_fr: 'Travaillez directement avec Claude et Simon. Sessions profondes, stratégie IA, implémentation en direct.',
+      lead_en: 'Work directly with Claude and Simon. Deep sessions, AI strategy, live implementation.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/claude-cowork',
+    },
+    {
+      price_fr: 'CONSEIL',
+      price_en: 'ADVISORY',
+      title_fr: 'Conseil',
+      title_en: 'Advisory',
+      lead_fr: "Accompagnement stratégique sur le temps long. Décisions d'architecture IA, gouvernance, formation équipes.",
+      lead_en: 'Long-term strategic support. AI architecture decisions, governance, team training.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/conseil',
+    },
+    {
+      price_fr: '25 À 150 K€+',
+      price_en: '€25K TO €150K+',
+      title_fr: 'Infrastructure IA',
+      title_en: 'AI Infrastructure',
+      lead_fr: "Quand les pilotes IA s'éparpillent. Une infra commune, une gouvernance, une équipe interne formée.",
+      lead_en: 'When AI pilots scatter. A shared infrastructure, governance, and a trained internal team.',
+      cta_fr: "Voir l'offre →",
+      cta_en: 'See offer →',
+      href: '/offres/infrastructure-ia',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
 ---
 <Base
   title="Offers · Engagement pyramid · Waimia"
@@ -51,158 +242,19 @@ const ctaData = {
   </div>
 
   <!-- 1. EDITORIAL HERO -->
-  <section class="hub-mast">
-    <div class="wrap-wide">
-      <Kicker class="hub-kicker">§ Offers · Waimia</Kicker>
-      <h1 class="hub-h1 reveal-mask-up">
-        Three <i>levels</i>.<br/>One <i>method</i>.
-      </h1>
-      <p class="hub-lede reveal" style="transition-delay:200ms">
-        Discovery, transformation, partnership.
-        Each offer is a step. Choose the right one.
-      </p>
-    </div>
-  </section>
+  <HeroCentered data={mastheadData} lang="en" />
 
   <!-- 2. SIGNATURE PYRAMID SVG -->
-  <div class="pyramid-wrap reveal">
-    <svg
-      viewBox="0 0 800 440"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      aria-label="Waimia offer pyramid — three tiers"
-    >
-      <!-- Isosceles triangle apex top, base bottom -->
-      <polygon
-        points="400,40 80,400 720,400"
-        fill="none"
-        stroke="var(--ink)"
-        stroke-width="0.5"
-      />
-      <!-- Tier III / Tier II line — y=175 — computed intersections -->
-      <line x1="280" y1="175" x2="520" y2="175" stroke="var(--ink)" stroke-width="0.5"/>
-      <!-- Tier II / Tier I line — y=295 — computed intersections -->
-      <line x1="173" y1="295" x2="627" y2="295" stroke="var(--ink)" stroke-width="0.5"/>
-
-      <!-- Tier III labels (apex) -->
-      <text x="400" y="101" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--muted)" letter-spacing="0.1em">III</text>
-      <text x="400" y="118" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" fill="var(--muted-2)">Partnership</text>
-
-      <!-- Tier II labels (middle) -->
-      <text x="400" y="227" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--muted)" letter-spacing="0.1em">II</text>
-      <text x="400" y="244" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" fill="var(--muted-2)">Transformation</text>
-
-      <!-- Tier I labels (base) -->
-      <text x="400" y="340" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--muted)" letter-spacing="0.1em">I</text>
-      <text x="400" y="357" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" fill="var(--muted-2)">Discovery</text>
-    </svg>
-  </div>
+  <TierPyramidSvg data={pyramidData} lang="en" />
 
   <!-- 3. TIER I · DISCOVERY -->
-  <section class="tier-section tier-i wrap-wide">
-    <p class="tier-eyebrow reveal-snap">I · DISCOVERY</p>
-    <h2 class="tier-h2 reveal">Understand before deciding.</h2>
-    <p class="tier-lede reveal" style="transition-delay:100ms">
-      Before investing in a system, run the diagnosis.
-    </p>
-    <div class="tier-grid reveal-stagger">
-      <a href="/offres/audit-maturite-ia" class="offer-card">
-        <p class="card-price">FROM €5K</p>
-        <h3 class="card-title">AI Maturity Audit</h3>
-        <p class="card-lead">Process mapping, identification of priority AI levers, costed roadmap.</p>
-        <span class="card-cta">See offer →</span>
-      </a>
-      <a href="/offres/activation-ia" class="offer-card">
-        <p class="card-price">€1K TO €5K</p>
-        <h3 class="card-title">AI Activation</h3>
-        <p class="card-lead">Five days. One workflow in production. Not a POC, not a demo. A measurable result by Friday.</p>
-        <span class="card-cta">See offer →</span>
-      </a>
-    </div>
-  </section>
+  <OfferTierGrid data={tierDiscoveryData} lang="en" />
 
   <!-- 4. TIER II · TRANSFORMATION -->
-  <section class="tier-section tier-ii">
-    <div class="wrap-wide">
-      <p class="tier-eyebrow reveal-snap">II · TRANSFORMATION</p>
-      <h2 class="tier-h2 reveal">Build systems that last.</h2>
-      <p class="tier-lede reveal" style="transition-delay:100ms">
-        Website, CRM, analytics, productivity — connected and measured.
-      </p>
-
-      <!-- Hero card Growth System AI -->
-      <a href="/offres/growth-system-ia" class="hero-card reveal">
-        <p class="hero-card-eyebrow">FLAGSHIP OFFER · €5K TO €20K</p>
-        <h3 class="hero-card-title">Growth System AI</h3>
-        <p class="hero-card-sub">Not a website. Not a CRM. A system.</p>
-        <p class="hero-card-lead">Website, CRM, follow-ups, reporting — connected and measured. Tuesday we wire. Friday we measure.</p>
-        <span class="hero-card-cta">Activate →</span>
-      </a>
-
-      <!-- Grid 5 remaining offers -->
-      <div class="tier-grid tier-ii-grid reveal-stagger">
-        <a href="/offres/growth-intelligence" class="offer-card">
-          <p class="card-price">€8K TO €35K</p>
-          <h3 class="card-title">Growth Intelligence</h3>
-          <p class="card-lead">Commercial and operational KPIs in real time. Readable numbers before the meeting.</p>
-          <span class="card-cta">See offer →</span>
-        </a>
-        <a href="/offres/productivite-operationnelle-ia" class="offer-card">
-          <p class="card-price">€6K TO €25K</p>
-          <h3 class="card-title">Operational Productivity AI</h3>
-          <p class="card-lead">Augmented Excel, connected Office, internal workflows that run without human follow-up.</p>
-          <span class="card-cta">See offer →</span>
-        </a>
-        <a href="/offres/site-web-ia" class="offer-card">
-          <p class="card-price">WEBSITE</p>
-          <h3 class="card-title">AI Website</h3>
-          <p class="card-lead">A site built to convert, measured, connected to your CRM. Not a static brochure.</p>
-          <span class="card-cta">See offer →</span>
-        </a>
-        <a href="/offres/application-ia-pme" class="offer-card">
-          <p class="card-price">APPLICATION</p>
-          <h3 class="card-title">AI App for SMEs</h3>
-          <p class="card-lead">A bespoke business tool, trained on your data, integrated into your existing workflows.</p>
-          <span class="card-cta">See offer →</span>
-        </a>
-        <a href="/offres/revops" class="offer-card">
-          <p class="card-price">REVOPS</p>
-          <h3 class="card-title">RevOps</h3>
-          <p class="card-lead">Sales, marketing, and support aligned on a single pipeline. Every friction identified and eliminated.</p>
-          <span class="card-cta">See offer →</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <OfferTierGrid data={tierTransformationData} lang="en" />
 
   <!-- 5. TIER III · PARTNERSHIP -->
-  <section class="tier-section tier-iii wrap-wide">
-    <p class="tier-eyebrow reveal-snap">III · PARTNERSHIP</p>
-    <h2 class="tier-h2 reveal">For those who want to go further.</h2>
-    <p class="tier-lede reveal" style="transition-delay:100ms; max-width:560px">
-      A long-term commitment. A dedicated team. A shared ambition.
-    </p>
-    <div class="tier-grid tier-iii-grid reveal-stagger">
-      <a href="/offres/claude-cowork" class="offer-card offer-card--transparent">
-        <p class="card-price">FROM €3,500</p>
-        <h3 class="card-title">Claude Cowork</h3>
-        <p class="card-lead">Work directly with Claude and Simon. Deep sessions, AI strategy, live implementation.</p>
-        <span class="card-cta">See offer →</span>
-      </a>
-      <a href="/offres/conseil" class="offer-card offer-card--transparent">
-        <p class="card-price">ADVISORY</p>
-        <h3 class="card-title">Advisory</h3>
-        <p class="card-lead">Long-term strategic support. AI architecture decisions, governance, team training.</p>
-        <span class="card-cta">See offer →</span>
-      </a>
-      <a href="/offres/infrastructure-ia" class="offer-card offer-card--transparent">
-        <p class="card-price">€25K TO €150K+</p>
-        <h3 class="card-title">AI Infrastructure</h3>
-        <p class="card-lead">When AI pilots scatter. A shared infrastructure, governance, and a trained internal team.</p>
-        <span class="card-cta">See offer →</span>
-      </a>
-    </div>
-  </section>
+  <OfferTierGrid data={tierPartnershipData} lang="en" />
 
   <!-- 6. SHORT MANIFESTO -->
   <section class="manifesto">
@@ -220,214 +272,6 @@ const ctaData = {
 </Base>
 
 <style>
-  /* ── MAST ──────────────────────────────────────────────────── */
-  .hub-mast {
-    padding: 140px 32px clamp(48px, 6vw, 88px);
-  }
-  :global(.hub-kicker) {
-    display: block;
-    margin-bottom: 24px;
-  }
-  .hub-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(60px, 11vw, 180px);
-    font-style: italic;
-    font-weight: 400;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    margin: 0;
-  }
-  .hub-h1 i {
-    color: var(--accent);
-    font-style: italic;
-  }
-  .hub-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(17px, 1.6vw, 19px);
-    line-height: 1.65;
-    color: var(--muted);
-    margin: 32px 0 0;
-    max-width: 580px;
-  }
-
-  /* ── PYRAMIDE ──────────────────────────────────────────────── */
-  .pyramid-wrap {
-    display: flex;
-    justify-content: center;
-    padding: clamp(48px, 6vw, 80px) 32px;
-  }
-  .pyramid-wrap svg {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-  }
-
-  /* ── TIER SECTIONS ─────────────────────────────────────────── */
-  .tier-section {
-    padding-top: clamp(80px, 10vw, 128px);
-    padding-bottom: clamp(80px, 10vw, 128px);
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .tier-ii {
-    background: var(--paper-2);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .tier-ii .wrap-wide {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  .tier-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted-2);
-    margin: 0 0 20px;
-  }
-  .tier-h2 {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 6vw, 88px);
-    font-weight: 400;
-    line-height: 0.96;
-    letter-spacing: -0.024em;
-    margin: 0 0 18px;
-  }
-  .tier-lede {
-    font-family: var(--font-sans);
-    font-size: clamp(16px, 1.5vw, 18px);
-    color: var(--muted);
-    line-height: 1.65;
-    margin: 0 0 clamp(36px, 5vw, 60px);
-    max-width: 580px;
-  }
-
-  /* ── GRIDS ─────────────────────────────────────────────────── */
-  .tier-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(16px, 2.5vw, 28px);
-  }
-  .tier-ii-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: clamp(20px, 3vw, 32px);
-  }
-  .tier-iii-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  /* ── OFFER CARD ────────────────────────────────────────────── */
-  .offer-card {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: clamp(24px, 3.5vw, 44px);
-    border: 1px solid var(--hairline);
-    background: var(--paper-2);
-    color: var(--ink);
-    transition: border-color 220ms var(--ease), transform 200ms var(--ease);
-  }
-  .offer-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .offer-card--transparent {
-    background: transparent;
-  }
-  .offer-card--transparent:hover {
-    background: var(--paper-2);
-    border-color: var(--accent);
-  }
-  .card-price {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted-2);
-    margin: 0;
-  }
-  .card-title {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3.5vw, 48px);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    margin: 0;
-  }
-  .card-lead {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.6;
-    margin: 0;
-    flex: 1;
-  }
-  .card-cta {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    margin-top: auto;
-  }
-
-  /* ── HERO CARD · Growth System AI ─────────────────────────── */
-  .hero-card {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    padding: clamp(36px, 5vw, 64px);
-    background: var(--ink);
-    color: var(--paper);
-    border: 2px solid var(--accent);
-    transition: transform 260ms var(--ease);
-  }
-  .hero-card:hover {
-    transform: translateY(-3px);
-  }
-  .hero-card-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0;
-  }
-  .hero-card-title {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 8vw, 96px);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    margin: 0;
-  }
-  .hero-card-sub {
-    font-family: var(--font-display);
-    font-size: clamp(20px, 2.4vw, 28px);
-    font-style: italic;
-    color: var(--accent);
-    line-height: 1.15;
-    margin: 0;
-  }
-  .hero-card-lead {
-    font-family: var(--font-sans);
-    font-size: clamp(15px, 1.6vw, 17px);
-    line-height: 1.6;
-    color: rgba(246, 241, 232, 0.78);
-    margin: 0;
-    max-width: 640px;
-  }
-  .hero-card-cta {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-  }
-
   /* ── MANIFESTO ─────────────────────────────────────────────── */
   .manifesto {
     padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 80px);
@@ -453,30 +297,7 @@ const ctaData = {
   }
 
   /* ── RESPONSIVE ────────────────────────────────────────────── */
-  @media (max-width: 900px) {
-    .tier-grid,
-    .tier-ii-grid,
-    .tier-iii-grid {
-      grid-template-columns: 1fr;
-    }
-  }
   @media (max-width: 640px) {
-    .hub-mast {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    .tier-section {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    .tier-ii .wrap-wide {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    .pyramid-wrap {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
     .manifesto {
       padding-left: 20px;
       padding-right: 20px;

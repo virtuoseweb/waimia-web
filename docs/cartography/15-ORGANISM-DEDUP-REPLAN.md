@@ -38,3 +38,20 @@ Pour CHACUNE des 9 paires home (les 2 ci-dessus + les 7 de doc 14) : choisir **(
 ## État dédup à ce jour (preuve)
 - **FAIT** (`8df9546`) : 5 organismes dupliqués 0-consommateur supprimés (HowWeShip/Manifesto/OperatingLayer/WhyAIStalls/WritingNotes) → jumeaux catalogués = source unique. + 2 sans jumeau (Offices/SigBand).
 - **RESTE (gated curation)** : 9 organismes encore inline dans `index.astro` (Hero, SystemArchitecture, SixServices, Pyramid, Departments, Cases, FieldNotes, BookSession, FooterMarquee) + 5 keep-bespoke chrome (AtlasGrid/CookiesBanner/PersonaSwitcher/Stub/ManifestoAccent).
+
+## CLÔTURE 2026-06-04 — dédup home (6 convertis + 3 jumeaux retenus, migration différée ; 5 chrome bespoke)
+Les 6 organismes **alignables** ont été convertis en jumeaux catalogués byte-fidèles (data-driven FR+EN), chacun avec GF-1 0-delta :
+- SixServices → `services-grid` (`d27b842`) · Pyramid → `maturity-pyramid` (`519b4a0`) · Departments → `use-case-index` (`3be5ff1`) · SystemArchitecture → `architecture-diagram` (`1333d3b`) · Cases → `case-card-grid` (`0d655ef`) · FieldNotes → `editorial-preview` (`a637c34`).
+- **GF-1 home re-vérifié post-reprise (crash 2026-06-04)** : build `Complete!`, above-fold hero OK, `getComputedStyle` H1/CTA opacity 1 / transform neutre, les reveals des 6 sections passent tous à opacity 1 au scroll (0 bloqué), 0 erreur console. Screenshot `/tmp/gf1-home-abovefold.png`.
+
+**MAJ décision Simon 2026-06-04 (après comparaison visuelle `/compare/organisms`) — les 3 PASSENT au jumeau catalogue (migration templates différée) :**
+Simon a demandé une page de comparaison A/B isolée (organism actuel vs jumeau, `src/pages/compare/organisms.astro`, noindex throwaway) pour trancher visuellement. Verdicts :
+- **Hero → `hero-home`** : statiquement **identiques** (les View Transitions ne jouent qu'au morph de navigation, invisible en statique). Simon : « on s'en fiche de l'animation » → `hero-home` retenu canonique.
+- **BookSession → `cta-final`** : Simon préfère le design centré → **`CtaFinal.astro` modifié pour être CENTRÉ** (`.cta-final__inner` align-items/text-align/margin-inline center + `.cta-final__ctas` justify-center). Border-radius signature **abandonné** (non visible, confirmé Simon). **Écart de contenu COMBLÉ 2026-06-05** (trigger Simon « il manque des choses vs bespoke ») : `cta-final` reçoit 7 champs **optionnels** (`chapter_num`/`chapter_title_*` → ChapterLabel ; `availability_*` → badge mono « ● DISPONIBLE » ; `reassurance_*` → sous-texte serif italique accent) + demo remplie avec `cta_secondary` (email ghost). Rendu conditionnel → 0 impact sur les ~20 pages live qui ne passent pas ces champs. **GF-1 prouvé** : `/preview/cta-final` getComputedStyle = chapter/h2/badge/sub opacity 1 + centrés (centre x=720/1440) + btnCount=2, screenshot `/tmp/gf1-ctafinal-abovefold.png`. Parité BookSession atteinte.
+- **FooterMarquee → `marquee-band`** : `marquee-band` retenu canonique tel quel.
+
+**Statut manifest** : Hero/BookSession/FooterMarquee repassés `status:'merge'` (jumeau canonique, migration templates différée). Les organisms restent **live sur la home** jusqu'à l'audit complet catalogue (gate Simon : « migration une fois que tous templates/sections/pages traités+référencés »).
+
+**Catalogue** : `/agence/design-system` §5 affiche désormais les **5 bespoke permanents** (chrome : AtlasGrid, CookiesBanner, PersonaSwitcher, Stub, ManifestoAccent) + note sur les 3 transitoires (jumeau canonique §6). GF-1 : `cta-final` centré vérifié `getComputedStyle` sur `/preview/cta-final` + live `/offres/conseil` + `/cas/plateau` (marges symétriques), build `Complete!`.
+
+⚠️ NE PAS toucher la home/les templates avant l'audit complet. Prochain gate = **audit couverture 100 % catalogue** (tous templates/sections/pages référencés) AVANT migration.

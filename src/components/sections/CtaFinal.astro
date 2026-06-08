@@ -1,6 +1,7 @@
 ---
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
 
 interface Props {
   data: SectionByType<'cta-final'>;
@@ -13,9 +14,17 @@ const isFr = lang === 'fr';
 <section class="cta-final" data-bg={data.background}>
   <div class="wrap-wide">
   <div class="cta-final__inner">
+    {data.chapter_num && (
+      <div class="cta-final__chapter">
+        <ChapterLabel num={data.chapter_num} title={(isFr ? data.chapter_title_fr : data.chapter_title_en) ?? ''} />
+      </div>
+    )}
     <h2 class="reveal-mask-up" set:html={isFr ? data.h2_fr : data.h2_en} />
     {(isFr ? data.body_fr : data.body_en) && (
       <p class="reveal reveal-fade">{isFr ? data.body_fr : data.body_en}</p>
+    )}
+    {(isFr ? data.availability_fr : data.availability_en) && (
+      <p class="cta-final__avail">{isFr ? data.availability_fr : data.availability_en}</p>
     )}
     <div class="cta-final__ctas">
       <Button href={data.cta_primary.href} variant={data.cta_primary.variant as any} size="lg" mag={data.cta_primary.mag ?? 0.18}>
@@ -27,6 +36,9 @@ const isFr = lang === 'fr';
         </Button>
       )}
     </div>
+    {(isFr ? data.reassurance_fr : data.reassurance_en) && (
+      <p class="cta-final__sub" set:html={isFr ? data.reassurance_fr : data.reassurance_en} />
+    )}
   </div>
   </div>
 </section>
@@ -46,6 +58,9 @@ const isFr = lang === 'fr';
     flex-direction: column;
     gap: var(--spacing-block);
     max-width: 72ch;
+    align-items: center;
+    text-align: center;
+    margin-inline: auto;
   }
   h2 {
     font-family: var(--font-display);
@@ -67,5 +82,29 @@ const isFr = lang === 'fr';
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    justify-content: center;
   }
+  .cta-final__chapter { display: flex; justify-content: center; }
+  .cta-final__avail {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1;
+  }
+  .cta-final__sub {
+    font-family: var(--font-sans);
+    font-size: clamp(13px, 1.05vw, 15px);
+    line-height: 1.5;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .cta-final__sub :global(i) { font-style: italic; color: var(--accent); }
+  .cta-final[data-bg="ink"] .cta-final__avail,
+  .cta-final[data-bg="ink"] .cta-final__sub,
+  .cta-final[data-bg="accent"] .cta-final__avail,
+  .cta-final[data-bg="accent"] .cta-final__sub { color: var(--paper); }
 </style>

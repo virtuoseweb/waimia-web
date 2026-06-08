@@ -19,6 +19,7 @@ const data = entry.data;
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const title = lang === 'en' ? data.title_en : data.title_fr;
 const description = lang === 'en' ? data.description_en : data.description_fr;
+const lead = lang === 'en' ? data.lead_en : data.lead_fr;
 ---
 
 <SolutionsDetailTemplate
@@ -40,5 +41,7 @@ const description = lang === 'en' ? data.description_en : data.description_fr;
   cta_title_fr={data.cta_title_fr}
   cta_body_fr={data.cta_body_fr}
 >
+  <Fragment slot="title">{title}</Fragment>
+  <Fragment slot="lead">{lead}</Fragment>
   <Content />
 </SolutionsDetailTemplate>

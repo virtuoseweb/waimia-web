@@ -97,6 +97,7 @@ const additionalLd = additionalJsonLd
       title={title}
       description={description}
       noindex={robotsNoindex}
+      canonical={canonicalUrl}
       openGraph={{
         basic: {
           title: title,
@@ -128,7 +129,6 @@ const additionalLd = additionalJsonLd
     />
 
     {/* Hreflang · pivot SEO bilingue */}
-    <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={HREFLANG[lang]} href={canonicalUrl} />
     {altUrl && <link rel="alternate" hreflang={HREFLANG[lang === 'fr' ? 'en' : 'fr']} href={altUrl} />}
     <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
@@ -142,7 +142,7 @@ const additionalLd = additionalJsonLd
     {/* Polices self-hosted · Mission 03 perf · @font-face dans src/styles/fonts.css
         woff2 latin + latin-ext, servi depuis /public/fonts/ → 0 requête CDN tiers */}
     <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-regular.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-tight-regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-tight-regular.woff2" crossorigin fetchpriority="high" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/jetbrains-mono-regular.woff2" crossorigin />
 
     {/* JSON-LD baseline (Organization + WebSite) + custom blocks */}

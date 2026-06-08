@@ -39,7 +39,7 @@ const lang = langFromPath(Astro.url.pathname);
         </li>
         <li>
           <Kicker tone="accent" class="err-path-k">→ {lang === 'fr' ? 'Pour chercher un service' : 'To find a service'}</Kicker>
-          <a href={lang === 'fr' ? '/offres/conseil' : '/en/offres/conseil'} class="err-path-link">{lang === 'fr' ? 'Voir le hub Conseil' : 'See the Consulting hub'}</a>
+          <a href="/offres/conseil" class="err-path-link">{lang === 'fr' ? 'Voir le hub Conseil' : 'See the Consulting hub'}</a>
         </li>
         <li>
           <Kicker tone="accent" class="err-path-k">→ {lang === 'fr' ? 'Pour parler à quelqu\'un' : 'To talk to someone'}</Kicker>

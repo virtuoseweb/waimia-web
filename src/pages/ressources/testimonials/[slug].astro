@@ -28,7 +28,7 @@ const metrics = lang === 'fr' ? data.metrics_fr : data.metrics_en;
 ---
 <Base
   title={`${data.author} · ${data.company} · Témoignage Waimia`}
-  description={`«${quote.substring(0, 140)}…» — ${data.author}, ${role} chez ${data.company}.`}
+  description={`«${quote.substring(0, 90)}…» — ${data.author}, ${role} chez ${data.company}.`}
 >
   <article class="testimonial-detail">
     <div class="wrap-tight">
@@ -41,6 +41,7 @@ const metrics = lang === 'fr' ? data.metrics_fr : data.metrics_en;
       />
 
       <header class="testimonial-detail__hd">
+        <h1 class="sr-only">{data.author} · {data.company} — {lang === 'fr' ? 'Témoignage' : 'Testimonial'}</h1>
         <Kicker tone="accent">§ {data.engagement_type.toUpperCase()} · {data.sector.toUpperCase()}</Kicker>
         <blockquote class="testimonial-detail__quote">
           « {quote} »

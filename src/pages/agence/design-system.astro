@@ -13,7 +13,7 @@
 //   2. CLASSES UTILITY (layout / buttons / reveal / hairlines)
 //   3. ATOMS (10)
 //   4. MOLECULES (30 — sélection)
-//   5. ORGANISMS (25 — Tier 2 dérivés autorisés)
+//   5. ORGANISMS (5 — bespoke permanents)
 //   6. SECTIONS W6 composable V2 (19 — Tier 1 cible)
 //   7. ANIMATIONS (scroll-reveal + magnetic)
 //   8. EDITORIAL (8)
@@ -38,6 +38,7 @@ import TechPillRow from '../../components/ui/molecules/TechPillRow.astro';
 import RelatedCards from '../../components/ui/molecules/RelatedCards.astro';
 
 import { listCategories, listSections } from '../../lib/section-registry';
+import { LIBRARY_ORGANISMS } from '../../lib/library-manifest';
 
 const sectionCategories = listCategories();
 const sectionItems = listSections();
@@ -75,7 +76,7 @@ const sectionItems = listSections();
           <li><a href="#classes">2. Classes utility</a></li>
           <li><a href="#atoms">3. Atoms</a></li>
           <li><a href="#molecules">4. Molecules</a></li>
-          <li><a href="#organisms">5. Organisms (Tier 2)</a></li>
+          <li><a href="#organisms">5. Organisms (bespoke)</a></li>
           <li><a href="#sections">6. Sections W6 (Tier 1)</a></li>
           <li><a href="#animations">7. Animations</a></li>
           <li><a href="#editorial">8. Editorial</a></li>
@@ -625,24 +626,29 @@ const sectionItems = listSections();
         </div>
       </section>
 
-      {/* ───────────── 5. ORGANISMS (Tier 2 dérivés) ───────────── */}
+      {/* ───────────── 5. ORGANISMS (bespoke permanents) ───────────── */}
       <section id="organisms" class="ds-section">
-        <ChapterLabel num="05" title="Organisms (25 — Tier 2 dérivés)" />
+        <ChapterLabel num="05" title="Organisms (5 — bespoke permanents)" />
         <p class="ds-section-lede">
-          Organismes historiques pour pages standalone (home FR/EN principalement). Tier 2 dérivés
-          autorisés pour casser monotonie. Cf <code>src/components/ui/organisms/</code>.
+          Ces 5 composants sont <strong>intentionnellement bespoke permanents</strong> — hors du registry composable Tier 1.
+          Chrome/infra : AtlasGrid, CookiesBanner, PersonaSwitcher, Stub, ManifestoAccent.
+          Les anciens organismes dupliqués ont été convertis en sections cataloguées (voir §6) ou supprimés. 0 orphelin.
         </p>
-        <p class="ds-help">
-          ⚠️ <strong>Pour pages composables</strong> : préférer les sections W6 §6 ci-dessous (Tier 1 cible).
-          Organismes pour cas spécifiques uniquement (home Hero, BookSession climax, Footer*).
-        </p>
-        <p class="ds-help">
-          Liste : AtlasGrid, BookSession, CapabilityStrip, Cases, CookiesBanner, CtaBand,
-          Departments, FieldNotes, FooterMarquee, Hero, HowWeShip, Manifesto, ManifestoAccent,
-          Offices, OperatingLayer, PersonaSwitcher, ProofBar, Pyramid, SigBand, SixServices,
-          Stub, SystemArchitecture, SocialProof, WhyAIStalls, WritingNotes.
-        </p>
-        <p class="ds-help">
+        <p class="ds-help">3 organisms transitoires (Hero, BookSession, FooterMarquee) ne sont plus listés ici : leur jumeau catalogue est désormais canonique (hero-home, cta-final, marquee-band — voir §6). Encore live sur la home, ils seront remplacés lors de la migration des templates.</p>
+        <div class="ds-organisms-grid">
+          {LIBRARY_ORGANISMS.filter((o) => o.status === 'keep-bespoke').map((o) => (
+            <article class="ds-organism-card">
+              <div class="ds-organism-card-top">
+                <code>{o.id}</code>
+                <span class="ds-status ds-status--bespoke">bespoke</span>
+              </div>
+              <span class="ds-help">{o.file}</span>
+              <span class="ds-help">jumeau : {o.twin ? <code>{o.twin}</code> : 'sans jumeau'}</span>
+              <span class="ds-help">consommé : {o.consumers.length ? o.consumers.join(', ') : '—'}</span>
+            </article>
+          ))}
+        </div>
+        <p class="ds-help" style="margin-top:16px;">
           Preview live : <a href="/" class="ds-link">/ (home FR)</a> · <a href="/manifesto" class="ds-link">/manifesto</a> · <a href="/atlas" class="ds-link">/atlas</a>
         </p>
       </section>
@@ -776,21 +782,21 @@ const sectionItems = listSections();
           <li><code>WelcomeTemplate</code> → <a href="/bienvenue/audit" class="ds-link">/bienvenue/audit</a></li>
           <li><code>UtilityTemplate</code> → <a href="/agence/about" class="ds-link">/agence/about</a></li>
           <li><code>TrustLegalTemplate</code> → <a href="/agence/trust-center" class="ds-link">/agence/trust-center</a></li>
-          <li><code>CaseStudyTemplate</code> → <a href="/cas/plateau" class="ds-link">/cas/plateau</a></li>
+          <li><code>CaseStudyTemplate</code> → <a href="/cas/caserne" class="ds-link">/cas/caserne</a></li>
           <li><code>ServiceDetailTemplate</code> → <a href="/offres/revops" class="ds-link">/offres/revops</a></li>
           <li><code>SolutionsDetailTemplate</code> → <a href="/solutions" class="ds-link">/solutions</a></li>
           <li><code>OffresDetailTemplate</code> → <a href="/offres" class="ds-link">/offres</a></li>
-          <li><code>EssayTemplate</code> → <a href="/ressources/blog/brain-circuit" class="ds-link">/ressources/blog/brain-circuit</a></li>
-          <li><code>HubTemplate</code> → <a href="/ressources" class="ds-link">/ressources</a></li>
-          <li><code>ListIndexTemplate</code> → <a href="/cas" class="ds-link">/cas</a></li>
-          <li><code>DetailMenuTemplate</code> → page menu détail</li>
-          <li><code>TechnologiesDetailTemplate</code> → <a href="/technologies" class="ds-link">/technologies</a></li>
-          <li><code>AuthorPageTemplate</code> → <a href="/equipe" class="ds-link">/equipe</a></li>
+          <li><code>EssayTemplate</code> → <a href="/ressources/blog/adoption-composable-v2" class="ds-link">/ressources/blog/adoption-composable-v2</a></li>
+          <li><code>HubTemplate</code> → <a href="/offres/conseil" class="ds-link">/offres/conseil</a></li>
+          <li><code>ListIndexTemplate</code> → <a href="/ressources/changelog" class="ds-link">/ressources/changelog</a></li>
+          <li><code>DetailMenuTemplate</code> → <a href="/offres/audit-maturite-ia" class="ds-link">/offres/audit-maturite-ia</a></li>
+          <li><code>TechnologiesDetailTemplate</code> → <a href="/technologies/claude-code" class="ds-link">/technologies/claude-code</a></li>
+          <li><code>AuthorPageTemplate</code> → <a href="/equipe/simon-beros" class="ds-link">/equipe/simon-beros</a></li>
           <li><code>EcoleHubTemplate</code> → <a href="/ecole" class="ds-link">/ecole</a></li>
-          <li><code>ConversionFunnelTemplate</code> → <a href="/offres/site-web-ia-landing" class="ds-link">/offres/site-web-ia-landing</a></li>
-          <li><code>FormationDetailTemplate</code> → page formation</li>
-          <li><code>TunnelStepTemplate</code> → tunnel acquisition</li>
-          <li><code>LeadMagnetTemplate</code> → page lead magnet</li>
+          <li><code>ConversionFunnelTemplate</code> → <a href="/offres/site-web-ia" class="ds-link">/offres/site-web-ia</a></li>
+          <li><code>CourseDetailTemplate</code> → <a href="/ecole/cours/intro-ia-pme-b2b" class="ds-link">/ecole/cours/intro-ia-pme-b2b</a></li>
+          <li><code>TunnelStepTemplate</code> → <a href="/offres/activation-ia/tunnel/1" class="ds-link">/offres/activation-ia/tunnel/1</a></li>
+          <li><code>LeadMagnetTemplate</code> → <a href="/ressources/livres-blancs/ai-act-readiness" class="ds-link">/ressources/livres-blancs/ai-act-readiness</a></li>
         </ul>
       </section>
     </main>
@@ -1341,6 +1347,12 @@ const sectionItems = listSections();
     border-color: var(--hairline-strong);
     color: var(--muted-2);
   }
+  .ds-status--bespoke { border-color: var(--accent); color: var(--accent); }
+  .ds-organisms-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-top:16px; }
+  .ds-organism-card { padding:14px 16px; background:var(--paper-2); border:1px solid var(--hairline); display:flex; flex-direction:column; gap:6px; }
+  .ds-organism-card-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .ds-organism-card code { font-family:var(--font-mono); font-size:13px; color:var(--ink); background:transparent; }
+  .ds-organism-card .ds-help { margin:0; font-size:12px; }
   .ds-category-badge {
     color: var(--muted);
     font-size: 10px;

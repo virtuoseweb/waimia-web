@@ -1,0 +1,148 @@
+---
+// Section catalogue · team-card-grid
+// Source fidèle : `src/pages/equipe/index.astro` `.eq-grid-sec`.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'team-card-grid'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="eq-grid-sec">
+  <div class="wrap">
+    <div class="eq-grid">
+      {data.members.map((member) => (
+        <a href={member.href} class="eq-card" transition:name={member.transition_id ? `card-${member.transition_id}` : undefined}>
+          {member.photo && (
+            <img
+              src={member.photo}
+              alt={isFr ? member.photo_alt_fr : member.photo_alt_en}
+              class="eq-card-photo"
+              loading="lazy"
+              decoding="async"
+            />
+          )}
+          <div class="eq-card-body">
+            <h2 class="eq-card-name">{member.name}</h2>
+            <p class="eq-card-role">{isFr ? member.role_fr : member.role_en}</p>
+            <p class="eq-card-desc">{isFr ? member.description_fr : member.description_en}</p>
+            {member.count > 0 && (
+              <div class="eq-card-meta">
+                <span class="eq-card-count">
+                  {member.count} {member.count > 1 ? (isFr ? data.count_plural_fr : data.count_plural_en) : (isFr ? data.count_singular_fr : data.count_singular_en)}
+                </span>
+              </div>
+            )}
+            <span class="eq-card-cta">{isFr ? data.cta_label_fr : data.cta_label_en}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .eq-grid-sec {
+    padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px);
+  }
+  .eq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(24px, 3vw, 48px);
+  }
+  .eq-card {
+    background: var(--paper);
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-top: 2px solid transparent;
+    border-radius: 2px;
+    padding: 32px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 220ms var(--ease), border-top-color 220ms var(--ease), transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+  }
+  .eq-card:hover {
+    background: var(--paper-2);
+    border-color: var(--accent);
+    border-top-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .06);
+  }
+  .eq-card-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 2px;
+    transition: transform 360ms var(--ease-out);
+  }
+  .eq-card-body {
+    transition: transform 220ms var(--ease);
+  }
+  .eq-card:hover .eq-card-photo {
+    transform: scale(1.02);
+  }
+  .eq-card:hover .eq-card-body {
+    transform: translateX(1px);
+  }
+  .eq-card-name {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 2.6vw, 36px);
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 0;
+  }
+  .eq-card-role {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  .eq-card-desc {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+  }
+  .eq-card-meta {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, .08);
+  }
+  .eq-card-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .eq-card-cta {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--accent);
+    margin-top: 8px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .eq-card,
+    .eq-card-photo,
+    .eq-card-body {
+      transition: none !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+</style>

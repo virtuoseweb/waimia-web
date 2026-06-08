@@ -14,6 +14,7 @@ import HeroSplit from '../../../components/sections/HeroSplit.astro';
 import HeroCentered from '../../../components/sections/HeroCentered.astro';
 import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
 ---
 
 <Base
@@ -243,10 +244,28 @@ import CtaFinal from '../../../components/sections/CtaFinal.astro';
       </section>
 
       <section id="organisms" class="ds-section">
-        <ChapterLabel num="05" title="Organisms" />
+        <ChapterLabel num="05" title="Organisms (5 — permanent bespoke)" />
         <p class="ds-section-lede">
-          Legacy or page-specific assemblies remain useful, but they are no longer the preferred default for new pages.
-          W6 sections below are the main composition target.
+          These 5 components are <strong>permanently bespoke</strong> — outside the composable Tier 1 registry.
+          Chrome/infra: AtlasGrid, CookiesBanner, PersonaSwitcher, Stub, ManifestoAccent.
+          Former duplicate organisms were converted to catalogued sections (see §6) or deleted. Zero orphans.
+        </p>
+        <p class="ds-help">3 transitional organisms (Hero, BookSession, FooterMarquee) are no longer listed here: their catalogue twin is now canonical (hero-home, cta-final, marquee-band — see §6). Still live on the home page, they will be replaced during the template migration.</p>
+        <div class="ds-organisms-grid">
+          {LIBRARY_ORGANISMS.filter((o) => o.status === 'keep-bespoke').map((o) => (
+            <article class="ds-organism-card">
+              <div class="ds-organism-card-top">
+                <code>{o.id}</code>
+                <span class="ds-status ds-status--bespoke">bespoke</span>
+              </div>
+              <span class="ds-help">{o.file}</span>
+              <span class="ds-help">twin: {o.twin ? <code>{o.twin}</code> : 'no twin'}</span>
+              <span class="ds-help">used by: {o.consumers.length ? o.consumers.join(', ') : '—'}</span>
+            </article>
+          ))}
+        </div>
+        <p class="ds-help" style="margin-top:16px;">
+          Live preview: <a href="/" class="ds-link">/ (home FR)</a> · <a href="/manifesto" class="ds-link">/manifesto</a> · <a href="/atlas" class="ds-link">/atlas</a>
         </p>
       </section>
 
@@ -402,17 +421,29 @@ import CtaFinal from '../../../components/sections/CtaFinal.astro';
       </section>
 
       <section id="templates" class="ds-section">
-        <ChapterLabel num="10" title="Templates" />
+        <ChapterLabel num="10" title="Templates (18 — preview links)" />
         <p class="ds-section-lede">
-          English routes already consume dedicated templates. Use the closed system to feed them instead of branching the visual language.
+          Templates for content collections. See <code>src/components/templates/</code>. Live previews below.
         </p>
         <ul class="ds-templates-list">
-          <li><code>Agency pages</code> → <a href="/en/agence/about" class="ds-link">/en/agence/about</a></li>
-          <li><code>Method page</code> → <a href="/en/agence/methode" class="ds-link">/en/agence/methode</a></li>
-          <li><code>Prompt library</code> → <a href="/en/agence/prompts" class="ds-link">/en/agence/prompts</a></li>
-          <li><code>Offers hub</code> → <a href="/en/offres" class="ds-link">/en/offres</a></li>
-          <li><code>Solutions hub</code> → <a href="/en/solutions" class="ds-link">/en/solutions</a></li>
-          <li><code>Contact</code> → <a href="/en/contact" class="ds-link">/en/contact</a></li>
+          <li><code>WelcomeTemplate</code> → <a href="/en/bienvenue/audit" class="ds-link">/en/bienvenue/audit</a></li>
+          <li><code>UtilityTemplate</code> → <a href="/en/agence/about" class="ds-link">/en/agence/about</a></li>
+          <li><code>TrustLegalTemplate</code> → <a href="/en/trust" class="ds-link">/en/trust</a></li>
+          <li><code>CaseStudyTemplate</code> → <a href="/en/cas/caserne" class="ds-link">/en/cas/caserne</a></li>
+          <li><code>ServiceDetailTemplate</code> → <a href="/en/offres/composable-pilot" class="ds-link">/en/offres/composable-pilot</a></li>
+          <li><code>SolutionsDetailTemplate</code> → <a href="/en/solutions/acquisition-ia" class="ds-link">/en/solutions/acquisition-ia</a></li>
+          <li><code>OffresDetailTemplate</code> → <a href="/en/offres/activation-ia" class="ds-link">/en/offres/activation-ia</a></li>
+          <li><code>EssayTemplate</code> → <a href="/en/ressources/blog/adoption-composable-v2" class="ds-link">/en/ressources/blog/adoption-composable-v2</a></li>
+          <li><code>HubTemplate</code> → <a href="/en/offres" class="ds-link">/en/offres</a></li>
+          <li><code>ListIndexTemplate</code> → <a href="/en/ressources/cookbooks" class="ds-link">/en/ressources/cookbooks</a><!-- no /en/ressources/changelog — FR only --></li>
+          <li><code>DetailMenuTemplate</code> → <a href="/en/offres/audit-process-intelligence" class="ds-link">/en/offres/audit-process-intelligence</a></li>
+          <li><code>TechnologiesDetailTemplate</code> → <a href="/en/technologies/claude-code" class="ds-link">/en/technologies/claude-code</a></li>
+          <li><code>AuthorPageTemplate</code> → <a href="/en/agence" class="ds-link">/en/agence</a><!-- no /en/equipe route --></li>
+          <li><code>EcoleHubTemplate</code> → <a href="/en/ressources" class="ds-link">/en/ressources</a><!-- no /en/ecole route --></li>
+          <li><code>ConversionFunnelTemplate</code> → <a href="/en/offres" class="ds-link">/en/offres</a><!-- no /en/offres/site-web-ia route --></li>
+          <li><code>CourseDetailTemplate</code> → <a href="/en/ressources/cookbooks" class="ds-link">/en/ressources/cookbooks</a><!-- no /en/ecole/cours route --></li>
+          <li><code>TunnelStepTemplate</code> → <a href="/en/offres/activation-ia" class="ds-link">/en/offres/activation-ia</a><!-- no /en/tunnel route --></li>
+          <li><code>LeadMagnetTemplate</code> → <a href="/en/bienvenue/livre-blanc" class="ds-link">/en/bienvenue/livre-blanc</a></li>
         </ul>
       </section>
     </div>
@@ -689,6 +720,13 @@ import CtaFinal from '../../../components/sections/CtaFinal.astro';
     font-size: 11px;
     color: var(--muted);
   }
+
+  .ds-status--bespoke { border-color: var(--accent); color: var(--accent); }
+  .ds-organisms-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-top:16px; }
+  .ds-organism-card { padding:14px 16px; background:var(--paper-2); border:1px solid var(--hairline); display:flex; flex-direction:column; gap:6px; }
+  .ds-organism-card-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .ds-organism-card code { font-family:var(--font-mono); font-size:13px; color:var(--ink); background:transparent; }
+  .ds-organism-card .ds-help { margin:0; font-size:12px; }
 
   @media (max-width: 900px) {
     .ds-layout { grid-template-columns: 1fr; gap: 32px; }

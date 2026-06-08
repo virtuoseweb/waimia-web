@@ -9,57 +9,57 @@ export const CATEGORIES: Record<
   acquisition: {
     label: { fr: 'Acquisition', en: 'Acquisition' },
     description: {
-      fr: 'Pipeline commercial, leads, qualification',
-      en: 'Sales pipeline, leads, qualification',
+      fr: 'Systèmes d\'acquisition B2B automatisés pour PME — pipeline commercial, scoring de leads et qualification IA sur HubSpot ou Salesforce.',
+      en: 'Automated B2B acquisition systems for SMBs — sales pipeline, AI lead scoring and qualification on HubSpot or Salesforce.',
     },
   },
   crm: {
     label: { fr: 'CRM & Relances', en: 'CRM & Follow-ups' },
     description: {
-      fr: 'CRM nettoyé, relances IA, scoring',
-      en: 'Clean CRM, AI follow-ups, scoring',
+      fr: 'CRM nettoyé et relances automatisées par IA — scoring de contacts, séquences email personnalisées et suivi pipeline pour PME B2B.',
+      en: 'Clean CRM and AI-automated follow-ups — contact scoring, personalised email sequences and pipeline tracking for B2B SMBs.',
     },
   },
   'contenu-seo-geo': {
     label: { fr: 'Contenu SEO/GEO', en: 'SEO/GEO Content' },
     description: {
-      fr: 'Articles, indexation Google + IA génératives',
-      en: 'Articles, Google + AI engines indexing',
+      fr: 'Stratégie de contenu B2B optimisée SEO et GEO — articles sectoriels, indexation Google et visibilité dans les IA génératives (ChatGPT, Perplexity).',
+      en: 'B2B content strategy optimised for SEO and GEO — sector articles, Google indexing and visibility in generative AI engines like ChatGPT and Perplexity.',
     },
   },
   productivite: {
     label: { fr: 'Productivité', en: 'Productivity' },
     description: {
-      fr: 'Excel augmenté, Office, workflows internes',
-      en: 'Augmented Excel, Office, internal workflows',
+      fr: 'Automatisation des workflows internes pour PME — Excel augmenté, Office IA, agents de traitement documentaire et pipelines de tâches répétitives.',
+      en: 'Internal workflow automation for SMBs — AI-augmented Excel, Office automation, document-processing agents and repetitive-task pipelines.',
     },
   },
   support: {
     label: { fr: 'Support client', en: 'Customer Support' },
     description: {
-      fr: 'Triage IA, résolution N1, escalade humaine',
-      en: 'AI triage, L1 resolution, human escalation',
+      fr: 'Triage IA et résolution N1 automatisée — agents de support qui qualifient, répondent et escaladent vers un humain uniquement sur les cas complexes.',
+      en: 'AI triage and automated L1 resolution — support agents that qualify, respond and escalate to a human only on complex cases.',
     },
   },
   pilotage: {
     label: { fr: 'Pilotage data', en: 'Data Intelligence' },
     description: {
-      fr: 'KPI temps réel, dashboards, lisibilité',
-      en: 'Real-time KPIs, dashboards, clarity',
+      fr: 'Pilotage data en temps réel pour PME — KPI consolidés, dashboards automatisés et alertes IA pour décider vite sur des chiffres fiables.',
+      en: 'Real-time data intelligence for SMBs — consolidated KPIs, automated dashboards and AI alerts to make fast decisions on reliable numbers.',
     },
   },
   data: {
     label: { fr: 'Data & ETL', en: 'Data & ETL' },
     description: {
-      fr: 'Connecteurs, structuration, qualité',
-      en: 'Connectors, structure, quality',
+      fr: 'Connecteurs ETL et structuration de données pour PME — pipelines fiables entre CRM, ERP et entrepôt, avec contrôle qualité automatisé à chaque étape.',
+      en: 'ETL connectors and data structuring for SMBs — reliable pipelines between CRM, ERP and warehouse, with automated quality checks at every step.',
     },
   },
   gouvernance: {
     label: { fr: 'Gouvernance IA', en: 'AI Governance' },
     description: {
-      fr: 'AI Act, RGPD, conformité',
-      en: 'AI Act, GDPR, compliance',
+      fr: 'Gouvernance IA pour PME en EU — conformité AI Act et RGPD, trail audit re-rejouable, garde-fous opérationnels et documentation pour les équipes juridiques.',
+      en: 'AI governance for EU SMBs — AI Act and GDPR compliance, replayable audit trail, operational guardrails and documentation for legal teams.',
     },
   },
 };

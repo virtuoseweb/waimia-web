@@ -1,0 +1,105 @@
+---
+// Waimia · Page de comparaison visuelle : organisms bespoke vs jumeaux catalogue
+// Route statique /compare/organisms · noindex · hors sitemap
+// NE PAS utiliser Base.astro (header/footer injectés).
+// Reprend le pattern chrome-less de preview/[type].astro.
+
+import '../../styles/global.css';
+import '../../styles/grid.css';
+import '../../styles/scroll-reveal.css';
+import { SECTION_DEMOS } from '../../lib/section-demos';
+import Hero from '../../components/ui/organisms/Hero.astro';
+import BookSession from '../../components/ui/organisms/BookSession.astro';
+import FooterMarquee from '../../components/ui/organisms/FooterMarquee.astro';
+import HeroHome from '../../components/sections/HeroHome.astro';
+import CtaFinal from '../../components/sections/CtaFinal.astro';
+import MarqueeBand from '../../components/sections/MarqueeBand.astro';
+
+const heroDemo = SECTION_DEMOS['hero-home'] as any;
+const ctaDemo = SECTION_DEMOS['cta-final'] as any;
+const marqueeDemo = SECTION_DEMOS['marquee-band'] as any;
+---
+<!doctype html>
+<html lang="fr" data-lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Comparaison · organisms bespoke vs catalogue</title>
+    <style is:inline>
+      html, body { margin: 0; padding: 0; background: var(--paper, #fff); }
+      .reveal, .reveal-up, .reveal-fade, .reveal-slide, .reveal-snap,
+      .scale-in, .blur-in, .clip-up, .hair-draw, .row-lines,
+      .reveal-mask-up, .reveal-zoom-in, .reveal-blur-clip,
+      .reveal-curtain, .reveal-split-letter,
+      .reveal-stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        clip-path: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .cmp-intro { padding: 32px 40px; border-bottom: 2px solid var(--ink); font-family: var(--font-sans); }
+      .cmp-intro h1 { font-family: var(--font-display); font-size: 32px; margin: 0 0 8px; }
+      .cmp-intro p { margin: 0; color: var(--ink-2); font-size: 15px; max-width: 70ch; }
+      .cmp-pair { border-bottom: 1px solid var(--hairline-strong); }
+      .cmp-head { padding: 12px 40px; background: var(--ink); color: var(--paper); font-family: var(--font-mono); font-size: 12px; display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+      .cmp-tag { font-weight: 700; letter-spacing: .04em; }
+      .cmp-tag--cur { color: var(--accent); }
+      .cmp-tag--cat { color: #7FB069; }
+      .cmp-note { color: var(--muted-2); font-style: italic; }
+      .cmp-delta { padding: 12px 40px; background: var(--paper-2); border-left: 3px solid var(--accent); font-family: var(--font-sans); font-size: 14px; color: var(--ink-2); }
+    </style>
+  </head>
+  <body>
+    <header class="cmp-intro">
+      <h1>Organisms bespoke vs jumeaux catalogue</h1>
+      <p>Pour chaque organism : l'ACTUEL (bespoke, en terracotta) puis le CATALOGUE (jumeau, en vert). Compare et décide : convertir vers le catalogue, ou garder bespoke.</p>
+    </header>
+
+    <!-- BLOC HERO -->
+    <section class="cmp-pair">
+      <div class="cmp-head">
+        <span class="cmp-tag cmp-tag--cur">ACTUEL · Hero.astro (bespoke)</span>
+        <span class="cmp-note">avec View Transitions inter-pages — morph de navigation, invisible en statique</span>
+      </div>
+      <Hero />
+      <div class="cmp-delta">⚠️ Seule différence avec le catalogue : 2 View Transitions (transition:name hero-img + hero-h1) qui animent le passage ENTRE deux pages. En affichage statique, c'est identique au catalogue ci-dessous. Si on se fiche du morph de navigation → hero-home convient.</div>
+      <div class="cmp-head">
+        <span class="cmp-tag cmp-tag--cat">▸ CATALOGUE · hero-home (HeroHome.astro)</span>
+        <span class="cmp-note">sans View Transitions</span>
+      </div>
+      <HeroHome data={heroDemo} lang="fr" />
+    </section>
+
+    <!-- BLOC BOOKSESSION -->
+    <section class="cmp-pair">
+      <div class="cmp-head">
+        <span class="cmp-tag cmp-tag--cur">ACTUEL · BookSession.astro (bespoke)</span>
+        <span class="cmp-note">section climax centrée, 5 blocs + signature coins arrondis au scroll</span>
+      </div>
+      <BookSession />
+      <div class="cmp-delta">✅ Décision Simon appliquée : <code>cta-final</code> est désormais CENTRÉ (comme BookSession). Le border-radius signature (non visible) est abandonné. Reste l'écart de contenu — BookSession ajoute ChapterLabel « FIG V », badge ● DISPONIBLE et sous-réassurance ; ces blocs seront mappés sur le schéma de <code>cta-final</code> lors de la migration des templates (différée).</div>
+      <div class="cmp-head">
+        <span class="cmp-tag cmp-tag--cat">▸ CATALOGUE · cta-final (CtaFinal.astro)</span>
+      </div>
+      <CtaFinal data={ctaDemo} lang="fr" />
+    </section>
+
+    <!-- BLOC FOOTERMARQUEE -->
+    <section class="cmp-pair">
+      <div class="cmp-head">
+        <span class="cmp-tag cmp-tag--cur">ACTUEL · FooterMarquee.astro (bespoke)</span>
+        <span class="cmp-note">ruban mono mixant FR+EN, bordure forte, padding 20px, défilement 40s</span>
+      </div>
+      <FooterMarquee />
+      <div class="cmp-delta">Différence : FooterMarquee mixe FR+EN dans un seul ruban ; bordure --hairline-strong ; padding 20px ; défilement 40s. Le jumeau marquee-band = bordure plus claire ; padding 18px ; défilement 36s ; items sélectionnés par langue (pas de mix FR+EN).</div>
+      <div class="cmp-head">
+        <span class="cmp-tag cmp-tag--cat">▸ CATALOGUE · marquee-band (MarqueeBand.astro)</span>
+      </div>
+      <MarqueeBand data={marqueeDemo} lang="fr" />
+    </section>
+  </body>
+</html>

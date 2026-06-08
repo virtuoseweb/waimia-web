@@ -167,6 +167,17 @@ const atelierDate = ad?.scheduled_at
   : null;
 
 const SITE_URL = 'https://waimia.com';
+// ── Canonical dedup ──────────────────────────────────────────────────────────
+// Les formations (course_type === 'formation') sont rendues sur 2 routes :
+//   /ecole/cours/{id}      (route dédiée, forme CANONIQUE — référencée par le sitemap)
+//   /ecole/formation/{id}  (route générique [type]/[slug], duplicate)
+// On force TOUJOURS le canonical vers la forme /ecole/cours/{id} (lang-aware),
+// pour que /ecole/formation/{id} pointe vers la forme cours (dedup SEO) et que
+// /ecole/cours/{id} reste self-référent. Les cours sont FR-only (pas de route /en/),
+// la branche EN reste défensive/future-proof.
+const canonicalUrl = fr
+  ? `${SITE_URL}/ecole/cours/${entry.id}`
+  : `${SITE_URL}/en/ecole/cours/${entry.id}`;
 const jsonLd = [
   buildCourseSchema(entry, lang),
   buildBreadcrumbList([
@@ -178,7 +189,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={title} description={description} jsonLd={jsonLd}>
+<Base title={title} description={description} jsonLd={jsonLd} canonical={canonicalUrl}>
   <article class="course-detail" data-type={data.course_type}>
     <div class="wrap-wide">
 

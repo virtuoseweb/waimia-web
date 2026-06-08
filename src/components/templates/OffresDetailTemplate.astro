@@ -46,6 +46,8 @@ interface Props {
   title: string;
   /** SEO meta · description */
   description: string;
+  /** Pas d'index (pages WIP) — forwardé à Base */
+  noindex?: boolean;
   /** Tier badge (kicker au-dessus du h1) ex: "§ 02 · DÉPLOIEMENT LIGHT" */
   tier: string;
   /** Label du breadcrumb second segment ex: "Claude Cowork & Artifacts" */
@@ -80,6 +82,7 @@ interface Props {
 const {
   title,
   description,
+  noindex = false,
   tier,
   tierLabel,
   meta = '',
@@ -262,7 +265,7 @@ const growthToolRows = [
   ['Hébergement', 'Vercel / Cloudflare', 'Performance'],
 ];
 ---
-<Base {title} {description} additionalJsonLd={offreSchemas}>
+<Base {title} {description} {noindex} additionalJsonLd={offreSchemas}>
     <Breadcrumb
       lang={lang}
       items={[

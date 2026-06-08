@@ -239,7 +239,7 @@ export const MM_RESOURCES: MegaMenu = {
       label: { en: 'Case files & testimonials', fr: 'Cas & témoignages' },
       items: [
         { href: '/ressources/cas', label: { en: 'Case studies · measured ROI', fr: 'Études de cas · ROI mesuré' } },
-        { href: '/ressources/temoignages', label: { en: 'Client testimonials', fr: 'Témoignages clients' } },
+        { href: '/ressources/testimonials', label: { en: 'Client testimonials', fr: 'Témoignages clients' } },
         { href: '/ressources/cas/virtuoseos', label: { en: 'VirtuoseOS · blueprint case', fr: 'VirtuoseOS · cas blueprint' }, featured: true },
         { href: '/ecole', label: { en: 'School · AI training catalog', fr: "Ecole · catalogue formations IA" }, lead: { en: 'Technical Claude + agents sessions.', fr: 'Sessions techniques Claude + agents.' } },
         { href: '/ecole/formation/intro-ia-pme-b2b', label: { en: 'AI for B2B SMBs · 2h', fr: "IA pour PME B2B · 2h" }, featured: true },
