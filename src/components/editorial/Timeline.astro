@@ -59,7 +59,7 @@ const { events, orientation = 'vertical', numbered = true } = Astro.props;
     bottom: 0;
     left: var(--space-5, 24px);
     width: 1px;
-    background: var(--hairline-strong, rgba(12,11,9,0.18));
+    background: var(--hairline-strong, rgba(var(--ink-rgb), 0.18));
   }
   .timeline-item {
     position: relative;
@@ -120,13 +120,13 @@ const { events, orientation = 'vertical', numbered = true } = Astro.props;
     letter-spacing: var(--tracking-mono, 0.12em);
     color: var(--muted, #6B6560);
     padding: 2px 8px;
-    border: 1px solid var(--hairline, rgba(12,11,9,0.09));
+    border: 1px solid var(--hairline, rgba(var(--ink-rgb), 0.09));
   }
   .timeline-body {
     font-family: var(--font-display, 'Instrument Serif', serif);
     font-size: var(--text-body-md, 17px);
     line-height: var(--leading-body, 1.5);
-    color: var(--ink-2, rgba(12,11,9,0.75));
+    color: var(--ink-2, rgba(var(--ink-rgb), 0.75));
     margin: 0;
     max-width: 60ch;
   }
@@ -142,7 +142,7 @@ const { events, orientation = 'vertical', numbered = true } = Astro.props;
   .timeline-horizontal .timeline-item {
     flex: 0 0 280px;
     padding: var(--space-5, 24px) 0 0 0;
-    border-top: 1px solid var(--hairline-strong, rgba(12,11,9,0.18));
+    border-top: 1px solid var(--hairline-strong, rgba(var(--ink-rgb), 0.18));
     scroll-snap-align: start;
   }
   .timeline-horizontal .timeline-marker {

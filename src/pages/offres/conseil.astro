@@ -153,14 +153,14 @@ const relatedCards = [
       />
     </section>
     <section class="reveal-stagger" style="padding: clamp(48px,5vw,72px) 0 0;">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(28px,5vw,64px); border-top:1px solid rgba(0,0,0,.16); padding-top:32px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(28px,5vw,64px); border-top:1px solid rgba(var(--ink-rgb), .16); padding-top:32px;">
         <div>
           <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:16px;">Arbre de décision</div>
           <h2 style="font-family:var(--font-display); font-size:clamp(30px,3.8vw,54px); line-height:.98; font-weight:400; margin:0;"><i style="color:var(--accent); font-style:italic;">Quel service</i><br/>pour vous ?</h2>
         </div>
         <ol style="list-style:none; margin:0; padding:0; counter-reset:decision;">
           {decisionTreeItems.map((item, index) => (
-            <li style="display:grid; grid-template-columns:48px 1fr; gap:18px; padding:18px 0; border-bottom:1px solid rgba(0,0,0,.08); color:var(--ink); font-size:16px; line-height:1.55;">
+            <li style="display:grid; grid-template-columns:48px 1fr; gap:18px; padding:18px 0; border-bottom:1px solid rgba(var(--ink-rgb), .08); color:var(--ink); font-size:16px; line-height:1.55;">
               <span style="font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; color:var(--accent);">0{index + 1}</span>
               <span>{item}</span>
             </li>

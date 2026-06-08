@@ -98,7 +98,7 @@ const METRICS = [
           bodyPadding={18}
           class="c-hero-term"
         >
-          <div id="console-terminal-body" style="color:rgba(246,241,232,.8);font-family:var(--font-mono);font-size:13px;line-height:1.6;min-height:180px">
+          <div id="console-terminal-body" style="color:rgba(var(--paper-rgb), .8);font-family:var(--font-mono);font-size:13px;line-height:1.6;min-height:180px">
             <div id="console-terminal-output"></div>
             <div style="padding:4px 0"><span style="color:var(--accent)">$ </span><span id="console-terminal-cursor" class="c-cursor"></span></div>
           </div>
@@ -277,7 +277,7 @@ const METRICS = [
   <section id="act-5" style="padding:clamp(64px,8vw,112px) clamp(20px,4vw,48px);background:var(--ink);color:var(--paper)">
     <div style="max-width:1500px;margin:0 auto">
       <Kicker tone="accent" class="c-act-05">
-        [act.05] · <span style="color:rgba(246,241,232,.5)">{lang === 'fr' ? "passer à l'action" : 'act'}</span>
+        [act.05] · <span style="color:rgba(var(--paper-rgb), .5)">{lang === 'fr' ? "passer à l'action" : 'act'}</span>
       </Kicker>
       <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,6vw,80px);align-items:end">
         <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(48px,8vw,120px);line-height:.9;letter-spacing:-0.03em;color:var(--paper);text-wrap:balance;font-weight:400;margin:0">
@@ -287,14 +287,14 @@ const METRICS = [
             <>Open a <i style="color:var(--accent)">session</i>.<br />Not a <i>pitch</i>.</>
           )}
         </h2>
-        <div style="font-family:var(--font-mono);font-size:13px;color:rgba(246,241,232,.75);background:rgba(246,241,232,.04);border:1px solid rgba(246,241,232,.14);border-radius:10px;padding:22px">
+        <div style="font-family:var(--font-mono);font-size:13px;color:rgba(var(--paper-rgb), .75);background:rgba(var(--paper-rgb), .04);border:1px solid rgba(var(--paper-rgb), .14);border-radius:10px;padding:22px">
           <div style="color:var(--accent);margin-bottom:10px">$ virtuose session.open --duration=45m</div>
           <div>&gt; workspace: your-company</div>
           <div>&gt; agenda: {lang === 'fr' ? 'un problème diagnostiqué' : 'one diagnosed problem'}</div>
           <div>&gt; outcome: {lang === 'fr' ? 'notes actionnables ou pas de relance' : 'actionable notes or no follow-up'}</div>
           <div>&gt; channel: Meet / Zoom / on-site Paris</div>
           <div>&gt; commitment: {lang === 'fr' ? 'aucun · 45 min, on coupe' : 'none · 45 min, we cut'}</div>
-          <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(246,241,232,.14);color:rgba(246,241,232,.55);font-size:12px">
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(var(--paper-rgb), .14);color:rgba(var(--paper-rgb), .55);font-size:12px">
             {lang === 'fr' ? '// vous repartez avec un audit ou rien. Pas de relance pénible.' : '// you leave with an audit or nothing. No annoying follow-up.'}
           </div>
           <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
@@ -343,7 +343,7 @@ const METRICS = [
       }
       var content = document.createElement('span');
       if (!isCmd) {
-        content.style.color = 'rgba(246,241,232,.55)';
+        content.style.color = 'rgba(var(--paper-rgb), .55)';
         content.textContent = text;
       }
       row.appendChild(content);

@@ -27,7 +27,7 @@ const isFr = lang === 'fr';
 
 <style>
   .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
-  .problems-grid { padding-block: clamp(64px, 8vw, 112px); border-top: 1px solid rgba(0,0,0,.07); }
+  .problems-grid { padding-block: clamp(64px, 8vw, 112px); border-top: 1px solid rgba(var(--ink-rgb), .07); }
   .problems-grid__h2 {
     font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
     font-size: clamp(24px, 3vw, 40px);
@@ -39,8 +39,8 @@ const isFr = lang === 'fr';
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1px;
-    background: rgba(0,0,0,.08);
-    border: 1px solid rgba(0,0,0,.08);
+    background: rgba(var(--ink-rgb), .08);
+    border: 1px solid rgba(var(--ink-rgb), .08);
     border-radius: 2px;
     overflow: hidden;
   }

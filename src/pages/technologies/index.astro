@@ -128,7 +128,7 @@ const ctaData = {
             <path d="M0,0 L0,6 L6,3 z" fill="#0C0B09"/>
           </marker>
         </defs>
-        <line x1="158" y1="60" x2="742" y2="60" stroke="rgba(12,11,9,0.09)" stroke-width="1"/>
+        <line x1="158" y1="60" x2="742" y2="60" stroke="rgba(var(--ink-rgb), 0.09)" stroke-width="1"/>
         <circle cx="120" cy="60" r="40" stroke="#0C0B09" stroke-width="1" fill="#EFE9DD"/>
         <text x="120" y="53" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#6B6560" letter-spacing="0.1em">01</text>
         <text x="120" y="68" text-anchor="middle" font-family="'Inter Tight',sans-serif" font-size="12" fill="#0C0B09" font-weight="500">Claude</text>
@@ -293,7 +293,7 @@ const ctaData = {
     color: inherit;
     transition: background 240ms var(--ease);
   }
-  .hub-flagship-link:hover { background: rgba(0, 0, 0, 0.02); }
+  .hub-flagship-link:hover { background: rgba(var(--ink-rgb), 0.02); }
   .hub-flagship-num {
     font-family: var(--font-display);
     font-size: clamp(40px, 5vw, 72px);

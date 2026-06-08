@@ -56,14 +56,14 @@ const kickerTone = isInk ? 'dim' : 'muted';
   }
   .stat-row.on-ink {
     border-top-color: var(--paper);
-    border-bottom-color: rgba(246, 241, 232, 0.18);
+    border-bottom-color: rgba(var(--paper-rgb), 0.18);
   }
   .stat-cell {
     padding: clamp(24px, 3vw, 36px) clamp(14px, 2vw, 22px);
     border-right: 1px solid var(--hairline);
   }
   .on-ink .stat-cell {
-    border-right-color: rgba(246, 241, 232, 0.12);
+    border-right-color: rgba(var(--paper-rgb), 0.12);
   }
   .stat-cell[data-last='true'] {
     border-right: none;

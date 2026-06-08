@@ -88,7 +88,7 @@ const articleLd = buildArticle({
 
       {/* bottom CTAs */}
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;align-items:end;max-width:1600px">
-        <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:1.4;color:rgba(246,241,232,.85);max-width:420px;margin:0">
+        <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:1.4;color:rgba(var(--paper-rgb), .85);max-width:420px;margin:0">
           {lang === 'fr'
             ? "On câble l'IA dans vos outils marketing, sales et web — acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process."
             : "We wire AI into your marketing, sales and web stack — acquisition, content, CRM, site, analytics, brand. Without changing your process."}
@@ -110,7 +110,7 @@ const articleLd = buildArticle({
   </section>
 
   {/* DARK MARQUEE · logos massifs · padding réduit 24→14 pour rentrer sous fold */}
-  <div aria-hidden="true" class="manifesto-marquee" style="background:var(--ink);color:var(--paper);border-top:1px solid rgba(246,241,232,.12);border-bottom:1px solid rgba(246,241,232,.12);padding:14px 0;overflow:hidden;white-space:nowrap">
+  <div aria-hidden="true" class="manifesto-marquee" style="background:var(--ink);color:var(--paper);border-top:1px solid rgba(var(--paper-rgb), .12);border-bottom:1px solid rgba(var(--paper-rgb), .12);padding:14px 0;overflow:hidden;white-space:nowrap">
     <div class="b-marquee-track">
       {tripled.map((logo) => (
         <>
@@ -139,11 +139,11 @@ const articleLd = buildArticle({
           )}
         </p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:80px;border-top:1px solid rgba(246,241,232,.12)">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:80px;border-top:1px solid rgba(var(--paper-rgb), .12)">
         {STATS.map((r) => (
           <div class="reveal">
             <div class="manifesto-stat">{r.n}</div>
-            <p style="margin-top:18px;font-size:17px;line-height:1.5;color:rgba(246,241,232,.7);max-width:280px;font-family:var(--font-sans)">
+            <p style="margin-top:18px;font-size:17px;line-height:1.5;color:rgba(var(--paper-rgb), .7);max-width:280px;font-family:var(--font-sans)">
               {ft(r.text, lang)}
             </p>
           </div>
@@ -201,7 +201,7 @@ const articleLd = buildArticle({
           <>Virtuose<i class="accent">OS</i>.<br />The <i>kernel</i> under every wired system.</>
         )}
       </h2>
-      <p style="font-family:var(--font-sans);font-size:clamp(16px,1.4vw,19px);line-height:1.55;color:rgba(246,241,232,.7);max-width:680px;margin:0 auto 36px;text-wrap:pretty">
+      <p style="font-family:var(--font-sans);font-size:clamp(16px,1.4vw,19px);line-height:1.55;color:rgba(var(--paper-rgb), .7);max-width:680px;margin:0 auto 36px;text-wrap:pretty">
         {lang === 'fr'
           ? <>La plateforme interne qui orchestre marketing, sales, contenu, web, CRM, analytics et marque. Multi-workspace · multi-agents · documentée · transmissible. Construite pour livrer chez vous, déployée chez nous, <i style="font-style:italic;color:var(--accent)">propriétaire à vie</i> dans votre stack.</>
           : <>The internal platform orchestrating marketing, sales, content, web, CRM, analytics and brand. Multi-workspace · multi-agent · documented · transferable. Built to ship with you, deployed by us, <i style="font-style:italic;color:var(--accent)">owned for life</i> in your stack.</>}
@@ -373,7 +373,7 @@ const articleLd = buildArticle({
     font-family: var(--font-display);
     font-size: clamp(18px, 1.8vw, 26px);
     line-height: 1.35;
-    color: rgba(246, 241, 232, 0.7);
+    color: rgba(var(--paper-rgb), 0.7);
     margin: clamp(24px, 3vw, 40px) 0 0;
     max-width: 720px;
     text-wrap: pretty;
@@ -413,12 +413,12 @@ const articleLd = buildArticle({
      Note : :global est requis car le scoping Astro ne descend pas dans les composants enfants */
   :global(.manifesto-acte-iv){margin-bottom:32px}
   :global(.manifesto-acte-v){margin-bottom:40px}
-  :global(.b-hero-dim){color:rgba(246,241,232,.55) !important;line-height:1}
-  :global(.b-hero-tag){color:rgba(246,241,232,.55) !important;margin-bottom:24px;line-height:1}
-  :global(.b-acte-1){color:rgba(246,241,232,.5) !important}
-  :global(.b-acte-1-sub){color:rgba(246,241,232,.3) !important;letter-spacing:.14em;margin-top:4px}
-  :global(.b-acte-3){color:rgba(246,241,232,.5) !important;margin-bottom:32px}
-  :global(.b-writing-tag){color:rgba(246,241,232,.5) !important}
+  :global(.b-hero-dim){color:rgba(var(--paper-rgb), .55) !important;line-height:1}
+  :global(.b-hero-tag){color:rgba(var(--paper-rgb), .55) !important;margin-bottom:24px;line-height:1}
+  :global(.b-acte-1){color:rgba(var(--paper-rgb), .5) !important}
+  :global(.b-acte-1-sub){color:rgba(var(--paper-rgb), .3) !important;letter-spacing:.14em;margin-top:4px}
+  :global(.b-acte-3){color:rgba(var(--paper-rgb), .5) !important;margin-bottom:32px}
+  :global(.b-writing-tag){color:rgba(var(--paper-rgb), .5) !important}
 
   /* Hero meta + foot · layout */
   .b-hero-meta{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:14px}

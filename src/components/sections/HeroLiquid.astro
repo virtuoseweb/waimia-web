@@ -52,7 +52,7 @@ const ctaSecondary = isFr ? data.cta_secondary_label_fr : data.cta_secondary_lab
   .hero-liquid__h1 :global(i.accent) { color: var(--accent); }
   .hero-liquid__lede {
     font-family: var(--font-display); font-size: clamp(18px,1.8vw,26px);
-    line-height: 1.35; color: rgba(246,241,232,.72); margin: 0; max-width: 720px; text-wrap: pretty;
+    line-height: 1.35; color: rgba(var(--paper-rgb), .72); margin: 0; max-width: 720px; text-wrap: pretty;
   }
   .hero-liquid__cta { display: flex; gap: 10px; flex-wrap: wrap; }
   @media (prefers-reduced-motion: reduce) {

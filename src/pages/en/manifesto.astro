@@ -68,7 +68,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
 
       {/* bottom CTAs */}
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;align-items:end;max-width:1600px">
-        <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:1.4;color:rgba(246,241,232,.85);max-width:380px;margin:0">
+        <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:1.4;color:rgba(var(--paper-rgb), .85);max-width:380px;margin:0">
           {lang === 'fr'
             ? "Une agence IA pour SaaS, fintech et industrie dont le moteur revenue doit livrer — pas répéter."
             : 'An AI agency for SaaS, fintech and industry that want their revenue engine to ship — not to rehearse.'}
@@ -90,7 +90,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
   </section>
 
   {/* DARK MARQUEE · logos massifs */}
-  <div style="background:var(--ink);color:var(--paper);border-top:1px solid rgba(246,241,232,.12);border-bottom:1px solid rgba(246,241,232,.12);padding:24px 0;overflow:hidden;white-space:nowrap">
+  <div style="background:var(--ink);color:var(--paper);border-top:1px solid rgba(var(--paper-rgb), .12);border-bottom:1px solid rgba(var(--paper-rgb), .12);padding:24px 0;overflow:hidden;white-space:nowrap">
     <div class="b-marquee-track">
       {tripled.map((logo) => (
         <>
@@ -119,11 +119,11 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
           )}
         </p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:80px;border-top:1px solid rgba(246,241,232,.12)">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:80px;border-top:1px solid rgba(var(--paper-rgb), .12)">
         {STATS.map((r) => (
           <div class="reveal">
             <div style="font-family:var(--font-display);font-size:clamp(72px,10vw,176px);line-height:.9;letter-spacing:-0.03em;color:var(--accent)">{r.n}</div>
-            <p style="margin-top:18px;font-size:17px;line-height:1.5;color:rgba(246,241,232,.7);max-width:280px;font-family:var(--font-display)">
+            <p style="margin-top:18px;font-size:17px;line-height:1.5;color:rgba(var(--paper-rgb), .7);max-width:280px;font-family:var(--font-display)">
               {ft(r.text, lang)}
             </p>
           </div>
@@ -258,12 +258,12 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
      Note : :global est requis car le scoping Astro ne descend pas dans les composants enfants */
   :global(.manifesto-acte-iv){margin-bottom:32px}
   :global(.manifesto-acte-v){margin-bottom:40px}
-  :global(.b-hero-dim){color:rgba(246,241,232,.55) !important}
-  :global(.b-hero-tag){color:rgba(246,241,232,.55) !important;margin-bottom:24px}
-  :global(.b-acte-1){color:rgba(246,241,232,.5) !important}
-  :global(.b-acte-1-sub){color:rgba(246,241,232,.3) !important;letter-spacing:.14em;margin-top:4px}
-  :global(.b-acte-3){color:rgba(246,241,232,.5) !important;margin-bottom:32px}
-  :global(.b-writing-tag){color:rgba(246,241,232,.5) !important}
+  :global(.b-hero-dim){color:rgba(var(--paper-rgb), .55) !important}
+  :global(.b-hero-tag){color:rgba(var(--paper-rgb), .55) !important;margin-bottom:24px}
+  :global(.b-acte-1){color:rgba(var(--paper-rgb), .5) !important}
+  :global(.b-acte-1-sub){color:rgba(var(--paper-rgb), .3) !important;letter-spacing:.14em;margin-top:4px}
+  :global(.b-acte-3){color:rgba(var(--paper-rgb), .5) !important;margin-bottom:32px}
+  :global(.b-writing-tag){color:rgba(var(--paper-rgb), .5) !important}
 
   /* Hero meta + foot · layout */
   .b-hero-meta{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:14px}

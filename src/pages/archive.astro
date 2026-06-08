@@ -171,7 +171,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
 
   .arc-section {
     padding: clamp(32px, 4vw, 56px) 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.12);
   }
 
   .arc-section:first-child {
@@ -209,7 +209,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
   .arc-link {
     display: block;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
     color: var(--ink);
     text-decoration: none;
     transition:

@@ -81,7 +81,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(246, 241, 232, 0.5);
+    color: rgba(var(--paper-rgb), 0.5);
     margin: 0 0 16px;
   }
   .newsletter-band__h2 {
@@ -96,25 +96,25 @@ const hint = isFr ? data.hint_fr : data.hint_en;
   }
   .newsletter-band__h2 :global(i) {
     font-style: italic;
-    color: rgba(246, 241, 232, 0.7);
+    color: rgba(var(--paper-rgb), 0.7);
   }
   .newsletter-band__lead {
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.55;
-    color: rgba(246, 241, 232, 0.55);
+    color: rgba(var(--paper-rgb), 0.55);
     margin: 0;
     max-width: 400px;
   }
   .newsletter-band__field {
     display: flex;
     gap: 0;
-    border: 1px solid rgba(246, 241, 232, 0.2);
+    border: 1px solid rgba(var(--paper-rgb), 0.2);
   }
   .newsletter-band__input {
     flex: 1;
     min-width: 0;
-    background: rgba(246, 241, 232, 0.08);
+    background: rgba(var(--paper-rgb), 0.08);
     border: none;
     padding: 14px 18px;
     font-family: var(--font-sans);
@@ -123,10 +123,10 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     outline: none;
   }
   .newsletter-band__input::placeholder {
-    color: rgba(246, 241, 232, 0.35);
+    color: rgba(var(--paper-rgb), 0.35);
   }
   .newsletter-band__input:focus {
-    background: rgba(246, 241, 232, 0.12);
+    background: rgba(var(--paper-rgb), 0.12);
   }
   .newsletter-band__btn {
     background: var(--accent);
@@ -148,7 +148,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.08em;
-    color: rgba(246, 241, 232, 0.35);
+    color: rgba(var(--paper-rgb), 0.35);
     margin: 10px 0 0;
   }
   @media (max-width: 860px) {
