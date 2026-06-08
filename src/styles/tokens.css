@@ -43,11 +43,14 @@
   /* Easing */
   --ease:        cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out:    cubic-bezier(0.16, 1, 0.30, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* rebond · réhabilite l'ancien ease-bounce, hardcodé ×3 */
 
   /* Layout */
   --wrap:       1440px;
   --wrap-wide:  1560px;
   --wrap-tight: 1120px;
+  --wrap-prose: 720px;  /* colonne de lecture standard */
+  --wrap-read:  900px;  /* colonne de lecture large */
   --gut:        32px;
 
   /* Fixed UI heights · pour scroll-margin anchors + cookie-aware spacing */
@@ -110,6 +113,14 @@ body {
   --tracking-mono:    0.12em;
 }
 
+/* ─── RADIUS SCALE · rayons unifiés (échelle restreinte) ─── */
+:root {
+  --radius-sm:   2px;   /* micro · cards, tags, inputs */
+  --radius-md:   8px;   /* medium · panneaux, mockups */
+  --radius-lg:   12px;  /* large · cards éditoriales */
+  --radius-pill: 999px; /* pill · CTA, badges arrondis */
+}
+
 /* ─── SPACING SCALE · 8pt grid ─── */
 :root {
   --space-1: 4px;
@@ -138,6 +149,13 @@ body {
      --text-h1, --text-h2, --text-small supprimés au profit des tokens canoniques DA) */
   --spacing-section: clamp(64px, 8vw, 96px);
   --spacing-block: clamp(28px, 3vw, 48px);
+}
+
+/* ─── FONT-WEIGHT SCALE · poids restreints ─── */
+:root {
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
 }
 
 /* ─── ANIMATION DURATIONS · scale unifié ───
