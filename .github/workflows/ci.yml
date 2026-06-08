@@ -42,3 +42,14 @@ jobs:
       # Le build doit passer : c'est la garantie que toute PR reste déployable sur Vercel
       - name: Build
         run: pnpm build
+
+      # Gate codegen : drift entre les touchpoints du catalogue (schema/demos/registry/composants/manifest).
+      # exit 1 si désynchronisé → empêche une PR de casser la source unique de la bibliothèque.
+      - name: Drift-guard catalogue (touchpoints)
+        run: node scripts/check-touchpoints.mjs
+
+      # Gate qualité GF-1 structurel sur le dist/ bâti (pages indexées only) : heading-order,
+      # liens internes redirect-aware, img alt, html lang. exit 1 sur régression ; les dettes
+      # connues (gated produit/légal) sont listées non-bloquantes via ALLOWLIST documentée.
+      - name: Gate qualité statique (a11y structurel + liens internes)
+        run: node scripts/check-static-quality.mjs
