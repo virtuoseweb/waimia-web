@@ -104,9 +104,9 @@ body {
   --text-body-md: 17px;
   --text-body-sm: 14px;
 
-  /* Mono · JetBrains Mono · seuls -md et -xs survivent (Kicker)
-     Cleanup Phase D.1 (2026-05-15) · 2 tailles unused supprimées : lg, sm */
-  --text-mono-md: 11px;
+  /* Mono · JetBrains Mono · seul -xs survient (Kicker extra-small)
+     Cleanup Phase D.1 (2026-05-15) · 2 tailles unused supprimées : lg, sm
+     V2 cohérence (2026-06-08) · -md (11px) fusionné → --text-eyebrow (doublon byte-équivalent) */
   --text-mono-xs: 10px;
 
   /* Leading & tracking */
