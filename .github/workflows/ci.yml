@@ -54,6 +54,12 @@ jobs:
       - name: Gate qualité statique (a11y structurel + liens internes)
         run: node scripts/check-static-quality.mjs
 
+      # Gate pureté DS : interdit tout hex brut réintroduit dans sections/*.astro (le DS est
+      # 100% token-driven → l'outil d'identité repeint en swappant les valeurs de tokens).
+      # Les rgba de marque restants sont surfacés en dette non-bloquante (à tokeniser).
+      - name: Gate pureté DS (token-driven, anti hex brut)
+        run: node scripts/check-token-purity.mjs
+
   # Suite Playwright e2e contre le BUILD servi (parité prod — le dev diverge du build).
   # Job SÉPARÉ, hors required-checks pour l'instant : visible mais non-bloquant le temps
   # de prouver sa stabilité en CI, puis promotion en gate. Couvre le DYNAMIQUE que le gate

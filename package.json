@@ -20,7 +20,9 @@
     "clean": "rm -rf dist .astro .vercel .turbo",
     "visual": "node scripts/visual-check.mjs",
     "gen:catalog": "node scripts/gen-catalog.mjs",
-    "check:touchpoints": "node scripts/check-touchpoints.mjs"
+    "check:touchpoints": "node scripts/check-touchpoints.mjs",
+    "check:static-quality": "node scripts/check-static-quality.mjs",
+    "check:token-purity": "node scripts/check-token-purity.mjs"
   },
   "dependencies": {
     "@4hse/astro-llms-txt": "^1.0.5",
