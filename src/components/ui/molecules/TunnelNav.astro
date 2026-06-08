@@ -33,7 +33,7 @@ const steps = [
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--color-paper, #F6F1E8);
+  background: var(--paper, #F6F1E8);
   border-bottom: 1px solid rgba(0,0,0,.08);
   padding: 12px 0;
 }
@@ -58,17 +58,17 @@ const steps = [
 .tunnel-nav__num {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 10px;
-  color: var(--color-muted, #888);
+  color: var(--muted, #888);
   letter-spacing: .06em;
   text-transform: uppercase;
 }
 .tunnel-nav__label {
   font-family: var(--font-body, 'Inter Tight', sans-serif);
   font-size: 13px;
-  color: var(--color-ink, #1a1a1a);
+  color: var(--ink, #1a1a1a);
 }
 .tunnel-nav__step.is-active .tunnel-nav__num,
-.tunnel-nav__step.is-active .tunnel-nav__label { color: var(--color-accent, #C94F2E); font-weight: 600; }
+.tunnel-nav__step.is-active .tunnel-nav__label { color: var(--accent, #C94F2E); font-weight: 600; }
 .tunnel-nav__step.is-done { opacity: .5; }
 .tunnel-nav__bar {
   position: absolute;
@@ -80,7 +80,7 @@ const steps = [
 }
 .tunnel-nav__fill {
   height: 100%;
-  background: var(--color-accent, #C94F2E);
+  background: var(--accent, #C94F2E);
   transition: width .4s cubic-bezier(.22,1,.36,1);
 }
 @media (max-width: 640px) {
