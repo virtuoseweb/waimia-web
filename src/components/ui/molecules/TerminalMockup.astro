@@ -39,10 +39,10 @@ const {
 
 const isInk = tone === 'ink';
 const bg = isInk ? '#17140F' : 'var(--paper)';
-const border = isInk ? 'rgba(246,241,232,.14)' : 'var(--hairline-strong)';
-const dotColor = isInk ? 'rgba(246,241,232,.22)' : 'var(--hairline-strong)';
+const border = isInk ? 'rgba(var(--paper-rgb),.14)' : 'var(--hairline-strong)';
+const dotColor = isInk ? 'rgba(var(--paper-rgb),.22)' : 'var(--hairline-strong)';
 const headerBg = isInk ? 'transparent' : 'var(--paper-2)';
-const headerBorder = isInk ? 'rgba(246,241,232,.1)' : 'var(--hairline)';
+const headerBorder = isInk ? 'rgba(var(--paper-rgb),.1)' : 'var(--hairline)';
 const kickerTone = isInk ? 'dim' : 'muted';
 ---
 <div
