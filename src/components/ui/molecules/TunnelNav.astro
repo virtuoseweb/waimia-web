@@ -34,7 +34,7 @@ const steps = [
   top: 0;
   z-index: 10;
   background: var(--paper, #F6F1E8);
-  border-bottom: 1px solid rgba(0,0,0,.08);
+  border-bottom: 1px solid rgba(var(--ink-rgb), .08);
   padding: 12px 0;
 }
 .tunnel-nav__inner {
@@ -51,7 +51,7 @@ const steps = [
   padding: 4px 16px;
   text-decoration: none;
   flex: 1;
-  border-right: 1px solid rgba(0,0,0,.06);
+  border-right: 1px solid rgba(var(--ink-rgb), .06);
   transition: opacity .2s;
 }
 .tunnel-nav__step:last-child { border-right: none; }
@@ -76,7 +76,7 @@ const steps = [
   left: 0;
   right: 0;
   height: 2px;
-  background: rgba(0,0,0,.07);
+  background: rgba(var(--ink-rgb), .07);
 }
 .tunnel-nav__fill {
   height: 100%;

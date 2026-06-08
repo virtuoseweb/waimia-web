@@ -576,7 +576,7 @@ const sectorVisual =
     letter-spacing: -0.005em;
     transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
   }
-  .sol-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .sol-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(var(--ink-rgb), 0.12); }
   .sol-hero-meta {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -597,7 +597,7 @@ const sectorVisual =
     text-transform: uppercase;
     color: var(--ink);
     padding: 8px 14px;
-    background: rgba(0,0,0,0.04);
+    background: rgba(var(--ink-rgb), 0.04);
     border: 1px solid var(--hairline);
     border-radius: 2px;
     transition: border-color 220ms var(--ease), color 220ms var(--ease);
@@ -727,7 +727,7 @@ const sectorVisual =
     transition: background 220ms var(--ease);
   }
   .sol-workflow-body :global(.wf-row:hover) {
-    background: rgba(201,79,46,0.03);
+    background: rgba(var(--accent-rgb), 0.03);
   }
   .sol-workflow-body :global(.wf-n) {
     font-family: var(--font-display);
@@ -856,7 +856,7 @@ const sectorVisual =
   .sol-workflow-body :global(code) {
     font-family: var(--font-mono);
     font-size: 14px;
-    background: rgba(0, 0, 0, 0.04);
+    background: rgba(var(--ink-rgb), 0.04);
     padding: 2px 6px;
     border-radius: 2px;
   }
@@ -885,11 +885,11 @@ const sectorVisual =
     color: var(--accent);
   }
   .sol-roi-grid :global(.key-metric-label) {
-    color: rgba(246,241,232,0.7);
+    color: rgba(var(--paper-rgb), 0.7);
   }
   .sol-roi-grid :global(.roi-cell) {
     padding-top: 32px;
-    border-top: 1px solid rgba(246, 241, 232, 0.12);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.12);
   }
   .sol-roi-grid :global(.roi-v) {
     font-family: var(--font-display);
@@ -905,7 +905,7 @@ const sectorVisual =
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(246,241,232,0.7);
+    color: rgba(var(--paper-rgb), 0.7);
     line-height: 1.4;
   }
 
@@ -1005,7 +1005,7 @@ const sectorVisual =
     transition: background 220ms var(--ease);
   }
   .sol-stack-grid :global(.stack-card:hover) {
-    background: rgba(201,79,46,0.025);
+    background: rgba(var(--accent-rgb), 0.025);
   }
   .sol-stack-grid :global(.stack-k) {
     font-family: var(--font-mono);
@@ -1042,11 +1042,11 @@ const sectorVisual =
   }
   .sol-stack-grid :global(.stack-pill.primary) {
     color: var(--accent);
-    background: rgba(201,79,46,0.08);
+    background: rgba(var(--accent-rgb), 0.08);
   }
   .sol-stack-grid :global(.stack-pill.secondary) {
     color: var(--ink);
-    background: rgba(0,0,0,0.05);
+    background: rgba(var(--ink-rgb), 0.05);
   }
   .sol-stack-grid :global(.stack-pill.open) {
     color: var(--muted);
@@ -1177,7 +1177,7 @@ const sectorVisual =
     padding: 14px 28px;
     background: transparent;
     color: var(--paper);
-    border: 1px solid rgba(246,241,232,0.3);
+    border: 1px solid rgba(var(--paper-rgb), 0.3);
     border-radius: 2px;
     font-size: 14px;
     font-weight: 500;

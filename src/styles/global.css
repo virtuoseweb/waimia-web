@@ -170,8 +170,8 @@ pre {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(201, 79, 46, 0.055) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(201, 79, 46, 0.055) 1px, transparent 1px);
+    linear-gradient(to right, rgba(var(--accent-rgb), 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--accent-rgb), 0.055) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse at 70% 30%, black 0%, transparent 75%);
   -webkit-mask-image: radial-gradient(
@@ -182,8 +182,8 @@ pre {
 }
 .signature-grid.on-dark {
   background-image:
-    linear-gradient(to right, rgba(201, 79, 46, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(201, 79, 46, 0.1) 1px, transparent 1px);
+    linear-gradient(to right, rgba(var(--accent-rgb), 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--accent-rgb), 0.1) 1px, transparent 1px);
 }
 
 /* ─── CONTAINERS ─── */
@@ -227,11 +227,11 @@ pre {
 .btn:not(.btn-link):hover,
 .btn:not(.btn-link):focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(12, 11, 9, 0.10);
+  box-shadow: 0 12px 28px rgba(var(--ink-rgb), 0.10);
 }
 .btn-primary:hover {
   background: var(--accent);
-  box-shadow: 0 14px 32px rgba(201, 79, 46, 0.22);
+  box-shadow: 0 14px 32px rgba(var(--accent-rgb), 0.22);
 }
 .btn-ghost {
   border: 1px solid var(--ink);
@@ -248,7 +248,7 @@ pre {
 }
 .btn-accent:hover {
   background: var(--accent-2);
-  box-shadow: 0 14px 32px rgba(201, 79, 46, 0.28);
+  box-shadow: 0 14px 32px rgba(var(--accent-rgb), 0.28);
 }
 .btn-link {
   padding: 6px 0;
@@ -379,7 +379,7 @@ a:not([class]):hover,
   right: 0;
   z-index: 60;
   padding: 18px 28px;
-  background: rgba(246, 241, 232, 0.78);
+  background: rgba(var(--paper-rgb), 0.78);
   backdrop-filter: blur(12px) saturate(140%);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
   border-bottom: 1px solid var(--hairline);
@@ -399,7 +399,7 @@ a:not([class]):hover,
 }
 .hdr.is-scrolled {
   padding: 10px 28px;
-  background: rgba(246, 241, 232, 0.92);
+  background: rgba(var(--paper-rgb), 0.92);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
 }
@@ -455,7 +455,7 @@ a:not([class]):hover,
 .hdr-nav-item.is-open .hdr-nav-trigger,
 .hdr-nav-trigger:hover {
   opacity: 1;
-  background: rgba(12, 11, 9, 0.05);
+  background: rgba(var(--ink-rgb), 0.05);
 }
 .hdr-nav-item.is-open .hdr-nav-trigger .caret {
   transform: rotate(180deg);
@@ -515,7 +515,7 @@ a:not([class]):hover,
 .hdr .cta:hover {
   background: var(--accent);
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(201, 79, 46, 0.22);
+  box-shadow: 0 14px 30px rgba(var(--accent-rgb), 0.22);
 }
 
 .burger {
@@ -569,7 +569,7 @@ a:not([class]):hover,
   z-index: 55;
   background: var(--paper);
   border-bottom: 1px solid var(--hairline);
-  box-shadow: 0 40px 80px rgba(12, 11, 9, 0.08);
+  box-shadow: 0 40px 80px rgba(var(--ink-rgb), 0.08);
   padding-top: 76px;
   opacity: 0;
   pointer-events: none;
@@ -722,7 +722,7 @@ a:not([class]):hover,
 .mega-scrim {
   position: fixed;
   inset: 0;
-  background: rgba(12, 11, 9, 0.28);
+  background: rgba(var(--ink-rgb), 0.28);
   backdrop-filter: blur(2px);
   opacity: 0;
   pointer-events: none;
@@ -1148,7 +1148,7 @@ a:not([class]):hover,
 }
 .lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 60px rgba(12, 11, 9, 0.08);
+  box-shadow: 0 24px 60px rgba(var(--ink-rgb), 0.08);
 }
 
 /* ─── SECTION SHARED ─── */
@@ -1163,7 +1163,7 @@ a:not([class]):hover,
 .sec-dark {
   background: var(--ink);
   color: var(--paper);
-  border-bottom-color: rgba(246, 241, 232, 0.1);
+  border-bottom-color: rgba(var(--paper-rgb), 0.1);
 }
 .sec-hd {
   display: grid;
@@ -1229,7 +1229,7 @@ a:not([class]):hover,
   background: var(--paper-2);
 }
 .sec-dark .editorial-cell:hover {
-  background: rgba(246, 241, 232, 0.04);
+  background: rgba(var(--paper-rgb), 0.04);
 }
 .editorial-cell .e-num {
   font-family: var(--font-display);
@@ -1442,7 +1442,7 @@ a:not([class]):hover,
   left: 20px;
   z-index: 50;
   padding: 4px;
-  background: rgba(246, 241, 232, 0.92);
+  background: rgba(var(--paper-rgb), 0.92);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid var(--hairline-strong);
@@ -1450,7 +1450,7 @@ a:not([class]):hover,
   display: inline-flex;
   gap: 2px;
   align-items: center;
-  box-shadow: 0 12px 40px rgba(12, 11, 9, 0.08);
+  box-shadow: 0 12px 40px rgba(var(--ink-rgb), 0.08);
   /* États initiaux · invisibles tant que React n'a pas dit ouvrir */
   opacity: 0;
   transform: translateY(8px);

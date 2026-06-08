@@ -325,7 +325,7 @@ const ctaData = {
     color: inherit;
     transition: background 240ms var(--ease);
   }
-  .hub-cd-link:hover { background: rgba(0, 0, 0, 0.02); }
+  .hub-cd-link:hover { background: rgba(var(--ink-rgb), 0.02); }
   .hub-cd-num {
     font-family: var(--font-display);
     font-size: clamp(36px, 4.5vw, 64px);
@@ -385,7 +385,7 @@ const ctaData = {
   .hub-nl-lead {
     font-size: 15px;
     line-height: 1.55;
-    color: rgba(246, 241, 232, 0.7);
+    color: rgba(var(--paper-rgb), 0.7);
     max-width: 520px;
     margin: 0;
   }
@@ -398,8 +398,8 @@ const ctaData = {
     flex: 1;
     min-width: 240px;
     padding: 14px 18px;
-    background: rgba(246, 241, 232, 0.08);
-    border: 1px solid rgba(246, 241, 232, 0.2);
+    background: rgba(var(--paper-rgb), 0.08);
+    border: 1px solid rgba(var(--paper-rgb), 0.2);
     border-radius: 2px;
     color: var(--paper);
     font-family: var(--font-display);
@@ -408,11 +408,11 @@ const ctaData = {
   .hub-nl-form input:focus { outline: none; border-color: var(--accent); }
   .nl-hint {
     font-size: 13px;
-    color: rgba(246, 241, 232, 0.5);
+    color: rgba(var(--paper-rgb), 0.5);
     margin: 10px 0 0;
     line-height: 1.5;
   }
-  .nl-hint a { color: rgba(246, 241, 232, 0.7); text-decoration: underline; }
+  .nl-hint a { color: rgba(var(--paper-rgb), 0.7); text-decoration: underline; }
   .nl-hint a:hover { color: var(--paper); }
 
   @media (max-width: 800px) {

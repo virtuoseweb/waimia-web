@@ -41,15 +41,15 @@ const lang = langFromPath(Astro.url.pathname);
     padding:clamp(160px,22vw,300px) 0;
     background:var(--accent);color:var(--paper);
     position:relative;overflow:hidden;
-    border-top:1px solid rgba(246,241,232,.18);
-    border-bottom:1px solid rgba(246,241,232,.18);
+    border-top:1px solid rgba(var(--paper-rgb), .18);
+    border-bottom:1px solid rgba(var(--paper-rgb), .18);
   }
   /* Grid translucide cream qui rappelle le signature-grid mais lisible sur terracotta */
   .manifesto-accent-grid{
     position:absolute;inset:0;pointer-events:none;
     background-image:
-      linear-gradient(to right, rgba(246,241,232,0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(246,241,232,0.08) 1px, transparent 1px);
+      linear-gradient(to right, rgba(var(--paper-rgb), 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(var(--paper-rgb), 0.08) 1px, transparent 1px);
     background-size:48px 48px;
     mask-image:radial-gradient(ellipse at 30% 70%, black 0%, transparent 80%);
     -webkit-mask-image:radial-gradient(ellipse at 30% 70%, black 0%, transparent 80%);
@@ -57,7 +57,7 @@ const lang = langFromPath(Astro.url.pathname);
   /* Override Kicker atom · couleur cream sur fond terracotta (cas marginal · 1 occurrence)
      Le `!important` est nécessaire car Kicker pose un style inline pour color. */
   :global(.manifesto-accent-kicker){
-    color:rgba(246,241,232,.78) !important;
+    color:rgba(var(--paper-rgb), .78) !important;
     margin-bottom:clamp(28px,3.5vw,48px);
   }
   .manifesto-accent-text{

@@ -67,7 +67,7 @@ const {
     color: var(--muted, #6B6560);
     margin-bottom: var(--space-4, 16px);
     padding-bottom: var(--space-3, 12px);
-    border-bottom: 1px solid var(--hairline-strong, rgba(12,11,9,0.18));
+    border-bottom: 1px solid var(--hairline-strong, rgba(var(--ink-rgb), 0.18));
   }
   .ed-table {
     width: 100%;
@@ -91,12 +91,12 @@ const {
   .ed-table-tr {
     transition: background 200ms ease-out;
   }
-  .ed-table-tr:hover { background: var(--paper-2, rgba(12,11,9,0.03)); }
+  .ed-table-tr:hover { background: var(--paper-2, rgba(var(--ink-rgb), 0.03)); }
   .ed-table-td {
     font-size: var(--text-body-md, 17px);
-    color: var(--ink-2, rgba(12,11,9,0.75));
+    color: var(--ink-2, rgba(var(--ink-rgb), 0.75));
     padding: var(--space-4, 16px) var(--space-4, 16px) var(--space-4, 16px) 0;
-    border-bottom: 1px solid var(--hairline, rgba(12,11,9,0.09));
+    border-bottom: 1px solid var(--hairline, rgba(var(--ink-rgb), 0.09));
     vertical-align: top;
   }
   .ed-table-td-right {
@@ -121,7 +121,7 @@ const {
     .ed-table, .ed-table tbody, .ed-table-tr, .ed-table-td { display: block; width: 100%; }
     .ed-table-tr {
       padding: var(--space-4, 16px) 0;
-      border-bottom: 1px solid var(--hairline, rgba(12,11,9,0.09));
+      border-bottom: 1px solid var(--hairline, rgba(var(--ink-rgb), 0.09));
     }
     .ed-table-td {
       padding: var(--space-1, 4px) 0;

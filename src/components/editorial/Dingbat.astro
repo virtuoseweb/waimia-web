@@ -66,7 +66,7 @@ const { variant = 'default', size = 'md' } = Astro.props;
   .dingbat-section .dingbat-line {
     flex: 1;
     height: 1px;
-    background: var(--hairline-strong, rgba(12,11,9,0.18));
+    background: var(--hairline-strong, rgba(var(--ink-rgb), 0.18));
     max-width: 240px;
   }
   .dingbat-section .dingbat-glyph {
@@ -77,13 +77,13 @@ const { variant = 'default', size = 'md' } = Astro.props;
   .dingbat-asterism .dingbat-glyph { font-size: 1.8em; }
   .dingbat-end .dingbat-glyph {
     font-size: 0.9em;
-    color: var(--ink-3, rgba(12,11,9,0.45));
+    color: var(--ink-3, rgba(var(--ink-rgb), 0.45));
     letter-spacing: 0.4em;
   }
   .dingbat-rule {
     border: none;
     height: 1px;
-    background: var(--hairline-strong, rgba(12,11,9,0.18));
+    background: var(--hairline-strong, rgba(var(--ink-rgb), 0.18));
     margin: var(--space-8, 48px) 0;
     width: 100%;
   }

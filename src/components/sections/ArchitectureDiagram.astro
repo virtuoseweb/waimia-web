@@ -54,7 +54,7 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
         })}
 
         {/* Central system node · large circle accent · double-stroke */}
-        <circle cx="440" cy="180" r="84" fill="rgba(201, 79, 46, 0.06)" stroke="var(--accent)" stroke-width="1.4"/>
+        <circle cx="440" cy="180" r="84" fill="rgba(var(--accent-rgb), 0.06)" stroke="var(--accent)" stroke-width="1.4"/>
         <circle cx="440" cy="180" r="92" fill="transparent" stroke="var(--accent)" stroke-width="0.6" stroke-opacity="0.4" stroke-dasharray="2 4"/>
         <text x="440" y="172" text-anchor="middle" font-family="var(--font-display)" font-size="20" fill="var(--accent)" font-style="italic">{data.system_label}</text>
         <text x="440" y="192" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--ink)" letter-spacing="0.14em">{data.system_kicker}</text>
@@ -68,7 +68,7 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
               {/* connector curve system → output */}
               <path d={`M532 180 C 624 180, 660 ${y + 18}, 716 ${y + 18}`} stroke="var(--accent)" stroke-width="1" stroke-opacity="0.6" fill="none"/>
               <circle cx="716" cy={y + 18} r="2" fill="var(--accent)"/>
-              <rect x="716" y={y} width="148" height="36" rx="2" fill="rgba(201, 79, 46, 0.04)" stroke="var(--accent)" stroke-width="1" stroke-opacity="0.7"/>
+              <rect x="716" y={y} width="148" height="36" rx="2" fill="rgba(var(--accent-rgb), 0.04)" stroke="var(--accent)" stroke-width="1" stroke-opacity="0.7"/>
               <text x="790" y={y + 23} text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--ink)" letter-spacing="0.08em">{label.toUpperCase()}</text>
             </>
           );

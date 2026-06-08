@@ -92,13 +92,13 @@ const METRICS = [
           bodyPadding={18}
           class="c-hero-term"
         >
-          <div style="color:rgba(246,241,232,.8)">
+          <div style="color:rgba(var(--paper-rgb), .8)">
             <div style="padding:8px 0"><span style="color:var(--accent)">$ </span>virtuose --version</div>
-            <div style="color:rgba(246,241,232,.55)">VirtuoseOS 2.4.1 · locale fr-FR · kernel ok</div>
+            <div style="color:rgba(var(--paper-rgb), .55)">VirtuoseOS 2.4.1 · locale fr-FR · kernel ok</div>
             <div style="padding:8px 0"><span style="color:var(--accent)">$ </span>virtuose ship pipeline.agent</div>
-            <div style="color:rgba(246,241,232,.55)">  → hubspot.sync ok · 482 contacts</div>
-            <div style="color:rgba(246,241,232,.55)">  → claude.triage ok · 14 handoffs</div>
-            <div style="color:rgba(246,241,232,.55)">  → audit.trail open</div>
+            <div style="color:rgba(var(--paper-rgb), .55)">  → hubspot.sync ok · 482 contacts</div>
+            <div style="color:rgba(var(--paper-rgb), .55)">  → claude.triage ok · 14 handoffs</div>
+            <div style="color:rgba(var(--paper-rgb), .55)">  → audit.trail open</div>
             <div style="padding:8px 0;color:var(--accent)">  ✓ pipeline shipped · +€ 19 540 pipeline</div>
             <div style="padding:8px 0"><span style="color:var(--accent)">$ </span><span class="c-cursor"></span></div>
           </div>
@@ -257,7 +257,7 @@ const METRICS = [
   <section id="act-5" style="padding:clamp(140px,18vw,200px) clamp(20px,4vw,48px);background:var(--ink);color:var(--paper)">
     <div style="max-width:1500px;margin:0 auto">
       <Kicker tone="accent" class="c-act-05">
-        [act.05] · <span style="color:rgba(246,241,232,.5)">{lang === 'fr' ? "passer à l'action" : 'act'}</span>
+        [act.05] · <span style="color:rgba(var(--paper-rgb), .5)">{lang === 'fr' ? "passer à l'action" : 'act'}</span>
       </Kicker>
       <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,6vw,80px);align-items:end">
         <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(56px,10vw,172px);line-height:.9;letter-spacing:-0.03em;color:var(--paper);text-wrap:balance;font-weight:400;margin:0">
@@ -267,7 +267,7 @@ const METRICS = [
             <>Open a <i style="color:var(--accent)">session</i>.<br />Not a <i>pitch</i>.</>
           )}
         </h2>
-        <div style="font-family:var(--font-mono);font-size:13px;color:rgba(246,241,232,.75);background:rgba(246,241,232,.04);border:1px solid rgba(246,241,232,.14);border-radius:10px;padding:22px">
+        <div style="font-family:var(--font-mono);font-size:13px;color:rgba(var(--paper-rgb), .75);background:rgba(var(--paper-rgb), .04);border:1px solid rgba(var(--paper-rgb), .14);border-radius:10px;padding:22px">
           <div style="color:var(--accent);margin-bottom:10px">$ virtuose session.open --duration=45m</div>
           <div>&gt; workspace: your-company</div>
           <div>&gt; agenda: {lang === 'fr' ? 'un problème diagnostiqué' : 'one diagnosed problem'}</div>

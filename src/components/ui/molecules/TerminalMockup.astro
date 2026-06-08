@@ -47,7 +47,7 @@ const kickerTone = isInk ? 'dim' : 'muted';
 ---
 <div
   class={`u-terminal ${extraClass}`.trim()}
-  style={`background:${bg};border:1px solid ${border};border-radius:12px;overflow:hidden;box-shadow:0 40px 120px rgba(12,11,9,.18);font-family:var(--font-mono);font-size:12px`}
+  style={`background:${bg};border:1px solid ${border};border-radius:12px;overflow:hidden;box-shadow:0 40px 120px rgba(var(--ink-rgb), .18);font-family:var(--font-mono);font-size:12px`}
 >
   {/* Chrome · 3 dots + label + status */}
   <div style={`display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid ${headerBorder};background:${headerBg}`}>

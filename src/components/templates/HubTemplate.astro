@@ -267,20 +267,20 @@ const ctaData = {
     margin-bottom: clamp(36px, 5vw, 56px);
   }
   .hub-fit-callout :global(.callout) {
-    color: rgba(246, 241, 232, 0.72);
-    border-left-color: rgba(246, 241, 232, 0.28);
+    color: rgba(var(--paper-rgb), 0.72);
+    border-left-color: rgba(var(--paper-rgb), 0.28);
     margin: 0;
   }
   .hub-fit-callout :global(.callout-body) { font-family: var(--font-sans); }
   :global(.hub-fit-cols) {
-    border-top: 1px solid rgba(246, 241, 232, 0.18);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.18);
   }
   :global(.hub-fit-cols .fit-col) {
-    border-top: 1px solid rgba(246, 241, 232, 0.18);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.18);
     transition: background 240ms var(--ease), transform 320ms var(--ease);
   }
   :global(.hub-fit-cols .fit-col:hover) {
-    background: rgba(246, 241, 232, 0.04);
+    background: rgba(var(--paper-rgb), 0.04);
     transform: translateY(-2px);
   }
 

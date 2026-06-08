@@ -130,7 +130,7 @@ const isFr = lang === 'fr';
   /* Tier I · primary visual weight · border accent + e-num accent par défaut */
   .pyramid-asym .editorial-cell:first-child {
     border-color: var(--accent);
-    background: rgba(201, 79, 46, 0.025);
+    background: rgba(var(--accent-rgb), 0.025);
   }
   .pyramid-asym .editorial-cell:first-child .e-num {
     color: var(--accent);
@@ -145,7 +145,7 @@ const isFr = lang === 'fr';
 
   .editorial-cell:hover {
     border-color: var(--accent);
-    background: rgba(201, 79, 46, 0.04);
+    background: rgba(var(--accent-rgb), 0.04);
   }
 
   .editorial-cell:hover .e-num {

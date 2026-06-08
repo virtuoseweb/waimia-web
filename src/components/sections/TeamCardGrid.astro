@@ -56,7 +56,7 @@ const isFr = lang === 'fr';
   }
   .eq-card {
     background: var(--paper);
-    border: 1px solid rgba(0, 0, 0, .08);
+    border: 1px solid rgba(var(--ink-rgb), .08);
     border-top: 2px solid transparent;
     border-radius: 2px;
     padding: 32px;
@@ -73,7 +73,7 @@ const isFr = lang === 'fr';
     border-color: var(--accent);
     border-top-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, .06);
+    box-shadow: 0 12px 32px rgba(var(--ink-rgb), .06);
   }
   .eq-card-photo {
     width: 100%;
@@ -116,7 +116,7 @@ const isFr = lang === 'fr';
   .eq-card-meta {
     margin-top: auto;
     padding-top: 16px;
-    border-top: 1px solid rgba(0, 0, 0, .08);
+    border-top: 1px solid rgba(var(--ink-rgb), .08);
   }
   .eq-card-count {
     font-family: var(--font-mono);
