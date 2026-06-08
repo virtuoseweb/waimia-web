@@ -383,8 +383,41 @@ console.log(`\n⛔ Demi-pixels font-size directs (BLOQUANT V9d, dérive élimin�
 if (halfpxHits.length) showHp(halfpxHits).forEach(h => console.log(fmtHp(h)));
 if (!REPORT && halfpxHits.length > 3) console.log(`    … +${halfpxHits.length - 3} (voir --report)`);
 
+// ══════════════════════════════════════════════════════════════════════════════
+// V9-SVG — Gate hex de marque en attribut fill=/stroke= (BLOQUANT, repaintabilité)
+// Interdit tout fill="<hex-marque>" ou stroke="<hex-marque>" résiduel dans .astro.
+// Ces 4 hex doivent toujours passer par var(--ink|--muted|--accent|--paper-2)
+// pour que l'outil identité puisse repeindre les SVG inline par swap de token.
+// Scan : src/**/*.astro (intégral — SVG inline dans le corps du template).
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Hex de marque bloquants en attribut SVG (insensible à la casse)
+const SVG_HEX_RE = /(fill|stroke)\s*=\s*"#(0C0B09|6B6560|C94F2E|EFE9DD)"/gi;
+
+const svgHexHits = [];
+
+// Réutilise allFilesV8, filtre uniquement les .astro
+const astroFilesV9svg = allFilesV8.filter(f => extname(f) === '.astro');
+
+for (const fpath of astroFilesV9svg) {
+  const raw = readFileSync(fpath, 'utf8');
+  // On scanne le contenu COMPLET (les fill/stroke SVG sont dans le corps, jamais dans le frontmatter)
+  const rel = relative(ROOT, fpath);
+  for (const m of raw.matchAll(SVG_HEX_RE)) {
+    const line = raw.slice(0, m.index).split('\n').length;
+    svgHexHits.push({ file: rel, line, value: m[0].trim() });
+  }
+}
+
+const showSvg = (arr) => (REPORT ? arr : arr.slice(0, 3));
+const fmtSvg  = (h) => `    ${h.file}:${h.line}  ${h.value}  → doit être fill/stroke="var(--token)"`;
+
+console.log(`\n⛔ Hex de marque en attribut SVG (BLOQUANT V9-SVG, repaintabilité) : ${svgHexHits.length}`);
+if (svgHexHits.length) showSvg(svgHexHits).forEach(h => console.log(fmtSvg(h)));
+if (!REPORT && svgHexHits.length > 3) console.log(`    … +${svgHexHits.length - 3} (voir --report)`);
+
 // ── Décision finale ────────────────────────────────────────────────────────────
-const totalBlocking = hexHits.length + literalHits.length + spacingHits.length + halfpxHits.length;
+const totalBlocking = hexHits.length + literalHits.length + spacingHits.length + halfpxHits.length + svgHexHits.length;
 
 if (hexHits.length > 0) {
   console.log(`\n❌ FAIL — ${hexHits.length} hex brut(s). Migre vers var(--token) / color-mix.\n`);
@@ -398,8 +431,11 @@ if (spacingHits.length > 0) {
 if (halfpxHits.length > 0) {
   console.log(`\n❌ FAIL — ${halfpxHits.length} demi-pixel(s) font-size direct(s). Snap vers var(--text-*) via snap-halfpixel-fontsize.mjs (DS enforced V9d).\n`);
 }
+if (svgHexHits.length > 0) {
+  console.log(`\n❌ FAIL — ${svgHexHits.length} hex de marque en attribut fill/stroke SVG. Migre via tokenize-svg-hex.mjs → var(--ink|--muted|--accent|--paper-2) (DS enforced V9-SVG).\n`);
+}
 if (totalBlocking > 0) {
   process.exit(1);
 }
-console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut, 0 demi-pixel font-size. (${brandHits.length} rgba de marque = dette à tokeniser, non-bloquante.)\n`);
+console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut, 0 demi-pixel font-size, 0 hex SVG de marque. (${brandHits.length} rgba de marque = dette à tokeniser, non-bloquante.)\n`);
 process.exit(0);
