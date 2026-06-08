@@ -159,6 +159,10 @@ const fontSizes = [
   { value: '14px', token: 'var(--text-body-sm)' },
   { value: '10px', token: 'var(--text-mono-xs)' },
   { value: '17px', token: 'var(--text-body-md)' },
+  // V9c — nouveaux crans à fort volume
+  { value: '12px', token: 'var(--text-caption)' },
+  { value: '13px', token: 'var(--text-ui)' },
+  { value: '15px', token: 'var(--text-body-lead)' },
 ];
 for (const { value, token } of fontSizes) {
   const { rx, replacement } = buildPropertyAnchored('font-size', value, token);
@@ -166,12 +170,15 @@ for (const { value, token } of fontSizes) {
 }
 
 // ── line-height ───────────────────────────────────────────────────────────────
-// ⚠ Exact uniquement : NE PAS toucher 1, 1.15, 1.55, 1.4 etc.
+// ⚠ Exact uniquement : NE PAS toucher 1, 1.15, 1.55, 1.6 etc.
 const lineHeights = [
   { value: '1.5',  token: 'var(--leading-body)' },
   { value: '0.96', token: 'var(--leading-h1)' },
   { value: '1.02', token: 'var(--leading-h2)' },
   { value: '1.1',  token: 'var(--leading-h3)' },
+  // V9c — nouveaux crans à fort volume
+  { value: '1.4',  token: 'var(--leading-lede)' },
+  { value: '1.65', token: 'var(--leading-prose)' },
 ];
 for (const { value, token } of lineHeights) {
   const { rx, replacement } = buildPropertyAnchored('line-height', value, token);
@@ -207,6 +214,15 @@ const borderRadii = [
   { value: '8px',   token: 'var(--radius-md)' },
   { value: '12px',  token: 'var(--radius-lg)' },
   { value: '999px', token: 'var(--radius-pill)' },
+  // V9c — nouveaux crans à fort volume
+  // ⚠ '50%' : le % est échappé par escapeRegex → \% → pas de problème regex
+  //   rightBoundary = '(?![a-zA-Z0-9_-])' convient (après % vient ; ou espace)
+  //   '150%' ne matche PAS car buildPropertyAnchored ancre sur 'border-radius:\s*'
+  //   et le lookahead (?![a-zA-Z0-9_-]) stoppe après % (le '1' de '150' est alphanum)
+  //   → regex: /border-radius:\s*(?!var\()4px(?![a-zA-Z0-9_-])/g  (radius-xs)
+  //   → regex: /border-radius:\s*(?!var\()50\%(?![a-zA-Z0-9_-])/g  (radius-full)
+  { value: '4px',   token: 'var(--radius-xs)' },
+  { value: '50%',   token: 'var(--radius-full)' },
 ];
 for (const { value, token } of borderRadii) {
   const { rx, replacement } = buildPropertyAnchored('border-radius', value, token);

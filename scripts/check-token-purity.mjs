@@ -134,11 +134,18 @@ const LITERAL_MAPPINGS = [
   { property: 'font-size',      value: '14px',    token: '--text-body-sm' },
   { property: 'font-size',      value: '10px',    token: '--text-mono-xs' },
   { property: 'font-size',      value: '17px',    token: '--text-body-md' },
-  // line-height (exact uniquement — ne pas toucher 1, 1.15, 1.55, 1.4, etc.)
+  // V9c — nouveaux crans à fort volume
+  { property: 'font-size',      value: '12px',    token: '--text-caption' },
+  { property: 'font-size',      value: '13px',    token: '--text-ui' },
+  { property: 'font-size',      value: '15px',    token: '--text-body-lead' },
+  // line-height (exact uniquement — ne pas toucher 1, 1.15, 1.55, 1.6, etc.)
   { property: 'line-height',    value: '1.5',     token: '--leading-body' },
   { property: 'line-height',    value: '0.96',    token: '--leading-h1' },
   { property: 'line-height',    value: '1.02',    token: '--leading-h2' },
   { property: 'line-height',    value: '1.1',     token: '--leading-h3' },
+  // V9c — nouveaux crans line-height à fort volume
+  { property: 'line-height',    value: '1.4',     token: '--leading-lede' },
+  { property: 'line-height',    value: '1.65',    token: '--leading-prose' },
   // letter-spacing
   { property: 'letter-spacing', value: '0.12em',   token: '--tracking-mono' },
   { property: 'letter-spacing', value: '-0.025em',  token: '--tracking-display' },
@@ -152,6 +159,9 @@ const LITERAL_MAPPINGS = [
   { property: 'border-radius',  value: '8px',     token: '--radius-md' },
   { property: 'border-radius',  value: '12px',    token: '--radius-lg' },
   { property: 'border-radius',  value: '999px',   token: '--radius-pill' },
+  // V9c — nouveaux crans border-radius à fort volume
+  { property: 'border-radius',  value: '4px',     token: '--radius-xs' },
+  { property: 'border-radius',  value: '50%',     token: '--radius-full' },
   // max-width
   { property: 'max-width',      value: '720px',   token: '--wrap-prose' },
   { property: 'max-width',      value: '900px',   token: '--wrap-read' },

@@ -74,7 +74,7 @@ import Kicker from '../../../components/ui/atoms/Kicker.astro';
   .about-prose {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
-    line-height: 1.65;
+    line-height: var(--leading-prose);
     color: var(--ink-2);
     max-width: var(--wrap-prose);
   }
@@ -128,7 +128,7 @@ import Kicker from '../../../components/ui/atoms/Kicker.astro';
     font-family: var(--font-sans);
     font-size: 16px;
     margin: 0;
-    line-height: 1.4;
+    line-height: var(--leading-lede);
   }
 
   @media (max-width: var(--wrap-read)) {
@@ -163,7 +163,7 @@ import Kicker from '../../../components/ui/atoms/Kicker.astro';
   .about-cta-btn {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: var(--text-ui);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--paper);

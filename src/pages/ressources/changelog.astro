@@ -93,7 +93,7 @@ const months = Object.keys(byMonth).sort().reverse();
   .cl-tag { color: var(--accent); letter-spacing: 0.14em; }
   .cl-version { color: var(--ink); padding: 2px var(--space-2); background: var(--paper-2); border-radius: var(--radius-sm); }
   .cl-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 32px); line-height: var(--leading-h3); letter-spacing: -0.018em; font-weight: var(--fw-regular); margin: 0; text-wrap: balance; }
-  .cl-body { font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty; max-width: var(--wrap-prose); margin: 0; }
+  .cl-body { font-size: var(--text-body-lead); line-height: 1.55; color: var(--muted); text-wrap: pretty; max-width: var(--wrap-prose); margin: 0; }
   @media (max-width: 700px) {
     .cl-month { grid-template-columns: 1fr; }
     :global(.cl-month-k) { position: static; }

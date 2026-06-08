@@ -75,7 +75,7 @@ const METRICS = [
               ? "VirtuoseOS orchestre acquisition, contenu, CRM, site, analytics et marque dans une couche commune — agents, règles, mesure, validation humaine. Vous gardez la plateforme quand on part."
               : "VirtuoseOS orchestrates acquisition, content, CRM, site, analytics and brand into one common layer — agents, rules, measurement, human validation. You keep the platform when we leave."}
           </p>
-          <div style="margin-top:20px;font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:.06em;line-height:var(--leading-body)">
+          <div style="margin-top:20px;font-family:var(--font-mono);font-size:var(--text-caption);color:var(--accent);letter-spacing:.06em;line-height:var(--leading-body)">
             {lang === 'fr'
               ? <>▸ 4 workspaces actifs · 14 agents IA · 99,98&nbsp;% uptime · audit trail signé</>
               : <>▸ 4 workspaces live · 14 AI agents · 99.98% uptime · signed audit trail</>}
@@ -98,7 +98,7 @@ const METRICS = [
           bodyPadding={18}
           class="c-hero-term"
         >
-          <div id="console-terminal-body" style="color:rgba(var(--paper-rgb), .8);font-family:var(--font-mono);font-size:13px;line-height:1.6;min-height:180px">
+          <div id="console-terminal-body" style="color:rgba(var(--paper-rgb), .8);font-family:var(--font-mono);font-size:var(--text-ui);line-height:1.6;min-height:180px">
             <div id="console-terminal-output"></div>
             <div style="padding:4px 0"><span style="color:var(--accent)">$ </span><span id="console-terminal-cursor" class="c-cursor"></span></div>
           </div>
@@ -110,7 +110,7 @@ const METRICS = [
         {METRICS.map(([k, v], i) => (
           <div style={`padding:20px;border-right:${i < 4 ? '1px solid var(--hairline)' : 'none'}`}>
             <div style="font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">{k}</div>
-            <div style="font-family:var(--font-mono);font-size:15px;margin-top:6px;color:var(--ink)">{v}</div>
+            <div style="font-family:var(--font-mono);font-size:var(--text-body-lead);margin-top:6px;color:var(--ink)">{v}</div>
           </div>
         ))}
       </div>
@@ -171,7 +171,7 @@ const METRICS = [
       <TerminalTable cols="60px 180px 1fr 120px" headers={['id', 'service', 'description', 'status']}>
         {SIX_SERVICES.map((s) => (
           <a href={flh('/contact', lang)} class="u-edit-tbl-row">
-            <span style="font-family:var(--font-mono);font-size:12px;color:var(--muted)">{s.k}</span>
+            <span style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--muted)">{s.k}</span>
             <span style="font-family:var(--font-sans);font-size:clamp(20px,2vw,24px);line-height:1;letter-spacing:-0.01em">{ft(s.label, lang)}</span>
             <span style="font-size:13.5px;color:var(--muted);line-height:1.45;padding-right:20px">{ft(s.body, lang)}</span>
             <span style="font-family:var(--font-mono);font-size:var(--text-eyebrow);color:var(--accent);letter-spacing:.1em;text-align:right">◉ active</span>
@@ -236,11 +236,11 @@ const METRICS = [
       >
         {CASE_FEED.slice(0, 4).map((c, i) => (
           <a href={flh(`/cas/${c.slug}`, lang)} class="u-edit-tbl-row">
-            <span style="font-family:var(--font-mono);font-size:12px;color:var(--muted)">0{i + 1}</span>
+            <span style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--muted)">0{i + 1}</span>
             <span style="font-family:var(--font-sans);font-size:clamp(22px,2vw,26px);line-height:1">{c.client}</span>
-            <span style="font-size:13px;color:var(--muted)">{ft(c.sector, lang)}</span>
-            <span style="font-family:var(--font-mono);font-size:12px;color:var(--muted)">{c.duration}</span>
-            <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink)">{c.stack}</span>
+            <span style="font-size:var(--text-ui);color:var(--muted)">{ft(c.sector, lang)}</span>
+            <span style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--muted)">{c.duration}</span>
+            <span style="font-family:var(--font-mono);font-size:var(--text-caption);color:var(--ink)">{c.stack}</span>
             <span style="font-size:var(--text-body-sm);color:var(--accent);font-weight:var(--fw-medium)">{ft(c.impact, lang)}</span>
             <span style="font-family:var(--font-mono);color:var(--muted);text-align:right">↗</span>
           </a>
@@ -287,14 +287,14 @@ const METRICS = [
             <>Open a <i style="color:var(--accent)">session</i>.<br />Not a <i>pitch</i>.</>
           )}
         </h2>
-        <div style="font-family:var(--font-mono);font-size:13px;color:rgba(var(--paper-rgb), .75);background:rgba(var(--paper-rgb), .04);border:1px solid rgba(var(--paper-rgb), .14);border-radius:10px;padding:22px">
+        <div style="font-family:var(--font-mono);font-size:var(--text-ui);color:rgba(var(--paper-rgb), .75);background:rgba(var(--paper-rgb), .04);border:1px solid rgba(var(--paper-rgb), .14);border-radius:10px;padding:22px">
           <div style="color:var(--accent);margin-bottom:10px">$ virtuose session.open --duration=45m</div>
           <div>&gt; workspace: your-company</div>
           <div>&gt; agenda: {lang === 'fr' ? 'un problème diagnostiqué' : 'one diagnosed problem'}</div>
           <div>&gt; outcome: {lang === 'fr' ? 'notes actionnables ou pas de relance' : 'actionable notes or no follow-up'}</div>
           <div>&gt; channel: Meet / Zoom / on-site Paris</div>
           <div>&gt; commitment: {lang === 'fr' ? 'aucun · 45 min, on coupe' : 'none · 45 min, we cut'}</div>
-          <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(var(--paper-rgb), .14);color:rgba(var(--paper-rgb), .55);font-size:12px">
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(var(--paper-rgb), .14);color:rgba(var(--paper-rgb), .55);font-size:var(--text-caption)">
             {lang === 'fr' ? '// vous repartez avec un audit ou rien. Pas de relance pénible.' : '// you leave with an audit or nothing. No annoying follow-up.'}
           </div>
           <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">

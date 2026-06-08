@@ -74,7 +74,7 @@ if (authorSlug) {
   .acard-mini-photo {
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     object-fit: cover;
   }
   .acard-mini-name { font-family: var(--font-display); font-size: var(--text-body-sm); }
@@ -93,7 +93,7 @@ if (authorSlug) {
   .acard-full-photo {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     object-fit: cover;
   }
   .acard-full-kicker {
@@ -122,7 +122,7 @@ if (authorSlug) {
   }
   .acard-full-bio {
     font-family: var(--font-display);
-    font-size: 15px;
+    font-size: var(--text-body-lead);
     line-height: 1.6;
     color: var(--ink);
     font-style: italic;
@@ -133,7 +133,7 @@ if (authorSlug) {
     flex-wrap: wrap;
     gap: var(--space-4);
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-caption);
   }
   .acard-full-social a {
     color: var(--ink);

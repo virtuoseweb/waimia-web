@@ -100,6 +100,9 @@ body {
      Cleanup Phase D.1 (2026-05-15) · 2 tailles unused supprimées : lg, xs */
   --text-body-md: 17px;
   --text-body-sm: 14px;
+  --text-body-lead: 15px; /* corps prose intermédiaire (entre body-sm 14 et body-md 17) */
+  --text-ui:      13px;   /* boutons / nav / chrome UI */
+  --text-caption: 12px;   /* captions / pills / badges mono */
 
   /* Mono · JetBrains Mono · seul -xs survient (Kicker extra-small)
      Cleanup Phase D.1 (2026-05-15) · 2 tailles unused supprimées : lg, sm
@@ -108,6 +111,8 @@ body {
 
   /* Leading & tracking */
   --leading-body:    1.5;
+  --leading-lede:    1.4;  /* lede hero / sous-titres display (18–32px) */
+  --leading-prose:   1.65; /* corps long de lecture (articles, FAQ, glossaire) */
   --tracking-display: -0.025em;
   --tracking-body:    -0.005em;
   --tracking-mono:    0.12em;
@@ -115,10 +120,12 @@ body {
 
 /* ─── RADIUS SCALE · rayons unifiés (échelle restreinte) ─── */
 :root {
+  --radius-xs:   4px;   /* inputs / focus-visible / form (cran manquant sm↔md) */
   --radius-sm:   2px;   /* micro · cards, tags, inputs */
   --radius-md:   8px;   /* medium · panneaux, mockups */
   --radius-lg:   12px;  /* large · cards éditoriales */
   --radius-pill: 999px; /* pill · CTA, badges arrondis */
+  --radius-full: 50%;   /* cercles / avatars / dots (distinct de pill 999px) */
 }
 
 /* ─── SPACING SCALE · 8pt grid ─── */
