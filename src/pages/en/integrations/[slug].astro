@@ -53,8 +53,8 @@ const connectionLabel = connectionLabels[data.native_or_via_api];
             <img src={data.logo_url} alt={data.tool_name} width="64" height="64" decoding="async" />
           ) : (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <rect width="64" height="64" rx="14" fill="#F3F4F6" />
-              <text x="32" y="42" text-anchor="middle" font-size="28" font-family="system-ui, sans-serif" fill="#6B7280">
+              <rect width="64" height="64" rx="14" fill="var(--paper-3)" />
+              <text x="32" y="42" text-anchor="middle" font-size="28" font-family="system-ui, sans-serif" fill="var(--muted)">
                 {data.tool_name.charAt(0).toUpperCase()}
               </text>
             </svg>
