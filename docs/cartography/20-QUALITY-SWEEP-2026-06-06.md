@@ -143,3 +143,26 @@ Audit liens externes (HEAD réels) → la chaîne de conversion pointe vers des 
 
 ## Verdict
 **4 items gated initiaux résolus** + **2 vrais bugs a11y/SEO Tour 3** (13 pages : h1 vides/absents) + **Tour 4 : socle a11y 100 % clean sur 351 pages indexées** (img/lang/h1/heading-order) + **3 fixes SEO Tour 4** (duplicate content migrated, sitemap catalogue, desc testimonials) + **suite e2e verte durcie**. Tout prouvé GF-1/build, **0 régression de session**. **🚨 PRIORITÉ SIMON** : conversion externe cassée sur pages indexées (3 CTA RDV cal.com morts en fin de tunnel + 9 paiements Stripe placeholder) — fort impact revenus, gated (identifiants réels requis). Autre reste = structural (Phase C) · catalogue-interne (APPROX) · narrow-risqué (R1) · **gated produit/contenu** (79 stubs noindex∩sitemap = arbitrage indexation, liens morts conseil/commerce/EN-mirrors/légal, copy descriptions, polish). Exécution prête dès arbitrage.
+
+---
+
+## Tour 5 — Exécution du mandat exécutif (2026-06-08)
+
+> **Mandat Simon (verbatim)** : « Réponds toi-même à toutes les questions en tant qu'ingénieur/CTO/CEO et directeur marketing et chef opérationnel et définis les tâches pour la suite puis orchestre et mets en action les agents pour les tâches restantes en autonomie. » + clarification Cal : « cal.waimia.com (`waimia-cal`) = fork open-source self-host DIY **non utilisé** ; on utilise **Cal.com SaaS** (calLink `simon-beros-eg1hc4/30min`). »
+>
+> Les items « gated » des Tours précédents sont débloqués : Claude tranche en CTO/CMO + orchestre (1 worker Sonnet sur la rédaction, micro-fixes directs). 4 commits, tout prouvé GF-1/build, 0 régression.
+
+| # | Décision (CTO/CMO) | Implémentation | Preuve empirique | Commit |
+|---|---|---|---|---|
+| Conversion | 3 CTA RDV morts → vrai Cal.com SaaS `cal.com/simon-beros-eg1hc4/30min` (lien fourni Simon) | `tunnels/{revops,activation-ia,application-ia-pme}-4.mdx` | curl 200 + `href` dans HTML buildé | `91f4ca9` |
+| SEO commerce | 15 pages `/commerce/*` (CTA Stripe placeholder 403) → **noindex défensif** + hors sitemap (réversible quand checkout réel branché) | `commerce/[type]/[slug].astro` + `astro.config` | GF-1 : `robots=noindex,follow` + page rend (h1+prix+CTA visibles) ; `/commerce/`=0 au sitemap | `76b35f5` |
+| SEO stubs | 79 stubs catch-all noindex∩sitemap → exclus via module **data-driven** (`sitemap-noindex-exclude.ts`, dérivé empiriquement HTML∩sitemap) | `astro.config` filter + module | sitemap **404→325** ; 79 stubs à 0 ; vraies pages (`offres/claude-cowork`, `solutions/finance`, `technologies/claude-models`, `ressources/blog`) préservées (test décisif `A\B`=13 vraies pages protégées) | `76b35f5` |
+| SEO desc | descriptions hors-norme → 120–155c brand voice (cmo 177→148, virtuoseos 175→144/147, caserne 169→154/151, 8 catégories `taxonomies.ts` <50c→120–150c) | worker Sonnet + vérif | astro check 0 err ; GF-1 lede categorie rendu visible | `0bb8446` |
+| Liens | INSEE 7735308→7678534, HubSpot `/state-of-sales`→`blog.hubspot.com/sales/hubspot-sales-strategy-report`, github `simonberos`→`virtuoseweb` | `blog/automatiser-relances-*` + `authors/simon-beros` | curl 200 ×3 | `0f184e1` |
+| **Phase C** (#7) | **DÉCISION : garder les 4 templates en legacy** — `Solutions` (Simon « non migré ») + `TrustLegal`/`Welcome`/`ListIndex` (aucun composant catalogué dédié → créer = violation rule 28 DS figé ; régresser = violation GF-1). **Dette acceptée**, pas de chemin sans violation. | aucune modif (statu quo assumé) | — | — |
+
+### Dettes résiduelles signalées à Simon (décisions de fond, hors « fix technique »)
+1. **Compte Cal.com incohérent** (non tranché unilatéralement) : les **tunnels** pointent désormais vers `simon-beros-eg1hc4/30min` (lien fourni Simon), mais le **widget `/contact` + `CalEmbed`** utilise un AUTRE compte `simonberos/audit` (les deux vivent, 200). → Harmoniser le site sur un seul compte/event ? (1 env var `PUBLIC_CAL_USERNAME`/`_EVENT_TYPE`, ou défaut `CalEmbedReact.tsx`).
+2. **Stat « 78 % » attribuée à l'INSEE** (note `^1` de `blog/automatiser-relances-*`, l.72) **non vérifiable** : l'INSEE n'enquête pas « le pipeline commercial comme frein à la croissance ». Le lien est réparé (page INSEE PME réelle) mais l'**attribution de la stat** reste douteuse → requalifier en observation terrain Waimia (décision éditoriale de fond, non inventée).
+3. **Stripe** : brancher les vrais Payment Links pour **ré-indexer** les 15 pages commerce (retirer le `noindex` défensif).
+4. **McKinsey** `the-state-of-ai` → `000` (probable blocage anti-bot réseau, non concluant) : à vérifier manuellement.
