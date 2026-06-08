@@ -67,8 +67,8 @@ const categoryLabels: Record<string, { fr: string; en: string }> = {
                     <img src={entry.data.logo_url} alt={entry.data.tool_name} width="48" height="48" loading="lazy" />
                   ) : (
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                      <rect width="48" height="48" rx="10" fill="#F3F4F6" />
-                      <text x="24" y="30" text-anchor="middle" font-size="20" font-family="system-ui, sans-serif" fill="#6B7280">
+                      <rect width="48" height="48" rx="10" fill="var(--paper-3)" />
+                      <text x="24" y="30" text-anchor="middle" font-size="20" font-family="system-ui, sans-serif" fill="var(--muted)">
                         {entry.data.tool_name.charAt(0).toUpperCase()}
                       </text>
                     </svg>
