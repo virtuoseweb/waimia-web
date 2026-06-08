@@ -95,9 +95,8 @@ body {
 
 /* ─── TYPE SCALE ─── */
 :root {
-  /* Display · Instrument Serif · seul -md survit (utilisé via alias W6 --text-h1)
-     Cleanup Phase D.1 (2026-05-15) · 4 tailles unused supprimées : xl, lg, sm, xs */
-  --text-display-md: clamp(44px, 6vw, 96px);
+  /* Display · Instrument Serif — Cleanup Phase D.1 (2026-05-15) · 4 tailles unused supprimées : xl, lg, sm, xs
+     Fusion A3 (2026-06-08) : --text-display-md fusionné dans --text-h2-grand */
 
   /* Body · Inter Tight · seuls -md et -sm survivent (utilisés via aliases W6)
      Cleanup Phase D.1 (2026-05-15) · 2 tailles unused supprimées : lg, xs */
@@ -110,9 +109,7 @@ body {
   --text-mono-xs: 10px;
 
   /* Leading & tracking */
-  --leading-display: 0.94;
   --leading-body:    1.5;
-  --leading-loose:   1.55;
   --tracking-display: -0.025em;
   --tracking-body:    -0.005em;
   --tracking-mono:    0.12em;
