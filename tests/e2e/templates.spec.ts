@@ -105,30 +105,35 @@ test("CourseDetailTemplate · /ecole/cours/intro-ia-pme-b2b rend hero catalogué
   expect(contentH1).toBe(1);
 });
 
-/* ───── Template CaseStudyTemplate · /ressources/cas/plateau ───── */
-test("CaseStudyTemplate · /ressources/cas/plateau rend masthead + specs + steps + proof", async ({
+/* ───── Template CaseStudyTemplate · /cas/plateau ─────
+ * URL canonique : /ressources/cas/plateau est une SOURCE de redirect Vercel
+ * (astro.config.mjs : '/ressources/cas/plateau' -> '/cas/plateau'). La page réelle
+ * vit à /cas/plateau et rend le hero catalogué `hero-case-study` (specs + corps + proof).
+ * Assertions alignées sur le contenu réel de src/content/cases/plateau.mdx. */
+test("CaseStudyTemplate · /cas/plateau rend masthead + specs + corps + proof", async ({
   page,
 }) => {
-  const resp = await page.goto("/ressources/cas/plateau");
-  test.skip(resp?.status() === 404, "redirect Vercel /ressources/cas/* -> /cas/* absent en statique (serve-dist)");
+  const resp = await page.goto("/cas/plateau");
   expect(resp?.status()).toBe(200);
   await waitNoBoot(page);
 
   const html = await page.content();
-  // Spec bar · 5 items
+  // Spec bar · client / secteur / durée / stack
   expect(html).toContain("Plateau");
-  expect(html).toContain("SaaS B2B"); // sector
-  expect(html).toContain("10 sem"); // duration
+  expect(html).toContain("SaaS B2B"); // secteur
+  expect(html).toContain("10 wk"); // durée (valeur réelle frontmatter `duration`)
   expect(html).toContain("HubSpot"); // stack
-  // Context · 47 contradictions
-  expect(html).toContain("47");
-  expect(html).toContain("contradictions");
-  // Approach steps
-  expect(html).toContain("Lecture du funnel");
-  // Proof
-  expect(html).toContain("Marie Cousin");
-  // Stack pills
-  expect(html).toContain("VirtuoseOS");
+  expect(html).toContain("dbt"); // stack
+  // Corps de l'étude · sections MDX rendues
+  expect(html).toContain("Le contexte");
+  expect(html).toContain("Résultats");
+  // Preuve chiffrée (impact mesuré)
+  expect(html).toContain("2,4 M€");
+  expect(html).toContain("pipeline");
+  // Tech employée
+  expect(html).toContain("Claude Opus 4.7");
+  // Auteur (JSON-LD / byline)
+  expect(html).toContain("Simon Beros");
 
   // h1 unique dans le contenu (exclut les h1 d'Astro dev toolbar)
   const contentH1 = await page
@@ -176,30 +181,33 @@ test("EssayTemplate · /ressources/blog/brain-circuit rend kicker + lede + body 
   expect(proseH2).toBeGreaterThanOrEqual(3); // au moins 3 sections
 });
 
-/* ───── Template ListIndexTemplate · /ressources/cas (index) ───── */
-test("ListIndexTemplate · /ressources/cas rend grid case cards (5 items CASE_FEED)", async ({
+/* ───── Template ListIndexTemplate · /cas (index) ─────
+ * URL canonique : /ressources/cas est une SOURCE de redirect Vercel
+ * (astro.config.mjs : '/ressources/cas' -> '/cas'). La page réelle vit à /cas
+ * et rend le masthead catalogué `hero-hub-masthead` + la grille de cas.
+ * Le feed compte 4 cas (VirtuoseOS retiré → redirect /ressources/cas/virtuoseos -> /archive,
+ * astro.config.mjs:69). Assertions alignées sur le contenu réel servi. */
+test("ListIndexTemplate · /cas rend masthead + grid case cards (4 cas)", async ({
   page,
 }) => {
-  const resp = await page.goto("/ressources/cas");
-  test.skip(resp?.status() === 404, "redirect Vercel /ressources/cas -> /cas absent en statique (serve-dist)");
+  const resp = await page.goto("/cas");
   expect(resp?.status()).toBe(200);
   await waitNoBoot(page);
 
   const html = await page.content();
-  // Headline + lede
-  expect(html).toContain("dossiers");
-  expect(html).toContain("démo");
-  // Les 5 cases du CASE_FEED
+  // Headline + lede du masthead
+  expect(html).toContain("Des chiffres."); // headline « Pas de marketing. Des chiffres. »
+  expect(html).toContain("Quatre cas"); // lede
+  // Les 4 cas du feed
   expect(html).toContain("Plateau");
-  expect(html).toContain("Halcyon Health");
+  expect(html).toContain("Halcyon");
   expect(html).toContain("Northbound");
   expect(html).toContain("Caserne");
-  expect(html).toContain("VirtuoseOS");
 
   // h1 unique dans le contenu (exclut les h1 d'Astro dev toolbar)
   const contentH1 = await page
     .locator(
-      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.hero-case-study__h1, h1.essay-h1, h1.list-h1, h1.hero-headline",
+      "h1.hero-hub-stats__h1, h1.hero-service-detail__h1, h1.hero-case-study__h1, h1.essay-h1, h1.list-h1, h1.hero-headline, h1.hero-hub-masthead__h1",
     )
     .count();
   expect(contentH1).toBe(1);
@@ -258,9 +266,9 @@ test("Templates · pas de liens 'click here' / 'cliquez ici'", async ({
   const routes = [
     "/offres/conseil",
     "/offres/revops",
-    "/ressources/cas/plateau",
+    "/cas/plateau", // URL canonique (/ressources/cas/plateau est une source de redirect)
     "/ressources/blog/brain-circuit",
-    "/ressources/cas",
+    "/cas", // URL canonique (/ressources/cas est une source de redirect)
   ];
 
   for (const route of routes) {
@@ -279,7 +287,7 @@ test("Templates · responsive mobile 375px sans overflow horizontal", async ({
 }) => {
   await page.setViewportSize({ width: 375, height: 800 });
 
-  const routes = ["/offres/conseil", "/ressources/cas/plateau"];
+  const routes = ["/offres/conseil", "/cas/plateau"]; // /cas/plateau = URL canonique (redirect source /ressources/cas/plateau)
   for (const route of routes) {
     await page.goto(route);
     await waitNoBoot(page);
@@ -301,9 +309,9 @@ test("Templates · meta description + canonical présents sur les 5 pages", asyn
   const routes = [
     "/offres/conseil",
     "/offres/revops",
-    "/ressources/cas/plateau",
+    "/cas/plateau", // URL canonique (/ressources/cas/plateau est une source de redirect)
     "/ressources/blog/brain-circuit",
-    "/ressources/cas",
+    "/cas", // URL canonique (/ressources/cas est une source de redirect)
   ];
 
   for (const route of routes) {
