@@ -71,7 +71,7 @@ const dateStr = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
   }
   .fieldnote-detail__date {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-caption);
     letter-spacing: 0.06em;
     color: var(--muted);
     margin-top: var(--space-4);
@@ -93,13 +93,13 @@ const dateStr = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
     padding: var(--space-4);
     overflow-x: auto;
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: var(--text-ui);
     line-height: var(--leading-body);
     margin: var(--space-5) 0;
   }
   .fieldnote-detail__content :global(code) {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: var(--text-ui);
     background: var(--paper-2);
     padding: 2px 6px;
   }

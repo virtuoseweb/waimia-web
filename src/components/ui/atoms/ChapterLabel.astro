@@ -25,7 +25,7 @@ const color = tone === 'dim' ? 'rgba(246,241,232,.55)' : 'var(--muted)';
 const sepColor = tone === 'dim' ? 'rgba(246,241,232,.35)' : 'var(--muted)';
 ---
 <div class={`u-chapter-label ${extraClass}`.trim()} style={`display:inline-flex;align-items:baseline;gap:10px;font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:${color}`}>
-  {!noDot && <span style="width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block;transform:translateY(-2px)" aria-hidden></span>}
+  {!noDot && <span style="width:6px;height:6px;background:var(--accent);border-radius:var(--radius-full);display:inline-block;transform:translateY(-2px)" aria-hidden></span>}
   <span style="color:var(--accent);font-weight:var(--fw-medium)">{num}</span>
   <span style={`color:${sepColor}`} aria-hidden>·</span>
   <span>{title}</span>

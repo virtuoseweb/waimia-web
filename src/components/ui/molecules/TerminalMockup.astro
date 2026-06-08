@@ -47,12 +47,12 @@ const kickerTone = isInk ? 'dim' : 'muted';
 ---
 <div
   class={`u-terminal ${extraClass}`.trim()}
-  style={`background:${bg};border:1px solid ${border};border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 40px 120px rgba(var(--ink-rgb), .18);font-family:var(--font-mono);font-size:12px`}
+  style={`background:${bg};border:1px solid ${border};border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 40px 120px rgba(var(--ink-rgb), .18);font-family:var(--font-mono);font-size:var(--text-caption)`}
 >
   {/* Chrome · 3 dots + label + status */}
   <div style={`display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid ${headerBorder};background:${headerBg}`}>
     {[0, 1, 2].map(() => (
-      <span style={`width:10px;height:10px;border-radius:50%;background:${dotColor};display:inline-block`} aria-hidden></span>
+      <span style={`width:10px;height:10px;border-radius:var(--radius-full);background:${dotColor};display:inline-block`} aria-hidden></span>
     ))}
     {label && <Kicker as="span" tone={kickerTone} letterSpacing="0" class="u-terminal-label">{label}</Kicker>}
     {status && <Kicker as="span" tone="accent" letterSpacing="0" class="u-terminal-status">{status}</Kicker>}

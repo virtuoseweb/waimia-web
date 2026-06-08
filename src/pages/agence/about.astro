@@ -110,7 +110,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   .about-prose {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
-    line-height: 1.65;
+    line-height: var(--leading-prose);
     color: var(--ink-2);
   }
   :global(.about-kicker) { display: block; margin: clamp(48px, 5vw, 64px) 0 var(--space-3); }
@@ -164,9 +164,9 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   }
   .about-facts dd {
     font-family: var(--font-sans);
-    font-size: 15px;
+    font-size: var(--text-body-lead);
     margin: 0;
-    line-height: 1.4;
+    line-height: var(--leading-lede);
   }
 
   /* Stats bloc */
@@ -255,7 +255,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   .about-cta-btn {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: var(--text-ui);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     padding: var(--space-4) 36px;

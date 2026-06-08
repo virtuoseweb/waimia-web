@@ -700,7 +700,7 @@ const growthToolRows = [
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
-    line-height: 1.4;
+    line-height: var(--leading-lede);
   }
 
   /* ───── Steps (Method) ───── */
@@ -737,7 +737,7 @@ const growthToolRows = [
     margin: 0 0 var(--space-3);
     font-weight: var(--fw-regular);
   }
-  .off-steps :global(.step p) { font-size: 15px; line-height: 1.55; color: var(--ink); margin: 0; }
+  .off-steps :global(.step p) { font-size: var(--text-body-lead); line-height: 1.55; color: var(--ink); margin: 0; }
 
   /* ───── Deliverables ───── */
   .off-del-lead {
@@ -856,7 +856,7 @@ const growthToolRows = [
   .off-proof-quote {
     font-family: var(--font-display);
     font-size: clamp(20px, 2vw, 26px);
-    line-height: 1.4;
+    line-height: var(--leading-lede);
     color: var(--ink);
     font-style: italic;
     margin: var(--space-3) 0 var(--space-4);
@@ -1225,7 +1225,7 @@ const growthToolRows = [
   .off-faq-a {
     font-family: var(--font-sans);
     font-size: var(--text-body-md, 16px);
-    line-height: 1.65;
+    line-height: var(--leading-prose);
     color: var(--ink-2);
     margin: 0;
   }
@@ -1259,7 +1259,7 @@ const growthToolRows = [
     padding-top: var(--space-4);
     font-family: var(--font-sans);
     font-size: var(--text-body-md, 16px);
-    line-height: 1.65;
+    line-height: var(--leading-prose);
     color: var(--ink-2);
     max-width: 680px;
   }

@@ -54,7 +54,7 @@ svg {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
 }
 
 /* ─── SEMANTIC TYPE ─── */
@@ -114,7 +114,7 @@ pre {
   width: 6px;
   height: 6px;
   background: var(--accent);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: inline-block;
   transform: translateY(-2px);
 }
@@ -210,7 +210,7 @@ pre {
   gap: var(--space-2);
   padding: 14px 22px;
   border-radius: var(--radius-sm);
-  font-size: 13px;
+  font-size: var(--text-ui);
   font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-body);
   transition:
@@ -357,7 +357,7 @@ a:not([class]):hover,
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--text-caption);
   letter-spacing: 0.06em;
   border-radius: 6px;
   transition: top 220ms var(--ease);
@@ -428,7 +428,7 @@ a:not([class]):hover,
   justify-content: center;
   font-family: var(--font-sans);
   font-weight: 450;
-  font-size: 13px;
+  font-size: var(--text-ui);
   letter-spacing: var(--tracking-body);
 }
 .hdr-nav-item {
@@ -650,7 +650,7 @@ a:not([class]):hover,
   font-weight: var(--fw-regular);
   margin-top: 3px;
   display: block;
-  line-height: 1.4;
+  line-height: var(--leading-lede);
 }
 
 .mega-featured {
@@ -675,7 +675,7 @@ a:not([class]):hover,
   color: var(--ink);
 }
 .mega-featured .bd {
-  font-size: 13px;
+  font-size: var(--text-ui);
   line-height: 1.55;
   color: var(--muted);
   max-width: 280px;
@@ -920,7 +920,7 @@ a:not([class]):hover,
 .trust-pill .dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--accent);
 }
 .trust-pill.compliance .dot {
@@ -1270,7 +1270,7 @@ a:not([class]):hover,
   border-top: 1px solid var(--hairline);
 }
 .editorial-cell .e-list li {
-  font-size: 12px;
+  font-size: var(--text-caption);
   color: var(--ink-2);
   display: flex;
   align-items: center;
@@ -1281,7 +1281,7 @@ a:not([class]):hover,
   color: var(--accent);
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 13px;
+  font-size: var(--text-ui);
   flex-shrink: 0;
 }
 .editorial-cell .e-go {
@@ -1350,7 +1350,7 @@ a:not([class]):hover,
   padding-left: clamp(12px, 2vw, 24px);
   padding-right: clamp(12px, 2vw, 24px);
   background: var(--paper-2);
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
 }
 .case-row .idx {
   font-family: var(--font-mono);

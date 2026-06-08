@@ -110,7 +110,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
               <p class="ds-help">UI text, body copy, functional density.</p>
             </div>
             <div class="ds-type-row">
-              <strong style="font-family:var(--font-mono);font-size:13px;font-weight:var(--fw-medium)">JetBrains Mono</strong>
+              <strong style="font-family:var(--font-mono);font-size:var(--text-ui);font-weight:var(--fw-medium)">JetBrains Mono</strong>
               <p class="ds-help">Labels, system notes, metadata and code snippets.</p>
             </div>
           </div>
@@ -488,7 +488,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
   }
   .ds-meta {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-caption);
     letter-spacing: .06em;
     color: var(--muted);
     margin: var(--space-5) 0 0;
@@ -496,7 +496,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
   .ds-meta code {
     background: var(--paper-2);
     padding: 2px 6px;
-    border-radius: 4px;
+    border-radius: var(--radius-xs);
   }
 
   .ds-layout {
@@ -529,7 +529,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
     font-size: var(--text-body-sm);
     color: var(--ink-2);
     text-decoration: none;
-    line-height: 1.4;
+    line-height: var(--leading-lede);
   }
   .ds-toc-list a:hover { color: var(--accent); }
 
@@ -549,7 +549,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
   .ds-subsection { margin: var(--space-7) 0; }
   .ds-h3 {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: var(--text-ui);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
@@ -601,7 +601,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
   }
   .ds-swatch-info code {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-caption);
     color: var(--ink);
   }
   .ds-swatch-role {
@@ -646,7 +646,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
   .ds-z-list code,
   .ds-templates-list code {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-caption);
     color: var(--ink);
   }
 
@@ -695,7 +695,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
   }
   .ds-label {
     font-family: var(--font-sans);
-    font-size: 12px;
+    font-size: var(--text-caption);
     font-weight: var(--fw-semibold);
     letter-spacing: .06em;
     text-transform: uppercase;
@@ -735,8 +735,8 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
   .ds-organisms-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--space-3); margin-top:var(--space-4); }
   .ds-organism-card { padding:14px var(--space-4); background:var(--paper-2); border:1px solid var(--hairline); display:flex; flex-direction:column; gap:6px; }
   .ds-organism-card-top { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); }
-  .ds-organism-card code { font-family:var(--font-mono); font-size:13px; color:var(--ink); background:transparent; }
-  .ds-organism-card .ds-help { margin:0; font-size:12px; }
+  .ds-organism-card code { font-family:var(--font-mono); font-size:var(--text-ui); color:var(--ink); background:transparent; }
+  .ds-organism-card .ds-help { margin:0; font-size:var(--text-caption); }
 
   @media (max-width: var(--wrap-read)) {
     .ds-layout { grid-template-columns: 1fr; gap: var(--space-6); }

@@ -288,7 +288,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-hub-masthead__lede {
     font-family: var(--font-sans);
     font-size: clamp(17px, 1.6vw, 19px);
-    line-height: 1.65;
+    line-height: var(--leading-prose);
     color: var(--muted);
     margin: var(--space-6) 0 0;
     max-width: 580px;
@@ -329,7 +329,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
     max-width: 760px;
-    line-height: 1.4;
+    line-height: var(--leading-lede);
   }
   @media (max-width: 768px) {
     .hero-hub-listing__deco { width: 260px; height: 200px; opacity: 0.6; }
@@ -363,14 +363,14 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
     max-width: 760px;
-    line-height: 1.4;
+    line-height: var(--leading-lede);
     text-wrap: pretty;
   }
   .hero-problem-index__canonical {
     max-width: var(--wrap-prose);
     margin: 22px 0 0;
     color: var(--muted);
-    font-size: 15px;
+    font-size: var(--text-body-lead);
     line-height: 1.6;
   }
   .hero-problem-index__canonical :global(strong) { color: var(--ink); font-weight: var(--fw-medium); }
@@ -399,7 +399,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   .hero-utility__role {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: var(--text-ui);
     letter-spacing: 0.06em;
     color: var(--accent);
     margin: var(--space-3) 0 0;
@@ -412,7 +412,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
     max-width: 760px;
-    line-height: 1.4;
+    line-height: var(--leading-lede);
     text-wrap: pretty;
   }
   .hero-utility--centered .hero-utility__lede {
@@ -468,7 +468,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-academy-hub__stats-text {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-caption);
     line-height: 1;
     letter-spacing: 0.08em;
     text-transform: uppercase;

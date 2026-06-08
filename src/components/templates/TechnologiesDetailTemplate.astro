@@ -588,7 +588,7 @@ const serviceLd = buildService({ name: title, description });
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: var(--radius-xs);
     display: inline-block;
     background: rgba(var(--accent-rgb), 0.08);
     color: var(--accent);
@@ -601,7 +601,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-models-table tbody :global(.mdl-cost),
   .tech-models-table tbody :global(.mdl-ctx) {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: var(--text-ui);
     color: var(--ink);
     white-space: nowrap;
   }
@@ -767,7 +767,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tt-spec-status {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-caption);
     letter-spacing: 0.08em;
     color: var(--accent);
     padding: 20px 0;
