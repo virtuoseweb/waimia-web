@@ -87,7 +87,7 @@ const articleLd = buildArticle({
       </div>
 
       {/* bottom CTAs */}
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;align-items:end;max-width:1600px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-8);align-items:end;max-width:1600px">
         <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:1.4;color:rgba(var(--paper-rgb), .85);max-width:420px;margin:0">
           {lang === 'fr'
             ? "On câble l'IA dans vos outils marketing, sales et web — acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process."
@@ -139,7 +139,7 @@ const articleLd = buildArticle({
           )}
         </p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:80px;border-top:1px solid rgba(var(--paper-rgb), .12)">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-8);padding-top:var(--space-10);border-top:1px solid rgba(var(--paper-rgb), .12)">
         {STATS.map((r) => (
           <div class="reveal">
             <div class="manifesto-stat">{r.n}</div>
@@ -411,13 +411,13 @@ const articleLd = buildArticle({
 
   /* Spacing/colors pour les Kicker atoms rendus par les sous-composants
      Note : :global est requis car le scoping Astro ne descend pas dans les composants enfants */
-  :global(.manifesto-acte-iv){margin-bottom:32px}
-  :global(.manifesto-acte-v){margin-bottom:40px}
+  :global(.manifesto-acte-iv){margin-bottom:var(--space-6)}
+  :global(.manifesto-acte-v){margin-bottom:var(--space-7)}
   :global(.b-hero-dim){color:rgba(var(--paper-rgb), .55) !important;line-height:1}
-  :global(.b-hero-tag){color:rgba(var(--paper-rgb), .55) !important;margin-bottom:24px;line-height:1}
+  :global(.b-hero-tag){color:rgba(var(--paper-rgb), .55) !important;margin-bottom:var(--space-5);line-height:1}
   :global(.b-acte-1){color:rgba(var(--paper-rgb), .5) !important}
-  :global(.b-acte-1-sub){color:rgba(var(--paper-rgb), .3) !important;letter-spacing:.14em;margin-top:4px}
-  :global(.b-acte-3){color:rgba(var(--paper-rgb), .5) !important;margin-bottom:32px}
+  :global(.b-acte-1-sub){color:rgba(var(--paper-rgb), .3) !important;letter-spacing:.14em;margin-top:var(--space-1)}
+  :global(.b-acte-3){color:rgba(var(--paper-rgb), .5) !important;margin-bottom:var(--space-6)}
   :global(.b-writing-tag){color:rgba(var(--paper-rgb), .5) !important}
 
   /* Hero meta + foot · layout */

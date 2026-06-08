@@ -262,7 +262,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-centered__ctas {
     display: flex;
-    gap: 12px;
+    gap: var(--space-3);
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -272,9 +272,9 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   /* ── hero-hub-masthead ─────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-hub-masthead` (collision max-width). */
-  .hero-hub-masthead { padding: 140px 32px clamp(48px, 6vw, 88px); }
+  .hero-hub-masthead { padding: 140px var(--space-6) clamp(48px, 6vw, 88px); }
   .hero-hub-masthead .wrap-wide { max-width: 1200px; margin-inline: auto; }
-  :global(.hero-hub-masthead__kicker) { display: block; margin-bottom: 24px; }
+  :global(.hero-hub-masthead__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-masthead__h1 {
     font-family: var(--font-display);
     font-size: clamp(60px, 11vw, 180px);
@@ -290,7 +290,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: clamp(17px, 1.6vw, 19px);
     line-height: 1.65;
     color: var(--muted);
-    margin: 32px 0 0;
+    margin: var(--space-6) 0 0;
     max-width: 580px;
   }
 
@@ -298,7 +298,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-hub-listing {
     position: relative;
     overflow: hidden;
-    padding: calc(var(--header-height) + 40px) 32px clamp(40px, 5vw, 72px);
+    padding: calc(var(--header-height) + 40px) var(--space-6) clamp(40px, 5vw, 72px);
   }
   .hero-hub-listing .wrap-wide { position: relative; z-index: 1; }
   .hero-hub-listing__deco {
@@ -311,7 +311,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     z-index: 0;
     color: var(--ink);
   }
-  :global(.hero-hub-listing__kicker) { display: block; margin-bottom: 24px; }
+  :global(.hero-hub-listing__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-listing__h1 {
     font-family: var(--font-display);
     font-size: clamp(56px, 11vw, 180px);
@@ -327,7 +327,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.2vw, 28px);
     color: var(--ink-2);
-    margin: 32px 0 0;
+    margin: var(--space-6) 0 0;
     max-width: 760px;
     line-height: 1.4;
   }
@@ -337,7 +337,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   /* ── hero-problem-index ────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-problem-index` (collision max-width). */
-  .hero-problem-index { position: relative; overflow: hidden; padding: 140px 32px clamp(44px, 6vw, 84px); }
+  .hero-problem-index { position: relative; overflow: hidden; padding: 140px var(--space-6) clamp(44px, 6vw, 84px); }
   .hero-problem-index__geo {
     position: absolute; inset: 0; width: 100%; height: 100%;
     pointer-events: none;
@@ -345,7 +345,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     mix-blend-mode: multiply;
   }
   .hero-problem-index .wrap-wide { max-width: 1200px; margin-inline: auto; position: relative; z-index: 1; }
-  :global(.hero-problem-index__kicker) { display: block; margin-bottom: 24px; }
+  :global(.hero-problem-index__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-problem-index__h1 {
     font-family: var(--font-display);
     font-size: clamp(56px, 11vw, 180px);
@@ -361,7 +361,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-style: italic;
     font-size: clamp(20px, 2.2vw, 28px);
     color: var(--ink-2);
-    margin: 32px 0 0;
+    margin: var(--space-6) 0 0;
     max-width: 760px;
     line-height: 1.4;
     text-wrap: pretty;
@@ -378,12 +378,12 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   /* ── hero-utility-masthead ─────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-utility` (collision max-width). */
   .hero-utility {
-    padding: 140px 32px clamp(40px, 5vw, 72px);
+    padding: 140px var(--space-6) clamp(40px, 5vw, 72px);
     border-bottom: 1px solid var(--hairline);
   }
   .hero-utility--centered { text-align: center; }
   .hero-utility .wrap-wide { max-width: 1200px; margin-inline: auto; }
-  :global(.hero-utility__kicker) { display: block; margin-bottom: 24px; }
+  :global(.hero-utility__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-utility--centered :global(.hero-utility__kicker) { display: inline-block; }
 
   .hero-utility__h1 {
@@ -402,7 +402,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: 13px;
     letter-spacing: 0.06em;
     color: var(--accent);
-    margin: 12px 0 0;
+    margin: var(--space-3) 0 0;
   }
 
   .hero-utility__lede {
@@ -410,7 +410,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-style: italic;
     font-size: clamp(20px, 2.2vw, 32px);
     color: var(--ink-2);
-    margin: 32px 0 0;
+    margin: var(--space-6) 0 0;
     max-width: 760px;
     line-height: 1.4;
     text-wrap: pretty;
@@ -442,16 +442,16 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-academy-hub__hero {
     padding-top: var(--hahub-top-pad, 72px);
-    padding-bottom: 48px;
+    padding-bottom: var(--space-8);
     border-bottom: 1px solid var(--hairline);
   }
-  :global(.hero-academy-hub__kicker) { margin: 0 0 24px; }
+  :global(.hero-academy-hub__kicker) { margin: 0 0 var(--space-5); }
   .hero-academy-hub__heading {
     font-size: var(--text-h1-hero);
     font-family: var(--font-display);
     font-weight: var(--fw-regular);
     line-height: 1.05;
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
   }
   .hero-academy-hub__heading :global(i) { font-style: italic; }
   .hero-academy-hub__lede {
@@ -480,7 +480,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-course { padding-top: var(--hero-course-top-pad, 24px); }
   .hero-course .wrap-wide { max-width: 1100px; margin-inline: auto; padding-inline: var(--space-page-x, 24px); }
   .hero-course__hd {
-    padding: 56px 0 48px;
+    padding: 56px 0 var(--space-8);
     border-bottom: 1px solid var(--hairline);
   }
   .hero-course__title {
@@ -488,7 +488,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: var(--text-h1-hero);
     font-weight: var(--fw-regular);
     line-height: 1.05;
-    margin: 16px 0 20px;
+    margin: var(--space-4) 0 20px;
   }
   .hero-course__lede {
     font-family: var(--font-sans);
@@ -501,7 +501,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-course__pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: var(--space-2);
     margin-bottom: 28px;
   }
   .hero-course__pill {
@@ -509,7 +509,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: var(--text-eyebrow);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 4px 10px;
+    padding: var(--space-1) 10px;
     border: 1px solid var(--hairline);
     color: var(--muted-2);
   }
@@ -526,7 +526,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     font-weight: var(--fw-semibold);
-    padding: 12px 24px;
+    padding: var(--space-3) var(--space-5);
     background: var(--ink);
     color: var(--paper);
     text-decoration: none;
@@ -560,10 +560,10 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   /* ── hero-detail-menu ──────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-detail-menu` (collision max-width). */
-  .hero-detail-menu { padding: 140px 32px 0; }
+  .hero-detail-menu { padding: 140px var(--space-6) 0; }
   .hero-detail-menu .wrap-wide { max-width: 1200px; margin-inline: auto; }
   :global(.hero-detail-menu__parent) { display: block; margin-bottom: var(--space-4); }
-  :global(.hero-detail-menu__num) { display: block; margin-bottom: 24px; }
+  :global(.hero-detail-menu__num) { display: block; margin-bottom: var(--space-5); }
   .hero-detail-menu__h1 {
     font-family: var(--font-display);
     font-size: clamp(56px, 9vw, 156px);
@@ -571,7 +571,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     letter-spacing: -0.028em;
     text-wrap: balance;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
   }
   .hero-detail-menu__h1 :global(i) { font-style: italic; color: var(--accent); }
   .hero-detail-menu__lede {

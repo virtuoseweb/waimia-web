@@ -277,7 +277,7 @@ const padStep = (n: number) => String(n).padStart(2, '0');
   font-size: 15px;
   color: var(--ink);
   border: 1px solid var(--hairline);
-  padding: 12px 24px;
+  padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: border-color .2s;
@@ -319,12 +319,12 @@ const padStep = (n: number) => String(n).padStart(2, '0');
   .tnl-progress {
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: var(--space-1);
   }
   .tnl-progress__step {
     border-right: none;
     border-bottom: 1px solid var(--hairline);
-    padding: 4px 0;
+    padding: var(--space-1) 0;
     width: 100%;
   }
   .tnl-progress__step:last-child { border-bottom: none; }

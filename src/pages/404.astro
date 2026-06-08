@@ -57,9 +57,9 @@ const lang = langFromPath(Astro.url.pathname);
 </Base>
 
 <style>
-  .err { padding: 140px 32px clamp(60px, 8vw, 100px); min-height: 80vh; display: flex; align-items: center; }
+  .err { padding: 140px var(--space-6) clamp(60px, 8vw, 100px); min-height: 80vh; display: flex; align-items: center; }
   .err-wrap { max-width: 1100px; }
-  :global(.err-code) { display: block; margin-bottom: 24px; }
+  :global(.err-code) { display: block; margin-bottom: var(--space-5); }
   .err-h1 {
     font-family: var(--font-display);
     font-size: clamp(64px, 13vw, 200px);
@@ -67,7 +67,7 @@ const lang = langFromPath(Astro.url.pathname);
     letter-spacing: -0.035em;
     text-wrap: balance;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
   }
   .err-h1 :global(i) { font-style: italic; color: var(--accent); }
   .err-lede {
@@ -93,7 +93,7 @@ const lang = langFromPath(Astro.url.pathname);
     border-right: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-3);
     transition: background 240ms var(--ease);
   }
   .err-paths li:last-child { border-right: none; }
@@ -108,7 +108,7 @@ const lang = langFromPath(Astro.url.pathname);
     transition: color var(--dur-fast) var(--ease);
   }
   .err-path-link:hover { color: var(--accent); }
-  .err-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .err-cta { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 
   @media (max-width: 800px) {
     .err-paths { grid-template-columns: 1fr; }

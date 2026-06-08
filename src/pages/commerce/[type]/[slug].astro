@@ -124,30 +124,30 @@ const jsonLd = [
     padding-bottom: var(--spacing-section);
   }
   .commerce-detail__hd {
-    margin: 32px 0 48px;
+    margin: var(--space-6) 0 var(--space-8);
     border-bottom: 1px solid var(--hairline);
-    padding-bottom: 32px;
+    padding-bottom: var(--space-6);
   }
   .commerce-detail__title {
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
     line-height: var(--leading-h2);
     color: var(--ink);
-    margin: 16px 0 0;
+    margin: var(--space-4) 0 0;
   }
   .commerce-detail__lede {
     font-family: var(--font-sans);
     font-size: var(--text-lede);
     color: var(--ink-2);
     line-height: var(--leading-body);
-    margin: 24px 0 0;
+    margin: var(--space-5) 0 0;
     max-width: 64ch;
   }
   .commerce-detail__price-block {
     display: flex;
     align-items: baseline;
-    gap: 24px;
-    margin-bottom: 32px;
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
     flex-wrap: wrap;
   }
   .commerce-detail__price {
@@ -171,21 +171,21 @@ const jsonLd = [
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
     color: var(--ink);
-    margin: 48px 0 24px;
+    margin: var(--space-8) 0 var(--space-5);
   }
   .commerce-detail__benefits {
     list-style: none;
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .commerce-detail__benefits li {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
     color: var(--ink-2);
-    padding-left: 24px;
+    padding-left: var(--space-5);
     position: relative;
   }
   .commerce-detail__benefits li::before {
@@ -198,7 +198,7 @@ const jsonLd = [
     font-family: var(--font-display);
     font-size: clamp(18px, 1.6vw, 22px);
     color: var(--ink);
-    margin: 24px 0 8px;
+    margin: var(--space-5) 0 var(--space-2);
   }
   .commerce-detail__faq dd {
     font-family: var(--font-sans);
@@ -209,8 +209,8 @@ const jsonLd = [
   }
   .commerce-detail__content {
     max-width: 72ch;
-    margin-top: 48px;
-    padding-top: 32px;
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
     border-top: 1px solid var(--hairline);
   }
   .commerce-detail__content :global(p) {
@@ -218,6 +218,6 @@ const jsonLd = [
     font-size: var(--text-body-md);
     line-height: 1.7;
     color: var(--ink-2);
-    margin: 0 0 16px;
+    margin: 0 0 var(--space-4);
   }
 </style>

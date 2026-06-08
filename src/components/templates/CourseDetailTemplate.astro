@@ -411,7 +411,7 @@ const jsonLd = [
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     font-weight: var(--fw-semibold);
-    padding: 12px 24px;
+    padding: var(--space-3) var(--space-5);
     background: var(--ink, #111);
     color: var(--paper);
     text-decoration: none;
@@ -445,7 +445,7 @@ const jsonLd = [
   .type-sections { margin-top: 0; }
 
   .section {
-    padding: 48px 0 0;
+    padding: var(--space-8) 0 0;
   }
 
   .section-heading {
@@ -470,9 +470,9 @@ const jsonLd = [
     counter-increment: obj;
     display: grid;
     grid-template-columns: 28px 1fr;
-    gap: 12px;
+    gap: var(--space-3);
     align-items: start;
-    padding: 16px 0;
+    padding: var(--space-4) 0;
     border-bottom: 1px solid var(--hairline);
     font-family: var(--font-sans);
     font-size: 15px;
@@ -573,7 +573,7 @@ const jsonLd = [
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted, #888);
-    padding-right: 16px;
+    padding-right: var(--space-4);
   }
 
   .info-val { font-weight: var(--fw-medium); }
@@ -584,7 +584,7 @@ const jsonLd = [
   .chain-item {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: var(--space-4);
     padding: 14px 0;
     border-bottom: 1px solid var(--hairline);
   }
@@ -619,8 +619,8 @@ const jsonLd = [
   /* MDX BODY */
   .mdx-body {
     border-top: 1px solid var(--hairline);
-    margin-top: 48px;
-    padding-top: 48px;
+    margin-top: var(--space-8);
+    padding-top: var(--space-8);
   }
 
   .mdx-body :global(h2) {
@@ -642,12 +642,12 @@ const jsonLd = [
   .cta-finale {
     padding: 52px 0 72px;
     border-top: 1px solid var(--hairline);
-    margin-top: 48px;
+    margin-top: var(--space-8);
   }
 
   .cta-row {
     display: flex;
-    gap: 24px;
+    gap: var(--space-5);
     align-items: center;
     flex-wrap: wrap;
   }

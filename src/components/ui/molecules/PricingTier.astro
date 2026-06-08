@@ -83,7 +83,7 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     background: var(--paper);
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--space-5);
     transition: border-color 240ms var(--ease), transform 320ms var(--ease);
   }
   .pricing-tier:hover {
@@ -105,7 +105,7 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     font-size: 10.5px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    padding: 6px 12px;
+    padding: 6px var(--space-3);
     border-radius: var(--radius-pill);
   }
   .pricing-hd {
@@ -137,7 +137,7 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
   .pricing-price {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
     padding: 18px 0;
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);

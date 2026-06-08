@@ -270,7 +270,7 @@ const ctaData = {
 
 <style>
   .hub-tools,
-  .hub-cookbooks { padding: clamp(80px, 10vw, 120px) 32px; }
+  .hub-cookbooks { padding: clamp(80px, 10vw, 120px) var(--space-6); }
   :global(.hub-tools-k),
   :global(.hub-cookbooks-k) { display: block; margin-bottom: 18px; }
   .hub-tools-h2,
@@ -289,14 +289,14 @@ const ctaData = {
   .hub-cookbooks { background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
   .hub-cookbooks-cta { margin-top: clamp(28px, 3vw, 44px); }
 
-  .hub-cases-detail { padding: clamp(80px, 10vw, 120px) 32px; }
+  .hub-cases-detail { padding: clamp(80px, 10vw, 120px) var(--space-6); }
   :global(.hub-cd-k) { display: block; margin-bottom: 18px; }
   .hub-cd-h2 {
     font-family: var(--font-display);
     font-size: clamp(40px, 6vw, 88px);
     line-height: var(--leading-h1);
     letter-spacing: -0.024em;
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
     text-wrap: balance;
     font-weight: var(--fw-regular);
   }
@@ -368,7 +368,7 @@ const ctaData = {
     .hub-cd-arr { display: none; }
   }
 
-  .hub-nl { padding: clamp(80px, 10vw, 120px) 32px; background: var(--ink); color: var(--paper); }
+  .hub-nl { padding: clamp(80px, 10vw, 120px) var(--space-6); background: var(--ink); color: var(--paper); }
   .hub-nl-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
   :global(.hub-nl-k) { display: block; margin-bottom: 18px; }
   .hub-nl-h2 {
@@ -391,7 +391,7 @@ const ctaData = {
   }
   .hub-nl-form {
     display: flex;
-    gap: 12px;
+    gap: var(--space-3);
     flex-wrap: wrap;
   }
   .hub-nl-form input {

@@ -134,7 +134,7 @@ const timelineEvents = phases.map(p => ({
     font-size: clamp(17px, 1.8vw, 22px);
     font-weight: var(--fw-regular);
     letter-spacing: -0.015em;
-    margin: 0 0 12px;
+    margin: 0 0 var(--space-3);
     color: var(--ink);
   }
   .meth-garantie-body {
@@ -165,7 +165,7 @@ const timelineEvents = phases.map(p => ({
     font-weight: var(--fw-regular);
     letter-spacing: -0.022em;
     line-height: 1.05;
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
     text-wrap: balance;
   }
   .meth-os-h2 :global(i) { font-style: italic; color: var(--accent); }
@@ -174,7 +174,7 @@ const timelineEvents = phases.map(p => ({
     color: var(--muted);
     font-size: 15px;
     line-height: 1.65;
-    margin: 0 0 12px;
+    margin: 0 0 var(--space-3);
     max-width: 640px;
   }
   .meth-os-body:last-child { margin-bottom: 0; }
@@ -201,7 +201,7 @@ const timelineEvents = phases.map(p => ({
   }
   .meth-cta-btns {
     display: flex;
-    gap: 12px;
+    gap: var(--space-3);
     flex-wrap: wrap;
     align-items: center;
     flex-shrink: 0;
@@ -212,7 +212,7 @@ const timelineEvents = phases.map(p => ({
     font-size: 13px;
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
-    padding: 16px 36px;
+    padding: var(--space-4) 36px;
     border: 1px solid var(--ink);
     transition: background 220ms var(--ease), border-color 220ms var(--ease), color 220ms var(--ease);
     text-decoration: none;
@@ -230,7 +230,7 @@ const timelineEvents = phases.map(p => ({
   .meth-cta-btn--ghost:hover { background: var(--ink); color: var(--paper); }
 
   @media (max-width: 700px) {
-    .meth-os { padding-inline: 24px; }
+    .meth-os { padding-inline: var(--space-5); }
     .meth-cta { flex-direction: column; align-items: flex-start; }
     .meth-cta-btns { flex-direction: column; align-items: flex-start; }
   }

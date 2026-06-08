@@ -82,16 +82,16 @@ const headerData = {
   .fieldnotes-index__link {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 24px 0;
+    gap: var(--space-3);
+    padding: var(--space-5) 0;
     text-decoration: none;
     color: var(--ink);
     transition: background var(--dur-fast) var(--ease);
   }
-  .fieldnotes-index__link:hover { background: var(--paper-2); padding-inline: 16px; }
+  .fieldnotes-index__link:hover { background: var(--paper-2); padding-inline: var(--space-4); }
   .fieldnotes-index__meta {
     display: flex;
-    gap: 16px;
+    gap: var(--space-4);
     align-items: baseline;
   }
   .fieldnotes-index__date {

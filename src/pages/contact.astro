@@ -148,14 +148,14 @@ const contactLd = {
     text-transform: uppercase;
     color: var(--muted);
     display: flex;
-    gap: 4px;
+    gap: var(--space-1);
   }
   .form-row label span:last-child { color: var(--accent); }
   .form-row input,
   .form-row textarea {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
-    padding: 12px 14px;
+    padding: var(--space-3) 14px;
     border: 1px solid var(--hairline-strong);
     border-radius: var(--radius-sm);
     background: var(--paper);
@@ -166,7 +166,7 @@ const contactLd = {
   .form-row textarea:focus {
     border-color: var(--accent);
   }
-  .form-errors { color: var(--accent); font-size: var(--text-body-sm); margin-top: 8px; min-height: 1em; }
+  .form-errors { color: var(--accent); font-size: var(--text-body-sm); margin-top: var(--space-2); min-height: 1em; }
   .contact-form :global(.btn) { border-radius: var(--radius-sm); }
 
   .contact-aside {
@@ -179,17 +179,17 @@ const contactLd = {
     line-height: var(--leading-h3);
     letter-spacing: -0.018em;
     font-weight: var(--fw-regular);
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
   }
   .contact-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
     display: flex;
     flex-direction: column;
     gap: 14px;
   }
-  .contact-list li { display: flex; flex-direction: column; gap: 4px; }
+  .contact-list li { display: flex; flex-direction: column; gap: var(--space-1); }
   .contact-k {
     font-family: var(--font-mono);
     font-size: 10.5px;
@@ -230,13 +230,13 @@ const contactLd = {
     font-size: 16px;
     line-height: 1.55;
     color: var(--muted);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
     max-width: 680px;
   }
 
   @media (max-width: 800px) {
     .contact-grid { grid-template-columns: 1fr; }
-    .contact-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: 32px; }
+    .contact-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: var(--space-6); }
   }
 </style>
 

@@ -58,44 +58,44 @@ const dateStr = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
     padding-bottom: var(--spacing-section);
   }
   .fieldnote-detail__hd {
-    margin: 32px 0 48px;
+    margin: var(--space-6) 0 var(--space-8);
     border-bottom: 1px solid var(--hairline);
-    padding-bottom: 24px;
+    padding-bottom: var(--space-5);
   }
   .fieldnote-detail__title {
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
     line-height: var(--leading-h2);
     color: var(--ink);
-    margin: 16px 0 0;
+    margin: var(--space-4) 0 0;
   }
   .fieldnote-detail__date {
     font-family: var(--font-mono);
     font-size: 12px;
     letter-spacing: 0.06em;
     color: var(--muted);
-    margin-top: 16px;
+    margin-top: var(--space-4);
     display: block;
   }
   .fieldnote-detail__content {
-    margin-top: 32px;
+    margin-top: var(--space-6);
   }
   .fieldnote-detail__content :global(p) {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
     line-height: 1.7;
     color: var(--ink-2);
-    margin: 0 0 16px;
+    margin: 0 0 var(--space-4);
   }
   .fieldnote-detail__content :global(pre) {
     background: var(--ink);
     color: var(--paper);
-    padding: 16px;
+    padding: var(--space-4);
     overflow-x: auto;
     font-family: var(--font-mono);
     font-size: 13px;
     line-height: var(--leading-body);
-    margin: 24px 0;
+    margin: var(--space-5) 0;
   }
   .fieldnote-detail__content :global(code) {
     font-family: var(--font-mono);

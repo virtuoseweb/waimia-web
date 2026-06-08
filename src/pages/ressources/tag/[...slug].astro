@@ -131,7 +131,7 @@ const ctaData = {
 
 <style>
   .tag-mast { padding: clamp(80px, 10vw, 140px) 0 clamp(40px, 5vw, 64px); }
-  :global(.tag-kicker) { color: var(--accent); margin-bottom: 24px; }
+  :global(.tag-kicker) { color: var(--accent); margin-bottom: var(--space-5); }
   .tag-h1 {
     font-family: var(--font-mono);
     font-size: clamp(36px, 6vw, 80px);
@@ -147,14 +147,14 @@ const ctaData = {
   .tag-list a {
     display: grid;
     grid-template-columns: 100px 1fr auto;
-    gap: 24px;
+    gap: var(--space-5);
     padding: 18px 0;
     color: var(--ink);
     text-decoration: none;
     align-items: baseline;
     transition: padding 220ms;
   }
-  .tag-list a:hover { padding-left: 8px; color: var(--accent); }
+  .tag-list a:hover { padding-left: var(--space-2); color: var(--accent); }
   .tag-type {
     font-family: var(--font-mono);
     font-size: 10.5px;

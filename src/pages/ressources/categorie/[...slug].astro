@@ -130,14 +130,14 @@ const ctaData = {
 
 <style>
   .cat-mast { padding: clamp(80px, 10vw, 140px) 0 clamp(40px, 5vw, 64px); }
-  :global(.cat-kicker) { color: var(--accent); margin-bottom: 24px; }
+  :global(.cat-kicker) { color: var(--accent); margin-bottom: var(--space-5); }
   .cat-h1 {
     font-family: var(--font-display);
     font-size: clamp(56px, 9vw, 120px);
     line-height: .92;
     letter-spacing: -.028em;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
   }
   .cat-lede {
     font-family: var(--font-display);
@@ -153,14 +153,14 @@ const ctaData = {
   .cat-list a {
     display: grid;
     grid-template-columns: 100px 1fr auto;
-    gap: 24px;
+    gap: var(--space-5);
     padding: 18px 0;
     color: var(--ink);
     text-decoration: none;
     align-items: baseline;
     transition: padding 220ms;
   }
-  .cat-list a:hover { padding-left: 8px; color: var(--accent); }
+  .cat-list a:hover { padding-left: var(--space-2); color: var(--accent); }
   .cat-type {
     font-family: var(--font-mono);
     font-size: 10.5px;
@@ -180,7 +180,7 @@ const ctaData = {
     text-transform: uppercase;
     color: var(--muted);
   }
-  .cat-empty { font-family: var(--font-display); font-style: italic; color: var(--muted); padding: 32px 0; }
+  .cat-empty { font-family: var(--font-display); font-style: italic; color: var(--muted); padding: var(--space-6) 0; }
   .wrap-tight { max-width: 880px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
 </style>
 

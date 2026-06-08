@@ -198,7 +198,7 @@ const ctaData = {
     overflow: visible;
   }
 
-  .hub-layers { padding: clamp(80px, 10vw, 120px) 32px; }
+  .hub-layers { padding: clamp(80px, 10vw, 120px) var(--space-6); }
   :global(.hub-layers-k) { display: block; margin-bottom: 18px; }
   .hub-layers-h2 {
     font-family: var(--font-display);
@@ -249,14 +249,14 @@ const ctaData = {
     text-wrap: pretty;
   }
 
-  .hub-flagship { padding: clamp(80px, 10vw, 120px) 32px; }
+  .hub-flagship { padding: clamp(80px, 10vw, 120px) var(--space-6); }
   :global(.hub-flagship-k) { display: block; margin-bottom: 18px; }
   .hub-flagship-h2 {
     font-family: var(--font-display);
     font-size: clamp(40px, 6vw, 88px);
     line-height: var(--leading-h1);
     letter-spacing: -0.024em;
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
     text-wrap: balance;
     font-weight: var(--fw-regular);
   }
@@ -293,7 +293,7 @@ const ctaData = {
     color: var(--muted);
     font-style: italic;
   }
-  .hub-flagship-body { display: flex; flex-direction: column; gap: 8px; }
+  .hub-flagship-body { display: flex; flex-direction: column; gap: var(--space-2); }
   .hub-flagship-kicker {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
@@ -328,7 +328,7 @@ const ctaData = {
     .hub-flagship-arr { display: none; }
   }
 
-  .hub-frameworks { padding: clamp(80px, 10vw, 120px) 32px; background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .hub-frameworks { padding: clamp(80px, 10vw, 120px) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
   :global(.hub-frameworks-k) { display: block; margin-bottom: 18px; }
   .hub-frameworks-h2 {
     font-family: var(--font-display);

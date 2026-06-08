@@ -128,7 +128,7 @@ const isFr = lang === 'fr';
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 12px;
+    gap: var(--space-3);
   }
   .services-grid__cell-fig {
     font-family: var(--font-mono);
@@ -161,7 +161,7 @@ const isFr = lang === 'fr';
     width: 32px;
     height: 1px;
     background: var(--accent);
-    margin: 16px 0 0;
+    margin: var(--space-4) 0 0;
     transition: width 320ms var(--ease);
   }
   .services-grid__cell:hover .services-grid__cell-rule { width: 60px; }
@@ -179,7 +179,7 @@ const isFr = lang === 'fr';
     padding-top: 18px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
     border-top: 1px dashed var(--hairline);
   }
   .services-grid__cell-foot-key {

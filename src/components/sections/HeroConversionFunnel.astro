@@ -97,7 +97,7 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
 </section>
 
 <style>
-  .hero-conversion-funnel { padding: 140px 32px clamp(60px, 8vw, 100px); }
+  .hero-conversion-funnel { padding: 140px var(--space-6) clamp(60px, 8vw, 100px); }
   .wrap-wide { max-width: 1200px; margin-inline: auto; }
   :global(.hero-conversion-funnel__num) { display: block; margin-bottom: 20px; }
   .hero-conversion-funnel__h1 {
@@ -107,7 +107,7 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
     letter-spacing: 0;
     text-wrap: balance;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
   }
   .hero-conversion-funnel__h1 :global(i) { font-style: italic; color: var(--accent); }
   .hero-conversion-funnel__lede {
@@ -123,7 +123,7 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
   }
   .hero-conversion-funnel__meta span {
     font-family: var(--font-mono);
@@ -136,10 +136,10 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
     padding: 7px 11px;
     background: color-mix(in srgb, var(--paper) 86%, transparent);
   }
-  .hero-conversion-funnel__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 60px; }
+  .hero-conversion-funnel__cta { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-bottom: 60px; }
   .hero-conversion-funnel__benefits {
     max-width: 920px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--space-5);
   }
   .hero-conversion-funnel__benefits ul {
     list-style: none;
@@ -171,7 +171,7 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
   .hero-conversion-funnel__proof {
     margin: 0 0 28px;
     max-width: 760px;
-    padding-top: 16px;
+    padding-top: var(--space-4);
     border-top: 1px solid var(--hairline);
     font-family: var(--font-mono);
     font-size: 12px;
@@ -193,7 +193,7 @@ const numClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-con
     font-size: clamp(36px, 5vw, 64px);
     line-height: 1;
     color: var(--ink);
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);
   }
   .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent); font-size: clamp(48px, 6vw, 80px); }
   .hero-conversion-funnel__stat-label {

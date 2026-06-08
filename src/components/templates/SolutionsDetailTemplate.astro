@@ -514,8 +514,8 @@ const sectorVisual =
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
-    display: flex; gap: 8px; align-items: center;
-    margin-bottom: 24px;
+    display: flex; gap: var(--space-2); align-items: center;
+    margin-bottom: var(--space-5);
   }
   .sol-hero-bc a { color: var(--muted); transition: color 220ms var(--ease); }
   .sol-hero-bc a:hover { color: var(--accent); }
@@ -533,7 +533,7 @@ const sectorVisual =
     line-height: 0.92;
     letter-spacing: -0.028em;
     font-weight: var(--fw-regular);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
     text-wrap: balance;
   }
   .sol-hero-title :global(i) { color: var(--accent); font-style: italic; }
@@ -562,11 +562,11 @@ const sectorVisual =
     font-style: italic;
     margin: 0;
   }
-  .sol-hero-lead :global(span) { color: var(--accent); display: block; margin-top: 8px; }
-  .sol-hero-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .sol-hero-lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
+  .sol-hero-actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
   .sol-hero-cta {
     display: inline-block;
-    padding: 14px 24px;
+    padding: 14px var(--space-5);
     background: var(--ink);
     color: var(--paper);
     border-radius: var(--radius-sm);
@@ -587,8 +587,8 @@ const sectorVisual =
   .sol-hero-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
   }
   .sol-hero-tags :global(.sol-tag) {
     font-family: var(--font-mono);
@@ -596,7 +596,7 @@ const sectorVisual =
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink);
-    padding: 8px 14px;
+    padding: var(--space-2) 14px;
     background: rgba(var(--ink-rgb), 0.04);
     border: 1px solid var(--hairline);
     border-radius: var(--radius-sm);
@@ -631,7 +631,7 @@ const sectorVisual =
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 12px;
+    margin-bottom: var(--space-3);
   }
   .sol-sec-hd h2 {
     font-family: var(--font-display);
@@ -639,7 +639,7 @@ const sectorVisual =
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
     font-weight: var(--fw-regular);
-    margin: 8px 0 0;
+    margin: var(--space-2) 0 0;
   }
   .sol-sec-hd :global(i) { color: var(--accent); font-style: italic; }
   .sol-aside {
@@ -660,7 +660,7 @@ const sectorVisual =
     display: block;
   }
   .sol-pain-grid :global(.pain-card) {
-    padding-top: 32px;
+    padding-top: var(--space-6);
     border-top: 1px solid var(--hairline);
   }
   .sol-pain-grid :global(.pn) {
@@ -668,7 +668,7 @@ const sectorVisual =
     font-size: 96px;
     line-height: 0.85;
     color: var(--ink);
-    margin-bottom: 16px;
+    margin-bottom: var(--space-4);
     font-weight: var(--fw-regular);
   }
   .sol-pain-grid :global(.pk) {
@@ -683,7 +683,7 @@ const sectorVisual =
     font-family: var(--font-display);
     font-size: clamp(22px, 1.8vw, 26px);
     line-height: 1.2;
-    margin: 0 0 12px;
+    margin: 0 0 var(--space-3);
     font-weight: var(--fw-regular);
   }
   .sol-pain-grid :global(.pain-card p) {
@@ -700,8 +700,8 @@ const sectorVisual =
   .sol-workflow-head {
     display: grid;
     grid-template-columns: 60px 2fr 1.2fr 1fr 2.4fr;
-    gap: 24px;
-    padding: 16px 0;
+    gap: var(--space-5);
+    padding: var(--space-4) 0;
     border-bottom: 1px solid var(--hairline);
     font-family: var(--font-mono);
     font-size: 10.5px;
@@ -719,7 +719,7 @@ const sectorVisual =
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: 60px 2fr 1.2fr 1fr 2.4fr;
-    column-gap: 24px;
+    column-gap: var(--space-5);
     row-gap: var(--space-4, 16px);
     padding: 20px 0;
     border-bottom: 1px solid var(--hairline);
@@ -779,7 +779,7 @@ const sectorVisual =
     line-height: var(--leading-h3);
     letter-spacing: -0.012em;
     font-weight: var(--fw-regular);
-    margin: 48px 0 16px;
+    margin: var(--space-8) 0 var(--space-4);
     color: var(--ink);
     max-width: 880px;
   }
@@ -788,7 +788,7 @@ const sectorVisual =
     font-family: var(--font-display);
     font-size: clamp(20px, 1.8vw, 24px);
     line-height: 1.2;
-    margin: 32px 0 12px;
+    margin: var(--space-6) 0 var(--space-3);
     font-weight: var(--fw-regular);
   }
   .sol-workflow-body :global(p):not(.wf-how p) {
@@ -806,11 +806,11 @@ const sectorVisual =
     font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 18px);
     line-height: 1.65;
-    margin: 0 0 24px 24px;
+    margin: 0 0 var(--space-5) var(--space-5);
     max-width: var(--wrap-prose);
   }
   .sol-workflow-body :global(li) {
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);
     color: var(--ink);
   }
   .sol-workflow-body :global(strong) {
@@ -824,8 +824,8 @@ const sectorVisual =
   .sol-workflow-body :global(blockquote) {
     grid-column: 2 / span 7;
     border-left: 3px solid var(--accent);
-    padding: 16px 0 16px 24px;
-    margin: 32px 0;
+    padding: var(--space-4) 0 var(--space-4) var(--space-5);
+    margin: var(--space-6) 0;
     font-family: var(--font-display);
     font-size: clamp(17px, 1.5vw, 19px);
     line-height: 1.55;
@@ -834,7 +834,7 @@ const sectorVisual =
     max-width: var(--wrap-prose);
   }
   .sol-workflow-body :global(blockquote p) {
-    margin: 0 0 8px;
+    margin: 0 0 var(--space-2);
     font-size: inherit;
   }
   .sol-workflow-body :global(blockquote p:last-child) {
@@ -871,7 +871,7 @@ const sectorVisual =
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
     font-weight: var(--fw-regular);
-    margin: 8px 0 0;
+    margin: var(--space-2) 0 0;
     color: var(--paper);
   }
   .sol-roi-hd h2 :global(i) { color: var(--accent); font-style: italic; }
@@ -888,7 +888,7 @@ const sectorVisual =
     color: rgba(var(--paper-rgb), 0.7);
   }
   .sol-roi-grid :global(.roi-cell) {
-    padding-top: 32px;
+    padding-top: var(--space-6);
     border-top: 1px solid rgba(var(--paper-rgb), 0.12);
   }
   .sol-roi-grid :global(.roi-v) {
@@ -898,7 +898,7 @@ const sectorVisual =
     color: var(--accent);
     font-weight: var(--fw-regular);
     letter-spacing: -0.02em;
-    margin-bottom: 16px;
+    margin-bottom: var(--space-4);
   }
   .sol-roi-grid :global(.roi-l) {
     font-family: var(--font-mono);
@@ -930,7 +930,7 @@ const sectorVisual =
     line-height: 1.05;
     letter-spacing: -0.016em;
     font-weight: var(--fw-regular);
-    margin: 12px 0 20px;
+    margin: var(--space-3) 0 20px;
     text-wrap: balance;
   }
   .sol-case-title :global(i) { color: var(--accent); font-style: italic; }
@@ -945,7 +945,7 @@ const sectorVisual =
   }
   .sol-case-cta {
     display: inline-block;
-    padding: 12px 22px;
+    padding: var(--space-3) 22px;
     background: var(--accent);
     color: var(--paper);
     border-radius: var(--radius-sm);
@@ -962,11 +962,11 @@ const sectorVisual =
     display: flex; align-items: center;
   }
   .sol-case-light .wrap-inner { max-width: 420px; width: 100%; }
-  .sol-case-results { margin-top: 16px; }
+  .sol-case-results { margin-top: var(--space-4); }
   .sol-case-results :global(.res-row) {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 24px;
+    gap: var(--space-5);
     align-items: baseline;
     padding: var(--space-5) 0;
     border-top: 1px solid var(--hairline);
@@ -1014,7 +1014,7 @@ const sectorVisual =
     text-transform: uppercase;
     color: var(--accent);
     line-height: 1;
-    padding-top: 4px;
+    padding-top: var(--space-1);
   }
   .sol-stack-grid :global(.stack-card h3) {
     font-family: var(--font-display);
@@ -1088,7 +1088,7 @@ const sectorVisual =
     text-transform: uppercase;
     color: var(--accent);
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);
     line-height: 1;
   }
   .sol-faq-body :global(dd),
@@ -1145,7 +1145,7 @@ const sectorVisual =
     font-family: var(--font-display);
     font-size: clamp(48px, 7vw, 96px);
     line-height: 0.95;
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-6);
     font-weight: var(--fw-regular);
   }
   .sol-cta-final h2 :global(i) { color: var(--accent); font-style: italic; }
@@ -1156,9 +1156,9 @@ const sectorVisual =
     color: var(--paper);
     font-style: italic;
     max-width: 540px;
-    margin: 0 auto 32px;
+    margin: 0 auto var(--space-6);
   }
-  .sol-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .sol-cta-btns { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
   .btn-accent {
     display: inline-block;
     padding: 14px 28px;
@@ -1198,17 +1198,17 @@ const sectorVisual =
   @media (max-width: 1000px) {
     .sol-stack-grid :global(.stack-card) {
       grid-template-columns: 120px 1fr 1fr auto;
-      gap: 16px;
+      gap: var(--space-4);
     }
     .sol-faq-body :global(.ws-faq-item),
     .sol-faq-body :global(dl > div) {
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: var(--space-3);
     }
     .sol-workflow-head,
     .sol-workflow-body :global(.wf-row) {
       grid-template-columns: 48px 1.6fr 1fr 1fr 2fr;
-      gap: 16px;
+      gap: var(--space-4);
     }
   }
   @media (max-width: 800px) {
@@ -1220,14 +1220,14 @@ const sectorVisual =
       gap: 6px;
       padding: 20px 0;
     }
-    .sol-stack-grid :global(.stack-pill) { margin-top: 4px; }
+    .sol-stack-grid :global(.stack-pill) { margin-top: var(--space-1); }
     .sol-workflow-head { display: none; }
     .sol-workflow-body :global(.wf-row) {
       grid-template-columns: 1fr;
-      gap: 8px;
-      padding: 24px 0;
+      gap: var(--space-2);
+      padding: var(--space-5) 0;
     }
-    .sol-workflow-body :global(.wf-n) { font-size: 24px; margin-bottom: 4px; }
+    .sol-workflow-body :global(.wf-n) { font-size: 24px; margin-bottom: var(--space-1); }
     .sol-workflow-body :global(.wf-gain) { margin: 6px 0; }
   }
 </style>

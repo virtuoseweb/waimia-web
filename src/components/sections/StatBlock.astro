@@ -39,7 +39,7 @@ const isFr = lang === 'fr';
     margin-bottom: var(--spacing-block);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-4);
   }
   h2 {
     font-family: var(--font-display);
@@ -67,17 +67,17 @@ const isFr = lang === 'fr';
   .stat-block__grid[data-layout="grid-4"] { grid-template-columns: repeat(4, 1fr); gap: 0; }
   .stat-block__grid[data-layout="rows-hairlines"] { grid-template-columns: 1fr; }
   .stat-block__item {
-    padding: 24px 32px;
+    padding: var(--space-5) var(--space-6);
     border: 1px solid var(--hairline);
     margin: -1px -1px 0 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-2);
   }
   .stat-block__grid[data-layout="rows-hairlines"] .stat-block__item {
     flex-direction: row;
     align-items: baseline;
-    gap: 24px;
+    gap: var(--space-5);
     border-left: none;
     border-right: none;
     margin: 0;

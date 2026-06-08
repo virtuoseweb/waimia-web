@@ -65,9 +65,9 @@ const isPillar = data.type === 'hero-pillar-hub';
 
 <style>
   /* ── hero-hub-stats ─────────────────────────────────────────────────────── */
-  .hero-hub-stats { padding: 140px 32px 0; }
+  .hero-hub-stats { padding: 140px var(--space-6) 0; }
   .hero-hub-stats .wrap-wide { max-width: 1200px; margin-inline: auto; }
-  :global(.hero-hub-stats__meta) { display: inline-flex; gap: 8px; margin-bottom: var(--space-5); }
+  :global(.hero-hub-stats__meta) { display: inline-flex; gap: var(--space-2); margin-bottom: var(--space-5); }
   :global(.hero-hub-stats__num) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-stats__h1 {
     font-family: var(--font-display);
@@ -83,7 +83,7 @@ const isPillar = data.type === 'hero-pillar-hub';
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.4vw, 30px);
     line-height: 1.3;
-    margin-top: 32px;
+    margin-top: var(--space-6);
     max-width: 980px;
     color: var(--muted);
     text-wrap: balance;
@@ -109,7 +109,7 @@ const isPillar = data.type === 'hero-pillar-hub';
     font-size: clamp(28px, 3vw, 40px);
     line-height: 1;
     color: var(--ink);
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);
   }
   .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: clamp(40px, 4.5vw, 60px); }
   .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent); }
@@ -126,8 +126,8 @@ const isPillar = data.type === 'hero-pillar-hub';
   }
 
   /* ── hero-pillar-hub (copie byte-identique depuis HeroPillarHub.astro) ─── */
-  .hero-pillar-hub { padding: calc(var(--header-height) + 24px) 32px 0; }
-  :global(.hero-pillar-hub__meta) { display: inline-flex; gap: 8px; margin-bottom: var(--space-5); }
+  .hero-pillar-hub { padding: calc(var(--header-height) + 24px) var(--space-6) 0; }
+  :global(.hero-pillar-hub__meta) { display: inline-flex; gap: var(--space-2); margin-bottom: var(--space-5); }
   :global(.hero-pillar-hub__num) { display: block; margin-bottom: var(--space-5); }
   .hero-pillar-hub__h1 {
     font-family: var(--font-display);
@@ -144,7 +144,7 @@ const isPillar = data.type === 'hero-pillar-hub';
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.4vw, 30px);
     line-height: 1.3;
-    margin-top: 32px;
+    margin-top: var(--space-6);
     max-width: 980px;
     color: var(--muted);
     text-wrap: balance;

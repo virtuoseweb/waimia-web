@@ -207,7 +207,7 @@ pre {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   padding: 14px 22px;
   border-radius: var(--radius-sm);
   font-size: 13px;
@@ -353,7 +353,7 @@ a:not([class]):hover,
   top: -40px;
   left: 12px;
   z-index: 1000;
-  padding: 12px 18px;
+  padding: var(--space-3) 18px;
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-mono);
@@ -392,7 +392,7 @@ a:not([class]):hover,
 .hdr-inner {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 40px;
+  gap: var(--space-7);
   align-items: center;
   max-width: var(--wrap-wide);
   margin: 0 auto;
@@ -473,7 +473,7 @@ a:not([class]):hover,
 .lang-toggle {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-1);
   padding: 6px 11px;
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -499,7 +499,7 @@ a:not([class]):hover,
 .hdr .cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   background: var(--ink);
   color: var(--paper);
   padding: 10px 18px;
@@ -527,7 +527,7 @@ a:not([class]):hover,
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-1);
 }
 .burger i {
   display: block;
@@ -600,7 +600,7 @@ a:not([class]):hover,
 .mega-col-hd {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-2);
   padding-bottom: 14px;
   margin-bottom: 18px;
   border-bottom: 1px solid var(--hairline);
@@ -635,7 +635,7 @@ a:not([class]):hover,
 }
 .mega-link:hover {
   color: var(--accent);
-  padding-left: 8px;
+  padding-left: var(--space-2);
   border-bottom-color: var(--hairline);
 }
 .mega-link .t {
@@ -681,7 +681,7 @@ a:not([class]):hover,
   max-width: 280px;
 }
 .mega-featured .img {
-  margin-top: 8px;
+  margin-top: var(--space-2);
   aspect-ratio: 5/4;
   background: var(--paper-2);
   border: 1px solid var(--hairline);
@@ -698,7 +698,7 @@ a:not([class]):hover,
 
 .mega-bottom {
   border-top: 1px solid var(--hairline);
-  padding: 16px var(--gut);
+  padding: var(--space-4) var(--gut);
   max-width: var(--wrap-wide);
   margin: 0 auto;
   display: flex;
@@ -737,7 +737,7 @@ a:not([class]):hover,
 @media (max-width: 1100px) {
   .mega-inner {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: var(--space-6);
   }
   .mega-inner[data-cols="4"] {
     grid-template-columns: 1fr 1fr;
@@ -747,7 +747,7 @@ a:not([class]):hover,
     border-left: none;
     border-top: 1px solid var(--hairline);
     padding-left: 0;
-    padding-top: 24px;
+    padding-top: var(--space-5);
   }
 }
 
@@ -796,7 +796,7 @@ a:not([class]):hover,
   font-size: 16px;
 }
 .m-sheet-body {
-  padding: 24px var(--gut) 40px;
+  padding: var(--space-5) var(--gut) var(--space-7);
   flex: 1;
 }
 .m-sheet-acc {
@@ -822,7 +822,7 @@ a:not([class]):hover,
   letter-spacing: -0.02em;
   line-height: 1;
   flex: 1;
-  padding-right: 16px;
+  padding-right: var(--space-4);
   padding-left: 14px;
   text-align: left;
 }
@@ -845,7 +845,7 @@ a:not([class]):hover,
   max-height: 2200px;
 }
 .m-sheet-acc-inner {
-  padding: 4px 0 22px;
+  padding: var(--space-1) 0 22px;
 }
 .m-sheet-acc-col {
   margin-top: 14px;
@@ -867,7 +867,7 @@ a:not([class]):hover,
 .m-sheet-acc-col a {
   display: block;
   font-size: var(--text-body-sm);
-  padding: 8px 0;
+  padding: var(--space-2) 0;
   color: var(--ink);
   border-bottom: 1px solid var(--hairline);
 }
@@ -881,7 +881,7 @@ a:not([class]):hover,
   padding: 20px var(--gut) 36px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-3);
   border-top: 1px solid var(--hairline);
 }
 .m-sheet-end .btn {
@@ -901,14 +901,14 @@ a:not([class]):hover,
 .trust-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   align-items: center;
 }
 .trust-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 7px 12px;
+  gap: var(--space-2);
+  padding: 7px var(--space-3);
   border: 1px solid var(--hairline-strong);
   border-radius: var(--radius-pill);
   font-family: var(--font-mono);
@@ -952,7 +952,7 @@ a:not([class]):hover,
 }
 .marquee .sep {
   color: var(--muted);
-  padding: 0 4px;
+  padding: 0 var(--space-1);
   font-size: 22px;
   font-style: normal;
 }
@@ -1178,7 +1178,7 @@ a:not([class]):hover,
   letter-spacing: 0.2em;
   color: var(--accent);
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-4);
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1274,7 +1274,7 @@ a:not([class]):hover,
   color: var(--ink-2);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
 }
 .editorial-cell .e-list li::before {
   content: "§";
@@ -1285,7 +1285,7 @@ a:not([class]):hover,
   flex-shrink: 0;
 }
 .editorial-cell .e-go {
-  margin-top: 16px;
+  margin-top: var(--space-4);
   font-family: var(--font-mono);
   font-size: var(--text-eyebrow);
   letter-spacing: 0.1em;
@@ -1441,7 +1441,7 @@ a:not([class]):hover,
   bottom: 20px;
   left: 20px;
   z-index: 50;
-  padding: 4px;
+  padding: var(--space-1);
   background: rgba(var(--paper-rgb), 0.92);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
@@ -1516,7 +1516,7 @@ a:not([class]):hover,
     display: none;
   } /* mobile : juste les lettres A · B · C · ✦ */
   .page-pill-btn {
-    padding: 8px 11px;
+    padding: var(--space-2) 11px;
   }
 }
 

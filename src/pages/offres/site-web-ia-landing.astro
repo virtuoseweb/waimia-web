@@ -376,28 +376,28 @@ const service = buildService({
 .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
 
 /* ── Héritage tunnel ── */
-.tnl-eyebrow { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: clamp(11px, 1.2vw, 13px); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 24px; padding-top: clamp(48px, 8vw, 96px); }
+.tnl-eyebrow { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: clamp(11px, 1.2vw, 13px); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: var(--space-5); padding-top: clamp(48px, 8vw, 96px); }
 .tnl-lede { font-family: var(--font-sans); font-size: clamp(16px, 1.8vw, 20px); line-height: 1.6; color: var(--ink); max-width: 62ch; margin-bottom: clamp(48px, 8vw, 96px); }
 .tnl-sh2 { font-family: var(--font-serif, 'Instrument Serif', Georgia, serif); font-size: clamp(24px, 3vw, 40px); letter-spacing: -.01em; margin-bottom: clamp(32px, 4vw, 56px); color: var(--ink); }
 .tnl-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(var(--ink-rgb), .08); border: 1px solid rgba(var(--ink-rgb), .08); border-radius: var(--radius-sm); overflow: hidden; }
 .tnl-card { background: var(--paper); padding: clamp(24px, 3vw, 40px); }
-.tnl-card__num { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-eyebrow); color: var(--muted); letter-spacing: .08em; margin-bottom: 8px; }
-.tnl-card__kicker { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-eyebrow); text-transform: uppercase; letter-spacing: .06em; color: var(--accent); margin-bottom: 12px; }
-.tnl-card h3 { font-family: var(--font-serif, 'Instrument Serif', Georgia, serif); font-size: clamp(18px, 2vw, 24px); line-height: 1.25; margin-bottom: 16px; color: var(--ink); }
+.tnl-card__num { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-eyebrow); color: var(--muted); letter-spacing: .08em; margin-bottom: var(--space-2); }
+.tnl-card__kicker { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-eyebrow); text-transform: uppercase; letter-spacing: .06em; color: var(--accent); margin-bottom: var(--space-3); }
+.tnl-card h3 { font-family: var(--font-serif, 'Instrument Serif', Georgia, serif); font-size: clamp(18px, 2vw, 24px); line-height: 1.25; margin-bottom: var(--space-4); color: var(--ink); }
 .tnl-card p { font-family: var(--font-sans); font-size: var(--text-body-sm); line-height: 1.65; color: var(--muted); }
-.tnl-cta__inner { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.tnl-cta__inner { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
 .tnl-cta__meta { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-eyebrow); color: var(--muted); letter-spacing: .06em; margin-left: auto; }
 .btn-primary { font-family: var(--font-sans); font-size: 15px; font-weight: var(--fw-semibold); background: var(--ink); color: var(--paper); padding: 14px 28px; border-radius: var(--radius-sm); text-decoration: none; transition: opacity .2s; }
 .btn-primary:hover { opacity: .85; }
 .btn-secondary { font-family: var(--font-sans); font-size: 15px; color: var(--ink); border: 1px solid rgba(var(--ink-rgb), .18); padding: 14px 28px; border-radius: var(--radius-sm); text-decoration: none; transition: border-color .2s; }
 .btn-secondary:hover { border-color: var(--ink); }
-[lang="en"] { display: block; font-size: .88em; color: var(--muted); margin-top: 4px; font-style: italic; }
+[lang="en"] { display: block; font-size: .88em; color: var(--muted); margin-top: var(--space-1); font-style: italic; }
 
 /* ── Hero ── */
 .lp-hero { padding-bottom: clamp(48px, 6vw, 80px); }
 .lp-h1 { font-family: var(--font-serif, 'Instrument Serif', Georgia, serif); font-size: clamp(40px, 7vw, 96px); line-height: 1.03; letter-spacing: -.025em; color: var(--ink); margin-bottom: clamp(24px, 4vw, 48px); max-width: 18ch; }
 .lp-h1 em { font-style: italic; color: var(--accent); }
-.lp-hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+.lp-hero-ctas { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-5); }
 .lp-avail { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-eyebrow); color: var(--muted); letter-spacing: .08em; }
 
 /* ── Marquee ── */
@@ -421,7 +421,7 @@ const service = buildService({
 .lp-metrics-h2 { font-family: var(--font-serif, 'Instrument Serif', Georgia, serif); font-size: clamp(22px, 3vw, 36px); color: var(--paper); letter-spacing: -.01em; margin-bottom: clamp(48px, 6vw, 80px); }
 .lp-metrics-h2 [lang="en"] { color: rgba(var(--paper-rgb), .55); }
 .lp-metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: clamp(24px, 4vw, 56px); }
-.lp-metric { display: flex; flex-direction: column; gap: 8px; }
+.lp-metric { display: flex; flex-direction: column; gap: var(--space-2); }
 .lp-metric-num { font-family: var(--font-serif, 'Instrument Serif', Georgia, serif); font-style: italic; font-size: clamp(48px, 7vw, 88px); line-height: 1; color: var(--paper); letter-spacing: -.025em; }
 .lp-metric-label { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-eyebrow); text-transform: uppercase; letter-spacing: .1em; color: rgba(var(--paper-rgb), .55); }
 .lp-metric-label [lang="en"] { color: rgba(var(--paper-rgb), .35); font-size: .85em; }
@@ -436,19 +436,19 @@ const service = buildService({
 .lp-case-stat-label { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-mono-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .lp-case-stat-label [lang="en"] { font-size: .85em; }
 .lp-case-quote { margin: 0; padding: clamp(24px, 3vw, 40px); border-left: 3px solid var(--accent); background: rgba(var(--accent-rgb), .04); border-radius: 0 2px 2px 0; }
-.lp-case-quote-text { font-family: var(--font-serif, 'Instrument Serif', Georgia, serif); font-style: italic; font-size: clamp(18px, 2.2vw, 28px); line-height: 1.4; color: var(--ink); margin: 0 0 16px; }
+.lp-case-quote-text { font-family: var(--font-serif, 'Instrument Serif', Georgia, serif); font-style: italic; font-size: clamp(18px, 2.2vw, 28px); line-height: 1.4; color: var(--ink); margin: 0 0 var(--space-4); }
 .lp-case-cite { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-eyebrow); color: var(--muted); letter-spacing: .06em; font-style: normal; display: block; }
 
 /* ── Pricing ── */
 .lp-pricing { padding-block: clamp(64px, 8vw, 112px); border-top: 1px solid rgba(var(--ink-rgb), .07); }
-.lp-pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.lp-pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-5); }
 
 /* ── FAQ ── */
 .lp-faq { padding-block: clamp(64px, 8vw, 112px); border-top: 1px solid rgba(var(--ink-rgb), .07); }
 .lp-faq-list { display: flex; flex-direction: column; border: 1px solid rgba(var(--ink-rgb), .08); border-radius: var(--radius-sm); overflow: hidden; }
 .lp-faq-item { background: var(--paper); }
 .lp-faq-item + .lp-faq-item { border-top: 1px solid rgba(var(--ink-rgb), .07); }
-.lp-faq-q { font-family: var(--font-sans); font-size: clamp(14px, 1.5vw, 16px); font-weight: var(--fw-semibold); padding: clamp(16px, 2vw, 24px) clamp(20px, 2.5vw, 32px); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; color: var(--ink); }
+.lp-faq-q { font-family: var(--font-sans); font-size: clamp(14px, 1.5vw, 16px); font-weight: var(--fw-semibold); padding: clamp(16px, 2vw, 24px) clamp(20px, 2.5vw, 32px); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); color: var(--ink); }
 .lp-faq-q::after { content: '+'; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: var(--text-body-sm); color: var(--accent); flex-shrink: 0; transition: transform .2s; }
 .lp-faq-item[open] .lp-faq-q::after { transform: rotate(45deg); }
 .lp-faq-q::-webkit-details-marker { display: none; }

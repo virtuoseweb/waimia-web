@@ -91,7 +91,7 @@ const lang = langFromPath(Astro.url.pathname);
     min-height: 80vh;
     display: flex;
     align-items: center;
-    padding: clamp(80px, 12vw, 140px) 32px;
+    padding: clamp(80px, 12vw, 140px) var(--space-6);
   }
   .welcome-wrap {
     max-width: var(--wrap-prose);
@@ -99,7 +99,7 @@ const lang = langFromPath(Astro.url.pathname);
     text-align: center;
   }
   .welcome-mark {
-    margin: 0 auto 24px;
+    margin: 0 auto var(--space-5);
     width: 64px;
     height: 64px;
   }
@@ -132,13 +132,13 @@ const lang = langFromPath(Astro.url.pathname);
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--space-5);
   }
   .welcome-step {
     display: grid;
     grid-template-columns: 60px 1fr;
     gap: 18px;
-    padding: 24px;
+    padding: var(--space-5);
     border: 1px solid var(--hairline);
     border-radius: var(--radius-lg);
     background: var(--paper-2);
@@ -164,7 +164,7 @@ const lang = langFromPath(Astro.url.pathname);
     font-size: 14.5px;
     color: var(--muted);
     line-height: 1.55;
-    margin: 0 0 12px;
+    margin: 0 0 var(--space-3);
     text-wrap: pretty;
   }
   .welcome-step-cta {
@@ -180,7 +180,7 @@ const lang = langFromPath(Astro.url.pathname);
 
   .welcome-foot {
     border-top: 1px solid var(--hairline);
-    padding-top: 32px;
+    padding-top: var(--space-6);
     font-family: var(--font-mono);
     font-size: 12px;
     color: var(--muted);
@@ -192,6 +192,6 @@ const lang = langFromPath(Astro.url.pathname);
   .welcome-back:hover { color: var(--accent); }
 
   @media (max-width: 600px) {
-    .welcome-step { grid-template-columns: 1fr; gap: 8px; }
+    .welcome-step { grid-template-columns: 1fr; gap: var(--space-2); }
   }
 </style>

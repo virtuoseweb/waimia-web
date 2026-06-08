@@ -50,10 +50,10 @@ const imageAlt = (isFr ? data.hero_image_alt_fr : data.hero_image_alt_en) ?? '';
 
 <style>
   .hero-essay__hd {
-    padding: var(--he-top-pad, calc(var(--header-height) + 24px)) 32px clamp(40px, 6vw, 80px);
+    padding: var(--he-top-pad, calc(var(--header-height) + 24px)) var(--space-6) clamp(40px, 6vw, 80px);
     border-bottom: 1px solid var(--hairline);
   }
-  :global(.hero-essay__kicker) { display: block; margin-bottom: 24px; }
+  :global(.hero-essay__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-essay__h1 {
     font-family: var(--font-display);
     font-size: clamp(48px, 7vw, 96px);
@@ -72,7 +72,7 @@ const imageAlt = (isFr ? data.hero_image_alt_fr : data.hero_image_alt_en) ?? '';
     font-size: clamp(20px, 2.2vw, 28px);
     line-height: 1.4;
     color: var(--muted);
-    margin: 24px 0 32px;
+    margin: var(--space-5) 0 var(--space-6);
     max-width: 760px;
     text-wrap: pretty;
   }
@@ -82,13 +82,13 @@ const imageAlt = (isFr ? data.hero_image_alt_fr : data.hero_image_alt_en) ?? '';
     letter-spacing: 0.1em;
     color: var(--muted);
     display: flex;
-    gap: 12px;
+    gap: var(--space-3);
     flex-wrap: wrap;
     text-transform: uppercase;
   }
   .hero-essay__image {
     aspect-ratio: 16/9;
-    margin: clamp(48px, 6vw, 80px) 32px 0;
+    margin: clamp(48px, 6vw, 80px) var(--space-6) 0;
     overflow: hidden;
   }
   .hero-essay__image :global(img) {
