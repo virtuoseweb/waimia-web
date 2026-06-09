@@ -225,6 +225,41 @@ const AGENCE: MegaMenuSection = {
       ],
     },
     {
+      kicker: { fr: 'DESIGN SYSTEM', en: 'DESIGN SYSTEM' },
+      title: { fr: 'Design System & DA', en: 'Design System & brand' },
+      links: [
+        {
+          label: { fr: 'Design System', en: 'Design System' },
+          href: '/agence/design-system',
+          description: {
+            fr: 'Tokens, atomes, molecules, 87 sections cataloguees.',
+            en: 'Tokens, atoms, molecules, 87 cataloged sections.',
+          },
+        },
+        {
+          label: { fr: 'DS Studio · editeur live', en: 'DS Studio · live editor' },
+          href: '/agence/ds-studio',
+          description: {
+            fr: 'Modifie les variables et vois le rendu changer en direct.',
+            en: 'Edit variables and see the rendering change live.',
+          },
+          featured: true,
+        },
+        {
+          label: { fr: 'Hero Lab', en: 'Hero Lab' },
+          href: '/agence/hero-lab',
+          description: {
+            fr: 'Variantes de hero comparees cote a cote.',
+            en: 'Hero variants compared side by side.',
+          },
+        },
+      ],
+      footer: {
+        label: { fr: 'Ouvrir le design system →', en: 'Open the design system →' },
+        href: '/agence/design-system',
+      },
+    },
+    {
       kicker: { fr: 'CONFIANCE', en: 'TRUST' },
       title: { fr: 'Garanties & légal', en: 'Guarantees & legal' },
       links: [
@@ -242,14 +277,6 @@ const AGENCE: MegaMenuSection = {
           description: {
             fr: 'Comité ethics IA + whistleblowing.',
             en: 'AI ethics committee + whistleblowing.',
-          },
-        },
-        {
-          label: { fr: 'Design System', en: 'Design System' },
-          href: '/agence/design-system',
-          description: {
-            fr: 'Catalogue visible des tokens, composants et patterns.',
-            en: 'Visible catalog of tokens, components, and patterns.',
           },
         },
         {

@@ -109,6 +109,22 @@ const sectionSchemaKnobs = {
       <p class="ds-meta">
         Source pages: <code>/agence/design-system</code> and <code>src/components/sections/</code>
       </p>
+
+      {/* DS Hub: other surfaces */}
+      <nav class="ds-hub" aria-label="Design System surfaces">
+        <a class="ds-hub-card ds-hub-card--featured" href="/en/agence/ds-studio">
+          <span class="ds-hub-card-label">DS Studio · live editor</span>
+          <span class="ds-hub-card-desc">Edit variables and see the rendering change live. Full visual gallery of all atoms, molecules and sections.</span>
+        </a>
+        <a class="ds-hub-card" href="/en/agence/hero-lab">
+          <span class="ds-hub-card-label">Hero Lab</span>
+          <span class="ds-hub-card-desc">Hero variants compared side by side.</span>
+        </a>
+        <a class="ds-hub-card" href="/preview/feature-grid">
+          <span class="ds-hub-card-label">Section preview</span>
+          <span class="ds-hub-card-desc">Every section has a live preview at <code>/preview/&lt;type&gt;</code> and its file at <code>/components/&lt;type&gt;</code>.</span>
+        </a>
+      </nav>
     </div>
   </section>
 
@@ -999,6 +1015,49 @@ const sectionSchemaKnobs = {
   .ds-organism-card-top { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); }
   .ds-organism-card code { font-family:var(--font-mono); font-size:var(--text-ui); color:var(--ink); background:transparent; }
   .ds-organism-card .ds-help { margin:0; font-size:var(--text-caption); }
+
+  /* ─── DS HUB ─── */
+  .ds-hub {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+  .ds-hub-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-4);
+    background: var(--paper-2);
+    border: 1px solid var(--hairline);
+    color: inherit;
+    text-decoration: none;
+    transition:
+      background 160ms var(--ease),
+      border-color 160ms var(--ease);
+  }
+  .ds-hub-card:hover {
+    background: var(--paper);
+    border-color: var(--accent);
+  }
+  .ds-hub-card--featured {
+    border-color: var(--accent);
+  }
+  .ds-hub-card-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+  }
+  .ds-hub-card--featured .ds-hub-card-label {
+    color: var(--accent);
+  }
+  .ds-hub-card-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    color: var(--ink-2);
+    line-height: var(--leading-body);
+  }
 
   @media (max-width: var(--wrap-read)) {
     .ds-layout { grid-template-columns: 1fr; gap: var(--space-6); }

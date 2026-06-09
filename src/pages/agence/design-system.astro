@@ -165,6 +165,22 @@ const sectionSchemaKnobs = {
         Cf <code>docs/18-DESIGN-SYSTEM-CARTOGRAPHY.md</code> (audit) ·
         <code>docs/19-DESIGN-SYSTEM-CLOSED.md</code> (système fermé)
       </p>
+
+      {/* HUB DS : autres surfaces */}
+      <nav class="ds-hub" aria-label="Surfaces Design System">
+        <a class="ds-hub-card ds-hub-card--featured" href="/agence/ds-studio">
+          <span class="ds-hub-card-label">DS Studio · éditeur live</span>
+          <span class="ds-hub-card-desc">Modifie les variables et vois le rendu changer en direct. Galerie visuelle complète de tous les atomes, molécules et sections.</span>
+        </a>
+        <a class="ds-hub-card" href="/agence/hero-lab">
+          <span class="ds-hub-card-label">Hero Lab</span>
+          <span class="ds-hub-card-desc">Variantes de hero comparées côté à côté.</span>
+        </a>
+        <a class="ds-hub-card" href="/preview/feature-grid">
+          <span class="ds-hub-card-label">Aperçu d'une section</span>
+          <span class="ds-hub-card-desc">Chaque section a son aperçu réel <code>/preview/&lt;type&gt;</code> et son fichier <code>/components/&lt;type&gt;</code>.</span>
+        </a>
+      </nav>
     </div>
   </section>
 
@@ -1633,6 +1649,49 @@ const sectionSchemaKnobs = {
     border-radius: var(--radius-xs);
   }
   .ds-code code { color: inherit; font-family: inherit; }
+
+  /* ─── HUB DS ─── */
+  .ds-hub {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+  .ds-hub-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-4);
+    background: var(--paper-2);
+    border: 1px solid var(--hairline);
+    color: inherit;
+    text-decoration: none;
+    transition:
+      background 160ms var(--ease),
+      border-color 160ms var(--ease);
+  }
+  .ds-hub-card:hover {
+    background: var(--paper);
+    border-color: var(--accent);
+  }
+  .ds-hub-card--featured {
+    border-color: var(--accent);
+  }
+  .ds-hub-card-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+  }
+  .ds-hub-card--featured .ds-hub-card-label {
+    color: var(--accent);
+  }
+  .ds-hub-card-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    color: var(--ink-2);
+    line-height: var(--leading-body);
+  }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: var(--wrap-read)) {
