@@ -42,6 +42,108 @@ import { LIBRARY_ORGANISMS } from '../../lib/library-manifest';
 
 const sectionCategories = listCategories();
 const sectionItems = listSections();
+
+const atomKnobs = {
+  Kicker: [
+    { name: 'tone · 3 variants', values: ['muted', 'accent', 'dim'] },
+    { name: 'size', values: ['number px'] },
+    { name: 'as', values: ['div', 'span', 'p'] },
+    { name: 'textTransform', values: ['uppercase', 'none'] },
+    { name: 'letterSpacing', values: ['string em'] },
+    { name: 'tokens consommés', values: ['--font-mono', '--muted', '--accent'] },
+  ],
+  ChapterLabel: [
+    { name: 'tone · 2 variants', values: ['muted', 'dim'] },
+    { name: 'num / title', values: ['string'] },
+    { name: 'noDot', values: ['boolean'] },
+    { name: 'tokens consommés', values: ['--font-mono', '--text-eyebrow', '--muted', '--accent', '--radius-full'] },
+  ],
+  Button: [
+    { name: 'variant · 4 variants', values: ['primary', 'ghost', 'accent', 'link'] },
+    { name: 'size · 2 variants', values: ['md', 'lg'] },
+    { name: 'mag', values: ['number', 'effet magnetic'] },
+    { name: 'href / as', values: ['href string', 'a', 'button'] },
+    { name: 'états', values: ['disabled', 'loading'] },
+    { name: 'tokens consommés via .btn-*', values: ['--ink', '--paper', '--accent', '--accent-2', '--radius-sm', '--ease'] },
+  ],
+  PillCTA: [
+    { name: 'variant · 3 variants', values: ['accent', 'ghost-dark', 'accent-mono'] },
+    { name: 'mag', values: ['number'] },
+    { name: 'tokens consommés', values: ['--accent', '--paper', '--font-mono', '--text-ui', '--ease'] },
+  ],
+  TerminalCTA: [
+    { name: 'variant · 4 variants', values: ['ink', 'ink-ghost', 'accent', 'ghost-dark'] },
+    { name: 'size · 2 variants', values: ['md', 'sm'] },
+    { name: 'mag', values: ['number'] },
+    { name: 'tokens consommés', values: ['--ink', '--paper', '--accent', '--font-mono', '--text-ui', '--text-caption', '--ease'] },
+  ],
+  Bi: [
+    { name: 'contenu bilingue', values: ['fr string', 'en string', 'slots fr / en'] },
+    { name: 'variant visuel', values: ['aucun'] },
+  ],
+} as const;
+
+const moleculeKnobs = {
+  SectionHeader: [
+    { name: 'tone · 2 variants', values: ['accent', 'dim'] },
+    { name: 'roman / label / id', values: ['string'] },
+    { name: 'slots', values: ['heading', 'aside', 'chapter'] },
+    { name: 'tokens consommés via .sec-hd', values: ['--font-display', '--font-mono', '--text-h2-section', '--accent', '--muted'] },
+  ],
+  StatRow: [
+    { name: 'tone · 2 variants', values: ['paper', 'ink'] },
+    { name: 'stats[]', values: ['k', 'label_fr', 'label_en'] },
+    { name: 'tokens consommés', values: ['--font-display', '--ink', '--paper', '--hairline', '--hairline-strong'] },
+  ],
+  TechPillRow: [
+    { name: 'pills[].kind · 3 variants', values: ['primary', 'open', 'neutral'] },
+    { name: 'pills[]', values: ['label', 'kind?'] },
+    { name: 'tokens consommés', values: ['--accent', '--muted', '--hairline-strong', '--radius-pill', '--text-caption'] },
+  ],
+  RelatedCards: [
+    { name: 'cards[]', values: ['kicker', 'title_fr / title_en', 'lead_fr / lead_en', 'href'] },
+    { name: 'variant visuel', values: ['unique · grille 3 cards'] },
+    { name: 'tokens consommés', values: ['--font-display', '--font-mono', '--accent', '--paper-2', '--hairline'] },
+  ],
+  NewsletterSignup: [
+    { name: 'variant · 2 variants', values: ['card', 'inline'] },
+    { name: 'lang', values: ['fr', 'en'] },
+    { name: 'tokens consommés', values: ['--font-display', '--font-sans', '--font-mono', '--ink', '--paper', '--hairline'] },
+  ],
+  PainPointInline: [
+    { name: 'severity · 4 variants', values: ['critical', 'high', 'medium', 'low'] },
+    { name: 'contenu / lien', values: ['pain', 'solution', 'slug?'] },
+    { name: 'tokens consommés', values: ['--font-sans', '--font-mono', '--ink', '--ink-2', '--muted', '--accent', '--hairline'] },
+  ],
+  ShareButtons: [
+    { name: 'variables', values: ['url', 'title', 'lang: fr / en'] },
+    { name: 'variant visuel', values: ['unique'] },
+    { name: 'tokens consommés', values: ['--font-mono', '--accent', '--muted', '--hairline', '--text-eyebrow'] },
+  ],
+} as const;
+
+const sectionSchemaKnobs = {
+  'hero-offer-detail': [
+    'type: literal', 'breadcrumb_label_fr/en?: string', 'breadcrumb_href?: string', 'tier_fr/en: string',
+    'h1_fr/en: string', 'lead_fr/en: string', 'cta: ctaSchema', 'meta_fr/en?: string',
+  ],
+  'hero-sector': [
+    'type: literal', 'dept_fr/en: string', 'h1_fr/en: string', 'lead_fr/en: string', 'cta: ctaSchema',
+    'meta_fr/en?: string', 'tags?: array { label_fr/en } · max 8',
+  ],
+  'case-card-grid': [
+    'type: literal', 'fig_num: string', 'fig_title_fr/en: string', 'spec_fr/en: string', 'h2_fr/en: string',
+    'case/sector/impact_label_fr/en: string', 'cases: array · min 2 / max 6', 'all_label_fr/en?: string', 'all_href?: string',
+  ],
+  'editorial-preview': [
+    'type: literal', 'kicker_fr/en?: string', 'roman?: string', 'act_label_fr/en?: string', 'aside_fr/en?: string',
+    'h2_fr/en: string', 'items: array · min 2 / max 8', 'all_label_fr/en?: string', 'all_href?: string',
+  ],
+  'use-case-index': [
+    'type: literal', 'roman: string', 'label_fr/en: string', 'heading_fr/en: string', 'aside_fr/en?: string',
+    'num_prefix_fr/en: string', 'items: array · min 2 / max 8', 'footer_label_fr/en?: string', 'footer_href?: string',
+  ],
+} as const;
 ---
 
 <Base
@@ -217,6 +319,19 @@ const sectionItems = listSections();
               </p>
             </div>
           </div>
+
+          <h4 class="ds-h4">Titre éditorial · simple vs bicolore</h4>
+          <div class="ds-editorial-title-demo">
+            <div>
+              <span class="ds-label">Simple</span>
+              <p>Acquisition IA. Plus de leads qualifiés.</p>
+            </div>
+            <div>
+              <span class="ds-label">Bicolore</span>
+              <p>Acquisition <i class="acc">IA</i>. Plus de <i class="acc">leads qualifiés</i>.</p>
+            </div>
+          </div>
+          <p class="ds-help">Piloté par le champ <code>hero_title_html</code> dans le contenu (offres/solutions) ; sans accent = titre simple.</p>
 
           <h4 class="ds-h4">Échelle V6 éditoriale (7 niveaux)</h4>
           <div class="ds-type-scale">
@@ -443,11 +558,13 @@ const sectionItems = listSections();
             <Kicker tone="accent">§ TONE ACCENT</Kicker>
             <Kicker tone="dim">§ TONE DIM (ON DARK)</Kicker>
           </div>
+          <div class="ds-knobs">{atomKnobs.Kicker.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
           <h3 class="ds-h3">ChapterLabel</h3>
           <ChapterLabel num="II · 2.0" title="Acte II : La méthode" />
+          <div class="ds-knobs">{atomKnobs.ChapterLabel.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -461,6 +578,7 @@ const sectionItems = listSections();
           <div class="ds-row" style="gap:12px;margin-top:14px">
             <Button href="#" variant="primary" size="lg" mag={0.18}>Primary · large · magnetic</Button>
           </div>
+          <div class="ds-knobs">{atomKnobs.Button.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -509,6 +627,7 @@ const sectionItems = listSections();
             <PillCTA href="#" variant="ghost-dark">Pill ghost-dark</PillCTA>
             <PillCTA href="#" variant="accent-mono">▸ Pill accent-mono</PillCTA>
           </div>
+          <div class="ds-knobs">{atomKnobs.PillCTA.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -518,6 +637,7 @@ const sectionItems = listSections();
             <TerminalCTA href="#" variant="ink-ghost">prendre une séance →</TerminalCTA>
             <TerminalCTA href="#" variant="accent">▸ schedule</TerminalCTA>
           </div>
+          <div class="ds-knobs">{atomKnobs.TerminalCTA.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -529,6 +649,7 @@ const sectionItems = listSections();
               <Fragment slot="en">Build <i style="color:var(--accent)">revenue</i>.</Fragment>
             </Bi>
           </p>
+          <div class="ds-knobs">{atomKnobs.Bi.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -557,6 +678,7 @@ const sectionItems = listSections();
             <Fragment slot="heading">Quatre <i>paliers</i>, une seule architecture.</Fragment>
             <Fragment slot="aside">Du diagnostic à l'infrastructure souveraine.</Fragment>
           </SectionHeader>
+          <div class="ds-knobs">{moleculeKnobs.SectionHeader.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -567,6 +689,7 @@ const sectionItems = listSections();
             { k: '× 4',   label_fr: 'taux de réussite', label_en: 'success rate' },
             { k: '12',    label_fr: 'juridictions UE',  label_en: 'EU jurisdictions' },
           ]} />
+          <div class="ds-knobs">{moleculeKnobs.StatRow.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -577,6 +700,7 @@ const sectionItems = listSections();
             { label: 'HubSpot',     kind: 'neutral' },
             { label: 'dbt',         kind: 'open' },
           ]} />
+          <div class="ds-knobs">{moleculeKnobs.TechPillRow.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -586,6 +710,7 @@ const sectionItems = listSections();
             { kicker: 'OFFRE 03.1', title_fr: 'RevOps Rebuild', title_en: 'RevOps Rebuild', lead_fr: 'Le service inspiré →', lead_en: 'Inspired service →', href: '/offres/revops' },
             { kicker: 'TRUST', title_fr: 'Trust Center', title_en: 'Trust Center', lead_fr: 'Politique données →', lead_en: 'Data policy →', href: '/agence/trust-center' },
           ]} />
+          <div class="ds-knobs">{moleculeKnobs.RelatedCards.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -598,6 +723,7 @@ const sectionItems = listSections();
               <NewsletterSignup variant="inline" lang="fr" />
             </div>
           </div>
+          <div class="ds-knobs">{moleculeKnobs.NewsletterSignup.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -612,11 +738,13 @@ const sectionItems = listSections();
             solution="Ajouter une instrumentation éditoriale légère avec feedback CRM pour relier chaque publication aux signaux business utiles."
             severity="medium"
           />
+          <div class="ds-knobs">{moleculeKnobs.PainPointInline.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
           <h3 class="ds-h3">ShareButtons</h3>
           <ShareButtons url="/agence/design-system" title="Design System Waimia" lang="fr" />
+          <div class="ds-knobs">{moleculeKnobs.ShareButtons.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -674,6 +802,19 @@ const sectionItems = listSections();
   ]}
   lang="fr"
 />`}</code></pre>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-h3">Variables (schéma)</h3>
+          <p class="ds-help">Chaque type de section = son schéma zod dans <code>src/schemas/sections.ts</code> = ses variables ; 75 types disponibles, même pattern.</p>
+          <div class="ds-knobs">
+            {Object.entries(sectionSchemaKnobs).map(([type, fields]) => (
+              <article class="ds-knob">
+                <span class="ds-knob-name">{type}</span>
+                <div class="ds-knob-values">{fields.map((field) => <span class="ds-knob-val">{field}</span>)}</div>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div class="ds-subsection">
@@ -978,6 +1119,62 @@ const sectionItems = listSections();
     border-bottom: 1px solid currentColor;
     text-decoration: none;
   }
+  .ds-knobs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+  .ds-knob {
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-hairline);
+    background: var(--paper);
+  }
+  .ds-knob-name {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--ink-2);
+    margin-bottom: var(--space-2);
+  }
+  .ds-knob-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .ds-knob-val {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-hairline);
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--muted);
+    background: var(--paper-2);
+  }
+  .ds-knob-note {
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    color: var(--muted);
+    margin-top: var(--space-2);
+  }
+  .ds-editorial-title-demo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-5);
+    background: var(--paper-2);
+    box-shadow: var(--shadow-hairline);
+  }
+  .ds-editorial-title-demo p {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h2);
+    color: var(--ink);
+    margin: var(--space-2) 0;
+  }
+  .ds-editorial-title-demo i { font-style: italic; }
+  .ds-editorial-title-demo i.acc { color: var(--accent); font-style: italic; }
 
   /* ─── SWATCH GRID ─── */
   .ds-swatch-grid {

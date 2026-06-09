@@ -6,15 +6,91 @@ import Base from '../../../layouts/Base.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import ChapterLabel from '../../../components/ui/atoms/ChapterLabel.astro';
 import Button from '../../../components/ui/atoms/Button.astro';
+import PillCTA from '../../../components/ui/atoms/PillCTA.astro';
+import TerminalCTA from '../../../components/ui/atoms/TerminalCTA.astro';
 import SectionHeader from '../../../components/ui/molecules/SectionHeader.astro';
 import NewsletterSignup from '../../../components/ui/molecules/NewsletterSignup.astro';
 import PainPointInline from '../../../components/ui/molecules/PainPointInline.astro';
 import ShareButtons from '../../../components/ui/molecules/ShareButtons.astro';
+import StatRow from '../../../components/ui/molecules/StatRow.astro';
+import TechPillRow from '../../../components/ui/molecules/TechPillRow.astro';
+import RelatedCards from '../../../components/ui/molecules/RelatedCards.astro';
 import HeroSplit from '../../../components/sections/HeroSplit.astro';
 import HeroCentered from '../../../components/sections/HeroCentered.astro';
 import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
 import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
+
+const atomKnobs = {
+  Kicker: [
+    { name: 'tone · 3 variants', values: ['muted', 'accent', 'dim'] },
+    { name: 'size', values: ['number px'] }, { name: 'as', values: ['div', 'span', 'p'] },
+    { name: 'textTransform', values: ['uppercase', 'none'] }, { name: 'letterSpacing', values: ['string em'] },
+    { name: 'consumed tokens', values: ['--font-mono', '--muted', '--accent'] },
+  ],
+  ChapterLabel: [
+    { name: 'tone · 2 variants', values: ['muted', 'dim'] }, { name: 'num / title', values: ['string'] },
+    { name: 'noDot', values: ['boolean'] },
+    { name: 'consumed tokens', values: ['--font-mono', '--text-eyebrow', '--muted', '--accent', '--radius-full'] },
+  ],
+  Button: [
+    { name: 'variant · 4 variants', values: ['primary', 'ghost', 'accent', 'link'] },
+    { name: 'size · 2 variants', values: ['md', 'lg'] }, { name: 'mag', values: ['number', 'magnetic effect'] },
+    { name: 'href / as', values: ['href string', 'a', 'button'] }, { name: 'states', values: ['disabled', 'loading'] },
+    { name: 'tokens consumed via .btn-*', values: ['--ink', '--paper', '--accent', '--accent-2', '--radius-sm', '--ease'] },
+  ],
+  PillCTA: [
+    { name: 'variant · 3 variants', values: ['accent', 'ghost-dark', 'accent-mono'] }, { name: 'mag', values: ['number'] },
+    { name: 'consumed tokens', values: ['--accent', '--paper', '--font-mono', '--text-ui', '--ease'] },
+  ],
+  TerminalCTA: [
+    { name: 'variant · 4 variants', values: ['ink', 'ink-ghost', 'accent', 'ghost-dark'] },
+    { name: 'size · 2 variants', values: ['md', 'sm'] }, { name: 'mag', values: ['number'] },
+    { name: 'consumed tokens', values: ['--ink', '--paper', '--accent', '--font-mono', '--text-ui', '--text-caption', '--ease'] },
+  ],
+} as const;
+
+const moleculeKnobs = {
+  SectionHeader: [
+    { name: 'tone · 2 variants', values: ['accent', 'dim'] }, { name: 'roman / label / id', values: ['string'] },
+    { name: 'slots', values: ['heading', 'aside', 'chapter'] },
+    { name: 'tokens consumed via .sec-hd', values: ['--font-display', '--font-mono', '--text-h2-section', '--accent', '--muted'] },
+  ],
+  StatRow: [
+    { name: 'tone · 2 variants', values: ['paper', 'ink'] }, { name: 'stats[]', values: ['k', 'label_fr', 'label_en'] },
+    { name: 'consumed tokens', values: ['--font-display', '--ink', '--paper', '--hairline', '--hairline-strong'] },
+  ],
+  TechPillRow: [
+    { name: 'pills[].kind · 3 variants', values: ['primary', 'open', 'neutral'] }, { name: 'pills[]', values: ['label', 'kind?'] },
+    { name: 'consumed tokens', values: ['--accent', '--muted', '--hairline-strong', '--radius-pill', '--text-caption'] },
+  ],
+  RelatedCards: [
+    { name: 'cards[]', values: ['kicker', 'title_fr / title_en', 'lead_fr / lead_en', 'href'] },
+    { name: 'visual variant', values: ['single · 3-card grid'] },
+    { name: 'consumed tokens', values: ['--font-display', '--font-mono', '--accent', '--paper-2', '--hairline'] },
+  ],
+  NewsletterSignup: [
+    { name: 'variant · 2 variants', values: ['card', 'inline'] }, { name: 'lang', values: ['fr', 'en'] },
+    { name: 'consumed tokens', values: ['--font-display', '--font-sans', '--font-mono', '--ink', '--paper', '--hairline'] },
+  ],
+  PainPointInline: [
+    { name: 'severity · 4 variants', values: ['critical', 'high', 'medium', 'low'] },
+    { name: 'content / link', values: ['pain', 'solution', 'slug?'] },
+    { name: 'consumed tokens', values: ['--font-sans', '--font-mono', '--ink', '--ink-2', '--muted', '--accent', '--hairline'] },
+  ],
+  ShareButtons: [
+    { name: 'variables', values: ['url', 'title', 'lang: fr / en'] }, { name: 'visual variant', values: ['single'] },
+    { name: 'consumed tokens', values: ['--font-mono', '--accent', '--muted', '--hairline', '--text-eyebrow'] },
+  ],
+} as const;
+
+const sectionSchemaKnobs = {
+  'hero-offer-detail': ['type: literal', 'breadcrumb_label_fr/en?: string', 'breadcrumb_href?: string', 'tier_fr/en: string', 'h1_fr/en: string', 'lead_fr/en: string', 'cta: ctaSchema', 'meta_fr/en?: string'],
+  'hero-sector': ['type: literal', 'dept_fr/en: string', 'h1_fr/en: string', 'lead_fr/en: string', 'cta: ctaSchema', 'meta_fr/en?: string', 'tags?: array { label_fr/en } · max 8'],
+  'case-card-grid': ['type: literal', 'fig_num: string', 'fig_title_fr/en: string', 'spec_fr/en: string', 'h2_fr/en: string', 'case/sector/impact_label_fr/en: string', 'cases: array · min 2 / max 6', 'all_label_fr/en?: string', 'all_href?: string'],
+  'editorial-preview': ['type: literal', 'kicker_fr/en?: string', 'roman?: string', 'act_label_fr/en?: string', 'aside_fr/en?: string', 'h2_fr/en: string', 'items: array · min 2 / max 8', 'all_label_fr/en?: string', 'all_href?: string'],
+  'use-case-index': ['type: literal', 'roman: string', 'label_fr/en: string', 'heading_fr/en: string', 'aside_fr/en?: string', 'num_prefix_fr/en: string', 'items: array · min 2 / max 8', 'footer_label_fr/en?: string', 'footer_href?: string'],
+} as const;
 ---
 
 <Base
@@ -114,6 +190,18 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
               <p class="ds-help">Labels, system notes, metadata and code snippets.</p>
             </div>
           </div>
+          <h4 class="ds-h4">Editorial title · simple vs two-tone</h4>
+          <div class="ds-editorial-title-demo">
+            <div>
+              <span class="ds-label">Simple</span>
+              <p>AI acquisition. More qualified leads.</p>
+            </div>
+            <div>
+              <span class="ds-label">Two-tone</span>
+              <p>AI <i class="acc">acquisition</i>. More <i class="acc">qualified leads</i>.</p>
+            </div>
+          </div>
+          <p class="ds-help">Driven by the <code>hero_title_html</code> content field (offers/solutions); without an accent, the title stays simple.</p>
         </div>
 
         {/* 1.3 Spacing scale */}
@@ -171,6 +259,8 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
           <div style="margin-top:20px">
             <ChapterLabel num="III · 2.1" title="Act III: The delivery layer" />
           </div>
+          <div class="ds-knobs">{atomKnobs.Kicker.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
+          <div class="ds-knobs">{atomKnobs.ChapterLabel.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -181,6 +271,27 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
             <Button href="/en/contact" variant="accent">Accent</Button>
             <Button href="#atoms" variant="link">Link →</Button>
           </div>
+          <div class="ds-knobs">{atomKnobs.Button.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-h3">PillCTA · 3 variants</h3>
+          <div class="ds-row" style="gap:12px">
+            <PillCTA href="#" variant="accent">Pill accent</PillCTA>
+            <PillCTA href="#" variant="ghost-dark">Pill ghost-dark</PillCTA>
+            <PillCTA href="#" variant="accent-mono">▸ Pill accent-mono</PillCTA>
+          </div>
+          <div class="ds-knobs">{atomKnobs.PillCTA.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-h3">TerminalCTA · 4 variants</h3>
+          <div class="ds-row" style="gap:12px">
+            <TerminalCTA href="#" variant="ink">▸ open console</TerminalCTA>
+            <TerminalCTA href="#" variant="ink-ghost">Book a session →</TerminalCTA>
+            <TerminalCTA href="#" variant="accent">▸ schedule</TerminalCTA>
+          </div>
+          <div class="ds-knobs">{atomKnobs.TerminalCTA.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -236,6 +347,38 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
             <Fragment slot="heading">Four <i>operational</i> surfaces, one system.</Fragment>
             <Fragment slot="aside">Enough structure to ship, enough room to adapt.</Fragment>
           </SectionHeader>
+          <div class="ds-knobs">{moleculeKnobs.SectionHeader.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-h3">StatRow</h3>
+          <StatRow stats={[
+            { k: '43', label_fr: 'interventions', label_en: 'engagements' },
+            { k: '€18M+', label_fr: 'pipeline audité', label_en: 'pipeline audited' },
+            { k: '× 4', label_fr: 'taux de réussite', label_en: 'success rate' },
+            { k: '12', label_fr: 'juridictions UE', label_en: 'EU jurisdictions' },
+          ]} />
+          <div class="ds-knobs">{moleculeKnobs.StatRow.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-h3">TechPillRow</h3>
+          <TechPillRow pills={[
+            { label: 'Claude Opus', kind: 'primary' },
+            { label: 'PostgreSQL', kind: 'open' },
+            { label: 'HubSpot', kind: 'neutral' },
+          ]} />
+          <div class="ds-knobs">{moleculeKnobs.TechPillRow.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-h3">RelatedCards</h3>
+          <RelatedCards cards={[
+            { kicker: 'CASE 04', title_fr: 'Plateau SaaS', title_en: 'Plateau SaaS', lead_fr: '+€2.4M pipeline →', lead_en: '+€2.4M pipeline →', href: '/en/cas/plateau' },
+            { kicker: 'OFFER 03.1', title_fr: 'RevOps Rebuild', title_en: 'RevOps Rebuild', lead_fr: 'Le service inspiré →', lead_en: 'Inspired service →', href: '/en/offres/revops' },
+            { kicker: 'TRUST', title_fr: 'Trust Center', title_en: 'Trust Center', lead_fr: 'Politique données →', lead_en: 'Data policy →', href: '/en/trust' },
+          ]} />
+          <div class="ds-knobs">{moleculeKnobs.RelatedCards.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -248,6 +391,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
               <NewsletterSignup variant="inline" lang="en" />
             </div>
           </div>
+          <div class="ds-knobs">{moleculeKnobs.NewsletterSignup.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
@@ -262,11 +406,13 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
             solution="Add lightweight CRM instrumentation so every editorial push is tied to business signals that matter."
             severity="high"
           />
+          <div class="ds-knobs">{moleculeKnobs.PainPointInline.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
 
         <div class="ds-subsection">
           <h3 class="ds-h3">ShareButtons</h3>
           <ShareButtons url="/en/agence/design-system" title="Waimia Design System" lang="en" />
+          <div class="ds-knobs">{moleculeKnobs.ShareButtons.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
       </section>
 
@@ -303,6 +449,19 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
         <p class="ds-section-lede">
           Composable page sections used to build offer pages, trust pages and landing flows. The mirror keeps five concrete examples in English.
         </p>
+
+        <div class="ds-subsection">
+          <h3 class="ds-h3">Variables (schema)</h3>
+          <p class="ds-help">Each section type = its zod schema in <code>src/schemas/sections.ts</code> = its variables; 75 types available, same pattern.</p>
+          <div class="ds-knobs">
+            {Object.entries(sectionSchemaKnobs).map(([type, fields]) => (
+              <article class="ds-knob">
+                <span class="ds-knob-name">{type}</span>
+                <div class="ds-knob-values">{fields.map((field) => <span class="ds-knob-val">{field}</span>)}</div>
+              </article>
+            ))}
+          </div>
+        </div>
 
         <div class="ds-section-demo ds-demo-hero">
           <Kicker tone="muted" size={10}>HeroSplit</Kicker>
@@ -593,6 +752,62 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
     border-bottom: 1px solid currentColor;
     text-decoration: none;
   }
+  .ds-knobs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+  .ds-knob {
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-hairline);
+    background: var(--paper);
+  }
+  .ds-knob-name {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--ink-2);
+    margin-bottom: var(--space-2);
+  }
+  .ds-knob-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .ds-knob-val {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-hairline);
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--muted);
+    background: var(--paper-2);
+  }
+  .ds-knob-note {
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    color: var(--muted);
+    margin-top: var(--space-2);
+  }
+  .ds-editorial-title-demo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-5);
+    background: var(--paper-2);
+    box-shadow: var(--shadow-hairline);
+  }
+  .ds-editorial-title-demo p {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h2);
+    color: var(--ink);
+    margin: var(--space-2) 0;
+  }
+  .ds-editorial-title-demo i { font-style: italic; }
+  .ds-editorial-title-demo i.acc { color: var(--accent); font-style: italic; }
   .ds-row {
     display: flex;
     flex-wrap: wrap;
