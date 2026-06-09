@@ -245,12 +245,12 @@ const deliverableClasses = [
 ];
 
 const metricPlacements = [
-  { class: 'col-3 start-1', size: 'lg', align: 'left', variant: 'default' },
-  { class: 'col-3 start-5', size: 'lg', align: 'center', variant: 'default' },
-  { class: 'col-3 start-9', size: 'hero', align: 'right', variant: 'accent' },
-  { class: 'col-3 start-2', size: 'md', align: 'left', variant: 'default' },
-  { class: 'col-3 start-7', size: 'md', align: 'right', variant: 'default' },
-  { class: 'col-3 start-10', size: 'md', align: 'right', variant: 'default' },
+  { size: 'lg', align: 'left', variant: 'accent' },
+  { size: 'lg', align: 'left', variant: 'default' },
+  { size: 'md', align: 'left', variant: 'default' },
+  { size: 'md', align: 'left', variant: 'default' },
+  { size: 'md', align: 'left', variant: 'default' },
+  { size: 'md', align: 'left', variant: 'default' },
 ] as const;
 
 const growthToolRows = [
@@ -424,17 +424,17 @@ const growthToolRows = [
               </PullQuote>
             </div>
             <div class="off-proof-aside col-7 start-6">
-              <div class="off-proof-metrics g12">
+              <div class="off-proof-metrics">
                 {proof.metrics?.map((metric, index) => {
                   const placement = metricPlacements[index % metricPlacements.length];
                   return (
                     <>
                       {index === 3 && (
-                        <div class="col-12">
+                        <div class="off-proof-metrics-rule">
                           <Dingbat variant="rule" size="lg" />
                         </div>
                       )}
-                      <div class={`${placement.class} reveal-zoom-in`} style={`transition-delay:${index * 70}ms`}>
+                      <div class="off-proof-metric-cell reveal-zoom-in" style={`transition-delay:${index * 70}ms`}>
                         <KeyMetric
                           value={metric.value}
                           label={lang === 'fr' ? metric.label_fr : metric.label_en}
@@ -457,18 +457,18 @@ const growthToolRows = [
               </PullQuote>
             </div>
             <div class="off-proof-aside col-7 start-6">
-              <div class="off-proof-metrics g12">
+              <div class="off-proof-metrics">
                 {proofMetrics.length > 0 ? (
                   proofMetrics.map((metric, index) => {
                     const placement = metricPlacements[index % metricPlacements.length];
                     return (
                       <>
                         {index === 3 && (
-                          <div class="col-12">
+                          <div class="off-proof-metrics-rule">
                             <Dingbat variant="rule" size="lg" />
                           </div>
                         )}
-                        <div class={`${placement.class} reveal-zoom-in`} style={`transition-delay:${index * 70}ms`}>
+                        <div class="off-proof-metric-cell reveal-zoom-in" style={`transition-delay:${index * 70}ms`}>
                           <KeyMetric
                             value={metric.value}
                             label={metric.label}
@@ -850,6 +850,11 @@ const growthToolRows = [
   .off-proof-band {
     align-items: start;
   }
+  /* Place explicitement les 2 colonnes : la combinaison utilitaire `col-N start-N`
+     est cassée par le conflit de shorthand (`grid-column: span N` met `span N` en
+     start, puis `.start-N` écrase ce start → span perdu, colonne réduite à 1 piste). */
+  .off-proof-main { grid-column: 1 / span 5; }
+  .off-proof-aside { grid-column: 6 / -1; }
   .off-proof-main :global(.pull-quote) {
     margin: 0;
   }
@@ -870,11 +875,23 @@ const growthToolRows = [
   }
   .off-proof-div { width: 1px; background: rgba(var(--ink-rgb), 0.1); }
   .off-proof-metrics {
-    row-gap: var(--space-3);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(var(--space-5), 3vw, var(--space-8)) clamp(var(--space-4), 2vw, var(--space-6));
     align-items: end;
     margin-top: 0;
   }
+  .off-proof-metric-cell { min-width: 0; }
+  .off-proof-metric-cell :global(.key-metric) { min-width: 0; }
+  .off-proof-metric-cell :global(.key-metric-value) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .off-proof-metrics-rule { grid-column: 1 / -1; }
   .off-proof-metrics :global(.dingbat-rule) { margin-block: var(--space-5); }
+  @media (max-width: 640px) {
+    .off-proof-metrics { grid-template-columns: 1fr; }
+  }
   .off-proof-metrics :global(.metric-v) {
     font-family: var(--font-display);
     font-size: clamp(28px, 3vw, 40px);
@@ -1061,6 +1078,11 @@ const growthToolRows = [
   .start-9 { grid-column-start: 9; }
   .start-10 { grid-column-start: 10; }
 
+  @media (max-width: 768px) {
+    /* g12 passe en 1 colonne sous 768px → les 2 blocs proof s'empilent pleine largeur */
+    .off-proof-main,
+    .off-proof-aside { grid-column: 1 / -1; }
+  }
   @media (max-width: 800px) {
     .off-problem-annotations { grid-template-columns: 1fr; }
     .off-problem-annotations :global(> div) {
