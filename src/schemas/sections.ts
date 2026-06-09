@@ -258,6 +258,7 @@ export const heroProblemIndexSchema = z.object({
 // Hero · cas client par secteur (SolutionsDetailTemplate) · dept + h1 + lead italique + CTA + tags
 export const heroSectorSchema = z.object({
   type: z.literal('hero-sector'),
+  hero_variant: z.enum(['equilibre', 'showcase', 'encadre']).optional(),
   dept_fr: z.string(),
   dept_en: z.string(),
   h1_fr: z.string(),
@@ -397,6 +398,7 @@ export const listIndexSectionSchema = z.object({
 // Hero · détail d'une offre (OffresDetailTemplate) · cercles concentriques + tier + h1 + lead + CTA
 export const heroOfferDetailSchema = z.object({
   type: z.literal('hero-offer-detail'),
+  hero_variant: z.enum(['equilibre', 'showcase', 'encadre']).optional(),
   breadcrumb_label_fr: z.string().optional(),
   breadcrumb_label_en: z.string().optional(),
   breadcrumb_href: z.string().optional(),
@@ -409,6 +411,15 @@ export const heroOfferDetailSchema = z.object({
   cta: ctaSchema,
   meta_fr: z.string().optional(),
   meta_en: z.string().optional(),
+  tags: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .max(8)
+    .optional(),
 });
 
 // Hero · couche technologique (TechnologiesDetailTemplate) · triangles SVG + layer badge + h1 + lead + CTA

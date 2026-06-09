@@ -1,6 +1,5 @@
 ---
 // Section catalogue · hero-offer-detail | hero-sector | hero-tech-layer
-// Composant canonique géométrie SVG : 3 type-ids, 1 fichier, byte-identique.
 import type { SectionByType } from '../../schemas/sections';
 import HeroSumie from '../svg/sumie/HeroSumie.astro';
 import { resolveHeroSumie } from '../../lib/hero-sumie';
@@ -14,391 +13,324 @@ interface Props {
   geoReveal?: boolean;
   breadcrumbCurrent?: string;
 }
+
 const { data, lang, transitionId, cardTransitionId, wrapMax, geoReveal, breadcrumbCurrent } = Astro.props;
 const isFr = lang === 'fr';
 const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude') : 'claude';
+const detailData = data.type === 'hero-tech-layer' ? undefined : data;
+const heroVariant = detailData?.hero_variant ?? 'equilibre';
+const heroTags = detailData?.tags ?? [];
 const offerSumie =
   data.type === 'hero-offer-detail'
     ? resolveHeroSumie(`${data.tier_fr ?? ''} ${data.h1_fr ?? ''}`)
     : data.type === 'hero-sector'
       ? resolveHeroSumie(`${data.dept_fr} ${data.h1_fr}`)
-    : 'growth';
+      : 'growth';
 ---
-{data.type === 'hero-sector' ? (
-<section class="hero-sector reveal" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
-  <svg class:list={['hero-sector__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <rect x="980" y="-40" width="420" height="420" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18" transform="rotate(15 1190 170)"/>
-    <rect x="1040" y="20" width="280" height="280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25" transform="rotate(15 1180 160)"/>
-    <line x1="0" y1="420" x2="1440" y2="300" stroke="currentColor" stroke-width=".4" opacity=".12"/>
-  </svg>
-  <div class="hero-sector__wrap">
-    <div class="hero-sector__copy">
-      <div class="hero-sector__dept">{isFr ? data.dept_fr : data.dept_en}</div>
-      <h1 class="hero-sector__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
-      <div class="hero-sector__sub">
-        <p class="hero-sector__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
-        <div class="hero-sector__aside">
-          <span class="hero-offer-detail__sumie reveal-zoom-in" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
-            <HeroSumie name={offerSumie} size="lg" />
-          </span>
-          <div class="hero-sector__actions">
-            <a class="btn btn-primary" href={data.cta.href}>
-              {isFr ? data.cta.label_fr : data.cta.label_en}
-            </a>
-            {data.meta_fr && (
-              <div class="hero-sector__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
+
+{data.type === 'hero-tech-layer' ? (
+  <section class:list={['hero-tech-layer', `hero-tech-layer--${layerType}`]} transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+    <svg class:list={['hero-tech-layer__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+      <polygon points="1100,80 1340,80 1220,300" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18"/>
+      <polygon points="1160,140 1320,140 1240,280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25"/>
+      <polygon points="60,420 280,420 170,580" fill="none" stroke="currentColor" stroke-width=".4" opacity=".12"/>
+      <line x1="0" y1="500" x2="1440" y2="380" stroke="currentColor" stroke-width=".3" opacity=".1"/>
+    </svg>
+    <div class="hero-tech-layer__wrap" style={wrapMax ? `--htl-wrap: ${wrapMax}` : undefined}>
+      <div class:list={['hero-tech-layer__layer', `hero-tech-layer__layer--${layerType}`]}>
+        {isFr ? data.layer_label_fr : data.layer_label_en}
+      </div>
+      <h1 class="hero-tech-layer__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
+      <div class="hero-tech-layer__sub">
+        <p class="hero-tech-layer__lead reveal" set:html={isFr ? data.lead_fr : data.lead_en} />
+        <div class="hero-tech-layer__actions">
+          <a class="hero-tech-layer__cta" href={data.cta.href}>{isFr ? data.cta.label_fr : data.cta.label_en}</a>
+          {data.meta_fr && <div class="hero-tech-layer__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>}
+        </div>
+      </div>
+    </div>
+  </section>
+) : (
+  <section
+    class:list={['hero-detail', `hero-detail--${heroVariant}`, data.type === 'hero-sector' ? 'hero-sector' : 'hero-offer-detail', 'reveal']}
+    transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}
+  >
+    <div class="hero-detail__wrap" style={wrapMax ? `--hod-wrap: ${wrapMax}` : undefined}>
+      {data.type === 'hero-offer-detail' && data.breadcrumb_label_fr && (
+        <nav class="hero-detail__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
+          <a href={data.breadcrumb_href ?? '#'}>{isFr ? data.breadcrumb_label_fr : (data.breadcrumb_label_en ?? data.breadcrumb_label_fr)}</a>
+          <span aria-hidden="true">/</span>
+          <span>{breadcrumbCurrent ?? (isFr ? data.tier_fr : data.tier_en)}</span>
+        </nav>
+      )}
+
+      <div class="hero-detail__eyebrow">
+        {data.type === 'hero-sector' ? (isFr ? data.dept_fr : data.dept_en) : (isFr ? data.tier_fr : data.tier_en)}
+      </div>
+      <h1 class="hero-detail__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
+
+      <div class="hero-detail__sub">
+        <div class="hero-detail__copy">
+          <p class="hero-detail__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
+          {heroTags.length > 0 && (
+            <div class="hero-detail__tags reveal-stagger" aria-label={isFr ? 'Périmètre' : 'Scope'}>
+              {heroTags.map((tag) => <span class="hero-detail__tag">{isFr ? tag.label_fr : tag.label_en}</span>)}
+            </div>
+          )}
+          {heroVariant === 'showcase' && data.meta_fr && (
+            <div class="hero-detail__meta hero-detail__meta--copy">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
+          )}
+        </div>
+
+        <div class="hero-detail__visual">
+          <div class="hero-detail__art">
+            <svg class:list={['hero-detail__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 620 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <circle cx="356" cy="194" r="176" fill="none" stroke="currentColor" stroke-width=".7" opacity=".13"/>
+              <circle cx="356" cy="194" r="126" fill="none" stroke="var(--accent)" stroke-width=".5" opacity=".22"/>
+              <rect x="168" y="34" width="330" height="330" fill="none" stroke="currentColor" stroke-width=".45" opacity=".12" transform="rotate(12 333 199)"/>
+              <line x1="30" y1="340" x2="584" y2="76" stroke="currentColor" stroke-width=".45" opacity=".1"/>
+            </svg>
+            <span class="hero-detail__sumie reveal-zoom-in" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+              <HeroSumie name={offerSumie} size="lg" />
+            </span>
+          </div>
+          <div class="hero-detail__actions">
+            <a class="btn btn-primary" href={data.cta.href}>{isFr ? data.cta.label_fr : data.cta.label_en}</a>
+            {heroVariant !== 'showcase' && data.meta_fr && (
+              <div class="hero-detail__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
             )}
           </div>
         </div>
       </div>
-      {data.tags && data.tags.length > 0 && (
-        <div class="hero-sector__tags reveal-stagger">
-          {data.tags.map((tag) => (
-            <span class="hero-sector__tag">{isFr ? tag.label_fr : tag.label_en}</span>
-          ))}
-        </div>
-      )}
     </div>
-  </div>
-</section>
-) : data.type === 'hero-tech-layer' ? (
-<section class:list={['hero-tech-layer', `hero-tech-layer--${layerType}`]} transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
-  <svg class:list={['hero-tech-layer__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
-    <polygon points="1100,80 1340,80 1220,300" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18"/>
-    <polygon points="1160,140 1320,140 1240,280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25"/>
-    <polygon points="60,420 280,420 170,580" fill="none" stroke="currentColor" stroke-width=".4" opacity=".12"/>
-    <line x1="0" y1="500" x2="1440" y2="380" stroke="currentColor" stroke-width=".3" opacity=".1"/>
-  </svg>
-  <div class="hero-tech-layer__wrap" style={wrapMax ? `--htl-wrap: ${wrapMax}` : undefined}>
-    <div class:list={['hero-tech-layer__layer', `hero-tech-layer__layer--${layerType}`]}>
-      {isFr ? data.layer_label_fr : data.layer_label_en}
-    </div>
-    <h1 class="hero-tech-layer__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
-    <div class="hero-tech-layer__sub">
-      <p class="hero-tech-layer__lead reveal" set:html={isFr ? data.lead_fr : data.lead_en} />
-      <div class="hero-tech-layer__actions">
-        <a class="hero-tech-layer__cta" href={data.cta.href}>{isFr ? data.cta.label_fr : data.cta.label_en}</a>
-        {data.meta_fr && (
-          <div class="hero-tech-layer__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
-        )}
-      </div>
-    </div>
-  </div>
-</section>
-) : (
-<section class="hero-offer-detail reveal" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
-  <svg class:list={['hero-offer-detail__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
-    <line x1="0" y1="280" x2="1440" y2="280" stroke="currentColor" stroke-width=".4" opacity=".05"/>
-    <line x1="0" y1="440" x2="1440" y2="440" stroke="currentColor" stroke-width=".3" opacity=".03"/>
-    <line x1="720" y1="0" x2="720" y2="700" stroke="currentColor" stroke-width=".3" opacity=".04"/>
-    <line x1="960" y1="0" x2="960" y2="700" stroke="currentColor" stroke-width=".25" opacity=".03"/>
-    <circle cx="1200" cy="120" r="340" fill="none" stroke="currentColor" stroke-width=".5" opacity=".09"/>
-    <circle cx="1200" cy="120" r="220" fill="none" stroke="var(--accent)" stroke-width=".35" opacity=".16"/>
-    <circle cx="1200" cy="120" r="110" fill="none" stroke="var(--accent)" stroke-width=".25" opacity=".10"/>
-    <line x1="0" y1="420" x2="880" y2="170" stroke="currentColor" stroke-width=".3" opacity=".07"/>
-    <line x1="1196" y1="118" x2="1204" y2="118" stroke="currentColor" stroke-width=".7" opacity=".22"/>
-    <line x1="1200" y1="114" x2="1200" y2="122" stroke="currentColor" stroke-width=".7" opacity=".22"/>
-  </svg>
-  <div class="hero-offer-detail__wrap" style={wrapMax ? `--hod-wrap: ${wrapMax}` : undefined}>
-    {data.breadcrumb_label_fr && (
-      <nav class="hero-offer-detail__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
-        <a href={data.breadcrumb_href ?? '#'}>{isFr ? data.breadcrumb_label_fr : (data.breadcrumb_label_en ?? data.breadcrumb_label_fr)}</a>
-        <span aria-hidden="true">/</span>
-        <span>{breadcrumbCurrent ?? (isFr ? data.tier_fr : data.tier_en)}</span>
-      </nav>
-    )}
-    <div class="hero-offer-detail__tier">{isFr ? data.tier_fr : data.tier_en}</div>
-    <h1 class="hero-offer-detail__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
-    <div class="hero-offer-detail__sub">
-      <p class="hero-offer-detail__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
-      <div class="hero-offer-detail__aside">
-        <span class="hero-offer-detail__sumie reveal-zoom-in" aria-hidden="true">
-          <HeroSumie name={offerSumie} size="lg" />
-        </span>
-        <div class="hero-offer-detail__actions">
-          <a class="hero-offer-detail__cta" href={data.cta.href}>{isFr ? data.cta.label_fr : data.cta.label_en}</a>
-          {data.meta_fr && (
-            <div class="hero-offer-detail__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
-          )}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 )}
 
 <style>
-  /* ── hero-offer-detail ── */
-  .hero-offer-detail {
+  .hero-detail {
     position: relative;
-    padding: clamp(72px, 8vw, 112px) 0 clamp(48px, 5.5vw, 88px);
+    min-height: calc(100svh - var(--header-height));
+    padding: clamp(var(--space-8), 6vw, var(--space-11)) 0 var(--space-8);
     overflow: hidden;
     color: var(--ink);
-  }
-  .hero-offer-detail__geo {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none;
-  }
-  .hero-offer-detail__sumie {
-    width: min(100%, 520px);
-    color: var(--ink-2);
-    pointer-events: none;
-  }
-  .hero-offer-detail__sumie :global(svg) { width: 100%; height: auto; }
-  .hero-offer-detail__aside,
-  .hero-sector__aside {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-5);
+    align-items: center;
   }
-  .hero-offer-detail__wrap {
+  .hero-detail__wrap {
     position: relative;
-    z-index: 1;
+    width: 100%;
     max-width: var(--hod-wrap, 1320px);
     margin-inline: auto;
-    padding-inline: clamp(20px, 4vw, 48px);
+    padding-inline: clamp(var(--space-5), 4vw, var(--space-8));
   }
-  .hero-offer-detail__bc {
+  .hero-detail__bc {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
-    display: flex; gap: var(--space-2); align-items: center;
-    margin-bottom: var(--space-5);
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-bottom: var(--space-4);
   }
-  .hero-offer-detail__bc a { color: var(--muted); transition: color 220ms ease; text-decoration: none; }
-  .hero-offer-detail__bc a:hover { color: var(--accent); }
-  .hero-offer-detail__tier {
+  .hero-detail__bc a { color: var(--muted); text-decoration: none; }
+  .hero-detail__bc a:hover { color: var(--accent); }
+  .hero-detail__eyebrow {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 20px;
+    margin-bottom: var(--space-4);
   }
-  .hero-offer-detail__title {
+  .hero-detail__title {
     font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 148px);
-    line-height: 0.92;
-    letter-spacing: -0.028em;
+    font-size: clamp(52px, 7vw, 112px);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
     font-weight: var(--fw-regular);
     margin: 0 0 var(--space-6);
-    text-wrap: balance;
+    white-space: nowrap;
   }
-  .hero-offer-detail__title :global(i) { color: var(--accent); font-style: italic; }
-  .hero-offer-detail__sub {
+  .hero-detail__title :global(i) { color: var(--accent); font-style: italic; }
+  .hero-detail__sub {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: clamp(32px, 4vw, 72px);
-    align-items: end;
-    max-width: 1180px;
+    gap: clamp(var(--space-6), 5vw, var(--space-10));
+    padding: var(--space-6) 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    align-items: stretch;
   }
-  .hero-offer-detail__lead {
+  .hero-detail--equilibre .hero-detail__sub { grid-template-columns: 1.05fr 1fr; }
+  .hero-detail--showcase .hero-detail__sub { grid-template-columns: 1fr 1.15fr; }
+  .hero-detail--encadre .hero-detail__sub { grid-template-columns: 1fr 1fr; }
+  .hero-detail__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+  .hero-detail__lead {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2vw, 26px);
+    font-size: clamp(20px, 1.8vw, 26px);
     line-height: var(--leading-lede);
     color: var(--ink);
     font-style: italic;
     margin: 0;
+    max-width: 540px;
   }
-  .hero-offer-detail__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
-  .hero-offer-detail__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
-  .hero-offer-detail__cta {
-    display: inline-block;
-    padding: 14px var(--space-5);
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: var(--radius-sm);
-    font-size: var(--text-body-sm);
-    font-weight: var(--fw-medium);
-    text-decoration: none;
-    letter-spacing: var(--tracking-body);
-    border: 1.5px solid var(--ink);
-    transition: background 240ms ease, color 240ms ease, transform var(--dur-fast) ease;
-  }
-  .hero-offer-detail__cta:hover { background: transparent; color: var(--ink); transform: translateY(-1px); }
-  .hero-offer-detail__meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-  @media (max-width: 768px) {
-    .hero-offer-detail__sub { grid-template-columns: 1fr; }
-    .hero-sector__sub { grid-template-columns: 1fr; }
-  }
-  /* ── hero-sector ── */
-  .hero-sector {
-    position: relative;
-    padding-top: clamp(80px, 9vw, 120px);
-    padding-bottom: clamp(56px, 6vw, 96px);
-    overflow: hidden;
-    color: var(--ink);
-  }
-  .hero-sector__geo {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    opacity: 0.08;
-    mix-blend-mode: multiply;
-  }
-  .hero-sector__wrap {
-    position: relative;
-    z-index: 1;
-    max-width: 1320px;
-    margin-inline: auto;
-    padding-inline: clamp(20px, 4vw, 48px);
-  }
-  .hero-sector__copy { position: relative; z-index: 1; }
-  .hero-sector__dept {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+  .hero-detail__lead :global(span) {
     color: var(--accent);
-    margin-bottom: 20px;
+    display: block;
+    margin-top: var(--space-2);
   }
-  .hero-sector__title {
-    font-family: var(--font-display);
-    font-size: clamp(46px, 6.4vw, 108px);
-    line-height: var(--leading-h1);
-    letter-spacing: -0.028em;
-    font-weight: var(--fw-regular);
-    margin: 0 0 var(--space-5);
-    text-wrap: balance;
-  }
-  .hero-sector__title :global(i) { color: var(--accent); font-style: italic; }
-  .hero-sector__sub {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: clamp(32px, 4vw, 72px);
-    align-items: end;
-    max-width: 1180px;
-    margin-bottom: clamp(28px, 3vw, 40px);
-  }
-  .hero-sector__lead {
-    font-family: var(--font-sans);
-    font-size: clamp(20px, 2vw, 26px);
-    line-height: var(--leading-lede);
-    color: var(--ink);
-    font-style: italic;
-    margin: 0;
-  }
-  .hero-sector__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
-  .hero-sector__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
-  .hero-sector__meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-  .hero-sector__tags {
+  .hero-detail__tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
-    margin-top: var(--space-2);
+    margin-top: var(--space-6);
   }
-  .hero-sector__tag {
+  .hero-detail--showcase .hero-detail__tags {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-detail__tag {
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--ink);
-    padding: var(--space-2) 14px;
-    background: rgba(var(--ink-rgb), 0.04);
+    padding: var(--space-2) var(--space-4);
+    background: var(--paper-2);
     border: 1px solid var(--hairline);
-    border-radius: var(--radius-sm);
-    transition: border-color 220ms ease, color 220ms ease;
+    border-radius: var(--radius-pill);
   }
-  .hero-sector__tag:hover { border-color: var(--accent); color: var(--accent); }
-  /* ── hero-tech-layer ── */
+  .hero-detail__visual {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .hero-detail__art {
+    position: relative;
+    width: min(100%, 520px);
+    min-height: 300px;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+  }
+  .hero-detail__geo {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 118%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    color: var(--ink);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .hero-detail__sumie {
+    display: block;
+    width: min(100%, 520px);
+    min-width: min(100%, 440px);
+    color: var(--ink-2);
+    pointer-events: none;
+  }
+  .hero-detail__sumie :global(svg) { width: 100%; height: auto; display: block; }
+  .hero-detail__actions {
+    width: min(100%, 520px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+  .hero-detail__meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .hero-detail__meta--copy { margin-top: auto; padding-top: var(--space-6); }
+  .hero-detail--showcase .hero-detail__art {
+    width: min(100%, 560px);
+    min-height: 330px;
+  }
+  .hero-detail--showcase .hero-detail__geo { width: 138%; opacity: .9; }
+  .hero-detail--showcase .hero-detail__sumie,
+  .hero-detail--showcase .hero-detail__actions { width: min(100%, 540px); }
+  .hero-detail--showcase .hero-detail__actions { margin-top: auto; }
+  .hero-detail--encadre .hero-detail__sub { border-bottom: 0; padding-bottom: 0; }
+  .hero-detail--encadre .hero-detail__visual {
+    position: relative;
+    padding: var(--space-5);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--paper-2);
+    overflow: hidden;
+  }
+  .hero-detail--encadre .hero-detail__art { min-height: 280px; }
+  .hero-detail--encadre .hero-detail__actions {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--hairline);
+  }
   .hero-tech-layer {
     position: relative;
-    padding: clamp(80px, 10vw, 140px) 0 clamp(64px, 8vw, 120px);
+    padding: clamp(var(--space-10), 10vw, var(--space-13)) 0 clamp(var(--space-9), 8vw, var(--space-12));
     overflow: hidden;
     color: var(--ink);
   }
-  .hero-tech-layer__geo {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none;
-  }
+  .hero-tech-layer__geo { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .hero-tech-layer__wrap {
     position: relative;
     z-index: 1;
     max-width: var(--htl-wrap, 1320px);
     margin-inline: auto;
-    padding-inline: clamp(20px, 4vw, 48px);
+    padding-inline: clamp(var(--space-5), 4vw, var(--space-8));
   }
   .hero-tech-layer__layer {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-5);
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
   }
-  .hero-tech-layer__layer::before {
-    content: '';
-    width: 8px; height: 8px;
-    border-radius: var(--radius-pill);
-    background: currentColor;
-  }
+  .hero-tech-layer__layer::before { content: ''; width: var(--space-2); height: var(--space-2); border-radius: var(--radius-pill); background: currentColor; }
   .hero-tech-layer__layer--claude { color: var(--accent); }
-  .hero-tech-layer__layer--os { color: var(--ink); opacity: 0.85; }
-  .hero-tech-layer__layer--orch { color: var(--ink); opacity: 0.65; }
+  .hero-tech-layer__layer--os { color: var(--ink); opacity: .85; }
+  .hero-tech-layer__layer--orch { color: var(--ink); opacity: .65; }
   .hero-tech-layer__title {
     font-family: var(--font-display);
     font-size: clamp(56px, 9vw, 148px);
-    line-height: 0.92;
-    letter-spacing: -0.028em;
+    line-height: .92;
+    letter-spacing: var(--tracking-display);
     font-weight: var(--fw-regular);
     margin: 0 0 var(--space-6);
     text-wrap: balance;
   }
   .hero-tech-layer__title :global(i) { color: var(--accent); font-style: italic; }
-  .hero-tech-layer__sub {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(24px, 4vw, 64px);
-    align-items: end;
-    max-width: 1100px;
-  }
-  .hero-tech-layer__lead {
-    font-family: var(--font-sans);
-    font-size: clamp(20px, 2vw, 26px);
-    line-height: var(--leading-lede);
-    color: var(--ink);
-    font-style: italic;
-    margin: 0;
-  }
+  .hero-tech-layer__sub { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(var(--space-5), 4vw, var(--space-9)); align-items: end; max-width: 1100px; }
+  .hero-tech-layer__lead { font-family: var(--font-sans); font-size: clamp(20px, 2vw, 26px); line-height: var(--leading-lede); color: var(--ink); font-style: italic; margin: 0; }
   .hero-tech-layer__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
   .hero-tech-layer__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
-  .hero-tech-layer__cta {
-    display: inline-block;
-    padding: 14px var(--space-5);
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: var(--radius-sm);
-    font-size: var(--text-body-sm);
-    font-weight: var(--fw-medium);
-    text-decoration: none;
-    letter-spacing: var(--tracking-body);
-    transition: transform 220ms ease, box-shadow 220ms ease;
-  }
-  .hero-tech-layer__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(var(--ink-rgb), 0.12); }
-  .hero-tech-layer__meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-  @media (max-width: 768px) {
+  .hero-tech-layer__cta { display: inline-block; padding: var(--space-3) var(--space-5); background: var(--ink); color: var(--paper); border-radius: var(--radius-sm); font-size: var(--text-body-sm); font-weight: var(--fw-medium); text-decoration: none; letter-spacing: var(--tracking-body); }
+  .hero-tech-layer__meta { font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: var(--tracking-mono); color: var(--muted); text-transform: uppercase; }
+  @media (max-width: 880px) {
+    .hero-detail { min-height: auto; display: block; padding-top: var(--space-9); }
+    .hero-detail__title { white-space: normal; font-size: clamp(48px, 14vw, 88px); }
+    .hero-detail__sub,
+    .hero-detail--equilibre .hero-detail__sub,
+    .hero-detail--showcase .hero-detail__sub,
+    .hero-detail--encadre .hero-detail__sub { grid-template-columns: 1fr; }
+    .hero-detail__copy { min-height: auto; }
+    .hero-detail__meta--copy { margin-top: var(--space-6); }
+    .hero-detail__sumie { min-width: 0; }
     .hero-tech-layer__sub { grid-template-columns: 1fr; }
   }
 </style>
