@@ -36,6 +36,16 @@ interface Props {
   ctaPrimaryExternal?: boolean;
   /** hero-course : style du lien ghost (`catalog` | `legacy`). */
   ghostStyle?: 'catalog' | 'legacy';
+  /** hero-hub-listing : padding-top custom (défaut = catalogue `calc(--header-height + 40px)`). */
+  listTopPad?: string;
+  /** hero-hub-listing : cap font-size du lede (défaut catalogue `28px`). */
+  ledeMaxFont?: string;
+  /** hero-hub-listing : ajoute l'animation `reveal reveal-fade` au lede (défaut true = catalogue). */
+  ledeReveal?: boolean;
+  /** hero-hub-listing : force le rendu du wrapper de filtres (défaut = présence réelle du slot). */
+  showFilters?: boolean;
+  /** hero-hub-listing : ajoute la hairline border-bottom (défaut false = catalogue). */
+  listBorder?: boolean;
 }
 const {
   data,
@@ -47,7 +57,17 @@ const {
   ctaPrimaryDisabled = false,
   ctaPrimaryExternal = false,
   ghostStyle = 'catalog',
+  listTopPad,
+  ledeMaxFont,
+  ledeReveal = true,
+  showFilters,
+  listBorder = false,
 } = Astro.props;
+const listStyle = [
+  listTopPad ? `padding-top:${listTopPad}` : '',
+  ledeMaxFont ? `--hhl-lede-max:${ledeMaxFont}` : '',
+].filter(Boolean).join(';') || undefined;
+const hasFilters = showFilters ?? Astro.slots.has('filters');
 const isFr = lang === 'fr';
 const rv = reveal ? ' reveal' : '';
 const mastScale = data.type === 'hero-hub-masthead' ? (data.scale ?? (data.variant === 'listing' ? 'standard' : 'monumental')) : undefined;
@@ -89,7 +109,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </section>
   )
 ) : data.type === 'hero-hub-listing' ? (
-  <section class="hero-hub-listing">
+  <section class:list={['hero-hub-listing', listBorder && 'hero-hub-listing--bordered']} style={listStyle}>
     {data.decoration && (
       <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
         <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
@@ -99,7 +119,12 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     <div class="wrap-wide">
       <Kicker class="hero-hub-listing__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       <h1 class="hero-hub-listing__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
-      <p class="hero-hub-listing__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+      <p class:list={['hero-hub-listing__lede', ledeReveal && 'reveal reveal-fade']} set:html={isFr ? data.lede_fr : data.lede_en} />
+      {hasFilters && (
+        <div class="hero-hub-listing__filters">
+          <slot name="filters" />
+        </div>
+      )}
     </div>
   </section>
 ) : data.type === 'hero-problem-index' ? (
@@ -300,6 +325,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     overflow: hidden;
     padding: calc(var(--header-height) + 40px) var(--space-6) clamp(40px, 5vw, 72px);
   }
+  .hero-hub-listing--bordered { border-bottom: 1px solid var(--hairline); }
   .hero-hub-listing .wrap-wide { position: relative; z-index: 1; }
   .hero-hub-listing__deco {
     position: absolute;
@@ -325,11 +351,17 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-hub-listing__h1 :global(i) { font-style: italic; color: var(--accent); }
   .hero-hub-listing__lede {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2.2vw, 28px);
+    font-size: clamp(20px, 2.2vw, var(--hhl-lede-max, 28px));
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
     max-width: 760px;
     line-height: var(--leading-lede);
+  }
+  .hero-hub-listing__filters {
+    margin-top: clamp(36px, 4vw, 56px);
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
   }
   @media (max-width: 768px) {
     .hero-hub-listing__deco { width: 260px; height: 200px; opacity: 0.6; }
