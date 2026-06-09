@@ -121,3 +121,21 @@ le legacy exact (le composant devient la source fidèle ; sweep reste vert car p
 - Gate Vercel déployé : `.github/workflows/gf1-vercel-sweep.yml` (secret `VERCEL_AUTOMATION_BYPASS_SECRET`).
 - ⚠️ Le cloud ne peut atteindre `*.vercel.app` (allowlist) → GF-1 visuel en cloud = build local servi ;
   GF-1 sur preview Vercel = CI / local Simon.
+
+## 🔭 Recon des 3 vt=0 restants (2026-06-09, Task subagent read-only) — verdicts d'arbitrage
+
+Comble le trou : les 3 vt=0 n'avaient pas la recon détaillée (contrairement aux 4 vt>0). Faits `fichier:ligne` extraits, fidélité tranchée par l'orchestrateur.
+
+| Template | h1 | Consommateurs | Composant le plus proche | Verdict | Risque |
+|---|---|---|---|---|---|
+| **ListIndexTemplate** | `list-h1` | `/ressources/{blog,changelog,cookbooks,outils}/index` (4 FR, 0 EN live) | **`hero-hub-listing`** (HeroCentered) — h1 `clamp(56,11vw,180)`/`0.92`/`-0.03em`/`reveal-mask-up` **pixel-perfect** | **`migrate-with-props`** | LOW-MED |
+| **TrustLegalTemplate** | `trust-h1` | `/agence/{trust-center,governance,docs}` (3 FR) | `hero-utility-masthead` (partiel) | **`needs-new-component`** | HIGH |
+| **WelcomeTemplate** | `welcome-h1` | `/bienvenue/{newsletter,livre-blanc,audit,devis,academy}` + `/en/bienvenue/*` | `hero-centered` (faible) | **`needs-new-component`** | HIGH |
+
+**Deltas ListIndex (tous absorbables, pattern établi)** : `topPad 140px` vs `calc(header+40px)` ~20px → prop `topPad` ; lede cap `32px` vs `28px` (>1400px only) → prop/accept ; lede sans `reveal-fade` → prop `reveal=false` ; **slot `filters` conditionnel** absent du composant → ajouter `<slot name="filters">` inerte (catalogue figé, sweep vert). → **migration autonome** (ce qui suit).
+
+**Deltas TrustLegal (régression si générique)** : blocs `.trust-meta` (date révision + version, mono, DANS le masthead, contenu SEO/conformité) + `.trust-legal-footer` (border-top mono) **absents** du schema utility ; h1 cap `128px` vs `180px` (+52px) ; kicker bilingue `<Bi>`. → créer `HeroTrustLegal` **ou garder le template** (vt=0, 3 routes FR, fonctionnel).
+
+**Deltas Welcome (structure unique)** : `<main>` centré `min-height:80vh` flex, SVG checkmark 64px, `<ol class="welcome-steps">` (cards étapes), `wrap-prose`, lede 22px, CTAs inversés (post-conversion, `noindex`). Aucun Hero* n'approche. → créer `HeroWelcome` **ou garder le template** (recommandé : isolé, vt=0).
+
+**Arbitrage Simon (TrustLegal/Welcome)** : recommandation = **garder ces 2 templates autonomes** (fonctionnels, vt=0, audience limitée, 0 composable-rendering prévu) = 0 régression, 0 nouveau composant hors-scope « composition ». Créer un composant dédié seulement si la cohérence catalogue le justifie pour Simon.
