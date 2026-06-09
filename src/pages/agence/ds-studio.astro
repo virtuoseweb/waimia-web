@@ -172,6 +172,24 @@ const moleculesRendered = 12;
             </div>
           </div>
 
+          {/* Enregistrer (déployer) — DEV-ONLY : POST /api/ds/save (commit + push +
+              rebuild preview). Le middleware n'existe que sous `astro dev`. */}
+          <div class="studio-save">
+            <label class="studio-save-field">
+              <span class="studio-vh">Mot-clé de sauvegarde</span>
+              <input
+                type="password"
+                data-save-keyword
+                class="studio-text-input studio-text-input--wide"
+                placeholder="mot-clé de sauvegarde"
+                autocomplete="off"
+              />
+            </label>
+            <button id="token-save" class="studio-btn studio-btn--save" type="button">
+              Enregistrer (déployer)
+            </button>
+          </div>
+
           <label class="studio-search">
             <span class="studio-vh">Filtrer les tokens</span>
             <input id="token-search" type="search" placeholder="Filtrer : accent, space, radius…" autocomplete="off" />
@@ -758,6 +776,76 @@ const moleculesRendered = 12;
     z-index: 9999;
   }
   :global(.studio-toast.is-on) { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Bloc Enregistrer (déployer) ── */
+  .studio-save {
+    display: flex; gap: var(--space-2); align-items: stretch;
+    margin-top: var(--space-3); padding-top: var(--space-3);
+    border-top: 1px solid var(--hairline);
+  }
+  .studio-save-field { flex: 1 1 auto; min-width: 0; display: flex; }
+  .studio-save-field input { width: 100%; }
+  .studio-btn--save {
+    flex: none; background: var(--ink); color: var(--accent-ink); border-color: var(--ink);
+  }
+  .studio-btn--save:hover { background: var(--ink-2); }
+  .studio-btn--save:disabled { opacity: 0.55; cursor: progress; }
+
+  /* ── Overlay « cuisson » / erreur (injecté par le JS) ── */
+  :global(.studio-overlay) {
+    position: fixed; inset: 0; z-index: 10000;
+    display: flex; align-items: center; justify-content: center;
+    padding: var(--space-5);
+    background: color-mix(in srgb, var(--ink) 82%, transparent);
+    backdrop-filter: blur(6px);
+    opacity: 0; pointer-events: none;
+    transition: opacity var(--dur-fast) var(--ease);
+  }
+  :global(.studio-overlay.is-on) { opacity: 1; pointer-events: auto; }
+  :global(.studio-overlay-card) {
+    display: flex; flex-direction: column; align-items: center; gap: var(--space-3);
+    max-width: var(--wrap-prose); text-align: center;
+    padding: var(--space-7) var(--space-6);
+    background: var(--paper); border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-lift);
+  }
+  :global(.studio-overlay-title) {
+    font-family: var(--font-display); font-size: var(--text-h3-card);
+    color: var(--ink); margin: 0;
+  }
+  :global(.studio-overlay-sub) {
+    font-family: var(--font-sans); font-size: var(--text-body-sm);
+    color: var(--ink-2); margin: 0; max-width: var(--wrap-read);
+  }
+  :global(.studio-overlay-count) {
+    font-family: var(--font-mono); font-size: var(--text-h2-tight);
+    color: var(--accent); margin: 0; letter-spacing: var(--tracking-mono);
+    font-variant-numeric: tabular-nums;
+  }
+  :global(.studio-overlay--error .studio-overlay-count) { display: none; }
+  :global(.studio-overlay-close) { margin-top: var(--space-2); }
+
+  /* Vapeur : 3 bouffées qui montent et se dissipent en boucle (CSS pur, tokens). */
+  :global(.studio-steam) {
+    position: relative; width: var(--space-9); height: var(--space-9);
+    display: flex; align-items: flex-end; justify-content: center; gap: var(--space-2);
+  }
+  :global(.studio-steam-puff) {
+    width: var(--space-2); height: var(--space-2); border-radius: var(--radius-full);
+    background: var(--accent); opacity: 0;
+    animation: studio-steam-rise var(--dur-slow) var(--ease-out) infinite;
+  }
+  :global(.studio-steam-puff:nth-child(2)) { animation-delay: calc(var(--dur-slow) / 3); }
+  :global(.studio-steam-puff:nth-child(3)) { animation-delay: calc(var(--dur-slow) / 3 * 2); }
+  @keyframes studio-steam-rise {
+    0% { opacity: 0; transform: translateY(0) scale(0.6); }
+    35% { opacity: 0.7; }
+    100% { opacity: 0; transform: translateY(calc(-1 * var(--space-7))) scale(1.4); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(.studio-steam-puff) { animation: none; opacity: 0.5; }
+    :global(.studio-overlay) { transition: none; }
+  }
 
   /* Force l'état révélé des sections rendues inline (sinon scroll-reveal = opacity:0 = GF-1 fail).
      Réplique l'override de /preview/[type].astro, scopé à la galerie. */

@@ -162,6 +162,185 @@ function initStudio() {
     });
   }
 
+  // ── Enregistrer (déployer) : persistance git-based DEV-ONLY ────────────────
+  // POST /api/ds/save (middleware actif uniquement sous `astro dev`). On envoie
+  // UNIQUEMENT les tokens modifiés (Map `dirty`) + le mot-clé de sauvegarde. Au
+  // succès : overlay "cuisson" + compte à rebours FIXE de fixedDelaySeconds, puis
+  // location.reload(). Pas de polling Vercel : délai fixe (setTimeout + interval).
+  const saveBtn = container.querySelector('#token-save');
+  const keywordInput = container.querySelector('[data-save-keyword]');
+  let countdownTimer = null;
+  let reloadTimer = null;
+
+  function buildTokensPayload() {
+    const out = {};
+    dirty.forEach((v, t) => {
+      out[t] = v;
+    });
+    return out;
+  }
+
+  // Overlay plein écran (cuisson / succès en attente de reload, ou erreur).
+  function ensureOverlay() {
+    let el = document.getElementById('studio-overlay');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'studio-overlay';
+      el.className = 'studio-overlay';
+      el.setAttribute('role', 'status');
+      el.setAttribute('aria-live', 'polite');
+      document.body.appendChild(el);
+    }
+    return el;
+  }
+
+  function clearOverlayTimers() {
+    if (countdownTimer) {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+    }
+    if (reloadTimer) {
+      clearTimeout(reloadTimer);
+      reloadTimer = null;
+    }
+  }
+
+  function showCookingOverlay(seconds, branch, commit) {
+    const total = Number(seconds) > 0 ? Math.floor(Number(seconds)) : 180;
+    const el = ensureOverlay();
+    el.classList.remove('studio-overlay--error');
+    el.innerHTML = '';
+
+    const card = document.createElement('div');
+    card.className = 'studio-overlay-card';
+
+    const steam = document.createElement('div');
+    steam.className = 'studio-steam';
+    steam.setAttribute('aria-hidden', 'true');
+    steam.append(
+      Object.assign(document.createElement('span'), { className: 'studio-steam-puff' }),
+      Object.assign(document.createElement('span'), { className: 'studio-steam-puff' }),
+      Object.assign(document.createElement('span'), { className: 'studio-steam-puff' }),
+    );
+
+    const title = document.createElement('p');
+    title.className = 'studio-overlay-title';
+    title.textContent = 'Déploiement en cours · ~3 min';
+
+    const sub = document.createElement('p');
+    sub.className = 'studio-overlay-sub';
+    sub.textContent = `Commit ${commit || '...'} sur ${branch || 'la branche courante'}. La preview se reconstruit, puis la page se recharge.`;
+
+    const count = document.createElement('p');
+    count.className = 'studio-overlay-count';
+    count.id = 'studio-overlay-count';
+
+    card.append(steam, title, sub, count);
+    el.append(card);
+    el.classList.add('is-on');
+
+    let remaining = total;
+    const render = () => {
+      const mm = String(Math.floor(remaining / 60)).padStart(2, '0');
+      const ss = String(remaining % 60).padStart(2, '0');
+      count.textContent = `${mm}:${ss}`;
+    };
+    render();
+
+    clearOverlayTimers();
+    countdownTimer = window.setInterval(() => {
+      remaining -= 1;
+      if (remaining <= 0) {
+        remaining = 0;
+        render();
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+        return;
+      }
+      render();
+    }, 1000);
+
+    reloadTimer = window.setTimeout(() => {
+      window.location.reload();
+    }, total * 1000);
+  }
+
+  function showErrorOverlay(message) {
+    clearOverlayTimers();
+    const el = ensureOverlay();
+    el.classList.add('studio-overlay--error');
+    el.innerHTML = '';
+
+    const card = document.createElement('div');
+    card.className = 'studio-overlay-card';
+
+    const title = document.createElement('p');
+    title.className = 'studio-overlay-title';
+    title.textContent = 'Échec de la sauvegarde';
+
+    const sub = document.createElement('p');
+    sub.className = 'studio-overlay-sub';
+    sub.textContent = message || 'Une erreur est survenue.';
+
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'studio-btn studio-overlay-close';
+    close.textContent = 'Fermer';
+    close.addEventListener('click', () => {
+      el.classList.remove('is-on');
+      el.innerHTML = '';
+    });
+
+    card.append(title, sub, close);
+    el.append(card);
+    el.classList.add('is-on');
+  }
+
+  if (saveBtn) {
+    saveBtn.addEventListener('click', async () => {
+      if (!dirty.size) {
+        toast('Aucun changement : modifie au moins un token avant d\'enregistrer');
+        return;
+      }
+      const keyword = keywordInput ? keywordInput.value.trim() : '';
+      if (!keyword) {
+        toast('Saisis le mot-clé de sauvegarde');
+        if (keywordInput) keywordInput.focus();
+        return;
+      }
+      saveBtn.disabled = true;
+      const prevLabel = saveBtn.textContent;
+      saveBtn.textContent = 'Envoi...';
+      try {
+        const resp = await fetch('/api/ds/save', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ tokens: buildTokensPayload(), keyword }),
+        });
+        let data = {};
+        try {
+          data = await resp.json();
+        } catch {
+          data = {};
+        }
+        if (resp.ok && data.ok) {
+          showCookingOverlay(data.fixedDelaySeconds, data.branch, data.commit);
+        } else {
+          const map = {
+            keyword: 'Mot-clé de sauvegarde incorrect.',
+            'refus push main': 'Refus : on ne pousse jamais automatiquement sur main (prod).',
+          };
+          showErrorOverlay(map[data.error] || data.error || `Erreur ${resp.status}`);
+        }
+      } catch (err) {
+        showErrorOverlay('Réseau indisponible (le serveur de dev tourne-t-il ?).');
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = prevLabel;
+      }
+    });
+  }
+
   // ── Toast ────────────────────────────────────────────────────────────────────
   let toastTimer = null;
   function toast(msg) {

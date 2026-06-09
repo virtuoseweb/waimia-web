@@ -8,6 +8,7 @@ import vercel from '@astrojs/vercel';
 import robotsTxt from 'astro-robots-txt';
 import llmsTxt from '@4hse/astro-llms-txt';
 import llmsMdPages from './src/integrations/llms-md-pages';
+import dsSaveDev from './src/integrations/ds-save-dev.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 
 // Waimia · Astro 6 config · Static-first + API routes SSR via Vercel Functions
@@ -168,6 +169,10 @@ export default defineConfig({
       siteUrl: 'https://waimia.com',
       exclude: ['404', 'api/**', 'bienvenue/**', 'agence/design-system'],
     }),
+    // DEV-ONLY : persistance git-based du DS Studio (bouton "Enregistrer").
+    // Le hook astro:server:setup n'est actif que sous `astro dev` -> 0 impact
+    // sur le static build (aucune fonction serverless en prod). Cf le fichier.
+    dsSaveDev(),
   ],
   // Cast `as any` parce que tailwindcss/vite et Astro embarquent leur propre
   // version de Vite — TS détecte un mismatch nominal mais runtime OK.
