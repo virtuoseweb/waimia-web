@@ -24,6 +24,9 @@ function cleanComment(value) {
     .replace(/^\/\*|\*\/$/g, '')
     .replace(/^\s*\*\s?/gm, '')
     .replace(/\s+/g, ' ')
+    // Rule 58 : pas de tiret cadratin U+2014 dans le contenu généré (gate check-no-emdash).
+    // Le registry est du contenu user-facing (affiché dans /agence/ds-studio).
+    .replace(/\s*—\s*/g, ' · ')
     .trim();
 }
 
