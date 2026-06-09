@@ -227,3 +227,43 @@ Tokeniser uniquement les **littéraux == valeur exacte** (lookahead strict : `1.
 - **Outliers laissés** : flèches mono 16/18px (iconiques), drop-cap 0.85, H1 optical-sizing 0.88/0.92/0.94 (1 seul `--leading-h1` 0.96 suffit, sinon dérive de raffinement), 32px radius morph, durées d'ambiance s, stagger.
 
 **Refus explicite du sur-formalisme** (caveat « ne pas créer de tokens inutiles ») : on NE crée PAS de token demi-pixel (10.5/11.5…), NI 4 variantes `--leading-h1` (0.88/0.92/0.94/0.96 → un seul cran), NI 5 trackings entre 0.06–0.14em. Le DS reste restrictif : un cran = un rôle distinct + un volume réel.
+
+## 9. REPAINTABILITÉ COMPLÉTÉE + audit d'usage exhaustif — 2026-06-09
+
+> Suite logique de §8 (formalisation byte-équiv) : fermeture de la **surface repaintable** (prérequis outil identité / Tool D) + réponse chiffrée à la requête gouvernante « y a-t-il des tokens sur-créés / des doublons de rôle mal réutilisés ? ».
+
+### 9.1 — Vagues byte-équivalentes EXÉCUTÉES (0 pixel changé, GF-1 prod/dist validé, gate étendu)
+| Vague | Commit | Portée | Preuve GF-1 |
+|---|---|---|---|
+| **V9-SVG** | `7da924f` | 36 hex marque en `fill=`/`stroke=` → `var(--token)` sur 6 `.astro` (sumie/* + technologies FR+EN) | prod `waimia.com/technologies` : `var()` résout aux rgb d'origine (ink 12,11,9 · accent 201,79,46 · muted 107,101,96 · paper-2 239,233,221) + repaint emerald + 0 erreur console |
+| **V9-RGBA** | `0595ada` | 9 `rgba(246,241,232,X)` (hairlines on-dark : Masthead/Terminal/ChapterLabel/Kicker/PillCTA/TerminalCTA) → `rgba(var(--paper-rgb),X)` | dist `/cas/plateau` : `rgba(246,241,232,.55)` identique → repaint `rgba(14,124,102,.55)` (alpha préservé) |
+| **V9-RGBA-contract** | `7c57101` | 5 rgba marque HARDCODÉES dans `tokens.css` (`--hairline` ×616, `--hairline-strong`, 3 ombres) → canaux, alignées sur `--shadow-lift` déjà correct | dist : `--hairline` rend `rgba(12,11,9,.09)` identique **et** suit désormais un swap `--ink-rgb` (avant : hardcodé → ne suivait pas) |
+
+**Surface repaintable = COMPLÈTE** : composants (CSS sections, V8/V9b-d) + SVG inline (V9-SVG) + rgba composants (V9-RGBA) + **contrat lui-même** (V9-RGBA-contract). Le gate `check-token-purity` bloque en CI toute réapparition d'hex/rgba de marque, **y compris dans `tokens.css`**. Un swap des canaux (`--ink-rgb`/`--accent-rgb`/`--paper-rgb`) + des hex de surface (`--paper`/`--ink`/`--accent`…) repeint désormais 100% du rendu, hairlines et ombres comprises.
+
+> Hors-scope repaintabilité (légitimement hex brut, var() inapplicable) : `LiquidHero.tsx` (canvas WebGL), `og.png.ts` (génération image serveur), `components/emails/*` (clients mail sans var()). Exclus du gate à dessein.
+
+### 9.2 — Audit d'usage EXHAUSTIF : 0 token mort (réfute « tokens sur-créés »)
+Comptage `var(--x)` + utilitaires Tailwind sur tout `src/` (hors `tokens.css`). **Tous les tokens du contrat sont consommés** — y compris les extrêmes :
+- Couleurs : la plus basse = `--accent-ink` ×2, `--ink-3` ×4, `--paper-3` ×5, `--accent-2` ×7, `--muted-2` ×19. Aucune morte.
+- Spacing : `--space-15` (256) = 0 usage direct **mais** consommé via `--section-grand` (chaîne intentionnelle breakout signature). `--space-12/13/14` = 3/2/1 — extrêmes rares mais l'intégrité de l'échelle 8pt prime sur le compte (retirer = échelle trouée).
+- Ombres : chacune ×1 (tokens de traitement de surface nommés — single-use normal pour un DS).
+- Headings V6, leading/tracking, radius, weights, durées : tous ≥ 2 usages, rôles distincts.
+
+→ **Verdict : pas de gisement « token inutile à raser ».** Les passes de cleanup antérieures (Phase D.1, ds-cleanup 2026-06-04, Fusion A3, V2 cohérence) ont déjà purgé les morts. Le contrat est dense.
+
+### 9.3 — Incohérences RÉSIDUELLES (perceptibles/structurelles → arbitrage Simon, NON auto-exécutées)
+Analyse de rôle réel (pas le compte). Verdict par candidat :
+
+| # | Candidat | Constat | Verdict |
+|---|---|---|---|
+| **A** | **Double vocabulaire d'espacement de section** : `--section-base/loose/grand` (fixes, =space-11/13/15, ×16 total) **vs** `--spacing-section/block` (fluides `clamp()`, ×64 total) | Deux intentions pour « rythme de section ». Le commentaire `tokens.css:154` flagge lui-même `--spacing-*` comme « transitoires W6 ». C'est le doublon de rôle #1 du DS. | **PERCEPTIBLE** (fixe 96 vs `clamp(64,8vw,96)` divergent selon viewport) → arbitrage Simon : choisir UNE famille (probable : garder les fluides `--spacing-*`, migrer les `--section-*`, ou inverse). Vague GF-1 dédiée. |
+| **B** | **`--radius-xs` (4px) nommé « xs » mais PLUS GRAND que `--radius-sm` (2px)** | Inversion de l'échelle t-shirt (xs 4 > sm 2 < md 8). Naming incohérent (créé comme « cran manquant sm↔md » mais nommé xs). | **STRUCTUREL** (rename contrat, ×16 usages, byte-équiv si valeur conservée) → arbitrage Simon : renommer (ex. `--radius-sm`→2 reste, `--radius-xs`4→`--radius-smd`/réordonner). |
+| **C** | **`--shadow-hairline` ≡ `--shadow-card-rest`** : valeur **identique** `0 0 0 1px var(--hairline)` (×1 chacun) | Doublon de valeur exact. Mais `--shadow-card-rest` appartient à une **paire rest/hover** (`--shadow-card-hover`), donc rôle sémantique « état repos de card interactive » ≠ « ring séparateur statique ». | **AMBIGU** → arbitrage Simon (byte-équiv de collapse, mais le choix du canonique + valeur de la paire rest/hover relève de l'intention design). Recommandation : garder les deux (la paire justifie), OU collapser `--shadow-card-rest`→`--shadow-hairline` si la paire n'est pas exploitée. |
+| **D** | **`--col-full` = `var(--wrap)`** (alias pur 1440px, ×2 dans `grid.css`) | Indirection sémantique « colonne pleine grille = wrap page ». | **MARGINAL** byte-équiv collapsible (inline `var(--wrap)`) mais l'alias documente l'intention grille → garder (faible valeur à raser). |
+
+### 9.4 — Coïncidences de valeur JUSTIFIÉES (PAS des doublons — documenté pour ne plus les re-flagger)
+- **`--accent-ink` (#F6F1E8) == `--paper`** : même valeur, **rôle distinct** = couleur de texte SUR fond accent. Slot de contrat indépendant pour Tool D (une marque à accent clair voudra un `--accent-ink` foncé ≠ son paper). **GARDER** — collapser casserait l'indépendance de repaint.
+- **`--gut` (32px responsive : 20@900, 16@600) vs `--space-6` (32px fixe)** : coïncident à 32px sur desktop mais `--gut` est **responsive** (gouttière) et `--space-6` fixe (cran d'échelle). Rôles distincts. **GARDER**.
+
+> Principe (réconcilie « cadre restrictif » + « ne pas aplatir l'intentionnel ») : une coïncidence de valeur n'est un doublon **que si le rôle est identique**. A/B/C/D ci-dessus sont des incohérences réelles mais **perceptibles ou structurelles** → décision Simon, jamais auto-exécutées dans une vague byte-équiv.
