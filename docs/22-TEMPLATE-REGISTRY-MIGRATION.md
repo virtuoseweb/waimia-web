@@ -139,3 +139,24 @@ Comble le trou : les 3 vt=0 n'avaient pas la recon détaillée (contrairement au
 **Deltas Welcome (structure unique)** : `<main>` centré `min-height:80vh` flex, SVG checkmark 64px, `<ol class="welcome-steps">` (cards étapes), `wrap-prose`, lede 22px, CTAs inversés (post-conversion, `noindex`). Aucun Hero* n'approche. → créer `HeroWelcome` **ou garder le template** (recommandé : isolé, vt=0).
 
 **Arbitrage Simon (TrustLegal/Welcome)** : recommandation = **garder ces 2 templates autonomes** (fonctionnels, vt=0, audience limitée, 0 composable-rendering prévu) = 0 régression, 0 nouveau composant hors-scope « composition ». Créer un composant dédié seulement si la cohérence catalogue le justifie pour Simon.
+
+### ListIndex — ÉTALON GF-1 capturé (2026-06-09) → migration execute-ready
+
+Baseline `getComputedStyle` mesurée sur **dist buildé @1440×900** (les 4 routes consommatrices), AVANT migration = la cible 0-régression. **Valeurs identiques sur les 4 routes** (CSS partagée du template) :
+
+| Élément | Valeur étalon @1440 (à reproduire exactement) |
+|---|---|
+| `.list-hd` | `padding-top: 140px` · `border-bottom: 1px rgba(12,11,9,.09)` (var --hairline) |
+| `.list-h1` | font-display · `158.4px` (clamp 56/11vw/180) · line-height `145.728px` (0.92) · letter-spacing `-4.752px` (-0.03em) · color `rgb(12,11,9)` · `<i>`→accent · text-wrap balance · margin 0 |
+| `.list-lede` | **font-sans** · `31.68px` (clamp 20/2.2vw/**32** — ⚠️ pas 28) · color `rgb(26,24,20)` (ink-2) · line-height `44.352px` (var --leading-lede 1.4) · max-width 760 · margin `var(--space-6) 0 0` · text-wrap pretty · **aucune animation reveal** |
+| `.list-filters` (présent : changelog 5 / cookbooks 6 / outils 1 ; blog 0) | wrapper `margin-top: 56px` (clamp 36/4vw/56) · `display:flex` · `gap: 12px` (var --space-3) · flex-wrap wrap |
+
+**Cible** : `hero-hub-listing` (variant `listing` du masthead unifié `HeroCentered`, `section-registry:127`). h1 = pixel-perfect. **Deltas à absorber par props rétro-compat (défaut = rendu catalogue figé → sweep vert)** :
+1. **`topPad="140px"`** (vs composant `calc(var(--header-height)+40px)` ~112px) — pattern établi 6×.
+2. **lede cap 32px** (composant cappe à 28 → régresserait de **3.68px @≥1440** ; mesuré 31.68 vs 28). Prop `ledeMaxFont`/aligner la variante listing sur 32, défaut 28.
+3. **lede sans reveal** (composant listing a `reveal-fade` ; template n'en a pas). Prop `ledeReveal={false}`.
+4. **slot `filters`** : ajouter `<slot name="filters">` au composant, wrappé pour reproduire `.list-filters` (mt clamp(36,4vw,56), flex, gap space-3, wrap), **inerte si vide** (catalogue figé).
+
+**Méthode** : **slot-forwarding** template→composant (`Astro.slots.render('headline'/'lede'/'filters')`, pattern Essay) → **0 page consommatrice touchée** (les 4 routes passent déjà headline/lede/filters/list en slots). e2e : `.list-h1` → BEM composant, uniquement pour les 4 routes. GF-1 APRÈS = re-mesurer @1440 les 4 routes + comparer à l'étalon ci-dessus (0 delta) + sweep.
+
+> ⚠️ **Pourquoi pas exécuté séance du 2026-06-09** : `HeroCentered` est **multi-variant partagé** (hub|listing|detail) → modifier sans casser les 2 autres variants ni la sweep = raisonnement résiduel élevé (rule 41 → worker Opus, ou Opus scope les old→new puis Sonnet applique). Décision qualité (rule 28 « ne pas dégrader » + GF-1 > burn de fin de session) : étalon + spec figés ici → exécution mécanique propre en passe dédiée. **NON bloqué sur Simon** (verdict `migrate-with-props` tient) — c'est une exécution prête, pas un arbitrage.
