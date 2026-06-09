@@ -121,6 +121,70 @@ const cases = defineCollection({
     heroImage: z.string().optional(),
     author: reference('authors').optional(),
     contributors: z.array(reference('authors')).default([]),
+    // ── Refonte éditoriale W2 (docs/25) : sections cataloguées pilotées par
+    //    frontmatter. TOUS optionnels → dégradation gracieuse (cas non migrés
+    //    gardent le rendu <Content/> actuel). Voir CaseStudyTemplate (rendu conditionnel).
+    contextStatement_fr: z.string().optional(),
+    contextStatement_en: z.string().optional(),
+    contextStats: z
+      .array(z.object({ value: z.string(), label_fr: z.string(), label_en: z.string() }))
+      .max(4)
+      .optional(),
+    bottlenecks: z
+      .array(
+        z.object({
+          num: z.string().optional(),
+          kicker_fr: z.string(),
+          kicker_en: z.string(),
+          title_fr: z.string(),
+          title_en: z.string(),
+          body_fr: z.string(),
+          body_en: z.string(),
+        }),
+      )
+      .optional(),
+    phases: z
+      .array(
+        z.object({
+          num: z.string(),
+          label_fr: z.string(),
+          label_en: z.string(),
+          body_fr: z.string(),
+          body_en: z.string(),
+          meta_fr: z.string().optional(),
+          meta_en: z.string().optional(),
+        }),
+      )
+      .optional(),
+    deliverableCards: z
+      .array(
+        z.object({
+          title_fr: z.string(),
+          title_en: z.string(),
+          body_fr: z.string(),
+          body_en: z.string(),
+          format_fr: z.string().optional(),
+          format_en: z.string().optional(),
+        }),
+      )
+      .optional(),
+    shifts: z
+      .array(
+        z.object({
+          label_fr: z.string(),
+          label_en: z.string(),
+          before: z.string(),
+          after: z.string(),
+          delta_fr: z.string().optional(),
+          delta_en: z.string().optional(),
+          trend: z.enum(['up', 'down', 'flat']).optional(),
+        }),
+      )
+      .optional(),
+    pullQuote_fr: z.string().optional(),
+    pullQuote_en: z.string().optional(),
+    pullQuoteCite_fr: z.string().optional(),
+    pullQuoteCite_en: z.string().optional(),
     // Composable V2 (D.7 extension) : sections optionnelles
     sections: sectionsArraySchema.optional(),
     // Card de listing pour le hub /cas (copy spécifique au listing, ≠ title détail)

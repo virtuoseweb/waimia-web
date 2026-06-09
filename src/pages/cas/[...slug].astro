@@ -118,10 +118,25 @@ const caseLd = buildArticle({
   proofMetrics={proofMetrics}
   techPills={d.stack.map((s) => ({ label: s, kind: 'primary' as const }))}
   relatedCards={relatedCards}
+  contextStatementFr={d.contextStatement_fr}
+  contextStatementEn={d.contextStatement_en}
+  contextStats={d.contextStats}
+  bottlenecks={d.bottlenecks}
+  phases={d.phases}
+  deliverableCards={d.deliverableCards}
+  shifts={d.shifts}
+  pullQuoteFr={d.pullQuote_fr}
+  pullQuoteEn={d.pullQuote_en}
+  pullQuoteCiteFr={d.pullQuoteCite_fr}
+  pullQuoteCiteEn={d.pullQuoteCite_en}
 >
-  <Fragment slot="context">
+  <Fragment slot="author-byline">
     <AuthorByline authorSlug={authorSlug} date={d.publishedAt} />
+  </Fragment>
+  <Fragment slot="context">
     <Content />
+  </Fragment>
+  <Fragment slot="author-card">
     <AuthorCard authorSlug={authorSlug} variant="full" />
   </Fragment>
   <Fragment slot="approach-headline">Ce qu'on a câblé.</Fragment>
