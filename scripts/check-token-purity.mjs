@@ -430,8 +430,14 @@ const RGBA_BRAND_RE = /rgba\(\s*(246\s*,\s*241\s*,\s*232|201\s*,\s*79\s*,\s*46|1
 
 const rgbaBrandHits = [];
 
-// Réutilise allFilesV8 (déjà construite : .astro+.css de src/, hors exclusions V8)
-for (const fpath of allFilesV8) {
+// Inclut tokens.css dans ce scan UNIQUEMENT : le contrat lui-même est désormais channelisé
+// (V9-RGBA-contract) et doit rester exempt de rgba de marque hardcodées.
+// Les autres blocs (littéraux, espacement, demi-pixels, SVG) continuent d'exclure tokens.css
+// via isExcludedV8 — on ne modifie PAS allFilesV8.
+const rgbaScanFiles = [...allFilesV8, join(ROOT, 'src/styles/tokens.css')];
+
+// Réutilise allFilesV8 étendu de tokens.css pour ce bloc uniquement
+for (const fpath of rgbaScanFiles) {
   // Scanne le contenu BRUT complet (frontmatter inclus — c'est là que sont les rgba)
   const raw = readFileSync(fpath, 'utf8');
   const rel = relative(ROOT, fpath);
