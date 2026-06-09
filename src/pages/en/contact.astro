@@ -15,10 +15,10 @@ if (result && !result.error && result.data?.redirect) {
   return Astro.redirect(result.data.redirect);
 }
 
-const inputErrors = isInputError(result?.error) ? result.error.fields : {};
+const inputErrors = isInputError(result?.error) ? result.error.fields: {};
 const otherError = result?.error && !isInputError(result.error)
   ? result.error.message
-  : undefined;
+ : undefined;
 
 const contactLd = {
   '@context': 'https://schema.org',
@@ -42,14 +42,14 @@ const contactLd = {
 ---
 <UtilityTemplate
   title="Contact · Book a working session · Waimia"
-  description="A 45-minute session for a diagnosed problem — or no follow-up. Paris, Geneva, Meet, Zoom. Reply within 24 business hours."
+  description="A 45-minute session for a diagnosed problem, or no follow-up. Paris, Geneva, Meet, Zoom. Reply within 24 business hours."
   kicker="§ Contact"
   align="centered"
   jsonLd={contactLd}
   headlineFr="Une <i>séance</i>.<br />Pas un pitch."
   headlineEn="A <i>session</i>.<br />Not a pitch."
-  ledeFr="45 minutes. On revient avec un problème diagnostiqué — ou on ne relance pas."
-  ledeEn="45 minutes. We come back with a diagnosed problem — or we don't follow up."
+  ledeFr="45 minutes. On revient avec un problème diagnostiqué, ou on ne relance pas."
+  ledeEn="45 minutes. We come back with a diagnosed problem, or we don't follow up."
 >
   <Fragment slot="body">
     <div class="contact-grid">

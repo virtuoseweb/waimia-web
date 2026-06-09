@@ -196,8 +196,8 @@ const AGENCE: MegaMenuSection = {
           label: { fr: 'Notre méthode · Process Intelligence', en: 'Our method · Process Intelligence' },
           href: '/agence/methode',
           description: {
-            fr: 'Audit, déploiement, mesure — pas de PowerPoint.',
-            en: 'Audit, deployment, measurement — no PowerPoint.',
+            fr: 'Audit, déploiement, mesure, pas de PowerPoint.',
+            en: 'Audit, deployment, measurement, no PowerPoint.',
           },
           featured: true,
         },
@@ -232,8 +232,8 @@ const AGENCE: MegaMenuSection = {
           label: { fr: 'Trust Center', en: 'Trust Center' },
           href: '/agence/trust-center',
           description: {
-            fr: 'AI Act, RGPD, ISO — tous les contrôles en clair.',
-            en: 'AI Act, GDPR, ISO — all controls in plain text.',
+            fr: 'AI Act, RGPD, ISO : tous les contrôles en clair.',
+            en: 'AI Act, GDPR, ISO: all controls in plain text.',
           },
         },
         {

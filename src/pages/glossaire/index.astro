@@ -45,13 +45,13 @@ const headerData = {
   kicker_en: '§ Reference · AI Glossary',
   h1_fr: 'Vocabulaire <i>IA</i> · Définitions courtes',
   h1_en: 'AI <i>vocabulary</i> · Short definitions',
-  lede_fr: `${entries.length} termes définis. Vulgarisation accessible pour décideurs PME et ETI — pas de jargon, juste l'essentiel.`,
-  lede_en: `${entries.length} terms defined. Accessible vocabulary for SMB decision-makers — no jargon, just essentials.`,
+  lede_fr: `${entries.length} termes définis. Vulgarisation accessible pour décideurs PME et ETI, pas de jargon, juste l'essentiel.`,
+  lede_en: `${entries.length} terms defined. Accessible vocabulary for SMB decision-makers, no jargon, just essentials.`,
 } satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
   title={lang === 'fr' ? "Glossaire IA · Termes essentiels · Waimia" : "AI Glossary · Essential terms · Waimia"}
-  description={lang === 'fr' ? "Définitions courtes des termes IA pour PME/ETI. Agent IA, RAG, prompt engineering, ROI IA, gouvernance — vulgarisation accessible." : "Short definitions of AI terms for SMBs. AI agent, RAG, prompt engineering, AI ROI, governance — accessible vocabulary."}
+  description={lang === 'fr' ? "Définitions courtes des termes IA pour PME/ETI. Agent IA, RAG, prompt engineering, ROI IA, gouvernance : vulgarisation accessible." : "Short definitions of AI terms for SMBs. AI agent, RAG, prompt engineering, AI ROI, governance : accessible vocabulary."}
 >
   <section class="glossary-index">
     <HeroCentered data={headerData} lang={lang} />

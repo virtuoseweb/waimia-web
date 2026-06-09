@@ -16,7 +16,7 @@ const stackLayers = [
   { num: '01', title: 'Claude · cognition',
     body: 'Opus 4.7 for analysis, Sonnet 4.6 for production, Haiku 4.5 for fast triage. Cost/latency routing, open-source fallback.' },
   { num: '02', title: 'Open-source · sovereignty',
-    body: 'vLLM, Ollama, Llama 4 70B, DeepSeek R1, Qwen 3. For ACPR, SecNumCloud, HIPAA constraints — when data cannot leave.' },
+    body: 'vLLM, Ollama, Llama 4 70B, DeepSeek R1, Qwen 3. For ACPR, SecNumCloud, HIPAA constraints, when data cannot leave.' },
   { num: '03', title: 'Decision layer · VirtuoseOS',
     body: 'Our multi-workspace kernel with replayable audit trail, AI Act guardrails, integrated LLM FinOps.' },
 ];
@@ -25,12 +25,12 @@ const flagshipTechs = [
   { num: '01', kicker: 'TECH · CLAUDE',
     title_en: 'Claude Models',
     sub_en: 'Haiku · Sonnet · Opus · Code',
-    lead_en: 'The Anthropic model family — which model to choose, when to route to which, how to measure cost/latency.',
+    lead_en: 'The Anthropic model family, which model to choose, when to route to which, how to measure cost/latency.',
     href: '/technologies/claude-models' },
   { num: '02', kicker: 'TECH · KERNEL',
     title_en: 'VirtuoseOS',
     sub_en: 'The Waimia operational layer',
-    lead_en: 'Our multi-workspace kernel — replayable audit trail, AI Act guardrails, integrated LLM FinOps.',
+    lead_en: 'Our multi-workspace kernel: replayable audit trail, AI Act guardrails, integrated LLM FinOps.',
     href: '/technologies/virtuoseos' },
 ];
 
@@ -156,7 +156,7 @@ const ctaData = {
       <Kicker tone="accent" class="hub-flagship-k">§ Deployed technologies · detailed pages</Kicker>
       <h2 class="hub-flagship-h2 reveal">Two <i>building blocks</i>. Documented in plain language.</h2>
       <p class="hub-flagship-lead">
-        The models we route and the kernel we operate — everything else articulates around these two.
+        The models we route and the kernel we operate: everything else articulates around these two.
       </p>
       <ol class="hub-flagship-list">
         {flagshipTechs.map((t) => (

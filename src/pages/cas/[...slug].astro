@@ -56,7 +56,7 @@ const allCases = await getCollection('cases');
 const idx = allCases.findIndex((c) => c.id === entry.id);
 
 const specs = [
-  { label_fr: 'Client', label_en: 'Client', value: d.ndaProtected ? 'Confidentiel' : d.client },
+  { label_fr: 'Client', label_en: 'Client', value: d.ndaProtected ? 'Confidentiel': d.client },
   { label_fr: 'Secteur', label_en: 'Sector', value: d.sector_fr },
   { label_fr: 'Durée', label_en: 'Duration', value: d.duration },
   { label_fr: 'Stack', label_en: 'Stack', value: d.stack.slice(0, 3).join(' · ') },
@@ -114,7 +114,7 @@ const caseLd = buildArticle({
   proofQuoteFr={d.impact_fr}
   proofQuoteEn={d.impact_en}
   proofAttrFr={d.ndaProtected ? 'Confidentiel' : d.client}
-  proofAttrEn={d.ndaProtected ? 'Confidential' : d.client}
+  proofAttrEn={d.ndaProtected ? 'Confidential': d.client}
   proofMetrics={proofMetrics}
   techPills={d.stack.map((s) => ({ label: s, kind: 'primary' as const }))}
   relatedCards={relatedCards}

@@ -65,7 +65,7 @@ const categoryLabels: Record<string, { fr: string; en: string }> = {
                 {entry.data.logo_url
                   ? (
                     <img src={entry.data.logo_url} alt={entry.data.tool_name} width="48" height="48" loading="lazy" />
-                  ) : (
+                  ): (
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
                       <rect width="48" height="48" rx="10" fill="var(--paper-3)" />
                       <text x="24" y="30" text-anchor="middle" font-size="20" font-family="system-ui, sans-serif" fill="var(--muted)">
@@ -104,7 +104,7 @@ const categoryLabels: Record<string, { fr: string; en: string }> = {
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
       cards.forEach((card) => {
-        card.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
+        card.style.display = filter === 'all' || card.dataset.category === filter ? '': 'none';
       });
     });
   });

@@ -52,14 +52,14 @@ variables:
     label_en: "Technical stack"
     required: true
 sample_output_fr: |
-  Lentille 1 · Expert process interne — Score 5/10
+  Lentille 1 · Expert process interne. Score 5/10
   1. Le responsable ne voit ni dernier run réussi ni responsable du prochain traitement.
   2. Les alertes restent implicites : aucun seuil ne distingue retard normal et incident.
   3. L’écran agrège des statuts hétérogènes sans dire quelle action est attendue.
   Gap bloquant MVP : sans panneau d’alertes et de responsabilité, un manager ne peut pas piloter la file.
   Recommandation : ajouter un bloc “État opérationnel” dans `src/components/ops/QueueHeader.tsx`.
 
-  Lentille 2 · Expert IA — Score 4/10
+  Lentille 2 · Expert IA. Score 4/10
   1. Aucun coût par run n’est visible alors que trois appels modèle sont déclenchés.
   2. Les failures silencieuses sont absorbées par un statut “completed” trompeur.
   3. Il manque une trace navigable du prompt, du modèle et des outils invoqués.
@@ -71,14 +71,14 @@ sample_output_fr: |
   Dette systémique : l’écran opère en silo sans registre transversal des dépendances.
   Opportunité rapide : un empty state guidé + URL filtrable améliorent immédiatement l’usage.
 sample_output_en: |
-  Lens 1 · Internal process expert — Score 5/10
+  Lens 1 · Internal process expert. Score 5/10
   1. The manager cannot see the last successful run or who owns the next action.
   2. Alerts stay implicit: no threshold separates a normal delay from an incident.
   3. The screen mixes status types without showing the expected next action.
   MVP-blocking gap: without alerts and ownership, a manager cannot operate the queue.
   Recommendation: add an “Operational status” block in `src/components/ops/QueueHeader.tsx`.
 
-  Lens 2 · AI expert — Score 4/10
+  Lens 2 · AI expert. Score 4/10
   1. No cost per run is visible even though three model calls are triggered.
   2. Silent failures are hidden behind a misleading “completed” status.
   3. There is no navigable trace for prompt, model, and invoked tools.

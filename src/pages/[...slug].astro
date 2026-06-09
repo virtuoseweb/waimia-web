@@ -78,7 +78,7 @@ function slugToTitle(s: string): string {
 // Mapping page → titre court selon la racine (utilisé pour les hubs et le Stub fallback)
 const TITLES: Record<string, { kicker: { fr: string; en: string }; title: { fr: string; en: string }; body: { fr: string; en: string } }> = {
   offres: {
-    kicker: { fr: '§ Hub — Offres', en: '§ Hub — Services' },
+    kicker: { fr: '§ Hub : Offres', en: '§ Hub: Services' },
     title: { fr: "Quatre paliers, une couche continue.", en: 'Four tiers, one continuous layer.' },
     body: {
       fr: "De l'audit process à l'infrastructure souveraine. Cette page sera la pyramide complète, avec grille tarifaire et trajectoire de chaque palier.",
@@ -86,7 +86,7 @@ const TITLES: Record<string, { kicker: { fr: string; en: string }; title: { fr: 
     },
   },
   solutions: {
-    kicker: { fr: '§ Hub — Solutions', en: '§ Hub — Solutions' },
+    kicker: { fr: '§ Hub : Solutions', en: '§ Hub: Solutions' },
     title: { fr: "IA agentique pour chaque métier.", en: 'Agentic AI for every department.' },
     body: {
       fr: "Six métiers, cinq industries. Cette page croisera les départements et leurs contraintes réglementaires (HIPAA, ACPR, SecNumCloud).",
@@ -94,7 +94,7 @@ const TITLES: Record<string, { kicker: { fr: string; en: string }; title: { fr: 
     },
   },
   technologies: {
-    kicker: { fr: '§ Hub — Technologies', en: '§ Hub — Technologies' },
+    kicker: { fr: '§ Hub : Technologies', en: '§ Hub: Technologies' },
     title: { fr: "Anthropic d'abord. Open-source quand il faut.", en: 'Anthropic first. Open-source when needed.' },
     body: {
       fr: "Claude Opus 4.7 · Sonnet 4.6 · Haiku 4.5 · Skills · MCP · Managed Agents. Et la voie open-source : vLLM, Ollama, Llama 4, DeepSeek, Qwen, GLM-5.",
@@ -102,7 +102,7 @@ const TITLES: Record<string, { kicker: { fr: string; en: string }; title: { fr: 
     },
   },
   ressources: {
-    kicker: { fr: '§ Hub — Ressources', en: '§ Hub — Resources' },
+    kicker: { fr: '§ Hub : Ressources', en: '§ Hub: Resources' },
     title: { fr: "Notes de terrain. Preuves. Outils gratuits.", en: 'Field notes. Proofs. Free tools.' },
     body: {
       fr: "Pensé pour le GEO/AIO autant que pour les humains. Calculateur TCO, calculateur ROI, checklist AI Act, blog, cookbooks.",
@@ -179,7 +179,7 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
     title={tplPageTitle}
     description={tplPageDesc}
     noindex={true}
-    tier="§ — · OFFRE EN PRÉPARATION"
+    tier="§ : · OFFRE EN PRÉPARATION"
     tierLabel={humanTitle}
     meta="Page en construction · Contactez-nous pour anticiper"
     ctaHref="/contact"
@@ -199,7 +199,7 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
 
     <Fragment slot="problem-annotations">
       <div>
-        <div class="ann-value">—</div>
+        <div class="ann-value"></div>
         <div class="ann-label">Détails de la prestation à venir.</div>
       </div>
     </Fragment>
@@ -213,25 +213,25 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
         <div class="step-n">01</div>
         <div class="step-k">Cadrage</div>
         <h3>Comprendre votre contexte.</h3>
-        <p>Audit du périmètre, des contraintes et des objectifs métier — sans engagement.</p>
+        <p>Audit du périmètre, des contraintes et des objectifs métier, sans engagement.</p>
       </div>
       <div class="step">
         <div class="step-n">02</div>
         <div class="step-k">Diagnostic</div>
         <h3>Mesurer l'existant.</h3>
-        <p>Inventaire des outils, processus et données — état des lieux écrit.</p>
+        <p>Inventaire des outils, processus et données : état des lieux écrit.</p>
       </div>
       <div class="step">
         <div class="step-n">03</div>
         <div class="step-k">Plan d'action</div>
         <h3>Définir la trajectoire.</h3>
-        <p>Backlog ordonné, livrables nommés, jalons et budget — un document que votre board peut approuver.</p>
+        <p>Backlog ordonné, livrables nommés, jalons et budget : un document que votre board peut approuver.</p>
       </div>
       <div class="step">
         <div class="step-n">04</div>
         <div class="step-k">Livraison</div>
         <h3>Mise en production.</h3>
-        <p>Implémentation, mesure d'usage, transmission documentée — pas de dépendance à une ressource interne pour aller live.</p>
+        <p>Implémentation, mesure d'usage, transmission documentée, pas de dépendance à une ressource interne pour aller live.</p>
       </div>
     </Fragment>
 
@@ -247,7 +247,7 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
       </div>
       <div class="del-card">
         <h3>Plan d'action ordonné</h3>
-        <p>Backlog priorisé par ROI estimé, calendrier, budget — pas un deck de 72 slides.</p>
+        <p>Backlog priorisé par ROI estimé, calendrier, budget, pas un deck de 72 slides.</p>
         <span class="del-tag">À préciser</span>
       </div>
       <div class="del-card">
@@ -262,19 +262,19 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
     </Fragment>
 
     <Fragment slot="proof-attr">
-      — Équipe Waimia
+      : Équipe Waimia
     </Fragment>
 
     <Fragment slot="proof-metrics">
       <div>
-        <div class="metric-v">—</div>
+        <div class="metric-v"></div>
         <div class="metric-l">Métriques publiées dès la mise en ligne.</div>
       </div>
     </Fragment>
 
     <Fragment slot="cta-title">Cadrons<br/>votre besoin.</Fragment>
     <Fragment slot="cta-body">
-      Cette offre arrive bientôt — mais nous accueillons déjà les demandes en avance.
+      Cette offre arrive bientôt, mais nous accueillons déjà les demandes en avance.
       Réponse sous 4 h en jours ouvrés.
     </Fragment>
   </OffresDetailTemplate>
@@ -315,13 +315,13 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
         <div class="pn">02</div>
         <div class="pk">Cas terrain</div>
         <h3>Mesures qualitatives<br/>et chiffres durs.</h3>
-        <p>Nous publierons ici les patterns récurrents observés sur le terrain — temps perdu, double saisie, retards de pilotage.</p>
+        <p>Nous publierons ici les patterns récurrents observés sur le terrain : temps perdu, double saisie, retards de pilotage.</p>
       </div>
       <div class="pain-card">
         <div class="pn">03</div>
         <div class="pk">Conséquences</div>
         <h3>Coût caché<br/>de l'inaction.</h3>
-        <p>Ce que coûte ne pas adresser ces frictions — en heures, en marge, en risque réglementaire.</p>
+        <p>Ce que coûte ne pas adresser ces frictions : en heures, en marge, en risque réglementaire.</p>
       </div>
     </Fragment>
 
@@ -341,7 +341,7 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
 
     <Fragment slot="roi">
       <div>
-        <div class="metric-v">—</div>
+        <div class="metric-v"></div>
         <div class="metric-l">ROI publié à la mise en ligne.</div>
       </div>
     </Fragment>
@@ -354,7 +354,7 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
     </Fragment>
     <Fragment slot="case-results">
       <div>
-        <div class="metric-v">—</div>
+        <div class="metric-v"></div>
         <div class="metric-l">Résultats à venir</div>
       </div>
     </Fragment>
@@ -373,7 +373,7 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
 
     <Fragment slot="cta-title">Votre équipe<br/>{humanTitle},<br/>augmentée.</Fragment>
     <Fragment slot="cta-body">
-      Cette solution arrive bientôt — mais nous accueillons déjà les demandes en avance.
+      Cette solution arrive bientôt, mais nous accueillons déjà les demandes en avance.
       Réponse sous 4 h en jours ouvrés.
     </Fragment>
   </SolutionsDetailTemplate>
@@ -417,14 +417,14 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
       <div class="cap-card">
         <Kicker>À venir</Kicker>
         <h3>Capacités<br/>en cours de cadrage</h3>
-        <p>Cette section recensera les capacités techniques de cette brique — points forts, contraintes, intégrations.</p>
-        <div class="cap-value">—</div>
+        <p>Cette section recensera les capacités techniques de cette brique : points forts, contraintes, intégrations.</p>
+        <div class="cap-value"></div>
       </div>
       <div class="cap-card">
         <Kicker>À venir</Kicker>
         <h3>Cas d'usage<br/>recommandés</h3>
         <p>Les patterns d'usage les plus pertinents pour cette brique seront listés ici.</p>
-        <div class="cap-value">—</div>
+        <div class="cap-value"></div>
       </div>
     </Fragment>
 
@@ -449,7 +449,7 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
 
     <Fragment slot="cta-title">Quelle stack<br/>pour votre<br/>contexte ?</Fragment>
     <Fragment slot="cta-body">
-      Chaque déploiement Waimia commence par un choix technologique rigoureux — adapté à vos contraintes, pas à nos préférences.
+      Chaque déploiement Waimia commence par un choix technologique rigoureux : adapté à vos contraintes, pas à nos préférences.
       Réponse sous 4 h en jours ouvrés.
     </Fragment>
   </TechnologiesDetailTemplate>

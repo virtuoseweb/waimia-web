@@ -15,7 +15,7 @@ const cols = data.specs.length;
 <section
   class="spec-bar"
   style={`--spec-cols: ${cols}`}
-  aria-label={isFr ? (data.kicker_fr ?? 'Spécifications') : (data.kicker_en ?? 'Specifications')}
+  aria-label={isFr ? (data.kicker_fr ?? 'Spécifications'): (data.kicker_en ?? 'Specifications')}
 >
   <div class="wrap-wide spec-bar__grid reveal-stagger">
     {data.specs.map((s) => (

@@ -146,7 +146,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
             <Kicker tone="accent">§ ACCENT LABEL</Kicker>
           </div>
           <div style="margin-top:20px">
-            <ChapterLabel num="III · 2.1" title="Act III — The delivery layer" />
+            <ChapterLabel num="III · 2.1" title="Act III: The delivery layer" />
           </div>
         </div>
 
@@ -209,7 +209,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
 
         <div class="ds-subsection">
           <h3 class="ds-h3">SectionHeader</h3>
-          <SectionHeader roman="IV" label="Act IV — The operating layer" id="en-ds-demo-header">
+          <SectionHeader roman="IV" label="Act IV: The operating layer" id="en-ds-demo-header">
             <Fragment slot="heading">Four <i>operational</i> surfaces, one system.</Fragment>
             <Fragment slot="aside">Enough structure to ship, enough room to adapt.</Fragment>
           </SectionHeader>
@@ -249,13 +249,13 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
 
       <section id="organisms" class="ds-section">
         <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">5. Organisms</h2>
-        <ChapterLabel num="05" title="Organisms (5 — permanent bespoke)" />
+        <ChapterLabel num="05" title="Organisms (5: permanent bespoke)" />
         <p class="ds-section-lede">
-          These 5 components are <strong>permanently bespoke</strong> — outside the composable Tier 1 registry.
+          These 5 components are <strong>permanently bespoke</strong>: outside the composable Tier 1 registry.
           Chrome/infra: AtlasGrid, CookiesBanner, PersonaSwitcher, Stub, ManifestoAccent.
           Former duplicate organisms were converted to catalogued sections (see §6) or deleted. Zero orphans.
         </p>
-        <p class="ds-help">3 transitional organisms (Hero, BookSession, FooterMarquee) are no longer listed here: their catalogue twin is now canonical (hero-home, cta-final, marquee-band — see §6). Still live on the home page, they will be replaced during the template migration.</p>
+        <p class="ds-help">3 transitional organisms (Hero, BookSession, FooterMarquee) are no longer listed here: their catalogue twin is now canonical (hero-home, cta-final, marquee-band: see §6). Still live on the home page, they will be replaced during the template migration.</p>
         <div class="ds-organisms-grid">
           {LIBRARY_ORGANISMS.filter((o) => o.status === 'keep-bespoke').map((o) => (
             <article class="ds-organism-card">
@@ -264,8 +264,8 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
                 <span class="ds-status ds-status--bespoke">bespoke</span>
               </div>
               <span class="ds-help">{o.file}</span>
-              <span class="ds-help">twin: {o.twin ? <code>{o.twin}</code> : 'no twin'}</span>
-              <span class="ds-help">used by: {o.consumers.length ? o.consumers.join(', ') : '—'}</span>
+              <span class="ds-help">twin: {o.twin ? <code>{o.twin}</code>: 'no twin'}</span>
+              <span class="ds-help">used by: {o.consumers.length ? o.consumers.join(', '): ''}</span>
             </article>
           ))}
         </div>
@@ -431,7 +431,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
 
       <section id="templates" class="ds-section">
         <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">10. Templates</h2>
-        <ChapterLabel num="10" title="Templates (18 — preview links)" />
+        <ChapterLabel num="10" title="Templates (18: preview links)" />
         <p class="ds-section-lede">
           Templates for content collections. See <code>src/components/templates/</code>. Live previews below.
         </p>
@@ -445,7 +445,7 @@ import { LIBRARY_ORGANISMS } from '../../../lib/library-manifest';
           <li><code>OffresDetailTemplate</code> → <a href="/en/offres/activation-ia" class="ds-link">/en/offres/activation-ia</a></li>
           <li><code>EssayTemplate</code> → <a href="/en/ressources/blog/adoption-composable-v2" class="ds-link">/en/ressources/blog/adoption-composable-v2</a></li>
           <li><code>HubTemplate</code> → <a href="/en/offres" class="ds-link">/en/offres</a></li>
-          <li><code>ListIndexTemplate</code> → <a href="/en/ressources/cookbooks" class="ds-link">/en/ressources/cookbooks</a><!-- no /en/ressources/changelog — FR only --></li>
+          <li><code>ListIndexTemplate</code> → <a href="/en/ressources/cookbooks" class="ds-link">/en/ressources/cookbooks</a><!-- no /en/ressources/changelog: FR only --></li>
           <li><code>DetailMenuTemplate</code> → <a href="/en/offres/audit-process-intelligence" class="ds-link">/en/offres/audit-process-intelligence</a></li>
           <li><code>TechnologiesDetailTemplate</code> → <a href="/en/technologies/claude-code" class="ds-link">/en/technologies/claude-code</a></li>
           <li><code>AuthorPageTemplate</code> → <a href="/en/agence" class="ds-link">/en/agence</a><!-- no /en/equipe route --></li>

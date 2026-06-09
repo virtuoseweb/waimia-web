@@ -47,7 +47,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     ],
   },
   {
-    title: 'Agence — pages internes',
+    title: 'Agence : pages internes',
     kicker: '04 · AGENCE LEGACY',
     items: [
       { href: '/agence/design-system', label: 'Design System Waimia' },
@@ -88,7 +88,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
         <h1 class="arc-h1 reveal-mask-up">L'<i>atlas</i> Waimia.</h1>
         <p class="arc-lede">
           Toutes les pages historiques. Préservées pour les moteurs, pour les IA génératives, et pour les curieux.
-          Pas pour la conversion — ça, c'est par <a href="/solutions">Solutions</a>,
+          Pas pour la conversion : ça, c'est par <a href="/solutions">Solutions</a>,
           <a href="/offres">Offres</a> et <a href="/cas">Cas clients</a>.
         </p>
       </div>
@@ -105,7 +105,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
                 <li>
                   <a href={it.href} class="arc-link">
                     <span class="arc-link-label">{it.label}</span>
-                    {it.note && <span class="arc-link-note">— {it.note}</span>}
+                    {it.note && <span class="arc-link-note">{it.note}</span>}
                   </a>
                 </li>
               ))}

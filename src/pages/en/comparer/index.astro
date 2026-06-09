@@ -9,7 +9,7 @@ import HeroCentered from '../../../components/sections/HeroCentered.astro';
 
 const allComparisons = await getCollection('comparisons');
 const lang = langFromPath(Astro.url.pathname);
-const rootPrefix = lang === 'fr' ? '' : '/en';
+const rootPrefix = lang === 'fr' ? '': '/en';
 
 const categoryLabels: Record<string, { fr: string; en: string }> = {
   'ai-platform': { fr: 'Plateforme IA', en: 'AI Platform' },
@@ -42,10 +42,10 @@ const headerData = {
 } satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
-  title={lang === 'fr' ? 'Comparaisons outils · Choisir le bon logiciel · Waimia' : 'Tool comparisons · Choose the right software · Waimia'}
+  title={lang === 'fr' ? 'Comparaisons outils · Choisir le bon logiciel · Waimia': 'Tool comparisons · Choose the right software · Waimia'}
   description={lang === 'fr'
-    ? "Comparaisons objectives d outils : CRM, automation, IA, analytics, hebergement."
-    : 'Objective tool comparisons: CRM, automation, AI, analytics, hosting.'}
+    ? "Comparaisons objectives d outils: CRM, automation, IA, analytics, hebergement."
+   : 'Objective tool comparisons: CRM, automation, AI, analytics, hosting.'}
 >
   <section class="comparisons-index">
     <HeroCentered data={headerData} lang={lang} />
@@ -54,7 +54,7 @@ const headerData = {
       {Object.entries(grouped).map(([cat, entries]) => (
         <div class="comparisons-index__group">
           <h2 class="comparisons-index__group-title">
-            {lang === 'fr' ? categoryLabels[cat]?.fr : categoryLabels[cat]?.en}
+            {lang === 'fr' ? categoryLabels[cat]?.fr: categoryLabels[cat]?.en}
           </h2>
           <ul class="comparisons-index__grid">
             {entries.map((entry) => (
@@ -66,7 +66,7 @@ const headerData = {
                     <strong>{entry.data.name_b}</strong>
                   </span>
                   <p class="comparisons-index__verdict">
-                    {lang === 'fr' ? entry.data.verdict_fr : entry.data.verdict_en}
+                    {lang === 'fr' ? entry.data.verdict_fr: entry.data.verdict_en}
                   </p>
                 </a>
               </li>

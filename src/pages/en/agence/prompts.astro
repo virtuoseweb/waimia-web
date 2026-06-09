@@ -37,25 +37,25 @@ const visibilityLabels = {
 const categoryOrder = ['audit', 'copywriting', 'persona', 'brand', 'schema', 'diagnostic', 'autre'] as const;
 
 const truncate = (value: string, max = 120) =>
-  value.length > max ? `${value.slice(0, max).trimEnd()}...` : value;
+  value.length > max ? `${value.slice(0, max).trimEnd()}...`: value;
 ---
 <Base
-  title={lang === 'en' ? 'AI Prompts · Agency Library · Waimia' : 'Prompts IA · Bibliothèque agence · Waimia'}
+  title={lang === 'en' ? 'AI Prompts · Agency Library · Waimia': 'Prompts IA · Bibliothèque agence · Waimia'}
   description={lang === 'en'
     ? 'Waimia AI prompt library: UI audit, copywriting, persona, brand voice, and Astro/Zod schema generation.'
-    : 'Bibliothèque Waimia de prompts IA : audit UI, copywriting, persona, brand voice et génération de schémas Astro/Zod.'}
+   : 'Bibliothèque Waimia de prompts IA: audit UI, copywriting, persona, brand voice et génération de schémas Astro/Zod.'}
 >
   <section class="prompts-index">
     <div class="wrap-wide">
       <header class="prompts-index__hd">
         <Kicker tone="muted">§ Library · AI Prompts</Kicker>
         <h1 class="prompts-index__h1">
-          {lang === 'en' ? <>AI <i>prompts</i> library</> : <>Bibliothèque <i>prompts</i> IA</>}
+          {lang === 'en' ? <>AI <i>prompts</i> library</>: <>Bibliothèque <i>prompts</i> IA</>}
         </h1>
         <p class="prompts-index__lede">
           {lang === 'en'
             ? `${entries.length} prompts available. Internal and public prompts to audit, write, frame, and structure faster.`
-            : `${entries.length} prompts disponibles. Prompts internes et publics pour auditer, écrire, cadrer et structurer plus vite.`}
+           : `${entries.length} prompts disponibles. Prompts internes et publics pour auditer, écrire, cadrer et structurer plus vite.`}
         </p>
       </header>
 

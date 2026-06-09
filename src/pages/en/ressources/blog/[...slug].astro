@@ -90,7 +90,7 @@ const relatedCards = d.relatedPosts.length > 0
         lead_en: c!.data.description_en,
         href: `/en/ressources/blog/${c!.id}`,
       }))
-  : [];
+ : [];
 ---
 <EssayTemplate
   title={`${d.title_en ?? d.title_fr} · Waimia Blog`}
@@ -98,7 +98,7 @@ const relatedCards = d.relatedPosts.length > 0
   kicker={`§ Blog · ${d.category}`}
   date={dateStr}
   datePublished={d.publishedAt.toISOString().slice(0, 10)}
-  dateModified={d.updatedAt ? (d.updatedAt as Date).toISOString().slice(0, 10) : d.publishedAt.toISOString().slice(0, 10)}
+  dateModified={d.updatedAt ? (d.updatedAt as Date).toISOString().slice(0, 10): d.publishedAt.toISOString().slice(0, 10)}
   author={authorLabel}
   readingTime={readingTime}
   relatedCards={relatedCards}

@@ -10,7 +10,7 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 
-const placeholder = isFr ? (data.placeholder_fr ?? 'votre@email.com') : (data.placeholder_en ?? 'your@email.com');
+const placeholder = isFr ? (data.placeholder_fr ?? 'votre@email.com'): (data.placeholder_en ?? 'your@email.com');
 const ctaLabel = isFr ? (data.cta_label_fr ?? "S'abonner →") : (data.cta_label_en ?? 'Subscribe →');
 const hint = isFr ? data.hint_fr : data.hint_en;
 ---

@@ -9,8 +9,8 @@ const nextSteps = [
     num: '01',
     title_fr: 'Votre accès au cours est confirmé',
     title_en: 'Your course access is confirmed',
-    body_fr: "Email de confirmation envoyé depuis bonjour@waimia.fr — inclut le lien d'accès direct. Si absent après 2 minutes, vérifiez les spams ou contactez-nous.",
-    body_en: 'Confirmation email sent from bonjour@waimia.fr — includes your direct access link. If missing after 2 minutes, check spam or contact us.',
+    body_fr: "Email de confirmation envoyé depuis bonjour@waimia.fr : inclut le lien d'accès direct. Si absent après 2 minutes, vérifiez les spams ou contactez-nous.",
+    body_en: 'Confirmation email sent from bonjour@waimia.fr: includes your direct access link. If missing after 2 minutes, check spam or contact us.',
   },
   {
     num: '02',
@@ -25,8 +25,8 @@ const nextSteps = [
     num: '03',
     title_fr: 'Une question sur le contenu ?',
     title_en: 'A question about the content?',
-    body_fr: "Chaque cours a un canal de support dédié. Si vous avez un doute sur un prérequis ou un cas pratique, contactez-nous — réponse sous 24 h ouvrées.",
-    body_en: 'Each course has a dedicated support channel. If you have a question about a prerequisite or exercise, contact us — response within 24 business hours.',
+    body_fr: "Chaque cours a un canal de support dédié. Si vous avez un doute sur un prérequis ou un cas pratique, contactez-nous : réponse sous 24 h ouvrées.",
+    body_en: 'Each course has a dedicated support channel. If you have a question about a prerequisite or exercise, contact us: response within 24 business hours.',
     ctaLabel: 'Contacter l\'équipe →',
     ctaHref: '/contact',
   },
@@ -34,12 +34,12 @@ const nextSteps = [
 ---
 <WelcomeTemplate
   title="Bienvenue · Inscription confirmée · Écoles Waimia"
-  description="Votre inscription au cours est confirmée. Accès immédiat — email de confirmation en route."
+  description="Votre inscription au cours est confirmée. Accès immédiat : email de confirmation en route."
   kicker="§ Formation · Confirmation"
   nextSteps={nextSteps}
 >
   <Fragment slot="headline">Inscription <i>confirmée</i>.</Fragment>
   <Fragment slot="lede">
-    Accès immédiat au cours. Support dédié inclus. Aucun prérequis théorique — on part du cas pratique.
+    Accès immédiat au cours. Support dédié inclus. Aucun prérequis théorique : on part du cas pratique.
   </Fragment>
 </WelcomeTemplate>

@@ -169,7 +169,7 @@ const heroData = {
   lede_en: heroLedeEn,
   meta_pills: heroMetaPills ?? defaultMetaPills,
   ...(heroBenefits && heroBenefits.length > 0 ? { benefits: heroBenefits } : {}),
-  ...(heroProofFr ? { proof_fr: heroProofFr, proof_en: heroProofEn ?? heroProofFr } : {}),
+  ...(heroProofFr ? { proof_fr: heroProofFr, proof_en: heroProofEn ?? heroProofFr }: {}),
   cta_primary: {
     label_fr: heroCtaPrimaryFr,
     label_en: heroCtaPrimaryEn,
@@ -217,7 +217,7 @@ const offerLd = {
   />
   {/* HERO MAGNÉTIQUE · composant catalogué hero-conversion-funnel (contenu via props).
       wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut du
-      composant — 1200px — reste inchangé pour la preview catalogue.
+      composant : 1200px : reste inchangé pour la preview catalogue.
       statsAsKeyMetric préserve la typographie KeyMetric d'origine des stats. */}
   <HeroConversionFunnel
     data={heroData}

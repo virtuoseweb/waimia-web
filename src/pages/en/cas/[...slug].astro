@@ -56,7 +56,7 @@ const allCases = await getCollection('cases');
 const idx = allCases.findIndex((c) => c.id === entry.id);
 
 const specs = [
-  { label_fr: 'Client', label_en: 'Client', value: d.ndaProtected ? 'Confidential' : d.client },
+  { label_fr: 'Client', label_en: 'Client', value: d.ndaProtected ? 'Confidential': d.client },
   { label_fr: 'Secteur', label_en: 'Sector', value: d.sector_en ?? d.sector_fr },
   { label_fr: 'Durée', label_en: 'Duration', value: d.duration },
   { label_fr: 'Stack', label_en: 'Stack', value: d.stack.slice(0, 3).join(' · ') },
@@ -84,11 +84,11 @@ const caseLd = buildArticle({
   headline: d.title_en,
   description: d.description_en ?? d.description_fr,
   datePublished: new Date(d.publishedAt).toISOString().slice(0, 10),
-  dateModified: d.updatedAt ? new Date(d.updatedAt).toISOString().slice(0, 10) : undefined,
+  dateModified: d.updatedAt ? new Date(d.updatedAt).toISOString().slice(0, 10): undefined,
   author: {
     '@type': 'Person',
-    ...(authorSlug ? { '@id': `${siteUrl}/equipe/${authorSlug}#person`, url: `${siteUrl}/equipe/${authorSlug}` } : {}),
-    ...(authorName ? { name: authorName } : {}),
+    ...(authorSlug ? { '@id': `${siteUrl}/equipe/${authorSlug}#person`, url: `${siteUrl}/equipe/${authorSlug}` }: {}),
+    ...(authorName ? { name: authorName }: {}),
   },
   publisher: {
     '@type': 'Organization',
@@ -98,8 +98,8 @@ const caseLd = buildArticle({
   },
   mainEntityOfPage: caseUrl,
   articleSection: d.sector_en ?? d.sector_fr,
-  ...(d.heroImage ? { image: d.heroImage.startsWith('http') ? d.heroImage : `${siteUrl}${d.heroImage}` } : {}),
-  ...(d.tags && d.tags.length > 0 ? { keywords: d.tags } : {}),
+  ...(d.heroImage ? { image: d.heroImage.startsWith('http') ? d.heroImage: `${siteUrl}${d.heroImage}` }: {}),
+  ...(d.tags && d.tags.length > 0 ? { keywords: d.tags }: {}),
 });
 ---
 <CaseStudyTemplate
@@ -113,8 +113,8 @@ const caseLd = buildArticle({
   steps={[] as any[]}
   proofQuoteFr={d.impact_fr}
   proofQuoteEn={d.impact_en}
-  proofAttrFr={d.ndaProtected ? 'Confidentiel' : d.client}
-  proofAttrEn={d.ndaProtected ? 'Confidential' : d.client}
+  proofAttrFr={d.ndaProtected ? 'Confidentiel': d.client}
+  proofAttrEn={d.ndaProtected ? 'Confidential': d.client}
   proofMetrics={proofMetrics}
   techPills={d.stack.map((s) => ({ label: s, kind: 'primary' as const }))}
   relatedCards={relatedCards}

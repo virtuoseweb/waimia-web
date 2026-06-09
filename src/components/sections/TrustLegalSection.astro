@@ -70,7 +70,7 @@ const revisedLabel = finalRevisedAt
     )}
     <footer class="trust-legal-footer">
       {finalVersion
-        ? <><Bi fr={legalFooterFr} en={legalFooterEn} /> <span class="trust-footer-version">— {finalVersion}</span></>
+        ? <><Bi fr={legalFooterFr} en={legalFooterEn} /> <span class="trust-footer-version">{finalVersion}</span></>
         : <><slot name="footer-legal"><Bi fr={legalFooterFr} en={legalFooterEn} /></slot></>
       }
     </footer>

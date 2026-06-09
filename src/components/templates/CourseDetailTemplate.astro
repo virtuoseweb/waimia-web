@@ -72,7 +72,7 @@ if (fd) {
   stripeLink = fd.pricing?.stripe_payment_link;
   const p = fd.pricing?.one_time_eur ?? fd.pricing?.subscription_eur;
   priceStrFr = p === 0 ? 'Gratuit' : p != null ? `${p} €` : null;
-  priceStrEn = p === 0 ? 'Free' : p != null ? `${p} €` : null;
+  priceStrEn = p === 0 ? 'Free': p != null ? `${p} €`: null;
 } else if (pd) {
   stripeLink = pd.stripe_payment_link;
   priceStrFr = `${pd.pricing_eur} €`;
@@ -80,18 +80,18 @@ if (fd) {
 } else if (ad) {
   stripeLink = ad.stripe_payment_link;
   priceStrFr = ad.pricing_eur === 0 ? 'Gratuit' : `${ad.pricing_eur} €`;
-  priceStrEn = ad.pricing_eur === 0 ? 'Free' : `${ad.pricing_eur} €`;
+  priceStrEn = ad.pricing_eur === 0 ? 'Free': `${ad.pricing_eur} €`;
 } else if (cd) {
   stripeLink = cd.stripe_payment_link;
   priceStrFr = cd.pricing_eur === 0 ? 'Gratuit' : `${cd.pricing_eur} €`;
-  priceStrEn = cd.pricing_eur === 0 ? 'Free' : `${cd.pricing_eur} €`;
+  priceStrEn = cd.pricing_eur === 0 ? 'Free': `${cd.pricing_eur} €`;
 }
 priceStr = fr ? priceStrFr : priceStrEn;
 
 const isPlaceholder = !stripeLink || stripeLink.includes('PLACEHOLDER');
 const ctaEnroll = fr
-  ? `S'inscrire${priceStr ? ` — ${priceStr}` : ''}`
-  : `Enroll${priceStr ? ` — ${priceStr}` : ''}`;
+  ? `S'inscrire${priceStr ? `: ${priceStr}` : ''}`
+  : `Enroll${priceStr ? `: ${priceStr}` : ''}`;
 type HeroCoursePill = SectionByType<'hero-course'>['pills'][number];
 const heroPills: HeroCoursePill[] = [];
 if (fd) {
@@ -138,8 +138,8 @@ const heroData = {
   lede_en: data.description_en,
   pills: heroPills,
   cta_primary: {
-    label_fr: isPlaceholder ? 'Inscriptions bientôt disponibles' : `S'inscrire${priceStrFr ? ` — ${priceStrFr}` : ''}`,
-    label_en: isPlaceholder ? 'Enrollment coming soon' : `Enroll${priceStrEn ? ` — ${priceStrEn}` : ''}`,
+    label_fr: isPlaceholder ? 'Inscriptions bientôt disponibles' : `S'inscrire${priceStrFr ? `: ${priceStrFr}` : ''}`,
+    label_en: isPlaceholder ? 'Enrollment coming soon': `Enroll${priceStrEn ? `: ${priceStrEn}`: ''}`,
     href: stripeLink ?? '#',
     variant: 'primary',
   },
@@ -380,7 +380,7 @@ const jsonLd = [
         ) : (
           <div class="cta-row">
             <a class="cta-link cta-accent" href="/contact">
-              {fr ? 'Disponible prochainement — nous contacter' : 'Coming soon — contact us'} →
+              {fr ? 'Disponible prochainement : nous contacter' : 'Coming soon: contact us'} →
             </a>
           </div>
         )}
@@ -543,7 +543,7 @@ const jsonLd = [
   }
 
   .prereq-item::before {
-    content: '—';
+    content: '·';
     position: absolute;
     left: 0;
     font-family: var(--font-mono);

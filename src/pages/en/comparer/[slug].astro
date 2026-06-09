@@ -19,13 +19,13 @@ type Props = { entry: CollectionEntry<'comparisons'> };
 const { entry } = Astro.props as Props;
 const data = entry.data;
 const lang = langFromPath(Astro.url.pathname);
-const rootPrefix = lang === 'fr' ? '' : '/en';
+const rootPrefix = lang === 'fr' ? '': '/en';
 
-const verdict = lang === 'fr' ? data.verdict_fr : data.verdict_en;
-const useCase = lang === 'fr' ? data.use_case_recommendation_fr : data.use_case_recommendation_en;
+const verdict = lang === 'fr' ? data.verdict_fr: data.verdict_en;
+const useCase = lang === 'fr' ? data.use_case_recommendation_fr: data.use_case_recommendation_en;
 const metaDesc = data.seo
-  ? (lang === 'fr' ? data.seo.meta_description_fr : data.seo.meta_description_en)
-  : verdict.slice(0, 160);
+  ? (lang === 'fr' ? data.seo.meta_description_fr: data.seo.meta_description_en)
+ : verdict.slice(0, 160);
 
 const categoryLabels: Record<string, { fr: string; en: string }> = {
   'ai-platform': { fr: 'Plateforme IA', en: 'AI Platform' },
@@ -41,21 +41,21 @@ const categoryLabel = categoryLabels[data.category];
 <Base
   title={lang === 'fr'
     ? `${data.name_a} vs ${data.name_b} · Comparaison complete · Waimia`
-    : `${data.name_a} vs ${data.name_b} · Full comparison · Waimia`}
+   : `${data.name_a} vs ${data.name_b} · Full comparison · Waimia`}
   description={metaDesc}
 >
   <article class="comparison-detail">
     <div class="wrap-wide">
       <Breadcrumb
         items={[
-          { href: `${rootPrefix}/comparer`, label: lang === 'fr' ? 'Comparaisons' : 'Comparisons' },
+          { href: `${rootPrefix}/comparer`, label: lang === 'fr' ? 'Comparaisons': 'Comparisons' },
           { href: `${rootPrefix}/comparer/${data.slug}`, label: `${data.name_a} vs ${data.name_b}`, current: true },
         ]}
       />
 
       <header class="comparison-detail__hd">
         <Kicker tone="accent">
-          § {lang === 'fr' ? categoryLabel.fr : categoryLabel.en}
+          § {lang === 'fr' ? categoryLabel.fr: categoryLabel.en}
         </Kicker>
         <h1 class="comparison-detail__title">
           {data.name_a} <span class="comparison-detail__vs">vs</span> {data.name_b}
@@ -63,19 +63,19 @@ const categoryLabel = categoryLabels[data.category];
         <p class="comparison-detail__intro">
           {lang === 'fr'
             ? `Comparaison objective de ${data.name_a} et ${data.name_b} selon les dimensions cles.`
-            : `Objective comparison of ${data.name_a} and ${data.name_b} across key dimensions.`}
+           : `Objective comparison of ${data.name_a} and ${data.name_b} across key dimensions.`}
         </p>
       </header>
 
       <section class="comparison-detail__table-section">
         <h2 class="comparison-detail__section-title">
-          {lang === 'fr' ? 'Tableau comparatif' : 'Comparison table'}
+          {lang === 'fr' ? 'Tableau comparatif': 'Comparison table'}
         </h2>
         <div class="comparison-detail__table-wrap">
           <table class="comparison-detail__table">
             <thead>
               <tr>
-                <th>{lang === 'fr' ? 'Dimension' : 'Dimension'}</th>
+                <th>{lang === 'fr' ? 'Dimension': 'Dimension'}</th>
                 <th>{data.name_a}</th>
                 <th>{data.name_b}</th>
               </tr>
@@ -84,14 +84,14 @@ const categoryLabel = categoryLabels[data.category];
               {data.dimensions.map((dim) => (
                 <tr>
                   <td class="comparison-detail__dim-name">
-                    {lang === 'fr' ? dim.name_fr : dim.name_en}
+                    {lang === 'fr' ? dim.name_fr: dim.name_en}
                   </td>
                   <td class:list={['comparison-detail__cell', { 'comparison-detail__cell--winner': dim.winner === 'a' }]}>
-                    {lang === 'fr' ? dim.a_fr : dim.a_en}
+                    {lang === 'fr' ? dim.a_fr: dim.a_en}
                     {dim.winner === 'a' && <span class="comparison-detail__badge">&#10003;</span>}
                   </td>
                   <td class:list={['comparison-detail__cell', { 'comparison-detail__cell--winner': dim.winner === 'b' }]}>
-                    {lang === 'fr' ? dim.b_fr : dim.b_en}
+                    {lang === 'fr' ? dim.b_fr: dim.b_en}
                     {dim.winner === 'b' && <span class="comparison-detail__badge">&#10003;</span>}
                   </td>
                 </tr>
@@ -103,12 +103,12 @@ const categoryLabel = categoryLabels[data.category];
 
       <section class="comparison-detail__verdict">
         <h2 class="comparison-detail__section-title">
-          {lang === 'fr' ? 'Verdict' : 'Verdict'}
+          {lang === 'fr' ? 'Verdict': 'Verdict'}
         </h2>
         <p class="comparison-detail__verdict-text">{verdict}</p>
         {useCase && (
           <div class="comparison-detail__usecase">
-            <strong>{lang === 'fr' ? 'Recommandation :' : 'Recommendation:'}</strong>
+            <strong>{lang === 'fr' ? 'Recommandation :': 'Recommendation:'}</strong>
             {' '}{useCase}
           </div>
         )}
@@ -118,10 +118,10 @@ const categoryLabel = categoryLabels[data.category];
         <p class="comparison-detail__cta-text">
           {lang === 'fr'
             ? 'Besoin daide pour choisir la solution adaptee a votre contexte ?'
-            : 'Need help choosing the right solution for your context?'}
+           : 'Need help choosing the right solution for your context?'}
         </p>
         <a href={`${rootPrefix}/contact`} class="btn btn--primary">
-          {lang === 'fr' ? 'Discuter de votre choix' : 'Discuss your choice'}
+          {lang === 'fr' ? 'Discuter de votre choix': 'Discuss your choice'}
         </a>
       </section>
     </div>

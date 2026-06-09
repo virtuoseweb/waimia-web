@@ -22,8 +22,8 @@ const steps = [
     body_en: 'Half-day with extended committee. We read your stack, roadmap, recent unresolved incidents. We set the list of 8-12 interviewees. Deliverable D2: validated scoping report.' },
   { sn: '02', kicker_fr: 'J3-J6', kicker_en: 'D3-D6',
     title_fr: 'Audit terrain', title_en: 'Field audit',
-    body_fr: "Entretiens 1-1 avec 8-12 personnes : data engineer, DPO, responsable GRC, CFO, lead tech, ops métier. Questionnaire asynchrone 47 points sur Notion. Aucun atelier collectif — la vérité se dit en individuel.",
-    body_en: '1-on-1 interviews with 8-12 people: data engineer, DPO, GRC lead, CFO, tech lead, ops. 47-point async survey on Notion. No group workshop — truth is told individually.' },
+    body_fr: "Entretiens 1-1 avec 8-12 personnes : data engineer, DPO, responsable GRC, CFO, lead tech, ops métier. Questionnaire asynchrone 47 points sur Notion. Aucun atelier collectif : la vérité se dit en individuel.",
+    body_en: '1-on-1 interviews with 8-12 people: data engineer, DPO, GRC lead, CFO, tech lead, ops. 47-point async survey on Notion. No group workshop: truth is told individually.' },
   { sn: '03', kicker_fr: 'J7-J8', kicker_en: 'D7-D8',
     title_fr: 'Analyse', title_en: 'Analysis',
     body_fr: "Grille de 47 critères notée 0-3 par dimension (données, outillage, équipe, gouvernance). Cartographie des chantiers actionnables. Estimation effort : Quick wins (< 3 mois) vs Chantiers structurants (6-18 mois).",
@@ -67,8 +67,8 @@ const relatedCards = [
   parentKickerEn="Consulting Hub · Audit & Strategy"
   h1Fr="Dix jours pour savoir <i>exactement</i> où vous en êtes. Lu par la direction. Signé par nous."
   h1En="Ten days to know <i>exactly</i> where you stand. Read by leadership. Signed by us."
-  ledeFr="Pas un atelier. Pas un modèle PowerPoint. 10 jours fixes pour évaluer 47 critères sur vos données, vos outils, votre équipe, votre gouvernance — et vous éviter d'engager 18 mois de transformation sur un diagnostic fantaisiste."
-  ledeEn="Not a workshop. Not a PowerPoint template. 10 fixed days to evaluate 47 criteria across your data, your tools, your team, your governance — and to spare you from committing to 18 months of transformation on a fanciful diagnosis."
+  ledeFr="Pas un atelier. Pas un modèle PowerPoint. 10 jours fixes pour évaluer 47 critères sur vos données, vos outils, votre équipe, votre gouvernance, et vous éviter d'engager 18 mois de transformation sur un diagnostic fantaisiste."
+  ledeEn="Not a workshop. Not a PowerPoint template. 10 fixed days to evaluate 47 criteria across your data, your tools, your team, your governance, and to spare you from committing to 18 months of transformation on a fanciful diagnosis."
   annotation={annotation}
   steps={steps}
   proofQuoteFr="Un audit où on lit nos vrais workflows au lieu de dérouler un modèle PowerPoint. La restitution a permis de couper deux chantiers fantômes immédiatement."
@@ -87,7 +87,7 @@ const relatedCards = [
     Dix <i>jours</i> calibrés. Pas un de plus, pas un de moins.
   </Fragment>
   <Fragment slot="approach-aside">
-    Le périmètre est volontairement borné. On audite ce qui est lisible en 10 jours — au-delà, c'est l'objet d'un autre service (feuille de route IA stratégique).
+    Le périmètre est volontairement borné. On audite ce qui est lisible en 10 jours : au-delà, c'est l'objet d'un autre service (feuille de route IA stratégique).
     Chaque journée a un livrable intermédiaire : rapport de cadrage validé (J2), audit terrain clos (J6), grille pré-scorée (J8), document final signé (J10).
   </Fragment>
   <Fragment slot="deliverables-headline">
@@ -133,7 +133,7 @@ const relatedCards = [
       <div style="font-family:var(--font-mono); font-size:var(--text-eyebrow); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:var(--space-4);">Cas typique</div>
       <div class="audit-case-grid">
         <div>
-          <h3 style="font-family:var(--font-display); font-size:clamp(24px,2.8vw,38px); line-height:var(--leading-h3); font-weight:var(--fw-regular); margin:0 0 18px;"><i style="font-style:italic;">Plateau SaaS</i> — 180 personnes</h3>
+          <h3 style="font-family:var(--font-display); font-size:clamp(24px,2.8vw,38px); line-height:var(--leading-h3); font-weight:var(--fw-regular); margin:0 0 18px;"><i style="font-style:italic;">Plateau SaaS</i> : 180 personnes</h3>
           <p style="font-family:var(--font-sans); font-size:var(--text-body-lead); line-height:var(--leading-prose); color:var(--ink); margin:0 0 14px;">Groupe SaaS européen. La direction technique veut déployer des agents IA sur les flux support client et comptabilité. Budget IA prévu : 380 k€. Le comité exécutif demande un feu vert documenté avant engagement.</p>
           <p style="font-family:var(--font-sans); font-size:var(--text-body-lead); line-height:var(--leading-prose); color:var(--muted); margin:0;">Résultat : 2 chantiers prioritaires validés, 1 chantier stoppé avant développement (données non conformes RGPD), budget recalibré à 140 k€ pour un périmètre livrable en 6 mois.</p>
         </div>

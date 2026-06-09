@@ -25,7 +25,7 @@ const { attribution, source, variant = 'breakout' } = Astro.props;
   </blockquote>
   {(attribution || source) && (
     <figcaption class="pull-quote-cite">
-      {attribution && <span class="pull-quote-attr">— {attribution}</span>}
+      {attribution && <span class="pull-quote-attr">{attribution}</span>}
       {source && <span class="pull-quote-src">{source}</span>}
     </figcaption>
   )}
