@@ -1,0 +1,169 @@
+---
+// Section W6 · metric-shift
+// Band before→après : valeur initiale → valeur finale magnifiée typographiquement + delta.
+// Lecture horizontale (distincte des grilles de stats). Style FT/Bloomberg (cf KeyMetric).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'metric-shift'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const hasHeader = Boolean(kicker || h2 || lede);
+---
+
+<section class:list={['metric-shift', `metric-shift--${data.background}`]}>
+  <div class="wrap-wide">
+    {hasHeader && (
+      <header class="metric-shift__hd">
+        {kicker && <span class="metric-shift__kicker">{kicker}</span>}
+        {h2 && <h2 class="metric-shift__title" set:html={h2} />}
+        {lede && <p class="metric-shift__lede" set:html={lede} />}
+      </header>
+    )}
+
+    <div class="metric-shift__rows reveal-stagger">
+      {data.shifts.map((shift) => {
+        const delta = isFr ? shift.delta_fr : shift.delta_en;
+        return (
+          <div class="metric-shift__row reveal-zoom-in">
+            <span class="metric-shift__label">{isFr ? shift.label_fr : shift.label_en}</span>
+            <div class="metric-shift__values">
+              <span class="metric-shift__before">{shift.before}</span>
+              <span class="metric-shift__arrow" aria-hidden="true">&#8594;</span>
+              <span class="metric-shift__after">{shift.after}</span>
+            </div>
+            {delta && (
+              <span class:list={['metric-shift__delta', `metric-shift__delta--${shift.trend ?? 'flat'}`]}>{delta}</span>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .metric-shift {
+    padding: clamp(var(--space-11), 10vw, var(--section-loose)) var(--space-6);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .metric-shift--paper-2 { background: var(--paper-2); }
+  .metric-shift--ink { background: var(--ink); }
+
+  .metric-shift__hd {
+    margin-bottom: clamp(var(--space-8), 5vw, var(--space-12));
+  }
+  .metric-shift__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-4);
+  }
+  .metric-shift__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .metric-shift__title :global(i) { font-style: italic; color: var(--accent); }
+  .metric-shift__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: 680px;
+    margin: var(--space-5) 0 0;
+  }
+
+  .metric-shift__rows {
+    display: flex;
+    flex-direction: column;
+  }
+  .metric-shift__row {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) auto minmax(120px, max-content);
+    align-items: baseline;
+    column-gap: var(--space-6);
+    row-gap: var(--space-3);
+    padding: var(--space-7) 0;
+    border-top: 1px solid var(--hairline-strong);
+  }
+
+  .metric-shift__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    line-height: var(--leading-lede);
+  }
+
+  .metric-shift__values {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .metric-shift__before {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.2vw, 44px);
+    line-height: 1;
+    color: var(--muted);
+  }
+  .metric-shift__arrow {
+    font-family: var(--font-mono);
+    font-size: clamp(20px, 2.2vw, 28px);
+    color: var(--muted);
+  }
+  .metric-shift__after {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(48px, 6vw, 92px);
+    line-height: 0.92;
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+  }
+
+  .metric-shift__delta {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    color: var(--accent);
+    justify-self: end;
+    white-space: nowrap;
+  }
+  .metric-shift__delta--up::before   { content: '\2191 '; }
+  .metric-shift__delta--down::before { content: '\2193 '; }
+  .metric-shift__delta--flat::before { content: '\2192 '; color: var(--muted); }
+
+  /* Variante ink : inversion des teintes (tokens uniquement) */
+  .metric-shift--ink .metric-shift__title { color: var(--paper); }
+  .metric-shift--ink .metric-shift__lede { color: rgba(var(--paper-rgb), 0.7); }
+  .metric-shift--ink .metric-shift__row { border-top-color: rgba(var(--paper-rgb), 0.18); }
+  .metric-shift--ink .metric-shift__label { color: rgba(var(--paper-rgb), 0.6); }
+  .metric-shift--ink .metric-shift__before { color: rgba(var(--paper-rgb), 0.5); }
+  .metric-shift--ink .metric-shift__arrow { color: rgba(var(--paper-rgb), 0.5); }
+  .metric-shift--ink .metric-shift__after { color: var(--paper); }
+  .metric-shift--ink .metric-shift__delta { color: var(--accent); }
+
+  @media (max-width: var(--wrap-read)) {
+    .metric-shift__row {
+      grid-template-columns: 1fr;
+      align-items: start;
+      row-gap: var(--space-2);
+    }
+    .metric-shift__delta { justify-self: start; }
+  }
+</style>
