@@ -166,6 +166,19 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       { label_fr: 'Agence', label_en: 'Agency' },
       { label_fr: 'Cabinet compta', label_en: 'Accounting firm' },
     ],
+    scope: [
+      { label_fr: 'Audit & cadrage', label_en: 'Audit & scoping', items_fr: 'Cartographier votre delivery réel', items_en: 'Map your real delivery' },
+      { label_fr: 'Premier workflow', label_en: 'First workflow', items_fr: 'Un cas prioritaire en production', items_en: 'One priority case in production' },
+      { label_fr: 'Mesure', label_en: 'Measurement', items_fr: 'KPI suivis dès le premier mois', items_en: 'KPIs tracked from month one' },
+      { label_fr: 'Passation', label_en: 'Handover', items_fr: 'Vos équipes gardent la main', items_en: 'Your teams keep control' },
+    ],
+    stats: [
+      { value: '5 j', label_fr: "jusqu'à l'audit livré", label_en: 'to the audit shipped' },
+      { value: '×3', label_fr: 'workflows en production', label_en: 'workflows in production' },
+      { value: '−40%', label_fr: 'temps de delivery', label_en: 'delivery time' },
+    ],
+    results_label_fr: '§ Résultats',
+    results_label_en: '§ Results',
   },
   'hero-utility-masthead': {
     type: 'hero-utility-masthead',
@@ -275,6 +288,19 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     cta: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact?offer=growth-system', variant: 'primary' },
     meta_fr: 'Booking · T3 2026',
     meta_en: 'Booking · Q3 2026',
+    scope: [
+      { label_fr: 'Audit & cadrage', label_en: 'Audit & scoping', items_fr: 'Cartographier votre pipeline réel', items_en: 'Map your real pipeline' },
+      { label_fr: 'Conception', label_en: 'Design', items_fr: 'Architecturer le système cible', items_en: 'Architect the target system' },
+      { label_fr: 'Déploiement', label_en: 'Deployment', items_fr: 'Brancher sans changer vos outils', items_en: 'Wire without changing your tools' },
+      { label_fr: 'Mesure', label_en: 'Measurement', items_fr: 'Suivre le ROI dès la mise en prod', items_en: 'Track ROI from go-live' },
+    ],
+    stats: [
+      { value: '+2,4 M€', label_fr: 'de pipeline récupéré', label_en: 'pipeline recovered' },
+      { value: '×3,4', label_fr: 'de conversion sales', label_en: 'sales conversion' },
+      { value: '−62%', label_fr: 'de temps de qualification', label_en: 'qualification time' },
+    ],
+    results_label_fr: '§ Résultats',
+    results_label_en: '§ Results',
   },
   'hero-tech-layer': {
     type: 'hero-tech-layer',

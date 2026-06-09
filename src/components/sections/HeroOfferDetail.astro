@@ -36,19 +36,43 @@ const offerSumie =
       <div class="hero-sector__dept">{isFr ? data.dept_fr : data.dept_en}</div>
       <h1 class="hero-sector__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
       <div class="hero-sector__sub">
-        <p class="hero-sector__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
-        <div class="hero-sector__aside">
-          <span class="hero-offer-detail__sumie reveal-zoom-in" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
-            <HeroSumie name={offerSumie} size="lg" />
-          </span>
-          <div class="hero-sector__actions">
+        <div class="hero-sector__col">
+          <p class="hero-sector__lead reveal reveal-fade" set:html={isFr ? data.lead_fr : data.lead_en} />
+          {data.scope && data.scope.length > 0 && (
+            <ul class="hero-sector__minimap reveal reveal-fade" aria-label={isFr ? 'Périmètre opérationnel' : 'Operational scope'}>
+              {data.scope.map((cell) => (
+                <li class="hero-sector__mm-item">
+                  <span class="hero-sector__mm-label">{isFr ? cell.label_fr : cell.label_en}</span>
+                  <span class="hero-sector__mm-items">{isFr ? cell.items_fr : cell.items_en}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          <div class="hero-sector__actions reveal reveal-snap">
             <a class="btn btn-primary" href={data.cta.href}>
               {isFr ? data.cta.label_fr : data.cta.label_en}
             </a>
-            {data.meta_fr && (
-              <div class="hero-sector__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
-            )}
           </div>
+          {data.meta_fr && (
+            <p class="hero-sector__caption">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</p>
+          )}
+        </div>
+        <div class="hero-sector__col">
+          <div class="hero-sector__results-label">{isFr ? (data.results_label_fr ?? '§ Résultats') : (data.results_label_en ?? '§ Results')}</div>
+          {data.stats && data.stats.length > 0 ? (
+            <ul class="hero-sector__proofs reveal reveal-fade" aria-label={isFr ? 'Preuves de résultats' : 'Result proofs'}>
+              {data.stats.map((stat) => (
+                <li class="hero-sector__proof">
+                  <span class="hero-sector__proof-num">{stat.value}</span>
+                  <span class="hero-sector__proof-label">{isFr ? stat.label_fr : stat.label_en}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <span class="hero-offer-detail__sumie reveal-zoom-in" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+              <HeroSumie name={offerSumie} size="lg" />
+            </span>
+          )}
         </div>
       </div>
       {data.tags && data.tags.length > 0 && (
@@ -110,17 +134,41 @@ const offerSumie =
     <div class="hero-offer-detail__tier">{isFr ? data.tier_fr : data.tier_en}</div>
     <h1 class="hero-offer-detail__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
     <div class="hero-offer-detail__sub">
-      <p class="hero-offer-detail__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
-      <div class="hero-offer-detail__aside">
-        <span class="hero-offer-detail__sumie reveal-zoom-in" aria-hidden="true">
-          <HeroSumie name={offerSumie} size="lg" />
-        </span>
-        <div class="hero-offer-detail__actions">
+      <div class="hero-offer-detail__col">
+        <p class="hero-offer-detail__lead reveal reveal-fade" set:html={isFr ? data.lead_fr : data.lead_en} />
+        {data.scope && data.scope.length > 0 && (
+          <ul class="hero-offer-detail__minimap reveal reveal-fade" aria-label={isFr ? 'Périmètre opérationnel' : 'Operational scope'}>
+            {data.scope.map((cell) => (
+              <li class="hero-offer-detail__mm-item">
+                <span class="hero-offer-detail__mm-label">{isFr ? cell.label_fr : cell.label_en}</span>
+                <span class="hero-offer-detail__mm-items">{isFr ? cell.items_fr : cell.items_en}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div class="hero-offer-detail__actions reveal reveal-snap">
           <a class="hero-offer-detail__cta" href={data.cta.href}>{isFr ? data.cta.label_fr : data.cta.label_en}</a>
-          {data.meta_fr && (
-            <div class="hero-offer-detail__meta">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
-          )}
         </div>
+        {data.meta_fr && (
+          <p class="hero-offer-detail__caption">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</p>
+        )}
+      </div>
+      <div class="hero-offer-detail__col">
+        <div class="hero-offer-detail__results-label">{isFr ? (data.results_label_fr ?? '§ Résultats') : (data.results_label_en ?? '§ Results')}</div>
+        {data.stats && data.stats.length > 0 ? (
+          <ul class="hero-offer-detail__proofs reveal reveal-fade" aria-label={isFr ? 'Preuves de résultats' : 'Result proofs'}>
+            {data.stats.map((stat) => (
+              <li class="hero-offer-detail__proof">
+                <span class="hero-offer-detail__proof-num">{stat.value}</span>
+                <span class="hero-offer-detail__proof-label">{isFr ? stat.label_fr : stat.label_en}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <span class="hero-offer-detail__sumie reveal-zoom-in" aria-hidden="true">
+            <HeroSumie name={offerSumie} size="lg" />
+          </span>
+        )}
       </div>
     </div>
   </div>
@@ -145,17 +193,10 @@ const offerSumie =
     pointer-events: none;
   }
   .hero-offer-detail__sumie :global(svg) { width: 100%; height: auto; }
-  .hero-offer-detail__aside,
-  .hero-sector__aside {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-5);
-  }
   .hero-offer-detail__wrap {
     position: relative;
     z-index: 1;
-    max-width: var(--hod-wrap, 1320px);
+    max-width: var(--hod-wrap, var(--wrap-wide));
     margin-inline: auto;
     padding-inline: clamp(20px, 4vw, 48px);
   }
@@ -188,23 +229,116 @@ const offerSumie =
     text-wrap: balance;
   }
   .hero-offer-detail__title :global(i) { color: var(--accent); font-style: italic; }
-  .hero-offer-detail__sub {
+  /* ── Sub 2 colonnes (calque .hero-sub de la home : hairlines + stretch) ── */
+  .hero-offer-detail__sub,
+  .hero-sector__sub {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: clamp(32px, 4vw, 72px);
-    align-items: end;
-    max-width: 1180px;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+    margin-top: var(--space-7);
+    padding: var(--space-7) 0 var(--space-7);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    align-items: stretch;
   }
-  .hero-offer-detail__lead {
+  .hero-offer-detail__col,
+  .hero-sector__col {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-offer-detail__lead,
+  .hero-sector__lead {
     font-family: var(--font-sans);
     font-size: clamp(20px, 2vw, 26px);
     line-height: var(--leading-lede);
     color: var(--ink);
     font-style: italic;
     margin: 0;
+    text-wrap: pretty;
+    transition-delay: var(--dur-fast);
   }
-  .hero-offer-detail__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
-  .hero-offer-detail__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
+  .hero-offer-detail__lead :global(span),
+  .hero-sector__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
+
+  /* ── Minimap scope (calque .hero-minimap home : grid 3 col, hairlines) ── */
+  .hero-offer-detail__minimap,
+  .hero-sector__minimap {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-5) 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+    transition-delay: 280ms;
+  }
+  .hero-offer-detail__mm-item,
+  .hero-sector__mm-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-3) var(--space-3) 0;
+    border-bottom: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+  }
+  .hero-offer-detail__mm-item:nth-child(3n),
+  .hero-sector__mm-item:nth-child(3n) { border-right: none; }
+  .hero-offer-detail__mm-item:nth-last-child(-n+3),
+  .hero-sector__mm-item:nth-last-child(-n+3) { border-bottom: none; }
+  .hero-offer-detail__mm-item:not(:nth-child(3n+1)),
+  .hero-sector__mm-item:not(:nth-child(3n+1)) { padding-left: var(--space-3); }
+  .hero-offer-detail__mm-label,
+  .hero-sector__mm-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .hero-offer-detail__mm-items,
+  .hero-sector__mm-items {
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+  }
+  @media (max-width: 700px) {
+    .hero-offer-detail__minimap,
+    .hero-sector__minimap { grid-template-columns: repeat(2, 1fr); }
+    .hero-offer-detail__mm-item:nth-child(3n),
+    .hero-sector__mm-item:nth-child(3n) { border-right: 1px solid var(--hairline); }
+    .hero-offer-detail__mm-item:nth-child(2n),
+    .hero-sector__mm-item:nth-child(2n) { border-right: none; }
+    .hero-offer-detail__mm-item:nth-last-child(-n+2),
+    .hero-sector__mm-item:nth-last-child(-n+2) { border-bottom: none; }
+    .hero-offer-detail__mm-item:nth-last-child(-n+3):not(:nth-last-child(-n+2)),
+    .hero-sector__mm-item:nth-last-child(-n+3):not(:nth-last-child(-n+2)) { border-bottom: 1px solid var(--hairline); }
+    .hero-offer-detail__mm-item:not(:nth-child(2n+1)),
+    .hero-sector__mm-item:not(:nth-child(2n+1)) { padding-left: var(--space-3); }
+    .hero-offer-detail__mm-item:nth-child(2n+1),
+    .hero-sector__mm-item:nth-child(2n+1) { padding-left: 0; }
+  }
+  @media (max-width: 440px) {
+    .hero-offer-detail__minimap,
+    .hero-sector__minimap { grid-template-columns: 1fr; }
+    .hero-offer-detail__mm-item, .hero-offer-detail__mm-item:nth-child(n),
+    .hero-sector__mm-item, .hero-sector__mm-item:nth-child(n) { border-right: none; padding-left: 0; }
+    .hero-offer-detail__mm-item:not(:last-child),
+    .hero-sector__mm-item:not(:last-child) { border-bottom: 1px solid var(--hairline); }
+    .hero-offer-detail__mm-item:last-child,
+    .hero-sector__mm-item:last-child { border-bottom: none; }
+  }
+
+  /* ── Actions CTA (calque .hero-ctas home : margin-top, snap delay) ── */
+  .hero-offer-detail__actions,
+  .hero-sector__actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-6);
+    align-items: flex-start;
+    transition-delay: 400ms;
+  }
   .hero-offer-detail__cta {
     display: inline-block;
     padding: 14px var(--space-5);
@@ -219,16 +353,82 @@ const offerSumie =
     transition: background 240ms ease, color 240ms ease, transform var(--dur-fast) ease;
   }
   .hero-offer-detail__cta:hover { background: transparent; color: var(--ink); transform: translateY(-1px); }
-  .hero-offer-detail__meta {
+
+  /* ── Caption meta (calque .hero-cta-sub home : margin-top auto → push bas) ── */
+  .hero-offer-detail__caption,
+  .hero-sector__caption {
+    margin-top: auto;
+    padding-top: var(--space-5);
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.1em;
+    line-height: var(--leading-body);
     color: var(--muted);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    transition-delay: 520ms;
   }
+
+  /* ── Results rail (calque .hero-proofs home : flex column space-between) ── */
+  .hero-offer-detail__results-label,
+  .hero-sector__results-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-4);
+  }
+  .hero-offer-detail__proofs,
+  .hero-sector__proofs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    transition-delay: 320ms;
+  }
+  .hero-offer-detail__proof,
+  .hero-sector__proof {
+    display: grid;
+    grid-template-columns: minmax(110px, 0.4fr) 1fr;
+    gap: clamp(16px, 1.8vw, 28px);
+    align-items: baseline;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-offer-detail__proof:first-child,
+  .hero-sector__proof:first-child { padding-top: 0; }
+  .hero-offer-detail__proof:last-child,
+  .hero-sector__proof:last-child { border-bottom: 0; }
+  .hero-offer-detail__proof-num,
+  .hero-sector__proof-num {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4.6vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    font-weight: var(--fw-regular);
+  }
+  .hero-offer-detail__proof-label,
+  .hero-sector__proof-label {
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1.05vw, 16px);
+    line-height: var(--leading-lede);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
   @media (max-width: 768px) {
-    .hero-offer-detail__sub { grid-template-columns: 1fr; }
-    .hero-sector__sub { grid-template-columns: 1fr; }
+    .hero-offer-detail__sub,
+    .hero-sector__sub { grid-template-columns: 1fr; gap: var(--space-9); }
+    .hero-offer-detail__proof,
+    .hero-sector__proof { grid-template-columns: 90px 1fr; gap: var(--space-4); }
+  }
+  @media (max-width: 560px) {
+    .hero-offer-detail__proof,
+    .hero-sector__proof { grid-template-columns: 1fr; gap: var(--space-1); padding: var(--space-3) 0; }
   }
   /* ── hero-sector ── */
   .hero-sector {
@@ -247,7 +447,7 @@ const offerSumie =
   .hero-sector__wrap {
     position: relative;
     z-index: 1;
-    max-width: 1320px;
+    max-width: var(--wrap-wide);
     margin-inline: auto;
     padding-inline: clamp(20px, 4vw, 48px);
   }
@@ -270,36 +470,11 @@ const offerSumie =
     text-wrap: balance;
   }
   .hero-sector__title :global(i) { color: var(--accent); font-style: italic; }
-  .hero-sector__sub {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: clamp(32px, 4vw, 72px);
-    align-items: end;
-    max-width: 1180px;
-    margin-bottom: clamp(28px, 3vw, 40px);
-  }
-  .hero-sector__lead {
-    font-family: var(--font-sans);
-    font-size: clamp(20px, 2vw, 26px);
-    line-height: var(--leading-lede);
-    color: var(--ink);
-    font-style: italic;
-    margin: 0;
-  }
-  .hero-sector__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
-  .hero-sector__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
-  .hero-sector__meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
   .hero-sector__tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
-    margin-top: var(--space-2);
+    margin-top: var(--space-5);
   }
   .hero-sector__tag {
     font-family: var(--font-mono);
