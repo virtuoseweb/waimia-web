@@ -276,29 +276,6 @@ export const heroSectorSchema = z.object({
     )
     .max(8)
     .optional(),
-  scope: z
-    .array(
-      z.object({
-        label_fr: z.string(),
-        label_en: z.string(),
-        items_fr: z.string(),
-        items_en: z.string(),
-      }),
-    )
-    .max(6)
-    .optional(),
-  stats: z
-    .array(
-      z.object({
-        value: z.string(),
-        label_fr: z.string(),
-        label_en: z.string(),
-      }),
-    )
-    .max(4)
-    .optional(),
-  results_label_fr: z.string().optional(),
-  results_label_en: z.string().optional(),
 });
 
 // Hero · masthead générique utilitaire (about / méthode / academy) · kicker + h1 + lede + align
@@ -432,38 +409,6 @@ export const heroOfferDetailSchema = z.object({
   cta: ctaSchema,
   meta_fr: z.string().optional(),
   meta_en: z.string().optional(),
-  tags: z
-    .array(
-      z.object({
-        label_fr: z.string(),
-        label_en: z.string(),
-      }),
-    )
-    .max(8)
-    .optional(),
-  scope: z
-    .array(
-      z.object({
-        label_fr: z.string(),
-        label_en: z.string(),
-        items_fr: z.string(),
-        items_en: z.string(),
-      }),
-    )
-    .max(6)
-    .optional(),
-  stats: z
-    .array(
-      z.object({
-        value: z.string(),
-        label_fr: z.string(),
-        label_en: z.string(),
-      }),
-    )
-    .max(4)
-    .optional(),
-  results_label_fr: z.string().optional(),
-  results_label_en: z.string().optional(),
 });
 
 // Hero · couche technologique (TechnologiesDetailTemplate) · triangles SVG + layer badge + h1 + lead + CTA

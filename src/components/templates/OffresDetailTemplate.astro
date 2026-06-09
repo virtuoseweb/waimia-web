@@ -117,17 +117,6 @@ const slotTitleHtml = Astro.slots.has('title') ? (await Astro.slots.render('titl
 const slotLeadHtml = Astro.slots.has('lead') ? (await Astro.slots.render('lead')).trim() : '';
 const heroLeadFr = lead_fr ?? lead_en ?? slotLeadHtml;
 const heroLeadEn = lead_en ?? lead_fr ?? slotLeadHtml;
-const heroScope = (method_steps ?? []).slice(0, 4).map((s) => ({
-  label_fr: s.meta_fr ?? s.label_fr,
-  label_en: s.meta_en ?? s.label_en,
-  items_fr: s.label_fr,
-  items_en: s.label_en,
-}));
-const heroStats = (proof?.metrics ?? []).slice(0, 3).map((m) => ({
-  value: m.value,
-  label_fr: m.label_fr,
-  label_en: m.label_en,
-}));
 const heroData = {
   type: 'hero-offer-detail',
   breadcrumb_label_fr: 'Offres',
@@ -142,8 +131,6 @@ const heroData = {
   cta: { href: ctaHref, label_fr: ctaLabel, label_en: ctaLabel, variant: 'primary' as const },
   meta_fr: meta || undefined,
   meta_en: meta || undefined,
-  scope: heroScope.length ? heroScope : undefined,
-  stats: heroStats.length ? heroStats : undefined,
 } satisfies SectionByType<'hero-offer-detail'>;
 const parseMinPrice = (value: string) => {
   const normalized = value
