@@ -9,7 +9,7 @@
 // Squelette · masthead minimaliste + TOC sticky gauche + sections H2/H3 empilées
 // + footer signataires/dates revision.
 //
-// Composé de · Bi (atom) · Kicker (atom) · CtaBandSection (section)
+// Composé de · TrustLegalSection (section cataloguée : masthead + TOC + slot sections) · CtaBandSection (section)
 //
 // Décision · TOC sticky gauche : pattern visuel récurrent dans handoff2 trust-center.
 // Pas extrait en molécule — usage 1× par page (le TOC est généré depuis les sections
@@ -17,9 +17,8 @@
 
 import Base from '../../layouts/Base.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
-import Bi from '../ui/atoms/Bi.astro';
-import Kicker from '../ui/atoms/Kicker.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
+import TrustLegalSection from '../sections/TrustLegalSection.astro';
 import type { SectionByType } from '../../schemas/sections';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 
@@ -48,9 +47,6 @@ const { title, description, kickerFr, kickerEn, revisedAt, version, sections } =
 const lang = langFromPath(Astro.url.pathname);
 const isFr = lang === 'fr';
 
-const revisedLabel = revisedAt
-  ? new Date(revisedAt).toLocaleDateString(isFr ? 'fr-FR' : 'en-GB', { month: 'long', year: 'numeric' })
-  : null;
 const ctaData = {
   type: 'cta-band',
   text_fr: `${kickerFr} relisible, arbitrable et exploitable côté équipe.`,
@@ -73,188 +69,20 @@ const ctaData = {
       { label: isFr ? kickerFr : kickerEn },
     ]}
   />
-  {/* MASTHEAD */}
-  <section class="trust-hd">
-    <div class="wrap-wide">
-      <Kicker class="trust-kicker"><Bi fr={kickerFr} en={kickerEn} /></Kicker>
-      <h1 class="trust-h1 reveal"><slot name="headline" /></h1>
-      <p class="trust-lede reveal"><slot name="lede" /></p>
-      {revisedLabel && (
-        <div class="trust-meta">
-          <Bi fr="Dernière révision" en="Last revised" /> ·
-          <time datetime={revisedAt}>{revisedLabel}</time>
-          {version && <><span aria-hidden> · </span><span>{version}</span></>}
-        </div>
-      )}
-      <footer class="trust-legal-footer">
-        {version
-          ? <><Bi fr="Document interne" en="Internal document" /> <span class="trust-footer-version">— {version}</span></>
-          : <><slot name="footer-legal"><Bi fr="Document interne" en="Internal document" /></slot></>
-        }
-      </footer>
-    </div>
-  </section>
-
-  {/* BODY · TOC sticky + sections */}
-  <div class="trust-body">
-    <div class="wrap-wide trust-grid">
-      {/* TOC sticky */}
-      <aside class="trust-toc reveal-stagger" aria-label="Table of contents">
-        <Kicker class="trust-toc-k"><Bi fr="Sommaire" en="Contents" /></Kicker>
-        <ol>
-          {sections.map((s, i) => (
-            <li>
-              <a href={`#${s.id}`}>
-                <span class="trust-toc-num">{String(i + 1).padStart(2, '0')}</span>
-                <span><Bi fr={s.title_fr} en={s.title_en} /></span>
-              </a>
-            </li>
-          ))}
-        </ol>
-      </aside>
-
-      {/* Sections */}
-      <article class="trust-sections reveal-stagger">
-        <slot name="sections" />
-      </article>
-    </div>
-  </div>
+  {/* MASTHEAD + BODY · délégué à la section cataloguée trust-legal-section */}
+  <TrustLegalSection
+    lang={lang}
+    kickerFr={kickerFr}
+    kickerEn={kickerEn}
+    revisedAt={revisedAt}
+    version={version}
+    sections={sections}
+  >
+    <slot name="headline" slot="headline" />
+    <slot name="lede" slot="lede" />
+    <slot name="footer-legal" slot="footer-legal" />
+    <slot name="sections" slot="sections" />
+  </TrustLegalSection>
 
   <CtaBandSection data={ctaData} lang={lang} />
 </Base>
-
-<style>
-  .trust-hd {
-    padding: 140px var(--space-6) clamp(40px, 5vw, 72px);
-    border-bottom: 1px solid var(--hairline);
-  }
-  :global(.trust-kicker) { display: block; margin-bottom: var(--space-5); }
-  .trust-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 128px);
-    line-height: 0.94;
-    letter-spacing: -0.028em;
-    text-wrap: balance;
-    font-weight: var(--fw-regular);
-    margin: 0;
-  }
-  .trust-h1 :global(i) { font-style: italic; color: var(--accent); }
-  .trust-lede {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(20px, 2.2vw, 28px);
-    color: var(--ink-2);
-    margin: var(--space-6) 0 var(--space-5);
-    max-width: 760px;
-    line-height: var(--leading-lede);
-    text-wrap: pretty;
-  }
-  .trust-meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-  .trust-legal-footer {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    color: var(--muted);
-    margin-top: var(--space-8);
-    padding-top: 20px;
-    border-top: 1px solid var(--hairline);
-    letter-spacing: 0.08em;
-  }
-  .trust-footer-version { color: var(--muted); }
-
-  .trust-body { padding: clamp(60px, 8vw, 100px) var(--space-6); }
-  .trust-grid {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: clamp(40px, 6vw, 80px);
-  }
-  .trust-toc {
-    position: sticky;
-    top: 100px;
-    align-self: start;
-  }
-  :global(.trust-toc-k) { display: block; margin-bottom: var(--space-4); }
-  .trust-toc ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    font-family: var(--font-display);
-    font-size: var(--text-body-sm);
-    line-height: var(--leading-lede);
-    border-top: 1px solid var(--hairline);
-    padding-top: 14px;
-  }
-  .trust-toc a {
-    color: var(--ink-2);
-    display: grid;
-    grid-template-columns: 30px 1fr;
-    gap: var(--space-2);
-    align-items: baseline;
-    transition: color 240ms var(--ease);
-  }
-  .trust-toc a:hover { color: var(--accent); }
-  .trust-toc-num {
-    font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-
-  .trust-sections {
-    font-family: var(--font-display);
-    font-size: var(--text-body-md);
-    line-height: var(--leading-prose);
-    color: var(--ink-2);
-    max-width: 780px;
-  }
-  .trust-sections :global(section) {
-    padding: clamp(40px, 5vw, 72px) 0;
-    border-top: 1px solid var(--hairline);
-  }
-  .trust-sections :global(section):first-child {
-    border-top: none;
-    padding-top: 0;
-  }
-  .trust-sections :global(h2) {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1;
-    letter-spacing: -0.022em;
-    font-weight: var(--fw-regular);
-    margin: 0 0 36px;
-    text-wrap: balance;
-  }
-  .trust-sections :global(h2 i) { font-style: italic; color: var(--accent); }
-  .trust-sections :global(h3) {
-    font-family: var(--font-display);
-    font-size: clamp(20px, 2.2vw, 26px);
-    line-height: 1.2;
-    font-weight: var(--fw-regular);
-    margin: clamp(28px, 3vw, 40px) 0 var(--space-3);
-    color: var(--ink);
-  }
-  .trust-sections :global(p) { margin: 0 0 1.2em; }
-  .trust-sections :global(ul) { margin: 0 0 1.4em 1.5em; }
-  .trust-sections :global(li) { margin-bottom: 0.5em; }
-  .trust-sections :global(a) {
-    color: var(--accent);
-    border-bottom: 1px solid currentColor;
-  }
-
-  @media (max-width: var(--wrap-read)) {
-    .trust-grid { grid-template-columns: 1fr; }
-    .trust-toc {
-      position: static;
-      padding-bottom: var(--space-5);
-      border-bottom: 1px solid var(--hairline);
-    }
-  }
-</style>
