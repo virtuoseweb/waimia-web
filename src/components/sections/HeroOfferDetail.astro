@@ -20,23 +20,28 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
 const offerSumie =
   data.type === 'hero-offer-detail'
     ? resolveHeroSumie(`${data.tier_fr ?? ''} ${data.h1_fr ?? ''}`)
+    : data.type === 'hero-sector'
+      ? resolveHeroSumie(`${data.dept_fr} ${data.h1_fr}`)
     : 'growth';
 ---
 {data.type === 'hero-sector' ? (
-<section class="hero-sector">
-  <svg class="hero-sector__geo" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<section class="hero-sector reveal" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+  <svg class:list={['hero-sector__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <rect x="980" y="-40" width="420" height="420" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18" transform="rotate(15 1190 170)"/>
     <rect x="1040" y="20" width="280" height="280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25" transform="rotate(15 1180 160)"/>
     <line x1="0" y1="420" x2="1440" y2="300" stroke="currentColor" stroke-width=".4" opacity=".12"/>
   </svg>
+  <aside class="hero-offer-detail__sumie reveal-zoom-in" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+    <HeroSumie name={offerSumie} size="lg" />
+  </aside>
   <div class="hero-sector__wrap">
     <div class="hero-sector__copy">
       <div class="hero-sector__dept">{isFr ? data.dept_fr : data.dept_en}</div>
-      <h1 class="hero-sector__title reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <h1 class="hero-sector__title reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
       <div class="hero-sector__sub">
         <p class="hero-sector__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
         <div class="hero-sector__actions">
-          <a class="hero-sector__cta" href={data.cta.href}>
+          <a class="btn btn-primary" href={data.cta.href}>
             {isFr ? data.cta.label_fr : data.cta.label_en}
           </a>
           {data.meta_fr && (
@@ -243,7 +248,7 @@ const offerSumie =
     margin-inline: auto;
     padding-inline: clamp(20px, 4vw, 48px);
   }
-  .hero-sector__copy { position: relative; z-index: 1; }
+  .hero-sector__copy { position: relative; z-index: 1; max-width: var(--wrap-prose); }
   .hero-sector__dept {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
@@ -263,11 +268,9 @@ const offerSumie =
   }
   .hero-sector__title :global(i) { color: var(--accent); font-style: italic; }
   .hero-sector__sub {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(24px, 4vw, 64px);
-    align-items: end;
-    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
     margin-bottom: clamp(28px, 3vw, 40px);
   }
   .hero-sector__lead {
@@ -280,19 +283,6 @@ const offerSumie =
   }
   .hero-sector__lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
   .hero-sector__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
-  .hero-sector__cta {
-    display: inline-block;
-    padding: 14px var(--space-5);
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: var(--radius-sm);
-    font-size: var(--text-body-sm);
-    font-weight: var(--fw-medium);
-    text-decoration: none;
-    letter-spacing: var(--tracking-body);
-    transition: transform 220ms ease, box-shadow 220ms ease;
-  }
-  .hero-sector__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(var(--ink-rgb), 0.12); }
   .hero-sector__meta {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
@@ -319,9 +309,6 @@ const offerSumie =
     transition: border-color 220ms ease, color 220ms ease;
   }
   .hero-sector__tag:hover { border-color: var(--accent); color: var(--accent); }
-  @media (max-width: 768px) {
-    .hero-sector__sub { grid-template-columns: 1fr; }
-  }
   /* ── hero-tech-layer ── */
   .hero-tech-layer {
     position: relative;

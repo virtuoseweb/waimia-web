@@ -86,6 +86,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'how-we-ship',           consumers: [] },
   { id: 'operating-layer',       consumers: [] },
   { id: 'manifesto-block',       consumers: [] },
+  { id: 'metric-shift',          consumers: [] },
   { id: 'stat-block',            consumers: [] },
   { id: 'comparison-table',      consumers: [] },
   { id: 'timeline-block',        consumers: [] },

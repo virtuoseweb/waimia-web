@@ -35,12 +35,12 @@ import Timeline from '../editorial/Timeline.astro';
 import KeyMetric from '../editorial/KeyMetric.astro';
 import EditorialTable from '../editorial/EditorialTable.astro';
 import Dingbat from '../editorial/Dingbat.astro';
-import HeroSumie from '../svg/sumie/HeroSumie.astro';
+import HeroOfferDetail from '../sections/HeroOfferDetail.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import { langFromPath } from '../../lib/i18n';
 import { buildService } from '../../lib/seo/schema-builder';
-import { resolveHeroSumie } from '../../lib/hero-sumie';
+import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
   /** SEO meta · title de la page (browser tab) */
@@ -111,6 +111,9 @@ const stackHtml = (await Astro.slots.render('stack')) ?? '';
 const stackAsideHtml = (await Astro.slots.render('stack-aside')) ?? '';
 const faqHtml = (await Astro.slots.render('faq')) ?? '';
 const livrablesHtml = (await Astro.slots.render('livrables')) ?? '';
+const heroTitleHtml = (await Astro.slots.render('title')) ?? '';
+const heroLeadHtml = (await Astro.slots.render('lead')) ?? '';
+const heroTagsHtml = (await Astro.slots.render('tags')) ?? '';
 
 const stripHtml = (html: string) =>
   html
@@ -118,6 +121,9 @@ const stripHtml = (html: string) =>
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+
+const unwrapParagraph = (html: string) =>
+  html.trim().replace(/^<p(?:\s[^>]*)?>([\s\S]*)<\/p>$/i, '$1');
 
 const extract = (html: string, selectorClass: string) => {
   const match = html.match(new RegExp(`<[^>]*class=["'][^"']*${selectorClass}[^"']*["'][^>]*>([\\s\\S]*?)<\\/[^>]+>`, 'i'));
@@ -227,9 +233,23 @@ const effectiveStack =
     : toolRows;
 
 const serviceLd = buildService({ name: title, description });
-
-const signature = `${dept} ${deptLabel} ${title}`.toLowerCase();
-const heroSumie = resolveHeroSumie(signature);
+const heroTags = Array.from(heroTagsHtml.matchAll(/<span[^>]*>([\s\S]*?)<\/span>/gi))
+  .map((match) => stripHtml(match[1] ?? ''))
+  .filter(Boolean)
+  .map((label) => ({ label_fr: label, label_en: label }));
+const heroData: SectionByType<'hero-sector'> = {
+  type: 'hero-sector',
+  dept_fr: dept,
+  dept_en: dept,
+  h1_fr: heroTitleHtml,
+  h1_en: heroTitleHtml,
+  lead_fr: unwrapParagraph(heroLeadHtml),
+  lead_en: unwrapParagraph(heroLeadHtml),
+  cta: { label_fr: ctaLabel, label_en: ctaLabel, href: ctaHref, variant: 'primary' },
+  meta_fr: meta || undefined,
+  meta_en: meta || undefined,
+  tags: heroTags,
+};
 ---
 <Base {title} {description} {noindex} jsonLd={[serviceLd]}>
     <Breadcrumb
@@ -241,29 +261,13 @@ const heroSumie = resolveHeroSumie(signature);
       ]}
     />
     {/* ────────── 1. HERO DEPARTMENT ────────── */}
-    <section class="sol-hero" data-screen-label="01 Hero Department" transition:name={`card-${pageTransitionId}`}>
-      <svg class="sol-hero-geo reveal-blur-clip" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={undefined}>
-        <rect x="1000" y="-60" width="380" height="380" fill="none" stroke="currentColor" stroke-width="1" opacity=".22" transform="rotate(15 1190 130)"/>
-        <rect x="1060" y="40" width="240" height="240" fill="none" stroke="var(--accent)" stroke-width="1" opacity=".3" transform="rotate(15 1180 160)"/>
-      </svg>
-      <div class="wrap g12 g12--full">
-        <div class="sol-hero-copy col-7 start-1">
-          <div class="sol-hero-dept">{dept}</div>
-          <h1 class="sol-hero-title reveal-mask-up" transition:name={`hero-h1-${pageTransitionId}`}><slot name="title" /></h1>
-          <div class="sol-hero-sub">
-            <p class="sol-hero-lead"><slot name="lead" /></p>
-            <div class="sol-hero-actions">
-              <a class="sol-hero-cta" href={ctaHref}>{ctaLabel}</a>
-              {meta && <div class="sol-hero-meta">{meta}</div>}
-            </div>
-          </div>
-          <div class="sol-hero-tags reveal-stagger"><slot name="tags" /></div>
-        </div>
-        <aside class="sol-hero-visual col-4 start-9 reveal-zoom-in" aria-hidden="true" transition:name={`hero-img-${pageTransitionId}`}>
-          <HeroSumie name={heroSumie} size="lg" />
-        </aside>
-      </div>
-    </section>
+    <HeroOfferDetail
+      data={heroData}
+      {lang}
+      transitionId={pageTransitionId}
+      cardTransitionId={pageTransitionId}
+      geoReveal={true}
+    />
 
     {/* ────────── 2. PAIN POINTS ────────── */}
     <section class="sol-sec sol-friction reveal-stagger" data-screen-label="02 Pain Points">
@@ -463,140 +467,8 @@ const heroSumie = resolveHeroSumie(signature);
 </Base>
 
 <style>
-  /* ───── Hero Department ───── */
-  .sol-hero {
-    position: relative;
-    padding-top: clamp(80px, 9vw, 120px);
-    padding-bottom: clamp(56px, 6vw, 96px);
-    overflow: hidden;
-    color: var(--ink);
-  }
   .start-9 { grid-column-start: 9; }
   .start-10 { grid-column-start: 10; }
-  .sol-hero-geo {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    opacity: 0.08;
-    mix-blend-mode: multiply;
-  }
-  .sol-hero-copy,
-  .sol-hero-visual {
-    position: relative;
-    z-index: 1;
-  }
-  .sol-hero-copy { grid-column: 1 / span 7; }
-  .sol-hero-visual {
-    grid-column: 9 / -1;
-    align-self: center;
-    opacity: 0.85;
-    color: var(--ink);
-    mix-blend-mode: multiply;
-  }
-  .sol-hero-visual :global(svg) {
-    width: min(100%, 480px);
-    height: auto;
-    margin-left: auto;
-  }
-  .sol-hero-bc {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--muted);
-    display: flex; gap: var(--space-2); align-items: center;
-    margin-bottom: var(--space-5);
-  }
-  .sol-hero-bc a { color: var(--muted); transition: color 220ms var(--ease); }
-  .sol-hero-bc a:hover { color: var(--accent); }
-  .sol-hero-dept {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-  }
-  .sol-hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(38px, 4.4vw, 72px);
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    font-weight: var(--fw-regular);
-    margin: 0 0 var(--space-6);
-    text-wrap: balance;
-    max-width: 18ch;
-  }
-  .sol-hero-title :global(i) { color: var(--accent); font-style: italic; }
-  @keyframes mask-reveal {
-    from { clip-path: inset(0 100% 0 0); }
-    to { clip-path: inset(0 0% 0 0); }
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .sol-hero-title {
-      animation: mask-reveal 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
-    }
-  }
-  .sol-hero-sub {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(24px, 4vw, 64px);
-    align-items: end;
-    max-width: 1100px;
-    margin-bottom: clamp(28px, 3vw, 40px);
-  }
-  .sol-hero-lead {
-    font-family: var(--font-sans);
-    font-size: clamp(20px, 2vw, 26px);
-    line-height: var(--leading-lede);
-    color: var(--ink);
-    font-style: italic;
-    margin: 0;
-  }
-  .sol-hero-lead :global(span) { color: var(--accent); display: block; margin-top: var(--space-2); }
-  .sol-hero-actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
-  .sol-hero-cta {
-    display: inline-block;
-    padding: 14px var(--space-5);
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: var(--radius-sm);
-    font-size: var(--text-body-sm);
-    font-weight: var(--fw-medium);
-    text-decoration: none;
-    letter-spacing: var(--tracking-body);
-    transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
-  }
-  .sol-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(var(--ink-rgb), 0.12); }
-  .sol-hero-meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-  .sol-hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-top: var(--space-2);
-  }
-  .sol-hero-tags :global(.sol-tag) {
-    font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink);
-    padding: var(--space-2) 14px;
-    background: rgba(var(--ink-rgb), 0.04);
-    border: 1px solid var(--hairline);
-    border-radius: var(--radius-sm);
-    transition: border-color 220ms var(--ease), color 220ms var(--ease);
-  }
-  .sol-hero-tags :global(.sol-tag:hover) {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
   /* ───── Sec common ───── */
   .sol-sec { padding: clamp(48px, 6vw, 80px) 0; position: relative; }
   .sol-friction { margin-top: var(--section-base); }
@@ -1202,8 +1074,6 @@ const heroSumie = resolveHeroSumie(signature);
     }
   }
   @media (max-width: 800px) {
-    .sol-hero-copy, .sol-hero-visual { grid-column: 1 / -1; }
-    .sol-hero-sub { grid-template-columns: 1fr; }
     .sol-sec-hd { grid-template-columns: 1fr; }
     .sol-case-grid { grid-template-columns: 1fr; }
     .sol-stack-grid :global(.stack-card) {
