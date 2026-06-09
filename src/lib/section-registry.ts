@@ -52,6 +52,7 @@ import HeroEssay from '../components/sections/HeroEssay.astro';
 import HeroLiquid from '../components/sections/HeroLiquid.astro';
 import ProofBarSection from '../components/sections/ProofBarSection.astro';
 import StatBlock from '../components/sections/StatBlock.astro';
+import MetricShift from '../components/sections/MetricShift.astro';
 import SocialProof from '../components/sections/SocialProof.astro';
 import MethodTimeline from '../components/sections/MethodTimeline.astro';
 import FeatureGrid from '../components/sections/FeatureGrid.astro';
@@ -463,6 +464,16 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Bloc de statistiques en grille pour mettre en avant des chiffres de performance ou d'impact.",
     description_en: 'Grid-based stats block for highlighting performance or impact figures.',
+  },
+  'metric-shift': {
+    component: MetricShift,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['proof', 'metrics', 'before-after', 'results'],
+    status: 'stable',
+    description_fr: 'Comparaison avant → après : valeur initiale et finale magnifiées, delta.',
+    description_en: 'Before → after comparison: initial and final value magnified, delta.',
   },
   'social-proof': {
     component: SocialProof,

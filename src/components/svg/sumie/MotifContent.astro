@@ -1,0 +1,60 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'default' | 'mono';
+}
+
+const { size = 'md', variant = 'default' } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 480 320"
+  preserveAspectRatio="xMidYMid meet"
+  class={`sumie-sector sumie-sector-${size}`}
+  role="img"
+  aria-label="Geste d'écriture et lignes de texte au trait"
+>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path
+      d="M118 232 C140 196 168 158 206 126 C244 94 286 76 330 84 C352 88 358 104 342 118 C320 137 286 134 268 152 C252 168 256 188 274 196"
+      stroke-width="2.5"
+    />
+    <path
+      d="M118 232 C141 197 168 159 206 127 C243 96 285 78 328 85"
+      stroke-width="1"
+      stroke-dasharray="58 18"
+    />
+    <path d="M122 220 L116 244 L138 236" stroke-width="1.4" />
+    <path d="M196 168 L356 162" stroke-width="1.15" stroke-dasharray="50 14" />
+    <path d="M204 192 L338 187" stroke-width="1.15" stroke-dasharray="42 14" />
+    <path d="M212 216 L312 212" stroke-width="1.15" stroke-dasharray="34 13" />
+    <path d="M220 240 L284 237" stroke-width="1.15" stroke-dasharray="26 12" />
+  </g>
+  {
+    variant === 'default' && (
+      <path
+        d="M170 168 C176 164 186 167 188 174 C183 180 173 180 168 174 C167 172 168 170 170 168 Z"
+        fill="var(--accent)"
+      />
+    )
+  }
+</svg>
+
+<style>
+  .sumie-sector {
+    display: block;
+    color: var(--ink-2);
+  }
+
+  .sumie-sector-sm {
+    width: 180px;
+  }
+
+  .sumie-sector-md {
+    width: 360px;
+  }
+
+  .sumie-sector-lg {
+    width: 480px;
+  }
+</style>

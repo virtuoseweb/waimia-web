@@ -1,0 +1,57 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'default' | 'mono';
+}
+
+const { size = 'md', variant = 'default' } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 480 320"
+  preserveAspectRatio="xMidYMid meet"
+  class={`sumie-sector sumie-sector-${size}`}
+  role="img"
+  aria-label="Deux bulles de conversation au trait qui se répondent"
+>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path
+      d="M126 112 C118 112 112 119 112 128 L112 178 C112 187 118 194 127 194 L150 194 L150 218 L178 194 L300 194 C309 194 315 187 315 178 L315 128 C315 119 309 112 300 112 Z"
+      stroke-width="2.4"
+    />
+    <path d="M150 142 L276 142" stroke-width="1.1" stroke-dasharray="44 14" />
+    <path d="M150 164 L240 164" stroke-width="1.1" stroke-dasharray="34 12" />
+    <path
+      d="M340 168 C333 168 328 174 328 181 L328 218 C328 225 333 231 340 231 L352 231 L352 250 L374 231 L394 231 C401 231 406 225 406 218 L406 181 C406 174 401 168 394 168 Z"
+      stroke-width="1.7"
+    />
+    <path d="M348 195 L386 195" stroke-width="1" stroke-dasharray="20 9" />
+  </g>
+  {
+    variant === 'default' && (
+      <path
+        d="M174 162 C180 158 190 161 192 168 C187 174 177 174 172 168 C171 166 172 164 174 162 Z"
+        fill="var(--accent)"
+      />
+    )
+  }
+</svg>
+
+<style>
+  .sumie-sector {
+    display: block;
+    color: var(--ink-2);
+  }
+
+  .sumie-sector-sm {
+    width: 180px;
+  }
+
+  .sumie-sector-md {
+    width: 360px;
+  }
+
+  .sumie-sector-lg {
+    width: 480px;
+  }
+</style>

@@ -35,13 +35,12 @@ import Timeline from '../editorial/Timeline.astro';
 import KeyMetric from '../editorial/KeyMetric.astro';
 import EditorialTable from '../editorial/EditorialTable.astro';
 import Dingbat from '../editorial/Dingbat.astro';
-import SecteurServicesB2B from '../svg/sumie/SecteurServicesB2B.astro';
-import SecteurIndustrie from '../svg/sumie/SecteurIndustrie.astro';
-import SecteurFinance from '../svg/sumie/SecteurFinance.astro';
+import HeroSumie from '../svg/sumie/HeroSumie.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import { langFromPath } from '../../lib/i18n';
 import { buildService } from '../../lib/seo/schema-builder';
+import { resolveHeroSumie } from '../../lib/hero-sumie';
 
 interface Props {
   /** SEO meta · title de la page (browser tab) */
@@ -230,14 +229,7 @@ const effectiveStack =
 const serviceLd = buildService({ name: title, description });
 
 const signature = `${dept} ${deptLabel} ${title}`.toLowerCase();
-const sectorVisual =
-  signature.includes('services b2b') || signature.includes('cabinet') || signature.includes('conseil')
-    ? 'services-b2b'
-    : signature.includes('industrie')
-      ? 'industrie'
-      : signature.includes('finance') || signature.includes('compta') || signature.includes('comptabilité')
-        ? 'finance'
-        : '';
+const heroSumie = resolveHeroSumie(signature);
 ---
 <Base {title} {description} {noindex} jsonLd={[serviceLd]}>
     <Breadcrumb
@@ -250,10 +242,9 @@ const sectorVisual =
     />
     {/* ────────── 1. HERO DEPARTMENT ────────── */}
     <section class="sol-hero" data-screen-label="01 Hero Department" transition:name={`card-${pageTransitionId}`}>
-      <svg class="sol-hero-geo reveal-blur-clip" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={!sectorVisual ? `hero-img-${pageTransitionId}` : undefined}>
-        <rect x="980" y="-40" width="420" height="420" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18" transform="rotate(15 1190 170)"/>
-        <rect x="1040" y="20" width="280" height="280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25" transform="rotate(15 1180 160)"/>
-        <line x1="0" y1="420" x2="1440" y2="300" stroke="currentColor" stroke-width=".4" opacity=".12"/>
+      <svg class="sol-hero-geo reveal-blur-clip" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={undefined}>
+        <rect x="1000" y="-60" width="380" height="380" fill="none" stroke="currentColor" stroke-width="1" opacity=".22" transform="rotate(15 1190 130)"/>
+        <rect x="1060" y="40" width="240" height="240" fill="none" stroke="var(--accent)" stroke-width="1" opacity=".3" transform="rotate(15 1180 160)"/>
       </svg>
       <div class="wrap g12 g12--full">
         <div class="sol-hero-copy col-7 start-1">
@@ -268,13 +259,9 @@ const sectorVisual =
           </div>
           <div class="sol-hero-tags reveal-stagger"><slot name="tags" /></div>
         </div>
-        {sectorVisual && (
-          <aside class="sol-hero-visual col-4 start-9 reveal-zoom-in" aria-hidden="true" transition:name={`hero-img-${pageTransitionId}`}>
-            {sectorVisual === 'services-b2b' && <SecteurServicesB2B size="lg" />}
-            {sectorVisual === 'industrie' && <SecteurIndustrie size="lg" />}
-            {sectorVisual === 'finance' && <SecteurFinance size="lg" />}
-          </aside>
-        )}
+        <aside class="sol-hero-visual col-4 start-9 reveal-zoom-in" aria-hidden="true" transition:name={`hero-img-${pageTransitionId}`}>
+          <HeroSumie name={heroSumie} size="lg" />
+        </aside>
       </div>
     </section>
 
@@ -497,7 +484,9 @@ const sectorVisual =
     position: relative;
     z-index: 1;
   }
+  .sol-hero-copy { grid-column: 1 / span 7; }
   .sol-hero-visual {
+    grid-column: 9 / -1;
     align-self: center;
     opacity: 0.85;
     color: var(--ink);
@@ -529,12 +518,13 @@ const sectorVisual =
   }
   .sol-hero-title {
     font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 148px);
-    line-height: 0.92;
-    letter-spacing: -0.028em;
+    font-size: clamp(38px, 4.4vw, 72px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
     font-weight: var(--fw-regular);
     margin: 0 0 var(--space-6);
     text-wrap: balance;
+    max-width: 18ch;
   }
   .sol-hero-title :global(i) { color: var(--accent); font-style: italic; }
   @keyframes mask-reveal {
@@ -1212,6 +1202,7 @@ const sectorVisual =
     }
   }
   @media (max-width: 800px) {
+    .sol-hero-copy, .sol-hero-visual { grid-column: 1 / -1; }
     .sol-hero-sub { grid-template-columns: 1fr; }
     .sol-sec-hd { grid-template-columns: 1fr; }
     .sol-case-grid { grid-template-columns: 1fr; }

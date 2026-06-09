@@ -1,0 +1,40 @@
+---
+/**
+ * HeroSumie · registre de motifs sumi-e pour les héros (secteurs / solutions / offres).
+ * Mappe une clé `name` → un composant motif. Jamais vide (fallback MotifGrowth).
+ * Contrat partagé : viewBox 0 0 480 320, classes .sumie-sector*, accent var(--accent)
+ * en variant 'default', mono sans accent. La clé se résout via lib/hero-sumie.ts.
+ */
+import MotifGrowth from './MotifGrowth.astro';
+import MotifContent from './MotifContent.astro';
+import MotifNetwork from './MotifNetwork.astro';
+import MotifFlow from './MotifFlow.astro';
+import MotifDialogue from './MotifDialogue.astro';
+import MotifLayers from './MotifLayers.astro';
+import SecteurFinance from './SecteurFinance.astro';
+import SecteurServicesB2B from './SecteurServicesB2B.astro';
+import SecteurIndustrie from './SecteurIndustrie.astro';
+
+interface Props {
+  name: string;
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'default' | 'mono';
+}
+
+const { name, size = 'md', variant = 'default' } = Astro.props;
+
+const map = {
+  growth: MotifGrowth,
+  content: MotifContent,
+  network: MotifNetwork,
+  flow: MotifFlow,
+  dialogue: MotifDialogue,
+  layers: MotifLayers,
+  finance: SecteurFinance,
+  'services-b2b': SecteurServicesB2B,
+  industrie: SecteurIndustrie,
+} as const;
+
+const Cmp = (map as Record<string, typeof MotifGrowth>)[name] ?? MotifGrowth;
+---
+<Cmp {size} {variant} />

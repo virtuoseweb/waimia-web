@@ -1,0 +1,57 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'default' | 'mono';
+}
+
+const { size = 'md', variant = 'default' } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 480 320"
+  preserveAspectRatio="xMidYMid meet"
+  class={`sumie-sector sumie-sector-${size}`}
+  role="img"
+  aria-label="Réseau de relations relié à un nœud central au trait"
+>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M240 160 L138 96" stroke-width="0.85" stroke-dasharray="30 11" />
+    <path d="M240 160 L356 104" stroke-width="0.85" stroke-dasharray="30 11" />
+    <path d="M240 160 L128 214" stroke-width="0.85" stroke-dasharray="30 11" />
+    <path d="M240 160 L350 232" stroke-width="0.85" stroke-dasharray="30 11" />
+    <path d="M240 160 L246 256" stroke-width="0.85" stroke-dasharray="24 10" />
+    <path d="M240 142 C228 142 219 152 220 165 C221 179 234 187 247 183 C259 179 264 165 257 154 C253 147 247 143 240 142" stroke-width="2.3" />
+    <path d="M132 88 C123 88 116 96 118 105 C120 115 131 119 139 115 C147 111 149 101 143 94 C140 90 136 88 132 88" stroke-width="1.5" />
+    <path d="M350 96 C341 96 334 104 336 113 C338 123 349 127 357 123 C365 119 367 109 361 102 C358 98 354 96 350 96" stroke-width="1.45" />
+    <path d="M122 206 C113 206 106 214 108 223 C110 233 121 237 129 233 C137 229 139 219 133 212 C130 208 126 206 122 206" stroke-width="1.5" />
+    <path d="M344 224 C335 224 328 232 330 241 C332 251 343 255 351 251 C359 247 361 237 355 230 C352 226 348 224 344 224" stroke-width="1.4" />
+    <path d="M240 248 C233 248 228 254 229 261 C230 269 238 272 245 269 C251 266 253 258 248 253 C246 250 243 248 240 248" stroke-width="1.2" />
+  </g>
+  {
+    variant === 'default' && (
+      <path
+        d="M240 145 C231 145 224 153 226 163 C228 174 240 178 249 174 C258 170 261 159 254 151 C250 147 245 145 240 145 Z"
+        fill="var(--accent)"
+      />
+    )
+  }
+</svg>
+
+<style>
+  .sumie-sector {
+    display: block;
+    color: var(--ink-2);
+  }
+
+  .sumie-sector-sm {
+    width: 180px;
+  }
+
+  .sumie-sector-md {
+    width: 360px;
+  }
+
+  .sumie-sector-lg {
+    width: 480px;
+  }
+</style>

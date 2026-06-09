@@ -759,6 +759,32 @@ export const statBlockSchema = z.object({
   layout: z.enum(['grid-3', 'grid-4', 'rows-hairlines']).default('grid-3'),
 });
 
+// Band before→après : valeur initiale → valeur finale magnifiée + delta (résultats, ROI)
+export const metricShiftSchema = z.object({
+  type: z.literal('metric-shift'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  shifts: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+        before: z.string(),
+        after: z.string(),
+        delta_fr: z.string().optional(),
+        delta_en: z.string().optional(),
+        trend: z.enum(['up', 'down', 'flat']).optional(),
+      }),
+    )
+    .min(2)
+    .max(6),
+  background: z.enum(['paper', 'paper-2', 'ink']).default('paper'),
+});
+
 export const socialProofSchema = z.object({
   type: z.literal('social-proof'),
   kicker_fr: z.string().optional(),
@@ -1522,6 +1548,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroLiquidSchema,
   proofBarSchema,
   statBlockSchema,
+  metricShiftSchema,
   socialProofSchema,
   methodTimelineSchema,
   featureGridSchema,

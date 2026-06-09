@@ -2,6 +2,8 @@
 // Section catalogue · hero-offer-detail | hero-sector | hero-tech-layer
 // Composant canonique géométrie SVG : 3 type-ids, 1 fichier, byte-identique.
 import type { SectionByType } from '../../schemas/sections';
+import HeroSumie from '../svg/sumie/HeroSumie.astro';
+import { resolveHeroSumie } from '../../lib/hero-sumie';
 
 interface Props {
   data: SectionByType<'hero-offer-detail'> | SectionByType<'hero-sector'> | SectionByType<'hero-tech-layer'>;
@@ -15,6 +17,10 @@ interface Props {
 const { data, lang, transitionId, cardTransitionId, wrapMax, geoReveal, breadcrumbCurrent } = Astro.props;
 const isFr = lang === 'fr';
 const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude') : 'claude';
+const offerSumie =
+  data.type === 'hero-offer-detail'
+    ? resolveHeroSumie(`${data.tier_fr ?? ''} ${data.h1_fr ?? ''}`)
+    : 'growth';
 ---
 {data.type === 'hero-sector' ? (
 <section class="hero-sector">
@@ -86,6 +92,9 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
     <line x1="1196" y1="118" x2="1204" y2="118" stroke="currentColor" stroke-width=".7" opacity=".22"/>
     <line x1="1200" y1="114" x2="1200" y2="122" stroke="currentColor" stroke-width=".7" opacity=".22"/>
   </svg>
+  <aside class="hero-offer-detail__sumie reveal-zoom-in" aria-hidden="true">
+    <HeroSumie name={offerSumie} size="lg" />
+  </aside>
   <div class="hero-offer-detail__wrap" style={wrapMax ? `--hod-wrap: ${wrapMax}` : undefined}>
     {data.breadcrumb_label_fr && (
       <nav class="hero-offer-detail__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
@@ -120,6 +129,21 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
   .hero-offer-detail__geo {
     position: absolute; inset: 0; width: 100%; height: 100%;
     pointer-events: none;
+  }
+  .hero-offer-detail__sumie {
+    position: absolute;
+    top: 50%; right: clamp(20px, 5vw, 96px);
+    transform: translateY(-50%);
+    z-index: 0;
+    color: var(--ink-2);
+    opacity: 0.8;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    max-width: 42%;
+  }
+  .hero-offer-detail__sumie :global(svg) { width: min(100%, 460px); height: auto; }
+  @media (max-width: 768px) {
+    .hero-offer-detail__sumie { display: none; }
   }
   .hero-offer-detail__wrap {
     position: relative;
