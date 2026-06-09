@@ -1,0 +1,172 @@
+---
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'cta-split-visual'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="cta-split" data-bg={data.background ?? 'paper-2'}>
+  <div class="wrap-wide cta-split__inner">
+
+    <!-- Colonne gauche : kicker + titre + body + boutons -->
+    <div class="cta-split__text">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted" class="cta-split__kicker">
+          {isFr ? data.kicker_fr : data.kicker_en}
+        </Kicker>
+      )}
+      <h2 class="reveal-mask-up" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.body_fr : data.body_en) && (
+        <p class="cta-split__body reveal reveal-fade">
+          {isFr ? data.body_fr : data.body_en}
+        </p>
+      )}
+      <div class="cta-split__ctas reveal reveal-fade">
+        <Button
+          href={data.cta_primary.href}
+          variant={data.cta_primary.variant as any}
+          size="lg"
+          mag={data.cta_primary.mag ?? 0.16}
+        >
+          {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+        </Button>
+        {data.cta_secondary && (
+          <Button
+            href={data.cta_secondary.href}
+            variant={data.cta_secondary.variant as any}
+            size="md"
+          >
+            {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+          </Button>
+        )}
+      </div>
+    </div>
+
+    <!-- Colonne droite : visuel SVG decoratif -->
+    <div class="cta-split__visual" aria-hidden="true">
+      <svg class="cta-split__svg" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cercle principal -->
+        <circle cx="160" cy="140" r="100" stroke="var(--accent)" stroke-width="1.5" opacity="0.35" />
+        <!-- Cercle interieur -->
+        <circle cx="160" cy="140" r="68" stroke="var(--accent)" stroke-width="1" opacity="0.25" />
+        <!-- Cercle exterieur -->
+        <circle cx="160" cy="140" r="130" stroke="var(--hairline)" stroke-width="1" stroke-dasharray="4 6" />
+        <!-- Croix centrale -->
+        <line x1="160" y1="60" x2="160" y2="220" stroke="var(--hairline)" stroke-width="1" />
+        <line x1="80" y1="140" x2="240" y2="140" stroke="var(--hairline)" stroke-width="1" />
+        <!-- Triangle rotation 15 deg -->
+        <polygon
+          points="160,70 220,180 100,180"
+          stroke="var(--accent)"
+          stroke-width="1.5"
+          fill="none"
+          opacity="0.18"
+          transform="rotate(15 160 140)"
+        />
+        <!-- Point central -->
+        <circle cx="160" cy="140" r="4" fill="var(--accent)" opacity="0.6" />
+        <!-- Points orbite -->
+        <circle cx="260" cy="140" r="3" fill="var(--accent)" opacity="0.4" />
+        <circle cx="160" cy="40" r="3" fill="var(--muted)" opacity="0.3" />
+        <circle cx="80" cy="200" r="2.5" fill="var(--muted)" opacity="0.25" />
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .cta-split {
+    padding-block: var(--spacing-section);
+    border-block: 1px solid var(--hairline);
+  }
+
+  /* Fonds */
+  .cta-split[data-bg="paper-2"] { background: var(--paper-2); }
+  .cta-split[data-bg="paper"]   { background: var(--paper); }
+  .cta-split[data-bg="ink"]     { background: var(--ink); }
+  .cta-split[data-bg="accent"]  { background: var(--accent); }
+
+  /* Texte on-dark */
+  .cta-split[data-bg="ink"] h2,
+  .cta-split[data-bg="ink"] .cta-split__body { color: var(--paper); }
+  .cta-split[data-bg="accent"] h2,
+  .cta-split[data-bg="accent"] .cta-split__body { color: var(--paper); }
+
+  /* Layout 2 colonnes */
+  .cta-split__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  /* Colonne texte */
+  .cta-split__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .cta-split__kicker {
+    margin-bottom: var(--space-1);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+
+  .cta-split__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+    max-width: 52ch;
+  }
+
+  .cta-split__ctas {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* Colonne visuelle */
+  .cta-split__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cta-split__svg {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  /* Responsive : stack, visuel sous le texte */
+  @media (max-width: 768px) {
+    .cta-split__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+    .cta-split__visual {
+      order: 2;
+    }
+    .cta-split__svg {
+      max-width: 240px;
+    }
+  }
+</style>

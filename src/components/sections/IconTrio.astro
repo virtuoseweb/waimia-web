@@ -1,0 +1,116 @@
+---
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'icon-trio'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="icon-trio">
+  <div class="wrap-wide">
+    {(isFr ? data.kicker_fr : data.kicker_en) && (
+      <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    )}
+    {(isFr ? data.h2_fr : data.h2_en) && (
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+    )}
+    <ul class="icon-trio__cols reveal-stagger">
+      {data.items.map((item: (typeof data.items)[number]) => (
+        <li class="icon-trio__col">
+          {item.glyph && (
+            <span class="icon-trio__glyph" aria-hidden="true">{item.glyph}</span>
+          )}
+          <strong class="icon-trio__title">{isFr ? item.title_fr : item.title_en}</strong>
+          <p class="icon-trio__body">{isFr ? item.body_fr : item.body_en}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .icon-trio {
+    padding-block: var(--spacing-section);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .icon-trio .wrap-wide > :global(.kicker) {
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0 0 var(--spacing-block);
+  }
+  h2 :global(i) { font-style: italic; }
+
+  .icon-trio__cols {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .icon-trio__col {
+    padding: clamp(20px, 2.5vw, 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  /* Separateurs hairline verticaux sur les 2e et 3e colonnes */
+  .icon-trio__col:nth-child(2),
+  .icon-trio__col:nth-child(3) {
+    border-left: 1px solid var(--hairline);
+  }
+
+  .icon-trio__glyph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1;
+    color: var(--accent);
+    font-family: var(--font-display);
+  }
+
+  .icon-trio__title {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.4vw, 20px);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .icon-trio__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Responsive : 1 colonne, separateurs horizontaux */
+  @media (max-width: 768px) {
+    .icon-trio__cols {
+      grid-template-columns: 1fr;
+    }
+
+    .icon-trio__col:nth-child(2),
+    .icon-trio__col:nth-child(3) {
+      border-left: none;
+      border-top: 1px solid var(--hairline);
+    }
+  }
+</style>

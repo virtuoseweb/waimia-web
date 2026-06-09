@@ -90,6 +90,18 @@ import RelatedCardsBand from '../components/sections/RelatedCardsBand.astro';
 import PullQuoteBlock from '../components/sections/PullQuoteBlock.astro';
 import InclusionsList from '../components/sections/InclusionsList.astro';
 import ProblemStatement from '../components/sections/ProblemStatement.astro';
+import BentoGrid from '../components/sections/BentoGrid.astro';
+import FeatureZigzag from '../components/sections/FeatureZigzag.astro';
+import LogoWall from '../components/sections/LogoWall.astro';
+import PricingComparisonMatrix from '../components/sections/PricingComparisonMatrix.astro';
+import GalleryMasonry from '../components/sections/GalleryMasonry.astro';
+import FeatureTabs from '../components/sections/FeatureTabs.astro';
+import IconTrio from '../components/sections/IconTrio.astro';
+import QuoteSpotlight from '../components/sections/QuoteSpotlight.astro';
+import StepsHorizontal from '../components/sections/StepsHorizontal.astro';
+import CtaSplitVisual from '../components/sections/CtaSplitVisual.astro';
+import StatsBento from '../components/sections/StatsBento.astro';
+import ComparisonDuo from '../components/sections/ComparisonDuo.astro';
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -844,6 +856,126 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Énoncé macro-typographique du problème avec stats optionnelles en grille hairline.',
     description_en: 'Macro-typographic problem statement with optional hairline stats grid.',
+  },
+  'bento-grid': {
+    component: BentoGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['bento', 'grid', 'feature', 'asymmetric'],
+    status: 'stable',
+    description_fr: 'Mosaique bento asymetrique de 5 cellules (1 grande 2x2 + 4 petites) pour valoriser les capacites cles avec une mise en page moderne.',
+    description_en: 'Asymmetric bento mosaic of 5 cells (1 large 2x2 + 4 small) to highlight key capabilities with a modern layout.',
+  },
+  'feature-zigzag': {
+    component: FeatureZigzag,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['feature', 'zigzag', 'alternating', 'rows'],
+    status: 'stable',
+    description_fr: "Lignes alternées visuel/texte (gauche-droite, droite-gauche) pour presenter les fonctionnalites cles d'une offre avec un rythme editorial fort.",
+    description_en: 'Alternating visual/text rows (left-right, right-left) to present key features with strong editorial rhythm.',
+  },
+  'logo-wall': {
+    component: LogoWall,
+    category: 'marketing',
+    subcategory: 'Logo Sections',
+    categorySlug: 'logo-sections',
+    tags: ['logos', 'grid', 'social-proof', 'static'],
+    status: 'stable',
+    description_fr: 'Grille statique de logos partenaires ou clients, avec effet grayscale vers couleur au hover. Distinct du bandeau animé marquee-band.',
+    description_en: 'Static grid of partner or client logos with grayscale to colour hover effect. Distinct from the animated marquee-band.',
+  },
+  'pricing-comparison-matrix': {
+    component: PricingComparisonMatrix,
+    category: 'marketing',
+    subcategory: 'Pricing Sections',
+    categorySlug: 'pricing-sections',
+    tags: ['pricing', 'table', 'comparison', 'matrix'],
+    status: 'stable',
+    description_fr: 'Matrice comparative tarifaire pour mettre en regard les fonctionnalites de 3 plans avec mise en avant de la colonne recommandee.',
+    description_en: 'Pricing comparison matrix to compare features across 3 plans with a highlighted recommended column.',
+  },
+  'gallery-masonry': {
+    component: GalleryMasonry,
+    category: 'marketing',
+    subcategory: 'Gallery Sections',
+    categorySlug: 'gallery-sections',
+    tags: ['gallery', 'masonry', 'images', 'editorial'],
+    status: 'stable',
+    description_fr: 'Galerie editoriale en colonnes CSS (masonry naturel) avec legende au hover par overlay. Hauteurs variees, responsive 3 colonnes -> 2 -> 1.',
+    description_en: 'Editorial gallery in CSS columns (natural masonry) with hover overlay caption. Varied heights, responsive 3 cols -> 2 -> 1.',
+  },
+  'feature-tabs': {
+    component: FeatureTabs,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['feature', 'tabs', 'interactive', 'tabbed'],
+    status: 'stable',
+    description_fr: 'Section fonctionnalites en onglets cliquables : barre de tabs aria-compliant + panneau texte/visuel. Interactif vanilla JS, 0 dependance.',
+    description_en: 'Feature section with clickable tabs: aria-compliant tab bar + text/visual panel. Interactive vanilla JS, zero dependencies.',
+  },
+  'icon-trio': {
+    component: IconTrio,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['feature', 'icons', 'trio', 'columns'],
+    status: 'stable',
+    description_fr: 'Trois colonnes iconographiques avec titre et description, séparées par des hairlines verticaux. Idéal pour présenter 3 piliers ou bénéfices distincts.',
+    description_en: 'Three icon columns with title and description, separated by vertical hairlines. Ideal for presenting 3 pillars or distinct benefits.',
+  },
+  'quote-spotlight': {
+    component: QuoteSpotlight,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['testimonial', 'quote', 'spotlight', 'editorial'],
+    status: 'stable',
+    description_fr: "Grande citation pleine lumiere sur fond paper-2 : guillemet decoratif, texte display italique, auteur avec avatar rond.",
+    description_en: 'Full-spotlight quote on paper-2 background: decorative quotemark, italic display text, author with rounded avatar.',
+  },
+  'steps-horizontal': {
+    component: StepsHorizontal,
+    category: 'marketing',
+    subcategory: 'Timelines',
+    categorySlug: 'timelines',
+    tags: ['process', 'steps', 'horizontal', 'timeline'],
+    status: 'stable',
+    description_fr: 'Etapes numerotees en ligne avec pastilles et connecteurs hairline. Passage vertical sous 760px.',
+    description_en: 'Numbered steps in a row with round pills and hairline connectors. Stacks vertically below 760px.',
+  },
+  'cta-split-visual': {
+    component: CtaSplitVisual,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['cta', 'split', 'visual', 'banner'],
+    status: 'stable',
+    description_fr: 'Bandeau CTA asymetrique 2 colonnes : texte kicker/titre/body/boutons a gauche, visuel SVG decoratif a droite. Distinct des CTA centres.',
+    description_en: 'Asymmetric 2-column CTA banner: kicker/title/body/buttons on the left, decorative SVG visual on the right. Distinct from centered CTAs.',
+  },
+  'stats-bento': {
+    component: StatsBento,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['stats', 'bento', 'kpi', 'metrics'],
+    status: 'stable',
+    description_fr: 'Quatre KPI en grille bento de tailles inegales : une grande cellule avec chiffre geant et trois cellules secondaires, plus un bandeau bas pleine largeur.',
+    description_en: 'Four KPIs in an uneven bento grid: one large hero cell with a giant number and three smaller cells, plus a full-width bottom banner.',
+  },
+  'comparison-duo': {
+    component: ComparisonDuo,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['comparison', 'duo', 'before-after', 'versus'],
+    status: 'stable',
+    description_fr: 'Deux cartes cote a cote (Sans / Avec) pour mettre en evidence le contraste avant/apres ou nous-vs-eux, avec items a puces et glyphes differencies.',
+    description_en: 'Two side-by-side cards (Without / With) to highlight a before/after or us-vs-them contrast, with bulleted items and differentiated glyphs.',
   },
 };
 

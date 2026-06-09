@@ -1,0 +1,287 @@
+---
+// FeatureTabs · section catalogue · onglets interactifs (feature droite)
+// Barre tabs aria-compliant + panneau visuel a droite. Vanilla JS inline.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'feature-tabs'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const tabs = data.tabs;
+---
+
+<section class="feature-tabs" aria-labelledby="feature-tabs-h2">
+  <div class="wrap-wide">
+    <div class="feature-tabs__header">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 id="feature-tabs-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.intro_fr : data.intro_en) && (
+        <p class="feature-tabs__intro">{isFr ? data.intro_fr : data.intro_en}</p>
+      )}
+    </div>
+
+    <div class="feature-tabs__ui" data-feature-tabs>
+      <!-- Tab bar -->
+      <div class="feature-tabs__tablist" role="tablist" aria-label={isFr ? 'Fonctionnalites' : 'Features'}>
+        {tabs.map((tab, i) => (
+          <button
+            class="feature-tabs__tab"
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-controls={`feature-tab-panel-${i}`}
+            id={`feature-tab-btn-${i}`}
+            data-tab={i}
+            tabindex={i === 0 ? 0 : -1}
+            type="button"
+          >
+            {tab.icon && <span class="feature-tabs__tab-icon" aria-hidden="true">{tab.icon}</span>}
+            <span class="feature-tabs__tab-label">{isFr ? tab.label_fr : tab.label_en}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Panels -->
+      <div class="feature-tabs__panels">
+        {tabs.map((tab, i) => (
+          <div
+            class={`feature-tabs__panel${i === 0 ? ' is-active' : ''}`}
+            role="tabpanel"
+            id={`feature-tab-panel-${i}`}
+            aria-labelledby={`feature-tab-btn-${i}`}
+            data-panel={i}
+            hidden={i !== 0}
+          >
+            <div class="feature-tabs__panel-content">
+              <div class="feature-tabs__panel-text">
+                <h3 set:html={isFr ? tab.title_fr : tab.title_en} />
+                <p>{isFr ? tab.body_fr : tab.body_en}</p>
+              </div>
+              <div class="feature-tabs__panel-visual" aria-hidden="true">
+                <div class="feature-tabs__visual-box">
+                  {tab.visual_label_fr && (
+                    <span class="feature-tabs__visual-label">
+                      {isFr ? tab.visual_label_fr : tab.visual_label_en}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('[data-feature-tabs]');
+    if (!root) return;
+    const tabBtns = root.querySelectorAll('[role="tab"]');
+    const panels = root.querySelectorAll('[role="tabpanel"]');
+
+    function activate(idx) {
+      tabBtns.forEach((btn, i) => {
+        const active = i === idx;
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        btn.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach((panel, i) => {
+        const active = i === idx;
+        panel.classList.toggle('is-active', active);
+        if (active) {
+          panel.removeAttribute('hidden');
+        } else {
+          panel.setAttribute('hidden', '');
+        }
+      });
+    }
+
+    tabBtns.forEach((btn, i) => {
+      btn.addEventListener('click', () => activate(i));
+      btn.addEventListener('keydown', (e) => {
+        const total = tabBtns.length;
+        if (e.key === 'ArrowRight') { activate((i + 1) % total); tabBtns[(i + 1) % total].focus(); }
+        if (e.key === 'ArrowLeft')  { activate((i - 1 + total) % total); tabBtns[(i - 1 + total) % total].focus(); }
+        if (e.key === 'Home') { activate(0); tabBtns[0].focus(); }
+        if (e.key === 'End')  { activate(total - 1); tabBtns[total - 1].focus(); }
+      });
+    });
+  })();
+</script>
+
+<style>
+  .feature-tabs {
+    padding-block: var(--spacing-section);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .feature-tabs__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: clamp(400px, 60vw, 760px);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+
+  h2 :global(i) { font-style: italic; }
+
+  .feature-tabs__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 64ch;
+    text-wrap: pretty;
+  }
+
+  /* Tab list */
+  .feature-tabs__tablist {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .feature-tabs__tablist::-webkit-scrollbar { display: none; }
+
+  .feature-tabs__tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    transition:
+      color 220ms var(--ease),
+      border-color 220ms var(--ease);
+    white-space: nowrap;
+    margin-bottom: -1px;
+  }
+
+  .feature-tabs__tab[aria-selected="true"] {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+
+  .feature-tabs__tab:hover:not([aria-selected="true"]) {
+    color: var(--ink);
+  }
+
+  .feature-tabs__tab-icon {
+    font-size: var(--text-body-md);
+    line-height: 1;
+  }
+
+  .feature-tabs__tab-label {
+    font-weight: var(--fw-medium);
+  }
+
+  /* Panels */
+  .feature-tabs__panel {
+    display: none;
+  }
+  .feature-tabs__panel.is-active {
+    display: block;
+  }
+
+  .feature-tabs__panel-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-9);
+    align-items: center;
+  }
+
+  .feature-tabs__panel-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .feature-tabs__panel-text h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-row);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .feature-tabs__panel-text h3 :global(i) { font-style: italic; }
+
+  .feature-tabs__panel-text p {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  /* Visual placeholder panel */
+  .feature-tabs__panel-visual {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+    background: var(--paper-2, var(--paper));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .feature-tabs__visual-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-tabs__visual-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    text-align: center;
+    padding: var(--space-4);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .feature-tabs__panel-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    .feature-tabs__panel-visual {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .feature-tabs__tab {
+      transition: none;
+    }
+  }
+</style>

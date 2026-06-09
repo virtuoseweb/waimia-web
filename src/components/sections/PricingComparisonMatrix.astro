@@ -1,0 +1,280 @@
+---
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'pricing-comparison-matrix'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const plans = data.plans;
+const rows = data.rows;
+const featuredIndex = plans.findIndex((p: (typeof plans)[number]) => p.featured);
+---
+
+<section class="pcm">
+  <div class="wrap-wide">
+    <div class="pcm__header">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.body_fr : data.body_en) && (
+        <p class="pcm__body">{isFr ? data.body_fr : data.body_en}</p>
+      )}
+    </div>
+    <div class="pcm__scroll">
+      <table class="pcm__table">
+        <thead>
+          <tr>
+            <th class="pcm__col-feature" scope="col">
+              <span class="sr-only">{isFr ? 'Fonctionnalité' : 'Feature'}</span>
+            </th>
+            {plans.map((plan: (typeof plans)[number], i: number) => (
+              <th
+                class:list={['pcm__col-plan', plan.featured && 'pcm__col-plan--featured']}
+                scope="col"
+                data-featured={plan.featured ? 'true' : undefined}
+              >
+                <div class="pcm__plan-name">{isFr ? plan.name_fr : plan.name_en}</div>
+                <div class="pcm__plan-price">{plan.price}</div>
+                {plan.price_note_fr && (
+                  <div class="pcm__plan-note">{isFr ? plan.price_note_fr : plan.price_note_en}</div>
+                )}
+                <div class="pcm__plan-cta">
+                  <Button
+                    href={plan.cta.href}
+                    variant={plan.featured ? 'accent' : (plan.cta.variant as any)}
+                    size="md"
+                    class="pcm__btn"
+                  >
+                    {isFr ? plan.cta.label_fr : plan.cta.label_en}
+                  </Button>
+                </div>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row: (typeof rows)[number]) => (
+            <tr class="pcm__row">
+              <td class="pcm__feature">
+                {(isFr ? row.group_fr : row.group_en) && (
+                  <span class="pcm__group">{isFr ? row.group_fr : row.group_en}</span>
+                )}
+                <span class="pcm__feature-label">{isFr ? row.feature_fr : row.feature_en}</span>
+              </td>
+              {row.values.map((v: string | boolean, i: number) => (
+                <td
+                  class:list={[
+                    'pcm__cell',
+                    plans[i]?.featured && 'pcm__cell--featured',
+                  ]}
+                >
+                  {typeof v === 'boolean' ? (
+                    <span
+                      class:list={['pcm__glyph', v ? 'pcm__glyph--yes' : 'pcm__glyph--no']}
+                      aria-label={v ? (isFr ? 'Inclus' : 'Included') : (isFr ? 'Non inclus' : 'Not included')}
+                    >
+                      {v ? '◉' : '◦'}
+                    </span>
+                  ) : (
+                    <span class="pcm__value">{v}</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pcm {
+    padding-block: var(--spacing-section);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pcm__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+  .pcm__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  /* Scroll wrapper for responsive */
+  .pcm__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Table base */
+  .pcm__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    min-width: 560px;
+  }
+
+  /* Column header : feature label col */
+  .pcm__col-feature {
+    width: 40%;
+    min-width: 180px;
+    text-align: left;
+    padding: var(--space-4) var(--space-4) var(--space-5) 0;
+    vertical-align: bottom;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  /* Column header : plan cols */
+  .pcm__col-plan {
+    text-align: center;
+    padding: var(--space-4) var(--space-4) var(--space-5);
+    vertical-align: bottom;
+    border-bottom: 1px solid var(--hairline);
+    position: relative;
+  }
+  .pcm__col-plan--featured {
+    background: var(--paper-2);
+    border-left: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
+    border-top: 2px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+  }
+
+  /* Plan name */
+  .pcm__plan-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: var(--fw-regular);
+    margin-bottom: var(--space-2);
+  }
+  .pcm__col-plan--featured .pcm__plan-name {
+    color: var(--accent);
+  }
+
+  /* Plan price */
+  .pcm__plan-price {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: var(--space-1);
+  }
+  .pcm__plan-note {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    margin-bottom: var(--space-3);
+  }
+  .pcm__plan-cta {
+    margin-top: var(--space-3);
+  }
+  .pcm__btn { width: 100%; }
+
+  /* Body rows */
+  .pcm__row {
+    border-bottom: 1px solid var(--hairline);
+    transition: background var(--dur-fast, .15s) var(--ease-out, ease-out);
+  }
+  .pcm__row:last-child { border-bottom: none; }
+  .pcm__row:hover { background: rgba(var(--accent-rgb), .025); }
+
+  /* Feature cell */
+  .pcm__feature {
+    padding: var(--space-3) var(--space-4) var(--space-3) 0;
+    vertical-align: middle;
+  }
+  .pcm__group {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted-2, var(--muted));
+    margin-bottom: var(--space-1);
+  }
+  .pcm__feature-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--ink);
+    line-height: var(--leading-body);
+  }
+
+  /* Value cells */
+  .pcm__cell {
+    text-align: center;
+    padding: var(--space-3) var(--space-4);
+    vertical-align: middle;
+  }
+  .pcm__cell--featured {
+    background: var(--paper-2);
+    border-left: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+  }
+  .pcm__row:hover .pcm__cell--featured {
+    background: var(--paper-2);
+  }
+
+  /* Glyphs */
+  .pcm__glyph {
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+  }
+  .pcm__glyph--yes { color: var(--accent); }
+  .pcm__glyph--no  { color: var(--muted); }
+
+  /* Text value */
+  .pcm__value {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--ink);
+  }
+
+  /* Screen-reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Responsive: scroll horizontal sous 760px */
+  @media (max-width: 760px) {
+    .pcm__scroll {
+      margin-inline: calc(-1 * var(--space-4));
+      padding-inline: var(--space-4);
+    }
+    .pcm__table {
+      min-width: 520px;
+    }
+  }
+</style>

@@ -1,0 +1,239 @@
+---
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'stats-bento'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const stats = data.stats ?? [];
+// La cellule 0 est toujours la grande cellule (bento--hero)
+---
+
+<section class="stats-bento">
+  <div class="wrap-wide">
+    <div class="stats-bento__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+    </div>
+
+    <ul class="stats-bento__grid reveal-stagger" aria-label={isFr ? 'Indicateurs clés' : 'Key metrics'}>
+      {stats.map((stat: (typeof stats)[number], i: number) => (
+        <li class={`stats-bento__cell stats-bento__cell--${i + 1}`}>
+          <span class="stats-bento__number" aria-label={isFr ? stat.label_fr : stat.label_en}>
+            {stat.value}
+          </span>
+          {stat.delta && (
+            <span class="stats-bento__delta" aria-hidden="true">{stat.delta}</span>
+          )}
+          <span class="stats-bento__label">{isFr ? stat.label_fr : stat.label_en}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<script>
+  // Scroll-reveal : IntersectionObserver bascule .is-visible
+  const targets = document.querySelectorAll<HTMLElement>('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    targets.forEach((el) => io.observe(el));
+  } else {
+    // Fallback : tout visible si pas d'IO
+    targets.forEach((el) => el.classList.add('is-visible'));
+  }
+</script>
+
+<style>
+  .stats-bento {
+    padding-block: var(--spacing-section);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .stats-bento__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+
+  /* ─── Grille bento 4 KPI ───────────────────────────────────────
+     Cellule 1 (hero) : grande, col 1-2 / row 1-2, chiffre geant
+     Cellule 2 : col 3 / row 1
+     Cellule 3 : col 3 / row 2
+     Cellule 4 : col 1-3 / row 3, bandeau bas pleine largeur
+  ─────────────────────────────────────────────────────────────── */
+  .stats-bento__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: var(--space-4);
+  }
+
+  .stats-bento__cell {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+    padding: clamp(24px, 3vw, 40px);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition:
+      transform 280ms var(--ease),
+      box-shadow 280ms var(--ease);
+  }
+
+  .stats-bento__cell:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Cellule hero : grande, col 1-2, row 1-2 */
+  .stats-bento__cell--1 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    padding: clamp(32px, 4vw, 56px);
+    gap: var(--space-3);
+    justify-content: flex-end;
+    background: var(--ink);
+  }
+
+  /* Cellule hero : chiffre geant invert */
+  .stats-bento__cell--1 .stats-bento__number {
+    font-size: var(--text-h2-grand);
+    color: var(--paper);
+    line-height: var(--leading-h2);
+  }
+
+  .stats-bento__cell--1 .stats-bento__delta {
+    color: var(--accent);
+  }
+
+  .stats-bento__cell--1 .stats-bento__label {
+    color: var(--paper);
+    opacity: 0.65;
+    font-size: var(--text-body-md);
+  }
+
+  /* Cellules secondaires col 3 */
+  .stats-bento__cell--2 { grid-column: 3; grid-row: 1; }
+  .stats-bento__cell--3 { grid-column: 3; grid-row: 2; }
+
+  /* Cellule bandeau bas, pleine largeur */
+  .stats-bento__cell--4 {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .stats-bento__cell--4 .stats-bento__number {
+    font-size: var(--text-h2-tight);
+    flex-shrink: 0;
+  }
+
+  .stats-bento__cell--4 .stats-bento__label {
+    flex: 1;
+  }
+
+  /* ─── Typo commune ─── */
+  .stats-bento__number {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    margin: 0;
+  }
+
+  .stats-bento__delta {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--accent);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+
+  .stats-bento__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  /* ─── Responsive ─── */
+
+  /* Tablette : 2 colonnes */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .stats-bento__grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .stats-bento__cell--1 {
+      grid-column: 1 / 3;
+      grid-row: 1;
+    }
+
+    .stats-bento__cell--2 { grid-column: 1; grid-row: 2; }
+    .stats-bento__cell--3 { grid-column: 2; grid-row: 2; }
+
+    .stats-bento__cell--4 {
+      grid-column: 1 / 3;
+      grid-row: 3;
+    }
+  }
+
+  /* Mobile : 1 colonne empilee */
+  @media (max-width: 639px) {
+    .stats-bento__grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: var(--space-3);
+    }
+
+    .stats-bento__cell--1,
+    .stats-bento__cell--2,
+    .stats-bento__cell--3,
+    .stats-bento__cell--4 {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .stats-bento__cell--4 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

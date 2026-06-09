@@ -1,0 +1,221 @@
+---
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'gallery-masonry'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="gallery-masonry">
+  <div class="wrap-wide">
+    <div class="gallery-masonry__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.intro_fr : data.intro_en) && (
+        <p class="gallery-masonry__intro">{isFr ? data.intro_fr : data.intro_en}</p>
+      )}
+    </div>
+
+    <div class="gallery-masonry__grid reveal-stagger">
+      {data.items.map((item: (typeof data.items)[number], i: number) => (
+        <figure class="gallery-masonry__item" data-ratio={item.ratio ?? 'landscape'}>
+          <div class="gallery-masonry__media">
+            {item.src ? (
+              <img
+                src={item.src}
+                alt={isFr ? item.alt_fr ?? '' : item.alt_en ?? ''}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div class="gallery-masonry__placeholder" aria-hidden="true" />
+            )}
+            <figcaption class="gallery-masonry__caption">
+              <span class="gallery-masonry__caption-title">
+                {isFr ? item.title_fr : item.title_en}
+              </span>
+              {(isFr ? item.body_fr : item.body_en) && (
+                <span class="gallery-masonry__caption-body">
+                  {isFr ? item.body_fr : item.body_en}
+                </span>
+              )}
+            </figcaption>
+          </div>
+          {item.tag_fr && item.tag_en && (
+            <div class="gallery-masonry__tag">
+              <Kicker tone="muted">{isFr ? item.tag_fr : item.tag_en}</Kicker>
+            </div>
+          )}
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-masonry {
+    padding-block: var(--spacing-section);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .gallery-masonry__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+
+  h2 :global(i) { font-style: italic; }
+
+  .gallery-masonry__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Masonry via CSS columns */
+  .gallery-masonry__grid {
+    columns: 3;
+    column-gap: var(--space-5);
+  }
+
+  .gallery-masonry__item {
+    break-inside: avoid;
+    margin: 0 0 var(--space-5) 0;
+    padding: 0;
+    position: relative;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: default;
+  }
+
+  /* Ratio variants via padding-top trick */
+  .gallery-masonry__media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Portrait ratio ~ 3/4 */
+  .gallery-masonry__item[data-ratio="portrait"] .gallery-masonry__media {
+    padding-top: 133%;
+  }
+
+  /* Landscape ratio ~ 4/3 */
+  .gallery-masonry__item[data-ratio="landscape"] .gallery-masonry__media {
+    padding-top: 75%;
+  }
+
+  /* Square ratio 1/1 */
+  .gallery-masonry__item[data-ratio="square"] .gallery-masonry__media {
+    padding-top: 100%;
+  }
+
+  /* Wide ratio ~ 16/9 */
+  .gallery-masonry__item[data-ratio="wide"] .gallery-masonry__media {
+    padding-top: 56%;
+  }
+
+  .gallery-masonry__media img,
+  .gallery-masonry__placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--dur-reveal) var(--ease);
+  }
+
+  .gallery-masonry__placeholder {
+    background: var(--paper-2);
+  }
+
+  /* Subtle zoom on hover */
+  .gallery-masonry__item:hover .gallery-masonry__media img {
+    transform: scale(1.03);
+  }
+
+  /* Caption overlay */
+  .gallery-masonry__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-5) var(--space-4) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    background: linear-gradient(
+      to top,
+      rgba(var(--ink-rgb), 0.72) 0%,
+      rgba(var(--ink-rgb), 0.32) 50%,
+      transparent 100%
+    );
+    opacity: 0;
+    transform: translateY(var(--space-3));
+    transition:
+      opacity var(--dur-base) var(--ease),
+      transform var(--dur-base) var(--ease);
+  }
+
+  .gallery-masonry__item:hover .gallery-masonry__caption,
+  .gallery-masonry__item:focus-within .gallery-masonry__caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .gallery-masonry__caption-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-card);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    line-height: 1.2;
+  }
+
+  .gallery-masonry__caption-body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--paper);
+    opacity: 0.8;
+    line-height: var(--leading-body);
+  }
+
+  /* Tag below figure */
+  .gallery-masonry__tag {
+    padding: var(--space-3) var(--space-4);
+    border-top: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+
+  /* Responsive: 2 columns then 1 */
+  @media (max-width: 880px) {
+    .gallery-masonry__grid {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .gallery-masonry__grid {
+      columns: 1;
+    }
+  }
+</style>

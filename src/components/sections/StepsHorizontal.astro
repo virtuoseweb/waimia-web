@@ -1,0 +1,168 @@
+---
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'steps-horizontal'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="steps-horizontal">
+  <div class="wrap-wide">
+    <div class="steps-horizontal__header">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+    </div>
+    <ol class="steps-horizontal__list">
+      {data.steps.map((step: (typeof data.steps)[number], i: number) => (
+        <li class="steps-horizontal__step">
+          <div class="steps-horizontal__track" aria-hidden="true">
+            <div class="steps-horizontal__pill">{i + 1}</div>
+            <div class="steps-horizontal__connector"></div>
+          </div>
+          <div class="steps-horizontal__content">
+            <strong class="steps-horizontal__title">{isFr ? step.title_fr : step.title_en}</strong>
+            <p>{isFr ? step.body_fr : step.body_en}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .steps-horizontal {
+    padding-block: var(--spacing-section);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .steps-horizontal__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+
+  .steps-horizontal__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .steps-horizontal__step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  /* Track : pastille + connecteur */
+  .steps-horizontal__track {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .steps-horizontal__pill {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Connecteur hairline entre pastilles (absent sur le dernier item) */
+  .steps-horizontal__connector {
+    flex: 1;
+    height: 1px;
+    background: var(--hairline-strong);
+  }
+
+  .steps-horizontal__step:last-child .steps-horizontal__connector {
+    display: none;
+  }
+
+  .steps-horizontal__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-right: var(--space-6);
+  }
+
+  .steps-horizontal__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-card);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    line-height: var(--leading-h3);
+  }
+
+  .steps-horizontal__content p {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Responsive : < 760px passage en vertical */
+  @media (max-width: 760px) {
+    .steps-horizontal__list {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .steps-horizontal__step {
+      flex-direction: row;
+      gap: var(--space-5);
+    }
+
+    .steps-horizontal__track {
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    /* Connecteur vertical */
+    .steps-horizontal__connector {
+      flex: 1;
+      width: 1px;
+      height: auto;
+      min-height: var(--space-9);
+    }
+
+    .steps-horizontal__step:last-child .steps-horizontal__connector {
+      display: none;
+    }
+
+    .steps-horizontal__content {
+      padding-right: 0;
+      padding-bottom: var(--space-6);
+    }
+  }
+</style>

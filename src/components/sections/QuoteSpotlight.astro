@@ -1,0 +1,182 @@
+---
+// Section W6 · quote-spotlight
+// Grande citation pleine lumiere : fond paper-2, guillemet decoratif, auteur + avatar rond.
+// Architecture : 1 citation (pas de carousel), editorial fort, centree.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'quote-spotlight'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="quote-spotlight">
+  <div class="wrap-wide">
+
+    {(isFr ? data.kicker_fr : data.kicker_en) && (
+      <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    )}
+
+    <figure class="qs-figure reveal">
+      <span class="qs-mark" aria-hidden="true">&ldquo;</span>
+
+      <blockquote class="qs-quote">
+        <p set:html={isFr ? data.quote_fr : data.quote_en} />
+      </blockquote>
+
+      <figcaption class="qs-caption">
+        {data.avatar && (
+          <img
+            class="qs-avatar"
+            src={data.avatar}
+            alt={isFr ? data.author : data.author}
+            width="48"
+            height="48"
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        {!data.avatar && (
+          <span class="qs-avatar qs-avatar--placeholder" aria-hidden="true">
+            {data.author.charAt(0).toUpperCase()}
+          </span>
+        )}
+        <div class="qs-author">
+          <strong class="qs-author-name">{data.author}</strong>
+          <span class="qs-author-role">{isFr ? data.role_fr : data.role_en}</span>
+        </div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<style>
+  .quote-spotlight {
+    background: var(--paper-2);
+    padding-block: var(--spacing-section);
+    border-block: 1px solid var(--hairline);
+  }
+
+  .wrap-wide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .qs-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-7);
+    max-width: var(--wrap-prose);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Guillemet decoratif grand format */
+  .qs-mark {
+    font-family: var(--font-display);
+    font-size: clamp(72px, 10vw, 140px);
+    line-height: 0.7;
+    color: var(--accent);
+    opacity: 0.35;
+    user-select: none;
+    pointer-events: none;
+    display: block;
+  }
+
+  /* Citation principale */
+  .qs-quote {
+    margin: 0;
+  }
+
+  .qs-quote p {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .qs-quote p :global(em),
+  .qs-quote p :global(i) {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  /* Bloc auteur */
+  .qs-caption {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    justify-content: center;
+  }
+
+  /* Avatar image ronde */
+  .qs-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 1px solid var(--hairline);
+    flex-shrink: 0;
+  }
+
+  /* Avatar placeholder : initiale dans cercle */
+  .qs-avatar--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-display);
+    font-size: var(--text-lede);
+    font-weight: var(--fw-regular, 400);
+    flex-shrink: 0;
+  }
+
+  .qs-author {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    text-align: left;
+  }
+
+  .qs-author-name {
+    font-family: var(--font-display);
+    font-size: var(--text-body-md);
+    font-weight: var(--fw-regular, 400);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .qs-author-role {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-lede);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .qs-quote p {
+      font-size: var(--text-lede);
+    }
+
+    .qs-caption {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .qs-author {
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>

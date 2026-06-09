@@ -1,0 +1,195 @@
+---
+// Section catalogue · feature-zigzag
+// Lignes alternées visuel/texte (gauche-droite / droite-gauche / gauche-droite).
+// Chaque ligne = bloc visuel SVG placeholder + colonne texte (kicker + titre + body + lien).
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'feature-zigzag'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="fz">
+  <div class="wrap-wide">
+    <div class="fz__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="fz__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+
+    <ol class="fz__rows" aria-label={isFr ? 'Fonctionnalités' : 'Features'}>
+      {data.rows.map((row, i) => (
+        <li class="fz__row reveal" data-reverse={i % 2 === 1 ? 'true' : 'false'}>
+          <div class="fz__visual" aria-hidden="true">
+            <svg class="fz__svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="presentation">
+              <rect width="640" height="360" rx="4" fill="var(--paper-2)" />
+              <rect x="40" y="40" width="200" height="12" rx="3" fill="var(--hairline)" />
+              <rect x="40" y="68" width="140" height="8" rx="2" fill="var(--hairline)" />
+              <rect x="40" y="112" width="560" height="168" rx="6" fill="var(--paper)" stroke="var(--hairline)" stroke-width="1" />
+              <rect x="60" y="132" width="80" height="10" rx="2" fill="var(--muted-2, var(--hairline))" />
+              <rect x="60" y="152" width="200" height="8" rx="2" fill="var(--hairline)" />
+              <rect x="60" y="168" width="160" height="8" rx="2" fill="var(--hairline)" />
+              <rect x="60" y="184" width="180" height="8" rx="2" fill="var(--hairline)" />
+              <rect x="380" y="132" width="200" height="128" rx="4" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1" />
+              <circle cx="480" cy="196" r="32" fill="var(--hairline)" />
+              <rect x="440" y="238" width="80" height="8" rx="2" fill="var(--hairline)" />
+              <rect x="40" y="300" width="100" height="30" rx="3" fill="var(--accent)" opacity="0.15" />
+              <rect x="152" y="300" width="100" height="30" rx="3" fill="var(--hairline)" />
+            </svg>
+          </div>
+          <div class="fz__text">
+            {(isFr ? row.kicker_fr : row.kicker_en) && (
+              <Kicker tone="accent">{isFr ? row.kicker_fr : row.kicker_en}</Kicker>
+            )}
+            <h3>{isFr ? row.h3_fr : row.h3_en}</h3>
+            <p>{isFr ? row.body_fr : row.body_en}</p>
+            {(isFr ? row.link_label_fr : row.link_label_en) && row.link_href && (
+              <a class="fz__link" href={row.link_href}>
+                {isFr ? row.link_label_fr : row.link_label_en}
+                <span aria-hidden="true">&#x2192;</span>
+              </a>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .fz {
+    padding-block: var(--spacing-section);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .fz__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+
+  .fz__header h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .fz__header h2 :global(i) {
+    font-style: italic;
+  }
+
+  .fz__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  .fz__rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(48px, 6vw, 80px);
+  }
+
+  .fz__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
+    align-items: center;
+  }
+
+  /* Impair (0, 2, ...) : visuel gauche, texte droite */
+  .fz__row[data-reverse='false'] .fz__visual { order: 0; }
+  .fz__row[data-reverse='false'] .fz__text   { order: 1; }
+
+  /* Pair (1, 3, ...) : texte gauche, visuel droite */
+  .fz__row[data-reverse='true'] .fz__visual { order: 1; }
+  .fz__row[data-reverse='true'] .fz__text   { order: 0; }
+
+  .fz__visual {
+    border-radius: var(--radius-lg, var(--radius-md, 8px));
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper-2, var(--paper));
+  }
+
+  .fz__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .fz__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .fz__text h3 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .fz__text p {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  .fz__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: var(--fw-medium);
+  }
+
+  .fz__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Responsive : stack < 760px, toujours visuel puis texte */
+  @media (max-width: 759px) {
+    .fz__row {
+      grid-template-columns: 1fr;
+    }
+
+    .fz__row[data-reverse='false'] .fz__visual,
+    .fz__row[data-reverse='true'] .fz__visual {
+      order: 0;
+    }
+
+    .fz__row[data-reverse='false'] .fz__text,
+    .fz__row[data-reverse='true'] .fz__text {
+      order: 1;
+    }
+  }
+</style>

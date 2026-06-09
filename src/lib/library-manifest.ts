@@ -112,6 +112,20 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'pull-quote-block',      consumers: [] },
   { id: 'inclusions-list',       consumers: [] },
   { id: 'problem-statement',     consumers: [] },
+
+  // ── Catalogue-only · variations 2026-06-09 (12) ──────────────────────────────
+  { id: 'bento-grid',                consumers: [] },
+  { id: 'feature-zigzag',            consumers: [] },
+  { id: 'logo-wall',                 consumers: [] },
+  { id: 'pricing-comparison-matrix', consumers: [] },
+  { id: 'gallery-masonry',           consumers: [] },
+  { id: 'feature-tabs',              consumers: [] },
+  { id: 'icon-trio',                 consumers: [] },
+  { id: 'quote-spotlight',           consumers: [] },
+  { id: 'steps-horizontal',          consumers: [] },
+  { id: 'cta-split-visual',          consumers: [] },
+  { id: 'stats-bento',               consumers: [] },
+  { id: 'comparison-duo',            consumers: [] },
 ];
 
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────

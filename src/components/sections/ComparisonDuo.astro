@@ -1,0 +1,193 @@
+---
+// Section W6 · comparison-duo
+// Deux cartes cote a cote : gauche "Sans" (etat negatif, ton muted),
+// droite "Avec" (etat positif, accent). Avant/apres, nous-vs-eux.
+// Responsive : stack 1 colonne sous 768px.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'comparison-duo'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="comparison-duo" aria-labelledby="comparison-duo-h2">
+  <div class="wrap-wide">
+    <div class="comparison-duo__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 id="comparison-duo-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+    </div>
+
+    <div class="comparison-duo__grid reveal-stagger">
+      {/* Carte gauche : sans (etat negatif) */}
+      <div class="comparison-duo__card comparison-duo__card--without">
+        <div class="comparison-duo__card-header">
+          <span class="comparison-duo__badge comparison-duo__badge--without">
+            {isFr ? data.without_label_fr : data.without_label_en}
+          </span>
+          <p class="comparison-duo__card-title">{isFr ? data.without_title_fr : data.without_title_en}</p>
+        </div>
+        <ul class="comparison-duo__list">
+          {data.without_items.map((item: (typeof data.without_items)[number]) => (
+            <li class="comparison-duo__item comparison-duo__item--without">
+              <span class="comparison-duo__glyph" aria-hidden="true">◦</span>
+              <span>{isFr ? item.text_fr : item.text_en}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Carte droite : avec (etat positif) */}
+      <div class="comparison-duo__card comparison-duo__card--with">
+        <div class="comparison-duo__card-header">
+          <span class="comparison-duo__badge comparison-duo__badge--with">
+            {isFr ? data.with_label_fr : data.with_label_en}
+          </span>
+          <p class="comparison-duo__card-title comparison-duo__card-title--with">{isFr ? data.with_title_fr : data.with_title_en}</p>
+        </div>
+        <ul class="comparison-duo__list">
+          {data.with_items.map((item: (typeof data.with_items)[number]) => (
+            <li class="comparison-duo__item comparison-duo__item--with">
+              <span class="comparison-duo__glyph" aria-hidden="true">◉</span>
+              <span>{isFr ? item.text_fr : item.text_en}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .comparison-duo {
+    padding-block: var(--spacing-section);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .comparison-duo__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+
+  .comparison-duo__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .comparison-duo__card {
+    border: 1px solid var(--hairline);
+    padding: clamp(24px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .comparison-duo__card--with {
+    border-color: rgba(var(--accent-rgb), 0.3);
+    box-shadow: var(--shadow-paper-lift);
+  }
+
+  .comparison-duo__card-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .comparison-duo__badge {
+    display: inline-flex;
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: var(--space-1) 10px;
+    border-radius: var(--radius-xs);
+  }
+
+  .comparison-duo__badge--without {
+    background: var(--paper-3);
+    color: var(--muted);
+  }
+
+  .comparison-duo__badge--with {
+    background: rgba(var(--accent-rgb), 0.1);
+    color: var(--accent);
+  }
+
+  .comparison-duo__card-title {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.4vw, 22px);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-regular);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .comparison-duo__card-title--with {
+    color: var(--ink);
+  }
+
+  .comparison-duo__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .comparison-duo__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: 1.6;
+  }
+
+  .comparison-duo__item--without {
+    color: var(--muted);
+  }
+
+  .comparison-duo__item--with {
+    color: var(--ink);
+  }
+
+  .comparison-duo__glyph {
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .comparison-duo__item--without .comparison-duo__glyph {
+    color: var(--muted);
+  }
+
+  .comparison-duo__item--with .comparison-duo__glyph {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .comparison-duo__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

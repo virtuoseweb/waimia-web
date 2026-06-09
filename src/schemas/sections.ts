@@ -1519,6 +1519,248 @@ export const problemStatementSchema = z.object({
     .optional(),
 });
 
+/* ─── Sections catalogue · variations (12 nouveaux types) ─── */
+
+// Mosaïque bento asymétrique de 5 cellules (1 grande 2x2 + 4 petites)
+export const bentoGridSchema = z.object({
+  type: z.literal('bento-grid'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  cells: z.array(z.object({
+    glyph: z.string().optional(),
+    title_fr: z.string(),
+    title_en: z.string(),
+    body_fr: z.string(),
+    body_en: z.string(),
+  })).min(5).max(5),
+});
+
+// Lignes alternées visuel/texte (gauche-droite, droite-gauche)
+export const featureZigzagSchema = z.object({
+  type: z.literal('feature-zigzag'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  rows: z.array(
+    z.object({
+      kicker_fr: z.string().optional(),
+      kicker_en: z.string().optional(),
+      h3_fr: z.string(),
+      h3_en: z.string(),
+      body_fr: z.string(),
+      body_en: z.string(),
+      link_label_fr: z.string().optional(),
+      link_label_en: z.string().optional(),
+      link_href: z.string().optional(),
+    })
+  ).min(2).max(6),
+});
+
+// Grille statique de logos partenaires (grayscale → couleur au hover)
+const logoWallItemSchema = z.object({
+  src: z.string(),
+  name_fr: z.string(),
+  name_en: z.string(),
+  href: z.string().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+export const logoWallSchema = z.object({
+  type: z.literal('logo-wall'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  logos: z.array(logoWallItemSchema).min(3).max(20),
+});
+
+// Matrice comparative tarifaire (3 plans, colonne recommandée)
+const pricingComparisonPlanSchema = z.object({
+  name_fr: z.string(),
+  name_en: z.string(),
+  price: z.string(),
+  price_note_fr: z.string().optional(),
+  price_note_en: z.string().optional(),
+  cta: ctaSchema,
+  featured: z.boolean().default(false),
+});
+
+const pricingComparisonRowSchema = z.object({
+  feature_fr: z.string(),
+  feature_en: z.string(),
+  group_fr: z.string().optional(),
+  group_en: z.string().optional(),
+  values: z.array(z.union([z.string(), z.boolean()])).min(1),
+});
+
+export const pricingComparisonMatrixSchema = z.object({
+  type: z.literal('pricing-comparison-matrix'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  body_fr: z.string().optional(),
+  body_en: z.string().optional(),
+  plans: z.array(pricingComparisonPlanSchema).min(2).max(4),
+  rows: z.array(pricingComparisonRowSchema).min(2),
+});
+
+// Galerie éditoriale en colonnes CSS (masonry naturel)
+export const galleryMasonryItemSchema = z.object({
+  src: z.string().optional(),
+  alt_fr: z.string().optional(),
+  alt_en: z.string().optional(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string().optional(),
+  body_en: z.string().optional(),
+  tag_fr: z.string().optional(),
+  tag_en: z.string().optional(),
+  ratio: z.enum(['portrait', 'landscape', 'square', 'wide']).default('landscape'),
+});
+
+export const galleryMasonrySchema = z.object({
+  type: z.literal('gallery-masonry'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  items: z.array(galleryMasonryItemSchema).min(3).max(12),
+});
+
+// Section fonctionnalités en onglets cliquables (aria-compliant)
+export const featureTabsSchema = z.object({
+  type: z.literal('feature-tabs'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  tabs: z.array(z.object({
+    icon: z.string().optional(),
+    label_fr: z.string(),
+    label_en: z.string(),
+    title_fr: z.string(),
+    title_en: z.string(),
+    body_fr: z.string(),
+    body_en: z.string(),
+    visual_label_fr: z.string().optional(),
+    visual_label_en: z.string().optional(),
+  })).min(2).max(6),
+});
+
+// Trois colonnes iconographiques séparées par hairlines verticaux
+const iconTrioItemSchema = z.object({
+  glyph: z.string().optional(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+});
+
+export const iconTrioSchema = z.object({
+  type: z.literal('icon-trio'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  items: z.array(iconTrioItemSchema).length(3),
+});
+
+// Grande citation pleine lumière sur fond paper-2
+export const quoteSpotlightSchema = z.object({
+  type: z.literal('quote-spotlight'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  quote_fr: z.string(),
+  quote_en: z.string(),
+  author: z.string(),
+  role_fr: z.string(),
+  role_en: z.string(),
+  avatar: z.string().optional(),
+});
+
+// Étapes numérotées en ligne avec pastilles et connecteurs hairline
+const stepsHorizontalStepSchema = z.object({
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+});
+
+export const stepsHorizontalSchema = z.object({
+  type: z.literal('steps-horizontal'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  steps: z.array(stepsHorizontalStepSchema).min(2).max(6),
+});
+
+// Bandeau CTA asymétrique 2 colonnes (texte gauche, visuel SVG droite)
+export const ctaSplitVisualSchema = z.object({
+  type: z.literal('cta-split-visual'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  body_fr: z.string().optional(),
+  body_en: z.string().optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  background: z.enum(['paper', 'paper-2', 'ink', 'accent']).default('paper-2'),
+});
+
+// Quatre KPI en grille bento de tailles inégales
+export const statsBentoItemSchema = z.object({
+  value: z.string(),
+  label_fr: z.string(),
+  label_en: z.string(),
+  delta: z.string().optional(),
+});
+
+export const statsBentoSchema = z.object({
+  type: z.literal('stats-bento'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  stats: z.array(statsBentoItemSchema).min(4).max(4),
+});
+
+// Deux cartes côte à côte (Sans / Avec) — contraste avant/après
+const comparisonDuoItemSchema = z.object({
+  text_fr: z.string(),
+  text_en: z.string(),
+});
+
+export const comparisonDuoSchema = z.object({
+  type: z.literal('comparison-duo'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  without_label_fr: z.string(),
+  without_label_en: z.string(),
+  without_title_fr: z.string(),
+  without_title_en: z.string(),
+  without_items: z.array(comparisonDuoItemSchema).min(2).max(6),
+  with_label_fr: z.string(),
+  with_label_en: z.string(),
+  with_title_fr: z.string(),
+  with_title_en: z.string(),
+  with_items: z.array(comparisonDuoItemSchema).min(2).max(6),
+});
+
 /* ─── Union discriminée pour validation ─── */
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -1597,6 +1839,18 @@ export const sectionSchema = z.discriminatedUnion('type', [
   pullQuoteBlockSchema,
   inclusionsListSchema,
   problemStatementSchema,
+  bentoGridSchema,
+  featureZigzagSchema,
+  logoWallSchema,
+  pricingComparisonMatrixSchema,
+  galleryMasonrySchema,
+  featureTabsSchema,
+  iconTrioSchema,
+  quoteSpotlightSchema,
+  stepsHorizontalSchema,
+  ctaSplitVisualSchema,
+  statsBentoSchema,
+  comparisonDuoSchema,
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];
