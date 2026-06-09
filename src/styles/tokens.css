@@ -21,8 +21,8 @@
   --muted-2: #746C63;
 
   /* Hairlines (dark mode reliquats supprimés Phase D 2026-05-15 décision Simon) */
-  --hairline:             rgba(12,11,9, 0.09);
-  --hairline-strong:      rgba(12,11,9, 0.18);
+  --hairline:             rgba(var(--ink-rgb), 0.09);
+  --hairline-strong:      rgba(var(--ink-rgb), 0.18);
 
   /* Accent · terracotta */
   --accent:     #C94F2E;
@@ -238,11 +238,11 @@ body {
   /* Pas de drop-shadow lourd — uniquement du subtle pour différencier les surfaces */
   --shadow-hairline: 0 0 0 1px var(--hairline);
   --shadow-paper-lift:
-    0 1px 0 var(--hairline), 0 12px 28px -16px rgba(12, 11, 9, 0.07);
+    0 1px 0 var(--hairline), 0 12px 28px -16px rgba(var(--ink-rgb), 0.07);
   --shadow-card-rest: 0 0 0 1px var(--hairline);
   --shadow-card-hover:
-    0 0 0 1px var(--hairline-strong), 0 8px 24px -16px rgba(12, 11, 9, 0.1);
-  --shadow-cta: 0 1px 0 var(--ink), 0 12px 24px -8px rgba(201, 79, 46, 0.18);
+    0 0 0 1px var(--hairline-strong), 0 8px 24px -16px rgba(var(--ink-rgb), 0.1);
+  --shadow-cta: 0 1px 0 var(--ink), 0 12px 24px -8px rgba(var(--accent-rgb), 0.18);
   --shadow-lift: 0 12px 40px rgba(var(--ink-rgb), 0.08);
 }
 
