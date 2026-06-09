@@ -30,7 +30,7 @@ const { href, variant = 'accent', mag, class: extraClass = '' } = Astro.props;
 
 // Styles inline · regroupés ici une fois pour toutes
 // padding/border-radius/font-size identiques aux occurrences vérifiées
-const baseStyle = 'display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:500;transition:background 280ms var(--ease),color 280ms var(--ease),transform 280ms var(--ease)';
+const baseStyle = 'display:inline-flex;align-items:center;gap:8px;border-radius:var(--radius-pill);font-weight:500;transition:background 280ms var(--ease),color 280ms var(--ease),transform 280ms var(--ease)';
 
 const variantStyle = {
   'accent':      'background:var(--accent);color:var(--paper);padding:16px 26px;font-size:var(--text-ui)',

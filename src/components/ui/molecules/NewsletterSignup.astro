@@ -102,7 +102,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     font-family:var(--font-sans);
     font-size:var(--text-body-sm);
     border-radius:var(--radius-xs);
-    transition:border-color 220ms ease;
+    transition:border-color 220ms var(--ease);
     outline:none;
   }
   .nl-input:focus{border-color:var(--ink);outline:none}

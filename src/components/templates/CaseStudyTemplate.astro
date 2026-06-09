@@ -541,7 +541,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     margin: var(--space-6, 2rem) 0;
     padding: var(--space-4, 1.5rem);
     border: 1px solid var(--hairline-strong);
-    border-left: 3px solid var(--accent-offre, #f59e0b);
+    border-left: 3px solid var(--accent);
   }
   .case-related-offres__label {
     font-family: var(--font-mono);
@@ -598,7 +598,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     gap: var(--space-2);
     color: inherit;
     text-decoration: none;
-    transition: background 240ms ease;
+    transition: background 240ms var(--ease);
   }
   .related-case-card:last-child { border-right: none; }
   .related-case-card:hover { background: var(--paper-2); }

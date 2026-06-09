@@ -425,7 +425,7 @@ const serviceLd = buildService({ name: title, description });
 <style>
   /* ───── Sec common ───── */
   .tech-sec { padding: clamp(72px, 8vw, 120px) 0; position: relative; }
-  .tech-sec-paper { background: var(--paper-2, #EFEBE2); }
+  .tech-sec-paper { background: var(--paper-2); }
   .tech-sec-dark { background: var(--ink); color: var(--paper); }
   .tech-sec-dark :global(.kicker) { color: var(--accent); }
   .eyebrow {
@@ -683,7 +683,7 @@ const serviceLd = buildService({ name: title, description });
     top: 8px; left: 16px;
     width: 12px; height: 12px;
     border-radius: var(--radius-pill);
-    background: var(--paper-2, #EFEBE2);
+    background: var(--paper-2);
     border: 1px solid rgba(var(--ink-rgb), 0.2);
     z-index: 2;
   }
@@ -744,7 +744,7 @@ const serviceLd = buildService({ name: title, description });
   .tt-specs thead th:last-child { padding-right: 0; text-align: right; }
   .tt-specs tbody tr {
     border-bottom: 1px solid var(--hairline, rgba(var(--ink-rgb), 0.08));
-    transition: background 180ms ease;
+    transition: background 180ms var(--ease);
   }
   .tt-specs tbody tr:last-child { border-bottom: none; }
   .tt-specs tbody tr:hover { background: rgba(var(--ink-rgb), 0.02); }

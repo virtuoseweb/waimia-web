@@ -162,7 +162,7 @@ export default function ProductReel({ lang, screens = DEFAULT_SCREENS, copy }: P
           </div>
 
           {/* Console right */}
-          <div style={{ background: 'var(--paper)', border: '1px solid var(--ink)', borderRadius: 12, overflow: 'hidden', boxShadow: '0 40px 120px var(--shadow-reel, rgba(12,11,9,.14))' }}>
+          <div style={{ background: 'var(--paper)', border: '1px solid var(--ink)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: '0 40px 120px var(--shadow-reel, rgba(12,11,9,.14))' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderBottom: '1px solid var(--hairline)', background: 'var(--paper-2)' }}>
               {[0, 1, 2].map((i) => (
                 <span key={i} style={{ width: 9, height: 9, borderRadius: 9, background: 'var(--hairline-strong)' }} />
