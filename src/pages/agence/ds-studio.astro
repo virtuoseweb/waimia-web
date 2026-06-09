@@ -1,0 +1,782 @@
+---
+// Page static · /agence/ds-studio · DS STUDIO interactif (B3)
+//
+// Pourquoi (frustration Simon) : depuis /agence/design-system on VOIT les variables
+// et les schémas, mais on ne voit RIEN visuellement et on ne peut pas PERSONNALISER
+// pour observer l'impact. Ce Studio répond, à la manière d'ACSS / Core Framework :
+//   1. un éditeur de tokens LIVE (édite --accent → tout le rendu change instantanément)
+//   2. une galerie visuelle COMPLÈTE (tous les variants de chaque atome/molécule + sections)
+//   3. une carte d'impact (token → fichiers consommateurs)
+//   4. les doublons & la dette (avant de figer le DS)
+//
+// NE REMPLACE PAS /agence/design-system (catalogue documentaire). Studio = bac à sable.
+// Contraintes : 0 nouveau token CSS · 0 hex/littéral en dur (var/clamp/% only) · 0 U+2014.
+
+export const prerender = true;
+
+import Base from '../../layouts/Base.astro';
+
+// Atomes
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import ChapterLabel from '../../components/ui/atoms/ChapterLabel.astro';
+import Button from '../../components/ui/atoms/Button.astro';
+import PillCTA from '../../components/ui/atoms/PillCTA.astro';
+import TerminalCTA from '../../components/ui/atoms/TerminalCTA.astro';
+import Bi from '../../components/ui/atoms/Bi.astro';
+
+// Molécules
+import SectionHeader from '../../components/ui/molecules/SectionHeader.astro';
+import StatRow from '../../components/ui/molecules/StatRow.astro';
+import TechPillRow from '../../components/ui/molecules/TechPillRow.astro';
+import RelatedCards from '../../components/ui/molecules/RelatedCards.astro';
+import NewsletterSignup from '../../components/ui/molecules/NewsletterSignup.astro';
+import PainPointInline from '../../components/ui/molecules/PainPointInline.astro';
+import ShareButtons from '../../components/ui/molecules/ShareButtons.astro';
+import ProofBand from '../../components/ui/molecules/ProofBand.astro';
+import TagPills from '../../components/ui/molecules/TagPills.astro';
+import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import PricingTier from '../../components/ui/molecules/PricingTier.astro';
+import TerminalMockup from '../../components/ui/molecules/TerminalMockup.astro';
+
+// Sections cataloguées (rendu inline → réactif au token LIVE, contrairement aux iframes)
+import { SECTION_REGISTRY, listSections } from '../../lib/section-registry';
+import { SECTION_DEMOS } from '../../lib/section-demos';
+
+import registry from '../../data/ds-registry.json';
+
+const lang = 'fr' as const;
+
+// ── Préparation des contrôles de tokens (groupés) ────────────────────────────
+type Token = { name: string; value: string; group: string; comment: string };
+const tokens = registry.tokens as Token[];
+
+const GROUP_ORDER = ['color', 'spacing', 'radius', 'type', 'layout', 'shadow', 'motion', 'z'];
+const GROUP_LABEL: Record<string, string> = {
+  color: 'Couleur', spacing: 'Espacement', radius: 'Rayon', type: 'Typographie',
+  layout: 'Layout', shadow: 'Ombre', motion: 'Motion', z: 'Z-index',
+};
+
+const isHex = (v: string) => /^#[0-9a-fA-F]{3,8}$/.test(v.trim());
+const RANGE_GROUPS = new Set(['spacing', 'radius', 'layout', 'type']);
+
+function parseNumeric(v: string): { num: number; unit: string } | null {
+  const m = String(v).trim().match(/^(-?\d*\.?\d+)(px|rem|em|%)?$/);
+  if (!m) return null;
+  return { num: parseFloat(m[1]), unit: m[2] || '' };
+}
+
+type Control =
+  | { kind: 'color'; token: Token; def: string }
+  | { kind: 'range'; token: Token; def: string; num: number; unit: string; min: number; max: number; step: number }
+  | { kind: 'text'; token: Token; def: string };
+
+function buildControl(token: Token): Control {
+  const v = token.value;
+  if (token.group === 'color' && isHex(v)) return { kind: 'color', token, def: v };
+  if (RANGE_GROUPS.has(token.group)) {
+    const n = parseNumeric(v);
+    if (n && (n.unit === 'px' || n.unit === 'rem')) {
+      const max = Math.max(Math.ceil(n.num * 4) || 1, n.num + (n.unit === 'rem' ? 2 : 8));
+      const step = n.unit === 'rem' ? 0.05 : 1;
+      return { kind: 'range', token, def: String(n.num), num: n.num, unit: n.unit, min: 0, max, step };
+    }
+  }
+  return { kind: 'text', token, def: v };
+}
+
+const controlsByGroup = GROUP_ORDER
+  .map((g) => ({
+    group: g,
+    label: GROUP_LABEL[g] ?? g,
+    items: tokens.filter((t) => t.group === g).map(buildControl),
+  }))
+  .filter((b) => b.items.length > 0);
+
+// ── Carte d'impact : token -> { count, files } (île JSON pour le JS) ──────────
+type Consumer = { token: string; count: number; files: string[] };
+const consumers = registry.tokenConsumers as Consumer[];
+const consumerMap: Record<string, { count: number; files: string[] }> = {};
+for (const c of consumers) consumerMap[c.token] = { count: c.count, files: c.files };
+const studioData = JSON.stringify({ consumers: consumerMap });
+
+// Token le plus consommé (sélection initiale de la carte d'impact)
+const topConsumer = [...consumers].sort((a, b) => b.count - a.count)[0];
+
+// ── Doublons & dette ─────────────────────────────────────────────────────────
+type Dup = { signature: string; classes: string[] };
+const duplicateClasses = registry.duplicateClasses as Dup[];
+const stats = registry.stats as {
+  tokenCount: number; classCount: number; duplicateGroupCount: number; unusedTokens: string[];
+};
+
+// ── Échantillon de sections variées (rendu inline, réactif au LIVE) ──────────
+const SECTION_SAMPLE = [
+  'hero-split', 'problems-grid', 'stat-block', 'method-timeline', 'feature-grid',
+  'pricing-table', 'faq-accordion', 'testimonial-block', 'comparison-table',
+  'marquee-band', 'proof-bar', 'services-grid', 'cta-final', 'manifesto-block',
+];
+const allSectionTypes = new Set(listSections().map((s) => s.type));
+const sectionSample = SECTION_SAMPLE
+  .filter((t) => allSectionTypes.has(t as any) && SECTION_DEMOS[t as keyof typeof SECTION_DEMOS])
+  .map((t) => ({ type: t, C: SECTION_REGISTRY[t as keyof typeof SECTION_REGISTRY] as any, demo: SECTION_DEMOS[t as keyof typeof SECTION_DEMOS] }));
+
+const sectionTotal = listSections().length;
+
+// Atomes purement comportementaux (catalogués, pas de rendu statique pertinent)
+const behavioralAtoms = [
+  { name: 'CursorDot', role: 'Curseur magnétique custom (suit la souris)' },
+  { name: 'ScrollProgress', role: 'Barre de progression de lecture (scroll global)' },
+  { name: 'ProgressBar', role: 'Barre de progression générique (valeur 0..1)' },
+  { name: 'SectionTransition', role: 'Transition inter-sections (hairline animée)' },
+  { name: 'FormErrors', role: 'Liste d\'erreurs de formulaire (a11y live region)' },
+];
+
+// Compteurs pour le retour de mission
+const atomVariantsRendered =
+  6 /*Kicker*/ + 2 /*ChapterLabel*/ + 5 /*Button*/ + 3 /*PillCTA*/ + 8 /*TerminalCTA*/ + 1 /*Bi*/;
+const moleculesRendered = 12;
+---
+
+<Base
+  title="DS Studio · éditeur de tokens LIVE · Waimia"
+  description="Bac à sable interactif du Design System Waimia : édite une valeur de token et vois tout le rendu changer en direct. Galerie complète des atomes, molécules et sections."
+  noindex
+>
+  <div class="studio">
+    {/* ───────────── En-tête ───────────── */}
+    <header class="studio-hd">
+      <Kicker class="studio-eyebrow">§ DS Studio · bac à sable token-driven</Kicker>
+      <h1 class="studio-h1">Édite un token. <i>Vois</i> tout changer.</h1>
+      <p class="studio-lede">
+        À la manière d'ACSS : déplace un curseur ou choisis une couleur, et chaque bouton, card et
+        section ci-dessous se repeint <strong>en direct</strong> via <code>var(--token)</code>.
+        Complémentaire au <a href="/agence/design-system">catalogue documentaire</a>.
+      </p>
+      <p class="studio-meta">
+        {stats.tokenCount} tokens · {stats.classCount} classes · {sectionTotal} sections cataloguées ·
+        verrou <code>check:token-lock</code> non-bloquant actif
+      </p>
+    </header>
+
+    <div class="studio-layout">
+      {/* ───────────── 1. Éditeur de tokens LIVE (panneau) ───────────── */}
+      <aside class="studio-panel" aria-label="Éditeur de tokens">
+        <div class="studio-panel-inner">
+          <div class="studio-panel-top">
+            <h2 class="studio-h3">1 · Éditeur LIVE</h2>
+            <div class="studio-actions">
+              <button id="token-reset" class="studio-btn" type="button">Reset</button>
+              <button id="token-export" class="studio-btn studio-btn--accent" type="button">
+                Exporter (<span id="export-count">0</span>)
+              </button>
+            </div>
+          </div>
+
+          <label class="studio-search">
+            <span class="studio-vh">Filtrer les tokens</span>
+            <input id="token-search" type="search" placeholder="Filtrer : accent, space, radius…" autocomplete="off" />
+          </label>
+
+          <div class="studio-groups">
+            {controlsByGroup.map((block) => (
+              <section class="studio-group" data-group-block={block.group}>
+                <h3 class="studio-group-title">{block.label} <span>{block.items.length}</span></h3>
+                <div class="studio-rows">
+                  {block.items.map((ctrl) => (
+                    <div class="studio-row" data-token-row={ctrl.token.name} data-group={block.group} title={ctrl.token.comment}>
+                      <button class="studio-row-name" type="button">{ctrl.token.name}</button>
+                      <div class="studio-row-ctrl">
+                        {ctrl.kind === 'color' && (
+                          <>
+                            <input
+                              type="color"
+                              class="studio-swatch-input"
+                              data-token={ctrl.token.name}
+                              data-default={ctrl.def}
+                              value={ctrl.def}
+                              aria-label={`Couleur ${ctrl.token.name}`}
+                            />
+                            <input
+                              type="text"
+                              class="studio-text-input"
+                              data-token={ctrl.token.name}
+                              data-default={ctrl.def}
+                              value={ctrl.def}
+                              aria-label={`Valeur ${ctrl.token.name}`}
+                            />
+                          </>
+                        )}
+                        {ctrl.kind === 'range' && (
+                          <>
+                            <input
+                              type="range"
+                              class="studio-range"
+                              data-token={ctrl.token.name}
+                              data-unit={ctrl.unit}
+                              data-default={ctrl.def}
+                              min={ctrl.min}
+                              max={ctrl.max}
+                              step={ctrl.step}
+                              value={ctrl.num}
+                              aria-label={`Ajuster ${ctrl.token.name}`}
+                            />
+                            <input
+                              type="number"
+                              class="studio-num"
+                              data-token={ctrl.token.name}
+                              data-unit={ctrl.unit}
+                              data-default={ctrl.def}
+                              min={ctrl.min}
+                              max={ctrl.max}
+                              step={ctrl.step}
+                              value={ctrl.num}
+                              aria-label={`Valeur ${ctrl.token.name}`}
+                            />
+                            <span class="studio-unit">{ctrl.unit}</span>
+                          </>
+                        )}
+                        {ctrl.kind === 'text' && (
+                          <input
+                            type="text"
+                            class="studio-text-input studio-text-input--wide"
+                            data-token={ctrl.token.name}
+                            data-default={ctrl.def}
+                            value={ctrl.def}
+                            aria-label={`Valeur ${ctrl.token.name}`}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+
+          <pre id="export-output" class="studio-export-out" aria-live="polite"></pre>
+        </div>
+      </aside>
+
+      {/* ───────────── Galerie + impact + dette ───────────── */}
+      <main class="studio-main studio-gallery">
+        {/* Carte d'impact (sticky en haut du contenu) */}
+        <section class="studio-impact" aria-label="Carte d'impact">
+          <ChapterLabel num="FIG · 0" title="Impact d'un token" tone="muted" />
+          <p class="studio-impact-help">
+            Clique un token dans l'éditeur. « Si tu changes <code id="impact-token">{topConsumer?.token}</code>,
+            ça impacte <strong id="impact-count">{topConsumer?.count ?? 0}</strong> fichiers. »
+          </p>
+          <ul id="impact-list" class="studio-impact-list">
+            {(topConsumer?.files ?? []).map((f) => <li>{f}</li>)}
+          </ul>
+        </section>
+
+        {/* 2. Galerie · Atomes */}
+        <section class="studio-section">
+          <ChapterLabel num="01" title={`Atomes · ${atomVariantsRendered} variants rendus`} />
+          <p class="studio-section-lede">Chaque variant de chaque atome, rendu et réactif au panneau LIVE.</p>
+
+          <h3 class="studio-h4">Kicker · tone × size</h3>
+          <div class="studio-tiles">
+            <article class="studio-tile"><Kicker tone="muted">§ Tone muted</Kicker><code class="studio-tag">tone="muted"</code></article>
+            <article class="studio-tile"><Kicker tone="accent">§ Tone accent</Kicker><code class="studio-tag">tone="accent"</code></article>
+            <article class="studio-tile studio-tile--dark"><Kicker tone="dim">§ Tone dim (on dark)</Kicker><code class="studio-tag">tone="dim"</code></article>
+            <article class="studio-tile"><Kicker tone="muted" size={10}>§ Size 10</Kicker><code class="studio-tag">size={'{10}'}</code></article>
+            <article class="studio-tile"><Kicker tone="accent" size={14}>§ Size 14</Kicker><code class="studio-tag">size={'{14}'}</code></article>
+            <article class="studio-tile"><Kicker tone="muted" textTransform="none">§ Transform none</Kicker><code class="studio-tag">textTransform="none"</code></article>
+          </div>
+
+          <h3 class="studio-h4">ChapterLabel · tone</h3>
+          <div class="studio-tiles">
+            <article class="studio-tile"><ChapterLabel num="II · 2.0" title="Acte II · variant muted" tone="muted" /><code class="studio-tag">tone="muted"</code></article>
+            <article class="studio-tile studio-tile--dark"><ChapterLabel num="IV · 4.0" title="Acte IV · variant dim" tone="dim" /><code class="studio-tag">tone="dim"</code></article>
+          </div>
+
+          <h3 class="studio-h4">Button · variant × size</h3>
+          <div class="studio-tiles">
+            <article class="studio-tile"><Button href="#" variant="primary">Primary</Button><code class="studio-tag">variant="primary"</code></article>
+            <article class="studio-tile"><Button href="#" variant="ghost">Ghost</Button><code class="studio-tag">variant="ghost"</code></article>
+            <article class="studio-tile"><Button href="#" variant="accent">Accent</Button><code class="studio-tag">variant="accent"</code></article>
+            <article class="studio-tile"><Button href="#" variant="link">Link →</Button><code class="studio-tag">variant="link"</code></article>
+            <article class="studio-tile"><Button href="#" variant="primary" size="lg" mag={0.18}>Primary · lg · magnetic</Button><code class="studio-tag">size="lg" mag</code></article>
+          </div>
+
+          <h3 class="studio-h4">PillCTA · variant</h3>
+          <div class="studio-tiles">
+            <article class="studio-tile"><PillCTA href="#" variant="accent">Pill accent</PillCTA><code class="studio-tag">variant="accent"</code></article>
+            <article class="studio-tile studio-tile--dark"><PillCTA href="#" variant="ghost-dark">Pill ghost-dark</PillCTA><code class="studio-tag">variant="ghost-dark"</code></article>
+            <article class="studio-tile"><PillCTA href="#" variant="accent-mono">▸ Pill accent-mono</PillCTA><code class="studio-tag">variant="accent-mono"</code></article>
+          </div>
+
+          <h3 class="studio-h4">TerminalCTA · variant × size</h3>
+          <div class="studio-tiles">
+            <article class="studio-tile"><TerminalCTA href="#" variant="ink">▸ ink</TerminalCTA><code class="studio-tag">ink · md</code></article>
+            <article class="studio-tile"><TerminalCTA href="#" variant="ink-ghost">ink-ghost →</TerminalCTA><code class="studio-tag">ink-ghost · md</code></article>
+            <article class="studio-tile studio-tile--dark"><TerminalCTA href="#" variant="accent">▸ accent</TerminalCTA><code class="studio-tag">accent · md</code></article>
+            <article class="studio-tile studio-tile--dark"><TerminalCTA href="#" variant="ghost-dark">ghost-dark →</TerminalCTA><code class="studio-tag">ghost-dark · md</code></article>
+            <article class="studio-tile"><TerminalCTA href="#" variant="ink" size="sm">▸ ink sm</TerminalCTA><code class="studio-tag">ink · sm</code></article>
+            <article class="studio-tile"><TerminalCTA href="#" variant="ink-ghost" size="sm">ink-ghost sm →</TerminalCTA><code class="studio-tag">ink-ghost · sm</code></article>
+            <article class="studio-tile studio-tile--dark"><TerminalCTA href="#" variant="accent" size="sm">▸ accent sm</TerminalCTA><code class="studio-tag">accent · sm</code></article>
+            <article class="studio-tile studio-tile--dark"><TerminalCTA href="#" variant="ghost-dark" size="sm">ghost-dark sm →</TerminalCTA><code class="studio-tag">ghost-dark · sm</code></article>
+          </div>
+
+          <h3 class="studio-h4">Bi · contenu bilingue</h3>
+          <div class="studio-tiles">
+            <article class="studio-tile"><p><Bi fr="Rendu côté FR" en="Rendered EN side" /></p><code class="studio-tag">{'<Bi fr en />'}</code></article>
+          </div>
+
+          <h3 class="studio-h4">Atomes comportementaux (catalogués)</h3>
+          <div class="studio-tiles">
+            {behavioralAtoms.map((a) => (
+              <article class="studio-tile studio-tile--note">
+                <span class="studio-note-name">{a.name}</span>
+                <span class="studio-note-role">{a.role}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 2bis. Galerie · Molécules */}
+        <section class="studio-section">
+          <ChapterLabel num="02" title={`Molécules · ${moleculesRendered} rendues`} />
+          <p class="studio-section-lede">Variants principaux de chaque molécule, données de démo FR.</p>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">SectionHeader · tone</h3>
+            <div class="studio-mol-row">
+              <SectionHeader roman="II" label="Acte II · La méthode" id="studio-sh-1" tone="accent" />
+            </div>
+          </div>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">StatRow · tone paper / ink</h3>
+            <StatRow stats={[
+              { k: '+312%', label_fr: 'Trafic organique', label_en: 'Organic traffic' },
+              { k: '6 sem.', label_fr: 'Mise en ligne', label_en: 'Go-live' },
+              { k: '0', label_fr: 'Dépendance no-code', label_en: 'No-code lock-in' },
+            ]} tone="paper" />
+            <StatRow stats={[
+              { k: '24/7', label_fr: 'Disponibilité', label_en: 'Uptime' },
+              { k: '< 1s', label_fr: 'LCP médian', label_en: 'Median LCP' },
+              { k: '100', label_fr: 'Score perf', label_en: 'Perf score' },
+            ]} tone="ink" />
+          </div>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">TechPillRow · kind primary / open / neutral</h3>
+            <TechPillRow pills={[
+              { label: 'Astro', kind: 'primary' },
+              { label: 'TypeScript', kind: 'open' },
+              { label: 'Tailwind', kind: 'neutral' },
+              { label: 'Vercel', kind: 'open' },
+            ]} />
+          </div>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">PainPointInline · severity (4)</h3>
+            <PainPointInline severity="critical" pain="Le site ne convertit pas." solution="Tunnel repensé orienté preuve." />
+            <PainPointInline severity="high" pain="Dépendance à un no-code fermé." solution="Stack ouverte, code possédé." />
+            <PainPointInline severity="medium" pain="SEO technique négligé." solution="Rendu statique + données structurées." />
+            <PainPointInline severity="low" pain="Pas d'analytics propre." solution="Mesure first-party respectueuse." />
+          </div>
+
+          <div class="studio-mol studio-mol--2col">
+            <div>
+              <h3 class="studio-h4">NewsletterSignup · card</h3>
+              <NewsletterSignup variant="card" lang="fr" />
+            </div>
+            <div>
+              <h3 class="studio-h4">NewsletterSignup · inline</h3>
+              <NewsletterSignup variant="inline" lang="fr" />
+            </div>
+          </div>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">RelatedCards</h3>
+            <RelatedCards cards={[
+              { kicker: 'Méthode', title_fr: 'Notre approche', title_en: 'Our approach', lead_fr: 'Du diagnostic à la mise en ligne.', lead_en: 'From audit to go-live.', href: '#' },
+              { kicker: 'Cas', title_fr: 'Étude de cas', title_en: 'Case study', lead_fr: 'Un site refait en 6 semaines.', lead_en: 'A site rebuilt in 6 weeks.', href: '#' },
+              { kicker: 'Offre', title_fr: 'Audit de maturité', title_en: 'Maturity audit', lead_fr: 'Mesure où vous en êtes.', lead_en: 'Measure where you stand.', href: '#' },
+            ]} />
+          </div>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">ProofBand</h3>
+            <ProofBand
+              quote_fr="L'équipe a livré un site qui convertit, sans dépendance."
+              quote_en="The team shipped a converting site, no lock-in."
+              attr_fr="Direction · PME industrielle"
+              attr_en="Management · Industrial SMB"
+              metrics={[
+                { k: '+48%', label_fr: 'Leads qualifiés', label_en: 'Qualified leads' },
+                { k: '6 sem.', label_fr: 'Délai', label_en: 'Lead time' },
+              ]}
+            />
+          </div>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">PricingTier · highlight</h3>
+            <div class="studio-mol-grid3">
+              <PricingTier idx="01" tier="Starter" price="7 900 €" period="HT · forfait" desc_fr="Site vitrine orienté preuve." desc_en="Proof-first showcase site." features={['Jusqu\'à 8 pages', 'SEO technique', 'Mise en ligne 4 sem.']} ctaLabel="Démarrer" ctaHref="#" />
+              <PricingTier idx="02" tier="Standard" highlight price="14 900 €" period="HT · forfait" desc_fr="Tunnel de conversion complet." desc_en="Full conversion funnel." features={['Pages illimitées', 'Tunnel + CRM', 'A/B testing']} ctaLabel="Recommandé" ctaHref="#" />
+              <PricingTier idx="03" tier="Custom" price="Sur devis" desc_fr="Plateforme sur-mesure." desc_en="Bespoke platform." features={['Architecture dédiée', 'Intégrations API', 'Support prioritaire']} ctaLabel="Nous contacter" ctaHref="#" />
+            </div>
+          </div>
+
+          <div class="studio-mol studio-mol--2col">
+            <div>
+              <h3 class="studio-h4">TagPills</h3>
+              <TagPills tags={['IA', 'Astro', 'SEO', 'Conversion']} lang="fr" />
+            </div>
+            <div>
+              <h3 class="studio-h4">Breadcrumb</h3>
+              <Breadcrumb items={[
+                { label: 'Accueil', href: '/' },
+                { label: 'Agence', href: '/agence' },
+                { label: 'DS Studio' },
+              ]} lang="fr" />
+            </div>
+          </div>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">ShareButtons</h3>
+            <ShareButtons url="/agence/ds-studio" title="DS Studio Waimia" lang="fr" />
+          </div>
+
+          <div class="studio-mol">
+            <h3 class="studio-h4">TerminalMockup · tone ink / paper</h3>
+            <div class="studio-mol--2col">
+              <TerminalMockup label="waimia · studio" status="◉ live" tone="ink">
+                <p style="font-family:var(--font-mono);color:var(--accent);font-size:var(--text-mono-xs)">$ édite --accent → tout se repeint</p>
+              </TerminalMockup>
+              <TerminalMockup label="waimia · studio" status="◉ paper" tone="paper">
+                <p style="font-family:var(--font-mono);color:var(--ink);font-size:var(--text-mono-xs)">$ tone paper</p>
+              </TerminalMockup>
+            </div>
+          </div>
+        </section>
+
+        {/* 2ter. Galerie · Sections (échantillon, rendu inline → réactif LIVE) */}
+        <section class="studio-section">
+          <ChapterLabel num="03" title={`Sections · ${sectionSample.length} échantillon sur ${sectionTotal}`} />
+          <p class="studio-section-lede">
+            Rendu inline (pas iframe) pour rester réactif au token LIVE. Aperçu tronqué en hauteur.
+            <a href="/agence/design-system#sections"> Voir les {sectionTotal} sections →</a>
+          </p>
+          <div class="studio-sec-grid">
+            {sectionSample.map(({ type, C, demo }) => (
+              <article class="studio-sec-tile">
+                <div class="studio-sec-head">
+                  <code>{type}</code>
+                  <a href={`/preview/${type}`} class="studio-sec-link">grand →</a>
+                </div>
+                <div class="studio-sec-frame">
+                  {C && demo ? <C data={demo} lang={lang} /> : <p class="studio-sec-miss">section inconnue</p>}
+                  <span class="studio-sec-fade" aria-hidden="true"></span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 3. Doublons & dette */}
+        <section class="studio-section">
+          <ChapterLabel num="04" title="Doublons & dette (avant de figer le DS)" />
+
+          <div class="studio-debt-grid">
+            <div class="studio-debt-card">
+              <span class="studio-debt-k">{stats.duplicateGroupCount}</span>
+              <span class="studio-debt-l">groupes de classes au corps identique</span>
+            </div>
+            <div class="studio-debt-card">
+              <span class="studio-debt-k">{stats.unusedTokens.length}</span>
+              <span class="studio-debt-l">tokens déclarés jamais consommés via var()</span>
+            </div>
+            <div class="studio-debt-card">
+              <span class="studio-debt-k">{stats.tokenCount}</span>
+              <span class="studio-debt-l">tokens dans le verrou (check:token-lock)</span>
+            </div>
+          </div>
+
+          <p class="studio-lock-note">
+            Verrou non-bloquant actif. Il passera <strong>bloquant</strong> via
+            <code> DS_TOKEN_LOCK_ENFORCE=1</code> quand le DS sera figé.
+          </p>
+
+          <h3 class="studio-h4">Tokens inutilisés ({stats.unusedTokens.length})</h3>
+          <div class="studio-unused">
+            {stats.unusedTokens.map((t) => <code class="studio-unused-pill">{t}</code>)}
+          </div>
+
+          <h3 class="studio-h4">Classes au corps identique ({duplicateClasses.length} groupes)</h3>
+          <p class="studio-section-lede">Corps CSS normalisé identique = candidates à la fusion avant de figer le DS.</p>
+          <ul class="studio-dup-list">
+            {duplicateClasses.map((d) => (
+              <li class="studio-dup">
+                <div class="studio-dup-classes">
+                  {d.classes.map((c) => <code>.{c}</code>)}
+                </div>
+                <pre class="studio-dup-sig">{d.signature.length > 160 ? d.signature.slice(0, 160) + '…' : d.signature}</pre>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  {/* Île de données pour le JS (carte d'impact) */}
+  <script type="application/json" id="ds-studio-data" set:html={studioData}></script>
+  <script>
+    import '../../scripts/ds-studio.js';
+  </script>
+</Base>
+
+<style>
+  .studio {
+    max-width: var(--wrap-wide);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+    padding-block: var(--space-9) var(--space-12);
+    color: var(--ink);
+  }
+  .studio-vh {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0, 0, 0, 0); white-space: nowrap;
+  }
+
+  /* ── En-tête ── */
+  .studio-hd { max-width: var(--wrap-read); margin-bottom: var(--space-9); }
+  .studio-eyebrow { margin-bottom: var(--space-4); }
+  .studio-h1 {
+    font-family: var(--font-display); font-size: var(--text-h1-hero);
+    line-height: var(--leading-h1); letter-spacing: var(--tracking-display);
+    margin: 0 0 var(--space-4);
+  }
+  .studio-h1 i { color: var(--accent); font-style: italic; }
+  .studio-lede {
+    font-family: var(--font-sans); font-size: var(--text-lede);
+    line-height: var(--leading-lede); color: var(--ink-2); margin: 0 0 var(--space-3);
+  }
+  .studio-lede a, .studio-section-lede a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+  .studio-meta {
+    font-family: var(--font-mono); font-size: var(--text-caption);
+    color: var(--muted); margin: 0;
+  }
+  .studio code {
+    font-family: var(--font-mono); font-size: 0.92em;
+    background: var(--paper-2); padding: 0.1em 0.4em; border-radius: var(--radius-xs);
+  }
+
+  /* ── Layout 2 colonnes ── */
+  .studio-layout {
+    display: grid; grid-template-columns: 340px minmax(0, 1fr);
+    gap: var(--space-8); align-items: start;
+  }
+  @media (max-width: 1080px) {
+    .studio-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ── Panneau éditeur ── */
+  .studio-panel { position: sticky; top: var(--space-5); }
+  @media (max-width: 1080px) { .studio-panel { position: static; } }
+  .studio-panel-inner {
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-lg);
+    background: var(--paper); padding: var(--space-5);
+    max-height: calc(100vh - var(--space-9)); overflow-y: auto;
+  }
+  @media (max-width: 1080px) { .studio-panel-inner { max-height: none; } }
+  .studio-panel-top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); }
+  .studio-h3 { font-family: var(--font-display); font-size: var(--text-h3-card); margin: 0; }
+  .studio-actions { display: flex; gap: var(--space-2); }
+  .studio-btn {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-sm);
+    background: var(--paper-2); color: var(--ink); padding: var(--space-2) var(--space-3);
+    cursor: pointer; transition: background var(--dur-fast) var(--ease);
+  }
+  .studio-btn:hover { background: var(--paper-3); }
+  .studio-btn--accent { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .studio-btn--accent:hover { background: var(--accent-2); }
+
+  .studio-search { display: block; margin: var(--space-4) 0; }
+  .studio-search input {
+    width: 100%; box-sizing: border-box; font-family: var(--font-mono);
+    font-size: var(--text-ui); padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-sm);
+    background: var(--paper-2); color: var(--ink);
+  }
+
+  .studio-group { margin-bottom: var(--space-5); }
+  .studio-group-title {
+    font-family: var(--font-mono); font-size: var(--text-eyebrow);
+    text-transform: uppercase; letter-spacing: var(--tracking-mono);
+    color: var(--muted); margin: 0 0 var(--space-2);
+    border-bottom: 1px solid var(--hairline); padding-bottom: var(--space-1);
+    display: flex; justify-content: space-between;
+  }
+  .studio-rows { display: flex; flex-direction: column; gap: var(--space-2); }
+  .studio-row {
+    display: grid; grid-template-columns: 1fr; gap: var(--space-1);
+    padding: var(--space-2); border-radius: var(--radius-sm);
+    border: 1px solid transparent; cursor: pointer;
+  }
+  .studio-row:hover { background: var(--paper-2); }
+  .studio-row.is-selected { border-color: var(--accent); background: var(--paper-2); }
+  .studio-row.is-dirty .studio-row-name { color: var(--accent); }
+  .studio-row-name {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+    color: var(--ink-2); background: none; border: none; padding: 0;
+    text-align: left; cursor: pointer; word-break: break-all;
+  }
+  .studio-row.is-dirty .studio-row-name::after { content: ' ●'; color: var(--accent); }
+  .studio-row-ctrl { display: flex; align-items: center; gap: var(--space-2); }
+  .studio-swatch-input {
+    width: 32px; height: 28px; padding: 0; border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm); background: none; cursor: pointer; flex: none;
+  }
+  .studio-text-input, .studio-num {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+    border: 1px solid var(--hairline); border-radius: var(--radius-sm);
+    background: var(--paper); color: var(--ink); padding: var(--space-1) var(--space-2);
+    width: 100%; box-sizing: border-box; min-width: 0;
+  }
+  .studio-text-input--wide { width: 100%; }
+  .studio-range { flex: 1 1 auto; min-width: 0; accent-color: var(--accent); }
+  .studio-num { width: 64px; flex: none; }
+  .studio-unit { font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted); flex: none; }
+
+  .studio-export-out {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+    background: var(--ink); color: var(--accent-ink); padding: var(--space-3);
+    border-radius: var(--radius-sm); margin-top: var(--space-4);
+    white-space: pre-wrap; word-break: break-all; max-height: 200px; overflow: auto;
+  }
+  .studio-export-out:empty { display: none; }
+
+  /* ── Main / galerie ── */
+  .studio-main { min-width: 0; display: flex; flex-direction: column; gap: var(--space-9); }
+  .studio-section { display: flex; flex-direction: column; gap: var(--space-3); }
+  .studio-section-lede {
+    font-family: var(--font-sans); font-size: var(--text-body-sm);
+    color: var(--muted); margin: 0 0 var(--space-2); max-width: var(--wrap-read);
+  }
+  .studio-h4 {
+    font-family: var(--font-mono); font-size: var(--text-ui); text-transform: uppercase;
+    letter-spacing: var(--tracking-mono); color: var(--ink-2);
+    margin: var(--space-4) 0 var(--space-2);
+  }
+
+  /* Carte d'impact */
+  .studio-impact {
+    border: 1px solid var(--hairline-strong); border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); background: var(--paper);
+  }
+  .studio-impact-help { font-family: var(--font-sans); font-size: var(--text-body-sm); color: var(--ink-2); margin: var(--space-2) 0; }
+  .studio-impact-list {
+    list-style: none; margin: 0; padding: 0; columns: 2; column-gap: var(--space-5);
+    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted);
+    max-height: 220px; overflow: auto;
+  }
+  .studio-impact-list li { break-inside: avoid; padding: 0.1em 0; }
+  .studio-impact-empty { color: var(--muted-2); }
+  @media (max-width: 640px) { .studio-impact-list { columns: 1; } }
+
+  /* Tiles atomes */
+  .studio-tiles { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .studio-tile {
+    display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start;
+    justify-content: center; padding: var(--space-4); min-height: 96px; min-width: 160px;
+    border: 1px solid var(--hairline); border-radius: var(--radius-md); background: var(--paper);
+  }
+  .studio-tile--dark { background: var(--ink); border-color: var(--ink-3); }
+  .studio-tile--dark .studio-tag { color: var(--muted-2); background: var(--ink-2); }
+  .studio-tile--note { min-height: 72px; }
+  .studio-note-name { font-family: var(--font-mono); font-size: var(--text-ui); color: var(--accent); }
+  .studio-note-role { font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted); }
+  .studio-tag {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted);
+    background: var(--paper-2); padding: 0.1em 0.4em; border-radius: var(--radius-xs);
+  }
+
+  /* Molécules */
+  .studio-mol {
+    padding: var(--space-4); border: 1px solid var(--hairline); border-radius: var(--radius-md);
+    background: var(--paper); display: flex; flex-direction: column; gap: var(--space-3);
+  }
+  .studio-mol--2col { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-5); }
+  .studio-mol-grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); }
+
+  /* Sections échantillon */
+  .studio-sec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-5); }
+  .studio-sec-tile { border: 1px solid var(--hairline-strong); border-radius: var(--radius-md); overflow: hidden; background: var(--paper); }
+  .studio-sec-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--hairline);
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+  }
+  .studio-sec-link { color: var(--accent); text-decoration: none; }
+  .studio-sec-frame { position: relative; max-height: 280px; overflow: hidden; }
+  .studio-sec-frame > :first-child { transform: none; }
+  .studio-sec-fade {
+    position: absolute; left: 0; right: 0; bottom: 0; height: var(--space-9);
+    background: linear-gradient(to bottom, transparent, var(--paper)); pointer-events: none;
+  }
+  .studio-sec-miss { font-family: var(--font-mono); padding: var(--space-4); color: var(--muted); }
+
+  /* Dette */
+  .studio-debt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); }
+  .studio-debt-card {
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-md);
+    padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-1); background: var(--paper);
+  }
+  .studio-debt-k { font-family: var(--font-display); font-size: var(--text-h2-tight); color: var(--accent); }
+  .studio-debt-l { font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted); }
+  .studio-lock-note { font-family: var(--font-sans); font-size: var(--text-body-sm); color: var(--ink-2); margin: var(--space-2) 0; }
+
+  .studio-unused, .studio-dup-classes { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .studio-unused-pill { color: var(--muted); }
+
+  .studio-dup-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .studio-dup {
+    display: grid; grid-template-columns: minmax(120px, 220px) minmax(0, 1fr); gap: var(--space-4);
+    align-items: start; padding: var(--space-3); border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm); background: var(--paper);
+  }
+  @media (max-width: 640px) { .studio-dup { grid-template-columns: 1fr; } }
+  .studio-dup-sig {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted);
+    white-space: pre-wrap; word-break: break-all; margin: 0;
+  }
+
+  /* Toast (injecté par le JS) */
+  :global(.studio-toast) {
+    position: fixed; left: 50%; bottom: var(--space-6); transform: translateX(-50%) translateY(var(--space-4));
+    background: var(--ink); color: var(--accent-ink); font-family: var(--font-mono);
+    font-size: var(--text-ui); padding: var(--space-3) var(--space-5); border-radius: var(--radius-pill);
+    opacity: 0; pointer-events: none; transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+    z-index: 9999;
+  }
+  :global(.studio-toast.is-on) { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* Force l'état révélé des sections rendues inline (sinon scroll-reveal = opacity:0 = GF-1 fail).
+     Réplique l'override de /preview/[type].astro, scopé à la galerie. */
+  .studio-gallery :global(.reveal),
+  .studio-gallery :global(.reveal-up),
+  .studio-gallery :global(.reveal-fade),
+  .studio-gallery :global(.reveal-slide),
+  .studio-gallery :global(.reveal-snap),
+  .studio-gallery :global(.scale-in),
+  .studio-gallery :global(.blur-in),
+  .studio-gallery :global(.clip-up),
+  .studio-gallery :global(.hair-draw),
+  .studio-gallery :global(.row-lines),
+  .studio-gallery :global(.reveal-stagger > *) {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+</style>

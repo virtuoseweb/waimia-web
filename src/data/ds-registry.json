@@ -220,7 +220,7 @@
       "name": "--ink-rgb",
       "value": "12, 11, 9",
       "group": "color",
-      "comment": "RGB channels · pilotent les rgba() composables sans re-hardcoder la couleur Usage : rgba(var(--ink-rgb), 0.08) — un seul point de vérité par teinte"
+      "comment": "RGB channels · pilotent les rgba() composables sans re-hardcoder la couleur Usage : rgba(var(--ink-rgb), 0.08) · un seul point de vérité par teinte"
     },
     {
       "name": "--leading-body",
@@ -334,19 +334,19 @@
       "name": "--section-base",
       "value": "var(--space-11)",
       "group": "spacing",
-      "comment": "96px — défaut"
+      "comment": "96px · défaut"
     },
     {
       "name": "--section-grand",
       "value": "var(--space-15)",
       "group": "spacing",
-      "comment": "256px — breakout signature"
+      "comment": "256px · breakout signature"
     },
     {
       "name": "--section-loose",
       "value": "var(--space-13)",
       "group": "spacing",
-      "comment": "160px — ouverture chapitre"
+      "comment": "160px · ouverture chapitre"
     },
     {
       "name": "--shadow-card-hover",
@@ -370,7 +370,7 @@
       "name": "--shadow-hairline",
       "value": "0 0 0 1px var(--hairline)",
       "group": "shadow",
-      "comment": "Pas de drop-shadow lourd — uniquement du subtle pour différencier les surfaces"
+      "comment": "Pas de drop-shadow lourd · uniquement du subtle pour différencier les surfaces"
     },
     {
       "name": "--shadow-lift",
@@ -634,13 +634,13 @@
       "name": "--z-sticky",
       "value": "10",
       "group": "z",
-      "comment": "Seul --z-sticky est consommé (ScrollProgress) ; les autres paliers utilisaient des valeurs littérales — supprimés (ds-cleanup 2026-06-04)."
+      "comment": "Seul --z-sticky est consommé (ScrollProgress) ; les autres paliers utilisaient des valeurs littérales · supprimés (ds-cleanup 2026-06-04)."
     }
   ],
   "tokenConsumers": [
     {
       "token": "--accent",
-      "count": 184,
+      "count": 185,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -772,6 +772,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
@@ -830,12 +831,13 @@
     },
     {
       "token": "--accent-2",
-      "count": 7,
+      "count": 8,
       "files": [
         "src/components/sections/WelcomeSection.astro",
         "src/components/templates/WelcomeTemplate.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/contact.astro",
         "src/pages/en/contact.astro",
         "src/styles/global.css"
@@ -843,9 +845,10 @@
     },
     {
       "token": "--accent-ink",
-      "count": 2,
+      "count": 3,
       "files": [
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/styles/global.css"
       ]
     },
@@ -947,7 +950,7 @@
     },
     {
       "token": "--dur-fast",
-      "count": 36,
+      "count": 37,
       "files": [
         "src/components/editorial/EditorialTable.astro",
         "src/components/sections/CaseCardGrid.astro",
@@ -974,6 +977,7 @@
         "src/pages/404.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/commerce/index.astro",
         "src/pages/contact.astro",
@@ -1007,7 +1011,7 @@
     },
     {
       "token": "--ease",
-      "count": 74,
+      "count": 75,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/motion/AtlasConnections.astro",
@@ -1053,6 +1057,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/archive.astro",
@@ -1106,7 +1111,7 @@
     },
     {
       "token": "--font-display",
-      "count": 150,
+      "count": 151,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -1209,6 +1214,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
@@ -1262,7 +1268,7 @@
     },
     {
       "token": "--font-mono",
-      "count": 144,
+      "count": 145,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/DropCap.astro",
@@ -1360,6 +1366,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
@@ -1412,7 +1419,7 @@
     },
     {
       "token": "--font-sans",
-      "count": 94,
+      "count": 95,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/sections/BrandedCallout.astro",
@@ -1471,6 +1478,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
@@ -1707,7 +1715,7 @@
     },
     {
       "token": "--hairline",
-      "count": 149,
+      "count": 150,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -1806,6 +1814,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
@@ -1862,7 +1871,7 @@
     },
     {
       "token": "--hairline-strong",
-      "count": 57,
+      "count": 58,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -1903,6 +1912,7 @@
         "src/pages/404.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
@@ -1959,7 +1969,7 @@
     },
     {
       "token": "--ink",
-      "count": 146,
+      "count": 147,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -2057,6 +2067,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/archive.astro",
@@ -2111,7 +2122,7 @@
     },
     {
       "token": "--ink-2",
-      "count": 72,
+      "count": 73,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -2162,6 +2173,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/categories/[slug].astro",
@@ -2189,12 +2201,13 @@
     },
     {
       "token": "--ink-3",
-      "count": 4,
+      "count": 5,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
         "src/components/editorial/Sidenote.astro",
-        "src/pages/agence/design-system.astro"
+        "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro"
       ]
     },
     {
@@ -2304,7 +2317,7 @@
     },
     {
       "token": "--leading-h1",
-      "count": 24,
+      "count": 25,
       "files": [
         "src/components/sections/HeroEssay.astro",
         "src/components/sections/HeroFullBleed.astro",
@@ -2320,6 +2333,7 @@
         "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/organisms/BookSession.astro",
         "src/components/ui/organisms/Hero.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/contact.astro",
         "src/pages/en/contact.astro",
@@ -2411,7 +2425,7 @@
     },
     {
       "token": "--leading-lede",
-      "count": 40,
+      "count": 41,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/CaseCardGrid.astro",
@@ -2440,6 +2454,7 @@
         "src/pages/404.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/atlas.astro",
         "src/pages/en/agence/about.astro",
         "src/pages/en/agence/design-system.astro",
@@ -2478,7 +2493,7 @@
     },
     {
       "token": "--muted",
-      "count": 152,
+      "count": 153,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -2576,6 +2591,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
@@ -2636,13 +2652,14 @@
     },
     {
       "token": "--muted-2",
-      "count": 9,
+      "count": 10,
       "files": [
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/TierPyramidSvg.astro",
         "src/components/ui/molecules/PainPointInline.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
@@ -2651,7 +2668,7 @@
     },
     {
       "token": "--paper",
-      "count": 82,
+      "count": 83,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/editorial/Timeline.astro",
@@ -2702,6 +2719,7 @@
         "src/components/ui/organisms/PersonaSwitcher.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/cas/index.astro",
@@ -2739,7 +2757,7 @@
     },
     {
       "token": "--paper-2",
-      "count": 90,
+      "count": 91,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -2790,6 +2808,7 @@
         "src/components/ui/organisms/Stub.astro",
         "src/pages/404.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/archive.astro",
@@ -2835,9 +2854,10 @@
     },
     {
       "token": "--paper-3",
-      "count": 5,
+      "count": 6,
       "files": [
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/en/integrations/[slug].astro",
         "src/pages/en/integrations/index.astro",
         "src/pages/integrations/[slug].astro",
@@ -2904,20 +2924,21 @@
     },
     {
       "token": "--radius-lg",
-      "count": 7,
+      "count": 8,
       "files": [
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/molecules/TerminalMockup.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/en/integrations/index.astro",
         "src/pages/integrations/index.astro"
       ]
     },
     {
       "token": "--radius-md",
-      "count": 10,
+      "count": 11,
       "files": [
         "src/components/sections/HeroLeadMagnet.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -2925,6 +2946,7 @@
         "src/components/ui/molecules/TaxonomyMenu.astro",
         "src/components/ui/organisms/Stub.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/comparer/[slug].astro",
         "src/pages/comparer/index.astro",
         "src/pages/en/comparer/[slug].astro",
@@ -2933,7 +2955,7 @@
     },
     {
       "token": "--radius-pill",
-      "count": 9,
+      "count": 10,
       "files": [
         "src/components/sections/HeroConversionFunnel.astro",
         "src/components/sections/HeroOfferDetail.astro",
@@ -2941,6 +2963,7 @@
         "src/components/ui/molecules/PricingTier.astro",
         "src/components/ui/molecules/TagPills.astro",
         "src/components/ui/molecules/TechPillRow.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/en/integrations/index.astro",
         "src/pages/integrations/index.astro",
         "src/styles/global.css"
@@ -2948,7 +2971,7 @@
     },
     {
       "token": "--radius-sm",
-      "count": 24,
+      "count": 25,
       "files": [
         "src/components/sections/ComingSoonPills.astro",
         "src/components/sections/HeroLanding.astro",
@@ -2964,6 +2987,7 @@
         "src/components/templates/TunnelStepTemplate.astro",
         "src/components/ui/molecules/Breadcrumb.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/contact.astro",
         "src/pages/en/agence/design-system.astro",
         "src/pages/en/contact.astro",
@@ -2978,13 +3002,14 @@
     },
     {
       "token": "--radius-xs",
-      "count": 11,
+      "count": 12,
       "files": [
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/ui/molecules/NewsletterSignup.astro",
         "src/components/ui/organisms/CookiesBanner.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/en/agence/design-system.astro",
         "src/pages/en/integrations/[slug].astro",
         "src/pages/en/integrations/index.astro",
@@ -3070,7 +3095,7 @@
     },
     {
       "token": "--space-1",
-      "count": 49,
+      "count": 50,
       "files": [
         "src/components/editorial/EditorialTable.astro",
         "src/components/editorial/PullQuote.astro",
@@ -3104,6 +3129,7 @@
         "src/components/ui/organisms/PersonaSwitcher.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/cas/index.astro",
         "src/pages/console.astro",
@@ -3156,13 +3182,14 @@
     },
     {
       "token": "--space-12",
-      "count": 5,
+      "count": 6,
       "files": [
         "src/components/editorial/Dingbat.astro",
         "src/components/sections/DeliverablesGrid.astro",
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/MetricShift.astro",
-        "src/components/sections/ProblemStatement.astro"
+        "src/components/sections/ProblemStatement.astro",
+        "src/pages/agence/ds-studio.astro"
       ]
     },
     {
@@ -3191,7 +3218,7 @@
     },
     {
       "token": "--space-2",
-      "count": 74,
+      "count": 75,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/KeyMetric.astro",
@@ -3242,6 +3269,7 @@
         "src/components/ui/molecules/TechPillRow.astro",
         "src/components/ui/organisms/AtlasGrid.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/archive.astro",
         "src/pages/cas/index.astro",
@@ -3271,7 +3299,7 @@
     },
     {
       "token": "--space-3",
-      "count": 79,
+      "count": 80,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -3326,6 +3354,7 @@
         "src/pages/404.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/archive.astro",
@@ -3356,7 +3385,7 @@
     },
     {
       "token": "--space-4",
-      "count": 100,
+      "count": 101,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3426,6 +3455,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/atlas.astro",
@@ -3462,7 +3492,7 @@
     },
     {
       "token": "--space-5",
-      "count": 115,
+      "count": 116,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3540,6 +3570,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
@@ -3583,7 +3614,7 @@
     },
     {
       "token": "--space-6",
-      "count": 104,
+      "count": 105,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3652,6 +3683,7 @@
         "src/pages/404.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/archive.astro",
         "src/pages/cas/index.astro",
@@ -3732,7 +3764,7 @@
     },
     {
       "token": "--space-8",
-      "count": 38,
+      "count": 39,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3756,6 +3788,7 @@
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/RelatedByCluster.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
@@ -3776,7 +3809,7 @@
     },
     {
       "token": "--space-9",
-      "count": 12,
+      "count": 13,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3787,6 +3820,7 @@
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/ui/organisms/Hero.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/en/agence/prompts.astro",
         "src/pages/glossaire/index.astro"
@@ -3937,7 +3971,7 @@
     },
     {
       "token": "--text-body-sm",
-      "count": 58,
+      "count": 59,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3972,6 +4006,7 @@
         "src/components/ui/molecules/NewsletterSignup.astro",
         "src/components/ui/molecules/PricingTier.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/categories/[slug].astro",
@@ -4001,7 +4036,7 @@
     },
     {
       "token": "--text-caption",
-      "count": 45,
+      "count": 46,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/ComingSoonPills.astro",
@@ -4028,6 +4063,7 @@
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/commerce/index.astro",
@@ -4059,7 +4095,7 @@
     },
     {
       "token": "--text-eyebrow",
-      "count": 118,
+      "count": 119,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -4142,6 +4178,7 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/archive.astro",
@@ -4183,7 +4220,7 @@
     },
     {
       "token": "--text-h1-hero",
-      "count": 13,
+      "count": 14,
       "files": [
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroHome.astro",
@@ -4192,6 +4229,7 @@
         "src/components/templates/TunnelStepTemplate.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/commerce/[type]/[slug].astro",
         "src/pages/commerce/index.astro",
@@ -4244,20 +4282,22 @@
     },
     {
       "token": "--text-h2-tight",
-      "count": 4,
+      "count": 5,
       "files": [
         "src/components/sections/CaseCardGrid.astro",
         "src/components/sections/ProblemStatement.astro",
         "src/components/sections/TechStackBand.astro",
-        "src/pages/agence/design-system.astro"
+        "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro"
       ]
     },
     {
       "token": "--text-h3-card",
-      "count": 2,
+      "count": 3,
       "files": [
         "src/components/sections/TechStackBand.astro",
-        "src/pages/agence/design-system.astro"
+        "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro"
       ]
     },
     {
@@ -4275,7 +4315,7 @@
     },
     {
       "token": "--text-lede",
-      "count": 13,
+      "count": 14,
       "files": [
         "src/components/sections/HeroAtlas.astro",
         "src/components/sections/HeroAuthor.astro",
@@ -4285,6 +4325,7 @@
         "src/components/templates/TunnelStepTemplate.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/commerce/[type]/[slug].astro",
         "src/pages/commerce/index.astro",
@@ -4294,7 +4335,7 @@
     },
     {
       "token": "--text-mono-xs",
-      "count": 43,
+      "count": 44,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/CaseCardGrid.astro",
@@ -4325,6 +4366,7 @@
         "src/components/ui/organisms/PersonaSwitcher.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/components/[type].astro",
         "src/pages/console.astro",
@@ -4351,7 +4393,7 @@
     },
     {
       "token": "--text-ui",
-      "count": 47,
+      "count": 48,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/footer/Footer.astro",
@@ -4378,6 +4420,7 @@
         "src/components/ui/organisms/CookiesBanner.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
         "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
@@ -4416,7 +4459,7 @@
     },
     {
       "token": "--tracking-display",
-      "count": 29,
+      "count": 30,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/editorial/PullQuote.astro",
@@ -4438,6 +4481,7 @@
         "src/components/ui/molecules/PricingTier.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/about.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/cas/index.astro",
         "src/pages/console.astro",
@@ -4451,7 +4495,7 @@
     },
     {
       "token": "--tracking-mono",
-      "count": 41,
+      "count": 42,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -4484,6 +4528,7 @@
         "src/components/ui/molecules/TableOfContents.astro",
         "src/components/ui/organisms/BookSession.astro",
         "src/pages/agence/about.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
         "src/pages/archive.astro",
@@ -4542,7 +4587,7 @@
     },
     {
       "token": "--wrap-read",
-      "count": 44,
+      "count": 45,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/DeliverablesGrid.astro",
@@ -4580,6 +4625,7 @@
         "src/components/ui/organisms/PersonaSwitcher.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
         "src/pages/agence/prompts.astro",
         "src/pages/en/agence/about.astro",
@@ -4601,7 +4647,7 @@
     },
     {
       "token": "--wrap-wide",
-      "count": 13,
+      "count": 14,
       "files": [
         "src/components/sections/HeroConversionFunnel.astro",
         "src/components/sections/HeroHome.astro",
@@ -4611,6 +4657,7 @@
         "src/components/templates/UtilityTemplate.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/en/agence/design-system.astro",
         "src/pages/manifesto.astro",
