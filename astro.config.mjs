@@ -118,7 +118,7 @@ export default defineConfig({
     }),
     robotsTxt({
       policy: [
-        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/'] },
+        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/ds-studio', '/agence/hero-lab', '/preview/', '/components/', '/categories/'] },
         { userAgent: 'GPTBot', allow: '/' },
         { userAgent: 'ClaudeBot', allow: '/' },
         { userAgent: 'anthropic-ai', allow: '/' },
