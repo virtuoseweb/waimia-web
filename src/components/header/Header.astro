@@ -196,7 +196,7 @@ const isCurrentSection = (parentHref?: string) => {
 
 {/* Logique state · `is:inline` pour bypass le bug Astro 6 + adapter Vercel
    en dev (script bundlé via virtual path Vite retourne 500). En prod, c'est
-   inlined direct dans le HTML SSR — slightly bigger HTML mais aucun fetch
+   inlined direct dans le HTML SSR : slightly bigger HTML mais aucun fetch
    supplémentaire et fonctionne en local + prod identique.
    A11y · WCAG 2.4.5 (Multiple Ways) + 2.1.1 (Keyboard) + 4.1.2 (Name, Role, Value) */}
 <script is:inline>

@@ -47,7 +47,7 @@ const calLink = `${username}/${eventType}`;
 ---
 {/* Resource hints · Cal.com SaaS (app.cal.com sert embed.js + l'iframe de réservation).
    Source de vérité = ce composant (rendu uniquement sur les pages qui embarquent Cal),
-   donc le hint n'apparaît que là où il sert — pas de duplication par page.
+   donc le hint n'apparaît que là où il sert, pas de duplication par page.
    preconnect ouvre TCP+TLS en avance ; dns-prefetch = fallback navigateurs anciens. */}
 <link rel="preconnect" href="https://app.cal.com" crossorigin />
 <link rel="dns-prefetch" href="https://app.cal.com" />

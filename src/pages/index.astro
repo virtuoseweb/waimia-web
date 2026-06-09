@@ -62,8 +62,8 @@ const featureGridData = {
   type: 'feature-grid' as const,
   kicker_fr: '8 PILIERS · UN SEUL SYSTÈME',
   kicker_en: '8 PILLARS · ONE SYSTEM',
-  h2_fr: "Du <i>canal</i> à <i>l'action</i>. Marketing, sales, contenu, web — alignés.",
-  h2_en: 'From <i>channel</i> to <i>action</i>. Marketing, sales, content, web — aligned.',
+  h2_fr: "Du <i>canal</i> à <i>l'action</i>. Marketing, sales, contenu, web : alignés.",
+  h2_en: 'From <i>channel</i> to <i>action</i>. Marketing, sales, content, web: aligned.',
   columns: '4' as const,
   features: CAPABILITY_MAP.map((cat) => ({
     icon: cat.k,
@@ -78,12 +78,12 @@ const featureGridData = {
 const servicesGridData = {
   type: 'services-grid' as const,
   fig_num: 'FIG II · 2.0',
-  fig_title_fr: 'Acte II — La méthode',
-  fig_title_en: 'Act II — The method',
+  fig_title_fr: 'Acte II : La méthode',
+  fig_title_en: 'Act II: The method',
   spec_fr: '6 SERVICES · UNE COUCHE CONTINUE',
   spec_en: '6 SERVICES · ONE CONTINUOUS LAYER',
-  h2_fr: 'Six services, appris en <i>livrant</i> — pas en PowerPoint.',
-  h2_en: 'Six services, taught by <i>doing</i> — not by slides.',
+  h2_fr: 'Six services, appris en <i>livrant</i>, pas en PowerPoint.',
+  h2_en: 'Six services, taught by <i>doing</i>, not by slides.',
   connectors_label_fr: 'Connecteurs',
   connectors_label_en: 'Connectors',
   services: SIX_SERVICES.map((s) => ({
@@ -108,12 +108,12 @@ const ACTION_LABELS = [
 const maturityPyramidData = {
   type: 'maturity-pyramid' as const,
   roman: 'II',
-  label_fr: "Acte II — La pyramide d'engagements",
-  label_en: 'Act II — The engagement pyramid',
+  label_fr: "Acte II : La pyramide d'engagements",
+  label_en: 'Act II: The engagement pyramid',
   heading_fr: '<i>Cartographier.</i> Câbler.<br/>Orchestrer. <i>Industrialiser.</i>',
   heading_en: '<i>Map.</i> Wire.<br/>Orchestrate. <i>Industrialize.</i>',
-  aside_fr: "Du diagnostic process à l'infrastructure souveraine — chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
-  aside_en: "From process diagnostic to sovereign infrastructure — each tier sets up the next. You climb when you're ready.",
+  aside_fr: "Du diagnostic process à l'infrastructure souveraine : chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
+  aside_en: "From process diagnostic to sovereign infrastructure: each tier sets up the next. You climb when you're ready.",
   timeline_label_fr: 'Progression de maturité IA',
   timeline_label_en: 'AI maturity path',
   tier_cta_fr: 'Voir le palier →',
@@ -138,12 +138,12 @@ const maturityPyramidData = {
 const useCaseIndexData = {
   type: 'use-case-index' as const,
   roman: 'III',
-  label_fr: "§ 05 — Cas d'usage horizontaux",
-  label_en: '§ 05 — Horizontal use cases',
+  label_fr: "§ 05 : Cas d'usage horizontaux",
+  label_en: '§ 05: Horizontal use cases',
   heading_fr: 'Cinq <i>cas d\'usage</i>. Une seule méthode.',
   heading_en: 'Five <i>use cases</i>. One method.',
-  aside_fr: 'Acquisition, CRM, contenu, productivité, support — les douleurs récurrentes des PME. Mêmes systèmes, vocabulaire adapté à votre métier.',
-  aside_en: 'Acquisition, CRM, content, productivity, support — recurring SMB pain points. Same systems, wording adapted to your sector.',
+  aside_fr: 'Acquisition, CRM, contenu, productivité, support : les douleurs récurrentes des PME. Mêmes systèmes, vocabulaire adapté à votre métier.',
+  aside_en: 'Acquisition, CRM, content, productivity, support: recurring SMB pain points. Same systems, wording adapted to your sector.',
   num_prefix_fr: 'USE CASE',
   num_prefix_en: 'USE CASE',
   items: DEPARTMENTS_GRID.map((d) => ({
@@ -163,7 +163,7 @@ const faqItems = [
     a: "Activation IA · 1 semaine démarre à 1 500 € HT : audit, formation, premier workflow livré. Growth System IA démarre à 5 000 € HT. La plupart des PME commencent petit, mesurent en 5 jours, puis câblent le système complet.",
   },
   {
-    q: "Pour qui c'est fait — et pour qui ce n'est pas fait.",
+    q: "Pour qui c'est fait, et pour qui ce n'est pas fait.",
     a: "PME et ETI françaises et suisses, 20 à 500 collaborateurs. Pas les grands groupes déjà bardés de prestataires. Pas les startups trop jeunes, qui changent de cap toutes les semaines. Nos meilleurs clients : services B2B, industrie, cabinets finance et compta.",
   },
   {
@@ -180,7 +180,7 @@ const faqItems = [
   },
   {
     q: "Travaillez-vous avec notre stack actuelle (HubSpot, Salesforce, Excel, etc.) ?",
-    a: "Oui — on se branche sur votre stack actuelle : HubSpot, Salesforce, Pipedrive, Notion, Excel, Office, ERP. Pas de migration imposée. Si vous n'avez pas de CRM, on en propose un adapté à votre volume, souvent HubSpot pour les PME B2B.",
+    a: "Oui : on se branche sur votre stack actuelle : HubSpot, Salesforce, Pipedrive, Notion, Excel, Office, ERP. Pas de migration imposée. Si vous n'avez pas de CRM, on en propose un adapté à votre volume, souvent HubSpot pour les PME B2B.",
   },
   {
     q: "Et notre site web et CMS actuels ? Faut-il tout refaire ?",
@@ -206,8 +206,8 @@ const architectureDiagramData = {
   system_label: 'Waimia', system_kicker: 'AI SYSTEM', system_subtitle: 'multi-agent',
   show_loop: true,
   loop_label_fr: 'BOUCLE D’AMÉLIORATION CONTINUE', loop_label_en: 'CONTINUOUS IMPROVEMENT LOOP',
-  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte — sans relance manuelle.",
-  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects — without manual chasing.',
+  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte, sans relance manuelle.",
+  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
 } satisfies SectionByType<'architecture-diagram'>;
 ---
 <Base
@@ -264,7 +264,7 @@ const architectureDiagramData = {
   <FaqAccordion
     items={faqItems}
     heading="Questions fréquentes"
-    intro="Huit réponses nettes — pas des slides, pas du jargon. Ce qu'on écrit par mail avant de se parler."
+    intro="Huit réponses nettes, pas des slides, pas du jargon. Ce qu'on écrit par mail avant de se parler."
   />
 
   <SectionTransition phrase="Pour ceux qui veulent comprendre avant de réserver." />

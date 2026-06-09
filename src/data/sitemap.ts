@@ -45,8 +45,8 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
   label: { en: 'Solutions', fr: 'Solutions' },
   href: '/solutions',
   lead: {
-    en: 'Five AI systems built around recurring SMB pain points — acquisition, customer relations, productivity, intelligence, operations.',
-    fr: "Cinq systèmes IA qui adressent les douleurs récurrentes des PME — acquisition, relation client, productivité, pilotage, opérations.",
+    en: 'Five AI systems built around recurring SMB pain points: acquisition, customer relations, productivity, intelligence, operations.',
+    fr: "Cinq systèmes IA qui adressent les douleurs récurrentes des PME : acquisition, relation client, productivité, pilotage, opérations.",
   },
   cols: [
     {
@@ -91,8 +91,8 @@ export const MM_OFFRES_NEW: MegaMenu = {
   label: { en: 'Services', fr: 'Offres' },
   href: '/offres',
   lead: {
-    en: 'Three systems for the business levers — a starter format to activate quickly, an enterprise format for larger ambitions.',
-    fr: "Trois systèmes pour adresser les leviers business — un format starter pour activer rapidement, un format ETI quand l'ambition est plus forte.",
+    en: 'Three systems for the business levers: a starter format to activate quickly, an enterprise format for larger ambitions.',
+    fr: "Trois systèmes pour adresser les leviers business : un format starter pour activer rapidement, un format ETI quand l'ambition est plus forte.",
   },
   cols: [
     {
@@ -100,7 +100,7 @@ export const MM_OFFRES_NEW: MegaMenu = {
       label: { en: 'Business systems', fr: 'Systèmes business' },
       tint: '#C94F2E',
       items: [
-        { href: '/offres/growth-system-ia', label: { en: 'AI Growth System', fr: 'Growth System IA' }, lead: { en: 'Automated acquisition and conversion system. Site, CRM, follow-ups, dashboards — all connected.', fr: "Système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux — tout connecté." }, featured: true },
+        { href: '/offres/growth-system-ia', label: { en: 'AI Growth System', fr: 'Growth System IA' }, lead: { en: 'Automated acquisition and conversion system. Site, CRM, follow-ups, dashboards: all connected.', fr: "Système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux : tout connecté." }, featured: true },
         { href: '/offres/growth-intelligence', label: { en: 'Growth Intelligence', fr: 'Growth Intelligence' }, lead: { en: 'Real-time intelligence and data clarity for faster decisions.', fr: 'Pilotage temps réel et lisibilité des données pour décider plus vite.' } },
         { href: '/offres/productivite-operationnelle-ia', label: { en: 'Operational AI', fr: 'Productivité Opérationnelle IA' }, lead: { en: 'Repetitive tasks automated, internal workflows streamlined.', fr: 'Tâches répétitives automatisées, workflows internes fluidifiés.' } },
         { href: '/offres/site-web-ia', label: { en: 'AI website', fr: 'Site web IA' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
@@ -122,8 +122,8 @@ export const MM_OFFRES_NEW: MegaMenu = {
     kicker: { en: 'FLAGSHIP SERVICE', fr: 'OFFRE PHARE' },
     label: { en: 'AI Growth System', fr: 'Growth System IA' },
     body: {
-      en: 'An automated acquisition and conversion system. Site, CRM, follow-ups, dashboards — connected and AI-driven. €5–20k.',
-      fr: "Un système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux — connectés et pilotés par l'IA. 5 à 20 k€.",
+      en: 'An automated acquisition and conversion system. Site, CRM, follow-ups, dashboards, connected and AI-driven. €5–20k.',
+      fr: "Un système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux, connectés et pilotés par l'IA. 5 à 20 k€.",
     },
     cta: { en: 'See the system →', fr: 'Découvrir le système →' },
     href: '/offres/growth-system-ia',
@@ -295,7 +295,7 @@ export const MM_AGENCY_NEW: MegaMenu = {
       label: { en: 'Who we are', fr: 'Qui nous sommes' },
       items: [
         { href: '/agence/about', label: { en: 'About Waimia', fr: 'À propos de Waimia' } },
-        { href: '/agence/methode', label: { en: 'Our method · Process Intelligence', fr: 'Notre méthode · Process Intelligence' }, lead: { en: 'Audit, deployment, measurement — no PowerPoint.', fr: 'Audit, déploiement, mesure — pas de PowerPoint.' }, featured: true },
+        { href: '/agence/methode', label: { en: 'Our method · Process Intelligence', fr: 'Notre méthode · Process Intelligence' }, lead: { en: 'Audit, deployment, measurement, no PowerPoint.', fr: 'Audit, déploiement, mesure, pas de PowerPoint.' }, featured: true },
         { href: '/agence/careers', label: { en: 'Careers', fr: 'Carrières' } },
         { href: '/equipe/simon-beros', label: { en: 'Simon Beros · Founder CV', fr: 'Simon Beros · CV Founder' }, lead: { en: 'Agentic systems architecture.', fr: 'Architecture systèmes agentiques.' } },
       ],
@@ -562,11 +562,11 @@ export const CASE_FEED = [
 ];
 
 export const FIELD_NOTES = [
-  { date: '04.2026', tag: { en: 'CASE',       fr: 'CAS' },     text: { en: 'Halcyon Health — AI triage routing in 6 weeks.',                                  fr: 'Halcyon Health — triage IA routé en 6 semaines.' } },
-  { date: '04.2026', tag: { en: 'UPDATE',    fr: 'MISE À JOUR' }, text: { en: 'VirtuoseOS 2.4 — multi-workspace kernels, French locale.',                        fr: 'VirtuoseOS 2.4 — noyaux multi-workspace, locale FR.' } },
+  { date: '04.2026', tag: { en: 'CASE',       fr: 'CAS' },     text: { en: 'Halcyon Health: AI triage routing in 6 weeks.',                                  fr: 'Halcyon Health : triage IA routé en 6 semaines.' } },
+  { date: '04.2026', tag: { en: 'UPDATE',    fr: 'MISE À JOUR' }, text: { en: 'VirtuoseOS 2.4: multi-workspace kernels, French locale.',                        fr: 'VirtuoseOS 2.4 : noyaux multi-workspace, locale FR.' } },
   { date: '03.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'HubSpot + Claude: the unglamorous pattern that actually ships.',                  fr: 'HubSpot + Claude : le pattern discret qui livre vraiment.' } },
   { date: '03.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'Against the brain-circuit aesthetic.',                                            fr: "Contre l'esthétique cerveau-circuit." } },
-  { date: '02.2026', tag: { en: 'CASE',       fr: 'CAS' },     text: { en: 'Plateau SaaS — RevOps rebuild, €2.4M pipeline recovered.',                        fr: 'Plateau SaaS — refonte RevOps, 2,4 M€ de pipeline récupéré.' } },
+  { date: '02.2026', tag: { en: 'CASE',       fr: 'CAS' },     text: { en: 'Plateau SaaS: RevOps rebuild, €2.4M pipeline recovered.',                        fr: 'Plateau SaaS: refonte RevOps, 2,4 M€ de pipeline récupéré.' } },
 ];
 
 // ─── CAPABILITY MAP · 8 catégories du scope Waimia complet · home strip
@@ -600,7 +600,7 @@ export const CAPABILITY_MAP: CapabilityCategory[] = [
     k: '02',
     kicker: { en: 'CONTENT', fr: 'CONTENU' },
     label: { en: 'Editorial & SEO/GEO', fr: 'Contenu & SEO/GEO' },
-    lead: { en: 'Briefs, calendars, articles, repurposing — searched by Google AND AI engines.', fr: "Briefs, calendrier, articles, repurposing — trouvé par Google ET les IA." },
+    lead: { en: 'Briefs, calendars, articles, repurposing, searched by Google AND AI engines.', fr: "Briefs, calendrier, articles, repurposing : trouvé par Google ET les IA." },
     items: [
       { en: 'Strategy & briefs', fr: 'Stratégie & briefs' },
       { en: 'Articles · posts · landing', fr: 'Articles · posts · landing' },
@@ -613,7 +613,7 @@ export const CAPABILITY_MAP: CapabilityCategory[] = [
     k: '03',
     kicker: { en: 'WEB & CMS', fr: 'WEB & CMS' },
     label: { en: 'AI-first websites', fr: 'Sites IA-first' },
-    lead: { en: 'Living sites — landing, tunnels, evolving pages, Git-based or connected CMS.', fr: 'Sites vivants — landing, tunnels, pages évolutives, CMS Git-based ou connecté.' },
+    lead: { en: 'Living sites: landing, tunnels, evolving pages, Git-based or connected CMS.', fr: 'Sites vivants : landing, tunnels, pages évolutives, CMS Git-based ou connecté.' },
     items: [
       { en: 'AI-first websites', fr: 'Sites IA-first' },
       { en: 'Landing & tunnels', fr: 'Landing & tunnels' },
@@ -626,7 +626,7 @@ export const CAPABILITY_MAP: CapabilityCategory[] = [
     k: '04',
     kicker: { en: 'CRM & SALES', fr: 'CRM & SALES' },
     label: { en: 'Augmented CRM & follow-ups', fr: 'CRM augmenté & relances' },
-    lead: { en: 'A CRM that qualifies, follows up and reports — without your team chasing it.', fr: 'Un CRM qui qualifie, relance et reporte — sans relance manuelle.' },
+    lead: { en: 'A CRM that qualifies, follows up and reports, without your team chasing it.', fr: 'Un CRM qui qualifie, relance et reporte, sans relance manuelle.' },
     items: [
       { en: 'HubSpot · Salesforce · Pipedrive', fr: 'HubSpot · Salesforce · Pipedrive' },
       { en: 'Automated follow-ups', fr: 'Relances automatisées' },
@@ -639,7 +639,7 @@ export const CAPABILITY_MAP: CapabilityCategory[] = [
     k: '05',
     kicker: { en: 'DATA & INSIGHTS', fr: 'DATA & INSIGHTS' },
     label: { en: 'Analytics & decisions', fr: 'Analytics & décisions' },
-    lead: { en: 'GA4, Search Console, SEO tools — turned into continuous actions.', fr: 'GA4, Search Console, SEO tools — transformés en actions continues.' },
+    lead: { en: 'GA4, Search Console, SEO tools, turned into continuous actions.', fr: 'GA4, Search Console, SEO tools, transformés en actions continues.' },
     items: [
       { en: 'GA4 · Search Console', fr: 'GA4 · Search Console' },
       { en: 'Real-time dashboards', fr: 'Dashboards temps réel' },
@@ -709,14 +709,14 @@ export const SIX_SERVICES = [
     k: '03',
     metric: { en: '−35% manual', fr: '−35% manuel' },
     label: { en: 'Augmented CRM', fr: 'CRM augmenté' },
-    body: { en: 'The CRM that follows up, qualifies and alerts — without you touching it.', fr: 'Le CRM qui relance, qualifie et alerte — sans que vous touchiez rien.' },
+    body: { en: 'The CRM that follows up, qualifies and alerts, without you touching it.', fr: 'Le CRM qui relance, qualifie et alerte, sans que vous touchiez rien.' },
     connectors: { en: 'HubSpot · Salesforce · Pipedrive · Outlook', fr: 'HubSpot · Salesforce · Pipedrive · Outlook' },
   },
   {
     k: '04',
     metric: { en: '2 min decision', fr: 'Décide en 2 min' },
     label: { en: 'Data clarity', fr: 'Lisibilité des données' },
-    body: { en: 'Real-time dashboards — decide in 2 minutes, not a meeting.', fr: 'Tableaux de bord temps réel — décidez en 2 minutes, pas en réunion.' },
+    body: { en: 'Real-time dashboards: decide in 2 minutes, not a meeting.', fr: 'Tableaux de bord temps réel : décidez en 2 minutes, pas en réunion.' },
     connectors: { en: 'GA4 · Search Console · SEO tools · Dashboards', fr: 'GA4 · Search Console · SEO tools · Dashboards' },
   },
   {
@@ -730,7 +730,7 @@ export const SIX_SERVICES = [
     k: '06',
     metric: { en: 'Sovereign', fr: 'Souverain' },
     label: { en: 'Enterprise custom build', fr: 'Sur-mesure ETI' },
-    body: { en: 'Sovereign architecture — when the market stack hits your perimeter limits.', fr: "Architecture souveraine — quand les outils du marché butent sur votre périmètre." },
+    body: { en: 'Sovereign architecture, when the market stack hits your perimeter limits.', fr: "Architecture souveraine, quand les outils du marché butent sur votre périmètre." },
     connectors: { en: 'Trust Center · Design System · Governance · VirtuoseOS', fr: 'Trust Center · Design System · Governance · VirtuoseOS' },
   },
 ];

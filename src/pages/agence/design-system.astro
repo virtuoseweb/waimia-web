@@ -56,7 +56,7 @@ const sectionItems = listSections();
       <h1 class="ds-h1">Pioche, n'<i>invente</i> pas.</h1>
       <p class="ds-lede">
         118 tokens canoniques. 64 classes utility Tier 1. {sectionItems.length} sections composables. 10 atomes.
-        L'agent IA visite cette page en premier réflexe — recherche par section, copie le snippet,
+        L'agent IA visite cette page en premier réflexe : recherche par section, copie le snippet,
         n'invente jamais un pattern qui existe déjà.
       </p>
       <p class="ds-meta">
@@ -390,7 +390,7 @@ const sectionItems = listSections();
         </div>
 
         <div class="ds-subsection">
-          <h3 class="ds-h3">2.2 · Buttons (9 classes — préférer <code>Button.astro</code> atom)</h3>
+          <h3 class="ds-h3">2.2 · Buttons (9 classes : préférer <code>Button.astro</code> atom)</h3>
           <p class="ds-help">Les classes <code>.btn-*</code> survivent pour legacy. Pour nouveau code : <code>&lt;Button variant="primary" /&gt;</code>.</p>
           <div class="ds-row">
             <button class="btn btn-primary">.btn-primary</button>
@@ -444,7 +444,7 @@ const sectionItems = listSections();
 
         <div class="ds-subsection">
           <h3 class="ds-h3">ChapterLabel</h3>
-          <ChapterLabel num="II · 2.0" title="Acte II — La méthode" />
+          <ChapterLabel num="II · 2.0" title="Acte II : La méthode" />
         </div>
 
         <div class="ds-subsection">
@@ -519,7 +519,7 @@ const sectionItems = listSections();
 
         <div class="ds-subsection">
           <h3 class="ds-h3">Bi · bilingue (FR/EN)</h3>
-          <p>Mode props : <Bi fr="Bonjour" en="Hello" /></p>
+          <p>Mode props: <Bi fr="Bonjour" en="Hello" /></p>
           <p>Mode slots :
             <Bi>
               <Fragment slot="fr">Construire du <i style="color:var(--accent)">revenue</i>.</Fragment>
@@ -542,7 +542,7 @@ const sectionItems = listSections();
       {/* ───────────── 4. MOLECULES (sélection) ───────────── */}
       <section id="molecules" class="ds-section">
         <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">4. Molecules</h2>
-        <ChapterLabel num="04" title="Molecules (30 — sélection)" />
+        <ChapterLabel num="04" title="Molecules (30 : sélection)" />
         <p class="ds-section-lede">
           Compositions fonctionnelles · Tier 1. Cf <code>src/components/ui/molecules/</code> pour les 30 fichiers.
           Sélection ci-dessous : les plus utilisés (≥ 3 imports).
@@ -550,7 +550,7 @@ const sectionItems = listSections();
 
         <div class="ds-subsection">
           <h3 class="ds-h3">SectionHeader (legacy .sec-hd)</h3>
-          <SectionHeader roman="II" label="Acte II — Démo" id="ds-demo-header">
+          <SectionHeader roman="II" label="Acte II : Démo" id="ds-demo-header">
             <Fragment slot="heading">Quatre <i>paliers</i>, une seule architecture.</Fragment>
             <Fragment slot="aside">Du diagnostic à l'infrastructure souveraine.</Fragment>
           </SectionHeader>
@@ -625,13 +625,13 @@ const sectionItems = listSections();
       {/* ───────────── 5. ORGANISMS (bespoke permanents) ───────────── */}
       <section id="organisms" class="ds-section">
         <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">5. Organisms (bespoke)</h2>
-        <ChapterLabel num="05" title="Organisms (5 — bespoke permanents)" />
+        <ChapterLabel num="05" title="Organisms (5 : bespoke permanents)" />
         <p class="ds-section-lede">
-          Ces 5 composants sont <strong>intentionnellement bespoke permanents</strong> — hors du registry composable Tier 1.
+          Ces 5 composants sont <strong>intentionnellement bespoke permanents</strong> : hors du registry composable Tier 1.
           Chrome/infra : AtlasGrid, CookiesBanner, PersonaSwitcher, Stub, ManifestoAccent.
           Les anciens organismes dupliqués ont été convertis en sections cataloguées (voir §6) ou supprimés. 0 orphelin.
         </p>
-        <p class="ds-help">3 organisms transitoires (Hero, BookSession, FooterMarquee) ne sont plus listés ici : leur jumeau catalogue est désormais canonique (hero-home, cta-final, marquee-band — voir §6). Encore live sur la home, ils seront remplacés lors de la migration des templates.</p>
+        <p class="ds-help">3 organisms transitoires (Hero, BookSession, FooterMarquee) ne sont plus listés ici : leur jumeau catalogue est désormais canonique (hero-home, cta-final, marquee-band : voir §6). Encore live sur la home, ils seront remplacés lors de la migration des templates.</p>
         <div class="ds-organisms-grid">
           {LIBRARY_ORGANISMS.filter((o) => o.status === 'keep-bespoke').map((o) => (
             <article class="ds-organism-card">
@@ -641,7 +641,7 @@ const sectionItems = listSections();
               </div>
               <span class="ds-help">{o.file}</span>
               <span class="ds-help">jumeau : {o.twin ? <code>{o.twin}</code> : 'sans jumeau'}</span>
-              <span class="ds-help">consommé : {o.consumers.length ? o.consumers.join(', ') : '—'}</span>
+              <span class="ds-help">consommé : {o.consumers.length ? o.consumers.join(', ') : ''}</span>
             </article>
           ))}
         </div>
@@ -653,7 +653,7 @@ const sectionItems = listSections();
       {/* ───────────── 6. SECTIONS W6 composable V2 (Tier 1 cible) ───────────── */}
       <section id="sections" class="ds-section">
         <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">6. Sections W6 (Tier 1)</h2>
-        <ChapterLabel num="06" title={`Sections W6 composable V2 (${sectionItems.length} — Tier 1 cible)`} />
+        <ChapterLabel num="06" title={`Sections W6 composable V2 (${sectionItems.length} : Tier 1 cible)`} />
         <p class="ds-section-lede">
           Architecture composable Tier 1 cible. Toutes les nouvelles pages doivent utiliser ces sections
           via <code>SectionsRenderer</code>. Cf <code>src/components/sections/</code>.
@@ -762,7 +762,7 @@ const sectionItems = listSections();
         <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">9. Motion</h2>
         <ChapterLabel num="09" title="Motion (4)" />
         <p class="ds-section-lede">
-          Composants motion lourds — réservés pages signature (home, console, atlas).
+          Composants motion lourds : réservés pages signature (home, console, atlas).
           Cf <code>src/components/motion/</code>.
         </p>
         <ul class="ds-z-list">
@@ -776,7 +776,7 @@ const sectionItems = listSections();
       {/* ───────────── 10. TEMPLATES ───────────── */}
       <section id="templates" class="ds-section">
         <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">10. Templates</h2>
-        <ChapterLabel num="10" title="Templates (18 — preview links)" />
+        <ChapterLabel num="10" title="Templates (18 : preview links)" />
         <p class="ds-section-lede">
           Templates pour collections content. Cf <code>src/components/templates/</code>. Preview live ci-dessous.
         </p>

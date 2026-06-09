@@ -46,7 +46,7 @@ variables:
     label_en: "Required fields"
     required: true
 sample_output_fr: |
-  Bloc 1 — Schéma
+  Bloc 1. Schéma
   const faqCollection = defineCollection({
     loader: glob({ pattern: '**/*.mdx', base: './src/content/faq' }),
     schema: z.object({
@@ -57,11 +57,11 @@ sample_output_fr: |
     }),
   });
 
-  Bloc 3 — Questions
+  Bloc 3. Questions
   1. Le contenu doit-il être public en FR et EN dès le jour 1 ?
   2. Le slug est-il éditorial ou dérivé du titre ?
 sample_output_en: |
-  Block 1 — Schema
+  Block 1. Schema
   const faqCollection = defineCollection({
     loader: glob({ pattern: '**/*.mdx', base: './src/content/faq' }),
     schema: z.object({
@@ -72,7 +72,7 @@ sample_output_en: |
     }),
   });
 
-  Block 3 — Questions
+  Block 3. Questions
   1. Must the content be public in both French and English from day one?
   2. Is the slug editorial or derived from the title?
 category: "schema"

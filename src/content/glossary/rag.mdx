@@ -4,8 +4,8 @@ term_en: "RAG (Retrieval-Augmented Generation)"
 slug: "rag"
 definition_fr: "Architecture IA qui combine un moteur de recherche vectoriel et un modèle de langage : avant de générer une réponse, le système récupère les documents les plus pertinents depuis une base de connaissances et les injecte dans le contexte du LLM."
 definition_en: "An AI architecture combining a vector search engine and a language model: before generating a response, the system retrieves the most relevant documents from a knowledge base and injects them into the LLM's context."
-short_explanation_fr: "Le RAG permet à un LLM de répondre avec vos propres données — documentations internes, contrats, bases produits — sans nécessiter de fine-tuning."
-short_explanation_en: "RAG enables an LLM to answer using your own data — internal documentation, contracts, product databases — without requiring fine-tuning."
+short_explanation_fr: "Le RAG permet à un LLM de répondre avec vos propres données, documentations internes, contrats, bases produits, sans nécessiter de fine-tuning."
+short_explanation_en: "RAG enables an LLM to answer using your own data, internal documentation, contracts, product databases, without requiring fine-tuning."
 examples_fr:
   - "Un chatbot de support qui consulte la base de connaissances produit avant de répondre à un client, citant les articles pertinents."
   - "Un assistant RH qui retrouve les clauses contractuelles applicables en interrogeant les fichiers PDF de l'entreprise."
@@ -35,10 +35,10 @@ Le **RAG (Retrieval-Augmented Generation)** résout l'une des limites fondamenta
 
 **2. Récupération** : lorsqu'une requête arrive, le système calcule sa similarité vectorielle avec les chunks indexés et sélectionne les K passages les plus pertinents.
 
-**3. Génération** : les passages sélectionnés sont injectés dans le prompt du LLM, qui génère une réponse fondée sur ces sources — avec possibilité de citer les documents d'origine.
+**3. Génération** : les passages sélectionnés sont injectés dans le prompt du LLM, qui génère une réponse fondée sur ces sources, avec possibilité de citer les documents d'origine.
 
 ### Avantages concrets pour les PME
 
-Le RAG élimine les hallucinations sur votre domaine métier, permet des mises à jour documentaires sans réentraînement et offre une traçabilité des sources. Pour une entreprise de 20 à 200 personnes, c'est la voie la plus pragmatique pour créer des assistants internes fiables — que ce soit pour le support client, la gestion documentaire ou l'analyse contractuelle.
+Le RAG élimine les hallucinations sur votre domaine métier, permet des mises à jour documentaires sans réentraînement et offre une traçabilité des sources. Pour une entreprise de 20 à 200 personnes, c'est la voie la plus pragmatique pour créer des assistants internes fiables, que ce soit pour le support client, la gestion documentaire ou l'analyse contractuelle.
 
 Le principal défi reste la **qualité des chunks** : un découpage trop grossier ou des documents mal structurés dégradent significativement la précision des réponses.

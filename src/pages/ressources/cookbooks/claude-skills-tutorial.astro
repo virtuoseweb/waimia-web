@@ -38,7 +38,7 @@ const relatedCards = [
 
   <Fragment slot="body">
     <h2>Pourquoi un skill ?</h2>
-    <p>Un skill, c'est un prompt qui marche, transformé en fonction réutilisable. Vous l'avez peut-être affiné pendant trois semaines pour produire un mémo de variance qui passe le filtre de votre CFO. Sans skill, ce prompt vit dans une note Apple, dans le tab Slack d'un collègue, dans un Notion à demi-rangé. Avec un skill, il devient une capacité native de Claude — invocable par tous, versionnable, mesurable. Le skill est l'unité de capitalisation de l'agent.</p>
+    <p>Un skill, c'est un prompt qui marche, transformé en fonction réutilisable. Vous l'avez peut-être affiné pendant trois semaines pour produire un mémo de variance qui passe le filtre de votre CFO. Sans skill, ce prompt vit dans une note Apple, dans le tab Slack d'un collègue, dans un Notion à demi-rangé. Avec un skill, il devient une capacité native de Claude : invocable par tous, versionnable, mesurable. Le skill est l'unité de capitalisation de l'agent.</p>
 
     <h2>Anatomie d'un Claude Skill</h2>
     <p>Un skill = trois fichiers, parfois quatre. Le cœur est un fichier <code>SKILL.md</code> qui décrit le contrat (nom, description, triggers). Autour, vous ajoutez un system prompt, des outils si la skill en a besoin (lecture CRM, écriture DOCX), et des scripts si elle doit appeler du code déterministe.</p>
@@ -87,7 +87,7 @@ mensuel brut.
     <p>Le system prompt encode les règles du jeu : ton, format attendu, contraintes éditoriales, garde-fous. Pour <em>memo-variance</em>, on précise quatre choses essentielles.</p>
     <ul>
       <li><strong>Ton</strong> : factuel, pas commercial. Pas de superlatifs (« remarquable », « exceptionnel »).</li>
-      <li><strong>Format</strong> : 4 sections fixes — Synthèse, Écarts &gt; 5 %, Causes opérationnelles, Recommandations.</li>
+      <li><strong>Format</strong> : 4 sections fixes : Synthèse, Écarts &gt; 5 %, Causes opérationnelles, Recommandations.</li>
       <li><strong>Chiffres</strong> : toujours en valeur absolue ET en pourcentage. Toujours arrondi à 2 décimales.</li>
       <li><strong>Garde-fou</strong> : si un écart dépasse 25 %, le marquer en rouge et exiger une vérification humaine avant publication.</li>
     </ul>
@@ -126,10 +126,10 @@ export const fetchCrm = {
       <li><strong>Ton</strong> : la narrative passerait-elle le filtre du CFO sans réécriture lourde ? (note 1-5)</li>
     </ul>
     <p>Sur les 4 premiers tests, on a corrigé : un format de date, deux phrases trop commerciales dans le system prompt, un cas limite où le rapport source contient des cellules vides. À partir du 8e test, le scoring passe au-dessus de 4.5/5 et la skill est prête.</p>
-    <p>Une skill mature a son propre <em>changelog</em>. Versionnez-la dans votre repo, taggez chaque release, gardez les anciennes versions accessibles. C'est de l'ingénierie logicielle classique appliquée à du prompt — et c'est ce qui distingue un skill jouable d'un POC.</p>
+    <p>Une skill mature a son propre <em>changelog</em>. Versionnez-la dans votre repo, taggez chaque release, gardez les anciennes versions accessibles. C'est de l'ingénierie logicielle classique appliquée à du prompt, et c'est ce qui distingue un skill jouable d'un POC.</p>
 
     <h2>Aller plus loin</h2>
-    <p>Quand votre skill a besoin d'accéder à un outil externe (Notion, Drive, Slack, votre CRM maison), passez par un serveur MCP — c'est l'API standard d'Anthropic. Le <a href="/ressources/cookbooks/mcp-server-deploy">cookbook 02</a> détaille comment câbler un serveur MCP Notion en moins d'une heure.</p>
+    <p>Quand votre skill a besoin d'accéder à un outil externe (Notion, Drive, Slack, votre CRM maison), passez par un serveur MCP : c'est l'API standard d'Anthropic. Le <a href="/ressources/cookbooks/mcp-server-deploy">cookbook 02</a> détaille comment câbler un serveur MCP Notion en moins d'une heure.</p>
     <p>Quand vous voulez déployer 50 skills sur 200 collaborateurs, le <a href="/ressources/cookbooks/claude-cowork-rollout">cookbook 03</a> donne la checklist d'adoption qui distingue 80 % d'usage actif de 73 % de licences inutilisées.</p>
     <p>Et si vous voulez nous confier la construction d'une bibliothèque de skills sur mesure pour vos métiers, <a href="/offres/conseil">notre offre Conseil Claude Cowork</a> couvre l'audit, la priorisation et la livraison sur 6 semaines.</p>
   </Fragment>

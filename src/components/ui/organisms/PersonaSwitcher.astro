@@ -61,8 +61,8 @@ const FALLBACK_PERSONAS: PersonaItem[] = [
     k: 'dsi',
     label_fr: 'DSI / RSSI',
     label_en: 'CIO / CISO',
-    pitch_fr: "Vous voulez la trace, la souveraineté, la conformité — avant le sprint MVP.",
-    pitch_en: 'You want the audit trail, sovereignty, compliance — before the MVP sprint.',
+    pitch_fr: "Vous voulez la trace, la souveraineté, la conformité, avant le sprint MVP.",
+    pitch_en: 'You want the audit trail, sovereignty, compliance, before the MVP sprint.',
     paths: [
       { fr: 'Infrastructure IA · ETI', en: 'AI Infrastructure · enterprise', href: '/offres/infrastructure-ia' },
       { fr: 'Gouvernance données · sécurité', en: 'Data governance · security', href: '/offres/infrastructure-ia' },
@@ -109,7 +109,7 @@ const personas: PersonaItem[] = collectionEntries.length > 0
       <div>
         <div class="n">
           <span class="roman">§</span>
-          <span>{lang === 'fr' ? 'Sélecteur — où commences-tu ?' : 'Selector — where do you start?'}</span>
+          <span>{lang === 'fr' ? 'Sélecteur : où commences-tu ?' : 'Selector, where do you start?'}</span>
         </div>
         <h2 id="persona-h2">
           {lang === 'fr' ? (

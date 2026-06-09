@@ -434,8 +434,8 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
         {relatedCards.map((c) => (
           <a class="related-case-card" href={c.href}>
             <span class="related-case-kicker">{c.kicker}</span>
-            <h3 class="related-case-title">{lang === 'en' ? c.title_en : c.title_fr}</h3>
-            <p class="related-case-lead">{lang === 'en' ? c.lead_en : c.lead_fr}</p>
+            <h3 class="related-case-title">{lang === 'en' ? c.title_en: c.title_fr}</h3>
+            <p class="related-case-lead">{lang === 'en' ? c.lead_en: c.lead_fr}</p>
             <span class="related-case-go" aria-hidden>→</span>
           </a>
         ))}

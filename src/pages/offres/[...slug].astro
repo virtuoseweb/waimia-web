@@ -54,11 +54,11 @@ const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
 <OffresDetailTemplate
   title={lang === 'fr' ? data.title_fr : data.title_en}
   description={lang === 'fr' ? data.description_fr : data.description_en}
-  tier={lang === 'fr' ? (data.tier_fr ?? '') : (data.tier_en ?? '')}
+  tier={lang === 'fr' ? (data.tier_fr ?? ''): (data.tier_en ?? '')}
   tierLabel={lang === 'fr' ? (data.tier_label_fr ?? data.title_fr) : (data.tier_label_en ?? data.title_en)}
   meta={lang === 'fr' ? data.meta_fr : data.meta_en}
   ctaHref={data.cta_href ?? '/contact'}
-  ctaLabel={lang === 'fr' ? (data.cta_label_fr ?? 'Parler à un expert →') : (data.cta_label_en ?? 'Talk to an expert →')}
+  ctaLabel={lang === 'fr' ? (data.cta_label_fr ?? 'Parler à un expert →'): (data.cta_label_en ?? 'Talk to an expert →')}
   method_steps={data.method_steps}
   deliverable_items={data.deliverable_items}
   proof={data.proof}

@@ -59,7 +59,7 @@ const lang = langFromPath(Astro.url.pathname);
 // donc passé identique en fr/en (l'instance ne sert qu'une langue à la fois).
 const heroData = {
   type: 'hero-utility-masthead',
-  ...(kicker ? { kicker_fr: kicker, kicker_en: kicker } : {}),
+  ...(kicker ? { kicker_fr: kicker, kicker_en: kicker }: {}),
   h1_fr: headlineFr,
   h1_en: headlineEn,
   lede_fr: ledeFr,
@@ -128,7 +128,7 @@ const autoCrumbs: Crumb[] = breadcrumb ?? (() => {
   {/* MASTHEAD · composant catalogué hero-utility-masthead (contenu via props).
       align (left/centered) piloté par `data.align` → géré nativement par le composant.
       wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut du
-      composant — 1200px — reste inchangé pour la preview catalogue.
+      composant : 1200px : reste inchangé pour la preview catalogue.
       reveal préserve la couche d'animation d'origine (kicker/h1/lede en `reveal`). */}
   <HeroCentered data={heroData} lang={lang} wrapMaxWidth="var(--wrap-wide)" reveal={true} />
 

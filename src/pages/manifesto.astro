@@ -51,7 +51,7 @@ const articleLd = buildArticle({
   title={lang === 'fr' ? "Waimia · Manifeste · Construire du revenu, pas des démos" : 'Waimia · Manifesto · Build revenue, not demos'}
   description={lang === 'fr'
     ? "Le manifeste Waimia : des systèmes IA livrés, mesurés, documentés. Pas de théâtre IA, pas de démos qui meurent en comité."
-    : 'Waimia Manifesto — Build revenue, not demos. AI systems shipped, measured, documented.'}
+    : 'Waimia Manifesto: Build revenue, not demos. AI systems shipped, measured, documented.'}
   jsonLd={articleLd}
 >
   <Breadcrumb items={[{label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en'}, {label: lang === 'fr' ? 'Manifeste' : 'Manifesto'}]} lang={lang} />
@@ -90,8 +90,8 @@ const articleLd = buildArticle({
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-8);align-items:end;max-width:1600px">
         <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:var(--leading-lede);color:rgba(var(--paper-rgb), .85);max-width:420px;margin:0">
           {lang === 'fr'
-            ? "On câble l'IA dans vos outils marketing, sales et web — acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process."
-            : "We wire AI into your marketing, sales and web stack — acquisition, content, CRM, site, analytics, brand. Without changing your process."}
+            ? "On câble l'IA dans vos outils marketing, sales et web : acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process."
+            : "We wire AI into your marketing, sales and web stack: acquisition, content, CRM, site, analytics, brand. Without changing your process."}
         </p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <PillCTA href={flh('/contact', lang)} variant="accent" mag={0.18}>
@@ -133,9 +133,9 @@ const articleLd = buildArticle({
         </div>
         <p class="reveal manifesto-h2 manifesto-h2--paper">
           {lang === 'fr' ? (
-            <>L'IA est <i class="accent">partout</i> et nulle part. Les stacks grossissent — marketing, sales, contenu, CRM, analytics, marque. Les pipelines s'aplatissent. Le goulot n'est <i>jamais</i> le modèle. Ce sont les rails, les règles, et l'humain qui sait quand débrancher.</>
+            <>L'IA est <i class="accent">partout</i> et nulle part. Les stacks grossissent : marketing, sales, contenu, CRM, analytics, marque. Les pipelines s'aplatissent. Le goulot n'est <i>jamais</i> le modèle. Ce sont les rails, les règles, et l'humain qui sait quand débrancher.</>
           ) : (
-            <>AI is <i class="accent">everywhere</i> and nowhere. Stacks grow — marketing, sales, content, CRM, analytics, brand. Pipelines flatten. The bottleneck is <i>never</i> the model. It's the rails, the rules, and the human who knows when to unplug.</>
+            <>AI is <i class="accent">everywhere</i> and nowhere. Stacks grow : marketing, sales, content, CRM, analytics, brand. Pipelines flatten. The bottleneck is <i>never</i> the model. It's the rails, the rules, and the human who knows when to unplug.</>
           )}
         </p>
       </div>
@@ -219,12 +219,12 @@ const articleLd = buildArticle({
         <span style="color:var(--accent)">IV.</span> {lang === 'fr' ? 'Les preuves' : 'The proof'}
       </Kicker>
       <h2 class="reveal manifesto-h2">
-        {lang === 'fr' ? (<>Pas des démos. Des <i class="accent">résultats</i>.</>) : (<>Not demos. <i class="accent">Results</i>.</>)}
+        {lang === 'fr' ? (<>Pas des démos. Des <i class="accent">résultats</i>.</>): (<>Not demos. <i class="accent">Results</i>.</>)}
       </h2>
       <p class="reveal" style="font-family:var(--font-sans);font-size:clamp(18px,1.5vw,22px);line-height:var(--leading-body);color:var(--ink-2);max-width:820px;margin:0 0 clamp(48px,6vw,72px);margin-top:-32px;text-wrap:pretty">
         {lang === 'fr'
-          ? <>Quatre cas, chiffres en clair. Pas de logos pour faire joli. Chaque ligne contient le secteur, la durée, la stack et l&rsquo;impact mesuré — celui qu&rsquo;on défend en comité de direction.</>
-          : <>Four cases, numbers in the clear. No vanity logos. Each row holds the sector, duration, stack and measured impact — the one we defend in steering committees.</>}
+          ? <>Quatre cas, chiffres en clair. Pas de logos pour faire joli. Chaque ligne contient le secteur, la durée, la stack et l&rsquo;impact mesuré, celui qu&rsquo;on défend en comité de direction.</>
+          : <>Four cases, numbers in the clear. No vanity logos. Each row holds the sector, duration, stack and measured impact, the one we defend in steering committees.</>}
       </p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
         {CASE_FEED.slice(0, 4).map((c, i) => (

@@ -2,17 +2,17 @@
 term_fr: "Pipeline de données"
 term_en: "Data Pipeline"
 slug: "data-pipeline"
-definition_fr: "Ensemble automatisé d'étapes qui collectent, transforment, valident et acheminent des données depuis leurs sources vers leur destination finale — base de données, entrepôt analytique ou système IA — en maintenant leur qualité et leur fraîcheur tout au long du processus."
-definition_en: "Automated set of steps that collect, transform, validate, and route data from their sources to their final destination — database, analytics warehouse, or AI system — while maintaining their quality and freshness throughout the process."
+definition_fr: "Ensemble automatisé d'étapes qui collectent, transforment, valident et acheminent des données depuis leurs sources vers leur destination finale, base de données, entrepôt analytique ou système IA, en maintenant leur qualité et leur fraîcheur tout au long du processus."
+definition_en: "Automated set of steps that collect, transform, validate, and route data from their sources to their final destination, database, analytics warehouse, or AI system, while maintaining their quality and freshness throughout the process."
 short_explanation_fr: "Un pipeline de données est la chaîne logistique des données : collecte, nettoyage, transformation et livraison automatisées vers les systèmes qui en ont besoin."
 short_explanation_en: "A data pipeline is the data logistics chain: automated collection, cleaning, transformation, and delivery to the systems that need it."
 examples_fr:
   - "Un pipeline qui extrait les nouvelles commandes du CRM toutes les 15 minutes, les enrichit avec des données de solvabilité et les charge dans un entrepôt analytique pour le reporting quotidien."
-  - "Le pipeline d'alimentation d'une base vectorielle RAG : extraction des documents PDF, découpage en chunks, calcul des embeddings et indexation — relancé automatiquement quand un nouveau document est déposé."
+  - "Le pipeline d'alimentation d'une base vectorielle RAG : extraction des documents PDF, découpage en chunks, calcul des embeddings et indexation, relancé automatiquement quand un nouveau document est déposé."
   - "Un pipeline de nettoyage de données clients qui standardise les formats de numéros de téléphone, détecte les doublons et anonymise les PII avant injection dans un LLM de classification."
 examples_en:
   - "A pipeline extracting new CRM orders every 15 minutes, enriching them with creditworthiness data, and loading them into an analytics warehouse for daily reporting."
-  - "The feed pipeline of a RAG vector database: PDF document extraction, chunking, embedding calculation and indexing — automatically restarted when a new document is deposited."
+  - "The feed pipeline of a RAG vector database: PDF document extraction, chunking, embedding calculation and indexing, automatically restarted when a new document is deposited."
   - "A customer data cleaning pipeline that standardizes phone number formats, detects duplicates, and anonymizes PII before injection into a classification LLM."
 related_terms:
   - "data-quality"
@@ -33,11 +33,11 @@ Un **pipeline de données** fiable est la condition sine qua non de tout projet 
 
 ### Les cinq étapes d'un pipeline standard
 
-**1. Ingestion** : collecte des données depuis leurs sources hétérogènes — APIs tierces, bases de données, fichiers, flux temps réel. C'est l'étape la plus fragile car elle dépend de systèmes externes.
+**1. Ingestion** : collecte des données depuis leurs sources hétérogènes. APIs tierces, bases de données, fichiers, flux temps réel. C'est l'étape la plus fragile car elle dépend de systèmes externes.
 
 **2. Transformation** : normalisation des formats, conversion des types, enrichissement via des sources complémentaires. Un pipeline bien conçu applique des règles de transformation documentées et testables.
 
-**3. Validation** : contrôle de qualité automatisé — détection des valeurs manquantes, vérification des contraintes métier, alertes sur les anomalies statistiques (dérives de distribution, volumes anormaux).
+**3. Validation** : contrôle de qualité automatisé, détection des valeurs manquantes, vérification des contraintes métier, alertes sur les anomalies statistiques (dérives de distribution, volumes anormaux).
 
 **4. Stockage** : persistance dans la destination finale selon le cas d'usage : base relationnelle pour les données structurées, base vectorielle pour le RAG, data lake pour l'analytique.
 

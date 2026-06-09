@@ -63,8 +63,8 @@ const featureGridData = {
   type: 'feature-grid' as const,
   kicker_fr: '8 PILIERS · UN SEUL SYSTÈME',
   kicker_en: '8 PILLARS · ONE SYSTEM',
-  h2_fr: "Du <i>canal</i> à <i>l'action</i>. Marketing, sales, contenu, web — alignés.",
-  h2_en: 'From <i>channel</i> to <i>action</i>. Marketing, sales, content, web — aligned.',
+  h2_fr: "Du <i>canal</i> à <i>l'action</i>. Marketing, sales, contenu, web: alignés.",
+  h2_en: 'From <i>channel</i> to <i>action</i>. Marketing, sales, content, web: aligned.',
   columns: '4' as const,
   features: CAPABILITY_MAP.map((cat) => ({
     icon: cat.k,
@@ -79,12 +79,12 @@ const featureGridData = {
 const servicesGridData = {
   type: 'services-grid' as const,
   fig_num: 'FIG II · 2.0',
-  fig_title_fr: 'Acte II — La méthode',
-  fig_title_en: 'Act II — The method',
+  fig_title_fr: 'Acte II: La méthode',
+  fig_title_en: 'Act II: The method',
   spec_fr: '6 SERVICES · UNE COUCHE CONTINUE',
   spec_en: '6 SERVICES · ONE CONTINUOUS LAYER',
-  h2_fr: 'Six services, appris en <i>livrant</i> — pas en PowerPoint.',
-  h2_en: 'Six services, taught by <i>doing</i> — not by slides.',
+  h2_fr: 'Six services, appris en <i>livrant</i>, pas en PowerPoint.',
+  h2_en: 'Six services, taught by <i>doing</i>, not by slides.',
   connectors_label_fr: 'Connecteurs',
   connectors_label_en: 'Connectors',
   services: SIX_SERVICES.map((s) => ({
@@ -109,12 +109,12 @@ const ACTION_LABELS = [
 const maturityPyramidData = {
   type: 'maturity-pyramid' as const,
   roman: 'II',
-  label_fr: "Acte II — La pyramide d'engagements",
-  label_en: 'Act II — The engagement pyramid',
+  label_fr: "Acte II: La pyramide d'engagements",
+  label_en: 'Act II: The engagement pyramid',
   heading_fr: '<i>Cartographier.</i> Câbler.<br/>Orchestrer. <i>Industrialiser.</i>',
   heading_en: '<i>Map.</i> Wire.<br/>Orchestrate. <i>Industrialize.</i>',
-  aside_fr: "Du diagnostic process à l'infrastructure souveraine — chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
-  aside_en: "From process diagnostic to sovereign infrastructure — each tier sets up the next. You climb when you're ready.",
+  aside_fr: "Du diagnostic process à l'infrastructure souveraine: chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
+  aside_en: "From process diagnostic to sovereign infrastructure: each tier sets up the next. You climb when you're ready.",
   timeline_label_fr: 'Progression de maturité IA',
   timeline_label_en: 'AI maturity path',
   tier_cta_fr: 'Voir le palier →',
@@ -139,12 +139,12 @@ const maturityPyramidData = {
 const useCaseIndexData = {
   type: 'use-case-index' as const,
   roman: 'III',
-  label_fr: "§ 05 — Cas d'usage horizontaux",
-  label_en: '§ 05 — Horizontal use cases',
+  label_fr: "§ 05: Cas d'usage horizontaux",
+  label_en: '§ 05: Horizontal use cases',
   heading_fr: 'Cinq <i>cas d\'usage</i>. Une seule méthode.',
   heading_en: 'Five <i>use cases</i>. One method.',
-  aside_fr: 'Acquisition, CRM, contenu, productivité, support — les douleurs récurrentes des PME. Mêmes systèmes, vocabulaire adapté à votre métier.',
-  aside_en: 'Acquisition, CRM, content, productivity, support — recurring SMB pain points. Same systems, wording adapted to your sector.',
+  aside_fr: 'Acquisition, CRM, contenu, productivité, support: les douleurs récurrentes des PME. Mêmes systèmes, vocabulaire adapté à votre métier.',
+  aside_en: 'Acquisition, CRM, content, productivity, support: recurring SMB pain points. Same systems, wording adapted to your sector.',
   num_prefix_fr: 'USE CASE',
   num_prefix_en: 'USE CASE',
   items: DEPARTMENTS_GRID.map((d) => ({
@@ -164,7 +164,7 @@ const faqItems = [
     a: "AI Activation · 1 week starts at €1,500: audit, training, first workflow shipped. AI Growth System starts at €5,000. Most SMBs start small, measure in 5 days, then wire the full system.",
   },
   {
-    q: "Who is this for — and who is it not for?",
+    q: "Who is this for, and who is it not for?",
     a: "French and Swiss SMBs and mid-market companies, 20 to 500 people. Not large groups already loaded with vendors. Not very young startups changing direction every week. Best fits: B2B services, industry, finance and accounting firms.",
   },
   {
@@ -173,11 +173,11 @@ const faqItems = [
   },
   {
     q: "Do you work with our current stack (HubSpot, Salesforce, Excel, etc.)?",
-    a: "Yes — we plug into your current stack: HubSpot, Salesforce, Pipedrive, Notion, Excel, Office, ERP, GA4, Search Console. No forced migration. If you have no CRM, we propose one matched to your volume — often HubSpot for B2B SMBs.",
+    a: "Yes: we plug into your current stack: HubSpot, Salesforce, Pipedrive, Notion, Excel, Office, ERP, GA4, Search Console. No forced migration. If you have no CRM, we propose one matched to your volume: often HubSpot for B2B SMBs.",
   },
   {
     q: "And our current website and CMS? Do we have to rebuild everything?",
-    a: "No. We plug into your existing CMS (WordPress, Webflow, Sanity, headless) or move to a Git-based CMS if team maturity allows. AI-first sites, landing pages, tunnels and evolving pages can live in parallel or progressively replace what you have — at your own rhythm.",
+    a: "No. We plug into your existing CMS (WordPress, Webflow, Sanity, headless) or move to a Git-based CMS if team maturity allows. AI-first sites, landing pages, tunnels and evolving pages can live in parallel or progressively replace what you have: at your own rhythm.",
   },
   {
     q: "How do you guarantee brand consistency across every channel?",
@@ -207,8 +207,8 @@ const architectureDiagramData = {
   system_label: 'Waimia', system_kicker: 'AI SYSTEM', system_subtitle: 'multi-agent',
   show_loop: true,
   loop_label_fr: 'BOUCLE D’AMÉLIORATION CONTINUE', loop_label_en: 'CONTINUOUS IMPROVEMENT LOOP',
-  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte — sans relance manuelle.",
-  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects — without manual chasing.',
+  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte, sans relance manuelle.",
+  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
 } satisfies SectionByType<'architecture-diagram'>;
 ---
 <Base
@@ -265,7 +265,7 @@ const architectureDiagramData = {
   <FaqAccordion
     items={faqItems}
     heading="Frequently asked questions"
-    intro="Eight straight answers — no slides, no jargon. The kind we send by email before the first call."
+    intro="Eight straight answers, no slides, no jargon. The kind we send by email before the first call."
   />
 
   <SectionTransition phrase="For those who want to understand before booking." />

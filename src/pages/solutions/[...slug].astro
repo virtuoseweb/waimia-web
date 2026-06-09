@@ -17,9 +17,9 @@ const { Content } = await render(entry);
 const data = entry.data;
 
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
-const title = lang === 'en' ? data.title_en : data.title_fr;
-const description = lang === 'en' ? data.description_en : data.description_fr;
-const lead = lang === 'en' ? data.lead_en : data.lead_fr;
+const title = lang === 'en' ? data.title_en: data.title_fr;
+const description = lang === 'en' ? data.description_en: data.description_fr;
+const lead = lang === 'en' ? data.lead_en: data.lead_fr;
 ---
 
 <SolutionsDetailTemplate
@@ -29,7 +29,7 @@ const lead = lang === 'en' ? data.lead_en : data.lead_fr;
   deptLabel={data.dept_label ?? ''}
   meta={data.meta_hero}
   ctaHref={data.cta_href ?? '/contact'}
-  ctaLabel={lang === 'en' ? (data.cta_label_en ?? 'Talk to an expert →') : (data.cta_label_fr ?? 'Parler à un expert →')}
+  ctaLabel={lang === 'en' ? (data.cta_label_en ?? 'Talk to an expert →'): (data.cta_label_fr ?? 'Parler à un expert →')}
   pains={data.pains}
   roi_metrics={data.roi_metrics}
   stack={data.stack}

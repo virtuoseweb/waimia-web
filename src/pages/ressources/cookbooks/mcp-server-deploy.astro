@@ -39,14 +39,14 @@ const relatedCards = [
   <Fragment slot="body">
     <h2>Pourquoi MCP plutôt qu'un connecteur custom</h2>
     <p>Avant MCP, chaque éditeur d'agent IA inventait son propre format de connecteur. Vous écriviez un wrapper pour ChatGPT, un autre pour Claude, un troisième pour Gemini. Lock-in, dette de maintenance, fragilité aux mises à jour de l'API du modèle.</p>
-    <p>MCP (Model Context Protocol) est un standard ouvert publié par Anthropic en novembre 2024. Un serveur MCP que vous écrivez aujourd'hui pour Claude marchera demain pour tout client qui parle MCP — y compris des éditeurs concurrents qui ont commencé à l'adopter. C'est le HTTP des agents IA : on parie sur un standard ouvert, on évite le piège du connecteur propriétaire.</p>
+    <p>MCP (Model Context Protocol) est un standard ouvert publié par Anthropic en novembre 2024. Un serveur MCP que vous écrivez aujourd'hui pour Claude marchera demain pour tout client qui parle MCP : y compris des éditeurs concurrents qui ont commencé à l'adopter. C'est le HTTP des agents IA : on parie sur un standard ouvert, on évite le piège du connecteur propriétaire.</p>
 
     <h2>Architecture d'un serveur MCP</h2>
     <p>Un serveur MCP expose trois primitives à Claude :</p>
     <ul>
-      <li><strong>Resources</strong> — des données lisibles (pages Notion, lignes de DB, fichiers Drive)</li>
-      <li><strong>Tools</strong> — des actions exécutables (créer une page, mettre à jour un bloc, supprimer une ligne)</li>
-      <li><strong>Prompts</strong> — des templates de prompt réutilisables côté serveur</li>
+      <li><strong>Resources</strong> : des données lisibles (pages Notion, lignes de DB, fichiers Drive)</li>
+      <li><strong>Tools</strong> : des actions exécutables (créer une page, mettre à jour un bloc, supprimer une ligne)</li>
+      <li><strong>Prompts</strong> : des templates de prompt réutilisables côté serveur</li>
     </ul>
     <p>Le serveur communique avec Claude via deux transports : <code>stdio</code> (process local, idéal pour Claude Desktop / Claude Code) ou <code>sse</code> (HTTP server-sent events, idéal pour serveurs partagés).</p>
 
@@ -171,7 +171,7 @@ export const createPageTool = {
 };
 </code></pre>
 
-    <p>Notez la philosophie : chaque tool fait <em>une</em> chose, son input schema est strict, sa réponse est minimale. Claude est très bon pour orchestrer des tools simples — il est mauvais avec des tools « tout-en-un » à 12 paramètres optionnels.</p>
+    <p>Notez la philosophie : chaque tool fait <em>une</em> chose, son input schema est strict, sa réponse est minimale. Claude est très bon pour orchestrer des tools simples : il est mauvais avec des tools « tout-en-un » à 12 paramètres optionnels.</p>
 
     <h2>Étape 4 : Test local + déploiement</h2>
     <p>Une fois le serveur compilé (<code>npm run build</code>), connectez-le à Claude Code en une commande :</p>
@@ -196,12 +196,12 @@ claude
     <h2>Sécurité et gouvernance</h2>
     <p>Un serveur MCP qui parle à Notion peut, mal configuré, exfiltrer toute votre base. Quatre règles :</p>
     <ul>
-      <li><strong>Scope minimal</strong> — l'intégration Notion ne doit avoir accès qu'aux pages réellement nécessaires. Pas d'accès workspace-wide par défaut.</li>
-      <li><strong>Audit log</strong> — logguer chaque appel de tool (<code>tool_name</code>, <code>input</code>, <code>output_size</code>, <code>duration_ms</code>). Stocker 90 jours minimum.</li>
-      <li><strong>MCP gate</strong> — pour les actions sensibles (suppression, modification de page partagée), ajouter une étape de confirmation explicite côté serveur, pas seulement côté UI Claude.</li>
-      <li><strong>Rotation des secrets</strong> — le <code>NOTION_TOKEN</code> doit tourner tous les 90 jours. Stockez-le dans un gestionnaire de secrets (Vercel env, Doppler, AWS Secrets Manager), jamais en clair dans le repo.</li>
+      <li><strong>Scope minimal</strong> : l'intégration Notion ne doit avoir accès qu'aux pages réellement nécessaires. Pas d'accès workspace-wide par défaut.</li>
+      <li><strong>Audit log</strong> : logguer chaque appel de tool (<code>tool_name</code>, <code>input</code>, <code>output_size</code>, <code>duration_ms</code>). Stocker 90 jours minimum.</li>
+      <li><strong>MCP gate</strong>, pour les actions sensibles (suppression, modification de page partagée), ajouter une étape de confirmation explicite côté serveur, pas seulement côté UI Claude.</li>
+      <li><strong>Rotation des secrets</strong> : le <code>NOTION_TOKEN</code> doit tourner tous les 90 jours. Stockez-le dans un gestionnaire de secrets (Vercel env, Doppler, AWS Secrets Manager), jamais en clair dans le repo.</li>
     </ul>
-    <p>MCP n'a pas inventé de nouveaux risques — il a juste rendu visible ce que les connecteurs custom cachaient. Traitez votre serveur MCP comme un service exposé : authentification, audit, scope, rotation. Le standard ne dispense pas de la rigueur.</p>
+    <p>MCP n'a pas inventé de nouveaux risques : il a juste rendu visible ce que les connecteurs custom cachaient. Traitez votre serveur MCP comme un service exposé : authentification, audit, scope, rotation. Le standard ne dispense pas de la rigueur.</p>
 
     <p>Si vous voulez une bibliothèque de connecteurs MCP packagés pour votre stack (Notion, Drive, Slack, HubSpot, votre CRM maison), <a href="/offres/conseil">notre offre Conseil Claude Cowork</a> couvre l'architecture, le code et la conformité sur 6 semaines.</p>
   </Fragment>

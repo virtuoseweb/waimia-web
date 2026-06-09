@@ -137,7 +137,7 @@ const parseMinPrice = (value: string) => {
     .replace(/\u00a0/g, ' ')
     .replace(/\s+/g, ' ')
     .toLowerCase();
-  const kMatch = normalized.match(/(\d+(?:[,.]\d+)?)\s*(?:à|-|–|—)?\s*\d*(?:[,.]\d+)?\s*k\s*€/);
+  const kMatch = normalized.match(/(\d+(?:[,.]\d+)?)\s*(?:à|-|–|\u2014)?\s*\d*(?:[,.]\d+)?\s*k\s*€/);
   if (kMatch) return Number(kMatch[1]?.replace(',', '.')) * 1000;
   const euroMatch = normalized.match(/(\d[\d\s.,]*)\s*€/);
   if (!euroMatch) return undefined;
@@ -591,7 +591,7 @@ const growthToolRows = [
             {cta_body_fr || cta_body_en ? (
               <p>{lang === 'fr' ? (cta_body_fr ?? cta_body_en) : (cta_body_en ?? cta_body_fr)}</p>
             ) : (
-              <p><slot name="cta-body">Cadrage en 45 minutes. Nous auditons votre contexte et proposons un plan d'action concret — sans engagement.</slot></p>
+              <p><slot name="cta-body">Cadrage en 45 minutes. Nous auditons votre contexte et proposons un plan d'action concret, sans engagement.</slot></p>
             )}
             <div class="off-cta-btns">
               <a class="btn-accent" href="/contact">Prendre rendez-vous →</a>
