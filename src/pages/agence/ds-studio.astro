@@ -165,14 +165,14 @@ const moleculesRendered = 12;
           <div class="studio-panel-top">
             <h2 class="studio-h3">1 · Éditeur LIVE</h2>
             <div class="studio-actions">
-              <button id="token-reset" class="studio-btn" type="button">Reset</button>
-              <button id="token-export" class="studio-btn studio-btn--accent" type="button">
+              <button id="token-reset" data-action="reset" class="studio-btn" type="button">Reset</button>
+              <button id="token-export" data-action="export" class="studio-btn studio-btn--accent" type="button">
                 Exporter (<span id="export-count">0</span>)
               </button>
             </div>
           </div>
 
-          {/* Enregistrer (déployer) — DEV-ONLY : POST /api/ds/save (commit + push +
+          {/* Enregistrer (déployer) : DEV-ONLY : POST /api/ds/save (commit + push +
               rebuild preview). Le middleware n'existe que sous `astro dev`. */}
           <div class="studio-save">
             <label class="studio-save-field">
@@ -185,7 +185,7 @@ const moleculesRendered = 12;
                 autocomplete="off"
               />
             </label>
-            <button id="token-save" class="studio-btn studio-btn--save" type="button">
+            <button id="token-save" data-action="save" class="studio-btn studio-btn--save" type="button">
               Enregistrer (déployer)
             </button>
           </div>
@@ -498,7 +498,7 @@ const moleculesRendered = 12;
         </section>
 
         {/* 3. Doublons & dette */}
-        <section class="studio-section">
+        <section class="studio-section studio-section--debt">
           <ChapterLabel num="04" title="Doublons & dette (avant de figer le DS)" />
 
           <div class="studio-debt-grid">
@@ -593,6 +593,13 @@ const moleculesRendered = 12;
   }
   @media (max-width: 1080px) {
     .studio-layout { grid-template-columns: 1fr; }
+  }
+  :global(body.ds-clean) .studio-layout { grid-template-columns: 1fr; }
+  :global(body.ds-clean) .studio-panel,
+  :global(body.ds-clean) .studio-hd,
+  :global(body.ds-clean) .studio-impact,
+  :global(body.ds-clean) .studio-section--debt {
+    display: none;
   }
 
   /* ── Panneau éditeur ── */

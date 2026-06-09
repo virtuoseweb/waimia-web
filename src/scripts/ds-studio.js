@@ -21,9 +21,31 @@ function initStudio() {
 
   const DATA = JSON.parse(dataEl.textContent || '{}');
   const consumers = DATA.consumers || {};
+  const SAVE_PENDING_KEY = 'ds-save-pending';
+  const SAVE_RELOADED_KEY = 'ds-save-reloaded';
+  let hashSyncTimer = null;
 
   // Tokens modifiés (pour l'export ciblé)
   const dirty = new Map(); // token -> valeur courante
+
+  function setSaveState(state) {
+    document.body.setAttribute('data-save-state', state);
+  }
+
+  function scheduleHashSync() {
+    clearTimeout(hashSyncTimer);
+    hashSyncTimer = window.setTimeout(() => {
+      const base = location.pathname + location.search;
+      if (!dirty.size) {
+        history.replaceState(null, '', base);
+        return;
+      }
+      const hash = [...dirty.entries()]
+        .map(([token, value]) => `${token}=${encodeURIComponent(value)}`)
+        .join('&');
+      history.replaceState(null, '', `${base}#${hash}`);
+    }, 300);
+  }
 
   // ── Application d'un override ──────────────────────────────────────────────
   function applyToken(token, value) {
@@ -31,6 +53,7 @@ function initStudio() {
     dirty.set(token, value);
     markRowDirty(token, true);
     refreshExportCount();
+    scheduleHashSync();
   }
 
   function markRowDirty(token, on) {
@@ -116,20 +139,24 @@ function initStudio() {
 
   // ── Reset ──────────────────────────────────────────────────────────────────
   const resetBtn = container.querySelector('#token-reset');
-  if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-      dirty.forEach((_v, token) => {
-        root.style.removeProperty(token);
-        markRowDirty(token, false);
-        container.querySelectorAll(`[data-token="${token}"]`).forEach((ctrl) => {
-          const def = ctrl.getAttribute('data-default');
-          if (def !== null) ctrl.value = def;
-        });
+  function resetTokens() {
+    dirty.forEach((_v, token) => {
+      root.style.removeProperty(token);
+      markRowDirty(token, false);
+      container.querySelectorAll(`[data-token="${token}"]`).forEach((ctrl) => {
+        const def = ctrl.getAttribute('data-default');
+        if (def !== null) ctrl.value = def;
       });
-      dirty.clear();
-      refreshExportCount();
-      toast('Tokens réinitialisés aux valeurs du fichier tokens.css');
     });
+    dirty.clear();
+    refreshExportCount();
+    scheduleHashSync();
+    setSaveState('idle');
+    toast('Tokens réinitialisés aux valeurs du fichier tokens.css');
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', resetTokens);
   }
 
   // ── Export ─────────────────────────────────────────────────────────────────
@@ -205,7 +232,7 @@ function initStudio() {
     }
   }
 
-  function showCookingOverlay(seconds, branch, commit) {
+  function showCookingOverlay(seconds, branch, commit, onComplete) {
     const total = Number(seconds) > 0 ? Math.floor(Number(seconds)) : 180;
     const el = ensureOverlay();
     el.classList.remove('studio-overlay--error');
@@ -261,7 +288,8 @@ function initStudio() {
     }, 1000);
 
     reloadTimer = window.setTimeout(() => {
-      window.location.reload();
+      if (onComplete) onComplete();
+      else window.location.reload();
     }, total * 1000);
   }
 
@@ -296,48 +324,100 @@ function initStudio() {
     el.classList.add('is-on');
   }
 
+  function rememberPendingSave(data) {
+    const pending = {
+      savedAt: Date.now(),
+      branch: data.branch,
+      commit: data.commit,
+      count: data.count,
+      fixedDelaySeconds: data.fixedDelaySeconds,
+    };
+    sessionStorage.setItem(SAVE_PENDING_KEY, JSON.stringify(pending));
+    sessionStorage.removeItem(SAVE_RELOADED_KEY);
+    return pending;
+  }
+
+  function finishPendingSave(savedAt) {
+    if (sessionStorage.getItem(SAVE_RELOADED_KEY) === String(savedAt)) return;
+    sessionStorage.setItem(SAVE_RELOADED_KEY, String(savedAt));
+    sessionStorage.removeItem(SAVE_PENDING_KEY);
+    window.location.reload();
+  }
+
+  async function performSave(keyword) {
+    if (!dirty.size) {
+      setSaveState('error');
+      toast('Aucun changement : modifie au moins un token avant d\'enregistrer');
+      return { ok: false, error: 'aucun changement' };
+    }
+
+    setSaveState('saving');
+    if (saveBtn) {
+      saveBtn.disabled = true;
+    }
+    const prevLabel = saveBtn ? saveBtn.textContent : '';
+    if (saveBtn) {
+      saveBtn.textContent = 'Envoi...';
+    }
+
+    try {
+      const resp = await fetch('/api/ds/save', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ tokens: buildTokensPayload(), keyword }),
+      });
+      let data = {};
+      try {
+        data = await resp.json();
+      } catch {
+        data = {};
+      }
+      if (resp.ok && data.ok) {
+        const pending = rememberPendingSave(data);
+        setSaveState('done');
+        showCookingOverlay(
+          data.fixedDelaySeconds,
+          data.branch,
+          data.commit,
+          () => finishPendingSave(pending.savedAt),
+        );
+        return data;
+      }
+
+      const error = data.error || `Erreur ${resp.status}`;
+      const map = {
+        keyword: 'Mot-clé de sauvegarde incorrect.',
+        'refus push main': 'Refus : on ne pousse jamais automatiquement sur main (prod).',
+      };
+      setSaveState('error');
+      showErrorOverlay(map[error] || error);
+      return { ok: false, error };
+    } catch {
+      const error = 'Réseau indisponible (le serveur de dev tourne-t-il ?).';
+      setSaveState('error');
+      showErrorOverlay(error);
+      return { ok: false, error };
+    } finally {
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = prevLabel;
+      }
+    }
+  }
+
   if (saveBtn) {
-    saveBtn.addEventListener('click', async () => {
+    saveBtn.addEventListener('click', () => {
+      const keyword = keywordInput ? keywordInput.value.trim() : '';
       if (!dirty.size) {
-        toast('Aucun changement : modifie au moins un token avant d\'enregistrer');
+        performSave(keyword);
         return;
       }
-      const keyword = keywordInput ? keywordInput.value.trim() : '';
       if (!keyword) {
         toast('Saisis le mot-clé de sauvegarde');
         if (keywordInput) keywordInput.focus();
         return;
       }
-      saveBtn.disabled = true;
-      const prevLabel = saveBtn.textContent;
-      saveBtn.textContent = 'Envoi...';
-      try {
-        const resp = await fetch('/api/ds/save', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ tokens: buildTokensPayload(), keyword }),
-        });
-        let data = {};
-        try {
-          data = await resp.json();
-        } catch {
-          data = {};
-        }
-        if (resp.ok && data.ok) {
-          showCookingOverlay(data.fixedDelaySeconds, data.branch, data.commit);
-        } else {
-          const map = {
-            keyword: 'Mot-clé de sauvegarde incorrect.',
-            'refus push main': 'Refus : on ne pousse jamais automatiquement sur main (prod).',
-          };
-          showErrorOverlay(map[data.error] || data.error || `Erreur ${resp.status}`);
-        }
-      } catch (err) {
-        showErrorOverlay('Réseau indisponible (le serveur de dev tourne-t-il ?).');
-      } finally {
-        saveBtn.disabled = false;
-        saveBtn.textContent = prevLabel;
-      }
+      performSave(keyword);
     });
   }
 
@@ -355,6 +435,109 @@ function initStudio() {
     el.classList.add('is-on');
     clearTimeout(toastTimer);
     toastTimer = window.setTimeout(() => el.classList.remove('is-on'), 2600);
+  }
+
+  /** Applique un token comme un contrôle humain et retourne sa valeur calculée. */
+  function setToken(name, value) {
+    syncControls(name, value, null);
+    applyToken(name, value);
+    return {
+      name,
+      value,
+      computed: getComputedStyle(root).getPropertyValue(name).trim(),
+    };
+  }
+
+  /** Retourne la valeur calculée actuelle d'un token. */
+  function getToken(name) {
+    return getComputedStyle(root).getPropertyValue(name).trim();
+  }
+
+  /** Liste les tokens modifiés depuis l'initialisation du Studio. */
+  function listModified() {
+    return [...dirty.entries()].map(([name, value]) => ({ name, value }));
+  }
+
+  /** Réinitialise les tokens avec le même flux que le bouton Reset. */
+  function reset() {
+    if (resetBtn) resetBtn.click();
+    else resetTokens();
+    return { ok: true };
+  }
+
+  /** Retourne l'export CSS sans accéder au presse-papiers. */
+  function exportTokens() {
+    const css = buildExport();
+    const out = container.querySelector('#export-output');
+    if (out) out.textContent = css;
+    return css;
+  }
+
+  /** Sauvegarde les tokens modifiés et retourne toujours la réponse structurée. */
+  function save(keyword) {
+    return performSave(keyword);
+  }
+
+  window.dsStudio = {
+    setToken,
+    getToken,
+    listModified,
+    reset,
+    export: exportTokens,
+    save,
+  };
+
+  setSaveState('idle');
+  if (new URLSearchParams(location.search).get('clean') === '1') {
+    document.body.classList.add('ds-clean');
+  } else {
+    document.body.classList.remove('ds-clean');
+  }
+
+  try {
+    const rawPending = sessionStorage.getItem(SAVE_PENDING_KEY);
+    if (rawPending) {
+      const pending = JSON.parse(rawPending);
+      const total = Number(pending.fixedDelaySeconds);
+      const elapsedMs = Date.now() - Number(pending.savedAt);
+      const alreadyReloaded = sessionStorage.getItem(SAVE_RELOADED_KEY) === String(pending.savedAt);
+      if (!Number.isFinite(total) || !Number.isFinite(elapsedMs) || elapsedMs >= total * 1000) {
+        sessionStorage.removeItem(SAVE_PENDING_KEY);
+        sessionStorage.removeItem(SAVE_RELOADED_KEY);
+      } else if (!alreadyReloaded) {
+        const elapsed = Math.floor(elapsedMs / 1000);
+        const remaining = total - elapsed;
+        setSaveState('done');
+        showCookingOverlay(
+          remaining,
+          pending.branch,
+          pending.commit || '',
+          () => finishPendingSave(pending.savedAt),
+        );
+      } else {
+        sessionStorage.removeItem(SAVE_PENDING_KEY);
+        sessionStorage.removeItem(SAVE_RELOADED_KEY);
+      }
+    } else {
+      sessionStorage.removeItem(SAVE_RELOADED_KEY);
+    }
+  } catch {
+    sessionStorage.removeItem(SAVE_PENDING_KEY);
+    sessionStorage.removeItem(SAVE_RELOADED_KEY);
+  }
+
+  if (location.hash.length > 1) {
+    location.hash.slice(1).split('&').forEach((pair) => {
+      const separator = pair.indexOf('=');
+      if (separator <= 0) return;
+      const name = pair.slice(0, separator);
+      if (!name.startsWith('--')) return;
+      try {
+        setToken(name, decodeURIComponent(pair.slice(separator + 1)));
+      } catch {
+        // Paire malformée ignorée.
+      }
+    });
   }
 
   refreshExportCount();
