@@ -33,11 +33,12 @@ function formatHeroTitle(title: string): string {
   return `<i>${first}</i><br/>${rest}`;
 }
 
-const heroTitle = formatHeroTitle(
-  lang === 'fr'
-    ? (data.tier_label_fr ?? data.title_fr)
-    : (data.tier_label_en ?? data.title_en)
-);
+const heroTitle = (lang === 'fr' ? data.hero_title_html_fr : data.hero_title_html_en)
+  ?? formatHeroTitle(
+    lang === 'fr'
+      ? (data.tier_label_fr ?? data.title_fr)
+      : (data.tier_label_en ?? data.title_en)
+  );
 
 // D.7 · Adoption composable V2 (2026-05-15) — si frontmatter contient `sections`,
 // utiliser SectionsRenderer au lieu d'OffresDetailTemplate (compatibilité backward).

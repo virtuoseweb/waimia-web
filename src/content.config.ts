@@ -225,6 +225,8 @@ const offres = defineCollection({
     tier_en: z.string().optional(),
     tier_label_fr: z.string().optional(),
     tier_label_en: z.string().optional(),
+    hero_title_html_fr: z.string().optional(),
+    hero_title_html_en: z.string().optional(),
     meta_fr: z.string().optional(),
     meta_en: z.string().optional(),
     price_from_eur: z.number().int().nonnegative().optional(),
@@ -324,6 +326,8 @@ const solutions = defineCollection({
     // ─── SolutionsDetailTemplate fields (V2+) ───
     dept_badge: z.string().optional(),
     dept_label: z.string().optional(),
+    hero_title_html_fr: z.string().optional(),
+    hero_title_html_en: z.string().optional(),
     meta_hero: z.string().optional(),
     tags_fr: z.array(z.string()).default([]),
     tags_en: z.array(z.string()).default([]),

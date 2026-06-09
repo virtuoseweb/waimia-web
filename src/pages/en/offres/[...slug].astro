@@ -28,7 +28,8 @@ function formatHeroTitle(title: string): string {
   return `<i>${first}</i><br/>${rest}`;
 }
 
-const heroTitle = formatHeroTitle(data.tier_label_en ?? data.title_en);
+const heroTitle = data.hero_title_html_en
+  ?? formatHeroTitle(data.tier_label_en ?? data.title_en);
 
 const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
 ---

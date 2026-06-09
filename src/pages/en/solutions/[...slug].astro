@@ -20,6 +20,7 @@ const lang = 'en' as const;
 const title = data.title_en;
 const description = data.description_en;
 const lead = data.lead_en;
+const heroTitleHtml = data.hero_title_html_en;
 ---
 
 <SolutionsDetailTemplate
@@ -41,7 +42,9 @@ const lead = data.lead_en;
   cta_title_fr={data.cta_title_fr}
   cta_body_fr={data.cta_body_fr}
 >
-  <Fragment slot="title">{title}</Fragment>
+  {heroTitleHtml
+    ? <Fragment slot="title" set:html={heroTitleHtml} />
+    : <Fragment slot="title">{title}</Fragment>}
   <Fragment slot="lead">{lead}</Fragment>
   <Content />
 </SolutionsDetailTemplate>
