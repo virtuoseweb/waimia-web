@@ -35,13 +35,12 @@ import Timeline from '../editorial/Timeline.astro';
 import KeyMetric from '../editorial/KeyMetric.astro';
 import EditorialTable from '../editorial/EditorialTable.astro';
 import Dingbat from '../editorial/Dingbat.astro';
-import SecteurServicesB2B from '../svg/sumie/SecteurServicesB2B.astro';
-import SecteurIndustrie from '../svg/sumie/SecteurIndustrie.astro';
-import SecteurFinance from '../svg/sumie/SecteurFinance.astro';
+import HeroSumie from '../svg/sumie/HeroSumie.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import { langFromPath } from '../../lib/i18n';
 import { buildService } from '../../lib/seo/schema-builder';
+import { resolveHeroSumie } from '../../lib/hero-sumie';
 
 interface Props {
   /** SEO meta · title de la page (browser tab) */
@@ -230,14 +229,7 @@ const effectiveStack =
 const serviceLd = buildService({ name: title, description });
 
 const signature = `${dept} ${deptLabel} ${title}`.toLowerCase();
-const sectorVisual =
-  signature.includes('services b2b') || signature.includes('cabinet') || signature.includes('conseil')
-    ? 'services-b2b'
-    : signature.includes('industrie')
-      ? 'industrie'
-      : signature.includes('finance') || signature.includes('compta') || signature.includes('comptabilité')
-        ? 'finance'
-        : '';
+const heroSumie = resolveHeroSumie(signature);
 ---
 <Base {title} {description} {noindex} jsonLd={[serviceLd]}>
     <Breadcrumb
@@ -250,7 +242,7 @@ const sectorVisual =
     />
     {/* ────────── 1. HERO DEPARTMENT ────────── */}
     <section class="sol-hero" data-screen-label="01 Hero Department" transition:name={`card-${pageTransitionId}`}>
-      <svg class="sol-hero-geo reveal-blur-clip" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={!sectorVisual ? `hero-img-${pageTransitionId}` : undefined}>
+      <svg class="sol-hero-geo reveal-blur-clip" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={undefined}>
         <rect x="1000" y="-60" width="380" height="380" fill="none" stroke="currentColor" stroke-width="1" opacity=".22" transform="rotate(15 1190 130)"/>
         <rect x="1060" y="40" width="240" height="240" fill="none" stroke="var(--accent)" stroke-width="1" opacity=".3" transform="rotate(15 1180 160)"/>
       </svg>
@@ -267,13 +259,9 @@ const sectorVisual =
           </div>
           <div class="sol-hero-tags reveal-stagger"><slot name="tags" /></div>
         </div>
-        {sectorVisual && (
-          <aside class="sol-hero-visual col-4 start-9 reveal-zoom-in" aria-hidden="true" transition:name={`hero-img-${pageTransitionId}`}>
-            {sectorVisual === 'services-b2b' && <SecteurServicesB2B size="lg" />}
-            {sectorVisual === 'industrie' && <SecteurIndustrie size="lg" />}
-            {sectorVisual === 'finance' && <SecteurFinance size="lg" />}
-          </aside>
-        )}
+        <aside class="sol-hero-visual col-4 start-9 reveal-zoom-in" aria-hidden="true" transition:name={`hero-img-${pageTransitionId}`}>
+          <HeroSumie name={heroSumie} size="lg" />
+        </aside>
       </div>
     </section>
 

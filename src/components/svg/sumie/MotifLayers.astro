@@ -1,0 +1,55 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'default' | 'mono';
+}
+
+const { size = 'md', variant = 'default' } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 480 320"
+  preserveAspectRatio="xMidYMid meet"
+  class={`sumie-sector sumie-sector-${size}`}
+  role="img"
+  aria-label="Strates modulaires empilées en perspective au trait"
+>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M168 110 L340 96 L368 124 L196 138 Z" stroke-width="2.4" />
+    <path d="M152 160 L324 146 L352 174 L180 188 Z" stroke-width="2.1" stroke-dasharray="90 0" />
+    <path d="M136 210 L308 196 L336 224 L164 238 Z" stroke-width="1.75" />
+    <path d="M196 138 L196 160" stroke-width="1" stroke-dasharray="8 7" />
+    <path d="M340 96 L340 118" stroke-width="1" stroke-dasharray="8 7" />
+    <path d="M180 188 L180 210" stroke-width="1" stroke-dasharray="8 7" />
+    <path d="M324 146 L324 168" stroke-width="1" stroke-dasharray="8 7" />
+    <path d="M254 124 L238 224" stroke-width="0.85" stroke-dasharray="24 12" />
+  </g>
+  {
+    variant === 'default' && (
+      <path
+        d="M152 160 L324 146 L352 174 L180 188 Z"
+        fill="var(--accent)"
+        opacity="0.16"
+      />
+    )
+  }
+</svg>
+
+<style>
+  .sumie-sector {
+    display: block;
+    color: var(--ink-2);
+  }
+
+  .sumie-sector-sm {
+    width: 180px;
+  }
+
+  .sumie-sector-md {
+    width: 360px;
+  }
+
+  .sumie-sector-lg {
+    width: 480px;
+  }
+</style>
