@@ -60,6 +60,11 @@ jobs:
       - name: Gate pureté DS (token-driven, anti hex brut)
         run: node scripts/check-token-purity.mjs
 
+      # Gate anti-régression : var() est invalide dans une condition @media/@container (spec CSS)
+      # Le bloc est jeté silencieusement par le navigateur. Le reflow responsive n'est jamais appliqué.
+      - name: Gate media-query (anti var() en condition @media)
+        run: node scripts/check-media-query-var.mjs
+
   # Suite Playwright e2e contre le BUILD servi (parité prod — le dev diverge du build).
   # Job SÉPARÉ, hors required-checks pour l'instant : visible mais non-bloquant le temps
   # de prouver sa stabilité en CI, puis promotion en gate. Couvre le DYNAMIQUE que le gate
