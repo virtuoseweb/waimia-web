@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import robotsTxt from 'astro-robots-txt';
 import llmsTxt from '@4hse/astro-llms-txt';
+import tina from '@tinacms/astro/integration';
 import llmsMdPages from './src/integrations/llms-md-pages';
 import dsSaveDev from './src/integrations/ds-save-dev.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
@@ -81,6 +82,7 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
+    tina(),
     sitemap({
       i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR', en: 'en-US' } },
       // Filtre sitemap.xml :
@@ -185,7 +187,7 @@ export default defineConfig({
   vite: {
     plugins: [/** @type {any} */ (tailwindcss())],
     ssr: {
-      noExternal: ['resend', '@react-email/components', '@react-email/render'],
+      noExternal: ['resend', '@react-email/components', '@react-email/render', '@tinacms/astro', '@tinacms/bridge'],
     },
   },
 });
