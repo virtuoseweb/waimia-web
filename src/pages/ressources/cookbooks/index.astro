@@ -4,9 +4,9 @@ export const prerender = true;
 
 // Source : waimia-handoff2 / knowledge-base.html
 //
-// Composé de · ListIndexTemplate (variant cookbooks · cards 2 cols)
+// Composé de · UtilityTemplate variant="list" (ex-ListIndexTemplate, fusion R6) (variant cookbooks · cards 2 cols)
 
-import ListIndexTemplate from '../../../components/templates/ListIndexTemplate.astro';
+import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 
 const cookbooks = [
@@ -24,7 +24,8 @@ const cookbooks = [
     lead: 'Triage qui survit / qui meurt / qui était du théâtre. Inclut grille de priorisation.' },
 ];
 ---
-<ListIndexTemplate
+<UtilityTemplate
+  variant="list"
   title="Cookbooks · Recettes pratiques d'agence IA · Waimia"
   description="Les runbooks qu'on suit en interne. Réconciliation données, AI Act, FinOps LLM, audit maturité, pen testing : disponibles sous accord NDA."
   kicker="§ Cookbooks · 6 runbooks"
@@ -60,7 +61,7 @@ const cookbooks = [
       ))}
     </div>
   </Fragment>
-</ListIndexTemplate>
+</UtilityTemplate>
 
 <style>
   .cb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--hairline-strong); border-bottom: 1px solid var(--hairline-strong); }

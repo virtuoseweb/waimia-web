@@ -4,9 +4,9 @@ export const prerender = true;
 
 // Source : waimia-handoff2 / changelog.html
 //
-// Composé de · ListIndexTemplate (variant timeline · entries datées + tags type)
+// Composé de · UtilityTemplate variant="list" (ex-ListIndexTemplate, fusion R6) (variant timeline · entries datées + tags type)
 
-import ListIndexTemplate from '../../components/templates/ListIndexTemplate.astro';
+import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 
 const entries = [
@@ -37,7 +37,8 @@ const byMonth = entries.reduce<Record<string, typeof entries>>((acc, e) => {
 }, {});
 const months = Object.keys(byMonth).sort().reverse();
 ---
-<ListIndexTemplate
+<UtilityTemplate
+  variant="list"
   title="Changelog · VirtuoseOS + agence · Waimia"
   description="Toutes les nouveautés VirtuoseOS, cookbooks, cas, et annonces d'agence. Par ordre chronologique inverse."
   kicker="§ Changelog · 8 entrées · 2026"
@@ -79,7 +80,7 @@ const months = Object.keys(byMonth).sort().reverse();
       ))}
     </div>
   </Fragment>
-</ListIndexTemplate>
+</UtilityTemplate>
 
 <style>
   .cl-timeline { max-width: 1100px; }

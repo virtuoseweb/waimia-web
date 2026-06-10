@@ -1,8 +1,11 @@
 ---
 export const prerender = true;
 
-import { getCollection, render } from 'astro:content';
-import SolutionsDetailTemplate from '../../../components/templates/SolutionsDetailTemplate.astro';
+// Page SSG · /en/solutions/[slug] · rendu 100 % composable (registry).
+// R6 (2026-06-10) · fallback SolutionsDetailTemplate supprimé ICI (voie morte,
+// 8/8 solutions composables) ; le template reste LIVE via secteurs/[...slug].astro.
+
+import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
@@ -17,54 +20,27 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
 const data = entry.data;
 
 const lang = 'en' as const;
 const title = data.title_en;
 const description = data.description_en;
-const lead = data.lead_en;
-const heroTitleHtml = data.hero_title_html_en;
-const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
+
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error(`en/solutions/${entry.id} : frontmatter \`sections:\` requis (voie template legacy éteinte en R6)`);
+}
+
 const serviceLd = buildService({ name: title, description });
 ---
 
-{useComposable ? (
-  <Base title={title} description={description} jsonLd={[serviceLd]}>
-    <Breadcrumb
-      lang={lang}
-      items={[
-        { label: 'Home', href: '/en' },
-        { label: 'Solutions', href: '/en/solutions' },
-        { label: data.dept_label_en ?? data.dept_label ?? title },
-      ]}
-    />
-    <SectionsRenderer sections={data.sections!} lang={lang} />
-  </Base>
-) : (
-  <SolutionsDetailTemplate
-    title={title}
-    description={description}
-    dept={data.dept_badge ?? ''}
-    deptLabel={data.dept_label ?? ''}
-    meta={data.meta_hero}
-    ctaHref={data.cta_href ?? '/en/contact'}
-    ctaLabel={data.cta_label_en ?? 'Talk to an expert →'}
-    pains={data.pains}
-    roi_metrics={data.roi_metrics}
-    stack={data.stack}
-    case_kicker={data.case_kicker}
-    case_body_fr={data.case_body_fr}
-    case_body_en={data.case_body_en}
-    case_cta_label_fr={data.case_cta_label_fr}
-    case_results={data.case_results}
-    cta_title_fr={data.cta_title_fr}
-    cta_body_fr={data.cta_body_fr}
-  >
-    {heroTitleHtml
-      ? <Fragment slot="title" set:html={heroTitleHtml} />
-      : <Fragment slot="title">{title}</Fragment>}
-    <Fragment slot="lead">{lead}</Fragment>
-    <Content />
-  </SolutionsDetailTemplate>
-)}
+<Base title={title} description={description} jsonLd={[serviceLd]}>
+  <Breadcrumb
+    lang={lang}
+    items={[
+      { label: 'Home', href: '/en' },
+      { label: 'Solutions', href: '/en/solutions' },
+      { label: data.dept_label_en ?? data.dept_label ?? title },
+    ]}
+  />
+  <SectionsRenderer sections={data.sections!} lang={lang} />
+</Base>

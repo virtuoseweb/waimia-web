@@ -47,25 +47,25 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // ── Live (34) ───────────────────────────────────────────────────────────────
   { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetailTemplate.astro'] },
   { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetailTemplate.astro'] },
-  { id: 'hero-service-detail',   consumers: ['src/components/templates/ServiceDetailTemplate.astro'] },
+  { id: 'hero-service-detail',   consumers: [] }, // R6 purge : ServiceDetailTemplate supprimé en R0 (revops full-composable) → catalogue-only
   { id: 'hero-case-study',       consumers: ['src/components/templates/CaseStudyTemplate.astro'] },
   { id: 'hero-utility-masthead', consumers: ['src/components/templates/UtilityTemplate.astro'] },
   { id: 'hero-academy-hub',      consumers: ['src/pages/ecole/index.astro'] },
   { id: 'hero-conversion-funnel',consumers: ['src/components/templates/ConversionFunnelTemplate.astro'] },
-  { id: 'hero-hub-stats',        consumers: ['src/components/templates/HubTemplate.astro'] },
+  { id: 'hero-hub-stats',        consumers: ['src/content/offres/conseil.mdx'] }, // R6 purge : HubTemplate supprimé en R0 ; vérité actuelle = conseil composable
   { id: 'hero-detail-menu',      consumers: ['src/components/templates/DetailMenuTemplate.astro'] },
   { id: 'hero-author',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'hero-lead-magnet',      consumers: ['src/components/templates/LeadMagnetTemplate.astro'] },
   { id: 'hero-course',           consumers: ['src/components/templates/CourseDetailTemplate.astro'] },
   { id: 'hero-essay',            consumers: ['src/components/templates/EssayTemplate.astro'] },
   { id: 'hero-split',            consumers: ['src/content/offres/composable-pilot.mdx'] },
-  { id: 'proof-bar',             consumers: ['src/components/templates/ServiceDetailTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/pages/index.astro', 'src/pages/en/index.astro', 'src/content/offres/composable-pilot.mdx'] },
-  { id: 'method-timeline',       consumers: ['src/components/templates/ServiceDetailTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/content/offres/composable-pilot.mdx'] },
+  { id: 'proof-bar',             consumers: ['src/components/templates/DetailMenuTemplate.astro', 'src/pages/index.astro', 'src/pages/en/index.astro', 'src/content/offres/composable-pilot.mdx'] },
+  { id: 'method-timeline',       consumers: ['src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/content/offres/composable-pilot.mdx'] },
   { id: 'feature-grid',          consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'social-proof',          consumers: ['src/pages/index.astro', 'src/pages/technologies/index.astro'] },
   { id: 'faq-accordion',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/ServiceDetailTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/components/templates/HubTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/content/offres/composable-pilot.mdx'] }, // home = organism BookSession (twin merge) → cta-final après migration
-  { id: 'cta-band',              consumers: ['src/components/templates/TrustLegalTemplate.astro', 'src/components/templates/ListIndexTemplate.astro', 'src/components/templates/EssayTemplate.astro'] },
+  { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/content/offres/composable-pilot.mdx'] }, // home = organism BookSession (twin merge) → cta-final après migration · R6 : ServiceDetail/Hub purgés (R0), UtilityTemplate ajouté (consommateur réel)
+  { id: 'cta-band',              consumers: ['src/components/templates/TrustLegalTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/components/templates/EssayTemplate.astro'] }, // R6 : ListIndexTemplate fusionné dans UtilityTemplate (variant list)
   // backfill 2026-06-08 — 7 ids présents au registry, consommés par des pages live (vérifié grep src/pages)
   { id: 'tier-pyramid-svg',      consumers: ['src/pages/offres/index.astro', 'src/pages/en/offres/index.astro'] },
   { id: 'offer-tier-grid',       consumers: ['src/pages/offres/index.astro', 'src/pages/en/offres/index.astro'] },
@@ -79,7 +79,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // NB: architecture-diagram/services-grid/maturity-pyramid/use-case-index/case-card-grid/editorial-preview sont LIVE (home) bien que listés ici.
   { id: 'hero-centered',         consumers: [] },
   { id: 'hero-full-bleed',       consumers: [] },
-  { id: 'hero-hub-listing',      consumers: [] },
+  { id: 'hero-hub-listing',      consumers: ['src/components/templates/UtilityTemplate.astro'] }, // R6 : live via la branche list du shell fusionné (ex-ListIndexTemplate)
   { id: 'hero-pillar-hub',       consumers: [] },
   { id: 'hero-home',             consumers: [] },
   { id: 'hero-landing',          consumers: [] },

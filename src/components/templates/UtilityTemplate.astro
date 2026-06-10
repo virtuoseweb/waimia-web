@@ -1,24 +1,22 @@
 ---
-// Template · UtilityTemplate · pages utilitaires (contact, careers, about, academy)
+// Template · UtilityTemplate · shell unique pages utilitaires + index/listings
 //
-// Mapping handoff2 :
-//  - contact.html             → /contact
-//  - careers.html             → /agence/careers
-//  - about.html               → /agence/about
-//  - academy-diagnostic.html  → /ressources/academy
+// R6 (2026-06-10) · FUSION ListIndexTemplate → UtilityTemplate (`variant`).
+// Deux coquilles minces wrappant le même masthead unifié HeroCentered :
+//  - variant="utility" (défaut) · contact, careers, about, methode, academy,
+//    livres-blancs/index, veille-ia/index · masthead hero-utility-masthead +
+//    breadcrumb + slot `body` + CtaFinal optionnel (markup INCHANGÉ).
+//  - variant="list" · blog/index, changelog, cookbooks/index, outils/index ·
+//    masthead hero-hub-listing (slots headline/lede/filters) + slot `list` +
+//    CtaBandSection (markup VERBATIM de l'ancien ListIndexTemplate, sans breadcrumb).
 //
-// Squelette flexible · Masthead (centered ou left) + slot `body` libre + slot `cta` optionnel
-//
-// Décision · un seul template "utility" car ces pages partagent la structure
-// (h1 + lede + body + CTA optionnel). Prop `align` (centered / left) pour les
-// variations visuelles. Le slot `body` accepte n'importe quel JSX riche.
-//
-// Composé de · Bi (atom) · Kicker (atom) · CtaFinal (section · optionnelle)
+// Composé de · HeroCentered (section cataloguée) · CtaFinal / CtaBandSection
 
 import Base from '../../layouts/Base.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import HeroCentered from '../sections/HeroCentered.astro';
 import CtaFinal from '../sections/CtaFinal.astro';
+import CtaBandSection from '../sections/CtaBandSection.astro';
 import type { SectionByType } from '../../schemas/sections';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 
@@ -28,29 +26,69 @@ interface Crumb {
 }
 
 interface Props {
+  /** Branche de rendu · `utility` (défaut) ou `list` (ex-ListIndexTemplate) */
+  variant?: 'utility' | 'list';
   title: string;
   description: string;
-  /** Kicker section (Contact, Careers, À propos…) · déjà localisé par la page */
+  /** Kicker section (Contact, Careers, Cas clients…) · déjà localisé par la page */
   kicker?: string;
-  /** Masthead · headline (HTML riche : <i> pour l'accent terracotta italique) */
-  headlineFr: string;
-  headlineEn: string;
-  /** Masthead · lede (HTML riche autorisé) */
-  ledeFr: string;
-  ledeEn: string;
-  /** Alignement masthead · `left` (défaut, narrative) ou `centered` (action focus) */
+  /** [utility] Masthead · headline (HTML riche : <i> pour l'accent terracotta italique) */
+  headlineFr?: string;
+  headlineEn?: string;
+  /** [utility] Masthead · lede (HTML riche autorisé) */
+  ledeFr?: string;
+  ledeEn?: string;
+  /** [utility] Alignement masthead · `left` (défaut, narrative) ou `centered` (action focus) */
   align?: 'left' | 'centered';
-  /** Afficher le CTA final en fin de page · défaut true */
+  /** [utility] Afficher le CTA final en fin de page · défaut true */
   showCta?: boolean;
-  /** Breadcrumb items (optionnel) · si absent, deduit du pathname */
+  /** [utility] Breadcrumb items (optionnel) · si absent, deduit du pathname */
   breadcrumb?: Crumb[];
   /** JSON-LD spécifique à la page (forwarded to Base) */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
-const { title, description, kicker, headlineFr, headlineEn, ledeFr, ledeEn, align = 'left', showCta = true, breadcrumb, jsonLd } = Astro.props as Props;
+const {
+  variant = 'utility',
+  title, description, kicker,
+  headlineFr = '', headlineEn = '', ledeFr = '', ledeEn = '',
+  align = 'left', showCta = true, breadcrumb, jsonLd,
+} = Astro.props as Props;
 
 const lang = langFromPath(Astro.url.pathname);
+const isList = variant === 'list';
 
+/* ── Branche LIST (ex-ListIndexTemplate, markup verbatim) ─────────────────── */
+// Slot-forwarding : les slots headline/lede (rich text `<i>`) → champs `set:html` du composant.
+const listLabel = title.split(' · ')[0];
+const hasFilters = Astro.slots.has('filters');
+const h1Html = isList ? await Astro.slots.render('headline') : '';
+const ledeHtml = isList ? await Astro.slots.render('lede') : '';
+
+const listHeroData = {
+  type: 'hero-hub-listing',
+  kicker_fr: kicker ?? '',
+  kicker_en: kicker ?? '',
+  h1_fr: h1Html,
+  h1_en: h1Html,
+  lede_fr: ledeHtml,
+  lede_en: ledeHtml,
+  decoration: false,
+} satisfies SectionByType<'hero-hub-listing'>;
+
+const listCtaData = {
+  type: 'cta-band',
+  text_fr: `Après ${listLabel}, passons à votre cas réel et à votre premier livrable utile.`,
+  text_en: `After ${listLabel}, let us move to your real use case and your first useful deliverable.`,
+  cta: {
+    label_fr: 'Réserver un audit →',
+    label_en: 'Book an audit →',
+    href: localizeHref('/contact', lang),
+    variant: 'primary',
+  },
+  background: 'paper-2',
+} satisfies SectionByType<'cta-band'>;
+
+/* ── Branche UTILITY (markup inchangé) ────────────────────────────────────── */
 // Masthead · consomme le composant catalogué `hero-utility-masthead` (source
 // unique structure + CSS). Contenu par instance via props du template.
 // `reveal` préserve la couche d'animation d'origine du masthead (kicker/h1/lede
@@ -111,7 +149,7 @@ const ctaData: SectionByType<'cta-final'> = isContactPage
     };
 
 // Auto-deduction breadcrumb si non fourni (segments URL → labels capitalises)
-const autoCrumbs: Crumb[] = breadcrumb ?? (() => {
+const autoCrumbs: Crumb[] = isList ? [] : breadcrumb ?? (() => {
   const segments = Astro.url.pathname.split('/').filter(s => s && s !== 'en');
   if (segments.length === 0) return [];
   const home: Crumb = { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' };
@@ -123,29 +161,57 @@ const autoCrumbs: Crumb[] = breadcrumb ?? (() => {
   return [home, ...intermediate, last];
 })();
 ---
-<Base title={title} description={description} jsonLd={jsonLd}>
-  {autoCrumbs.length > 0 && <Breadcrumb lang={lang} items={autoCrumbs} />}
-  {/* MASTHEAD · composant catalogué hero-utility-masthead (contenu via props).
-      align (left/centered) piloté par `data.align` → géré nativement par le composant.
-      wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut du
-      composant : 1200px : reste inchangé pour la preview catalogue.
-      reveal préserve la couche d'animation d'origine (kicker/h1/lede en `reveal`). */}
-  <HeroCentered data={heroData} lang={lang} wrapMaxWidth="var(--wrap-wide)" reveal={true} />
+{isList ? (
+  <Base title={title} description={description} jsonLd={jsonLd}>
+    {/* MASTHEAD · composant catalogué hero-hub-listing (deltas absorbés par props rétro-compat) */}
+    <HeroCentered
+      data={listHeroData}
+      lang={lang}
+      listTopPad="140px"
+      ledeMaxFont="32px"
+      ledeReveal={false}
+      showFilters={hasFilters}
+      listBorder={true}
+    >
+      <slot name="filters" slot="filters" />
+    </HeroCentered>
 
-  {/* BODY · slot libre (form, story, jobs list…) */}
-  <section class="util-body reveal">
-    <div class="wrap-wide">
-      <slot name="body" />
-    </div>
-  </section>
+    {/* LIST (slot ouvert) */}
+    <section class="list-body">
+      <div class="wrap-wide">
+        <slot name="list" />
+      </div>
+    </section>
 
-  {/* CTA optionnel en bas */}
-  {showCta && <CtaFinal data={ctaData} lang={lang} />}
-</Base>
+    <CtaBandSection data={listCtaData} lang={lang} />
+  </Base>
+) : (
+  <Base title={title} description={description} jsonLd={jsonLd}>
+    {autoCrumbs.length > 0 && <Breadcrumb lang={lang} items={autoCrumbs} />}
+    {/* MASTHEAD · composant catalogué hero-utility-masthead (contenu via props).
+        align (left/centered) piloté par `data.align` → géré nativement par le composant.
+        wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut du
+        composant : 1200px : reste inchangé pour la preview catalogue.
+        reveal préserve la couche d'animation d'origine (kicker/h1/lede en `reveal`). */}
+    <HeroCentered data={heroData} lang={lang} wrapMaxWidth="var(--wrap-wide)" reveal={true} />
+
+    {/* BODY · slot libre (form, story, jobs list…) */}
+    <section class="util-body reveal">
+      <div class="wrap-wide">
+        <slot name="body" />
+      </div>
+    </section>
+
+    {/* CTA optionnel en bas */}
+    {showCta && <CtaFinal data={ctaData} lang={lang} />}
+  </Base>
+)}
 
 <style>
   /* Masthead migré vers le composant catalogué `HeroUtilityMasthead` (sections/).
      Règles `.util-hd/.util-hd-centered/.util-kicker/.util-h1/.util-lede` supprimées
      (structure + CSS désormais portés par le composant — source unique). */
   .util-body { padding: clamp(60px, 8vw, 100px) var(--space-6); }
+  /* Branche list (ex-ListIndexTemplate) */
+  .list-body { padding: clamp(60px, 8vw, 100px) var(--space-6); }
 </style>

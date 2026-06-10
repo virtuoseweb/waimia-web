@@ -2,12 +2,14 @@
 export const prerender = true;
 
 // Page SSG · /offres/[slug] · Consumer MDX collection "offres"
-// Remplace les pages hardcoded après migration MDX (Mission W1)
-// Pattern Astro 6 : prerender + getStaticPaths + render(entry) function-style.
+// Rendu 100 % composable : frontmatter `sections:` → SectionsRenderer (registry).
+// R6 (2026-06-10) · voie template legacy ÉTEINTE : le fallback OffresDetailTemplate
+// (mort depuis que 9/9 offres sont composables) est supprimé ; un MDX sans
+// `sections:` casse le build volontairement (anti-orphelin, pas de fallback
+// silencieux vers un template).
 
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import OffresDetailTemplate from '../../components/templates/OffresDetailTemplate.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../lib/i18n';
@@ -22,28 +24,13 @@ export async function getStaticPaths() {
 
 type Props = { entry: CollectionEntry<'offres'> };
 const { entry } = Astro.props as Props;
-const { Content } = await render(entry);
 const data = entry.data;
 const lang = langFromPath(Astro.url.pathname);
 
-function formatHeroTitle(title: string): string {
-  const spaceIdx = title.indexOf(' ');
-  if (spaceIdx === -1) return title;
-  const first = title.slice(0, spaceIdx);
-  const rest = title.slice(spaceIdx + 1);
-  return `<i>${first}</i><br/>${rest}`;
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error(`offres/${entry.id} : frontmatter \`sections:\` requis (voie template legacy éteinte en R6)`);
 }
 
-const heroTitle = (lang === 'fr' ? data.hero_title_html_fr : data.hero_title_html_en)
-  ?? formatHeroTitle(
-    lang === 'fr'
-      ? (data.tier_label_fr ?? data.title_fr)
-      : (data.tier_label_en ?? data.title_en)
-  );
-
-// D.7 · Adoption composable V2 (2026-05-15) — si frontmatter contient `sections`,
-// utiliser SectionsRenderer au lieu d'OffresDetailTemplate (compatibilité backward).
-const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
 const tina = import.meta.env.DEV
   ? await Promise.all([
       import('@tinacms/astro/TinaIsland.astro'),
@@ -53,51 +40,20 @@ const tina = import.meta.env.DEV
 const TinaIsland = tina?.[0].default;
 const tinaWrapper = tina?.[1].islands.offre.wrapper;
 ---
-{useComposable ? (
-  <Base
-    title={lang === 'fr' ? data.title_fr : data.title_en}
-    description={lang === 'fr' ? data.description_fr : data.description_en}
-  >
-    <Breadcrumb lang={lang} items={[
-      { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
-      { label: lang === 'fr' ? 'Offres' : 'Services', href: lang === 'fr' ? '/offres' : '/en/offres' },
-      { label: (lang === 'fr' ? data.title_fr : data.title_en).split(' · ')[0] },
-    ]} />
-    {TinaIsland && tinaWrapper ? (
-      <TinaIsland name="offre" wrapper={tinaWrapper} params={{ slug: entry.id }} primary>
-        <SectionsRenderer sections={data.sections!} lang={lang} />
-      </TinaIsland>
-    ) : (
-      <SectionsRenderer sections={data.sections!} lang={lang} />
-    )}
-  </Base>
-) : (
-<OffresDetailTemplate
+<Base
   title={lang === 'fr' ? data.title_fr : data.title_en}
   description={lang === 'fr' ? data.description_fr : data.description_en}
-  tier={lang === 'fr' ? (data.tier_fr ?? ''): (data.tier_en ?? '')}
-  tierLabel={lang === 'fr' ? (data.tier_label_fr ?? data.title_fr) : (data.tier_label_en ?? data.title_en)}
-  meta={lang === 'fr' ? data.meta_fr : data.meta_en}
-  ctaHref={data.cta_href ?? '/contact'}
-  ctaLabel={lang === 'fr' ? (data.cta_label_fr ?? 'Parler à un expert →'): (data.cta_label_en ?? 'Talk to an expert →')}
-  method_steps={data.method_steps}
-  deliverable_items={data.deliverable_items}
-  proof={data.proof}
-  problem_annotations={data.problem_annotations}
-  lead_fr={data.lead_fr}
-  lead_en={data.lead_en}
-  problem_statement_fr={data.problem_statement_fr}
-  problem_statement_en={data.problem_statement_en}
-  method_aside_fr={data.method_aside_fr}
-  method_aside_en={data.method_aside_en}
-  deliverables_aside_fr={data.deliverables_aside_fr}
-  deliverables_aside_en={data.deliverables_aside_en}
-  cta_title_fr={data.cta_title_fr}
-  cta_title_en={data.cta_title_en}
-  cta_body_fr={data.cta_body_fr}
-  cta_body_en={data.cta_body_en}
 >
-  <Fragment slot="title" set:html={heroTitle} />
-  <Content />
-</OffresDetailTemplate>
-)}
+  <Breadcrumb lang={lang} items={[
+    { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+    { label: lang === 'fr' ? 'Offres' : 'Services', href: lang === 'fr' ? '/offres' : '/en/offres' },
+    { label: (lang === 'fr' ? data.title_fr : data.title_en).split(' · ')[0] },
+  ]} />
+  {TinaIsland && tinaWrapper ? (
+    <TinaIsland name="offre" wrapper={tinaWrapper} params={{ slug: entry.id }} primary>
+      <SectionsRenderer sections={data.sections!} lang={lang} />
+    </TinaIsland>
+  ) : (
+    <SectionsRenderer sections={data.sections!} lang={lang} />
+  )}
+</Base>
