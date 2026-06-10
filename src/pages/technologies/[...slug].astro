@@ -2,7 +2,11 @@
 export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
 import TechnologiesDetailTemplate from '../../components/templates/TechnologiesDetailTemplate.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import { buildService } from '../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('technologies');
@@ -32,20 +36,41 @@ const titleFirst = lang === 'fr'
 const layer = lang === 'fr'
   ? `COUCHE ${titleFirst.toUpperCase()}`
   : `LAYER ${titleFirst.toUpperCase()}`;
----
 
-<TechnologiesDetailTemplate
-  title={lang === 'fr' ? data.title_fr : data.title_en}
-  description={lang === 'fr' ? data.description_fr : data.description_en}
-  {layer}
-  {layerLabel}
-  {layerType}
-  showModels={data.models.length > 0}
-  showEcosystem={data.ecosystem.length > 0}
-  capabilitiesData={data.capabilities}
-  modelsData={data.models}
-  integrationData={data.integration_flow}
-  benchmarksData={data.benchmarks}
->
-  <Content />
-</TechnologiesDetailTemplate>
+const title = lang === 'fr' ? data.title_fr : data.title_en;
+const description = lang === 'fr' ? data.description_fr : data.description_en;
+
+// Adoption composable (registry) — si frontmatter contient `sections`, utiliser
+// SectionsRenderer ; sinon fallback TechnologiesDetailTemplate (backward-compat).
+const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
+const serviceLd = buildService({ name: title, description });
+---
+{useComposable ? (
+  <Base {title} {description} jsonLd={[serviceLd]}>
+    <Breadcrumb
+      lang={lang}
+      items={[
+        { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+        { label: 'Technologies', href: lang === 'fr' ? '/technologies' : '/en/technologies' },
+        { label: layerLabel },
+      ]}
+    />
+    <SectionsRenderer sections={data.sections!} lang={lang} />
+  </Base>
+) : (
+  <TechnologiesDetailTemplate
+    {title}
+    {description}
+    {layer}
+    {layerLabel}
+    {layerType}
+    showModels={data.models.length > 0}
+    showEcosystem={data.ecosystem.length > 0}
+    capabilitiesData={data.capabilities}
+    modelsData={data.models}
+    integrationData={data.integration_flow}
+    benchmarksData={data.benchmarks}
+  >
+    <Content />
+  </TechnologiesDetailTemplate>
+)}

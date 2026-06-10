@@ -104,6 +104,11 @@ import StatsBento from '../components/sections/StatsBento.astro';
 import ComparisonDuo from '../components/sections/ComparisonDuo.astro';
 import ServiceCatalogList from '../components/sections/ServiceCatalogList.astro';
 import FitColumnsSection from '../components/sections/FitColumnsSection.astro';
+import TechPositioningSplit from '../components/sections/TechPositioningSplit.astro';
+import TechCapabilitiesSpecs from '../components/sections/TechCapabilitiesSpecs.astro';
+import TechModelsTable from '../components/sections/TechModelsTable.astro';
+import TechWhenDual from '../components/sections/TechWhenDual.astro';
+import TechIntegrationFlow from '../components/sections/TechIntegrationFlow.astro';
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -998,6 +1003,56 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.',
     description_en: 'Fit/no-fit qualification section on an ink background: kicker, display heading, intro callout, and two yes/no item columns.',
+  },
+  'tech-positioning-split': {
+    component: TechPositioningSplit,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['technologies', 'positioning', 'split', 'manifesto', 'editorial'],
+    status: 'stable',
+    description_fr: 'Prise de position technologique en split 50/50 : kicker, titre display, aside, statement manifesto et facts mono clé/valeur.',
+    description_en: 'Technology positioning in a 50/50 split: kicker, display heading, aside, manifesto statement, and mono key/value facts.',
+  },
+  'tech-capabilities-specs': {
+    component: TechCapabilitiesSpecs,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['technologies', 'capabilities', 'specs', 'table', 'editorial'],
+    status: 'stable',
+    description_fr: 'Inventaire technique en table spec (capacité, description, statut) avec en-tête kicker et aside.',
+    description_en: 'Technical inventory as a spec table (capability, description, status) with a kicker header and aside.',
+  },
+  'tech-models-table': {
+    component: TechModelsTable,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['technologies', 'models', 'table', 'comparison', 'editorial'],
+    status: 'stable',
+    description_fr: 'Table de comparaison des modèles en cinq colonnes (Modèle, Profil, Coût, Contexte, Usages) basée sur EditorialTable.',
+    description_en: 'Five-column model comparison table (Model, Profile, Cost, Context, Uses) built on EditorialTable.',
+  },
+  'tech-when-dual': {
+    component: TechWhenDual,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['technologies', 'decision', 'when', 'dual', 'pros-cons'],
+    status: 'stable',
+    description_fr: 'Aide décision en deux colonnes (utiliser quand / considérer autre chose quand) avec puces mono plus et moins.',
+    description_en: 'Two-column decision aid (use when / consider otherwise when) with plus and minus mono bullets.',
+  },
+  'tech-integration-flow': {
+    component: TechIntegrationFlow,
+    category: 'marketing',
+    subcategory: 'Timelines',
+    categorySlug: 'timelines',
+    tags: ['technologies', 'integration', 'flow', 'timeline', 'stack'],
+    status: 'stable',
+    description_fr: 'Position dans la stack en frise verticale numérotée (Timeline + Dingbat), un nœud par étape d intégration.',
+    description_en: 'Position in the stack as a numbered vertical timeline (Timeline + Dingbat), one node per integration step.',
   },
 };
 

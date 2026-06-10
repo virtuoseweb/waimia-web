@@ -1,0 +1,131 @@
+---
+// Section W6 · tech-when-dual
+// Aide décision dual (Utiliser quand / Considérer autre chose quand), puces +/− mono.
+// Source : TechnologiesDetailTemplate.astro « 5. WHEN TO USE DUAL »
+//          + CSS .tech-sec-hd / .tech-when-* (l.440-464, 614-658).
+// - CSS = COPIE VERBATIM des règles du template (mêmes tokens/valeurs).
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'tech-when-dual'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const useItems = (isFr ? data.use_items_fr : data.use_items_en) ?? [];
+const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
+---
+<section class="tech-sec" data-screen-label="05 When To Use">
+  <div class="wrap">
+    <div class="tech-sec-hd">
+      <div>
+        <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <h2 set:html={isFr ? data.title_fr : data.title_en} />
+      </div>
+      {(isFr ? data.aside_fr : data.aside_en) && (
+        <p class="tech-aside">{isFr ? data.aside_fr : data.aside_en}</p>
+      )}
+    </div>
+    <div class="tech-when-dual reveal-stagger">
+      <div class="tech-when-col tech-when-col--use">
+        <Kicker class="tech-when-kicker">{isFr ? data.use_title_fr : data.use_title_en}</Kicker>
+        <ul class="tech-when-list tech-when-list--use">
+          {useItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="tech-when-col tech-when-col--avoid">
+        <Kicker class="tech-when-kicker">{isFr ? data.avoid_title_fr : data.avoid_title_en}</Kicker>
+        <ul class="tech-when-list tech-when-list--avoid">
+          {avoidItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */
+  .tech-sec { padding: clamp(72px, 8vw, 120px) 0; position: relative; }
+  .tech-sec-hd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 80px);
+    margin-bottom: clamp(40px, 5vw, 64px);
+    align-items: end;
+  }
+  .tech-sec-hd h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-2) 0 0;
+  }
+  .tech-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .tech-aside {
+    font-family: var(--font-display);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  /* ───── When To Use Dual (signature) — COPIE VERBATIM ───── */
+  .tech-when-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 4vw, 64px);
+    align-items: start;
+  }
+  .tech-when-kicker { margin-bottom: 20px; }
+  .tech-when-col--use :global(.tech-when-kicker) { color: var(--accent); }
+  .tech-when-col--avoid :global(.tech-when-kicker) { color: var(--muted); }
+  .tech-when-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(var(--ink-rgb), 0.1);
+  }
+  .tech-when-list li {
+    padding: 18px 0 18px 28px;
+    border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
+    font-family: var(--font-sans);
+    font-size: clamp(16px, 1.4vw, 18.5px);
+    line-height: 1.45;
+    color: var(--ink);
+    position: relative;
+  }
+  .tech-when-list--use li::before {
+    content: '+';
+    position: absolute;
+    left: 0; top: 18px;
+    font-family: var(--font-mono);
+    font-size: 18px;
+    color: var(--accent);
+    font-weight: var(--fw-medium);
+    line-height: 1;
+  }
+  .tech-when-list--avoid li { color: var(--muted); }
+  .tech-when-list--avoid li::before {
+    content: '−';
+    position: absolute;
+    left: 0; top: 18px;
+    font-family: var(--font-mono);
+    font-size: 18px;
+    color: var(--muted);
+    line-height: 1;
+  }
+
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  @media (max-width: 800px) {
+    .tech-sec-hd { grid-template-columns: 1fr; }
+    .tech-when-dual { grid-template-columns: 1fr; }
+  }
+</style>
