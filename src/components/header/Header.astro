@@ -9,23 +9,38 @@
 // Cf docs/07-component-patterns.md · Pattern 2 (Astro + <script> interne)
 
 import { MEGA_MENU } from '../../data/mega-menu';
-import { langFromPath, alternateHref, t, hasBilingualMirror } from '../../lib/i18n';
+import { langFromPath, alternateHref, t, hasBilingualMirror, localizeHref } from '../../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
 const altHref = alternateHref(Astro.url.pathname, lang);
 const enMirror = hasBilingualMirror(Astro.url.pathname);
 const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
 
+// i18n · tous les liens de panel passent par la localisation (R3 fix) :
+// en EN, `/solutions/x` → `/en/solutions/x`. `localizeHref` ne préfixe que les
+// chemins commençant par `/`. GARDE-FOU 404 : certaines cibles sont FR-only
+// (pas de miroir EN : /secteurs, /ressources/livres-blancs/ai-act-readiness…).
+// Les localiser produirait un /en/* en 404. On ne préfixe donc une cible que si
+// elle a un miroir bilingue (hasBilingualMirror) ; sinon on conserve le chemin
+// FR canonique (qui répond 200). On ignore le fragment d'ancre pour le test.
+const lh = (href: string) => {
+  if (!href.startsWith('/') || lang === 'fr') return localizeHref(href, lang);
+  const pathOnly = href.split('#')[0];
+  return hasBilingualMirror(pathOnly) ? localizeHref(href, lang) : href;
+};
+
 // A11y · WCAG 4.1.2 — signale la branche de nav active (item top-level dont
 // le hub `parentHref` contient la page courante). Compare le pathname FR
 // normalisé (préfixe `/en` retiré, slash final ignoré).
 const currentPath = Astro.url.pathname.replace(/^\/en(?=\/|$)/, '') || '/';
 const normalize = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
-const isCurrentSection = (parentHref?: string) => {
-  if (!parentHref) return false;
-  const hub = normalize(parentHref);
-  const here = normalize(currentPath);
-  return here === hub || here.startsWith(`${hub}/`);
+const here = normalize(currentPath);
+const matchesHub = (hub: string) => here === hub || here.startsWith(`${hub}/`);
+// `matchPrefixes` : sections absorbant d'autres racines d'URL (Solutions ↔ /offres
+// depuis la fusion R3) marquent l'état actif aussi sur ces préfixes.
+const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
+  if (parentHref && matchesHub(normalize(parentHref))) return true;
+  return (matchPrefixes ?? []).some((p) => matchesHub(normalize(p)));
 };
 ---
 <header class="hdr" data-open="" id="hdr">
@@ -47,7 +62,7 @@ const isCurrentSection = (parentHref?: string) => {
             aria-expanded="false"
             aria-haspopup="dialog"
             aria-controls={`mega-${item.parent}`}
-            aria-current={isCurrentSection(item.parentHref) ? 'page' : undefined}
+            aria-current={isCurrentSection(item.parentHref, item.matchPrefixes) ? 'page' : undefined}
           >
             <span>{t(item.label, lang)}</span>
             <span class="caret" aria-hidden="true">▾</span>
@@ -104,13 +119,16 @@ const isCurrentSection = (parentHref?: string) => {
             <ul>
               {col.links.map((sub) => (
                 <li>
-                  <a class="mega-link" href={sub.href}>
+                  <a class="mega-link" href={lh(sub.href)}>
                     <span class="t">{t(sub.label, lang)}</span>
                     {sub.description && <span class="sub">{t(sub.description, lang)}</span>}
                   </a>
                 </li>
               ))}
             </ul>
+            {col.footer && (
+              <a class="mega-col-footer" href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>
+            )}
           </div>
         ))}
         {item.featured && (
@@ -118,8 +136,8 @@ const isCurrentSection = (parentHref?: string) => {
             <div class="badge">{t(item.featured.kicker, lang)}</div>
             <div class="ttl">{t(item.featured.label, lang)}</div>
             <div class="bd">{t(item.featured.body, lang)}</div>
-            <a class="img lift" href={item.featured.href} aria-hidden="true" tabindex="-1"></a>
-            <a class="cta" href={item.featured.href}>
+            <a class="img lift" href={lh(item.featured.href)} aria-hidden="true" tabindex="-1"></a>
+            <a class="cta" href={lh(item.featured.href)}>
               {t(item.featured.cta, lang)}
             </a>
           </div>
@@ -128,7 +146,7 @@ const isCurrentSection = (parentHref?: string) => {
       <div class="mega-bottom">
         {item.lead && <span>{t(item.lead, lang)}</span>}
         {item.parentHref && (
-          <a href={item.parentHref}>
+          <a href={lh(item.parentHref)}>
             {lang === 'fr' ? `Voir le hub ${t(item.label, lang)} →` : `See the ${t(item.label, lang)} hub →`}
           </a>
         )}
@@ -169,8 +187,9 @@ const isCurrentSection = (parentHref?: string) => {
                 {col.kicker && <div class="k">{t(col.kicker, lang)}</div>}
                 <div class="t">{t(col.title, lang)}</div>
                 {col.links.map((sub) => (
-                  <a href={sub.href}>{t(sub.label, lang)}</a>
+                  <a href={lh(sub.href)}>{t(sub.label, lang)}</a>
                 ))}
+                {col.footer && <a href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>}
               </div>
             ))}
           </div>

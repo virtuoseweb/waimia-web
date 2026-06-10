@@ -39,7 +39,9 @@ export const HREFLANG: Record<Lang, string> = { fr: 'fr-FR', en: 'en-US' };
 
 // Pages statiques FR qui n'ont pas de miroir EN (→ pas de hreflang en-US à émettre).
 const FR_ONLY_STATIC = new Set([
-  '/offres/conseil', '/offres/revops', '/offres/site-web-ia',
+  // /offres/conseil retiré 2026-06-10 (R3 nav) : la page EN /en/offres/conseil
+  // existe (200) — l'entrée FR-only était périmée (faussait hreflang + localisation nav).
+  '/offres/revops', '/offres/site-web-ia',
   '/offres/site-web-ia-landing', '/offres/audit-maturite-ia',
   '/agence/careers', '/agence/docs', '/agence/governance', '/agence/trust-center',
   '/ressources/blog', '/ressources/blog/brain-circuit', '/ressources/academy',
