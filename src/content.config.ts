@@ -185,6 +185,18 @@ const cases = defineCollection({
     pullQuote_en: z.string().optional(),
     pullQuoteCite_fr: z.string().optional(),
     pullQuoteCite_en: z.string().optional(),
+    // ── Refonte R7a (docs/37 §2.1) : facettes d'exploration du cas (secteur, problème,
+    //    solution, résultat) reliées aux référentiels src/data/pain-points.ts et
+    //    src/data/proof-points.ts. Optionnel → 0 contenu cassé ; ids/slugs validés
+    //    par scripts/check-content-refs.mjs (aucun rendu dans cette vague).
+    facets: z
+      .object({
+        sector: z.string().optional(),
+        painPoints: z.array(z.string()).default([]),
+        solutions: z.array(z.string()).default([]),
+        results: z.array(z.string()).default([]),
+      })
+      .optional(),
     // Composable V2 (D.7 extension) : sections optionnelles
     sections: sectionsArraySchema.optional(),
     // Card de listing pour le hub /cas (copy spécifique au listing, ≠ title détail)
@@ -289,6 +301,9 @@ const solutions = defineCollection({
     ...baseFields,
     ...taxonomyFields,
     kind: z.enum(['department', 'industry']),
+    // ── Refonte R7a (docs/37 §2.1) : couche BESOIN du hub Solutions.
+    //    Optionnel → 0 contenu cassé ; validé par scripts/check-content-refs.mjs.
+    need: z.enum(['acquerir', 'piloter', 'operer']).optional(),
     icon: z.string().optional(),
     metricsHero: z.array(bilingualMetric).default([]),
     useCases_fr: z.array(z.string()),
