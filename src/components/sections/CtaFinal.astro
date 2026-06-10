@@ -1,49 +1,83 @@
 ---
+// ARCHÉTYPE R5b · « CTA final centré » — 1 composant paramétrable → 2 type-ids (presets).
+// Clôture de page centrée : titre + body + boutons. Branche sur `data.type` ; chaque
+// variante conserve markup + CSS BYTE-IDENTIQUES à son composant d'origine
+// (`h2`/`p` nus et `.wrap*` scopés qualifiés `:where(.racine)`, spécificité inchangée).
+// Noyau : cta-final (chapter + h2 grand + avail + Buttons + reassurance, fonds R4).
+// Absorbe (R5b) : department-cta (clôture dark Solutions : Dingbat + h2 italique
+// + 2 boutons custom, liens lang-aware).
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
 import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
+import Dingbat from '../editorial/Dingbat.astro';
 
 interface Props {
-  data: SectionByType<'cta-final'>;
+  data: SectionByType<'cta-final'> | SectionByType<'department-cta'>;
   lang: 'fr' | 'en';
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+const prefix = lang === 'en' ? '/en' : '';
+const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
 ---
 
-<section class="cta-final" data-bg={data.background}>
-  <div class="wrap-wide">
-  <div class="cta-final__inner">
-    {data.chapter_num && (
-      <div class="cta-final__chapter">
-        <ChapterLabel num={data.chapter_num} title={(isFr ? data.chapter_title_fr : data.chapter_title_en) ?? ''} />
+{data.type === 'department-cta' ? (
+  <section class="sol-sec sol-sec-dark sol-cta reveal" data-screen-label="07 CTA">
+    <div class="wrap wrap-tight">
+      <div class="sol-cta-final">
+        <Dingbat variant="asterism" size="sm" />
+        <h2><i set:html={isFr ? data.h2_fr : data.h2_en} /></h2>
+        <div class="sol-cta-body">
+          <p>{isFr ? data.body_fr : data.body_en}</p>
+          <div class="sol-cta-btns">
+            <a class="btn-accent" href={link(data.primary_href)}>{isFr ? data.primary_label_fr : data.primary_label_en}</a>
+            <a class="btn-light" href={link(data.secondary_href)}>{isFr ? data.secondary_label_fr : data.secondary_label_en}</a>
+          </div>
+        </div>
       </div>
-    )}
-    <h2 class="reveal-mask-up" set:html={isFr ? data.h2_fr : data.h2_en} />
-    {(isFr ? data.body_fr : data.body_en) && (
-      <p class="reveal reveal-fade">{isFr ? data.body_fr : data.body_en}</p>
-    )}
-    {(isFr ? data.availability_fr : data.availability_en) && (
-      <p class="cta-final__avail">{isFr ? data.availability_fr : data.availability_en}</p>
-    )}
-    <div class="cta-final__ctas">
-      <Button href={data.cta_primary.href} variant={data.cta_primary.variant as any} size="lg" mag={data.cta_primary.mag ?? 0.18}>
-        {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
-      </Button>
-      {data.cta_secondary && (
-        <Button href={data.cta_secondary.href} variant={data.cta_secondary.variant as any} size="md">
-          {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+    </div>
+  </section>
+) : (
+  <section class="cta-final" data-bg={data.background}>
+    <div class="wrap-wide">
+    <div class="cta-final__inner">
+      {data.chapter_num && (
+        <div class="cta-final__chapter">
+          <ChapterLabel num={data.chapter_num} title={(isFr ? data.chapter_title_fr : data.chapter_title_en) ?? ''} />
+        </div>
+      )}
+      <h2 class="reveal-mask-up" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.body_fr : data.body_en) && (
+        <p class="reveal reveal-fade">{isFr ? data.body_fr : data.body_en}</p>
+      )}
+      {(isFr ? data.availability_fr : data.availability_en) && (
+        <p class="cta-final__avail">{isFr ? data.availability_fr : data.availability_en}</p>
+      )}
+      <div class="cta-final__ctas">
+        <Button href={data.cta_primary.href} variant={data.cta_primary.variant as any} size="lg" mag={data.cta_primary.mag ?? 0.18}>
+          {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
         </Button>
+        {data.cta_secondary && (
+          <Button href={data.cta_secondary.href} variant={data.cta_secondary.variant as any} size="md">
+            {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+          </Button>
+        )}
+      </div>
+      {(isFr ? data.reassurance_fr : data.reassurance_en) && (
+        <p class="cta-final__sub" set:html={isFr ? data.reassurance_fr : data.reassurance_en} />
       )}
     </div>
-    {(isFr ? data.reassurance_fr : data.reassurance_en) && (
-      <p class="cta-final__sub" set:html={isFr ? data.reassurance_fr : data.reassurance_en} />
-    )}
-  </div>
-  </div>
-</section>
+    </div>
+  </section>
+)}
 
 <style>
+  /* ───── cta-final (noyau) — CSS VERBATIM, `h2`/`p` nus CONSERVÉS tels quels :
+     toute qualification (`.cta-final h2` ou `:where`) gonfle la spécificité compilée
+     (Astro attribute-scoping ajoute [data-astro-cid] au qualificateur) et inverserait
+     l'arbitrage interne avec .cta-final__avail/.cta-final__sub (mono → sans, bug vu
+     au GF-1). La fuite inter-branches vers department-cta est neutralisée côté preset
+     (cf. note .sol-cta-final h2). ───── */
   .cta-final { padding-block: var(--section-base); }
   .cta-final[data-bg="paper"] { background: var(--paper); border-block: 1px solid var(--hairline); }
   .cta-final[data-bg="paper-2"] { background: var(--paper-2); border-block: 1px solid var(--hairline); }
@@ -108,4 +142,74 @@ const isFr = lang === 'fr';
   .cta-final[data-bg="ink"] .cta-final__sub,
   .cta-final[data-bg="accent"] .cta-final__avail,
   .cta-final[data-bg="accent"] .cta-final__sub { color: var(--paper); }
+
+  /* ───── department-cta (preset) — CSS VERBATIM DepartmentCta.astro,
+     `.wrap`/`.wrap-tight` scopés qualifiés `:where(.sol-cta)` (spécificité inchangée) ───── */
+  /* Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-484 */
+  .sol-sec { padding: var(--section-base) 0; position: relative; }
+  .sol-cta { margin-top: clamp(48px, 5vw, 80px); }
+  .sol-sec-dark { background: var(--ink); color: var(--paper); }
+
+  /* CTA final dark — COPIE VERBATIM l.1001-1050 */
+  .sol-cta-final {
+    text-align: center;
+    padding: clamp(40px, 5vw, 64px) 0;
+  }
+  .sol-cta-final h2 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    margin: 0 0 var(--space-6);
+    font-weight: var(--fw-regular);
+    /* Neutralisation colocalisation : la règle `h2` nue du noyau (color: var(--ink))
+       matche aussi cette branche ; on fixe la couleur à sa valeur ORIGINALE
+       (héritée de .sol-sec-dark = var(--paper)) → rendu identique. */
+    color: var(--paper);
+  }
+  .sol-cta-final h2 :global(i) { color: var(--accent); font-style: italic; }
+  .sol-cta-body p {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.4vw, 19px);
+    line-height: var(--leading-body);
+    color: var(--paper);
+    font-style: italic;
+    max-width: 540px;
+    margin: 0 auto var(--space-6);
+  }
+  .sol-cta-btns { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+  .btn-accent {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: var(--radius-xs);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    letter-spacing: var(--tracking-body);
+    transition: transform var(--dur-trim) var(--ease);
+  }
+  .btn-accent:hover { transform: translateY(-2px); }
+  .btn-light {
+    display: inline-block;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(var(--paper-rgb), 0.3);
+    border-radius: var(--radius-xs);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    letter-spacing: var(--tracking-body);
+    transition: border-color var(--dur-trim) var(--ease);
+  }
+  .btn-light:hover { border-color: var(--paper); }
+
+  /* Wrap utilities — COPIE VERBATIM l.1052-1058 */
+  :where(.sol-cta) .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+  :where(.sol-cta) .wrap-tight { max-width: 880px; }
 </style>

@@ -92,20 +92,22 @@
 | `h2_fr` | string | oui |  |  |
 | `rows` | array | oui |  | min:2 |
 
-**Tokens** : `--accent` `--accent-rgb` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h2-section` `--text-mono-xs`
+**Tokens** : `--accent` `--accent-rgb` `--dur-fast` `--ease-out` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-mono-xs`
 
-**Classes scoped** : .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap
+**Classes scoped** : .astro .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__header .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
 
-**Dette hardcode** : 5 valeur(s) — .14em, 100%, 14px, 1px, 200px
+**Tailwind** : sr-only
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --spacing-block. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (.14em, 100%, 14px).
+**Dette hardcode** : 14 valeur(s) — -1px, .12em, .14em, 100%, 14px, 180px, 1px, 200px
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-1px, .12em, .14em).
 
 ---
 
 ### `department-stack`
 
 > Stack outils en table éditoriale : en-tête eyebrow et titre display, aside Callout, EditorialTable catégorie/outil/rôle.
-> DepartmentStack · src/components/sections/DepartmentStack.astro · marketing/comparison-sections
+> EditorialTableBlock · src/components/sections/EditorialTableBlock.astro · marketing/comparison-sections
 > status : stable · tags : editorial, solutions, stack, table, tools
 
 **Props**
@@ -124,15 +126,15 @@
 | `h2_fr` | string | oui |  |  |
 | `rows` | array | oui |  | min:1 max:12 |
 
-**Tokens** : `--accent` `--font-display` `--font-sans` `--fw-regular` `--hairline` `--leading-body` `--leading-h1` `--muted` `--paper-2` `--section-base` `--space-2` `--space-3`
+**Tokens** : `--accent` `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink-rgb` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--radius-md` `--section-base` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-6`
 
-**Classes scoped** : .callout .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools
+**Classes scoped** : .astro .callout .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-figure .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
 **Tailwind** : col-12 col-aside col-prose
 
-**Dette hardcode** : 6 valeur(s) — -0.018em, 1px, 480px, clamp(15px, 1.3vw, 17px), clamp(28px, 4vw, 48px), clamp(36px, 5vw, 72px)
+**Dette hardcode** : 16 valeur(s) — -0.018em, 1240px, 1px, 28px, 480px, 600px, 760px, 800px
 
-**Agent** : Espacement : --space-2 --space-3. Couleur : --accent --muted --paper-2. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.018em, 1px, 480px).
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink-rgb --muted. Typographie : --font-display --font-sans. Dette : 16 litteral(s) hardcode(s) (-0.018em, 1240px, 1px).
 
 ---
 
@@ -158,13 +160,15 @@
 | `rows_fr` | array | oui |  | min:2 max:6 |
 | `variant` | enum | non | editorial | default | compact | editorial |
 
-**Tokens** : `--accent` `--font-display` `--fw-regular` `--section-base` `--space-4` `--space-6`
+**Tokens** : `--accent` `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink-rgb` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--radius-md` `--section-base` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-6`
 
-**Classes scoped** : .ed-table-block .ed-table-block-h2 .ed-table-block-kicker
+**Classes scoped** : .astro .callout .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-figure .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
-**Dette hardcode** : 2 valeur(s) — 28px, clamp(34px, 4.5vw, 64px)
+**Tailwind** : col-12 col-aside col-prose
 
-**Agent** : Layout : `variant` (schema, 0 CSS). Espacement : --space-4 --space-6. Couleur : --accent. Typographie : --font-display --fw-regular. Dette : 2 litteral(s) hardcode(s) (28px, clamp(34px, 4.5vw, 64px)).
+**Dette hardcode** : 16 valeur(s) — -0.018em, 1240px, 1px, 28px, 480px, 600px, 760px, 800px
+
+**Agent** : Layout : `variant` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink-rgb --muted. Typographie : --font-display --font-sans. Dette : 16 litteral(s) hardcode(s) (-0.018em, 1240px, 1px).
 
 ---
 
@@ -206,7 +210,7 @@
 ### `tech-models-table`
 
 > Table de comparaison des modèles en cinq colonnes (Modèle, Profil, Coût, Contexte, Usages) basée sur EditorialTable.
-> TechModelsTable · src/components/sections/TechModelsTable.astro · marketing/comparison-sections
+> EditorialTableBlock · src/components/sections/EditorialTableBlock.astro · marketing/comparison-sections
 > status : stable · tags : comparison, editorial, models, table, technologies
 
 **Props**
@@ -223,13 +227,15 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--fw-regular` `--ink-rgb` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--radius-md` `--section-loose` `--space-2` `--space-4`
+**Tokens** : `--accent` `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink-rgb` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--radius-md` `--section-base` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-6`
 
-**Classes scoped** : .astro .ed-table-figure .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
+**Classes scoped** : .astro .callout .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-figure .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
-**Dette hardcode** : 13 valeur(s) — -0.018em, 1240px, 1px, 480px, 600px, 760px, 800px, clamp(15px, 1.3vw, 17px)
+**Tailwind** : col-12 col-aside col-prose
 
-**Agent** : Espacement : --space-2 --space-4. Couleur : --accent --ink-rgb --muted. Typographie : --font-display --fw-regular. Dette : 13 litteral(s) hardcode(s) (-0.018em, 1240px, 1px).
+**Dette hardcode** : 16 valeur(s) — -0.018em, 1240px, 1px, 28px, 480px, 600px, 760px, 800px
+
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink-rgb --muted. Typographie : --font-display --font-sans. Dette : 16 litteral(s) hardcode(s) (-0.018em, 1240px, 1px).
 
 ---
 
@@ -345,13 +351,13 @@
 | `text_en` | string | oui |  |  |
 | `text_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--space-5` `--text-body-md`
+**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body-md` `--text-body-sm`
 
-**Classes scoped** : .cta-band .cta-band__inner .cta-band__text
+**Classes scoped** : .astro .cta-band .cta-band__inner .cta-band__text .cta-inline .cta-inline__text
 
-**Dette hardcode** : 2 valeur(s) — 1px, 20px
+**Dette hardcode** : 3 valeur(s) — 1px, 200px, 20px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-5. Couleur : --accent --ink --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (1px, 20px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --paper. Typographie : --font-sans --leading-body. Dette : 3 litteral(s) hardcode(s) (1px, 200px, 20px).
 
 ---
 
@@ -380,20 +386,20 @@
 | `reassurance_en` | string | non |  |  |
 | `reassurance_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-3` `--spacing-block` `--text-eyebrow` `--text-h2-grand` `--tracking-mono`
+**Tokens** : `--accent` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--space-3` `--space-4` `--space-6` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-h2-grand` `--tracking-body` `--tracking-mono`
 
-**Classes scoped** : .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub
+**Classes scoped** : .astro .btn-accent .btn-light .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec .sol-sec-dark .wrap .wrap-tight
 
-**Dette hardcode** : 4 valeur(s) — 1px, 560px, clamp(13px, 1.05vw, 15px), clamp(16px, 1.4vw, 20px)
+**Dette hardcode** : 15 valeur(s) — -2px, 1240px, 14px, 1px, 28px, 540px, 560px, 880px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --spacing-block. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 560px, clamp(13px, 1.05vw, 15px)).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-2px, 1240px, 14px).
 
 ---
 
 ### `cta-inline`
 
 > CTA inline discret pour insérer une action contextuelle dans un contenu existant.
-> CtaInline · src/components/sections/CtaInline.astro · marketing/cta-sections
+> CtaBandSection · src/components/sections/CtaBandSection.astro · marketing/cta-sections
 > status : stable · tags : cta, inline
 
 **Props**
@@ -405,13 +411,13 @@
 | `text_en` | string | oui |  |  |
 | `text_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--space-4` `--text-body-sm`
+**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body-md` `--text-body-sm`
 
-**Classes scoped** : .cta-inline .cta-inline__text
+**Classes scoped** : .astro .cta-band .cta-band__inner .cta-band__text .cta-inline .cta-inline__text
 
 **Dette hardcode** : 3 valeur(s) — 1px, 200px, 20px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4. Couleur : --accent --ink --paper. Typographie : --font-sans --leading-body. Dette : 3 litteral(s) hardcode(s) (1px, 200px, 20px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --paper. Typographie : --font-sans --leading-body. Dette : 3 litteral(s) hardcode(s) (1px, 200px, 20px).
 
 ---
 
@@ -448,7 +454,7 @@
 ### `department-cta`
 
 > Clôture CTA sur fond ink : Dingbat, titre display italique, body et deux boutons (rendez-vous + lien secondaire).
-> DepartmentCta · src/components/sections/DepartmentCta.astro · marketing/cta-sections
+> CtaFinal · src/components/sections/CtaFinal.astro · marketing/cta-sections
 > status : stable · tags : closing, conversion, cta, dark, solutions
 
 **Props**
@@ -466,13 +472,13 @@
 | `secondary_label_en` | string | non | All solutions |  |
 | `secondary_label_fr` | string | non | Toutes les solutions |  |
 
-**Tokens** : `--accent` `--dur-trim` `--ease` `--font-display` `--fw-medium` `--fw-regular` `--ink` `--leading-body` `--paper` `--paper-rgb` `--radius-xs` `--section-base` `--space-4` `--space-6` `--text-body-sm` `--tracking-body`
+**Tokens** : `--accent` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--space-3` `--space-4` `--space-6` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-h2-grand` `--tracking-body` `--tracking-mono`
 
-**Classes scoped** : .btn-accent .btn-light .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec .sol-sec-dark .wrap .wrap-tight
+**Classes scoped** : .astro .btn-accent .btn-light .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec .sol-sec-dark .wrap .wrap-tight
 
-**Dette hardcode** : 12 valeur(s) — -2px, 1240px, 14px, 1px, 28px, 540px, 880px, clamp(16px, 1.4vw, 19px)
+**Dette hardcode** : 15 valeur(s) — -2px, 1240px, 14px, 1px, 28px, 540px, 560px, 880px
 
-**Agent** : Espacement : --space-4 --space-6. Couleur : --accent --ink --paper. Typographie : --font-display --fw-medium. Dette : 12 litteral(s) hardcode(s) (-2px, 1240px, 14px).
+**Agent** : Espacement : --space-3 --space-4 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-2px, 1240px, 14px).
 
 ---
 
@@ -667,7 +673,7 @@
 ### `commitments-grid`
 
 > Grille hairline de 2 à 6 engagements ou garanties, titre display et corps sans  ·  extrait de la page Méthode.
-> CommitmentsGrid · src/components/sections/CommitmentsGrid.astro · marketing/feature-sections
+> FeatureGrid · src/components/sections/FeatureGrid.astro · marketing/feature-sections
 > status : stable · tags : commitments, grid, guarantees, trust
 
 **Props**
@@ -682,13 +688,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--muted` `--section-base` `--space-3` `--text-body-base` `--text-body-sm` `--text-h2-section` `--tracking-display`
+**Tokens** : `--accent` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h2` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 9 valeur(s) — -0.018em, 14px, 1px, 640px, 760px, 800px, clamp(17px, 1.6vw, 22px), clamp(28px, 3.5vw, 48px)
+**Dette hardcode** : 28 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
 
-**Agent** : Espacement : --space-3. Couleur : --ink --muted. Typographie : --font-display --font-sans. Dette : 9 litteral(s) hardcode(s) (-0.018em, 14px, 1px).
+**Agent** : Espacement : --space-1 --space-12 --space-2. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 28 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -721,7 +727,7 @@
 ### `deliverables-grid`
 
 > Grille de livrables tangibles avec cards numérotées et tag format/durée, extraite des pages offre et détail.
-> DeliverablesGrid · src/components/sections/DeliverablesGrid.astro · marketing/feature-sections
+> FeatureGrid · src/components/sections/FeatureGrid.astro · marketing/feature-sections
 > status : stable · tags : cards, deliverables, grid, offer
 
 **Props**
@@ -736,13 +742,13 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-h3` `--muted` `--paper-2` `--section-loose` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h2` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 6 valeur(s) — -2px, 1px, 640px, 680px, 900px, clamp(var(--space-8)
+**Dette hardcode** : 28 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
 
-**Agent** : Espacement : --space-12 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-2px, 1px, 640px).
+**Agent** : Espacement : --space-1 --space-12 --space-2. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 28 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -821,13 +827,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-4` `--spacing-block` `--text-body-sm` `--text-h2-section`
+**Tokens** : `--accent` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h2` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 6 valeur(s) — -1px, 10px, 1px, 768px, clamp(16px, 1.4vw, 20px), clamp(20px, 2.5vw, 40px)
+**Dette hardcode** : 28 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
 
-**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-4 --spacing-block. Couleur : --ink --muted --paper. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-1px, 10px, 1px).
+**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 28 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -915,7 +921,7 @@
 ### `icon-trio`
 
 > Trois colonnes iconographiques avec titre et description, séparées par des hairlines verticaux. Idéal pour présenter 3 piliers ou bénéfices distincts.
-> IconTrio · src/components/sections/IconTrio.astro · marketing/feature-sections
+> FeatureGrid · src/components/sections/FeatureGrid.astro · marketing/feature-sections
 > status : stable · tags : columns, feature, icons, trio
 
 **Props**
@@ -929,13 +935,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-4` `--spacing-block` `--text-body-sm` `--text-h2-section`
+**Tokens** : `--accent` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h2` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .wrap-wide
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 5 valeur(s) — 1px, 768px, clamp(16px, 1.4vw, 20px), clamp(20px, 2.5vw, 40px), clamp(28px, 3vw, 40px)
+**Dette hardcode** : 28 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --spacing-block. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 5 litteral(s) hardcode(s) (1px, 768px, clamp(16px, 1.4vw, 20px)).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 28 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1141,7 +1147,7 @@
 ### `problems-grid`
 
 > Grille de problèmes/frictions auto-fit (3 cards min) : num + kicker + h3 + body, séparateurs hairline 1px.
-> ProblemsGrid · src/components/sections/ProblemsGrid.astro · marketing/feature-sections
+> FeatureGrid · src/components/sections/FeatureGrid.astro · marketing/feature-sections
 > status : stable · tags : cards, frictions, grid, numbered, problems
 
 **Props**
@@ -1152,13 +1158,13 @@
 | `h2_fr` | string | oui |  |  |
 | `problems` | array | non |  | min:2 max:6 |
 
-**Tokens** : `--font-mono` `--font-sans` `--font-serif` `--ink` `--ink-rgb` `--leading-prose` `--muted` `--paper` `--radius-xs` `--section-loose` `--space-2` `--space-3` `--space-4` `--text-body-sm` `--text-eyebrow`
+**Tokens** : `--accent` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h2` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 10 valeur(s) — -.01em, .06em, .08em, 1200px, 1px, 280px, clamp(18px, 2vw, 24px), clamp(20px, 5vw, 80px)
+**Dette hardcode** : 28 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
 
-**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --ink --ink-rgb --muted. Typographie : --font-mono --font-sans. Dette : 10 litteral(s) hardcode(s) (-.01em, .06em, .08em).
+**Agent** : Espacement : --space-1 --space-12 --space-2. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 28 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -2516,7 +2522,7 @@
 ### `pricing-comparison-matrix`
 
 > Matrice comparative tarifaire pour mettre en regard les fonctionnalites de 3 plans avec mise en avant de la colonne recommandee.
-> PricingComparisonMatrix · src/components/sections/PricingComparisonMatrix.astro · marketing/pricing-sections
+> ComparisonTable · src/components/sections/ComparisonTable.astro · marketing/pricing-sections
 > status : stable · tags : comparison, matrix, pricing, table
 
 **Props**
@@ -2535,13 +2541,13 @@
 
 **Tokens** : `--accent` `--accent-rgb` `--dur-fast` `--ease-out` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-mono-xs`
 
-**Classes scoped** : .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__header .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
+**Classes scoped** : .astro .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__header .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
 
 **Tailwind** : sr-only
 
-**Dette hardcode** : 12 valeur(s) — -1px, .12em, .14em, 100%, 180px, 1px, 2px, 40%
+**Dette hardcode** : 14 valeur(s) — -1px, .12em, .14em, 100%, 14px, 180px, 1px, 200px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-1px, .12em, .14em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-1px, .12em, .14em).
 
 ---
 
@@ -2606,7 +2612,7 @@
 ### `proof-bar`
 
 > Barre de preuve compacte pour afficher des métriques clés et renforcer la crédibilité.
-> ProofBarSection · src/components/sections/ProofBarSection.astro · marketing/stats-sections
+> StatBlock · src/components/sections/StatBlock.astro · marketing/stats-sections
 > status : stable · tags : bar, metrics, proof
 
 **Props**
@@ -2619,13 +2625,13 @@
 | `layout` | enum | non | horizontal | horizontal | vertical-stack |
 | `metrics` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-4` `--space-5` `--text-body-sm`
+**Tokens** : `--accent` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h2-section`
 
-**Classes scoped** : .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__list .proof-bar__value
+**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__list .proof-bar__value .pull-quote .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
-**Dette hardcode** : 5 valeur(s) — 140px, 1px, 6px, clamp(16px, 2vw, 32px), clamp(32px, 4vw, 56px)
+**Dette hardcode** : 10 valeur(s) — -1px, 140px, 1px, 480px, 6px, 768px, clamp(16px, 2vw, 32px), clamp(32px, 4vw, 56px)
 
-**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 5 litteral(s) hardcode(s) (140px, 1px, 6px).
+**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 10 litteral(s) hardcode(s) (-1px, 140px, 1px).
 
 ---
 
@@ -2703,13 +2709,13 @@
 | `quote_en` | string | non |  |  |
 | `quote_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h2-section`
+**Tokens** : `--accent` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h2-section`
 
-**Classes scoped** : .pull-quote .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
+**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__list .proof-bar__value .pull-quote .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
-**Dette hardcode** : 6 valeur(s) — -1px, 1px, 480px, 768px, clamp(36px, 5vw, 64px), clamp(var(--space-6)
+**Dette hardcode** : 10 valeur(s) — -1px, 140px, 1px, 480px, 6px, 768px, clamp(16px, 2vw, 32px), clamp(32px, 4vw, 56px)
 
-**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-1px, 1px, 480px).
+**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 10 litteral(s) hardcode(s) (-1px, 140px, 1px).
 
 ---
 

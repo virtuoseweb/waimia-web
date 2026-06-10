@@ -38,13 +38,11 @@ import HeroHubStats from '../components/sections/HeroHubStats.astro';
 import HeroTunnelStep from '../components/sections/HeroTunnelStep.astro';
 import TunnelStepNav from '../components/sections/TunnelStepNav.astro';
 import MarqueeBand from '../components/sections/MarqueeBand.astro';
-import ProblemsGrid from '../components/sections/ProblemsGrid.astro';
 import WhyStalls from '../components/sections/WhyStalls.astro';
 import HowWeShip from '../components/sections/HowWeShip.astro';
 import OperatingLayer from '../components/sections/OperatingLayer.astro';
 import ManifestoBlock from '../components/sections/ManifestoBlock.astro';
 import HeroLiquid from '../components/sections/HeroLiquid.astro';
-import ProofBarSection from '../components/sections/ProofBarSection.astro';
 import StatBlock from '../components/sections/StatBlock.astro';
 import MetricShift from '../components/sections/MetricShift.astro';
 import SocialProof from '../components/sections/SocialProof.astro';
@@ -58,7 +56,6 @@ import FaqAccordion from '../components/sections/FaqAccordion.astro';
 import ObjectionHandler from '../components/sections/ObjectionHandler.astro';
 import CtaFinal from '../components/sections/CtaFinal.astro';
 import CtaBandSection from '../components/sections/CtaBandSection.astro';
-import CtaInline from '../components/sections/CtaInline.astro';
 import TestimonialBlock from '../components/sections/TestimonialBlock.astro';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock.astro';
 import ArchitectureDiagram from '../components/sections/ArchitectureDiagram.astro';
@@ -75,12 +72,10 @@ import LearningPathList from '../components/sections/LearningPathList.astro';
 import PersonaAttributesGrid from '../components/sections/PersonaAttributesGrid.astro';
 import EditorialSplitGrid from '../components/sections/EditorialSplitGrid.astro';
 import ComingSoonPills from '../components/sections/ComingSoonPills.astro';
-import CommitmentsGrid from '../components/sections/CommitmentsGrid.astro';
 import BrandedCallout from '../components/sections/BrandedCallout.astro';
 import EditorialPreview from '../components/sections/EditorialPreview.astro';
 import NewsletterBand from '../components/sections/NewsletterBand.astro';
 import SpecBar from '../components/sections/SpecBar.astro';
-import DeliverablesGrid from '../components/sections/DeliverablesGrid.astro';
 import TechStackBand from '../components/sections/TechStackBand.astro';
 import RelatedCardsBand from '../components/sections/RelatedCardsBand.astro';
 import PullQuoteBlock from '../components/sections/PullQuoteBlock.astro';
@@ -89,10 +84,8 @@ import ProblemStatement from '../components/sections/ProblemStatement.astro';
 import BentoGrid from '../components/sections/BentoGrid.astro';
 import FeatureZigzag from '../components/sections/FeatureZigzag.astro';
 import LogoWall from '../components/sections/LogoWall.astro';
-import PricingComparisonMatrix from '../components/sections/PricingComparisonMatrix.astro';
 import GalleryMasonry from '../components/sections/GalleryMasonry.astro';
 import FeatureTabs from '../components/sections/FeatureTabs.astro';
-import IconTrio from '../components/sections/IconTrio.astro';
 import QuoteSpotlight from '../components/sections/QuoteSpotlight.astro';
 import StepsHorizontal from '../components/sections/StepsHorizontal.astro';
 import CtaSplitVisual from '../components/sections/CtaSplitVisual.astro';
@@ -104,15 +97,12 @@ import EditorialTableBlock from '../components/sections/EditorialTableBlock.astr
 import DecisionList from '../components/sections/DecisionList.astro';
 import TechPositioningSplit from '../components/sections/TechPositioningSplit.astro';
 import TechCapabilitiesSpecs from '../components/sections/TechCapabilitiesSpecs.astro';
-import TechModelsTable from '../components/sections/TechModelsTable.astro';
 import TechWhenDual from '../components/sections/TechWhenDual.astro';
 import TechIntegrationFlow from '../components/sections/TechIntegrationFlow.astro';
 import PainPoints from '../components/sections/PainPoints.astro';
 import WorkflowTable from '../components/sections/WorkflowTable.astro';
 import RoiBand from '../components/sections/RoiBand.astro';
 import CaseSplit from '../components/sections/CaseSplit.astro';
-import DepartmentStack from '../components/sections/DepartmentStack.astro';
-import DepartmentCta from '../components/sections/DepartmentCta.astro';
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -419,7 +409,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Mono uppercase infinite-scroll marquee band · items + separators · respects prefers-reduced-motion.',
   },
   'problems-grid': {
-    component: ProblemsGrid,
+    component: FeatureGrid,
     category: 'marketing',
     subcategory: 'Feature Sections',
     categorySlug: 'feature-sections',
@@ -489,7 +479,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Liquid-canvas manifesto hero (animated terracotta): eyebrow, large italic display headline, lede and CTAs on a dark background.',
   },
   'proof-bar': {
-    component: ProofBarSection,
+    component: StatBlock,
     category: 'marketing',
     subcategory: 'Stats Sections',
     categorySlug: 'stats-sections',
@@ -629,7 +619,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Horizontal CTA band for prompting action mid-page or near the end of the journey.',
   },
   'cta-inline': {
-    component: CtaInline,
+    component: CtaBandSection,
     category: 'marketing',
     subcategory: 'CTA Sections',
     categorySlug: 'cta-sections',
@@ -779,7 +769,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Paper-2 teaser band with kicker, headline, and pill list for upcoming items.',
   },
   'commitments-grid': {
-    component: CommitmentsGrid,
+    component: FeatureGrid,
     category: 'marketing',
     subcategory: 'Feature Sections',
     categorySlug: 'feature-sections',
@@ -829,7 +819,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'N-column project spec bar (mono label + value) with CSS var grid — sourced from CaseStudyTemplate.',
   },
   'deliverables-grid': {
-    component: DeliverablesGrid,
+    component: FeatureGrid,
     category: 'marketing',
     subcategory: 'Feature Sections',
     categorySlug: 'feature-sections',
@@ -919,7 +909,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Static grid of partner or client logos with grayscale to colour hover effect. Distinct from the animated marquee-band.',
   },
   'pricing-comparison-matrix': {
-    component: PricingComparisonMatrix,
+    component: ComparisonTable,
     category: 'marketing',
     subcategory: 'Pricing Sections',
     categorySlug: 'pricing-sections',
@@ -949,7 +939,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Feature section with clickable tabs: aria-compliant tab bar + text/visual panel. Interactive vanilla JS, zero dependencies.',
   },
   'icon-trio': {
-    component: IconTrio,
+    component: FeatureGrid,
     category: 'marketing',
     subcategory: 'Feature Sections',
     categorySlug: 'feature-sections',
@@ -1069,7 +1059,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Technical inventory as a spec table (capability, description, status) with a kicker header and aside.',
   },
   'tech-models-table': {
-    component: TechModelsTable,
+    component: EditorialTableBlock,
     category: 'marketing',
     subcategory: 'Comparison Sections',
     categorySlug: 'comparison-sections',
@@ -1139,7 +1129,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Client case in a 50/50 dark/light split: the case narrative on the left (title, body, CTA) and quantified results on the right.',
   },
   'department-stack': {
-    component: DepartmentStack,
+    component: EditorialTableBlock,
     category: 'marketing',
     subcategory: 'Comparison Sections',
     categorySlug: 'comparison-sections',
@@ -1169,7 +1159,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Learning path list: a section title and one row per path (bold title + description).',
   },
   'department-cta': {
-    component: DepartmentCta,
+    component: CtaFinal,
     category: 'marketing',
     subcategory: 'CTA Sections',
     categorySlug: 'cta-sections',

@@ -1,70 +1,161 @@
 ---
+// ARCHÉTYPE R5b · « matrice comparative » — 1 composant paramétrable → 2 type-ids (presets).
+// <table> de comparaison features × colonnes, bool glyphs ◉/◦. Branche sur `data.type` ;
+// chaque variante conserve markup + CSS BYTE-IDENTIQUES à son composant d'origine
+// (sélecteurs d'éléments nus qualifiés `:where(.racine)`, spécificité inchangée).
+// Noyau : comparison-table. Absorbe (R5b) : pricing-comparison-matrix
+// (matrice + en-têtes plans nom/prix/CTA + colonne featured).
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
 
 interface Props {
-  data: SectionByType<'comparison-table'>;
+  data: SectionByType<'comparison-table'> | SectionByType<'pricing-comparison-matrix'>;
   lang: 'fr' | 'en';
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
-const headers = isFr ? data.column_headers_fr : data.column_headers_en;
+const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_fr : data.column_headers_en) : [];
 ---
 
-<section class="comparison-table" data-bg={data.background}>
-  <div class="wrap-wide">
-  <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
-  <div class="comparison-table__wrap">
-    <table>
-      <thead>
-        <tr>
-          {headers.map((h: string) => <th>{h}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {data.rows.map((row: (typeof data.rows)[number]) => (
-          <tr>
-            <td class="comparison-table__feature">{isFr ? row.feature_fr : row.feature_en}</td>
-            {row.values.map((v: (typeof row.values)[number]) => (
-              <td class="comparison-table__cell">
-                {typeof v === 'boolean' ? (
-                  <span class:list={['comparison-table__bool', v ? 'comparison-table__bool--yes' : 'comparison-table__bool--no']}>
-                    {v ? '◉' : '◦'}
-                  </span>
-                ) : (
-                  <span>{v}</span>
-                )}
-              </td>
+{data.type === 'pricing-comparison-matrix' ? (
+  <section class="pcm" data-bg={data.background}>
+    <div class="wrap-wide">
+      <div class="pcm__header">
+        {(isFr ? data.kicker_fr : data.kicker_en) && (
+          <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        )}
+        <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+        {(isFr ? data.body_fr : data.body_en) && (
+          <p class="pcm__body">{isFr ? data.body_fr : data.body_en}</p>
+        )}
+      </div>
+      <div class="pcm__scroll">
+        <table class="pcm__table">
+          <thead>
+            <tr>
+              <th class="pcm__col-feature" scope="col">
+                <span class="sr-only">{isFr ? 'Fonctionnalité' : 'Feature'}</span>
+              </th>
+              {data.plans.map((plan: (typeof data.plans)[number]) => (
+                <th
+                  class:list={['pcm__col-plan', plan.featured && 'pcm__col-plan--featured']}
+                  scope="col"
+                  data-featured={plan.featured ? 'true' : undefined}
+                >
+                  <div class="pcm__plan-name">{isFr ? plan.name_fr : plan.name_en}</div>
+                  <div class="pcm__plan-price">{plan.price}</div>
+                  {plan.price_note_fr && (
+                    <div class="pcm__plan-note">{isFr ? plan.price_note_fr : plan.price_note_en}</div>
+                  )}
+                  <div class="pcm__plan-cta">
+                    <Button
+                      href={plan.cta.href}
+                      variant={plan.featured ? 'accent' : (plan.cta.variant as any)}
+                      size="md"
+                      class="pcm__btn"
+                    >
+                      {isFr ? plan.cta.label_fr : plan.cta.label_en}
+                    </Button>
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.rows.map((row: (typeof data.rows)[number]) => (
+              <tr class="pcm__row">
+                <td class="pcm__feature">
+                  {(isFr ? row.group_fr : row.group_en) && (
+                    <span class="pcm__group">{isFr ? row.group_fr : row.group_en}</span>
+                  )}
+                  <span class="pcm__feature-label">{isFr ? row.feature_fr : row.feature_en}</span>
+                </td>
+                {row.values.map((v: string | boolean, i: number) => (
+                  <td
+                    class:list={[
+                      'pcm__cell',
+                      data.plans[i]?.featured && 'pcm__cell--featured',
+                    ]}
+                  >
+                    {typeof v === 'boolean' ? (
+                      <span
+                        class:list={['pcm__glyph', v ? 'pcm__glyph--yes' : 'pcm__glyph--no']}
+                        aria-label={v ? (isFr ? 'Inclus' : 'Included') : (isFr ? 'Non inclus' : 'Not included')}
+                      >
+                        {v ? '◉' : '◦'}
+                      </span>
+                    ) : (
+                      <span class="pcm__value">{v}</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
             ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+) : (
+  <section class="comparison-table" data-bg={data.background}>
+    <div class="wrap-wide">
+    <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+    <div class="comparison-table__wrap">
+      <table>
+        <thead>
+          <tr>
+            {headers.map((h: string) => <th>{h}</th>)}
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-  </div>
-</section>
+        </thead>
+        <tbody>
+          {data.rows.map((row: (typeof data.rows)[number]) => (
+            <tr>
+              <td class="comparison-table__feature">{isFr ? row.feature_fr : row.feature_en}</td>
+              {row.values.map((v: (typeof row.values)[number]) => (
+                <td class="comparison-table__cell">
+                  {typeof v === 'boolean' ? (
+                    <span class:list={['comparison-table__bool', v ? 'comparison-table__bool--yes' : 'comparison-table__bool--no']}>
+                      {v ? '◉' : '◦'}
+                    </span>
+                  ) : (
+                    <span>{v}</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </section>
+)}
 
 <style>
+  /* ───── comparison-table (noyau) — CSS d'origine, sélecteurs d'éléments nus
+     qualifiés `:where(.comparison-table)` (spécificité inchangée) ───── */
   .comparison-table {
     padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
-  h2 {
+  :where(.comparison-table) h2 {
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0 0 var(--spacing-block);
   }
-  h2 :global(i) { font-style: italic; }
+  :where(.comparison-table) h2 :global(i) { font-style: italic; }
   .comparison-table__wrap { overflow-x: auto; }
-  table {
+  :where(.comparison-table) table {
     width: 100%;
     border-collapse: collapse;
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
   }
-  thead tr { border-bottom: 1px solid var(--hairline); }
-  th {
+  :where(.comparison-table) thead tr { border-bottom: 1px solid var(--hairline); }
+  :where(.comparison-table) th {
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
     letter-spacing: .14em;
@@ -74,13 +165,13 @@ const headers = isFr ? data.column_headers_fr : data.column_headers_en;
     padding: var(--space-3) var(--space-4);
     font-weight: var(--fw-regular);
   }
-  th:first-child { min-width: 200px; }
-  tbody tr {
+  :where(.comparison-table) th:first-child { min-width: 200px; }
+  :where(.comparison-table) tbody tr {
     border-bottom: 1px solid var(--hairline);
     transition: background .15s;
   }
-  tbody tr:hover { background: rgba(var(--accent-rgb), .025); }
-  td {
+  :where(.comparison-table) tbody tr:hover { background: rgba(var(--accent-rgb), .025); }
+  :where(.comparison-table) td {
     padding: 14px var(--space-4);
     color: var(--ink);
     vertical-align: middle;
@@ -105,4 +196,201 @@ const headers = isFr ? data.column_headers_fr : data.column_headers_en;
     --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
   .comparison-table[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+
+  /* ───── pricing-comparison-matrix (preset) — CSS VERBATIM PricingComparisonMatrix.astro,
+     `h2` nu qualifié `:where(.pcm)` ───── */
+  .pcm {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pcm__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+  }
+  :where(.pcm) h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  :where(.pcm) h2 :global(i) { font-style: italic; }
+  .pcm__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  /* Scroll wrapper for responsive */
+  .pcm__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Table base */
+  .pcm__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    min-width: 560px;
+  }
+
+  /* Column header : feature label col */
+  .pcm__col-feature {
+    width: 40%;
+    min-width: 180px;
+    text-align: left;
+    padding: var(--space-4) var(--space-4) var(--space-5) 0;
+    vertical-align: bottom;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  /* Column header : plan cols */
+  .pcm__col-plan {
+    text-align: center;
+    padding: var(--space-4) var(--space-4) var(--space-5);
+    vertical-align: bottom;
+    border-bottom: 1px solid var(--hairline);
+    position: relative;
+  }
+  .pcm__col-plan--featured {
+    background: var(--paper-2);
+    border-left: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
+    border-top: 2px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+  }
+
+  /* Plan name */
+  .pcm__plan-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: var(--fw-regular);
+    margin-bottom: var(--space-2);
+  }
+  .pcm__col-plan--featured .pcm__plan-name {
+    color: var(--accent);
+  }
+
+  /* Plan price */
+  .pcm__plan-price {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: var(--space-1);
+  }
+  .pcm__plan-note {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    margin-bottom: var(--space-3);
+  }
+  .pcm__plan-cta {
+    margin-top: var(--space-3);
+  }
+  .pcm__btn { width: 100%; }
+
+  /* Body rows */
+  .pcm__row {
+    border-bottom: 1px solid var(--hairline);
+    transition: background var(--dur-fast, .15s) var(--ease-out, ease-out);
+  }
+  .pcm__row:last-child { border-bottom: none; }
+  .pcm__row:hover { background: rgba(var(--accent-rgb), .025); }
+
+  /* Feature cell */
+  .pcm__feature {
+    padding: var(--space-3) var(--space-4) var(--space-3) 0;
+    vertical-align: middle;
+  }
+  .pcm__group {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted-2, var(--muted));
+    margin-bottom: var(--space-1);
+  }
+  .pcm__feature-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--ink);
+    line-height: var(--leading-body);
+  }
+
+  /* Value cells */
+  .pcm__cell {
+    text-align: center;
+    padding: var(--space-3) var(--space-4);
+    vertical-align: middle;
+  }
+  .pcm__cell--featured {
+    background: var(--paper-2);
+    border-left: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+  }
+  .pcm__row:hover .pcm__cell--featured {
+    background: var(--paper-2);
+  }
+
+  /* Glyphs */
+  .pcm__glyph {
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+  }
+  .pcm__glyph--yes { color: var(--accent); }
+  .pcm__glyph--no  { color: var(--muted); }
+
+  /* Text value */
+  .pcm__value {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--ink);
+  }
+
+  /* Screen-reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Responsive: scroll horizontal sous 760px */
+  @media (max-width: 760px) {
+    .pcm__scroll {
+      margin-inline: calc(-1 * var(--space-4));
+      padding-inline: var(--space-4);
+    }
+    .pcm__table {
+      min-width: 520px;
+    }
+  }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .pcm[data-bg='paper-2'] { background: var(--paper-2); }
+  .pcm[data-bg='paper-3'] { background: var(--paper-3); }
+  .pcm[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .pcm[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>
