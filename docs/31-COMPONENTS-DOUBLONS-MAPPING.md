@@ -1,5 +1,7 @@
 # 31 — Cartographie des doublons composants
 
+> ⚠️ **PARTIELLEMENT PÉRIMÉ (audit 2026-06-10)** : cartographie à jour + deltas fichier:ligne dans `docs/audit-refonte/design-system.md` ; plan directeur de la refonte : `docs/37-REFONTE-SYSTEMIQUE.md`. Ce doc reste la trace historique.
+
 **Statut** : ✅ AUDIT FACTUEL · Phase 1 Design
 **Date** : 2026-05-17
 **Périmètre mesuré** : `apps/web/src/components`

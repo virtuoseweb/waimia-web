@@ -1,5 +1,7 @@
 # Waimia · Audit Pages par Taxonomie — Doc 33
 
+> ⚠️ **PARTIELLEMENT PÉRIMÉ (audit 2026-06-10)** : cartographie à jour + deltas fichier:ligne dans `docs/audit-refonte/templates.md` ; plan directeur de la refonte : `docs/37-REFONTE-SYSTEMIQUE.md`. Ce doc reste la trace historique.
+
 > **Mission** : Phase 1 Design · Audit observationnel READ-ONLY.
 > **Auteur** : Worker Sonnet 4.6 · Session 2026-05-17.
 > **Sources** : docs 12, 13, 15, 22 + lecture directe `src/pages/` + `src/components/templates/`.

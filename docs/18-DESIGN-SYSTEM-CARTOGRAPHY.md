@@ -1,5 +1,7 @@
 # 18 — Design System Cartography (Phase A · Audit Exhaustif)
 
+> ⚠️ **PARTIELLEMENT PÉRIMÉ (audit 2026-06-10)** : cartographie à jour + deltas fichier:ligne dans `docs/audit-refonte/design-system.md` ; plan directeur de la refonte : `docs/37-REFONTE-SYSTEMIQUE.md`. Ce doc reste la trace historique.
+
 **Statut** : 🟡 EN COURS · Phase A — Audit complet
 **Date démarrage** : 2026-05-15
 **Mandat Simon (verbatim)** : « créer un système fermer design système atomique pour éviter que sa parte dans tous les sens » + « l'agent IA continue de gérer de nouveaux style plutot que de piocher comme une librarie dans l'existant »

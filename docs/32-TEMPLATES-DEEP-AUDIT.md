@@ -1,5 +1,7 @@
 # 32 — Templates Deep Audit
 
+> ⚠️ **PARTIELLEMENT PÉRIMÉ (audit 2026-06-10)** : cartographie à jour + deltas fichier:ligne dans `docs/audit-refonte/templates.md` ; plan directeur de la refonte : `docs/37-REFONTE-SYSTEMIQUE.md`. Ce doc reste la trace historique.
+
 > Date : 2026-05-17  
 > Mission : audit profond, lecture seule, des 19 templates `src/components/templates/` avant toute décision de refonte Phase 1 Design.  
 > Écriture autorisée : ce document uniquement.

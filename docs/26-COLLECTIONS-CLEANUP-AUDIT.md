@@ -1,5 +1,7 @@
 # 26 — Audit pré-suppression collections legacy
 
+> ⚠️ **PARTIELLEMENT PÉRIMÉ (audit 2026-06-10)** : cartographie à jour + deltas fichier:ligne dans `docs/audit-refonte/collections.md` ; plan directeur de la refonte : `docs/37-REFONTE-SYSTEMIQUE.md`. Ce doc reste la trace historique.
+
 Audit lecture-seule · généré 2026-05-16 · pour T3.1f + T3.3d
 
 ---

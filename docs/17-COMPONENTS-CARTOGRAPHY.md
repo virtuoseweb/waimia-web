@@ -1,5 +1,7 @@
 # Waimia · Cartographie complète components 2026-05-15
 
+> ⚠️ **PARTIELLEMENT PÉRIMÉ (audit 2026-06-10)** : cartographie à jour + deltas fichier:ligne dans `docs/audit-refonte/design-system.md` ; plan directeur de la refonte : `docs/37-REFONTE-SYSTEMIQUE.md`. Ce doc reste la trace historique.
+
 > Inventaire exhaustif de TOUS les components du repo + détection doublons + plan consolidation.
 > Cf docs/15-STRATEGIC-AUDIT.md Tier 2 architecture composable.
 
