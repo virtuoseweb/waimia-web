@@ -1,0 +1,84 @@
+---
+// Section W6 · fit-columns
+// Qualification fit/no-fit sur fond ink (2 colonnes Yes/No).
+// Source : HubTemplate.astro « FIT / NO FIT » (l.144-165 + CSS .hub-fit* l.248-285)
+// - CSS .fit-sec* = COPIE VERBATIM des règles .hub-fit* (mêmes tokens/valeurs).
+// Réutilise la molécule FitColumns (ui/molecules/FitColumns.astro), Kicker, Bi, Callout.
+import Kicker from '../ui/atoms/Kicker.astro';
+import Bi from '../ui/atoms/Bi.astro';
+import Callout from '../editorial/Callout.astro';
+import FitColumns from '../ui/molecules/FitColumns.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'fit-columns'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const hasKicker = !!(data.kicker_fr || data.kicker_en);
+const hasIntro = !!(data.intro_fr || data.intro_en);
+---
+<section class="fit-sec">
+  <div class="wrap-wide">
+    {hasKicker && (
+      <Kicker tone="dim" class="fit-sec-kicker">
+        <Bi fr={data.kicker_fr} en={data.kicker_en} />
+      </Kicker>
+    )}
+    <h2 class="fit-sec-h2" set:html={isFr ? data.heading_fr : data.heading_en} />
+    {hasIntro && (
+      <div class="fit-sec-callout reveal">
+        <Callout variant="info" size="sm">
+          <Bi fr={data.intro_fr} en={data.intro_en} />
+        </Callout>
+      </div>
+    )}
+    <FitColumns
+      class="fit-sec-cols reveal-stagger"
+      yesTitleFr={data.yes_title_fr} yesTitleEn={data.yes_title_en} yesItems={data.yes_items}
+      noTitleFr={data.no_title_fr} noTitleEn={data.no_title_en} noItems={data.no_items}
+    />
+  </div>
+</section>
+
+<style>
+  /* COPIE VERBATIM de HubTemplate.astro .hub-fit* (l.248-285), préfixe .hub-fit → .fit-sec */
+  .fit-sec {
+    padding: clamp(80px, 10vw, 120px) var(--space-6);
+    background: var(--ink);
+    color: var(--paper);
+  }
+  :global(.fit-sec-kicker) { display: block; margin-bottom: var(--space-6); }
+  .fit-sec-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 112px);
+    line-height: 0.94;
+    letter-spacing: -0.028em;
+    color: var(--paper);
+    margin: 0 0 60px;
+    text-wrap: balance;
+    font-weight: var(--fw-regular);
+  }
+  .fit-sec-h2 :global(i) { font-style: italic; }
+  .fit-sec-callout {
+    max-width: 760px;
+    margin-bottom: clamp(36px, 5vw, 56px);
+  }
+  .fit-sec-callout :global(.callout) {
+    color: rgba(var(--paper-rgb), 0.72);
+    border-left-color: rgba(var(--paper-rgb), 0.28);
+    margin: 0;
+  }
+  .fit-sec-callout :global(.callout-body) { font-family: var(--font-sans); }
+  :global(.fit-sec-cols) {
+    border-top: 1px solid rgba(var(--paper-rgb), 0.18);
+  }
+  :global(.fit-sec-cols .fit-col) {
+    border-top: 1px solid rgba(var(--paper-rgb), 0.18);
+    transition: background 240ms var(--ease), transform 320ms var(--ease);
+  }
+  :global(.fit-sec-cols .fit-col:hover) {
+    background: rgba(var(--paper-rgb), 0.04);
+    transform: translateY(-2px);
+  }
+</style>

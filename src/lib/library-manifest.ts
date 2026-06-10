@@ -126,6 +126,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'cta-split-visual',          consumers: [] },
   { id: 'stats-bento',               consumers: [] },
   { id: 'comparison-duo',            consumers: [] },
+  { id: 'service-catalog-list',      consumers: [] },
+  { id: 'fit-columns',               consumers: [] },
 ];
 
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────

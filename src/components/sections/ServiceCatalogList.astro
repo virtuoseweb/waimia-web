@@ -1,0 +1,154 @@
+---
+// Section W6 · service-catalog-list
+// Liste-catalogue éditoriale de services (rows § num · titre · desc · meta · flèche).
+// Source : HubTemplate.astro « SERVICE CATALOG » (slot catalog) + molécule ServiceCatalogRow.astro
+// - markup/CSS des rows = COPIE VERBATIM de ServiceCatalogRow.astro (mêmes tokens, mêmes valeurs).
+import SectionHeader from '../ui/molecules/SectionHeader.astro';
+import Bi from '../ui/atoms/Bi.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'service-catalog-list'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="svc-cat-sec" aria-labelledby="svc-cat-h2">
+  <div class="wrap-wide">
+    <SectionHeader
+      roman={data.roman}
+      label={isFr ? data.label_fr : data.label_en}
+      id="svc-cat-h2"
+    >
+      <Fragment slot="heading" set:html={isFr ? data.heading_fr : data.heading_en} />
+      {(data.aside_fr || data.aside_en) && (
+        <Fragment slot="aside">
+          {isFr ? data.aside_fr : data.aside_en}
+        </Fragment>
+      )}
+    </SectionHeader>
+
+    <div class="svc-cat-list reveal-stagger">
+      {data.services.map((svc) => (
+        <a class="svc-row reveal" href={svc.href}>
+          <span class="svc-num">§ {svc.num}</span>
+          <div class="svc-body">
+            <div class="svc-title">
+              <Bi fr={svc.title_fr} en={svc.title_en} />
+            </div>
+            <p class="svc-desc">
+              <Bi fr={svc.desc_fr} en={svc.desc_en} />
+            </p>
+          </div>
+          {svc.meta && <span class="svc-meta">{svc.meta}</span>}
+          <span class="svc-arr" aria-hidden>↗</span>
+        </a>
+      ))}
+    </div>
+
+    {data.footer_href && (
+      <a class="svc-cat-footer lift" href={data.footer_href}>
+        <span>{isFr ? data.footer_label_fr : data.footer_label_en}</span>
+      </a>
+    )}
+  </div>
+</section>
+
+<style>
+  /* Padding section façon UseCaseIndex (densification scoped, ne touche pas global .sec) */
+  .svc-cat-sec {
+    padding: clamp(56px, 7vw, 88px) 0;
+  }
+  .svc-cat-list {
+    margin-top: clamp(20px, 2.5vw, 32px);
+    border-top: 1px solid var(--hairline-strong);
+  }
+
+  /* COPIE VERBATIM de ServiceCatalogRow.astro (rows) */
+  .svc-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 180px 60px;
+    gap: var(--space-6);
+    padding: var(--space-7) 0;
+    border-bottom: 1px solid var(--hairline);
+    align-items: center;
+    color: inherit;
+    transition: background 240ms var(--ease), padding-left 320ms var(--ease);
+  }
+  .svc-row:hover {
+    background: var(--paper-2);
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .svc-row:hover .svc-arr {
+    color: var(--accent);
+    transform: translateX(4px) translateY(-2px);
+  }
+  .svc-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+  .svc-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.022em;
+    margin-bottom: 10px;
+    text-wrap: balance;
+  }
+  .svc-desc {
+    color: var(--muted);
+    font-size: var(--text-body-lead);
+    max-width: var(--wrap-prose);
+    line-height: var(--leading-body);
+    text-wrap: pretty;
+  }
+  .svc-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+  .svc-arr {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    color: var(--muted);
+    text-align: right;
+    transition: color 240ms var(--ease), transform 320ms var(--ease);
+  }
+
+  /* Footer CTA façon .dept-sector (UseCaseIndex) */
+  .svc-cat-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100%, 360px);
+    min-height: 96px;
+    margin-top: clamp(24px, 3vw, 40px);
+    padding: var(--space-5) 28px;
+    border: 1px solid var(--hairline-strong);
+    color: inherit;
+    background: var(--paper);
+  }
+  .svc-cat-footer span {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  @media (max-width: var(--wrap-read)) {
+    .svc-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+      padding: var(--space-5) 0;
+    }
+    .svc-arr,
+    .svc-meta {
+      display: none;
+    }
+  }
+</style>

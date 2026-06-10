@@ -1766,6 +1766,54 @@ export const comparisonDuoSchema = z.object({
   with_items: z.array(comparisonDuoItemSchema).min(2).max(6),
 });
 
+// Liste-catalogue éditoriale de services (rows § num · titre · desc · meta · flèche) - remontée HubTemplate « SERVICE CATALOG »
+export const serviceCatalogListSchema = z.object({
+  type: z.literal('service-catalog-list'),
+  roman: z.string(),
+  label_fr: z.string(),
+  label_en: z.string(),
+  heading_fr: z.string(),
+  heading_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  meta_fr: z.string().optional(),
+  meta_en: z.string().optional(),
+  services: z
+    .array(
+      z.object({
+        num: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        desc_fr: z.string(),
+        desc_en: z.string(),
+        meta: z.string().optional(),
+        href: z.string(),
+      }),
+    )
+    .min(2)
+    .max(8),
+  footer_label_fr: z.string().optional(),
+  footer_label_en: z.string().optional(),
+  footer_href: z.string().optional(),
+});
+
+// Section qualification fit/no-fit sur fond ink - remontée HubTemplate « FIT / NO FIT » + molécule FitColumns
+export const fitColumnsSchema = z.object({
+  type: z.literal('fit-columns'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  heading_fr: z.string(),
+  heading_en: z.string(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  yes_title_fr: z.string(),
+  yes_title_en: z.string(),
+  yes_items: z.array(z.string()).min(1).max(8),
+  no_title_fr: z.string(),
+  no_title_en: z.string(),
+  no_items: z.array(z.string()).min(1).max(8),
+});
+
 /* ─── Union discriminée pour validation ─── */
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -1856,6 +1904,8 @@ export const sectionSchema = z.discriminatedUnion('type', [
   ctaSplitVisualSchema,
   statsBentoSchema,
   comparisonDuoSchema,
+  serviceCatalogListSchema,
+  fitColumnsSchema,
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

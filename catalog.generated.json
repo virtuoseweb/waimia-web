@@ -25,6 +25,28 @@
     }
   },
   {
+    "id": "bento-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "BentoGrid",
+    "status": "stable",
+    "tags": [
+      "bento",
+      "grid",
+      "feature",
+      "asymmetric"
+    ],
+    "description_fr": "Mosaique bento asymetrique de 5 cellules (1 grande 2x2 + 4 petites) pour valoriser les capacites cles avec une mise en page moderne.",
+    "description_en": "Asymmetric bento mosaic of 5 cells (1 large 2x2 + 4 small) to highlight key capabilities with a modern layout.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "branded-callout",
     "category": "marketing",
     "categorySlug": "cta-sections",
@@ -122,6 +144,28 @@
     }
   },
   {
+    "id": "comparison-duo",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "ComparisonDuo",
+    "status": "stable",
+    "tags": [
+      "comparison",
+      "duo",
+      "before-after",
+      "versus"
+    ],
+    "description_fr": "Deux cartes cote a cote (Sans / Avec) pour mettre en evidence le contraste avant/apres ou nous-vs-eux, avec items a puces et glyphes differencies.",
+    "description_en": "Two side-by-side cards (Without / With) to highlight a before/after or us-vs-them contrast, with bulleted items and differentiated glyphs.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "comparison-table",
     "category": "marketing",
     "categorySlug": "comparison-sections",
@@ -209,6 +253,28 @@
     ],
     "description_fr": "CTA inline discret pour insérer une action contextuelle dans un contenu existant.",
     "description_en": "Subtle inline CTA for inserting a contextual action within existing content.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "cta-split-visual",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "CtaSplitVisual",
+    "status": "stable",
+    "tags": [
+      "cta",
+      "split",
+      "visual",
+      "banner"
+    ],
+    "description_fr": "Bandeau CTA asymetrique 2 colonnes : texte kicker/titre/body/boutons a gauche, visuel SVG decoratif a droite. Distinct des CTA centres.",
+    "description_en": "Asymmetric 2-column CTA banner: kicker/title/body/buttons on the left, decorative SVG visual on the right. Distinct from centered CTAs.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -332,6 +398,95 @@
       "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "feature-tabs",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "FeatureTabs",
+    "status": "stable",
+    "tags": [
+      "feature",
+      "tabs",
+      "interactive",
+      "tabbed"
+    ],
+    "description_fr": "Section fonctionnalites en onglets cliquables : barre de tabs aria-compliant + panneau texte/visuel. Interactif vanilla JS, 0 dependance.",
+    "description_en": "Feature section with clickable tabs: aria-compliant tab bar + text/visual panel. Interactive vanilla JS, zero dependencies.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "feature-zigzag",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "FeatureZigzag",
+    "status": "stable",
+    "tags": [
+      "feature",
+      "zigzag",
+      "alternating",
+      "rows"
+    ],
+    "description_fr": "Lignes alternées visuel/texte (gauche-droite, droite-gauche) pour presenter les fonctionnalites cles d'une offre avec un rythme editorial fort.",
+    "description_en": "Alternating visual/text rows (left-right, right-left) to present key features with strong editorial rhythm.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "fit-columns",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "FitColumnsSection",
+    "status": "stable",
+    "tags": [
+      "fit",
+      "qualification",
+      "yes-no",
+      "two-columns",
+      "ink"
+    ],
+    "description_fr": "Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.",
+    "description_en": "Fit/no-fit qualification section on an ink background: kicker, display heading, intro callout, and two yes/no item columns.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "gallery-masonry",
+    "category": "marketing",
+    "categorySlug": "gallery-sections",
+    "subcategory": "Gallery Sections",
+    "component": "GalleryMasonry",
+    "status": "stable",
+    "tags": [
+      "gallery",
+      "masonry",
+      "images",
+      "editorial"
+    ],
+    "description_fr": "Galerie editoriale en colonnes CSS (masonry naturel) avec legende au hover par overlay. Hauteurs variees, responsive 3 colonnes -> 2 -> 1.",
+    "description_en": "Editorial gallery in CSS columns (natural masonry) with hover overlay caption. Varied heights, responsive 3 cols -> 2 -> 1.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1018,6 +1173,28 @@
     }
   },
   {
+    "id": "icon-trio",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "IconTrio",
+    "status": "stable",
+    "tags": [
+      "feature",
+      "icons",
+      "trio",
+      "columns"
+    ],
+    "description_fr": "Trois colonnes iconographiques avec titre et description, séparées par des hairlines verticaux. Idéal pour présenter 3 piliers ou bénéfices distincts.",
+    "description_en": "Three icon columns with title and description, separated by vertical hairlines. Ideal for presenting 3 pillars or distinct benefits.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "inclusions-list",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -1054,6 +1231,28 @@
     ],
     "description_fr": "Masthead de listing avec filtres optionnels, conteneur de liste ouvert et footer custom.",
     "description_en": "Listing masthead with optional filters, open list container, and custom footer.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "logo-wall",
+    "category": "marketing",
+    "categorySlug": "logo-sections",
+    "subcategory": "Logo Sections",
+    "component": "LogoWall",
+    "status": "stable",
+    "tags": [
+      "logos",
+      "grid",
+      "social-proof",
+      "static"
+    ],
+    "description_fr": "Grille statique de logos partenaires ou clients, avec effet grayscale vers couleur au hover. Distinct du bandeau animé marquee-band.",
+    "description_en": "Static grid of partner or client logos with grayscale to colour hover effect. Distinct from the animated marquee-band.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -1181,6 +1380,28 @@
     }
   },
   {
+    "id": "metric-shift",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "MetricShift",
+    "status": "stable",
+    "tags": [
+      "proof",
+      "metrics",
+      "before-after",
+      "results"
+    ],
+    "description_fr": "Comparaison avant → après : valeur initiale et finale magnifiées, delta.",
+    "description_en": "Before → after comparison: initial and final value magnified, delta.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "newsletter-band",
     "category": "marketing",
     "categorySlug": "cta-sections",
@@ -1292,6 +1513,28 @@
     "consumers": [
       "src/pages/ressources/personas/[slug].astro"
     ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "pricing-comparison-matrix",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "component": "PricingComparisonMatrix",
+    "status": "stable",
+    "tags": [
+      "pricing",
+      "table",
+      "comparison",
+      "matrix"
+    ],
+    "description_fr": "Matrice comparative tarifaire pour mettre en regard les fonctionnalites de 3 plans avec mise en avant de la colonne recommandee.",
+    "description_en": "Pricing comparison matrix to compare features across 3 plans with a highlighted recommended column.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1413,6 +1656,28 @@
     }
   },
   {
+    "id": "quote-spotlight",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "QuoteSpotlight",
+    "status": "stable",
+    "tags": [
+      "testimonial",
+      "quote",
+      "spotlight",
+      "editorial"
+    ],
+    "description_fr": "Grande citation pleine lumiere sur fond paper-2 : guillemet decoratif, texte display italique, auteur avec avatar rond.",
+    "description_en": "Full-spotlight quote on paper-2 background: decorative quotemark, italic display text, author with rounded avatar.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "related-cards-band",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -1427,6 +1692,29 @@
     ],
     "description_fr": "Bande de trois cards connexes pour relier cas, offres ou ressources en fin de page.",
     "description_en": "Three-card related band for linking cases, offers, or resources near the end of a page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "service-catalog-list",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "ServiceCatalogList",
+    "status": "stable",
+    "tags": [
+      "services",
+      "catalog",
+      "list",
+      "editorial",
+      "rows"
+    ],
+    "description_fr": "Liste-catalogue éditoriale de services en lignes (§ numéro, titre display, description, méta durée, flèche) avec footer CTA optionnel.",
+    "description_en": "Editorial service catalogue as rows (§ number, display title, description, duration meta, arrow) with an optional footer CTA.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -1520,6 +1808,50 @@
     ],
     "description_fr": "Bloc de statistiques en grille pour mettre en avant des chiffres de performance ou d'impact.",
     "description_en": "Grid-based stats block for highlighting performance or impact figures.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "stats-bento",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "StatsBento",
+    "status": "stable",
+    "tags": [
+      "stats",
+      "bento",
+      "kpi",
+      "metrics"
+    ],
+    "description_fr": "Quatre KPI en grille bento de tailles inegales : une grande cellule avec chiffre geant et trois cellules secondaires, plus un bandeau bas pleine largeur.",
+    "description_en": "Four KPIs in an uneven bento grid: one large hero cell with a giant number and three smaller cells, plus a full-width bottom banner.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "steps-horizontal",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timelines",
+    "component": "StepsHorizontal",
+    "status": "stable",
+    "tags": [
+      "process",
+      "steps",
+      "horizontal",
+      "timeline"
+    ],
+    "description_fr": "Etapes numerotees en ligne avec pastilles et connecteurs hairline. Passage vertical sous 760px.",
+    "description_en": "Numbered steps in a row with round pills and hairline connectors. Stacks vertically below 760px.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {

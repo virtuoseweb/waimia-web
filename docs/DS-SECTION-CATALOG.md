@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 87
+> Sections : 89
 
 ---
 
@@ -66,6 +66,39 @@
 **Dette hardcode** : 5 valeur(s) — .14em, 100%, 14px, 1px, 200px
 
 **Agent** : Espacement : --space-3 --space-4 --spacing-block. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (.14em, 100%, 14px).
+
+---
+
+### `fit-columns`
+
+> Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.
+> FitColumnsSection · src/components/sections/FitColumnsSection.astro · marketing/comparison-sections
+> status : stable · tags : fit, ink, qualification, two-columns, yes-no
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `heading_en` | string | oui |  |  |
+| `heading_fr` | string | oui |  |  |
+| `intro_en` | string | non |  |  |
+| `intro_fr` | string | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `no_items` | array | oui |  | min:1 max:8 |
+| `no_title_en` | string | oui |  |  |
+| `no_title_fr` | string | oui |  |  |
+| `yes_items` | array | oui |  | min:1 max:8 |
+| `yes_title_en` | string | oui |  |  |
+| `yes_title_fr` | string | oui |  |  |
+
+**Tokens** : `--ease` `--font-display` `--font-sans` `--fw-regular` `--ink` `--paper` `--paper-rgb` `--space-6`
+
+**Classes scoped** : .astro .callout .callout-body .fit-col .fit-sec .fit-sec-callout .fit-sec-cols .fit-sec-h2 .fit-sec-kicker .hub-fit
+
+**Dette hardcode** : 8 valeur(s) — -0.028em, -2px, 1px, 60px, 760px, clamp(36px, 5vw, 56px), clamp(48px, 7vw, 112px), clamp(80px, 10vw, 120px)
+
+**Agent** : Espacement : --space-6. Couleur : --ink --paper --paper-rgb. Typographie : --font-display --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.028em, -2px, 1px).
 
 ---
 
@@ -858,6 +891,40 @@
 **Dette hardcode** : 3 valeur(s) — -2px, 1px, clamp(var(--space-11)
 
 **Agent** : Espacement : --space-11 --space-6. Couleur : --muted --paper-2. Typographie : --font-mono --text-eyebrow. Dette : 3 litteral(s) hardcode(s) (-2px, 1px, clamp(var(--space-11)).
+
+---
+
+### `service-catalog-list`
+
+> Liste-catalogue éditoriale de services en lignes (§ numéro, titre display, description, méta durée, flèche) avec footer CTA optionnel.
+> ServiceCatalogList · src/components/sections/ServiceCatalogList.astro · marketing/feature-sections
+> status : stable · tags : catalog, editorial, list, rows, services
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `aside_en` | string | non |  |  |
+| `aside_fr` | string | non |  |  |
+| `footer_href` | string | non |  |  |
+| `footer_label_en` | string | non |  |  |
+| `footer_label_fr` | string | non |  |  |
+| `heading_en` | string | oui |  |  |
+| `heading_fr` | string | oui |  |  |
+| `label_en` | string | oui |  |  |
+| `label_fr` | string | oui |  |  |
+| `meta_en` | string | non |  |  |
+| `meta_fr` | string | non |  |  |
+| `roman` | string | oui |  |  |
+| `services` | array | non |  | min:2 max:8 |
+
+**Tokens** : `--accent` `--ease` `--font-display` `--font-mono` `--hairline` `--hairline-strong` `--leading-body` `--muted` `--paper` `--paper-2` `--space-2` `--space-5` `--space-6` `--space-7` `--text-body-lead` `--text-caption` `--text-eyebrow` `--wrap-prose` `--wrap-read`
+
+**Classes scoped** : .astro .dept-sector .sec .svc-arr .svc-cat-footer .svc-cat-list .svc-cat-sec .svc-desc .svc-meta .svc-num .svc-row .svc-title
+
+**Dette hardcode** : 21 valeur(s) — -0.022em, -2px, .14em, 0.08em, 0.1em, 100%, 10px, 110px
+
+**Agent** : Espacement : --space-2 --space-5 --space-6. Couleur : --accent --muted --paper. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.022em, -2px, .14em).
 
 ---
 
