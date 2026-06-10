@@ -67,7 +67,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
       </div>
 
       {/* bottom CTAs */}
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-8);align-items:end;max-width:1600px">
+      <div class="mf-grid mf-grid--hero" style="display:grid;gap:var(--space-8);align-items:end;max-width:1600px">
         <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:var(--leading-lede);color:rgba(var(--paper-rgb), .85);max-width:380px;margin:0">
           {lang === 'fr'
             ? "Une agence IA pour SaaS, fintech et industrie dont le moteur revenue doit livrer, pas répéter."
@@ -104,7 +104,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
   {/* ACTE I · stats dark */}
   <section style="padding:clamp(140px,16vw,200px) clamp(20px,4vw,48px);background:var(--ink);color:var(--paper)">
     <div style="max-width:1600px;margin:0 auto">
-      <div style="display:grid;grid-template-columns:1fr 2fr;gap:clamp(40px,6vw,80px);margin-bottom:clamp(80px,10vw,120px)">
+      <div class="mf-grid mf-grid--acte" style="display:grid;gap:clamp(40px,6vw,80px);margin-bottom:clamp(80px,10vw,120px)">
         <div style="position:sticky;top:120px;align-self:start">
           <Kicker class="b-acte-1">
             <span style="color:var(--accent)">I.</span> {lang === 'fr' ? 'Le constat': 'The reckoning'}
@@ -119,7 +119,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
           )}
         </p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-8);padding-top:var(--space-10);border-top:1px solid rgba(var(--paper-rgb), .12)">
+      <div class="mf-grid mf-grid--stats" style="display:grid;gap:var(--space-8);padding-top:var(--space-10);border-top:1px solid rgba(var(--paper-rgb), .12)">
         {STATS.map((r) => (
           <div class="reveal">
             <div style="font-family:var(--font-display);font-size:clamp(72px,10vw,176px);line-height:.9;letter-spacing:-0.03em;color:var(--accent)">{r.n}</div>
@@ -191,7 +191,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
       <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(48px,8vw,148px);line-height:.92;letter-spacing:-0.03em;max-width:1400px;margin-bottom:clamp(60px,8vw,100px);text-wrap:balance;font-weight:var(--fw-regular)">
         {lang === 'fr' ? (<>Pas des démos. Des <i style="color:var(--accent)">résultats</i>.</>): (<>Not demos. <i style="color:var(--accent)">Results</i>.</>)}
       </h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+      <div class="mf-grid mf-grid--split" style="display:grid;gap:32px">
         {CASE_FEED.slice(0, 4).map((c, i) => (
           <EditorialCaseCard
             idx={i + 1}
@@ -210,7 +210,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
 
   {/* WRITING dark */}
   <section style="padding:clamp(120px,14vw,160px) clamp(20px,4vw,48px);background:var(--ink);color:var(--paper)">
-    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:400px 1fr;gap:clamp(40px,6vw,100px)">
+    <div class="mf-grid mf-grid--writing" style="max-width:1600px;margin:0 auto;display:grid;gap:clamp(40px,6vw,100px)">
       <div>
         <Kicker class="b-writing-tag">{lang === 'fr' ? 'Écrits': 'Writing'}</Kicker>
         <div style="font-family:var(--font-display);font-size:clamp(36px,6vw,88px);line-height:.96;letter-spacing:var(--tracking-display);margin-top:28px;color:var(--paper)">
@@ -254,6 +254,22 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
 </Base>
 
 <style>
+  /* Grilles editoriales bespoke : largeurs desktop + reflow 1 colonne mobile (anti-overflow) */
+  .mf-grid--hero { grid-template-columns: 1fr 1fr 1fr; }
+  .mf-grid--acte { grid-template-columns: 1fr 2fr; }
+  .mf-grid--stats { grid-template-columns: repeat(3, 1fr); }
+  .mf-grid--split { grid-template-columns: 1fr 1fr; }
+  .mf-grid--writing { grid-template-columns: 400px 1fr; }
+  @media (max-width: 768px) {
+    .mf-grid--hero,
+    .mf-grid--acte,
+    .mf-grid--stats,
+    .mf-grid--split,
+    .mf-grid--writing {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* Spacing/colors pour les Kicker atoms rendus par les sous-composants
      Note: :global est requis car le scoping Astro ne descend pas dans les composants enfants */
   :global(.manifesto-acte-iv){margin-bottom:var(--space-6)}

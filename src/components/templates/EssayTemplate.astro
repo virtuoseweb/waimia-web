@@ -339,6 +339,7 @@ const articleLd = buildArticle({
   position: sticky;
   top: clamp(64px, 8vw, 100px);
   align-self: start;
+  min-width: 0;
 }
 .essay-share-end {
   margin: clamp(40px, 5vw, 64px) 0 var(--space-5);
@@ -359,6 +360,7 @@ const articleLd = buildArticle({
   font-size: clamp(17px, 1.45vw, 19px);
   line-height: var(--leading-prose);
   color: var(--ink);
+  min-width: 0;
 }
 
 /* Drop cap sur premier paragraphe */
@@ -458,6 +460,11 @@ const articleLd = buildArticle({
   padding: 2px var(--space-2);
   border-radius: var(--radius-xs);
   border: 1px solid var(--hairline);
+}
+
+.essay-prose :global(pre) {
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .essay-prose :global(ul),
