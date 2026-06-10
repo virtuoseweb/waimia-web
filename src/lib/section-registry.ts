@@ -42,6 +42,8 @@ import HeroHubStats from '../components/sections/HeroHubStats.astro';
 import HeroAuthor from '../components/sections/HeroAuthor.astro';
 import HeroLeadMagnet from '../components/sections/HeroLeadMagnet.astro';
 import HeroTunnelStep from '../components/sections/HeroTunnelStep.astro';
+import TunnelStepHero from '../components/sections/TunnelStepHero.astro';
+import TunnelStepNav from '../components/sections/TunnelStepNav.astro';
 import MarqueeBand from '../components/sections/MarqueeBand.astro';
 import ProblemsGrid from '../components/sections/ProblemsGrid.astro';
 import WhyStalls from '../components/sections/WhyStalls.astro';
@@ -393,6 +395,26 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Hero d\'étape de tunnel : kicker accent + barre de progression [01][02]... + h1 (variante hero ou section) + lede.',
     description_en: 'Tunnel step hero: accent kicker + progress bar [01][02]... + h1 (hero or section variant) + lede.',
+  },
+  'tunnel-step-hero': {
+    component: TunnelStepHero,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'tunnel', 'step', 'progress', 'funnel', 'kicker-computed'],
+    status: 'stable',
+    description_fr: 'Hero d\'étape tunnel V2 : kicker calculé (offre_label + step/progress_total) + barre [NN] + h1 (hero ou section) + lede.',
+    description_en: 'Tunnel step hero V2: computed kicker (offre_label + step/progress_total) + [NN] bar + h1 (hero or section) + lede.',
+  },
+  'tunnel-step-nav': {
+    component: TunnelStepNav,
+    category: 'marketing',
+    subcategory: 'Call-to-Action Sections',
+    categorySlug: 'call-to-action-sections',
+    tags: ['nav', 'tunnel', 'step', 'cta', 'footer', 'prev', 'meta'],
+    status: 'stable',
+    description_fr: 'Pied de navigation d\'étape tunnel : lien prev optionnel + cta (primary/accent/ghost) + barre méta (lecture + retour offre).',
+    description_en: 'Tunnel step navigation footer: optional prev link + cta (primary/accent/ghost) + meta bar (reading time + back to offer).',
   },
   'marquee-band': {
     component: MarqueeBand,

@@ -1,4 +1,7 @@
 ---
+import TunnelStepHero from '../sections/TunnelStepHero.astro';
+import TunnelStepNav from '../sections/TunnelStepNav.astro';
+
 interface Props {
   offre_slug: string;
   offre_label: string;
@@ -26,7 +29,6 @@ const {
   step_title_en,
   description_fr,
   description_en,
-  next_step,
   prev_step,
   cta_label_fr,
   cta_label_en,
@@ -35,68 +37,48 @@ const {
   lang,
 } = Astro.props;
 
-const step_title = lang === 'fr' ? step_title_fr : step_title_en;
-const description = lang === 'fr' ? description_fr : description_en;
-const cta_label = lang === 'fr' ? cta_label_fr : cta_label_en;
-const kicker_label = lang === 'fr'
-  ? `Tunnel · ${offre_label} · Étape ${step}/${progress_total}`
-  : `Funnel · ${offre_label} · Step ${step}/${progress_total}`;
 const back_href = `/offres/${offre_slug}`;
-
-const padStep = (n: number) => String(n).padStart(2, '0');
+const prev_href = prev_step ? `/offres/${offre_slug}/tunnel/${step - 1}` : undefined;
 ---
 
 <article class="tunnel-template">
-  <section class="tnl-hero wrap-wide">
-    <p class="tnl-kicker">{kicker_label}</p>
-    <div
-      class="tnl-progress"
-      aria-label={lang === 'fr'
-        ? `Progression : étape ${step} sur ${progress_total}`
-        : `Progress: step ${step} of ${progress_total}`}
-    >
-      {Array.from({ length: progress_total }, (_, i) => {
-        const n = i + 1;
-        const active = n === step;
-        return (
-          <span
-            class:list={['tnl-progress__step', active && 'is-active']}
-            aria-current={active ? 'step' : undefined}
-          >
-            [{padStep(n)}]
-          </span>
-        );
-      })}
-    </div>
-    <h1
-      class:list={['tnl-h1 reveal-mask-up', step === 1 ? 'tnl-h1--hero' : 'tnl-h1--section']}
-      set:html={step_title}
-    />
-    <p class="tnl-lede">{description}</p>
-  </section>
+  <TunnelStepHero
+    data={{
+      type: 'tunnel-step-hero',
+      offre_label,
+      step,
+      progress_total,
+      h1_fr: step_title_fr,
+      h1_en: step_title_en,
+      lede_fr: description_fr,
+      lede_en: description_en,
+    }}
+    lang={lang}
+  />
 
   <section class="tnl-body wrap-wide">
     <slot />
   </section>
 
-  <footer class="tnl-nav wrap-wide">
-    {prev_step && (
-      <a href={`/offres/${offre_slug}/tunnel/${step - 1}`} class="btn-ghost">
-        {lang === 'fr' ? '← Étape précédente' : '← Previous step'}
-      </a>
-    )}
-    <a href={cta_href} class:list={['btn-cta', `btn-cta--${cta_variant}`]}>
-      {cta_label}
-    </a>
-    <div class="tnl-meta">
-      <span class="tnl-meta__reading">
-        {lang === 'fr' ? 'Temps de lecture&nbsp;: 2 min' : '2 min read'}
-      </span>
-      <a href={back_href} class="tnl-meta__back">
-        {lang === 'fr' ? `← ${offre_label}` : `← ${offre_label}`}
-      </a>
-    </div>
-  </footer>
+  <TunnelStepNav
+    data={{
+      type: 'tunnel-step-nav',
+      prev_href,
+      prev_label_fr: '← Étape précédente',
+      prev_label_en: '← Previous step',
+      cta: {
+        label_fr: cta_label_fr,
+        label_en: cta_label_en,
+        href: cta_href,
+        variant: cta_variant,
+      },
+      reading_fr: 'Temps de lecture : 2 min',
+      reading_en: '2 min read',
+      back_href,
+      back_label: `← ${offre_label}`,
+    }}
+    lang={lang}
+  />
 </article>
 
 <style>
@@ -104,71 +86,7 @@ const padStep = (n: number) => String(n).padStart(2, '0');
 .tunnel-template { padding-block: 0; }
 .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: var(--gut); }
 
-/* ── Kicker ── */
-.tnl-kicker {
-  font-family: var(--font-mono);
-  font-size: clamp(10px, 1.1vw, 12px);
-  line-height: 1;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: var(--space-6);
-  padding-top: clamp(48px, 8vw, 96px);
-}
-
-/* ── Progress bar ── */
-.tnl-progress {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  margin-bottom: var(--space-7);
-}
-.tnl-progress__step {
-  font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
-  line-height: 1;
-  letter-spacing: .06em;
-  color: var(--muted);
-  padding-inline: 10px;
-  border-right: 1px solid var(--hairline);
-}
-.tnl-progress__step:first-child { padding-left: 0; }
-.tnl-progress__step:last-child { border-right: none; }
-.tnl-progress__step.is-active { color: var(--accent); }
-
-/* ── H1 ── */
-.tnl-h1 {
-  font-family: var(--font-display);
-  letter-spacing: -.02em;
-  line-height: 1.05;
-  color: var(--ink);
-  margin-bottom: clamp(24px, 3vw, 40px);
-  max-width: 18ch;
-}
-.tnl-h1--hero { font-size: var(--text-h1-hero); }
-.tnl-h1--section { font-size: var(--text-h2-grand); }
-.tnl-h1 :global(i),
-.tnl-h1 :global(em) {
-  font-style: italic;
-  color: var(--accent);
-}
-
-/* ── Lede ── */
-.tnl-lede {
-  font-family: var(--font-sans);
-  font-size: var(--text-lede);
-  line-height: 1.6;
-  color: var(--ink);
-  max-width: 62ch;
-  margin-bottom: clamp(48px, 7vw, 96px);
-}
-
-/* ── Hero section ── */
-.tnl-hero {
-  padding-bottom: clamp(48px, 6vw, 80px);
-}
-
-/* ── Body ── */
+/* ── Body (prose riche — reste dans le template, hybride intentionnel) ── */
 .tnl-body {
   padding-block: clamp(48px, 6vw, 80px);
   border-top: 1px solid var(--hairline);
@@ -261,73 +179,5 @@ const padStep = (n: number) => String(n).padStart(2, '0');
   border-bottom: 1px solid var(--hairline);
   padding: var(--space-3) var(--space-4);
   line-height: var(--leading-body);
-}
-
-/* ── Footer nav ── */
-.tnl-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-5);
-  padding-block: clamp(48px, 6vw, 80px);
-  border-top: 1px solid var(--hairline);
-}
-.btn-ghost {
-  font-family: var(--font-sans);
-  font-size: var(--text-body-lead);
-  color: var(--ink);
-  border: 1px solid var(--hairline);
-  padding: var(--space-3) var(--space-5);
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: border-color .2s;
-}
-.btn-ghost:hover { border-color: var(--ink); }
-.btn-cta {
-  font-family: var(--font-sans);
-  font-size: var(--text-body-lead);
-  font-weight: var(--fw-semibold);
-  padding: 14px 28px;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: opacity .2s;
-}
-.btn-cta--primary { background: var(--ink); color: var(--paper); }
-.btn-cta--accent { background: var(--accent); color: var(--paper); }
-.btn-cta--ghost { border: 1px solid var(--hairline); color: var(--ink); background: transparent; }
-.btn-cta:hover { opacity: .85; }
-
-/* ── Meta bar ── */
-.tnl-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  margin-left: auto;
-}
-.tnl-meta__reading,
-.tnl-meta__back {
-  font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
-  color: var(--muted);
-  letter-spacing: .06em;
-  text-decoration: none;
-}
-.tnl-meta__back:hover { color: var(--ink); }
-
-/* ── Responsive ── */
-@media (max-width: 700px) {
-  .tnl-progress {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-1);
-  }
-  .tnl-progress__step {
-    border-right: none;
-    border-bottom: 1px solid var(--hairline);
-    padding: var(--space-1) 0;
-    width: 100%;
-  }
-  .tnl-progress__step:last-child { border-bottom: none; }
-  .tnl-meta { margin-left: 0; width: 100%; }
 }
 </style>

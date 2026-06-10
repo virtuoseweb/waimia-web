@@ -596,6 +596,36 @@ export const heroTunnelStepSchema = z.object({
   lede_en: z.string(),
 });
 
+// Hero · étape tunnel V2 — kicker calculé depuis offre_label+step+progress_total (TunnelStepTemplate)
+export const tunnelStepHeroSchema = z.object({
+  type: z.literal('tunnel-step-hero'),
+  offre_label: z.string(),
+  step: z.number().int().min(1),
+  progress_total: z.number().int().min(1),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+});
+
+// Nav · étape tunnel — prev + cta + meta (TunnelStepTemplate footer)
+export const tunnelStepNavSchema = z.object({
+  type: z.literal('tunnel-step-nav'),
+  prev_href: z.string().optional(),
+  prev_label_fr: z.string().default('← Étape précédente'),
+  prev_label_en: z.string().default('← Previous step'),
+  cta: z.object({
+    label_fr: z.string(),
+    label_en: z.string(),
+    href: z.string(),
+    variant: z.enum(['primary', 'accent', 'ghost']).default('primary'),
+  }),
+  reading_fr: z.string().default('Temps de lecture : 2 min'),
+  reading_en: z.string().default('2 min read'),
+  back_href: z.string(),
+  back_label: z.string(),
+});
+
 // Bandeau marquee mono uppercase infini scroll (avec respect prefers-reduced-motion)
 export const marqueeBandSchema = z.object({
   type: z.literal('marquee-band'),
@@ -2166,6 +2196,8 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroLeadMagnetSchema,
   heroCourseSchema,
   heroTunnelStepSchema,
+  tunnelStepHeroSchema,
+  tunnelStepNavSchema,
   marqueeBandSchema,
   problemsGridSchema,
   whyStallsSchema,
