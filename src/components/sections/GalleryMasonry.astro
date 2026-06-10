@@ -10,7 +10,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="gallery-masonry">
+<section class="gallery-masonry" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="gallery-masonry__header reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -60,7 +60,7 @@ const isFr = lang === 'fr';
 
 <style>
   .gallery-masonry {
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
 
@@ -218,4 +218,15 @@ const isFr = lang === 'fr';
       columns: 1;
     }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .gallery-masonry[data-bg='paper-2'] { background: var(--paper-2); }
+  .gallery-masonry[data-bg='paper-3'] { background: var(--paper-3); }
+  .gallery-masonry[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .gallery-masonry[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

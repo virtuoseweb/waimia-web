@@ -11,7 +11,7 @@ const isFr = lang === 'fr';
 ---
 
 <div class="wrap-wide">
-  <div class="cta-inline">
+  <div class="cta-inline" data-bg={data.background}>
     <p class="cta-inline__text">{isFr ? data.text_fr : data.text_en}</p>
     <Button href={data.cta.href} variant={data.cta.variant as any} size="md">
       {isFr ? data.cta.label_fr : data.cta.label_en}
@@ -38,4 +38,11 @@ const isFr = lang === 'fr';
     min-width: 200px;
     line-height: var(--leading-body);
   }
+  /* Alternance des fonds R4 · le schema exposait deja `background`, le composant l'ignorait */
+  .cta-inline[data-bg='paper'] { background: var(--paper); }
+  .cta-inline[data-bg='paper-3'] { background: var(--paper-3); }
+  .cta-inline[data-bg='ink'] { background: var(--ink); }
+  .cta-inline[data-bg='ink'] .cta-inline__text { color: var(--paper); }
+  .cta-inline[data-bg='accent'] { background: var(--accent); }
+  .cta-inline[data-bg='accent'] .cta-inline__text { color: var(--paper); }
 </style>

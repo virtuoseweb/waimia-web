@@ -113,16 +113,22 @@ body {
   /* Leading & tracking */
   --leading-body:    1.5;
   --leading-lede:    1.4;  /* lede hero / sous-titres display (18–32px) */
+  --leading-relaxed: 1.6;  /* petits corps secondaires (asides, descriptions) · fusion R4 1.55/1.6 */
   --leading-prose:   1.65; /* corps long de lecture (articles, FAQ, glossaire) */
   --tracking-display: -0.025em;
   --tracking-body:    -0.005em;
   --tracking-mono:    0.12em;
+  --tracking-mono-tight: 0.08em; /* liens/pills mono discrets · tokenisé R4 (3 occ.) */
+  --tracking-caps:    0.2em;     /* kickers caps larges (chrome header/mega) · fusion R4 0.2/0.22em */
 }
 
-/* ─── RADIUS SCALE · rayons unifiés (échelle restreinte) ─── */
+/* ─── RADIUS SCALE · rayons unifiés (échelle restreinte) ───
+   Refonte R4 : échelle t-shirt rétablie (xs < sm < base < md < card < lg).
+   Avant : --radius-xs 4px > --radius-sm 2px (inversion, dette de génération).
+   Les noms ont été échangés et TOUS les usages substitués (0 alias rétrocompat). */
 :root {
-  --radius-xs:   4px;   /* inputs / focus-visible / form (cran manquant sm↔md) */
-  --radius-sm:   2px;   /* micro · cards, tags, inputs */
+  --radius-xs:   2px;   /* micro · cards, tags, hairline focus */
+  --radius-sm:   4px;   /* inputs / focus-visible / form */
   --radius-base: 6px;   /* comble le trou 4→8 · skip-link, TerminalCTA sm, NewsletterSignup, comparer btn */
   --radius-md:   8px;   /* medium · panneaux, mockups */
   --radius-card: 10px;  /* comble le trou 8→12 · TerminalTable, console cards */
@@ -149,15 +155,17 @@ body {
   --space-14: 200px;
   --space-15: 256px;
 
-  /* Section rhythm · respiration éditoriale différenciée */
-  --section-base: var(--space-11); /* 96px — défaut */
-  --section-loose: var(--space-13); /* 160px — ouverture chapitre */
-  --section-grand: var(--space-15); /* 256px — breakout signature */
+  /* Section rhythm · LA famille verticale unique (refonte R4, docs/37 §2.4 arbitrage A4)
+     Crans FIXES (la version minoritaire a gagné : hiérarchie nette > clamps fluides
+     qui écrasent la hiérarchie selon viewport). Tout padding vertical de section
+     consomme UN de ces 4 crans · gate scripts/check-section-rhythm.mjs.
+     Modifier un cran re-rythme toute la famille (DS Studio pilotable). */
+  --section-tight: var(--space-8);  /* 48px · bande compacte (proof bar, logos) */
+  --section-base: var(--space-11);  /* 96px · défaut de toute section de contenu */
+  --section-loose: var(--space-13); /* 160px · ouverture de chapitre, section ample */
+  --section-grand: var(--space-15); /* 256px · breakout signature (rare, climax) */
 
-  /* Rythm sections composable V2 · seuls tokens W6 transitoires restants
-     (rename Phase D.5 effectué 2026-05-15 commit a venir : --font-serif, --text-body,
-     --text-h1, --text-h2, --text-small supprimés au profit des tokens canoniques DA) */
-  --spacing-section: clamp(64px, 8vw, 96px);
+  /* Rythme interne des blocs composables (PAS un cran de section · inner gap) */
   --spacing-block: clamp(28px, 3vw, 48px);
 }
 
@@ -175,9 +183,11 @@ body {
 :root {
   --dur-fast:     200ms;  /* transitions UI micro */
   --dur-trim:     220ms;  /* micro-transitions hover · color/border/transform/background */
-  --dur-base:     400ms;  /* stagger children */
+  --dur-hover:    300ms;  /* hover/chrome standard · fusion R4 des littéraux 260/280/300/320/340ms */
+  --dur-base:     400ms;  /* stagger children · fusion R4 des littéraux 380/420/440/480ms */
+  --dur-panel:    540ms;  /* panneaux/sheets (mobile sheet, page-pill) · tokenisé R4 (4 occ.) */
   --dur-reveal:  1100ms;  /* reveal éditorial standard (ex --reveal-med) */
-  --dur-slow:    1400ms;  /* reveal contemplatif (ex --reveal-slow) */
+  --dur-slow:    1400ms;  /* reveal contemplatif (ex --reveal-slow) · absorbe 1600ms R4 */
 }
 
 /* ─── TYPE SCALE · enrichi ─── */
@@ -239,14 +249,16 @@ body {
 
 /* ─── SHADOWS éditoriaux subtils ─── */
 :root {
-  /* Pas de drop-shadow lourd — uniquement du subtle pour différencier les surfaces */
-  --shadow-hairline: 0 0 0 1px var(--hairline);
+  /* Pas de drop-shadow lourd · uniquement du subtle pour différencier les surfaces
+     Refonte R4 : --shadow-hairline (doublon byte-identique) fusionné dans
+     --shadow-card-rest (la paire sémantique rest/hover gagne · audit DS §2-T1). */
   --shadow-paper-lift:
     0 1px 0 var(--hairline), 0 12px 28px -16px rgba(var(--ink-rgb), 0.07);
   --shadow-card-rest: 0 0 0 1px var(--hairline);
   --shadow-card-hover:
     0 0 0 1px var(--hairline-strong), 0 8px 24px -16px rgba(var(--ink-rgb), 0.1);
   --shadow-cta: 0 1px 0 var(--ink), 0 12px 24px -8px rgba(var(--accent-rgb), 0.18);
+  --shadow-cta-hover: 0 14px 32px rgba(var(--accent-rgb), 0.22);
   --shadow-lift: 0 12px 40px rgba(var(--ink-rgb), 0.08);
 }
 

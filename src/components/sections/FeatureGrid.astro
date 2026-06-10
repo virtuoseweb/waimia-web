@@ -11,7 +11,7 @@ const isFr = lang === 'fr';
 const cols = data.columns ?? '3';
 ---
 
-<section class="feature-grid">
+<section class="feature-grid" data-bg={data.background}>
   <div class="wrap-wide">
   <div class="feature-grid__header">
     {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -35,7 +35,7 @@ const cols = data.columns ?? '3';
 
 <style>
   .feature-grid {
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
   .feature-grid__header {
@@ -89,4 +89,15 @@ const cols = data.columns ?? '3';
     .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(2, 1fr); }
     .feature-grid__list[data-cols="2"] { grid-template-columns: 1fr; }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .feature-grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .feature-grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .feature-grid[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .feature-grid[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

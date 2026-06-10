@@ -10,7 +10,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="steps-horizontal">
+<section class="steps-horizontal" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="steps-horizontal__header">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -37,7 +37,7 @@ const isFr = lang === 'fr';
 
 <style>
   .steps-horizontal {
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
 
@@ -165,4 +165,15 @@ const isFr = lang === 'fr';
       padding-bottom: var(--space-6);
     }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .steps-horizontal[data-bg='paper-2'] { background: var(--paper-2); }
+  .steps-horizontal[data-bg='paper-3'] { background: var(--paper-3); }
+  .steps-horizontal[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .steps-horizontal[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

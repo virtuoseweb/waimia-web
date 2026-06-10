@@ -14,7 +14,7 @@ const isSplitQuote = data.layout === 'split-quote' && Boolean(quote);
 const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quote' ? 'grid-3' : data.layout;
 ---
 
-<section class="stat-block">
+<section class="stat-block" data-bg={data.background}>
   <div class="wrap-wide">
   <div class="stat-block__header">
     {(isFr ? data.h2_fr : data.h2_en) && (
@@ -53,7 +53,7 @@ const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quot
 
 <style>
   .stat-block {
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
   .stat-block__header {
@@ -141,4 +141,15 @@ const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quot
     .stat-block__grid[data-layout="grid-4"] { grid-template-columns: 1fr; }
     .stat-block__grid[data-layout="split-quote"] { grid-template-columns: 1fr; }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .stat-block[data-bg='paper-2'] { background: var(--paper-2); }
+  .stat-block[data-bg='paper-3'] { background: var(--paper-3); }
+  .stat-block[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .stat-block[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

@@ -10,7 +10,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="social-proof">
+<section class="social-proof" data-bg={data.background}>
   {(isFr ? data.kicker_fr : data.kicker_en) && (
     <div class="wrap-wide">
       <Kicker tone="muted" class="social-proof__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -37,7 +37,7 @@ const isFr = lang === 'fr';
 
 <style>
   .social-proof {
-    padding-block: clamp(32px, 4vw, 56px);
+    padding-block: var(--section-tight);
     border-bottom: 1px solid var(--hairline);
     overflow: hidden;
   }
@@ -74,4 +74,15 @@ const isFr = lang === 'fr';
   @media (prefers-reduced-motion: reduce) {
     .social-proof__marquee { animation: none; }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .social-proof[data-bg='paper-2'] { background: var(--paper-2); }
+  .social-proof[data-bg='paper-3'] { background: var(--paper-3); }
+  .social-proof[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .social-proof[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

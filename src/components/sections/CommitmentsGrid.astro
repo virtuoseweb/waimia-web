@@ -2,6 +2,7 @@
 // Section W6 · commitments-grid
 // Grille de garanties/engagements (2–6 colonnes hairline). Source : `meth-garanties-grid` (methode.astro).
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'commitments-grid'>;
@@ -14,9 +15,9 @@ const isFr = lang === 'fr';
 <section class="commitments-grid" aria-labelledby="commitments-grid-h2">
   <div class="wrap-wide">
     {(data.kicker_fr || data.kicker_en) && (
-      <p class="commitments-grid__kicker">
+      <Kicker as="p" tone="accent" class="commitments-grid__kicker">
         {isFr ? data.kicker_fr : data.kicker_en}
-      </p>
+      </Kicker>
     )}
     <h2 id="commitments-grid-h2" class="commitments-grid__h2 reveal">
       {isFr ? data.h2_fr : data.h2_en}
@@ -40,16 +41,12 @@ const isFr = lang === 'fr';
 
 <style>
   .commitments-grid {
-    padding: clamp(56px, 7vw, 88px) 0;
+    padding: var(--section-base) 0;
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
   }
-  .commitments-grid__kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.commitments-grid__kicker) {
     margin: 0 0 14px;
   }
   .commitments-grid__h2 {

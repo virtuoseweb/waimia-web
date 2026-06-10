@@ -31,6 +31,7 @@ let normalizedItems: SimpleItem[];
 let heading: string;
 let kicker: string | undefined;
 let intro: string | undefined;
+let background: 'paper' | 'paper-2' | 'paper-3' | 'ink' | undefined;
 
 if ('data' in Astro.props) {
   const { data, lang } = Astro.props as CmsProps;
@@ -42,16 +43,18 @@ if ('data' in Astro.props) {
   heading = isFr ? data.h2_fr : data.h2_en;
   kicker = isFr ? data.kicker_fr : data.kicker_en;
   intro = undefined;
+  background = data.background;
 } else {
   const { items, heading: h, intro: i } = Astro.props as DirectProps;
   normalizedItems = items;
   heading = h ?? 'Questions fréquentes';
   kicker = undefined;
   intro = i;
+  background = undefined;
 }
 ---
 
-<section class="faq-accordion">
+<section class="faq-accordion" data-bg={background}>
   <div class="wrap-wide">
   <div class="faq-accordion__header">
     {kicker && (
@@ -83,7 +86,7 @@ if ('data' in Astro.props) {
 
 <style>
   .faq-accordion {
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
   .faq-accordion__header {
@@ -146,4 +149,15 @@ if ('data' in Astro.props) {
     margin: 0;
     max-width: 64ch;
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .faq-accordion[data-bg='paper-2'] { background: var(--paper-2); }
+  .faq-accordion[data-bg='paper-3'] { background: var(--paper-3); }
+  .faq-accordion[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .faq-accordion[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

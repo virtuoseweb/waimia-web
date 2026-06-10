@@ -2,6 +2,7 @@
 // Section catalogue · persona-attributes-grid
 // Source fidèle : `src/pages/ressources/personas/[slug].astro` `.persona-detail__grid`.
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'persona-attributes-grid'>;
@@ -15,7 +16,7 @@ const isFr = lang === 'fr';
 <div class="persona-detail__grid">
   {data.blocks.map((block) => (
     <section class="persona-detail__block">
-      <span class="persona-kicker">{isFr ? block.kicker_fr : block.kicker_en}</span>
+      <Kicker as="span" size={10} class="persona-kicker">{isFr ? block.kicker_fr : block.kicker_en}</Kicker>
       <ul>
         {(isFr ? block.items_fr : block.items_en).map((item) => <li>{item}</li>)}
       </ul>
@@ -25,7 +26,7 @@ const isFr = lang === 'fr';
   <section class="persona-detail__meta">
     {data.meta.map((item) => (
       <div>
-        <span class="persona-kicker persona-kicker--dark">{isFr ? item.kicker_fr : item.kicker_en}</span>
+        <Kicker as="span" size={10} class="persona-kicker persona-kicker--dark">{isFr ? item.kicker_fr : item.kicker_en}</Kicker>
         <p>{isFr ? item.value_fr : item.value_en}</p>
       </div>
     ))}
@@ -44,16 +45,12 @@ const isFr = lang === 'fr';
     border: 1px solid var(--hairline);
     background: var(--paper-2);
   }
-  .persona-kicker {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker (size 10), ici layout seul */
+  :global(.persona-kicker) {
     display: block;
     margin-bottom: var(--space-3);
-    font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--muted);
   }
-  .persona-kicker--dark {
+  :global(.persona-kicker--dark) {
     margin-bottom: var(--space-2);
   }
   .persona-detail__block ul {

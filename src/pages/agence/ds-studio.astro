@@ -647,7 +647,7 @@ const moleculesRendered = 12;
   }
   .studio code {
     font-family: var(--font-mono); font-size: 0.92em;
-    background: var(--paper-2); padding: 0.1em 0.4em; border-radius: var(--radius-xs);
+    background: var(--paper-2); padding: 0.1em 0.4em; border-radius: var(--radius-sm);
   }
 
   /* ── Layout 2 colonnes ── */
@@ -675,7 +675,7 @@ const moleculesRendered = 12;
   .studio-tool-field { display: flex; flex-direction: column; gap: var(--space-1); flex: 1; font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted); }
   .studio-page-preview {
     display: block; width: 100%; height: 70vh; border: 1px solid var(--hairline);
-    border-radius: var(--radius-sm); background: var(--paper);
+    border-radius: var(--radius-xs); background: var(--paper);
   }
   @media (max-width: 1080px) {
     .studio-layout { grid-template-columns: 1fr; }
@@ -702,7 +702,7 @@ const moleculesRendered = 12;
   .studio-actions { display: flex; gap: var(--space-2); }
   .studio-btn {
     font-family: var(--font-mono); font-size: var(--text-mono-xs);
-    border: 1px solid var(--hairline-strong); border-radius: var(--radius-sm);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-xs);
     background: var(--paper-2); color: var(--ink); padding: var(--space-2) var(--space-3);
     cursor: pointer; transition: background var(--dur-fast) var(--ease);
   }
@@ -714,7 +714,7 @@ const moleculesRendered = 12;
   .studio-search input {
     width: 100%; box-sizing: border-box; font-family: var(--font-mono);
     font-size: var(--text-ui); padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--hairline-strong); border-radius: var(--radius-sm);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-xs);
     background: var(--paper-2); color: var(--ink);
   }
 
@@ -729,7 +729,7 @@ const moleculesRendered = 12;
   .studio-rows { display: flex; flex-direction: column; gap: var(--space-2); }
   .studio-row {
     display: grid; grid-template-columns: 1fr; gap: var(--space-1);
-    padding: var(--space-2); border-radius: var(--radius-sm);
+    padding: var(--space-2); border-radius: var(--radius-xs);
     border: 1px solid transparent; cursor: pointer;
   }
   .studio-row:hover { background: var(--paper-2); }
@@ -744,11 +744,11 @@ const moleculesRendered = 12;
   .studio-row-ctrl { display: flex; align-items: center; gap: var(--space-2); }
   .studio-swatch-input {
     width: 32px; height: 28px; padding: 0; border: 1px solid var(--hairline-strong);
-    border-radius: var(--radius-sm); background: none; cursor: pointer; flex: none;
+    border-radius: var(--radius-xs); background: none; cursor: pointer; flex: none;
   }
   .studio-text-input, .studio-num {
     font-family: var(--font-mono); font-size: var(--text-mono-xs);
-    border: 1px solid var(--hairline); border-radius: var(--radius-sm);
+    border: 1px solid var(--hairline); border-radius: var(--radius-xs);
     background: var(--paper); color: var(--ink); padding: var(--space-1) var(--space-2);
     width: 100%; box-sizing: border-box; min-width: 0;
   }
@@ -760,12 +760,12 @@ const moleculesRendered = 12;
   .studio-export-out {
     font-family: var(--font-mono); font-size: var(--text-mono-xs);
     background: var(--ink); color: var(--accent-ink); padding: var(--space-3);
-    border-radius: var(--radius-sm); margin-top: var(--space-4);
+    border-radius: var(--radius-xs); margin-top: var(--space-4);
     white-space: pre-wrap; word-break: break-all; max-height: 200px; overflow: auto;
   }
   .studio-export-out:empty { display: none; }
   .studio-side-tool {
-    border: 1px solid var(--hairline); border-radius: var(--radius-sm);
+    border: 1px solid var(--hairline); border-radius: var(--radius-xs);
     margin-bottom: var(--space-4); background: var(--paper-2);
   }
   .studio-contrast-list, .studio-preset-list { display: flex; flex-direction: column; gap: var(--space-2); padding: 0 var(--space-3) var(--space-3); }
@@ -825,7 +825,7 @@ const moleculesRendered = 12;
   .studio-note-role { font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted); }
   .studio-tag {
     font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted);
-    background: var(--paper-2); padding: 0.1em 0.4em; border-radius: var(--radius-xs);
+    background: var(--paper-2); padding: 0.1em 0.4em; border-radius: var(--radius-sm);
   }
 
   /* Molécules */
@@ -870,7 +870,7 @@ const moleculesRendered = 12;
   .studio-dup {
     display: grid; grid-template-columns: minmax(120px, 220px) minmax(0, 1fr); gap: var(--space-4);
     align-items: start; padding: var(--space-3); border: 1px solid var(--hairline);
-    border-radius: var(--radius-sm); background: var(--paper);
+    border-radius: var(--radius-xs); background: var(--paper);
   }
   @media (max-width: 640px) { .studio-dup { grid-template-columns: 1fr; } }
   .studio-dup-sig {
@@ -951,7 +951,7 @@ const moleculesRendered = 12;
   }
   .studio-diff-list { display: flex; flex-direction: column; gap: var(--space-2); }
   .studio-diff-row { justify-content: flex-start; padding: var(--space-2); border-bottom: 1px solid var(--hairline); }
-  .studio-diff-swatch { width: var(--space-4); height: var(--space-4); border: 1px solid var(--hairline-strong); border-radius: var(--radius-xs); flex: none; }
+  .studio-diff-swatch { width: var(--space-4); height: var(--space-4); border: 1px solid var(--hairline-strong); border-radius: var(--radius-sm); flex: none; }
 
   /* Vapeur : 3 bouffées qui montent et se dissipent en boucle (CSS pur, tokens). */
   :global(.studio-steam) {

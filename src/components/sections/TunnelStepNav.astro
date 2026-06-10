@@ -54,7 +54,7 @@ const reading    = lang === 'fr' ? reading_fr     : reading_en;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-5);
-  padding-block: clamp(48px, 6vw, 80px);
+  padding-block: var(--section-base);
   border-top: 1px solid var(--hairline);
 }
 
@@ -64,7 +64,7 @@ const reading    = lang === 'fr' ? reading_fr     : reading_en;
   color: var(--ink);
   border: 1px solid var(--hairline);
   padding: var(--space-3) var(--space-5);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   text-decoration: none;
   transition: border-color .2s;
 }
@@ -75,7 +75,7 @@ const reading    = lang === 'fr' ? reading_fr     : reading_en;
   font-size: var(--text-body-lead);
   font-weight: var(--fw-semibold);
   padding: 14px 28px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   text-decoration: none;
   transition: opacity .2s;
 }

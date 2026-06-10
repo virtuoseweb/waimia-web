@@ -47,7 +47,7 @@ const isFr = lang === 'fr';
 
 <style>
   .eq-grid-sec {
-    padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 140px);
+    padding: var(--section-base) 0 var(--section-loose);
   }
   .eq-grid {
     display: grid;
@@ -58,7 +58,7 @@ const isFr = lang === 'fr';
     background: var(--paper);
     border: 1px solid rgba(var(--ink-rgb), .08);
     border-top: 2px solid transparent;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     padding: var(--space-6);
     text-decoration: none;
     color: var(--ink);
@@ -79,7 +79,7 @@ const isFr = lang === 'fr';
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     transition: transform 360ms var(--ease-out);
   }
   .eq-card-body {

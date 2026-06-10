@@ -100,13 +100,25 @@
       "name": "--dur-base",
       "value": "400ms",
       "group": "motion",
-      "comment": "stagger children"
+      "comment": "stagger children · fusion R4 des littéraux 380/420/440/480ms"
     },
     {
       "name": "--dur-fast",
       "value": "200ms",
       "group": "motion",
       "comment": "transitions UI micro"
+    },
+    {
+      "name": "--dur-hover",
+      "value": "300ms",
+      "group": "motion",
+      "comment": "hover/chrome standard · fusion R4 des littéraux 260/280/300/320/340ms"
+    },
+    {
+      "name": "--dur-panel",
+      "value": "540ms",
+      "group": "motion",
+      "comment": "panneaux/sheets (mobile sheet, page-pill) · tokenisé R4 (4 occ.)"
     },
     {
       "name": "--dur-reveal",
@@ -118,7 +130,13 @@
       "name": "--dur-slow",
       "value": "1400ms",
       "group": "motion",
-      "comment": "reveal contemplatif (ex --reveal-slow)"
+      "comment": "reveal contemplatif (ex --reveal-slow) · absorbe 1600ms R4"
+    },
+    {
+      "name": "--dur-trim",
+      "value": "220ms",
+      "group": "motion",
+      "comment": "micro-transitions hover · color/border/transform/background"
     },
     {
       "name": "--ease",
@@ -259,6 +277,12 @@
       "comment": "corps long de lecture (articles, FAQ, glossaire)"
     },
     {
+      "name": "--leading-relaxed",
+      "value": "1.6",
+      "group": "type",
+      "comment": "petits corps secondaires (asides, descriptions) · fusion R4 1.55/1.6"
+    },
+    {
       "name": "--muted",
       "value": "#6B6560",
       "group": "color",
@@ -295,6 +319,18 @@
       "comment": ""
     },
     {
+      "name": "--radius-base",
+      "value": "6px",
+      "group": "radius",
+      "comment": "comble le trou 4→8 · skip-link, TerminalCTA sm, NewsletterSignup, comparer btn"
+    },
+    {
+      "name": "--radius-card",
+      "value": "10px",
+      "group": "radius",
+      "comment": "comble le trou 8→12 · TerminalTable, console cards"
+    },
+    {
       "name": "--radius-full",
       "value": "50%",
       "group": "radius",
@@ -320,33 +356,39 @@
     },
     {
       "name": "--radius-sm",
-      "value": "2px",
+      "value": "4px",
       "group": "radius",
-      "comment": "micro · cards, tags, inputs"
+      "comment": "inputs / focus-visible / form"
     },
     {
       "name": "--radius-xs",
-      "value": "4px",
+      "value": "2px",
       "group": "radius",
-      "comment": "inputs / focus-visible / form (cran manquant sm↔md)"
+      "comment": "micro · cards, tags, hairline focus"
     },
     {
       "name": "--section-base",
       "value": "var(--space-11)",
       "group": "spacing",
-      "comment": "96px · défaut"
+      "comment": "96px · défaut de toute section de contenu"
     },
     {
       "name": "--section-grand",
       "value": "var(--space-15)",
       "group": "spacing",
-      "comment": "256px · breakout signature"
+      "comment": "256px · breakout signature (rare, climax)"
     },
     {
       "name": "--section-loose",
       "value": "var(--space-13)",
       "group": "spacing",
-      "comment": "160px · ouverture chapitre"
+      "comment": "160px · ouverture de chapitre, section ample"
+    },
+    {
+      "name": "--section-tight",
+      "value": "var(--space-8)",
+      "group": "spacing",
+      "comment": "48px · bande compacte (proof bar, logos)"
     },
     {
       "name": "--shadow-card-hover",
@@ -367,10 +409,10 @@
       "comment": ""
     },
     {
-      "name": "--shadow-hairline",
-      "value": "0 0 0 1px var(--hairline)",
+      "name": "--shadow-cta-hover",
+      "value": "0 14px 32px rgba(var(--accent-rgb), 0.22)",
       "group": "shadow",
-      "comment": "Pas de drop-shadow lourd · uniquement du subtle pour différencier les surfaces"
+      "comment": ""
     },
     {
       "name": "--shadow-lift",
@@ -382,7 +424,7 @@
       "name": "--shadow-paper-lift",
       "value": "0 1px 0 var(--hairline), 0 12px 28px -16px rgba(var(--ink-rgb), 0.07)",
       "group": "shadow",
-      "comment": ""
+      "comment": "Pas de drop-shadow lourd · uniquement du subtle pour différencier les surfaces Refonte R4 : --shadow-hairline (doublon byte-identique) fusionné dans --shadow-card-rest (la paire sémantique rest/hover gagne · audit DS §2-T1)."
     },
     {
       "name": "--space-1",
@@ -478,13 +520,13 @@
       "name": "--spacing-block",
       "value": "clamp(28px, 3vw, 48px)",
       "group": "spacing",
-      "comment": ""
+      "comment": "Rythme interne des blocs composables (PAS un cran de section · inner gap)"
     },
     {
-      "name": "--spacing-section",
-      "value": "clamp(64px, 8vw, 96px)",
-      "group": "spacing",
-      "comment": "Rythm sections composable V2 · seuls tokens W6 transitoires restants (rename Phase D.5 effectué 2026-05-15 commit a venir : --font-serif, --text-body, --text-h1, --text-h2, --text-small supprimés au profit des tokens canoniques DA)"
+      "name": "--text-body-base",
+      "value": "16px",
+      "group": "type",
+      "comment": "corps générique 16px (23 occurrences littérales → tokenisées Lot E)"
     },
     {
       "name": "--text-body-lead",
@@ -496,7 +538,7 @@
       "name": "--text-body-md",
       "value": "17px",
       "group": "type",
-      "comment": "Body · Inter Tight · seuls -md et -sm survivent (utilisés via aliases W6) Cleanup Phase D.1 (2026-05-15) · 2 tailles unused supprimées : lg, xs"
+      "comment": "corps générique 16px (23 occurrences littérales → tokenisées Lot E)"
     },
     {
       "name": "--text-body-sm",
@@ -589,6 +631,12 @@
       "comment": ""
     },
     {
+      "name": "--tracking-caps",
+      "value": "0.2em",
+      "group": "type",
+      "comment": "kickers caps larges (chrome header/mega) · fusion R4 0.2/0.22em"
+    },
+    {
       "name": "--tracking-display",
       "value": "-0.025em",
       "group": "type",
@@ -599,6 +647,12 @@
       "value": "0.12em",
       "group": "type",
       "comment": ""
+    },
+    {
+      "name": "--tracking-mono-tight",
+      "value": "0.08em",
+      "group": "type",
+      "comment": "liens/pills mono discrets · tokenisé R4 (3 occ.)"
     },
     {
       "name": "--wrap",
@@ -640,7 +694,7 @@
   "tokenConsumers": [
     {
       "token": "--accent",
-      "count": 210,
+      "count": 208,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -658,12 +712,12 @@
         "src/components/sections/BrandedCallout.astro",
         "src/components/sections/CaseCardGrid.astro",
         "src/components/sections/CaseSplit.astro",
-        "src/components/sections/CommitmentsGrid.astro",
         "src/components/sections/ComparisonDuo.astro",
         "src/components/sections/ComparisonTable.astro",
         "src/components/sections/CourseCatalogTable.astro",
         "src/components/sections/CtaBandSection.astro",
         "src/components/sections/CtaFinal.astro",
+        "src/components/sections/CtaInline.astro",
         "src/components/sections/CtaSplitVisual.astro",
         "src/components/sections/DecisionList.astro",
         "src/components/sections/DeliverablesGrid.astro",
@@ -704,7 +758,6 @@
         "src/components/sections/PersonaAttributesGrid.astro",
         "src/components/sections/PricingComparisonMatrix.astro",
         "src/components/sections/PricingTable.astro",
-        "src/components/sections/ProblemsGrid.astro",
         "src/components/sections/ProblemStatement.astro",
         "src/components/sections/ProofBarSection.astro",
         "src/components/sections/QuoteSpotlight.astro",
@@ -723,6 +776,8 @@
         "src/components/sections/TechWhenDual.astro",
         "src/components/sections/TestimonialBlock.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WhyStalls.astro",
@@ -748,14 +803,11 @@
         "src/components/templates/CourseDetailTemplate.astro",
         "src/components/templates/DetailMenuTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/ChapterLabel.astro",
         "src/components/ui/atoms/CursorDot.astro",
         "src/components/ui/atoms/FormErrors.astro",
@@ -858,8 +910,8 @@
       "token": "--accent-2",
       "count": 8,
       "files": [
+        "src/components/sections/CourseCatalogTable.astro",
         "src/components/sections/WelcomeSection.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
@@ -972,16 +1024,17 @@
     },
     {
       "token": "--dur-base",
-      "count": 3,
+      "count": 4,
       "files": [
         "src/components/sections/GalleryMasonry.astro",
         "src/components/templates/OffresDetailTemplate.astro",
+        "src/styles/global.css",
         "src/styles/scroll-reveal.css"
       ]
     },
     {
       "token": "--dur-fast",
-      "count": 39,
+      "count": 38,
       "files": [
         "src/components/editorial/EditorialTable.astro",
         "src/components/sections/CaseCardGrid.astro",
@@ -999,7 +1052,6 @@
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/CursorDot.astro",
         "src/components/ui/molecules/Breadcrumb.astro",
         "src/components/ui/molecules/EditorialWriteRow.astro",
@@ -1025,28 +1077,83 @@
       ]
     },
     {
+      "token": "--dur-hover",
+      "count": 1,
+      "files": [
+        "src/styles/global.css"
+      ]
+    },
+    {
+      "token": "--dur-panel",
+      "count": 1,
+      "files": [
+        "src/styles/global.css"
+      ]
+    },
+    {
       "token": "--dur-reveal",
-      "count": 5,
+      "count": 6,
       "files": [
         "src/components/motion/BootSplash.astro",
         "src/components/sections/GalleryMasonry.astro",
         "src/layouts/Base.astro",
+        "src/pages/agence/design-system.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css"
       ]
     },
     {
       "token": "--dur-slow",
-      "count": 3,
+      "count": 4,
       "files": [
+        "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css"
       ]
     },
     {
+      "token": "--dur-trim",
+      "count": 33,
+      "files": [
+        "src/components/footer/Footer.astro",
+        "src/components/sections/CaseSplit.astro",
+        "src/components/sections/DeliverablesGrid.astro",
+        "src/components/sections/DepartmentCta.astro",
+        "src/components/sections/EditorialPreview.astro",
+        "src/components/sections/FeatureTabs.astro",
+        "src/components/sections/OfferTierGrid.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/UseCaseIndex.astro",
+        "src/components/sections/WorkflowTable.astro",
+        "src/components/templates/ConversionFunnelTemplate.astro",
+        "src/components/templates/OffresDetailTemplate.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro",
+        "src/components/templates/TechnologiesDetailTemplate.astro",
+        "src/components/ui/atoms/CursorDot.astro",
+        "src/components/ui/molecules/EditorialCaseCard.astro",
+        "src/components/ui/molecules/NewsletterSignup.astro",
+        "src/components/ui/molecules/TagPills.astro",
+        "src/components/ui/molecules/TaxonomyMenu.astro",
+        "src/pages/agence/about.astro",
+        "src/pages/agence/methode.astro",
+        "src/pages/archive.astro",
+        "src/pages/cas/index.astro",
+        "src/pages/en/agence/about.astro",
+        "src/pages/en/agence/methode.astro",
+        "src/pages/en/cas/index.astro",
+        "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/ressources/categorie/[...slug].astro",
+        "src/pages/ressources/livres-blancs/index.astro",
+        "src/pages/ressources/silo/[...slug].astro",
+        "src/pages/ressources/tag/[...slug].astro",
+        "src/pages/secteurs/index.astro",
+        "src/styles/global.css"
+      ]
+    },
+    {
       "token": "--ease",
-      "count": 89,
+      "count": 87,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/motion/AtlasConnections.astro",
@@ -1079,12 +1186,10 @@
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/CursorDot.astro",
         "src/components/ui/atoms/PillCTA.astro",
         "src/components/ui/atoms/TerminalCTA.astro",
@@ -1162,7 +1267,7 @@
     },
     {
       "token": "--font-display",
-      "count": 177,
+      "count": 175,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -1250,6 +1355,7 @@
         "src/components/sections/TestimonialBlock.astro",
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepHero.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WhyStalls.astro",
@@ -1260,14 +1366,11 @@
         "src/components/templates/CourseDetailTemplate.astro",
         "src/components/templates/DetailMenuTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/SectionTransition.astro",
         "src/components/ui/molecules/AsymmetricServiceRow.astro",
         "src/components/ui/molecules/AuthorByline.astro",
@@ -1345,7 +1448,7 @@
     },
     {
       "token": "--font-mono",
-      "count": 162,
+      "count": 156,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/DropCap.astro",
@@ -1359,20 +1462,16 @@
         "src/components/motion/BootSplash.astro",
         "src/components/sections/ArchitectureDiagram.astro",
         "src/components/sections/BentoGrid.astro",
-        "src/components/sections/BrandedCallout.astro",
         "src/components/sections/CaseCardGrid.astro",
         "src/components/sections/CaseSplit.astro",
         "src/components/sections/ComingSoonPills.astro",
-        "src/components/sections/CommitmentsGrid.astro",
         "src/components/sections/ComparisonDuo.astro",
         "src/components/sections/ComparisonTable.astro",
         "src/components/sections/CourseCatalogTable.astro",
         "src/components/sections/CtaFinal.astro",
         "src/components/sections/DecisionList.astro",
         "src/components/sections/DeliverablesGrid.astro",
-        "src/components/sections/DepartmentStack.astro",
         "src/components/sections/EditorialPreview.astro",
-        "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/FaqAccordion.astro",
         "src/components/sections/FeatureTabs.astro",
         "src/components/sections/HeroAtlas.astro",
@@ -1397,12 +1496,10 @@
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainPoints.astro",
-        "src/components/sections/PersonaAttributesGrid.astro",
         "src/components/sections/PricingComparisonMatrix.astro",
         "src/components/sections/PricingTable.astro",
         "src/components/sections/ProblemsGrid.astro",
         "src/components/sections/ProblemStatement.astro",
-        "src/components/sections/RelatedCardsBand.astro",
         "src/components/sections/RoiBand.astro",
         "src/components/sections/ServiceCatalogList.astro",
         "src/components/sections/ServicesGrid.astro",
@@ -1412,9 +1509,10 @@
         "src/components/sections/TeamCardGrid.astro",
         "src/components/sections/TechCapabilitiesSpecs.astro",
         "src/components/sections/TechPositioningSplit.astro",
-        "src/components/sections/TechStackBand.astro",
         "src/components/sections/TechWhenDual.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WhyStalls.astro",
@@ -1429,7 +1527,6 @@
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/ChapterLabel.astro",
         "src/components/ui/atoms/FormErrors.astro",
         "src/components/ui/atoms/Kicker.astro",
@@ -1513,7 +1610,7 @@
     },
     {
       "token": "--font-sans",
-      "count": 115,
+      "count": 118,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/sections/BentoGrid.astro",
@@ -1573,10 +1670,11 @@
         "src/components/sections/TechCapabilitiesSpecs.astro",
         "src/components/sections/TechWhenDual.astro",
         "src/components/sections/TimelineBlock.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
@@ -1606,6 +1704,7 @@
         "src/pages/en/agence/design-system.astro",
         "src/pages/en/agence/methode.astro",
         "src/pages/en/agence/prompts.astro",
+        "src/pages/en/console.astro",
         "src/pages/en/contact.astro",
         "src/pages/en/offres/index.astro",
         "src/pages/en/ressources/index.astro",
@@ -1617,6 +1716,7 @@
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/index.astro",
         "src/pages/offres/site-web-ia-landing.astro",
+        "src/pages/ressources/academy.astro",
         "src/pages/ressources/field-notes/[slug].astro",
         "src/pages/ressources/field-notes/index.astro",
         "src/pages/ressources/index.astro",
@@ -1677,7 +1777,7 @@
     },
     {
       "token": "--fw-regular",
-      "count": 132,
+      "count": 129,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/editorial/Timeline.astro",
@@ -1754,13 +1854,10 @@
         "src/components/templates/CourseDetailTemplate.astro",
         "src/components/templates/DetailMenuTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/molecules/NewsletterSignup.astro",
         "src/components/ui/molecules/PricingTier.astro",
         "src/components/ui/molecules/ProofBand.astro",
@@ -1815,12 +1912,13 @@
     },
     {
       "token": "--fw-semibold",
-      "count": 20,
+      "count": 19,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroLanding.astro",
         "src/components/sections/LearningPathList.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/templates/CourseDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
         "src/components/ui/molecules/PricingTier.astro",
@@ -1832,21 +1930,21 @@
         "src/pages/en/comparer/[slug].astro",
         "src/pages/en/comparer/index.astro",
         "src/pages/en/integrations/index.astro",
-        "src/pages/en/solutions/index.astro",
         "src/pages/integrations/index.astro",
         "src/pages/offres/site-web-ia-landing.astro",
-        "src/pages/ressources/testimonials/index.astro",
-        "src/pages/solutions/index.astro"
+        "src/pages/ressources/testimonials/index.astro"
       ]
     },
     {
       "token": "--gut",
-      "count": 14,
+      "count": 16,
       "files": [
         "src/components/sections/HeroAtlas.astro",
         "src/components/sections/HeroAuthor.astro",
         "src/components/sections/HeroHome.astro",
         "src/components/sections/HeroTunnelStep.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
@@ -1861,7 +1959,7 @@
     },
     {
       "token": "--hairline",
-      "count": 170,
+      "count": 169,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -1937,6 +2035,8 @@
         "src/components/sections/TestimonialBlock.astro",
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WhyStalls.astro",
@@ -1947,14 +2047,11 @@
         "src/components/templates/CourseDetailTemplate.astro",
         "src/components/templates/DetailMenuTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/SectionTransition.astro",
         "src/components/ui/molecules/AsymmetricServiceRow.astro",
         "src/components/ui/molecules/EditorialCaseCard.astro",
@@ -2063,7 +2160,6 @@
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
@@ -2090,6 +2186,7 @@
         "src/pages/en/agence/design-system.astro",
         "src/pages/en/contact.astro",
         "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/ressources/academy.astro",
         "src/pages/ressources/categorie/[...slug].astro",
         "src/pages/ressources/cookbooks/index.astro",
         "src/pages/ressources/livres-blancs/index.astro",
@@ -2138,7 +2235,7 @@
     },
     {
       "token": "--ink",
-      "count": 169,
+      "count": 174,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -2194,6 +2291,7 @@
         "src/components/sections/LogoWall.astro",
         "src/components/sections/MarqueeBand.astro",
         "src/components/sections/MaturityPyramid.astro",
+        "src/components/sections/MediaBlock.astro",
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
@@ -2206,9 +2304,11 @@
         "src/components/sections/PricingTable.astro",
         "src/components/sections/ProblemsGrid.astro",
         "src/components/sections/ProblemStatement.astro",
+        "src/components/sections/ProofBarSection.astro",
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/RoiBand.astro",
         "src/components/sections/ServicesGrid.astro",
+        "src/components/sections/SocialProof.astro",
         "src/components/sections/SpecBar.astro",
         "src/components/sections/StatBlock.astro",
         "src/components/sections/StatsBento.astro",
@@ -2221,6 +2321,8 @@
         "src/components/sections/TierPyramidSvg.astro",
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/WhyStalls.astro",
         "src/components/sections/WorkflowTable.astro",
@@ -2233,7 +2335,6 @@
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/CourseDetailTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
@@ -2292,6 +2393,7 @@
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/site-web-ia-landing.astro",
+        "src/pages/ressources/academy.astro",
         "src/pages/ressources/categorie/[...slug].astro",
         "src/pages/ressources/changelog.astro",
         "src/pages/ressources/field-notes/[slug].astro",
@@ -2353,7 +2455,6 @@
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/SectionTransition.astro",
         "src/components/ui/molecules/PainPointInline.astro",
         "src/components/ui/molecules/PricingTier.astro",
@@ -2377,6 +2478,7 @@
         "src/pages/en/agence/about.astro",
         "src/pages/en/agence/design-system.astro",
         "src/pages/en/agence/prompts.astro",
+        "src/pages/en/console.astro",
         "src/pages/en/solutions/index.astro",
         "src/pages/glossaire/[slug].astro",
         "src/pages/manifesto.astro",
@@ -2446,7 +2548,7 @@
     },
     {
       "token": "--leading-body",
-      "count": 77,
+      "count": 78,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Timeline.astro",
@@ -2493,7 +2595,6 @@
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/FormErrors.astro",
         "src/components/ui/molecules/PricingTier.astro",
         "src/components/ui/molecules/RelatedCards.astro",
@@ -2512,12 +2613,14 @@
         "src/pages/en/agence/design-system.astro",
         "src/pages/en/agence/prompts.astro",
         "src/pages/en/cas/index.astro",
+        "src/pages/en/console.astro",
         "src/pages/en/contact.astro",
         "src/pages/en/manifesto.astro",
         "src/pages/en/ressources/index.astro",
         "src/pages/glossaire/[slug].astro",
         "src/pages/glossaire/index.astro",
         "src/pages/manifesto.astro",
+        "src/pages/ressources/academy.astro",
         "src/pages/ressources/field-notes/[slug].astro",
         "src/pages/ressources/field-notes/index.astro",
         "src/pages/ressources/index.astro",
@@ -2529,7 +2632,7 @@
     },
     {
       "token": "--leading-h1",
-      "count": 33,
+      "count": 32,
       "files": [
         "src/components/sections/DepartmentStack.astro",
         "src/components/sections/HeroEssay.astro",
@@ -2550,7 +2653,6 @@
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/organisms/BookSession.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/ds-studio.astro",
@@ -2596,7 +2698,7 @@
     },
     {
       "token": "--leading-h3",
-      "count": 56,
+      "count": 54,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/BentoGrid.astro",
@@ -2630,10 +2732,8 @@
         "src/components/sections/WelcomeSection.astro",
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/templates/DetailMenuTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/organisms/PersonaSwitcher.astro",
         "src/pages/404.astro",
         "src/pages/agence/about.astro",
@@ -2729,8 +2829,15 @@
       ]
     },
     {
+      "token": "--leading-relaxed",
+      "count": 1,
+      "files": [
+        "src/styles/global.css"
+      ]
+    },
+    {
       "token": "--muted",
-      "count": 175,
+      "count": 172,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -2750,21 +2857,19 @@
         "src/components/sections/CommitmentsGrid.astro",
         "src/components/sections/ComparisonDuo.astro",
         "src/components/sections/ComparisonTable.astro",
+        "src/components/sections/CourseCatalogTable.astro",
         "src/components/sections/CtaFinal.astro",
         "src/components/sections/CtaSplitVisual.astro",
-        "src/components/sections/DecisionList.astro",
         "src/components/sections/DeliverablesGrid.astro",
         "src/components/sections/DepartmentStack.astro",
         "src/components/sections/EditorialPreview.astro",
         "src/components/sections/EditorialSplitGrid.astro",
-        "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/FaqAccordion.astro",
         "src/components/sections/FeatureGrid.astro",
         "src/components/sections/FeatureTabs.astro",
         "src/components/sections/FeatureZigzag.astro",
         "src/components/sections/GalleryMasonry.astro",
         "src/components/sections/GuaranteeBlock.astro",
-        "src/components/sections/HeroAtlas.astro",
         "src/components/sections/HeroAuthor.astro",
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroConversionFunnel.astro",
@@ -2777,6 +2882,7 @@
         "src/components/sections/HeroTunnelStep.astro",
         "src/components/sections/HowWeShip.astro",
         "src/components/sections/IconTrio.astro",
+        "src/components/sections/LearningPathList.astro",
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/MediaBlock.astro",
         "src/components/sections/MethodTimeline.astro",
@@ -2784,14 +2890,12 @@
         "src/components/sections/ObjectionHandler.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PainPoints.astro",
-        "src/components/sections/PersonaAttributesGrid.astro",
         "src/components/sections/PricingComparisonMatrix.astro",
         "src/components/sections/PricingTable.astro",
         "src/components/sections/ProblemsGrid.astro",
         "src/components/sections/ProblemStatement.astro",
         "src/components/sections/ProofBarSection.astro",
         "src/components/sections/QuoteSpotlight.astro",
-        "src/components/sections/RelatedCardsBand.astro",
         "src/components/sections/ServiceCatalogList.astro",
         "src/components/sections/ServicesGrid.astro",
         "src/components/sections/SocialProof.astro",
@@ -2809,6 +2913,8 @@
         "src/components/sections/TierPyramidSvg.astro",
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WhyStalls.astro",
@@ -2820,11 +2926,9 @@
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/ChapterLabel.astro",
         "src/components/ui/atoms/Kicker.astro",
         "src/components/ui/molecules/AsymmetricServiceRow.astro",
@@ -2929,7 +3033,7 @@
     },
     {
       "token": "--paper",
-      "count": 99,
+      "count": 118,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/editorial/Timeline.astro",
@@ -2937,44 +3041,62 @@
         "src/components/sections/ArchitectureDiagram.astro",
         "src/components/sections/BentoGrid.astro",
         "src/components/sections/CaseSplit.astro",
+        "src/components/sections/ComparisonDuo.astro",
+        "src/components/sections/ComparisonTable.astro",
         "src/components/sections/CtaBandSection.astro",
         "src/components/sections/CtaFinal.astro",
+        "src/components/sections/CtaInline.astro",
         "src/components/sections/CtaSplitVisual.astro",
         "src/components/sections/DepartmentCta.astro",
+        "src/components/sections/FaqAccordion.astro",
+        "src/components/sections/FeatureGrid.astro",
         "src/components/sections/FeatureTabs.astro",
         "src/components/sections/FeatureZigzag.astro",
         "src/components/sections/FitColumnsSection.astro",
         "src/components/sections/GalleryMasonry.astro",
+        "src/components/sections/GuaranteeBlock.astro",
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroConversionFunnel.astro",
         "src/components/sections/HeroFullBleed.astro",
         "src/components/sections/HeroLanding.astro",
         "src/components/sections/HeroLiquid.astro",
         "src/components/sections/HeroOfferDetail.astro",
+        "src/components/sections/IconTrio.astro",
+        "src/components/sections/LogoWall.astro",
         "src/components/sections/ManifestoBlock.astro",
+        "src/components/sections/MediaBlock.astro",
+        "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/ObjectionHandler.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PersonaAttributesGrid.astro",
+        "src/components/sections/PricingComparisonMatrix.astro",
+        "src/components/sections/PricingTable.astro",
         "src/components/sections/ProblemsGrid.astro",
+        "src/components/sections/ProofBarSection.astro",
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/RoiBand.astro",
         "src/components/sections/ServiceCatalogList.astro",
+        "src/components/sections/SocialProof.astro",
+        "src/components/sections/StatBlock.astro",
         "src/components/sections/StatsBento.astro",
+        "src/components/sections/StepsHorizontal.astro",
         "src/components/sections/TeamCardGrid.astro",
         "src/components/sections/TechModelsTable.astro",
+        "src/components/sections/TestimonialBlock.astro",
+        "src/components/sections/TimelineBlock.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/templates/AuthorPageTemplate.astro",
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
         "src/components/ui/atoms/CursorDot.astro",
         "src/components/ui/atoms/PillCTA.astro",
         "src/components/ui/atoms/SectionTransition.astro",
@@ -3021,6 +3143,7 @@
         "src/pages/manifesto.astro",
         "src/pages/offres/site-web-ia-landing.astro",
         "src/pages/preview/[type].astro",
+        "src/pages/ressources/academy.astro",
         "src/pages/ressources/field-notes/[slug].astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/silo/[...slug].astro",
@@ -3034,42 +3157,61 @@
     },
     {
       "token": "--paper-2",
-      "count": 104,
+      "count": 120,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
         "src/components/footer/Footer.astro",
         "src/components/header/Header.astro",
+        "src/components/sections/BentoGrid.astro",
         "src/components/sections/BrandedCallout.astro",
         "src/components/sections/CaseCardGrid.astro",
         "src/components/sections/CaseSplit.astro",
         "src/components/sections/ComingSoonPills.astro",
+        "src/components/sections/ComparisonDuo.astro",
+        "src/components/sections/ComparisonTable.astro",
         "src/components/sections/CtaBandSection.astro",
         "src/components/sections/CtaFinal.astro",
         "src/components/sections/CtaInline.astro",
         "src/components/sections/CtaSplitVisual.astro",
         "src/components/sections/DeliverablesGrid.astro",
         "src/components/sections/DepartmentStack.astro",
+        "src/components/sections/FaqAccordion.astro",
+        "src/components/sections/FeatureGrid.astro",
         "src/components/sections/FeatureTabs.astro",
         "src/components/sections/FeatureZigzag.astro",
         "src/components/sections/GalleryMasonry.astro",
+        "src/components/sections/GuaranteeBlock.astro",
         "src/components/sections/HeroLeadMagnet.astro",
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/HeroSplit.astro",
+        "src/components/sections/IconTrio.astro",
+        "src/components/sections/LogoWall.astro",
+        "src/components/sections/MediaBlock.astro",
+        "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/ObjectionHandler.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PersonaAttributesGrid.astro",
         "src/components/sections/PricingComparisonMatrix.astro",
+        "src/components/sections/PricingTable.astro",
+        "src/components/sections/ProofBarSection.astro",
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/RelatedCardsBand.astro",
         "src/components/sections/ServiceCatalogList.astro",
         "src/components/sections/ServicesGrid.astro",
+        "src/components/sections/SocialProof.astro",
         "src/components/sections/SpecBar.astro",
+        "src/components/sections/StatBlock.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/StepsHorizontal.astro",
         "src/components/sections/TeamCardGrid.astro",
         "src/components/sections/TechIntegrationFlow.astro",
         "src/components/sections/TechModelsTable.astro",
         "src/components/sections/TechPositioningSplit.astro",
         "src/components/sections/TechStackBand.astro",
+        "src/components/sections/TestimonialBlock.astro",
+        "src/components/sections/TimelineBlock.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/svg/geometric/AuditMaturityTimeline.astro",
@@ -3080,13 +3222,10 @@
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/DetailMenuTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/EditorialCaseCard.astro",
         "src/components/ui/molecules/PricingTier.astro",
@@ -3144,33 +3283,85 @@
     },
     {
       "token": "--paper-3",
-      "count": 7,
+      "count": 36,
       "files": [
+        "src/components/sections/BentoGrid.astro",
         "src/components/sections/ComparisonDuo.astro",
+        "src/components/sections/ComparisonTable.astro",
+        "src/components/sections/CtaBandSection.astro",
+        "src/components/sections/CtaFinal.astro",
+        "src/components/sections/CtaInline.astro",
+        "src/components/sections/CtaSplitVisual.astro",
+        "src/components/sections/FaqAccordion.astro",
+        "src/components/sections/FeatureGrid.astro",
+        "src/components/sections/FeatureTabs.astro",
+        "src/components/sections/FeatureZigzag.astro",
+        "src/components/sections/GalleryMasonry.astro",
+        "src/components/sections/GuaranteeBlock.astro",
+        "src/components/sections/IconTrio.astro",
+        "src/components/sections/LogoWall.astro",
+        "src/components/sections/MediaBlock.astro",
+        "src/components/sections/MethodTimeline.astro",
+        "src/components/sections/MetricShift.astro",
+        "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/PricingComparisonMatrix.astro",
+        "src/components/sections/PricingTable.astro",
+        "src/components/sections/ProofBarSection.astro",
+        "src/components/sections/QuoteSpotlight.astro",
+        "src/components/sections/SocialProof.astro",
+        "src/components/sections/StatBlock.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/StepsHorizontal.astro",
+        "src/components/sections/TestimonialBlock.astro",
+        "src/components/sections/TimelineBlock.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/en/integrations/[slug].astro",
         "src/pages/en/integrations/index.astro",
         "src/pages/integrations/[slug].astro",
-        "src/pages/integrations/index.astro"
+        "src/pages/integrations/index.astro",
+        "src/styles/global.css"
       ]
     },
     {
       "token": "--paper-rgb",
-      "count": 37,
+      "count": 60,
       "files": [
         "src/components/editorial/KeyMetric.astro",
+        "src/components/sections/BentoGrid.astro",
+        "src/components/sections/ComparisonDuo.astro",
+        "src/components/sections/ComparisonTable.astro",
         "src/components/sections/DepartmentCta.astro",
+        "src/components/sections/FaqAccordion.astro",
+        "src/components/sections/FeatureGrid.astro",
+        "src/components/sections/FeatureTabs.astro",
+        "src/components/sections/FeatureZigzag.astro",
         "src/components/sections/FitColumnsSection.astro",
+        "src/components/sections/GalleryMasonry.astro",
+        "src/components/sections/GuaranteeBlock.astro",
         "src/components/sections/HeroFullBleed.astro",
         "src/components/sections/HeroLiquid.astro",
+        "src/components/sections/IconTrio.astro",
+        "src/components/sections/LogoWall.astro",
+        "src/components/sections/MediaBlock.astro",
+        "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/ObjectionHandler.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
+        "src/components/sections/PricingComparisonMatrix.astro",
+        "src/components/sections/PricingTable.astro",
+        "src/components/sections/ProofBarSection.astro",
+        "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/RoiBand.astro",
+        "src/components/sections/SocialProof.astro",
+        "src/components/sections/StatBlock.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/StepsHorizontal.astro",
+        "src/components/sections/TestimonialBlock.astro",
+        "src/components/sections/TimelineBlock.astro",
         "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
@@ -3199,6 +3390,27 @@
       ]
     },
     {
+      "token": "--radius-base",
+      "count": 6,
+      "files": [
+        "src/components/templates/ConversionFunnelTemplate.astro",
+        "src/components/ui/atoms/TerminalCTA.astro",
+        "src/components/ui/molecules/NewsletterSignup.astro",
+        "src/pages/comparer/[slug].astro",
+        "src/pages/en/comparer/[slug].astro",
+        "src/styles/global.css"
+      ]
+    },
+    {
+      "token": "--radius-card",
+      "count": 3,
+      "files": [
+        "src/components/ui/molecules/TerminalTable.astro",
+        "src/pages/console.astro",
+        "src/pages/en/console.astro"
+      ]
+    },
+    {
       "token": "--radius-full",
       "count": 15,
       "files": [
@@ -3221,13 +3433,12 @@
     },
     {
       "token": "--radius-lg",
-      "count": 9,
+      "count": 8,
       "files": [
         "src/components/sections/FeatureZigzag.astro",
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/molecules/TerminalMockup.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/en/integrations/index.astro",
@@ -3275,42 +3486,6 @@
     },
     {
       "token": "--radius-sm",
-      "count": 30,
-      "files": [
-        "src/components/sections/BentoGrid.astro",
-        "src/components/sections/CaseSplit.astro",
-        "src/components/sections/ComingSoonPills.astro",
-        "src/components/sections/CourseCatalogTable.astro",
-        "src/components/sections/DepartmentCta.astro",
-        "src/components/sections/HeroLanding.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/LogoWall.astro",
-        "src/components/sections/ProblemsGrid.astro",
-        "src/components/sections/StatsBento.astro",
-        "src/components/sections/TeamCardGrid.astro",
-        "src/components/templates/ConversionFunnelTemplate.astro",
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/ui/molecules/Breadcrumb.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/contact.astro",
-        "src/pages/en/agence/design-system.astro",
-        "src/pages/en/contact.astro",
-        "src/pages/en/ressources/index.astro",
-        "src/pages/offres/site-web-ia-landing.astro",
-        "src/pages/ressources/academy.astro",
-        "src/pages/ressources/changelog.astro",
-        "src/pages/ressources/index.astro",
-        "src/pages/ressources/silo/[...slug].astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--radius-xs",
       "count": 13,
       "files": [
         "src/components/sections/ComparisonDuo.astro",
@@ -3329,38 +3504,162 @@
       ]
     },
     {
-      "token": "--section-base",
-      "count": 7,
+      "token": "--radius-xs",
+      "count": 30,
       "files": [
-        "src/components/sections/DepartmentStack.astro",
-        "src/components/sections/PainPoints.astro",
-        "src/components/sections/WorkflowTable.astro",
+        "src/components/sections/BentoGrid.astro",
+        "src/components/sections/CaseSplit.astro",
+        "src/components/sections/ComingSoonPills.astro",
+        "src/components/sections/CourseCatalogTable.astro",
+        "src/components/sections/DepartmentCta.astro",
+        "src/components/sections/HeroLanding.astro",
+        "src/components/sections/HeroOfferDetail.astro",
+        "src/components/sections/LogoWall.astro",
+        "src/components/sections/ProblemsGrid.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
+        "src/components/templates/CourseDetailTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/pages/agence/design-system.astro"
+        "src/components/templates/TechnologiesDetailTemplate.astro",
+        "src/components/ui/molecules/Breadcrumb.astro",
+        "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
+        "src/pages/contact.astro",
+        "src/pages/en/agence/design-system.astro",
+        "src/pages/en/contact.astro",
+        "src/pages/en/ressources/index.astro",
+        "src/pages/offres/site-web-ia-landing.astro",
+        "src/pages/ressources/academy.astro",
+        "src/pages/ressources/changelog.astro",
+        "src/pages/ressources/index.astro",
+        "src/pages/ressources/silo/[...slug].astro",
+        "src/styles/global.css"
+      ]
+    },
+    {
+      "token": "--section-base",
+      "count": 64,
+      "files": [
+        "src/components/sections/ArchitectureDiagram.astro",
+        "src/components/sections/BentoGrid.astro",
+        "src/components/sections/BrandedCallout.astro",
+        "src/components/sections/CaseCardGrid.astro",
+        "src/components/sections/CaseSplit.astro",
+        "src/components/sections/CommitmentsGrid.astro",
+        "src/components/sections/ComparisonDuo.astro",
+        "src/components/sections/ComparisonTable.astro",
+        "src/components/sections/CtaFinal.astro",
+        "src/components/sections/CtaSplitVisual.astro",
+        "src/components/sections/DecisionList.astro",
+        "src/components/sections/DepartmentCta.astro",
+        "src/components/sections/DepartmentStack.astro",
+        "src/components/sections/EditorialPreview.astro",
+        "src/components/sections/EditorialTableBlock.astro",
+        "src/components/sections/FaqAccordion.astro",
+        "src/components/sections/FeatureGrid.astro",
+        "src/components/sections/FeatureTabs.astro",
+        "src/components/sections/FeatureZigzag.astro",
+        "src/components/sections/GalleryMasonry.astro",
+        "src/components/sections/GuaranteeBlock.astro",
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroSplit.astro",
+        "src/components/sections/IconTrio.astro",
+        "src/components/sections/LogoWall.astro",
+        "src/components/sections/MaturityPyramid.astro",
+        "src/components/sections/MediaBlock.astro",
+        "src/components/sections/MethodTimeline.astro",
+        "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/PainPoints.astro",
+        "src/components/sections/PricingComparisonMatrix.astro",
+        "src/components/sections/PricingTable.astro",
+        "src/components/sections/QuoteSpotlight.astro",
+        "src/components/sections/RoiBand.astro",
+        "src/components/sections/ServiceCatalogList.astro",
+        "src/components/sections/ServicesGrid.astro",
+        "src/components/sections/StatBlock.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/StepsHorizontal.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/TestimonialBlock.astro",
+        "src/components/sections/TierPyramidSvg.astro",
+        "src/components/sections/TimelineBlock.astro",
+        "src/components/sections/TunnelStepNav.astro",
+        "src/components/sections/UseCaseIndex.astro",
+        "src/components/sections/WorkflowTable.astro",
+        "src/components/templates/ConversionFunnelTemplate.astro",
+        "src/components/templates/CourseDetailTemplate.astro",
+        "src/components/templates/OffresDetailTemplate.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro",
+        "src/pages/agence/design-system.astro",
+        "src/pages/agence/prompts.astro",
+        "src/pages/commerce/[type]/[slug].astro",
+        "src/pages/commerce/index.astro",
+        "src/pages/en/agence/design-system.astro",
+        "src/pages/en/agence/prompts.astro",
+        "src/pages/glossaire/[slug].astro",
+        "src/pages/glossaire/index.astro",
+        "src/pages/ressources/field-notes/[slug].astro",
+        "src/pages/ressources/field-notes/index.astro",
+        "src/pages/ressources/personas/[slug].astro",
+        "src/pages/ressources/personas/index.astro",
+        "src/pages/ressources/testimonials/[slug].astro",
+        "src/pages/ressources/testimonials/index.astro"
       ]
     },
     {
       "token": "--section-grand",
-      "count": 1,
+      "count": 4,
       "files": [
+        "src/components/sections/ManifestoBlock.astro",
+        "src/components/sections/OperatingLayer.astro",
+        "src/components/sections/WhyStalls.astro",
         "src/components/templates/OffresDetailTemplate.astro"
       ]
     },
     {
       "token": "--section-loose",
-      "count": 9,
+      "count": 28,
       "files": [
+        "src/components/sections/ComingSoonPills.astro",
         "src/components/sections/DeliverablesGrid.astro",
+        "src/components/sections/EditorialSplitGrid.astro",
+        "src/components/sections/FitColumnsSection.astro",
         "src/components/sections/HeroHome.astro",
+        "src/components/sections/HowWeShip.astro",
         "src/components/sections/InclusionsList.astro",
+        "src/components/sections/ListIndexSection.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferTierGrid.astro",
+        "src/components/sections/ProblemsGrid.astro",
         "src/components/sections/ProblemStatement.astro",
         "src/components/sections/PullQuoteBlock.astro",
         "src/components/sections/RelatedCardsBand.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/TechCapabilitiesSpecs.astro",
+        "src/components/sections/TechIntegrationFlow.astro",
+        "src/components/sections/TechModelsTable.astro",
+        "src/components/sections/TechPositioningSplit.astro",
+        "src/components/sections/TechStackBand.astro",
+        "src/components/sections/TechWhenDual.astro",
+        "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/WelcomeSection.astro",
+        "src/components/sections/WhyStalls.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/ui/organisms/Hero.astro"
+        "src/components/ui/organisms/Hero.astro",
+        "src/styles/global.css"
+      ]
+    },
+    {
+      "token": "--section-tight",
+      "count": 3,
+      "files": [
+        "src/components/sections/ProofBarSection.astro",
+        "src/components/sections/PullQuoteBlock.astro",
+        "src/components/sections/SocialProof.astro"
       ]
     },
     {
@@ -3374,9 +3673,10 @@
     },
     {
       "token": "--shadow-card-rest",
-      "count": 1,
+      "count": 2,
       "files": [
-        "src/pages/agence/design-system.astro"
+        "src/pages/agence/design-system.astro",
+        "src/pages/en/agence/design-system.astro"
       ]
     },
     {
@@ -3387,11 +3687,10 @@
       ]
     },
     {
-      "token": "--shadow-hairline",
-      "count": 2,
+      "token": "--shadow-cta-hover",
+      "count": 1,
       "files": [
-        "src/pages/agence/design-system.astro",
-        "src/pages/en/agence/design-system.astro"
+        "src/styles/global.css"
       ]
     },
     {
@@ -3412,7 +3711,7 @@
     },
     {
       "token": "--space-1",
-      "count": 58,
+      "count": 59,
       "files": [
         "src/components/editorial/EditorialTable.astro",
         "src/components/editorial/PullQuote.astro",
@@ -3435,6 +3734,7 @@
         "src/components/sections/TechPositioningSplit.astro",
         "src/components/sections/TestimonialBlock.astro",
         "src/components/sections/TimelineBlock.astro",
+        "src/components/sections/TunnelStepHero.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
@@ -3442,7 +3742,6 @@
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
         "src/components/ui/atoms/FormErrors.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/PricingTier.astro",
@@ -3468,6 +3767,7 @@
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/site-web-ia-landing.astro",
+        "src/pages/ressources/academy.astro",
         "src/pages/ressources/livres-blancs/index.astro",
         "src/pages/ressources/testimonials/[slug].astro",
         "src/pages/ressources/testimonials/index.astro",
@@ -3476,15 +3776,13 @@
     },
     {
       "token": "--space-10",
-      "count": 11,
+      "count": 9,
       "files": [
         "src/components/editorial/Dingbat.astro",
         "src/components/sections/CtaSplitVisual.astro",
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/InclusionsList.astro",
-        "src/components/sections/PullQuoteBlock.astro",
         "src/components/sections/StatBlock.astro",
-        "src/components/sections/TechStackBand.astro",
         "src/pages/cas/index.astro",
         "src/pages/en/cas/index.astro",
         "src/pages/en/manifesto.astro",
@@ -3493,17 +3791,10 @@
     },
     {
       "token": "--space-11",
-      "count": 10,
+      "count": 3,
       "files": [
-        "src/components/sections/DeliverablesGrid.astro",
         "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/MetricShift.astro",
-        "src/components/sections/ProblemStatement.astro",
-        "src/components/sections/PullQuoteBlock.astro",
-        "src/components/sections/RelatedCardsBand.astro",
-        "src/pages/en/solutions/index.astro",
         "src/pages/secteurs/index.astro",
-        "src/pages/solutions/index.astro",
         "src/styles/tokens.css"
       ]
     },
@@ -3531,10 +3822,8 @@
     },
     {
       "token": "--space-14",
-      "count": 1,
-      "files": [
-        "src/components/sections/TechStackBand.astro"
-      ]
+      "count": 0,
+      "files": []
     },
     {
       "token": "--space-15",
@@ -3545,7 +3834,7 @@
     },
     {
       "token": "--space-2",
-      "count": 90,
+      "count": 89,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/KeyMetric.astro",
@@ -3599,7 +3888,6 @@
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/molecules/AsymmetricServiceRow.astro",
         "src/components/ui/molecules/Breadcrumb.astro",
         "src/components/ui/molecules/PricingTier.astro",
@@ -3681,6 +3969,7 @@
         "src/components/sections/ServicesGrid.astro",
         "src/components/sections/StatsBento.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/AuthorPageTemplate.astro",
@@ -3691,7 +3980,6 @@
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/FormErrors.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/NewsletterSignup.astro",
@@ -3739,7 +4027,7 @@
     },
     {
       "token": "--space-4",
-      "count": 121,
+      "count": 120,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3812,7 +4100,6 @@
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/FormErrors.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/Breadcrumb.astro",
@@ -3866,7 +4153,7 @@
     },
     {
       "token": "--space-5",
-      "count": 133,
+      "count": 130,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3921,6 +4208,7 @@
         "src/components/sections/TechPositioningSplit.astro",
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WhyStalls.astro",
@@ -3933,11 +4221,9 @@
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/molecules/AsymmetricServiceRow.astro",
         "src/components/ui/molecules/AuthorByline.astro",
         "src/components/ui/molecules/AuthorCard.astro",
@@ -3980,7 +4266,6 @@
         "src/pages/en/contact.astro",
         "src/pages/en/manifesto.astro",
         "src/pages/en/ressources/index.astro",
-        "src/pages/en/solutions/index.astro",
         "src/pages/en/technologies/index.astro",
         "src/pages/glossaire/[slug].astro",
         "src/pages/glossaire/index.astro",
@@ -3997,7 +4282,6 @@
         "src/pages/ressources/testimonials/index.astro",
         "src/pages/ressources/veille-ia/index.astro",
         "src/pages/secteurs/index.astro",
-        "src/pages/solutions/index.astro",
         "src/pages/technologies/index.astro",
         "src/styles/global.css",
         "src/styles/grid.css"
@@ -4005,7 +4289,7 @@
     },
     {
       "token": "--space-6",
-      "count": 114,
+      "count": 113,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -4054,22 +4338,21 @@
         "src/components/sections/TierPyramidSvg.astro",
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/WelcomeSection.astro",
         "src/components/templates/AuthorPageTemplate.astro",
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/DetailMenuTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/ListIndexTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
         "src/components/templates/TunnelStepTemplate.astro",
         "src/components/templates/UtilityTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/SectionTransition.astro",
         "src/components/ui/molecules/AuthorByline.astro",
         "src/components/ui/molecules/AuthorCard.astro",
@@ -4125,7 +4408,7 @@
     },
     {
       "token": "--space-7",
-      "count": 36,
+      "count": 37,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/PullQuote.astro",
@@ -4141,6 +4424,7 @@
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/ServiceCatalogList.astro",
+        "src/components/sections/TunnelStepHero.astro",
         "src/components/templates/AuthorPageTemplate.astro",
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
@@ -4167,7 +4451,7 @@
     },
     {
       "token": "--space-8",
-      "count": 41,
+      "count": 42,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -4209,7 +4493,8 @@
         "src/pages/ressources/livres-blancs/index.astro",
         "src/pages/ressources/testimonials/[slug].astro",
         "src/pages/ressources/testimonials/index.astro",
-        "src/pages/secteurs/index.astro"
+        "src/pages/secteurs/index.astro",
+        "src/styles/tokens.css"
       ]
     },
     {
@@ -4263,59 +4548,35 @@
       ]
     },
     {
-      "token": "--spacing-section",
-      "count": 45,
+      "token": "--text-body-base",
+      "count": 21,
       "files": [
-        "src/components/sections/BentoGrid.astro",
-        "src/components/sections/ComparisonDuo.astro",
-        "src/components/sections/ComparisonTable.astro",
-        "src/components/sections/CtaFinal.astro",
-        "src/components/sections/CtaSplitVisual.astro",
-        "src/components/sections/FaqAccordion.astro",
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/FeatureTabs.astro",
-        "src/components/sections/FeatureZigzag.astro",
-        "src/components/sections/GalleryMasonry.astro",
-        "src/components/sections/GuaranteeBlock.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroSplit.astro",
-        "src/components/sections/IconTrio.astro",
-        "src/components/sections/LogoWall.astro",
-        "src/components/sections/MediaBlock.astro",
-        "src/components/sections/MethodTimeline.astro",
-        "src/components/sections/ObjectionHandler.astro",
-        "src/components/sections/PricingComparisonMatrix.astro",
-        "src/components/sections/PricingTable.astro",
-        "src/components/sections/QuoteSpotlight.astro",
-        "src/components/sections/StatBlock.astro",
-        "src/components/sections/StatsBento.astro",
-        "src/components/sections/StepsHorizontal.astro",
-        "src/components/sections/TestimonialBlock.astro",
-        "src/components/sections/TimelineBlock.astro",
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/prompts.astro",
-        "src/pages/commerce/[type]/[slug].astro",
-        "src/pages/commerce/index.astro",
-        "src/pages/en/agence/design-system.astro",
-        "src/pages/en/agence/prompts.astro",
-        "src/pages/en/integrations/[slug].astro",
-        "src/pages/en/integrations/index.astro",
-        "src/pages/glossaire/[slug].astro",
-        "src/pages/glossaire/index.astro",
-        "src/pages/integrations/[slug].astro",
-        "src/pages/integrations/index.astro",
-        "src/pages/ressources/field-notes/[slug].astro",
-        "src/pages/ressources/field-notes/index.astro",
-        "src/pages/ressources/personas/[slug].astro",
-        "src/pages/ressources/personas/index.astro",
+        "src/components/sections/CommitmentsGrid.astro",
+        "src/components/sections/DecisionList.astro",
+        "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/UseCaseIndex.astro",
+        "src/components/templates/ConversionFunnelTemplate.astro",
+        "src/components/templates/EssayTemplate.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro",
+        "src/components/ui/molecules/EditorialCaseCard.astro",
+        "src/pages/archive.astro",
+        "src/pages/contact.astro",
+        "src/pages/en/agence/about.astro",
+        "src/pages/en/contact.astro",
+        "src/pages/en/offres/index.astro",
+        "src/pages/en/ressources/index.astro",
+        "src/pages/offres/index.astro",
+        "src/pages/ressources/index.astro",
+        "src/pages/ressources/silo/[...slug].astro",
         "src/pages/ressources/testimonials/[slug].astro",
-        "src/pages/ressources/testimonials/index.astro"
+        "src/pages/secteurs/index.astro",
+        "src/styles/global.css"
       ]
     },
     {
       "token": "--text-body-lead",
-      "count": 37,
+      "count": 35,
       "files": [
         "src/components/sections/BrandedCallout.astro",
         "src/components/sections/CaseCardGrid.astro",
@@ -4328,13 +4589,13 @@
         "src/components/sections/PainPoints.astro",
         "src/components/sections/ServiceCatalogList.astro",
         "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/CourseDetailTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
         "src/components/ui/molecules/AuthorByline.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/ServiceCatalogRow.astro",
@@ -4347,18 +4608,16 @@
         "src/pages/en/agence/methode.astro",
         "src/pages/en/console.astro",
         "src/pages/en/ressources/index.astro",
-        "src/pages/en/solutions/index.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/site-web-ia-landing.astro",
         "src/pages/ressources/changelog.astro",
         "src/pages/ressources/index.astro",
-        "src/pages/secteurs/index.astro",
-        "src/pages/solutions/index.astro"
+        "src/pages/secteurs/index.astro"
       ]
     },
     {
       "token": "--text-body-md",
-      "count": 46,
+      "count": 47,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -4399,6 +4658,7 @@
         "src/pages/en/manifesto.astro",
         "src/pages/glossaire/[slug].astro",
         "src/pages/manifesto.astro",
+        "src/pages/ressources/academy.astro",
         "src/pages/ressources/field-notes/[slug].astro",
         "src/pages/ressources/livres-blancs/index.astro",
         "src/pages/ressources/personas/[slug].astro",
@@ -4410,7 +4670,7 @@
     },
     {
       "token": "--text-body-sm",
-      "count": 72,
+      "count": 73,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -4452,7 +4712,6 @@
         "src/components/templates/OffresDetailTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/FormErrors.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/NewsletterSignup.astro",
@@ -4470,6 +4729,7 @@
         "src/pages/en/agence/prompts.astro",
         "src/pages/en/console.astro",
         "src/pages/en/contact.astro",
+        "src/pages/en/ressources/index.astro",
         "src/pages/en/solutions/index.astro",
         "src/pages/glossaire/index.astro",
         "src/pages/offres/audit-maturite-ia.astro",
@@ -4477,6 +4737,7 @@
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/cookbooks/index.astro",
         "src/pages/ressources/field-notes/index.astro",
+        "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
         "src/pages/ressources/personas/index.astro",
         "src/pages/ressources/testimonials/index.astro",
@@ -4488,7 +4749,7 @@
     },
     {
       "token": "--text-caption",
-      "count": 50,
+      "count": 49,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/ComingSoonPills.astro",
@@ -4510,7 +4771,6 @@
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/TerminalCTA.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/ServiceCatalogRow.astro",
@@ -4551,7 +4811,7 @@
     },
     {
       "token": "--text-eyebrow",
-      "count": 130,
+      "count": 126,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -4563,17 +4823,13 @@
         "src/components/motion/BootSplash.astro",
         "src/components/sections/ArchitectureDiagram.astro",
         "src/components/sections/BentoGrid.astro",
-        "src/components/sections/BrandedCallout.astro",
         "src/components/sections/CaseCardGrid.astro",
         "src/components/sections/CaseSplit.astro",
-        "src/components/sections/CommitmentsGrid.astro",
         "src/components/sections/CourseCatalogTable.astro",
         "src/components/sections/CtaFinal.astro",
         "src/components/sections/DecisionList.astro",
         "src/components/sections/DeliverablesGrid.astro",
-        "src/components/sections/DepartmentStack.astro",
         "src/components/sections/EditorialPreview.astro",
-        "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/HeroAtlas.astro",
         "src/components/sections/HeroAuthor.astro",
         "src/components/sections/HeroCaseStudy.astro",
@@ -4587,7 +4843,6 @@
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/HeroServiceDetail.astro",
         "src/components/sections/HeroTunnelStep.astro",
-        "src/components/sections/InclusionsList.astro",
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
@@ -4598,15 +4853,15 @@
         "src/components/sections/PricingTable.astro",
         "src/components/sections/ProblemsGrid.astro",
         "src/components/sections/ProblemStatement.astro",
-        "src/components/sections/RelatedCardsBand.astro",
         "src/components/sections/RoiBand.astro",
         "src/components/sections/ServiceCatalogList.astro",
         "src/components/sections/ServicesGrid.astro",
         "src/components/sections/TeamCardGrid.astro",
         "src/components/sections/TechCapabilitiesSpecs.astro",
         "src/components/sections/TechPositioningSplit.astro",
-        "src/components/sections/TechStackBand.astro",
         "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepHero.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/WhyStalls.astro",
         "src/components/sections/WorkflowTable.astro",
@@ -4669,6 +4924,7 @@
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/site-web-ia-landing.astro",
         "src/pages/offres/site-web-ia.astro",
+        "src/pages/ressources/academy.astro",
         "src/pages/ressources/categorie/[...slug].astro",
         "src/pages/ressources/changelog.astro",
         "src/pages/ressources/cookbooks/index.astro",
@@ -4693,7 +4949,7 @@
         "src/components/sections/HeroHome.astro",
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/HeroTunnelStep.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
+        "src/components/sections/TunnelStepHero.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
@@ -4713,7 +4969,7 @@
         "src/components/sections/HeroTunnelStep.astro",
         "src/components/sections/ProblemStatement.astro",
         "src/components/sections/StatsBento.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
+        "src/components/sections/TunnelStepHero.astro",
         "src/components/ui/organisms/BookSession.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/glossaire/[slug].astro",
@@ -4807,7 +5063,7 @@
         "src/components/sections/HeroHome.astro",
         "src/components/sections/HeroTunnelStep.astro",
         "src/components/sections/QuoteSpotlight.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
+        "src/components/sections/TunnelStepHero.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
@@ -4820,7 +5076,7 @@
     },
     {
       "token": "--text-mono-xs",
-      "count": 47,
+      "count": 46,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/CaseCardGrid.astro",
@@ -4833,7 +5089,6 @@
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/OperatingLayer.astro",
-        "src/components/sections/PersonaAttributesGrid.astro",
         "src/components/sections/PricingComparisonMatrix.astro",
         "src/components/sections/PricingTable.astro",
         "src/components/sections/ServicesGrid.astro",
@@ -4949,6 +5204,13 @@
       ]
     },
     {
+      "token": "--tracking-caps",
+      "count": 1,
+      "files": [
+        "src/styles/global.css"
+      ]
+    },
+    {
       "token": "--tracking-display",
       "count": 31,
       "files": [
@@ -4987,7 +5249,7 @@
     },
     {
       "token": "--tracking-mono",
-      "count": 48,
+      "count": 42,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -4996,24 +5258,18 @@
         "src/components/editorial/Timeline.astro",
         "src/components/sections/CtaFinal.astro",
         "src/components/sections/DeliverablesGrid.astro",
-        "src/components/sections/DepartmentStack.astro",
         "src/components/sections/EditorialPreview.astro",
         "src/components/sections/HeroAtlas.astro",
         "src/components/sections/HeroAuthor.astro",
         "src/components/sections/HeroCaseStudy.astro",
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/HeroServiceDetail.astro",
-        "src/components/sections/InclusionsList.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/OfferTierGrid.astro",
-        "src/components/sections/PainPoints.astro",
         "src/components/sections/ProblemStatement.astro",
-        "src/components/sections/RelatedCardsBand.astro",
-        "src/components/sections/RoiBand.astro",
         "src/components/sections/ServicesGrid.astro",
         "src/components/sections/StatsBento.astro",
         "src/components/sections/TechCapabilitiesSpecs.astro",
-        "src/components/sections/TechStackBand.astro",
         "src/components/sections/WhyStalls.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/AuthorPageTemplate.astro",
@@ -5040,6 +5296,13 @@
       ]
     },
     {
+      "token": "--tracking-mono-tight",
+      "count": 1,
+      "files": [
+        "src/styles/global.css"
+      ]
+    },
+    {
       "token": "--wrap",
       "count": 4,
       "files": [
@@ -5051,7 +5314,7 @@
     },
     {
       "token": "--wrap-prose",
-      "count": 31,
+      "count": 26,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/sections/ArchitectureDiagram.astro",
@@ -5063,80 +5326,34 @@
         "src/components/sections/WelcomeSection.astro",
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/WelcomeTemplate.astro",
         "src/components/ui/atoms/SectionTransition.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/ServiceCatalogRow.astro",
         "src/pages/agence/careers.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
-        "src/pages/categories/[slug].astro",
-        "src/pages/components/[type].astro",
         "src/pages/en/agence/about.astro",
         "src/pages/en/agence/design-system.astro",
         "src/pages/en/ressources/index.astro",
-        "src/pages/en/solutions/index.astro",
         "src/pages/en/technologies/index.astro",
         "src/pages/manifesto.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/changelog.astro",
         "src/pages/ressources/index.astro",
         "src/pages/secteurs/index.astro",
-        "src/pages/solutions/index.astro",
         "src/pages/technologies/index.astro"
       ]
     },
     {
       "token": "--wrap-read",
-      "count": 47,
+      "count": 6,
       "files": [
-        "src/components/footer/Footer.astro",
-        "src/components/sections/DeliverablesGrid.astro",
-        "src/components/sections/EditorialPreview.astro",
         "src/components/sections/HeroAtlas.astro",
-        "src/components/sections/HeroAuthor.astro",
-        "src/components/sections/HeroCaseStudy.astro",
-        "src/components/sections/HeroHome.astro",
-        "src/components/sections/HeroHubStats.astro",
-        "src/components/sections/HowWeShip.astro",
-        "src/components/sections/MaturityPyramid.astro",
-        "src/components/sections/MetricShift.astro",
-        "src/components/sections/OfferTierGrid.astro",
-        "src/components/sections/OperatingLayer.astro",
-        "src/components/sections/ServiceCatalogList.astro",
-        "src/components/sections/ServicesGrid.astro",
-        "src/components/sections/TechPositioningSplit.astro",
-        "src/components/sections/TrustLegalSection.astro",
-        "src/components/sections/UseCaseIndex.astro",
-        "src/components/sections/WhyStalls.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/templates/DetailMenuTemplate.astro",
-        "src/components/templates/HubTemplate.astro",
-        "src/components/templates/LeadMagnetTemplate.astro",
-        "src/components/templates/ServiceDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/ui/molecules/AsymmetricServiceRow.astro",
-        "src/components/ui/molecules/EditorialWriteRow.astro",
-        "src/components/ui/molecules/FitColumns.astro",
-        "src/components/ui/molecules/MastheadRow.astro",
-        "src/components/ui/molecules/ProofBand.astro",
-        "src/components/ui/molecules/ServiceCatalogRow.astro",
-        "src/components/ui/molecules/TerminalTable.astro",
-        "src/components/ui/organisms/AtlasGrid.astro",
-        "src/components/ui/organisms/Hero.astro",
         "src/components/ui/organisms/PersonaSwitcher.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/agence/prompts.astro",
-        "src/pages/en/agence/about.astro",
-        "src/pages/en/agence/design-system.astro",
         "src/pages/en/agence/methode.astro",
-        "src/pages/en/agence/prompts.astro",
-        "src/pages/offres/site-web-ia-landing.astro",
-        "src/styles/global.css"
+        "src/pages/offres/site-web-ia-landing.astro"
       ]
     },
     {
@@ -5191,7 +5408,9 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
-        "--font-mono"
+        "--dur-hover",
+        "--font-mono",
+        "--text-body-base"
       ],
       "hover": false
     },
@@ -5199,6 +5418,7 @@
       "name": "aside",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--leading-relaxed",
         "--muted"
       ],
       "hover": false
@@ -5209,7 +5429,8 @@
       "tokensUsed": [
         "--accent",
         "--font-mono",
-        "--text-mono-xs"
+        "--text-mono-xs",
+        "--tracking-caps"
       ],
       "hover": false
     },
@@ -5217,6 +5438,7 @@
       "name": "bd",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--leading-relaxed",
         "--muted",
         "--text-ui"
       ],
@@ -5226,6 +5448,7 @@
       "name": "blur-in",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-slow",
         "--ease-out"
       ],
       "hover": false
@@ -5234,10 +5457,11 @@
       "name": "btn",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-hover",
         "--ease",
         "--fw-medium",
         "--ink-rgb",
-        "--radius-sm",
+        "--radius-xs",
         "--space-2",
         "--text-ui",
         "--tracking-body"
@@ -5256,7 +5480,7 @@
       "tokensUsed": [
         "--accent",
         "--accent-2",
-        "--accent-rgb"
+        "--shadow-cta-hover"
       ],
       "hover": true
     },
@@ -5296,9 +5520,9 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
-        "--accent-rgb",
         "--ink",
-        "--paper"
+        "--paper",
+        "--shadow-cta-hover"
       ],
       "hover": true
     },
@@ -5312,6 +5536,7 @@
       "name": "burger",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-hover",
         "--ease",
         "--hairline-strong",
         "--radius-pill",
@@ -5323,6 +5548,7 @@
       "name": "caret",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-hover",
         "--ease"
       ],
       "hover": false
@@ -5332,6 +5558,8 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-hover",
+        "--dur-trim",
         "--ease",
         "--ease-out",
         "--hairline-strong"
@@ -5343,6 +5571,8 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-base",
+        "--dur-hover",
         "--ease",
         "--font-display",
         "--font-mono",
@@ -5352,7 +5582,8 @@
         "--ink-2",
         "--muted",
         "--paper-2",
-        "--radius-xs",
+        "--radius-sm",
+        "--text-body-base",
         "--text-eyebrow",
         "--tracking-mono"
       ],
@@ -5375,18 +5606,6 @@
       "hover": false
     },
     {
-      "name": "chapter-label",
-      "file": "src/styles/global.css",
-      "tokensUsed": [
-        "--accent",
-        "--font-mono",
-        "--muted",
-        "--radius-full",
-        "--text-eyebrow"
-      ],
-      "hover": false
-    },
-    {
       "name": "client",
       "file": "src/styles/global.css",
       "tokensUsed": [
@@ -5400,6 +5619,7 @@
       "name": "clip-up",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-slow",
         "--ease-out"
       ],
       "hover": false
@@ -5543,13 +5763,14 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
-        "--accent-rgb",
+        "--dur-hover",
         "--ease",
         "--font-mono",
         "--fw-medium",
         "--ink",
         "--paper",
         "--radius-pill",
+        "--shadow-cta-hover",
         "--space-2",
         "--text-caption",
         "--text-eyebrow",
@@ -5562,6 +5783,7 @@
       "name": "desc",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--leading-relaxed",
         "--muted"
       ],
       "hover": false
@@ -5600,6 +5822,7 @@
       "name": "e-body",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--leading-relaxed",
         "--muted"
       ],
       "hover": false
@@ -5644,7 +5867,8 @@
       "tokensUsed": [
         "--font-mono",
         "--muted",
-        "--text-mono-xs"
+        "--text-mono-xs",
+        "--tracking-caps"
       ],
       "hover": false
     },
@@ -5671,6 +5895,8 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-hover",
+        "--dur-trim",
         "--ease",
         "--ease-out",
         "--hairline-strong"
@@ -5682,12 +5908,14 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-hover",
         "--ease",
         "--font-display",
         "--font-mono",
         "--fw-regular",
         "--hairline",
         "--ink-2",
+        "--leading-relaxed",
         "--muted",
         "--paper-2",
         "--paper-rgb",
@@ -5696,7 +5924,8 @@
         "--text-caption",
         "--text-eyebrow",
         "--text-mono-xs",
-        "--text-ui"
+        "--text-ui",
+        "--tracking-caps"
       ],
       "hover": true
     },
@@ -5705,16 +5934,6 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent"
-      ],
-      "hover": false
-    },
-    {
-      "name": "fig",
-      "file": "src/styles/global.css",
-      "tokensUsed": [
-        "--font-mono",
-        "--muted",
-        "--text-mono-xs"
       ],
       "hover": false
     },
@@ -5780,7 +5999,8 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
-        "--accent-rgb",
+        "--dur-base",
+        "--dur-hover",
         "--ease",
         "--font-display",
         "--fw-medium",
@@ -5789,6 +6009,7 @@
         "--paper",
         "--paper-rgb",
         "--radius-pill",
+        "--shadow-cta-hover",
         "--space-2",
         "--text-caption",
         "--tracking-body"
@@ -5834,6 +6055,7 @@
       "tokensUsed": [
         "--accent",
         "--dur-fast",
+        "--dur-hover",
         "--ease",
         "--ink-rgb",
         "--radius-pill"
@@ -5879,6 +6101,7 @@
         "--fw-regular",
         "--hairline",
         "--leading-h3",
+        "--leading-relaxed",
         "--muted"
       ],
       "hover": false
@@ -5916,7 +6139,9 @@
     {
       "name": "in",
       "file": "src/styles/global.css",
-      "tokensUsed": [],
+      "tokensUsed": [
+        "--dur-trim"
+      ],
       "hover": false
     },
     {
@@ -5979,17 +6204,8 @@
       "tokensUsed": [
         "--accent",
         "--font-mono",
-        "--text-mono-xs"
-      ],
-      "hover": false
-    },
-    {
-      "name": "kicker",
-      "file": "src/styles/global.css",
-      "tokensUsed": [
-        "--font-mono",
-        "--muted",
-        "--text-mono-xs"
+        "--text-mono-xs",
+        "--tracking-caps"
       ],
       "hover": false
     },
@@ -5997,6 +6213,7 @@
       "name": "lang-toggle",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-hover",
         "--ease",
         "--font-mono",
         "--fw-medium",
@@ -6014,6 +6231,7 @@
       "name": "lift",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-base",
         "--ease",
         "--ease-out",
         "--ink-rgb"
@@ -6045,6 +6263,7 @@
       "name": "m-sheet",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-panel",
         "--ease-out",
         "--paper"
       ],
@@ -6063,6 +6282,7 @@
       "name": "m-sheet-acc-body",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-panel",
         "--ease-out"
       ],
       "hover": false
@@ -6078,7 +6298,8 @@
         "--ink",
         "--space-2",
         "--text-body-sm",
-        "--text-mono-xs"
+        "--text-mono-xs",
+        "--tracking-caps"
       ],
       "hover": false
     },
@@ -6087,11 +6308,13 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-hover",
         "--ease",
         "--font-display",
         "--font-mono",
         "--muted",
         "--space-4",
+        "--text-body-base",
         "--text-mono-xs"
       ],
       "hover": false
@@ -6119,7 +6342,8 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--hairline-strong",
-        "--radius-pill"
+        "--radius-pill",
+        "--text-body-base"
       ],
       "hover": false
     },
@@ -6170,6 +6394,7 @@
       "name": "mega",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-hover",
         "--ease",
         "--hairline",
         "--ink-rgb",
@@ -6190,6 +6415,7 @@
         "--muted",
         "--space-4",
         "--text-eyebrow",
+        "--tracking-mono-tight",
         "--wrap-wide"
       ],
       "hover": false
@@ -6201,6 +6427,22 @@
       "hover": false
     },
     {
+      "name": "mega-col-footer",
+      "file": "src/styles/global.css",
+      "tokensUsed": [
+        "--accent",
+        "--dur-trim",
+        "--ease",
+        "--font-mono",
+        "--hairline-strong",
+        "--ink",
+        "--space-2",
+        "--text-eyebrow",
+        "--tracking-mono-tight"
+      ],
+      "hover": true
+    },
+    {
       "name": "mega-col-hd",
       "file": "src/styles/global.css",
       "tokensUsed": [
@@ -6209,7 +6451,8 @@
         "--font-mono",
         "--hairline",
         "--space-2",
-        "--text-mono-xs"
+        "--text-mono-xs",
+        "--tracking-caps"
       ],
       "hover": false
     },
@@ -6222,6 +6465,7 @@
         "--font-mono",
         "--hairline",
         "--ink",
+        "--leading-relaxed",
         "--muted",
         "--paper-2",
         "--space-2",
@@ -6229,6 +6473,7 @@
         "--text-eyebrow",
         "--text-mono-xs",
         "--text-ui",
+        "--tracking-caps",
         "--tracking-mono"
       ],
       "hover": false
@@ -6248,6 +6493,8 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-hover",
+        "--dur-trim",
         "--ease",
         "--fw-regular",
         "--hairline",
@@ -6264,6 +6511,7 @@
       "name": "mega-scrim",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-hover",
         "--ease",
         "--ink-rgb"
       ],
@@ -6276,7 +6524,8 @@
         "--accent",
         "--font-mono",
         "--space-4",
-        "--text-mono-xs"
+        "--text-mono-xs",
+        "--tracking-caps"
       ],
       "hover": false
     },
@@ -6316,6 +6565,7 @@
       "name": "page-pill",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-panel",
         "--ease",
         "--hairline-strong",
         "--ink-rgb",
@@ -6330,6 +6580,7 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-trim",
         "--ease",
         "--font-mono",
         "--fw-medium",
@@ -6369,9 +6620,11 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-hover",
         "--ease",
         "--font-mono",
-        "--muted"
+        "--muted",
+        "--text-body-base"
       ],
       "hover": false
     },
@@ -6388,6 +6641,8 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-hover",
+        "--dur-trim",
         "--ease",
         "--ease-out",
         "--hairline-strong"
@@ -6478,6 +6733,7 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--dur-reveal",
+        "--dur-trim",
         "--ease-out"
       ],
       "hover": false
@@ -6521,6 +6777,8 @@
       "name": "row-lines",
       "file": "src/styles/global.css",
       "tokensUsed": [
+        "--dur-hover",
+        "--dur-trim",
         "--ease-out",
         "--hairline-strong"
       ],
@@ -6548,7 +6806,8 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--gut",
-        "--hairline"
+        "--hairline",
+        "--section-loose"
       ],
       "hover": false
     },
@@ -6571,10 +6830,12 @@
         "--font-mono",
         "--fw-regular",
         "--leading-h2",
+        "--leading-relaxed",
         "--muted",
         "--space-4",
         "--text-h2-section",
-        "--text-mono-xs"
+        "--text-mono-xs",
+        "--tracking-caps"
       ],
       "hover": false
     },
@@ -6583,6 +6844,14 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--paper-2"
+      ],
+      "hover": false
+    },
+    {
+      "name": "sec-paper-3",
+      "file": "src/styles/global.css",
+      "tokensUsed": [
+        "--paper-3"
       ],
       "hover": false
     },
@@ -6618,10 +6887,12 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-trim",
         "--ease",
         "--font-mono",
         "--ink",
         "--paper",
+        "--radius-base",
         "--space-3",
         "--text-caption"
       ],
@@ -6715,7 +6986,8 @@
         "--radius-pill",
         "--space-2",
         "--space-3",
-        "--text-mono-xs"
+        "--text-mono-xs",
+        "--tracking-mono-tight"
       ],
       "hover": false
     },
@@ -6750,6 +7022,7 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--accent",
+        "--dur-base",
         "--ease",
         "--font-display"
       ],
@@ -6785,7 +7058,7 @@
   ],
   "duplicateClasses": [
     {
-      "signature": "color:var(--accent);font-family:var(--font-mono);font-size:16px;justify-self:end;opacity:0;transition:opacity 320ms, transform 320ms",
+      "signature": "color:var(--accent);font-family:var(--font-mono);font-size:var(--text-body-base);justify-self:end;opacity:0;transition:opacity var(--dur-hover), transform var(--dur-hover)",
       "classes": [
         "arr",
         "case-row"
@@ -6799,14 +7072,14 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:clamp(13px, 1.3vw, 15px);line-height:1.6;max-width:420px;text-wrap:pretty",
+      "signature": "color:var(--muted);font-size:clamp(13px, 1.3vw, 15px);line-height:var(--leading-relaxed);max-width:420px;text-wrap:pretty",
       "classes": [
         "aside",
         "sec-hd"
       ]
     },
     {
-      "signature": "color:var(--accent);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:0.22em;text-transform:uppercase",
+      "signature": "color:var(--accent);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-caps);text-transform:uppercase",
       "classes": [
         "badge",
         "k",
@@ -6815,7 +7088,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:var(--text-ui);line-height:1.55;max-width:280px",
+      "signature": "color:var(--muted);font-size:var(--text-ui);line-height:var(--leading-relaxed);max-width:280px",
       "classes": [
         "bd",
         "mega-featured"
@@ -6948,14 +7221,14 @@
       ]
     },
     {
-      "signature": "display:inline-block;font-size:8px;opacity:0.55;transition:transform 300ms var(--ease)",
+      "signature": "display:inline-block;font-size:8px;opacity:0.55;transition:transform var(--dur-hover) var(--ease)",
       "classes": [
         "caret",
         "hdr-nav-trigger"
       ]
     },
     {
-      "signature": "background-image:linear-gradient(var(--hairline-strong), var(--hairline-strong)), linear-gradient(var(--accent), var(--accent));background-position:0 100%, 100% 100%;background-repeat:no-repeat;background-size:100% 1px, 0 1px;color:inherit;padding-bottom:1px;text-decoration:none;transition:background-size 260ms var(--ease-out), background-position 260ms var(--ease-out), color 220ms var(--ease)",
+      "signature": "background-image:linear-gradient(var(--hairline-strong), var(--hairline-strong)), linear-gradient(var(--accent), var(--accent));background-position:0 100%, 100% 100%;background-repeat:no-repeat;background-size:100% 1px, 0 1px;color:inherit;padding-bottom:1px;text-decoration:none;transition:background-size var(--dur-hover) var(--ease-out), background-position var(--dur-hover) var(--ease-out), color var(--dur-trim) var(--ease)",
       "classes": [
         "case-body",
         "editorial-body",
@@ -7025,13 +7298,6 @@
         "cert",
         "dot",
         "trust-pill"
-      ]
-    },
-    {
-      "signature": "background:var(--accent);border-radius:var(--radius-full);display:inline-block;height:6px;transform:translateY(-2px);width:6px",
-      "classes": [
-        "chapter-label",
-        "dot"
       ]
     },
     {
@@ -7121,14 +7387,14 @@
       ]
     },
     {
-      "signature": "align-items:center;background:var(--ink);border-radius:var(--radius-pill);color:var(--paper);display:inline-flex;font-size:var(--text-caption);font-weight:var(--fw-medium);gap:var(--space-2);letter-spacing:var(--tracking-body);padding:10px 18px;transition:background 300ms var(--ease), transform 300ms var(--ease), box-shadow 300ms var(--ease)",
+      "signature": "align-items:center;background:var(--ink);border-radius:var(--radius-pill);color:var(--paper);display:inline-flex;font-size:var(--text-caption);font-weight:var(--fw-medium);gap:var(--space-2);letter-spacing:var(--tracking-body);padding:10px 18px;transition:background var(--dur-hover) var(--ease), transform var(--dur-hover) var(--ease), box-shadow var(--dur-hover) var(--ease)",
       "classes": [
         "cta",
         "hdr"
       ]
     },
     {
-      "signature": "background:var(--accent);box-shadow:0 14px 30px rgba(var(--accent-rgb), 0.22);transform:translateY(-1px)",
+      "signature": "background:var(--accent);box-shadow:var(--shadow-cta-hover);transform:translateY(-1px)",
       "classes": [
         "cta",
         "hdr"
@@ -7153,7 +7419,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:clamp(12px, 1.2vw, 14.5px);line-height:1.6;text-wrap:pretty",
+      "signature": "color:var(--muted);font-size:clamp(12px, 1.2vw, 14.5px);line-height:var(--leading-relaxed);text-wrap:pretty",
       "classes": [
         "desc",
         "how-row"
@@ -7167,7 +7433,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:clamp(12px, 1.1vw, 13.5px);line-height:1.55;text-wrap:pretty",
+      "signature": "color:var(--muted);font-size:clamp(12px, 1.1vw, 13.5px);line-height:var(--leading-relaxed);text-wrap:pretty",
       "classes": [
         "e-body",
         "editorial-cell"
@@ -7209,11 +7475,10 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:0.2em;text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-caps);text-transform:uppercase",
       "classes": [
         "e-tag",
-        "editorial-cell",
-        "kicker"
+        "editorial-cell"
       ]
     },
     {
@@ -7302,7 +7567,7 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-display);font-size:28px;letter-spacing:-0.018em;transition:font-size 440ms var(--ease)",
+      "signature": "font-family:var(--font-display);font-size:28px;letter-spacing:-0.018em;transition:font-size var(--dur-base) var(--ease)",
       "classes": [
         "hdr",
         "wm"
@@ -7419,14 +7684,6 @@
       ]
     },
     {
-      "signature": "transition-delay:220ms",
-      "classes": [
-        "in",
-        "reveal-stagger",
-        "row-lines"
-      ]
-    },
-    {
       "signature": "transition-delay:330ms",
       "classes": [
         "in",
@@ -7444,6 +7701,14 @@
     },
     {
       "signature": "transition-delay:550ms",
+      "classes": [
+        "in",
+        "reveal-stagger",
+        "row-lines"
+      ]
+    },
+    {
+      "signature": "transition-delay:var(--dur-trim)",
       "classes": [
         "in",
         "reveal-stagger",
@@ -7588,7 +7853,7 @@
       ]
     },
     {
-      "signature": "color:var(--accent);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:0.22em;margin-bottom:6px;text-transform:uppercase",
+      "signature": "color:var(--accent);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-caps);margin-bottom:6px;text-transform:uppercase",
       "classes": [
         "k",
         "m-sheet-acc-col"
@@ -7623,7 +7888,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:16px;transition:transform 340ms var(--ease)",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-body-base);transition:transform var(--dur-hover) var(--ease)",
       "classes": [
         "m-sheet-acc-head",
         "plus"
@@ -7658,6 +7923,13 @@
       ]
     },
     {
+      "signature": "border-bottom-color:var(--accent);color:var(--accent)",
+      "classes": [
+        "mega-bottom",
+        "mega-col-footer"
+      ]
+    },
+    {
       "signature": "font-family:var(--font-display);font-size:22px;letter-spacing:-0.012em;line-height:1.08",
       "classes": [
         "mega-col-hd",
@@ -7686,7 +7958,7 @@
       ]
     },
     {
-      "signature": "align-items:center;color:var(--accent);display:flex;font-family:var(--font-mono);font-size:var(--text-mono-xs);gap:14px;letter-spacing:0.2em;margin-bottom:var(--space-4);text-transform:uppercase",
+      "signature": "align-items:center;color:var(--accent);display:flex;font-family:var(--font-mono);font-size:var(--text-mono-xs);gap:14px;letter-spacing:var(--tracking-caps);margin-bottom:var(--space-4);text-transform:uppercase",
       "classes": [
         "n",
         "sec-hd"
@@ -7755,8 +8027,8 @@
     }
   ],
   "stats": {
-    "tokenCount": 106,
-    "classCount": 174,
+    "tokenCount": 115,
+    "classCount": 173,
     "duplicateGroupCount": 124,
     "unusedTokens": [
       "--color-accent",
@@ -7768,7 +8040,8 @@
       "--color-muted-2",
       "--color-paper",
       "--color-paper-2",
-      "--color-paper-3"
+      "--color-paper-3",
+      "--space-14"
     ]
   }
 }

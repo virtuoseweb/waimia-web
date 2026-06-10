@@ -2,6 +2,7 @@
 // Section W6 · branded-callout
 // Callout de marque fond paper-2 : kicker §, h2 display italic, corps + CTA. Source : `meth-os` (methode.astro).
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'branded-callout'>;
@@ -14,7 +15,7 @@ const isFr = lang === 'fr';
 <section class="branded-callout" aria-labelledby="branded-callout-h2">
   <div class="wrap-wide">
     <div class="branded-callout__box reveal">
-      <p class="branded-callout__kicker">{isFr ? data.kicker_fr : data.kicker_en}</p>
+      <Kicker as="p" tone="accent" class="branded-callout__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       <h2
         id="branded-callout-h2"
         class="branded-callout__h2"
@@ -35,7 +36,7 @@ const isFr = lang === 'fr';
 
 <style>
   .branded-callout {
-    padding: clamp(56px, 7vw, 88px) 0;
+    padding: var(--section-base) 0;
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
   }
@@ -45,12 +46,8 @@ const isFr = lang === 'fr';
     padding: clamp(32px, 4vw, 56px);
     max-width: 800px;
   }
-  .branded-callout__kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.branded-callout__kicker) {
     margin: 0 0 18px;
   }
   .branded-callout__h2 {

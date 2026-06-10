@@ -45,7 +45,7 @@ const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
 
 <style>
   /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */
-  .tech-sec { padding: clamp(72px, 8vw, 120px) 0; position: relative; }
+  .tech-sec { padding: var(--section-loose) 0; position: relative; }
   .tech-sec-hd {
     display: grid;
     grid-template-columns: 1fr 1fr;

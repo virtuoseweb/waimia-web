@@ -2,6 +2,7 @@
 // Section W6 · inclusions-list
 // Liste inline séparée par point médian. Sources : `off-inclusions`, `.ws-inclusions`.
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'inclusions-list'>;
@@ -17,7 +18,7 @@ const items = isFr ? data.items_fr : data.items_en;
     {((isFr ? data.kicker_fr : data.kicker_en) || (isFr ? data.title_fr : data.title_en)) && (
       <header class="inclusions-list__hd">
         {(isFr ? data.kicker_fr : data.kicker_en) && (
-          <span class="inclusions-list__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+          <Kicker as="span" tone="accent" class="inclusions-list__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         )}
         {(isFr ? data.title_fr : data.title_en) && (
           <h2 class="inclusions-list__title" set:html={isFr ? data.title_fr : data.title_en} />
@@ -35,19 +36,15 @@ const items = isFr ? data.items_fr : data.items_en;
 
 <style>
   .inclusions-list {
-    padding: var(--inclusions-list-pad, clamp(var(--space-10), 9vw, var(--section-loose)) var(--space-6));
+    padding: var(--inclusions-list-pad, var(--section-loose) var(--space-6));
     border-block: 1px solid var(--hairline);
   }
   .inclusions-list__hd {
     margin-bottom: clamp(var(--space-7), 4vw, var(--space-10));
   }
-  .inclusions-list__kicker {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.inclusions-list__kicker) {
     display: block;
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent);
     margin-bottom: var(--space-4);
   }
   .inclusions-list__title {

@@ -670,7 +670,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     h2_fr: 'Trois <i>piliers</i> du DS Waimia',
     h2_en: 'Three <i>pillars</i> of Waimia DS',
     features: [
-      { title_fr: 'Tokens canoniques', title_en: 'Canonical tokens', body_fr: "118 tokens CSS exposés à :root. Pioche, n'invente pas.", body_en: '118 CSS tokens at :root. Pick, never invent.' },
+      { title_fr: 'Tokens canoniques', title_en: 'Canonical tokens', body_fr: "115 tokens CSS exposés à :root. Pioche, n'invente pas.", body_en: '115 CSS tokens at :root. Pick, never invent.' },
       { title_fr: 'Composants atomiques', title_en: 'Atomic components', body_fr: '114 composants en 7 couches Tier 1.', body_en: '114 components across 7 Tier 1 layers.' },
       { title_fr: 'Anti-hallucination', title_en: 'Anti-hallucination', body_fr: '5 anti-patterns documentés avec commandes de détection.', body_en: '5 anti-patterns documented with detection commands.' },
     ],
