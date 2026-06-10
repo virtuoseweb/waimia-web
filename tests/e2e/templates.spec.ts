@@ -287,7 +287,23 @@ test("Templates · responsive mobile 375px sans overflow horizontal", async ({
 }) => {
   await page.setViewportSize({ width: 375, height: 800 });
 
-  const routes = ["/offres/conseil", "/cas/plateau"]; // /cas/plateau = URL canonique (redirect source /ressources/cas/plateau)
+  // Échantillon couvrant les templates ET les pages bespoke historiquement sujettes
+  // à l'overflow mobile (grilles inline / TOC essay / blocs de code). Étendu après le
+  // sweep 438 routes du 2026-06-10 (commits df63c21 + 2e47195). Tout ajout ici doit
+  // rester à 0 overflow 375px (preuve anti-régression). /cas/plateau = URL canonique.
+  const routes = [
+    "/offres/conseil",
+    "/cas/plateau",
+    "/manifesto",
+    "/en/manifesto",
+    "/console",
+    "/en/console",
+    "/agence/methode",
+    "/ressources/blog/note-3-erreurs-prompt-engineering",
+    "/ressources/cookbooks/claude-skills-tutorial",
+    "/solutions/finance",
+    "/atlas",
+  ];
   for (const route of routes) {
     await page.goto(route);
     await waitNoBoot(page);
