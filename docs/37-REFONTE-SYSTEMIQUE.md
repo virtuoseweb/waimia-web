@@ -117,5 +117,6 @@ Pas de refonte graphique (DA, palette parchemin/encre/terracotta, typo, ton : in
 | R5a · Famille Hero | ✅ livrée, contre-vérifiée, mergée (17 fichiers → 9, 28 types = presets, 0 MDX touché) | `feat/refonte-r5-hero-familles` `2edeec6` · SR-22 |
 | R7a · Data hub par besoin | ✅ livrée, contre-vérifiée (diff dist = 0), **mergée prod** : référentiels pain/proof-points, need 8/8, facettes 4/4 cas, maillage related*, gate check-content-refs | `feat/refonte-r7a-data-facettes` `dd29a98` · SR-23 |
 | R5b · Familles grilles/stats/tables/CTA | ✅ livrée, contre-vérifiée, **mergée prod** : 16 fichiers vers 6 archétypes, 10 supprimés 0 orphelin, 17 types intacts, diff 672/672 + 66 paired computed, bug :where()/Astro scoping attrapé et corrigé | `feat/refonte-r5b-grids-familles` `84603f5` · SR-26 |
-| R6 · Extinction templates · R7b · UI hub par besoin | ⏳ après merges R5b/R7a/R2-P2 | |
+| R6 · Extinction templates | ✅ livrée, contre-vérifiée, **mergée prod** : 65 stubs purgés (672 vers 607), ListIndex fusionné, 15 eyebrows vers Kicker, 301 /careers. Restes (OffresDetail/SolutionsDetail/ConversionFunnel) : docs/40 §7 | `feat/refonte-r6-templates` `465cf63` · SR-27 |
+| R7b · UI hub par besoin | ⏳ intégrée au plan vision finale (docs/40 V-F) | |
 | Vague visuelle finale | 📋 plan livré : `docs/39-PLAN-VAGUE-VISUELLE.md` (Top 10 P1, mesures 14 pages prod) + pipeline images gpt-image-2 en cours (`feat/images-pipeline`) | SR-25 |
