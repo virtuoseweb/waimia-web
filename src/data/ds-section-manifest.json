@@ -11980,6 +11980,11 @@
     "description_en": "Macro-typographic problem statement with optional hairline stats grid.",
     "schemaFields": [
       {
+        "name": "dropcap",
+        "type": "boolean",
+        "required": false
+      },
+      {
         "name": "kicker_en",
         "type": "string",
         "required": true
@@ -12007,10 +12012,12 @@
       }
     ],
     "scopedClasses": [
+      "drop-cap",
       "problem-statement",
       "problem-statement__kicker",
       "problem-statement__label",
       "problem-statement__stat",
+      "problem-statement__statement--dropcap",
       "problem-statement__stats",
       "problem-statement__text",
       "problem-statement__value"
@@ -12123,8 +12130,9 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 7,
+      "count": 8,
       "samples": [
+        "0.16em",
         "1100px",
         "1px",
         "800px",
@@ -12134,7 +12142,7 @@
         "clamp(var(--text-h2-tight)"
       ]
     },
-    "agentGuide": "Espacement : --space-11 --space-12 --space-2. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (1100px, 1px, 800px)."
+    "agentGuide": "Espacement : --space-11 --space-12 --space-2. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (0.16em, 1100px, 1px)."
   },
   {
     "id": "problems-grid",
@@ -13159,6 +13167,16 @@
     "description_en": "Grid-based stats block for highlighting performance or impact figures.",
     "schemaFields": [
       {
+        "name": "cite_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cite_fr",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "h2_en",
         "type": "string",
         "required": false
@@ -13173,7 +13191,7 @@
         "type": "enum",
         "required": false,
         "default": "grid-3",
-        "constraint": "grid-3 | grid-4 | rows-hairlines"
+        "constraint": "grid-3 | grid-4 | rows-hairlines | split-quote"
       },
       {
         "name": "lede_en",
@@ -13190,14 +13208,26 @@
         "type": "array",
         "required": true,
         "constraint": "min:1 max:8"
+      },
+      {
+        "name": "quote_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "quote_fr",
+        "type": "string",
+        "required": false
       }
     ],
     "scopedClasses": [
+      "pull-quote",
       "stat-block",
       "stat-block__grid",
       "stat-block__header",
       "stat-block__item",
       "stat-block__label",
+      "stat-block__split",
       "stat-block__value"
     ],
     "tokensUsed": [
@@ -13232,6 +13262,10 @@
       {
         "name": "--muted",
         "value": "#6B6560"
+      },
+      {
+        "name": "--space-10",
+        "value": "80px"
       },
       {
         "name": "--space-2",
@@ -13272,15 +13306,17 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 6,
       "samples": [
         "-1px",
         "1px",
+        "480px",
         "768px",
-        "clamp(36px, 5vw, 64px)"
+        "clamp(36px, 5vw, 64px)",
+        "clamp(var(--space-6)"
       ]
     },
-    "agentGuide": "Layout : `layout` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (-1px, 1px, 768px)."
+    "agentGuide": "Layout : `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-1px, 1px, 480px)."
   },
   {
     "id": "stats-bento",

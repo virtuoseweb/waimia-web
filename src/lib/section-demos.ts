@@ -559,16 +559,19 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   },
   'stat-block': {
     type: 'stat-block',
-    h2_fr: 'Mesures <i>vérifiables</i>',
-    h2_en: '<i>Verifiable</i> measurements',
-    lede_fr: "Statistiques observées sur 12 mois d'engagements PME/ETI.",
-    lede_en: 'Stats observed over 12 months of SMB engagements.',
+    h2_fr: 'Signal <i>terrain</i>',
+    h2_en: 'Field <i>signal</i>',
+    quote_fr: "En cinq jours, nous avions un workflow déployé et un plan d'action validé par le comité.",
+    quote_en: 'Within five days, we had a deployed workflow and an action plan approved by the committee.',
+    cite_fr: 'Carole Henriques · COO · Cabinet conseil B2B',
+    cite_en: 'Carole Henriques · COO · B2B consulting firm',
     metrics: [
       { value: '43', label_fr: 'engagements', label_en: 'engagements', emphasis: true },
       { value: '€18M+', label_fr: 'pipeline audité', label_en: 'pipeline audited', emphasis: false },
       { value: '× 3.7', label_fr: 'ROI moyen 12 mois', label_en: 'avg ROI 12 months', emphasis: false },
+      { value: '5 jours', label_fr: 'du brief à la mesure', label_en: 'from brief to measurement', emphasis: false },
     ],
-    layout: 'grid-3',
+    layout: 'split-quote',
   },
   'metric-shift': {
     type: 'metric-shift',
@@ -1285,6 +1288,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     kicker_en: '§ 02 · The problem',
     statement_fr: "Votre équipe ne manque pas d'outils. Elle manque d'une <i>couche de continuité</i> entre site, CRM, contenu et décisions commerciales.",
     statement_en: 'Your team does not lack tools. It lacks a <i>continuity layer</i> between the site, CRM, content, and commercial decisions.',
+    dropcap: true,
     stats: [
       { value: '42%', label_fr: 'leads sans relance sous 24h', label_en: 'leads not followed up within 24h' },
       { value: '6', label_fr: 'outils avant une décision', label_en: 'tools before one decision' },

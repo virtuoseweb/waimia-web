@@ -766,8 +766,12 @@ export const statBlockSchema = z.object({
   h2_en: z.string().optional(),
   lede_fr: z.string().optional(),
   lede_en: z.string().optional(),
+  quote_fr: z.string().optional(),
+  quote_en: z.string().optional(),
+  cite_fr: z.string().optional(),
+  cite_en: z.string().optional(),
   metrics: z.array(metricSchema).min(1).max(8),
-  layout: z.enum(['grid-3', 'grid-4', 'rows-hairlines']).default('grid-3'),
+  layout: z.enum(['grid-3', 'grid-4', 'rows-hairlines', 'split-quote']).default('grid-3'),
 });
 
 // Band before→après : valeur initiale → valeur finale magnifiée + delta (résultats, ROI)
@@ -1507,6 +1511,7 @@ export const problemStatementSchema = z.object({
   kicker_en: z.string(),
   statement_fr: z.string(),
   statement_en: z.string(),
+  dropcap: z.boolean().optional(),
   stats: z
     .array(
       z.object({

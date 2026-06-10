@@ -796,6 +796,7 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `dropcap` | boolean | non |  |  |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 | `statement_en` | string | oui |  |  |
@@ -804,11 +805,11 @@
 
 **Tokens** : `--accent` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--problem-statement-cols` `--problem-statement-inline` `--problem-statement-pad` `--section-loose` `--space-11` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-eyebrow` `--text-h2-grand` `--text-h2-section` `--text-h2-tight` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .problem-statement .problem-statement__kicker .problem-statement__label .problem-statement__stat .problem-statement__stats .problem-statement__text .problem-statement__value
+**Classes scoped** : .drop-cap .problem-statement .problem-statement__kicker .problem-statement__label .problem-statement__stat .problem-statement__statement--dropcap .problem-statement__stats .problem-statement__text .problem-statement__value
 
-**Dette hardcode** : 7 valeur(s) — 1100px, 1px, 800px, clamp(var(--space-11), clamp(var(--space-8), clamp(var(--text-h2-section), clamp(var(--text-h2-tight)
+**Dette hardcode** : 8 valeur(s) — 0.16em, 1100px, 1px, 800px, clamp(var(--space-11), clamp(var(--space-8), clamp(var(--text-h2-section), clamp(var(--text-h2-tight)
 
-**Agent** : Espacement : --space-11 --space-12 --space-2. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (1100px, 1px, 800px).
+**Agent** : Espacement : --space-11 --space-12 --space-2. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (0.16em, 1100px, 1px).
 
 ---
 
@@ -2159,20 +2160,24 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `cite_en` | string | non |  |  |
+| `cite_fr` | string | non |  |  |
 | `h2_en` | string | non |  |  |
 | `h2_fr` | string | non |  |  |
-| `layout` | enum | non | grid-3 | grid-3 | grid-4 | rows-hairlines |
+| `layout` | enum | non | grid-3 | grid-3 | grid-4 | rows-hairlines | split-quote |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 | `metrics` | array | oui |  | min:1 max:8 |
+| `quote_en` | string | non |  |  |
+| `quote_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--spacing-section` `--text-body-md` `--text-body-sm` `--text-h2-section`
+**Tokens** : `--accent` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--spacing-section` `--text-body-md` `--text-body-sm` `--text-h2-section`
 
-**Classes scoped** : .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__value
+**Classes scoped** : .pull-quote .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
-**Dette hardcode** : 4 valeur(s) — -1px, 1px, 768px, clamp(36px, 5vw, 64px)
+**Dette hardcode** : 6 valeur(s) — -1px, 1px, 480px, 768px, clamp(36px, 5vw, 64px), clamp(var(--space-6)
 
-**Agent** : Layout : `layout` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (-1px, 1px, 768px).
+**Agent** : Layout : `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-1px, 1px, 480px).
 
 ---
 

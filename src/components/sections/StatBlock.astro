@@ -1,5 +1,6 @@
 ---
 import type { SectionByType } from '../../schemas/sections';
+import PullQuote from '../editorial/PullQuote.astro';
 
 interface Props {
   data: SectionByType<'stat-block'>;
@@ -7,6 +8,10 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+const quote = isFr ? data.quote_fr : data.quote_en;
+const cite = isFr ? data.cite_fr : data.cite_en;
+const isSplitQuote = data.layout === 'split-quote' && Boolean(quote);
+const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quote' ? 'grid-3' : data.layout;
 ---
 
 <section class="stat-block">
@@ -19,14 +24,30 @@ const isFr = lang === 'fr';
       <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
     )}
   </div>
-  <ul class="stat-block__grid" data-layout={data.layout}>
-    {data.metrics.map((m: (typeof data.metrics)[number]) => (
-      <li class:list={['stat-block__item', m.emphasis && 'stat-block__item--emphasis']}>
-        <span class="stat-block__value">{m.value}</span>
-        <span class="stat-block__label">{isFr ? m.label_fr : m.label_en}</span>
-      </li>
-    ))}
-  </ul>
+  {isSplitQuote ? (
+    <div class="stat-block__split">
+      <PullQuote attribution={cite} variant="inline">
+        <Fragment set:html={quote} />
+      </PullQuote>
+      <ul class="stat-block__grid" data-layout={metricsLayout}>
+        {data.metrics.map((m: (typeof data.metrics)[number]) => (
+          <li class:list={['stat-block__item', m.emphasis && 'stat-block__item--emphasis']}>
+            <span class="stat-block__value">{m.value}</span>
+            <span class="stat-block__label">{isFr ? m.label_fr : m.label_en}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : (
+    <ul class="stat-block__grid" data-layout={metricsLayout}>
+      {data.metrics.map((m: (typeof data.metrics)[number]) => (
+        <li class:list={['stat-block__item', m.emphasis && 'stat-block__item--emphasis']}>
+          <span class="stat-block__value">{m.value}</span>
+          <span class="stat-block__label">{isFr ? m.label_fr : m.label_en}</span>
+        </li>
+      ))}
+    </ul>
+  )}
   </div>
 </section>
 
@@ -66,6 +87,16 @@ const isFr = lang === 'fr';
   .stat-block__grid[data-layout="grid-3"] { grid-template-columns: repeat(3, 1fr); gap: 0; }
   .stat-block__grid[data-layout="grid-4"] { grid-template-columns: repeat(4, 1fr); gap: 0; }
   .stat-block__grid[data-layout="rows-hairlines"] { grid-template-columns: 1fr; }
+  .stat-block__grid[data-layout="split-quote"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+  .stat-block__split {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(var(--space-6), 5vw, var(--space-10));
+    align-items: start;
+  }
+  .stat-block__split :global(.pull-quote) {
+    margin: 0;
+  }
   .stat-block__item {
     padding: var(--space-5) var(--space-6);
     border: 1px solid var(--hairline);
@@ -102,5 +133,9 @@ const isFr = lang === 'fr';
   }
   @media (max-width: 768px) {
     .stat-block__grid[data-layout="grid-4"] { grid-template-columns: repeat(2, 1fr); }
+    .stat-block__split { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .stat-block__grid[data-layout="split-quote"] { grid-template-columns: 1fr; }
   }
 </style>
