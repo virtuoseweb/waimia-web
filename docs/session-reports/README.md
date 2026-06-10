@@ -20,7 +20,7 @@ Un rapport « vivant » (mis à jour vague après vague pendant une session long
 | Rapport | Session | Scope | Branche / Prod | Statut | Commits clés |
 |---|---|---|---|---|---|
 | [SR-2026-06-10-01-registry-pilote-offres](SR-2026-06-10-01-registry-pilote-offres.md) | 2026-06-10 (diurne) | Registry adoption Phase 1 — pilote offres + 2 types catalogue + CaseStudy/plateau | `feat/registry-pilote-offres` (non mergée) | ✅ 89 types, gates verts, GF-1 PASS | `1a21fe0` · `a4154a0` · `bc0b742` · `b5d58ee` |
-| [SR-2026-06-10-02-registry-night-waves](SR-2026-06-10-02-registry-night-waves.md) | 2026-06-10 (nocturne, autonome) | Registry adoption Phase 1 — waves 1.x (offres+cas, ServiceDetail/revops, Technologies, Hub/conseil, **Solutions 8/8 +6 types→102**) | `main` (W1.1-1.3) · `feat/registry-wave4` (W1.4) | 🔄 en cours (vivant) | `38c2d3e` (W1.1) · `681ca40` (W1.2) · `d0d7b27` (W1.3) · `ad71917`+`5dccb7d`+`d7783d7` (W1.4, GF-1 local PASS, preview en cours) |
+| [SR-2026-06-10-02-registry-night-waves](SR-2026-06-10-02-registry-night-waves.md) | 2026-06-10 (nocturne, autonome) | Registry adoption Phase 1 — waves 1.x (offres+cas, ServiceDetail/revops, Technologies, Hub/conseil, **Solutions 8/8 +6 types→102**) | `main` (W1.1-1.4 MERGÉ PROD) | 🔄 en cours (vivant) | `38c2d3e` (W1.1) · `681ca40` (W1.2) · `d0d7b27` (W1.3) · `aa7ca45` (W1.4, **GF-1 prod waimia.com FR+EN PASS**) |
 
 ## Comment lire
 
