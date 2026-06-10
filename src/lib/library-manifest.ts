@@ -159,6 +159,15 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // Wave 1.5 — École hub : 2 blocs bespoke EcoleHubTemplate catalogués, consommés par la page hub École (rendu direct)
   { id: 'course-catalog-table',      consumers: ['src/pages/ecole/index.astro'] },
   { id: 'learning-path-list',        consumers: ['src/pages/ecole/index.astro'] },
+  // Mission catalogue-gap 2026-06-11 — 7 types extraits des patterns /console + /manifesto,
+  // usage library (0 consommateur : les pages live console.astro/manifesto.astro restent bespoke)
+  { id: 'terminal-table',            consumers: [] },
+  { id: 'editorial-write-feed',      consumers: [] },
+  { id: 'manifesto-statement',       consumers: [] },
+  { id: 'manifesto-act',             consumers: [] },
+  { id: 'asymmetric-services',       consumers: [] },
+  { id: 'terminal-mockup',           consumers: [] },
+  { id: 'terminal-metrics-strip',    consumers: [] },
 ];
 
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────

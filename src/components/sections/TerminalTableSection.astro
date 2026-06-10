@@ -1,0 +1,104 @@
+---
+// Section catalogue · terminal-table (catégorie Table Sections)
+// Wrapper de la molécule TerminalTable (source de vérité du frame table, anti-orphelin) :
+// en-tête kicker/meta + titre + intro, puis table terminal configurable
+// (cols / headers bilingues / rows avec rôle typographique par cellule).
+// Pattern source : /console Acte II (services, 4 colonnes) + Acte IV (cases, 7 colonnes).
+// Typo (directive 2026-06-11) : masse en var(--font-sans), italique serif réservé au
+// relevé d'un mot (<i>), contraste par le gras (strong → --fw-semibold).
+import TerminalTable from '../ui/molecules/TerminalTable.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'terminal-table'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const headers = data.headers.map((h) => (isFr ? h.fr : h.en));
+const intro = isFr ? data.intro_fr : data.intro_en;
+const meta = isFr ? data.meta_fr : data.meta_en;
+---
+<section class="tbl-sec" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="tbl-sec__hd">
+      <Kicker tone="accent" as="span">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      {meta && <Kicker as="span">{meta}</Kicker>}
+    </div>
+    <h2 class="tbl-sec__title reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+    {intro && <p class="tbl-sec__intro reveal">{intro}</p>}
+    <TerminalTable cols={data.cols} headers={headers}>
+      {data.rows.map((row) =>
+        row.href ? (
+          <a href={row.href} class="u-edit-tbl-row">
+            {row.cells.map((c) => (
+              <span class="tbl-sec__cell" data-role={c.role}>{isFr ? c.fr : c.en}</span>
+            ))}
+          </a>
+        ) : (
+          <div class="u-edit-tbl-row">
+            {row.cells.map((c) => (
+              <span class="tbl-sec__cell" data-role={c.role}>{isFr ? c.fr : c.en}</span>
+            ))}
+          </div>
+        ),
+      )}
+    </TerminalTable>
+  </div>
+</section>
+
+<style>
+  .tbl-sec { padding-block: var(--section-base); }
+  .tbl-sec[data-bg='paper-2'] { background: var(--paper-2); }
+
+  .tbl-sec__hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+
+  /* Directive typo : titre en sans, l'italique serif ne relève qu'un mot */
+  .tbl-sec__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    max-width: 1100px;
+    margin: 0 0 var(--space-5);
+  }
+  .tbl-sec__title :global(i) { font-family: var(--font-display); font-style: italic; }
+  .tbl-sec__title :global(.acc) { color: var(--accent); }
+  .tbl-sec__title :global(strong) { font-weight: var(--fw-semibold); }
+
+  .tbl-sec__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 70ch;
+    text-wrap: pretty;
+    margin: 0 0 var(--space-8);
+  }
+
+  /* Rôles typographiques des cellules (markup section, molecule intacte) */
+  .tbl-sec__cell[data-role='id'] { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--muted); }
+  .tbl-sec__cell[data-role='title'] { font-family: var(--font-sans); font-size: clamp(18px, 1.8vw, 24px); line-height: var(--leading-h3); font-weight: var(--fw-medium); letter-spacing: -0.01em; }
+  .tbl-sec__cell[data-role='body'] { font-size: var(--text-ui); color: var(--muted); line-height: 1.45; padding-right: var(--space-4); }
+  .tbl-sec__cell[data-role='mono'] { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--ink); }
+  .tbl-sec__cell[data-role='status'] { font-family: var(--font-mono); font-size: var(--text-eyebrow); color: var(--accent); letter-spacing: .1em; text-align: right; }
+  .tbl-sec__cell[data-role='accent'] { font-size: var(--text-body-sm); color: var(--accent); font-weight: var(--fw-medium); }
+  .tbl-sec__cell[data-role='arrow'] { font-family: var(--font-mono); color: var(--muted); text-align: right; }
+
+  @media (max-width: 900px) {
+    .tbl-sec__cell[data-role='status'],
+    .tbl-sec__cell[data-role='arrow'] { text-align: left; }
+  }
+</style>

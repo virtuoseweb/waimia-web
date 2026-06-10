@@ -1,0 +1,108 @@
+---
+// Section catalogue · manifesto-act (catégorie Manifesto Sections)
+// Acte numéroté de manifeste : label sticky (numéro romain + sous-titre) à gauche,
+// statement XL à droite, rangée de stats massives optionnelle dessous.
+// Pattern source : /manifesto Acte I (« Le constat » + stats +12h / 23 / 3,4×).
+// Typo (directive 2026-06-11) : statement en var(--font-sans), italique serif
+// réservé au relevé (<i>) ; les chiffres XL restent en display (relevé signature).
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'manifesto-act'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const sub = isFr ? data.sub_fr : data.sub_en;
+const stats = data.stats ?? [];
+---
+<section class="manifesto-act" data-tone={data.tone}>
+  <div class="wrap-wide">
+    <div class="manifesto-act__grid">
+      <div class="manifesto-act__label">
+        <Kicker class="manifesto-act__num">
+          <span class="manifesto-act__roman">{isFr ? data.num_fr : data.num_en}</span> {isFr ? data.label_fr : data.label_en}
+        </Kicker>
+        {sub && <Kicker class="manifesto-act__sub">{sub}</Kicker>}
+      </div>
+      <p class="manifesto-act__text reveal" set:html={isFr ? data.text_fr : data.text_en} />
+    </div>
+    {stats.length > 0 && (
+      <div class="manifesto-act__stats" style={`--act-cols:${stats.length}`}>
+        {stats.map((s) => (
+          <div class="reveal">
+            <div class="manifesto-act__stat-k">{s.k}</div>
+            <p class="manifesto-act__stat-p">{isFr ? s.label_fr : s.label_en}</p>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .manifesto-act { padding-block: var(--section-loose); }
+  .manifesto-act[data-tone='ink'] { background: var(--ink); color: var(--paper); }
+
+  .manifesto-act__grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(40px, 6vw, 80px);
+  }
+  .manifesto-act__label { position: sticky; top: 120px; align-self: start; }
+  .manifesto-act__roman { color: var(--accent); }
+  :global(.manifesto-act__sub) { margin-top: var(--space-1); }
+  .manifesto-act[data-tone='ink'] :global(.manifesto-act__num) { color: rgba(var(--paper-rgb), .5) !important; }
+  .manifesto-act[data-tone='ink'] :global(.manifesto-act__num) .manifesto-act__roman { color: var(--accent); }
+  .manifesto-act[data-tone='ink'] :global(.manifesto-act__sub) { color: rgba(var(--paper-rgb), .3) !important; }
+
+  /* Directive typo : masse du statement en sans, relevé d'un mot en italique serif */
+  .manifesto-act__text {
+    font-family: var(--font-sans);
+    font-size: clamp(28px, 4.2vw, 64px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    font-weight: var(--fw-regular);
+    margin: 0;
+  }
+  .manifesto-act[data-tone='ink'] .manifesto-act__text { color: var(--paper); }
+  .manifesto-act__text :global(i) { font-family: var(--font-display); font-style: italic; }
+  .manifesto-act__text :global(i.acc), .manifesto-act__text :global(.acc) { color: var(--accent); }
+  .manifesto-act__text :global(strong) { font-weight: var(--fw-semibold); }
+
+  .manifesto-act__stats {
+    display: grid;
+    grid-template-columns: repeat(var(--act-cols, 3), 1fr);
+    gap: var(--space-8);
+    margin-top: clamp(64px, 9vw, 120px);
+    padding-top: var(--space-10);
+    border-top: 1px solid var(--hairline);
+  }
+  .manifesto-act[data-tone='ink'] .manifesto-act__stats { border-top-color: rgba(var(--paper-rgb), .12); }
+
+  /* Chiffre XL : relevé signature en display accent (directive : serif = relevé) */
+  .manifesto-act__stat-k {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 8vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+  }
+  .manifesto-act__stat-p {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: 280px;
+  }
+  .manifesto-act[data-tone='ink'] .manifesto-act__stat-p { color: rgba(var(--paper-rgb), .7); }
+
+  @media (max-width: 768px) {
+    .manifesto-act__grid { grid-template-columns: 1fr; }
+    .manifesto-act__label { position: static; }
+    .manifesto-act__stats { grid-template-columns: 1fr; gap: var(--space-6); }
+  }
+</style>
