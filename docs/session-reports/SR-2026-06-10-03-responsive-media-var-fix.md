@@ -73,7 +73,15 @@ Le gate flaggait les `max-width: 900px` des **conditions `@media`** comme « doi
 - `scripts/check-token-purity.mjs` (Fix 3, skip `@media`) + `scripts/tokenize-literals.mjs` (commentaire footgun).
 - Total : 46 fichiers, `+64 / -46`.
 
+## Capstone . Gate anti-régression (commit `00e2b0a`, CI verte)
+
+Pour que cette classe de bug ne puisse **jamais** récidiver silencieusement (GF-3 : transformer le fix en prévention), ajout d'un gate CI dédié :
+
+- `scripts/check-media-query-var.mjs` : scan `src/` (`.astro` + `.css`), regex `/@(media|container)[^{]*var\(/` par ligne, `exit 1` si un seul hit. Cycle PASS→FAIL→PASS vérifié (302 fichiers, 0 hit actuel).
+- Câblé dans `.github/workflows/ci.yml` après le gate token-purity. **CI main `00e2b0a` verte** : step `Gate media-query (anti var() en condition @media): success` (+ Build astro + E2E 45/0).
+- **Effet de bord bénéfique** : ce gate neutralise aussi le footgun `tokenize-literals.mjs` au niveau CI (si l'auto-fixer ré-introduisait `var()` en `@media`, le gate échouerait). Le durcissement du tool lui-même devient donc optionnel (défense en profondeur).
+
 ## Suites
 
-- **#30** : promote prod + GF-1 prod au reset quota.
-- Durcir `tokenize-literals.mjs` (skip `@media` dans `applyMappings`) si un usage futur de l'auto-fixer est prévu.
+- **#30** : promote prod (`vercel promote dpl_A27mDcfQ`) + GF-1 prod au reset du quota Vercel (`api-deployments-free-per-day`, ~24h).
+- Reprise des waves registry (1.6 Tunnel, etc.) : nécessite des previews Vercel → débloqué au reset du quota.
