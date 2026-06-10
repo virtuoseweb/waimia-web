@@ -102,13 +102,24 @@ Avec `/api/*` + enhancement client-fetch, un utilisateur sans JS qui soumet voit
 - Repointés : `src/pages/contact.astro`, `src/pages/en/contact.astro`, `src/pages/ressources/academy.astro`, `src/pages/ressources/index.astro`, `src/pages/en/ressources/index.astro`
 - Supprimés : `src/actions/index.ts`, `src/actions/_shared.ts`
 
-## Statut merge — ✅ MERGÉ MAIN · ⛔ prod-deploy gelé (quota Vercel)
+## Statut — ✅ RÉSOLU END-TO-END (mergé main + déployé prod + GF-1 prod PASS)
 
-- **PR #37 mergée sur `main`** (`e288f5c`). CI GitHub Actions verte (Build, E2E, gf1-sweep). GF-1 niveau 1 + 2 PASS.
-- **Prod-deploy BLOQUÉ** : les **deux** quotas Vercel Hobby sont épuisés simultanément :
-  - `build-rate-limit` (« retry in 24 hours ») → aucun nouveau build.
-  - `api-deployments-free-per-day` (402, > 100/24h) → `vercel promote` lui-même refusé.
-  → Impossible de pousser le fix en prod avant le reset (~24h, vers 2026-06-11 12:00). Upgrade Pro = exclu (paiement prohibé). Blocker externe dur, identique au précédent responsive (#30).
-- **prod `waimia.com` sert encore `cd0e1bc5`** (forms cassés) jusqu'au reset. Le fix est mergé + prouvé ; seul le déploiement attend la fenêtre de quota.
-- **Suivi** : task #34 (promote + GF-1 prod au reset). Le sous-finding LeadMagnet de la task #27 est résorbé par cette restauration globale (la note « endpoint absent » est obsolète une fois en prod).
-- **GF-3 (prévention)** : task #32 (gate `check-form-endpoints` : tout `action`/`fetch` vers `/api/X` doit avoir `src/pages/api/X.ts`) + memory `forms-architecture-api-routes` créée.
+- **PR #37 mergée sur `main`** (`e288f5c`). CI GitHub Actions verte (Build, E2E, gf1-sweep). GF-1 niveaux 1 + 2 PASS.
+- **Déployé en prod** via `vercel promote` du preview tree-identique → bascule des alias prod (`waimia.com`), 0 rebuild (contourne le build-rate-limit Hobby). `healthcheck` prod → `version: 06c6314`.
+- **GF-1 prod PASS** (POST réels live sur `waimia.com`, re-confirmés 2026-06-10) :
+
+  | Endpoint | Avant régression | Après (prod) |
+  |---|---|---|
+  | `POST /api/newsletter` (honeypot-safe) | 404 | **200 `{ok:true}`** (0 email) |
+  | `POST /api/contact` (invalide) | 405 | **400 `{ok:false,"Champs requis manquants."}`** |
+  | `POST /api/devis` (invalide) | 404 | **400 `{ok:false,"Champs requis manquants."}`** |
+  | `POST /api/lead-magnet` (invalide) | 404 | **400 `{ok:false,"Requête invalide."}`** |
+  | `POST /api/academy` (invalide) | 404 | **400 `{ok:false,"Email manquant ou invalide."}`** |
+  | `GET /api/newsletter` (méthode) | 404 | **405** (route existe) |
+
+  → Les 404 (route absente) et 405 (POST sur statique) de la régression sont **éliminés en prod**.
+
+- **⚠️ Correction du récit (GF-4)** : une version antérieure de ce statut déclarait « prod-deploy gelé 24h (deux quotas Vercel épuisés) ». **C'était FAUX.** Le `402 "retry in 24 hours (api-deployments-free-per-day)"` reçu sur `vercel promote` n'était PAS littéral : la **même commande relancée ~16 min plus tard a réussi**. Un message d'erreur est une affirmation à vérifier (retenter), pas une vérité — capitalisé dans la mémoire `vercel-build-rate-limit-promote`.
+- **Gate préventif mergé** (#32, PR #38, `d27ffb8`) : `scripts/check-form-endpoints.mjs` — tout `action`/`fetch` vers `/api/X` impose l'existence de `src/pages/api/X.{ts,js,mjs}` (négatif-testé : retirer `newsletter.ts` → FAIL listant les 3 fichiers référents). Câblé dans `.github/workflows/ci.yml`. Memory `forms-architecture-api-routes` créée.
+- **Discipline de déploiement (consigne Simon 2026-06-10)** : on limite les déploiements Vercel. Travail batché en local → validation locale (`node scripts/serve-dist.mjs`, parité prod, + GF-1) → push sur `main` qui déclenche le build Vercel auto. Plus d'API / `vercel promote` forcé.
+- Le sous-finding LeadMagnet de la task #27 est résorbé (la note « endpoint absent » est obsolète : la prod l'expose et le valide).
