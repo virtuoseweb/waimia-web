@@ -88,6 +88,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-hub-masthead',     consumers: [] },
   { id: 'hero-service-masthead', consumers: [] },
   { id: 'hero-tunnel-step',      consumers: [] },
+  { id: 'tunnel-step-hero',      consumers: [] },
+  { id: 'tunnel-step-nav',       consumers: [] },
   { id: 'hero-liquid',           consumers: [] },
   { id: 'trust-legal-section',   consumers: [] },
   { id: 'welcome-section',       consumers: [] },
