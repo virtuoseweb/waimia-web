@@ -1482,13 +1482,13 @@
 | `stats_label_en` | string | non |  |  |
 | `stats_label_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-page-x` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--wrap-prose`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 42 valeur(s) — -0.028em, -0.03em, 0.06em, 0.08em, 100%, 10px, 1100px, 1200px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -1531,7 +1531,7 @@
 ### `hero-author`
 
 > Hero de page auteur : 2-col copy/portrait, breadcrumb équipe, role eyebrow, h1 split prénom+nom italic accent, lede display.
-> HeroAuthor · src/components/sections/HeroAuthor.astro · marketing/hero-header-sections
+> HeroSplit · src/components/sections/HeroSplit.astro · marketing/hero-header-sections
 > status : stable · tags : author, hero, portrait, profile
 
 **Props**
@@ -1549,20 +1549,20 @@
 | `team_label_en` | string | non |  |  |
 | `team_label_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--muted` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-eyebrow` `--text-lede` `--tracking-display` `--tracking-mono` `--wrap`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper-2` `--radius-md` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-body-md` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--tracking-display` `--tracking-mono` `--wrap`
 
-**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .start-9
+**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .start-9 .wrap-wide
 
-**Dette hardcode** : 21 valeur(s) — -0.03em, 100%, 12px, 1440px, 18px, 1px, 24px, 280px
+**Dette hardcode** : 31 valeur(s) — -0.03em, -8px, 0.1em, 100%, 1200px, 12px, 140px, 1440px
 
-**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.03em, 100%, 12px).
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 31 litteral(s) hardcode(s) (-0.03em, -8px, 0.1em).
 
 ---
 
 ### `hero-case-study`
 
 > Hero d'étude de cas avec décor géométrique, titre et barre de spécifications (client, secteur, durée).
-> HeroCaseStudy · src/components/sections/HeroCaseStudy.astro · marketing/hero-header-sections
+> HeroCentered · src/components/sections/HeroCentered.astro · marketing/hero-header-sections
 > status : stable · tags : case-study, decoration, hero, specs
 
 **Props**
@@ -1576,13 +1576,13 @@
 | `h1_fr` | string | oui |  |  |
 | `specs` | array | non |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--header-height` `--ink` `--space-4` `--space-5` `--space-6` `--space-7` `--spec-cols` `--text-eyebrow` `--tracking-mono`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 13 valeur(s) — -0.01em, -0.03em, 1px, 20px, 22px, 240px, 280px, 400px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-4 --space-5 --space-6. Couleur : --accent --ink. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-0.01em, -0.03em, 1px).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -1605,20 +1605,20 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-page-x` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--wrap-prose`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 42 valeur(s) — -0.028em, -0.03em, 0.06em, 0.08em, 100%, 10px, 1100px, 1200px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
 ### `hero-conversion-funnel`
 
 > Hero magnétique flagship : kicker num + h1 monumental, lede, meta pills, benefits checklist, ligne preuve mono, double CTA et grille stats 4-col.
-> HeroConversionFunnel · src/components/sections/HeroConversionFunnel.astro · marketing/hero-header-sections
+> HeroHubStats · src/components/sections/HeroHubStats.astro · marketing/hero-header-sections
 > status : stable · tags : benefits, conversion, flagship, funnel, hero, stats
 
 **Props**
@@ -1638,13 +1638,13 @@
 | `proof_fr` | string | non |  |  |
 | `stats` | array | non |  | max:4 |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-caption` `--text-eyebrow` `--wrap-wide`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-caption` `--text-eyebrow` `--wrap-wide`
 
-**Classes scoped** : .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .wrap-wide
+**Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-value .wrap-wide
 
-**Dette hardcode** : 27 valeur(s) — 0.08em, 0.1em, 0.7em, 10px, 11px, 1200px, 140px, 18px
+**Dette hardcode** : 39 valeur(s) — -0.035em, 0.08em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px
 
-**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 27 litteral(s) hardcode(s) (0.08em, 0.1em, 0.7em).
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, 0.08em, 0.1em).
 
 ---
 
@@ -1668,13 +1668,13 @@
 | `type_label_en` | string | oui |  |  |
 | `type_label_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-page-x` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--wrap-prose`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 42 valeur(s) — -0.028em, -0.03em, 0.06em, 0.08em, 100%, 10px, 1100px, 1200px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -1696,20 +1696,20 @@
 | `parent_kicker_en` | string | oui |  |  |
 | `parent_kicker_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-page-x` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--wrap-prose`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 42 valeur(s) — -0.028em, -0.03em, 0.06em, 0.08em, 100%, 10px, 1100px, 1200px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
 ### `hero-essay`
 
 > Hero d'article éditorial avec accroche italique et métadonnées auteur, date et temps de lecture.
-> HeroEssay · src/components/sections/HeroEssay.astro · marketing/hero-header-sections
+> HeroCentered · src/components/sections/HeroCentered.astro · marketing/hero-header-sections
 > status : stable · tags : editorial, essay, hero, meta
 
 **Props**
@@ -1730,13 +1730,13 @@
 | `reading_time_en` | string | non |  |  |
 | `reading_time_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--he-top-pad` `--header-height` `--ink` `--leading-h1` `--leading-lede` `--muted` `--space-3` `--space-5` `--space-6` `--text-eyebrow`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 11 valeur(s) — -0.026em, 0.1em, 100%, 1200px, 1px, 24px, 760px, clamp(20px, 2.2vw, 28px)
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-3 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.026em, 0.1em, 100%).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -1820,13 +1820,13 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-page-x` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--wrap-prose`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 42 valeur(s) — -0.028em, -0.03em, 0.06em, 0.08em, 100%, 10px, 1100px, 1200px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -1854,13 +1854,13 @@
 | `transition_id` | string | non |  |  |
 | `variant` | enum | non | hub | hub | listing | detail |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-page-x` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--wrap-prose`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 42 valeur(s) — -0.028em, -0.03em, 0.06em, 0.08em, 100%, 10px, 1100px, 1200px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Layout : `align`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em).
+**Agent** : Layout : `align`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -1883,20 +1883,20 @@
 | `meta_kicker_fr` | string | oui |  |  |
 | `stats` | array | non | false | min:2 max:4 |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--muted` `--space-2` `--space-5` `--space-6` `--text-eyebrow`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-caption` `--text-eyebrow` `--wrap-wide`
 
-**Classes scoped** : .astro .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-value .wrap-wide
+**Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-value .wrap-wide
 
-**Dette hardcode** : 18 valeur(s) — -0.035em, 0.1em, 100%, 1200px, 140px, 1px, 24px, 640px
+**Dette hardcode** : 39 valeur(s) — -0.035em, 0.08em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px
 
-**Agent** : Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.035em, 0.1em, 100%).
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, 0.08em, 0.1em).
 
 ---
 
 ### `hero-landing`
 
 > Hero magnétique landing : eyebrow mono, h1 italique avec emphasis, lede, double CTA et bandeau de disponibilité.
-> HeroLanding · src/components/sections/HeroLanding.astro · marketing/hero-header-sections
+> HeroCentered · src/components/sections/HeroCentered.astro · marketing/hero-header-sections
 > status : stable · tags : cta, hero, landing, magnetic
 
 **Props**
@@ -1914,20 +1914,20 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-mono` `--font-sans` `--font-serif` `--fw-semibold` `--ink` `--ink-rgb` `--muted` `--paper` `--radius-xs` `--space-4` `--space-5` `--text-body-lead` `--text-eyebrow`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 15 valeur(s) — -.025em, .08em, .1em, 1200px, 14px, 1px, 28px, 640px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-4 --space-5. Couleur : --accent --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 15 litteral(s) hardcode(s) (-.025em, .08em, .1em).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
 ### `hero-lead-magnet`
 
 > Hero lead magnet (livre blanc) : 2-col texte/cover PDF, kicker + h1 + lede italique, meta format/date, carte download CTA.
-> HeroLeadMagnet · src/components/sections/HeroLeadMagnet.astro · marketing/hero-header-sections
+> HeroSplit · src/components/sections/HeroSplit.astro · marketing/hero-header-sections
 > status : stable · tags : cover, download, hero, lead-magnet, whitepaper
 
 **Props**
@@ -1950,13 +1950,13 @@
 | `lede_fr` | string | oui |  |  |
 | `published_at` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-lede` `--muted` `--paper-2` `--radius-md` `--space-3` `--space-4` `--space-5` `--space-6` `--text-eyebrow`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper-2` `--radius-md` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-body-md` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--tracking-display` `--tracking-mono` `--wrap`
 
-**Classes scoped** : .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .wrap-wide
+**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .start-9 .wrap-wide
 
-**Dette hardcode** : 14 valeur(s) — -0.03em, 0.1em, 100%, 1200px, 140px, 1px, 20px, 280px
+**Dette hardcode** : 31 valeur(s) — -0.03em, -8px, 0.1em, 100%, 1200px, 12px, 140px, 1440px
 
-**Agent** : Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-0.03em, 0.1em, 100%).
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 31 litteral(s) hardcode(s) (-0.03em, -8px, 0.1em).
 
 ---
 
@@ -2047,13 +2047,13 @@
 | `meta_kicker_fr` | string | oui |  |  |
 | `stats` | array | non |  | min:2 max:4 |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--muted` `--space-2` `--space-5` `--space-6` `--text-eyebrow`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-caption` `--text-eyebrow` `--wrap-wide`
 
-**Classes scoped** : .astro .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-value .wrap-wide
+**Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-value .wrap-wide
 
-**Dette hardcode** : 18 valeur(s) — -0.035em, 0.1em, 100%, 1200px, 140px, 1px, 24px, 640px
+**Dette hardcode** : 39 valeur(s) — -0.035em, 0.08em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px
 
-**Agent** : Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.035em, 0.1em, 100%).
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, 0.08em, 0.1em).
 
 ---
 
@@ -2077,13 +2077,13 @@
 | `lede_fr` | string | non |  |  |
 | `transition_id` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-page-x` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--wrap-prose`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 42 valeur(s) — -0.028em, -0.03em, 0.06em, 0.08em, 100%, 10px, 1100px, 1200px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -2122,7 +2122,7 @@
 ### `hero-service-detail`
 
 > Hero de page service avec numéro éditorial, titre, accroche et barre de preuves chiffrées optionnelle.
-> HeroServiceDetail · src/components/sections/HeroServiceDetail.astro · marketing/hero-header-sections
+> HeroCentered · src/components/sections/HeroCentered.astro · marketing/hero-header-sections
 > status : stable · tags : detail, hero, metrics, service
 
 **Props**
@@ -2136,20 +2136,20 @@
 | `metrics` | array | non |  | min:2 max:4 |
 | `service_num` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--header-height` `--ink` `--muted` `--space-2` `--space-5` `--space-6` `--text-eyebrow` `--tracking-mono`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 15 valeur(s) — -0.028em, -0.02em, 1200px, 140px, 160px, 1px, 20px, 24px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.028em, -0.02em, 1200px).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
 ### `hero-service-masthead`
 
 > Masthead service sobre : kicker § Service N + h1 display + lede display muted, sans décor SVG.
-> HeroServiceDetail · src/components/sections/HeroServiceDetail.astro · marketing/hero-header-sections
+> HeroCentered · src/components/sections/HeroCentered.astro · marketing/hero-header-sections
 > status : stable · tags : hero, masthead, service, simple
 
 **Props**
@@ -2162,13 +2162,13 @@
 | `lede_fr` | string | oui |  |  |
 | `service_num` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--header-height` `--ink` `--muted` `--space-2` `--space-5` `--space-6` `--text-eyebrow` `--tracking-mono`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 15 valeur(s) — -0.028em, -0.02em, 1200px, 140px, 160px, 1px, 20px, 24px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.028em, -0.02em, 1200px).
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -2194,13 +2194,13 @@
 | `meta_fr` | string | non |  |  |
 | `right_block` | enum | non |  | mini-map | workflow-svg | stats | image | mockup-terminal |
 
-**Tokens** : `--font-display` `--font-sans` `--hairline` `--header-height` `--ink` `--leading-h2` `--paper-2` `--section-base` `--space-3` `--spacing-block` `--text-body-md` `--text-h1-hero`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper-2` `--radius-md` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-body-md` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--tracking-display` `--tracking-mono` `--wrap`
 
-**Classes scoped** : .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right
+**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .start-9 .wrap-wide
 
-**Dette hardcode** : 4 valeur(s) — -8px, 1px, 768px, clamp(32px, 5vw, 80px)
+**Dette hardcode** : 31 valeur(s) — -0.03em, -8px, 0.1em, 100%, 1200px, 12px, 140px, 1440px
 
-**Agent** : Layout : `right_block` (schema, 0 CSS). Espacement : --space-3 --spacing-block. Couleur : --ink --paper-2. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (-8px, 1px, 768px).
+**Agent** : Layout : `right_block` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 31 litteral(s) hardcode(s) (-0.03em, -8px, 0.1em).
 
 ---
 
@@ -2254,13 +2254,13 @@
 | `progress_total` | number | oui |  | int min:1 max:12 |
 | `step` | number | oui |  | int min:1 |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--gut` `--hairline` `--ink` `--muted` `--space-6` `--space-7` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-lede`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--gut` `--hairline` `--ink` `--muted` `--space-1` `--space-6` `--space-7` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-lede`
 
-**Classes scoped** : .hero-tunnel-step .hero-tunnel-step__h1 .hero-tunnel-step__h1--hero .hero-tunnel-step__h1--section .hero-tunnel-step__kicker .hero-tunnel-step__lede .hero-tunnel-step__progress .hero-tunnel-step__progress-step .is-active .wrap-wide
+**Classes scoped** : .hero-tunnel-step .hero-tunnel-step__h1 .hero-tunnel-step__h1--hero .hero-tunnel-step__h1--section .hero-tunnel-step__kicker .hero-tunnel-step__lede .hero-tunnel-step__progress .hero-tunnel-step__progress-step .is-active .tunnel-step-hero .tunnel-step-hero__h1 .tunnel-step-hero__h1--hero .tunnel-step-hero__h1--section .tunnel-step-hero__kicker .tunnel-step-hero__lede .tunnel-step-hero__progress .tunnel-step-hero__progress-step .wrap-wide
 
-**Dette hardcode** : 11 valeur(s) — -.02em, .06em, 10px, 11px, 1200px, 1px, 24px, clamp(24px, 3vw, 40px)
+**Dette hardcode** : 15 valeur(s) — -.02em, .06em, .1em, 100%, 10px, 11px, 1200px, 1px
 
-**Agent** : Espacement : --space-6 --space-7. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-.02em, .06em, 10px).
+**Agent** : Espacement : --space-1 --space-6 --space-7. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-.02em, .06em, .1em).
 
 ---
 
@@ -2282,13 +2282,13 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-page-x` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--wrap-prose`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--hhl-lede-max` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--muted-2` `--paper` `--radius-xs` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--text-ui` `--tracking-mono` `--wrap-prose`
 
-**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
+**Classes scoped** : .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 42 valeur(s) — -0.028em, -0.03em, 0.06em, 0.08em, 100%, 10px, 1100px, 1200px
+**Dette hardcode** : 70 valeur(s) — -.025em, -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .08em, .1em
 
-**Agent** : Layout : `align` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em).
+**Agent** : Layout : `align` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em).
 
 ---
 
@@ -2319,7 +2319,7 @@
 ### `tunnel-step-hero`
 
 > Hero d'étape tunnel V2 : kicker calculé (offre_label + step/progress_total) + barre [NN] + h1 (hero ou section) + lede.
-> TunnelStepHero · src/components/sections/TunnelStepHero.astro · marketing/hero-header-sections
+> HeroTunnelStep · src/components/sections/HeroTunnelStep.astro · marketing/hero-header-sections
 > status : stable · tags : funnel, hero, kicker-computed, progress, step, tunnel
 
 **Props**
@@ -2336,11 +2336,11 @@
 
 **Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--gut` `--hairline` `--ink` `--muted` `--space-1` `--space-6` `--space-7` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-lede`
 
-**Classes scoped** : .is-active .tunnel-step-hero .tunnel-step-hero__h1 .tunnel-step-hero__h1--hero .tunnel-step-hero__h1--section .tunnel-step-hero__kicker .tunnel-step-hero__lede .tunnel-step-hero__progress .tunnel-step-hero__progress-step .wrap-wide
+**Classes scoped** : .hero-tunnel-step .hero-tunnel-step__h1 .hero-tunnel-step__h1--hero .hero-tunnel-step__h1--section .hero-tunnel-step__kicker .hero-tunnel-step__lede .hero-tunnel-step__progress .hero-tunnel-step__progress-step .is-active .tunnel-step-hero .tunnel-step-hero__h1 .tunnel-step-hero__h1--hero .tunnel-step-hero__h1--section .tunnel-step-hero__kicker .tunnel-step-hero__lede .tunnel-step-hero__progress .tunnel-step-hero__progress-step .wrap-wide
 
-**Dette hardcode** : 13 valeur(s) — -.02em, .06em, .1em, 100%, 10px, 1200px, 1px, 700px
+**Dette hardcode** : 15 valeur(s) — -.02em, .06em, .1em, 100%, 10px, 11px, 1200px, 1px
 
-**Agent** : Espacement : --space-1 --space-6 --space-7. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-.02em, .06em, .1em).
+**Agent** : Espacement : --space-1 --space-6 --space-7. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-.02em, .06em, .1em).
 
 ---
 

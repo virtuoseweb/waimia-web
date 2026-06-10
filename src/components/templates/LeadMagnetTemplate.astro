@@ -21,7 +21,7 @@ import Timeline from '../editorial/Timeline.astro';
 import PullQuote from '../editorial/PullQuote.astro';
 import Dingbat from '../editorial/Dingbat.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
-import HeroLeadMagnet from '../sections/HeroLeadMagnet.astro';
+import HeroSplit from '../sections/HeroSplit.astro';
 import type { SectionByType } from '../../schemas/sections';
 import { langFromPath } from '../../lib/i18n';
 
@@ -134,7 +134,7 @@ const tocEvents = toc.map((item, index) => ({
     ]}
   />
   {/* HERO · titre + cover → HeroLeadMagnet (sections/) */}
-  <HeroLeadMagnet
+  <HeroSplit
     data={heroData}
     lang={lang}
     transitionId={pageTransitionId}

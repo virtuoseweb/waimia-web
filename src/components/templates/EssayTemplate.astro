@@ -17,7 +17,7 @@ import Kicker from '../ui/atoms/Kicker.astro';
 import RelatedCards from '../ui/molecules/RelatedCards.astro';
 import AuthorCard from '../ui/molecules/AuthorCard.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
-import HeroEssay from '../sections/HeroEssay.astro';
+import HeroCentered from '../sections/HeroCentered.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import TableOfContents from '../ui/molecules/TableOfContents.astro';
@@ -173,7 +173,7 @@ const articleLd = buildArticle({
   )}
   <article class="essay">
     {/* MASTHEAD */}
-    <HeroEssay
+    <HeroCentered
       data={heroData}
       lang={lang}
       transitionId={pageTransitionId}

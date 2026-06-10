@@ -15,7 +15,7 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
-import HeroConversionFunnel from '../sections/HeroConversionFunnel.astro';
+import HeroHubStats from '../sections/HeroHubStats.astro';
 import type { SectionByType } from '../../schemas/sections';
 import { langFromPath } from '../../lib/i18n';
 import PricingTier from '../ui/molecules/PricingTier.astro';
@@ -219,7 +219,7 @@ const offerLd = {
       wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut du
       composant : 1200px : reste inchangé pour la preview catalogue.
       statsAsKeyMetric préserve la typographie KeyMetric d'origine des stats. */}
-  <HeroConversionFunnel
+  <HeroHubStats
     data={heroData}
     lang={lang}
     wrapMaxWidth="var(--wrap-wide)"

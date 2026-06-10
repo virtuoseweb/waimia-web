@@ -1,16 +1,103 @@
 ---
+// ARCHÉTYPE R5 · « split média » — 1 composant paramétrable → 3 type-ids (presets).
+// Héros 2 colonnes copy + média/panel. Branche sur `data.type` ; chaque variante
+// conserve markup + CSS BYTE-IDENTIQUES à son composant d'origine. Seuls ajustements
+// CSS = qualifications de scope (`h1`/`p` nus → `.hero-split …`, `.wrap-wide` →
+// `.hero-lead-magnet .wrap-wide`) rendues nécessaires par la colocalisation —
+// résultat visuel inchangé.
+// Absorbe (R5a) : hero-author (copy span7 + portrait span4), hero-lead-magnet
+// (texte 7 + cover/download 4). Noyau : hero-split (58/42).
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
 
 interface Props {
-  data: SectionByType<'hero-split'>;
+  data:
+    | SectionByType<'hero-split'>
+    | SectionByType<'hero-author'>
+    | SectionByType<'hero-lead-magnet'>;
   lang: 'fr' | 'en';
+  /** hero-author / hero-lead-magnet : VT id du h1 + média (hero-h1-${id}, hero-img-${id}). */
+  transitionId?: string;
+  /** hero-lead-magnet : VT id de la carte/section (card-${id}). */
+  cardTransitionId?: string;
+  /** hero-lead-magnet : affiche le placeholder SVG quand pas de cover_url (défaut catalogue = true ; template live passe false pour parité legacy). */
+  coverFallback?: boolean;
 }
-const { data, lang } = Astro.props;
+const { data, lang, transitionId, cardTransitionId, coverFallback = true } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
+{data.type === 'hero-author' ? (
+  <section class="hero-author" transition:name={transitionId ? `card-${transitionId}` : undefined}>
+    <div class="hero-author__copy">
+      {data.team_label_fr && (
+        <nav class="hero-author__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
+          <a href={data.team_href ?? '#'}>{isFr ? data.team_label_fr : (data.team_label_en ?? data.team_label_fr)}</a>
+          <span aria-hidden="true">/</span>
+          <span>{data.name}</span>
+        </nav>
+      )}
+      <span class="hero-author__eyebrow">§ {isFr ? data.role_fr : data.role_en}</span>
+      <h1 class="hero-author__h1 reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined}>
+        {data.name_lead}<em>{data.name_accent}</em>
+      </h1>
+      <p class="hero-author__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+    </div>
+    <figure class="hero-author__portrait" aria-label={isFr ? 'Portrait signature' : 'Signature portrait'} transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+      {Astro.slots.has('portrait') ? (
+        <slot name="portrait" />
+      ) : (
+        <Fragment>
+          <div class="hero-author__portrait-frame" aria-hidden="true" />
+          <svg viewBox="0 0 220 280" aria-hidden="true">
+            <rect x="20" y="40" width="180" height="220" fill="none" stroke="currentColor" stroke-width="0.6"/>
+            <circle cx="110" cy="120" r="44" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            <path d="M50 230 Q110 170 170 230" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          </svg>
+        </Fragment>
+      )}
+    </figure>
+  </section>
+) : data.type === 'hero-lead-magnet' ? (
+  <section class="hero-lead-magnet" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+    <div class="wrap-wide hero-lead-magnet__grid">
+      <div class="hero-lead-magnet__text">
+        <Kicker tone="accent" class="hero-lead-magnet__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <h1 class="hero-lead-magnet__h1 reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
+        <p class="hero-lead-magnet__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
+        <div class="hero-lead-magnet__meta">
+          <span>{isFr ? data.format_fr : data.format_en}</span>
+          <span aria-hidden="true">·</span>
+          <time datetime={data.published_at}>{data.published_at}</time>
+          <span aria-hidden="true">·</span>
+          <span>{isFr ? 'Gratuit' : 'Free'}</span>
+        </div>
+      </div>
+      <aside class="hero-lead-magnet__panel reveal-stagger" aria-label={isFr ? 'Résumé du livre blanc' : 'Whitepaper summary'} transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+        {(data.cover_url || coverFallback) && (
+          <div class="hero-lead-magnet__cover" aria-hidden="true">
+            {data.cover_url ? (
+              <img src={data.cover_url} alt="" loading="eager" />
+            ) : (
+              <svg viewBox="0 0 180 240" aria-hidden="true">
+                <rect x="0" y="0" width="180" height="240" fill="var(--paper-2)" />
+                <text x="90" y="120" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--muted)" letter-spacing="0.14em">PDF</text>
+                <text x="90" y="140" text-anchor="middle" font-family="var(--font-display)" font-size="18" font-style="italic" fill="var(--ink)">Livre blanc</text>
+              </svg>
+            )}
+          </div>
+        )}
+        <div class="hero-lead-magnet__download">
+          <span class="hero-lead-magnet__download-label">{isFr ? data.download_label_fr : (data.download_label_en ?? data.download_label_fr)}</span>
+          <Button href={data.cta_href ?? '#'} variant="primary" size="md">
+            {isFr ? data.cta_label_fr : data.cta_label_en}
+          </Button>
+        </div>
+      </aside>
+    </div>
+  </section>
+) : (
 <section class="hero-split">
   <div class="wrap-wide">
   <div class="hero-split__inner">
@@ -44,6 +131,7 @@ const isFr = lang === 'fr';
   </div>
   </div>
 </section>
+)}
 
 <style>
   .hero-split {
@@ -62,15 +150,17 @@ const isFr = lang === 'fr';
     flex-direction: column;
     gap: var(--spacing-block);
   }
-  h1 {
+  /* `h1`/`p` nus qualifiés par `.hero-split` pour éviter la contamination des
+     autres variantes colocalisées (scope partagé). Visuel inchangé. */
+  .hero-split h1 {
     font-family: var(--font-display);
     font-size: var(--text-h1-hero);
     line-height: var(--leading-h2);
     color: var(--ink);
     margin: 0;
   }
-  h1 :global(i) { font-style: italic; }
-  p {
+  .hero-split h1 :global(i) { font-style: italic; }
+  .hero-split p {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
     line-height: 1.6;
@@ -96,5 +186,178 @@ const isFr = lang === 'fr';
   @media (max-width: 768px) {
     .hero-split__inner { grid-template-columns: 1fr; }
     .hero-split__right { display: none; }
+  }
+
+  /* ── hero-author (déjà qualifié à la source) ───────────────────────────── */
+  .hero-author {
+    /* Reproduit fidèlement le masthead legacy .author-hero.g12.g12--full :
+       grille 12 colonnes, copy = span 7, portrait = col 9 / span 4. */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--gut, 32px);
+    row-gap: var(--space-6, 32px);
+    padding-inline: clamp(20px, 4vw, 48px);
+    padding-top: clamp(92px, 12vw, 164px);
+    padding-bottom: clamp(28px, 5vw, 72px);
+    align-items: start;
+    max-width: var(--wrap, 1440px);
+    margin-inline: auto;
+  }
+  .hero-author__copy { grid-column: span 7; }
+  .hero-author__bc {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-bottom: var(--space-5, 24px);
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-author__bc a { color: inherit; text-decoration: none; }
+  .hero-author__bc a:hover { color: var(--accent); }
+  .hero-author__eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent);
+  }
+  .hero-author__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(72px, 9vw, 148px);
+    font-weight: var(--fw-regular);
+    line-height: 0.92;
+    letter-spacing: var(--tracking-display, -0.03em);
+    margin: var(--space-3, 12px) 0 var(--space-6, 32px);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .hero-author__h1 em { font-style: italic; color: var(--accent); }
+  .hero-author__lede {
+    font-family: var(--font-display);
+    font-size: var(--text-lede, clamp(21px, 2vw, 30px));
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 540px;
+    margin: 0;
+  }
+  .hero-author__portrait {
+    /* legacy : .author-portrait avait `col-4 start-9` mais `.start-9` n'existe
+       PAS dans grid.css (start-1..8 seulement) → auto-placement = col 8/span 4
+       après le copy (col-7). On reproduit ce placement réel : cols 8→11. */
+    grid-column: 8 / span 4;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
+    padding-top: var(--space-7, 40px);
+    color: var(--ink);
+  }
+  .hero-author__portrait-frame {
+    position: absolute;
+    width: min(28vw, 360px);
+    aspect-ratio: 3 / 4;
+    border: 1px solid var(--hairline);
+    transform: translate(18px, 18px);
+    pointer-events: none;
+  }
+  .hero-author__portrait svg,
+  .hero-author__portrait :global(svg) {
+    position: relative;
+    width: min(100%, 280px);
+  }
+  @media (max-width: 900px) {
+    .hero-author {
+      grid-template-columns: 1fr;
+    }
+    .hero-author__copy { grid-column: 1; }
+    .hero-author__portrait {
+      grid-column: 1;
+      justify-content: flex-start;
+      padding-top: var(--space-4);
+    }
+    .hero-author__portrait-frame { width: min(72vw, 320px); }
+  }
+  @media (max-width: 768px) {
+    .hero-author__h1 { font-size: clamp(64px, 18vw, 92px); }
+  }
+
+  /* ── hero-lead-magnet ──────────────────────────────────────────────────
+     `.wrap-wide` qualifié par `.hero-lead-magnet` (collision max-width). */
+  .hero-lead-magnet { padding: 140px var(--space-6) clamp(40px, 5vw, 72px); border-bottom: 1px solid var(--hairline); }
+  .hero-lead-magnet .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  .hero-lead-magnet__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
+  }
+  :global(.hero-lead-magnet__kicker) { display: block; margin-bottom: 20px; }
+  .hero-lead-magnet__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.94;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    font-weight: var(--fw-regular);
+    margin: 0 0 var(--space-5);
+  }
+  .hero-lead-magnet__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-lead-magnet__lede {
+    font-family: var(--font-sans);
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--ink-2);
+    margin: 0 0 var(--space-5);
+    max-width: 620px;
+    line-height: var(--leading-lede);
+    text-wrap: pretty;
+  }
+  .hero-lead-magnet__meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .hero-lead-magnet__panel {
+    display: grid;
+    gap: var(--space-4);
+    align-self: stretch;
+  }
+  .hero-lead-magnet__cover {
+    aspect-ratio: 3/4;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--paper-2);
+  }
+  .hero-lead-magnet__cover img,
+  .hero-lead-magnet__cover svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-lead-magnet__download {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    border-top: 1px solid var(--hairline-strong);
+    border-bottom: 1px solid var(--hairline);
+    padding: var(--space-4) 0;
+  }
+  .hero-lead-magnet__download-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 768px) {
+    .hero-lead-magnet__grid { grid-template-columns: 1fr; }
   }
 </style>

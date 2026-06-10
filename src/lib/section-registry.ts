@@ -29,20 +29,13 @@ export interface SectionDescriptor {
 import HeroSplit from '../components/sections/HeroSplit.astro';
 import HeroCentered from '../components/sections/HeroCentered.astro';
 import HeroFullBleed from '../components/sections/HeroFullBleed.astro';
-import HeroServiceDetail from '../components/sections/HeroServiceDetail.astro';
-import HeroCaseStudy from '../components/sections/HeroCaseStudy.astro';
 import HeroHome from '../components/sections/HeroHome.astro';
-import HeroLanding from '../components/sections/HeroLanding.astro';
 import TrustLegalSection from '../components/sections/TrustLegalSection.astro';
 import WelcomeSection from '../components/sections/WelcomeSection.astro';
 import ListIndexSection from '../components/sections/ListIndexSection.astro';
 import HeroOfferDetail from '../components/sections/HeroOfferDetail.astro';
-import HeroConversionFunnel from '../components/sections/HeroConversionFunnel.astro';
 import HeroHubStats from '../components/sections/HeroHubStats.astro';
-import HeroAuthor from '../components/sections/HeroAuthor.astro';
-import HeroLeadMagnet from '../components/sections/HeroLeadMagnet.astro';
 import HeroTunnelStep from '../components/sections/HeroTunnelStep.astro';
-import TunnelStepHero from '../components/sections/TunnelStepHero.astro';
 import TunnelStepNav from '../components/sections/TunnelStepNav.astro';
 import MarqueeBand from '../components/sections/MarqueeBand.astro';
 import ProblemsGrid from '../components/sections/ProblemsGrid.astro';
@@ -50,7 +43,6 @@ import WhyStalls from '../components/sections/WhyStalls.astro';
 import HowWeShip from '../components/sections/HowWeShip.astro';
 import OperatingLayer from '../components/sections/OperatingLayer.astro';
 import ManifestoBlock from '../components/sections/ManifestoBlock.astro';
-import HeroEssay from '../components/sections/HeroEssay.astro';
 import HeroLiquid from '../components/sections/HeroLiquid.astro';
 import ProofBarSection from '../components/sections/ProofBarSection.astro';
 import StatBlock from '../components/sections/StatBlock.astro';
@@ -167,7 +159,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: '(deprecated → hero-hub-masthead variant=listing) Editorial hub hero with a monumental headline and short lede, without a call to action, for listing pages.',
   },
   'hero-service-detail': {
-    component: HeroServiceDetail,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -187,7 +179,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Pillar page hero with a maximal headline and an optional four-column statistics grid.',
   },
   'hero-case-study': {
-    component: HeroCaseStudy,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -207,7 +199,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Waimia home hero: 3×2 mini-map of 6 operational territories, 3 vertical proofs, dual CTA, and V·9 geometric signature.',
   },
   'hero-landing': {
-    component: HeroLanding,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -317,7 +309,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Technology layer hero: signature triangles SVG, layer badge (claude/os/orch), h1 + italic lead, CTA and meta.',
   },
   'hero-conversion-funnel': {
-    component: HeroConversionFunnel,
+    component: HeroHubStats,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -337,7 +329,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Hub hero with stats: dual meta kicker + accent § number + maximal h1, lede, 4-col KeyMetric grid at the foot with accent.',
   },
   'hero-service-masthead': {
-    component: HeroServiceDetail,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -357,7 +349,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Detail-menu entry hero: parent kicker + accent § number + h1 + plain lede, ideal for sub-catalogue pages.',
   },
   'hero-author': {
-    component: HeroAuthor,
+    component: HeroSplit,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -367,7 +359,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Author page hero: 2-col copy/portrait, team breadcrumb, role eyebrow, h1 split first-name + italic accent surname, display lede.',
   },
   'hero-lead-magnet': {
-    component: HeroLeadMagnet,
+    component: HeroSplit,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -397,7 +389,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Tunnel step hero: accent kicker + progress bar [01][02]... + h1 (hero or section variant) + lede.',
   },
   'tunnel-step-hero': {
-    component: TunnelStepHero,
+    component: HeroTunnelStep,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
@@ -477,7 +469,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Intercalary manifesto block: § mono kicker + large box-less italic display, terracotta accent span, strong editorial breathing.',
   },
   'hero-essay': {
-    component: HeroEssay,
+    component: HeroCentered,
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',

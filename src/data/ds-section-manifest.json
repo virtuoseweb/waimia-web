@@ -4670,6 +4670,16 @@
       "hero-academy-hub__stats",
       "hero-academy-hub__stats-text",
       "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
       "hero-centered",
       "hero-centered__ctas",
       "hero-centered__inner",
@@ -4691,6 +4701,12 @@
       "hero-detail-menu__lede",
       "hero-detail-menu__num",
       "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
       "hero-hub-listing",
       "hero-hub-listing__deco",
       "hero-hub-listing__filters",
@@ -4704,12 +4720,32 @@
       "hero-hub-masthead__kicker",
       "hero-hub-masthead__lede",
       "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
       "hero-problem-index",
       "hero-problem-index__canonical",
       "hero-problem-index__geo",
       "hero-problem-index__h1",
       "hero-problem-index__kicker",
       "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
       "hero-utility",
       "hero-utility__h1",
       "hero-utility__kicker",
@@ -4737,6 +4773,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -4755,6 +4795,18 @@
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
       },
       {
         "name": "--header-height",
@@ -4777,8 +4829,16 @@
         "value": "#1A1814"
       },
       {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
         "name": "--leading-body",
         "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
       },
       {
         "name": "--leading-h2",
@@ -4803,6 +4863,10 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
       },
       {
         "name": "--section-base",
@@ -4833,6 +4897,10 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
         "name": "--space-8",
         "value": "48px"
       },
@@ -4843,6 +4911,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
       },
       {
         "name": "--text-body-lead",
@@ -4877,25 +4949,29 @@
         "value": "13px"
       },
       {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 42,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "0.06em",
-        "0.08em",
-        "100%",
-        "10px",
-        "1100px",
-        "1200px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-atlas",
@@ -5130,8 +5206,8 @@
   {
     "id": "hero-author",
     "component": {
-      "name": "HeroAuthor",
-      "path": "src/components/sections/HeroAuthor.astro"
+      "name": "HeroSplit",
+      "path": "src/components/sections/HeroSplit.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -5211,7 +5287,24 @@
       "hero-author__lede",
       "hero-author__portrait",
       "hero-author__portrait-frame",
-      "start-9"
+      "hero-lead-magnet",
+      "hero-lead-magnet__cover",
+      "hero-lead-magnet__download",
+      "hero-lead-magnet__download-label",
+      "hero-lead-magnet__grid",
+      "hero-lead-magnet__h1",
+      "hero-lead-magnet__kicker",
+      "hero-lead-magnet__lede",
+      "hero-lead-magnet__meta",
+      "hero-lead-magnet__panel",
+      "hero-split",
+      "hero-split__ctas",
+      "hero-split__inner",
+      "hero-split__left",
+      "hero-split__meta",
+      "hero-split__right",
+      "start-9",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
@@ -5227,6 +5320,10 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -5239,6 +5336,14 @@
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--header-height",
+        "value": "72px"
+      },
+      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -5247,8 +5352,28 @@
         "value": "#1A1814"
       },
       {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
         "name": "--muted",
         "value": "#6B6560"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
       },
       {
         "name": "--space-2",
@@ -5275,8 +5400,20 @@
         "value": "40px"
       },
       {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-body-md",
+        "value": "17px"
+      },
+      {
         "name": "--text-eyebrow",
         "value": "11px"
+      },
+      {
+        "name": "--text-h1-hero",
+        "value": "clamp(40px, 6vw, 92px)"
       },
       {
         "name": "--text-lede",
@@ -5297,25 +5434,25 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 21,
+      "count": 31,
       "samples": [
         "-0.03em",
+        "-8px",
+        "0.1em",
         "100%",
+        "1200px",
         "12px",
-        "1440px",
-        "18px",
-        "1px",
-        "24px",
-        "280px"
+        "140px",
+        "1440px"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.03em, 100%, 12px)."
+    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 31 litteral(s) hardcode(s) (-0.03em, -8px, 0.1em)."
   },
   {
     "id": "hero-case-study",
     "component": {
-      "name": "HeroCaseStudy",
-      "path": "src/components/sections/HeroCaseStudy.astro"
+      "name": "HeroCentered",
+      "path": "src/components/sections/HeroCentered.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -5365,6 +5502,14 @@
       }
     ],
     "scopedClasses": [
+      "hero-academy-hub",
+      "hero-academy-hub__heading",
+      "hero-academy-hub__hero",
+      "hero-academy-hub__kicker",
+      "hero-academy-hub__lede",
+      "hero-academy-hub__stats",
+      "hero-academy-hub__stats-text",
+      "hero-academy-hub--unwrapped",
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
@@ -5375,6 +5520,79 @@
       "hero-case-study__spec-v",
       "hero-case-study__specs",
       "hero-case-study__specs-grid",
+      "hero-centered",
+      "hero-centered__ctas",
+      "hero-centered__inner",
+      "hero-course",
+      "hero-course__btn-ghost",
+      "hero-course__btn-primary",
+      "hero-course__btn-primary--disabled",
+      "hero-course__cta",
+      "hero-course__hd",
+      "hero-course__hd--legacy-ghost",
+      "hero-course__lede",
+      "hero-course__pill",
+      "hero-course__pill--accent",
+      "hero-course__pill--price",
+      "hero-course__pills",
+      "hero-course__title",
+      "hero-detail-menu",
+      "hero-detail-menu__h1",
+      "hero-detail-menu__lede",
+      "hero-detail-menu__num",
+      "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
+      "hero-hub-listing",
+      "hero-hub-listing__deco",
+      "hero-hub-listing__filters",
+      "hero-hub-listing__h1",
+      "hero-hub-listing__kicker",
+      "hero-hub-listing__lede",
+      "hero-hub-listing--bordered",
+      "hero-hub-listing--standard",
+      "hero-hub-masthead",
+      "hero-hub-masthead__h1",
+      "hero-hub-masthead__kicker",
+      "hero-hub-masthead__lede",
+      "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
+      "hero-problem-index",
+      "hero-problem-index__canonical",
+      "hero-problem-index__geo",
+      "hero-problem-index__h1",
+      "hero-problem-index__kicker",
+      "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
+      "hero-utility",
+      "hero-utility__h1",
+      "hero-utility__kicker",
+      "hero-utility__lede",
+      "hero-utility__role",
+      "hero-utility--centered",
+      "hero-utility--standard",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -5391,8 +5609,28 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hahub-top-pad",
+        "value": ""
       },
       {
         "name": "--hairline",
@@ -5407,12 +5645,84 @@
         "value": ""
       },
       {
+        "name": "--he-top-pad",
+        "value": ""
+      },
+      {
         "name": "--header-height",
         "value": "72px"
       },
       {
+        "name": "--hero-course-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--hhl-lede-max",
+        "value": ""
+      },
+      {
         "name": "--ink",
         "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-prose",
+        "value": "1.65"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--muted-2",
+        "value": "#746C63"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "4px"
+      },
+      {
+        "name": "--space-2",
+        "value": "8px"
+      },
+      {
+        "name": "--space-3",
+        "value": "12px"
       },
       {
         "name": "--space-4",
@@ -5431,33 +5741,77 @@
         "value": "40px"
       },
       {
+        "name": "--space-8",
+        "value": "48px"
+      },
+      {
+        "name": "--space-page-x",
+        "value": ""
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
         "name": "--spec-cols",
         "value": ""
+      },
+      {
+        "name": "--text-body-lead",
+        "value": "15px"
+      },
+      {
+        "name": "--text-body-md",
+        "value": "17px"
+      },
+      {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
+        "name": "--text-caption",
+        "value": "12px"
       },
       {
         "name": "--text-eyebrow",
         "value": "11px"
       },
       {
+        "name": "--text-h1-hero",
+        "value": "clamp(40px, 6vw, 92px)"
+      },
+      {
+        "name": "--text-lede",
+        "value": "clamp(20px, 1.7vw, 24px)"
+      },
+      {
+        "name": "--text-ui",
+        "value": "13px"
+      },
+      {
         "name": "--tracking-mono",
         "value": "0.12em"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 13,
+      "count": 70,
       "samples": [
+        "-.025em",
         "-0.01em",
+        "-0.026em",
+        "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "1px",
-        "20px",
-        "22px",
-        "240px",
-        "280px",
-        "400px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-4 --space-5 --space-6. Couleur : --accent --ink. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-0.01em, -0.03em, 1px)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-centered",
@@ -5527,6 +5881,16 @@
       "hero-academy-hub__stats",
       "hero-academy-hub__stats-text",
       "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
       "hero-centered",
       "hero-centered__ctas",
       "hero-centered__inner",
@@ -5548,6 +5912,12 @@
       "hero-detail-menu__lede",
       "hero-detail-menu__num",
       "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
       "hero-hub-listing",
       "hero-hub-listing__deco",
       "hero-hub-listing__filters",
@@ -5561,12 +5931,32 @@
       "hero-hub-masthead__kicker",
       "hero-hub-masthead__lede",
       "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
       "hero-problem-index",
       "hero-problem-index__canonical",
       "hero-problem-index__geo",
       "hero-problem-index__h1",
       "hero-problem-index__kicker",
       "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
       "hero-utility",
       "hero-utility__h1",
       "hero-utility__kicker",
@@ -5594,6 +5984,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -5612,6 +6006,18 @@
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
       },
       {
         "name": "--header-height",
@@ -5634,8 +6040,16 @@
         "value": "#1A1814"
       },
       {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
         "name": "--leading-body",
         "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
       },
       {
         "name": "--leading-h2",
@@ -5660,6 +6074,10 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
       },
       {
         "name": "--section-base",
@@ -5690,6 +6108,10 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
         "name": "--space-8",
         "value": "48px"
       },
@@ -5700,6 +6122,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
       },
       {
         "name": "--text-body-lead",
@@ -5734,31 +6160,35 @@
         "value": "13px"
       },
       {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 42,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "0.06em",
-        "0.08em",
-        "100%",
-        "10px",
-        "1100px",
-        "1200px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-conversion-funnel",
     "component": {
-      "name": "HeroConversionFunnel",
-      "path": "src/components/sections/HeroConversionFunnel.astro"
+      "name": "HeroHubStats",
+      "path": "src/components/sections/HeroHubStats.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -5840,6 +6270,7 @@
       }
     ],
     "scopedClasses": [
+      "astro",
       "hero-conversion-funnel",
       "hero-conversion-funnel__benefits",
       "hero-conversion-funnel__cta",
@@ -5852,6 +6283,25 @@
       "hero-conversion-funnel__stat-label",
       "hero-conversion-funnel__stat-value",
       "hero-conversion-funnel__stats",
+      "hero-hub-stats",
+      "hero-hub-stats__cell",
+      "hero-hub-stats__cell--accent",
+      "hero-hub-stats__cell--lead",
+      "hero-hub-stats__grid",
+      "hero-hub-stats__h1",
+      "hero-hub-stats__label",
+      "hero-hub-stats__lede",
+      "hero-hub-stats__meta",
+      "hero-hub-stats__num",
+      "hero-hub-stats__value",
+      "hero-pillar-hub",
+      "hero-pillar-hub__h1",
+      "hero-pillar-hub__lede",
+      "hero-pillar-hub__meta",
+      "hero-pillar-hub__num",
+      "hero-pillar-hub__stats",
+      "key-metric",
+      "key-metric-value",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -5882,6 +6332,10 @@
       {
         "name": "--hairline-strong",
         "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--header-height",
+        "value": "72px"
       },
       {
         "name": "--ink",
@@ -5942,19 +6396,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 27,
+      "count": 39,
       "samples": [
+        "-0.035em",
         "0.08em",
         "0.1em",
         "0.7em",
+        "100%",
         "10px",
         "11px",
-        "1200px",
-        "140px",
-        "18px"
+        "1200px"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 27 litteral(s) hardcode(s) (0.08em, 0.1em, 0.7em)."
+    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, 0.08em, 0.1em)."
   },
   {
     "id": "hero-course",
@@ -6033,6 +6487,16 @@
       "hero-academy-hub__stats",
       "hero-academy-hub__stats-text",
       "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
       "hero-centered",
       "hero-centered__ctas",
       "hero-centered__inner",
@@ -6054,6 +6518,12 @@
       "hero-detail-menu__lede",
       "hero-detail-menu__num",
       "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
       "hero-hub-listing",
       "hero-hub-listing__deco",
       "hero-hub-listing__filters",
@@ -6067,12 +6537,32 @@
       "hero-hub-masthead__kicker",
       "hero-hub-masthead__lede",
       "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
       "hero-problem-index",
       "hero-problem-index__canonical",
       "hero-problem-index__geo",
       "hero-problem-index__h1",
       "hero-problem-index__kicker",
       "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
       "hero-utility",
       "hero-utility__h1",
       "hero-utility__kicker",
@@ -6100,6 +6590,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -6118,6 +6612,18 @@
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
       },
       {
         "name": "--header-height",
@@ -6140,8 +6646,16 @@
         "value": "#1A1814"
       },
       {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
         "name": "--leading-body",
         "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
       },
       {
         "name": "--leading-h2",
@@ -6166,6 +6680,10 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
       },
       {
         "name": "--section-base",
@@ -6196,6 +6714,10 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
         "name": "--space-8",
         "value": "48px"
       },
@@ -6206,6 +6728,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
       },
       {
         "name": "--text-body-lead",
@@ -6240,25 +6766,29 @@
         "value": "13px"
       },
       {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 42,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "0.06em",
-        "0.08em",
-        "100%",
-        "10px",
-        "1100px",
-        "1200px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-detail-menu",
@@ -6324,6 +6854,16 @@
       "hero-academy-hub__stats",
       "hero-academy-hub__stats-text",
       "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
       "hero-centered",
       "hero-centered__ctas",
       "hero-centered__inner",
@@ -6345,6 +6885,12 @@
       "hero-detail-menu__lede",
       "hero-detail-menu__num",
       "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
       "hero-hub-listing",
       "hero-hub-listing__deco",
       "hero-hub-listing__filters",
@@ -6358,12 +6904,32 @@
       "hero-hub-masthead__kicker",
       "hero-hub-masthead__lede",
       "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
       "hero-problem-index",
       "hero-problem-index__canonical",
       "hero-problem-index__geo",
       "hero-problem-index__h1",
       "hero-problem-index__kicker",
       "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
       "hero-utility",
       "hero-utility__h1",
       "hero-utility__kicker",
@@ -6391,6 +6957,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -6409,6 +6979,18 @@
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
       },
       {
         "name": "--header-height",
@@ -6431,8 +7013,16 @@
         "value": "#1A1814"
       },
       {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
         "name": "--leading-body",
         "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
       },
       {
         "name": "--leading-h2",
@@ -6457,6 +7047,10 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
       },
       {
         "name": "--section-base",
@@ -6487,6 +7081,10 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
         "name": "--space-8",
         "value": "48px"
       },
@@ -6497,6 +7095,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
       },
       {
         "name": "--text-body-lead",
@@ -6531,31 +7133,35 @@
         "value": "13px"
       },
       {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 42,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "0.06em",
-        "0.08em",
-        "100%",
-        "10px",
-        "1100px",
-        "1200px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-essay",
     "component": {
-      "name": "HeroEssay",
-      "path": "src/components/sections/HeroEssay.astro"
+      "name": "HeroCentered",
+      "path": "src/components/sections/HeroCentered.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -6637,12 +7243,98 @@
       }
     ],
     "scopedClasses": [
+      "hero-academy-hub",
+      "hero-academy-hub__heading",
+      "hero-academy-hub__hero",
+      "hero-academy-hub__kicker",
+      "hero-academy-hub__lede",
+      "hero-academy-hub__stats",
+      "hero-academy-hub__stats-text",
+      "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
+      "hero-centered",
+      "hero-centered__ctas",
+      "hero-centered__inner",
+      "hero-course",
+      "hero-course__btn-ghost",
+      "hero-course__btn-primary",
+      "hero-course__btn-primary--disabled",
+      "hero-course__cta",
+      "hero-course__hd",
+      "hero-course__hd--legacy-ghost",
+      "hero-course__lede",
+      "hero-course__pill",
+      "hero-course__pill--accent",
+      "hero-course__pill--price",
+      "hero-course__pills",
+      "hero-course__title",
+      "hero-detail-menu",
+      "hero-detail-menu__h1",
+      "hero-detail-menu__lede",
+      "hero-detail-menu__num",
+      "hero-detail-menu__parent",
       "hero-essay__h1",
       "hero-essay__hd",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
-      "hero-essay__meta"
+      "hero-essay__meta",
+      "hero-hub-listing",
+      "hero-hub-listing__deco",
+      "hero-hub-listing__filters",
+      "hero-hub-listing__h1",
+      "hero-hub-listing__kicker",
+      "hero-hub-listing__lede",
+      "hero-hub-listing--bordered",
+      "hero-hub-listing--standard",
+      "hero-hub-masthead",
+      "hero-hub-masthead__h1",
+      "hero-hub-masthead__kicker",
+      "hero-hub-masthead__lede",
+      "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
+      "hero-problem-index",
+      "hero-problem-index__canonical",
+      "hero-problem-index__geo",
+      "hero-problem-index__h1",
+      "hero-problem-index__kicker",
+      "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
+      "hero-utility",
+      "hero-utility__h1",
+      "hero-utility__kicker",
+      "hero-utility__lede",
+      "hero-utility__role",
+      "hero-utility--centered",
+      "hero-utility--standard",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
@@ -6658,12 +7350,40 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
       {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hahub-top-pad",
+        "value": ""
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
       },
       {
         "name": "--he-top-pad",
@@ -6674,24 +7394,80 @@
         "value": "72px"
       },
       {
+        "name": "--hero-course-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--hhl-lede-max",
+        "value": ""
+      },
+      {
         "name": "--ink",
         "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
       },
       {
         "name": "--leading-h1",
         "value": "0.96"
       },
       {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
         "name": "--leading-lede",
         "value": "1.4"
+      },
+      {
+        "name": "--leading-prose",
+        "value": "1.65"
       },
       {
         "name": "--muted",
         "value": "#6B6560"
       },
       {
+        "name": "--muted-2",
+        "value": "#746C63"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "4px"
+      },
+      {
+        "name": "--space-2",
+        "value": "8px"
+      },
+      {
         "name": "--space-3",
         "value": "12px"
+      },
+      {
+        "name": "--space-4",
+        "value": "16px"
       },
       {
         "name": "--space-5",
@@ -6702,25 +7478,81 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
+        "name": "--space-8",
+        "value": "48px"
+      },
+      {
+        "name": "--space-page-x",
+        "value": ""
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
+      },
+      {
+        "name": "--text-body-lead",
+        "value": "15px"
+      },
+      {
+        "name": "--text-body-md",
+        "value": "17px"
+      },
+      {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
         "name": "--text-eyebrow",
         "value": "11px"
+      },
+      {
+        "name": "--text-h1-hero",
+        "value": "clamp(40px, 6vw, 92px)"
+      },
+      {
+        "name": "--text-lede",
+        "value": "clamp(20px, 1.7vw, 24px)"
+      },
+      {
+        "name": "--text-ui",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
         "-0.026em",
-        "0.1em",
-        "100%",
-        "1200px",
-        "1px",
-        "24px",
-        "760px",
-        "clamp(20px, 2.2vw, 28px)"
+        "-0.028em",
+        "-0.02em",
+        "-0.03em",
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-3 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.026em, 0.1em, 100%)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-full-bleed",
@@ -7130,6 +7962,16 @@
       "hero-academy-hub__stats",
       "hero-academy-hub__stats-text",
       "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
       "hero-centered",
       "hero-centered__ctas",
       "hero-centered__inner",
@@ -7151,6 +7993,12 @@
       "hero-detail-menu__lede",
       "hero-detail-menu__num",
       "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
       "hero-hub-listing",
       "hero-hub-listing__deco",
       "hero-hub-listing__filters",
@@ -7164,12 +8012,32 @@
       "hero-hub-masthead__kicker",
       "hero-hub-masthead__lede",
       "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
       "hero-problem-index",
       "hero-problem-index__canonical",
       "hero-problem-index__geo",
       "hero-problem-index__h1",
       "hero-problem-index__kicker",
       "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
       "hero-utility",
       "hero-utility__h1",
       "hero-utility__kicker",
@@ -7197,6 +8065,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -7215,6 +8087,18 @@
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
       },
       {
         "name": "--header-height",
@@ -7237,8 +8121,16 @@
         "value": "#1A1814"
       },
       {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
         "name": "--leading-body",
         "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
       },
       {
         "name": "--leading-h2",
@@ -7263,6 +8155,10 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
       },
       {
         "name": "--section-base",
@@ -7293,6 +8189,10 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
         "name": "--space-8",
         "value": "48px"
       },
@@ -7303,6 +8203,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
       },
       {
         "name": "--text-body-lead",
@@ -7337,25 +8241,29 @@
         "value": "13px"
       },
       {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 42,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "0.06em",
-        "0.08em",
-        "100%",
-        "10px",
-        "1100px",
-        "1200px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-hub-masthead",
@@ -7459,6 +8367,16 @@
       "hero-academy-hub__stats",
       "hero-academy-hub__stats-text",
       "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
       "hero-centered",
       "hero-centered__ctas",
       "hero-centered__inner",
@@ -7480,6 +8398,12 @@
       "hero-detail-menu__lede",
       "hero-detail-menu__num",
       "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
       "hero-hub-listing",
       "hero-hub-listing__deco",
       "hero-hub-listing__filters",
@@ -7493,12 +8417,32 @@
       "hero-hub-masthead__kicker",
       "hero-hub-masthead__lede",
       "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
       "hero-problem-index",
       "hero-problem-index__canonical",
       "hero-problem-index__geo",
       "hero-problem-index__h1",
       "hero-problem-index__kicker",
       "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
       "hero-utility",
       "hero-utility__h1",
       "hero-utility__kicker",
@@ -7526,6 +8470,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -7544,6 +8492,18 @@
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
       },
       {
         "name": "--header-height",
@@ -7566,8 +8526,16 @@
         "value": "#1A1814"
       },
       {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
         "name": "--leading-body",
         "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
       },
       {
         "name": "--leading-h2",
@@ -7592,6 +8560,10 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
       },
       {
         "name": "--section-base",
@@ -7622,6 +8594,10 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
         "name": "--space-8",
         "value": "48px"
       },
@@ -7632,6 +8608,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
       },
       {
         "name": "--text-body-lead",
@@ -7666,25 +8646,29 @@
         "value": "13px"
       },
       {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 42,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "0.06em",
-        "0.08em",
-        "100%",
-        "10px",
-        "1100px",
-        "1200px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Layout : `align`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em)."
+    "agentGuide": "Layout : `align`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-hub-stats",
@@ -7751,6 +8735,18 @@
     ],
     "scopedClasses": [
       "astro",
+      "hero-conversion-funnel",
+      "hero-conversion-funnel__benefits",
+      "hero-conversion-funnel__cta",
+      "hero-conversion-funnel__h1",
+      "hero-conversion-funnel__lede",
+      "hero-conversion-funnel__meta",
+      "hero-conversion-funnel__num",
+      "hero-conversion-funnel__proof",
+      "hero-conversion-funnel__stat--lead",
+      "hero-conversion-funnel__stat-label",
+      "hero-conversion-funnel__stat-value",
+      "hero-conversion-funnel__stats",
       "hero-hub-stats",
       "hero-hub-stats__cell",
       "hero-hub-stats__cell--accent",
@@ -7810,12 +8806,36 @@
         "value": "#0C0B09"
       },
       {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
         "name": "--muted",
         "value": "#6B6560"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-pill",
+        "value": "999px"
+      },
+      {
         "name": "--space-2",
         "value": "8px"
+      },
+      {
+        "name": "--space-3",
+        "value": "12px"
+      },
+      {
+        "name": "--space-4",
+        "value": "16px"
       },
       {
         "name": "--space-5",
@@ -7826,31 +8846,39 @@
         "value": "32px"
       },
       {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
         "name": "--text-eyebrow",
         "value": "11px"
+      },
+      {
+        "name": "--wrap-wide",
+        "value": "1560px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 18,
+      "count": 39,
       "samples": [
         "-0.035em",
+        "0.08em",
         "0.1em",
+        "0.7em",
         "100%",
-        "1200px",
-        "140px",
-        "1px",
-        "24px",
-        "640px"
+        "10px",
+        "11px",
+        "1200px"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.035em, 0.1em, 100%)."
+    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, 0.08em, 0.1em)."
   },
   {
     "id": "hero-landing",
     "component": {
-      "name": "HeroLanding",
-      "path": "src/components/sections/HeroLanding.astro"
+      "name": "HeroCentered",
+      "path": "src/components/sections/HeroCentered.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -7917,6 +8945,64 @@
       }
     ],
     "scopedClasses": [
+      "hero-academy-hub",
+      "hero-academy-hub__heading",
+      "hero-academy-hub__hero",
+      "hero-academy-hub__kicker",
+      "hero-academy-hub__lede",
+      "hero-academy-hub__stats",
+      "hero-academy-hub__stats-text",
+      "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
+      "hero-centered",
+      "hero-centered__ctas",
+      "hero-centered__inner",
+      "hero-course",
+      "hero-course__btn-ghost",
+      "hero-course__btn-primary",
+      "hero-course__btn-primary--disabled",
+      "hero-course__cta",
+      "hero-course__hd",
+      "hero-course__hd--legacy-ghost",
+      "hero-course__lede",
+      "hero-course__pill",
+      "hero-course__pill--accent",
+      "hero-course__pill--price",
+      "hero-course__pills",
+      "hero-course__title",
+      "hero-detail-menu",
+      "hero-detail-menu__h1",
+      "hero-detail-menu__lede",
+      "hero-detail-menu__num",
+      "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
+      "hero-hub-listing",
+      "hero-hub-listing__deco",
+      "hero-hub-listing__filters",
+      "hero-hub-listing__h1",
+      "hero-hub-listing__kicker",
+      "hero-hub-listing__lede",
+      "hero-hub-listing--bordered",
+      "hero-hub-listing--standard",
+      "hero-hub-masthead",
+      "hero-hub-masthead__h1",
+      "hero-hub-masthead__kicker",
+      "hero-hub-masthead__lede",
+      "hero-hub-masthead--standard",
       "hero-landing",
       "hero-landing__avail",
       "hero-landing__btn-primary",
@@ -7925,12 +9011,41 @@
       "hero-landing__eyebrow",
       "hero-landing__h1",
       "hero-landing__lede",
+      "hero-problem-index",
+      "hero-problem-index__canonical",
+      "hero-problem-index__geo",
+      "hero-problem-index__h1",
+      "hero-problem-index__kicker",
+      "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
+      "hero-utility",
+      "hero-utility__h1",
+      "hero-utility__kicker",
+      "hero-utility__lede",
+      "hero-utility__role",
+      "hero-utility--centered",
+      "hero-utility--standard",
       "wrap-wide"
     ],
     "tokensUsed": [
       {
         "name": "--accent",
         "value": "#C94F2E"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
       {
         "name": "--font-mono",
@@ -7945,20 +9060,88 @@
         "value": ""
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--fw-semibold",
         "value": "600"
+      },
+      {
+        "name": "--hahub-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--header-height",
+        "value": "72px"
+      },
+      {
+        "name": "--hero-course-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--hhl-lede-max",
+        "value": ""
       },
       {
         "name": "--ink",
         "value": "#0C0B09"
       },
       {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
         "name": "--ink-rgb",
         "value": "12, 11, 9"
       },
       {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-prose",
+        "value": "1.65"
+      },
+      {
         "name": "--muted",
         "value": "#6B6560"
+      },
+      {
+        "name": "--muted-2",
+        "value": "#746C63"
       },
       {
         "name": "--paper",
@@ -7969,6 +9152,22 @@
         "value": "2px"
       },
       {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "4px"
+      },
+      {
+        "name": "--space-2",
+        "value": "8px"
+      },
+      {
+        "name": "--space-3",
+        "value": "12px"
+      },
+      {
         "name": "--space-4",
         "value": "16px"
       },
@@ -7977,35 +9176,91 @@
         "value": "24px"
       },
       {
+        "name": "--space-6",
+        "value": "32px"
+      },
+      {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
+        "name": "--space-8",
+        "value": "48px"
+      },
+      {
+        "name": "--space-page-x",
+        "value": ""
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
+      },
+      {
         "name": "--text-body-lead",
         "value": "15px"
       },
       {
+        "name": "--text-body-md",
+        "value": "17px"
+      },
+      {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
         "name": "--text-eyebrow",
         "value": "11px"
+      },
+      {
+        "name": "--text-h1-hero",
+        "value": "clamp(40px, 6vw, 92px)"
+      },
+      {
+        "name": "--text-lede",
+        "value": "clamp(20px, 1.7vw, 24px)"
+      },
+      {
+        "name": "--text-ui",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 15,
+      "count": 70,
       "samples": [
         "-.025em",
+        "-0.01em",
+        "-0.026em",
+        "-0.028em",
+        "-0.02em",
+        "-0.03em",
         ".08em",
-        ".1em",
-        "1200px",
-        "14px",
-        "1px",
-        "28px",
-        "640px"
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-4 --space-5. Couleur : --accent --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 15 litteral(s) hardcode(s) (-.025em, .08em, .1em)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-lead-magnet",
     "component": {
-      "name": "HeroLeadMagnet",
-      "path": "src/components/sections/HeroLeadMagnet.astro"
+      "name": "HeroSplit",
+      "path": "src/components/sections/HeroSplit.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -8100,6 +9355,19 @@
       }
     ],
     "scopedClasses": [
+      "author-hero",
+      "author-portrait",
+      "css",
+      "g12",
+      "g12--full",
+      "hero-author",
+      "hero-author__bc",
+      "hero-author__copy",
+      "hero-author__eyebrow",
+      "hero-author__h1",
+      "hero-author__lede",
+      "hero-author__portrait",
+      "hero-author__portrait-frame",
       "hero-lead-magnet",
       "hero-lead-magnet__cover",
       "hero-lead-magnet__download",
@@ -8110,6 +9378,13 @@
       "hero-lead-magnet__lede",
       "hero-lead-magnet__meta",
       "hero-lead-magnet__panel",
+      "hero-split",
+      "hero-split__ctas",
+      "hero-split__inner",
+      "hero-split__left",
+      "hero-split__meta",
+      "hero-split__right",
+      "start-9",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -8134,6 +9409,10 @@
         "value": "400"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -8142,12 +9421,20 @@
         "value": "rgba(var(--ink-rgb), 0.18)"
       },
       {
+        "name": "--header-height",
+        "value": "72px"
+      },
+      {
         "name": "--ink",
         "value": "#0C0B09"
       },
       {
         "name": "--ink-2",
         "value": "#1A1814"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
       },
       {
         "name": "--leading-lede",
@@ -8163,6 +9450,14 @@
       },
       {
         "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-2",
         "value": "8px"
       },
       {
@@ -8182,25 +9477,57 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-body-md",
+        "value": "17px"
+      },
+      {
         "name": "--text-eyebrow",
         "value": "11px"
+      },
+      {
+        "name": "--text-h1-hero",
+        "value": "clamp(40px, 6vw, 92px)"
+      },
+      {
+        "name": "--text-lede",
+        "value": "clamp(20px, 1.7vw, 24px)"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--wrap",
+        "value": "1440px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 14,
+      "count": 31,
       "samples": [
         "-0.03em",
+        "-8px",
         "0.1em",
         "100%",
         "1200px",
+        "12px",
         "140px",
-        "1px",
-        "20px",
-        "280px"
+        "1440px"
       ]
     },
-    "agentGuide": "Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-0.03em, 0.1em, 100%)."
+    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 31 litteral(s) hardcode(s) (-0.03em, -8px, 0.1em)."
   },
   {
     "id": "hero-liquid",
@@ -8699,6 +10026,18 @@
     ],
     "scopedClasses": [
       "astro",
+      "hero-conversion-funnel",
+      "hero-conversion-funnel__benefits",
+      "hero-conversion-funnel__cta",
+      "hero-conversion-funnel__h1",
+      "hero-conversion-funnel__lede",
+      "hero-conversion-funnel__meta",
+      "hero-conversion-funnel__num",
+      "hero-conversion-funnel__proof",
+      "hero-conversion-funnel__stat--lead",
+      "hero-conversion-funnel__stat-label",
+      "hero-conversion-funnel__stat-value",
+      "hero-conversion-funnel__stats",
       "hero-hub-stats",
       "hero-hub-stats__cell",
       "hero-hub-stats__cell--accent",
@@ -8758,12 +10097,36 @@
         "value": "#0C0B09"
       },
       {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
         "name": "--muted",
         "value": "#6B6560"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-pill",
+        "value": "999px"
+      },
+      {
         "name": "--space-2",
         "value": "8px"
+      },
+      {
+        "name": "--space-3",
+        "value": "12px"
+      },
+      {
+        "name": "--space-4",
+        "value": "16px"
       },
       {
         "name": "--space-5",
@@ -8774,25 +10137,33 @@
         "value": "32px"
       },
       {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
         "name": "--text-eyebrow",
         "value": "11px"
+      },
+      {
+        "name": "--wrap-wide",
+        "value": "1560px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 18,
+      "count": 39,
       "samples": [
         "-0.035em",
+        "0.08em",
         "0.1em",
+        "0.7em",
         "100%",
-        "1200px",
-        "140px",
-        "1px",
-        "24px",
-        "640px"
+        "10px",
+        "11px",
+        "1200px"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.035em, 0.1em, 100%)."
+    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, 0.08em, 0.1em)."
   },
   {
     "id": "hero-problem-index",
@@ -8869,6 +10240,16 @@
       "hero-academy-hub__stats",
       "hero-academy-hub__stats-text",
       "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
       "hero-centered",
       "hero-centered__ctas",
       "hero-centered__inner",
@@ -8890,6 +10271,12 @@
       "hero-detail-menu__lede",
       "hero-detail-menu__num",
       "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
       "hero-hub-listing",
       "hero-hub-listing__deco",
       "hero-hub-listing__filters",
@@ -8903,12 +10290,32 @@
       "hero-hub-masthead__kicker",
       "hero-hub-masthead__lede",
       "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
       "hero-problem-index",
       "hero-problem-index__canonical",
       "hero-problem-index__geo",
       "hero-problem-index__h1",
       "hero-problem-index__kicker",
       "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
       "hero-utility",
       "hero-utility__h1",
       "hero-utility__kicker",
@@ -8936,6 +10343,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -8954,6 +10365,18 @@
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
       },
       {
         "name": "--header-height",
@@ -8976,8 +10399,16 @@
         "value": "#1A1814"
       },
       {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
         "name": "--leading-body",
         "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
       },
       {
         "name": "--leading-h2",
@@ -9002,6 +10433,10 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
       },
       {
         "name": "--section-base",
@@ -9032,6 +10467,10 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
         "name": "--space-8",
         "value": "48px"
       },
@@ -9042,6 +10481,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
       },
       {
         "name": "--text-body-lead",
@@ -9076,25 +10519,29 @@
         "value": "13px"
       },
       {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 42,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "0.06em",
-        "0.08em",
-        "100%",
-        "10px",
-        "1100px",
-        "1200px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-sector",
@@ -9377,8 +10824,8 @@
   {
     "id": "hero-service-detail",
     "component": {
-      "name": "HeroServiceDetail",
-      "path": "src/components/sections/HeroServiceDetail.astro"
+      "name": "HeroCentered",
+      "path": "src/components/sections/HeroCentered.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -9426,6 +10873,78 @@
       }
     ],
     "scopedClasses": [
+      "hero-academy-hub",
+      "hero-academy-hub__heading",
+      "hero-academy-hub__hero",
+      "hero-academy-hub__kicker",
+      "hero-academy-hub__lede",
+      "hero-academy-hub__stats",
+      "hero-academy-hub__stats-text",
+      "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
+      "hero-centered",
+      "hero-centered__ctas",
+      "hero-centered__inner",
+      "hero-course",
+      "hero-course__btn-ghost",
+      "hero-course__btn-primary",
+      "hero-course__btn-primary--disabled",
+      "hero-course__cta",
+      "hero-course__hd",
+      "hero-course__hd--legacy-ghost",
+      "hero-course__lede",
+      "hero-course__pill",
+      "hero-course__pill--accent",
+      "hero-course__pill--price",
+      "hero-course__pills",
+      "hero-course__title",
+      "hero-detail-menu",
+      "hero-detail-menu__h1",
+      "hero-detail-menu__lede",
+      "hero-detail-menu__num",
+      "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
+      "hero-hub-listing",
+      "hero-hub-listing__deco",
+      "hero-hub-listing__filters",
+      "hero-hub-listing__h1",
+      "hero-hub-listing__kicker",
+      "hero-hub-listing__lede",
+      "hero-hub-listing--bordered",
+      "hero-hub-listing--standard",
+      "hero-hub-masthead",
+      "hero-hub-masthead__h1",
+      "hero-hub-masthead__kicker",
+      "hero-hub-masthead__lede",
+      "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
+      "hero-problem-index",
+      "hero-problem-index__canonical",
+      "hero-problem-index__geo",
+      "hero-problem-index__h1",
+      "hero-problem-index__kicker",
+      "hero-problem-index__lede",
       "hero-service-detail",
       "hero-service-detail__h1",
       "hero-service-detail__lede",
@@ -9438,6 +10957,13 @@
       "hero-service-masthead__h1",
       "hero-service-masthead__lede",
       "hero-service-masthead__num",
+      "hero-utility",
+      "hero-utility__h1",
+      "hero-utility__kicker",
+      "hero-utility__lede",
+      "hero-utility__role",
+      "hero-utility--centered",
+      "hero-utility--standard",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -9454,28 +10980,124 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hahub-top-pad",
+        "value": ""
       },
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
+      },
+      {
         "name": "--header-height",
         "value": "72px"
+      },
+      {
+        "name": "--hero-course-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--hhl-lede-max",
+        "value": ""
       },
       {
         "name": "--ink",
         "value": "#0C0B09"
       },
       {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-prose",
+        "value": "1.65"
+      },
+      {
         "name": "--muted",
         "value": "#6B6560"
       },
       {
+        "name": "--muted-2",
+        "value": "#746C63"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "4px"
+      },
+      {
         "name": "--space-2",
         "value": "8px"
+      },
+      {
+        "name": "--space-3",
+        "value": "12px"
+      },
+      {
+        "name": "--space-4",
+        "value": "16px"
       },
       {
         "name": "--space-5",
@@ -9486,35 +11108,87 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
+        "name": "--space-8",
+        "value": "48px"
+      },
+      {
+        "name": "--space-page-x",
+        "value": ""
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
+      },
+      {
+        "name": "--text-body-lead",
+        "value": "15px"
+      },
+      {
+        "name": "--text-body-md",
+        "value": "17px"
+      },
+      {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
         "name": "--text-eyebrow",
         "value": "11px"
       },
       {
+        "name": "--text-h1-hero",
+        "value": "clamp(40px, 6vw, 92px)"
+      },
+      {
+        "name": "--text-lede",
+        "value": "clamp(20px, 1.7vw, 24px)"
+      },
+      {
+        "name": "--text-ui",
+        "value": "13px"
+      },
+      {
         "name": "--tracking-mono",
         "value": "0.12em"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 15,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
         "-0.02em",
-        "1200px",
-        "140px",
-        "160px",
-        "1px",
-        "20px",
-        "24px"
+        "-0.03em",
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.028em, -0.02em, 1200px)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-service-masthead",
     "component": {
-      "name": "HeroServiceDetail",
-      "path": "src/components/sections/HeroServiceDetail.astro"
+      "name": "HeroCentered",
+      "path": "src/components/sections/HeroCentered.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -9556,6 +11230,78 @@
       }
     ],
     "scopedClasses": [
+      "hero-academy-hub",
+      "hero-academy-hub__heading",
+      "hero-academy-hub__hero",
+      "hero-academy-hub__kicker",
+      "hero-academy-hub__lede",
+      "hero-academy-hub__stats",
+      "hero-academy-hub__stats-text",
+      "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
+      "hero-centered",
+      "hero-centered__ctas",
+      "hero-centered__inner",
+      "hero-course",
+      "hero-course__btn-ghost",
+      "hero-course__btn-primary",
+      "hero-course__btn-primary--disabled",
+      "hero-course__cta",
+      "hero-course__hd",
+      "hero-course__hd--legacy-ghost",
+      "hero-course__lede",
+      "hero-course__pill",
+      "hero-course__pill--accent",
+      "hero-course__pill--price",
+      "hero-course__pills",
+      "hero-course__title",
+      "hero-detail-menu",
+      "hero-detail-menu__h1",
+      "hero-detail-menu__lede",
+      "hero-detail-menu__num",
+      "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
+      "hero-hub-listing",
+      "hero-hub-listing__deco",
+      "hero-hub-listing__filters",
+      "hero-hub-listing__h1",
+      "hero-hub-listing__kicker",
+      "hero-hub-listing__lede",
+      "hero-hub-listing--bordered",
+      "hero-hub-listing--standard",
+      "hero-hub-masthead",
+      "hero-hub-masthead__h1",
+      "hero-hub-masthead__kicker",
+      "hero-hub-masthead__lede",
+      "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
+      "hero-problem-index",
+      "hero-problem-index__canonical",
+      "hero-problem-index__geo",
+      "hero-problem-index__h1",
+      "hero-problem-index__kicker",
+      "hero-problem-index__lede",
       "hero-service-detail",
       "hero-service-detail__h1",
       "hero-service-detail__lede",
@@ -9568,6 +11314,13 @@
       "hero-service-masthead__h1",
       "hero-service-masthead__lede",
       "hero-service-masthead__num",
+      "hero-utility",
+      "hero-utility__h1",
+      "hero-utility__kicker",
+      "hero-utility__lede",
+      "hero-utility__role",
+      "hero-utility--centered",
+      "hero-utility--standard",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -9584,28 +11337,124 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hahub-top-pad",
+        "value": ""
       },
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
+      },
+      {
         "name": "--header-height",
         "value": "72px"
+      },
+      {
+        "name": "--hero-course-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--hhl-lede-max",
+        "value": ""
       },
       {
         "name": "--ink",
         "value": "#0C0B09"
       },
       {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-prose",
+        "value": "1.65"
+      },
+      {
         "name": "--muted",
         "value": "#6B6560"
       },
       {
+        "name": "--muted-2",
+        "value": "#746C63"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "4px"
+      },
+      {
         "name": "--space-2",
         "value": "8px"
+      },
+      {
+        "name": "--space-3",
+        "value": "12px"
+      },
+      {
+        "name": "--space-4",
+        "value": "16px"
       },
       {
         "name": "--space-5",
@@ -9616,29 +11465,81 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
+        "name": "--space-8",
+        "value": "48px"
+      },
+      {
+        "name": "--space-page-x",
+        "value": ""
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
+      },
+      {
+        "name": "--text-body-lead",
+        "value": "15px"
+      },
+      {
+        "name": "--text-body-md",
+        "value": "17px"
+      },
+      {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
         "name": "--text-eyebrow",
         "value": "11px"
       },
       {
+        "name": "--text-h1-hero",
+        "value": "clamp(40px, 6vw, 92px)"
+      },
+      {
+        "name": "--text-lede",
+        "value": "clamp(20px, 1.7vw, 24px)"
+      },
+      {
+        "name": "--text-ui",
+        "value": "13px"
+      },
+      {
         "name": "--tracking-mono",
         "value": "0.12em"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 15,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
         "-0.02em",
-        "1200px",
-        "140px",
-        "160px",
-        "1px",
-        "20px",
-        "24px"
+        "-0.03em",
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.028em, -0.02em, 1200px)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "hero-split",
@@ -9716,25 +11617,70 @@
       }
     ],
     "scopedClasses": [
+      "author-hero",
+      "author-portrait",
+      "css",
+      "g12",
+      "g12--full",
+      "hero-author",
+      "hero-author__bc",
+      "hero-author__copy",
+      "hero-author__eyebrow",
+      "hero-author__h1",
+      "hero-author__lede",
+      "hero-author__portrait",
+      "hero-author__portrait-frame",
+      "hero-lead-magnet",
+      "hero-lead-magnet__cover",
+      "hero-lead-magnet__download",
+      "hero-lead-magnet__download-label",
+      "hero-lead-magnet__grid",
+      "hero-lead-magnet__h1",
+      "hero-lead-magnet__kicker",
+      "hero-lead-magnet__lede",
+      "hero-lead-magnet__meta",
+      "hero-lead-magnet__panel",
       "hero-split",
       "hero-split__ctas",
       "hero-split__inner",
       "hero-split__left",
       "hero-split__meta",
-      "hero-split__right"
+      "hero-split__right",
+      "start-9",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
         "name": "--font-display",
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
       },
       {
         "name": "--header-height",
@@ -9745,20 +11691,56 @@
         "value": "#0C0B09"
       },
       {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
         "name": "--leading-h2",
         "value": "1.02"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
       },
       {
         "name": "--paper-2",
         "value": "#EFE9DD"
       },
       {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
         "name": "--section-base",
         "value": "var(--space-11)"
       },
       {
+        "name": "--space-2",
+        "value": "8px"
+      },
+      {
         "name": "--space-3",
         "value": "12px"
+      },
+      {
+        "name": "--space-4",
+        "value": "16px"
+      },
+      {
+        "name": "--space-5",
+        "value": "24px"
+      },
+      {
+        "name": "--space-6",
+        "value": "32px"
+      },
+      {
+        "name": "--space-7",
+        "value": "40px"
       },
       {
         "name": "--spacing-block",
@@ -9769,21 +11751,45 @@
         "value": "17px"
       },
       {
+        "name": "--text-eyebrow",
+        "value": "11px"
+      },
+      {
         "name": "--text-h1-hero",
         "value": "clamp(40px, 6vw, 92px)"
+      },
+      {
+        "name": "--text-lede",
+        "value": "clamp(20px, 1.7vw, 24px)"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--wrap",
+        "value": "1440px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 31,
       "samples": [
+        "-0.03em",
         "-8px",
-        "1px",
-        "768px",
-        "clamp(32px, 5vw, 80px)"
+        "0.1em",
+        "100%",
+        "1200px",
+        "12px",
+        "140px",
+        "1440px"
       ]
     },
-    "agentGuide": "Layout : `right_block` (schema, 0 CSS). Espacement : --space-3 --spacing-block. Couleur : --ink --paper-2. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (-8px, 1px, 768px)."
+    "agentGuide": "Layout : `right_block` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 31 litteral(s) hardcode(s) (-0.03em, -8px, 0.1em)."
   },
   {
     "id": "hero-tech-layer",
@@ -10131,6 +12137,14 @@
       "hero-tunnel-step__progress",
       "hero-tunnel-step__progress-step",
       "is-active",
+      "tunnel-step-hero",
+      "tunnel-step-hero__h1",
+      "tunnel-step-hero__h1--hero",
+      "tunnel-step-hero__h1--section",
+      "tunnel-step-hero__kicker",
+      "tunnel-step-hero__lede",
+      "tunnel-step-hero__progress",
+      "tunnel-step-hero__progress-step",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -10167,6 +12181,10 @@
         "value": "#6B6560"
       },
       {
+        "name": "--space-1",
+        "value": "4px"
+      },
+      {
         "name": "--space-6",
         "value": "32px"
       },
@@ -10193,19 +12211,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 15,
       "samples": [
         "-.02em",
         ".06em",
+        ".1em",
+        "100%",
         "10px",
         "11px",
         "1200px",
-        "1px",
-        "24px",
-        "clamp(24px, 3vw, 40px)"
+        "1px"
       ]
     },
-    "agentGuide": "Espacement : --space-6 --space-7. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-.02em, .06em, 10px)."
+    "agentGuide": "Espacement : --space-1 --space-6 --space-7. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
   },
   {
     "id": "hero-utility-masthead",
@@ -10273,6 +12291,16 @@
       "hero-academy-hub__stats",
       "hero-academy-hub__stats-text",
       "hero-academy-hub--unwrapped",
+      "hero-case-study__deco",
+      "hero-case-study__eyebrow",
+      "hero-case-study__h1",
+      "hero-case-study__mast",
+      "hero-case-study__num",
+      "hero-case-study__spec",
+      "hero-case-study__spec-l",
+      "hero-case-study__spec-v",
+      "hero-case-study__specs",
+      "hero-case-study__specs-grid",
       "hero-centered",
       "hero-centered__ctas",
       "hero-centered__inner",
@@ -10294,6 +12322,12 @@
       "hero-detail-menu__lede",
       "hero-detail-menu__num",
       "hero-detail-menu__parent",
+      "hero-essay__h1",
+      "hero-essay__hd",
+      "hero-essay__image",
+      "hero-essay__kicker",
+      "hero-essay__lede",
+      "hero-essay__meta",
       "hero-hub-listing",
       "hero-hub-listing__deco",
       "hero-hub-listing__filters",
@@ -10307,12 +12341,32 @@
       "hero-hub-masthead__kicker",
       "hero-hub-masthead__lede",
       "hero-hub-masthead--standard",
+      "hero-landing",
+      "hero-landing__avail",
+      "hero-landing__btn-primary",
+      "hero-landing__btn-secondary",
+      "hero-landing__ctas",
+      "hero-landing__eyebrow",
+      "hero-landing__h1",
+      "hero-landing__lede",
       "hero-problem-index",
       "hero-problem-index__canonical",
       "hero-problem-index__geo",
       "hero-problem-index__h1",
       "hero-problem-index__kicker",
       "hero-problem-index__lede",
+      "hero-service-detail",
+      "hero-service-detail__h1",
+      "hero-service-detail__lede",
+      "hero-service-detail__metric",
+      "hero-service-detail__metric-l",
+      "hero-service-detail__metric-v",
+      "hero-service-detail__metrics",
+      "hero-service-detail__num",
+      "hero-service-masthead",
+      "hero-service-masthead__h1",
+      "hero-service-masthead__lede",
+      "hero-service-masthead__num",
       "hero-utility",
       "hero-utility__h1",
       "hero-utility__kicker",
@@ -10340,6 +12394,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--font-serif",
+        "value": ""
+      },
+      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -10358,6 +12416,18 @@
       {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hcs-h1-gap",
+        "value": ""
+      },
+      {
+        "name": "--hcs-top-pad",
+        "value": ""
+      },
+      {
+        "name": "--he-top-pad",
+        "value": ""
       },
       {
         "name": "--header-height",
@@ -10380,8 +12450,16 @@
         "value": "#1A1814"
       },
       {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
         "name": "--leading-body",
         "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
       },
       {
         "name": "--leading-h2",
@@ -10406,6 +12484,10 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
       },
       {
         "name": "--section-base",
@@ -10436,6 +12518,10 @@
         "value": "32px"
       },
       {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
         "name": "--space-8",
         "value": "48px"
       },
@@ -10446,6 +12532,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--spec-cols",
+        "value": ""
       },
       {
         "name": "--text-body-lead",
@@ -10480,25 +12570,29 @@
         "value": "13px"
       },
       {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 42,
+      "count": 70,
       "samples": [
+        "-.025em",
+        "-0.01em",
+        "-0.026em",
         "-0.028em",
+        "-0.02em",
         "-0.03em",
-        "0.06em",
-        "0.08em",
-        "100%",
-        "10px",
-        "1100px",
-        "1200px"
+        ".08em",
+        ".1em"
       ]
     },
-    "agentGuide": "Layout : `align` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 42 litteral(s) hardcode(s) (-0.028em, -0.03em, 0.06em)."
+    "agentGuide": "Layout : `align` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 70 litteral(s) hardcode(s) (-.025em, -0.01em, -0.026em)."
   },
   {
     "id": "how-we-ship",
@@ -17452,8 +19546,8 @@
   {
     "id": "tunnel-step-hero",
     "component": {
-      "name": "TunnelStepHero",
-      "path": "src/components/sections/TunnelStepHero.astro"
+      "name": "HeroTunnelStep",
+      "path": "src/components/sections/HeroTunnelStep.astro"
     },
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -17509,6 +19603,14 @@
       }
     ],
     "scopedClasses": [
+      "hero-tunnel-step",
+      "hero-tunnel-step__h1",
+      "hero-tunnel-step__h1--hero",
+      "hero-tunnel-step__h1--section",
+      "hero-tunnel-step__kicker",
+      "hero-tunnel-step__lede",
+      "hero-tunnel-step__progress",
+      "hero-tunnel-step__progress-step",
       "is-active",
       "tunnel-step-hero",
       "tunnel-step-hero__h1",
@@ -17584,19 +19686,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 13,
+      "count": 15,
       "samples": [
         "-.02em",
         ".06em",
         ".1em",
         "100%",
         "10px",
+        "11px",
         "1200px",
-        "1px",
-        "700px"
+        "1px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-6 --space-7. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
+    "agentGuide": "Espacement : --space-1 --space-6 --space-7. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
   },
   {
     "id": "tunnel-step-nav",
