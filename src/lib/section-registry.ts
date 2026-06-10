@@ -104,6 +104,8 @@ import StatsBento from '../components/sections/StatsBento.astro';
 import ComparisonDuo from '../components/sections/ComparisonDuo.astro';
 import ServiceCatalogList from '../components/sections/ServiceCatalogList.astro';
 import FitColumnsSection from '../components/sections/FitColumnsSection.astro';
+import EditorialTableBlock from '../components/sections/EditorialTableBlock.astro';
+import DecisionList from '../components/sections/DecisionList.astro';
 import TechPositioningSplit from '../components/sections/TechPositioningSplit.astro';
 import TechCapabilitiesSpecs from '../components/sections/TechCapabilitiesSpecs.astro';
 import TechModelsTable from '../components/sections/TechModelsTable.astro';
@@ -1003,6 +1005,26 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.',
     description_en: 'Fit/no-fit qualification section on an ink background: kicker, display heading, intro callout, and two yes/no item columns.',
+  },
+  'editorial-table-block': {
+    component: EditorialTableBlock,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['comparison', 'table', 'editorial', 'comparator', 'rows'],
+    status: 'stable',
+    description_fr: 'Comparateur éditorial : en-tête kicker mono et titre display, puis tableau EditorialTable bilingue (colonnes, lignes, caption).',
+    description_en: 'Editorial comparator: a mono kicker plus display heading header, then a bilingual EditorialTable (columns, rows, caption).',
+  },
+  'decision-list': {
+    component: DecisionList,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['decision', 'list', 'numbered', 'editorial', 'guide'],
+    status: 'stable',
+    description_fr: 'Arbre de décision : en-tête kicker et titre display à gauche, liste ordonnée numérotée d items à droite, hairlines fines.',
+    description_en: 'Decision tree: kicker and display heading on the left, a numbered ordered list of items on the right, thin hairlines.',
   },
   'tech-positioning-split': {
     component: TechPositioningSplit,

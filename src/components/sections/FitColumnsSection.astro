@@ -17,6 +17,8 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const hasKicker = !!(data.kicker_fr || data.kicker_en);
 const hasIntro = !!(data.intro_fr || data.intro_en);
+const yesItems = isFr ? data.yes_items_fr : data.yes_items_en;
+const noItems = isFr ? data.no_items_fr : data.no_items_en;
 ---
 <section class="fit-sec">
   <div class="wrap-wide">
@@ -35,8 +37,8 @@ const hasIntro = !!(data.intro_fr || data.intro_en);
     )}
     <FitColumns
       class="fit-sec-cols reveal-stagger"
-      yesTitleFr={data.yes_title_fr} yesTitleEn={data.yes_title_en} yesItems={data.yes_items}
-      noTitleFr={data.no_title_fr} noTitleEn={data.no_title_en} noItems={data.no_items}
+      yesTitleFr={data.yes_title_fr} yesTitleEn={data.yes_title_en} yesItems={yesItems}
+      noTitleFr={data.no_title_fr} noTitleEn={data.no_title_en} noItems={noItems}
     />
   </div>
 </section>

@@ -1,0 +1,57 @@
+---
+// Section W6 · editorial-table-block
+// Comparateur éditorial : header (kicker mono + h2 display) + EditorialTable bilingue.
+// Source : page conseil.astro « Comparateur services » (l.144-153) + composant EditorialTable.
+// - markup/CSS du header = COPIE VERBATIM des styles inline legacy (tokens var(--*), 0 hex brut).
+// - le tableau délègue à EditorialTable (columns/rows/caption selon la langue).
+import EditorialTable from '../editorial/EditorialTable.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'editorial-table-block'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const heading = isFr ? data.heading_fr : data.heading_en;
+const caption = isFr ? data.caption_fr : data.caption_en;
+const columns = isFr ? data.columns_fr : data.columns_en;
+const rows = isFr ? data.rows_fr : data.rows_en;
+---
+<section class="ed-table-block reveal-stagger" aria-labelledby="ed-table-block-h2">
+  <div class="wrap-wide">
+    <div class="ed-table-block-kicker">{kicker}</div>
+    <h2 id="ed-table-block-h2" class="ed-table-block-h2" set:html={heading} />
+    <EditorialTable
+      caption={caption}
+      columns={columns}
+      rows={rows}
+      align="left"
+      variant={data.variant}
+    />
+  </div>
+</section>
+
+<style>
+  /* Padding section façon HubTemplate catalogue (densification scoped). */
+  .ed-table-block {
+    padding: clamp(64px, 7vw, 96px) var(--space-6) 0;
+  }
+  /* COPIE VERBATIM des styles inline legacy (conseil.astro l.145-146) — tokens only. */
+  .ed-table-block-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--space-4);
+  }
+  .ed-table-block-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.5vw, 64px);
+    line-height: .96;
+    font-weight: var(--fw-regular);
+    margin: 0 0 28px;
+  }
+  .ed-table-block-h2 :global(i) { color: var(--accent); font-style: italic; }
+</style>

@@ -1725,18 +1725,63 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     intro_en: 'A good engagement fits in two columns: what can become operational, and what must be refused before the mission gets diluted.',
     yes_title_fr: 'Vous êtes fait pour nous si',
     yes_title_en: 'You are a fit if',
-    yes_items: [
+    yes_items_fr: [
       'Vous avez un cas d usage clair et des données accessibles',
       'Vous voulez une couche réutilisable, pas un POC jetable',
       'Une équipe interne peut reprendre et exploiter le livrable',
       'Le budget cadre un premier chantier de 3-5 jalons',
     ],
+    yes_items_en: [
+      'You have a clear use case and accessible data',
+      'You want a reusable layer, not a throwaway POC',
+      'An internal team can take over and operate the deliverable',
+      'The budget frames a first engagement of 3-5 milestones',
+    ],
     no_title_fr: 'On refusera si',
     no_title_en: 'We will say no if',
-    no_items: [
+    no_items_fr: [
       'Le besoin est un effet d annonce sans cas d usage réel',
       'Les données sont inaccessibles ou interdites d usage',
       'Aucune équipe ne peut reprendre le livrable côté client',
+    ],
+    no_items_en: [
+      'The need is an announcement effect with no real use case',
+      'The data is inaccessible or off-limits',
+      'No team can take over the deliverable on the client side',
+    ],
+  },
+  'editorial-table-block': {
+    type: 'editorial-table-block',
+    kicker_fr: 'Comparateur services',
+    kicker_en: 'Service comparator',
+    heading_fr: '<i>Quel service</i><br/>pour quelle décision ?',
+    heading_en: '<i>Which service</i><br/>for which decision?',
+    caption_fr: 'Lecture rapide du catalogue conseil',
+    caption_en: 'A quick read of the advisory catalogue',
+    columns_fr: ['Besoin', 'Service', 'Livrable de décision'],
+    columns_en: ['Need', 'Service', 'Decision deliverable'],
+    rows_fr: [
+      ['Décider avant budget', 'Audit de maturité IA', 'Grille de score, risques, priorités, feu vert ou arrêt en 10 jours'],
+      ['Obtenir un accord direction', 'Cadrage & feuille de route IA', 'Backlog chiffré, séquencé, lisible par DSI et COMEX'],
+      ['Fiabiliser les chiffres', 'Gouvernance & qualité des données', 'Sources de vérité, ownership, contrôles et anomalies'],
+    ],
+    rows_en: [
+      ['Decide before budget', 'AI Readiness Assessment', 'Scorecard, risks, priorities, green light or stop in 10 days'],
+      ['Secure board approval', 'Strategic Scoping & AI Roadmap', 'Costed, sequenced backlog, readable by IT leadership and the board'],
+      ['Make the numbers trustworthy', 'Data Governance & Quality', 'Sources of truth, ownership, controls and anomalies'],
+    ],
+    variant: 'editorial',
+  },
+  'decision-list': {
+    type: 'decision-list',
+    kicker_fr: 'Arbre de décision',
+    kicker_en: 'Decision tree',
+    heading_fr: '<i>Quel service</i><br/>pour vous ?',
+    heading_en: '<i>Which service</i><br/>for you?',
+    items: [
+      { label_fr: 'Vous ne savez pas par où commencer : Audit de maturité IA.', label_en: 'You do not know where to start: AI Readiness Assessment.' },
+      { label_fr: 'Vous devez faire valider un budget : Cadrage & feuille de route IA.', label_en: 'You need to get a budget approved: Strategic Scoping & AI Roadmap.' },
+      { label_fr: 'Vos données ou votre CRM ne sont pas fiables : Gouvernance & qualité des données.', label_en: 'Your data or your CRM is not reliable: Data Governance & Quality.' },
     ],
   },
   'tech-positioning-split': {
