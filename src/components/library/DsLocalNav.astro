@@ -1,0 +1,82 @@
+---
+// Barre de navigation locale des surfaces outillées du Design System.
+// Posée sur : /agence/ds-studio · /agence/design-system · /categories/[slug] · /components/[type].
+// Rend le parcours Studio <-> Catalogue bidirectionnel et explicite (mission ds-studio-nav).
+// DA : Inter Tight (--font-sans), contraste par le gras, fond ink contrasté, 0 nouveau token.
+
+interface Props {
+  /** Surface active : pilote aria-current + l'état visuel. */
+  active: 'studio' | 'catalogue' | 'categories';
+  /** Rôle de la page courante, en une ligne (affiché à droite de la barre). */
+  note?: string;
+}
+
+const { active, note } = Astro.props;
+
+const items = [
+  { key: 'studio', label: 'DS Studio', href: '/agence/ds-studio', hint: 'personnaliser les tokens' },
+  { key: 'catalogue', label: 'Catalogue', href: '/agence/design-system', hint: 'bibliothèque des composants' },
+  { key: 'categories', label: 'Catégories', href: '/agence/design-system#sections', hint: 'sections par famille' },
+] as const;
+---
+
+<nav class="ds-local-nav" aria-label="Surfaces du Design System">
+  <span class="ds-local-nav-brand" aria-hidden="true">DS</span>
+  <ul class="ds-local-nav-list">
+    {items.map((item) => (
+      <li>
+        <a
+          class:list={['ds-local-nav-link', { 'is-active': item.key === active }]}
+          href={item.href}
+          aria-current={item.key === active ? 'page' : undefined}
+        >
+          <strong class="ds-local-nav-label">{item.label}</strong>
+          <span class="ds-local-nav-hint">{item.hint}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  {note && <p class="ds-local-nav-note">{note}</p>}
+</nav>
+
+<style>
+  .ds-local-nav {
+    display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-4);
+    background: var(--ink); border: 1px solid var(--ink-3); border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-4); margin-bottom: var(--space-6);
+  }
+  .ds-local-nav-brand {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+    color: var(--accent); letter-spacing: var(--tracking-mono); flex: none;
+  }
+  .ds-local-nav-list {
+    list-style: none; display: flex; align-items: stretch; gap: var(--space-2);
+    margin: 0; padding: 0; flex-wrap: wrap;
+  }
+  .ds-local-nav-link {
+    display: flex; flex-direction: column; gap: 0.1em;
+    padding: var(--space-2) var(--space-3); border-radius: var(--radius-xs);
+    text-decoration: none; border: 1px solid transparent;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .ds-local-nav-link:hover { background: var(--ink-2); }
+  .ds-local-nav-link.is-active { background: var(--ink-2); border-color: var(--accent); }
+  .ds-local-nav-label {
+    font-family: var(--font-sans); font-size: var(--text-ui);
+    font-weight: var(--fw-semibold); color: var(--paper); line-height: 1.2;
+  }
+  .ds-local-nav-link.is-active .ds-local-nav-label { color: var(--accent-ink); }
+  .ds-local-nav-hint {
+    font-family: var(--font-sans); font-size: var(--text-caption);
+    color: color-mix(in srgb, var(--paper) 68%, var(--ink)); line-height: 1.2;
+  }
+  .ds-local-nav-note {
+    font-family: var(--font-sans); font-size: var(--text-caption);
+    color: color-mix(in srgb, var(--paper) 68%, var(--ink));
+    margin: 0; margin-left: auto; max-width: 44ch; text-align: right;
+  }
+  .ds-local-nav-note :global(strong) { color: var(--paper); font-weight: var(--fw-semibold); }
+  @media (max-width: 720px) {
+    .ds-local-nav-note { margin-left: 0; text-align: left; max-width: none; }
+  }
+</style>

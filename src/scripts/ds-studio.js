@@ -37,6 +37,7 @@ function initStudio() {
   const redoBtn = container.querySelector('#token-redo');
   const contrastList = container.querySelector('#contrast-list');
   const previewFrame = container.querySelector('#page-preview');
+  const catalogFrame = container.querySelector('#catalog-preview');
 
   function setSaveState(state) {
     document.body.setAttribute('data-save-state', state);
@@ -571,10 +572,12 @@ function initStudio() {
   const previewRefresh = container.querySelector('#preview-refresh');
 
   function applyOverridesToPreview() {
-    const frameRoot = previewFrame?.contentDocument?.documentElement;
-    if (!frameRoot) return;
-    originals.forEach((_value, token) => frameRoot.style.removeProperty(token));
-    dirty.forEach((value, token) => frameRoot.style.setProperty(token, value));
+    [previewFrame, catalogFrame].forEach((frame) => {
+      const frameRoot = frame?.contentDocument?.documentElement;
+      if (!frameRoot) return;
+      originals.forEach((_value, token) => frameRoot.style.removeProperty(token));
+      dirty.forEach((value, token) => frameRoot.style.setProperty(token, value));
+    });
   }
 
   function loadPreview(force = false) {
@@ -591,6 +594,35 @@ function initStudio() {
   if (previewRoute) previewRoute.addEventListener('change', () => loadPreview(true));
   if (previewRefresh) previewRefresh.addEventListener('click', () => loadPreview(true));
   if (previewFrame) previewFrame.addEventListener('load', applyOverridesToPreview);
+
+  // ── Catalogue : aperçu du type sélectionné (hérite des overrides LIVE) ─────
+  const catalogCurrent = container.querySelector('#catalog-current');
+  const catalogOpenFiche = container.querySelector('#catalog-open-fiche');
+  const catalogOpenPreview = container.querySelector('#catalog-open-preview');
+
+  function loadCatalogType(type) {
+    if (!catalogFrame || !type) return;
+    catalogFrame.setAttribute('src', `/preview/${type}`);
+    if (catalogCurrent) catalogCurrent.textContent = type;
+    if (catalogOpenFiche) catalogOpenFiche.setAttribute('href', `/components/${type}`);
+    if (catalogOpenPreview) catalogOpenPreview.setAttribute('href', `/preview/${type}`);
+    container.querySelectorAll('[data-catalog-type]').forEach((btn) => {
+      btn.classList.toggle('is-active', btn.getAttribute('data-catalog-type') === type);
+    });
+  }
+
+  container.querySelectorAll('[data-catalog-type]').forEach((btn) => {
+    btn.addEventListener('click', () => loadCatalogType(btn.getAttribute('data-catalog-type')));
+  });
+  if (catalogFrame) {
+    catalogFrame.addEventListener('load', applyOverridesToPreview);
+    const initialType = catalogCurrent ? catalogCurrent.textContent.trim() : '';
+    if (initialType) {
+      container.querySelectorAll('[data-catalog-type]').forEach((btn) => {
+        btn.classList.toggle('is-active', btn.getAttribute('data-catalog-type') === initialType);
+      });
+    }
+  }
 
   // ── Presets nommés ─────────────────────────────────────────────────────────
   const presetName = container.querySelector('#preset-name');
