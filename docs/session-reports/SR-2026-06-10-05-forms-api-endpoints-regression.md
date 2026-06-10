@@ -102,7 +102,13 @@ Avec `/api/*` + enhancement client-fetch, un utilisateur sans JS qui soumet voit
 - Repointés : `src/pages/contact.astro`, `src/pages/en/contact.astro`, `src/pages/ressources/academy.astro`, `src/pages/ressources/index.astro`, `src/pages/en/ressources/index.astro`
 - Supprimés : `src/actions/index.ts`, `src/actions/_shared.ts`
 
-## Statut merge
+## Statut merge — ✅ MERGÉ MAIN · ⛔ prod-deploy gelé (quota Vercel)
 
-- PR #37 ouverte. Merge sur `main` conditionné à : GF-1 preview Vercel (niveau 2) PASS + CI verte.
-- Après merge : GF-1 prod (POST réel sur `waimia.com` → 404/405 disparus) + mise à jour de la task #27 (le sous-finding LeadMagnet est résorbé par cette restauration globale).
+- **PR #37 mergée sur `main`** (`e288f5c`). CI GitHub Actions verte (Build, E2E, gf1-sweep). GF-1 niveau 1 + 2 PASS.
+- **Prod-deploy BLOQUÉ** : les **deux** quotas Vercel Hobby sont épuisés simultanément :
+  - `build-rate-limit` (« retry in 24 hours ») → aucun nouveau build.
+  - `api-deployments-free-per-day` (402, > 100/24h) → `vercel promote` lui-même refusé.
+  → Impossible de pousser le fix en prod avant le reset (~24h, vers 2026-06-11 12:00). Upgrade Pro = exclu (paiement prohibé). Blocker externe dur, identique au précédent responsive (#30).
+- **prod `waimia.com` sert encore `cd0e1bc5`** (forms cassés) jusqu'au reset. Le fix est mergé + prouvé ; seul le déploiement attend la fenêtre de quota.
+- **Suivi** : task #34 (promote + GF-1 prod au reset). Le sous-finding LeadMagnet de la task #27 est résorbé par cette restauration globale (la note « endpoint absent » est obsolète une fois en prod).
+- **GF-3 (prévention)** : task #32 (gate `check-form-endpoints` : tout `action`/`fetch` vers `/api/X` doit avoir `src/pages/api/X.ts`) + memory `forms-architecture-api-routes` créée.
