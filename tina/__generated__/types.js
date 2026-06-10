@@ -1,0 +1,362 @@
+export function gql(strings, ...args) {
+  let str = "";
+  strings.forEach((string, i) => {
+    str += string + (args[i] || "");
+  });
+  return str;
+}
+export const OffresPartsFragmentDoc = gql`
+    fragment OffresParts on Offres {
+  __typename
+  title_fr
+  title_en
+  description_fr
+  description_en
+  slug
+  publishedAt
+  category
+  tags
+  tier_fr
+  tier_en
+  tier_label_fr
+  tier_label_en
+  hero_title_html_fr
+  hero_title_html_en
+  meta_fr
+  meta_en
+  price_from_eur
+  price_to_eur
+  duration_min_weeks
+  duration_max_weeks
+  cta_label_fr
+  cta_label_en
+  cta_href
+  lead_fr
+  lead_en
+  problem_statement_fr
+  problem_statement_en
+  problem_annotations {
+    __typename
+    value
+    label_fr
+    label_en
+  }
+  method_aside_fr
+  method_aside_en
+  method_steps {
+    __typename
+    num
+    label_fr
+    label_en
+    body_fr
+    body_en
+    meta_fr
+    meta_en
+    duration_fr
+    duration_en
+  }
+  deliverables_aside_fr
+  deliverables_aside_en
+  deliverable_items {
+    __typename
+    title_fr
+    title_en
+    body_fr
+    body_en
+    tag
+  }
+  proof {
+    __typename
+    quote_fr
+    quote_en
+    attribution
+    metrics {
+      __typename
+      value
+      label_fr
+      label_en
+    }
+  }
+  cta_title_fr
+  cta_title_en
+  cta_body_fr
+  cta_body_en
+  faq_fr {
+    __typename
+    q
+    a
+  }
+  faq_en {
+    __typename
+    q
+    a
+  }
+  sections {
+    __typename
+    ... on OffresSectionsHero_offer_detail {
+      hero_variant
+      breadcrumb_label_fr
+      breadcrumb_label_en
+      breadcrumb_href
+      tier_fr
+      tier_en
+      h1_fr
+      h1_en
+      lead_fr
+      lead_en
+      cta {
+        __typename
+        label_fr
+        label_en
+        href
+        variant
+        mag
+      }
+      meta_fr
+      meta_en
+      tags {
+        __typename
+        label_fr
+        label_en
+      }
+    }
+    ... on OffresSectionsProblem_statement {
+      kicker_fr
+      kicker_en
+      statement_fr
+      statement_en
+      dropcap
+      stats {
+        __typename
+        value
+        label_fr
+        label_en
+      }
+    }
+    ... on OffresSectionsMethod_timeline {
+      kicker_fr
+      kicker_en
+      h2_fr
+      h2_en
+      lede_fr
+      lede_en
+      steps {
+        __typename
+        num
+        label_fr
+        label_en
+        body_fr
+        body_en
+        meta_fr
+        meta_en
+        duration_fr
+      }
+    }
+    ... on OffresSectionsDeliverables_grid {
+      kicker_fr
+      kicker_en
+      title_fr
+      title_en
+      lead_fr
+      lead_en
+      items {
+        __typename
+        title_fr
+        title_en
+        body_fr
+        body_en
+        format_fr
+        format_en
+        duration_fr
+        duration_en
+      }
+    }
+    ... on OffresSectionsStat_block {
+      h2_fr
+      h2_en
+      lede_fr
+      lede_en
+      quote_fr
+      quote_en
+      cite_fr
+      cite_en
+      metrics {
+        __typename
+        value
+        label_fr
+        label_en
+        emphasis
+      }
+      layout
+    }
+    ... on OffresSectionsCta_final {
+      h2_fr
+      h2_en
+      body_fr
+      body_en
+      cta_primary {
+        __typename
+        label_fr
+        label_en
+        href
+        variant
+        mag
+      }
+      cta_secondary {
+        __typename
+        label_fr
+        label_en
+        href
+        variant
+        mag
+      }
+      chapter_num
+      chapter_title_fr
+      chapter_title_en
+      availability_fr
+      availability_en
+      reassurance_fr
+      reassurance_en
+      background
+    }
+    ... on OffresSectionsHero_split {
+      kicker_fr
+      kicker_en
+      h1_fr
+      h1_en
+      lede_fr
+      lede_en
+      cta_primary {
+        __typename
+        label_fr
+        label_en
+        href
+        variant
+        mag
+      }
+      cta_secondary {
+        __typename
+        label_fr
+        label_en
+        href
+        variant
+        mag
+      }
+      meta_fr
+      meta_en
+      right_block {
+        __typename
+        kind
+      }
+    }
+    ... on OffresSectionsProof_bar {
+      kicker_fr
+      kicker_en
+      metrics {
+        __typename
+        value
+        label_fr
+        label_en
+        emphasis
+      }
+      layout
+    }
+  }
+}
+    `;
+export const OffresDocument = gql`
+    query offres($relativePath: String!) {
+  offres(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...OffresParts
+  }
+}
+    ${OffresPartsFragmentDoc}`;
+export const OffresConnectionDocument = gql`
+    query offresConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: OffresFilter) {
+  offresConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...OffresParts
+      }
+    }
+  }
+}
+    ${OffresPartsFragmentDoc}`;
+export function getSdk(requester) {
+  return {
+    offres(variables, options) {
+      return requester(OffresDocument, variables, options);
+    },
+    offresConnection(variables, options) {
+      return requester(OffresConnectionDocument, variables, options);
+    }
+  };
+}
+import { createClient } from "tinacms/dist/client";
+const generateRequester = (client) => {
+  const requester = async (doc, vars, options) => {
+    let url = client.apiUrl;
+    if (options?.branch) {
+      const index = client.apiUrl.lastIndexOf("/");
+      url = client.apiUrl.substring(0, index + 1) + options.branch;
+    }
+    const data = await client.request({
+      query: doc,
+      variables: vars,
+      url
+    }, options);
+    return { data: data?.data, errors: data?.errors, query: doc, variables: vars || {} };
+  };
+  return requester;
+};
+export const ExperimentalGetTinaClient = () => getSdk(
+  generateRequester(
+    createClient({
+      url: "http://localhost:4001/graphql",
+      queries
+    })
+  )
+);
+export const queries = (client) => {
+  const requester = generateRequester(client);
+  return getSdk(requester);
+};
