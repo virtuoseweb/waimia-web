@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
 import SolutionsDetailTemplate from '../../components/templates/SolutionsDetailTemplate.astro';
 
 export async function getStaticPaths() {
@@ -19,17 +19,28 @@ type Props = { entry: CollectionEntry<'secteurs'> };
 const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 const d = entry.data;
+
+// Hero : h1 = nom court du secteur (la promesse longue reste dans <title> SEO + lead).
+const shortTitle = d.title_fr.split('·')[0].trim();
+
+// Cas client lié (caseRef → collection cases) : alimente le split Case Study du template.
+const caseEntry = d.caseRef ? await getEntry('cases', d.caseRef) : null;
+const caseData = caseEntry?.data;
+const caseTitleParts = caseData ? caseData.title_fr.split('·').map((part: string) => part.trim()) : [];
 ---
 <SolutionsDetailTemplate
   title={`${d.title_fr} · Waimia`}
   description={d.description_fr}
-  dept={`SECTEUR · ${d.title_fr.toUpperCase()}`}
-  deptLabel={d.title_fr}
+  dept={`SECTEUR · ${shortTitle.toUpperCase()}`}
+  deptLabel={shortTitle}
   meta={d.icp_fr}
   ctaHref="/contact"
   ctaLabel={d.ctaPrimary_fr}
+  case_kicker={caseData ? `Cas client · ${caseData.sector_fr}` : undefined}
+  case_body_fr={caseData?.description_fr}
+  case_results={caseData?.metrics ?? []}
 >
-  <Fragment slot="title">{d.title_fr}</Fragment>
+  <Fragment slot="title">{shortTitle}</Fragment>
   <Fragment slot="lead"><p>{d.description_fr}</p></Fragment>
   <Fragment slot="tags">
     {d.kpis_fr.map((k) => <span class="sol-tag">{k}</span>)}
@@ -51,5 +62,25 @@ const d = entry.data;
       </div>
     ))}
   </Fragment>
-  <Fragment slot="cta-title">Votre secteur {d.title_fr},<br/>câblé.</Fragment>
+  {caseData && (
+    <Fragment slot="case-title">
+      {caseTitleParts[0]}{caseTitleParts[1] && <Fragment><br/><i>{caseTitleParts[1]}</i></Fragment>}
+    </Fragment>
+  )}
+  {d.faq_fr && d.faq_fr.length > 0 && (
+    <Fragment slot="faq">
+      <div class="ws-faq">
+        {d.faq_fr.map((f, i) => (
+          <div class="ws-faq-item">
+            <div class="ws-faq-q">
+              <span class="ws-faq-mark">Q · {String(i + 1).padStart(2, '0')}</span>
+              {f.q}
+            </div>
+            <p class="ws-faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </Fragment>
+  )}
+  <Fragment slot="cta-title">Votre secteur {shortTitle},<br/>câblé.</Fragment>
 </SolutionsDetailTemplate>
