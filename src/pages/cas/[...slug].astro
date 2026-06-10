@@ -6,6 +6,9 @@ import CaseStudyTemplate from '../../components/templates/CaseStudyTemplate.astr
 import AuthorByline from '../../components/ui/molecules/AuthorByline.astro';
 import AuthorCard from '../../components/ui/molecules/AuthorCard.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('cases');
@@ -102,43 +105,59 @@ const caseLd = buildArticle({
   ...(d.tags && d.tags.length > 0 ? { keywords: d.tags } : {}),
 });
 ---
-<CaseStudyTemplate
-  title={`${d.title_fr} · Waimia`}
-  description={d.description_fr}
-  jsonLd={caseLd}
-  caseNum={String(idx + 1).padStart(2, '0')}
-  h1_fr={d.title_fr}
-  h1_en={d.title_en}
-  specs={specs}
-  steps={[]}
-  proofQuoteFr={d.impact_fr}
-  proofQuoteEn={d.impact_en}
-  proofAttrFr={d.ndaProtected ? 'Confidentiel' : d.client}
-  proofAttrEn={d.ndaProtected ? 'Confidential': d.client}
-  proofMetrics={proofMetrics}
-  techPills={d.stack.map((s) => ({ label: s, kind: 'primary' as const }))}
-  relatedCards={relatedCards}
-  contextStatementFr={d.contextStatement_fr}
-  contextStatementEn={d.contextStatement_en}
-  contextStats={d.contextStats}
-  bottlenecks={d.bottlenecks}
-  phases={d.phases}
-  deliverableCards={d.deliverableCards}
-  shifts={d.shifts}
-  pullQuoteFr={d.pullQuote_fr}
-  pullQuoteEn={d.pullQuote_en}
-  pullQuoteCiteFr={d.pullQuoteCite_fr}
-  pullQuoteCiteEn={d.pullQuoteCite_en}
->
-  <Fragment slot="author-byline">
-    <AuthorByline authorSlug={authorSlug} date={d.publishedAt} />
-  </Fragment>
-  <Fragment slot="context">
-    <Content />
-  </Fragment>
-  <Fragment slot="author-card">
-    <AuthorCard authorSlug={authorSlug} variant="full" />
-  </Fragment>
-  <Fragment slot="approach-headline">Ce qu'on a câblé.</Fragment>
-  <Fragment slot="stack-lead">{d.impact_fr}</Fragment>
-</CaseStudyTemplate>
+{/* D.7 · Adoption composable — si frontmatter contient `sections`, utiliser SectionsRenderer */}
+{(() => { const useComposable = Array.isArray(d.sections) && d.sections.length > 0; return useComposable ? (
+  <Base title={`${d.title_fr} · Waimia`} description={d.description_fr} jsonLd={caseLd}>
+    <Breadcrumb lang="fr" items={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Cas clients', href: '/cas' },
+      { label: d.title_fr },
+    ]} />
+    <SectionsRenderer sections={d.sections!} lang="fr" />
+    <section class="case-author-card-band">
+      <div class="wrap-wide"><AuthorCard authorSlug={authorSlug} variant="full" /></div>
+    </section>
+    {/* TODO related page-level (omis ce lot) */}
+  </Base>
+) : (
+  <CaseStudyTemplate
+    title={`${d.title_fr} · Waimia`}
+    description={d.description_fr}
+    jsonLd={caseLd}
+    caseNum={String(idx + 1).padStart(2, '0')}
+    h1_fr={d.title_fr}
+    h1_en={d.title_en}
+    specs={specs}
+    steps={[]}
+    proofQuoteFr={d.impact_fr}
+    proofQuoteEn={d.impact_en}
+    proofAttrFr={d.ndaProtected ? 'Confidentiel' : d.client}
+    proofAttrEn={d.ndaProtected ? 'Confidential': d.client}
+    proofMetrics={proofMetrics}
+    techPills={d.stack.map((s) => ({ label: s, kind: 'primary' as const }))}
+    relatedCards={relatedCards}
+    contextStatementFr={d.contextStatement_fr}
+    contextStatementEn={d.contextStatement_en}
+    contextStats={d.contextStats}
+    bottlenecks={d.bottlenecks}
+    phases={d.phases}
+    deliverableCards={d.deliverableCards}
+    shifts={d.shifts}
+    pullQuoteFr={d.pullQuote_fr}
+    pullQuoteEn={d.pullQuote_en}
+    pullQuoteCiteFr={d.pullQuoteCite_fr}
+    pullQuoteCiteEn={d.pullQuoteCite_en}
+  >
+    <Fragment slot="author-byline">
+      <AuthorByline authorSlug={authorSlug} date={d.publishedAt} />
+    </Fragment>
+    <Fragment slot="context">
+      <Content />
+    </Fragment>
+    <Fragment slot="author-card">
+      <AuthorCard authorSlug={authorSlug} variant="full" />
+    </Fragment>
+    <Fragment slot="approach-headline">Ce qu'on a câblé.</Fragment>
+    <Fragment slot="stack-lead">{d.impact_fr}</Fragment>
+  </CaseStudyTemplate>
+); })()}
