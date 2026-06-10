@@ -62,6 +62,11 @@ export default defineConfig({
     // Exemples (à dé-commenter si rename) :
     // '/ancienne-url': '/nouvelle-url',
     // '/old-blog-slug': { status: 301, destination: '/ressources/blog/new-slug' },
+    // R6 2026-06-10 · stub /careers dépublié (placeholder catch-all sans lien
+    // entrant, en doublon d'intention avec la vraie page /agence/careers) →
+    // redirect canonique pour préserver l'URL indexée.
+    '/careers': '/agence/careers',
+    '/en/careers': '/en/agence/careers',
     // A4 cleanup 2026-05-10 · /ressources/cas/* → /cas/* (canonical) — doublon SEO supprimé
     '/ressources/cas': '/cas',
     '/ressources/cas/plateau': '/cas/plateau',

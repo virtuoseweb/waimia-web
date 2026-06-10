@@ -6,9 +6,14 @@
 //
 // Routing par racine URL :
 //   /offres/<slug>       → OffresDetailTemplate (placeholder)
-//   /solutions/<slug>    → SolutionsDetailTemplate (placeholder)
 //   /technologies/<slug> → TechnologiesDetailTemplate (placeholder)
 //   *                    → Stub minimal (hubs, autres routes)
+//
+// R6 (2026-06-10) · purge des stubs orphelins : la liste est réduite aux SEULS
+// stubs encore LIÉS depuis des pages réelles (point fixe du graphe de liens,
+// preuve /tmp/wmission/r6templates/linkgraph-fixpoint.mjs) : 65 placeholders
+// noindex sans aucun lien entrant ont été dépubliés. La branche Solutions est
+// morte (plus aucun stub solutions/*) → supprimée avec son template import.
 //
 // TEST 2026-05-17 (Axe 2 T14.2c) : reverse du REVERT pour vérifier
 // si le bug Rolldown 1.0.0-rc.17 / Vite / Tailwind 4 / tsconfigPaths
@@ -21,33 +26,24 @@ import Base from '../layouts/Base.astro';
 import Stub from '../components/ui/organisms/Stub.astro';
 import Kicker from '../components/ui/atoms/Kicker.astro';
 import OffresDetailTemplate from '../components/templates/OffresDetailTemplate.astro';
-import SolutionsDetailTemplate from '../components/templates/SolutionsDetailTemplate.astro';
 import TechnologiesDetailTemplate from '../components/templates/TechnologiesDetailTemplate.astro';
 import { langFromPath } from '../lib/i18n';
 
 export function getStaticPaths() {
-  // Liste des routes connues qu'on souhaite voir vivre comme stubs.
-  // Ajoute ici quand tu introduis une nouvelle référence dans la nav.
+  // Liste des routes stub encore LIÉES depuis des pages réelles (R6 : purge des
+  // 65 stubs orphelins, preuve par point fixe du graphe de liens sur dist).
+  // N'ajoute ici une route QUE si une page réelle la référence en href.
   const routes = [
-    'offres', 'solutions', 'technologies', 'ressources',
-    'agence', 'contact', 'trust', 'careers',
-    // Détail offres
-    'offres/audit-process-intelligence', 'offres/conformite-ai-act', 'offres/architecture-hybride', 'offres/diagnostic-maturite',
-    'offres/claude-cowork', 'offres/claude-skills', 'offres/mcp-connectors', 'offres/routines-plugins',
-    'offres/agents-metiers', 'offres/multi-agents', 'offres/tiered-routing', 'offres/poc-mvp-sprint',
-    'offres/managed-agents', 'offres/self-hosted', 'offres/open-source', 'offres/maintenance-sre',
-    // Solutions
-    'solutions/finance', 'solutions/ventes-marketing', 'solutions/support', 'solutions/juridique',
-    'solutions/rh', 'solutions/it-engineering', 'solutions/sante', 'solutions/finance-industrie',
-    'solutions/secteur-public', 'solutions/industrie', 'solutions/retail',
-    // Technologies
+    // Hubs sans page spécifique, référencés par breadcrumbs/nav/404
+    'agence', 'trust',
+    // Détail offres (← hubs technologies, page DS EN, MDX revops)
+    'offres/audit-process-intelligence', 'offres/mcp-connectors', 'offres/agents-metiers',
+    // Technologies (← pages DS, preview operating-layer, lang-switch claude-models ;
+    // claude-models FR est masqué par la page collection réelle, seul EN sort en stub)
     'technologies/claude-models', 'technologies/claude-code', 'technologies/claude-surfaces',
-    'technologies/integrations-office', 'technologies/inference', 'technologies/open-source-models',
-    'technologies/rag-prive', 'technologies/fine-tuning', 'technologies/frameworks',
-    'technologies/no-code', 'technologies/observability',
-    // Ressources
+    'technologies/frameworks',
+    // Ressources EN (← nav des pages EN réelles ; FR masqués par pages/redirects)
     'ressources/cas', 'ressources/blog', 'ressources/cookbooks',
-    'ressources/cas/plateau', 'ressources/cas/halcyon', 'ressources/cas/northbound', 'ressources/cas/caserne', 'ressources/cas/virtuoseos',
   ];
   // Génère les versions FR et EN
   return routes.flatMap((r) => [
@@ -147,9 +143,8 @@ const TITLES: Record<string, { kicker: { fr: string; en: string }; title: { fr: 
 // on rend le template approprié avec un contenu placeholder éditorial.
 // Sinon (hubs, autres racines, /agence, /contact…) on retombe sur le Stub.
 const useOffresTemplate = root === 'offres' && !!subSlug;
-const useSolutionsTemplate = root === 'solutions' && !!subSlug;
 const useTechnologiesTemplate = root === 'technologies' && !!subSlug;
-const useTemplate = useOffresTemplate || useSolutionsTemplate || useTechnologiesTemplate;
+const useTemplate = useOffresTemplate || useTechnologiesTemplate;
 
 // Pages catch-all (placeholder) → noindex via header HTTP (les templates n'ayant
 // pas de prop noindex, on injecte via X-Robots-Tag — équivalent <meta robots>).
@@ -162,8 +157,6 @@ const humanTitle = slugToTitle(subSlug);
 // SEO meta pour les pages catch-all "template" (toujours noindex)
 const tplPageTitle = useOffresTemplate
   ? `${humanTitle} · Offre en préparation · Waimia`
-  : useSolutionsTemplate
-  ? `${humanTitle} · Solution en préparation · Waimia`
   : useTechnologiesTemplate
   ? `${humanTitle} · Technologie en préparation · Waimia`
   : '';
@@ -278,105 +271,6 @@ const finalTitle = isDeepRoute ? { fr: slugTail, en: slugTail } : meta.title;
       Réponse sous 4 h en jours ouvrés.
     </Fragment>
   </OffresDetailTemplate>
-) : useSolutionsTemplate ? (
-  <SolutionsDetailTemplate
-    title={tplPageTitle}
-    description={tplPageDesc}
-    noindex={true}
-    dept="DÉPARTEMENT"
-    deptLabel={humanTitle}
-    meta="Page en construction · Contactez-nous pour anticiper"
-    ctaHref="/contact"
-    ctaLabel="Parler à un expert →"
-  >
-    <Fragment slot="title"><i>{humanTitle}</i></Fragment>
-
-    <Fragment slot="lead">
-      Cette solution est en préparation.
-      <span>Contactez-nous pour discuter de votre besoin spécifique en avance.</span>
-    </Fragment>
-
-    <Fragment slot="tags">
-      <span class="sol-tag">À préciser</span>
-    </Fragment>
-
-    <Fragment slot="pain-aside">
-      Avant d'automatiser, comprendre où le temps se perd. Le détail des frictions de ce département arrive bientôt.
-    </Fragment>
-
-    <Fragment slot="pains">
-      <div class="pain-card">
-        <div class="pn">01</div>
-        <div class="pk">Cadrage à venir</div>
-        <h3>Frictions identifiées<br/>dans ce département.</h3>
-        <p>Le détail des points de friction sera publié à la mise en ligne. Si vous avez un besoin urgent, contactez-nous.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pn">02</div>
-        <div class="pk">Cas terrain</div>
-        <h3>Mesures qualitatives<br/>et chiffres durs.</h3>
-        <p>Nous publierons ici les patterns récurrents observés sur le terrain : temps perdu, double saisie, retards de pilotage.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pn">03</div>
-        <div class="pk">Conséquences</div>
-        <h3>Coût caché<br/>de l'inaction.</h3>
-        <p>Ce que coûte ne pas adresser ces frictions : en heures, en marge, en risque réglementaire.</p>
-      </div>
-    </Fragment>
-
-    <Fragment slot="workflows-aside">
-      La grille de workflows agentiques pour ce département sera détaillée ici prochainement.
-    </Fragment>
-
-    <Fragment slot="workflows">
-      <div class="wf-row">
-        <div class="wf-n">01</div>
-        <div class="wf-name">
-          <span class="wf-k">À venir</span>
-          <h3>Workflow agentique en cours de cadrage.</h3>
-        </div>
-      </div>
-    </Fragment>
-
-    <Fragment slot="roi">
-      <div>
-        <div class="metric-v"></div>
-        <div class="metric-l">ROI publié à la mise en ligne.</div>
-      </div>
-    </Fragment>
-
-    <Fragment slot="case-title">
-      Cas client à venir.
-    </Fragment>
-    <Fragment slot="case-body">
-      Nous publierons ici un cas client représentatif de ce département dès qu'il sera consolidé.
-    </Fragment>
-    <Fragment slot="case-results">
-      <div>
-        <div class="metric-v"></div>
-        <div class="metric-l">Résultats à venir</div>
-      </div>
-    </Fragment>
-
-    <Fragment slot="stack-aside">
-      La stack technique recommandée pour ce département sera publiée ici.
-    </Fragment>
-    <Fragment slot="stack">
-      <div class="stack-card">
-        <Kicker>À préciser</Kicker>
-        <h3>Stack en cours<br/>de finalisation</h3>
-        <p>Le triptyque Anthropic + intégrations métier + open-source orchestration sera détaillé à la mise en ligne.</p>
-        <span class="pill">Anthropic-first</span>
-      </div>
-    </Fragment>
-
-    <Fragment slot="cta-title">Votre équipe<br/>{humanTitle},<br/>augmentée.</Fragment>
-    <Fragment slot="cta-body">
-      Cette solution arrive bientôt, mais nous accueillons déjà les demandes en avance.
-      Réponse sous 4 h en jours ouvrés.
-    </Fragment>
-  </SolutionsDetailTemplate>
 ) : useTechnologiesTemplate ? (
   <TechnologiesDetailTemplate
     title={tplPageTitle}

@@ -5,6 +5,7 @@ import Timeline from '../editorial/Timeline.astro';
 import MethodeProcessDiagram from '../svg/geometric/MethodeProcessDiagram.astro';
 import PortraitSimon from '../svg/sumie/PortraitSimon.astro';
 import HeroSplit from '../sections/HeroSplit.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 import { langFromPath, localizeHref, t } from '../../lib/i18n';
 
@@ -333,7 +334,7 @@ const socialItems = [
 
     <section class="author-why g12 g12--full reveal">
       <header class="col-3 section-eyebrow">
-        <span class="eyebrow">§ {t({ fr: 'Pourquoi Waimia', en: 'Why Waimia' }, lang)}</span>
+        <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ {t({ fr: 'Pourquoi Waimia', en: 'Why Waimia' }, lang)}</Kicker>
       </header>
       <div class="author-prose col-prose">
         <slot />
@@ -355,7 +356,7 @@ const socialItems = [
     {essays.length > 0 && (
       <section class="author-essays g12 g12--full">
         <header class="col-12 section-eyebrow reveal">
-          <span class="eyebrow">§ Essays · Long form</span>
+          <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Essays · Long form</Kicker>
           <h2 class="display-md">{t({ fr: 'Ce que je publie', en: 'What I publish' }, lang)}</h2>
         </header>
         <ul class="essays-list col-prose">
@@ -378,7 +379,7 @@ const socialItems = [
 
     <section class="author-method g12 g12--full reveal">
       <header class="col-12 section-eyebrow">
-        <span class="eyebrow">§ {t({ fr: 'Méthode', en: 'Method' }, lang)}</span>
+        <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ {t({ fr: 'Méthode', en: 'Method' }, lang)}</Kicker>
         <h2 class="display-md">{t({ fr: 'Comment je travaille', en: 'How I work' }, lang)}</h2>
       </header>
       <div class="author-method-diagram col-12">
@@ -400,7 +401,7 @@ const socialItems = [
     {curriculumEvents.length > 0 && (
       <section class="author-curriculum g12 g12--full reveal">
         <header class="col-12 section-eyebrow">
-          <span class="eyebrow">§ Curriculum</span>
+          <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Curriculum</Kicker>
           <h2 class="display-md"><em>Curriculum</em></h2>
         </header>
         <div class="col-prose curriculum-wrap">
@@ -411,7 +412,7 @@ const socialItems = [
 
     <section class="author-publications g12 g12--full reveal">
       <header class="col-12 section-eyebrow">
-        <span class="eyebrow">§ Publications</span>
+        <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Publications</Kicker>
         <h2 class="display-md">{t({ fr: 'Articles, notes, manifestes', en: 'Articles, notes, manifestos' }, lang)}</h2>
       </header>
 
@@ -465,7 +466,7 @@ const socialItems = [
     {socialItems.length > 0 && (
       <section class="author-social g12 g12--full reveal">
         <header class="col-12 section-eyebrow">
-          <span class="eyebrow">§ {t({ fr: 'Suivre', en: 'Follow' }, lang)}</span>
+          <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ {t({ fr: 'Suivre', en: 'Follow' }, lang)}</Kicker>
         </header>
         <address class="ap-contact col-prose">
           {socialItems.map((item, idx) => (
@@ -487,7 +488,7 @@ const socialItems = [
 
     <section class="author-cta g12 g12--full">
       <div class="col-prose author-cta-inner reveal">
-        <span class="eyebrow">§ {t({ fr: 'Travailler ensemble', en: 'Work together' }, lang)}</span>
+        <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ {t({ fr: 'Travailler ensemble', en: 'Work together' }, lang)}</Kicker>
         <h2 class="display-lg">
           {t({ fr: 'Le mardi on câble.', en: 'On Tuesday we wire.' }, lang)}
           <em>{t({ fr: ' Le vendredi on mesure.', en: ' On Friday we measure.' }, lang)}</em>
@@ -518,13 +519,12 @@ const socialItems = [
     padding-inline: clamp(20px, 4vw, 48px);
   }
 
-  .eyebrow {
+  /* Kicker canonisé (R6) · typo + couleur portées par l'atome Kicker
+     (tone="accent", letterSpacing 0.12em = ex var(--tracking-mono)) ; ici layout seul.
+     :global() requis : le span rendu par l'atome ne porte pas le cid du template. */
+  .section-eyebrow :global(.eyebrow),
+  .author-cta :global(.eyebrow) {
     display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-mono, 0.12em);
-    color: var(--accent);
   }
 
   .display-md em,
@@ -928,9 +928,8 @@ const socialItems = [
     color: var(--paper);
   }
 
-  .author-cta .eyebrow {
-    color: var(--accent);
-  }
+  /* `.author-cta .eyebrow { color: var(--accent) }` supprimée (R6) :
+     redondante, la couleur accent vient de l'atome Kicker (tone="accent"). */
 
   .author-cta .display-lg {
     color: var(--paper);
