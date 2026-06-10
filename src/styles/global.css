@@ -652,6 +652,21 @@ a:not([class]):hover,
   display: block;
   line-height: var(--leading-lede);
 }
+.mega-col-footer {
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  border-bottom: 1px solid var(--hairline-strong);
+  padding-bottom: 1px;
+  transition: color var(--dur-trim) var(--ease), border-color var(--dur-trim) var(--ease);
+}
+.mega-col-footer:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
 
 .mega-featured {
   border-left: 1px solid var(--hairline);

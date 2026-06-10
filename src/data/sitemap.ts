@@ -321,9 +321,11 @@ export const MM_AGENCY_NEW: MegaMenu = {
 };
 
 // ─── PRIMARY NAV
+// R3 : top-level réduit à 4 entrées + CTA. « Offres » a fusionné dans Solutions
+// (cf src/data/mega-menu.ts). La nav servie lit MEGA_MENU ; ce tableau reste un
+// miroir de cohérence (aucun consommateur direct aujourd'hui).
 export const PRIMARY_NAV: Array<MegaMenu | SimpleNav> = [
   MM_SOLUTIONS_NEW,
-  MM_OFFRES_NEW,
   MM_CASES_NEW,
   MM_RESOURCES,
   MM_AGENCY_NEW,
@@ -337,7 +339,7 @@ export type FooterCol = {
 };
 
 export const FOOTER_COLS: FooterCol[] = [
-  // Col 1 — L'Agence
+  // Col 1 — L'Agence (ajout R3 : Manifesto · Console · Atlas, accessibles depuis le footer)
   {
     heading: { en: 'The Agency', fr: "L'Agence" },
     items: [
@@ -354,6 +356,9 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Trust Center', fr: 'Trust Center' },
       },
       { href: '/agence/careers', label: { en: 'Careers', fr: 'Carrières' } },
+      { href: '/manifesto', label: { en: 'Manifesto', fr: 'Manifesto' } },
+      { href: '/console', label: { en: 'Console', fr: 'Console' } },
+      { href: '/atlas', label: { en: 'Atlas', fr: 'Atlas' } },
       { href: '/contact', label: { en: 'Contact', fr: 'Nous contacter' } },
     ],
   },
