@@ -211,7 +211,8 @@ test.describe("Quality sweep · régressions verrouillées", () => {
     for (const slug of slugs) {
       const resp = await page.goto(`/solutions/${slug}`);
       expect(resp?.status(), `status /solutions/${slug}`).toBe(200);
-      const h1 = page.locator("h1.sol-hero-title");
+      // Migré composable (Wave 1.4) : h1 = `hero-detail__title` (ex `sol-hero-title` legacy).
+      const h1 = page.locator("h1.hero-detail__title");
       await expect(h1, `h1 absent sur /solutions/${slug}`).toHaveCount(1);
       const txt = ((await h1.textContent()) ?? "").trim();
       expect(txt.length, `h1 VIDE sur /solutions/${slug}`).toBeGreaterThan(0);

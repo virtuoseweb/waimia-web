@@ -364,7 +364,8 @@ test("ServiceDetailTemplate variant · /solutions/fintech rend grammaire ACPR/AI
   expect(html).toContain("KYC");
   expect(html).toContain("LCB-FT");
   expect(html).toContain("Northbound");
-  const h1 = await page.locator("h1.sol-hero-title").count();
+  // Migré composable (Wave 1.4) : h1 = `hero-detail__title` (ex `sol-hero-title` legacy).
+  const h1 = await page.locator("h1.hero-detail__title").count();
   expect(h1).toBe(1);
 });
 
