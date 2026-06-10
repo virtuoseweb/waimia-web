@@ -91,83 +91,164 @@ relatedCases: []
 relatedSecteurs: []
 sources: []
 tags: []
+sections:
+  - type: "hero-sector"
+    dept_fr: "DÉPARTEMENT"
+    dept_en: "DEPARTMENT"
+    h1_fr: "<i>CRM</i><br/>&amp; relances IA"
+    h1_en: "<i>CRM</i><br/>&amp; Follow-ups"
+    lead_fr: "Le CRM qui fait son travail à votre place. Pas des templates aveugles. Des relances qui lisent le contexte et s'adaptent."
+    lead_en: "The CRM that does its job for you. Not blind templates. Follow-ups that read context and adapt."
+    cta:
+      label_fr: "Parler à un expert →"
+      label_en: "Talk to an expert →"
+      href: "/contact"
+      variant: "primary"
+    meta_fr: "Direction commerciale · RevOps · Sales Ops"
+    meta_en: "Sales Management · RevOps · Sales Ops"
+    tags:
+      - { label_fr: "Nettoyage CRM", label_en: "CRM Cleanup" }
+      - { label_fr: "Relances", label_en: "Follow-ups" }
+      - { label_fr: "Qualification continue", label_en: "Continuous Qualification" }
+      - { label_fr: "Pipeline IA", label_en: "AI Pipeline" }
+      - { label_fr: "Sales enablement", label_en: "Sales enablement" }
+  - type: "pain-points"
+    h2_fr: "<i>Points</i><br/>de friction"
+    h2_en: "<i>Friction</i><br/>points"
+    items:
+      - title_fr: "CRM en jachère"
+        title_en: "Fallow CRM"
+        body_fr: "Le CRM contient 12 000 contacts mais 35 % sont obsolètes. Doublons partout, emails morts, postes changés. Personne n'a le temps de nettoyer. Les commerciaux contournent et travaillent dans Excel."
+        body_en: "The CRM holds 12,000 contacts but 35% are obsolete. Duplicates everywhere, dead emails, changed positions. Nobody has time to clean. Salespeople work around it in Excel."
+      - title_fr: "Relances oubliées"
+        title_en: "Forgotten follow-ups"
+        body_fr: "Le commercial promet de relancer, l'oublie, le lead refroidit. Selon InsideSales, 80 % des leads B2B sont perdus par défaut de relance dans les 5 jours. Le pipeline saigne en silence."
+        body_en: "The salesperson promises to follow up, forgets, the lead goes cold. According to InsideSales, 80% of B2B leads are lost by default in 5 days. The pipeline bleeds silently."
+      - title_fr: "Pilotage à l'aveugle"
+        title_en: "Blind steering"
+        body_fr: "Le forecast pipeline tient sur les sentiments des commerciaux. Le CODIR demande une revue mensuelle, on bricole en Excel pendant 4 jours. Le résultat arrive obsolète."
+        body_en: "Pipeline forecasting relies on salespeople's gut feelings. The executive team asks for a monthly review, 4 days of Excel scrambling. The result arrives stale."
+  - type: "workflow-table"
+    h2_fr: "<i>Ce qu'on</i><br/>automatise"
+    h2_en: "<i>What we</i><br/>automate"
+    workflows:
+      - num: "01"
+        kicker_fr: "Hygiène CRM"
+        kicker_en: "CRM Hygiene"
+        title_fr: "Nettoyage continu des fiches"
+        title_en: "Continuous record cleanup"
+        model_fr: "Claude Haiku 4.5<br/>+ CRM MCP"
+        model_en: "Claude Haiku 4.5<br/>+ CRM MCP"
+        gain: "−35%"
+        how_fr: "Détection des doublons, fusion automatique avec validation humaine sur cas ambigus, mise à jour des emails morts via enrichissement."
+        how_en: "Duplicate detection, automatic merging with human validation on ambiguous cases, dead email updates via enrichment."
+      - num: "02"
+        kicker_fr: "Relances"
+        kicker_en: "Follow-ups"
+        title_fr: "Séquences contextuelles"
+        title_en: "Contextual sequences"
+        model_fr: "Claude Sonnet 4.6<br/>+ Email"
+        model_en: "Claude Sonnet 4.6<br/>+ Email"
+        gain: "+67%"
+        how_fr: "Relances qui adaptent le ton, le moment et l'angle au comportement du lead. Pas de templates aveugles."
+        how_en: "Follow-ups that adapt tone, timing and angle to lead behaviour. No blind templates."
+      - num: "03"
+        kicker_fr: "Qualification"
+        kicker_en: "Qualification"
+        title_fr: "Scoring continu pipeline"
+        title_en: "Continuous pipeline scoring"
+        model_fr: "Claude Sonnet 4.6<br/>+ CRM"
+        model_en: "Claude Sonnet 4.6<br/>+ CRM"
+        gain: "3×"
+        how_fr: "Chaque interaction ré-évalue le score et change la priorité dans le pipeline du commercial."
+        how_en: "Each interaction re-evaluates the score and changes priority in the salesperson's pipeline."
+      - num: "04"
+        kicker_fr: "Pilotage"
+        kicker_en: "Steering"
+        title_fr: "Forecast IA temps réel"
+        title_en: "Real-time AI forecast"
+        model_fr: "Claude Opus 4.7<br/>+ Data layer"
+        model_en: "Claude Opus 4.7<br/>+ Data layer"
+        gain: "−89%"
+        how_fr: "Le forecast pipeline se met à jour en continu. Le CODIR voit où on en est sans demander."
+        how_en: "The pipeline forecast updates continuously. The executive team sees where things stand without asking."
+  - type: "roi-band"
+    h2_fr: "<i>Preuve</i> macro"
+    h2_en: "<i>Macro</i> proof"
+    metrics:
+      - value: "3×"
+        label_fr: "vélocité pipeline\nlead → opportunité"
+        label_en: "pipeline velocity\nlead → opportunity"
+      - value: "+67%"
+        label_fr: "taux de réponse\naux relances"
+        label_en: "follow-up\nresponse rate"
+      - value: "−35%"
+        label_fr: "taux de doublon\nCRM"
+        label_en: "CRM duplicate\nrate"
+      - value: "4,3×"
+        label_fr: "ROI mesuré\nà 9 mois"
+        label_en: "ROI measured\nat 9 months"
+  - type: "case-split"
+    kicker_fr: "Cas client · Fintech B2B"
+    kicker_en: "Client case · Fintech B2B"
+    title_fr: "Northbound, fintech EU.<br/><i>Conversion SQL</i><br/>multipliée par 3,1."
+    title_en: "Northbound, fintech EU.<br/><i>SQL conversion</i><br/>multiplied by 3.1."
+    body_fr: "Northbound avait un CRM Salesforce de 47 000 contacts dont 40 % obsolètes. Les SDR perdaient 2 heures par jour à requalifier. Waimia a déployé un système de nettoyage continu + scoring automatique + séquences nurturing IA. En 14 semaines, le taux de conversion lead → SQL est passé de 4,1 % à 12,8 %."
+    body_en: "Northbound had a Salesforce CRM with 47,000 contacts, 40% obsolete. SDRs lost 2 hours per day requalifying. Waimia deployed continuous cleanup + automatic scoring + AI nurturing sequences. In 14 weeks, lead-to-SQL conversion rate went from 4.1% to 12.8%."
+    cta_label_fr: "Voir le cas complet →"
+    cta_label_en: "See full case →"
+    cta_href: "/cas"
+    results:
+      - value: "×3,1"
+        label_fr: "conversion\nSQL"
+        label_en: "SQL\nconversion"
+      - value: "−2h/j"
+        label_fr: "temps requalification\nSDR"
+        label_en: "SDR requalification\ntime"
+      - value: "4,3×"
+        label_fr: "ROI\n9 mois"
+        label_en: "ROI\n9 months"
+  - type: "department-stack"
+    h2_fr: "<i>Outils</i><br/>déployés"
+    h2_en: "<i>Tools</i><br/>deployed"
+    caption_fr: "Stack typique · CRM & relances IA"
+    caption_en: "Typical stack · AI CRM & Follow-ups"
+    columns_fr: ["Catégorie", "Outil", "Rôle"]
+    columns_en: ["Category", "Tool", "Role"]
+    rows:
+      - category_fr: "Modèle raisonnement"
+        category_en: "Reasoning model"
+        tool: "Claude Sonnet 4.6"
+        role_fr: "Scoring nuancé, écriture de relances et priorisation commerciale."
+        role_en: "Nuanced scoring, follow-up writing and commercial prioritisation."
+      - category_fr: "Modèle volume"
+        category_en: "Volume model"
+        tool: "Claude Haiku 4.5"
+        role_fr: "Nettoyage masse, déduplication, enrichissement et qualification continue."
+        role_en: "Mass cleanup, deduplication, enrichment and continuous qualification."
+      - category_fr: "CRM connecté"
+        category_en: "Connected CRM"
+        tool: "HubSpot · Salesforce · Pipedrive"
+        role_fr: "Pas de migration imposée, on travaille avec votre CRM."
+        role_en: "No imposed migration, we work with your existing CRM."
+      - category_fr: "Email infra"
+        category_en: "Email infrastructure"
+        tool: "Resend · Postmark · SendGrid"
+        role_fr: "Délivrabilité enterprise, tracking complet et relances mesurées."
+        role_en: "Enterprise deliverability, full tracking and measured follow-ups."
+      - category_fr: "Enrichissement"
+        category_en: "Enrichment"
+        tool: "Apollo · Clearbit · Cognism"
+        role_fr: "Pour récupérer les données manquantes en silence."
+        role_en: "To silently recover missing data."
+      - category_fr: "Workflow durable"
+        category_en: "Durable workflow"
+        tool: "LangGraph"
+        role_fr: "Séquences longues qui reprennent après échec."
+        role_en: "Long sequences that resume after failure."
+  - type: "department-cta"
+    h2_fr: "CRM propre.<br/>Pipeline actif."
+    h2_en: "Clean CRM.<br/>Active pipeline."
+    body_fr: "45 minutes. On ouvre votre CRM ensemble, on chiffre les fuites, on propose 3 workflows. Si on n'a rien à proposer, on le dit."
+    body_en: "45 minutes. We open your CRM together, quantify the leaks, propose 3 workflows. If we have nothing to offer, we say so."
 ---
-
-<Fragment slot="title">
-  <i>CRM</i>
-  <br />
-  &amp; relances IA
-</Fragment>
-
-<Fragment slot="lead">
-  Le CRM qui fait son travail à votre place.
-  <span>Pas des templates aveugles. Des relances qui lisent le contexte et s'adaptent.</span>
-</Fragment>
-
-<Fragment slot="tags">
-  <span class="sol-tag">Nettoyage CRM</span>
-  <span class="sol-tag">Relances</span>
-  <span class="sol-tag">Qualification continue</span>
-  <span class="sol-tag">Pipeline IA</span>
-  <span class="sol-tag">Sales enablement</span>
-</Fragment>
-
-<Fragment slot="workflows">
-  <div class="wf-row">
-    <div class="wf-n">01</div>
-    <div class="wf-name"><span class="wf-k">Hygiène CRM</span><h3>Nettoyage continu des fiches</h3></div>
-    <div class="wf-model">Claude Haiku 4.5<br/>+ CRM MCP</div>
-    <div class="wf-gain">−35%</div>
-    <div class="wf-how">Détection des doublons, fusion automatique avec validation humaine sur cas ambigus, mise à jour des emails morts via enrichissement.</div>
-  </div>
-  <div class="wf-row">
-    <div class="wf-n">02</div>
-    <div class="wf-name"><span class="wf-k">Relances</span><h3>Séquences contextuelles</h3></div>
-    <div class="wf-model">Claude Sonnet 4.6<br/>+ Email</div>
-    <div class="wf-gain">+67%</div>
-    <div class="wf-how">Relances qui adaptent le ton, le moment et l'angle au comportement du lead. Pas de templates aveugles.</div>
-  </div>
-  <div class="wf-row">
-    <div class="wf-n">03</div>
-    <div class="wf-name"><span class="wf-k">Qualification</span><h3>Scoring continu pipeline</h3></div>
-    <div class="wf-model">Claude Sonnet 4.6<br/>+ CRM</div>
-    <div class="wf-gain">3×</div>
-    <div class="wf-how">Chaque interaction ré-évalue le score et change la priorité dans le pipeline du commercial.</div>
-  </div>
-  <div class="wf-row">
-    <div class="wf-n">04</div>
-    <div class="wf-name"><span class="wf-k">Pilotage</span><h3>Forecast IA temps réel</h3></div>
-    <div class="wf-model">Claude Opus 4.7<br/>+ Data layer</div>
-    <div class="wf-gain">−89%</div>
-    <div class="wf-how">Le forecast pipeline se met à jour en continu. Le CODIR voit où on en est sans demander.</div>
-  </div>
-</Fragment>
-
-<Fragment slot="case-title">
-  Northbound, fintech EU.
-  <br />
-  <i>Conversion SQL</i>
-  <br />
-  multipliée par 3,1.
-</Fragment>
-
-<Fragment slot="case-results">
-  <div class="res-row">
-    <div class="res-v">×3,1</div>
-    <div class="res-l">conversion<br/>SQL</div>
-  </div>
-  <div class="res-row">
-    <div class="res-v">−2h/j</div>
-    <div class="res-l">temps requalification<br/>SDR</div>
-  </div>
-  <div class="res-row">
-    <div class="res-v">4,3×</div>
-    <div class="res-l">ROI<br/>9 mois</div>
-  </div>
-</Fragment>
-
-<Fragment slot="cta-title">
-  CRM propre.
-  <br />
-  <i>Pipeline actif.</i>
-</Fragment>
