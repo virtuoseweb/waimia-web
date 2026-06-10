@@ -87,7 +87,7 @@ const articleLd = buildArticle({
       </div>
 
       {/* bottom CTAs */}
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-8);align-items:end;max-width:1600px">
+      <div class="mf-grid mf-grid--hero" style="display:grid;gap:var(--space-8);align-items:end;max-width:1600px">
         <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:var(--leading-lede);color:rgba(var(--paper-rgb), .85);max-width:420px;margin:0">
           {lang === 'fr'
             ? "On câble l'IA dans vos outils marketing, sales et web : acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process."
@@ -124,7 +124,7 @@ const articleLd = buildArticle({
   {/* ACTE I · stats dark */}
   <section style="padding:clamp(64px,8vw,112px) clamp(20px,4vw,48px);background:var(--ink);color:var(--paper)">
     <div style="max-width:1600px;margin:0 auto">
-      <div style="display:grid;grid-template-columns:1fr 2fr;gap:clamp(40px,6vw,80px);margin-bottom:clamp(80px,10vw,120px)">
+      <div class="mf-grid mf-grid--acte" style="display:grid;gap:clamp(40px,6vw,80px);margin-bottom:clamp(80px,10vw,120px)">
         <div style="position:sticky;top:120px;align-self:start">
           <Kicker class="b-acte-1">
             <span style="color:var(--accent)">I.</span> {lang === 'fr' ? 'Le constat' : 'The reckoning'}
@@ -139,7 +139,7 @@ const articleLd = buildArticle({
           )}
         </p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-8);padding-top:var(--space-10);border-top:1px solid rgba(var(--paper-rgb), .12)">
+      <div class="mf-grid mf-grid--stats" style="display:grid;gap:var(--space-8);padding-top:var(--space-10);border-top:1px solid rgba(var(--paper-rgb), .12)">
         {STATS.map((r) => (
           <div class="reveal">
             <div class="manifesto-stat">{r.n}</div>
@@ -226,7 +226,7 @@ const articleLd = buildArticle({
           ? <>Quatre cas, chiffres en clair. Pas de logos pour faire joli. Chaque ligne contient le secteur, la durée, la stack et l&rsquo;impact mesuré, celui qu&rsquo;on défend en comité de direction.</>
           : <>Four cases, numbers in the clear. No vanity logos. Each row holds the sector, duration, stack and measured impact, the one we defend in steering committees.</>}
       </p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+      <div class="mf-grid mf-grid--split" style="display:grid;gap:32px">
         {CASE_FEED.slice(0, 4).map((c, i) => (
           <EditorialCaseCard
             idx={i + 1}
@@ -245,7 +245,7 @@ const articleLd = buildArticle({
 
   {/* WRITING dark */}
   <section style="padding:clamp(120px,14vw,160px) clamp(20px,4vw,48px);background:var(--ink);color:var(--paper)">
-    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:400px 1fr;gap:clamp(40px,6vw,100px)">
+    <div class="mf-grid mf-grid--writing" style="max-width:1600px;margin:0 auto;display:grid;gap:clamp(40px,6vw,100px)">
       <div>
         <Kicker class="b-writing-tag">{lang === 'fr' ? 'Écrits' : 'Writing'}</Kicker>
         <div style="font-family:var(--font-sans);font-size:clamp(36px,6vw,88px);line-height:.96;letter-spacing:var(--tracking-display);margin-top:28px;color:var(--paper)">
@@ -319,6 +319,22 @@ const articleLd = buildArticle({
 </Base>
 
 <style>
+  /* Grilles editoriales bespoke : largeurs desktop + reflow 1 colonne mobile (anti-overflow) */
+  .mf-grid--hero { grid-template-columns: 1fr 1fr 1fr; }
+  .mf-grid--acte { grid-template-columns: 1fr 2fr; }
+  .mf-grid--stats { grid-template-columns: repeat(3, 1fr); }
+  .mf-grid--split { grid-template-columns: 1fr 1fr; }
+  .mf-grid--writing { grid-template-columns: 400px 1fr; }
+  @media (max-width: 768px) {
+    .mf-grid--hero,
+    .mf-grid--acte,
+    .mf-grid--stats,
+    .mf-grid--split,
+    .mf-grid--writing {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* V7 hero hauteur réduite · marquee remonte above-the-fold (Simon demande)
      · Avant : min-height 100vh + padding 160px/80px = hero seul = viewport entier
      · Après : min-height 84vh + padding 88px/40px = laisse ~144px pour marquee */

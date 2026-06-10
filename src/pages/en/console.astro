@@ -56,7 +56,7 @@ const METRICS = [
         <Kicker as="span">Waimia · Paris · {lang === 'fr' ? 'bilingue FR · EN': 'bilingual EN · FR'}</Kicker>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,56px);align-items:end">
+      <div class="cn-grid cn-grid--duo" style="display:grid;gap:clamp(32px,5vw,56px);align-items:end">
         {/* left · headline */}
         <div>
           <Kicker tone="accent" class="c-platform-tag">
@@ -106,7 +106,7 @@ const METRICS = [
       </div>
 
       {/* 5 metrics strip */}
-      <div style="margin-top:80px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)">
+      <div class="cn-grid cn-grid--five" style="margin-top:80px;display:grid;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)">
         {METRICS.map(([k, v], i) => (
           <div style={`padding:20px;border-right:${i < 4 ? '1px solid var(--hairline)': 'none'}`}>
             <div style="font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">{k}</div>
@@ -119,7 +119,7 @@ const METRICS = [
 
   {/* ACTE I · paper-2 · 4 obs */}
   <section id="act-1" style="padding:clamp(120px,14vw,160px) clamp(20px,4vw,48px);background:var(--paper-2);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)">
-    <div style="max-width:1500px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:clamp(32px,5vw,64px)">
+    <div class="cn-grid cn-grid--sidebar" style="max-width:1500px;margin:0 auto;display:grid;gap:clamp(32px,5vw,64px)">
       <div style="position:sticky;top:120px;align-self:start">
         <Kicker tone="accent">[act.01]</Kicker>
         <Kicker class="c-acte-sub">{lang === 'fr' ? 'Le constat': 'The reckoning'}</Kicker>
@@ -259,7 +259,7 @@ const METRICS = [
       <Kicker tone="accent" class="c-act-05">
         [act.05] · <span style="color:rgba(var(--paper-rgb), .5)">{lang === 'fr' ? "passer à l'action": 'act'}</span>
       </Kicker>
-      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,6vw,80px);align-items:end">
+      <div class="cn-grid cn-grid--lead" style="display:grid;gap:clamp(40px,6vw,80px);align-items:end">
         <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(56px,10vw,172px);line-height:.9;letter-spacing:-0.03em;color:var(--paper);text-wrap:balance;font-weight:var(--fw-regular);margin:0">
           {lang === 'fr' ? (
             <>Ouvrir une <i style="color:var(--accent)">séance</i>.<br />Pas un <i>pitch</i>.</>
@@ -286,6 +286,20 @@ const METRICS = [
 </Base>
 
 <style>
+  /* Grilles bespoke console : largeurs desktop + reflow 1 colonne mobile (anti-overflow) */
+  .cn-grid--duo { grid-template-columns: 1fr 1fr; }
+  .cn-grid--five { grid-template-columns: repeat(5, 1fr); }
+  .cn-grid--sidebar { grid-template-columns: 280px 1fr; }
+  .cn-grid--lead { grid-template-columns: 1.2fr 1fr; }
+  @media (max-width: 768px) {
+    .cn-grid--duo,
+    .cn-grid--five,
+    .cn-grid--sidebar,
+    .cn-grid--lead {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* Spacing pour les Kicker atom rendus par les sous-composants */
   :global(.c-acte-sub){margin-top:var(--space-1)}
   :global(.c-manifesto-tag){margin-bottom:var(--space-7)}
