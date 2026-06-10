@@ -34,7 +34,7 @@ const isFr = lang === 'fr';
 
 <style>
   .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 48px); }
-  .why-stalls { padding: clamp(120px,16vw,200px) 0 clamp(80px,10vw,140px); border-bottom: none; }
+  .why-stalls { padding: var(--section-grand) 0 var(--section-loose); border-bottom: none; }
   .why-stalls__grid { display: grid; grid-template-columns: 280px 1fr; gap: clamp(40px,6vw,80px); }
   .why-stalls__aside { position: sticky; top: 120px; align-self: start; }
   .why-stalls__h2 {

@@ -3,6 +3,7 @@
 // Bande de cards connexes : wrapper catalogue autour de `RelatedCards`.
 import type { SectionByType } from '../../schemas/sections';
 import RelatedCards from '../ui/molecules/RelatedCards.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'related-cards-band'>;
@@ -23,7 +24,7 @@ const cards = data.cards.map((c) => ({
 <section class="related-cards-band">
   <div class="wrap-wide">
     {(isFr ? data.kicker_fr : data.kicker_en) && (
-      <span class="related-cards-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+      <Kicker as="span" class="related-cards-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     )}
     <RelatedCards cards={cards} class="related-cards-band__grid reveal-stagger" />
   </div>
@@ -31,15 +32,11 @@ const cards = data.cards.map((c) => ({
 
 <style>
   .related-cards-band {
-    padding: var(--related-cards-band-pad, clamp(var(--space-11), 10vw, var(--section-loose))) var(--related-cards-band-inline, var(--space-6));
+    padding: var(--related-cards-band-pad, var(--section-loose)) var(--related-cards-band-inline, var(--space-6));
   }
-  .related-cards-band__kicker {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.related-cards-band__kicker) {
     display: block;
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--muted);
     margin-bottom: var(--space-6);
   }
   :global(.related-cards-band__grid .related-card) {

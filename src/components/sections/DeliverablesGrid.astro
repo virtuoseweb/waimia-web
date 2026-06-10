@@ -2,6 +2,7 @@
 // Section W6 · deliverables-grid
 // Grille de cards livrables numérotées. Sources : `off-deliverables`, `dt-deliverables`.
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'deliverables-grid'>;
@@ -15,7 +16,7 @@ const cols = Math.min(data.items.length, 4);
 <section class="deliverables-grid" style={`--deliverables-grid-cols: ${cols}`}>
   <div class="wrap-wide">
     <header class="deliverables-grid__hd">
-      <span class="deliverables-grid__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+      <Kicker as="span" tone="accent" class="deliverables-grid__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       <h2 class="deliverables-grid__title" set:html={isFr ? data.title_fr : data.title_en} />
       {(isFr ? data.lead_fr : data.lead_en) && (
         <p class="deliverables-grid__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
@@ -42,19 +43,15 @@ const cols = Math.min(data.items.length, 4);
 
 <style>
   .deliverables-grid {
-    padding: var(--deliverables-grid-pad, clamp(var(--space-11), 10vw, var(--section-loose))) var(--deliverables-grid-inline, var(--space-6));
+    padding: var(--deliverables-grid-pad, var(--section-loose)) var(--deliverables-grid-inline, var(--space-6));
     border-bottom: 1px solid var(--hairline);
   }
   .deliverables-grid__hd {
     margin-bottom: clamp(var(--space-8), 5vw, var(--space-12));
   }
-  .deliverables-grid__kicker {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.deliverables-grid__kicker) {
     display: block;
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent);
     margin-bottom: var(--space-4);
   }
   .deliverables-grid__title {

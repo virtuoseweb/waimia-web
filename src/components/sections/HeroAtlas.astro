@@ -2,6 +2,7 @@
 // Section catalogue · hero-atlas
 // Source fidèle : `src/pages/atlas.astro` `.hero-atlas`.
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-atlas'>;
@@ -16,10 +17,10 @@ const isFr = lang === 'fr';
   <div class="signature-grid"></div>
   <div class="hero-atlas-inner">
     <div class="hero-atlas-body">
-      <div class="kick">
+      <Kicker letterSpacing=".16em" class="kick">
         <span class="kick-dot" aria-hidden="true"></span>
         <span>{isFr ? data.kicker_fr : data.kicker_en}</span>
-      </div>
+      </Kicker>
       <h1 class="hero-atlas-title reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
       <p class="hero-atlas-subhead" set:html={isFr ? data.subhead_fr : data.subhead_en} />
       <p class="hero-atlas-lead" set:html={isFr ? data.lead_fr : data.lead_en} />
@@ -36,10 +37,10 @@ const isFr = lang === 'fr';
     </div>
 
     <aside class="atlas-mini-map" aria-label={isFr ? data.map_aria_label_fr : data.map_aria_label_en}>
-      <div class="amm-kicker">
+      <Kicker size={10} letterSpacing=".16em" class="amm-kicker">
         <span class="amm-dot" aria-hidden="true"></span>
         {isFr ? data.map_kicker_fr : data.map_kicker_en}
-      </div>
+      </Kicker>
       <ul class="amm-list">
         {data.pillars.map((pillar) => (
           <li class="amm-item">
@@ -84,15 +85,11 @@ const isFr = lang === 'fr';
     max-width: 1500px;
     margin: 0 auto;
   }
-  .kick {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.hero-atlas .kick) {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--muted);
     margin-bottom: var(--space-5);
   }
   .kick-dot {
@@ -148,15 +145,11 @@ const isFr = lang === 'fr';
     padding-left: clamp(24px,3vw,40px);
     padding-top: var(--space-1);
   }
-  .amm-kicker {
+  /* Kicker canonisé (R4) · typo portée par l'atome (fusion tracking .18em -> .16em) */
+  :global(.hero-atlas .amm-kicker) {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--muted);
     margin-bottom: 28px;
     line-height: 1;
   }

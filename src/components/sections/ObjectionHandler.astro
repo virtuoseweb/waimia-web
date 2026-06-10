@@ -12,7 +12,7 @@ const labelA = isFr ? 'Ce que vous pensez' : 'What you think';
 const labelB = isFr ? 'Notre réponse' : 'Our answer';
 ---
 
-<section class="objection-handler">
+<section class="objection-handler" data-bg={data.background}>
   <div class="wrap-wide">
   <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
   <div class="objection-handler__table-head">
@@ -36,7 +36,7 @@ const labelB = isFr ? 'Notre réponse' : 'Our answer';
 
 <style>
   .objection-handler {
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
   h2 {
@@ -85,4 +85,15 @@ const labelB = isFr ? 'Notre réponse' : 'Our answer';
     .objection-handler__table-head,
     .objection-handler__row { grid-template-columns: 1fr; }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .objection-handler[data-bg='paper-2'] { background: var(--paper-2); }
+  .objection-handler[data-bg='paper-3'] { background: var(--paper-3); }
+  .objection-handler[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .objection-handler[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

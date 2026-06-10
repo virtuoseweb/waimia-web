@@ -5,6 +5,7 @@
 // - markup/CSS du header = COPIE VERBATIM des styles inline legacy (tokens var(--*), 0 hex brut).
 // - le tableau délègue à EditorialTable (columns/rows/caption selon la langue).
 import EditorialTable from '../editorial/EditorialTable.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 interface Props {
   data: SectionByType<'editorial-table-block'>;
@@ -20,7 +21,7 @@ const rows = isFr ? data.rows_fr : data.rows_en;
 ---
 <section class="ed-table-block reveal-stagger" aria-labelledby="ed-table-block-h2">
   <div class="wrap-wide">
-    <div class="ed-table-block-kicker">{kicker}</div>
+    <Kicker class="ed-table-block-kicker">{kicker}</Kicker>
     <h2 id="ed-table-block-h2" class="ed-table-block-h2" set:html={heading} />
     <EditorialTable
       caption={caption}
@@ -35,15 +36,10 @@ const rows = isFr ? data.rows_fr : data.rows_en;
 <style>
   /* Padding section façon HubTemplate catalogue (densification scoped). */
   .ed-table-block {
-    padding: clamp(64px, 7vw, 96px) var(--space-6) 0;
+    padding: var(--section-base) var(--space-6) 0;
   }
-  /* COPIE VERBATIM des styles inline legacy (conseil.astro l.145-146) — tokens only. */
-  .ed-table-block-kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--muted);
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.ed-table-block-kicker) {
     margin-bottom: var(--space-4);
   }
   .ed-table-block-h2 {

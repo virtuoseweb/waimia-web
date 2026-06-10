@@ -5,6 +5,7 @@
 // - markup/CSS = COPIE VERBATIM des styles inline legacy (grille 280px/1fr puis 48px/1fr,
 //   hairline borders, num en mono accent) — tokens var(--*), 0 hex brut.
 import Bi from '../ui/atoms/Bi.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 interface Props {
   data: SectionByType<'decision-list'>;
@@ -19,7 +20,7 @@ const heading = isFr ? data.heading_fr : data.heading_en;
   <div class="wrap-wide">
     <div class="decision-list-grid">
       <div>
-        <div class="decision-list-kicker">{kicker}</div>
+        <Kicker class="decision-list-kicker">{kicker}</Kicker>
         <h2 id="decision-list-h2" class="decision-list-h2" set:html={heading} />
       </div>
       <ol class="decision-list-ol">
@@ -37,7 +38,7 @@ const heading = isFr ? data.heading_fr : data.heading_en;
 <style>
   /* Padding section façon legacy slot catalog (conseil.astro l.155). */
   .decision-list {
-    padding: clamp(48px, 5vw, 72px) var(--space-6) 0;
+    padding: var(--section-base) var(--space-6) 0;
   }
   /* COPIE VERBATIM des styles inline legacy (conseil.astro l.156-167) — tokens only. */
   .decision-list-grid {
@@ -47,12 +48,8 @@ const heading = isFr ? data.heading_fr : data.heading_en;
     border-top: 1px solid rgba(var(--ink-rgb), .16);
     padding-top: var(--space-6);
   }
-  .decision-list-kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--muted);
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.decision-list-kicker) {
     margin-bottom: var(--space-4);
   }
   .decision-list-h2 {

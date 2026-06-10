@@ -785,6 +785,7 @@ export const heroLiquidSchema = z.object({
 // PROOF / STATS
 export const proofBarSchema = z.object({
   type: z.literal('proof-bar'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   metrics: z.array(metricSchema).min(2).max(6),
@@ -793,6 +794,7 @@ export const proofBarSchema = z.object({
 
 export const statBlockSchema = z.object({
   type: z.literal('stat-block'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   h2_fr: z.string().optional(),
   h2_en: z.string().optional(),
   lede_fr: z.string().optional(),
@@ -828,11 +830,12 @@ export const metricShiftSchema = z.object({
     )
     .min(2)
     .max(6),
-  background: z.enum(['paper', 'paper-2', 'ink']).default('paper'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
 });
 
 export const socialProofSchema = z.object({
   type: z.literal('social-proof'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   logos: z.array(z.object({ name: z.string(), src: z.string().optional() })),
@@ -842,6 +845,7 @@ export const socialProofSchema = z.object({
 // CONTENT
 export const methodTimelineSchema = z.object({
   type: z.literal('method-timeline'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -853,6 +857,7 @@ export const methodTimelineSchema = z.object({
 
 export const featureGridSchema = z.object({
   type: z.literal('feature-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -863,6 +868,7 @@ export const featureGridSchema = z.object({
 
 export const comparisonTableSchema = z.object({
   type: z.literal('comparison-table'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
   column_headers_fr: z.array(z.string()).min(2),
@@ -872,6 +878,7 @@ export const comparisonTableSchema = z.object({
 
 export const timelineBlockSchema = z.object({
   type: z.literal('timeline-block'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
   events: z.array(timelineEventSchema).min(2),
@@ -879,6 +886,7 @@ export const timelineBlockSchema = z.object({
 
 export const mediaBlockSchema = z.object({
   type: z.literal('media-block'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   caption_fr: z.string().optional(),
   caption_en: z.string().optional(),
   media_kind: z.enum(['image', 'svg', 'video', 'embed']),
@@ -892,6 +900,7 @@ export const mediaBlockSchema = z.object({
 // PRICING
 export const pricingTableSchema = z.object({
   type: z.literal('pricing-table'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -902,6 +911,7 @@ export const pricingTableSchema = z.object({
 // FAQ / OBJECTIONS
 export const faqAccordionSchema = z.object({
   type: z.literal('faq-accordion'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -911,6 +921,7 @@ export const faqAccordionSchema = z.object({
 
 export const objectionHandlerSchema = z.object({
   type: z.literal('objection-handler'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
   objections: z
@@ -941,7 +952,7 @@ export const ctaFinalSchema = z.object({
   availability_en: z.string().optional(),
   reassurance_fr: z.string().optional(),
   reassurance_en: z.string().optional(),
-  background: z.enum(['paper', 'paper-2', 'ink', 'accent']).default('ink'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink', 'accent']).default('ink'),
 });
 
 export const ctaBandSchema = z.object({
@@ -949,7 +960,7 @@ export const ctaBandSchema = z.object({
   text_fr: z.string(),
   text_en: z.string(),
   cta: ctaSchema,
-  background: z.enum(['paper-2', 'ink', 'accent']).default('paper-2'),
+  background: z.enum(['paper-2', 'paper-3', 'ink', 'accent']).default('paper-2'),
 });
 
 export const ctaInlineSchema = z.object({
@@ -957,11 +968,13 @@ export const ctaInlineSchema = z.object({
   text_fr: z.string(),
   text_en: z.string(),
   cta: ctaSchema,
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink', 'accent']).optional(),
 });
 
 // SOCIAL / TRUST
 export const testimonialBlockSchema = z.object({
   type: z.literal('testimonial-block'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string().optional(),
@@ -972,6 +985,7 @@ export const testimonialBlockSchema = z.object({
 
 export const guaranteeBlockSchema = z.object({
   type: z.literal('guarantee-block'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   guarantees: z
     .array(
       z.object({
@@ -1560,6 +1574,7 @@ export const problemStatementSchema = z.object({
 // Mosaïque bento asymétrique de 5 cellules (1 grande 2x2 + 4 petites)
 export const bentoGridSchema = z.object({
   type: z.literal('bento-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1576,6 +1591,7 @@ export const bentoGridSchema = z.object({
 // Lignes alternées visuel/texte (gauche-droite, droite-gauche)
 export const featureZigzagSchema = z.object({
   type: z.literal('feature-zigzag'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1609,6 +1625,7 @@ const logoWallItemSchema = z.object({
 
 export const logoWallSchema = z.object({
   type: z.literal('logo-wall'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1637,6 +1654,7 @@ const pricingComparisonRowSchema = z.object({
 
 export const pricingComparisonMatrixSchema = z.object({
   type: z.literal('pricing-comparison-matrix'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1663,6 +1681,7 @@ export const galleryMasonryItemSchema = z.object({
 
 export const galleryMasonrySchema = z.object({
   type: z.literal('gallery-masonry'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1675,6 +1694,7 @@ export const galleryMasonrySchema = z.object({
 // Section fonctionnalités en onglets cliquables (aria-compliant)
 export const featureTabsSchema = z.object({
   type: z.literal('feature-tabs'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1705,6 +1725,7 @@ const iconTrioItemSchema = z.object({
 
 export const iconTrioSchema = z.object({
   type: z.literal('icon-trio'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string().optional(),
@@ -1715,6 +1736,7 @@ export const iconTrioSchema = z.object({
 // Grande citation pleine lumière sur fond paper-2
 export const quoteSpotlightSchema = z.object({
   type: z.literal('quote-spotlight'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   quote_fr: z.string(),
@@ -1735,6 +1757,7 @@ const stepsHorizontalStepSchema = z.object({
 
 export const stepsHorizontalSchema = z.object({
   type: z.literal('steps-horizontal'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1753,7 +1776,7 @@ export const ctaSplitVisualSchema = z.object({
   body_en: z.string().optional(),
   cta_primary: ctaSchema,
   cta_secondary: ctaSchema.optional(),
-  background: z.enum(['paper', 'paper-2', 'ink', 'accent']).default('paper-2'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink', 'accent']).default('paper-2'),
 });
 
 // Quatre KPI en grille bento de tailles inégales
@@ -1766,6 +1789,7 @@ export const statsBentoItemSchema = z.object({
 
 export const statsBentoSchema = z.object({
   type: z.literal('stats-bento'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1781,6 +1805,7 @@ const comparisonDuoItemSchema = z.object({
 
 export const comparisonDuoSchema = z.object({
   type: z.literal('comparison-duo'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),

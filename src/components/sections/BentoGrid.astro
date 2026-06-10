@@ -12,7 +12,7 @@ const isFr = lang === 'fr';
 const cells = data.cells ?? [];
 ---
 
-<section class="bento-grid">
+<section class="bento-grid" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="bento-grid__header">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -37,7 +37,7 @@ const cells = data.cells ?? [];
 
 <style>
   .bento-grid {
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
 
@@ -72,7 +72,7 @@ const cells = data.cells ?? [];
 
   .bento-grid__cell {
     border: 1px solid var(--hairline);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     padding: clamp(24px, 3vw, 40px);
     display: flex;
     flex-direction: column;
@@ -175,4 +175,15 @@ const cells = data.cells ?? [];
     .bento-grid__cell--4 { grid-column: 1; grid-row: 3; }
     .bento-grid__cell--5 { grid-column: 2; grid-row: 3; }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .bento-grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .bento-grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .bento-grid[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .bento-grid[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

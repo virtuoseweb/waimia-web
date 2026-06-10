@@ -33,7 +33,7 @@ a {
 a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
 }
 button {
   font: inherit;
@@ -54,7 +54,7 @@ svg {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
 }
 
 /* ─── SEMANTIC TYPE ─── */
@@ -99,39 +99,12 @@ pre {
   font-size: var(--text-eyebrow);
 }
 
-/* ─── EDITORIAL ORNAMENTS ─── */
-.chapter-label {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.chapter-label .dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: var(--radius-full);
-  display: inline-block;
-  transform: translateY(-2px);
-}
-.fig {
-  font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.kicker {
-  font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+/* ─── EDITORIAL ORNAMENTS ───
+   Refonte R4 · labels mono caps canonisés sur les ATOMES (audit DS §3) :
+   - Kicker.astro (`u-kicker`, 111 imports) = LA façon de styler un label mono caps.
+   - ChapterLabel.astro (`u-chapter-label`) = variante composée dot+num+titre.
+   Les classes brutes `.kicker`, `.fig`, `.chapter-label` (0 usage markup) ont été
+   supprimées · ne pas les recréer, composer avec les atomes. */
 
 /* Roman numerals (chapter Acts) */
 .act-num {
@@ -209,16 +182,16 @@ pre {
   align-items: center;
   gap: var(--space-2);
   padding: 14px 22px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   font-size: var(--text-ui);
   font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-body);
   transition:
-    background 280ms var(--ease),
-    color 280ms var(--ease),
-    transform 280ms var(--ease),
-    box-shadow 280ms var(--ease),
-    border-color 280ms var(--ease);
+    background var(--dur-hover) var(--ease),
+    color var(--dur-hover) var(--ease),
+    transform var(--dur-hover) var(--ease),
+    box-shadow var(--dur-hover) var(--ease),
+    border-color var(--dur-hover) var(--ease);
 }
 .btn-primary {
   background: var(--ink);
@@ -231,7 +204,7 @@ pre {
 }
 .btn-primary:hover {
   background: var(--accent);
-  box-shadow: 0 14px 32px rgba(var(--accent-rgb), 0.22);
+  box-shadow: var(--shadow-cta-hover);
 }
 .btn-ghost {
   border: 1px solid var(--ink);
@@ -248,7 +221,7 @@ pre {
 }
 .btn-accent:hover {
   background: var(--accent-2);
-  box-shadow: 0 14px 32px rgba(var(--accent-rgb), 0.28);
+  box-shadow: var(--shadow-cta-hover);
 }
 .btn-link {
   padding: 6px 0;
@@ -334,8 +307,8 @@ a:not([class]),
   background-position: 0 100%, 100% 100%;
   padding-bottom: 1px;
   transition:
-    background-size 260ms var(--ease-out),
-    background-position 260ms var(--ease-out),
+    background-size var(--dur-hover) var(--ease-out),
+    background-position var(--dur-hover) var(--ease-out),
     color var(--dur-trim) var(--ease);
 }
 a:not([class]):hover,
@@ -385,9 +358,9 @@ a:not([class]):hover,
   border-bottom: 1px solid var(--hairline);
   color: var(--ink);
   transition:
-    background 480ms var(--ease),
-    backdrop-filter 480ms var(--ease),
-    padding 440ms var(--ease);
+    background var(--dur-base) var(--ease),
+    backdrop-filter var(--dur-base) var(--ease),
+    padding var(--dur-base) var(--ease);
 }
 .hdr-inner {
   display: grid;
@@ -408,7 +381,7 @@ a:not([class]):hover,
   font-family: var(--font-display);
   font-size: 28px;
   letter-spacing: -0.018em;
-  transition: font-size 440ms var(--ease);
+  transition: font-size var(--dur-base) var(--ease);
 }
 .hdr.is-scrolled .wm {
   font-size: 24px;
@@ -442,13 +415,13 @@ a:not([class]):hover,
   opacity: 0.82;
   border-radius: var(--radius-pill);
   transition:
-    opacity 260ms var(--ease),
-    background 300ms var(--ease),
-    color 260ms var(--ease);
+    opacity var(--dur-hover) var(--ease),
+    background var(--dur-hover) var(--ease),
+    color var(--dur-hover) var(--ease);
 }
 .hdr-nav-trigger .caret {
   font-size: 8px;
-  transition: transform 300ms var(--ease);
+  transition: transform var(--dur-hover) var(--ease);
   display: inline-block;
   opacity: 0.55;
 }
@@ -482,8 +455,8 @@ a:not([class]):hover,
   border: 1px solid var(--hairline-strong);
   border-radius: var(--radius-pill);
   transition:
-    border-color 260ms var(--ease),
-    color 260ms var(--ease);
+    border-color var(--dur-hover) var(--ease),
+    color var(--dur-hover) var(--ease);
 }
 .lang-toggle:hover {
   border-color: var(--ink);
@@ -508,14 +481,14 @@ a:not([class]):hover,
   font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-body);
   transition:
-    background 300ms var(--ease),
-    transform 300ms var(--ease),
-    box-shadow 300ms var(--ease);
+    background var(--dur-hover) var(--ease),
+    transform var(--dur-hover) var(--ease),
+    box-shadow var(--dur-hover) var(--ease);
 }
 .hdr .cta:hover {
   background: var(--accent);
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(var(--accent-rgb), 0.22);
+  box-shadow: var(--shadow-cta-hover);
 }
 
 .burger {
@@ -535,8 +508,8 @@ a:not([class]):hover,
   height: 1.3px;
   background: currentColor;
   transition:
-    transform 300ms var(--ease),
-    opacity 300ms var(--ease);
+    transform var(--dur-hover) var(--ease),
+    opacity var(--dur-hover) var(--ease);
 }
 .burger.is-open i:nth-child(1) {
   transform: translateY(2.5px) rotate(45deg);
@@ -575,8 +548,8 @@ a:not([class]):hover,
   pointer-events: none;
   transform: translateY(-12px);
   transition:
-    opacity 340ms var(--ease),
-    transform 340ms var(--ease);
+    opacity var(--dur-hover) var(--ease),
+    transform var(--dur-hover) var(--ease);
 }
 .mega.is-open {
   opacity: 1;
@@ -608,7 +581,7 @@ a:not([class]):hover,
 .mega-col-hd .k {
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -631,7 +604,7 @@ a:not([class]):hover,
   transition:
     color var(--dur-trim) var(--ease),
     border-color var(--dur-trim) var(--ease),
-    padding-left 300ms var(--ease);
+    padding-left var(--dur-hover) var(--ease);
 }
 .mega-link:hover {
   color: var(--accent);
@@ -657,7 +630,7 @@ a:not([class]):hover,
   margin-top: var(--space-2);
   font-family: var(--font-mono);
   font-size: var(--text-eyebrow);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-mono-tight);
   color: var(--ink);
   border-bottom: 1px solid var(--hairline-strong);
   padding-bottom: 1px;
@@ -678,7 +651,7 @@ a:not([class]):hover,
 .mega-featured .badge {
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -691,7 +664,7 @@ a:not([class]):hover,
 }
 .mega-featured .bd {
   font-size: var(--text-ui);
-  line-height: 1.55;
+  line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: 280px;
 }
@@ -721,7 +694,7 @@ a:not([class]):hover,
   align-items: center;
   font-family: var(--font-mono);
   font-size: var(--text-eyebrow);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-mono-tight);
   color: var(--muted);
 }
 .mega-bottom a {
@@ -742,7 +715,7 @@ a:not([class]):hover,
   opacity: 0;
   pointer-events: none;
   z-index: 54;
-  transition: opacity 340ms var(--ease);
+  transition: opacity var(--dur-hover) var(--ease);
 }
 .mega-scrim.is-open {
   opacity: 1;
@@ -773,7 +746,7 @@ a:not([class]):hover,
   z-index: 90;
   background: var(--paper);
   transform: translateY(-100%);
-  transition: transform 540ms var(--ease-out);
+  transition: transform var(--dur-panel) var(--ease-out);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -845,7 +818,7 @@ a:not([class]):hover,
   font-family: var(--font-mono);
   font-size: var(--text-body-base);
   color: var(--muted);
-  transition: transform 340ms var(--ease);
+  transition: transform var(--dur-hover) var(--ease);
 }
 .m-sheet-acc.is-open .m-sheet-acc-head .plus {
   transform: rotate(45deg);
@@ -854,7 +827,7 @@ a:not([class]):hover,
 .m-sheet-acc-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 540ms var(--ease-out);
+  transition: max-height var(--dur-panel) var(--ease-out);
 }
 .m-sheet-acc.is-open .m-sheet-acc-body {
   max-height: 2200px;
@@ -868,7 +841,7 @@ a:not([class]):hover,
 .m-sheet-acc-col .k {
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 6px;
@@ -928,7 +901,7 @@ a:not([class]):hover,
   border-radius: var(--radius-pill);
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-mono-tight);
   color: var(--ink);
   background: var(--paper);
 }
@@ -1075,9 +1048,9 @@ a:not([class]):hover,
   filter: blur(14px);
   transform: scale(1.03);
   transition:
-    opacity 1600ms var(--ease-out),
-    filter 1600ms var(--ease-out),
-    transform 1600ms var(--ease-out);
+    opacity var(--dur-slow) var(--ease-out),
+    filter var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
 }
 .blur-in.in {
   opacity: 1;
@@ -1086,7 +1059,7 @@ a:not([class]):hover,
 }
 .clip-up {
   clip-path: inset(100% 0 0 0);
-  transition: clip-path 1600ms var(--ease-out);
+  transition: clip-path var(--dur-slow) var(--ease-out);
 }
 .clip-up.in {
   clip-path: inset(0 0 0 0);
@@ -1125,7 +1098,7 @@ a:not([class]):hover,
   background: var(--hairline-strong);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 1300ms var(--ease-out);
+  transition: transform 1var(--dur-hover) var(--ease-out);
 }
 .row-lines.in > *::before {
   transform: scaleX(1);
@@ -1153,27 +1126,34 @@ a:not([class]):hover,
   will-change: transform;
 }
 [data-mag] {
-  transition: transform 340ms var(--ease-out);
+  transition: transform var(--dur-hover) var(--ease-out);
 }
 
 .lift {
   transition:
-    transform 380ms var(--ease-out),
-    box-shadow 380ms var(--ease);
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease);
 }
 .lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 24px 60px rgba(var(--ink-rgb), 0.08);
 }
 
-/* ─── SECTION SHARED ─── */
+/* ─── SECTION SHARED ───
+   Refonte R4 · `.sec` rejoint la famille --section-* (avant : clamp(110px,15vw,240px)
+   = 9e rythme vertical bespoke, fusionné sur le cran loose · audit DS §3).
+   Fonds d'alternance contrôlée (docs/37 §2.6) : paper (défaut body) · .sec-paper
+   (paper-2, respiration) · .sec-paper-3 (variante chaude rare) · .sec-dark (climax). */
 .sec {
-  padding: clamp(110px, 15vw, 240px) var(--gut);
+  padding: var(--section-loose) var(--gut);
   border-bottom: 1px solid var(--hairline);
   position: relative;
 }
 .sec-paper {
   background: var(--paper-2);
+}
+.sec-paper-3 {
+  background: var(--paper-3);
 }
 .sec-dark {
   background: var(--ink);
@@ -1190,7 +1170,7 @@ a:not([class]):hover,
 .sec-hd .n {
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-caps);
   color: var(--accent);
   text-transform: uppercase;
   margin-bottom: var(--space-4);
@@ -1223,7 +1203,7 @@ a:not([class]):hover,
 }
 .sec-hd .aside {
   font-size: clamp(13px, 1.3vw, 15px);
-  line-height: 1.6;
+  line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: 420px;
   text-wrap: pretty;
@@ -1236,7 +1216,7 @@ a:not([class]):hover,
   flex-direction: column;
   gap: 14px;
   color: inherit;
-  transition: background 320ms var(--ease);
+  transition: background var(--dur-hover) var(--ease);
   position: relative;
   overflow: hidden;
 }
@@ -1257,7 +1237,7 @@ a:not([class]):hover,
 .editorial-cell .e-tag {
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-caps);
   color: var(--muted);
   text-transform: uppercase;
 }
@@ -1272,7 +1252,7 @@ a:not([class]):hover,
 .editorial-cell .e-body {
   font-size: clamp(12px, 1.1vw, 13.5px);
   color: var(--muted);
-  line-height: 1.55;
+  line-height: var(--leading-relaxed);
   text-wrap: pretty;
 }
 .editorial-cell .e-list {
@@ -1356,8 +1336,8 @@ a:not([class]):hover,
   padding: clamp(22px, 2.8vw, 36px) 0;
   border-bottom: 1px solid var(--hairline);
   transition:
-    padding 420ms var(--ease),
-    background 300ms var(--ease);
+    padding var(--dur-base) var(--ease),
+    background var(--dur-hover) var(--ease);
   align-items: center;
   color: inherit;
 }
@@ -1365,7 +1345,7 @@ a:not([class]):hover,
   padding-left: clamp(12px, 2vw, 24px);
   padding-right: clamp(12px, 2vw, 24px);
   background: var(--paper-2);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
 }
 .case-row .idx {
   font-family: var(--font-mono);
@@ -1399,8 +1379,8 @@ a:not([class]):hover,
   color: var(--accent);
   opacity: 0;
   transition:
-    opacity 320ms,
-    transform 320ms;
+    opacity var(--dur-hover),
+    transform var(--dur-hover);
   justify-self: end;
 }
 .case-row:hover .arr {
@@ -1444,7 +1424,7 @@ a:not([class]):hover,
 .how-row .desc {
   font-size: clamp(12px, 1.2vw, 14.5px);
   color: var(--muted);
-  line-height: 1.6;
+  line-height: var(--leading-relaxed);
   text-wrap: pretty;
 }
 
@@ -1471,8 +1451,8 @@ a:not([class]):hover,
   transform: translateY(8px);
   pointer-events: none;
   transition:
-    opacity 540ms var(--ease),
-    transform 540ms var(--ease);
+    opacity var(--dur-panel) var(--ease),
+    transform var(--dur-panel) var(--ease);
 }
 .page-pill.is-visible {
   opacity: 1;
@@ -1592,7 +1572,7 @@ a:not([class]):hover,
     width: 0;
     height: 1px;
     background: var(--accent);
-    transition: width var(--dur-fast, var(--dur-fast)) var(--ease);
+    transition: width var(--dur-fast) var(--ease);
   }
   .hdr-nav-trigger:hover::after,
   .hdr-nav-trigger:focus-visible::after,

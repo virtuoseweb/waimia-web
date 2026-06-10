@@ -3,6 +3,7 @@
 // Band before→après : valeur initiale → valeur finale magnifiée typographiquement + delta.
 // Lecture horizontale (distincte des grilles de stats). Style FT/Bloomberg (cf KeyMetric).
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'metric-shift'>;
@@ -21,7 +22,7 @@ const hasHeader = Boolean(kicker || h2 || lede);
   <div class="wrap-wide">
     {hasHeader && (
       <header class="metric-shift__hd">
-        {kicker && <span class="metric-shift__kicker">{kicker}</span>}
+        {kicker && <Kicker as="span" tone="accent" class="metric-shift__kicker">{kicker}</Kicker>}
         {h2 && <h2 class="metric-shift__title" set:html={h2} />}
         {lede && <p class="metric-shift__lede" set:html={lede} />}
       </header>
@@ -50,22 +51,19 @@ const hasHeader = Boolean(kicker || h2 || lede);
 
 <style>
   .metric-shift {
-    padding: clamp(var(--space-11), 10vw, var(--section-loose)) var(--space-6);
+    padding: var(--section-loose) var(--space-6);
     border-bottom: 1px solid var(--hairline);
   }
   .metric-shift--paper-2 { background: var(--paper-2); }
+  .metric-shift--paper-3 { background: var(--paper-3); }
   .metric-shift--ink { background: var(--ink); }
 
   .metric-shift__hd {
     margin-bottom: clamp(var(--space-8), 5vw, var(--space-12));
   }
-  .metric-shift__kicker {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.metric-shift__kicker) {
     display: block;
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent);
     margin-bottom: var(--space-4);
   }
   .metric-shift__title {

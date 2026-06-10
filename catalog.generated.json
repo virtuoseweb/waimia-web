@@ -98,6 +98,29 @@
     }
   },
   {
+    "id": "case-split",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "CaseSplit",
+    "status": "stable",
+    "tags": [
+      "solutions",
+      "case-study",
+      "split",
+      "results",
+      "testimonial"
+    ],
+    "description_fr": "Cas client en split dark/light 50/50 : récit du cas à gauche (titre, body, CTA) et résultats chiffrés à droite.",
+    "description_en": "Client case in a 50/50 dark/light split: the case narrative on the left (title, body, CTA) and quantified results on the right.",
+    "rendering": "unknown",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "coming-soon-pills",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -180,6 +203,30 @@
     "description_en": "Comparison table for clarifying differences between offers, options, or approaches.",
     "rendering": "catalogue-only",
     "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "course-catalog-table",
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "component": "CourseCatalogTable",
+    "status": "stable",
+    "tags": [
+      "catalog",
+      "table",
+      "courses",
+      "school"
+    ],
+    "description_fr": "Tableau du catalogue formations : titre de section et lignes (#, titre, niveau en pill, durée, prix, flèche), une formation par ligne.",
+    "description_en": "Course catalog table: a section title and rows (#, title, level pill, duration, price, arrow), one course per row.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/ecole/index.astro"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -283,6 +330,31 @@
     }
   },
   {
+    "id": "decision-list",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "DecisionList",
+    "status": "stable",
+    "tags": [
+      "decision",
+      "list",
+      "numbered",
+      "editorial",
+      "guide"
+    ],
+    "description_fr": "Arbre de décision : en-tête kicker et titre display à gauche, liste ordonnée numérotée d items à droite, hairlines fines.",
+    "description_en": "Decision tree: kicker and display heading on the left, a numbered ordered list of items on the right, thin hairlines.",
+    "rendering": "live",
+    "consumers": [
+      "src/content/offres/conseil.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "deliverables-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -298,6 +370,52 @@
     "description_fr": "Grille de livrables tangibles avec cards numérotées et tag format/durée, extraite des pages offre et détail.",
     "description_en": "Tangible deliverables grid with numbered cards and format/duration tag, sourced from offer and detail pages.",
     "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "department-cta",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "DepartmentCta",
+    "status": "stable",
+    "tags": [
+      "solutions",
+      "cta",
+      "conversion",
+      "dark",
+      "closing"
+    ],
+    "description_fr": "Clôture CTA sur fond ink : Dingbat, titre display italique, body et deux boutons (rendez-vous + lien secondaire).",
+    "description_en": "Closing CTA on an ink background: a Dingbat, an italic display heading, body copy, and two buttons (booking + secondary link).",
+    "rendering": "unknown",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "department-stack",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "DepartmentStack",
+    "status": "stable",
+    "tags": [
+      "solutions",
+      "stack",
+      "tools",
+      "table",
+      "editorial"
+    ],
+    "description_fr": "Stack outils en table éditoriale : en-tête eyebrow et titre display, aside Callout, EditorialTable catégorie/outil/rôle.",
+    "description_en": "Tool stack as an editorial table: an eyebrow and display heading header, a Callout aside, and a category/tool/role EditorialTable.",
+    "rendering": "unknown",
     "consumers": [],
     "hasDemo": {
       "fr": true,
@@ -351,6 +469,31 @@
     "consumers": [
       "src/pages/ressources/index.astro",
       "src/pages/en/ressources/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "editorial-table-block",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "EditorialTableBlock",
+    "status": "stable",
+    "tags": [
+      "comparison",
+      "table",
+      "editorial",
+      "comparator",
+      "rows"
+    ],
+    "description_fr": "Comparateur éditorial : en-tête kicker mono et titre display, puis tableau EditorialTable bilingue (colonnes, lignes, caption).",
+    "description_en": "Editorial comparator: a mono kicker plus display heading header, then a bilingual EditorialTable (columns, rows, caption).",
+    "rendering": "live",
+    "consumers": [
+      "src/content/offres/conseil.mdx"
     ],
     "hasDemo": {
       "fr": true,
@@ -463,8 +606,10 @@
     ],
     "description_fr": "Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.",
     "description_en": "Fit/no-fit qualification section on an ink background: kicker, display heading, intro callout, and two yes/no item columns.",
-    "rendering": "catalogue-only",
-    "consumers": [],
+    "rendering": "live",
+    "consumers": [
+      "src/content/offres/conseil.mdx"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -530,7 +675,7 @@
     "description_en": "Academy hub hero: mono kicker, display h1, lede, and mono stats strip (courses, paths, alumni).",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/EcoleHubTemplate.astro"
+      "src/pages/ecole/index.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -1217,6 +1362,29 @@
     }
   },
   {
+    "id": "learning-path-list",
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "component": "LearningPathList",
+    "status": "stable",
+    "tags": [
+      "list",
+      "paths",
+      "school"
+    ],
+    "description_fr": "Liste de parcours : titre de section et une ligne par parcours (titre en gras + description).",
+    "description_en": "Learning path list: a section title and one row per path (bold title + description).",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/ecole/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "list-index-section",
     "category": "marketing",
     "categorySlug": "index-sections",
@@ -1495,6 +1663,29 @@
     }
   },
   {
+    "id": "pain-points",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "PainPoints",
+    "status": "stable",
+    "tags": [
+      "solutions",
+      "pain-points",
+      "friction",
+      "timeline",
+      "editorial"
+    ],
+    "description_fr": "Points de friction métier : en-tête eyebrow et titre display, aside Callout, frise Timeline numérotée des frictions.",
+    "description_en": "Business pain points: an eyebrow and display heading header, a Callout aside, and a numbered Timeline of frictions.",
+    "rendering": "unknown",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "persona-attributes-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -1700,6 +1891,29 @@
     }
   },
   {
+    "id": "roi-band",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "RoiBand",
+    "status": "stable",
+    "tags": [
+      "solutions",
+      "roi",
+      "metrics",
+      "proof",
+      "stats"
+    ],
+    "description_fr": "Bande ROI sur fond ink : en-tête eyebrow et titre display, chiffres KeyMetric placés en asymétrie 6/5.",
+    "description_en": "ROI band on an ink background: an eyebrow and display heading header, with KeyMetric figures placed in a 6/5 asymmetry.",
+    "rendering": "unknown",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "service-catalog-list",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -1715,8 +1929,10 @@
     ],
     "description_fr": "Liste-catalogue éditoriale de services en lignes (§ numéro, titre display, description, méta durée, flèche) avec footer CTA optionnel.",
     "description_en": "Editorial service catalogue as rows (§ number, display title, description, duration meta, arrow) with an optional footer CTA.",
-    "rendering": "catalogue-only",
-    "consumers": [],
+    "rendering": "live",
+    "consumers": [
+      "src/content/offres/conseil.mdx"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1884,6 +2100,109 @@
     }
   },
   {
+    "id": "tech-capabilities-specs",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "TechCapabilitiesSpecs",
+    "status": "stable",
+    "tags": [
+      "technologies",
+      "capabilities",
+      "specs",
+      "table",
+      "editorial"
+    ],
+    "description_fr": "Inventaire technique en table spec (capacité, description, statut) avec en-tête kicker et aside.",
+    "description_en": "Technical inventory as a spec table (capability, description, status) with a kicker header and aside.",
+    "rendering": "live",
+    "consumers": [
+      "src/content/technologies/claude-models.mdx",
+      "src/content/technologies/virtuoseos.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "tech-integration-flow",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timelines",
+    "component": "TechIntegrationFlow",
+    "status": "stable",
+    "tags": [
+      "technologies",
+      "integration",
+      "flow",
+      "timeline",
+      "stack"
+    ],
+    "description_fr": "Position dans la stack en frise verticale numérotée (Timeline + Dingbat), un nœud par étape d intégration.",
+    "description_en": "Position in the stack as a numbered vertical timeline (Timeline + Dingbat), one node per integration step.",
+    "rendering": "live",
+    "consumers": [
+      "src/content/technologies/claude-models.mdx",
+      "src/content/technologies/virtuoseos.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "tech-models-table",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "TechModelsTable",
+    "status": "stable",
+    "tags": [
+      "technologies",
+      "models",
+      "table",
+      "comparison",
+      "editorial"
+    ],
+    "description_fr": "Table de comparaison des modèles en cinq colonnes (Modèle, Profil, Coût, Contexte, Usages) basée sur EditorialTable.",
+    "description_en": "Five-column model comparison table (Model, Profile, Cost, Context, Uses) built on EditorialTable.",
+    "rendering": "live",
+    "consumers": [
+      "src/content/technologies/claude-models.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "tech-positioning-split",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "TechPositioningSplit",
+    "status": "stable",
+    "tags": [
+      "technologies",
+      "positioning",
+      "split",
+      "manifesto",
+      "editorial"
+    ],
+    "description_fr": "Prise de position technologique en split 50/50 : kicker, titre display, aside, statement manifesto et facts mono clé/valeur.",
+    "description_en": "Technology positioning in a 50/50 split: kicker, display heading, aside, manifesto statement, and mono key/value facts.",
+    "rendering": "live",
+    "consumers": [
+      "src/content/technologies/claude-models.mdx",
+      "src/content/technologies/virtuoseos.mdx"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "tech-stack-band",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -1900,6 +2219,32 @@
     "description_en": "Paper-2 technology stack band with kicker, lead, and a row of technical pills.",
     "rendering": "catalogue-only",
     "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "tech-when-dual",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "TechWhenDual",
+    "status": "stable",
+    "tags": [
+      "technologies",
+      "decision",
+      "when",
+      "dual",
+      "pros-cons"
+    ],
+    "description_fr": "Aide décision en deux colonnes (utiliser quand / considérer autre chose quand) avec puces mono plus et moins.",
+    "description_en": "Two-column decision aid (use when / consider otherwise when) with plus and minus mono bullets.",
+    "rendering": "live",
+    "consumers": [
+      "src/content/technologies/claude-models.mdx",
+      "src/content/technologies/virtuoseos.mdx"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1995,6 +2340,55 @@
     }
   },
   {
+    "id": "tunnel-step-hero",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "TunnelStepHero",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "tunnel",
+      "step",
+      "progress",
+      "funnel",
+      "kicker-computed"
+    ],
+    "description_fr": "Hero d'étape tunnel V2 : kicker calculé (offre_label + step/progress_total) + barre [NN] + h1 (hero ou section) + lede.",
+    "description_en": "Tunnel step hero V2: computed kicker (offre_label + step/progress_total) + [NN] bar + h1 (hero or section) + lede.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "tunnel-step-nav",
+    "category": "marketing",
+    "categorySlug": "call-to-action-sections",
+    "subcategory": "Call-to-Action Sections",
+    "component": "TunnelStepNav",
+    "status": "stable",
+    "tags": [
+      "nav",
+      "tunnel",
+      "step",
+      "cta",
+      "footer",
+      "prev",
+      "meta"
+    ],
+    "description_fr": "Pied de navigation d'étape tunnel : lien prev optionnel + cta (primary/accent/ghost) + barre méta (lecture + retour offre).",
+    "description_en": "Tunnel step navigation footer: optional prev link + cta (primary/accent/ghost) + meta bar (reading time + back to offer).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "use-case-index",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -2058,6 +2452,29 @@
     "description_fr": "Section éditoriale \"pourquoi X cale\" : chapter label sticky à gauche + N FIG rows à droite avec row-lines.",
     "description_en": "Editorial \"why X stalls\" section: sticky chapter label left + N FIG rows right with row-lines.",
     "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "workflow-table",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "WorkflowTable",
+    "status": "stable",
+    "tags": [
+      "solutions",
+      "workflows",
+      "table",
+      "comparison",
+      "editorial"
+    ],
+    "description_fr": "Table workflows signature en 5 colonnes (numéro, workflow, modèle, gain, comment), un workflow IA par ligne.",
+    "description_en": "Signature workflow table in 5 columns (number, workflow, model, gain, how), one AI workflow per row.",
+    "rendering": "unknown",
     "consumers": [],
     "hasDemo": {
       "fr": true,

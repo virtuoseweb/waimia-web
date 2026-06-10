@@ -3,6 +3,7 @@
 // Énoncé macro-typo + stats optionnelles. Sources : `off-problem`, `svc-problem`, `dt-problem`.
 import type { SectionByType } from '../../schemas/sections';
 import DropCap from '../editorial/DropCap.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'problem-statement'>;
@@ -14,7 +15,7 @@ const isFr = lang === 'fr';
 
 <section class="problem-statement">
   <div class="wrap-wide">
-    <span class="problem-statement__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+    <Kicker as="span" tone="accent" class="problem-statement__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     <div class:list={['problem-statement__statement', data.dropcap && 'problem-statement__statement--dropcap']}>
       {data.dropcap && <DropCap variant="mono">§</DropCap>}
       <p class="problem-statement__text" set:html={isFr ? data.statement_fr : data.statement_en} />
@@ -35,15 +36,11 @@ const isFr = lang === 'fr';
 
 <style>
   .problem-statement {
-    padding: var(--problem-statement-pad, clamp(var(--space-11), 12vw, var(--section-loose))) var(--problem-statement-inline, var(--space-6));
+    padding: var(--problem-statement-pad, var(--section-loose)) var(--problem-statement-inline, var(--space-6));
   }
-  .problem-statement__kicker {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.problem-statement__kicker) {
     display: block;
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent);
     margin-bottom: var(--space-6);
   }
   .problem-statement__text {

@@ -37,7 +37,7 @@ const atomKnobs = {
     { name: 'variant · 4 variants', values: ['primary', 'ghost', 'accent', 'link'] },
     { name: 'size · 2 variants', values: ['md', 'lg'] }, { name: 'mag', values: ['number', 'magnetic effect'] },
     { name: 'href / as', values: ['href string', 'a', 'button'] }, { name: 'states', values: ['disabled', 'loading'] },
-    { name: 'tokens consumed via .btn-*', values: ['--ink', '--paper', '--accent', '--accent-2', '--radius-sm', '--ease'] },
+    { name: 'tokens consumed via .btn-*', values: ['--ink', '--paper', '--accent', '--accent-2', '--radius-xs', '--ease'] },
   ],
   PillCTA: [
     { name: 'variant · 3 variants', values: ['accent', 'ghost-dark', 'accent-mono'] }, { name: 'mag', values: ['number'] },
@@ -222,7 +222,7 @@ const sectionSchemaKnobs = {
 
         {/* 1.3 Spacing scale */}
         <div class="ds-subsection">
-          <h3 class="ds-h3">1.3 · Spacing scale (4/8pt · 15 --space tokens + 3 section rhythms)</h3>
+          <h3 class="ds-h3">1.3 · Spacing scale (4/8pt · 15 --space tokens + 4 section rhythms)</h3>
           <div class="ds-spacing-grid">
             <div class="ds-spacing-row"><code>--space-1</code> <span class="ds-spacing-bar" style="width:4px"></span> <span class="ds-spacing-val">4px</span></div>
             <div class="ds-spacing-row"><code>--space-2</code> <span class="ds-spacing-bar" style="width:8px"></span> <span class="ds-spacing-val">8px</span></div>
@@ -240,7 +240,7 @@ const sectionSchemaKnobs = {
             <div class="ds-spacing-row"><code>--space-14</code> <span class="ds-spacing-bar" style="width:200px"></span> <span class="ds-spacing-val">200px</span></div>
             <div class="ds-spacing-row"><code>--space-15</code> <span class="ds-spacing-bar" style="width:256px"></span> <span class="ds-spacing-val">256px</span></div>
           </div>
-          <p class="ds-help">+ section rhythm : <code>--section-base</code> 96px · <code>--section-loose</code> 160px · <code>--section-grand</code> 256px</p>
+          <p class="ds-help">+ section rhythm : <code>--section-tight</code> 48px · <code>--section-base</code> 96px · <code>--section-loose</code> 160px · <code>--section-grand</code> 256px</p>
         </div>
       </section>
 
@@ -693,7 +693,7 @@ const sectionSchemaKnobs = {
   .ds-meta code {
     background: var(--paper-2);
     padding: 2px 6px;
-    border-radius: var(--radius-xs);
+    border-radius: var(--radius-sm);
   }
 
   .ds-layout {
@@ -775,8 +775,8 @@ const sectionSchemaKnobs = {
   }
   .ds-knob {
     padding: var(--space-3);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-hairline);
+    border-radius: var(--radius-xs);
+    box-shadow: var(--shadow-card-rest);
     background: var(--paper);
   }
   .ds-knob-name {
@@ -793,8 +793,8 @@ const sectionSchemaKnobs = {
   }
   .ds-knob-val {
     padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-hairline);
+    border-radius: var(--radius-xs);
+    box-shadow: var(--shadow-card-rest);
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     color: var(--muted);
@@ -812,7 +812,7 @@ const sectionSchemaKnobs = {
     gap: var(--space-5);
     padding: var(--space-5);
     background: var(--paper-2);
-    box-shadow: var(--shadow-hairline);
+    box-shadow: var(--shadow-card-rest);
   }
   .ds-editorial-title-demo p {
     font-family: var(--font-display);
@@ -951,7 +951,7 @@ const sectionSchemaKnobs = {
   }
   .ds-demo-hero :global(.hero-split),
   .ds-demo-hero :global(.hero-centered) {
-    padding-top: var(--spacing-section) !important;
+    padding-top: var(--section-base) !important;
   }
 
   .ds-input, .ds-select, .ds-textarea {
@@ -962,7 +962,7 @@ const sectionSchemaKnobs = {
     border: 1px solid var(--hairline-strong);
     background: var(--paper);
     color: var(--ink);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     width: 100%;
     max-width: 320px;
   }

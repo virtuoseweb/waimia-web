@@ -9,7 +9,7 @@
 - **Source de vérité du PROGRÈS** = (a) les commits git (preuve empirique), (b) la **task list Claude Code** (`#N`, vérité opérationnelle live), (c) les **gates** (`scripts/check-*.mjs`). Le plan donne les AXES et une découpe précise ; il ne remplace pas la task list.
 - **Statuts** : `[x]` fait (commit cité) · `[~]` en cours · `[ ]` pending · `[?]` arbitrage Simon requis.
 - **Non figé** : pour chaque gros morceau (wave), on **re-raisonne les sous-tâches exactes au moment de l'exécution** (le code évolue, les commits futurs informent). Ce plan donne tous les axes + une idée précise, pas un script gelé.
-- **Règle d'or** : rien n'est `[x]` sans **preuve GF-1 empirique** (visuel : Playwright screenshot + getComputedStyle ; backend : appel réel + write->read). Gates : `check-token-purity`, `check-token-lock`, `check-touchpoints`, `check-no-emdash`, `check-static-quality`.
+- **Règle d'or** : rien n'est `[x]` sans **preuve GF-1 empirique** (visuel : Playwright screenshot + getComputedStyle ; backend : appel réel + write->read). Gates : `check-token-purity`, `check-token-lock`, `check-section-rhythm` (R4 : paddings verticaux de section = crans `--section-*` uniquement), `check-touchpoints`, `check-no-emdash`, `check-static-quality`.
 - **Format consommable par un agent** : chaque wave a un `id`, un `statut`, des `sous-tâches`, des `dépend_de`, un `livrable`, une `preuve`. Un agent (ou Claude Code) lit ce fichier + la task list + `git log` pour savoir quoi faire ensuite.
 
 ## 1. Vision (north star)

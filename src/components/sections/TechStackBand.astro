@@ -3,6 +3,7 @@
 // Bande stack : wrapper catalogue autour de `TechPillRow`. Sources : `cf-stack`, `dt-stack`, `case-stack`.
 import type { SectionByType } from '../../schemas/sections';
 import TechPillRow from '../ui/molecules/TechPillRow.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'tech-stack-band'>;
@@ -18,7 +19,7 @@ const pills = data.pills.map((p) => ({
 
 <section class="tech-stack-band">
   <div class="wrap-wide">
-    <span class="tech-stack-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
+    <Kicker as="span" tone="accent" class="tech-stack-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     {(isFr ? data.lead_fr : data.lead_en) && (
       <p class="tech-stack-band__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
     )}
@@ -28,18 +29,14 @@ const pills = data.pills.map((p) => ({
 
 <style>
   .tech-stack-band {
-    padding: var(--tech-stack-band-pad, clamp(var(--space-10), 7vw, var(--space-14))) var(--tech-stack-band-inline, var(--space-6));
+    padding: var(--tech-stack-band-pad, var(--section-loose)) var(--tech-stack-band-inline, var(--space-6));
     background: var(--paper-2);
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
   }
-  .tech-stack-band__kicker {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.tech-stack-band__kicker) {
     display: block;
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent);
     margin-bottom: var(--space-4);
   }
   .tech-stack-band__lead {

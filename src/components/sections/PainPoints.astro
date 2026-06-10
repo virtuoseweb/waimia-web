@@ -6,6 +6,7 @@
 // - mappe items → events Timeline { num, title, body, variant } (1er = highlight).
 import Callout from '../editorial/Callout.astro';
 import Timeline from '../editorial/Timeline.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 interface Props {
   data: SectionByType<'pain-points'>;
@@ -26,7 +27,7 @@ const events = data.items.map((item, i) => ({
 <section class="sol-sec sol-friction reveal-stagger" data-screen-label="02 Pain Points">
   <div class="wrap g12 g12--full">
     <header class="sol-sec-hd section-eyebrow col-prose">
-      <span class="eyebrow">{eyebrow}</span>
+      <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
       <h2 set:html={h2} />
     </header>
     <aside class="sol-aside col-aside">
@@ -46,18 +47,14 @@ const events = data.items.map((item, i) => ({
 
 <style>
   /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */
-  .sol-sec { padding: clamp(48px, 6vw, 80px) 0; position: relative; }
+  .sol-sec { padding: var(--section-base) 0; position: relative; }
   .sol-friction { margin-top: var(--section-base); }
   .sol-sec-hd {
     margin-bottom: clamp(28px, 4vw, 48px);
   }
-  .section-eyebrow .eyebrow {
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  .section-eyebrow :global(.eyebrow) {
     display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent);
     margin-bottom: var(--space-3);
   }
   .sol-sec-hd h2 {

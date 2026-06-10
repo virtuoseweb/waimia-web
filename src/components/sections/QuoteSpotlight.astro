@@ -13,7 +13,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="quote-spotlight">
+<section class="quote-spotlight" data-bg={data.background}>
   <div class="wrap-wide">
 
     {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -57,7 +57,7 @@ const isFr = lang === 'fr';
 <style>
   .quote-spotlight {
     background: var(--paper-2);
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-block: 1px solid var(--hairline);
   }
 
@@ -179,4 +179,15 @@ const isFr = lang === 'fr';
       text-align: center;
     }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper-2 = rendu inchange ── */
+  .quote-spotlight[data-bg='paper'] { background: var(--paper); }
+  .quote-spotlight[data-bg='paper-3'] { background: var(--paper-3); }
+  .quote-spotlight[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .quote-spotlight[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

@@ -10,7 +10,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="guarantee-block">
+<section class="guarantee-block" data-bg={data.background}>
   <div class="wrap-wide">
   <ul class="guarantee-block__list">
     {data.guarantees.map((g: (typeof data.guarantees)[number], i: number) => (
@@ -28,7 +28,7 @@ const isFr = lang === 'fr';
 
 <style>
   .guarantee-block {
-    padding-block: var(--spacing-section);
+    padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
   }
   .guarantee-block__list {
@@ -68,4 +68,15 @@ const isFr = lang === 'fr';
   @media (max-width: 600px) {
     .guarantee-block__item { grid-template-columns: 1fr; }
   }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .guarantee-block[data-bg='paper-2'] { background: var(--paper-2); }
+  .guarantee-block[data-bg='paper-3'] { background: var(--paper-3); }
+  .guarantee-block[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .guarantee-block[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

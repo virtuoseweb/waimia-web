@@ -25,7 +25,7 @@ const isFr = lang === 'fr';
 
 <style>
   .pull-quote-block {
-    padding: var(--pull-quote-block-pad, clamp(var(--space-6), 5vw, var(--space-10)) var(--space-6) clamp(var(--space-11), 10vw, var(--section-loose)));
+    padding: var(--pull-quote-block-pad, var(--section-tight) var(--space-6) var(--section-loose));
     border-top: 1px solid var(--hairline);
   }
   .pull-quote-block :global(.pull-quote) {
