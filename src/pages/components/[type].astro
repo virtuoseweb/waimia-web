@@ -6,6 +6,7 @@ export const prerender = true;
 // Route : /components/[type] · une page par section.type du registry.
 
 import Base from '../../layouts/Base.astro';
+import DsLocalNav from '../../components/library/DsLocalNav.astro';
 import CopyCode from '../../components/library/CopyCode.tsx';
 import {
   listSections,
@@ -43,6 +44,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
 >
   <article class="component-detail">
     <div class="wrap-wide">
+      <DsLocalNav active="catalogue" note="Ici : la fiche technique d'une section. Aperçu en rendu isolé + données à copier dans sections[]." />
       <a class="component-back" href={`/categories/${section.categorySlug}`}>
         ← {categoryLabel}
       </a>

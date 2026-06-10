@@ -891,6 +891,8 @@ export const timelineBlockSchema = z.object({
 export const mediaBlockSchema = z.object({
   type: z.literal('media-block'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // 'inset' = média centré sur --wrap-prose (illustrations carrées) · défaut = full (inchangé)
+  display: z.enum(['full', 'inset']).optional(),
   caption_fr: z.string().optional(),
   caption_en: z.string().optional(),
   media_kind: z.enum(['image', 'svg', 'video', 'embed']),
@@ -2225,6 +2227,185 @@ export const departmentCtaSchema = z.object({
   secondary_href: z.string().default('/solutions'),
 });
 
+/* ─── Mission catalogue-gap 2026-06-11 · patterns /console + /manifesto ─── */
+
+// §Table Sections · Table terminal (frame TerminalTable) : cols/headers/rows configurables,
+// rôle typographique par cellule. Source : /console Acte II (services) + Acte IV (cases).
+export const terminalTableSectionSchema = z.object({
+  type: z.literal('terminal-table'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  meta_fr: z.string().optional(),
+  meta_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2']).default('paper'),
+  /** grid-template-columns de la table · ex: "60px 180px 1fr 120px" */
+  cols: z.string(),
+  headers: z.array(bilingualString).min(2).max(8),
+  rows: z
+    .array(
+      z.object({
+        href: z.string().optional(),
+        cells: z
+          .array(
+            z.object({
+              fr: z.string(),
+              en: z.string(),
+              role: z.enum(['id', 'title', 'body', 'mono', 'status', 'accent', 'arrow']).default('body'),
+            }),
+          )
+          .min(2)
+          .max(8),
+      }),
+    )
+    .min(1)
+    .max(12),
+});
+
+// §Table Sections · Feed éditorial cliquable (lignes EditorialWriteRow [date|tag|texte|flèche]).
+// Source : /console Writing (paper) + /manifesto Writing dark (ink).
+export const editorialWriteFeedSchema = z.object({
+  type: z.literal('editorial-write-feed'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  meta_label_fr: z.string().optional(),
+  meta_label_en: z.string().optional(),
+  meta_href: z.string().optional(),
+  title_fr: z.string().optional(),
+  title_en: z.string().optional(),
+  tone: z.enum(['paper', 'ink']).default('paper'),
+  items: z
+    .array(
+      z.object({
+        date: z.string(),
+        tag_fr: z.string(),
+        tag_en: z.string(),
+        text_fr: z.string(),
+        text_en: z.string(),
+        href: z.string(),
+      }),
+    )
+    .min(1)
+    .max(10),
+});
+
+// §Manifesto Sections · Déclaration plein écran fond contrasté.
+// tone ink = bloc [manifesto] de /console · tone accent = pattern ManifestoAccent (terracotta + grille).
+export const manifestoStatementSchema = z.object({
+  type: z.literal('manifesto-statement'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  /** HTML · <i> = relevé italique serif, <span class="acc"> = accent, <strong> = gras */
+  text_fr: z.string(),
+  text_en: z.string(),
+  tone: z.enum(['ink', 'accent']).default('ink'),
+  show_grid: z.boolean().default(false),
+});
+
+// §Manifesto Sections · Acte numéroté : label sticky (numéro romain + sous-titre) +
+// statement XL + stats massives optionnelles. Source : /manifesto Acte I.
+export const manifestoActSchema = z.object({
+  type: z.literal('manifesto-act'),
+  num_fr: z.string(),
+  num_en: z.string(),
+  label_fr: z.string(),
+  label_en: z.string(),
+  sub_fr: z.string().optional(),
+  sub_en: z.string().optional(),
+  text_fr: z.string(),
+  text_en: z.string(),
+  tone: z.enum(['ink', 'paper']).default('ink'),
+  stats: z
+    .array(
+      z.object({
+        k: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .max(4)
+    .default([]),
+});
+
+// §Manifesto Sections · Services asymétriques (rangées AsymmetricServiceRow alternées).
+// Source : /manifesto Acte II.
+export const asymmetricServicesSchema = z.object({
+  type: z.literal('asymmetric-services'),
+  num_fr: z.string(),
+  num_en: z.string(),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  meta_fr: z.string().optional(),
+  meta_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2']).default('paper'),
+  items: z
+    .array(
+      z.object({
+        num: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+      }),
+    )
+    .min(2)
+    .max(8),
+});
+
+// §Terminal Sections · Console mockup à lignes configurables (frame TerminalMockup).
+// Source : /console hero terminal split + Acte V (carte session).
+export const terminalMockupSectionSchema = z.object({
+  type: z.literal('terminal-mockup'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  layout: z.enum(['split', 'full']).default('split'),
+  label: z.string().default(''),
+  status: z.string().default(''),
+  tone: z.enum(['ink', 'paper']).default('ink'),
+  background: z.enum(['paper', 'paper-2', 'ink']).default('paper'),
+  lines: z
+    .array(
+      z.object({
+        kind: z.enum(['cmd', 'out', 'ok', 'comment']).default('out'),
+        text_fr: z.string(),
+        text_en: z.string(),
+      }),
+    )
+    .min(1)
+    .max(14),
+  show_cursor: z.boolean().default(true),
+});
+
+// §Terminal Sections · Strip KPI mono bordé (télémétrie console, tout mono).
+// Source : /console hero, strip 5 metrics.
+export const terminalMetricsStripSchema = z.object({
+  type: z.literal('terminal-metrics-strip'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2', 'ink']).default('paper'),
+  metrics: z
+    .array(
+      z.object({
+        value: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .min(2)
+    .max(6),
+});
+
 /* ─── Union discriminée pour validation ─── */
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -2334,6 +2515,13 @@ export const sectionSchema = z.discriminatedUnion('type', [
   courseCatalogTableSchema,
   learningPathListSchema,
   departmentCtaSchema,
+  terminalTableSectionSchema,
+  editorialWriteFeedSchema,
+  manifestoStatementSchema,
+  manifestoActSchema,
+  asymmetricServicesSchema,
+  terminalMockupSectionSchema,
+  terminalMetricsStripSchema,
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

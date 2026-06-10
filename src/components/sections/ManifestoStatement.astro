@@ -1,0 +1,81 @@
+---
+// Section catalogue · manifesto-statement (catégorie Manifesto Sections)
+// Déclaration manifeste plein écran : kicker mono + statement XL sur fond contrasté.
+// tone `ink` = pattern bloc [manifesto] de /console (interlude encre) ·
+// tone `accent` = pattern ManifestoAccent (full-bleed terracotta + grille translucide).
+// L'organism ManifestoAccent (texte en dur, 0 prop) reste bespoke : cette section
+// rend le pattern configurable pour le catalogue sans toucher l'organism.
+// Typo (directive 2026-06-11) : masse du statement en var(--font-sans) ;
+// var(--font-display) italique réservé au relevé (<i>) ; gras via <strong>.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'manifesto-statement'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="manifesto-stmt" data-tone={data.tone}>
+  {data.show_grid && <div class="manifesto-stmt__grid" aria-hidden="true"></div>}
+  <div class="wrap-wide manifesto-stmt__inner">
+    <Kicker class="manifesto-stmt__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    <p class="manifesto-stmt__text reveal" set:html={isFr ? data.text_fr : data.text_en} />
+  </div>
+</section>
+
+<style>
+  .manifesto-stmt {
+    padding-block: var(--section-grand);
+    position: relative;
+    overflow: hidden;
+  }
+  .manifesto-stmt[data-tone='ink'] { background: var(--ink); color: var(--paper); }
+  .manifesto-stmt[data-tone='accent'] {
+    background: var(--accent);
+    color: var(--paper);
+    border-block: 1px solid rgba(var(--paper-rgb), .18);
+  }
+
+  /* Grille translucide signature (pattern ManifestoAccent) */
+  .manifesto-stmt__grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(var(--paper-rgb), 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(var(--paper-rgb), 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at 30% 70%, black 0%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at 30% 70%, black 0%, transparent 80%);
+  }
+
+  .manifesto-stmt__inner { position: relative; z-index: 1; }
+
+  /* Kicker cream sur fond contrasté (le Kicker pose color inline → !important requis) */
+  :global(.manifesto-stmt__kicker) {
+    color: rgba(var(--paper-rgb), .72) !important;
+    margin-bottom: clamp(28px, 3.5vw, 48px);
+  }
+
+  /* Directive typo : la MASSE du statement est en sans (pas en serif) ;
+     l'italique serif ne relève qu'un fragment via <i>. */
+  .manifesto-stmt__text {
+    font-family: var(--font-sans);
+    font-size: clamp(32px, 5.4vw, 80px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    max-width: 1400px;
+    text-wrap: balance;
+    font-weight: var(--fw-regular);
+    margin: 0;
+  }
+  .manifesto-stmt__text :global(i) { font-family: var(--font-display); font-style: italic; }
+  .manifesto-stmt__text :global(strong) { font-weight: var(--fw-semibold); }
+  .manifesto-stmt[data-tone='ink'] .manifesto-stmt__text :global(i),
+  .manifesto-stmt[data-tone='ink'] .manifesto-stmt__text :global(.acc) { color: var(--accent); }
+  /* Sur fond accent, le relevé reste paper (contraste par la graisse, pas la couleur) */
+  .manifesto-stmt[data-tone='accent'] .manifesto-stmt__text :global(.acc) { font-weight: var(--fw-semibold); }
+</style>

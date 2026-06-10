@@ -9,6 +9,7 @@ import { getCollection } from 'astro:content';
 import { langFromPath } from '../../lib/i18n';
 import type { SectionByType } from '../../schemas/sections';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
+import imageManifest from '../../data/image-manifest.json';
 
 const lang = langFromPath(Astro.url.pathname);
 const transitionIdFromHref = (href: string) =>
@@ -22,6 +23,12 @@ const caseEntries = (await getCollection('cases'))
   .filter((e) => e.data.card)
   .sort((a, b) => (a.data.card!.order) - (b.data.card!.order));
 
+// Alt de la cover = source unique image-manifest.json (slug image = `cas-<slug cas>`)
+const coverAlt = (slug: string) => {
+  const entry = imageManifest.images.find((i) => i.slug === `cas-${slug}`);
+  return entry ? (lang === 'fr' ? entry.alt.fr : entry.alt.en) : '';
+};
+
 const featuredCases = caseEntries.map((e) => ({
   slug: e.data.slug ?? e.id,
   caseNum: String(e.data.card!.order).padStart(2, '0'),
@@ -29,6 +36,8 @@ const featuredCases = caseEntries.map((e) => ({
   title: lang === 'fr' ? e.data.card!.title_fr : e.data.card!.title_en,
   headline: lang === 'fr' ? e.data.card!.headline_fr : e.data.card!.headline_en,
   duration: lang === 'fr' ? e.data.card!.duration_fr : e.data.card!.duration_en,
+  cover: e.data.heroImage,
+  coverAlt: coverAlt(e.data.slug ?? e.id),
 }));
 
 const [featured, ...rest] = featuredCases;
@@ -59,6 +68,17 @@ const mastheadData = {
         <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector} · {featured.duration}</div>
         <h2 class="cas-card-title">{featured.title}</h2>
         <p class="cas-card-headline">{featured.headline}</p>
+        {featured.cover && (
+          <img
+            class="cas-card-img"
+            src={featured.cover}
+            alt={featured.coverAlt}
+            width="1536"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          />
+        )}
         <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
       </a>
       <div class="cas-secondary">
@@ -165,6 +185,13 @@ const mastheadData = {
     line-height: var(--leading-body);
     flex: 1;
     transition: transform var(--dur-trim) var(--ease);
+  }
+  .cas-card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--hairline);
+    margin-top: var(--space-4);
   }
   .cas-card-cta {
     font-size: var(--text-ui);

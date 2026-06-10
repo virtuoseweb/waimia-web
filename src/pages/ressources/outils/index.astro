@@ -2,10 +2,10 @@
 // Page · /ressources/outils · Hub outils actionnables · Waimia
 export const prerender = true;
 
-// Composé de · ListIndexTemplate (variant outils · cards 2 cols)
+// Composé de · UtilityTemplate variant="list" (ex-ListIndexTemplate, fusion R6) (variant outils · cards 2 cols)
 
 import { getCollection } from 'astro:content';
-import ListIndexTemplate from '../../../components/templates/ListIndexTemplate.astro';
+import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 
 const TYPE_LABELS: Record<string, string> = {
@@ -27,7 +27,8 @@ const presentTypes = [...new Set(entries.map((e) => e.data.type))];
 const count   = entries.length;
 const kicker  = `§ Outils · ${count} disponible${count > 1 ? 's' : ''}`;
 ---
-<ListIndexTemplate
+<UtilityTemplate
+  variant="list"
   title="Outils · Calculateurs et templates actionnables · Waimia"
   description="Calculateurs ROI, checklists d'audit et templates prêts à l'emploi pour PME B2B. Gratuits, actionnables, sans inscription."
   kicker={kicker}
@@ -60,7 +61,7 @@ const kicker  = `§ Outils · ${count} disponible${count > 1 ? 's' : ''}`;
       ))}
     </div>
   </Fragment>
-</ListIndexTemplate>
+</UtilityTemplate>
 
 <style>
   .cb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--hairline-strong); border-bottom: 1px solid var(--hairline-strong); }

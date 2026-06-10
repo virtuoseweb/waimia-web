@@ -249,7 +249,7 @@
     "rendering": "live",
     "consumers": [
       "src/components/templates/TrustLegalTemplate.astro",
-      "src/components/templates/ListIndexTemplate.astro",
+      "src/components/templates/UtilityTemplate.astro",
       "src/components/templates/EssayTemplate.astro"
     ],
     "hasDemo": {
@@ -274,10 +274,9 @@
     "rendering": "live",
     "consumers": [
       "src/components/templates/ConversionFunnelTemplate.astro",
-      "src/components/templates/ServiceDetailTemplate.astro",
       "src/components/templates/CaseStudyTemplate.astro",
       "src/components/templates/DetailMenuTemplate.astro",
-      "src/components/templates/HubTemplate.astro",
+      "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro",
       "src/content/offres/composable-pilot.mdx"
@@ -935,8 +934,10 @@
     ],
     "description_fr": "(déprécié → hero-hub-masthead variant=listing) Hero éditorial de hub avec titre monumental et lede courte, sans appel à l'action, pour pages de listing.",
     "description_en": "(deprecated → hero-hub-masthead variant=listing) Editorial hub hero with a monumental headline and short lede, without a call to action, for listing pages.",
-    "rendering": "catalogue-only",
-    "consumers": [],
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/UtilityTemplate.astro"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -984,7 +985,7 @@
     "description_en": "Hub hero with stats: dual meta kicker + accent § number + maximal h1, lede, 4-col KeyMetric grid at the foot with accent.",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/HubTemplate.astro"
+      "src/content/offres/conseil.mdx"
     ],
     "hasDemo": {
       "fr": true,
@@ -1168,10 +1169,8 @@
     ],
     "description_fr": "Hero de page service avec numéro éditorial, titre, accroche et barre de preuves chiffrées optionnelle.",
     "description_en": "Service page hero with an editorial number, headline, lede, and optional inline proof metrics bar.",
-    "rendering": "live",
-    "consumers": [
-      "src/components/templates/ServiceDetailTemplate.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1537,7 +1536,6 @@
     "description_en": "Method timeline for explaining the steps of a service process or engagement.",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/ServiceDetailTemplate.astro",
       "src/components/templates/CaseStudyTemplate.astro",
       "src/components/templates/DetailMenuTemplate.astro",
       "src/content/offres/composable-pilot.mdx"
@@ -1813,7 +1811,6 @@
     "description_en": "Compact proof bar for displaying key metrics and reinforcing credibility.",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/ServiceDetailTemplate.astro",
       "src/components/templates/DetailMenuTemplate.astro",
       "src/pages/index.astro",
       "src/pages/en/index.astro",

@@ -2,6 +2,7 @@
 export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
+import DsLocalNav from '../../components/library/DsLocalNav.astro';
 import { listCategories, listSections, type CategoryGroup } from '../../lib/section-registry';
 
 export function getStaticPaths() {
@@ -27,6 +28,7 @@ const sections = listSections().filter((section) => section.categorySlug === cat
 >
   <section class="category-mast">
     <div class="wrap-wide">
+      <DsLocalNav active="categories" note="Ici : une famille du catalogue. Clique une card pour ouvrir sa fiche technique." />
       <a class="category-back" href="/agence/design-system#sections">← Retour design system</a>
       <p class="category-kicker">§ Catégorie marketplace · {category.count} sections</p>
       <h1>{category.label}</h1>
