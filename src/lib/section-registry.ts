@@ -102,6 +102,8 @@ import StepsHorizontal from '../components/sections/StepsHorizontal.astro';
 import CtaSplitVisual from '../components/sections/CtaSplitVisual.astro';
 import StatsBento from '../components/sections/StatsBento.astro';
 import ComparisonDuo from '../components/sections/ComparisonDuo.astro';
+import ServiceCatalogList from '../components/sections/ServiceCatalogList.astro';
+import FitColumnsSection from '../components/sections/FitColumnsSection.astro';
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -976,6 +978,26 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Deux cartes cote a cote (Sans / Avec) pour mettre en evidence le contraste avant/apres ou nous-vs-eux, avec items a puces et glyphes differencies.',
     description_en: 'Two side-by-side cards (Without / With) to highlight a before/after or us-vs-them contrast, with bulleted items and differentiated glyphs.',
+  },
+  'service-catalog-list': {
+    component: ServiceCatalogList,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['services', 'catalog', 'list', 'editorial', 'rows'],
+    status: 'stable',
+    description_fr: 'Liste-catalogue éditoriale de services en lignes (§ numéro, titre display, description, méta durée, flèche) avec footer CTA optionnel.',
+    description_en: 'Editorial service catalogue as rows (§ number, display title, description, duration meta, arrow) with an optional footer CTA.',
+  },
+  'fit-columns': {
+    component: FitColumnsSection,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['fit', 'qualification', 'yes-no', 'two-columns', 'ink'],
+    status: 'stable',
+    description_fr: 'Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.',
+    description_en: 'Fit/no-fit qualification section on an ink background: kicker, display heading, intro callout, and two yes/no item columns.',
   },
 };
 
