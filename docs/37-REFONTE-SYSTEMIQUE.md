@@ -114,4 +114,5 @@ Pas de refonte graphique (DA, palette parchemin/encre/terracotta, typo, ton : in
 | R2 · Éditorial premium (P1 cas) | ✅ P1 livrée (3 cas composables premium), mergée. P2 secteurs + P3 blog Sidenote restent | `feat/refonte-r12-cases` `7256d95` · SR-18 |
 | R3 · Navigation | ✅ livrée, contre-vérifiée, mergée | `feat/refonte-r3-navigation` `72f0a79` · SR-17 |
 | R4 · DS familles | ✅ livrée, contre-vérifiée, mergée (rythme 4 crans + radius + Kicker + background + gate) | `feat/refonte-r4-ds-familles` `eb71045` · SR-21 |
-| R5-R7 | ⏳ R5 catalogue familles = prochaine vague | |
+| R5a · Famille Hero | ✅ livrée, contre-vérifiée, mergée (17 fichiers → 9, 28 types = presets, 0 MDX touché) | `feat/refonte-r5-hero-familles` `2edeec6` · SR-22 |
+| R5b-R7 | ⏳ R5b grilles/stats/tables/CTA puis R6 extinction templates, R7 hub par besoin | |
