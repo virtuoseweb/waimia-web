@@ -249,10 +249,11 @@ export const heroProblemIndexSchema = z.object({
   kicker_en: z.string(),
   h1_fr: z.string(),
   h1_en: z.string(),
-  lede_fr: z.string(),
-  lede_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
   canonical_fr: z.string().optional(),
   canonical_en: z.string().optional(),
+  transition_id: z.string().optional(),
 });
 
 // Hero · cas client par secteur (SolutionsDetailTemplate) · dept + h1 + lead italique + CTA + tags

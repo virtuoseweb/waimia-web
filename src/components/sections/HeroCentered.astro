@@ -26,7 +26,7 @@ interface Props {
   wrap?: boolean;
   /** hero-academy-hub / hero-course / hero-detail-menu : padding-top custom. */
   topPad?: string;
-  /** hero-utility-masthead / hero-detail-menu : largeur max du `.wrap-wide`. */
+  /** hero-utility-masthead / hero-detail-menu / hero-problem-index : largeur max du `.wrap-wide` (défaut = catalogue `1200px`). */
   wrapMaxWidth?: string;
   /** hero-utility-masthead : ajoute la classe d'animation `reveal` (défaut false). */
   reveal?: boolean;
@@ -134,10 +134,12 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
       <rect x="1140" y="60" width="220" height="220" fill="none" stroke="currentColor" stroke-width="0.4" transform="rotate(12 1250 170)"/>
       <line x1="0" y1="380" x2="1440" y2="260" stroke="currentColor" stroke-width="0.4"/>
     </svg>
-    <div class="wrap-wide">
+    <div class="wrap-wide" style={wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined}>
       <Kicker class="hero-problem-index__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-      <h1 class="hero-problem-index__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
-      <p class="hero-problem-index__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+      <h1 class="hero-problem-index__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} transition:name={data.transition_id ? `hero-h1-${data.transition_id}` : undefined} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="hero-problem-index__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+      )}
       {data.canonical_fr && (
         <p class="hero-problem-index__canonical" set:html={isFr ? data.canonical_fr : (data.canonical_en ?? data.canonical_fr)} />
       )}
