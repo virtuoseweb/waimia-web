@@ -1,34 +1,69 @@
 ---
+// ARCHÉTYPE R5b · « grille de stats » — 1 composant paramétrable → 2 type-ids (presets).
+// Métriques value+label. Branche sur `data.type` ; chaque variante conserve markup +
+// CSS BYTE-IDENTIQUES à son composant d'origine (qualifications `:where(.racine)` sur
+// les sélecteurs nus, spécificité inchangée). Noyau : stat-block (layouts grid-3 /
+// grid-4 / rows-hairlines / split-quote). Absorbe (R5b) : proof-bar (strip headerless
+// tight, layouts horizontal / vertical-stack).
 import type { SectionByType } from '../../schemas/sections';
 import PullQuote from '../editorial/PullQuote.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
-  data: SectionByType<'stat-block'>;
+  data: SectionByType<'stat-block'> | SectionByType<'proof-bar'>;
   lang: 'fr' | 'en';
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
-const quote = isFr ? data.quote_fr : data.quote_en;
-const cite = isFr ? data.cite_fr : data.cite_en;
-const isSplitQuote = data.layout === 'split-quote' && Boolean(quote);
-const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quote' ? 'grid-3' : data.layout;
+const sb = data.type === 'stat-block' ? data : null;
+const quote = sb ? (isFr ? sb.quote_fr : sb.quote_en) : undefined;
+const cite = sb ? (isFr ? sb.cite_fr : sb.cite_en) : undefined;
+const isSplitQuote = sb ? sb.layout === 'split-quote' && Boolean(quote) : false;
+const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-quote' ? 'grid-3' : sb.layout) : undefined;
 ---
 
-<section class="stat-block" data-bg={data.background}>
-  <div class="wrap-wide">
-  <div class="stat-block__header">
-    {(isFr ? data.h2_fr : data.h2_en) && (
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+{data.type === 'proof-bar' ? (
+  <section class="proof-bar" data-bg={data.background} data-layout={data.layout}>
+    <div class="wrap-wide">
+    {(isFr ? data.kicker_fr : data.kicker_en) && (
+      <Kicker tone="muted" class="proof-bar__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     )}
-    {(isFr ? data.lede_fr : data.lede_en) && (
-      <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
-    )}
-  </div>
-  {isSplitQuote ? (
-    <div class="stat-block__split">
-      <PullQuote attribution={cite} variant="inline">
-        <Fragment set:html={quote} />
-      </PullQuote>
+    <ul class="proof-bar__list">
+      {data.metrics.map((m: (typeof data.metrics)[number]) => (
+        <li class:list={['proof-bar__item', m.emphasis && 'proof-bar__item--emphasis']}>
+          <span class="proof-bar__value">{m.value}</span>
+          <span class="proof-bar__label">{isFr ? m.label_fr : m.label_en}</span>
+        </li>
+      ))}
+    </ul>
+    </div>
+  </section>
+) : (
+  <section class="stat-block" data-bg={data.background}>
+    <div class="wrap-wide">
+    <div class="stat-block__header">
+      {(isFr ? data.h2_fr : data.h2_en) && (
+        <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      )}
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+    {isSplitQuote ? (
+      <div class="stat-block__split">
+        <PullQuote attribution={cite} variant="inline">
+          <Fragment set:html={quote} />
+        </PullQuote>
+        <ul class="stat-block__grid" data-layout={metricsLayout}>
+          {data.metrics.map((m: (typeof data.metrics)[number]) => (
+            <li class:list={['stat-block__item', m.emphasis && 'stat-block__item--emphasis']}>
+              <span class="stat-block__value">{m.value}</span>
+              <span class="stat-block__label">{isFr ? m.label_fr : m.label_en}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : (
       <ul class="stat-block__grid" data-layout={metricsLayout}>
         {data.metrics.map((m: (typeof data.metrics)[number]) => (
           <li class:list={['stat-block__item', m.emphasis && 'stat-block__item--emphasis']}>
@@ -37,21 +72,13 @@ const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quot
           </li>
         ))}
       </ul>
+    )}
     </div>
-  ) : (
-    <ul class="stat-block__grid" data-layout={metricsLayout}>
-      {data.metrics.map((m: (typeof data.metrics)[number]) => (
-        <li class:list={['stat-block__item', m.emphasis && 'stat-block__item--emphasis']}>
-          <span class="stat-block__value">{m.value}</span>
-          <span class="stat-block__label">{isFr ? m.label_fr : m.label_en}</span>
-        </li>
-      ))}
-    </ul>
-  )}
-  </div>
-</section>
+  </section>
+)}
 
 <style>
+  /* ───── stat-block (noyau) — CSS d'origine, `h2`/`p` nus qualifiés `:where(.stat-block)` ───── */
   .stat-block {
     padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
@@ -62,15 +89,15 @@ const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quot
     flex-direction: column;
     gap: var(--space-4);
   }
-  h2 {
+  :where(.stat-block) h2 {
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
-  h2 :global(i) { font-style: italic; }
-  p {
+  :where(.stat-block) h2 :global(i) { font-style: italic; }
+  :where(.stat-block) p {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
     color: var(--muted);
@@ -152,4 +179,62 @@ const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quot
     --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
   .stat-block[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+
+  /* ───── proof-bar (preset strip) — CSS VERBATIM ProofBarSection.astro ───── */
+  .proof-bar {
+    padding-block: var(--section-tight);
+    border-block: 1px solid var(--hairline);
+  }
+  .proof-bar__kicker { margin-bottom: var(--space-5); }
+  .proof-bar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+  .proof-bar[data-layout="horizontal"] .proof-bar__list {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  .proof-bar[data-layout="vertical-stack"] .proof-bar__list { grid-template-columns: 1fr; }
+  .proof-bar__item {
+    padding: clamp(16px, 2vw, 32px);
+    border-right: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .proof-bar__item:last-child { border-right: none; }
+  .proof-bar[data-layout="vertical-stack"] .proof-bar__item {
+    border-right: none;
+    border-bottom: 1px solid var(--hairline);
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-4);
+  }
+  .proof-bar[data-layout="vertical-stack"] .proof-bar__item:last-child { border-bottom: none; }
+  .proof-bar__value {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1;
+    color: var(--accent);
+  }
+  .proof-bar__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    font-style: italic;
+    color: var(--muted);
+    line-height: var(--leading-lede);
+  }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .proof-bar[data-bg='paper-2'] { background: var(--paper-2); }
+  .proof-bar[data-bg='paper-3'] { background: var(--paper-3); }
+  .proof-bar[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .proof-bar[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

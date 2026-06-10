@@ -1,39 +1,107 @@
 ---
-// Section W6 · editorial-table-block
-// Comparateur éditorial : header (kicker mono + h2 display) + EditorialTable bilingue.
-// Source : page conseil.astro « Comparateur services » (l.144-153) + composant EditorialTable.
-// - markup/CSS du header = COPIE VERBATIM des styles inline legacy (tokens var(--*), 0 hex brut).
-// - le tableau délègue à EditorialTable (columns/rows/caption selon la langue).
+// ARCHÉTYPE R5b · « table éditoriale sectionnée » — 1 composant paramétrable → 3 type-ids (presets).
+// Header + EditorialTable (molécule unique). Branche sur `data.type` ; chaque variante
+// conserve markup + CSS BYTE-IDENTIQUES à son composant d'origine (qualification
+// `:where(.tech-sec) .wrap` rendue nécessaire par la colocalisation, spécificité inchangée).
+// Noyau : editorial-table-block (kicker + h2 + table). Absorbe (R5b) :
+// tech-models-table (header 2 col + aside + wrap bordé paper-2),
+// department-stack (header sol-sec + aside Callout, famille Solutions).
 import EditorialTable from '../editorial/EditorialTable.astro';
+import Callout from '../editorial/Callout.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 interface Props {
-  data: SectionByType<'editorial-table-block'>;
+  data:
+    | SectionByType<'editorial-table-block'>
+    | SectionByType<'tech-models-table'>
+    | SectionByType<'department-stack'>;
   lang: 'fr' | 'en';
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
-const kicker = isFr ? data.kicker_fr : data.kicker_en;
-const heading = isFr ? data.heading_fr : data.heading_en;
-const caption = isFr ? data.caption_fr : data.caption_en;
-const columns = isFr ? data.columns_fr : data.columns_en;
-const rows = isFr ? data.rows_fr : data.rows_en;
+const dsRows = data.type === 'department-stack'
+  ? data.rows.map((r) => [
+      isFr ? r.category_fr : r.category_en,
+      r.tool,
+      isFr ? r.role_fr : r.role_en,
+    ])
+  : [];
+const tmRows = data.type === 'tech-models-table'
+  ? data.models.map((m) => [
+      m.name,
+      m.version,
+      '',
+      '',
+      isFr ? m.use_case_fr : m.use_case_en,
+    ])
+  : [];
 ---
-<section class="ed-table-block reveal-stagger" aria-labelledby="ed-table-block-h2">
-  <div class="wrap-wide">
-    <Kicker class="ed-table-block-kicker">{kicker}</Kicker>
-    <h2 id="ed-table-block-h2" class="ed-table-block-h2" set:html={heading} />
-    <EditorialTable
-      caption={caption}
-      columns={columns}
-      rows={rows}
-      align="left"
-      variant={data.variant}
-    />
-  </div>
-</section>
+{data.type === 'tech-models-table' ? (
+  <section class="tech-sec tech-sec-paper" data-screen-label="04 Models">
+    <div class="wrap">
+      <div class="tech-sec-hd">
+        <div>
+          <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+          <h2 set:html={isFr ? data.title_fr : data.title_en} />
+        </div>
+        {(isFr ? data.aside_fr : data.aside_en) && (
+          <p class="tech-aside">{isFr ? data.aside_fr : data.aside_en}</p>
+        )}
+      </div>
+      <div class="tech-models-table-wrap reveal-stagger">
+        <EditorialTable
+          columns={['Modèle', 'Profil', 'Coût', 'Contexte', 'Usages']}
+          rows={tmRows}
+          caption={isFr ? data.caption_fr : data.caption_en}
+          variant="editorial"
+        />
+      </div>
+    </div>
+  </section>
+) : data.type === 'department-stack' ? (
+  <section class="sol-sec sol-sec-paper sol-tools reveal" data-screen-label="06 Stack">
+    <div class="wrap g12 g12--full">
+      <header class="sol-sec-hd section-eyebrow col-prose">
+        <Kicker as="span" tone="accent" class="eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</Kicker>
+        <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      </header>
+      <aside class="sol-aside col-aside">
+        <Callout variant="note" size="sm">
+          {(isFr ? data.aside_fr : data.aside_en) ? (
+            <Fragment set:html={isFr ? data.aside_fr : data.aside_en} />
+          ) : (
+            <>Le triptyque Anthropic primary + intégrations métier secondary + open source pour l'orchestration.</>
+          )}
+        </Callout>
+      </aside>
+      <div class="sol-stack-grid col-12">
+        <EditorialTable
+          caption={isFr ? data.caption_fr : data.caption_en}
+          columns={isFr ? data.columns_fr : data.columns_en}
+          rows={dsRows}
+          variant="editorial"
+        />
+      </div>
+    </div>
+  </section>
+) : (
+  <section class="ed-table-block reveal-stagger" aria-labelledby="ed-table-block-h2">
+    <div class="wrap-wide">
+      <Kicker class="ed-table-block-kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      <h2 id="ed-table-block-h2" class="ed-table-block-h2" set:html={isFr ? data.heading_fr : data.heading_en} />
+      <EditorialTable
+        caption={isFr ? data.caption_fr : data.caption_en}
+        columns={isFr ? data.columns_fr : data.columns_en}
+        rows={isFr ? data.rows_fr : data.rows_en}
+        align="left"
+        variant={data.variant}
+      />
+    </div>
+  </section>
+)}
 
 <style>
+  /* ───── editorial-table-block (noyau) — CSS VERBATIM ───── */
   /* Padding section façon HubTemplate catalogue (densification scoped). */
   .ed-table-block {
     padding: var(--section-base) var(--space-6) 0;
@@ -50,4 +118,100 @@ const rows = isFr ? data.rows_fr : data.rows_en;
     margin: 0 0 28px;
   }
   .ed-table-block-h2 :global(i) { color: var(--accent); font-style: italic; }
+
+  /* ───── tech-models-table (preset) — CSS VERBATIM TechModelsTable.astro,
+     `.wrap` scopé qualifié `:where(.tech-sec) .wrap` (spécificité inchangée) ───── */
+  .tech-sec { padding: var(--section-loose) 0; position: relative; }
+  .tech-sec-paper { background: var(--paper-2); }
+  .tech-sec-hd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 80px);
+    margin-bottom: clamp(40px, 5vw, 64px);
+    align-items: end;
+  }
+  .tech-sec-hd h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-2) 0 0;
+  }
+  .tech-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .tech-aside {
+    font-family: var(--font-display);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0;
+  }
+  .tech-models-table-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
+    border-radius: var(--radius-md);
+    background: var(--paper);
+    padding: clamp(18px, 3vw, 32px);
+  }
+  .tech-models-table-wrap :global(.ed-table-figure) { margin: 0; min-width: 760px; }
+
+  :where(.tech-sec) .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  @media (max-width: 800px) {
+    .tech-sec-hd { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .tech-models-table-wrap { padding: var(--space-4); }
+  }
+
+  /* ───── department-stack (preset) — CSS VERBATIM DepartmentStack.astro ───── */
+  /* Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 */
+  .sol-sec { padding: var(--section-base) 0; position: relative; }
+  .sol-tools { margin-top: var(--section-base); }
+  .sol-sec-paper {
+    padding-block: var(--section-base);
+    background: var(--paper-2);
+    border-block: 1px solid var(--hairline);
+  }
+  .sol-sec-hd {
+    margin-bottom: clamp(28px, 4vw, 48px);
+  }
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  .section-eyebrow :global(.eyebrow) {
+    display: inline-block;
+    margin-bottom: var(--space-3);
+  }
+  .sol-sec-hd h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-2) 0 0;
+  }
+  .sol-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .sol-aside {
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0;
+  }
+  .sol-aside :global(.callout) {
+    margin: 0;
+  }
+
+  /* Department Stack — COPIE VERBATIM l.855-858 (EditorialTable porte son propre style) */
+  .sol-stack-grid {
+    display: block;
+    border-top: 1px solid var(--hairline);
+  }
 </style>

@@ -19,8 +19,7 @@ import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
 import MethodTimeline from '../sections/MethodTimeline.astro';
 import HeroCentered from '../sections/HeroCentered.astro';
 import ProblemStatement from '../sections/ProblemStatement.astro';
-import ProblemsGrid from '../sections/ProblemsGrid.astro';
-import DeliverablesGrid from '../sections/DeliverablesGrid.astro';
+import FeatureGrid from '../sections/FeatureGrid.astro';
 import MetricShift from '../sections/MetricShift.astro';
 import StatBlock from '../sections/StatBlock.astro';
 import PullQuoteBlock from '../sections/PullQuoteBlock.astro';
@@ -331,7 +330,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   )}
 
   {/* BOTTLENECKS → problems-grid (migré uniquement) */}
-  {problemsGridData && <ProblemsGrid data={problemsGridData} lang={lang} />}
+  {problemsGridData && <FeatureGrid data={problemsGridData} lang={lang} />}
 
   {/* APPROACH · timeline — phases migrées (préféré) sinon steps legacy. Husk éliminé :
       ne rend la section QUE si une des deux sources existe. */}
@@ -367,7 +366,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   ) : null}
 
   {/* DELIVERABLES → deliverables-grid (migré uniquement) */}
-  {deliverablesGridData && <DeliverablesGrid data={deliverablesGridData} lang={lang} />}
+  {deliverablesGridData && <FeatureGrid data={deliverablesGridData} lang={lang} />}
 
   {/* METRIC SHIFT → before→after magnifié (migré uniquement) */}
   {metricShiftData && <MetricShift data={metricShiftData} lang={lang} />}

@@ -19,7 +19,7 @@ import BootSplash from '../../components/motion/BootSplash.astro';
 import ScrollProgress from '../../components/ui/atoms/ScrollProgress.astro';
 
 import Hero                from '../../components/ui/organisms/Hero.astro';
-import ProofBarSection     from '../../components/sections/ProofBarSection.astro';
+import StatBlock           from '../../components/sections/StatBlock.astro';
 import SocialProof         from '../../components/sections/SocialProof.astro';
 import FeatureGrid         from '../../components/sections/FeatureGrid.astro';
 import ArchitectureDiagram from '../../components/sections/ArchitectureDiagram.astro';
@@ -221,8 +221,8 @@ const architectureDiagramData = {
   {/* 01 — Hero · promise + scope mini-map + CTAs (V7 §12) */}
   <Hero />
 
-  {/* 02 — ProofBarSection · 4 canonical metrics (V7 §13) */}
-  <ProofBarSection data={proofBarData} lang="en" />
+  {/* 02 — StatBlock (preset proof-bar) · 4 canonical metrics (V7 §13) */}
+  <StatBlock data={proofBarData} lang="en" />
 
   <SectionTransition phrase="Verifiable promise, not pitch." />
 

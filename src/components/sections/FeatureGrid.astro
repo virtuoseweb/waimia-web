@@ -1,39 +1,147 @@
 ---
+// ARCHÉTYPE R5b · « grille régulière de cards » — 1 composant paramétrable → 5 type-ids (presets).
+// Grille N colonnes de cards titre+texte+icône/numéro. Branche sur `data.type` ; chaque
+// variante conserve markup + CSS BYTE-IDENTIQUES à son composant d'origine. Seuls
+// ajustements CSS = qualifications de scope `:where(.racine)` (spécificité inchangée)
+// rendues nécessaires par la colocalisation — résultat visuel inchangé.
+// Absorbe (R5b) : problems-grid (cards numérotées auto-fit), deliverables-grid
+// (cards counter + tag), commitments-grid (cells bordées), icon-trio (3 colonnes
+// centrées glyph). Noyau : feature-grid (data-cols 2/3/4).
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
-  data: SectionByType<'feature-grid'>;
+  data:
+    | SectionByType<'feature-grid'>
+    | SectionByType<'problems-grid'>
+    | SectionByType<'deliverables-grid'>
+    | SectionByType<'commitments-grid'>
+    | SectionByType<'icon-trio'>;
   lang: 'fr' | 'en';
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
-const cols = data.columns ?? '3';
+const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
+const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4) : 3;
 ---
 
-<section class="feature-grid" data-bg={data.background}>
-  <div class="wrap-wide">
-  <div class="feature-grid__header">
-    {(isFr ? data.kicker_fr : data.kicker_en) && (
-      <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-    )}
-    <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
-  </div>
-  <ul class="feature-grid__list" data-cols={cols}>
-    {data.features.map((f: (typeof data.features)[number]) => (
-      <li class="feature-grid__item">
-        {f.icon && (
-          <Kicker tone="accent" size={10} class="feature-grid__icon">▸ {f.icon}</Kicker>
+{data.type === 'problems-grid' ? (
+  <section class="problems-grid wrap-wide reveal-blur-clip">
+    <h2 class="problems-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+    <div class="problems-grid__cards">
+      {data.problems.map((p, i) => (
+        <div class="problems-grid__card">
+          <div class="problems-grid__num">{p.num ?? String(i + 1).padStart(2, '0')}</div>
+          <Kicker tone="accent" letterSpacing=".08em" class="problems-grid__kicker">{isFr ? p.kicker_fr : p.kicker_en}</Kicker>
+          <h3 set:html={isFr ? p.title_fr : p.title_en} />
+          <p>{isFr ? p.body_fr : p.body_en}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+) : data.type === 'deliverables-grid' ? (
+  <section class="deliverables-grid" style={`--deliverables-grid-cols: ${dgCols}`}>
+    <div class="wrap-wide">
+      <header class="deliverables-grid__hd">
+        <Kicker as="span" tone="accent" class="deliverables-grid__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <h2 class="deliverables-grid__title" set:html={isFr ? data.title_fr : data.title_en} />
+        {(isFr ? data.lead_fr : data.lead_en) && (
+          <p class="deliverables-grid__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
         )}
-        <strong class="feature-grid__title">{isFr ? f.title_fr : f.title_en}</strong>
-        <p>{isFr ? f.body_fr : f.body_en}</p>
-      </li>
-    ))}
-  </ul>
-  </div>
-</section>
+      </header>
+
+      <div class="deliverables-grid__grid reveal-stagger">
+        {data.items.map((item) => {
+          const format = isFr ? item.format_fr : item.format_en;
+          const duration = isFr ? item.duration_fr : item.duration_en;
+          const tag = [format, duration].filter(Boolean).join(' · ');
+
+          return (
+            <article class="deliverables-grid__card reveal-zoom-in">
+              {tag && <span class="deliverables-grid__tag">{tag}</span>}
+              <h3 set:html={isFr ? item.title_fr : item.title_en} />
+              <p set:html={isFr ? item.body_fr : item.body_en} />
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+) : data.type === 'commitments-grid' ? (
+  <section class="commitments-grid" aria-labelledby="commitments-grid-h2">
+    <div class="wrap-wide">
+      {(data.kicker_fr || data.kicker_en) && (
+        <Kicker as="p" tone="accent" class="commitments-grid__kicker">
+          {isFr ? data.kicker_fr : data.kicker_en}
+        </Kicker>
+      )}
+      <h2 id="commitments-grid-h2" class="commitments-grid__h2 reveal">
+        {isFr ? data.h2_fr : data.h2_en}
+      </h2>
+      {(data.body_fr || data.body_en) && (
+        <p class="commitments-grid__body">
+          {isFr ? data.body_fr : data.body_en}
+        </p>
+      )}
+
+      <div class="commitments-grid__grid reveal-stagger">
+        {data.commitments.map((c) => (
+          <div class="commitments-grid__cell">
+            <h3 class="commitments-grid__cell-title">{isFr ? c.title_fr : c.title_en}</h3>
+            <p class="commitments-grid__cell-body">{isFr ? c.body_fr : c.body_en}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+) : data.type === 'icon-trio' ? (
+  <section class="icon-trio" data-bg={data.background}>
+    <div class="wrap-wide">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      {(isFr ? data.h2_fr : data.h2_en) && (
+        <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      )}
+      <ul class="icon-trio__cols reveal-stagger">
+        {data.items.map((item: (typeof data.items)[number]) => (
+          <li class="icon-trio__col">
+            {item.glyph && (
+              <span class="icon-trio__glyph" aria-hidden="true">{item.glyph}</span>
+            )}
+            <strong class="icon-trio__title">{isFr ? item.title_fr : item.title_en}</strong>
+            <p class="icon-trio__body">{isFr ? item.body_fr : item.body_en}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+) : (
+  <section class="feature-grid" data-bg={data.background}>
+    <div class="wrap-wide">
+    <div class="feature-grid__header">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+    </div>
+    <ul class="feature-grid__list" data-cols={fgCols}>
+      {data.features.map((f: (typeof data.features)[number]) => (
+        <li class="feature-grid__item">
+          {f.icon && (
+            <Kicker tone="accent" size={10} class="feature-grid__icon">▸ {f.icon}</Kicker>
+          )}
+          <strong class="feature-grid__title">{isFr ? f.title_fr : f.title_en}</strong>
+          <p>{isFr ? f.body_fr : f.body_en}</p>
+        </li>
+      ))}
+    </ul>
+    </div>
+  </section>
+)}
 
 <style>
+  /* ───── feature-grid (noyau) — CSS d'origine, `h2` nus qualifiés `:where(.feature-grid)` ───── */
   .feature-grid {
     padding-block: var(--section-base);
     border-bottom: 1px solid var(--hairline);
@@ -44,14 +152,14 @@ const cols = data.columns ?? '3';
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
-  h2 {
+  :where(.feature-grid) h2 {
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
-  h2 :global(i) { font-style: italic; }
+  :where(.feature-grid) h2 :global(i) { font-style: italic; }
   .feature-grid__list {
     list-style: none;
     margin: 0;
@@ -100,4 +208,335 @@ const cols = data.columns ?? '3';
     --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
   .feature-grid[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+
+  /* ───── problems-grid (preset) — CSS VERBATIM ProblemsGrid.astro, `.wrap-wide` scopé
+     qualifié `.wrap-wide:where(.problems-grid)` (spécificité inchangée) ───── */
+  .wrap-wide:where(.problems-grid) { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
+  .problems-grid { padding-block: var(--section-loose); border-top: 1px solid rgba(var(--ink-rgb), .07); }
+  .problems-grid__h2 {
+    font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+    font-size: clamp(24px, 3vw, 40px);
+    letter-spacing: -.01em;
+    margin-bottom: clamp(32px, 4vw, 56px);
+    color: var(--ink);
+  }
+  .problems-grid__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: rgba(var(--ink-rgb), .08);
+    border: 1px solid rgba(var(--ink-rgb), .08);
+    border-radius: var(--radius-xs);
+    overflow: hidden;
+  }
+  .problems-grid__card {
+    background: var(--paper);
+    padding: clamp(24px, 3vw, 40px);
+  }
+  .problems-grid__num {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: .08em;
+    margin-bottom: var(--space-2);
+  }
+  /* Kicker canonisé (R4) · typo portée par l'atome (fusion tracking .06em -> .08em, variante documentée) */
+  :global(.problems-grid__kicker) {
+    margin-bottom: var(--space-3);
+  }
+  .problems-grid__card h3 {
+    font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.25;
+    margin-bottom: var(--space-4);
+    color: var(--ink);
+  }
+  .problems-grid__card p {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-prose);
+    color: var(--muted);
+  }
+
+  /* ───── deliverables-grid (preset) — CSS VERBATIM DeliverablesGrid.astro ───── */
+  .deliverables-grid {
+    padding: var(--deliverables-grid-pad, var(--section-loose)) var(--deliverables-grid-inline, var(--space-6));
+    border-bottom: 1px solid var(--hairline);
+  }
+  .deliverables-grid__hd {
+    margin-bottom: clamp(var(--space-8), 5vw, var(--space-12));
+  }
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.deliverables-grid__kicker) {
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+  .deliverables-grid__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .deliverables-grid__title :global(i) {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .deliverables-grid__lead {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: 680px;
+    margin: var(--space-5) 0 0;
+  }
+  .deliverables-grid__grid {
+    counter-reset: deliverable-counter;
+    display: grid;
+    grid-template-columns: repeat(var(--deliverables-grid-cols, 3), 1fr);
+    gap: 0;
+  }
+  .deliverables-grid__card {
+    position: relative;
+    counter-increment: deliverable-counter;
+    padding: var(--space-7) var(--space-6) var(--space-6) 0;
+    border-top: 1px solid var(--hairline-strong);
+    background: transparent;
+    transition: transform var(--dur-trim) var(--ease), border-top-color var(--dur-trim) var(--ease), background var(--dur-trim) var(--ease);
+  }
+  .deliverables-grid__card::before {
+    content: counter(deliverable-counter, decimal-leading-zero);
+    position: absolute;
+    top: var(--space-5);
+    right: var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .deliverables-grid__card:hover {
+    transform: translateY(-2px);
+    border-top-color: var(--accent);
+    background: var(--paper-2);
+  }
+  .deliverables-grid__card:hover::before {
+    color: var(--accent);
+  }
+  .deliverables-grid__tag {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+    transition: transform var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
+  }
+  .deliverables-grid__card h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-row);
+    font-style: italic;
+    line-height: var(--leading-h3);
+    letter-spacing: var(--tracking-display);
+    margin: var(--space-3) 0;
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    text-wrap: balance;
+    transition: transform var(--dur-trim) var(--ease);
+  }
+  .deliverables-grid__card p {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 38ch;
+    transition: transform var(--dur-trim) var(--ease);
+  }
+  .deliverables-grid__card:hover h3,
+  .deliverables-grid__card:hover p,
+  .deliverables-grid__card:hover .deliverables-grid__tag {
+    transform: translateX(1px);
+  }
+  @media (max-width: 900px) {
+    .deliverables-grid__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .deliverables-grid__grid {
+      grid-template-columns: 1fr;
+    }
+    .deliverables-grid__card {
+      padding-right: 0;
+    }
+  }
+
+  /* ───── commitments-grid (preset) — CSS VERBATIM CommitmentsGrid.astro ───── */
+  .commitments-grid {
+    padding: var(--section-base) 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
+  :global(.commitments-grid__kicker) {
+    margin: 0 0 14px;
+  }
+  .commitments-grid__h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    max-width: 760px;
+    margin: 0 0 clamp(28px, 3vw, 44px);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .commitments-grid__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-base);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 0 clamp(28px, 3vw, 44px);
+  }
+  .commitments-grid__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--hairline);
+  }
+  .commitments-grid__cell {
+    padding: clamp(28px, 3.5vw, 48px);
+    border-right: 1px solid var(--hairline);
+  }
+  .commitments-grid__cell:last-child {
+    border-right: none;
+  }
+  .commitments-grid__cell-title {
+    font-family: var(--font-display);
+    font-size: clamp(17px, 1.6vw, 22px);
+    line-height: 1.25;
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+  }
+  .commitments-grid__cell-body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+  }
+  @media (max-width: 800px) {
+    .commitments-grid__grid {
+      grid-template-columns: 1fr;
+    }
+    .commitments-grid__cell {
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .commitments-grid__cell:last-child {
+      border-bottom: none;
+    }
+  }
+
+  /* ───── icon-trio (preset) — CSS VERBATIM IconTrio.astro, `h2` nus qualifiés `:where(.icon-trio)` ───── */
+  .icon-trio {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .icon-trio .wrap-wide > :global(.kicker) {
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  :where(.icon-trio) h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0 0 var(--spacing-block);
+  }
+  :where(.icon-trio) h2 :global(i) { font-style: italic; }
+
+  .icon-trio__cols {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .icon-trio__col {
+    padding: clamp(20px, 2.5vw, 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  /* Separateurs hairline verticaux sur les 2e et 3e colonnes */
+  .icon-trio__col:nth-child(2),
+  .icon-trio__col:nth-child(3) {
+    border-left: 1px solid var(--hairline);
+  }
+
+  .icon-trio__glyph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1;
+    color: var(--accent);
+    font-family: var(--font-display);
+  }
+
+  .icon-trio__title {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.4vw, 20px);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .icon-trio__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Responsive : 1 colonne, separateurs horizontaux */
+  @media (max-width: 768px) {
+    .icon-trio__cols {
+      grid-template-columns: 1fr;
+    }
+
+    .icon-trio__col:nth-child(2),
+    .icon-trio__col:nth-child(3) {
+      border-left: none;
+      border-top: 1px solid var(--hairline);
+    }
+  }
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .icon-trio[data-bg='paper-2'] { background: var(--paper-2); }
+  .icon-trio[data-bg='paper-3'] { background: var(--paper-3); }
+  .icon-trio[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .icon-trio[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

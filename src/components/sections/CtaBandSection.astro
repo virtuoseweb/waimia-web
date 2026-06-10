@@ -1,25 +1,42 @@
 ---
+// ARCHÉTYPE R5b · « CTA bande inline » — 1 composant paramétrable → 2 type-ids (presets).
+// CTA compacte texte + bouton. Branche sur `data.type` ; chaque variante conserve
+// markup + CSS BYTE-IDENTIQUES à son composant d'origine (classes déjà disjointes,
+// 0 qualification nécessaire). Noyau : cta-band (bande fine full-bleed border-block).
+// Absorbe (R5b) : cta-inline (box bordée in-flow dans wrap-wide).
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
 
 interface Props {
-  data: SectionByType<'cta-band'>;
+  data: SectionByType<'cta-band'> | SectionByType<'cta-inline'>;
   lang: 'fr' | 'en';
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<div class="cta-band" data-bg={data.background}>
-  <div class="wrap-wide cta-band__inner">
-    <p class="cta-band__text">{isFr ? data.text_fr : data.text_en}</p>
-    <Button href={data.cta.href} variant={data.cta.variant as any} size="md" mag={data.cta.mag ?? 0.12}>
-      {isFr ? data.cta.label_fr : data.cta.label_en}
-    </Button>
+{data.type === 'cta-inline' ? (
+  <div class="wrap-wide">
+    <div class="cta-inline" data-bg={data.background}>
+      <p class="cta-inline__text">{isFr ? data.text_fr : data.text_en}</p>
+      <Button href={data.cta.href} variant={data.cta.variant as any} size="md">
+        {isFr ? data.cta.label_fr : data.cta.label_en}
+      </Button>
+    </div>
   </div>
-</div>
+) : (
+  <div class="cta-band" data-bg={data.background}>
+    <div class="wrap-wide cta-band__inner">
+      <p class="cta-band__text">{isFr ? data.text_fr : data.text_en}</p>
+      <Button href={data.cta.href} variant={data.cta.variant as any} size="md" mag={data.cta.mag ?? 0.12}>
+        {isFr ? data.cta.label_fr : data.cta.label_en}
+      </Button>
+    </div>
+  </div>
+)}
 
 <style>
+  /* ───── cta-band (noyau) — CSS VERBATIM ───── */
   .cta-band {
     padding-block: 20px;
     border-block: 1px solid var(--hairline);
@@ -45,4 +62,31 @@ const isFr = lang === 'fr';
     max-width: 60ch;
     line-height: var(--leading-body);
   }
+
+  /* ───── cta-inline (preset box) — CSS VERBATIM CtaInline.astro ───── */
+  .cta-inline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: var(--space-4) 20px;
+    border: 1px solid var(--hairline);
+    background: var(--paper-2);
+    flex-wrap: wrap;
+  }
+  .cta-inline__text {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--ink);
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
+    line-height: var(--leading-body);
+  }
+  /* Alternance des fonds R4 · le schema exposait deja `background`, le composant l'ignorait */
+  .cta-inline[data-bg='paper'] { background: var(--paper); }
+  .cta-inline[data-bg='paper-3'] { background: var(--paper-3); }
+  .cta-inline[data-bg='ink'] { background: var(--ink); }
+  .cta-inline[data-bg='ink'] .cta-inline__text { color: var(--paper); }
+  .cta-inline[data-bg='accent'] { background: var(--accent); }
+  .cta-inline[data-bg='accent'] .cta-inline__text { color: var(--paper); }
 </style>
