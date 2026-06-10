@@ -558,16 +558,17 @@ export const DEPARTMENTS_GRID = [
   { slug: 'support-client-ia', label: { en: 'Customer Support', fr: 'Support client' }, tag: { en: 'Triage · resolution · escalation', fr: 'Triage · résolution · escalade' } },
 ];
 
+// Facts alignés sur la collection src/content/cases/* (source de vérité · harmonisation vague visuelle 2026-06-10).
 export const CASE_FEED = [
-  { slug: 'plateau',    client: 'Plateau',        sector: { en: 'B2B SaaS',         fr: 'SaaS B2B' },         duration: '10 wk',     stack: 'Claude · HubSpot · dbt',         impact: { en: '+€2.4M pipeline reactivated · automated qualification', fr: '+€2,4 M de pipeline récupéré · qualification automatisée' } },
-  { slug: 'halcyon',    client: 'Halcyon Health', sector: { en: 'Healthtech',       fr: 'Santé-tech' },       duration: '6 wk',      stack: 'Claude · Snowflake',             impact: { en: '−38% triage time · 24/7 response', fr: '−38% de temps de triage · réponse 24/7' } },
-  { slug: 'northbound', client: 'Northbound',     sector: { en: 'Fintech · EU',     fr: 'Fintech · UE' },     duration: '14 wk',     stack: 'Claude · Segment · dbt',         impact: { en: '×3.1 conversion · automated scoring', fr: '×3,1 conversion · scoring automatisé' } },
-  { slug: 'caserne',    client: 'Caserne',        sector: { en: 'Industry · FR',    fr: 'Industrie · FR' },   duration: '8 wk',      stack: 'Claude · custom RAG · SAP',      impact: { en: '1,200 h/year saved · streamlined back office', fr: '1 200 h/an récupérées · opérations déchargées' } },
+  { slug: 'plateau',    client: 'Plateau',            sector: { en: 'B2B SaaS',            fr: 'SaaS B2B' },                 duration: '10 sem', stack: 'Claude · HubSpot · dbt',                   impact: { en: '+€2.4M pipeline recovered · 22 h/wk saved', fr: '+2,4 M€ pipeline récupéré · 22 h/sem économisées' } },
+  { slug: 'halcyon',    client: 'Halcyon',            sector: { en: 'Strategy consulting', fr: 'Conseil en stratégie' },     duration: '8 sem',  stack: 'Claude · Notion MCP',                      impact: { en: '120 consulting hours recovered · 3 projects on time', fr: '120 h consultant libérées · 3 projets livrés on-time' } },
+  { slug: 'northbound', client: 'Northbound Capital', sector: { en: 'Asset management',    fr: "Gestion d'actifs" },         duration: '5 j',    stack: 'Claude · Notion MCP · Excel',              impact: { en: '−2 days of monthly close · 80% close questions automated', fr: '−2 j de clôture mensuelle · 80 % questions auto-traitées' } },
+  { slug: 'caserne',    client: 'Caserne Industries', sector: { en: 'Manufacturing',       fr: 'Industrie manufacturière' }, duration: '2 j',    stack: 'Claude · revue documentaire · entretiens', impact: { en: '4 bottlenecks surfaced · −35% inter-site delays', fr: '4 goulots documentés · −35 % délais inter-sites' } },
   { slug: 'virtuoseos', client: 'VirtuoseOS',     sector: { en: 'Internal blueprint', fr: 'Blueprint interne' }, duration: 'ongoing', stack: 'Claude · open-source · multi-agent', impact: { en: 'The operating system under every delivery', fr: 'Le système opérationnel sous chaque livraison' }, featured: true },
 ];
 
 export const FIELD_NOTES = [
-  { date: '04.2026', tag: { en: 'CASE',       fr: 'CAS' },     text: { en: 'Halcyon Health: AI triage routing in 6 weeks.',                                  fr: 'Halcyon Health : triage IA routé en 6 semaines.' } },
+  { date: '04.2026', tag: { en: 'CASE',       fr: 'CAS' },     text: { en: 'Halcyon: 120 consulting hours recovered in 8 weeks.',                            fr: 'Halcyon : 120 h consultant libérées en 8 semaines.' } },
   { date: '04.2026', tag: { en: 'UPDATE',    fr: 'MISE À JOUR' }, text: { en: 'VirtuoseOS 2.4: multi-workspace kernels, French locale.',                        fr: 'VirtuoseOS 2.4 : noyaux multi-workspace, locale FR.' } },
   { date: '03.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'HubSpot + Claude: the unglamorous pattern that actually ships.',                  fr: 'HubSpot + Claude : le pattern discret qui livre vraiment.' } },
   { date: '03.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'Against the brain-circuit aesthetic.',                                            fr: "Contre l'esthétique cerveau-circuit." } },
