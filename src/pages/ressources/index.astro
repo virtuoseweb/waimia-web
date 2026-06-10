@@ -19,6 +19,7 @@ import Bi from '../../components/ui/atoms/Bi.astro';
 import EditorialSplitGrid from '../../components/sections/EditorialSplitGrid.astro';
 import { langFromPath } from '../../lib/i18n';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
+import { blogEntryHref } from '../../lib/blog-routing';
 
 const lang = langFromPath(Astro.url.pathname);
 
@@ -63,7 +64,7 @@ const tools = [
     title_en: _b0.data.title_en,
     lead_fr: `${_b0.data.description_fr} →`,
     lead_en: `${_b0.data.description_en} →`,
-    href: `/ressources/blog/${_b0.id}`,
+    href: blogEntryHref(_b0),
   }] : []),
   {
     kicker: 'VEILLE · 03',
@@ -100,7 +101,7 @@ const blogCards = sortedBlog.slice(0, 3).map((b, i) => ({
   title_en: b.data.title_en,
   lead_fr: `${b.data.description_fr} →`,
   lead_en: `${b.data.description_en} →`,
-  href: `/ressources/blog/${b.id}`,
+  href: blogEntryHref(b),
 }));
 
 const livresBlancsCards = sortedLivresBlancs.map((lb, i) => ({

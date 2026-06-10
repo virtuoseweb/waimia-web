@@ -5,7 +5,9 @@ import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
-  const veilleIA = await getCollection('veilleIA');
+  // Post-fusion R1 : le flux veille est alimenté par blog filtré type === 'veille-ia'.
+  const blog = await getCollection('blog');
+  const veilleIA = blog.filter((entry) => entry.data.type === 'veille-ia');
 
   const items = veilleIA
     .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime())

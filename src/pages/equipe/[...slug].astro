@@ -4,7 +4,7 @@
  *
  * SSG mode : getStaticPaths() injecte l'entry auteur en props.
  * Auto-jointure : récupère tous les contenus de cet auteur depuis blog,
- * cookbooks, livresBlancs, veilleIA. Filtre + tri par publishedAt desc.
+ * cookbooks, livresBlancs (veille IA + field notes = blog.type). Filtre + tri par publishedAt desc.
  */
 export const prerender = true;
 
@@ -25,8 +25,7 @@ export async function getStaticPaths() {
 type AuthorLinkedEntry =
   | CollectionEntry<'blog'>
   | CollectionEntry<'cookbooks'>
-  | CollectionEntry<'livresBlancs'>
-  | CollectionEntry<'veilleIA'>;
+  | CollectionEntry<'livresBlancs'>;
 
 type AuthorRef = string | { id?: string; slug?: string; name?: string };
 type Props = { entry: CollectionEntry<'authors'> };
@@ -36,12 +35,12 @@ const slug = entry.id;
 
 const { Content } = await render(entry);
 
-// Auto-jointure : tous les contenus de cet auteur, triés par date desc
-const [allBlog, allCookbooks, allLivresBlancs, allVeille] = await Promise.all([
+// Auto-jointure : tous les contenus de cet auteur, triés par date desc.
+// Post-fusion R1 : la veille IA + les field notes vivent dans blog (champ type).
+const [allBlog, allCookbooks, allLivresBlancs] = await Promise.all([
   getCollection('blog'),
   getCollection('cookbooks'),
   getCollection('livresBlancs'),
-  getCollection('veilleIA'),
 ]);
 
 // Filtre par auteur — la ref `author: reference('authors')` n'est pas encore appliquée
@@ -73,11 +72,20 @@ const sortByDate = <T extends { data: { publishedAt: Date } }>(items: T[]) =>
   );
 
 const blogByAuthor = sortByDate(allBlog.filter(matchAuthor));
-const essays = blogByAuthor.filter((contentEntry) => contentEntry.data.editorialType === 'Essay');
-const shortPosts = blogByAuthor.filter((contentEntry) => contentEntry.data.editorialType === 'Field Note');
+// Les types legacy-routés (field-note / veille-ia) ont leurs propres groupes
+// (hrefBase dédié dans AuthorPageTemplate) — exclus des groupes blog classiques.
+const isLegacy = (contentEntry: CollectionEntry<'blog'>) =>
+  contentEntry.data.type === 'field-note' || contentEntry.data.type === 'veille-ia';
+const essays = blogByAuthor.filter(
+  (contentEntry) => contentEntry.data.editorialType === 'Essay' && !isLegacy(contentEntry),
+);
+const shortPosts = blogByAuthor.filter(
+  (contentEntry) => contentEntry.data.editorialType === 'Field Note' && !isLegacy(contentEntry),
+);
+const fieldNotes = blogByAuthor.filter((contentEntry) => contentEntry.data.type === 'field-note');
+const veilleIA = blogByAuthor.filter((contentEntry) => contentEntry.data.type === 'veille-ia');
 const cookbooks = sortByDate(allCookbooks.filter(matchAuthor));
 const livresBlancs = sortByDate(allLivresBlancs.filter(matchAuthor));
-const veilleIA = sortByDate(allVeille.filter(matchAuthor));
 ---
 
 <AuthorPageTemplate
@@ -87,6 +95,7 @@ const veilleIA = sortByDate(allVeille.filter(matchAuthor));
   cookbooks={cookbooks}
   livresBlancs={livresBlancs}
   veilleIA={veilleIA}
+  fieldNotes={fieldNotes}
 >
   <Content />
 </AuthorPageTemplate>

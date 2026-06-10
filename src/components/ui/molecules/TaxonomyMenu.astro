@@ -2,15 +2,15 @@
 import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../../../data/taxonomies';
 
-const [blog, cookbooks, livresBlancs, veilleIA, cases] = await Promise.all([
+// Post-fusion R1 : la veille IA vit dans blog (type === 'veille-ia'), plus de collection dédiée.
+const [blog, cookbooks, livresBlancs, cases] = await Promise.all([
   getCollection('blog'),
   getCollection('cookbooks'),
   getCollection('livresBlancs'),
-  getCollection('veilleIA'),
   getCollection('cases'),
 ]);
 
-const all = [...blog, ...cookbooks, ...livresBlancs, ...veilleIA, ...cases];
+const all = [...blog, ...cookbooks, ...livresBlancs, ...cases];
 
 const counts: Record<string, number> = {};
 for (const cat of Object.keys(CATEGORIES)) {

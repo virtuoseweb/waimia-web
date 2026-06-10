@@ -1,32 +1,36 @@
 ---
 export const prerender = true;
 
-// Page SSG · /ressources/field-notes/[slug] · Consumer MDX collection "fieldNotes"
+// Page SSG · /ressources/field-notes/[slug] · Consumer blog filtré type === 'field-note'
+// Post-fusion R1 (docs/audit-refonte/collections.md §F1) : URLs héritées préservées.
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../../lib/i18n';
+import { fieldNoteTagLabel } from '../../../lib/blog-routing';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('fieldNotes');
-  return entries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  const entries = await getCollection('blog');
+  return entries
+    .filter((entry) => entry.data.type === 'field-note' && !entry.data.seo?.noindex)
+    .map((entry) => ({
+      params: { slug: entry.id },
+      props: { entry },
+    }));
 }
 
-type Props = { entry: CollectionEntry<'fieldNotes'> };
+type Props = { entry: CollectionEntry<'blog'> };
 const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 const data = entry.data;
 const lang = langFromPath(Astro.url.pathname);
 const title = lang === 'fr' ? data.title_fr : data.title_en;
-const tag = lang === 'fr' ? data.tag_fr : data.tag_en;
+const tag = fieldNoteTagLabel(data.editorialType, lang);
 const dateStr = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
   day: 'numeric', month: 'long', year: 'numeric'
-}).format(data.date);
+}).format(data.publishedAt);
 ---
 <Base title={`${title} · Field Note · Waimia`} description={lang === 'fr' ? data.description_fr : data.description_en}>
   <article class="fieldnote-detail">
@@ -42,7 +46,7 @@ const dateStr = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
       <header class="fieldnote-detail__hd">
         <Kicker tone="accent">§ {tag}</Kicker>
         <h1 class="fieldnote-detail__title">{title}</h1>
-        <time class="fieldnote-detail__date" datetime={data.date.toISOString()}>{dateStr}</time>
+        <time class="fieldnote-detail__date" datetime={data.publishedAt.toISOString()}>{dateStr}</time>
       </header>
 
       <div class="fieldnote-detail__content">

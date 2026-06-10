@@ -443,18 +443,6 @@ const blog = defineCollection({
   }),
 });
 
-// ─── Field notes ───
-const fieldNotes = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/field-notes' }),
-  schema: z.object({
-    ...baseFields,
-    date: z.coerce.date(),
-    tag_fr: z.enum(['NOTE', 'CAS', 'ESSAI', 'RECETTE']),
-    tag_en: z.enum(['FIELD NOTE', 'CASE', 'ESSAY', 'COOKBOOK']),
-    sourceUrl: z.string().url().optional(),
-  }),
-});
-
 // ─── Secteurs ───
 const secteurs = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/secteurs' }),
@@ -569,21 +557,6 @@ const outils = defineCollection({
     relatedPages: z.array(z.string()).default([]),
     category_fr: z.string().optional(),
     category_en: z.string().optional(),
-  }),
-});
-
-// ─── Veille IA ───
-const veilleIA = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/veille-ia' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    date: z.coerce.date(),
-    impact_fr: z.string().min(40).max(280),
-    impact_en: z.string().min(40).max(280),
-    sectors: z.array(z.string()).default([]),
-    author: reference('authors'),
-    contributors: z.array(reference('authors')).default([]),
   }),
 });
 
@@ -1192,12 +1165,10 @@ export const collections = {
   solutions,
   technologies,
   blog,
-  fieldNotes,
   secteurs,
   livresBlancs,
   cookbooks,
   outils,
-  veilleIA,
   pages,
   authors,
   // V2 nouvelles (2026-05-15)

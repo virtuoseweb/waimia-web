@@ -5,11 +5,14 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
 import AuthorByline from '../../../components/ui/molecules/AuthorByline.astro';
 import { computeReadingTime } from '../../../lib/seo/reading-time';
+import { isLegacyRoutedType } from '../../../lib/blog-routing';
 
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
+  // Les types field-note / veille-ia sont servis par leurs routes héritées
+  // (/ressources/field-notes, /ressources/veille-ia) · cf src/lib/blog-routing.ts.
   return entries
-    .filter((entry) => !entry.data.seo?.noindex)
+    .filter((entry) => !entry.data.seo?.noindex && !isLegacyRoutedType(entry))
     .map((entry) => ({
       params: { slug: entry.id },
       props: { entry },
