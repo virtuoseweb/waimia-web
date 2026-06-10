@@ -1,3 +1,5 @@
+import { renderContrast } from './ds-studio-contrast.js';
+
 // DS Studio · éditeur de tokens LIVE + carte d'impact (vanilla, 0 dépendance)
 //
 // Principe ACSS / Core Framework : on édite la VALEUR d'un token CSS, on appelle
@@ -21,12 +23,20 @@ function initStudio() {
 
   const DATA = JSON.parse(dataEl.textContent || '{}');
   const consumers = DATA.consumers || {};
+  const originals = new Map(Object.entries(DATA.originals || {}));
   const SAVE_PENDING_KEY = 'ds-save-pending';
   const SAVE_RELOADED_KEY = 'ds-save-reloaded';
+  const PRESETS_KEY = 'ds-studio-presets';
   let hashSyncTimer = null;
 
   // Tokens modifiés (pour l'export ciblé)
   const dirty = new Map(); // token -> valeur courante
+  const undoStack = [];
+  const redoStack = [];
+  const undoBtn = container.querySelector('#token-undo');
+  const redoBtn = container.querySelector('#token-redo');
+  const contrastList = container.querySelector('#contrast-list');
+  const previewFrame = container.querySelector('#page-preview');
 
   function setSaveState(state) {
     document.body.setAttribute('data-save-state', state);
@@ -47,12 +57,42 @@ function initStudio() {
     }, 300);
   }
 
+  function currentValue(token) {
+    return dirty.get(token) ?? originals.get(token) ?? getComputedStyle(root).getPropertyValue(token).trim();
+  }
+
+  function refreshHistoryButtons() {
+    if (undoBtn) undoBtn.disabled = undoStack.length === 0;
+    if (redoBtn) redoBtn.disabled = redoStack.length === 0;
+  }
+
+  function refreshDerivedSurfaces() {
+    renderContrast(root, contrastList);
+    applyOverridesToPreview();
+  }
+
   // ── Application d'un override ──────────────────────────────────────────────
-  function applyToken(token, value) {
-    root.style.setProperty(token, value);
-    dirty.set(token, value);
-    markRowDirty(token, true);
+  function applyToken(token, value, options = {}) {
+    const { record = true, sync = true } = options;
+    const oldValue = currentValue(token);
+    if (record && oldValue !== value) {
+      undoStack.push({ token, oldValue, newValue: value });
+      redoStack.length = 0;
+    }
+
+    const original = originals.get(token);
+    if (value === original) {
+      root.style.removeProperty(token);
+      dirty.delete(token);
+    } else {
+      root.style.setProperty(token, value);
+      dirty.set(token, value);
+    }
+    if (sync) syncControls(token, value, null);
+    markRowDirty(token, dirty.has(token));
     refreshExportCount();
+    refreshHistoryButtons();
+    refreshDerivedSurfaces();
     scheduleHashSync();
   }
 
@@ -65,7 +105,8 @@ function initStudio() {
   function syncControls(token, value, source) {
     container.querySelectorAll(`[data-token="${token}"]`).forEach((ctrl) => {
       if (ctrl === source) return;
-      ctrl.value = value;
+      const unit = ctrl.getAttribute('data-unit') || '';
+      ctrl.value = unit && String(value).endsWith(unit) ? String(value).slice(0, -unit.length) : value;
     });
   }
 
@@ -80,7 +121,7 @@ function initStudio() {
         value = value + unit;
       }
       syncControls(token, ctrl.value, ctrl);
-      applyToken(token, value);
+      applyToken(token, value, { sync: false });
     });
   });
 
@@ -140,16 +181,17 @@ function initStudio() {
   // ── Reset ──────────────────────────────────────────────────────────────────
   const resetBtn = container.querySelector('#token-reset');
   function resetTokens() {
-    dirty.forEach((_v, token) => {
+    [...dirty.keys()].forEach((token) => {
       root.style.removeProperty(token);
       markRowDirty(token, false);
-      container.querySelectorAll(`[data-token="${token}"]`).forEach((ctrl) => {
-        const def = ctrl.getAttribute('data-default');
-        if (def !== null) ctrl.value = def;
-      });
+      syncControls(token, originals.get(token) || '', null);
     });
     dirty.clear();
+    undoStack.length = 0;
+    redoStack.length = 0;
     refreshExportCount();
+    refreshHistoryButtons();
+    refreshDerivedSurfaces();
     scheduleHashSync();
     setSaveState('idle');
     toast('Tokens réinitialisés aux valeurs du fichier tokens.css');
@@ -166,6 +208,43 @@ function initStudio() {
   function refreshExportCount() {
     if (exportCount) exportCount.textContent = String(dirty.size);
   }
+
+  function undo() {
+    const entry = undoStack.pop();
+    if (!entry) return null;
+    applyToken(entry.token, entry.oldValue, { record: false });
+    redoStack.push(entry);
+    refreshHistoryButtons();
+    return { token: entry.token, value: entry.oldValue };
+  }
+
+  function redo() {
+    const entry = redoStack.pop();
+    if (!entry) return null;
+    applyToken(entry.token, entry.newValue, { record: false });
+    undoStack.push(entry);
+    refreshHistoryButtons();
+    return { token: entry.token, value: entry.newValue };
+  }
+
+  if (undoBtn) undoBtn.addEventListener('click', undo);
+  if (redoBtn) redoBtn.addEventListener('click', redo);
+
+  if (window.__dsStudioKeydownHandler) {
+    document.removeEventListener('keydown', window.__dsStudioKeydownHandler);
+  }
+  window.__dsStudioKeydownHandler = (event) => {
+    if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== 'z') return;
+    const target = event.target;
+    const isTextInput = target instanceof HTMLTextAreaElement
+      || (target instanceof HTMLInputElement && ['text', 'search', 'password', 'email', 'url', 'number'].includes(target.type))
+      || (target instanceof HTMLElement && target.isContentEditable);
+    if (isTextInput) return;
+    event.preventDefault();
+    if (event.shiftKey) redo();
+    else undo();
+  };
+  document.addEventListener('keydown', window.__dsStudioKeydownHandler);
 
   function buildExport() {
     if (!dirty.size) return '/* Aucun token modifié */';
@@ -405,6 +484,39 @@ function initStudio() {
     }
   }
 
+  const diffModal = document.getElementById('save-diff-modal');
+  const diffList = document.getElementById('save-diff-list');
+  const diffConfirm = document.getElementById('save-diff-confirm');
+  const diffCancel = document.getElementById('save-diff-cancel');
+
+  function closeDiffModal() {
+    if (diffModal) diffModal.hidden = true;
+  }
+
+  function openDiffModal() {
+    if (!diffModal || !diffList) return;
+    diffList.replaceChildren();
+    [...dirty.entries()].sort((a, b) => a[0].localeCompare(b[0])).forEach(([token, value]) => {
+      const row = document.createElement('div');
+      row.className = 'studio-diff-row';
+      row.dataset.diffToken = token;
+
+      if (/^#[\da-f]{3,8}$/i.test(value)) {
+        const swatch = document.createElement('span');
+        swatch.className = 'studio-diff-swatch';
+        swatch.style.background = value;
+        row.appendChild(swatch);
+      }
+
+      const text = document.createElement('span');
+      text.textContent = `${token} · ${originals.get(token) || ''} → ${value}`;
+      row.appendChild(text);
+      diffList.appendChild(row);
+    });
+    diffModal.hidden = false;
+    if (diffConfirm) diffConfirm.focus();
+  }
+
   if (saveBtn) {
     saveBtn.addEventListener('click', () => {
       const keyword = keywordInput ? keywordInput.value.trim() : '';
@@ -417,7 +529,157 @@ function initStudio() {
         if (keywordInput) keywordInput.focus();
         return;
       }
+      openDiffModal();
+    });
+  }
+
+  if (diffCancel) diffCancel.addEventListener('click', closeDiffModal);
+  if (diffModal) {
+    diffModal.addEventListener('click', (event) => {
+      if (event.target === diffModal) closeDiffModal();
+    });
+  }
+  if (diffConfirm) {
+    diffConfirm.addEventListener('click', () => {
+      const keyword = keywordInput ? keywordInput.value.trim() : '';
+      closeDiffModal();
       performSave(keyword);
+    });
+  }
+
+  // ── Viewport de la galerie ─────────────────────────────────────────────────
+  const gallery = container.querySelector('.studio-gallery');
+  const viewportButtons = [...container.querySelectorAll('[data-viewport]')];
+
+  function setViewport(viewport) {
+    if (gallery) gallery.setAttribute('data-active-viewport', viewport);
+    viewportButtons.forEach((button) => {
+      const active = button.getAttribute('data-viewport') === viewport;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  viewportButtons.forEach((button) => {
+    button.addEventListener('click', () => setViewport(button.getAttribute('data-viewport') || 'desktop'));
+  });
+  setViewport('desktop');
+
+  // ── Preview pleine page ────────────────────────────────────────────────────
+  const previewPanel = container.querySelector('#preview-panel');
+  const previewRoute = container.querySelector('#preview-route');
+  const previewRefresh = container.querySelector('#preview-refresh');
+
+  function applyOverridesToPreview() {
+    const frameRoot = previewFrame?.contentDocument?.documentElement;
+    if (!frameRoot) return;
+    originals.forEach((_value, token) => frameRoot.style.removeProperty(token));
+    dirty.forEach((value, token) => frameRoot.style.setProperty(token, value));
+  }
+
+  function loadPreview(force = false) {
+    if (!previewFrame || !previewRoute) return;
+    const route = previewRoute.value;
+    if (force || previewFrame.getAttribute('src') !== route) previewFrame.setAttribute('src', route);
+  }
+
+  if (previewPanel) {
+    previewPanel.addEventListener('toggle', () => {
+      if (previewPanel.open && !previewFrame?.getAttribute('src')) loadPreview();
+    });
+  }
+  if (previewRoute) previewRoute.addEventListener('change', () => loadPreview(true));
+  if (previewRefresh) previewRefresh.addEventListener('click', () => loadPreview(true));
+  if (previewFrame) previewFrame.addEventListener('load', applyOverridesToPreview);
+
+  // ── Presets nommés ─────────────────────────────────────────────────────────
+  const presetName = container.querySelector('#preset-name');
+  const presetSave = container.querySelector('#preset-save');
+  const presetList = container.querySelector('#preset-list');
+
+  function readPresets() {
+    try {
+      const value = JSON.parse(localStorage.getItem(PRESETS_KEY) || '{}');
+      return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    } catch {
+      return {};
+    }
+  }
+
+  function writePresets(value) {
+    localStorage.setItem(PRESETS_KEY, JSON.stringify(value));
+    renderPresets();
+  }
+
+  function listPresets() {
+    return readPresets();
+  }
+
+  function savePreset(name) {
+    const trimmed = String(name || '').trim();
+    if (!trimmed) return null;
+    const presets = readPresets();
+    presets[trimmed] = buildTokensPayload();
+    writePresets(presets);
+    return presets[trimmed];
+  }
+
+  function applyPreset(name) {
+    const preset = readPresets()[name];
+    if (!preset || typeof preset !== 'object') return null;
+    Object.entries(preset).forEach(([token, value]) => applyToken(token, String(value)));
+    return preset;
+  }
+
+  function removePreset(name) {
+    const presets = readPresets();
+    if (!(name in presets)) return false;
+    delete presets[name];
+    writePresets(presets);
+    return true;
+  }
+
+  function renderPresets() {
+    if (!presetList) return;
+    presetList.replaceChildren();
+    Object.keys(readPresets()).sort().forEach((name) => {
+      const row = document.createElement('div');
+      row.className = 'studio-preset-row';
+
+      const label = document.createElement('span');
+      label.textContent = name;
+
+      const actions = document.createElement('span');
+      actions.className = 'studio-actions';
+
+      const apply = document.createElement('button');
+      apply.type = 'button';
+      apply.className = 'studio-btn';
+      apply.textContent = 'Appliquer';
+      apply.addEventListener('click', () => applyPreset(name));
+
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.className = 'studio-btn';
+      remove.textContent = 'Supprimer';
+      remove.addEventListener('click', () => removePreset(name));
+
+      actions.append(apply, remove);
+      row.append(label, actions);
+      presetList.appendChild(row);
+    });
+  }
+
+  if (presetSave) {
+    presetSave.addEventListener('click', () => {
+      const name = presetName ? presetName.value.trim() : '';
+      if (!name) {
+        toast('Donne un nom au preset');
+        if (presetName) presetName.focus();
+        return;
+      }
+      savePreset(name);
+      toast(`Preset « ${name} » sauvegardé`);
     });
   }
 
@@ -439,7 +701,6 @@ function initStudio() {
 
   /** Applique un token comme un contrôle humain et retourne sa valeur calculée. */
   function setToken(name, value) {
-    syncControls(name, value, null);
     applyToken(name, value);
     return {
       name,
@@ -485,6 +746,14 @@ function initStudio() {
     reset,
     export: exportTokens,
     save,
+    undo,
+    redo,
+    presets: {
+      list: listPresets,
+      save: savePreset,
+      apply: applyPreset,
+      remove: removePreset,
+    },
   };
 
   setSaveState('idle');
@@ -541,6 +810,9 @@ function initStudio() {
   }
 
   refreshExportCount();
+  refreshHistoryButtons();
+  renderPresets();
+  refreshDerivedSurfaces();
 }
 
 // Le ClientRouter (Base.astro) émet astro:page-load au 1er chargement ET après chaque
