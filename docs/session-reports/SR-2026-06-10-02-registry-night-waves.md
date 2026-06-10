@@ -99,6 +99,37 @@ Les slots MDX body du legacy (`workflows`, `case-title`, `tags`, hero `title`) s
 
 ---
 
+## Wave 1.5 — Ecole hub (`feat/registry-wave5-ecole` → MERGÉ PROD `e3c2129`)
+Catalogue 102 → **104 types**. `/ecole` (rendu par `EcoleHubTemplate`) → page data-driven. Particularité vs waves précédentes : la page est **collection-driven** (les données viennent de `getCollection('courses')`, pas d'un frontmatter `sections:[]`), donc `index.astro` **construit** les données puis **rend les composants catalogués directement** (pas via `SectionsRenderer`).
+
+**Décision d'architecture tranchée (rendu direct, pas SectionsRenderer)** : 3 options envisagées.
+- (a) ❌ *Composant section « collection-aware »* qui lirait `getCollection` en interne : aucun précédent dans le catalogue (les sections sont des vues pures `{data, lang}`), casse le contrat 4+1 touchpoints (la demo ne pourrait pas fournir de collection).
+- (b) ❌ *Frontmatter `sections:[]` figé* recopiant les cours : dupliquerait la collection (drift garanti dès qu'un cours change).
+- (c) ✅ **`index.astro` mappe la collection → `data` typé, puis rend `HeroCentered` + `CourseCatalogTable` + `LearningPathList` directement.** Préserve les props de layout du hero (`wrap={false}`, `topPad="48px"`) que `SectionsRenderer` ne passe pas. Les 2 blocs structurants sont **catalogués** (registry → `/agence/design-system`, pages `/preview/*`) → **0 orphelin** ; seule la CTA finale (1 lien) reste inline (trop triviale pour un type).
+
+**2 nouveaux types** (CSS legacy verbatim, tokens only) :
+- `course-catalog-table` : table catalogue formations (`#/Titre/Niveau/Durée/Prix`, lang-aware, pills de niveau, prix `Gratuit`/`X €`).
+- `learning-path-list` : liste de parcours (titre + description, bilingue).
+
+**Décision DS (token-purity)** : le worker avait recopié verbatim 9 hex bruts du legacy (`EcoleHubTemplate` est dans `templates/`, **non scanné** par le gate ; les composants `sections/` **le sont**). Couleurs hors-palette alignées sur la **palette DS** plutôt que d'introduire des tokens : pills de difficulté en gradient `debutant→muted` / `avance→accent-2` ; `#888`/`#444` (legacy `--text-muted`/`--text-secondary`, fallbacks fantômes jamais définis) → `var(--muted)`. **0 nouveau token.** Option écartée : créer `--level-*` (multiplie le DS pour un usage unique). Orchestration : 1 Task subagent Opus (création des 2 types + réécriture `index.astro`, raisonnement résiduel élevé) + 1 Task subagent Sonnet (hex→tokens, raisonnement déporté). GF-2 respecté (0 ligne applicative écrite par l'orchestrateur).
+
+**Suppression** : `EcoleHubTemplate.astro` (286 l) retiré (`git rm`) — son seul consommateur était `pages/ecole/index.astro` (vérifié `git grep HEAD~1` : les autres refs = index/catalogue, pas des routes). `design-system.astro` FR+EN : 18 → **17 templates** ; `ds-registry.json` régénéré (0 réf résiduelle).
+
+**Parité legacy vérifiée (rule 09, deux pièges écartés)** :
+- *Section parcours absente sur `/ecole`* → **NON régression** : `index.astro` rend `learning-path-list` sous condition `pathItems.length > 0`, **identique** au legacy (`{parcours.length > 0 && …}`). La collection `courses` contient **0 `course_type: 'parcours'`** (stats hero rendues « 3 formations · 0 parcours · 0 atelier ») → ni le legacy ni le nouveau n'affichent la section. Le type reste catalogué (visible sur `/preview/learning-path-list`) → utilisable dès qu'un parcours sera ajouté.
+- *`/en/ecole` = 404 sur la preview* → **NON régression** : la route EN **n'a jamais existé** (`git ls-tree HEAD~1` : aucun `pages/en/ecole/`) ; **prod legacy `waimia.com/en/ecole` = 404** (curl) elle aussi. La logique `lang==='en'` d'`index.astro` est portée du legacy (préparation future), inerte sans route EN.
+
+**GF-1 preview Vercel** (`dpl_8AsLmYWZ…`, commit `eb4c9de`, bypass) **PASS** :
+- `/ecole` : h1 « Apprendre à câbler l'IA » `opacity 1` / `transform none` ; 3 formations rendues `opacity 1`, hrefs réels (`/ecole/cours/automatiser-relances-crm-en-4-heures`, `…/intro-ia-pme-b2b`, `…/prompter-claude-pour-les-non-tech`), durées/prix corrects (`4h/290 €`, `2h/Gratuit`, `1.5h/49 €`) ; **pills = décision DS appliquée** (Intermédiaire `color rgb(201,79,46)` = `--accent`, Débutant `rgb(107,101,96)` = `--muted`) ; CTA finale « Demander un parcours sur mesure → » `opacity 1` ; **0 reveal stuck** ; **0 erreur console applicative** (seul `manifest.json 401` = artefact preview protégée, absent en prod). Preuve : `gf1-w5-ecole-preview.jpeg` (above-fold + footer).
+- `/preview/course-catalog-table` (3 demo rows, hrefs réels après fix) **0 console error** ; `/preview/learning-path-list` (2 items, `opacity 1`) **0 console error**.
+- Gates : `astro check` 0 err · touchpoints **104** · token-purity PASS · no-emdash PASS · build Complete.
+
+**Blocker externe rencontré + contournement tranché (rate-limit build Vercel)** : après push de `e3c2129` sur main, **aucun déploiement prod ne s'est créé**. Triangulation (rule 09) : `gh api .../commits/e3c2129/status` → `state: failure`, contexts `Vercel – waimia-web` / `waimia-contenu`, `target_url = …?upgradeToPro=build-rate-limit`. Les ~10 déploiements de la nuit ont atteint la **limite de builds du plan Hobby**. Options : (a) ❌ upgrade Pro = paiement (interdit par les règles) ; (b) ❌ attendre le reset (durée inconnue, viole le mandat « ne reste pas bloqué ») ; (c) ❌ `vercel deploy --prod`/`deploy_to_vercel` = rebuild du working tree (sale + consomme un build → re-hit le rate-limit) ; (d) ✅ **`vercel promote <preview eb4c9de>`** : le déploiement preview `eb4c9de` (GF-1'd) a un **tree git byte-identique** à `e3c2129` (vérifié : même tree SHA `368f3c2d…`, `git diff eb4c9de e3c2129` vide). La promotion **réutilise l'artefact déjà buildé** (0 nouveau build → contourne le rate-limit) et bascule les alias prod. Choix (d) : `dpl_6xYpFHQg…` (`action: promote`, `originalDeploymentId: dpl_8AsLmYWZ`, `target: production`) → READY, alias `waimia.com` + `waimia-web.vercel.app` basculés. La trace Vercel pointe sur le commit de la branche `feat` (= contenu de `e3c2129`) ; un futur push (rate-limit levé) rebasculera sur un déploiement `main` standard, sans changement de contenu.
+**GF-1 prod waimia.com** (`dpl_6xYpFHQg`, contenu = `e3c2129`) **PASS** : `/ecole` h1 « Apprendre à câbler l'IA » `opacity 1` / `transform none`, CTA « Demander un parcours sur mesure → » `opacity 1`, stats « 3 formations · 0 parcours · 0 atelier », 3 formations `opacity 1` (hrefs réels, pills **décision DS** : Intermédiaire `rgb(201,79,46)`=`--accent`, Débutant `rgb(107,101,96)`=`--muted`, durées/prix `4h/290 €`·`2h/Gratuit`·`1.5h/49 €`), **0 reveal stuck**, **0 erreur console** (le `manifest 401` de la preview est bien preview-only, absent en prod). Preuve : `gf1-prod-w5-ecole.jpeg` (above-fold).
+**À surveiller (hors scope Wave 1.5)** : check GitHub Actions `E2E (Playwright · build servi)` = failure sur `e3c2129` (`Build (astro)` = success) → à diagnostiquer (probablement un test e2e référençant l'ancienne structure `/ecole`). Noté pour une passe dédiée.
+
+---
+
 ## Décisions sur les pages NON migrées (tranchées, documentées)
 - **DetailMenu / `audit-maturite-ia`** → **RESTE LEGACY**. Raison : son slot `deliverables` est trop bespoke (SVG `AuditMaturityTimeline` + bloc prix « À partir de 8 000 € HT » + cas typique chiffré) sans type catalogué fidèle ; migrer = perte de contenu OU 2 types mono-usage. L'adoption registry vise les pages dont le contenu est cataloguable ; cette page ne l'est pas. Option écartée : créer `price-block` + `case-typique` (types mono-usage, hors esprit catalogue).
 - **Tunnel (20 steps)** → **RESTE LEGACY**. Raison : ~80% du contenu est de la prose long-form MDX (`<Content/>`) sans type catalogué fidèle ; l'option « hybride » ne cataloguerait que le hero (valeur marginale) tout en ajoutant de la complexité de route. Décision architecturale : le registry cible les pages structurées, pas la prose. Option écartée : hybride hero-section + prose page-level (ROI faible, pattern de route fragile).
@@ -106,11 +137,12 @@ Les slots MDX body du legacy (`workflows`, `case-title`, `tags`, hero `title`) s
 - **LeadMagnet / `livres-blancs`** → **DIFFÉRÉ + ⚠️ BUG PROD signalé**. Le form gaté poste `POST /api/lead-magnet` qui **n'existe pas** (site `output:'static'`, seuls `healthcheck.ts`+`og.png.ts` en `/api`) → **le formulaire 404 à la soumission sur le site live** (pré-existant, hors migration). **Décision** (no-blocking, no-secret) : je ne peux pas provisionner un provider email/lead (Resend/Formspree = saisie d'API key / création de compte = interdit par les règles sécu). **Reco implémentable sans secret quand j'y arriverai** : repointer le form vers la mécanique de booking Cal existante (`simonberos/audit`, capture de lead qui FONCTIONNE) en interim, et documenter l'option idéale (fonction serverless Vercel `/api/lead-magnet` + Resend) pour quand Simon fournira la clé. Je ne migre pas LeadMagnet en composable tant que son backend n'est pas réglé (GF-1 fonctionnel échouerait).
 
 ## Plan restant (séquencé)
-1. Wave 1.3 conseil : vérif + GF-1 + merge (en cours).
-2. Wave 1.4 Solutions : `workflow-table` + `case-split` (restructuration prose inline → data), pilote `finance.mdx` puis 8 MDX + secteurs.
-3. Wave 1.5 Ecole : `course-catalog-table` (collection-driven, sections construites en code dans `/ecole/index.astro`).
-4. Interim LeadMagnet (Cal booking) + arbitrage ConversionFunnel.
-5. Polish : hrefs demo `service-catalog-list` (404 prefetch).
+1. ✅ Wave 1.3 conseil — MERGÉ PROD `d0d7b27` (GF-1 prod FR+EN PASS).
+2. ✅ Wave 1.4 Solutions — MERGÉ PROD `aa7ca45` + 1.4c breadcrumb `9dc6a4b` (GF-1 prod PASS).
+3. ✅ Wave 1.5 Ecole — `course-catalog-table` + `learning-path-list` (collection-driven, rendu direct dans `/ecole/index.astro`), MERGÉ PROD `e3c2129` (GF-1 preview PASS, prod en complétion).
+4. Templates legacy restants à migrer (cf `docs/22` mapping) — hors prose-only (DetailMenu/Tunnel) et form-backed (ConversionFunnel/LeadMagnet) tranchés ci-dessus.
+5. Interim LeadMagnet (Cal booking) + arbitrage ConversionFunnel (`POST /api/devis`).
+6. Polish : hrefs demo `service-catalog-list` (404 prefetch).
 
 ---
 *Rapport vivant — mis à jour et committé à chaque vague.*
