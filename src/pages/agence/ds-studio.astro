@@ -97,7 +97,10 @@ type Consumer = { token: string; count: number; files: string[] };
 const consumers = registry.tokenConsumers as Consumer[];
 const consumerMap: Record<string, { count: number; files: string[] }> = {};
 for (const c of consumers) consumerMap[c.token] = { count: c.count, files: c.files };
-const studioData = JSON.stringify({ consumers: consumerMap });
+const studioData = JSON.stringify({
+  consumers: consumerMap,
+  originals: Object.fromEntries(tokens.map((token) => [token.name, token.value])),
+});
 
 // Token le plus consommé (sélection initiale de la carte d'impact)
 const topConsumer = [...consumers].sort((a, b) => b.count - a.count)[0];
@@ -158,6 +161,42 @@ const moleculesRendered = 12;
       </p>
     </header>
 
+    <div class="studio-toolbar" aria-label="Outils du Studio">
+      <div class="studio-actions">
+        <button id="token-undo" data-action="undo" class="studio-btn" type="button" disabled aria-label="Annuler">↶</button>
+        <button id="token-redo" data-action="redo" class="studio-btn" type="button" disabled aria-label="Rétablir">↷</button>
+      </div>
+      <div class="studio-actions" role="group" aria-label="Viewport de la galerie">
+        <button data-viewport="desktop" class="studio-btn is-active" type="button">Desktop</button>
+        <button data-viewport="tablet" class="studio-btn" type="button">Tablet</button>
+        <button data-viewport="mobile" class="studio-btn" type="button">Mobile</button>
+      </div>
+    </div>
+
+    <details id="preview-panel" class="studio-tool-panel">
+      <summary>Preview page</summary>
+      <div class="studio-tool-body">
+        <div class="studio-tool-row">
+          <label class="studio-tool-field">
+            <span>Route</span>
+            <select id="preview-route" class="studio-text-input">
+              <option value="/">/</option>
+              <option value="/offres/conseil">/offres/conseil</option>
+              <option value="/solutions/acquisition-ia">/solutions/acquisition-ia</option>
+              <option value="/ressources/academy">/ressources/academy</option>
+            </select>
+          </label>
+          <button id="preview-refresh" class="studio-btn" type="button">Rafraîchir</button>
+        </div>
+        <iframe
+          id="page-preview"
+          class="studio-page-preview"
+          title="Preview pleine page"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </details>
+
     <div class="studio-layout">
       {/* ───────────── 1. Éditeur de tokens LIVE (panneau) ───────────── */}
       <aside class="studio-panel" aria-label="Éditeur de tokens">
@@ -167,7 +206,7 @@ const moleculesRendered = 12;
             <div class="studio-actions">
               <button id="token-reset" data-action="reset" class="studio-btn" type="button">Reset</button>
               <button id="token-export" data-action="export" class="studio-btn studio-btn--accent" type="button">
-                Exporter (<span id="export-count">0</span>)
+                Exporter · <span id="export-count">0</span> modifiés
               </button>
             </div>
           </div>
@@ -194,6 +233,20 @@ const moleculesRendered = 12;
             <span class="studio-vh">Filtrer les tokens</span>
             <input id="token-search" type="search" placeholder="Filtrer : accent, space, radius…" autocomplete="off" />
           </label>
+
+          <details class="studio-side-tool" open>
+            <summary>Contraste</summary>
+            <div id="contrast-list" class="studio-contrast-list" aria-live="polite"></div>
+          </details>
+
+          <details class="studio-side-tool">
+            <summary>Presets</summary>
+            <div class="studio-preset-create">
+              <input id="preset-name" class="studio-text-input" type="text" placeholder="Nom du preset" />
+              <button id="preset-save" class="studio-btn" type="button">Sauver l'état courant</button>
+            </div>
+            <div id="preset-list" class="studio-preset-list"></div>
+          </details>
 
           <div class="studio-groups">
             {controlsByGroup.map((block) => (
@@ -543,6 +596,17 @@ const moleculesRendered = 12;
     </div>
   </div>
 
+  <div id="save-diff-modal" class="studio-modal" role="dialog" aria-modal="true" aria-labelledby="save-diff-title" hidden>
+    <div class="studio-modal-card">
+      <h2 id="save-diff-title" class="studio-h3">Diff avant enregistrement</h2>
+      <div id="save-diff-list" class="studio-diff-list"></div>
+      <div class="studio-actions">
+        <button id="save-diff-confirm" class="studio-btn studio-btn--save" type="button">Confirmer l'enregistrement</button>
+        <button id="save-diff-cancel" class="studio-btn" type="button">Annuler</button>
+      </div>
+    </div>
+  </div>
+
   {/* Île de données pour le JS (carte d'impact) */}
   <script type="application/json" id="ds-studio-data" set:html={studioData}></script>
   <script>
@@ -590,6 +654,28 @@ const moleculesRendered = 12;
   .studio-layout {
     display: grid; grid-template-columns: 340px minmax(0, 1fr);
     gap: var(--space-8); align-items: start;
+  }
+  .studio-toolbar {
+    display: flex; justify-content: space-between; align-items: center; gap: var(--space-3);
+    margin-bottom: var(--space-4); padding: var(--space-3);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-md); background: var(--paper);
+  }
+  .studio-toolbar .studio-btn.is-active { border-color: var(--accent); color: var(--accent); }
+  .studio-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .studio-tool-panel {
+    margin-bottom: var(--space-5); border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-md); background: var(--paper);
+  }
+  .studio-tool-panel summary, .studio-side-tool summary {
+    font-family: var(--font-mono); font-size: var(--text-ui); color: var(--ink);
+    cursor: pointer; padding: var(--space-3);
+  }
+  .studio-tool-body { padding: 0 var(--space-3) var(--space-3); }
+  .studio-tool-row { display: flex; align-items: end; gap: var(--space-3); margin-bottom: var(--space-3); }
+  .studio-tool-field { display: flex; flex-direction: column; gap: var(--space-1); flex: 1; font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted); }
+  .studio-page-preview {
+    display: block; width: 100%; height: 70vh; border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm); background: var(--paper);
   }
   @media (max-width: 1080px) {
     .studio-layout { grid-template-columns: 1fr; }
@@ -678,9 +764,27 @@ const moleculesRendered = 12;
     white-space: pre-wrap; word-break: break-all; max-height: 200px; overflow: auto;
   }
   .studio-export-out:empty { display: none; }
+  .studio-side-tool {
+    border: 1px solid var(--hairline); border-radius: var(--radius-sm);
+    margin-bottom: var(--space-4); background: var(--paper-2);
+  }
+  .studio-contrast-list, .studio-preset-list { display: flex; flex-direction: column; gap: var(--space-2); padding: 0 var(--space-3) var(--space-3); }
+  .studio-contrast-row, .studio-preset-row, .studio-diff-row {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-2);
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+  }
+  .studio-contrast-badge { padding: var(--space-1) var(--space-2); border: 1px solid var(--hairline-strong); border-radius: var(--radius-pill); white-space: nowrap; }
+  .studio-preset-create { display: flex; flex-direction: column; gap: var(--space-2); padding: 0 var(--space-3) var(--space-3); }
+  .studio-preset-row .studio-actions { flex: none; }
 
   /* ── Main / galerie ── */
-  .studio-main { min-width: 0; display: flex; flex-direction: column; gap: var(--space-9); }
+  .studio-main {
+    min-width: 0; width: 100%; display: flex; flex-direction: column; gap: var(--space-9);
+    margin-inline: auto; padding: var(--space-3); border: 1px solid var(--hairline);
+    border-radius: var(--radius-md); box-sizing: border-box;
+  }
+  .studio-main[data-active-viewport="tablet"] { max-width: 768px; }
+  .studio-main[data-active-viewport="mobile"] { max-width: 390px; }
   .studio-section { display: flex; flex-direction: column; gap: var(--space-3); }
   .studio-section-lede {
     font-family: var(--font-sans); font-size: var(--text-body-sm);
@@ -831,6 +935,23 @@ const moleculesRendered = 12;
   }
   :global(.studio-overlay--error .studio-overlay-count) { display: none; }
   :global(.studio-overlay-close) { margin-top: var(--space-2); }
+
+  /* ── Modal diff avant sauvegarde ── */
+  .studio-modal[hidden] { display: none; }
+  .studio-modal {
+    position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center;
+    padding: var(--space-5); background: color-mix(in srgb, var(--ink) 82%, transparent);
+    backdrop-filter: blur(6px);
+  }
+  .studio-modal-card {
+    width: min(100%, var(--wrap-read)); max-height: 80vh; overflow: auto;
+    display: flex; flex-direction: column; gap: var(--space-4);
+    padding: var(--space-6); background: var(--paper); border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-lift);
+  }
+  .studio-diff-list { display: flex; flex-direction: column; gap: var(--space-2); }
+  .studio-diff-row { justify-content: flex-start; padding: var(--space-2); border-bottom: 1px solid var(--hairline); }
+  .studio-diff-swatch { width: var(--space-4); height: var(--space-4); border: 1px solid var(--hairline-strong); border-radius: var(--radius-xs); flex: none; }
 
   /* Vapeur : 3 bouffées qui montent et se dissipent en boucle (CSS pur, tokens). */
   :global(.studio-steam) {
