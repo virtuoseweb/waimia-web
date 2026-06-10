@@ -1,5 +1,7 @@
 # SR-2026-06-10-22 · Refonte R5a : famille Hero, 17 fichiers → 9, 28 types intacts
 
+> **Addendum GF-1 PROD (21:14)** : deploy live, vérifié au `getComputedStyle` sur waimia.com : 3 pages migrées vers les archétypes (caserne → HeroCentered preset case-study, équipe → HeroSplit preset author, field-note → HeroCentered preset essay) : h1 opacity 1 + transform neutre, 0 erreur console. R5a close en prod.
+
 > Worker **Fable 5** (worktree `.worktrees/r5hero`), branche **`feat/refonte-r5-hero-familles`** commit `2edeec6` (23 fichiers, +3 565/-1 670). Contre-vérifié orchestrateur (rule 09) : gates relancés, 0 import mort des 8 supprimés, diff structurel relu, veto /solutions vérifié au screenshot.
 
 ## 1. Résultat
