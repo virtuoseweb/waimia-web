@@ -104,3 +104,13 @@ Pas de refonte graphique (DA, palette parchemin/encre/terracotta, typo, ton : in
 
 - Avancement : ce doc (statuts R0-R7 mis à jour par vague) + task list + SRs.
 - Livrables mission ↔ état : audits 1-4 ✅ (`docs/audit-refonte/`) ; architecture cible + plan 5-6 ✅ (ce doc) ; 7-15 = vagues R0-R7.
+
+### Statuts des vagues (MAJ 2026-06-10 nuit)
+
+| Vague | Statut | Branche / preuve |
+|---|---|---|
+| R0 · Quick wins | ✅ livrée, contre-vérifiée | `feat/refonte-r0-quickwins` `6f03d3a` · SR-16 |
+| R1 · Cohérence contenu | 🔄 workers en cours (cards cas + fusion blog) | `feat/refonte-r12-cases` + `feat/refonte-r1-blog-fusion` |
+| R2 · Éditorial premium (P1 cas) | 🔄 worker en cours (fusionné avec cards R1) | `feat/refonte-r12-cases` |
+| R3 · Navigation | ✅ livrée, contre-vérifiée | `feat/refonte-r3-navigation` `72f0a79` · SR-17 |
+| R4-R7 | ⏳ à lancer (R4 après merge du batch) | |

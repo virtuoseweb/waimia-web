@@ -1,6 +1,8 @@
 # SR-2026-06-10-14 · TinaCMS No-React : pilote collection `offres` (task #20, Wave 3.1)
 
-> Mission Codex `gpt-5.5` effort xhigh (`/tmp/codex-missions/tina-pilote/`), worktree `.worktrees/tina`, branche **`feat/tina-no-react-pilote`** commit `46fc43a`. **PAS mergé sur main** (règle repo : GF-1 preview Vercel obligatoire avant merge d'un chantier de cette taille).
+> Mission Codex `gpt-5.5` effort xhigh (`/tmp/codex-missions/tina-pilote/`), worktree `.worktrees/tina`, branche **`feat/tina-no-react-pilote`** commits `46fc43a` + `66551b5`.
+
+**Addendum (même nuit) : preview Vercel ERROR → corrigé → GF-1 preview PASS → mergeable.** Le 1er deploy de la branche a échoué : le worker avait remplacé le script `build` par `tinacms build && astro build` (la mission prévoyait de le garder intact sans TinaCloud), et `astro build` seul échouait aussi (reproduit localement : `src/lib/tina-islands.ts` importe `tina/__generated__/client`, gitignoré). Fix `66551b5` (pattern tina-cloud-starter) : `build` restauré = `astro build`, `build:tina` séparé pour l'édition, `tina/__generated__` committé (300K, `.cache` exclu). Preuve preview Vercel (deploy `dpl_6Mp2…` READY, fetch avec bypass) : **HTTP 200 + SHA-256 `095048fb…` byte-identique à la prod waimia.com**, 0 marqueur react/tina. La condition de merge du repo (GF-1 preview Vercel) est remplie.
 
 ## 1. Résultat
 
