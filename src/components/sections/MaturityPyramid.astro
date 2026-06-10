@@ -1,6 +1,8 @@
 ---
 // Section W6 · maturity-pyramid · pyramide 4 tiers (paliers d'engagement)
-// Variant : ec-grid cols-4 d'editorial-cell + .scale-in · Source verbatim : `Pyramid.astro` (Acte II)
+// Variant 'full' : timeline + SVG paliers + ec-grid cols-4 (rendu historique inchangé)
+// Variant 'cards-only' (V-F2, 1 info = 1 représentation) : les 4 cards seules, enrichies
+//   stage (sur-titre) + prix d'entrée + jauge de progression I→IV (hairline accent)
 // Motion : .scale-in stagger sur cards + .lift hover
 // Mémorable : « Quatre paliers, lus comme un escalier vers la souveraineté. »
 //
@@ -15,6 +17,8 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+const cardsOnly = data.variant === 'cards-only';
+const showFull = !cardsOnly && Boolean(data.steps);
 ---
 <section class="sec sec-paper" aria-labelledby="pyramid-h2">
   <div class="wrap-wide">
@@ -29,9 +33,10 @@ const isFr = lang === 'fr';
       </Fragment>
     </SectionHeader>
 
-    {/* Timeline maturité V7 · 4 étapes Audit → Workflow → System → Infrastructure */}
+    {/* Timeline maturité V7 · 4 étapes Audit → Workflow → System → Infrastructure · variant full only */}
+    {showFull && (
     <ol class="pyramid-timeline reveal reveal-fade" aria-label={isFr ? data.timeline_label_fr : data.timeline_label_en}>
-      {data.steps.map((step) => (
+      {(data.steps ?? []).map((step) => (
         <li class="pyramid-step">
           <span class="pyramid-step-roman">{step.roman}</span>
           <span class="pyramid-step-verb">{isFr ? step.verb_fr : step.verb_en}</span>
@@ -39,7 +44,9 @@ const isFr = lang === 'fr';
         </li>
       ))}
     </ol>
+    )}
 
+    {showFull && (
     <div class="pyramid-svg reveal-blur-clip">
       <svg viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
         {/* Palier I · accent solide · investment minimal mais signal max */}
@@ -63,11 +70,18 @@ const isFr = lang === 'fr';
         <text x="592" y="156" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--ink-2)" letter-spacing="0.14em">{isFr ? data.tiers[3].tag_fr : data.tiers[3].tag_en}</text>
       </svg>
     </div>
+    )}
 
-    <div class="ec-grid cols-4 pyramid-asym reveal-stagger">
+    <div class:list={['ec-grid', 'cols-4', 'pyramid-asym', 'reveal-stagger', cardsOnly && 'pyramid-cards-only']}>
       {data.tiers.map((tier, idx) => (
         <a class="editorial-cell lift" href={tier.href}>
-          <span class="e-action">{isFr ? tier.action_fr : tier.action_en}</span>
+          {cardsOnly ? (
+            (isFr ? tier.stage_fr : tier.stage_en) && (
+              <span class="e-stage">{isFr ? tier.stage_fr : tier.stage_en}</span>
+            )
+          ) : (
+            <span class="e-action">{isFr ? tier.action_fr : tier.action_en}</span>
+          )}
           <span class="e-num">{tier.n}</span>
           <span class="e-tag">{isFr ? tier.tag_fr : tier.tag_en}</span>
           <h3 class="e-title">{isFr ? tier.label_fr : tier.label_en}</h3>
@@ -75,7 +89,15 @@ const isFr = lang === 'fr';
           <ul class="e-list">
             {(isFr ? tier.items_fr : tier.items_en).map((it) => <li>{it}</li>)}
           </ul>
+          {cardsOnly && (isFr ? tier.price_fr : tier.price_en) && (
+            <span class="e-price">{isFr ? tier.price_fr : tier.price_en}</span>
+          )}
           <span class="e-go">{isFr ? data.tier_cta_fr : data.tier_cta_en}</span>
+          {cardsOnly && (
+            <span class="e-gauge" aria-hidden="true">
+              <span class="e-gauge-fill" style={`width: ${(idx + 1) * 25}%`}></span>
+            </span>
+          )}
         </a>
       ))}
     </div>
@@ -163,6 +185,62 @@ const isFr = lang === 'fr';
     .pyramid-asym {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* ── Variant cards-only (V-F2) · 4 colonnes égales, la progression passe par la jauge ── */
+  .pyramid-cards-only {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  /* Stage en sur-titre de card (info unique reprise de la timeline supprimée) */
+  .pyramid-asym .editorial-cell .e-stage {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: var(--space-1);
+  }
+  /* Prix d'entrée du palier · l'engagement chiffré (source FAQ/offres) */
+  .pyramid-asym .editorial-cell .e-price {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--hairline);
+  }
+  /* Jauge de progression I→IV · hairline accent qui s'étend (remplace le SVG paliers) */
+  .pyramid-asym .editorial-cell .e-gauge {
+    display: block;
+    margin-top: var(--space-3);
+    height: 2px;
+    background: var(--hairline);
+    overflow: hidden;
+  }
+  .pyramid-asym .editorial-cell .e-gauge-fill {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform var(--dur-reveal) var(--ease) var(--dur-fast);
+  }
+  .reveal-stagger:is(.in, .is-visible) .e-gauge-fill,
+  .pyramid-asym:is(.in, .is-visible) .editorial-cell .e-gauge-fill {
+    transform: scaleX(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pyramid-asym .editorial-cell .e-gauge-fill { transform: scaleX(1); transition: none; }
+  }
+  @media (max-width: 900px) {
+    .pyramid-cards-only { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .pyramid-cards-only { grid-template-columns: 1fr; }
   }
 
   /* V7 · Timeline maturité Audit → Workflow → System → Infrastructure */

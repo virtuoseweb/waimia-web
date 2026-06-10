@@ -38,11 +38,21 @@ const isFr = lang === 'fr';
           <footer class="services-grid__cell-foot">
             <span class="services-grid__cell-foot-key">{isFr ? data.connectors_label_fr : data.connectors_label_en}</span>
             <span class="services-grid__cell-foot-val">{isFr ? s.connectors_fr : s.connectors_en}</span>
+            {s.usecase_href && (isFr ? s.usecase_label_fr : s.usecase_label_en) && (
+              <a class="services-grid__cell-uc" href={s.usecase_href}>{isFr ? s.usecase_label_fr : s.usecase_label_en}</a>
+            )}
           </footer>
           <span class="services-grid__cell-arr" aria-hidden>→</span>
         </article>
       ))}
     </div>
+    {data.foot_links && data.foot_links.length > 0 && (
+      <footer class="services-grid__foot">
+        {data.foot_links.map((l) => (
+          <a class="services-grid__foot-link" href={l.href}>{isFr ? l.label_fr : l.label_en}</a>
+        ))}
+      </footer>
+    )}
   </div>
 </section>
 
@@ -196,6 +206,39 @@ const isFr = lang === 'fr';
     color: var(--ink);
     line-height: var(--leading-body);
   }
+  /* Lien cas d'usage par service · fusion UseCaseIndex (1 grille, 2 niveaux de lecture) */
+  .services-grid__cell-uc {
+    margin-top: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    width: fit-content;
+  }
+  .services-grid__cell-uc:hover { text-decoration: underline; text-underline-offset: 3px; }
+  /* Pied de grille · liens index (cas d'usage / secteurs) */
+  .services-grid__foot {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding-top: 18px;
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .services-grid__foot-link {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .services-grid__foot-link:hover { color: var(--accent); }
   .services-grid__cell-arr {
     position: absolute;
     bottom: 18px;

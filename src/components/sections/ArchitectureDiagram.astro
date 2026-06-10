@@ -14,6 +14,8 @@ const isFr = lang === 'fr';
 
 const inputs = isFr ? data.inputs_fr : data.inputs_en;
 const outputs = isFr ? data.outputs_fr : data.outputs_en;
+// Exemples concrets par canal (absorption du rôle FeatureGrid · tooltip natif SVG)
+const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?? [];
 ---
 <section id="system-architecture" class="sysarch" aria-labelledby="sysarch-h2">
   <div class="wrap-wide">
@@ -38,15 +40,18 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
         focusable="false"
         role="presentation"
       >
-        {/* 6 channels (left column) · pills rect + label mono */}
+        {/* 6 channels (left column) · pills rect + label mono · <title> = exemple concret au hover */}
         {inputs.map((label, i) => {
           const y = 24 + i * 52;
           return (
             <>
-              <rect x="20" y={y} width="148" height="36" rx="2" fill="transparent" stroke="var(--ink-2)" stroke-width="1" stroke-opacity="0.6"/>
-              <text x="94" y={y + 23} text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--ink)" letter-spacing="0.08em">{label.toUpperCase()}</text>
-              {/* connector curve channel → system */}
-              <path d={`M168 ${y + 18} C 260 ${y + 18}, 320 180, 412 180`} stroke="var(--accent)" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+              <g class="sysarch-node">
+                {inputExamples[i] && <title>{inputExamples[i]}</title>}
+                <rect x="20" y={y} width="148" height="36" rx="2" fill="transparent" stroke="var(--ink-2)" stroke-width="1" stroke-opacity="0.6"/>
+                <text x="94" y={y + 23} text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--ink)" letter-spacing="0.08em">{label.toUpperCase()}</text>
+              </g>
+              {/* connector curve channel → system · dessinée au scroll (pathLength normalisé) */}
+              <path class="sysarch-flow" pathLength="1" style={`transition-delay: ${120 + i * 90}ms`} d={`M168 ${y + 18} C 260 ${y + 18}, 320 180, 412 180`} stroke="var(--accent)" stroke-width="1" stroke-opacity="0.5" fill="none"/>
               {/* small dot at channel exit */}
               <circle cx="168" cy={y + 18} r="2" fill="var(--accent)"/>
             </>
@@ -65,8 +70,8 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
           const y = 56 + i * 62;
           return (
             <>
-              {/* connector curve system → output */}
-              <path d={`M532 180 C 624 180, 660 ${y + 18}, 716 ${y + 18}`} stroke="var(--accent)" stroke-width="1" stroke-opacity="0.6" fill="none"/>
+              {/* connector curve system → output · dessinée après les entrées */}
+              <path class="sysarch-flow" pathLength="1" style={`transition-delay: ${760 + i * 90}ms`} d={`M532 180 C 624 180, 660 ${y + 18}, 716 ${y + 18}`} stroke="var(--accent)" stroke-width="1" stroke-opacity="0.6" fill="none"/>
               <circle cx="716" cy={y + 18} r="2" fill="var(--accent)"/>
               <rect x="716" y={y} width="148" height="36" rx="2" fill="rgba(var(--accent-rgb), 0.04)" stroke="var(--accent)" stroke-width="1" stroke-opacity="0.7"/>
               <text x="790" y={y + 23} text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--ink)" letter-spacing="0.08em">{label.toUpperCase()}</text>
@@ -77,7 +82,7 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
         {/* Feedback loop arc · output → system → channel (cycle d'amélioration continue) */}
         {data.show_loop && (
           <>
-            <path d="M790 332 C 600 350, 280 350, 94 332" stroke="var(--ink-2)" stroke-width="0.8" stroke-opacity="0.35" fill="none" stroke-dasharray="4 4"/>
+            <path class="sysarch-loop" d="M790 332 C 600 350, 280 350, 94 332" stroke="var(--ink-2)" stroke-width="0.8" stroke-opacity="0.35" fill="none" stroke-dasharray="4 4"/>
             <text x="440" y="346" text-anchor="middle" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink-2)" letter-spacing="0.18em">{isFr ? data.loop_label_fr : data.loop_label_en}</text>
           </>
         )}
@@ -154,6 +159,32 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
     margin: 0;
   }
   .sysarch-cap :global(i) { font-style: italic; color: var(--accent); }
+
+  /* Flux dessinés au scroll · pathLength=1 normalisé · le .in vient du scroll-reveal (.reveal-fade) */
+  .sysarch-flow {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset var(--dur-reveal) var(--ease);
+  }
+  .sysarch-fig:is(.in, .is-visible) .sysarch-flow { stroke-dashoffset: 0; }
+
+  /* Boucle d'amélioration continue · le pointillé circule (raconte la réinjection) */
+  @keyframes sysarch-loop-flow {
+    to { stroke-dashoffset: -16; }
+  }
+  .sysarch-fig:is(.in, .is-visible) .sysarch-loop {
+    animation: sysarch-loop-flow 2.4s linear infinite;
+  }
+
+  /* Hover nœud d'entrée · le canal s'affirme (tooltip <title> porte l'exemple concret) */
+  .sysarch-node { cursor: help; }
+  .sysarch-node rect { transition: stroke var(--dur-fast) var(--ease), stroke-opacity var(--dur-fast) var(--ease); }
+  .sysarch-node:hover rect { stroke: var(--accent); stroke-opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sysarch-flow { stroke-dashoffset: 0; transition: none; }
+    .sysarch-fig:is(.in, .is-visible) .sysarch-loop { animation: none; }
+  }
 
   /* Mobile : SVG plus petit, H2 réduit */
   @media (max-width: 700px) {

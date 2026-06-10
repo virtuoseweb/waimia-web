@@ -790,6 +790,10 @@ export const proofBarSchema = z.object({
   kicker_en: z.string().optional(),
   metrics: z.array(metricSchema).min(2).max(6),
   layout: z.enum(['horizontal', 'vertical-stack']).default('horizontal'),
+  /** Lien d'attribution optionnel sous les métriques (« Voir les 4 dossiers → ») : source les chiffres. */
+  link_label_fr: z.string().optional(),
+  link_label_en: z.string().optional(),
+  link_href: z.string().optional(),
 });
 
 export const statBlockSchema = z.object({
@@ -917,6 +921,8 @@ export const faqAccordionSchema = z.object({
   h2_fr: z.string(),
   h2_en: z.string(),
   items: z.array(faqItemSchema).min(2),
+  /** Ouvre le premier item par défaut (ancrage prix visible sans clic). */
+  open_first: z.boolean().optional(),
 });
 
 export const objectionHandlerSchema = z.object({
@@ -1011,6 +1017,9 @@ export const architectureDiagramSchema = z.object({
   h2_en: z.string(),
   inputs_fr: z.array(z.string()).min(2).max(8),
   inputs_en: z.array(z.string()).min(2).max(8),
+  /** Exemples concrets par canal d'entrée (tooltip <title> sur le nœud, même index que inputs). */
+  input_examples_fr: z.array(z.string()).optional(),
+  input_examples_en: z.array(z.string()).optional(),
   outputs_fr: z.array(z.string()).min(2).max(6),
   outputs_en: z.array(z.string()).min(2).max(6),
   system_label: z.string(),
@@ -1047,15 +1056,32 @@ export const servicesGridSchema = z.object({
         body_en: z.string(),
         connectors_fr: z.string(),
         connectors_en: z.string(),
+        /** Lien optionnel vers le cas d'usage /solutions/* du service (fusion UseCaseIndex). */
+        usecase_label_fr: z.string().optional(),
+        usecase_label_en: z.string().optional(),
+        usecase_href: z.string().optional(),
       }),
     )
     .min(3)
     .max(6),
+  /** Liens de pied de grille optionnels (« Six cas d'usage métier → », « Adapté à votre secteur → »). */
+  foot_links: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+        href: z.string(),
+      }),
+    )
+    .max(3)
+    .optional(),
 });
 
-// Pyramide de maturité · timeline 4 étapes + SVG paliers + grille 4 cards
+// Pyramide de maturité · variant 'full' = timeline 4 étapes + SVG paliers + grille 4 cards ·
+// variant 'cards-only' = les 4 cards seules (1 info = 1 représentation), enrichies stage + prix + jauge
 export const maturityPyramidSchema = z.object({
   type: z.literal('maturity-pyramid'),
+  variant: z.enum(['full', 'cards-only']).default('full'),
   roman: z.string(),
   label_fr: z.string(),
   label_en: z.string(),
@@ -1077,7 +1103,8 @@ export const maturityPyramidSchema = z.object({
         stage_en: z.string(),
       }),
     )
-    .length(4),
+    .length(4)
+    .optional(),
   tiers: z
     .array(
       z.object({
@@ -1093,6 +1120,12 @@ export const maturityPyramidSchema = z.object({
         action_fr: z.string(),
         action_en: z.string(),
         href: z.string(),
+        /** Stage de maturité en sur-titre de card (AUDIT / WORKFLOW / SYSTÈME / INFRASTRUCTURE). */
+        stage_fr: z.string().optional(),
+        stage_en: z.string().optional(),
+        /** Prix d'entrée du palier (« dès 1 500 € HT · 1 semaine ») : source FAQ/offres, jamais inventé. */
+        price_fr: z.string().optional(),
+        price_en: z.string().optional(),
       }),
     )
     .length(4),

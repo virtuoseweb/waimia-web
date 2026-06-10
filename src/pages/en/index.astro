@@ -2,18 +2,14 @@
 export const prerender = true;
 
 /**
- * Homepage · M4 business-first PME/ETI · EN parity
+ * Homepage · V-F2 recomposition (docs/visual-audit/home/README.md + docs/40 §6) · EN parity
  *
- * Aligned with pages/index.astro (FR) post-V5 refactor.
- * Scope: acquisition, content, web/CMS, CRM/sales, data, automation,
- *        brand system, governance — not only Excel/HubSpot/Outlook.
- *
- * Organisms retired from the home (kept on other pages) :
- *   - WhyAIStalls + HowWeShip → /agence/methode
- *   - Manifesto → /manifesto
- *   - OperatingLayer → /agence/methode
- *   - Offices → /agence/about
+ * Mirrors pages/index.astro (FR). Principle: 1 piece of information = 1 representation.
+ * 10-slot sequence: Act I promise & proof → Act II system & offer → Act III engagement
+ * → Act IV client proof → Act V action. FeatureGrid + UseCaseIndex removed from home
+ * (kept in the catalogue), 3 of 8 interludes kept, BookSession + QuoteSpotlight on ink.
  */
+import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import BootSplash from '../../components/motion/BootSplash.astro';
 import ScrollProgress from '../../components/ui/atoms/ScrollProgress.astro';
@@ -21,11 +17,11 @@ import ScrollProgress from '../../components/ui/atoms/ScrollProgress.astro';
 import Hero                from '../../components/ui/organisms/Hero.astro';
 import StatBlock           from '../../components/sections/StatBlock.astro';
 import SocialProof         from '../../components/sections/SocialProof.astro';
-import FeatureGrid         from '../../components/sections/FeatureGrid.astro';
 import ArchitectureDiagram from '../../components/sections/ArchitectureDiagram.astro';
 import ServicesGrid        from '../../components/sections/ServicesGrid.astro';
 import MaturityPyramid     from '../../components/sections/MaturityPyramid.astro';
-import UseCaseIndex        from '../../components/sections/UseCaseIndex.astro';
+import CtaBandSection      from '../../components/sections/CtaBandSection.astro';
+import QuoteSpotlight      from '../../components/sections/QuoteSpotlight.astro';
 import CaseCardGrid        from '../../components/sections/CaseCardGrid.astro';
 import { caseCardGridData } from '../../lib/case-card-grid-data';
 import FaqAccordion        from '../../components/sections/FaqAccordion.astro';
@@ -35,96 +31,152 @@ import BookSession         from '../../components/ui/organisms/BookSession.astro
 import FooterMarquee       from '../../components/ui/organisms/FooterMarquee.astro';
 import SectionTransition   from '../../components/ui/atoms/SectionTransition.astro';
 
-import { CLIENT_LOGOS, CAPABILITY_MAP, HERO_METRICS, SIX_SERVICES, PYRAMID_TIERS, DEPARTMENTS_GRID } from '../../data/sitemap';
+import { CLIENT_LOGOS, HERO_METRICS, SIX_SERVICES, PYRAMID_TIERS, DEPARTMENTS_GRID } from '../../data/sitemap';
+import { PROOF_POINTS } from '../../data/proof-points';
 import { localizeHref } from '../../lib/i18n';
 import { buildOrganization } from '../../lib/seo/schema-builder';
 import type { SectionByType } from '../../schemas/sections';
 
+// ── Act I · Unified proof band (audit home §02+03) ─────────────────────────────
 const proofBarData = {
   type: 'proof-bar' as const,
   layout: 'horizontal' as const,
-  kicker_fr: '§ 02 · PREUVES',
-  kicker_en: '§ 02 · PROOFS',
-  metrics: HERO_METRICS.map((m) => ({
+  background: 'paper-2' as const,
+  kicker_fr: 'ACTE I · PREUVES',
+  kicker_en: 'ACT I · PROOFS',
+  metrics: HERO_METRICS.filter((m) => m.k !== '01').map((m) => ({
     value: m.n,
     label_fr: m.label.fr,
     label_en: m.label.en,
     emphasis: false,
   })),
-};
+  link_label_fr: 'Voir les 4 dossiers →',
+  link_label_en: 'See the 4 case files →',
+  link_href: localizeHref('/cas', 'en'),
+} satisfies SectionByType<'proof-bar'>;
 
 const socialProofData = {
   type: 'social-proof' as const,
+  background: 'paper-2' as const,
   logos: CLIENT_LOGOS.map((name) => ({ name })),
   marquee: true,
-};
+} satisfies SectionByType<'social-proof'>;
 
-const featureGridData = {
-  type: 'feature-grid' as const,
-  kicker_fr: '8 PILIERS · UN SEUL SYSTÈME',
-  kicker_en: '8 PILLARS · ONE SYSTEM',
-  h2_fr: "Du <i>canal</i> à <i>l'action</i>. Marketing, sales, contenu, web: alignés.",
-  h2_en: 'From <i>channel</i> to <i>action</i>. Marketing, sales, content, web: aligned.',
-  columns: '4' as const,
-  features: CAPABILITY_MAP.map((cat) => ({
-    icon: cat.k,
-    title_fr: cat.label.fr,
-    title_en: cat.label.en,
-    body_fr: cat.lead.fr,
-    body_en: cat.lead.en,
-  })),
-};
+// ── Act II · FIG 2.0 The system (absorbs the FeatureGrid role) ─────────────────
+const architectureDiagramData = {
+  type: 'architecture-diagram' as const,
+  fig_num: 'FIG II · 2.0',
+  fig_title_fr: 'Acte II : Le système', fig_title_en: 'Act II: The system',
+  spec_fr: 'CANAUX · SYSTÈME · ACTIONS', spec_en: 'CHANNELS · SYSTEM · ACTIONS',
+  h2_fr: 'Une seule <i>architecture</i>.<br/>Six entrées, quatre sorties, mille décisions.',
+  h2_en: 'One <i>architecture</i>.<br/>Six inputs, four outputs, a thousand decisions.',
+  inputs_fr: ['Ads', 'Contenu', 'Site', 'CRM', 'Analytics', 'Marque'],
+  inputs_en: ['Ads', 'Content', 'Site', 'CRM', 'Analytics', 'Brand'],
+  input_examples_fr: [
+    'Google Ads, Meta, LinkedIn reliés au pipeline',
+    'Articles SEO/GEO produits et indexés',
+    'Landing, tunnel, CMS branchés au CRM',
+    'Relances, qualification, alertes automatiques',
+    'GA4 et Search Console lus en tableaux de bord',
+    'Design system, decks, PDF alignés',
+  ],
+  input_examples_en: [
+    'Google Ads, Meta, LinkedIn wired to the pipeline',
+    'SEO/GEO articles produced and indexed',
+    'Landing, funnel, CMS plugged into the CRM',
+    'Follow-ups, qualification, automatic alerts',
+    'GA4 and Search Console read as dashboards',
+    'Design system, decks, PDF aligned',
+  ],
+  outputs_fr: ['Actions', 'Supports', 'Reporting', 'Pipeline'],
+  outputs_en: ['Actions', 'Assets', 'Reports', 'Pipeline'],
+  system_label: 'Waimia', system_kicker: 'AI SYSTEM', system_subtitle: 'multi-agent',
+  show_loop: true,
+  loop_label_fr: 'BOUCLE D’AMÉLIORATION CONTINUE', loop_label_en: 'CONTINUOUS IMPROVEMENT LOOP',
+  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte, sans relance manuelle.",
+  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
+} satisfies SectionByType<'architecture-diagram'>;
 
-// SixServices → services-grid (data-driven, byte-identique à l'organism Acte II)
+// ── Act II · FIG 2.5 The offer (ServicesGrid merged with UseCaseIndex) ─────────
+const ppValue = (id: string) => PROOF_POINTS.find((p) => p.id === id)?.value ?? '';
+const SERVICE_METRIC_OVERRIDES: Record<string, { fr: string; en: string }> = {
+  '02': { fr: `${ppValue('roi-leads-x2-4')} leads`, en: `${ppValue('roi-leads-x2-4').replace(',', '.')} leads` },
+  '05': { fr: `${ppValue('time-30pct-taches-reduites')} tâches`, en: `${ppValue('time-30pct-taches-reduites')} tasks` },
+};
+const SERVICE_USECASES: Record<string, string> = {
+  '02': 'acquisition-ia',
+  '03': 'crm-relances-ia',
+  '05': 'productivite-ia',
+};
+const usecaseBySlug = (slug: string) => DEPARTMENTS_GRID.find((d) => d.slug === slug);
 const servicesGridData = {
   type: 'services-grid' as const,
-  fig_num: 'FIG II · 2.0',
-  fig_title_fr: 'Acte II: La méthode',
-  fig_title_en: 'Act II: The method',
+  fig_num: 'FIG II · 2.5',
+  fig_title_fr: "Acte II : L'offre",
+  fig_title_en: 'Act II: The offer',
   spec_fr: '6 SERVICES · UNE COUCHE CONTINUE',
   spec_en: '6 SERVICES · ONE CONTINUOUS LAYER',
   h2_fr: 'Six services, appris en <i>livrant</i>, pas en PowerPoint.',
   h2_en: 'Six services, taught by <i>doing</i>, not by slides.',
   connectors_label_fr: 'Connecteurs',
   connectors_label_en: 'Connectors',
-  services: SIX_SERVICES.map((s) => ({
-    fig: `2.${s.k}`,
-    metric_fr: s.metric.fr,
-    metric_en: s.metric.en,
-    label_fr: s.label.fr,
-    label_en: s.label.en,
-    body_fr: s.body.fr,
-    body_en: s.body.en,
-    connectors_fr: s.connectors.fr,
-    connectors_en: s.connectors.en,
-  })),
-};
+  services: SIX_SERVICES.map((s) => {
+    const ucSlug = SERVICE_USECASES[s.k];
+    const uc = ucSlug ? usecaseBySlug(ucSlug) : undefined;
+    return {
+      fig: `2.5${Number(s.k)}`,
+      metric_fr: SERVICE_METRIC_OVERRIDES[s.k]?.fr ?? s.metric.fr,
+      metric_en: SERVICE_METRIC_OVERRIDES[s.k]?.en ?? s.metric.en,
+      label_fr: s.label.fr,
+      label_en: s.label.en,
+      body_fr: s.body.fr,
+      body_en: s.body.en,
+      connectors_fr: s.connectors.fr,
+      connectors_en: s.connectors.en,
+      ...(uc
+        ? {
+            usecase_label_fr: `Cas d'usage · ${uc.label.fr} →`,
+            usecase_label_en: `Use case · ${uc.label.en} →`,
+            usecase_href: localizeHref(`/solutions/${ucSlug}`, 'en'),
+          }
+        : {}),
+    };
+  }),
+  foot_links: [
+    { label_fr: "Six cas d'usage métier →", label_en: 'Six business use cases →', href: localizeHref('/solutions', 'en') },
+    // /secteurs est FR-only (i18n.ts FR_ONLY_STATIC) : pas de préfixe /en, comme l'ex-UseCaseIndex
+    { label_fr: 'Adapté à votre secteur →', label_en: 'Adapted to your sector →', href: '/secteurs' },
+  ],
+} satisfies SectionByType<'services-grid'>;
 
+// ── Act III · Cards-only pyramid (stage + entry price + I→IV gauge) ────────────
+// Prices sourced from FAQ Q.01 + offres/*.mdx metas (nothing invented).
 const ACTION_LABELS = [
   { fr: 'Cartographier', en: 'Map' },
   { fr: 'Câbler', en: 'Wire' },
   { fr: 'Orchestrer', en: 'Orchestrate' },
   { fr: 'Industrialiser', en: 'Industrialize' },
 ];
+const TIER_DETAILS = [
+  { stage: { fr: 'Audit', en: 'Audit' },                   price: { fr: 'Dès 1 500 € HT · 1 semaine', en: 'From €1,500 · 1 week' } },
+  { stage: { fr: 'Workflow', en: 'Workflow' },             price: { fr: '6 à 25 k€ · 4 à 10 sem', en: '€6K to €25K · 4 to 10 weeks' } },
+  { stage: { fr: 'Système', en: 'System' },                 price: { fr: 'Dès 5 000 € HT · 6 à 10 sem', en: 'From €5,000 · 6 to 10 weeks' } },
+  { stage: { fr: 'Infrastructure', en: 'Infrastructure' }, price: { fr: 'Sur devis · 12 sem +', en: 'On quote · 12+ weeks' } },
+];
 const maturityPyramidData = {
   type: 'maturity-pyramid' as const,
-  roman: 'II',
-  label_fr: "Acte II: La pyramide d'engagements",
-  label_en: 'Act II: The engagement pyramid',
+  variant: 'cards-only' as const,
+  roman: 'III',
+  label_fr: "Acte III : La pyramide d'engagements",
+  label_en: 'Act III: The engagement pyramid',
   heading_fr: '<i>Cartographier.</i> Câbler.<br/>Orchestrer. <i>Industrialiser.</i>',
   heading_en: '<i>Map.</i> Wire.<br/>Orchestrate. <i>Industrialize.</i>',
-  aside_fr: "Du diagnostic process à l'infrastructure souveraine: chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
+  aside_fr: "Du diagnostic process à l'infrastructure souveraine : chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
   aside_en: "From process diagnostic to sovereign infrastructure: each tier sets up the next. You climb when you're ready.",
   timeline_label_fr: 'Progression de maturité IA',
   timeline_label_en: 'AI maturity path',
   tier_cta_fr: 'Voir le palier →',
   tier_cta_en: 'Open tier →',
-  steps: [
-    { roman: 'I', verb_fr: 'Cartographier', verb_en: 'Map', stage_fr: 'Audit', stage_en: 'Audit' },
-    { roman: 'II', verb_fr: 'Câbler', verb_en: 'Wire', stage_fr: 'Workflow', stage_en: 'Workflow' },
-    { roman: 'III', verb_fr: 'Orchestrer', verb_en: 'Orchestrate', stage_fr: 'Système', stage_en: 'System' },
-    { roman: 'IV', verb_fr: 'Industrialiser', verb_en: 'Industrialize', stage_fr: 'Infrastructure', stage_en: 'Infrastructure' },
-  ],
   tiers: PYRAMID_TIERS.map((tier, idx) => ({
     n: tier.n,
     tag_fr: tier.tag.fr, tag_en: tier.tag.en,
@@ -133,29 +185,34 @@ const maturityPyramidData = {
     items_fr: tier.items, items_en: tier.items,
     action_fr: ACTION_LABELS[idx].fr, action_en: ACTION_LABELS[idx].en,
     href: tier.href,
+    stage_fr: TIER_DETAILS[idx].stage.fr, stage_en: TIER_DETAILS[idx].stage.en,
+    price_fr: TIER_DETAILS[idx].price.fr, price_en: TIER_DETAILS[idx].price.en,
   })),
-};
+} satisfies SectionByType<'maturity-pyramid'>;
 
-const useCaseIndexData = {
-  type: 'use-case-index' as const,
-  roman: 'III',
-  label_fr: "§ 05: Cas d'usage horizontaux",
-  label_en: '§ 05: Horizontal use cases',
-  heading_fr: 'Six <i>cas d\'usage</i>. Une seule méthode.',
-  heading_en: 'Six <i>use cases</i>. One method.',
-  aside_fr: 'Acquisition, CRM, contenu, site web, productivité, support: les douleurs récurrentes des PME. Mêmes systèmes, vocabulaire adapté à votre métier.',
-  aside_en: 'Acquisition, CRM, content, website, productivity, support: recurring SMB pain points. Same systems, wording adapted to your sector.',
-  num_prefix_fr: 'USE CASE',
-  num_prefix_en: 'USE CASE',
-  items: DEPARTMENTS_GRID.map((d) => ({
-    label_fr: d.label.fr, label_en: d.label.en,
-    tag_fr: d.tag.fr, tag_en: d.tag.en,
-    href: localizeHref(`/solutions/${d.slug}`, 'en'),
-  })),
-  footer_label_fr: 'Adapté à votre secteur →',
-  footer_label_en: 'Adapted to your sector →',
-  footer_href: '/secteurs',
-};
+// Mid-page CTA (docs/39 P1-8: never > 3,500 px without an exit door)
+const ctaInlineData = {
+  type: 'cta-band' as const,
+  text_fr: "Un doute sur le palier d'entrée ? 30 minutes au téléphone suffisent pour le situer.",
+  text_en: 'Not sure which tier to start at? A 30-minute call is enough to place it.',
+  cta: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: localizeHref('/contact', 'en'), variant: 'primary' as const },
+  background: 'paper-2' as const,
+} satisfies SectionByType<'cta-band'>;
+
+// ── Act IV · Client voice (audit gap #1: zero human voice on the page) ─────────
+const testimonials = await getCollection('testimonials');
+const spotlight = testimonials.find((t) => t.id.startsWith('plateau-saas-coo')) ?? testimonials[0];
+const quoteSpotlightData = {
+  type: 'quote-spotlight' as const,
+  background: 'ink' as const,
+  kicker_fr: 'ACTE IV · PAROLE CLIENT',
+  kicker_en: 'ACT IV · CLIENT VOICE',
+  quote_fr: spotlight.data.quote_fr.replace('câblé', '<i>câblé</i>'),
+  quote_en: spotlight.data.quote_en.replace('wired', '<i>wired</i>'),
+  author: spotlight.data.author,
+  role_fr: `${spotlight.data.role_fr} · ${spotlight.data.company}`,
+  role_en: `${spotlight.data.role_en} · ${spotlight.data.company}`,
+} satisfies SectionByType<'quote-spotlight'>;
 
 // FAQ SMB-first · 8 questions (V5: + CMS, + brand consistency)
 const faqItems = [
@@ -192,24 +249,6 @@ const faqItems = [
     a: "Every system includes by default: action logs, CSV/JSON export, rollback capability, AI Act risk classification. For mid-market engagements, we run a PIA before the sprint. Our Trust Center documents the full governance.",
   },
 ];
-
-const architectureDiagramData = {
-  type: 'architecture-diagram' as const,
-  fig_num: 'FIG II · 2.5',
-  fig_title_fr: "L'architecture du système", fig_title_en: 'System architecture',
-  spec_fr: 'CANAUX · SYSTÈME · ACTIONS', spec_en: 'CHANNELS · SYSTEM · ACTIONS',
-  h2_fr: 'Une seule <i>architecture</i>.<br/>Six entrées, quatre sorties, mille décisions.',
-  h2_en: 'One <i>architecture</i>.<br/>Six inputs, four outputs, a thousand decisions.',
-  inputs_fr: ['Ads', 'Contenu', 'Site', 'CRM', 'Analytics', 'Marque'],
-  inputs_en: ['Ads', 'Content', 'Site', 'CRM', 'Analytics', 'Brand'],
-  outputs_fr: ['Actions', 'Supports', 'Reporting', 'Pipeline'],
-  outputs_en: ['Actions', 'Assets', 'Reports', 'Pipeline'],
-  system_label: 'Waimia', system_kicker: 'AI SYSTEM', system_subtitle: 'multi-agent',
-  show_loop: true,
-  loop_label_fr: 'BOUCLE D’AMÉLIORATION CONTINUE', loop_label_en: 'CONTINUOUS IMPROVEMENT LOOP',
-  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte, sans relance manuelle.",
-  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
-} satisfies SectionByType<'architecture-diagram'>;
 ---
 <Base
   title="Waimia · AI Systems for SMBs · Acquisition · CRM · Content · Web · Brand"
@@ -218,65 +257,55 @@ const architectureDiagramData = {
 >
   <BootSplash lang="en" />
 
-  {/* 01 — Hero · promise + scope mini-map + CTAs (V7 §12) */}
+  {/* 01 — Hero · promise + scope mini-map + CTAs · UNTOUCHED (quality reference) */}
   <Hero />
 
-  {/* 02 — StatBlock (preset proof-bar) · 4 canonical metrics (V7 §13) */}
-  <StatBlock data={proofBarData} lang="en" />
+  <div class="home-typo">
 
-  <SectionTransition phrase="Verifiable promise, not pitch." />
+    {/* 02 — Unified proof band · 3 non-hero metrics + logos + case files link (Act I) */}
+    <StatBlock data={proofBarData} lang="en" />
+    <SocialProof data={socialProofData} lang="en" />
 
-  {/* 03 — SocialProof · client logos · immediate social proof */}
-  <SocialProof data={socialProofData} lang="en" />
+    <SectionTransition phrase="The numbers don't come from a single tool. They come from a connected system." />
 
-  <SectionTransition phrase="The numbers don't come from a single tool. They come from a connected system." />
+    {/* 03 — ArchitectureDiagram · FIG 2.0 · the mental model, flows drawn on scroll */}
+    <ArchitectureDiagram data={architectureDiagramData} lang="en" />
 
-  {/* 04 — FeatureGrid · 8 pillars of Waimia's full scope */}
-  <FeatureGrid data={featureGridData} lang="en" />
+    {/* 04 — ServicesGrid · FIG 2.5 · the single offer taxonomy (UseCaseIndex merged) */}
+    <ServicesGrid data={servicesGridData} lang="en" />
 
-  <SectionTransition phrase="Every channel becomes useful when it runs through a common architecture." />
+    {/* 05 — Cards-only pyramid · stage + entry price + I→IV gauge (Act III) */}
+    <MaturityPyramid data={maturityPyramidData} lang="en" />
 
-  {/* 05 — SystemArchitecture · signature SVG 6 channels → Waimia System → 4 outputs */}
-  <ArchitectureDiagram data={architectureDiagramData} lang="en" />
+    {/* 05b — Inline CTA · exit door at the pricing moment (P1-8) */}
+    <CtaBandSection data={ctaInlineData} lang="en" />
 
-  <SectionTransition phrase="An architecture is only worth what it ships." />
+    <SectionTransition phrase="Verifiable promise, not pitch." />
 
-  {/* 06 — services-grid · 6 systems shipped + connectors (dedup organism SixServices) */}
-  <ServicesGrid data={servicesGridData} lang="en" />
+    {/* 06 — QuoteSpotlight · embodied client voice on ink (Act IV) */}
+    <QuoteSpotlight data={quoteSpotlightData} lang="en" />
 
-  <SectionTransition phrase="Picking a system is easy. Deploying without breaking your stack takes a method." />
+    {/* 07 — Cases · 4 anonymized dossiers (CASE_FEED) */}
+    <CaseCardGrid data={caseCardGridData('en')} lang="en" />
 
-  {/* 07 — Pyramid · Method maturity timeline Map → Wire → Orchestrate → Industrialize (V7 §17) */}
-  <MaturityPyramid data={maturityPyramidData} lang="en" />
+    {/* 08 — FaqAccordion · 8 SMB-first questions · Q.01 (pricing) open by default */}
+    <FaqAccordion
+      items={faqItems}
+      heading="Frequently asked questions"
+      intro="Eight straight answers, no slides, no jargon. The kind we send by email before the first call."
+      background="paper-2"
+      openFirst
+    />
 
-  <SectionTransition phrase="Same method. Different frictions." />
+    {/* 09 — Field notes ×3 · doctrine + internal linking (1 CASE max) */}
+    <EditorialPreview data={editorialPreviewData('en', [0, 2, 3])} lang="en" />
 
-  {/* 08 — Departments · 6 horizontal use cases in editorial index */}
-  <UseCaseIndex data={useCaseIndexData} lang="en" />
+    <SectionTransition phrase="Reading helps you understand. An audit puts numbers on it." />
 
-  <SectionTransition phrase="A use case becomes credible when it produces proof." />
+    {/* 10 — BookSession · ink climax · primary CTA toward /contact (Act V) */}
+    <BookSession />
 
-  {/* 09 — Cases · 4 anonymized dossiers (CASE_FEED) */}
-  <CaseCardGrid data={caseCardGridData('en')} lang="en" />
-
-  <SectionTransition phrase="Before wiring, we clarify." />
-
-  {/* 10 — FaqAccordion · 8 SMB-first questions (CMS, brand, AI Act included) */}
-  <FaqAccordion
-    items={faqItems}
-    heading="Frequently asked questions"
-    intro="Eight straight answers, no slides, no jargon. The kind we send by email before the first call."
-  />
-
-  <SectionTransition phrase="For those who want to understand before booking." />
-
-  {/* 11 — FieldNotes · doctrine + internal linking (V5 §20 + V7 §21) */}
-  <EditorialPreview data={editorialPreviewData('en')} lang="en" />
-
-  <SectionTransition phrase="Reading helps you understand. An audit puts numbers on it." />
-
-  {/* 12 — BookSession · primary CTA toward /contact */}
-  <BookSession />
+  </div>
 
   {/* FooterMarquee · editorial animated band pre-scrollprogress */}
   <FooterMarquee />

@@ -1581,3 +1581,58 @@ a:not([class]):hover,
     width: 100%;
   }
 }
+
+/* ─── V-F2 · Bascule typographique HOME (directive Simon 2026-06-11) ──────────────
+   Scope `.home-typo` (pages / et /en/ sous le hero, hero exclu) :
+   1. la masse des textes passe en Instrument Sans (var(--font-sans)) ;
+   2. Instrument Serif italique ne fait plus que RELEVER un mot/fragment (<i>) ;
+   3. le contraste passe par la graisse (var(--fw-medium)), pas par l'italique.
+   `!important` assumé : les styles scopés Astro (attributs data-astro-cid, spécificité
+   (0,3,1)) battent toute couche page sinon ; cette skin transitionnelle disparaît
+   quand la bascule sera portée dans les composants DS (backlog V-F7).
+   Les chiffres display (proof-bar values, romans de cards) restent serif : ce sont
+   des éléments « relevés », pas de la masse. Si la bascule est validée, la
+   généraliser aux composants du DS (backlog V-F7) puis retirer cette couche. */
+.home-typo :is(h2, h3) {
+  font-family: var(--font-sans) !important;
+  font-weight: var(--fw-medium) !important;
+  font-style: normal !important;
+  letter-spacing: -0.015em !important;
+}
+.home-typo :is(h2, h3) i {
+  font-family: var(--font-display) !important;
+  font-style: italic !important;
+  font-weight: var(--fw-regular) !important;
+}
+.home-typo .editorial-cell .e-title {
+  font-family: var(--font-sans) !important;
+  font-weight: var(--fw-medium) !important;
+}
+.home-typo .sec-transition-phrase,
+.home-typo .sysarch-cap,
+.home-typo .book-lede,
+.home-typo .qs-quote p,
+.home-typo .social-proof__logo,
+.home-typo .notes-row-text,
+.home-typo .cases-client {
+  font-family: var(--font-sans) !important;
+  font-style: normal !important;
+}
+.home-typo .sysarch-cap i,
+.home-typo .qs-quote p i,
+.home-typo .book-lede i {
+  font-family: var(--font-display) !important;
+  font-style: italic !important;
+}
+.home-typo .notes-row-text,
+.home-typo .cases-client {
+  font-weight: var(--fw-medium) !important;
+}
+.home-typo .faq-accordion__q span:not(.faq-accordion__q-label):not(.faq-accordion__arrow) {
+  font-family: var(--font-sans) !important;
+  font-weight: var(--fw-medium) !important;
+}
+/* Citation longue (236 car.) : un cran sous le display H2 → lisibilité + section plus dense */
+.home-typo .qs-quote p {
+  font-size: var(--text-h2-tight) !important;
+}

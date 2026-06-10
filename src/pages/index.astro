@@ -2,18 +2,24 @@
 export const prerender = true;
 
 /**
- * Homepage · refonte business-first PME/ETI · FR
+ * Homepage · recomposition V-F2 (docs/visual-audit/home/README.md + docs/40 §6) · FR
  *
- * Pivot du récit manifeste vers conversion. 8 organisms scannables.
- * Le visiteur PME comprend en 5s : ce qu'on fait, pour quel ROI, pour qui.
+ * Principe : 1 information = 1 représentation. Séquence 10 slots (vs 12 + 8 interludes) :
+ *   Acte I  promesse & preuve  → Hero (intouché) + bande de preuve unifiée (StatBlock + SocialProof)
+ *   Acte II système & offre    → ArchitectureDiagram (FIG 2.0) + ServicesGrid fusionnée UseCaseIndex (FIG 2.5)
+ *   Acte III engagement        → MaturityPyramid cards-only (stage + prix d'entrée) + CtaInline
+ *   Acte IV preuves clients    → QuoteSpotlight (ink) + CaseCardGrid + FAQ (Q.01 ouverte) + Notes de terrain ×3
+ *   Acte V  action             → BookSession (ink)
  *
- * Organisms retirés de la home (sortis du parcours principal) :
- *   - WhyAIStalls + HowWeShip → réservés à /agence/methode
- *   - Manifesto → réservé à /manifesto
- *   - OperatingLayer → réservé à /agence/methode
- *   - WritingNotes → réservé à /ressources/blog
- *   - Offices → réservé à /agence/about
+ * Retirés de la home (restent au catalogue / autres pages) :
+ *   - FeatureGrid « 8 piliers » → rôle absorbé par ArchitectureDiagram (exemples par nœud)
+ *   - UseCaseIndex → fusionné dans ServicesGrid (liens cas d'usage par service + pied de grille)
+ *   - 5 des 8 interludes SectionTransition (3 pivots conservés)
+ *
+ * Typo (directive 2026-06-11) : la masse passe en sans via la couche `.home-typo`
+ * (global.css), le serif italique ne fait que relever les fragments <i>. Hero hors scope.
  */
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import BootSplash from '../components/motion/BootSplash.astro';
 import ScrollProgress from '../components/ui/atoms/ScrollProgress.astro';
@@ -21,11 +27,11 @@ import ScrollProgress from '../components/ui/atoms/ScrollProgress.astro';
 import Hero                from '../components/ui/organisms/Hero.astro';
 import StatBlock           from '../components/sections/StatBlock.astro';
 import SocialProof         from '../components/sections/SocialProof.astro';
-import FeatureGrid         from '../components/sections/FeatureGrid.astro';
 import ArchitectureDiagram from '../components/sections/ArchitectureDiagram.astro';
 import ServicesGrid        from '../components/sections/ServicesGrid.astro';
 import MaturityPyramid     from '../components/sections/MaturityPyramid.astro';
-import UseCaseIndex        from '../components/sections/UseCaseIndex.astro';
+import CtaBandSection      from '../components/sections/CtaBandSection.astro';
+import QuoteSpotlight      from '../components/sections/QuoteSpotlight.astro';
 import CaseCardGrid        from '../components/sections/CaseCardGrid.astro';
 import { caseCardGridData } from '../lib/case-card-grid-data';
 import FaqAccordion        from '../components/sections/FaqAccordion.astro';
@@ -35,81 +41,156 @@ import BookSession         from '../components/ui/organisms/BookSession.astro';
 import FooterMarquee       from '../components/ui/organisms/FooterMarquee.astro';
 import SectionTransition   from '../components/ui/atoms/SectionTransition.astro';
 
-import { CLIENT_LOGOS, CAPABILITY_MAP, HERO_METRICS, SIX_SERVICES, PYRAMID_TIERS, DEPARTMENTS_GRID } from '../data/sitemap';
+import { CLIENT_LOGOS, HERO_METRICS, SIX_SERVICES, PYRAMID_TIERS, DEPARTMENTS_GRID } from '../data/sitemap';
+import { PROOF_POINTS } from '../data/proof-points';
 import { localizeHref } from '../lib/i18n';
 import type { SectionByType } from '../schemas/sections';
 
+// ── Acte I · Bande de preuve unifiée (audit home §02+03) ───────────────────────
+// 3 métriques NON présentes dans le hero (le « 12h/sem » vit déjà dans la preuve n°1
+// du hero, 250 px plus haut) + lien d'attribution vers les 4 dossiers (chiffres sourcés).
 const proofBarData = {
   type: 'proof-bar' as const,
   layout: 'horizontal' as const,
-  kicker_fr: '§ 02 · PREUVES',
-  kicker_en: '§ 02 · PROOFS',
-  metrics: HERO_METRICS.map((m) => ({
+  background: 'paper-2' as const,
+  kicker_fr: 'ACTE I · PREUVES',
+  kicker_en: 'ACT I · PROOFS',
+  metrics: HERO_METRICS.filter((m) => m.k !== '01').map((m) => ({
     value: m.n,
     label_fr: m.label.fr,
     label_en: m.label.en,
     emphasis: false,
   })),
-};
+  link_label_fr: 'Voir les 4 dossiers →',
+  link_label_en: 'See the 4 case files →',
+  link_href: localizeHref('/cas', 'fr'),
+} satisfies SectionByType<'proof-bar'>;
 
 const socialProofData = {
   type: 'social-proof' as const,
+  background: 'paper-2' as const,
   logos: CLIENT_LOGOS.map((name) => ({ name })),
   marquee: true,
-};
+} satisfies SectionByType<'social-proof'>;
 
-const featureGridData = {
-  type: 'feature-grid' as const,
-  kicker_fr: '8 PILIERS · UN SEUL SYSTÈME',
-  kicker_en: '8 PILLARS · ONE SYSTEM',
-  h2_fr: "Du <i>canal</i> à <i>l'action</i>. Marketing, sales, contenu, web : alignés.",
-  h2_en: 'From <i>channel</i> to <i>action</i>. Marketing, sales, content, web: aligned.',
-  columns: '4' as const,
-  features: CAPABILITY_MAP.map((cat) => ({
-    icon: cat.k,
-    title_fr: cat.label.fr,
-    title_en: cat.label.en,
-    body_fr: cat.lead.fr,
-    body_en: cat.lead.en,
-  })),
-};
+// ── Acte II · FIG 2.0 Le système (absorbe le rôle de FeatureGrid) ──────────────
+// Exemples par canal dérivés du copy existant (hero mini-map + SIX_SERVICES) : 0 invention.
+const architectureDiagramData = {
+  type: 'architecture-diagram' as const,
+  fig_num: 'FIG II · 2.0',
+  fig_title_fr: 'Acte II : Le système', fig_title_en: 'Act II: The system',
+  spec_fr: 'CANAUX · SYSTÈME · ACTIONS', spec_en: 'CHANNELS · SYSTEM · ACTIONS',
+  h2_fr: 'Une seule <i>architecture</i>.<br/>Six entrées, quatre sorties, mille décisions.',
+  h2_en: 'One <i>architecture</i>.<br/>Six inputs, four outputs, a thousand decisions.',
+  inputs_fr: ['Ads', 'Contenu', 'Site', 'CRM', 'Analytics', 'Marque'],
+  inputs_en: ['Ads', 'Content', 'Site', 'CRM', 'Analytics', 'Brand'],
+  input_examples_fr: [
+    'Google Ads, Meta, LinkedIn reliés au pipeline',
+    'Articles SEO/GEO produits et indexés',
+    'Landing, tunnel, CMS branchés au CRM',
+    'Relances, qualification, alertes automatiques',
+    'GA4 et Search Console lus en tableaux de bord',
+    'Design system, decks, PDF alignés',
+  ],
+  input_examples_en: [
+    'Google Ads, Meta, LinkedIn wired to the pipeline',
+    'SEO/GEO articles produced and indexed',
+    'Landing, funnel, CMS plugged into the CRM',
+    'Follow-ups, qualification, automatic alerts',
+    'GA4 and Search Console read as dashboards',
+    'Design system, decks, PDF aligned',
+  ],
+  outputs_fr: ['Actions', 'Supports', 'Reporting', 'Pipeline'],
+  outputs_en: ['Actions', 'Assets', 'Reports', 'Pipeline'],
+  system_label: 'Waimia', system_kicker: 'AI SYSTEM', system_subtitle: 'multi-agent',
+  show_loop: true,
+  loop_label_fr: 'BOUCLE D’AMÉLIORATION CONTINUE', loop_label_en: 'CONTINUOUS IMPROVEMENT LOOP',
+  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte, sans relance manuelle.",
+  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
+} satisfies SectionByType<'architecture-diagram'>;
 
-// SixServices → services-grid (data-driven, byte-identique à l'organism Acte II)
+// ── Acte II · FIG 2.5 L'offre (ServicesGrid fusionnée avec UseCaseIndex) ───────
+// Métriques dédupliquées (1 info = 1 représentation) : « +840 K€ » vit dans la bande
+// preuve, « +12h/sem » dans le hero → remplacées par des chiffres PROPRES au service,
+// sourcés src/data/proof-points.ts (roi-leads-x2-4 · time-30pct-taches-reduites).
+const ppValue = (id: string) => PROOF_POINTS.find((p) => p.id === id)?.value ?? '';
+const SERVICE_METRIC_OVERRIDES: Record<string, { fr: string; en: string }> = {
+  '02': { fr: `${ppValue('roi-leads-x2-4')} leads`, en: `${ppValue('roi-leads-x2-4').replace(',', '.')} leads` },
+  '05': { fr: `${ppValue('time-30pct-taches-reduites')} tâches`, en: `${ppValue('time-30pct-taches-reduites')} tasks` },
+};
+// Mapping service → cas d'usage /solutions/* (les 3 mappings réels ; les 6 cas restent
+// atteignables via le pied de grille → /solutions, info UseCaseIndex préservée).
+const SERVICE_USECASES: Record<string, string> = {
+  '02': 'acquisition-ia',
+  '03': 'crm-relances-ia',
+  '05': 'productivite-ia',
+};
+const usecaseBySlug = (slug: string) => DEPARTMENTS_GRID.find((d) => d.slug === slug);
 const servicesGridData = {
   type: 'services-grid' as const,
-  fig_num: 'FIG II · 2.0',
-  fig_title_fr: 'Acte II : La méthode',
-  fig_title_en: 'Act II: The method',
+  fig_num: 'FIG II · 2.5',
+  fig_title_fr: "Acte II : L'offre",
+  fig_title_en: 'Act II: The offer',
   spec_fr: '6 SERVICES · UNE COUCHE CONTINUE',
   spec_en: '6 SERVICES · ONE CONTINUOUS LAYER',
   h2_fr: 'Six services, appris en <i>livrant</i>, pas en PowerPoint.',
   h2_en: 'Six services, taught by <i>doing</i>, not by slides.',
   connectors_label_fr: 'Connecteurs',
   connectors_label_en: 'Connectors',
-  services: SIX_SERVICES.map((s) => ({
-    fig: `2.${s.k}`,
-    metric_fr: s.metric.fr,
-    metric_en: s.metric.en,
-    label_fr: s.label.fr,
-    label_en: s.label.en,
-    body_fr: s.body.fr,
-    body_en: s.body.en,
-    connectors_fr: s.connectors.fr,
-    connectors_en: s.connectors.en,
-  })),
-};
+  services: SIX_SERVICES.map((s) => {
+    const ucSlug = SERVICE_USECASES[s.k];
+    const uc = ucSlug ? usecaseBySlug(ucSlug) : undefined;
+    return {
+      fig: `2.5${Number(s.k)}`,
+      metric_fr: SERVICE_METRIC_OVERRIDES[s.k]?.fr ?? s.metric.fr,
+      metric_en: SERVICE_METRIC_OVERRIDES[s.k]?.en ?? s.metric.en,
+      label_fr: s.label.fr,
+      label_en: s.label.en,
+      body_fr: s.body.fr,
+      body_en: s.body.en,
+      connectors_fr: s.connectors.fr,
+      connectors_en: s.connectors.en,
+      ...(uc
+        ? {
+            usecase_label_fr: `Cas d'usage · ${uc.label.fr} →`,
+            usecase_label_en: `Use case · ${uc.label.en} →`,
+            usecase_href: localizeHref(`/solutions/${ucSlug}`, 'fr'),
+          }
+        : {}),
+    };
+  }),
+  foot_links: [
+    { label_fr: "Six cas d'usage métier →", label_en: 'Six business use cases →', href: localizeHref('/solutions', 'fr') },
+    { label_fr: 'Adapté à votre secteur →', label_en: 'Adapted to your sector →', href: localizeHref('/secteurs', 'fr') },
+  ],
+} satisfies SectionByType<'services-grid'>;
 
+// ── Acte III · Pyramide cards-only (cas d'école « 1 info = 4 représentations ») ─
+// Timeline + SVG paliers supprimés : le stage (ex-timeline) entre en sur-titre de card,
+// la progression I→IV passe par la jauge, le verbe ne vit plus que dans le H2.
+// Prix d'entrée par palier · sources réelles, rien d'inventé :
+//   I  → FAQ Q.01 (« démarre à 1 500 € HT ») + offres/activation-ia.mdx (délai 1 sem)
+//   II → offres/productivite-operationnelle-ia.mdx:18 (« 6 à 25 k€ · délai 4 à 10 sem »)
+//   III→ FAQ Q.01 (« démarre à 5 000 € HT ») + offres/growth-system-ia.mdx (6 à 10 semaines)
+//   IV → offres/infrastructure-ia.mdx:18 (« sur devis · 12 sem + »)
 const ACTION_LABELS = [
   { fr: 'Cartographier', en: 'Map' },
   { fr: 'Câbler', en: 'Wire' },
   { fr: 'Orchestrer', en: 'Orchestrate' },
   { fr: 'Industrialiser', en: 'Industrialize' },
 ];
+const TIER_DETAILS = [
+  { stage: { fr: 'Audit', en: 'Audit' },                   price: { fr: 'Dès 1 500 € HT · 1 semaine', en: 'From €1,500 · 1 week' } },
+  { stage: { fr: 'Workflow', en: 'Workflow' },             price: { fr: '6 à 25 k€ · 4 à 10 sem', en: '€6K to €25K · 4 to 10 weeks' } },
+  { stage: { fr: 'Système', en: 'System' },                 price: { fr: 'Dès 5 000 € HT · 6 à 10 sem', en: 'From €5,000 · 6 to 10 weeks' } },
+  { stage: { fr: 'Infrastructure', en: 'Infrastructure' }, price: { fr: 'Sur devis · 12 sem +', en: 'On quote · 12+ weeks' } },
+];
 const maturityPyramidData = {
   type: 'maturity-pyramid' as const,
-  roman: 'II',
-  label_fr: "Acte II : La pyramide d'engagements",
-  label_en: 'Act II: The engagement pyramid',
+  variant: 'cards-only' as const,
+  roman: 'III',
+  label_fr: "Acte III : La pyramide d'engagements",
+  label_en: 'Act III: The engagement pyramid',
   heading_fr: '<i>Cartographier.</i> Câbler.<br/>Orchestrer. <i>Industrialiser.</i>',
   heading_en: '<i>Map.</i> Wire.<br/>Orchestrate. <i>Industrialize.</i>',
   aside_fr: "Du diagnostic process à l'infrastructure souveraine : chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
@@ -118,12 +199,6 @@ const maturityPyramidData = {
   timeline_label_en: 'AI maturity path',
   tier_cta_fr: 'Voir le palier →',
   tier_cta_en: 'Open tier →',
-  steps: [
-    { roman: 'I', verb_fr: 'Cartographier', verb_en: 'Map', stage_fr: 'Audit', stage_en: 'Audit' },
-    { roman: 'II', verb_fr: 'Câbler', verb_en: 'Wire', stage_fr: 'Workflow', stage_en: 'Workflow' },
-    { roman: 'III', verb_fr: 'Orchestrer', verb_en: 'Orchestrate', stage_fr: 'Système', stage_en: 'System' },
-    { roman: 'IV', verb_fr: 'Industrialiser', verb_en: 'Industrialize', stage_fr: 'Infrastructure', stage_en: 'Infrastructure' },
-  ],
   tiers: PYRAMID_TIERS.map((tier, idx) => ({
     n: tier.n,
     tag_fr: tier.tag.fr, tag_en: tier.tag.en,
@@ -132,55 +207,64 @@ const maturityPyramidData = {
     items_fr: tier.items, items_en: tier.items,
     action_fr: ACTION_LABELS[idx].fr, action_en: ACTION_LABELS[idx].en,
     href: tier.href,
+    stage_fr: TIER_DETAILS[idx].stage.fr, stage_en: TIER_DETAILS[idx].stage.en,
+    price_fr: TIER_DETAILS[idx].price.fr, price_en: TIER_DETAILS[idx].price.en,
   })),
-};
+} satisfies SectionByType<'maturity-pyramid'>;
 
-const useCaseIndexData = {
-  type: 'use-case-index' as const,
-  roman: 'III',
-  label_fr: "§ 05 : Cas d'usage horizontaux",
-  label_en: '§ 05: Horizontal use cases',
-  heading_fr: 'Six <i>cas d\'usage</i>. Une seule méthode.',
-  heading_en: 'Six <i>use cases</i>. One method.',
-  aside_fr: 'Acquisition, CRM, contenu, site web, productivité, support : les douleurs récurrentes des PME. Mêmes systèmes, vocabulaire adapté à votre métier.',
-  aside_en: 'Acquisition, CRM, content, website, productivity, support: recurring SMB pain points. Same systems, wording adapted to your sector.',
-  num_prefix_fr: 'USE CASE',
-  num_prefix_en: 'USE CASE',
-  items: DEPARTMENTS_GRID.map((d) => ({
-    label_fr: d.label.fr, label_en: d.label.en,
-    tag_fr: d.tag.fr, tag_en: d.tag.en,
-    href: localizeHref(`/solutions/${d.slug}`, 'fr'),
-  })),
-  footer_label_fr: 'Adapté à votre secteur →',
-  footer_label_en: 'Adapted to your sector →',
-  footer_href: localizeHref('/secteurs', 'fr'),
-};
+// CTA intermédiaire (docs/39 P1-8 : jamais > 3 500 px sans porte de sortie) ·
+// posé au 2ᵉ pic d'intention, juste après le moment prix.
+const ctaInlineData = {
+  type: 'cta-band' as const,
+  text_fr: "Un doute sur le palier d'entrée ? 30 minutes au téléphone suffisent pour le situer.",
+  text_en: 'Not sure which tier to start at? A 30-minute call is enough to place it.',
+  cta: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: localizeHref('/contact', 'fr'), variant: 'primary' as const },
+  background: 'paper-2' as const,
+} satisfies SectionByType<'cta-band'>;
+
+// ── Acte IV · Parole client (manque n°1 de l'audit : zéro voix humaine) ────────
+// Testimonial le plus fort de la collection : plateau-saas-coo (featured, vocabulaire
+// « câblé », 5 jours / ROI 6 semaines = écho direct du hero, et le dossier Plateau
+// se matérialise juste en dessous dans CaseCardGrid).
+const testimonials = await getCollection('testimonials');
+const spotlight = testimonials.find((t) => t.id.startsWith('plateau-saas-coo')) ?? testimonials[0];
+const quoteSpotlightData = {
+  type: 'quote-spotlight' as const,
+  background: 'ink' as const,
+  kicker_fr: 'ACTE IV · PAROLE CLIENT',
+  kicker_en: 'ACT IV · CLIENT VOICE',
+  quote_fr: spotlight.data.quote_fr.replace('câblé', '<i>câblé</i>'),
+  quote_en: spotlight.data.quote_en.replace('wired', '<i>wired</i>'),
+  author: spotlight.data.author,
+  role_fr: `${spotlight.data.role_fr} · ${spotlight.data.company}`,
+  role_en: `${spotlight.data.role_en} · ${spotlight.data.company}`,
+} satisfies SectionByType<'quote-spotlight'>;
 
 // FAQ PME-first · 8 questions scannables (V5 : + CMS · + brand consistency)
 const faqItems = [
   {
-    q: "Combien coûte un premier engagement avec Waimia ?",
-    a: "Activation IA · 1 semaine démarre à 1 500 € HT : audit, formation, premier workflow livré. Growth System IA démarre à 5 000 € HT. La plupart des PME commencent petit, mesurent en 5 jours, puis câblent le système complet.",
+    q: "Combien coûte un premier engagement avec Waimia ?",
+    a: "Activation IA · 1 semaine démarre à 1 500 € HT : audit, formation, premier workflow livré. Growth System IA démarre à 5 000 € HT. La plupart des PME commencent petit, mesurent en 5 jours, puis câblent le système complet.",
   },
   {
     q: "Pour qui c'est fait, et pour qui ce n'est pas fait.",
-    a: "PME et ETI françaises et suisses, 20 à 500 collaborateurs. Pas les grands groupes déjà bardés de prestataires. Pas les startups trop jeunes, qui changent de cap toutes les semaines. Nos meilleurs clients : services B2B, industrie, cabinets finance et compta.",
+    a: "PME et ETI françaises et suisses, 20 à 500 collaborateurs. Pas les grands groupes déjà bardés de prestataires. Pas les startups trop jeunes, qui changent de cap toutes les semaines. Nos meilleurs clients : services B2B, industrie, cabinets finance et compta.",
   },
   {
-    q: "En combien de temps voit-on un retour sur investissement ?",
-    a: "Activation IA · 1 semaine : un workflow en production en 5 jours, mesure avant/après incluse. Growth System IA : système complet en 6 à 10 semaines. Le mardi on câble, le vendredi on mesure. ROI entre 3,4× et 4,1× à 12 mois sur nos cas clients PME.",
+    q: "En combien de temps voit-on un retour sur investissement ?",
+    a: "Activation IA · 1 semaine : un workflow en production en 5 jours, mesure avant/après incluse. Growth System IA : système complet en 6 à 10 semaines. Le mardi on câble, le vendredi on mesure. ROI entre 3,4× et 4,1× à 12 mois sur nos cas clients PME.",
   },
   {
-    q: "Et si on veut reprendre la main en interne ?",
+    q: "Et si on veut reprendre la main en interne ?",
     a: "Tout est documenté, ouvert, transmissible. Pas de boîte noire, pas de captivité. On forme votre équipe pendant la mission (2 à 3 jours) et on livre le mode opératoire complet. Vous gardez la plateforme quand on part.",
   },
   {
-    q: "Comment garantissez-vous la conformité RGPD et AI Act ?",
-    a: "Chaque système inclut par défaut : journal des actions, export CSV/JSON, retour arrière possible, classification du risque AI Act. Pour les missions ETI, on mène un PIA avant le sprint.",
+    q: "Comment garantissez-vous la conformité RGPD et AI Act ?",
+    a: "Chaque système inclut par défaut : journal des actions, export CSV/JSON, retour arrière possible, classification du risque AI Act. Pour les missions ETI, on mène un PIA avant le sprint.",
   },
   {
-    q: "Travaillez-vous avec notre stack actuelle (HubSpot, Salesforce, Excel, etc.) ?",
-    a: "Oui : on se branche sur votre stack actuelle : HubSpot, Salesforce, Pipedrive, Notion, Excel, Office, ERP. Pas de migration imposée. Si vous n'avez pas de CRM, on en propose un adapté à votre volume, souvent HubSpot pour les PME B2B.",
+    q: "Travaillez-vous avec notre stack actuelle (HubSpot, Salesforce, Excel, etc.) ?",
+    a: "Oui : on se branche sur votre stack actuelle : HubSpot, Salesforce, Pipedrive, Notion, Excel, Office, ERP. Pas de migration imposée. Si vous n'avez pas de CRM, on en propose un adapté à votre volume, souvent HubSpot pour les PME B2B.",
   },
   {
     q: "Et notre site web et CMS actuels ? Faut-il tout refaire ?",
@@ -191,91 +275,63 @@ const faqItems = [
     a: "On part de votre design system (ou on le construit), on encode votre charte et votre ton dans des templates, et on déploie des agents de production alignés. Résultat : site, posts, decks PowerPoint, PDF, ads et supports sales restent visuellement et verbalement cohérents même quand l'IA produit en volume.",
   },
 ];
-
-const architectureDiagramData = {
-  type: 'architecture-diagram' as const,
-  fig_num: 'FIG II · 2.5',
-  fig_title_fr: "L'architecture du système", fig_title_en: 'System architecture',
-  spec_fr: 'CANAUX · SYSTÈME · ACTIONS', spec_en: 'CHANNELS · SYSTEM · ACTIONS',
-  h2_fr: 'Une seule <i>architecture</i>.<br/>Six entrées, quatre sorties, mille décisions.',
-  h2_en: 'One <i>architecture</i>.<br/>Six inputs, four outputs, a thousand decisions.',
-  inputs_fr: ['Ads', 'Contenu', 'Site', 'CRM', 'Analytics', 'Marque'],
-  inputs_en: ['Ads', 'Content', 'Site', 'CRM', 'Analytics', 'Brand'],
-  outputs_fr: ['Actions', 'Supports', 'Reporting', 'Pipeline'],
-  outputs_en: ['Actions', 'Assets', 'Reports', 'Pipeline'],
-  system_label: 'Waimia', system_kicker: 'AI SYSTEM', system_subtitle: 'multi-agent',
-  show_loop: true,
-  loop_label_fr: 'BOUCLE D’AMÉLIORATION CONTINUE', loop_label_en: 'CONTINUOUS IMPROVEMENT LOOP',
-  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte, sans relance manuelle.",
-  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
-} satisfies SectionByType<'architecture-diagram'>;
 ---
 <Base
   title="Waimia · Systèmes IA pour PME et ETI · Acquisition · CRM · Pilotage"
-  description="On câble l'IA dans les outils des PME : acquisition, CRM, relances, pilotage. Activation en 1 semaine, Growth System IA, Productivité Opérationnelle. Paris · Genève."
+  description="On câble l'IA dans les outils des PME : acquisition, CRM, relances, pilotage. Activation en 1 semaine, Growth System IA, Productivité Opérationnelle. Paris · Genève."
 >
   {/* Splash · respiration cinématique 1.1s · CSS-only depuis V2 2026-05-15 (zéro JS bundle) */}
   <BootSplash lang="fr" />
 
-  {/* 01 — Hero · promesse + mini-map 6 territoires + CTAs (V7 §12) */}
+  {/* 01 — Hero · promesse + mini-map 6 territoires + CTAs · INTOUCHÉ (référence qualité) */}
   <Hero />
 
-  {/* 02 — StatBlock (preset proof-bar) · 4 metrics canoniques (V7 §13) */}
-  <StatBlock data={proofBarData} lang="fr" />
+  <div class="home-typo">
 
-  <SectionTransition phrase="Promesse vérifiable, pas discours." />
+    {/* 02 — Bande de preuve unifiée · 3 métriques hors-hero + logos + lien dossiers (Acte I) */}
+    <StatBlock data={proofBarData} lang="fr" />
+    <SocialProof data={socialProofData} lang="fr" />
 
-  {/* 03 — SocialProof · logos clients · preuve sociale immédiate */}
-  <SocialProof data={socialProofData} lang="fr" />
+    <SectionTransition phrase="Les chiffres ne viennent pas d'un outil isolé. Ils viennent d'un système connecté." />
 
-  <SectionTransition phrase="Les chiffres ne viennent pas d'un outil isolé. Ils viennent d'un système connecté." />
+    {/* 03 — ArchitectureDiagram · FIG 2.0 · le modèle mental, flux dessinés au scroll */}
+    <ArchitectureDiagram data={architectureDiagramData} lang="fr" />
 
-  {/* 04 — FeatureGrid · 8 piliers du scope Waimia complet */}
-  <FeatureGrid data={featureGridData} lang="fr" />
+    {/* 04 — ServicesGrid · FIG 2.5 · l'unique taxonomie de l'offre (fusion UseCaseIndex) */}
+    <ServicesGrid data={servicesGridData} lang="fr" />
 
-  <SectionTransition phrase="Tous les canaux deviennent utiles lorsqu'ils passent par une architecture commune." />
+    {/* 05 — Pyramide cards-only · stage + prix d'entrée + jauge I→IV (Acte III) */}
+    <MaturityPyramid data={maturityPyramidData} lang="fr" />
 
-  {/* 05 — SystemArchitecture · SVG signature 6 canaux → Waimia System → 4 sorties */}
-  <ArchitectureDiagram data={architectureDiagramData} lang="fr" />
+    {/* 05b — CTA inline · porte de sortie au moment prix (P1-8) */}
+    <CtaBandSection data={ctaInlineData} lang="fr" />
 
-  <SectionTransition phrase="Une architecture ne vaut que si elle livre." />
+    <SectionTransition phrase="Promesse vérifiable, pas discours." />
 
-  {/* 06 — services-grid · 6 systèmes livrés + connecteurs (dédup organism SixServices) */}
-  <ServicesGrid data={servicesGridData} lang="fr" />
+    {/* 06 — QuoteSpotlight · parole client incarnée sur ink (Acte IV) */}
+    <QuoteSpotlight data={quoteSpotlightData} lang="fr" />
 
-  <SectionTransition phrase="Choisir un système est simple. Le déployer sans casser vos outils demande une méthode." />
+    {/* 07 — Cases · 4 dossiers anonymisés (CASE_FEED) · le logo croisé plus haut devient dossier */}
+    <CaseCardGrid data={caseCardGridData('fr')} lang="fr" />
 
-  {/* 07 — Pyramid · Method timeline maturité Cartographier → Câbler → Orchestrer → Industrialiser (V7 §17) */}
-  <MaturityPyramid data={maturityPyramidData} lang="fr" />
+    {/* 08 — FaqAccordion · 8 questions PME-first · Q.01 (prix) ouverte par défaut */}
+    <FaqAccordion
+      items={faqItems}
+      heading="Questions fréquentes"
+      intro="Huit réponses nettes, pas des slides, pas du jargon. Ce qu'on écrit par mail avant de se parler."
+      background="paper-2"
+      openFirst
+    />
 
-  <SectionTransition phrase="Même méthode. Frictions différentes." />
+    {/* 09 — Notes de terrain ×3 · doctrine + maillage (1 CAS max : les dossiers vivent au-dessus) */}
+    <EditorialPreview data={editorialPreviewData('fr', [0, 2, 3])} lang="fr" />
 
-  {/* 08 — Departments · 6 cas d'usage en index éditorial linéaire */}
-  <UseCaseIndex data={useCaseIndexData} lang="fr" />
+    <SectionTransition phrase="Lire aide à comprendre. Auditer permet de chiffrer." />
 
-  <SectionTransition phrase="Un cas d'usage devient crédible lorsqu'il produit une preuve." />
+    {/* 10 — BookSession · climax ink · CTA principal vers /contact (Acte V) */}
+    <BookSession />
 
-  {/* 09 — Cases · 4 dossiers anonymisés (CASE_FEED) */}
-  <CaseCardGrid data={caseCardGridData('fr')} lang="fr" />
-
-  <SectionTransition phrase="Avant de câbler, on clarifie." />
-
-  {/* 10 — FaqAccordion · 8 questions PME-first (CMS, brand, AI Act inclus) */}
-  <FaqAccordion
-    items={faqItems}
-    heading="Questions fréquentes"
-    intro="Huit réponses nettes, pas des slides, pas du jargon. Ce qu'on écrit par mail avant de se parler."
-  />
-
-  <SectionTransition phrase="Pour ceux qui veulent comprendre avant de réserver." />
-
-  {/* 11 — FieldNotes · doctrine + internal linking (V5 §20 + V7 §21) */}
-  <EditorialPreview data={editorialPreviewData('fr')} lang="fr" />
-
-  <SectionTransition phrase="Lire aide à comprendre. Auditer permet de chiffrer." />
-
-  {/* 12 — BookSession · CTA principal vers /contact */}
-  <BookSession />
+  </div>
 
   {/* FooterMarquee · ruban éditorial animé pré-scrollprogress */}
   <FooterMarquee />
