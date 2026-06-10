@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 import ListIndexTemplate from '../../../components/templates/ListIndexTemplate.astro';
 import EditorialWriteRow from '../../../components/ui/molecules/EditorialWriteRow.astro';
 import { langFromPath } from '../../../lib/i18n';
+import { blogEntryHref } from '../../../lib/blog-routing';
 
 const lang = langFromPath(Astro.url.pathname);
 
@@ -37,7 +38,7 @@ const formatDate = (d: Date) => {
         <EditorialWriteRow
           date={formatDate(entry.data.publishedAt)}
           tag={(entry.data.editorialType ?? entry.data.type ?? 'NOTE').toUpperCase()}
-          href={`/ressources/blog/${entry.id}`}
+          href={blogEntryHref(entry)}
           tone="paper"
         >
           {lang === 'fr' ? entry.data.title_fr : entry.data.title_en}

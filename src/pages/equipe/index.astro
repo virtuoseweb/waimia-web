@@ -4,8 +4,8 @@ export const prerender = true;
 /**
  * Hub /equipe — liste des auteurs Waimia (status: active + featured first).
  *
- * Auto-jointure : pour chaque auteur, compte les articles publiés (blog +
- * cookbooks + livresBlancs + veilleIA) pour afficher un total dans la card.
+ * Auto-jointure : pour chaque auteur, compte les articles publiés (blog, qui
+ * porte aussi veille IA + field notes, + cookbooks + livresBlancs) pour la card.
  */
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
@@ -19,8 +19,7 @@ import HeroCentered from '../../components/sections/HeroCentered.astro';
 type AuthorLinkedEntry =
   | CollectionEntry<'blog'>
   | CollectionEntry<'cookbooks'>
-  | CollectionEntry<'livresBlancs'>
-  | CollectionEntry<'veilleIA'>;
+  | CollectionEntry<'livresBlancs'>;
 
 type AuthorRef = string | { id?: string; slug?: string; name?: string };
 
@@ -44,18 +43,17 @@ const activeAuthors = allAuthors
   });
 
 // Compte articles par auteur (auto-jointure)
-const [allBlog, allCookbooks, allLivresBlancs, allVeille] = await Promise.all([
+// Post-fusion R1 : la veille IA + les field notes vivent dans blog (champ type).
+const [allBlog, allCookbooks, allLivresBlancs] = await Promise.all([
   getCollection('blog'),
   getCollection('cookbooks'),
   getCollection('livresBlancs'),
-  getCollection('veilleIA'),
 ]);
 
 const allItems: AuthorLinkedEntry[] = [
   ...allBlog,
   ...allCookbooks,
   ...allLivresBlancs,
-  ...allVeille,
 ];
 
 const getAuthor = (contentEntry: AuthorLinkedEntry): AuthorRef | undefined => {

@@ -2,6 +2,7 @@
 export const prerender = true;
 
 // Page SSG · /ressources/field-notes · Index field notes Waimia
+// Post-fusion R1 (docs/audit-refonte/collections.md §F1) : alimentée par blog type === 'field-note'.
 
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
@@ -10,10 +11,12 @@ import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../../lib/i18n';
 import type { SectionByType } from '../../../schemas/sections';
 import HeroCentered from '../../../components/sections/HeroCentered.astro';
+import { fieldNoteTagLabel } from '../../../lib/blog-routing';
 
-const entries = await getCollection('fieldNotes');
+const allBlog = await getCollection('blog');
+const entries = allBlog.filter((e) => e.data.type === 'field-note');
 const lang = langFromPath(Astro.url.pathname);
-const sorted = entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const sorted = entries.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const headerData = {
   type: 'hero-hub-masthead' as const,
@@ -46,8 +49,8 @@ const headerData = {
         {sorted.map((entry: any) => {
           const dateStr = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
             day: 'numeric', month: 'long', year: 'numeric'
-          }).format(entry.data.date);
-          const tag = lang === 'fr' ? entry.data.tag_fr : entry.data.tag_en;
+          }).format(entry.data.publishedAt);
+          const tag = fieldNoteTagLabel(entry.data.editorialType, lang);
           return (
             <li class="fieldnotes-index__item">
               <a href={`/ressources/field-notes/${entry.id}`} class="fieldnotes-index__link">

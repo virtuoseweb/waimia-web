@@ -9,12 +9,12 @@ import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 import { CATEGORIES } from '../../../data/taxonomies';
 import type { SectionByType } from '../../../schemas/sections';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import { blogEntryHref, blogEntryListType } from '../../../lib/blog-routing';
 
 type ResourceEntry =
   | CollectionEntry<'blog'>
   | CollectionEntry<'cookbooks'>
   | CollectionEntry<'livresBlancs'>
-  | CollectionEntry<'veilleIA'>
   | CollectionEntry<'cases'>;
 
 type Item = {
@@ -25,27 +25,25 @@ type Item = {
 };
 
 export async function getStaticPaths() {
-  const [blog, cookbooks, livresBlancs, veilleIA, cas] = await Promise.all([
+  // Post-fusion R1 : la veille IA vit dans blog (type === 'veille-ia'),
+  // href + label type-aware via blog-routing.
+  const [blog, cookbooks, livresBlancs, cas] = await Promise.all([
     getCollection('blog'),
     getCollection('cookbooks'),
     getCollection('livresBlancs'),
-    getCollection('veilleIA'),
     getCollection('cases'),
   ]);
 
   const getItems = (slug: string): Item[] => [
     ...blog
       .filter((e) => !e.data.seo?.noindex && e.data.category === slug)
-      .map((e) => ({ id: e.id, type: 'blog', data: e.data, href: `/ressources/blog/${e.id}` })),
+      .map((e) => ({ id: e.id, type: blogEntryListType(e), data: e.data, href: blogEntryHref(e) })),
     ...cookbooks
       .filter((e) => !e.data.seo?.noindex && e.data.category === slug)
       .map((e) => ({ id: e.id, type: 'cookbook', data: e.data, href: `/ressources/cookbooks/${e.id}` })),
     ...livresBlancs
       .filter((e) => !e.data.seo?.noindex && e.data.category === slug)
       .map((e) => ({ id: e.id, type: 'livre-blanc', data: e.data, href: `/ressources/livres-blancs/${e.id}` })),
-    ...veilleIA
-      .filter((e) => !e.data.seo?.noindex && e.data.category === slug)
-      .map((e) => ({ id: e.id, type: 'veille', data: e.data, href: `/ressources/veille-ia/${e.id}` })),
     ...cas
       .filter((e) => !e.data.seo?.noindex && e.data.category === slug)
       .map((e) => ({ id: e.id, type: 'cas', data: e.data, href: `/cas/${e.id}` })),

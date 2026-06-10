@@ -4,6 +4,7 @@
 // tri par date desc, slice(limit), puis mappage vers RelatedCards.Card.
 import { getCollection } from 'astro:content';
 import RelatedCards from './RelatedCards.astro';
+import { blogEntryHref } from '../../../lib/blog-routing';
 
 interface Props {
   cluster?: string;
@@ -41,7 +42,7 @@ const all: Item[] = [
       id: entry.id,
       type: 'blog',
       data: entry.data,
-      href: `/ressources/blog/${entry.id}`,
+      href: blogEntryHref(entry),
     })),
   ...cookbooks
     .filter((entry) => entry.data.cluster === cluster && entry.id !== excludeId)

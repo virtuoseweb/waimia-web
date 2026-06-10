@@ -1,29 +1,33 @@
 ---
 export const prerender = true;
 
+// Page SSG · /ressources/veille-ia/[...slug] · Consumer blog filtré type === 'veille-ia'
+// Post-fusion R1 (docs/audit-refonte/collections.md §F1) : URLs héritées préservées.
+// L'ancien champ veilleIA.impact_fr/en vit désormais dans blog.excerpt_fr/en (lede).
+
 import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
 import AuthorByline from '../../../components/ui/molecules/AuthorByline.astro';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('veilleIA');
+  const entries = await getCollection('blog');
   return entries
-    .filter((entry) => !entry.data.seo?.noindex)
+    .filter((entry) => entry.data.type === 'veille-ia' && !entry.data.seo?.noindex)
     .map((entry) => ({
       params: { slug: entry.id },
       props: { entry },
     }));
 }
 
-type Props = { entry: CollectionEntry<'veilleIA'> };
+type Props = { entry: CollectionEntry<'blog'> };
 
 const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 const d = entry.data;
 const authorEntry = d.author ? await getEntry('authors', d.author.id) : null;
 
-const dateStr = d.date.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
-const dateDisplay = d.date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+const dateStr = d.publishedAt.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+const dateDisplay = d.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const authorSlug = authorEntry?.data?.slug ?? d.author?.id ?? '';
 const relatedCards: Array<{
   kicker: string;
@@ -39,7 +43,7 @@ const relatedCards: Array<{
   description={d.description_fr}
   kicker={`§ Veille · ${dateStr}`}
   date={dateDisplay}
-  datePublished={d.date.toISOString().slice(0, 10)}
+  datePublished={d.publishedAt.toISOString().slice(0, 10)}
   author={authorEntry?.data.title_fr ?? ''}
   readingTime="3 min lecture"
   authorSlug={authorSlug}
@@ -53,10 +57,10 @@ const relatedCards: Array<{
   ]}
 >
   <Fragment slot="headline">{d.title_fr}</Fragment>
-  <Fragment slot="lede">{d.impact_fr}</Fragment>
+  <Fragment slot="lede">{d.excerpt_fr}</Fragment>
   <Fragment slot="body">
     {authorEntry && (
-      <AuthorByline authorSlug={d.author?.id} date={d.date} readingTime="3 min lecture" />
+      <AuthorByline authorSlug={d.author?.id} date={d.publishedAt} readingTime="3 min lecture" />
     )}
     <Content />
   </Fragment>

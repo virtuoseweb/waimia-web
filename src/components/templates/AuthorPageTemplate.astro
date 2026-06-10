@@ -96,9 +96,11 @@ interface Props {
   cookbooks: ContentItem[];
   livresBlancs: ContentItem[];
   veilleIA: ContentItem[];
+  /** Post-fusion R1 : entrées blog type 'field-note', servies sous /ressources/field-notes. */
+  fieldNotes?: ContentItem[];
 }
 
-const { author, essays, shortPosts, cookbooks, livresBlancs, veilleIA } = Astro.props as Props;
+const { author, essays, shortPosts, cookbooks, livresBlancs, veilleIA, fieldNotes = [] } = Astro.props as Props;
 const lang = langFromPath(Astro.url.pathname);
 const pageTransitionId = Astro.url.pathname
   .replace(/^\/(?:en\/)?/, '')
@@ -285,6 +287,11 @@ const resourceGroups = [
     label: t({ fr: 'Veille IA', en: 'AI watch' }, lang),
     hrefBase: '/ressources/veille-ia',
     items: veilleIA,
+  },
+  {
+    label: t({ fr: 'Field notes', en: 'Field notes' }, lang),
+    hrefBase: '/ressources/field-notes',
+    items: fieldNotes,
   },
 ].filter((group) => group.items.length > 0);
 
