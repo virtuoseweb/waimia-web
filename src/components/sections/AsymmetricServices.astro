@@ -1,0 +1,80 @@
+---
+// Section catalogue · asymmetric-services (catégorie Manifesto Sections)
+// Wrapper de la molécule AsymmetricServiceRow (source de vérité des rangées, anti-orphelin) :
+// en-tête kicker/meta + titre + intro, puis rangées services qui alternent gauche/droite.
+// Pattern source : /manifesto Acte II (« On fait la couche sans prestige. Exprès. »).
+// Typo (directive 2026-06-11) : titre en var(--font-sans), italique serif réservé au
+// relevé d'un mot ; gras via <strong>.
+import AsymmetricServiceRow from '../ui/molecules/AsymmetricServiceRow.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'asymmetric-services'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const meta = isFr ? data.meta_fr : data.meta_en;
+const intro = isFr ? data.intro_fr : data.intro_en;
+---
+<section class="asym-svc" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="asym-svc__hd">
+      <Kicker as="span"><span class="asym-svc__accent">{isFr ? data.num_fr : data.num_en}</span> {isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      {meta && <Kicker as="span">{meta}</Kicker>}
+    </div>
+    <h2 class="asym-svc__title reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+    {intro && <p class="asym-svc__intro reveal" set:html={intro} />}
+    {data.items.map((it, i) => (
+      <AsymmetricServiceRow
+        num={it.num}
+        label={isFr ? it.label_fr : it.label_en}
+        body={isFr ? it.body_fr : it.body_en}
+        reverse={i % 2 === 1}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .asym-svc { padding-block: var(--section-loose); }
+  .asym-svc[data-bg='paper-2'] { background: var(--paper-2); }
+
+  .asym-svc__hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: clamp(48px, 7vw, 88px);
+  }
+  .asym-svc__accent { color: var(--accent); }
+
+  /* Directive typo : titre en sans, relevé d'un mot en italique serif accent */
+  .asym-svc__title {
+    font-family: var(--font-sans);
+    font-size: clamp(34px, 5.2vw, 84px);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    max-width: 1200px;
+    margin: 0 0 clamp(40px, 5vw, 64px);
+  }
+  .asym-svc__title :global(i) { font-family: var(--font-display); font-style: italic; }
+  .asym-svc__title :global(i.acc), .asym-svc__title :global(.acc) { color: var(--accent); }
+  .asym-svc__title :global(strong) { font-weight: var(--fw-semibold); }
+
+  .asym-svc__intro {
+    font-family: var(--font-sans);
+    font-size: clamp(16px, 1.5vw, 22px);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+    max-width: 820px;
+    text-wrap: pretty;
+    margin: clamp(-24px, -3vw, -40px) 0 clamp(48px, 6vw, 72px);
+  }
+  .asym-svc__intro :global(i) { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+  .asym-svc__intro :global(strong) { font-weight: var(--fw-semibold); }
+</style>

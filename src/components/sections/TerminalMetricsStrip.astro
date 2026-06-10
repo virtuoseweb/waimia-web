@@ -1,0 +1,80 @@
+---
+// Section catalogue · terminal-metrics-strip (catégorie Terminal Sections)
+// Strip KPI mono bordé : N cellules clé/valeur en grille, hairlines haut/bas + séparateurs.
+// Différent de stat-block/proof-bar (chiffres display accent) : ici tout est MONO,
+// esthétique télémétrie de console (uptime, workspaces, agents, locale, release).
+// Pattern source : /console hero, strip 5 metrics sous le terminal.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'terminal-metrics-strip'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+---
+<section class="term-metrics" data-bg={data.background}>
+  <div class="wrap-wide">
+    {kicker && <Kicker class="term-metrics__kicker">{kicker}</Kicker>}
+    <div class="term-metrics__grid" style={`--tm-cols:${data.metrics.length}`}>
+      {data.metrics.map((m, i) => (
+        <div class="term-metrics__cell" data-last={i === data.metrics.length - 1 ? 'true' : 'false'}>
+          <div class="term-metrics__k">{isFr ? m.label_fr : m.label_en}</div>
+          <div class="term-metrics__v">{m.value}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .term-metrics { padding-block: var(--section-tight); }
+  .term-metrics[data-bg='paper-2'] { background: var(--paper-2); }
+  .term-metrics[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  :global(.term-metrics__kicker) { margin-bottom: var(--space-4); }
+
+  .term-metrics__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--tm-cols, 5), 1fr);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .term-metrics[data-bg='ink'] .term-metrics__grid {
+    border-top-color: rgba(var(--paper-rgb), .14);
+    border-bottom-color: rgba(var(--paper-rgb), .14);
+  }
+
+  .term-metrics__cell {
+    padding: var(--space-5);
+    border-right: 1px solid var(--hairline);
+  }
+  .term-metrics__cell[data-last='true'] { border-right: none; }
+  .term-metrics[data-bg='ink'] .term-metrics__cell { border-right-color: rgba(var(--paper-rgb), .12); }
+  .term-metrics[data-bg='ink'] .term-metrics__cell[data-last='true'] { border-right: none; }
+
+  .term-metrics__k {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .term-metrics[data-bg='ink'] .term-metrics__k { color: rgba(var(--paper-rgb), .55); }
+  .term-metrics__v {
+    font-family: var(--font-mono);
+    font-size: var(--text-body-lead);
+    margin-top: var(--space-2);
+    color: var(--ink);
+  }
+  .term-metrics[data-bg='ink'] .term-metrics__v { color: var(--paper); }
+
+  @media (max-width: 768px) {
+    .term-metrics__grid { grid-template-columns: repeat(2, 1fr); }
+    .term-metrics__cell:nth-child(2n) { border-right: none; }
+    .term-metrics__cell { border-bottom: 1px solid var(--hairline); }
+    .term-metrics[data-bg='ink'] .term-metrics__cell { border-bottom-color: rgba(var(--paper-rgb), .12); }
+  }
+</style>

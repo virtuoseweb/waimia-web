@@ -103,6 +103,14 @@ import PainPoints from '../components/sections/PainPoints.astro';
 import WorkflowTable from '../components/sections/WorkflowTable.astro';
 import RoiBand from '../components/sections/RoiBand.astro';
 import CaseSplit from '../components/sections/CaseSplit.astro';
+// Mission catalogue-gap 2026-06-11 · patterns /console + /manifesto
+import TerminalTableSection from '../components/sections/TerminalTableSection.astro';
+import EditorialWriteFeed from '../components/sections/EditorialWriteFeed.astro';
+import ManifestoStatement from '../components/sections/ManifestoStatement.astro';
+import ManifestoAct from '../components/sections/ManifestoAct.astro';
+import AsymmetricServices from '../components/sections/AsymmetricServices.astro';
+import TerminalMockupSection from '../components/sections/TerminalMockupSection.astro';
+import TerminalMetricsStrip from '../components/sections/TerminalMetricsStrip.astro';
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -1167,6 +1175,78 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Clôture CTA sur fond ink : Dingbat, titre display italique, body et deux boutons (rendez-vous + lien secondaire).',
     description_en: 'Closing CTA on an ink background: a Dingbat, an italic display heading, body copy, and two buttons (booking + secondary link).',
+  },
+
+  // ── Mission catalogue-gap 2026-06-11 · 3 nouvelles catégories (Table / Manifesto / Terminal) ──
+  'terminal-table': {
+    component: TerminalTableSection,
+    category: 'marketing',
+    subcategory: 'Table Sections',
+    categorySlug: 'table-sections',
+    tags: ['table', 'terminal', 'console', 'rows', 'data', 'services'],
+    status: 'stable',
+    description_fr: 'Table terminal configurable (frame TerminalTable) : en-tête kicker/meta, titre, puis colonnes, headers et lignes cliquables avec rôle typographique par cellule.',
+    description_en: 'Configurable terminal table (TerminalTable frame): kicker/meta header, heading, then columns, headers and clickable rows with a typographic role per cell.',
+  },
+  'editorial-write-feed': {
+    component: EditorialWriteFeed,
+    category: 'marketing',
+    subcategory: 'Table Sections',
+    categorySlug: 'table-sections',
+    tags: ['table', 'feed', 'editorial', 'writing', 'changelog', 'rows'],
+    status: 'stable',
+    description_fr: 'Feed éditorial en lignes cliquables (EditorialWriteRow) : date, tag, texte et flèche par ligne, tone paper ou ink, lien meta type /feed.xml.',
+    description_en: 'Editorial feed as clickable rows (EditorialWriteRow): date, tag, text and arrow per row, paper or ink tone, /feed.xml style meta link.',
+  },
+  'manifesto-statement': {
+    component: ManifestoStatement,
+    category: 'marketing',
+    subcategory: 'Manifesto Sections',
+    categorySlug: 'manifesto-sections',
+    tags: ['manifesto', 'statement', 'fullscreen', 'ink', 'accent', 'editorial'],
+    status: 'stable',
+    description_fr: 'Déclaration manifeste plein écran : kicker mono et statement XL en sans, relevés italiques serif, tone encre (interlude console) ou terracotta avec grille translucide.',
+    description_en: 'Full-screen manifesto declaration: mono kicker and XL sans statement with serif italic highlights, ink tone (console interlude) or terracotta with a translucent grid.',
+  },
+  'manifesto-act': {
+    component: ManifestoAct,
+    category: 'marketing',
+    subcategory: 'Manifesto Sections',
+    categorySlug: 'manifesto-sections',
+    tags: ['manifesto', 'act', 'numbered', 'stats', 'sticky', 'ink'],
+    status: 'stable',
+    description_fr: 'Acte numéroté de manifeste : label sticky (numéro romain + sous-titre), statement XL et rangée de chiffres massifs optionnelle, tone encre ou paper.',
+    description_en: 'Numbered manifesto act: sticky label (roman numeral + subtitle), XL statement and an optional row of massive figures, ink or paper tone.',
+  },
+  'asymmetric-services': {
+    component: AsymmetricServices,
+    category: 'marketing',
+    subcategory: 'Manifesto Sections',
+    categorySlug: 'manifesto-sections',
+    tags: ['manifesto', 'services', 'asymmetric', 'alternating', 'editorial', 'rows'],
+    status: 'stable',
+    description_fr: 'Services en rangées asymétriques (AsymmetricServiceRow) qui alternent gauche/droite : numéro display, nom, body et flèche, signature de /manifesto Acte II.',
+    description_en: 'Services as asymmetric rows (AsymmetricServiceRow) alternating left/right: display number, name, body and arrow, the /manifesto Act II signature.',
+  },
+  'terminal-mockup': {
+    component: TerminalMockupSection,
+    category: 'marketing',
+    subcategory: 'Terminal Sections',
+    categorySlug: 'terminal-sections',
+    tags: ['terminal', 'console', 'mockup', 'cli', 'platform', 'split'],
+    status: 'stable',
+    description_fr: 'Console terminal configurable (frame TerminalMockup) : copy optionnelle à gauche, lignes cmd/out/ok/comment et curseur clignotant, layout split ou pleine largeur.',
+    description_en: 'Configurable terminal console (TerminalMockup frame): optional copy on the left, cmd/out/ok/comment lines and a blinking cursor, split or full-width layout.',
+  },
+  'terminal-metrics-strip': {
+    component: TerminalMetricsStrip,
+    category: 'marketing',
+    subcategory: 'Terminal Sections',
+    categorySlug: 'terminal-sections',
+    tags: ['terminal', 'metrics', 'kpi', 'mono', 'strip', 'telemetry'],
+    status: 'stable',
+    description_fr: 'Strip KPI télémétrie tout mono : 2 à 6 cellules clé/valeur bordées de hairlines, esthétique console (uptime, agents, release), fonds paper, paper-2 ou ink.',
+    description_en: 'All-mono telemetry KPI strip: 2 to 6 key/value cells with hairline borders, console aesthetics (uptime, agents, release), paper, paper-2 or ink backgrounds.',
   },
 };
 

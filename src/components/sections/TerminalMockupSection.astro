@@ -1,0 +1,120 @@
+---
+// Section catalogue · terminal-mockup (catégorie Terminal Sections)
+// Wrapper de la molécule TerminalMockup (source de vérité du frame console, anti-orphelin) :
+// copy optionnelle (kicker + titre + intro) et console à lignes configurables
+// (cmd / out / ok / comment) + curseur clignotant optionnel (statique, reduced-motion safe).
+// Pattern source : /console hero terminal split + Acte V (carte session).
+// Typo (directive 2026-06-11) : titre en var(--font-sans), italique serif réservé au
+// relevé d'un mot ; le corps console reste mono (vérité du pattern terminal).
+import TerminalMockup from '../ui/molecules/TerminalMockup.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'terminal-mockup'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const intro = isFr ? data.intro_fr : data.intro_en;
+const hasCopy = Boolean(kicker || h2 || intro);
+---
+<section class="term-mock" data-bg={data.background}>
+  <div class="wrap-wide term-mock__grid" data-layout={hasCopy ? data.layout : 'full'}>
+    {hasCopy && (
+      <div class="term-mock__copy">
+        {kicker && <Kicker tone="accent" class="term-mock__kicker">{kicker}</Kicker>}
+        {h2 && <h2 class="term-mock__title reveal" set:html={h2} />}
+        {intro && <p class="term-mock__intro reveal" set:html={intro} />}
+      </div>
+    )}
+    <TerminalMockup label={data.label} status={data.status} tone={data.tone} bodyPadding={18}>
+      <div class="term-mock__body" data-term-tone={data.tone}>
+        {data.lines.map((l) => (
+          <div class="term-mock__line" data-kind={l.kind}>
+            {l.kind === 'cmd' && <span class="term-mock__prompt">$ </span>}
+            {l.kind === 'ok' && <span class="term-mock__ok">✓ </span>}
+            <span class="term-mock__line-text">{isFr ? l.text_fr : l.text_en}</span>
+          </div>
+        ))}
+        {data.show_cursor && (
+          <div class="term-mock__line">
+            <span class="term-mock__prompt">$ </span><span class="term-mock__cursor" aria-hidden="true"></span>
+          </div>
+        )}
+      </div>
+    </TerminalMockup>
+  </div>
+</section>
+
+<style>
+  .term-mock { padding-block: var(--section-base); }
+  .term-mock[data-bg='paper-2'] { background: var(--paper-2); }
+  .term-mock[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  .term-mock__grid { display: grid; gap: clamp(32px, 5vw, 56px); align-items: center; }
+  .term-mock__grid[data-layout='split'] { grid-template-columns: 1fr 1fr; }
+  .term-mock__grid[data-layout='full'] { grid-template-columns: 1fr; }
+
+  :global(.term-mock__kicker) { margin-bottom: var(--space-5); }
+
+  /* Directive typo : titre en sans, relevé d'un mot en italique serif */
+  .term-mock__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    margin: 0 0 var(--space-5);
+  }
+  .term-mock[data-bg='ink'] .term-mock__title { color: var(--paper); }
+  .term-mock__title :global(i) { font-family: var(--font-display); font-style: italic; }
+  .term-mock__title :global(i.acc), .term-mock__title :global(.acc) { color: var(--accent); }
+  .term-mock__title :global(strong) { font-weight: var(--fw-semibold); }
+
+  .term-mock__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 56ch;
+    text-wrap: pretty;
+    margin: 0;
+  }
+  .term-mock[data-bg='ink'] .term-mock__intro { color: rgba(var(--paper-rgb), .7); }
+
+  /* Corps console (mono = vérité du pattern terminal) */
+  .term-mock__body {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    line-height: 1.6;
+    min-height: 120px;
+  }
+  .term-mock__body[data-term-tone='ink'] { color: rgba(var(--paper-rgb), .8); }
+  .term-mock__body[data-term-tone='paper'] { color: var(--ink); }
+  .term-mock__line { padding: var(--space-1) 0; }
+  .term-mock__body[data-term-tone='ink'] .term-mock__line[data-kind='out'] .term-mock__line-text { color: rgba(var(--paper-rgb), .55); }
+  .term-mock__body[data-term-tone='paper'] .term-mock__line[data-kind='out'] .term-mock__line-text { color: var(--muted); }
+  .term-mock__body[data-term-tone='ink'] .term-mock__line[data-kind='comment'] .term-mock__line-text { color: rgba(var(--paper-rgb), .45); font-size: var(--text-caption); }
+  .term-mock__body[data-term-tone='paper'] .term-mock__line[data-kind='comment'] .term-mock__line-text { color: var(--muted); font-size: var(--text-caption); }
+  .term-mock__prompt, .term-mock__ok { color: var(--accent); }
+
+  /* Curseur clignotant · bloc accent, neutralisé en reduced-motion */
+  .term-mock__cursor {
+    display: inline-block;
+    width: .55em;
+    height: 1.05em;
+    vertical-align: text-bottom;
+    background: var(--accent);
+    animation: term-mock-blink 1s infinite;
+  }
+  @keyframes term-mock-blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .term-mock__cursor { animation: none; } }
+
+  @media (max-width: 900px) {
+    .term-mock__grid[data-layout='split'] { grid-template-columns: 1fr; }
+  }
+</style>

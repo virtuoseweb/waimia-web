@@ -1,0 +1,77 @@
+---
+// Section catalogue · editorial-write-feed (catégorie Table Sections)
+// Wrapper de la molécule EditorialWriteRow (source de vérité des lignes, anti-orphelin) :
+// en-tête kicker + lien meta à droite, puis liste de lignes cliquables [date | tag | texte | flèche].
+// Pattern source : /console section Writing (tone paper) + /manifesto Writing dark (tone ink).
+// Typo (directive 2026-06-11) : en-tête et titre optionnel en var(--font-sans),
+// italique serif réservé au relevé d'un mot.
+import EditorialWriteRow from '../ui/molecules/EditorialWriteRow.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'editorial-write-feed'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const title = isFr ? data.title_fr : data.title_en;
+const metaLabel = isFr ? data.meta_label_fr : data.meta_label_en;
+---
+<section class="write-feed" data-tone={data.tone}>
+  <div class="wrap-wide">
+    <div class="write-feed__hd">
+      <Kicker tone="accent" as="span">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      {metaLabel && (
+        data.meta_href ? (
+          <a class="write-feed__meta-link" href={data.meta_href}>
+            <Kicker as="span" tone={data.tone === 'ink' ? 'dim' : 'muted'}>{metaLabel}</Kicker>
+          </a>
+        ) : (
+          <Kicker as="span" tone={data.tone === 'ink' ? 'dim' : 'muted'}>{metaLabel}</Kicker>
+        )
+      )}
+    </div>
+    {title && <h2 class="write-feed__title reveal" set:html={title} />}
+    <div>
+      {data.items.map((it) => (
+        <EditorialWriteRow date={it.date} tag={isFr ? it.tag_fr : it.tag_en} href={it.href} tone={data.tone}>
+          {isFr ? it.text_fr : it.text_en}
+        </EditorialWriteRow>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .write-feed { padding-block: var(--section-base); }
+  .write-feed[data-tone='ink'] { background: var(--ink); color: var(--paper); }
+
+  .write-feed__hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-7);
+  }
+  .write-feed[data-tone='ink'] .write-feed__hd { border-bottom-color: rgba(var(--paper-rgb), .12); }
+  .write-feed__meta-link { text-decoration: none; }
+
+  /* Directive typo : titre en sans, relevé d'un mot en italique serif accent */
+  .write-feed__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    max-width: 1000px;
+    margin: 0 0 var(--space-7);
+  }
+  .write-feed[data-tone='ink'] .write-feed__title { color: var(--paper); }
+  .write-feed__title :global(i) { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+  .write-feed__title :global(strong) { font-weight: var(--fw-semibold); }
+</style>
