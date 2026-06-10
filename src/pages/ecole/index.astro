@@ -3,12 +3,15 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import EcoleHubTemplate from '../../components/templates/EcoleHubTemplate.astro';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
+import CourseCatalogTable from '../../components/sections/CourseCatalogTable.astro';
+import LearningPathList from '../../components/sections/LearningPathList.astro';
+import type { SectionByType } from '../../schemas/sections';
 
 const allCourses = await getCollection('courses');
 const formations = allCourses.filter((c) => c.data.course_type === 'formation');
-const parcoursCollection = allCourses.filter((c) => c.data.course_type === 'parcours');
-const ateliersCollection = allCourses.filter((c) => c.data.course_type === 'atelier');
+const parcours = allCourses.filter((c) => c.data.course_type === 'parcours');
+const ateliers = allCourses.filter((c) => c.data.course_type === 'atelier');
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 
 const title = lang === 'fr'
@@ -17,7 +20,115 @@ const title = lang === 'fr'
 const description = lang === 'fr'
   ? 'Formations, parcours et ateliers IA pour dirigeants et équipes PME B2B. Accès immédiat, vrai contenu, zéro bullshit.'
   : 'AI training, programs and workshops for SMB leaders and teams. Immediate access, real content, no fluff.';
+
+// ── Hero (hero-academy-hub) — recopie EXACTE d'EcoleHubTemplate l.15-34 ──
+const heroTitleFr = "Apprendre à câbler l'<i>IA</i>";
+const heroTitleEn = "Learn to wire <i>AI</i>";
+const heroLedeFr = "Formations courtes, cas réels, zéro bullshit. Pour dirigeants et équipes PME B2B qui veulent des résultats mesurables dans les 30 jours.";
+const heroLedeEn = "Short courses, real cases, no fluff. For SMB leaders and teams who want measurable results within 30 days.";
+const kickerTextFr = `École Waimia · Catalogue · Inscriptions ouvertes`;
+const kickerTextEn = `Waimia School · Catalog · Enrollments open`;
+const statsLabelFr = `${formations.length} formation${formations.length > 1 ? 's' : ''} · ${parcours.length} parcours · ${ateliers.length} atelier${ateliers.length > 1 ? 's' : ''}`;
+const statsLabelEn = `${formations.length} course${formations.length > 1 ? 's': ''} · ${parcours.length} program${parcours.length > 1 ? 's': ''} · ${ateliers.length} workshop${ateliers.length > 1 ? 's': ''}`;
+
+const heroData = {
+  type: 'hero-academy-hub',
+  kicker_fr: kickerTextFr,
+  kicker_en: kickerTextEn,
+  h1_fr: heroTitleFr,
+  h1_en: heroTitleEn,
+  lede_fr: heroLedeFr,
+  lede_en: heroLedeEn,
+  stats_label_fr: statsLabelFr,
+  stats_label_en: statsLabelEn,
+} satisfies SectionByType<'hero-academy-hub'>;
+
+// ── Catalogue formations → course-catalog-table ──
+type CatalogRow = SectionByType<'course-catalog-table'>['rows'][number];
+const catalogRows: CatalogRow[] = formations.map((entry, i) => {
+  const d = entry.data as any;
+  return {
+    num: String(i + 1).padStart(2, '0'),
+    title_fr: d.title_fr,
+    title_en: d.title_en,
+    level: d.level,
+    duration_hours: d.duration_hours,
+    price_eur: d.pricing?.one_time_eur,
+    href: `/ecole/cours/${entry.id}`,
+  };
+});
+const catalogueTitleFr = 'Catalogue formations';
+const catalogueTitleEn = 'Course catalog';
+
+// ── Parcours → learning-path-list ──
+type PathItem = SectionByType<'learning-path-list'>['items'][number];
+const pathItems: PathItem[] = parcours.map((p) => ({
+  title_fr: p.data.title_fr,
+  title_en: p.data.title_en,
+  desc_fr: p.data.description_fr,
+  desc_en: p.data.description_en,
+}));
+const parcoursTitleFr = 'Parcours';
+const parcoursTitleEn = 'Learning paths';
+
+// ── CTA finale page-level ──
+const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a custom learning path';
 ---
 <Base {title} {description}>
-  <EcoleHubTemplate formations={formations} parcours={parcoursCollection} ateliers={ateliersCollection} {lang} />
+  <section class="ecole-hub">
+    <!-- HERO -->
+    <HeroCentered data={heroData} lang={lang} wrap={false} topPad="48px" />
+
+    <!-- CATALOGUE FORMATIONS -->
+    {catalogRows.length > 0 && (
+      <CourseCatalogTable
+        data={{ type: 'course-catalog-table', title_fr: catalogueTitleFr, title_en: catalogueTitleEn, rows: catalogRows }}
+        lang={lang}
+      />
+    )}
+
+    <!-- SECTION PARCOURS -->
+    {pathItems.length > 0 && (
+      <LearningPathList
+        data={{ type: 'learning-path-list', title_fr: parcoursTitleFr, title_en: parcoursTitleEn, items: pathItems }}
+        lang={lang}
+      />
+    )}
+
+    <!-- CTA FINALE -->
+    <div class="cta-finale">
+      <a href="/contact" class="cta-link">{ctaText} →</a>
+    </div>
+  </section>
 </Base>
+
+<style>
+  /* ───── COPIE VERBATIM EcoleHubTemplate l.116-121 (.ecole-hub) ───── */
+  .ecole-hub {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-page-x, 24px);
+    background: var(--paper);
+  }
+
+  /* ───── COPIE VERBATIM EcoleHubTemplate l.252-271 (CTA FINALE) ───── */
+  .cta-finale {
+    padding: 56px 0 72px;
+    border-top: 1px solid var(--hairline);
+    margin-top: var(--space-5);
+  }
+
+  .cta-link {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lead);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s;
+  }
+
+  .cta-link:hover {
+    color: var(--accent);
+  }
+</style>

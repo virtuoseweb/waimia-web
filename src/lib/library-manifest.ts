@@ -50,7 +50,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-service-detail',   consumers: ['src/components/templates/ServiceDetailTemplate.astro'] },
   { id: 'hero-case-study',       consumers: ['src/components/templates/CaseStudyTemplate.astro'] },
   { id: 'hero-utility-masthead', consumers: ['src/components/templates/UtilityTemplate.astro'] },
-  { id: 'hero-academy-hub',      consumers: ['src/components/templates/EcoleHubTemplate.astro'] },
+  { id: 'hero-academy-hub',      consumers: ['src/pages/ecole/index.astro'] },
   { id: 'hero-conversion-funnel',consumers: ['src/components/templates/ConversionFunnelTemplate.astro'] },
   { id: 'hero-hub-stats',        consumers: ['src/components/templates/HubTemplate.astro'] },
   { id: 'hero-detail-menu',      consumers: ['src/components/templates/DetailMenuTemplate.astro'] },
@@ -154,6 +154,9 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'case-split',                consumers: SOLUTIONS_CONSUMERS },
   { id: 'department-stack',          consumers: SOLUTIONS_CONSUMERS },
   { id: 'department-cta',            consumers: SOLUTIONS_CONSUMERS },
+  // Wave 1.5 — École hub : 2 blocs bespoke EcoleHubTemplate catalogués, consommés par la page hub École (rendu direct)
+  { id: 'course-catalog-table',      consumers: ['src/pages/ecole/index.astro'] },
+  { id: 'learning-path-list',        consumers: ['src/pages/ecole/index.astro'] },
 ];
 
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────

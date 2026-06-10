@@ -76,6 +76,8 @@ import TierPyramidSvg from '../components/sections/TierPyramidSvg.astro';
 import OfferTierGrid from '../components/sections/OfferTierGrid.astro';
 import TeamCardGrid from '../components/sections/TeamCardGrid.astro';
 import HeroAtlas from '../components/sections/HeroAtlas.astro';
+import CourseCatalogTable from '../components/sections/CourseCatalogTable.astro';
+import LearningPathList from '../components/sections/LearningPathList.astro';
 import PersonaAttributesGrid from '../components/sections/PersonaAttributesGrid.astro';
 import EditorialSplitGrid from '../components/sections/EditorialSplitGrid.astro';
 import ComingSoonPills from '../components/sections/ComingSoonPills.astro';
@@ -1131,6 +1133,26 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Stack outils en table éditoriale : en-tête eyebrow et titre display, aside Callout, EditorialTable catégorie/outil/rôle.',
     description_en: 'Tool stack as an editorial table: an eyebrow and display heading header, a Callout aside, and a category/tool/role EditorialTable.',
+  },
+  'course-catalog-table': {
+    component: CourseCatalogTable,
+    category: 'marketing',
+    subcategory: 'Index Sections',
+    categorySlug: 'index-sections',
+    tags: ['catalog', 'table', 'courses', 'school'],
+    status: 'stable',
+    description_fr: 'Tableau du catalogue formations : titre de section et lignes (#, titre, niveau en pill, durée, prix, flèche), une formation par ligne.',
+    description_en: 'Course catalog table: a section title and rows (#, title, level pill, duration, price, arrow), one course per row.',
+  },
+  'learning-path-list': {
+    component: LearningPathList,
+    category: 'marketing',
+    subcategory: 'Index Sections',
+    categorySlug: 'index-sections',
+    tags: ['list', 'paths', 'school'],
+    status: 'stable',
+    description_fr: 'Liste de parcours : titre de section et une ligne par parcours (titre en gras + description).',
+    description_en: 'Learning path list: a section title and one row per path (bold title + description).',
   },
   'department-cta': {
     component: DepartmentCta,

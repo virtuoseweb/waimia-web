@@ -2082,6 +2082,45 @@ export const departmentStackSchema = z.object({
     .max(12),
 });
 
+// §École · Catalogue de cours/formations · tableau (#/Titre/Niveau/Durée/Prix) · EcoleHubTemplate
+export const courseCatalogTableSchema = z.object({
+  type: z.literal('course-catalog-table'),
+  title_fr: z.string(),
+  title_en: z.string(),
+  rows: z
+    .array(
+      z.object({
+        num: z.string().optional(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        level: z.enum(['debutant', 'intermediaire', 'avance', 'expert']),
+        duration_hours: z.number().positive(),
+        price_eur: z.number().int().nonnegative().optional(),
+        href: z.string(),
+      }),
+    )
+    .min(1)
+    .max(20),
+});
+
+// §École · Liste de parcours/learning paths · titre + description · EcoleHubTemplate
+export const learningPathListSchema = z.object({
+  type: z.literal('learning-path-list'),
+  title_fr: z.string(),
+  title_en: z.string(),
+  items: z
+    .array(
+      z.object({
+        title_fr: z.string(),
+        title_en: z.string(),
+        desc_fr: z.string(),
+        desc_en: z.string(),
+      }),
+    )
+    .min(1)
+    .max(12),
+});
+
 // §Solutions · Department CTA · clôture dark "Votre équipe, augmentée."
 export const departmentCtaSchema = z.object({
   type: z.literal('department-cta'),
@@ -2201,6 +2240,8 @@ export const sectionSchema = z.discriminatedUnion('type', [
   roiBandSchema,
   caseSplitSchema,
   departmentStackSchema,
+  courseCatalogTableSchema,
+  learningPathListSchema,
   departmentCtaSchema,
 ]);
 
