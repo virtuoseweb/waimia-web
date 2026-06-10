@@ -25,7 +25,7 @@ const { variant = 'serif' } = Astro.props;
   .drop-cap {
     float: left;
     font-family: var(--font-display);
-    font-size: var(--text-drop-cap, clamp(64px, 8vw, 96px));
+    font-size: var(--text-drop-cap, clamp(64px, 6vw, 96px));
     line-height: 0.85;
     margin: 0.05em 0.08em -0.05em 0;
     padding: 0;
@@ -37,7 +37,7 @@ const { variant = 'serif' } = Astro.props;
   .drop-cap-mono {
     font-family: var(--font-mono);
     font-style: normal;
-    font-size: calc(var(--text-drop-cap, clamp(64px, 8vw, 96px)) * 0.78);
+    font-size: calc(var(--text-drop-cap, clamp(64px, 6vw, 96px)) * 0.78);
     color: var(--ink);
     line-height: 1;
     margin-top: 0.12em;
@@ -46,12 +46,12 @@ const { variant = 'serif' } = Astro.props;
   .drop-cap-accent {
     color: var(--ink);
     font-style: italic;
-    font-size: calc(var(--text-drop-cap, clamp(64px, 8vw, 96px)) * 1.08);
+    font-size: calc(var(--text-drop-cap, clamp(64px, 6vw, 96px)) * 1.08);
   }
 
   @media (max-width: 768px) {
     .drop-cap {
-      font-size: calc(var(--text-drop-cap, clamp(64px, 8vw, 96px)) * 0.7);
+      font-size: calc(var(--text-drop-cap, clamp(64px, 6vw, 96px)) * 0.7);
       margin-right: 0.06em;
     }
   }

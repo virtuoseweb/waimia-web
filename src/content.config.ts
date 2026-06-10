@@ -721,63 +721,6 @@ const tunnels = defineCollection({
   }),
 });
 
-// ─── Welcome pages (post-conversion) ───
-const welcomePages = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/welcome-pages' }),
-  schema: z.object({
-    ...baseFields,
-    trigger: z.enum([
-      'audit-booking',
-      'contact-form',
-      'livre-blanc-download',
-      'newsletter-signup',
-      'formation-signup',
-      'parcours-signup',
-      'atelier-signup',
-      'produit-purchase',
-      'abonnement-souscription',
-    ]),
-    headline_fr: z.string(),
-    headline_en: z.string(),
-    lede_fr: z.string(),
-    lede_en: z.string(),
-    next_steps: z
-      .array(
-        z.object({
-          num: z.string(),
-          title_fr: z.string(),
-          title_en: z.string(),
-          body_fr: z.string(),
-          body_en: z.string(),
-          timing_fr: z.string().optional(),
-          timing_en: z.string().optional(),
-        }),
-      )
-      .min(2)
-      .max(4),
-    bonus_resources: z
-      .array(
-        z.object({
-          type: z.enum(['case', 'cookbook', 'livre-blanc', 'blog', 'outil', 'formation']),
-          slug: z.string(),
-        }),
-      )
-      .default([]),
-    signature_quote_fr: z.string().optional(),
-    signature_quote_en: z.string().optional(),
-    signature_author: reference('authors').optional(),
-    fallback_doors: z
-      .array(
-        z.object({
-          label_fr: z.string(),
-          label_en: z.string(),
-          href: z.string(),
-        }),
-      )
-      .default([]),
-  }),
-});
-
 // ─── École : Courses · discriminated union (T3.1a + T3.1f — remplace formations/parcours/ateliers) ───
 const courses = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/ecole/courses' }),
@@ -877,126 +820,6 @@ const courses = defineCollection({
       related_formations: z.array(z.string()).default([]),
     }),
   ]),
-});
-
-// ─── Produits (artefacts achetables) ───
-const produits = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/produits' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    sku: z.string().regex(/^WAI-[A-Z]+-\d{3}$/, 'format SKU Waimia'),
-    product_type: z.enum([
-      'audit-guide',
-      'template-kit',
-      'livre-blanc-premium',
-      'masterclass-replay',
-      'workbook',
-      'starter-pack',
-    ]),
-    pricing: z.object({
-      currency: z.literal('EUR'),
-      list_price_eur: z.number().positive(),
-      promo_price_eur: z.number().positive().optional(),
-      promo_until: z.coerce.date().optional(),
-      stripe_payment_link: z.string().url(),
-    }),
-    format: z.array(z.enum(['pdf', 'notion', 'airtable', 'figma', 'video', 'audio', 'zip'])),
-    pages_or_minutes: z.number().int().positive(),
-    deliverables_fr: z.array(z.string()).min(2),
-    deliverables_en: z.array(z.string()).min(2),
-    target_audience_fr: z.array(z.string()),
-    target_audience_en: z.array(z.string()),
-    instant_download: z.boolean().default(true),
-    license: z.enum(['personnel', 'equipe-5', 'entreprise-illimite']).default('personnel'),
-    related_formations: z.array(z.string()).default([]),
-    related_offres: z.array(z.string()).default([]),
-    download_url: z.string().optional(),
-  }),
-});
-
-// ─── Abonnements (revenus récurrents) ───
-const abonnements = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/abonnements' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    sku: z.string().regex(/^WAI-SUB-[A-Z]+-\d{3}$/, 'format SKU abonnement'),
-    subscription_type: z.enum([
-      'hosting-management',
-      'maintenance',
-      'monitoring',
-      'ai-monitoring',
-      'content-production',
-      'support-premium',
-      'crm-management',
-      'security-audit',
-    ]),
-    billing_cycle: z.enum(['monthly', 'quarterly', 'annual']),
-    pricing: z.object({
-      currency: z.literal('EUR'),
-      monthly_eur: z.number().positive(),
-      annual_eur: z.number().positive().optional(),
-      annual_discount_pct: z.number().min(0).max(50).optional(),
-      setup_fee_eur: z.number().nonnegative().optional(),
-      stripe_payment_link: z.string().url(),
-      stripe_portal_url: z.string().url().optional(),
-    }),
-    sla: z
-      .object({
-        response_time_business_hours: z.string().optional(),
-        response_time_critical: z.string().optional(),
-        uptime_guarantee: z.string().optional(),
-        monthly_hours_included: z.number().nonnegative().optional(),
-      })
-      .optional(),
-    deliverables_fr: z.array(z.string()).min(3),
-    deliverables_en: z.array(z.string()).min(3),
-    onboarding_duration_days: z.number().int().positive(),
-    cancellation_terms_fr: z.string(),
-    cancellation_terms_en: z.string(),
-    target_audience_fr: z.array(z.string()),
-    target_audience_en: z.array(z.string()),
-    related_offres: z.array(z.string()).default([]),
-    custom_quote_required: z.boolean().default(false),
-  }),
-});
-
-// ─── Landing pages (LP campagnes) ───
-const landingPages = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/lp' }),
-  schema: z.object({
-    ...baseFields,
-    campaign: z.string(),
-    utm_source: z.string().optional(),
-    primary_offer_slug: z.string(),
-    hero_variant: z.enum(['split', 'centered', 'full-bleed']).default('split'),
-    sections: z
-      .array(z.enum(['proof', 'method', 'case-study', 'faq', 'pricing', 'inclusions']))
-      .default([]),
-    cta_primary_label_fr: z.string(),
-    cta_primary_label_en: z.string(),
-    cta_primary_href: z.string(),
-    cta_secondary_label_fr: z.string().optional(),
-    cta_secondary_label_en: z.string().optional(),
-    cta_secondary_href: z.string().optional(),
-    valid_until: z.coerce.date().optional(),
-  }),
-});
-
-// ─── Newsletter (archives) ───
-const newsletter = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/newsletter' }),
-  schema: z.object({
-    ...baseFields,
-    issue_number: z.number().int().positive(),
-    sent_at: z.coerce.date(),
-    open_rate: z.number().min(0).max(1).optional(),
-    subscriber_count_at_send: z.number().int().positive().optional(),
-    excerpt_fr: z.string(),
-    excerpt_en: z.string(),
-    author: reference('authors').optional(),
-  }),
 });
 
 // ─── Personas (Tier 4.1) · profils d'acheteurs typiques pour PersonaSwitcher + targeting ───
@@ -1379,12 +1202,7 @@ export const collections = {
   authors,
   // V2 nouvelles (2026-05-15)
   tunnels,
-  welcomePages,
   courses,
-  produits,
-  abonnements,
-  landingPages,
-  newsletter,
   // Tier 4 AI-first + Tier 5 SEO (2026-05-15)
   personas,
   brandVoice,
