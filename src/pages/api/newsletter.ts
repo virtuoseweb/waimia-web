@@ -4,6 +4,7 @@
  */
 import type { APIRoute } from "astro";
 import { sendEmail, emitEvent } from "../../lib/resend";
+import { upsertSubscriber } from "../../lib/mailerlite";
 import WelcomeNewsletter from "../../lib/emails/WelcomeNewsletter";
 import { z } from "zod";
 
@@ -104,6 +105,7 @@ export const ALL: APIRoute = async ({ request }) => {
       tags: [{ name: "event", value: "newsletter_signup" }],
     });
     await emitEvent("contact_submitted", { email, firstName });
+    await upsertSubscriber({ email, name: firstName, groups: ["114701253078942792"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(JSON.stringify({ ts: new Date().toISOString(), action: "newsletter_signup", ip, email: maskedEmail }));
     return Response.json({

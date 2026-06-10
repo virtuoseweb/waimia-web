@@ -4,6 +4,7 @@
  */
 import type { APIRoute } from "astro";
 import { sendEmail, EMAIL_INTERNAL_TO, emitEvent } from "../../lib/resend";
+import { upsertSubscriber } from "../../lib/mailerlite";
 import AcademyResults from "../../lib/emails/AcademyResults";
 import InternalLeadAlert from "../../lib/emails/InternalLeadAlert";
 import { z } from "zod";
@@ -194,6 +195,7 @@ export const ALL: APIRoute = async ({ request }) => {
       }),
       emitEvent("academy_completed", { email, firstName, score, category }),
     ]);
+    await upsertSubscriber({ email, groups: ["114701253078942792"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(JSON.stringify({ ts: new Date().toISOString(), action: "academy_completed", ip, email: maskedEmail }));
     return Response.json(

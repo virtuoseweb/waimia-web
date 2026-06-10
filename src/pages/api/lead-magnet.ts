@@ -4,6 +4,7 @@
  */
 import type { APIRoute } from "astro";
 import { sendEmail, EMAIL_INTERNAL_TO, emitEvent } from "../../lib/resend";
+import { upsertSubscriber } from "../../lib/mailerlite";
 import LeadMagnetDelivery from "../../lib/emails/LeadMagnetDelivery";
 import InternalLeadAlert from "../../lib/emails/InternalLeadAlert";
 import { z } from "zod";
@@ -149,6 +150,7 @@ export const ALL: APIRoute = async ({ request }) => {
       }),
       emitEvent("lead_magnet_downloaded", { email, firstName, slug }),
     ]);
+    await upsertSubscriber({ email, groups: ["105703571487459251"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(JSON.stringify({ ts: new Date().toISOString(), action: "lead_magnet_downloaded", ip, email: maskedEmail }));
     return Response.json({ ok: true, redirect: "/bienvenue/livre-blanc" }, { status: 200, headers: CORS_HEADERS });

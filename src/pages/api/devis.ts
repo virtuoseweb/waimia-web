@@ -4,6 +4,7 @@
  */
 import type { APIRoute } from "astro";
 import { sendEmail, EMAIL_INTERNAL_TO, emitEvent } from "../../lib/resend";
+import { upsertSubscriber } from "../../lib/mailerlite";
 import DevisRecap from "../../lib/emails/DevisRecap";
 import InternalLeadAlert from "../../lib/emails/InternalLeadAlert";
 import { z } from "zod";
@@ -148,6 +149,7 @@ export const ALL: APIRoute = async ({ request }) => {
       }),
       emitEvent("contact_submitted", { email, firstName, reference, slug }),
     ]);
+    await upsertSubscriber({ email, groups: ["114701210983859842"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(JSON.stringify({ ts: new Date().toISOString(), action: "devis_submitted", ip, email: maskedEmail }));
     return Response.json({ ok: true, reference, redirect: "/bienvenue/devis" }, { status: 200, headers: CORS_HEADERS });
