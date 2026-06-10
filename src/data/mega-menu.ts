@@ -14,6 +14,11 @@ export interface MegaMenuLink {
   label: BiText;
   href: string;
   description?: BiText;
+  /**
+   * Pill discret aligné à droite de la ligne d'item (« Offre phare ») pour
+   * relever les offres phares du listing (correction Simon 2026-06). Rendu
+   * dans le mega panel desktop ET le sheet mobile.
+   */
   badge?: BiText;
   featured?: boolean;
 }
@@ -21,6 +26,17 @@ export interface MegaMenuLink {
 export interface MegaMenuColumn {
   title: BiText;
   kicker?: BiText;
+  /**
+   * Hiérarchie « par besoin » (refonte mega menu 2026-06, maquette Simon) :
+   * `goal` = le but en mono caps accent sous le titre (« Trouver des clients »),
+   * `quote` = citation prospect en italique serif avec barre accent.
+   * Une colonne qui porte `goal` ou `quote` est rendue en mode hiérarchique
+   * (titre serif grand + listing flèches/hairlines, descriptions non rendues).
+   * Pas de badge au niveau colonne (retiré, correction Simon 2026-06 : il
+   * désalignait les 3 titres) ; les offres phares = `badge` sur le LIEN.
+   */
+  goal?: BiText;
+  quote?: BiText;
   links: MegaMenuLink[];
   footer?: MegaMenuLink;
   tint?: string;
@@ -32,6 +48,11 @@ export interface MegaMenuFeatured {
   body: BiText;
   cta: BiText;
   href: string;
+  /**
+   * Visuel optionnel du bloc featured (chemin public/). Sans `image`, le
+   * cadre `.img` reste rendu tel quel (parité DOM avec les panels existants).
+   */
+  image?: string;
 }
 
 export interface MegaMenuSection {
@@ -148,6 +169,10 @@ const RESSOURCES: MegaMenuSection = {
 
 // ─── SOLUTIONS · fusion Solutions + Offres par besoin prospect (R3 §4)
 // 3 colonnes orientées besoin (Acquérir / Piloter / Opérer), liens 100% existants.
+// Refonte hiérarchie 2026-06 (maquette Simon) : titre court serif grand + goal
+// mono caps accent + quote prospect (FR verbatim Simon). Offres phares relevées
+// par un badge inline sur l'item (Site web IA, Growth System IA) — pas de badge
+// colonne (désalignait les 3 titres, correction Simon).
 // Absorbe le top-level « Offres » (disparu) : matchPrefixes garde l'état actif
 // sur les pages /offres/*. Featured = cas Plateau (pont vers Cas clients).
 const SOLUTIONS: MegaMenuSection = {
@@ -161,8 +186,12 @@ const SOLUTIONS: MegaMenuSection = {
   },
   columns: [
     {
-      kicker: { fr: 'ACQUÉRIR', en: 'ACQUIRE' },
-      title: { fr: 'Trouver et convertir des clients', en: 'Find and convert customers' },
+      title: { fr: 'Acquérir', en: 'Acquire' },
+      goal: { fr: 'Trouver des clients', en: 'Find customers' },
+      quote: {
+        fr: '"Je veux plus de leads qualifiés, sans recruter une équipe marketing."',
+        en: '"I want more qualified leads, without hiring a marketing team."',
+      },
       links: [
         {
           label: { fr: 'Growth System IA', en: 'AI Growth System' },
@@ -171,6 +200,7 @@ const SOLUTIONS: MegaMenuSection = {
             fr: 'Acquisition et conversion automatisées, de bout en bout.',
             en: 'Acquisition and conversion automated, end to end.',
           },
+          badge: { fr: 'Offre phare', en: 'Flagship' },
           featured: true,
         },
         {
@@ -192,6 +222,7 @@ const SOLUTIONS: MegaMenuSection = {
           label: { fr: 'Site web IA', en: 'AI website' },
           href: '/offres/site-web-ia',
           description: { fr: 'Site Astro + IA · vitrine + acquisition.', en: 'Astro + AI site · showcase + acquisition.' },
+          badge: { fr: 'Offre phare', en: 'Flagship' },
         },
       ],
       footer: {
@@ -200,8 +231,12 @@ const SOLUTIONS: MegaMenuSection = {
       },
     },
     {
-      kicker: { fr: 'PILOTER', en: 'STEER' },
-      title: { fr: 'Voir clair et décider vite', en: 'See clearly and decide fast' },
+      title: { fr: 'Piloter', en: 'Steer' },
+      goal: { fr: 'Voir & décider', en: 'See & decide' },
+      quote: {
+        fr: '"J\'ai des données partout, mais je ne sais pas ce qui marche vraiment."',
+        en: '"I have data everywhere, but I don\'t know what\'s actually working."',
+      },
       links: [
         {
           label: { fr: 'Growth Intelligence', en: 'Growth Intelligence' },
@@ -226,8 +261,12 @@ const SOLUTIONS: MegaMenuSection = {
       ],
     },
     {
-      kicker: { fr: 'OPÉRER', en: 'OPERATE' },
-      title: { fr: "Faire tourner l'entreprise sans friction", en: 'Run the business without friction' },
+      title: { fr: 'Opérer', en: 'Operate' },
+      goal: { fr: 'Gagner du temps', en: 'Save time' },
+      quote: {
+        fr: '"Mon équipe perd des heures sur des tâches répétitives qui pourraient être automatisées."',
+        en: '"My team loses hours on repetitive tasks that could be automated."',
+      },
       links: [
         {
           label: { fr: 'Productivité IA', en: 'AI Productivity' },
@@ -270,6 +309,8 @@ const SOLUTIONS: MegaMenuSection = {
     },
     cta: { fr: 'Lire le cas →', en: 'Read the case →' },
     href: '/cas/plateau',
+    // Visuel du cas Plateau (sert le contenu : c'est le cas raconté juste au-dessus).
+    image: '/images/cas/cas-plateau.webp',
   },
 };
 

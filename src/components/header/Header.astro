@@ -110,18 +110,27 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       aria-labelledby={`mega-trigger-${item.parent}`}
     >
       <div class="mega-inner" data-cols={cols}>
-        {item.columns.map((col) => (
-          <div class="mega-col">
+        {item.columns.map((col) => {
+          // Hiérarchie « par besoin » (maquette Simon 2026-06) : une colonne
+          // portant goal/quote = titre serif grand + but accent + citation +
+          // listing flèches/hairlines (descriptions non rendues).
+          const isNeed = Boolean(col.goal || col.quote);
+          return (
+          <div class="mega-col" data-need={isNeed ? '' : undefined}>
             <div class="mega-col-hd">
               {col.kicker && <div class="k">{t(col.kicker, lang)}</div>}
               <div class="t">{t(col.title, lang)}</div>
+              {col.goal && <div class="k goal">{t(col.goal, lang)}</div>}
             </div>
+            {col.quote && <p class="mega-quote">{t(col.quote, lang)}</p>}
             <ul>
               {col.links.map((sub) => (
                 <li>
                   <a class="mega-link" href={lh(sub.href)}>
+                    {isNeed && <span class="arr" aria-hidden="true">→</span>}
                     <span class="t">{t(sub.label, lang)}</span>
-                    {sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+                    {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                    {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
                   </a>
                 </li>
               ))}
@@ -130,13 +139,16 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
               <a class="mega-col-footer" href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>
             )}
           </div>
-        ))}
+          );
+        })}
         {item.featured && (
           <div class="mega-featured">
             <div class="badge">{t(item.featured.kicker, lang)}</div>
             <div class="ttl">{t(item.featured.label, lang)}</div>
             <div class="bd">{t(item.featured.body, lang)}</div>
-            <a class="img lift" href={lh(item.featured.href)} aria-hidden="true" tabindex="-1"></a>
+            <a class="img lift" href={lh(item.featured.href)} aria-hidden="true" tabindex="-1">
+              {item.featured.image && <img src={item.featured.image} alt="" loading="lazy" decoding="async" />}
+            </a>
             <a class="cta" href={lh(item.featured.href)}>
               {t(item.featured.cta, lang)}
             </a>
@@ -183,11 +195,16 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
         <div class="m-sheet-acc-body" id={`m-acc-body-${item.parent}`}>
           <div class="m-sheet-acc-inner">
             {item.columns.map((col) => (
-              <div class="m-sheet-acc-col">
+              <div class="m-sheet-acc-col" data-need={col.goal || col.quote ? '' : undefined}>
                 {col.kicker && <div class="k">{t(col.kicker, lang)}</div>}
                 <div class="t">{t(col.title, lang)}</div>
+                {col.goal && <div class="k g">{t(col.goal, lang)}</div>}
+                {col.quote && <p class="q">{t(col.quote, lang)}</p>}
                 {col.links.map((sub) => (
-                  <a href={lh(sub.href)}>{t(sub.label, lang)}</a>
+                  <a href={lh(sub.href)}>
+                    {t(sub.label, lang)}
+                    {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                  </a>
                 ))}
                 {col.footer && <a href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>}
               </div>
