@@ -1,5 +1,7 @@
 # SR-2026-06-10-23 · Refonte R7a : couche data du hub par besoin (référentiels, facettes, maillage)
 
+> **Addendum GF-1 PROD (21:57)** : batch mergé et déployé (push 00c89c5, live 21:55). R7a est data-only : la preuve prod est l'absence de régression (pages live inchangées, vérifiées au computed sur 4 pages lors du GF-1 batch).
+
 > Worker **Fable 5** (worktree `.worktrees/r7data`), branche **`feat/refonte-r7a-data-facettes`** commit `dd29a98` (25 fichiers, +941/-24). Contre-vérifié orchestrateur (rule 09) : gate relancé, diff dist relancé.
 
 ## 1. Résultat

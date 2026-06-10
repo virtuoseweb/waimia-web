@@ -1,5 +1,7 @@
 # SR-2026-06-10-24 · Refonte R2-P2 : éditorial premium des 3 pages secteurs
 
+> **Addendum GF-1 PROD (21:57)** : live sur waimia.com/secteurs/finance-compta : h1 opacity 1 transform neutre, faqMarker present, faqItems 7, caseResults 3, premier wf-row present, CTA visible, 0 erreur console.
+
 > Worker **Fable 5** (worktree `.worktrees/r2secteurs`), branche **`feat/refonte-r2p2-secteurs`** commit `0b06ffd` (4 fichiers, +79/-48). Contre-vérifié orchestrateur (rule 09) : scope diff conforme, gates relancés, screenshots inspectés.
 
 ## 1. Problème (identique sur les 3 pages secteurs)
