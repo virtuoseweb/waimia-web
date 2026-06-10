@@ -367,6 +367,10 @@ const pageTransitionId = Astro.url.pathname
     .hero-sub { grid-template-columns: 1fr; gap: var(--space-9); }
     .hero-sig-mark { display: none; }
     .hero-proof { grid-template-columns: 90px 1fr; gap: var(--space-4); }
+    /* P1-5 (docs/39) · mobile only : CTA + microcopy remontent juste après la promesse,
+       la mini-map des 6 territoires descend dessous → CTA principal dans le fold 390×844.
+       0 changement desktop (>900px : order par défaut). */
+    .hero-minimap { order: 1; }
   }
   @media (max-width: 560px) {
     .hero-proof { grid-template-columns: 1fr; gap: var(--space-1); padding: var(--space-3) 0; }

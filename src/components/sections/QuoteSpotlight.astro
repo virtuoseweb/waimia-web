@@ -148,17 +148,22 @@ const isFr = lang === 'fr';
     text-align: left;
   }
 
+  /* Attribution mono caps · convention éditoriale du site (kickers/specs mono) */
   .qs-author-name {
-    font-family: var(--font-display);
-    font-size: var(--text-body-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     font-weight: var(--fw-regular, 400);
     color: var(--ink);
-    line-height: 1.2;
+    line-height: var(--leading-lede);
   }
 
   .qs-author-role {
-    font-family: var(--font-sans);
-    font-size: var(--text-body-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--muted);
     line-height: var(--leading-lede);
   }
@@ -190,4 +195,6 @@ const isFr = lang === 'fr';
     --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
   .quote-spotlight[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .quote-spotlight[data-bg='ink'] .qs-author-name { color: var(--paper); }
+  .quote-spotlight[data-bg='ink'] .qs-avatar--placeholder { background: var(--paper); color: var(--ink); }
 </style>

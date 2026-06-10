@@ -18,6 +18,9 @@ interface DirectProps {
   items: SimpleItem[];
   heading?: string;
   intro?: string;
+  background?: 'paper' | 'paper-2' | 'paper-3' | 'ink';
+  /** Ouvre le premier item par défaut (ancrage prix visible sans clic). */
+  openFirst?: boolean;
 }
 
 interface CmsProps {
@@ -32,6 +35,7 @@ let heading: string;
 let kicker: string | undefined;
 let intro: string | undefined;
 let background: 'paper' | 'paper-2' | 'paper-3' | 'ink' | undefined;
+let openFirst: boolean;
 
 if ('data' in Astro.props) {
   const { data, lang } = Astro.props as CmsProps;
@@ -44,13 +48,15 @@ if ('data' in Astro.props) {
   kicker = isFr ? data.kicker_fr : data.kicker_en;
   intro = undefined;
   background = data.background;
+  openFirst = data.open_first ?? false;
 } else {
-  const { items, heading: h, intro: i } = Astro.props as DirectProps;
+  const { items, heading: h, intro: i, background: bg, openFirst: of } = Astro.props as DirectProps;
   normalizedItems = items;
   heading = h ?? 'Questions fréquentes';
   kicker = undefined;
   intro = i;
-  background = undefined;
+  background = bg;
+  openFirst = of ?? false;
 }
 ---
 
@@ -65,7 +71,7 @@ if ('data' in Astro.props) {
   </div>
   <div class="faq-accordion__list">
     {normalizedItems.map((item, i) => (
-      <details class="faq-accordion__item" name="faq">
+      <details class="faq-accordion__item" name="faq" open={openFirst && i === 0}>
         <summary class="faq-accordion__q">
           <Kicker as="span" tone="accent" size={10} class="faq-accordion__q-label">
             Q.{String(i + 1).padStart(2, '0')}

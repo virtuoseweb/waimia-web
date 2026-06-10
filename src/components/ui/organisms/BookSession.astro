@@ -14,7 +14,7 @@ const lang = langFromPath(Astro.url.pathname);
 const ctaHref = localizeHref('/contact', lang);
 const email = lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr';
 ---
-<section id="act-5" class="book-session scale-in" aria-labelledby="book-h2">
+<section id="act-5" class="book-session scale-in on-dark" aria-labelledby="book-h2">
   <div class="wrap-wide book-inner">
     <div class="book-chapter">
       <ChapterLabel
@@ -39,8 +39,8 @@ const email = lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr';
 
     <p class="book-avail">
       {lang === 'fr'
-        ? '● DISPONIBLE · RÉPONSE SOUS 24H'
-        : '● AVAILABLE · RESPONSE IN 24H'}
+        ? '● DISPONIBLE · T3 2026 · RÉPONSE SOUS 24H'
+        : '● AVAILABLE · Q3 2026 · RESPONSE IN 24H'}
     </p>
 
     <div class="book-ctas reveal-snap">
@@ -54,16 +54,19 @@ const email = lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr';
 
     <p class="book-sub">
       {lang === 'fr'
-        ? <>Diagnostic <i>gratuit</i> · sans engagement · réponse <i>sous 24h</i>.</>
-        : <>Free <i>diagnostic</i> · no commitment · response <i>within 24h</i>.</>}
+        ? <>Diagnostic <i>gratuit</i> · réversibilité <i>documentée</i> · pas de relance.</>
+        : <>Free <i>diagnostic</i> · documented <i>reversibility</i> · no follow-up.</>}
     </p>
   </div>
 </section>
 
 <style>
   /* V6 densification · padding réduit drastiquement (clamp 140-260 → 72-128) */
-  .book-session{padding:clamp(72px,9vw,128px) 0 clamp(56px,7vw,96px);background:var(--paper);border-top:1px solid var(--hairline);border-radius:0;transition:border-radius 1200ms var(--ease)}
+  /* V-F2 · climax INK (docs/39 P1-8 + audit home 12) : le moment le plus chaud sur le fond le plus fort */
+  .book-session{padding:clamp(72px,9vw,128px) 0 clamp(56px,7vw,96px);background:var(--ink);color:var(--paper);border-top:1px solid var(--hairline);border-radius:0;transition:border-radius 1200ms var(--ease)}
   .book-session.in{border-radius:32px 32px 0 0}
+  .book-session{--muted:rgba(var(--paper-rgb),0.64);--hairline:rgba(var(--paper-rgb),0.14)}
+  .book-h2{color:var(--paper)}
 
   /* Inner wrap · centrage propre sans inline style */
   .book-inner{text-align:center;position:relative;z-index:1}

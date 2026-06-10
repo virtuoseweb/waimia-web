@@ -32,6 +32,7 @@ export function caseCardGridData(lang: 'fr' | 'en'): SectionByType<'case-card-gr
     })),
     all_label_fr: 'Tous les dossiers →',
     all_label_en: 'All case files →',
-    all_href: localizeHref('/ressources/cas', lang),
+    // Canonique /cas (l'ancien /ressources/cas n'est plus qu'un 301, cf astro.config.mjs:66)
+    all_href: localizeHref('/cas', lang),
   };
 }
