@@ -64,11 +64,12 @@ Test e2e responsive `templates.spec.ts` étendu de **2 → 11 routes** (pages be
 4. **Fix essay au niveau du template** (`min-width:0` + `pre{overflow-x:auto}`) plutôt que par article : la cause est structurelle (grid item + blocs de code), le fix template bénéficie à tous les articles présents et futurs.
 5. **`overflow-wrap:anywhere` plutôt que masquer le TOC sur mobile** : préserve l'utilité du sommaire sur petit écran (il reflow en `position:static` sous le titre), au lieu de le supprimer.
 
-## Statut merge
+## Statut merge — ✅ MERGÉ PROD
 
-- GF-1 **local** complet (serve-dist = `dist/` byte-identique au build Vercel ; rendu navigateur identique pour du CSS responsive).
-- Garde-fou « merge visuel = preview Vercel GF-1 obligatoire » : à honorer au reset du quota Vercel Hobby (cf SR-03 §Blocker, `api-deployments-free-per-day` + `build-rate-limit`). La branche est prête (3 commits, gates verts, CI déclenchable par PR).
-- Lié à #30 (promote prod responsive) : ces fixes rejoindront le même flip prod au reset.
+- **PR #36 mergée sur `main`** (`2094836`). Le quota Vercel s'était reset entre-temps → pipeline preview→merge→prod complet.
+- **GF-1 triangulé sur 3 niveaux** : local (serve-dist, 0/438) + **preview Vercel** (`waimia-gavrflksz`, 0/11, classes fix présentes) + **prod `waimia.com`** (0/11 à 375px après déploiement `2094836`).
+- CI PR #36 verte (Build astro 3m17s, E2E Playwright 2m56s incl. test responsive 11 routes, gf1-sweep 5m7s, Vercel deployments).
+- Clôt #30 (promote prod responsive + GF-1 prod). Le bug responsive est éradiqué de bout en bout.
 
 ## Fichiers
 

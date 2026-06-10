@@ -18,11 +18,11 @@ Site final waimia.com + système d'industrialisation = **propriété actuelle** 
 
 ## 2. État vérifié (2026-06-10)
 
-- Prod `waimia.com` = `origin/main` (`d2b52f0`, 10 juin) — **industrialisation DS mergée** (22 commits fast-forward depuis `feat/hero-right-align`, GF-1 PASS home + offre + solutions sur build parité-prod, deploy prod `dpl_332bCFhsSxcNik8LYepbVqFQzaxk`).
-- Catalogue : **87 types** composables (89 littéraux schéma), 4 touchpoints chacun, gates verts. Site : 112 pages, 206 contenus.
+- Prod `waimia.com` = `origin/main` (`2094836`, 10 juin) — **industrialisation DS mergée** (`d2b52f0`) **+ registry Waves 1.1→1.5 mergées prod** (OffresDetail, CaseStudy/plateau, Hub/conseil, Solutions 8/8, Ecole hub ; catalogue 87→104 types) **+ responsive bouclé** (SR-03 fix `@media var()` 46 queries `00e2b0a` ; SR-04 sweep 438 routes → **0/438 overflow mobile**, PR #36 mergée, GF-1 preview Vercel + CI vertes).
+- Catalogue : **104 types** composables, 4 touchpoints chacun, gates verts. Site : 112 pages, 206 contenus.
 - DS Studio (`/agence/ds-studio`) : éditeur tokens live (162 contrôles) + galerie + carte d'impact + doublons. **Surface agent** livrée (`window.dsStudio`, `data-action`, `data-save-state`, deep-link, `?clean=1`, doc `AGENT-DS.md`) — commit `d2b52f0`, GF-1 PASS.
 - Persistance : couche A (CLI `ds:apply`) `[x]` · couche C (bouton Enregistrer dev-only, commit+push+overlay) `[x]` commit `199f367`, GF-1 backend PASS.
-- **Registry adoption : pilote OffresDetail validé** (8/8 offres composables via `sections:[]` + GF-1 6/6, branche `feat/registry-pilote-offres` 2026-06-10). Reste les 17 autres templates à brancher sur `<SectionsRenderer>`. = blocker #1, Phase 1 (Wave 1.1 `[x]`, Waves 1.2-1.4 à faire).
+- **Registry adoption : Waves 1.1→1.5 MERGÉES PROD** (OffresDetail 8/8, CaseStudy/plateau FR+EN, Hub/conseil, ServiceDetail/revops, Technologies, Solutions 8/8 bilingue, Ecole hub — chacune GF-1 prod PASS). Reste : **Wave 1.6 Tunnel** (#26) + templates moyens/durs restants + ~51 orphelins pages inline (manifesto/console/ressources/...) à brancher sur `<SectionsRenderer>`. = blocker #1, Phase 1.
 - Maturité (audit) : ~60 % humain / ~20 % agent. Goulot = adoption registry, pas l'hygiène CSS.
 
 ## 3. Les axes
