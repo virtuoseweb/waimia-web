@@ -1,0 +1,122 @@
+---
+// Section W6 · pain-points (famille Solutions)
+// Points de friction métier : header (eyebrow mono + h2 display) + aside Callout + Timeline numérotée.
+// Source : SolutionsDetailTemplate.astro (markup l.273-296, CSS scoped l.473-556).
+// - markup/CSS = COPIE VERBATIM des styles scoped legacy (tokens var(--*), 0 hex brut).
+// - mappe items → events Timeline { num, title, body, variant } (1er = highlight).
+import Callout from '../editorial/Callout.astro';
+import Timeline from '../editorial/Timeline.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'pain-points'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const eyebrow = isFr ? data.eyebrow_fr : data.eyebrow_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const aside = isFr ? data.aside_fr : data.aside_en;
+const events = data.items.map((item, i) => ({
+  num: item.num ?? String(i + 1).padStart(2, '0'),
+  title: isFr ? item.title_fr : item.title_en,
+  body: isFr ? item.body_fr : item.body_en,
+  variant: i === 0 ? ('highlight' as const) : ('default' as const),
+}));
+---
+<section class="sol-sec sol-friction reveal-stagger" data-screen-label="02 Pain Points">
+  <div class="wrap g12 g12--full">
+    <header class="sol-sec-hd section-eyebrow col-prose">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 set:html={h2} />
+    </header>
+    <aside class="sol-aside col-aside">
+      <Callout variant="note" size="sm">
+        {aside ? (
+          <Fragment set:html={aside} />
+        ) : (
+          <>Avant d'automatiser, comprendre où le temps se perd. Trois frictions récurrentes que nous voyons sur le terrain.</>
+        )}
+      </Callout>
+    </aside>
+    <div class="sol-pain-grid col-12">
+      <Timeline events={events} numbered={true} />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */
+  .sol-sec { padding: clamp(48px, 6vw, 80px) 0; position: relative; }
+  .sol-friction { margin-top: var(--section-base); }
+  .sol-sec-hd {
+    margin-bottom: clamp(28px, 4vw, 48px);
+  }
+  .section-eyebrow .eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+  .sol-sec-hd h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-2) 0 0;
+  }
+  .sol-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .sol-aside {
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0;
+  }
+  .sol-aside :global(.callout) {
+    margin: 0;
+  }
+
+  /* ───── Pain Points — COPIE VERBATIM l.520-556 ───── */
+  .sol-pain-grid {
+    display: block;
+  }
+  .sol-pain-grid :global(.pain-card) {
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+  .sol-pain-grid :global(.pn) {
+    font-family: var(--font-display);
+    font-size: 96px;
+    line-height: 0.85;
+    color: var(--ink);
+    margin-bottom: var(--space-4);
+    font-weight: var(--fw-regular);
+  }
+  .sol-pain-grid :global(.pk) {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: var(--space-3);
+  }
+  .sol-pain-grid :global(.pain-card h3) {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 1.8vw, 26px);
+    line-height: 1.2;
+    margin: 0 0 var(--space-3);
+    font-weight: var(--fw-regular);
+  }
+  .sol-pain-grid :global(.pain-card p) {
+    font-size: var(--text-body-lead);
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0;
+  }
+</style>

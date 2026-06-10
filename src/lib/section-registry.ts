@@ -111,6 +111,12 @@ import TechCapabilitiesSpecs from '../components/sections/TechCapabilitiesSpecs.
 import TechModelsTable from '../components/sections/TechModelsTable.astro';
 import TechWhenDual from '../components/sections/TechWhenDual.astro';
 import TechIntegrationFlow from '../components/sections/TechIntegrationFlow.astro';
+import PainPoints from '../components/sections/PainPoints.astro';
+import WorkflowTable from '../components/sections/WorkflowTable.astro';
+import RoiBand from '../components/sections/RoiBand.astro';
+import CaseSplit from '../components/sections/CaseSplit.astro';
+import DepartmentStack from '../components/sections/DepartmentStack.astro';
+import DepartmentCta from '../components/sections/DepartmentCta.astro';
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -1075,6 +1081,66 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Position dans la stack en frise verticale numérotée (Timeline + Dingbat), un nœud par étape d intégration.',
     description_en: 'Position in the stack as a numbered vertical timeline (Timeline + Dingbat), one node per integration step.',
+  },
+  'pain-points': {
+    component: PainPoints,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['solutions', 'pain-points', 'friction', 'timeline', 'editorial'],
+    status: 'stable',
+    description_fr: 'Points de friction métier : en-tête eyebrow et titre display, aside Callout, frise Timeline numérotée des frictions.',
+    description_en: 'Business pain points: an eyebrow and display heading header, a Callout aside, and a numbered Timeline of frictions.',
+  },
+  'workflow-table': {
+    component: WorkflowTable,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['solutions', 'workflows', 'table', 'comparison', 'editorial'],
+    status: 'stable',
+    description_fr: 'Table workflows signature en 5 colonnes (numéro, workflow, modèle, gain, comment), un workflow IA par ligne.',
+    description_en: 'Signature workflow table in 5 columns (number, workflow, model, gain, how), one AI workflow per row.',
+  },
+  'roi-band': {
+    component: RoiBand,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['solutions', 'roi', 'metrics', 'proof', 'stats'],
+    status: 'stable',
+    description_fr: 'Bande ROI sur fond ink : en-tête eyebrow et titre display, chiffres KeyMetric placés en asymétrie 6/5.',
+    description_en: 'ROI band on an ink background: an eyebrow and display heading header, with KeyMetric figures placed in a 6/5 asymmetry.',
+  },
+  'case-split': {
+    component: CaseSplit,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['solutions', 'case-study', 'split', 'results', 'testimonial'],
+    status: 'stable',
+    description_fr: 'Cas client en split dark/light 50/50 : récit du cas à gauche (titre, body, CTA) et résultats chiffrés à droite.',
+    description_en: 'Client case in a 50/50 dark/light split: the case narrative on the left (title, body, CTA) and quantified results on the right.',
+  },
+  'department-stack': {
+    component: DepartmentStack,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['solutions', 'stack', 'tools', 'table', 'editorial'],
+    status: 'stable',
+    description_fr: 'Stack outils en table éditoriale : en-tête eyebrow et titre display, aside Callout, EditorialTable catégorie/outil/rôle.',
+    description_en: 'Tool stack as an editorial table: an eyebrow and display heading header, a Callout aside, and a category/tool/role EditorialTable.',
+  },
+  'department-cta': {
+    component: DepartmentCta,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['solutions', 'cta', 'conversion', 'dark', 'closing'],
+    status: 'stable',
+    description_fr: 'Clôture CTA sur fond ink : Dingbat, titre display italique, body et deux boutons (rendez-vous + lien secondaire).',
+    description_en: 'Closing CTA on an ink background: a Dingbat, an italic display heading, body copy, and two buttons (booking + secondary link).',
   },
 };
 

@@ -135,6 +135,12 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'tech-models-table',         consumers: ['src/content/technologies/claude-models.mdx'] },
   { id: 'tech-when-dual',            consumers: ['src/content/technologies/claude-models.mdx', 'src/content/technologies/virtuoseos.mdx'] },
   { id: 'tech-integration-flow',     consumers: ['src/content/technologies/claude-models.mdx', 'src/content/technologies/virtuoseos.mdx'] },
+  { id: 'pain-points',               consumers: ['src/content/solutions/finance.mdx'] },
+  { id: 'workflow-table',            consumers: ['src/content/solutions/finance.mdx'] },
+  { id: 'roi-band',                  consumers: ['src/content/solutions/finance.mdx'] },
+  { id: 'case-split',                consumers: ['src/content/solutions/finance.mdx'] },
+  { id: 'department-stack',          consumers: ['src/content/solutions/finance.mdx'] },
+  { id: 'department-cta',            consumers: ['src/content/solutions/finance.mdx'] },
 ];
 
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────

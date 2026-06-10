@@ -1,0 +1,102 @@
+---
+// Section W6 · department-cta (famille Solutions)
+// Clôture dark "Votre équipe, augmentée." : Dingbat + h2 italique + body + 2 boutons.
+// Source : SolutionsDetailTemplate.astro (markup l.452-466, CSS scoped l.1001-1058).
+// - markup/CSS = COPIE VERBATIM des styles scoped legacy (tokens var(--*), 0 hex brut).
+// - liens lang-aware (préfixe /en sur les chemins relatifs).
+import Dingbat from '../editorial/Dingbat.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'department-cta'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const body = isFr ? data.body_fr : data.body_en;
+const primaryLabel = isFr ? data.primary_label_fr : data.primary_label_en;
+const secondaryLabel = isFr ? data.secondary_label_fr : data.secondary_label_en;
+const prefix = lang === 'en' ? '/en' : '';
+const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
+---
+<section class="sol-sec sol-sec-dark sol-cta reveal" data-screen-label="07 CTA">
+  <div class="wrap wrap-tight">
+    <div class="sol-cta-final">
+      <Dingbat variant="asterism" size="sm" />
+      <h2><i set:html={h2} /></h2>
+      <div class="sol-cta-body">
+        <p>{body}</p>
+        <div class="sol-cta-btns">
+          <a class="btn-accent" href={link(data.primary_href)}>{primaryLabel}</a>
+          <a class="btn-light" href={link(data.secondary_href)}>{secondaryLabel}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-484 ───── */
+  .sol-sec { padding: clamp(48px, 6vw, 80px) 0; position: relative; }
+  .sol-cta { margin-top: clamp(48px, 5vw, 80px); }
+  .sol-sec-dark { background: var(--ink); color: var(--paper); }
+
+  /* ───── CTA final dark — COPIE VERBATIM l.1001-1050 ───── */
+  .sol-cta-final {
+    text-align: center;
+    padding: clamp(40px, 5vw, 64px) 0;
+  }
+  .sol-cta-final h2 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    margin: 0 0 var(--space-6);
+    font-weight: var(--fw-regular);
+  }
+  .sol-cta-final h2 :global(i) { color: var(--accent); font-style: italic; }
+  .sol-cta-body p {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.4vw, 19px);
+    line-height: var(--leading-body);
+    color: var(--paper);
+    font-style: italic;
+    max-width: 540px;
+    margin: 0 auto var(--space-6);
+  }
+  .sol-cta-btns { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+  .btn-accent {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    letter-spacing: var(--tracking-body);
+    transition: transform 220ms var(--ease);
+  }
+  .btn-accent:hover { transform: translateY(-2px); }
+  .btn-light {
+    display: inline-block;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(var(--paper-rgb), 0.3);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    letter-spacing: var(--tracking-body);
+    transition: border-color 220ms var(--ease);
+  }
+  .btn-light:hover { border-color: var(--paper); }
+
+  /* ───── Wrap utilities — COPIE VERBATIM l.1052-1058 ───── */
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+  .wrap-tight { max-width: 880px; }
+</style>

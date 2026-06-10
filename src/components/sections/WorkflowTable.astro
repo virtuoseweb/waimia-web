@@ -1,0 +1,203 @@
+---
+// Section W6 · workflow-table (famille Solutions · BRIQUE SIGNATURE)
+// Table workflows 5 colonnes : № / Workflow (kicker+h3) / Modèle / Gain / Comment.
+// Source : SolutionsDetailTemplate.astro (markup l.299-324, CSS scoped l.473-634).
+// - markup/CSS = COPIE VERBATIM des styles scoped legacy structurés (tokens var(--*), 0 hex brut).
+// - en-têtes de colonnes lang-aware en dur dans le composant.
+// - n'inclut PAS les règles "prose MDX rich body" (slot narratif legacy l.636-724) : hors scope données.
+import Callout from '../editorial/Callout.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'workflow-table'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const eyebrow = isFr ? data.eyebrow_fr : data.eyebrow_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const aside = isFr ? data.aside_fr : data.aside_en;
+const head = isFr
+  ? ['№', 'Workflow', 'Modèle', 'Gain', 'Comment']
+  : ['№', 'Workflow', 'Model', 'Gain', 'How'];
+---
+<section class="sol-sec sol-sec-paper sol-workflows reveal-stagger" data-screen-label="03 Workflows">
+  <div class="wrap g12 g12--full">
+    <header class="sol-sec-hd section-eyebrow col-prose">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 set:html={h2} />
+    </header>
+    <aside class="sol-aside col-aside">
+      <Callout variant="info" size="sm">
+        {aside ? (
+          <Fragment set:html={aside} />
+        ) : (
+          <>Chaque workflow est nommé, mesuré, attribué à un modèle précis. Pas de boîte noire.</>
+        )}
+      </Callout>
+    </aside>
+    <div class="sol-workflow-table col-12">
+      <div class="sol-workflow-head reveal-stagger">
+        <div class="sol-wf-col-n">{head[0]}</div>
+        <div class="sol-wf-col-name">{head[1]}</div>
+        <div class="sol-wf-col-model">{head[2]}</div>
+        <div class="sol-wf-col-gain">{head[3]}</div>
+        <div class="sol-wf-col-how">{head[4]}</div>
+      </div>
+      <div class="sol-workflow-body reveal-stagger">
+        {data.workflows.map((wf) => (
+          <div class="wf-row">
+            <div class="wf-n">{wf.num}</div>
+            <div class="wf-name">
+              <span class="wf-k">{isFr ? wf.kicker_fr : wf.kicker_en}</span>
+              <h3 set:html={isFr ? wf.title_fr : wf.title_en} />
+            </div>
+            <div class="wf-model" set:html={isFr ? wf.model_fr : wf.model_en} />
+            <div class="wf-gain">{wf.gain}</div>
+            <div class="wf-how">{isFr ? wf.how_fr : wf.how_en}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */
+  .sol-sec { padding: clamp(48px, 6vw, 80px) 0; position: relative; }
+  .sol-workflows { margin-top: var(--section-base); }
+  .sol-sec-paper {
+    padding-block: clamp(64px, 7vw, 96px);
+    background: var(--paper-2);
+    border-block: 1px solid var(--hairline);
+  }
+  .sol-sec-hd {
+    margin-bottom: clamp(28px, 4vw, 48px);
+  }
+  .section-eyebrow .eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+  .sol-sec-hd h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-2) 0 0;
+  }
+  .sol-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .sol-aside {
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0;
+  }
+  .sol-aside :global(.callout) {
+    margin: 0;
+  }
+
+  /* ───── Workflows Table (BRIQUE SIGNATURE) — COPIE VERBATIM l.558-634 ───── */
+  .sol-workflow-table {
+    border-top: 1px solid var(--hairline);
+  }
+  .sol-workflow-head {
+    display: grid;
+    grid-template-columns: 60px 2fr 1.2fr 1fr 2.4fr;
+    gap: var(--space-5);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .sol-workflow-body {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--gut);
+    row-gap: var(--space-4, 16px);
+  }
+  .sol-workflow-body :global(.wf-row) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 60px 2fr 1.2fr 1fr 2.4fr;
+    column-gap: var(--space-5);
+    row-gap: var(--space-4, 16px);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hairline);
+    align-items: start;
+    transition: background 220ms var(--ease);
+  }
+  .sol-workflow-body :global(.wf-row:hover) {
+    background: rgba(var(--accent-rgb), 0.03);
+  }
+  .sol-workflow-body :global(.wf-n) {
+    font-family: var(--font-display);
+    font-size: 32px;
+    line-height: 1;
+    color: var(--accent);
+    font-weight: var(--fw-regular);
+  }
+  .sol-workflow-body :global(.wf-name .wf-k) {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .sol-workflow-body :global(.wf-name h3) {
+    font-family: var(--font-display);
+    font-size: clamp(19px, 1.5vw, 22px);
+    line-height: 1.2;
+    margin: 0;
+    font-weight: var(--fw-regular);
+  }
+  .sol-workflow-body :global(.wf-model) {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--ink);
+    line-height: var(--leading-lede);
+  }
+  .sol-workflow-body :global(.wf-gain) {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2vw, 28px);
+    color: var(--ink-2);
+    line-height: 1;
+    font-weight: var(--fw-regular);
+  }
+  .sol-workflow-body :global(.wf-how) {
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--ink);
+  }
+
+  /* ───── Responsive — COPIE VERBATIM l.1070-1074 + l.1085-1092 ───── */
+  @media (max-width: 1000px) {
+    .sol-workflow-head,
+    .sol-workflow-body :global(.wf-row) {
+      grid-template-columns: 48px 1.6fr 1fr 1fr 2fr;
+      gap: var(--space-4);
+    }
+  }
+  @media (max-width: 800px) {
+    .sol-workflow-head { display: none; }
+    .sol-workflow-body :global(.wf-row) {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+      padding: var(--space-5) 0;
+    }
+    .sol-workflow-body :global(.wf-n) { font-size: 24px; margin-bottom: var(--space-1); }
+    .sol-workflow-body :global(.wf-gain) { margin: 6px 0; }
+  }
+</style>

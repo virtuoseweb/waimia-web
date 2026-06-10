@@ -1961,6 +1961,142 @@ export const techIntegrationFlowSchema = z.object({
     .min(1),
 });
 
+// §Solutions · Pain Points · 3 cards numérotées (empathie métier "pourquoi ça bloque")
+export const painPointsSchema = z.object({
+  type: z.literal('pain-points'),
+  eyebrow_fr: z.string().default('§ Friction'),
+  eyebrow_en: z.string().default('§ Friction'),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  items: z
+    .array(
+      z.object({
+        num: z.string().optional(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+      }),
+    )
+    .min(2)
+    .max(6),
+});
+
+// §Solutions · Workflows Table · brique signature 5 colonnes (№ / workflow / modèle / gain / comment)
+export const workflowTableSchema = z.object({
+  type: z.literal('workflow-table'),
+  eyebrow_fr: z.string().default('§ Workflows'),
+  eyebrow_en: z.string().default('§ Workflows'),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  workflows: z
+    .array(
+      z.object({
+        num: z.string(),
+        kicker_fr: z.string(),
+        kicker_en: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        model_fr: z.string(),
+        model_en: z.string(),
+        gain: z.string(),
+        how_fr: z.string(),
+        how_en: z.string(),
+      }),
+    )
+    .min(1)
+    .max(8),
+});
+
+// §Solutions · ROI Band · brique signature 4 chiffres énormes sur fond ink
+export const roiBandSchema = z.object({
+  type: z.literal('roi-band'),
+  eyebrow_fr: z.string().default('§ Preuve macro'),
+  eyebrow_en: z.string().default('§ Macro proof'),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  metrics: z
+    .array(
+      z.object({
+        value: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .min(2)
+    .max(6),
+});
+
+// §Solutions · Case Split · split dark/light 50/50 (case dark + résultats light)
+export const caseSplitSchema = z.object({
+  type: z.literal('case-split'),
+  kicker_fr: z.string().default('Cas client'),
+  kicker_en: z.string().default('Client case'),
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+  cta_label_fr: z.string().default('Voir le cas complet →'),
+  cta_label_en: z.string().default('See full case →'),
+  cta_href: z.string().default('/cas'),
+  results: z
+    .array(
+      z.object({
+        value: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .min(1)
+    .max(6),
+});
+
+// §Solutions · Department Stack · table éditoriale outils (catégorie / outil / rôle)
+export const departmentStackSchema = z.object({
+  type: z.literal('department-stack'),
+  eyebrow_fr: z.string().default('§ Stack outils'),
+  eyebrow_en: z.string().default('§ Tool stack'),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  caption_fr: z.string().optional(),
+  caption_en: z.string().optional(),
+  columns_fr: z.array(z.string()).min(2).max(4),
+  columns_en: z.array(z.string()).min(2).max(4),
+  rows: z
+    .array(
+      z.object({
+        category_fr: z.string(),
+        category_en: z.string(),
+        tool: z.string(),
+        role_fr: z.string(),
+        role_en: z.string(),
+      }),
+    )
+    .min(1)
+    .max(12),
+});
+
+// §Solutions · Department CTA · clôture dark "Votre équipe, augmentée."
+export const departmentCtaSchema = z.object({
+  type: z.literal('department-cta'),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+  primary_label_fr: z.string().default('Prendre rendez-vous →'),
+  primary_label_en: z.string().default('Book a call →'),
+  primary_href: z.string().default('/contact'),
+  secondary_label_fr: z.string().default('Toutes les solutions'),
+  secondary_label_en: z.string().default('All solutions'),
+  secondary_href: z.string().default('/solutions'),
+});
+
 /* ─── Union discriminée pour validation ─── */
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -2060,6 +2196,12 @@ export const sectionSchema = z.discriminatedUnion('type', [
   techModelsTableSchema,
   techWhenDualSchema,
   techIntegrationFlowSchema,
+  painPointsSchema,
+  workflowTableSchema,
+  roiBandSchema,
+  caseSplitSchema,
+  departmentStackSchema,
+  departmentCtaSchema,
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

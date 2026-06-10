@@ -1,0 +1,132 @@
+---
+// Section W6 · case-split (famille Solutions)
+// Cas client en split dark/light 50/50 : case dark (kicker, titre, body, CTA) + résultats light.
+// Source : SolutionsDetailTemplate.astro (markup l.358-392, CSS scoped l.774-852).
+// - markup/CSS = COPIE VERBATIM des styles scoped legacy (tokens var(--*), 0 hex brut).
+// - lien CTA lang-aware (préfixe /en sur les chemins relatifs, pas les URL absolues).
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'case-split'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const title = isFr ? data.title_fr : data.title_en;
+const body = isFr ? data.body_fr : data.body_en;
+const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
+const prefix = lang === 'en' ? '/en' : '';
+const href = data.cta_href.startsWith('/') ? prefix + data.cta_href : data.cta_href;
+---
+<section class="sol-case reveal-stagger" data-screen-label="05 Case Study">
+  <div class="sol-case-grid">
+    <div class="sol-case-dark">
+      <div class="wrap-inner">
+        <Kicker>{kicker}</Kicker>
+        <h2 class="sol-case-title" set:html={title} />
+        <p class="sol-case-body">{body}</p>
+        <a class="sol-case-cta" href={href}>{ctaLabel}</a>
+      </div>
+    </div>
+    <div class="sol-case-light">
+      <div class="wrap-inner">
+        <Kicker>{isFr ? 'Résultats' : 'Results'}</Kicker>
+        <div class="sol-case-results">
+          {data.results.map((r) => (
+            <div class="res-row">
+              <div class="res-v">{r.value}</div>
+              <div class="res-l" set:html={(isFr ? r.label_fr : r.label_en).replace(/\n/g, '<br/>')} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Case Study Split — COPIE VERBATIM SolutionsDetailTemplate l.774-852 ───── */
+  .sol-case { background: var(--paper); }
+  .sol-case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+  }
+  .sol-case-dark {
+    background: var(--ink);
+    color: var(--paper);
+    padding: clamp(48px, 6vw, 80px) clamp(32px, 4vw, 64px);
+    display: flex; align-items: center;
+  }
+  .sol-case-dark .kicker { color: var(--accent); }
+  .sol-case-dark .wrap-inner { max-width: 480px; }
+  .sol-case-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -0.016em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-3) 0 20px;
+    text-wrap: balance;
+  }
+  .sol-case-title :global(i) { color: var(--accent); font-style: italic; }
+  .sol-case-body {
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.55;
+    color: var(--paper);
+    font-style: italic;
+    margin: 0 0 28px;
+    opacity: 0.92;
+  }
+  .sol-case-cta {
+    display: inline-block;
+    padding: var(--space-3) 22px;
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-ui);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    letter-spacing: var(--tracking-body);
+    transition: transform 220ms var(--ease);
+  }
+  .sol-case-cta:hover { transform: translateY(-2px); }
+  .sol-case-light {
+    background: var(--paper-2);
+    padding: clamp(48px, 6vw, 80px) clamp(32px, 4vw, 64px);
+    display: flex; align-items: center;
+  }
+  .sol-case-light .wrap-inner { max-width: 420px; width: 100%; }
+  .sol-case-results { margin-top: var(--space-4); }
+  .sol-case-results :global(.res-row) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-5);
+    align-items: baseline;
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .sol-case-results :global(.res-row:last-child) { border-bottom: 1px solid var(--hairline); }
+  .sol-case-results :global(.res-v) {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1;
+    color: var(--accent);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.01em;
+  }
+  .sol-case-results :global(.res-l) {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    line-height: var(--leading-lede);
+  }
+
+  @media (max-width: 800px) {
+    .sol-case-grid { grid-template-columns: 1fr; }
+  }
+</style>

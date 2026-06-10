@@ -1,0 +1,115 @@
+---
+// Section W6 · roi-band (famille Solutions · BRIQUE SIGNATURE)
+// Bande ROI dark : header (eyebrow + h2) + grille de KeyMetric placés en asymétrie 6/5.
+// Source : SolutionsDetailTemplate.astro (markup l.328-355, placements l.174-181, CSS scoped l.473-772).
+// - markup/CSS = COPIE VERBATIM des styles scoped legacy (tokens var(--*), 0 hex brut).
+import KeyMetric from '../editorial/KeyMetric.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'roi-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const eyebrow = isFr ? data.eyebrow_fr : data.eyebrow_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const placements = [
+  { class: 'col-6 start-1', size: 'lg' as const, variant: 'default' as const },
+  { class: 'col-5 start-8', size: 'lg' as const, variant: 'accent' as const },
+  { class: 'col-6 start-1', size: 'md' as const, variant: 'default' as const },
+  { class: 'col-5 start-8', size: 'md' as const, variant: 'default' as const },
+  { class: 'col-6 start-1', size: 'md' as const, variant: 'default' as const },
+  { class: 'col-5 start-8', size: 'md' as const, variant: 'default' as const },
+];
+---
+<section class="sol-sec sol-sec-dark sol-proof reveal-stagger" data-screen-label="04 ROI Band">
+  <div class="wrap g12 g12--full">
+    <header class="sol-roi-hd section-eyebrow col-12">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 set:html={h2} />
+    </header>
+    <div class="sol-roi-grid col-12 g12">
+      {data.metrics.map((m, i) => {
+        const placement = placements[i % placements.length];
+        return (
+          <div class={placement.class}>
+            <KeyMetric
+              value={m.value}
+              label={(isFr ? m.label_fr : m.label_en).replace(/\n/g, ' ')}
+              size={placement.size}
+              align="left"
+              variant={placement.variant}
+            />
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */
+  .sol-sec { padding: clamp(48px, 6vw, 80px) 0; position: relative; }
+  .sol-proof { margin-top: clamp(48px, 5vw, 80px); }
+  .sol-sec-dark { background: var(--ink); color: var(--paper); }
+  .section-eyebrow .eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+
+  /* ───── ROI Band Dark (BRIQUE SIGNATURE) — COPIE VERBATIM l.727-772 ───── */
+  .sol-proof { padding: clamp(56px, 7vw, 96px) 0; }
+  .sol-roi-hd { margin-bottom: clamp(28px, 4vw, 48px); }
+  .sol-roi-hd .kicker { color: var(--accent); }
+  .sol-roi-hd h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-2) 0 0;
+    color: var(--paper);
+  }
+  .sol-roi-hd h2 :global(i) { color: var(--accent); font-style: italic; }
+  .sol-roi-grid {
+    gap: clamp(24px, 3vw, 48px);
+  }
+  .sol-roi-grid :global(.key-metric-value) {
+    color: var(--paper);
+  }
+  .sol-roi-grid :global(.key-metric-accent .key-metric-value) {
+    color: var(--accent);
+  }
+  .sol-roi-grid :global(.key-metric-label) {
+    color: rgba(var(--paper-rgb), 0.7);
+  }
+  .sol-roi-grid :global(.roi-cell) {
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.12);
+  }
+  .sol-roi-grid :global(.roi-v) {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 7vw, 88px);
+    line-height: 0.9;
+    color: var(--accent);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+  }
+  .sol-roi-grid :global(.roi-l) {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(var(--paper-rgb), 0.7);
+    line-height: var(--leading-lede);
+  }
+
+  .start-9 { grid-column-start: 9; }
+  .start-10 { grid-column-start: 10; }
+</style>
