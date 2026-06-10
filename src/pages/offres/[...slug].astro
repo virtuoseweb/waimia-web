@@ -44,6 +44,14 @@ const heroTitle = (lang === 'fr' ? data.hero_title_html_fr : data.hero_title_htm
 // D.7 · Adoption composable V2 (2026-05-15) — si frontmatter contient `sections`,
 // utiliser SectionsRenderer au lieu d'OffresDetailTemplate (compatibilité backward).
 const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
+const tina = import.meta.env.DEV
+  ? await Promise.all([
+      import('@tinacms/astro/TinaIsland.astro'),
+      import('../../lib/tina-islands'),
+    ])
+  : undefined;
+const TinaIsland = tina?.[0].default;
+const tinaWrapper = tina?.[1].islands.offre.wrapper;
 ---
 {useComposable ? (
   <Base
@@ -55,7 +63,13 @@ const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
       { label: lang === 'fr' ? 'Offres' : 'Services', href: lang === 'fr' ? '/offres' : '/en/offres' },
       { label: (lang === 'fr' ? data.title_fr : data.title_en).split(' · ')[0] },
     ]} />
-    <SectionsRenderer sections={data.sections!} lang={lang} />
+    {TinaIsland && tinaWrapper ? (
+      <TinaIsland name="offre" wrapper={tinaWrapper} params={{ slug: entry.id }} primary>
+        <SectionsRenderer sections={data.sections!} lang={lang} />
+      </TinaIsland>
+    ) : (
+      <SectionsRenderer sections={data.sections!} lang={lang} />
+    )}
   </Base>
 ) : (
 <OffresDetailTemplate

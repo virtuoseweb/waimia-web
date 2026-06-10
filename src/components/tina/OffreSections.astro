@@ -1,0 +1,12 @@
+---
+import SectionsRenderer from '../sections/SectionsRenderer.astro';
+import type { SectionData } from '../../schemas/sections';
+
+interface Props {
+  sections?: SectionData[];
+}
+
+const { sections = [] } = Astro.props;
+---
+
+<SectionsRenderer sections={sections} lang="fr" />

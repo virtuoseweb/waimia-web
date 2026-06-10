@@ -8,6 +8,12 @@ dist/
 .cache/
 .turbo/
 
+# Tina : __generated__ committé (pattern tina-cloud-starter — requis par le
+# build Vercel, src/lib/tina-islands.ts importe __generated__/client) ;
+# cache et admin SPA (dev-only) restent ignorés
+tina/__generated__/.cache/
+public/admin/
+
 # Logs
 *.log
 npm-debug.log*
