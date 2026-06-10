@@ -132,10 +132,13 @@ const metricsLayout = isSplitQuote ? 'split-quote' : data.layout === 'split-quot
     line-height: var(--leading-lede);
   }
   @media (max-width: 768px) {
+    .stat-block__grid[data-layout="grid-3"] { grid-template-columns: repeat(2, 1fr); }
     .stat-block__grid[data-layout="grid-4"] { grid-template-columns: repeat(2, 1fr); }
     .stat-block__split { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {
+    .stat-block__grid[data-layout="grid-3"],
+    .stat-block__grid[data-layout="grid-4"] { grid-template-columns: 1fr; }
     .stat-block__grid[data-layout="split-quote"] { grid-template-columns: 1fr; }
   }
 </style>

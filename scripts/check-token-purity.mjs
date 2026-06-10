@@ -259,6 +259,8 @@ for (const fpath of allFilesV8) {
     const rx = buildLiteralDetectionRegex(property, value);
     for (const m of text.matchAll(rx)) {
       const line = text.slice(0, m.index).split('\n').length;
+      // var() est INVALIDE dans une condition @media (spec CSS) → un littéral px y est légitime, pas une violation token-purity
+      if (/@media/.test(text.split('\n')[line - 1])) continue;
       literalHits.push({ file: rel, line, value: m[0].trim(), token });
     }
   }

@@ -1058,8 +1058,12 @@ const sectionSchemaKnobs = {
     line-height: var(--leading-body);
   }
 
-  @media (max-width: var(--wrap-read)) {
+  @media (max-width: 900px) {
     .ds-layout { grid-template-columns: 1fr; gap: var(--space-6); }
     .ds-toc { display: none; }
+  }
+  @media (max-width: 480px) {
+    .ds-spacing-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .ds-spacing-bar { max-width: 60vw; }
   }
 </style>
