@@ -31,6 +31,18 @@ export interface LibraryOrganismEntry {
 
 // ── Usage par type-id (hand-authored — 67 entrées, consumers=[] si catalogue-only) ──
 
+// Wave 1.4 — les 8 pages de la collection solutions consomment les 6 types signatures.
+const SOLUTIONS_CONSUMERS = [
+  'src/content/solutions/acquisition-ia.mdx',
+  'src/content/solutions/contenu-seo-geo-ia.mdx',
+  'src/content/solutions/crm-relances-ia.mdx',
+  'src/content/solutions/finance.mdx',
+  'src/content/solutions/fintech.mdx',
+  'src/content/solutions/productivite-ia.mdx',
+  'src/content/solutions/site-web-ia-pme.mdx',
+  'src/content/solutions/support-client-ia.mdx',
+];
+
 const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // ── Live (34) ───────────────────────────────────────────────────────────────
   { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetailTemplate.astro'] },
@@ -135,12 +147,13 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'tech-models-table',         consumers: ['src/content/technologies/claude-models.mdx'] },
   { id: 'tech-when-dual',            consumers: ['src/content/technologies/claude-models.mdx', 'src/content/technologies/virtuoseos.mdx'] },
   { id: 'tech-integration-flow',     consumers: ['src/content/technologies/claude-models.mdx', 'src/content/technologies/virtuoseos.mdx'] },
-  { id: 'pain-points',               consumers: ['src/content/solutions/finance.mdx'] },
-  { id: 'workflow-table',            consumers: ['src/content/solutions/finance.mdx'] },
-  { id: 'roi-band',                  consumers: ['src/content/solutions/finance.mdx'] },
-  { id: 'case-split',                consumers: ['src/content/solutions/finance.mdx'] },
-  { id: 'department-stack',          consumers: ['src/content/solutions/finance.mdx'] },
-  { id: 'department-cta',            consumers: ['src/content/solutions/finance.mdx'] },
+  // Wave 1.4 — 6 types signatures Solutions, consommés par les 8 pages de la collection solutions
+  { id: 'pain-points',               consumers: SOLUTIONS_CONSUMERS },
+  { id: 'workflow-table',            consumers: SOLUTIONS_CONSUMERS },
+  { id: 'roi-band',                  consumers: SOLUTIONS_CONSUMERS },
+  { id: 'case-split',                consumers: SOLUTIONS_CONSUMERS },
+  { id: 'department-stack',          consumers: SOLUTIONS_CONSUMERS },
+  { id: 'department-cta',            consumers: SOLUTIONS_CONSUMERS },
 ];
 
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────
