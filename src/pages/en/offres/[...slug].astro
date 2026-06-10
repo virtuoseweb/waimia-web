@@ -5,6 +5,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import OffresDetailTemplate from '../../../components/templates/OffresDetailTemplate.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('offres');
@@ -38,6 +39,11 @@ const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
     title={data.title_en}
     description={data.description_en}
   >
+    <Breadcrumb lang="en" items={[
+      { label: 'Home', href: '/en' },
+      { label: 'Services', href: '/en/offres' },
+      { label: data.title_en.split(' · ')[0] },
+    ]} />
     <SectionsRenderer sections={data.sections!} lang={lang} />
   </Base>
 ): (
