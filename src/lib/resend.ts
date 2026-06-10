@@ -34,12 +34,16 @@ if (!apiKey && import.meta.env.PROD) {
 
 // EMAIL_FROM · alias virtuoseweb.fr (domaine déjà vérifié sur Resend, partagé
 // avec sitewebastro). Override via env Vercel : EMAIL_FROM="Waimia <…>".
+// `?.trim() ||` (et NON `??`) : une env var Vercel définie mais VIDE ("") n'est
+// ni null ni undefined → `??` ne la rattrape pas → Resend reçoit `from:""` et
+// rejette en 422 "Invalid `from` field" (bug prod 2026-06-10, GF-1). `|| défaut`
+// retombe sur l'alias vérifié dès que la valeur est vide/whitespace.
 export const EMAIL_FROM =
-  import.meta.env.EMAIL_FROM ?? "Waimia <waimia@virtuoseweb.fr>";
+  import.meta.env.EMAIL_FROM?.trim() || "Waimia <waimia@virtuoseweb.fr>";
 export const EMAIL_REPLY_TO =
-  import.meta.env.EMAIL_REPLY_TO ?? "contact@virtuoseweb.fr";
+  import.meta.env.EMAIL_REPLY_TO?.trim() || "contact@virtuoseweb.fr";
 export const EMAIL_INTERNAL_TO =
-  import.meta.env.EMAIL_INTERNAL_TO ?? "contact@virtuoseweb.fr";
+  import.meta.env.EMAIL_INTERNAL_TO?.trim() || "contact@virtuoseweb.fr";
 
 interface SendArgs {
   to: string | string[];

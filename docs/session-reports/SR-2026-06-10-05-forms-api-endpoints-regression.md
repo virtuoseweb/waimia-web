@@ -123,3 +123,16 @@ Avec `/api/*` + enhancement client-fetch, un utilisateur sans JS qui soumet voit
 - **Gate préventif mergé** (#32, PR #38, `d27ffb8`) : `scripts/check-form-endpoints.mjs` — tout `action`/`fetch` vers `/api/X` impose l'existence de `src/pages/api/X.{ts,js,mjs}` (négatif-testé : retirer `newsletter.ts` → FAIL listant les 3 fichiers référents). Câblé dans `.github/workflows/ci.yml`. Memory `forms-architecture-api-routes` créée.
 - **Discipline de déploiement (consigne Simon 2026-06-10)** : on limite les déploiements Vercel. Travail batché en local → validation locale (`node scripts/serve-dist.mjs`, parité prod, + GF-1) → push sur `main` qui déclenche le build Vercel auto. Plus d'API / `vercel promote` forcé.
 - Le sous-finding LeadMagnet de la task #27 est résorbé (la note « endpoint absent » est obsolète : la prod l'expose et le valide).
+
+## Suite (même session) — envoi RÉEL cassé : `EMAIL_FROM` vide → Resend 422
+
+La preuve GF-1 initiale couvrait le **routage** (200 honeypot / 400 invalide / 405 méthode) mais PAS l'**envoi réel** (le honeypot répond `{ok:true}` sans envoyer, les 400 échouent avant `sendEmail`). En poussant GF-1 backend jusqu'au bout (envoi valide réel sur prod vers une adresse Gmail contrôlée, write→read), découverte d'un **2ᵉ bug, distinct de la régression de routage** :
+
+- `POST /api/newsletter` valide en prod → **`500 {ok:false,"Erreur lors de l'envoi"}`**.
+- Logs runtime Vercel (message complet) : `[resend] send error 422 {"name":"validation_error","message":"Invalid \`from\` field. The email address needs to follow the \`email@example.com\` or \`Name <email@example.com>\` format."}`.
+
+**Cause racine** : la var d'env Vercel `EMAIL_FROM` (prod) est **définie mais vide** (`""`). Le code (`src/lib/resend.ts`) faisait `import.meta.env.EMAIL_FROM ?? "Waimia <…>"` : `??` ne rattrape QUE `null`/`undefined`, **pas** la chaîne vide → `from:""` envoyé à Resend → 422 sur CHAQUE soumission valide (les 3 vars `EMAIL_*` sont concernées). Diagnostic clé (GF-4) : un 422 arrive APRÈS authentification → la **clé `RESEND_API_KEY` est valide** (une mauvaise clé renverrait 401) ; le problème n'est ni la clé ni la vérification de domaine. `vercel env pull` rend ces vars vides (marquées « Sensitive » = write-only), donc seul le **422 runtime** révèle la vérité.
+
+**Fix** (robuste, backend) : `import.meta.env.EMAIL_FROM?.trim() || "défaut"` (et non `??`) sur les 3 exports `EMAIL_FROM`/`EMAIL_REPLY_TO`/`EMAIL_INTERNAL_TO` → une env vide/whitespace retombe sur l'alias vérifié `…@virtuoseweb.fr`. Branche `fix/email-from-empty-env`. `astro check` 0 errors · `pnpm build` Complete! · gates verts. GF-1 envoi réel + réception Gmail validé post-déploiement.
+
+**Arbitrage** : fix CODE (déployé via push `main`, aligné sur la discipline deploy) plutôt que fix ENV (qui exigerait `vercel env` + redeploy forcé via API). Le défaut `virtuoseweb.fr` est le domaine vérifié connu (partagé `sitewebastro`). Les 3 vars `EMAIL_*` vides en prod deviennent inoffensives une fois le code défensif ; nettoyage env optionnel à part. À terme : vérifier `waimia.com` sur Resend pour expédier depuis `@waimia.com` (branding) — non bloquant.
