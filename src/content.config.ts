@@ -575,43 +575,8 @@ const outils = defineCollection({
   }),
 });
 
-// ─── Pages standalone ───
-const pages = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/pages' }),
-  schema: z.object({
-    ...baseFields,
-    template: z.enum(['utility', 'trust-legal', 'welcome', 'essay']),
-    kicker_fr: z.string().optional(),
-    kicker_en: z.string().optional(),
-    align: z.enum(['left', 'centered']).default('left'),
-    showCta: z.boolean().default(true),
-    sections: z
-      .array(
-        z.object({
-          id: z.string(),
-          label_fr: z.string(),
-          label_en: z.string(),
-        }),
-      )
-      .optional(),
-    revisedAt: z.coerce.date().optional(),
-    version: z.string().optional(),
-    nextSteps: z
-      .array(
-        z.object({
-          number: z.string(),
-          label_fr: z.string(),
-          label_en: z.string(),
-          body_fr: z.string(),
-          body_en: z.string(),
-          ctaLabel_fr: z.string().optional(),
-          ctaLabel_en: z.string().optional(),
-          ctaHref: z.string().optional(),
-        }),
-      )
-      .optional(),
-  }),
-});
+// ─── Pages standalone ─── (collection `pages` archivée V-F1, docs/40 §1 :
+// 0 page générée, MDX dans docs/archive/content/pages/)
 
 // ─── Authors ───
 const authors = defineCollection({
@@ -835,27 +800,8 @@ const personas = defineCollection({
   }),
 });
 
-// ─── Brand Voice (Tier 4.2) · doctrine éditoriale V5-V7 · singleton ───
-const brandVoice = defineCollection({
-  loader: glob({ pattern: '*.mdx', base: './src/content/brand-voice' }),
-  schema: z.object({
-    title_fr: z.string(),
-    title_en: z.string(),
-    publishedAt: z.coerce.date(),
-    doctrine_fr: z.string(),
-    doctrine_en: z.string(),
-    tone_principles_fr: z.array(z.string()).min(5).max(12),
-    tone_principles_en: z.array(z.string()).min(5).max(12),
-    forbidden_words_fr: z.array(z.string()).default([]),
-    forbidden_words_en: z.array(z.string()).default([]),
-    preferred_words_fr: z.array(z.string()).default([]),
-    preferred_words_en: z.array(z.string()).default([]),
-    sample_phrases_fr: z.array(z.string()).min(3).max(10),
-    sample_phrases_en: z.array(z.string()).min(3).max(10),
-    typography_rules_fr: z.array(z.string()).default([]),
-    typography_rules_en: z.array(z.string()).default([]),
-  }),
-});
+// ─── Brand Voice ─── (collection `brandVoice` archivée V-F1, docs/40 §1 :
+// gouvernance de marque, pas du contenu de site → docs/archive/content/brand-voice/)
 
 // ─── Commerce (Tier 3.2) · fusion produits + abonnements via discriminated union ───
 const commerce = defineCollection({
@@ -983,25 +929,9 @@ const prompts = defineCollection({
 });
 
 // ═════════════════════════════════════════════════════════════════
-// Tier 4 · pain-points (catalogue cross-référencé personas × secteurs) — T4.4
+// Tier 4 · pain-points : collection migrée en référentiel TS (R7a/V-F1, docs/40 §1) :
+// source unique = src/data/pain-points.ts · MDX archivés docs/archive/content/pain-points/
 // ═════════════════════════════════════════════════════════════════
-
-const painPoints = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/pain-points' }),
-  schema: z.object({
-    slug: z.string().regex(/^[a-z0-9-]+$/),
-    pain_fr: z.string().min(20).max(280),
-    pain_en: z.string().min(20).max(280),
-    severity: z.enum(['critical', 'high', 'medium', 'low']),
-    affected_personas: z.array(z.string()).default([]),
-    affected_secteurs: z.array(z.string()).default([]),
-    solution_fr: z.string().min(20),
-    solution_en: z.string().min(20),
-    related_offres: z.array(z.string()).default([]),
-    related_solutions: z.array(z.string()).default([]),
-    publishedAt: z.coerce.date(),
-  }),
-});
 
 // ═════════════════════════════════════════════════════════════════
 // Tier 5 · integrations (outils tiers connectables Waimia) — T5.2
@@ -1042,31 +972,9 @@ const integrations = defineCollection({
 });
 
 // ═════════════════════════════════════════════════════════════════
-// Tier 4 · knowledge-base (RAG-ready chunks pour agents) — T4.5
+// Tier 4 · knowledge-base : collection archivée V-F1 (docs/40 §1) : 0 consommateur ;
+// doctrine recyclable (méthode, prix, design) → docs/archive/content/knowledge-base/
 // ═════════════════════════════════════════════════════════════════
-
-const knowledgeBase = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/knowledge-base' }),
-  schema: z.object({
-    title_fr: z.string().min(1),
-    title_en: z.string().min(1),
-    slug: z.string().regex(/^[a-z0-9-]+$/),
-    summary_fr: z.string().min(40).max(280),
-    summary_en: z.string().min(40).max(280),
-    category: z.enum([
-      'methode',
-      'doctrine',
-      'design',
-      'ia-strategy',
-      'culture',
-      'process',
-      'tooling',
-    ]),
-    tags: z.array(z.string().regex(/^[a-z0-9-]+$/)).default([]),
-    embedding_ready: z.boolean().default(true),
-    publishedAt: z.coerce.date(),
-  }),
-});
 
 // ═════════════════════════════════════════════════════════════════
 // Tier 5 · comparisons (versus-pages SEO programmatique) — T5.3
@@ -1115,61 +1023,14 @@ const comparisons = defineCollection({
 });
 
 // ═════════════════════════════════════════════════════════════════
-// Tier 6 · proof-points (datapoints réutilisables sections) — T6.4
+// Tier 6 · proof-points : collection migrée en référentiel TS (R7a/V-F1, docs/40 §1) :
+// source unique = src/data/proof-points.ts · MDX archivés docs/archive/content/proof-points/
 // ═════════════════════════════════════════════════════════════════
 
-const proofPoints = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/proof-points' }),
-  schema: z.object({
-    slug: z.string().regex(/^[a-z0-9-]+$/),
-    value: z.string().min(1),
-    label_fr: z.string().min(2).max(120),
-    label_en: z.string().min(2).max(120),
-    source_fr: z.string().optional(),
-    source_en: z.string().optional(),
-    source_url: z.string().optional(),
-    category: z.enum([
-      'roi',
-      'time',
-      'volume',
-      'quality',
-      'cost',
-      'adoption',
-      'autre',
-    ]),
-    related_cases: z.array(z.string()).default([]),
-    related_offres: z.array(z.string()).default([]),
-    publishedAt: z.coerce.date(),
-  }),
-});
-
 // ═════════════════════════════════════════════════════════════════
-// Tier 6 · guarantees (promesses contractuelles Waimia) — T6.5
+// Tier 6 · guarantees : collection migrée en référentiel TS (V-F1, docs/40 §1) :
+// source unique = src/data/guarantees.ts · MDX archivés docs/archive/content/guarantees/
 // ═════════════════════════════════════════════════════════════════
-
-const guarantees = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/guarantees' }),
-  schema: z.object({
-    slug: z.string().regex(/^[a-z0-9-]+$/),
-    label_fr: z.string().min(2).max(100),
-    label_en: z.string().min(2).max(100),
-    promise_fr: z.string().min(20).max(280),
-    promise_en: z.string().min(20).max(280),
-    detail_fr: z.string().optional(),
-    detail_en: z.string().optional(),
-    icon: z.string().optional(),
-    category: z.enum([
-      'remboursement',
-      'delai',
-      'qualite',
-      'rgpd',
-      'support',
-      'autre',
-    ]),
-    related_offres: z.array(z.string()).default([]),
-    publishedAt: z.coerce.date(),
-  }),
-});
 
 // ═════════════════════════════════════════════════════════════════
 
@@ -1184,25 +1045,18 @@ export const collections = {
   livresBlancs,
   cookbooks,
   outils,
-  pages,
   authors,
   // V2 nouvelles (2026-05-15)
   tunnels,
   courses,
   // Tier 4 AI-first + Tier 5 SEO (2026-05-15)
   personas,
-  brandVoice,
   glossary,
   testimonials,
   commerce,
   // Tier 4 AI-first + Tier 5 (2026-05-16)
   prompts,
-  painPoints,
   integrations,
-  knowledgeBase,
   // Tier 5 + Tier 6 pre-hook batch 8 (2026-05-16)
   comparisons,
-  proofPoints,
-  // Tier 6 pre-hook batch 9 (2026-05-16)
-  guarantees,
 };

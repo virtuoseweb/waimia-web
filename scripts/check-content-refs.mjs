@@ -61,9 +61,12 @@ const SLUGS = {
   offres: collectSlugs('offres'),
   cases: collectSlugs('cases'),
   secteurs: collectSlugs('secteurs'),
-  'pain-points': collectSlugs('pain-points'),
-  'proof-points': collectSlugs('proof-points'),
 };
+
+// Collections migrées en référentiels TS (V-F1, docs/40 §1) : les MDX sont archivés
+// dans docs/archive/content/ : les `sources` qui les citent restent des traces de
+// provenance valides mais ne sont plus vérifiées sur disque.
+const ARCHIVED_COLLECTIONS = new Set(['pain-points', 'proof-points', 'guarantees']);
 
 // ── 1. Référentiels src/data ──
 function parseReferential(rel) {
@@ -79,25 +82,30 @@ function parseReferential(rel) {
     if (seen.has(id)) fail(`${rel} : id dupliqué → ${id}`);
     seen.add(id);
   }
-  const sources = [...src.matchAll(/'((?:pain-points|proof-points|solutions|offres|cases|secteurs)\/[a-z0-9-]+)'/g)].map(
+  const sources = [...src.matchAll(/'((?:pain-points|proof-points|guarantees|solutions|offres|cases|secteurs)\/[a-z0-9-]+)'/g)].map(
     (m) => m[1],
   );
   return { ids: seen, sources };
 }
 
-console.log('── 1. Référentiels src/data/{pain,proof}-points.ts');
+console.log('── 1. Référentiels src/data/{pain-points,proof-points,guarantees}.ts');
 const pains = parseReferential('src/data/pain-points.ts');
 const proofs = parseReferential('src/data/proof-points.ts');
+const guarantees = parseReferential('src/data/guarantees.ts');
 for (const ref of [
   { rel: 'src/data/pain-points.ts', sources: pains.sources },
   { rel: 'src/data/proof-points.ts', sources: proofs.sources },
+  { rel: 'src/data/guarantees.ts', sources: guarantees.sources },
 ]) {
   for (const s of new Set(ref.sources)) {
     const [collection, slug] = s.split('/');
+    if (ARCHIVED_COLLECTIONS.has(collection)) continue; // provenance archivée (docs/archive/content/)
     if (!SLUGS[collection]?.has(slug)) fail(`${ref.rel} : source inexistante → ${s}`);
   }
 }
-console.log(`  pain-points : ${pains.ids.size} ids · proof-points : ${proofs.ids.size} ids`);
+console.log(
+  `  pain-points : ${pains.ids.size} ids · proof-points : ${proofs.ids.size} ids · guarantees : ${guarantees.ids.size} ids`,
+);
 
 // ── Parsing frontmatter minimal (champs plats + bloc facets) ──
 function frontmatter(collection, file) {
