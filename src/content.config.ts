@@ -402,6 +402,8 @@ const technologies = defineCollection({
       .default([]),
     benchmarks: z.array(bilingualMetric).default([]),
     integration_flow: z.array(methodStep).default([]),
+    // Adoption composable (registry) — fallback legacy conservé si absent.
+    sections: sectionsArraySchema.optional(),
   }),
 });
 

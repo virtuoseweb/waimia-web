@@ -128,6 +128,11 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'comparison-duo',            consumers: [] },
   { id: 'service-catalog-list',      consumers: [] },
   { id: 'fit-columns',               consumers: [] },
+  { id: 'tech-positioning-split',    consumers: ['src/content/technologies/claude-models.mdx', 'src/content/technologies/virtuoseos.mdx'] },
+  { id: 'tech-capabilities-specs',   consumers: ['src/content/technologies/claude-models.mdx', 'src/content/technologies/virtuoseos.mdx'] },
+  { id: 'tech-models-table',         consumers: ['src/content/technologies/claude-models.mdx'] },
+  { id: 'tech-when-dual',            consumers: ['src/content/technologies/claude-models.mdx', 'src/content/technologies/virtuoseos.mdx'] },
+  { id: 'tech-integration-flow',     consumers: ['src/content/technologies/claude-models.mdx', 'src/content/technologies/virtuoseos.mdx'] },
 ];
 
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────

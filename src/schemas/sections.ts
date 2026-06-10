@@ -1814,6 +1814,117 @@ export const fitColumnsSchema = z.object({
   no_items: z.array(z.string()).min(1).max(8),
 });
 
+// ─── Technologies (TechnologiesDetailTemplate → composable) ───
+
+// §2 Positioning Split · prise de position éditoriale (statement manifesto + facts mono kv)
+export const techPositioningSplitSchema = z.object({
+  type: z.literal('tech-positioning-split'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  statement_fr: z.string(),
+  statement_en: z.string(),
+  facts: z
+    .array(
+      z.object({
+        k: z.string(),
+        v_fr: z.string(),
+        v_en: z.string(),
+      }),
+    )
+    .max(6)
+    .optional(),
+});
+
+// §3 Capabilities Specs · inventaire technique en table (capacité · description · statut)
+export const techCapabilitiesSpecsSchema = z.object({
+  type: z.literal('tech-capabilities-specs'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  capabilities: z
+    .array(
+      z.object({
+        name_fr: z.string(),
+        name_en: z.string(),
+        description_fr: z.string(),
+        description_en: z.string(),
+        status: z.enum(['active', 'beta', 'planned']).default('active'),
+      }),
+    )
+    .min(1),
+});
+
+// §4 Models Table · comparaison modèles (5 colonnes Modèle / Profil / Coût / Contexte / Usages)
+export const techModelsTableSchema = z.object({
+  type: z.literal('tech-models-table'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  caption_fr: z.string().optional(),
+  caption_en: z.string().optional(),
+  models: z
+    .array(
+      z.object({
+        name: z.string(),
+        version: z.string(),
+        use_case_fr: z.string(),
+        use_case_en: z.string(),
+      }),
+    )
+    .min(1),
+});
+
+// §5 When To Use Dual · aide décision (puces +/− mono)
+export const techWhenDualSchema = z.object({
+  type: z.literal('tech-when-dual'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  use_title_fr: z.string(),
+  use_title_en: z.string(),
+  use_items_fr: z.array(z.string()).min(1).max(10),
+  use_items_en: z.array(z.string()).min(1).max(10),
+  avoid_title_fr: z.string(),
+  avoid_title_en: z.string(),
+  avoid_items_fr: z.array(z.string()).min(1).max(10),
+  avoid_items_en: z.array(z.string()).min(1).max(10),
+});
+
+// §6 Integration Flow · position dans la stack en frise verticale numérotée
+export const techIntegrationFlowSchema = z.object({
+  type: z.literal('tech-integration-flow'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  aside_fr: z.string().optional(),
+  aside_en: z.string().optional(),
+  steps: z
+    .array(
+      z.object({
+        num: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+      }),
+    )
+    .min(1),
+});
+
 /* ─── Union discriminée pour validation ─── */
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -1906,6 +2017,11 @@ export const sectionSchema = z.discriminatedUnion('type', [
   comparisonDuoSchema,
   serviceCatalogListSchema,
   fitColumnsSchema,
+  techPositioningSplitSchema,
+  techCapabilitiesSpecsSchema,
+  techModelsTableSchema,
+  techWhenDualSchema,
+  techIntegrationFlowSchema,
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

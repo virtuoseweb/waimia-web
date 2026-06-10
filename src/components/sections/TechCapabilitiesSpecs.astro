@@ -1,0 +1,151 @@
+---
+// Section W6 · tech-capabilities-specs
+// Inventaire technique en table spec (capacité · description · statut).
+// Source : TechnologiesDetailTemplate.astro « 3. CAPABILITIES GRID » (table .tt-specs)
+//          + CSS .tech-sec-hd / .tt-specs* (l.440-464, 722-778, 832-836).
+// - CSS = COPIE VERBATIM des règles du template (mêmes tokens/valeurs). status rendu brut.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'tech-capabilities-specs'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+<section class="tech-sec" data-screen-label="03 Capabilities">
+  <div class="wrap">
+    <div class="tech-sec-hd">
+      <div>
+        <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <h2 set:html={isFr ? data.title_fr : data.title_en} />
+      </div>
+      {(isFr ? data.aside_fr : data.aside_en) && (
+        <p class="tech-aside">{isFr ? data.aside_fr : data.aside_en}</p>
+      )}
+    </div>
+    <div class="tech-cap-table-wrap reveal-stagger">
+      <table class="tt-specs">
+        <thead>
+          <tr>
+            <th scope="col">Capacité</th>
+            <th scope="col">Description</th>
+            <th scope="col">Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.capabilities.map((item) => (
+            <tr>
+              <td class="tt-spec-name">{isFr ? item.name_fr : item.name_en}</td>
+              <td class="tt-spec-desc">{isFr ? item.description_fr : item.description_en}</td>
+              <td class="tt-spec-status">{item.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */
+  .tech-sec { padding: clamp(72px, 8vw, 120px) 0; position: relative; }
+  .tech-sec-hd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 80px);
+    margin-bottom: clamp(40px, 5vw, 64px);
+    align-items: end;
+  }
+  .tech-sec-hd h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-2) 0 0;
+  }
+  .tech-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .tech-aside {
+    font-family: var(--font-display);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  /* ───── Capabilities Specs Table — COPIE VERBATIM ───── */
+  .tech-cap-table-wrap {
+    overflow-x: auto;
+  }
+  .tt-specs {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1.2vw, 15.5px);
+  }
+  .tt-specs thead th {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 var(--space-5) 14px 0;
+    border-bottom: 1px solid var(--hairline, rgba(var(--ink-rgb), 0.12));
+    font-weight: var(--fw-regular);
+    white-space: nowrap;
+  }
+  .tt-specs thead th:last-child { padding-right: 0; text-align: right; }
+  .tt-specs tbody tr {
+    border-bottom: 1px solid var(--hairline, rgba(var(--ink-rgb), 0.08));
+    transition: background 180ms var(--ease);
+  }
+  .tt-specs tbody tr:last-child { border-bottom: none; }
+  .tt-specs tbody tr:hover { background: rgba(var(--ink-rgb), 0.02); }
+  .tt-spec-name {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.4vw, 18px);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    padding: 20px var(--space-5) 20px 0;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 22%;
+  }
+  .tt-spec-desc {
+    font-size: clamp(13.5px, 1.1vw, 15px);
+    line-height: 1.55;
+    color: var(--ink);
+    padding: 20px var(--space-5) 20px 0;
+    vertical-align: top;
+  }
+  .tt-spec-status {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    padding: 20px 0;
+    vertical-align: top;
+    text-align: right;
+    white-space: nowrap;
+    width: 10%;
+  }
+
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  @media (max-width: 700px) {
+    .tt-spec-name { white-space: normal; }
+    .tt-spec-status { text-align: left; padding-left: 0; }
+    .tt-specs thead th:last-child { text-align: left; }
+  }
+  @media (max-width: 800px) {
+    .tech-sec-hd { grid-template-columns: 1fr; }
+  }
+</style>

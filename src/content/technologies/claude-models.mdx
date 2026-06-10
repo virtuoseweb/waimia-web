@@ -122,4 +122,132 @@ faq_en:
     a: "Haiku 4.5 (speed, $0.25/M) for volumes, Sonnet 4.6 (balance, $3/M) for most workflows, Opus 4.7 (power, $15/M) for demanding cases, Claude Code ($3/M) for development."
   - q: "Does Anthropic retain data via API?"
     a: "No. Anthropic does not retain data from API requests. A DPA is available for enterprise uses requiring contractual documentation."
+sections:
+  - type: hero-tech-layer
+    layer_type: claude
+    layer_label_fr: "COUCHE CLAUDE MODELS"
+    layer_label_en: "LAYER CLAUDE MODELS"
+    h1_fr: "Claude Models · Couche Modèles"
+    h1_en: "Claude Models · Model Layer"
+    lead_fr: "Haiku, Sonnet, Opus, Code : un modèle Claude par profil de tâche. Alignement, sécurité et gouvernance natifs pour vos déploiements PME."
+    lead_en: "Haiku for speed, Sonnet for balance, Opus for power, Code for development. One Claude model per task profile, native alignment, security and governance."
+    cta:
+      href: "/contact"
+      label_fr: "Parler architecture →"
+      label_en: "Talk architecture →"
+      variant: primary
+  - type: tech-positioning-split
+    kicker_fr: "Position Waimia"
+    kicker_en: "Waimia position"
+    title_fr: "Pourquoi <i>Claude</i>"
+    title_en: "Why <i>Claude</i>"
+    statement_fr: "Waimia est Claude-first, pas par dogme, mais parce que Claude est le modèle le plus aligné pour les usages enterprise exigeants. Claude est le seul modèle frontier conçu avec la sécurité comme contrainte de design."
+    statement_en: "Waimia is Claude-first, not by dogma, but because Claude is the best-aligned model for demanding enterprise use cases. Claude is the only frontier model designed with safety as a design constraint."
+  - type: tech-capabilities-specs
+    kicker_fr: "Capacités"
+    kicker_en: "Capabilities"
+    title_fr: "<i>Inventaire</i><br/>technique"
+    title_en: "Technical<br/><i>inventory</i>"
+    capabilities:
+      - name_fr: "Raisonnement long et complexe"
+        name_en: "Long and complex reasoning"
+        description_fr: "Chaînes de pensée structurées sur problèmes multi-étapes, analyse, hypothèses, contre-arguments, synthèse."
+        description_en: "Structured reasoning chains on multi-step problems, analysis, hypotheses, counter-arguments, synthesis."
+        status: active
+      - name_fr: "Suivi d'instructions précis"
+        name_en: "Precise instruction following"
+        description_fr: "Respect strict des contraintes formelles, formats, ton, règles métier, garde-fous opérationnels."
+        description_en: "Strict compliance with formal constraints, formats, tone, business rules, operational guardrails."
+        status: active
+      - name_fr: "Constitutional AI natif"
+        name_en: "Native Constitutional AI"
+        description_fr: "Alignement par principes intégrés au training, refus contextuels, transparence, traçabilité des décisions."
+        description_en: "Principle-based alignment built into training, contextual refusals, transparency, decision traceability."
+        status: active
+      - name_fr: "Vision PDF texte code"
+        name_en: "PDF text code vision"
+        description_fr: "Analyse documents complexes, schémas, captures, code source, sans pipeline OCR séparé à maintenir."
+        description_en: "Analysis of complex documents, diagrams, screenshots, source code, no separate OCR pipeline to maintain."
+        status: active
+      - name_fr: "Génération artefacts structurés"
+        name_en: "Structured artifact generation"
+        description_fr: "Sorties typées exploitables, JSON Schema, code, documents, directement intégrables dans vos workflows."
+        description_en: "Typed, usable outputs, JSON Schema, code, documents, directly integrable into your workflows."
+        status: active
+      - name_fr: "Politique d'utilisation claire"
+        name_en: "Clear usage policy"
+        description_fr: "DPA disponible, résidence Europe possible, responsabilité contractuelle Anthropic, pas de zone grise juridique."
+        description_en: "DPA available, Europe residency possible, Anthropic contractual accountability, no legal gray area."
+        status: active
+  - type: tech-models-table
+    kicker_fr: "Choisir le bon modèle"
+    kicker_en: "Choose the right model"
+    title_fr: "<i>Modèles</i><br/>disponibles"
+    title_en: "Available<br/><i>models</i>"
+    caption_fr: "Modèles Claude · profil de tâche"
+    caption_en: "Claude models · task profile"
+    models:
+      - name: "Claude Haiku 4.5"
+        version: "4.5"
+        use_case_fr: "Triage, classification, scoring, tâches répétitives à fort volume"
+        use_case_en: "Triage, classification, scoring, high-volume repetitive tasks"
+      - name: "Claude Sonnet 4.6"
+        version: "4.6"
+        use_case_fr: "Rédaction, analyse, agents, la plupart des workflows enterprise"
+        use_case_en: "Writing, analysis, agents, most enterprise workflows"
+      - name: "Claude Opus 4.7"
+        version: "4.7"
+        use_case_fr: "Raisonnement complexe, stratégie, audit critique, cas exigeants"
+        use_case_en: "Complex reasoning, strategy, critical audit, demanding cases"
+      - name: "Claude Code"
+        version: "4.x"
+        use_case_fr: "Développement, revue de code, documentation, modernisation legacy"
+        use_case_en: "Development, code review, documentation, legacy modernization"
+  - type: tech-integration-flow
+    kicker_fr: "Position dans la stack"
+    kicker_en: "Position in the stack"
+    title_fr: "<i>Intégration</i>"
+    title_en: "<i>Integration</i>"
+    steps:
+      - num: "01"
+        label_fr: "Données"
+        label_en: "Data"
+        body_fr: "Sources métier branchées via Model Context Protocol, accès gouverné, audit logs."
+        body_en: "Business sources connected via Model Context Protocol, governed access, audit logs."
+      - num: "02"
+        label_fr: "Modèles"
+        label_en: "Models"
+        body_fr: "Claude Haiku · Sonnet · Opus · Code, sélection à la tâche, fallback configurable."
+        body_en: "Claude Haiku · Sonnet · Opus · Code, task-level selection, configurable fallback."
+      - num: "03"
+        label_fr: "Orchestration"
+        label_en: "Orchestration"
+        body_fr: "Graphes d'agents, état durable, retries et human-in-the-loop natifs."
+        body_en: "Agent graphs, durable state, native retries and human-in-the-loop."
+      - num: "04"
+        label_fr: "Interface"
+        label_en: "Interface"
+        body_fr: "Surfaces de consommation pour équipes et systèmes, pas de fork client lourd."
+        body_en: "Consumption surfaces for teams and systems, no heavy client fork."
+      - num: "05"
+        label_fr: "Observation"
+        label_en: "Observation"
+        body_fr: "Traces, évaluations, coûts par tâche, visibilité opérationnelle complète."
+        body_en: "Traces, evaluations, costs per task, complete operational visibility."
+  - type: cta-final
+    background: ink
+    h2_fr: "Quelle stack<br/>pour votre<br/><i>contexte ?</i>"
+    h2_en: "Which stack<br/>for your<br/><i>context?</i>"
+    body_fr: "Chaque déploiement Waimia commence par un choix technologique rigoureux : adapté à vos contraintes, pas à nos préférences."
+    body_en: "Every Waimia deployment starts with a rigorous technology choice: matched to your constraints, not our preferences."
+    cta_primary:
+      href: "/contact"
+      label_fr: "Parler architecture →"
+      label_en: "Talk architecture →"
+      variant: primary
+    cta_secondary:
+      href: "/technologies"
+      label_fr: "Voir la stack complète"
+      label_en: "See the full stack"
+      variant: ghost
 ---

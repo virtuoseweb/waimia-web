@@ -1,0 +1,99 @@
+---
+// Section W6 · tech-models-table
+// Table de comparaison des modèles (5 colonnes Modèle / Profil / Coût / Contexte / Usages).
+// Source : TechnologiesDetailTemplate.astro « 4. MODELS COMPARISON TABLE » (branche EditorialTable)
+//          + CSS .tech-sec-hd / .tech-models-table-wrap (l.440-464, 546-554).
+// - Réutilise editorial/EditorialTable variant=editorial (parité stricte avec le rendu legacy).
+// - Mapping colonnes identique au legacy : [name, version, '', '', use_case].
+import Kicker from '../ui/atoms/Kicker.astro';
+import EditorialTable from '../editorial/EditorialTable.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'tech-models-table'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const rows = data.models.map((m) => [
+  m.name,
+  m.version,
+  '',
+  '',
+  isFr ? m.use_case_fr : m.use_case_en,
+]);
+---
+<section class="tech-sec tech-sec-paper" data-screen-label="04 Models">
+  <div class="wrap">
+    <div class="tech-sec-hd">
+      <div>
+        <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <h2 set:html={isFr ? data.title_fr : data.title_en} />
+      </div>
+      {(isFr ? data.aside_fr : data.aside_en) && (
+        <p class="tech-aside">{isFr ? data.aside_fr : data.aside_en}</p>
+      )}
+    </div>
+    <div class="tech-models-table-wrap reveal-stagger">
+      <EditorialTable
+        columns={['Modèle', 'Profil', 'Coût', 'Contexte', 'Usages']}
+        rows={rows}
+        caption={isFr ? data.caption_fr : data.caption_en}
+        variant="editorial"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */
+  .tech-sec { padding: clamp(72px, 8vw, 120px) 0; position: relative; }
+  .tech-sec-paper { background: var(--paper-2); }
+  .tech-sec-hd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 80px);
+    margin-bottom: clamp(40px, 5vw, 64px);
+    align-items: end;
+  }
+  .tech-sec-hd h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-regular);
+    margin: var(--space-2) 0 0;
+  }
+  .tech-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .tech-aside {
+    font-family: var(--font-display);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  /* ───── Models Comparison Table — COPIE VERBATIM ───── */
+  .tech-models-table-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
+    border-radius: var(--radius-md);
+    background: var(--paper);
+    padding: clamp(18px, 3vw, 32px);
+  }
+  .tech-models-table-wrap :global(.ed-table-figure) { margin: 0; min-width: 760px; }
+
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  @media (max-width: 800px) {
+    .tech-sec-hd { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .tech-models-table-wrap { padding: var(--space-4); }
+  }
+</style>
