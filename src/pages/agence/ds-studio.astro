@@ -39,8 +39,9 @@ import PricingTier from '../../components/ui/molecules/PricingTier.astro';
 import TerminalMockup from '../../components/ui/molecules/TerminalMockup.astro';
 
 // Sections cataloguées (rendu inline → réactif au token LIVE, contrairement aux iframes)
-import { SECTION_REGISTRY, listSections } from '../../lib/section-registry';
+import { SECTION_REGISTRY, listSections, listCategories } from '../../lib/section-registry';
 import { SECTION_DEMOS } from '../../lib/section-demos';
+import DsLocalNav from '../../components/library/DsLocalNav.astro';
 
 import registry from '../../data/ds-registry.json';
 
@@ -125,6 +126,12 @@ const sectionSample = SECTION_SAMPLE
 
 const sectionTotal = listSections().length;
 
+// ── Catalogue complet (browser catégories + types, données registry) ─────────
+const catalogCategories = listCategories();
+const catalogDefaultType = allSectionTypes.has('hero-split' as any)
+  ? 'hero-split'
+  : catalogCategories[0]?.sectionTypes[0] ?? '';
+
 // Atomes purement comportementaux (catalogués, pas de rendu statique pertinent)
 const behavioralAtoms = [
   { name: 'CursorDot', role: 'Curseur magnétique custom (suit la souris)' },
@@ -146,6 +153,8 @@ const moleculesRendered = 12;
   noindex
 >
   <div class="studio">
+    <DsLocalNav active="studio" note="Ici : personnaliser les tokens et la DA. La bibliothèque de référence reste le Catalogue." />
+
     {/* ───────────── En-tête ───────────── */}
     <header class="studio-hd">
       <Kicker class="studio-eyebrow">§ DS Studio · bac à sable token-driven</Kicker>
@@ -154,6 +163,12 @@ const moleculesRendered = 12;
         À la manière d'ACSS : déplace un curseur ou choisis une couleur, et chaque bouton, card et
         section ci-dessous se repeint <strong>en direct</strong> via <code>var(--token)</code>.
         Complémentaire au <a href="/agence/design-system">catalogue documentaire</a>.
+      </p>
+      <p class="studio-role">
+        <strong>Rôle de cette page : personnaliser.</strong> Pour parcourir les composants sans quitter le
+        studio : <a href="#catalogue">volet Catalogue ci-dessous</a> ({sectionTotal} sections,
+        {catalogCategories.length} catégories). Pour la documentation complète :
+        <a href="/agence/design-system">page Catalogue</a>.
       </p>
       <p class="studio-meta">
         {stats.tokenCount} tokens · {stats.classCount} classes · {sectionTotal} sections cataloguées ·
@@ -532,7 +547,7 @@ const moleculesRendered = 12;
           <ChapterLabel num="03" title={`Sections · ${sectionSample.length} échantillon sur ${sectionTotal}`} />
           <p class="studio-section-lede">
             Rendu inline (pas iframe) pour rester réactif au token LIVE. Aperçu tronqué en hauteur.
-            <a href="/agence/design-system#sections"> Voir les {sectionTotal} sections →</a>
+            <a href="#catalogue"> Catalogue complet des {sectionTotal} sections ci-dessous ↓</a>
           </p>
           <div class="studio-sec-grid">
             {sectionSample.map(({ type, C, demo }) => (
@@ -550,9 +565,65 @@ const moleculesRendered = 12;
           </div>
         </section>
 
+        {/* 3bis. Catalogue complet (browser catégories + types + aperçu live) */}
+        <section class="studio-section studio-catalog" id="catalogue">
+          <ChapterLabel num="04" title={`Catalogue · ${sectionTotal} sections · ${catalogCategories.length} catégories`} />
+          <p class="studio-section-lede">
+            Toutes les sections du registry, par catégorie. <strong>Clique un type</strong> : son aperçu
+            se charge ci-contre et <strong>hérite des tokens édités</strong> dans le panneau LIVE.
+            Chaque type a aussi son rendu isolé (<code>preview</code>) et sa fiche technique
+            (<code>fiche</code>) ; chaque catégorie a sa page dédiée.
+          </p>
+          <div class="studio-catalog-layout">
+            <div class="studio-catalog-list" data-catalog-categories={catalogCategories.length}>
+              {catalogCategories.map((cat, i) => (
+                <details class="studio-cat" data-catalog-category={cat.slug} open={i === 0}>
+                  <summary>
+                    <strong class="studio-cat-label">{cat.label}</strong>
+                    <span class="studio-cat-count">{cat.count}</span>
+                  </summary>
+                  <ul class="studio-cat-types">
+                    <li class="studio-cat-all">
+                      <a href={`/categories/${cat.slug}`}>Ouvrir la catégorie « {cat.label} » →</a>
+                    </li>
+                    {cat.sectionTypes.map((type) => (
+                      <li class="studio-cat-type">
+                        <button type="button" class="studio-cat-type-btn" data-catalog-type={type}>{type}</button>
+                        <span class="studio-cat-links">
+                          <a href={`/preview/${type}`} title={`Rendu isolé de ${type}`}>preview</a>
+                          <a href={`/components/${type}`} title={`Fiche technique de ${type}`}>fiche</a>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ))}
+            </div>
+            <aside class="studio-catalog-side" aria-label="Aperçu du type sélectionné">
+              <div class="studio-catalog-side-head">
+                <code id="catalog-current">{catalogDefaultType}</code>
+                <span class="studio-catalog-side-links">
+                  <a id="catalog-open-fiche" href={`/components/${catalogDefaultType}`}>fiche →</a>
+                  <a id="catalog-open-preview" href={`/preview/${catalogDefaultType}`}>plein écran →</a>
+                </span>
+              </div>
+              <iframe
+                id="catalog-preview"
+                src={`/preview/${catalogDefaultType}`}
+                title="Aperçu de la section sélectionnée (hérite des tokens édités)"
+                loading="lazy"
+              ></iframe>
+              <p class="studio-catalog-note">
+                Cet aperçu hérite des tokens modifiés : édite une couleur dans le panneau LIVE,
+                ce cadre se repeint.
+              </p>
+            </aside>
+          </div>
+        </section>
+
         {/* 3. Doublons & dette */}
         <section class="studio-section studio-section--debt">
-          <ChapterLabel num="04" title="Doublons & dette (avant de figer le DS)" />
+          <ChapterLabel num="05" title="Doublons & dette (avant de figer le DS)" />
 
           <div class="studio-debt-grid">
             <div class="studio-debt-card">
@@ -684,6 +755,8 @@ const moleculesRendered = 12;
   :global(body.ds-clean) .studio-panel,
   :global(body.ds-clean) .studio-hd,
   :global(body.ds-clean) .studio-impact,
+  :global(body.ds-clean) .studio-catalog,
+  :global(body.ds-clean) .studio :global(.ds-local-nav),
   :global(body.ds-clean) .studio-section--debt {
     display: none;
   }
@@ -852,6 +925,93 @@ const moleculesRendered = 12;
     background: linear-gradient(to bottom, transparent, var(--paper)); pointer-events: none;
   }
   .studio-sec-miss { font-family: var(--font-mono); padding: var(--space-4); color: var(--muted); }
+
+  /* Rôle de la page (intro une ligne) */
+  .studio-role {
+    font-family: var(--font-sans); font-size: var(--text-body-sm);
+    line-height: var(--leading-body); color: var(--ink-2); margin: 0 0 var(--space-3);
+  }
+  .studio-role strong { font-weight: var(--fw-semibold); color: var(--ink); }
+  .studio-role a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+
+  /* ── Catalogue complet (browser + aperçu live) ── */
+  .studio-catalog-layout {
+    display: grid; grid-template-columns: minmax(280px, 400px) minmax(0, 1fr);
+    gap: var(--space-5); align-items: start;
+  }
+  @media (max-width: 1080px) { .studio-catalog-layout { grid-template-columns: 1fr; } }
+  .studio-catalog-list {
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-md);
+    background: var(--paper); max-height: 72vh; overflow-y: auto;
+  }
+  .studio-cat { border-bottom: 1px solid var(--hairline); }
+  .studio-cat:last-child { border-bottom: none; }
+  .studio-cat summary {
+    display: flex; justify-content: space-between; align-items: center; gap: var(--space-3);
+    padding: var(--space-3) var(--space-4); cursor: pointer;
+  }
+  .studio-cat summary:hover { background: var(--paper-2); }
+  .studio-cat-label {
+    font-family: var(--font-sans); font-size: var(--text-ui);
+    font-weight: var(--fw-semibold); color: var(--ink);
+  }
+  .studio-cat[open] > summary .studio-cat-label { color: var(--accent); }
+  .studio-cat-count {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-pill);
+    padding: var(--space-1) var(--space-2); flex: none;
+  }
+  .studio-cat-types {
+    list-style: none; margin: 0; padding: 0 var(--space-3) var(--space-3);
+    display: flex; flex-direction: column; gap: var(--space-1);
+  }
+  .studio-cat-all a {
+    display: inline-block; font-family: var(--font-sans); font-size: var(--text-caption);
+    color: var(--accent); text-decoration: none; padding: var(--space-1) var(--space-2);
+  }
+  .studio-cat-all a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  .studio-cat-type {
+    display: flex; justify-content: space-between; align-items: center; gap: var(--space-2);
+  }
+  .studio-cat-type-btn {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--ink-2);
+    background: none; border: none; padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-xs); cursor: pointer; text-align: left;
+    min-width: 0; overflow-wrap: anywhere;
+  }
+  .studio-cat-type-btn:hover { background: var(--paper-2); color: var(--ink); }
+  .studio-cat-type-btn.is-active { background: var(--ink); color: var(--paper); }
+  .studio-cat-links { display: flex; gap: var(--space-2); flex: none; }
+  .studio-cat-links a {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+    color: var(--muted); text-decoration: none;
+  }
+  .studio-cat-links a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+  .studio-catalog-side {
+    position: sticky; top: var(--space-5);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-md);
+    background: var(--paper); overflow: hidden;
+  }
+  @media (max-width: 1080px) { .studio-catalog-side { position: static; } }
+  .studio-catalog-side-head {
+    display: flex; justify-content: space-between; align-items: center; gap: var(--space-3);
+    padding: var(--space-2) var(--space-3); background: var(--ink);
+  }
+  .studio-catalog-side-head code {
+    background: none; padding: 0; color: var(--paper);
+    font-size: var(--text-ui); font-weight: var(--fw-semibold);
+  }
+  .studio-catalog-side-links { display: flex; gap: var(--space-3); flex: none; }
+  .studio-catalog-side-links a {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+    color: color-mix(in srgb, var(--paper) 68%, var(--ink)); text-decoration: none;
+  }
+  .studio-catalog-side-links a:hover { color: var(--paper); text-decoration: underline; text-underline-offset: 0.2em; }
+  #catalog-preview { display: block; width: 100%; height: 62vh; border: 0; background: var(--paper); }
+  .studio-catalog-note {
+    font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted);
+    margin: 0; padding: var(--space-2) var(--space-3); border-top: 1px solid var(--hairline);
+  }
 
   /* Dette */
   .studio-debt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); }
