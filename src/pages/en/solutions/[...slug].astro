@@ -3,6 +3,10 @@ export const prerender = true;
 
 import { getCollection, render } from 'astro:content';
 import SolutionsDetailTemplate from '../../../components/templates/SolutionsDetailTemplate.astro';
+import Base from '../../../layouts/Base.astro';
+import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
+import { buildService } from '../../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('solutions');
@@ -21,30 +25,46 @@ const title = data.title_en;
 const description = data.description_en;
 const lead = data.lead_en;
 const heroTitleHtml = data.hero_title_html_en;
+const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
+const serviceLd = buildService({ name: title, description });
 ---
 
-<SolutionsDetailTemplate
-  title={title}
-  description={description}
-  dept={data.dept_badge ?? ''}
-  deptLabel={data.dept_label ?? ''}
-  meta={data.meta_hero}
-  ctaHref={data.cta_href ?? '/en/contact'}
-  ctaLabel={data.cta_label_en ?? 'Talk to an expert →'}
-  pains={data.pains}
-  roi_metrics={data.roi_metrics}
-  stack={data.stack}
-  case_kicker={data.case_kicker}
-  case_body_fr={data.case_body_fr}
-  case_body_en={data.case_body_en}
-  case_cta_label_fr={data.case_cta_label_fr}
-  case_results={data.case_results}
-  cta_title_fr={data.cta_title_fr}
-  cta_body_fr={data.cta_body_fr}
->
-  {heroTitleHtml
-    ? <Fragment slot="title" set:html={heroTitleHtml} />
-    : <Fragment slot="title">{title}</Fragment>}
-  <Fragment slot="lead">{lead}</Fragment>
-  <Content />
-</SolutionsDetailTemplate>
+{useComposable ? (
+  <Base title={title} description={description} jsonLd={[serviceLd]}>
+    <Breadcrumb
+      lang={lang}
+      items={[
+        { label: 'Home', href: '/en' },
+        { label: 'Solutions', href: '/en/solutions' },
+        { label: data.dept_label ?? title },
+      ]}
+    />
+    <SectionsRenderer sections={data.sections!} lang={lang} />
+  </Base>
+) : (
+  <SolutionsDetailTemplate
+    title={title}
+    description={description}
+    dept={data.dept_badge ?? ''}
+    deptLabel={data.dept_label ?? ''}
+    meta={data.meta_hero}
+    ctaHref={data.cta_href ?? '/en/contact'}
+    ctaLabel={data.cta_label_en ?? 'Talk to an expert →'}
+    pains={data.pains}
+    roi_metrics={data.roi_metrics}
+    stack={data.stack}
+    case_kicker={data.case_kicker}
+    case_body_fr={data.case_body_fr}
+    case_body_en={data.case_body_en}
+    case_cta_label_fr={data.case_cta_label_fr}
+    case_results={data.case_results}
+    cta_title_fr={data.cta_title_fr}
+    cta_body_fr={data.cta_body_fr}
+  >
+    {heroTitleHtml
+      ? <Fragment slot="title" set:html={heroTitleHtml} />
+      : <Fragment slot="title">{title}</Fragment>}
+    <Fragment slot="lead">{lead}</Fragment>
+    <Content />
+  </SolutionsDetailTemplate>
+)}
