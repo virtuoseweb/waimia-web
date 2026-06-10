@@ -296,19 +296,19 @@ const CAS: MegaMenuSection = {
           featured: true,
         },
         {
-          label: { fr: 'Halcyon · −38% temps de triage', en: 'Halcyon · −38% triage time' },
+          label: { fr: 'Halcyon · 120 h consultant libérées', en: 'Halcyon · 120 consulting hours recovered' },
           href: '/cas/halcyon',
-          description: { fr: 'Santé-tech · 6 sem · routage IA des demandes.', en: 'Healthtech · 6 wks · AI request routing.' },
+          description: { fr: 'Conseil en stratégie · 8 sem · agents de production documentaire.', en: 'Strategy consulting · 8 wks · document production agents.' },
         },
         {
-          label: { fr: 'Northbound · ×3,1 conversion SQL', en: 'Northbound · ×3.1 SQL conversion' },
+          label: { fr: 'Northbound · clôture allégée de 2 jours', en: 'Northbound · −2 days on monthly close' },
           href: '/cas/northbound',
-          description: { fr: 'Fintech EU · 14 sem · lead scoring automatisé.', en: 'EU Fintech · 14 wks · automated lead scoring.' },
+          description: { fr: 'Gestion d\'actifs · 5 j · 80 % des questions de clôture automatisées.', en: 'Asset management · 5 days · 80% of close questions automated.' },
         },
         {
-          label: { fr: 'Caserne · 1 200 h/an récupérées', en: 'Caserne · 1,200 hours/year saved' },
+          label: { fr: 'Caserne · 4 goulots identifiés en 48 h', en: 'Caserne · 4 bottlenecks surfaced in 48 h' },
           href: '/cas/caserne',
-          description: { fr: 'Industrie FR · 8 sem · automatisation back-office.', en: 'FR Industry · 8 wks · back-office automation.' },
+          description: { fr: 'Industrie · 2 j · plan d\'action sous 24 h, sans recruter.', en: 'Manufacturing · 2 days · action plan within 24 h, no hiring.' },
         },
       ],
       footer: {
