@@ -1,0 +1,75 @@
+---
+// Section W6 · learning-path-list (famille École / Index)
+// Liste des parcours (titre + description), une ligne par parcours.
+// Source : EcoleHubTemplate.astro (markup l.91-107, CSS scoped l.221-250 + .section-title l.132-141).
+// - markup/CSS = COPIE VERBATIM des styles scoped legacy (tokens var(--*), 0 hex brut).
+// - piloté par `data.items` (data-driven) au lieu de la collection inline du template.
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'learning-path-list'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const title = isFr ? data.title_fr : data.title_en;
+---
+<div class="parcours-section">
+  <h2 class="section-title">{title}</h2>
+  <div class="parcours-list">
+    {data.items.map((item) => {
+      const itemTitle = isFr ? item.title_fr : item.title_en;
+      const itemDesc = isFr ? item.desc_fr : item.desc_en;
+      return (
+        <div class="parcours-item">
+          <span class="parcours-title">{itemTitle}</span>
+          <p class="parcours-desc">{itemDesc}</p>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  /* ───── COPIE VERBATIM EcoleHubTemplate l.132-141 (.section-title) ───── */
+  .section-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+    font-weight: var(--fw-regular);
+  }
+
+  /* ───── COPIE VERBATIM EcoleHubTemplate l.221-250 (PARCOURS) ───── */
+  .parcours-section {
+    padding-top: 56px;
+    padding-bottom: var(--space-4);
+  }
+
+  .parcours-list {
+    border-top: 1px solid var(--hairline);
+  }
+
+  .parcours-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .parcours-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lead);
+    font-weight: var(--fw-semibold);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .parcours-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    margin: 0;
+    line-height: var(--leading-body);
+  }
+</style>
