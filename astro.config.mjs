@@ -67,13 +67,19 @@ export default defineConfig({
     // redirect canonique pour préserver l'URL indexée.
     '/careers': '/agence/careers',
     '/en/careers': '/en/agence/careers',
+    // V-F1 2026-06-11 · docs/40 §2 (plan 301, item 3) : /archive (index legacy) et
+    // /agence/hero-lab (lab périmé par R5a, remplacé par le design-system) supprimés.
+    '/archive': '/',
+    '/agence/hero-lab': '/agence/design-system',
     // A4 cleanup 2026-05-10 · /ressources/cas/* → /cas/* (canonical) — doublon SEO supprimé
     '/ressources/cas': '/cas',
     '/ressources/cas/plateau': '/cas/plateau',
     '/ressources/cas/halcyon': '/cas/halcyon',
     '/ressources/cas/northbound': '/cas/northbound',
     '/ressources/cas/caserne': '/cas/caserne',
-    '/ressources/cas/virtuoseos': { status: 301, destination: '/archive' },
+    // V-F1 2026-06-11 · pointait vers /archive (supprimé) : re-ciblé directement
+    // vers la destination finale pour éviter une chaîne de 301.
+    '/ressources/cas/virtuoseos': { status: 301, destination: '/' },
     // W4 2026-05-15 · Tunnel site-web-ia : anciennes URLs → nouvelle architecture collection
     '/offres/site-web-ia-tunnel': '/offres/site-web-ia/tunnel/1',
     '/offres/site-web-ia-tunnel/mecanique': '/offres/site-web-ia/tunnel/2',
