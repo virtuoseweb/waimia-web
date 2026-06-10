@@ -887,6 +887,8 @@ export const timelineBlockSchema = z.object({
 export const mediaBlockSchema = z.object({
   type: z.literal('media-block'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // 'inset' = média centré sur --wrap-prose (illustrations carrées) · défaut = full (inchangé)
+  display: z.enum(['full', 'inset']).optional(),
   caption_fr: z.string().optional(),
   caption_en: z.string().optional(),
   media_kind: z.enum(['image', 'svg', 'video', 'embed']),
