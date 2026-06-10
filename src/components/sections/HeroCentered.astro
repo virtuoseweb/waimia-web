@@ -1,12 +1,15 @@
 ---
-// Section catalogue · héros centrés FUSIONNÉS (H4) — 1 composant générique → 8 type-ids.
-// Branche sur `data.type` ; chaque variante conserve markup + CSS BYTE-IDENTIQUES à
-// son composant d'origine (classes distinctes → coexistent sans collision). Les seuls
-// ajustements CSS = qualifications de scope (`h1`/`p` nus → `.hero-centered …`,
-// `.wrap-wide` → `.hero-X .wrap-wide`) rendues nécessaires par la colocalisation —
-// résultat visuel inchangé. Absorbe : hero-hub-masthead, hero-hub-listing,
-// hero-problem-index, hero-utility-masthead, hero-academy-hub, hero-course,
-// hero-detail-menu (+ hero-centered, noyau).
+// ARCHÉTYPE R5 · « masthead éditorial » — 1 composant paramétrable → 13 type-ids (presets).
+// Héros sans colonne média : kicker/eyebrow + h1 monumental + lede, extras légers
+// (specs-bar, metrics-bar, meta auteur, CTA). Branche sur `data.type` ; chaque variante
+// conserve markup + CSS BYTE-IDENTIQUES à son composant d'origine (classes distinctes →
+// coexistent sans collision). Les seuls ajustements CSS = qualifications de scope
+// (`h1`/`p` nus → `.hero-centered …`, `.wrap-wide` → `.hero-X .wrap-wide`) rendues
+// nécessaires par la colocalisation — résultat visuel inchangé.
+// Absorbe (H4) : hero-hub-masthead, hero-hub-listing, hero-problem-index,
+// hero-utility-masthead, hero-academy-hub, hero-course, hero-detail-menu (+ hero-centered, noyau).
+// Absorbe (R5a) : hero-essay, hero-case-study, hero-service-detail, hero-service-masthead,
+// hero-landing.
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
@@ -20,12 +23,23 @@ interface Props {
     | SectionByType<'hero-utility-masthead'>
     | SectionByType<'hero-academy-hub'>
     | SectionByType<'hero-course'>
-    | SectionByType<'hero-detail-menu'>;
+    | SectionByType<'hero-detail-menu'>
+    | SectionByType<'hero-essay'>
+    | SectionByType<'hero-case-study'>
+    | SectionByType<'hero-service-detail'>
+    | SectionByType<'hero-service-masthead'>
+    | SectionByType<'hero-landing'>;
   lang: 'fr' | 'en';
   /** hero-academy-hub / hero-course : encapsulation wrapper (défaut true). */
   wrap?: boolean;
-  /** hero-academy-hub / hero-course / hero-detail-menu : padding-top custom. */
+  /** hero-academy-hub / hero-course / hero-detail-menu / hero-essay / hero-case-study / hero-service-detail : padding-top custom. */
   topPad?: string;
+  /** hero-essay / hero-case-study : VT id du h1 + déco (hero-h1-${id}, hero-img-${id}). */
+  transitionId?: string;
+  /** hero-essay / hero-case-study : VT id de la carte/section (card-${id}). */
+  cardTransitionId?: string;
+  /** hero-case-study : override margin-bottom du h1 (espace h1→specs ; parité template live). */
+  h1Gap?: string;
   /** hero-utility-masthead / hero-detail-menu / hero-problem-index : largeur max du `.wrap-wide` (défaut = catalogue `1200px`). */
   wrapMaxWidth?: string;
   /** hero-utility-masthead : ajoute la classe d'animation `reveal` (défaut false). */
@@ -52,6 +66,9 @@ const {
   lang,
   wrap = true,
   topPad,
+  transitionId,
+  cardTransitionId,
+  h1Gap,
   wrapMaxWidth,
   reveal = false,
   ctaPrimaryDisabled = false,
@@ -228,6 +245,107 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
       <h1 class="hero-detail-menu__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
       <p class="hero-detail-menu__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
     </div>
+  </section>
+) : data.type === 'hero-essay' ? (
+  <section class="hero-essay">
+    <header
+      class="hero-essay__hd"
+      transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}
+      style={topPad ? `--he-top-pad: ${topPad}` : undefined}
+    >
+      <div class="wrap-wide">
+        <Kicker class="hero-essay__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <h1
+          class="hero-essay__h1 reveal-mask-up"
+          transition:name={transitionId ? `hero-h1-${transitionId}` : undefined}
+          set:html={isFr ? data.h1_fr : data.h1_en}
+        />
+        <p class="hero-essay__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+        <div class="hero-essay__meta">
+          <span>{data.author}</span>
+          <span aria-hidden>·</span>
+          <time datetime={data.date}>{data.date}</time>
+          {(isFr ? data.reading_time_fr : data.reading_time_en) && (<><span aria-hidden>·</span><span>{isFr ? data.reading_time_fr : data.reading_time_en}</span></>)}
+        </div>
+      </div>
+    </header>
+    {data.hero_image && (
+      <div class="hero-essay__image">
+        <img src={data.hero_image} alt={(isFr ? data.hero_image_alt_fr : data.hero_image_alt_en) ?? ''} loading="lazy" />
+      </div>
+    )}
+  </section>
+) : data.type === 'hero-case-study' ? (
+  <section class="hero-case-study" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+    <div class="hero-case-study__mast" style={topPad ? `--hcs-top-pad: ${topPad}` : undefined}>
+      <svg class="hero-case-study__deco reveal-blur-clip" viewBox="0 0 600 500" aria-hidden="true" focusable="false" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+        <circle cx="480" cy="80" r="220" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
+        <circle cx="460" cy="60" r="140" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".18" />
+        <line x1="0" y1="400" x2="600" y2="280" stroke="currentColor" stroke-width=".4" opacity=".1" />
+      </svg>
+      <div class="wrap-wide">
+        <span class="hero-case-study__eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</span>
+        <Kicker class="hero-case-study__num">§ Case {data.case_num}</Kicker>
+        <h1 class="hero-case-study__h1 reveal-mask-up" style={h1Gap ? `--hcs-h1-gap: ${h1Gap}` : undefined} transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
+      </div>
+    </div>
+    {data.specs && data.specs.length > 0 && (
+      <div class="hero-case-study__specs">
+        <div class="wrap-wide hero-case-study__specs-grid" style={`--spec-cols:${data.specs.length}`}>
+          {data.specs.map((s, i) => (
+            <div class="hero-case-study__spec" data-last={i === data.specs!.length - 1 ? 'true' : 'false'}>
+              <Kicker class="hero-case-study__spec-l">{isFr ? s.label_fr : s.label_en}</Kicker>
+              <div class="hero-case-study__spec-v">{s.value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </section>
+) : data.type === 'hero-service-masthead' ? (
+  <section class="hero-service-masthead">
+    <div class="wrap-wide">
+      <Kicker class="hero-service-masthead__num">§ Service {data.service_num}</Kicker>
+      <h1 class="hero-service-masthead__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-service-masthead__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+    </div>
+  </section>
+) : data.type === 'hero-service-detail' ? (
+  <section class="hero-service-detail" style={topPad ? `padding-top:${topPad}` : undefined}>
+    <div class="wrap-wide">
+      <Kicker class="hero-service-detail__num">§ Service {data.service_num}</Kicker>
+      <h1 class="hero-service-detail__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <p class="hero-service-detail__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+      {data.metrics && data.metrics.length > 0 && (
+        <div class="hero-service-detail__metrics reveal-stagger">
+          {data.metrics.map((m) => (
+            <div class="hero-service-detail__metric">
+              <span class="hero-service-detail__metric-v">{m.value}</span>
+              <span class="hero-service-detail__metric-l">{isFr ? m.label_fr : m.label_en}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+) : data.type === 'hero-landing' ? (
+  <section class="hero-landing wrap-wide">
+    <p class="hero-landing__eyebrow reveal">{isFr ? data.eyebrow_fr : data.eyebrow_en}</p>
+    <h1 class="hero-landing__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <p class="hero-landing__lede reveal">{isFr ? data.lede_fr : data.lede_en}</p>
+    <div class="hero-landing__ctas reveal">
+      <a href={data.cta_primary.href} class="hero-landing__btn-primary">
+        {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+      </a>
+      {data.cta_secondary && (
+        <a href={data.cta_secondary.href} class="hero-landing__btn-secondary">
+          {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+        </a>
+      )}
+    </div>
+    {data.availability_fr && (
+      <p class="hero-landing__avail reveal">{isFr ? data.availability_fr : (data.availability_en ?? data.availability_fr)}</p>
+    )}
   </section>
 ) : (
   <section class="hero-centered">
@@ -616,5 +734,267 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     color: var(--muted);
     text-wrap: balance;
     margin: 0;
+  }
+
+  /* ── hero-essay (déjà qualifié à la source) ────────────────────────────── */
+  .hero-essay__hd {
+    padding: var(--he-top-pad, calc(var(--header-height) + 24px)) var(--space-6) clamp(40px, 6vw, 80px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  :global(.hero-essay__kicker) { display: block; margin-bottom: var(--space-5); }
+  .hero-essay__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.026em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    color: var(--ink);
+    margin: 0;
+    max-width: 1200px;
+  }
+  .hero-essay__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-essay__lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: var(--leading-lede);
+    color: var(--muted);
+    margin: var(--space-5) 0 var(--space-6);
+    max-width: 760px;
+    text-wrap: pretty;
+  }
+  .hero-essay__meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    text-transform: uppercase;
+  }
+  .hero-essay__image {
+    aspect-ratio: 16/9;
+    margin: clamp(48px, 6vw, 80px) var(--space-6) 0;
+    overflow: hidden;
+  }
+  .hero-essay__image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── hero-case-study (déjà qualifié à la source) ───────────────────────── */
+  .hero-case-study__mast {
+    position: relative;
+    overflow: hidden;
+    padding: var(--hcs-top-pad, calc(var(--header-height) + 8px)) var(--space-6) var(--space-7);
+  }
+  .hero-case-study__mast .wrap-wide { position: relative; z-index: 1; }
+  .hero-case-study__deco {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 400px;
+    pointer-events: none;
+    z-index: 0;
+    color: var(--ink);
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+  }
+  .hero-case-study__eyebrow {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent);
+    margin-bottom: var(--space-4);
+  }
+  :global(.hero-case-study__num) { display: block; margin-bottom: var(--space-5); }
+  .hero-case-study__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 8vw, 128px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: 0 0 var(--hcs-h1-gap, 0);
+  }
+  .hero-case-study__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-case-study__specs { padding: 0 var(--space-6) var(--space-7); border-bottom: 1px solid var(--hairline); }
+  .hero-case-study__specs-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--spec-cols, 5), 1fr);
+    border-top: 1px solid var(--hairline);
+  }
+  .hero-case-study__spec {
+    padding: 22px 20px;
+    border-right: 1px solid var(--hairline);
+  }
+  .hero-case-study__spec[data-last='true'] { border-right: none; }
+  :global(.hero-case-study__spec-l) { display: block; margin-bottom: 6px; }
+  .hero-case-study__spec-v {
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  @media (max-width: 900px) {
+    .hero-case-study__specs-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-case-study__deco { width: 280px; height: 240px; opacity: 0.6; }
+  }
+
+  /* ── hero-service-detail ── */
+  .hero-service-detail { padding: calc(var(--header-height) + 24px) var(--space-6) 0; }
+  :global(.hero-service-detail__num) { display: block; margin-bottom: var(--space-5); }
+  .hero-service-detail__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 156px);
+    line-height: 0.92;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: 0 0 var(--space-6);
+  }
+  .hero-service-detail__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-service-detail__lede {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.45;
+    max-width: 880px;
+    color: var(--muted);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .hero-service-detail__metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    margin-top: clamp(40px, 5vw, 72px);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-service-detail__metric {
+    padding: clamp(20px, 2.5vw, 32px) 20px;
+    border-right: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .hero-service-detail__metric:last-child { border-right: none; }
+  .hero-service-detail__metric-v {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .hero-service-detail__metric-l {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    line-height: 1.3;
+  }
+  @media (max-width: 768px) {
+    .hero-service-detail__metric { border-right: none; border-bottom: 1px solid var(--hairline); }
+    .hero-service-detail__metric:last-child { border-bottom: none; }
+  }
+
+  /* ── hero-service-masthead ── */
+  .hero-service-masthead { padding: 140px var(--space-6) 0; }
+  .hero-service-masthead .wrap-wide { max-width: 1200px; margin-inline: auto; }
+  :global(.hero-service-masthead__num) { display: block; margin-bottom: var(--space-5); }
+  .hero-service-masthead__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 156px);
+    line-height: 0.92;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+    font-weight: var(--fw-regular);
+    margin: 0 0 var(--space-6);
+  }
+  .hero-service-masthead__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-service-masthead__lede {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.45;
+    max-width: 880px;
+    color: var(--muted);
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  /* ── hero-landing ──────────────────────────────────────────────────────
+     `.wrap-wide` qualifié par `.hero-landing` (collision max-width). */
+  .hero-landing.wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
+  .hero-landing { padding-bottom: clamp(48px, 6vw, 80px); }
+  .hero-landing__eyebrow {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: clamp(11px, 1.2vw, 13px);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: var(--space-5);
+    padding-top: clamp(48px, 8vw, 96px);
+  }
+  .hero-landing__h1 {
+    font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 1.03;
+    letter-spacing: -.025em;
+    color: var(--ink);
+    margin-bottom: clamp(24px, 4vw, 48px);
+    max-width: 18ch;
+  }
+  .hero-landing__h1 :global(em) { font-style: italic; color: var(--accent); }
+  .hero-landing__lede {
+    font-family: var(--font-sans);
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 62ch;
+    margin-bottom: clamp(48px, 8vw, 96px);
+  }
+  .hero-landing__ctas { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-5); }
+  .hero-landing__btn-primary {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lead);
+    font-weight: var(--fw-semibold);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 28px;
+    border-radius: var(--radius-xs);
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .hero-landing__btn-primary:hover { opacity: .85; }
+  .hero-landing__btn-secondary {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lead);
+    color: var(--ink);
+    border: 1px solid rgba(var(--ink-rgb), .18);
+    padding: 14px 28px;
+    border-radius: var(--radius-xs);
+    text-decoration: none;
+    transition: border-color .2s;
+  }
+  .hero-landing__btn-secondary:hover { border-color: var(--ink); }
+  .hero-landing__avail {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: .08em;
+  }
+  @media (max-width: 640px) {
+    .hero-landing__ctas { flex-direction: column; }
   }
 </style>

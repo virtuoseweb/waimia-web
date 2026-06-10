@@ -4,7 +4,7 @@ import Callout from '../editorial/Callout.astro';
 import Timeline from '../editorial/Timeline.astro';
 import MethodeProcessDiagram from '../svg/geometric/MethodeProcessDiagram.astro';
 import PortraitSimon from '../svg/sumie/PortraitSimon.astro';
-import HeroAuthor from '../sections/HeroAuthor.astro';
+import HeroSplit from '../sections/HeroSplit.astro';
 import type { SectionByType } from '../../schemas/sections';
 import { langFromPath, localizeHref, t } from '../../lib/i18n';
 
@@ -313,10 +313,10 @@ const socialItems = [
   jsonLd={jsonLd}
 >
   <div class="author-page">
-    {/* Masthead migré → HeroAuthor (sections/) */}
-    <HeroAuthor data={heroData} lang={lang} transitionId={pageTransitionId}>
+    {/* Masthead migré → archétype HeroSplit, preset hero-author (sections/) */}
+    <HeroSplit data={heroData} lang={lang} transitionId={pageTransitionId}>
       <PortraitSimon slot="portrait" size="lg" variant="default" />
-    </HeroAuthor>
+    </HeroSplit>
 
     {author.expertise.length > 0 && (
       <section class="author-expertise g12 g12--full" aria-label={t({ fr: 'Expertise', en: 'Expertise' }, lang)}>

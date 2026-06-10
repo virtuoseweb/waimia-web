@@ -17,7 +17,7 @@ import Kicker from '../ui/atoms/Kicker.astro';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
 import MethodTimeline from '../sections/MethodTimeline.astro';
-import HeroCaseStudy from '../sections/HeroCaseStudy.astro';
+import HeroCentered from '../sections/HeroCentered.astro';
 import ProblemStatement from '../sections/ProblemStatement.astro';
 import ProblemsGrid from '../sections/ProblemsGrid.astro';
 import DeliverablesGrid from '../sections/DeliverablesGrid.astro';
@@ -295,7 +295,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     ]}
   />
   {/* MASTHEAD + SPEC BAR → HeroCaseStudy (sections/) */}
-  <HeroCaseStudy
+  <HeroCentered
     data={heroData}
     lang={lang}
     transitionId={pageTransitionId}

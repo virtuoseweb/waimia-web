@@ -1,5 +1,5 @@
 ---
-import TunnelStepHero from '../sections/TunnelStepHero.astro';
+import HeroTunnelStep from '../sections/HeroTunnelStep.astro';
 import TunnelStepNav from '../sections/TunnelStepNav.astro';
 
 interface Props {
@@ -42,7 +42,7 @@ const prev_href = prev_step ? `/offres/${offre_slug}/tunnel/${step - 1}` : undef
 ---
 
 <article class="tunnel-template">
-  <TunnelStepHero
+  <HeroTunnelStep
     data={{
       type: 'tunnel-step-hero',
       offre_label,

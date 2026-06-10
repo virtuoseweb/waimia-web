@@ -1,19 +1,62 @@
 ---
-// Section catalogue · hero-tunnel-step
-// COPIE FIDÈLE du `.tnl-hero` de `src/components/templates/TunnelStepTemplate.astro:50-72`
+// ARCHÉTYPE R5 · « tunnel/process » — 1 composant paramétrable → 2 type-ids.
 // Kicker label + progress bar [01][02]... + h1 (hero/section variant) + lede.
+// hero-tunnel-step : COPIE FIDÈLE du `.tnl-hero` de TunnelStepTemplate.astro:50-72
+// (atome Kicker canonisé R4, kicker fourni en data).
+// Absorbe (R5a) : tunnel-step-hero (doublon de nom historique ; kicker auto-construit
+// depuis offre_label + step, kicker mono local, responsive progress < 700px).
+// Markup + CSS BYTE-IDENTIQUES par variante ; seul ajustement = `.wrap-wide`
+// qualifié par la classe racine de chaque branche (colocalisation). Visuel inchangé.
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
-  data: SectionByType<'hero-tunnel-step'>;
+  data: SectionByType<'hero-tunnel-step'> | SectionByType<'tunnel-step-hero'>;
   lang: 'fr' | 'en';
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const isHero = data.step === 1;
 const padStep = (n: number) => String(n).padStart(2, '0');
+const tshKicker =
+  data.type === 'tunnel-step-hero'
+    ? (isFr
+        ? `Tunnel · ${data.offre_label} · Étape ${data.step}/${data.progress_total}`
+        : `Funnel · ${data.offre_label} · Step ${data.step}/${data.progress_total}`)
+    : undefined;
 ---
+{data.type === 'tunnel-step-hero' ? (
+<section class="tunnel-step-hero wrap-wide">
+  <p class="tunnel-step-hero__kicker">{tshKicker}</p>
+  <div
+    class="tunnel-step-hero__progress"
+    aria-label={isFr
+      ? `Progression : étape ${data.step} sur ${data.progress_total}`
+      : `Progress: step ${data.step} of ${data.progress_total}`}
+  >
+    {Array.from({ length: data.progress_total }, (_, i) => {
+      const n = i + 1;
+      const active = n === data.step;
+      return (
+        <span
+          class:list={['tunnel-step-hero__progress-step', active && 'is-active']}
+          aria-current={active ? 'step' : undefined}
+        >
+          [{padStep(n)}]
+        </span>
+      );
+    })}
+  </div>
+  <h1
+    class:list={[
+      'tunnel-step-hero__h1 reveal-mask-up',
+      data.step === 1 ? 'tunnel-step-hero__h1--hero' : 'tunnel-step-hero__h1--section',
+    ]}
+    set:html={isFr ? data.h1_fr : data.h1_en}
+  />
+  <p class="tunnel-step-hero__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+</section>
+) : (
 <section class="hero-tunnel-step wrap-wide">
   <Kicker as="p" tone="accent" letterSpacing=".10em" class="hero-tunnel-step__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
   <div
@@ -36,9 +79,11 @@ const padStep = (n: number) => String(n).padStart(2, '0');
   />
   <p class="hero-tunnel-step__lede">{isFr ? data.lede_fr : data.lede_en}</p>
 </section>
+)}
 
 <style>
-  .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: var(--gut, 24px); }
+  /* `.wrap-wide` qualifié par `.hero-tunnel-step` (colocalisation tunnel-step-hero). */
+  .hero-tunnel-step.wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: var(--gut, 24px); }
   .hero-tunnel-step { padding-bottom: clamp(48px, 6vw, 80px); }
   /* Kicker canonisé (R4) · typo portée par l'atome (fusion clamp 10-12px -> 11px canonique) */
   :global(.hero-tunnel-step__kicker) {
@@ -86,5 +131,95 @@ const padStep = (n: number) => String(n).padStart(2, '0');
     color: var(--ink);
     max-width: 62ch;
     margin-bottom: clamp(48px, 7vw, 96px);
+  }
+
+  /* ── tunnel-step-hero (doublon historique absorbé · markup byte-identique) ──
+     `.wrap-wide` qualifié par `.tunnel-step-hero` (colocalisation). */
+
+  /* ── Layout ── */
+  .tunnel-step-hero.wrap-wide {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: var(--gut);
+  }
+
+  /* ── Kicker ── */
+  .tunnel-step-hero__kicker {
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.1vw, 12px);
+    line-height: 1;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-6);
+    padding-top: clamp(48px, 8vw, 96px);
+  }
+
+  /* ── Progress bar ── */
+  .tunnel-step-hero__progress {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: var(--space-7);
+  }
+  .tunnel-step-hero__progress-step {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    line-height: 1;
+    letter-spacing: .06em;
+    color: var(--muted);
+    padding-inline: 10px;
+    border-right: 1px solid var(--hairline);
+  }
+  .tunnel-step-hero__progress-step:first-child { padding-left: 0; }
+  .tunnel-step-hero__progress-step:last-child  { border-right: none; }
+  .tunnel-step-hero__progress-step.is-active   { color: var(--accent); }
+
+  /* ── H1 ── */
+  .tunnel-step-hero__h1 {
+    font-family: var(--font-display);
+    letter-spacing: -.02em;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: clamp(24px, 3vw, 40px);
+    max-width: 18ch;
+  }
+  .tunnel-step-hero__h1--hero    { font-size: var(--text-h1-hero); }
+  .tunnel-step-hero__h1--section { font-size: var(--text-h2-grand); }
+  .tunnel-step-hero__h1 :global(i),
+  .tunnel-step-hero__h1 :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* ── Lede ── */
+  .tunnel-step-hero__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede);
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 62ch;
+    margin-bottom: clamp(48px, 7vw, 96px);
+  }
+
+  /* ── Section wrapper ── */
+  .tunnel-step-hero {
+    padding-bottom: clamp(48px, 6vw, 80px);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .tunnel-step-hero__progress {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
+    }
+    .tunnel-step-hero__progress-step {
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+      padding: var(--space-1) 0;
+      width: 100%;
+    }
+    .tunnel-step-hero__progress-step:last-child { border-bottom: none; }
   }
 </style>
