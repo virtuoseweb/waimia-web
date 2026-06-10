@@ -109,8 +109,8 @@ Pas de refonte graphique (DA, palette parchemin/encre/terracotta, typo, ton : in
 
 | Vague | Statut | Branche / preuve |
 |---|---|---|
-| R0 · Quick wins | ✅ livrée, contre-vérifiée | `feat/refonte-r0-quickwins` `6f03d3a` · SR-16 |
-| R1 · Cohérence contenu | 🔄 workers en cours (cards cas + fusion blog) | `feat/refonte-r12-cases` + `feat/refonte-r1-blog-fusion` |
-| R2 · Éditorial premium (P1 cas) | 🔄 worker en cours (fusionné avec cards R1) | `feat/refonte-r12-cases` |
-| R3 · Navigation | ✅ livrée, contre-vérifiée | `feat/refonte-r3-navigation` `72f0a79` · SR-17 |
-| R4-R7 | ⏳ à lancer (R4 après merge du batch) | |
+| R0 · Quick wins | ✅ livrée, contre-vérifiée, mergée | `feat/refonte-r0-quickwins` `6f03d3a` · SR-16 |
+| R1 · Cohérence contenu | ✅ livrée (cards cas + fusion blog F1), contre-vérifiée, mergée. Reste F6 (offres .astro→MDX) reporté à R6 | `feat/refonte-r12-cases` `7256d95` · `feat/refonte-r1-blog-fusion` `5eb9da6` · SR-18/19 |
+| R2 · Éditorial premium (P1 cas) | ✅ P1 livrée (3 cas composables premium), mergée. P2 secteurs + P3 blog Sidenote restent | `feat/refonte-r12-cases` `7256d95` · SR-18 |
+| R3 · Navigation | ✅ livrée, contre-vérifiée, mergée | `feat/refonte-r3-navigation` `72f0a79` · SR-17 |
+| R4-R7 | ⏳ R4 = prochaine vague (après GF-1 prod du batch) | |
