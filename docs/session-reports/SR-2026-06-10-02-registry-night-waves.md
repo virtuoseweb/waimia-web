@@ -56,6 +56,33 @@ Catalogue 94 → **96 types**. `/offres/conseil` (HubTemplate) → composable MD
 - **Gates** : astro check 0 err / touchpoints 96 / token-purity PASS / no-emdash PASS. **Build** Complete, pages conseil FR (136 KB) + EN (134 KB) générées, 0 collision.
 - **GF-1 local (serve-dist parité prod, port 4331)** : FR — h1 op 1/transform neutre, CTA "Réserver un audit →" op 1, 20 revealed/2 animating/**0 trulyStuck**, screenshot above-fold fidèle (breadcrumb+kicker+§02+h1 display). EN — h1 "Consulting that begins by reading…" op 1, CTA "Book an audit →" op 1, comparateur+arbre+fit **en anglais**, 0 trulyStuck. **Reste** : GF-1 sur preview Vercel (FR+EN) avant merge prod.
 
+## Wave 1.4 — Solutions (départements métier) · `feat/registry-wave4` (EN COURS)
+`SolutionsDetailTemplate.astro` (7 sections signatures) → composable. Pilote `finance.mdx`, puis fan-out 8 solutions.
+
+### Décision structurante — mapping 7 sections → `sections:[]`
+| # | Section legacy | Décision | Type |
+|---|---|---|---|
+| 1 | Hero Department | **réutilise** | `hero-sector` (le template construit déjà `SectionByType<'hero-sector'>` l.240-252) |
+| 2 | Pain Points (Timeline numérotée) | **nouveau** | `pain-points` |
+| 3 | Workflows Table (5-col signature) | **nouveau** | `workflow-table` |
+| 4 | ROI Band Dark (KeyMetric ink) | **nouveau** | `roi-band` |
+| 5 | Case Study Split (dark/light 50/50) | **nouveau** | `case-split` |
+| 6 | Department Stack (EditorialTable paper-2 + aside) | **nouveau** | `department-stack` |
+| 7 | CTA Dept-Augmented (asterism + h2 italique accent) | **nouveau** | `department-cta` |
+
+→ **6 nouveaux types** (96 → 102). Tous : CSS **verbatim** depuis `SolutionsDetailTemplate.astro` (`<style>`), tokens var(--*) only (0 nouveau token), réutilisent les molécules existantes (Timeline/KeyMetric/EditorialTable/Callout/Dingbat/Kicker). Mapping CSS par composant : pain-points←l.520-556 ; workflow-table←l.558-634 (les règles prose l.636-724 du slot narratif legacy ne sont PAS portées — le composable utilise des données structurées `wf-row`, pas de la prose MDX) ; roi-band←l.726-772 ; case-split←l.774-852 ; department-stack←l.854-917 ; department-cta←l.1001-1050 + .wrap/.wrap-tight.
+
+### Réutilisations ÉCARTÉES (et pourquoi) — garde-fou parité GF-1 (rule 33)
+- **Section 6 ≠ `editorial-table-block`** : ce type (créé W1.3) n'a ni le band `paper-2`, ni l'aside Callout, ni l'eyebrow accent + grille g12 col-prose/col-aside de `.sol-tools`. Le réutiliser = régression visible (band/aside perdus). Un type dédié `department-stack` préserve la signature et sera réutilisé par les 8 solutions + secteurs (amorti).
+- **Section 7 ≠ `cta-final`** : `cta-final` perdrait (a) le Dingbat asterism, (b) le **h2 italique couleur accent** (`cta-final` rend `<i>` en blanc sur ink, pas accent). Régression de la signature dept-CTA. Type dédié `department-cta`.
+- **Section 1 = `hero-sector`** réutilisé (exact, le template lui-même l'instancie).
+
+### Upgrade bilingue (vs parité legacy buggée) — décision tranchée
+Les slots MDX body du legacy (`workflows`, `case-title`, `tags`, hero `title`) sont **FR-only** → le template rend `set:html={slotFR}` quel que soit `lang` → **la page `/en/solutions/*` affiche du français** pour ces blocs (bug pré-existant). Les arrays frontmatter (`pains`, `roi_metrics`, `stack`, `case_body`, `cta_body`) sont déjà bilingues. **Choix : compléter le bilingue** (le composable rend une page EN pleinement anglaise) plutôt que reproduire la parité FR-sur-EN. Les traductions EN manquantes (workflows kicker/title/model/how, case-title, hero h1) = **traduction littérale fidèle du FR existant** (pattern W1.3 fit-columns, 0 invention de contenu). h1_en dérivé de `title_en` frontmatter existant (`Finance & Accounting` → `<i>Finance</i><br/>&amp; Accounting`).
+
+### Orchestration retenue — 2 workers Opus séquentiels (de-risk vs mega-worker)
+6 types + 2 routes + migration finance = ~1200 LoC, raisonnement résiduel élevé (lecture template, fidélité CSS, design 6 schémas, traduction EN) → **Opus** (rule 41 §token-economy). Découpe : **Worker 1** = créer les 6 types (4 touchpoints + manifest + demos bilingues) → gates verts → je GF-1 les 6 `/preview/<type>`. **Worker 2** = câbler `useComposable`+breadcrumb dans **les DEUX routes** (`src/pages/solutions/[...slug].astro` ET `src/pages/en/solutions/[...slug].astro` — leçon paire-de-routes W1.3) + migrer `finance.mdx` → `sections:[]` → je GF-1 finance FR+EN. Types = fichiers catalogue partagés → **séquentiel** (pas de parallèle). **Wave 1.4b** (après GF-1 finance) = 7 solutions restantes = pure migration data (fichiers MDX disjoints, 0 fichier catalogue) → parallélisable.
+
 ---
 
 ## Décisions sur les pages NON migrées (tranchées, documentées)
