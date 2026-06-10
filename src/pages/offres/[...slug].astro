@@ -9,6 +9,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import OffresDetailTemplate from '../../components/templates/OffresDetailTemplate.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../lib/i18n';
 
 export async function getStaticPaths() {
@@ -49,6 +50,11 @@ const useComposable = Array.isArray(data.sections) && data.sections.length > 0;
     title={lang === 'fr' ? data.title_fr : data.title_en}
     description={lang === 'fr' ? data.description_fr : data.description_en}
   >
+    <Breadcrumb lang={lang} items={[
+      { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+      { label: lang === 'fr' ? 'Offres' : 'Services', href: lang === 'fr' ? '/offres' : '/en/offres' },
+      { label: (lang === 'fr' ? data.title_fr : data.title_en).split(' · ')[0] },
+    ]} />
     <SectionsRenderer sections={data.sections!} lang={lang} />
   </Base>
 ) : (

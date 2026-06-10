@@ -1808,10 +1808,46 @@ export const fitColumnsSchema = z.object({
   intro_en: z.string().optional(),
   yes_title_fr: z.string(),
   yes_title_en: z.string(),
-  yes_items: z.array(z.string()).min(1).max(8),
+  yes_items_fr: z.array(z.string()).min(1).max(8),
+  yes_items_en: z.array(z.string()).min(1).max(8),
   no_title_fr: z.string(),
   no_title_en: z.string(),
-  no_items: z.array(z.string()).min(1).max(8),
+  no_items_fr: z.array(z.string()).min(1).max(8),
+  no_items_en: z.array(z.string()).min(1).max(8),
+});
+
+// Comparateur éditorial : header (kicker + heading display) + tableau bilingue - remontée page conseil « Comparateur services » + composant EditorialTable
+export const editorialTableBlockSchema = z.object({
+  type: z.literal('editorial-table-block'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  heading_fr: z.string(),
+  heading_en: z.string(),
+  caption_fr: z.string().optional(),
+  caption_en: z.string().optional(),
+  columns_fr: z.array(z.string()).min(2).max(6),
+  columns_en: z.array(z.string()).min(2).max(6),
+  rows_fr: z.array(z.array(z.string()).min(2).max(6)).min(1),
+  rows_en: z.array(z.array(z.string()).min(2).max(6)).min(1),
+  variant: z.enum(['default', 'compact', 'editorial']).default('editorial'),
+});
+
+// Arbre de décision : header (kicker + heading display) + <ol> numéroté - remontée page conseil « Arbre de décision »
+export const decisionListSchema = z.object({
+  type: z.literal('decision-list'),
+  kicker_fr: z.string(),
+  kicker_en: z.string(),
+  heading_fr: z.string(),
+  heading_en: z.string(),
+  items: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .min(1)
+    .max(12),
 });
 
 // ─── Technologies (TechnologiesDetailTemplate → composable) ───
@@ -2017,6 +2053,8 @@ export const sectionSchema = z.discriminatedUnion('type', [
   comparisonDuoSchema,
   serviceCatalogListSchema,
   fitColumnsSchema,
+  editorialTableBlockSchema,
+  decisionListSchema,
   techPositioningSplitSchema,
   techCapabilitiesSpecsSchema,
   techModelsTableSchema,

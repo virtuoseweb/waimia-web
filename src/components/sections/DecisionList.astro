@@ -1,0 +1,87 @@
+---
+// Section W6 · decision-list
+// Arbre de décision : header (kicker mono + h2 display) à gauche, <ol> numéroté à droite.
+// Source : page conseil.astro « Arbre de décision » (l.155-170).
+// - markup/CSS = COPIE VERBATIM des styles inline legacy (grille 280px/1fr puis 48px/1fr,
+//   hairline borders, num en mono accent) — tokens var(--*), 0 hex brut.
+import Bi from '../ui/atoms/Bi.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'decision-list'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const heading = isFr ? data.heading_fr : data.heading_en;
+---
+<section class="decision-list reveal-stagger" aria-labelledby="decision-list-h2">
+  <div class="wrap-wide">
+    <div class="decision-list-grid">
+      <div>
+        <div class="decision-list-kicker">{kicker}</div>
+        <h2 id="decision-list-h2" class="decision-list-h2" set:html={heading} />
+      </div>
+      <ol class="decision-list-ol">
+        {data.items.map((item, index) => (
+          <li class="decision-list-item">
+            <span class="decision-list-num">0{index + 1}</span>
+            <span><Bi fr={item.label_fr} en={item.label_en} /></span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Padding section façon legacy slot catalog (conseil.astro l.155). */
+  .decision-list {
+    padding: clamp(48px, 5vw, 72px) var(--space-6) 0;
+  }
+  /* COPIE VERBATIM des styles inline legacy (conseil.astro l.156-167) — tokens only. */
+  .decision-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(28px, 5vw, 64px);
+    border-top: 1px solid rgba(var(--ink-rgb), .16);
+    padding-top: var(--space-6);
+  }
+  .decision-list-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--space-4);
+  }
+  .decision-list-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 3.8vw, 54px);
+    line-height: .98;
+    font-weight: var(--fw-regular);
+    margin: 0;
+  }
+  .decision-list-h2 :global(i) { color: var(--accent); font-style: italic; }
+  .decision-list-ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .decision-list-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(var(--ink-rgb), .08);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .decision-list-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: .12em;
+    color: var(--accent);
+  }
+</style>
