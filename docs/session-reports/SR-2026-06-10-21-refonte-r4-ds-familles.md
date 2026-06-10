@@ -1,5 +1,7 @@
 # SR-2026-06-10-21 · Refonte R4 : DS familles (rythme, tokens, Kicker, background, gate)
 
+> **Addendum GF-1 PROD (20:38)** : deploy live 20:37, vérifié au `getComputedStyle` sur waimia.com : /offres/activation-ia h1 opacity 1 + transform neutre, crans mesurés en prod (problem-statement/deliverables 160px loose, timeline/stat-block/cta 96px base), kicker canonique 11px uppercase 1.54px (=0.14em) ; /agence/design-system lead « 115 tokens canoniques », « 4 rythmes section », 0 erreur console. R4 clos en prod.
+
 > 2 workers **Fable 5** en relais (worktree `.worktrees/r4ds`) : le premier a abattu ~80 % du chantier avant d'être coupé par la limite de session ; le second a évalué l'état, terminé les livrables restants et tout re-validé. Branche **`feat/refonte-r4-ds-familles`** commit `eb71045` (129 fichiers, +10 727/-5 989). Contre-vérifié orchestrateur (rule 09). Tentative Codex intermédiaire : rate-limited avant le 1er tool call (0 contribution) ; depuis, **moratoire Codex** (décision Simon, rule 41).
 
 ## 1. Résultat (la dette de génération initiale du DS est purgée)
