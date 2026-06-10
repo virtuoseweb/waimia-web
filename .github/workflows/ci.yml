@@ -65,6 +65,11 @@ jobs:
       - name: Gate media-query (anti var() en condition @media)
         run: node scripts/check-media-query-var.mjs
 
+      # Gate anti-régression forms : un form ne doit pas poster vers un endpoint /api/* absent.
+      # Regression de reference : f3ac27d (SR-05) - endpoints supprimes, forms en 404 silencieux.
+      - name: Gate · form endpoints exist (anti-régression forms)
+        run: node scripts/check-form-endpoints.mjs
+
   # Suite Playwright e2e contre le BUILD servi (parité prod — le dev diverge du build).
   # Job SÉPARÉ, hors required-checks pour l'instant : visible mais non-bloquant le temps
   # de prouver sa stabilité en CI, puis promotion en gate. Couvre le DYNAMIQUE que le gate
