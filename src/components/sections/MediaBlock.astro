@@ -11,7 +11,7 @@ const caption = isFr ? data.caption_fr : data.caption_en;
 const alt = isFr ? data.alt_fr : data.alt_en;
 ---
 
-<figure class="media-block" data-bg={data.background} data-kind={data.media_kind}>
+<figure class="media-block" data-bg={data.background} data-kind={data.media_kind} data-display={data.display}>
   <div class="wrap-wide">
   {data.media_kind === 'image' && (
     <img
@@ -71,6 +71,12 @@ const alt = isFr ? data.alt_fr : data.alt_en;
     color: var(--muted);
     line-height: var(--leading-body);
   }
+  /* ── Variante inset (illustrations carrées) · média centré sur --wrap-prose ── */
+  .media-block[data-display='inset'] :is(.media-block__img, .media-block__video, .media-block__svg-wrap, .media-block__caption) {
+    max-width: var(--wrap-prose);
+    margin-inline: auto;
+  }
+  .media-block[data-display='inset'] .media-block__caption { width: 100%; }
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .media-block[data-bg='paper-2'] { background: var(--paper-2); }
   .media-block[data-bg='paper-3'] { background: var(--paper-3); }
