@@ -868,7 +868,7 @@ const serviceLd = buildService({ name: title, description });
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .btn-accent:hover { transform: translateY(-2px); }
   .btn-light {
@@ -882,7 +882,7 @@ const serviceLd = buildService({ name: title, description });
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
-    transition: border-color 220ms var(--ease);
+    transition: border-color var(--dur-trim) var(--ease);
   }
   .btn-light:hover { border-color: var(--paper); }
 

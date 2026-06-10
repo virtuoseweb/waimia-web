@@ -125,7 +125,7 @@
     transition:
       width 280ms var(--ease),
       height 280ms var(--ease),
-      background 220ms var(--ease),
+      background var(--dur-trim) var(--ease),
       opacity var(--dur-fast);
     opacity: 0;
     will-change: transform, width, height;
@@ -147,9 +147,9 @@
     transition:
       width 280ms var(--ease),
       height 280ms var(--ease),
-      background 220ms var(--ease),
-      border-color 220ms var(--ease),
-      border-width 220ms var(--ease),
+      background var(--dur-trim) var(--ease),
+      border-color var(--dur-trim) var(--ease),
+      border-width var(--dur-trim) var(--ease),
       opacity var(--dur-fast);
   }
 

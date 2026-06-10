@@ -216,7 +216,7 @@ const ctaData = {
     color: inherit;
     display: flex;
     flex-direction: column;
-    transition: background 220ms var(--ease), transform 220ms var(--ease);
+    transition: background var(--dur-trim) var(--ease), transform var(--dur-trim) var(--ease);
     text-decoration: none;
   }
   .sector-card:hover {
@@ -260,7 +260,7 @@ const ctaData = {
   }
   .sector-sub {
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: var(--text-body-base);
     line-height: var(--leading-body);
     color: var(--ink-2);
     margin: 0 0 18px;
@@ -293,7 +293,7 @@ const ctaData = {
   }
   .cta-sub {
     color: var(--muted);
-    font-size: 16px;
+    font-size: var(--text-body-base);
     line-height: 1.6;
     margin: 0 0 var(--space-7);
   }
@@ -312,7 +312,7 @@ const ctaData = {
     background: var(--ink);
     padding: var(--space-4) 36px;
     border: 1px solid var(--ink);
-    transition: background 220ms var(--ease), color 220ms var(--ease);
+    transition: background var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
     text-decoration: none;
   }
   .cta-btn:hover { background: var(--accent); border-color: var(--accent); }

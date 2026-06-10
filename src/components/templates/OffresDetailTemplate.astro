@@ -770,7 +770,7 @@ const growthToolRows = [
     border-top: 1px solid var(--hairline-strong);
     border-radius: 0;
     background: transparent;
-    transition: transform 220ms var(--ease), border-top-color 220ms var(--ease), background 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease), border-top-color var(--dur-trim) var(--ease), background var(--dur-trim) var(--ease);
   }
   .deliverable::before,
   .off-del-grid :global(.del-card::before) {
@@ -783,7 +783,7 @@ const growthToolRows = [
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
-    transition: color 220ms var(--ease);
+    transition: color var(--dur-trim) var(--ease);
   }
   .deliverable:hover,
   .off-del-grid :global(.del-card:hover) {
@@ -810,7 +810,7 @@ const growthToolRows = [
     font-weight: var(--fw-regular);
     color: var(--ink);
     text-wrap: balance;
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .deliverable p,
   .off-del-grid :global(.del-card p) {
@@ -820,7 +820,7 @@ const growthToolRows = [
     color: var(--ink-2);
     margin: 0;
     max-width: 38ch;
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .del-tag,
   .off-del-grid :global(.del-tag) {
@@ -835,7 +835,7 @@ const growthToolRows = [
     border-radius: 0;
     display: block;
     margin-bottom: var(--space-2);
-    transition: transform 220ms var(--ease), color 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
   }
   .deliverable:hover h3,
   .deliverable:hover p,
@@ -1050,7 +1050,7 @@ const growthToolRows = [
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .btn-accent:hover { transform: translateY(-2px); }
   .btn-light {
@@ -1064,7 +1064,7 @@ const growthToolRows = [
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
-    transition: border-color 220ms var(--ease);
+    transition: border-color var(--dur-trim) var(--ease);
   }
   .btn-light:hover { border-color: var(--paper); }
 

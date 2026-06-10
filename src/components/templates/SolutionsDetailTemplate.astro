@@ -586,7 +586,7 @@ const heroData: SectionByType<'hero-sector'> = {
     padding: 20px 0;
     border-bottom: 1px solid var(--hairline);
     align-items: start;
-    transition: background 220ms var(--ease);
+    transition: background var(--dur-trim) var(--ease);
   }
   .sol-workflow-body :global(.wf-row:hover) {
     background: rgba(var(--accent-rgb), 0.03);
@@ -815,7 +815,7 @@ const heroData: SectionByType<'hero-sector'> = {
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .sol-case-cta:hover { transform: translateY(-2px); }
   .sol-case-light {
@@ -864,7 +864,7 @@ const heroData: SectionByType<'hero-sector'> = {
     gap: clamp(16px, 2.5vw, 32px);
     align-items: start;
     background: transparent;
-    transition: background 220ms var(--ease);
+    transition: background var(--dur-trim) var(--ease);
   }
   .sol-stack-grid :global(.stack-card:hover) {
     background: rgba(var(--accent-rgb), 0.025);
@@ -992,7 +992,7 @@ const heroData: SectionByType<'hero-sector'> = {
   .sol-livrables-body :global(.ws-sep) {
     color: var(--accent);
     padding: 0 14px;
-    font-size: 16px;
+    font-size: var(--text-body-base);
     line-height: 1;
     font-style: normal;
     opacity: 0.7;
@@ -1031,7 +1031,7 @@ const heroData: SectionByType<'hero-sector'> = {
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .btn-accent:hover { transform: translateY(-2px); }
   .btn-light {
@@ -1045,7 +1045,7 @@ const heroData: SectionByType<'hero-sector'> = {
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
-    transition: border-color 220ms var(--ease);
+    transition: border-color var(--dur-trim) var(--ease);
   }
   .btn-light:hover { border-color: var(--paper); }
 

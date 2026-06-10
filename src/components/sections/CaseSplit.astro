@@ -90,7 +90,7 @@ const href = data.cta_href.startsWith('/') ? prefix + data.cta_href : data.cta_h
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .sol-case-cta:hover { transform: translateY(-2px); }
   .sol-case-light {

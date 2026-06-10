@@ -44,7 +44,7 @@ const { cols, headers, tone = 'paper', class: extraClass = '' } = Astro.props;
 </div>
 
 <style>
-  .u-edit-tbl{border:1px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--paper)}
+  .u-edit-tbl{border:1px solid var(--ink);border-radius:var(--radius-card);overflow:hidden;background:var(--paper)}
   .u-edit-tbl-head{
     display:grid;
     grid-template-columns:var(--u-edit-tbl-cols);

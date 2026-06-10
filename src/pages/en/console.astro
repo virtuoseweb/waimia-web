@@ -137,7 +137,7 @@ const METRICS = [
             ? <>Quatre observations terrain. Recueillies entre Paris et Genève, sur 23 stacks différentes. Aucun modèle n&rsquo;a échoué&nbsp;: ce sont toujours <i style="color:var(--accent)">les rails</i> qui manquent.</>
             : <>Four field observations. Collected between Paris and Geneva, across 23 different stacks. No model ever failed: it&rsquo;s always <i style="color:var(--accent)">the rails</i> that were missing.</>}
         </p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--hairline);border-radius:10px;overflow:hidden;background:var(--paper)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--hairline);border-radius:var(--radius-card);overflow:hidden;background:var(--paper)">
           {OBS.map((r, i) => (
             <div class="reveal" style={`padding:28px 24px;border-right:${i % 2 === 0 ? '1px solid var(--hairline)' : 'none'};border-bottom:${i < 2 ? '1px solid var(--hairline)' : 'none'}`}>
               <Kicker tone="accent">{r.tag}</Kicker>
@@ -287,7 +287,7 @@ const METRICS = [
             <>Open a <i style="color:var(--accent)">session</i>.<br />Not a <i>pitch</i>.</>
           )}
         </h2>
-        <div style="font-family:var(--font-mono);font-size:var(--text-ui);color:rgba(var(--paper-rgb), .75);background:rgba(var(--paper-rgb), .04);border:1px solid rgba(var(--paper-rgb), .14);border-radius:10px;padding:22px">
+        <div style="font-family:var(--font-mono);font-size:var(--text-ui);color:rgba(var(--paper-rgb), .75);background:rgba(var(--paper-rgb), .04);border:1px solid rgba(var(--paper-rgb), .14);border-radius:var(--radius-card);padding:22px">
           <div style="color:var(--accent);margin-bottom:10px">$ virtuose session.open --duration=45m</div>
           <div>&gt; workspace: your-company</div>
           <div>&gt; agenda: {lang === 'fr' ? 'un problème diagnostiqué' : 'one diagnosed problem'}</div>

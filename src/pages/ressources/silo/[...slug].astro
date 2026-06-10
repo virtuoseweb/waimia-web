@@ -164,7 +164,7 @@ const ctaData = {
     text-decoration: none;
     color: var(--ink);
     margin-top: var(--space-4);
-    transition: border-color 220ms;
+    transition: border-color var(--dur-trim);
   }
   .silo-pillar-card:hover { border-color: var(--accent); }
   .silo-pillar-card h2 {
@@ -176,7 +176,7 @@ const ctaData = {
   }
   .silo-pillar-card p {
     font-family: var(--font-display);
-    font-size: 16px;
+    font-size: var(--text-body-base);
     line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;
@@ -199,7 +199,7 @@ const ctaData = {
     color: var(--ink);
     text-decoration: none;
     align-items: baseline;
-    transition: padding 220ms;
+    transition: padding var(--dur-trim);
   }
   .silo-list a:hover { padding-left: var(--space-2); color: var(--accent); }
   .silo-type {
