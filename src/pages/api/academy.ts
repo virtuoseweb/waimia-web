@@ -1,6 +1,7 @@
 /**
  * API · POST /api/academy
- * Diagnostic 12 questions → scorecard + email résultats + alerte si hot lead.
+ * Diagnostic 6 questions → scorecard + email résultats + alerte si hot lead.
+ * 6 questions q1-q6, échelle 0-3 chacune, max 18.
  */
 import type { APIRoute } from "astro";
 import { sendEmail, EMAIL_INTERNAL_TO, emitEvent } from "../../lib/resend";
@@ -62,8 +63,8 @@ const AcademySchema = z.object({
 });
 
 function categorize(score: number): "discovery" | "building" | "mature" {
-  if (score < 9) return "discovery";
-  if (score < 17) return "building";
+  if (score < 7) return "discovery";
+  if (score < 13) return "building";
   return "mature";
 }
 
@@ -154,23 +155,23 @@ export const ALL: APIRoute = async ({ request }) => {
   const { email, lang } = parsed.data;
   const { firstName, company, role } = rawPayload as Record<string, string>;
 
-  // 12 questions q1-q12 attendues, scores 0-2 chacune (max 24)
+  // 6 questions q1-q6 attendues, scores 0-3 chacune (max 18)
   const raw = rawPayload as Record<string, string>;
   let score = 0;
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= 6; i++) {
     const v = parseInt(raw[`q${i}`] ?? "0", 10);
-    if (!isNaN(v)) score += Math.max(0, Math.min(2, v));
+    if (!isNaN(v)) score += Math.max(0, Math.min(3, v));
   }
 
   const category = categorize(score);
-  const isHot = score < 12;
+  const isHot = score < 9;
   const nextActions = NEXT_ACTIONS_BY_CAT[category];
 
   try {
     await Promise.all([
       sendEmail({
         to: email,
-        subject: `Votre scorecard · ${score}/24`,
+        subject: `Votre scorecard · ${score}/18`,
         html: AcademyResults({ firstName, score, category, nextActions }),
         tags: [
           { name: "event", value: "academy_completed" },
@@ -179,7 +180,7 @@ export const ALL: APIRoute = async ({ request }) => {
       }),
       sendEmail({
         to: EMAIL_INTERNAL_TO,
-        subject: `[Lead${isHot ? " 🔥" : ""}] academy · ${score}/24 · ${email}`,
+        subject: `[Lead${isHot ? " 🔥" : ""}] academy · ${score}/18 · ${email}`,
         html: InternalLeadAlert({
           source: "academy",
           email,

@@ -1,5 +1,5 @@
 // Email · AcademyResults · POST /api/academy
-// Scorecard diagnostic 12 questions + 3 prochaines actions priorisées.
+// Scorecard diagnostic 6 questions + 3 prochaines actions priorisées.
 import {
   wrapEmail,
   escapeHtml,
@@ -19,7 +19,7 @@ interface NextAction {
 
 interface Props {
   firstName?: string;
-  /** Score total /24 */
+  /** Score total /18 */
   score: number;
   /** Catégorie déterminée (selon score) */
   category: "discovery" | "building" | "mature";
@@ -28,9 +28,9 @@ interface Props {
 }
 
 const categoryLabel: Record<Props["category"], { fr: string; tag: string }> = {
-  discovery: { fr: "Découverte", tag: "0-8/24" },
-  building: { fr: "En construction", tag: "9-16/24" },
-  mature: { fr: "Mature", tag: "17-24/24" },
+  discovery: { fr: "Découverte", tag: "0-6/18" },
+  building: { fr: "En construction", tag: "7-12/18" },
+  mature: { fr: "Mature", tag: "13-18/18" },
 };
 
 export default function AcademyResults({
@@ -63,7 +63,7 @@ export default function AcademyResults({
   const content =
     `<h1 style="${h1Style}">Votre scorecard, ${fn}.</h1>` +
     `<div style="background:#EFEAE0;padding:24px;border-radius:12px;margin:20px 0;text-align:center;">` +
-    `<p style="font-size:56px;line-height:1;color:${ACCENT};margin:0;font-family:'Instrument Serif',Georgia,'Times New Roman',serif;">${scoreSafe}<span style="font-size:28px;color:${MUTED};">/24</span></p>` +
+    `<p style="font-size:56px;line-height:1;color:${ACCENT};margin:0;font-family:'Instrument Serif',Georgia,'Times New Roman',serif;">${scoreSafe}<span style="font-size:28px;color:${MUTED};">/18</span></p>` +
     `<p style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${MUTED};margin:8px 0 0;">${catFr} · ${catTag}</p>` +
     `</div>` +
     `<p style="${pStyle}">Voici les <strong>3 prochaines actions</strong> priorisées par coût-de-correction (l'inverse de la difficulté × l'impact attendu).</p>` +
@@ -73,5 +73,5 @@ export default function AcademyResults({
     `</div>` +
     `<p style="${mutedStyle}">Aucun rappel commercial automatique. Le diagnostic reste utile sans nous.</p>`;
 
-  return wrapEmail(content, `Scorecard · ${score}/24 · ${cat.fr}`);
+  return wrapEmail(content, `Scorecard · ${score}/18 · ${cat.fr}`);
 }
