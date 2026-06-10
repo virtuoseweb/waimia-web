@@ -213,8 +213,8 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
     color: var(--ink);
     text-decoration: none;
     transition:
-      padding 220ms var(--ease),
-      color 220ms var(--ease);
+      padding var(--dur-trim) var(--ease),
+      color var(--dur-trim) var(--ease);
   }
 
   .arc-link:hover {
@@ -224,7 +224,7 @@ const sections: { title: string; kicker: string; items: ArchiveItem[] }[] = [
 
   .arc-link-label {
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: var(--text-body-base);
   }
 
   .arc-link-note {

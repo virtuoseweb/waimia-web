@@ -98,6 +98,7 @@ body {
 
   /* Body · Inter Tight · seuls -md et -sm survivent (utilisés via aliases W6)
      Cleanup Phase D.1 (2026-05-15) · 2 tailles unused supprimées : lg, xs */
+  --text-body-base: 16px; /* corps générique 16px (23 occurrences littérales → tokenisées Lot E) */
   --text-body-md: 17px;
   --text-body-sm: 14px;
   --text-body-lead: 15px; /* corps prose intermédiaire (entre body-sm 14 et body-md 17) */
@@ -122,7 +123,9 @@ body {
 :root {
   --radius-xs:   4px;   /* inputs / focus-visible / form (cran manquant sm↔md) */
   --radius-sm:   2px;   /* micro · cards, tags, inputs */
+  --radius-base: 6px;   /* comble le trou 4→8 · skip-link, TerminalCTA sm, NewsletterSignup, comparer btn */
   --radius-md:   8px;   /* medium · panneaux, mockups */
+  --radius-card: 10px;  /* comble le trou 8→12 · TerminalTable, console cards */
   --radius-lg:   12px;  /* large · cards éditoriales */
   --radius-pill: 999px; /* pill · CTA, badges arrondis */
   --radius-full: 50%;   /* cercles / avatars / dots (distinct de pill 999px) */
@@ -171,6 +174,7 @@ body {
    absorbe l'ancien --reveal-slow (tempo contemplatif des reveals éditoriaux). */
 :root {
   --dur-fast:     200ms;  /* transitions UI micro */
+  --dur-trim:     220ms;  /* micro-transitions hover · color/border/transform/background */
   --dur-base:     400ms;  /* stagger children */
   --dur-reveal:  1100ms;  /* reveal éditorial standard (ex --reveal-med) */
   --dur-slow:    1400ms;  /* reveal contemplatif (ex --reveal-slow) */

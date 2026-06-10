@@ -62,7 +62,7 @@ const isFr = lang === 'fr';
     padding: var(--space-6);
     text-decoration: none;
     color: var(--ink);
-    transition: border-color 220ms var(--ease), border-top-color 220ms var(--ease), transform 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+    transition: border-color var(--dur-trim) var(--ease), border-top-color var(--dur-trim) var(--ease), transform var(--dur-trim) var(--ease), box-shadow var(--dur-trim) var(--ease), background var(--dur-trim) var(--ease);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -83,7 +83,7 @@ const isFr = lang === 'fr';
     transition: transform 360ms var(--ease-out);
   }
   .eq-card-body {
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .eq-card:hover .eq-card-photo {
     transform: scale(1.02);
@@ -108,7 +108,7 @@ const isFr = lang === 'fr';
   }
   .eq-card-desc {
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: var(--text-body-base);
     line-height: 1.55;
     color: var(--muted);
     margin: 0;

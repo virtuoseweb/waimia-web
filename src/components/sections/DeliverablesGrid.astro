@@ -91,7 +91,7 @@ const cols = Math.min(data.items.length, 4);
     padding: var(--space-7) var(--space-6) var(--space-6) 0;
     border-top: 1px solid var(--hairline-strong);
     background: transparent;
-    transition: transform 220ms var(--ease), border-top-color 220ms var(--ease), background 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease), border-top-color var(--dur-trim) var(--ease), background var(--dur-trim) var(--ease);
   }
   .deliverables-grid__card::before {
     content: counter(deliverable-counter, decimal-leading-zero);
@@ -103,7 +103,7 @@ const cols = Math.min(data.items.length, 4);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
-    transition: color 220ms var(--ease);
+    transition: color var(--dur-trim) var(--ease);
   }
   .deliverables-grid__card:hover {
     transform: translateY(-2px);
@@ -121,7 +121,7 @@ const cols = Math.min(data.items.length, 4);
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: var(--space-2);
-    transition: transform 220ms var(--ease), color 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
   }
   .deliverables-grid__card h3 {
     font-family: var(--font-display);
@@ -133,7 +133,7 @@ const cols = Math.min(data.items.length, 4);
     font-weight: var(--fw-regular);
     color: var(--ink);
     text-wrap: balance;
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .deliverables-grid__card p {
     font-family: var(--font-sans);
@@ -142,7 +142,7 @@ const cols = Math.min(data.items.length, 4);
     color: var(--ink-2);
     margin: 0;
     max-width: 38ch;
-    transition: transform 220ms var(--ease);
+    transition: transform var(--dur-trim) var(--ease);
   }
   .deliverables-grid__card:hover h3,
   .deliverables-grid__card:hover p,

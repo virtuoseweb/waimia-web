@@ -39,7 +39,7 @@ if (!cluster && tags.length === 0) return Astro.redirect('');
     border-radius: var(--radius-pill);
     padding: 6px var(--space-3);
     text-decoration: none;
-    transition: border-color 220ms, color 220ms;
+    transition: border-color var(--dur-trim), color var(--dur-trim);
   }
   .tag-pill:hover {
     border-color: var(--accent);
