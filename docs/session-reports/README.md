@@ -20,7 +20,7 @@ Un rapport « vivant » (mis à jour vague après vague pendant une session long
 | Rapport | Session | Scope | Branche / Prod | Statut | Commits clés |
 |---|---|---|---|---|---|
 | [SR-2026-06-10-01-registry-pilote-offres](SR-2026-06-10-01-registry-pilote-offres.md) | 2026-06-10 (diurne) | Registry adoption Phase 1 — pilote offres + 2 types catalogue + CaseStudy/plateau | `feat/registry-pilote-offres` (non mergée) | ✅ 89 types, gates verts, GF-1 PASS | `1a21fe0` · `a4154a0` · `bc0b742` · `b5d58ee` |
-| [SR-2026-06-10-02-registry-night-waves](SR-2026-06-10-02-registry-night-waves.md) | 2026-06-10 (nocturne, autonome) | Registry adoption Phase 1 — waves 1.x mergées prod (offres+cas, ServiceDetail/revops, Technologies, Hub/conseil) | `feat/registry-wave3` → `main` | 🔄 en cours (vivant) | `38c2d3e` (W1.1) · `681ca40` (W1.2) · W1.3 en cours |
+| [SR-2026-06-10-02-registry-night-waves](SR-2026-06-10-02-registry-night-waves.md) | 2026-06-10 (nocturne, autonome) | Registry adoption Phase 1 — waves 1.x mergées prod (offres+cas, ServiceDetail/revops, Technologies, Hub/conseil) | `main` | 🔄 en cours (vivant) | `38c2d3e` (W1.1) · `681ca40` (W1.2) · `d0d7b27` (W1.3, GF-1 prod PASS) |
 
 ## Comment lire
 

@@ -41,8 +41,10 @@ Catalogue 89 → **94 types**.
 
 - **GF-1 prod live** : `waimia.com/technologies/claude-models` h1 op 1, breadcrumb+jsonLd, 5 types, when-dual absent, 8/10 reveal, 0 stuck.
 
-## Wave 1.3 — Hub/conseil (TERMINÉ, branche `feat/registry-wave3`, GF-1 FR+EN PASS local)
+## Wave 1.3 — Hub/conseil (MERGÉ PROD `d0d7b27`, GF-1 prod waimia.com FR+EN PASS)
 Catalogue 94 → **96 types**. `/offres/conseil` (HubTemplate) → composable MDX.
+
+**GF-1 prod (waimia.com, d0d7b27)** : FR — breadcrumb "Accueil / Offres / Conseil…" + JSON-LD `BreadcrumbList`, h1 op 1/transform neutre, CTA op 1, 9/9 sections, 0 trulyStuck. EN — breadcrumb "Home / Services / Consulting…" + JSON-LD, h1 "Consulting that begins by reading…" op 1, CTA "Book an audit →", comparateur+heading+fit **en anglais**, **0 erreur console**, 0 trulyStuck. Commits : `d89e8ea` (wave) + `09312aa` (fix breadcrumb EN) + merge `d0d7b27`.
 
 - **Voie B** retenue : créer `src/content/offres/conseil.mdx` (collection offres, toggle composable déjà câblé) + supprimer la page standalone `src/pages/offres/conseil.astro`. Option écartée : voie A (garder la page + SectionsRenderer inline) — moins propre, n'élimine pas le template legacy. **Fait** : `git rm conseil.astro` → 0 WARN de collision de route au build (vérifié).
 - **2 nouveaux types réutilisables** (CSS legacy verbatim, tokens only, bilingues) : `editorial-table-block` (wrappe EditorialTable, réutilisable Solutions/Technologies) pour le comparateur ; `decision-list` (kicker+heading+items `<ol>` numérotés, bilingue via `Bi`) pour l'arbre de décision. Option écartée : forcer le comparateur dans `comparison-table` (rendu divergent) et l'arbre dans un type list générique (perte du `<ol>` numéroté).
