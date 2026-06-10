@@ -153,7 +153,7 @@ const isFr = lang === 'fr';
     transition: color var(--dur-fast) var(--ease, var(--ease));
   }
 
-  @media (max-width: var(--wrap-read)) {
+  @media (max-width: 900px) {
     .pyramid-asym {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -234,7 +234,7 @@ const isFr = lang === 'fr';
     letter-spacing: -0.01em;
   }
 
-  @media (max-width: var(--wrap-read)) {
+  @media (max-width: 900px) {
     .pyramid-timeline { grid-template-columns: repeat(2, 1fr); }
     .pyramid-step:nth-child(2n) { border-right: none; }
     .pyramid-step:nth-child(odd) { border-right: 1px solid var(--hairline); }

@@ -120,7 +120,7 @@ const isPillar = data.type === 'hero-pillar-hub';
     text-transform: uppercase;
     color: var(--muted);
   }
-  @media (max-width: var(--wrap-read)) {
+  @media (max-width: 900px) {
     .hero-hub-stats__grid { grid-template-columns: repeat(2, 1fr); }
     .hero-hub-stats__cell:nth-child(2n) { border-right: none; }
   }
@@ -164,7 +164,7 @@ const isPillar = data.type === 'hero-pillar-hub';
   }
   .hero-pillar-hub__stats :global(.key-metric:last-child) { border-right: none; }
   .hero-pillar-hub__stats :global(.key-metric-value) { font-style: normal; }
-  @media (max-width: var(--wrap-read)) {
+  @media (max-width: 900px) {
     .hero-pillar-hub { padding-top: calc(var(--header-height) + 8px); }
     .hero-pillar-hub__stats { grid-template-columns: repeat(2, 1fr); }
     .hero-pillar-hub__stats :global(.key-metric:nth-child(2n)) { border-right: none; }

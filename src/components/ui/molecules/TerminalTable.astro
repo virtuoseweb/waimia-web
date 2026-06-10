@@ -67,7 +67,7 @@ const { cols, headers, tone = 'paper', class: extraClass = '' } = Astro.props;
   :global(.u-edit-tbl-row:last-child){border-bottom:none}
   :global(.u-edit-tbl-row:hover){background:var(--paper-2)}
 
-  @media (max-width:var(--wrap-read)){
+  @media (max-width:900px){
     .u-edit-tbl-head{display:none}
     :global(.u-edit-tbl-row){grid-template-columns:1fr;gap:6px;padding:18px var(--space-4)}
   }

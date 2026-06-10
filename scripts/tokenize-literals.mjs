@@ -230,6 +230,11 @@ for (const { value, token } of borderRadii) {
 }
 
 // ── max-width ─────────────────────────────────────────────────────────────────
+// ⚠️ FOOTGUN : ces mappings convertissent `max-width: 900px` → `var(--wrap-read)` SANS
+// distinguer une déclaration d'une CONDITION @media. var() est INVALIDE dans une condition
+// @media (spec CSS) → relancer cet auto-fixer re-casserait les 46 media queries responsive
+// (cf check-token-purity.mjs qui, lui, skippe déjà les lignes @media). Ne PAS lancer sur
+// les blocs @media sans ajouter d'abord un skip de ligne @media dans applyMappings().
 const maxWidths = [
   { value: '720px',  token: 'var(--wrap-prose)' },
   { value: '900px',  token: 'var(--wrap-read)' },
