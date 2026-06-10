@@ -111,8 +111,11 @@ Pas de refonte graphique (DA, palette parchemin/encre/terracotta, typo, ton : in
 |---|---|---|
 | R0 · Quick wins | ✅ livrée, contre-vérifiée, mergée | `feat/refonte-r0-quickwins` `6f03d3a` · SR-16 |
 | R1 · Cohérence contenu | ✅ livrée (cards cas + fusion blog F1), contre-vérifiée, mergée. Reste F6 (offres .astro→MDX) reporté à R6 | `feat/refonte-r12-cases` `7256d95` · `feat/refonte-r1-blog-fusion` `5eb9da6` · SR-18/19 |
-| R2 · Éditorial premium (P1 cas) | ✅ P1 livrée (3 cas composables premium), mergée. P2 secteurs + P3 blog Sidenote restent | `feat/refonte-r12-cases` `7256d95` · SR-18 |
+| R2 · Éditorial premium (P1 cas) | ✅ P1 livrée (3 cas composables premium), mergée. ✅ P2 secteurs livrée (FAQ 7 Q/A câblée, case split, table cohérente), contre-vérifiée, à merger. P3 blog Sidenote reste | `feat/refonte-r12-cases` `7256d95` · SR-18 · `feat/refonte-r2p2-secteurs` `0b06ffd` · SR-24 |
 | R3 · Navigation | ✅ livrée, contre-vérifiée, mergée | `feat/refonte-r3-navigation` `72f0a79` · SR-17 |
 | R4 · DS familles | ✅ livrée, contre-vérifiée, mergée (rythme 4 crans + radius + Kicker + background + gate) | `feat/refonte-r4-ds-familles` `eb71045` · SR-21 |
 | R5a · Famille Hero | ✅ livrée, contre-vérifiée, mergée (17 fichiers → 9, 28 types = presets, 0 MDX touché) | `feat/refonte-r5-hero-familles` `2edeec6` · SR-22 |
-| R5b-R7 | ⏳ R5b grilles/stats/tables/CTA puis R6 extinction templates, R7 hub par besoin | |
+| R7a · Data hub par besoin | ✅ livrée, contre-vérifiée (diff dist = 0), à merger : référentiels pain/proof-points, need 8/8, facettes 4/4 cas, maillage related*, gate check-content-refs | `feat/refonte-r7a-data-facettes` `dd29a98` · SR-23 |
+| R5b · Familles grilles/stats/tables/CTA | 🔄 worker en cours (iso-rendu) | `.worktrees/r5grids` |
+| R6 · Extinction templates · R7b · UI hub par besoin | ⏳ après merges R5b/R7a/R2-P2 | |
+| Vague visuelle finale | 📋 plan livré : `docs/39-PLAN-VAGUE-VISUELLE.md` (Top 10 P1, mesures 14 pages prod) + pipeline images gpt-image-2 en cours (`feat/images-pipeline`) | SR-25 |
