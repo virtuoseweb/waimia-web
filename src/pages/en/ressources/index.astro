@@ -195,10 +195,16 @@ const ctaData = {
           Long reads, concrete cases, practical recipes. Unsubscribe in 1 click, GDPR-compliant.
         </p>
       </div>
-      <form class="hub-nl-form" method="post" action="/api/newsletter">
+      <form class="hub-nl-form" method="POST" action="/api/newsletter" data-newsletter-form novalidate>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden">
+          <label for="nl-hp">Do not fill</label>
+          <input type="text" id="nl-hp" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <input type="hidden" name="lang" value="en" />
         <label for="nl-email" class="sr-only">Professional email</label>
         <input id="nl-email" name="email" type="email" required placeholder="firstname@company.com" autocomplete="email" aria-describedby="nl-hint" />
         <Button as="button" type="submit" variant="primary" size="md">Subscribe →</Button>
+        <p class="form-error-global" role="alert" aria-live="assertive" hidden data-newsletter-error></p>
       </form>
       <p class="nl-hint" id="nl-hint">
         No spam · Unsubscribe anytime
@@ -357,8 +363,88 @@ const ctaData = {
   }
   .nl-hint a { color: rgba(var(--paper-rgb), 0.7); text-decoration: underline; }
   .nl-hint a:hover { color: var(--paper); }
+  .hub-nl-form .form-error-global {
+    flex-basis: 100%;
+    color: var(--accent);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
 
   @media (max-width: 800px) {
     .hub-nl-wrap { grid-template-columns: 1fr; }
   }
 </style>
+
+<script is:inline>
+(function () {
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function bindForm(form) {
+    if (form.dataset.nlBound) return;
+    form.dataset.nlBound = '1';
+
+    var langInput = form.querySelector('input[name="lang"]');
+    var lang = langInput ? langInput.value : 'en';
+    var emailInput = form.querySelector('input[name="email"]');
+    var errorEl = form.querySelector('[data-newsletter-error]');
+    var btn = form.querySelector('button[type="submit"]');
+
+    function showError(msg) {
+      if (!errorEl) return;
+      errorEl.textContent = msg;
+      errorEl.removeAttribute('hidden');
+    }
+    function clearError() {
+      if (!errorEl) return;
+      errorEl.setAttribute('hidden', '');
+      errorEl.textContent = '';
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError();
+
+      var email = emailInput ? emailInput.value.trim() : '';
+      if (!email || !EMAIL_RE.test(email)) {
+        showError(lang === 'fr' ? 'Adresse email invalide.' : 'Invalid email address.');
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      if (btn) btn.disabled = true;
+
+      var payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        var res = await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        var data = await res.json();
+        if (data.ok) {
+          document.cookie = 'waimia_newsletter_signed=true; path=/; max-age=31536000; SameSite=Lax';
+          if (data.redirect) {
+            window.location.href = data.redirect;
+          }
+        } else {
+          showError(data.error || (lang === 'fr' ? 'Erreur, veuillez réessayer.' : 'Error, please try again.'));
+          if (btn) btn.disabled = false;
+        }
+      } catch (_) {
+        showError(lang === 'fr' ? 'Erreur réseau, veuillez réessayer.' : 'Network error, please try again.');
+        if (btn) btn.disabled = false;
+      }
+    });
+  }
+
+  document.querySelectorAll('form[data-newsletter-form]').forEach(bindForm);
+  document.addEventListener('astro:page-load', function () {
+    document.querySelectorAll('form[data-newsletter-form]').forEach(function (form) {
+      delete form.dataset.nlBound;
+      bindForm(form);
+    });
+  });
+})();
+</script>
