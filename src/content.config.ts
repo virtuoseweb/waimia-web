@@ -326,6 +326,7 @@ const solutions = defineCollection({
     // ─── SolutionsDetailTemplate fields (V2+) ───
     dept_badge: z.string().optional(),
     dept_label: z.string().optional(),
+    dept_label_en: z.string().optional(),
     hero_title_html_fr: z.string().optional(),
     hero_title_html_en: z.string().optional(),
     meta_hero: z.string().optional(),

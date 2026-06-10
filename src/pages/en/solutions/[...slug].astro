@@ -36,7 +36,7 @@ const serviceLd = buildService({ name: title, description });
       items={[
         { label: 'Home', href: '/en' },
         { label: 'Solutions', href: '/en/solutions' },
-        { label: data.dept_label ?? title },
+        { label: data.dept_label_en ?? data.dept_label ?? title },
       ]}
     />
     <SectionsRenderer sections={data.sections!} lang={lang} />
