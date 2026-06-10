@@ -1,6 +1,8 @@
-/* Templates handoff2 · vérifie que les 5 templates rendent leurs marqueurs essentiels
- * Cible : éviter les régressions silencieuses sur HubTemplate, ServiceDetailTemplate,
- * CaseStudyTemplate, EssayTemplate, ListIndexTemplate.
+/* Pages templates/composables · vérifie que les pages clés rendent leurs marqueurs essentiels
+ * Cible : éviter les régressions silencieuses sur la page hub (/offres/conseil), la page
+ * service détail (/offres/revops), CaseStudyTemplate, EssayTemplate, ListIndexTemplate.
+ * NB : les composants HubTemplate et ServiceDetailTemplate ont été supprimés en R0 (code
+ * mort) ; les pages testées ici sont rendues en composable et restent couvertes.
  *
  * Chaque test :
  *   - HTTP 200
@@ -24,8 +26,8 @@ async function freezeMotion(page: import("@playwright/test").Page) {
   });
 }
 
-/* ───── Template HubTemplate · /offres/conseil ───── */
-test("HubTemplate · /offres/conseil rend masthead + catalogue + fit + related", async ({
+/* ───── Page hub composable · /offres/conseil ───── */
+test("Hub composable · /offres/conseil rend masthead + catalogue + fit + related", async ({
   page,
 }) => {
   const resp = await page.goto("/offres/conseil");
@@ -55,8 +57,8 @@ test("HubTemplate · /offres/conseil rend masthead + catalogue + fit + related",
   expect(contentH1).toBe(1);
 });
 
-/* ───── Template ServiceDetailTemplate · /offres/revops ───── */
-test("ServiceDetailTemplate · /offres/revops rend problem + steps + proof + stack", async ({
+/* ───── Page service détail composable · /offres/revops ───── */
+test("Service détail composable · /offres/revops rend problem + steps + proof + stack", async ({
   page,
 }) => {
   const resp = await page.goto("/offres/revops");
@@ -214,7 +216,7 @@ test("ListIndexTemplate · /cas rend masthead + grid case cards (4 cas)", async 
 });
 
 /* ───── Interactivité · hover sur ServiceCatalogRow ───── */
-test("HubTemplate · hover ServiceCatalogRow déclenche transition", async ({
+test("Hub composable · hover ServiceCatalogRow déclenche transition", async ({
   page,
 }) => {
   await page.goto("/offres/conseil");
@@ -239,7 +241,7 @@ test("HubTemplate · hover ServiceCatalogRow déclenche transition", async ({
 });
 
 /* ───── Interactivité · hover sur tech-pill ───── */
-test("ServiceDetailTemplate · hover tech-pill change border-color", async ({
+test("Service détail composable · hover tech-pill change border-color", async ({
   page,
 }) => {
   await page.goto("/offres/revops");
@@ -350,8 +352,8 @@ test("Templates · meta description + canonical présents sur les 5 pages", asyn
  * Phase 8-10 · Templates supplémentaires + pages static
  * ─────────────────────────────────────────────────────────────────── */
 
-/* HubTemplate variant · /technologies/virtuoseos · pillar produit */
-test("HubTemplate variant · /technologies/virtuoseos rend masthead pillar produit + 7 modules", async ({
+/* Pillar produit composable · /technologies/virtuoseos */
+test("Pillar produit composable · /technologies/virtuoseos rend masthead pillar produit + 7 modules", async ({
   page,
 }) => {
   const resp = await page.goto("/technologies/virtuoseos");
@@ -367,8 +369,8 @@ test("HubTemplate variant · /technologies/virtuoseos rend masthead pillar produ
   expect(h1).toBe(1);
 });
 
-/* ServiceDetailTemplate variant · /solutions/fintech · grammaire fintech */
-test("ServiceDetailTemplate variant · /solutions/fintech rend grammaire ACPR/AI Act/KYC", async ({
+/* Page solution détail composable · /solutions/fintech · grammaire fintech */
+test("Solution détail composable · /solutions/fintech rend grammaire ACPR/AI Act/KYC", async ({
   page,
 }) => {
   const resp = await page.goto("/solutions/fintech");

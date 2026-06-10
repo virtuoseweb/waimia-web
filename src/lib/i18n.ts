@@ -51,7 +51,7 @@ const FR_ONLY_STATIC = new Set([
   // Pages FR-only « bare » (index sans sous-chemin) — non couvertes par les
   // préfixes à slash final ci-dessous (`startsWith('/x/')` ne matche pas `/x`).
   '/ressources/testimonials', '/ressources/outils', '/ressources/personas', '/ressources/veille-ia',
-  '/test-composable', '/technologies/virtuoseos',
+  '/technologies/virtuoseos',
   // Thank-you pages post-conversion FR-only (audit/livre-blanc/newsletter SONT bilingues → exclus).
   '/bienvenue/contact', '/bienvenue/commande', '/bienvenue/formation', '/bienvenue/abonnement',
   '/glossaire', '/secteurs', '/secteurs/finance-compta',
