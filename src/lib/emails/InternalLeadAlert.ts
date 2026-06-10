@@ -14,7 +14,7 @@ interface Props {
   company?: string;
   role?: string;
   brief?: string;
-  /** Score academy (0-24) si source=academy */
+  /** Score academy (0-18) si source=academy */
   score?: number;
   /** Liste tags pour qualification (ex: ['hot', 'fintech']) */
   tags?: string[];
@@ -29,7 +29,7 @@ export default function InternalLeadAlert({
   score,
   tags,
 }: Props): string {
-  const isHot = source === "academy" && score !== undefined && score < 12;
+  const isHot = source === "academy" && score !== undefined && score < 9;
   const sourceSafe = escapeHtml(source);
   const emailSafe = escapeHtml(email);
   const companySafe = company ? escapeHtml(company) : "";
@@ -41,7 +41,7 @@ export default function InternalLeadAlert({
 
   const scoreLine =
     score !== undefined
-      ? `<p style="${pStyle}">Score academy : <strong>${escapeHtml(score)}/24</strong> ${
+      ? `<p style="${pStyle}">Score academy : <strong>${escapeHtml(score)}/18</strong> ${
           isHot
             ? "· prospect chaud (relance équipe sous 24h)"
             : "· prospect tiède"
