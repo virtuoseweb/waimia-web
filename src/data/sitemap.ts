@@ -493,7 +493,7 @@ export type TrustBadge = { k: string; label: BiText; kind: 'partner' | 'cert' | 
 export const TRUST_BADGES: TrustBadge[] = [
   { k: 'ANTHROPIC',   kind: 'partner',    label: { en: 'Anthropic Partner', fr: 'Partenaire Anthropic' } },
   { k: 'CLAUDE-ARCH', kind: 'cert',       label: { en: 'Claude Certified Architect', fr: 'Claude Certified Architect' } },
-  { k: 'FRANCENUM',   kind: 'cert',       label: { en: 'Francenum · AI & digital expert', fr: 'Activateur Francenum · expert IA' } },
+  { k: 'FRANCENUM',   kind: 'cert',       label: { en: 'France Num · AI & digital expert', fr: 'Activateur France Num · expert IA' } },
   { k: 'AI-ACT',      kind: 'compliance', label: { en: 'AI Act ready', fr: 'AI Act ready' } },
   { k: 'RGPD',        kind: 'compliance', label: { en: 'GDPR · RGPD', fr: 'RGPD' } },
   { k: 'ISO-27001',   kind: 'compliance', label: { en: 'ISO 27001 · aligned', fr: 'ISO 27001 · aligné' } },

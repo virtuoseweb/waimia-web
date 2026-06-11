@@ -1,60 +1,74 @@
 ---
-// Hub /ressources/veille-ia · briefs hebdomadaires + empty state preuparation
+// Hub /ressources/veille-ia · synthèses hebdomadaires · listing réel des briefs veille
 export const prerender = true;
 
+import { getCollection } from 'astro:content';
 import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro';
-import Kicker from '../../../components/ui/atoms/Kicker.astro';
+import EditorialWriteRow from '../../../components/ui/molecules/EditorialWriteRow.astro';
 import Button from '../../../components/ui/atoms/Button.astro';
-import { langFromPath } from '../../../lib/i18n';
 
-const lang = langFromPath(Astro.url.pathname);
+// La veille est alimentée par la collection blog filtrée type === 'veille-ia'
+// (post-fusion R1, cf src/lib/blog-routing.ts). URLs : /ressources/veille-ia/<slug>.
+const allBlog = await getCollection('blog');
+const veille = allBlog
+  .filter((entry) => entry.data.type === 'veille-ia' && !entry.data.seo?.noindex)
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const formatDate = (d: Date) => {
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  return `${mm}.${d.getFullYear()}`;
+};
 ---
-
 <UtilityTemplate
-  title={lang === 'fr' ? 'Veille IA · synthèses hebdomadaires · Waimia' : 'AI watch · weekly briefs · Waimia'}
-  description={lang === 'fr'
-    ? "Veille IA signée Waimia : ce qui compte pour les PME chaque semaine. Sans bruit, sans hype, sans rappel commercial."
-    : 'AI watch signed Waimia: what matters for SMBs each week. No noise, no hype, no sales follow-up.'}
-  kicker={lang === 'fr' ? '§ Hub · Veille IA' : '§ Hub · AI watch'}
-  align="left"
-  headlineFr="Ce qui <i>compte</i>. Pas ce qui <i>buzz</i>."
-  headlineEn="What <i>matters</i>. Not what <i>buzzes</i>."
-  ledeFr="Une lecture par semaine. Cinq minutes. Trois faits, une analyse, une action concrète à tester chez vous."
-  ledeEn="One read per week. Five minutes. Three facts, one analysis, one action to try at your shop."
+  variant="list"
+  title="Veille IA · synthèses hebdomadaires · Waimia"
+  description="Veille IA signée Waimia : ce qui compte pour les PME chaque semaine. Sans bruit, sans hype, sans rappel commercial."
+  kicker={`§ Veille IA · ${veille.length} ${veille.length > 1 ? 'synthèses' : 'synthèse'}`}
 >
+  <Fragment slot="headline">
+    Ce qui <i>compte</i>. Pas ce qui <i>buzz</i>.
+  </Fragment>
+  <Fragment slot="lede">
+    Une lecture par semaine. Cinq minutes. Trois faits, une analyse, une action concrète à tester chez vous.
+  </Fragment>
 
-  <Fragment slot="body">
-    <div class="vi-empty">
-      <Kicker tone="accent" class="vi-empty-k">§ {lang === 'fr' ? 'Lancement prochain' : 'Launching soon'}</Kicker>
-      <p class="vi-empty-text">
-        {lang === 'fr'
-          ? 'La veille hebdomadaire Waimia démarre bientôt. Pas de SaaS Notion partagé, pas de Twitter rerolled : une vraie synthèse écrite chaque vendredi pour les PME qui n\'ont pas le temps de tout suivre.'
-          : 'Waimia weekly watch starts soon. No shared Notion SaaS, no Twitter reroll: a real written synthesis every Friday for SMBs who don\'t have time to follow everything.'}
-      </p>
-      <p class="vi-empty-text">
-        {lang === 'fr'
-          ? 'En attendant, retrouvez nos essais et cookbooks longs format pour creuser un sujet en profondeur.'
-          : 'Meanwhile, find our essays and long-form cookbooks to dive deeper into a topic.'}
+  <Fragment slot="list">
+    <div class="vi-list">
+      {veille.map((entry) => (
+        <EditorialWriteRow
+          date={formatDate(entry.data.publishedAt)}
+          tag="VEILLE"
+          href={`/ressources/veille-ia/${entry.id}`}
+          tone="paper"
+        >
+          {entry.data.title_fr}
+        </EditorialWriteRow>
+      ))}
+    </div>
+
+    <div class="vi-soon">
+      <p class="vi-soon-text">
+        La veille hebdomadaire Waimia monte en puissance : une vraie synthèse écrite,
+        sans SaaS Notion partagé ni Twitter recyclé, pour les PME qui n'ont pas le temps de tout suivre.
+        En attendant la cadence pleine, creusez un sujet en profondeur avec nos essais et cookbooks.
       </p>
       <div class="vi-cta-row">
-        <Button href={lang === 'fr' ? '/ressources/blog' : '/en/ressources/blog'} variant="primary" size="md">
-          {lang === 'fr' ? 'Lire le blog →' : 'Read the blog →'}
-        </Button>
-        <Button href={lang === 'fr' ? '/ressources/cookbooks' : '/en/ressources/cookbooks'} variant="ghost" size="md">
-          {lang === 'fr' ? 'Voir les cookbooks →' : 'See cookbooks →'}
-        </Button>
+        <Button href="/ressources/blog" variant="primary" size="md">Lire le blog →</Button>
+        <Button href="/ressources/cookbooks" variant="ghost" size="md">Voir les cookbooks →</Button>
       </div>
     </div>
   </Fragment>
 </UtilityTemplate>
 
 <style>
-  .vi-empty {
+  .vi-list { max-width: 1100px; }
+  .vi-soon {
     max-width: 60ch;
-    padding-top: var(--space-4);
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
   }
-  .vi-empty-k { display: block; margin-bottom: var(--space-3); }
-  .vi-empty-text {
+  .vi-soon-text {
     font-family: var(--font-sans);
     font-size: 18px;
     line-height: 1.6;
@@ -65,6 +79,5 @@ const lang = langFromPath(Astro.url.pathname);
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
-    margin-top: var(--space-6);
   }
 </style>
