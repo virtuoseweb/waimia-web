@@ -397,7 +397,10 @@ const articleLd = buildArticle({
   font-weight: var(--fw-medium);
   letter-spacing: -0.012em;
   line-height: 1.15;
-  margin: clamp(48px, 6vw, 72px) 0 var(--space-5);
+  /* Rythme resserré : palier 40→56px (esprit --space-7/8) au lieu de 48→72px.
+     Supprime les bandes mortes des contenus courts (cookbooks : 1 phrase/section)
+     sans tasser les essais longs (h2 28-40px → 40-56px reste aéré). */
+  margin: clamp(40px, 5vw, 56px) 0 var(--space-5);
   color: var(--ink);
   max-width: 880px;
   text-wrap: balance;
