@@ -167,7 +167,7 @@ const tocEvents = toc.map((item, index) => ({
       <form id="lead-magnet-form" class="lm-form reveal" method="post" action="/api/lead-magnet" name="lead-magnet">
         <input type="hidden" name="slug" value={slug} />
         <Kicker tone="accent" class="lm-form-k">§ 01 · Recevoir le PDF par email</Kicker>
-        <h2 class="lm-form-h2">Trois <i>champs</i>. Le PDF dans 30 secondes.</h2>
+        <h2 class="lm-form-h2 u-serif-accent">Trois <i>champs</i>. Le PDF dans 30 secondes.</h2>
 
         <div class="form-row">
           <label for="lm-email"><span>Email pro</span><span aria-hidden>*</span></label>
@@ -274,7 +274,6 @@ const tocEvents = toc.map((item, index) => ({
     margin: 0 0 var(--space-3);
     text-wrap: balance;
   }
-  .lm-form-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .form-row { display: flex; flex-direction: column; gap: 6px; }
   .form-row label {
     font-family: var(--font-mono);

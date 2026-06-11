@@ -101,7 +101,7 @@ const events = data.steps.map((s) => ({
     background: var(--ink);
   }
   .tech-integration[data-bg='ink'] .tech-sec-hd h2 { color: var(--paper); }
-  .tech-integration[data-bg='ink'] .tech-aside { color: rgba(var(--paper-rgb), 0.64); }
+  .tech-integration[data-bg='ink'] .tech-aside { color: var(--muted); }
   /* Timeline / Dingbat (enfants editoriaux) lisent --ink / --ink-2 -> remap sur le
      conteneur (descendant), pas la section (sinon background:var(--ink) deviendrait clair). */
   .tech-integration[data-bg='ink'] :is(.tech-int-flow, .tech-sec-hd) {

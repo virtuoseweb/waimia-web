@@ -656,7 +656,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     line-height: 1;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
     color: var(--muted-2);
   }
@@ -701,7 +701,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-course__pill {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
     padding: var(--space-1) 10px;
     border: 1px solid var(--hairline);
@@ -1081,7 +1081,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-family: var(--font-sans);
     font-size: var(--text-body-lead);
     color: var(--ink);
-    border: 1px solid rgba(var(--ink-rgb), .18);
+    border: 1px solid var(--hairline-strong);
     padding: 14px 28px;
     border-radius: var(--radius-xs);
     text-decoration: none;
@@ -1092,7 +1092,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
     font-size: var(--text-eyebrow);
     color: var(--muted);
-    letter-spacing: .08em;
+    letter-spacing: var(--tracking-mono-tight);
   }
   @media (max-width: 640px) {
     .hero-landing__ctas { flex-direction: column; }

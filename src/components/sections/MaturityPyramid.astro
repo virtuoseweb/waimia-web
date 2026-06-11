@@ -206,7 +206,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
     display: block;
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
     color: var(--accent);
     margin-top: var(--space-3);
@@ -333,7 +333,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
   }
   /* Texte principal repasse en paper ; l'accent terracotta reste */
   .sec[data-bg='ink'] :is(h2, h3, p, li, .e-title, .e-body, .pyramid-step-verb) { color: var(--paper); }
-  .sec[data-bg='ink'] :is(.e-tag, .e-stage, .e-list, .pyramid-step-roman) { color: rgba(var(--paper-rgb), 0.64); }
+  .sec[data-bg='ink'] :is(.e-tag, .e-stage, .e-list, .pyramid-step-roman) { color: var(--muted); }
   .sec[data-bg='ink'] .pyramid-step-stage { color: rgba(var(--paper-rgb), 0.74); }
   .sec[data-bg='ink'] .e-num { color: var(--paper); }
   /* Cartes editorial : fond legerement releve + bord paper-hairline sur ink */

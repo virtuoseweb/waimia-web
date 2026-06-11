@@ -124,7 +124,7 @@ const isFr = lang === 'fr';
   .tt-spec-status {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     color: var(--accent);
     padding: 20px 0;
     vertical-align: top;
@@ -158,7 +158,7 @@ const isFr = lang === 'fr';
   .tech-sec[data-bg='ink'] h2 { color: var(--paper); }
   .tech-sec[data-bg='ink'] .tech-aside { color: rgba(var(--paper-rgb), 0.7); }
   /* Table specs sur ink : entetes, hairlines, noms/desc clairs, hover subtil */
-  .tech-sec[data-bg='ink'] .tt-specs thead th { color: rgba(var(--paper-rgb), 0.64); border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .tech-sec[data-bg='ink'] .tt-specs thead th { color: var(--muted); border-bottom-color: rgba(var(--paper-rgb), 0.14); }
   .tech-sec[data-bg='ink'] .tt-specs tbody tr { border-bottom-color: rgba(var(--paper-rgb), 0.1); }
   .tech-sec[data-bg='ink'] .tt-specs tbody tr:hover { background: rgba(var(--paper-rgb), 0.04); }
   .tech-sec[data-bg='ink'] .tt-spec-name { color: var(--paper); }

@@ -35,7 +35,7 @@ const title = isFr ? data.title_fr : data.title_en;
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     line-height: 1;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
     color: var(--muted);
     margin: 0 0 var(--space-5);
@@ -81,5 +81,5 @@ const title = isFr ? data.title_fr : data.title_en;
     color: var(--paper);
   }
   .parcours-section[data-bg='ink'] .parcours-title { color: var(--paper); }
-  .parcours-section[data-bg='ink'] :is(.section-title, .parcours-desc) { color: rgba(var(--paper-rgb), 0.64); }
+  .parcours-section[data-bg='ink'] :is(.section-title, .parcours-desc) { color: var(--muted); }
 </style>

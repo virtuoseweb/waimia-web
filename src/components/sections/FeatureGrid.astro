@@ -232,7 +232,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
     font-size: var(--text-eyebrow);
     color: var(--muted);
-    letter-spacing: .08em;
+    letter-spacing: var(--tracking-mono-tight);
     margin-bottom: var(--space-2);
   }
   /* Kicker canonisé (R4) · typo portée par l'atome (fusion tracking .06em -> .08em, variante documentée) */
@@ -266,7 +266,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
     background: rgba(var(--paper-rgb), 0.04);
   }
   .problems-grid[data-bg='ink'] :is(.problems-grid__h2, h3) { color: var(--paper); }
-  .problems-grid[data-bg='ink'] :is(.problems-grid__num, p) { color: rgba(var(--paper-rgb), 0.64); }
+  .problems-grid[data-bg='ink'] :is(.problems-grid__num, p) { color: var(--muted); }
 
   /* ───── deliverables-grid (preset) — CSS VERBATIM DeliverablesGrid.astro ───── */
   .deliverables-grid {
@@ -284,7 +284,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   .deliverables-grid__title {
     font-family: var(--font-sans);
     font-size: var(--text-h2-section);
-    line-height: var(--leading-h2);
+    line-height: var(--leading-h3);
     letter-spacing: var(--tracking-display);
     font-weight: var(--fw-medium);
     color: var(--ink);
@@ -412,7 +412,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   .commitments-grid__h2 {
     font-family: var(--font-sans);
     font-size: var(--text-h2-section);
-    line-height: var(--leading-h2);
+    line-height: var(--leading-h3);
     letter-spacing: var(--tracking-display);
     font-weight: var(--fw-medium);
     max-width: 760px;
@@ -475,7 +475,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
     background: var(--ink);
   }
   .commitments-grid[data-bg='ink'] :is(.commitments-grid__h2, .commitments-grid__cell-title) { color: var(--paper); }
-  .commitments-grid[data-bg='ink'] :is(.commitments-grid__body, .commitments-grid__cell-body) { color: rgba(var(--paper-rgb), 0.64); }
+  .commitments-grid[data-bg='ink'] :is(.commitments-grid__body, .commitments-grid__cell-body) { color: var(--muted); }
 
   .icon-trio .wrap-wide > :global(.kicker) {
     display: block;

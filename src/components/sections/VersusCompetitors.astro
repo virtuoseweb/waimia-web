@@ -131,7 +131,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
     font-family: var(--font-mono);
     font-size: var(--text-ui);
     text-transform: uppercase;
-    letter-spacing: .08em;
+    letter-spacing: var(--tracking-mono-tight);
     color: var(--muted);
     text-align: center;
     vertical-align: bottom;
@@ -152,7 +152,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     text-transform: uppercase;
-    letter-spacing: .12em;
+    letter-spacing: var(--tracking-mono);
     color: var(--accent);
     background: rgba(var(--ink-rgb), .02);
   }

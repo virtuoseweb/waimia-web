@@ -158,11 +158,11 @@ const facts = data.facts ?? [];
     background: var(--ink);
   }
   .tech-positioning[data-bg='ink'] :is(.tech-pos-title, .tech-pos-statement) { color: var(--paper); }
-  .tech-positioning[data-bg='ink'] .tech-aside { color: rgba(var(--paper-rgb), 0.64); }
+  .tech-positioning[data-bg='ink'] .tech-aside { color: var(--muted); }
   .tech-positioning[data-bg='ink'] .tech-pos-right::before { background: rgba(var(--paper-rgb), 0.28); }
   .tech-positioning[data-bg='ink'] .tech-pos-facts { border-top-color: rgba(var(--paper-rgb), 0.14); }
   .tech-positioning[data-bg='ink'] .tech-pos-facts .fact { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
-  .tech-positioning[data-bg='ink'] .tech-pos-facts .fact-k { color: rgba(var(--paper-rgb), 0.64); }
+  .tech-positioning[data-bg='ink'] .tech-pos-facts .fact-k { color: var(--muted); }
   /* Callout manifesto (enfant editorial) : ses bordures lisent --ink / --ink-2.
      Remap SUR le callout (descendant) -> bordures + corps clairs sans casser le fond section. */
   .tech-positioning[data-bg='ink'] :global(.callout) {

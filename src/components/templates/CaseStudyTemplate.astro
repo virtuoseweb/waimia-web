@@ -341,7 +341,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
       <div class="wrap-wide">
         <header class="case-section-hd">
           <Kicker tone="accent">§ 02 · <Bi fr="L'approche" en="The approach" /></Kicker>
-          <h2 class="case-section-h2"><slot name="approach-headline" /></h2>
+          <h2 class="case-section-h2 u-serif-accent"><slot name="approach-headline" /></h2>
           <p class="case-section-aside"><slot name="approach-aside" /></p>
         </header>
         <MethodTimeline
@@ -478,7 +478,6 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     font-weight: var(--fw-medium);
     margin: 14px 0 0;
   }
-  .case-section-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .case-section-aside {
     font-size: clamp(13px, 1.3vw, 15px);
     line-height: 1.55;

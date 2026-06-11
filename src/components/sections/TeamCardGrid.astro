@@ -101,7 +101,7 @@ const isFr = lang === 'fr';
   .eq-card-role {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: .12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent);
     margin: 0;
@@ -166,7 +166,7 @@ const isFr = lang === 'fr';
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
   }
   .eq-grid-sec[data-bg='ink'] .eq-card-name { color: var(--paper); }
-  .eq-grid-sec[data-bg='ink'] .eq-card-desc { color: rgba(var(--paper-rgb), 0.64); }
+  .eq-grid-sec[data-bg='ink'] .eq-card-desc { color: var(--muted); }
   .eq-grid-sec[data-bg='ink'] .eq-card-meta { border-top-color: rgba(var(--paper-rgb), 0.1); }
   .eq-grid-sec[data-bg='ink'] .eq-card-count { color: rgba(var(--paper-rgb), 0.6); }
   /* role + cta restent sur --accent (lisible sur ink). */

@@ -121,7 +121,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
   .sysarch-h2 {
     font-family: var(--font-sans);
     font-size: var(--text-h2-section);
-    line-height: var(--leading-h2);
+    line-height: var(--leading-h3);
     letter-spacing: var(--tracking-display);
     max-width: 880px;
     margin: 0 0 clamp(24px, 3vw, 40px);
@@ -198,7 +198,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
     background: var(--ink);
   }
   .sysarch[data-bg='ink'] :is(.sysarch-h2, .sysarch-cap) { color: var(--paper); }
-  .sysarch[data-bg='ink'] .sysarch-spec { color: rgba(var(--paper-rgb), 0.64); }
+  .sysarch[data-bg='ink'] .sysarch-spec { color: var(--muted); }
   /* SVG : remap --ink / --ink-2 SUR le svg (pas la section, sinon background:var(--ink)
      deviendrait clair). Les fill/stroke inline pointent ces vars -> deviennent clairs. */
   .sysarch[data-bg='ink'] .sysarch-svg {

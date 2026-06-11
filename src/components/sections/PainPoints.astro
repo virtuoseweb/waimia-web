@@ -132,13 +132,13 @@ const events = data.items.map((item, i) => ({
   }
   .sol-sec[data-bg='ink'] .sol-sec-hd h2 { color: var(--paper); }
   .sol-sec[data-bg='ink'] .sol-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
-  .sol-sec[data-bg='ink'] .sol-aside { color: rgba(var(--paper-rgb), 0.64); }
+  .sol-sec[data-bg='ink'] .sol-aside { color: var(--muted); }
   /* Timeline (molecule editorial, classes reelles .timeline-*) sur ink :
      titre (--ink) + corps (--ink-2) etaient sombres sur sombre -> repassent paper.
      Numero + dot accent conserves. */
   .sol-sec[data-bg='ink'] :global(.timeline-title) { color: var(--paper); }
   .sol-sec[data-bg='ink'] :global(.timeline-body) { color: rgba(var(--paper-rgb), 0.74); }
-  .sol-sec[data-bg='ink'] :global(.timeline-meta) { color: rgba(var(--paper-rgb), 0.64); }
+  .sol-sec[data-bg='ink'] :global(.timeline-meta) { color: var(--muted); }
   .sol-sec[data-bg='ink'] :global(.timeline-num) { color: var(--accent); }
   /* Filet vertical de la timeline (hairline) lisible sur ink */
   .sol-sec[data-bg='ink'] :global(.timeline-vertical)::before { background: rgba(var(--paper-rgb), 0.14); }

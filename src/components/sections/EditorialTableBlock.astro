@@ -249,11 +249,11 @@ const tmRows = data.type === 'tech-models-table'
 
   /* ── Molecule EditorialTable (.ed-table*) ajustee sur ink (3 variantes) ── */
   :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-caption) {
-    color: rgba(var(--paper-rgb), 0.64);
+    color: var(--muted);
     border-bottom-color: rgba(var(--paper-rgb), 0.28);
   }
   :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-th) {
-    color: rgba(var(--paper-rgb), 0.64);
+    color: var(--muted);
     border-bottom-color: rgba(var(--paper-rgb), 0.55);
   }
   :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-td) {
@@ -261,7 +261,7 @@ const tmRows = data.type === 'tech-models-table'
     border-bottom-color: rgba(var(--paper-rgb), 0.14);
   }
   :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-editorial .ed-table-td:first-child) {
-    color: rgba(var(--paper-rgb), 0.64);
+    color: var(--muted);
   }
   :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-tr:hover) {
     background: rgba(var(--paper-rgb), 0.05);

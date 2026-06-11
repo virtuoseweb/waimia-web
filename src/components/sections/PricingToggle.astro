@@ -126,7 +126,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
   .pricing-toggle__save {
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
     color: var(--accent);
     border: 1px solid rgba(var(--accent-rgb), 0.4);
@@ -182,7 +182,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
     position: absolute;
     top: -12px;
     left: var(--space-5);
-    background: var(--accent);
+    background: var(--accent-2); /* AA : paper-sur-accent = 4.02 (sous AA) → accent-2 = 5.57, cf PricingCards */
     color: var(--paper);
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);

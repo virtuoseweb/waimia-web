@@ -102,7 +102,7 @@ const isFr = lang === 'fr';
   .services-grid__h2 {
     font-family: var(--font-sans);
     font-size: var(--text-h2-section);
-    line-height: var(--leading-h2);
+    line-height: var(--leading-h3);
     letter-spacing: var(--tracking-display);
     max-width: 980px;
     margin: 0 0 clamp(28px, 3vw, 44px);
@@ -149,7 +149,7 @@ const isFr = lang === 'fr';
   .services-grid__cell-metric {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     color: var(--accent);
     text-transform: uppercase;
     text-align: right;
@@ -266,7 +266,7 @@ const isFr = lang === 'fr';
   }
   /* Connecteurs / metas mono : utilisent --ink direct -> recolore clair */
   .services-grid[data-bg='ink'] :is(.services-grid__h2, .services-grid__cell-title, .services-grid__cell-fig, .services-grid__cell-foot-val, .services-grid__foot-link) { color: var(--paper); }
-  .services-grid[data-bg='ink'] :is(.services-grid__cell-body, .services-grid__cell-foot-key) { color: rgba(var(--paper-rgb), 0.64); }
+  .services-grid[data-bg='ink'] :is(.services-grid__cell-body, .services-grid__cell-foot-key) { color: var(--muted); }
   .services-grid[data-bg='ink'] .services-grid__cell:hover {
     background: rgba(var(--paper-rgb), 0.05);
     border-color: var(--accent);

@@ -22,7 +22,7 @@ const lang = langFromPath(Astro.url.pathname);
       § {lang === 'fr' ? 'Manifeste · Viewport 02' : 'Manifesto · Viewport 02'}
     </Kicker>
 
-    <p id="manifesto-accent-anchor" class="manifesto-accent-text reveal">
+    <p id="manifesto-accent-anchor" class="manifesto-accent-text reveal u-serif">
       {lang === 'fr' ? (
         <>
           On refuse l'uniforme <i>purple-glass</i>. On refuse le cerveau-circuits. On refuse la voix AI-startup. On garde le métier, les reçus, et les <i>règles typographiques françaises</i>.
@@ -73,5 +73,4 @@ const lang = langFromPath(Astro.url.pathname);
     text-wrap:balance;
     font-weight:var(--fw-medium);
   }
-  .manifesto-accent-text i{font-family:var(--font-display);font-style:italic;font-weight:var(--fw-regular)}
 </style>
