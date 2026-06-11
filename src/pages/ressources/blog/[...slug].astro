@@ -3,7 +3,6 @@ export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
-import AuthorByline from '../../../components/ui/molecules/AuthorByline.astro';
 import { computeReadingTime } from '../../../lib/seo/reading-time';
 import { isLegacyRoutedType } from '../../../lib/blog-routing';
 
@@ -118,11 +117,12 @@ const relatedCards = d.relatedPosts.length > 0
   headings={headings}
   cluster={d.cluster}
   articleId={entry.id}
+  bylineAuthorSlug={authorSlug}
+  publishedAt={d.publishedAt}
 >
   <Fragment slot="headline">{d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>
   <Fragment slot="body">
-    <AuthorByline authorSlug={authorSlug} date={d.publishedAt} readingTime={readingTime} />
     <Content />
   </Fragment>
 </EssayTemplate>
