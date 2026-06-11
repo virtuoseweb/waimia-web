@@ -1324,6 +1324,7 @@ export const teamCardGridSchema = z.object({
 // Hero Atlas · 2 colonnes avec mini-map des piliers
 export const heroAtlasSchema = z.object({
   type: z.literal('hero-atlas'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h1_fr: z.string(),
