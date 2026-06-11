@@ -192,13 +192,27 @@ sections:
       - label_fr: "Stack"
         label_en: "Stack"
         value: "Claude Opus 4.7 · Revue documentaire · Entretiens structurés"
-  - type: media-block
-    media_kind: image
-    src: "/images/cas/cas-caserne.webp"
-    alt_fr: "Illustration éditoriale : trois usines schématiques reliées par des flux, quatre nœuds de blocage cerclés, le principal en terracotta."
-    alt_en: "Editorial illustration: three schematic factories linked by flows, four circled bottleneck nodes, the main one in terracotta."
-    width: 1536
-    height: 1024
+  - type: feature-split-media
+    background: "paper-2"
+    reversed: false
+    kicker_fr: "§ Le cas en bref"
+    kicker_en: "§ The case at a glance"
+    h2_fr: "Un problème de circulation, pas <i>d'effectifs</i>."
+    h2_en: "An information-flow problem, not a <i>headcount</i> one."
+    body_fr: "Caserne Industries, industrie manufacturière multi-sites, voyait ses délais inter-sites se creuser et envisageait de recruter. Deux jours d'audit on-site ont documenté quatre goulots de circulation de l'information et livré un plan d'action chiffré sous 24 heures."
+    body_en: "Caserne Industries, a multi-site manufacturer, watched its inter-site delays widen and was about to hire. Two on-site audit days documented four information-flow bottlenecks and delivered a costed action plan within 24 hours."
+    points:
+      - label_fr: "4 goulots structurels identifiés et documentés"
+        label_en: "4 structural bottlenecks identified and documented"
+      - label_fr: "Plan d'action livré sous 24 h"
+        label_en: "Action plan delivered within 24 h"
+      - label_fr: "−35 % de délais inter-sites estimés"
+        label_en: "−35% estimated inter-site delays"
+    media_src: "/images/cas/cas-caserne.webp"
+    media_alt_fr: "Illustration éditoriale : trois usines schématiques reliées par des flux, quatre nœuds de blocage cerclés, le principal en terracotta."
+    media_alt_en: "Editorial illustration: three schematic factories linked by flows, four circled bottleneck nodes, the main one in terracotta."
+    media_caption_fr: "Caserne Industries · industrie manufacturière · audit 2 jours"
+    media_caption_en: "Caserne Industries · manufacturing · 2-day audit"
   - type: problem-statement
     kicker_fr: "§ Le contexte"
     kicker_en: "§ Context"
@@ -246,6 +260,11 @@ sections:
         title_en: "90 minutes, 70% irrelevant content"
         body_fr: "La réunion hebdomadaire réunissait les trois sites simultanément alors que 70 % du contenu ne concernait qu'un seul des trois, les deux autres étaient en pratique pris en otage."
         body_en: "The weekly meeting included all three sites simultaneously, but 70% of its content was relevant to only one of the three, the other two were effectively held hostage."
+  - type: pull-quote-block
+    background: "ink"
+    quote_fr: "La cause racine n'était jamais un problème de personnel. C'était un problème de circulation de l'information qui ressemblait à un problème de personnel vu de l'extérieur."
+    quote_en: "The root cause was never a people problem. It was an information circulation problem that looked like a people problem from the outside."
+    variant: "inline"
   - type: method-timeline
     kicker_fr: "§ 02 · L'audit"
     kicker_en: "§ 02 · The audit"
@@ -342,30 +361,23 @@ sections:
         delta_fr: "mis en attente"
         delta_en: "put on hold"
         trend: "down"
-    background: "paper"
-  - type: stat-block
-    h2_fr: "Résultats mesurés."
-    h2_en: "Measured results."
-    lede_fr: "Mesurés sur les 6 semaines suivant la mise en œuvre du plan d'action. Trois mois post-audit, le débit de production sur le corridor Rouen–Mulhouse, la paire la plus chargée en friction, avait retrouvé son objectif trimestriel sans ajout d'effectifs."
-    lede_en: "Measured over the 6 weeks following action plan implementation. Three months post-audit, output throughput on the Rouen–Mulhouse corridor, the highest-friction pair, had recovered to its quarterly target without adding headcount."
+    background: "paper-2"
+  - type: metric-callout-band
+    background: "ink"
+    kicker_fr: "§ Ce que l'audit a livré"
+    kicker_en: "§ What the audit delivered"
+    context_fr: "Trois mois post-audit, le débit de production sur le corridor Rouen–Mulhouse, la paire la plus chargée en friction, avait retrouvé son objectif trimestriel sans ajout d'effectifs."
+    context_en: "Three months post-audit, output throughput on the Rouen–Mulhouse corridor, the highest-friction pair, had recovered to its quarterly target without adding headcount."
     metrics:
       - value: "4"
-        label_fr: "Goulots identifiés et documentés"
-        label_en: "Bottlenecks identified and documented"
-        emphasis: false
+        label_fr: "Goulots documentés"
+        label_en: "Bottlenecks documented"
       - value: "24 h"
-        label_fr: "Délai livraison plan d'action"
-        label_en: "Action plan delivery"
-        emphasis: false
+        label_fr: "Pour le plan d'action"
+        label_en: "To the action plan"
       - value: "−35 %"
-        label_fr: "Réduction délais inter-sites (estimée)"
-        label_en: "Inter-site delay reduction (estimated)"
-        emphasis: false
-    layout: "grid-3"
-  - type: pull-quote-block
-    quote_fr: "La cause racine n'était jamais un problème de personnel. C'était un problème de circulation de l'information qui ressemblait à un problème de personnel vu de l'extérieur."
-    quote_en: "The root cause was never a people problem. It was an information circulation problem that looked like a people problem from the outside."
-    variant: "centered"
+        label_fr: "Délais inter-sites estimés"
+        label_en: "Estimated inter-site delays"
   - type: tech-stack-band
     kicker_fr: "§ 04 · La stack"
     kicker_en: "§ 04 · The stack"
@@ -396,5 +408,5 @@ sections:
       label_en: "See services →"
       href: "/offres"
       variant: "ghost"
-    background: "paper"
+    background: "ink"
 ---

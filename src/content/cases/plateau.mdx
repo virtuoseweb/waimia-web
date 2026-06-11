@@ -172,13 +172,27 @@ sections:
       - label_fr: "Stack"
         label_en: "Stack"
         value: "Claude Opus 4.7 · Claude Sonnet 4.6 · HubSpot"
-  - type: media-block
-    media_kind: image
-    src: "/images/cas/cas-plateau.webp"
-    alt_fr: "Illustration éditoriale : entonnoir de pipeline à l'encre dont les fuites sont recousues, goutte terracotta récupérée en sortie."
-    alt_en: "Editorial illustration: ink pipeline funnel with its leaks stitched back, a terracotta drop recovered at the outlet."
-    width: 1536
-    height: 1024
+  - type: feature-split-media
+    background: "paper-2"
+    reversed: false
+    kicker_fr: "§ Le cas en bref"
+    kicker_en: "§ The case at a glance"
+    h2_fr: "Un pipeline qui fuyait, <i>recousu</i> en dix semaines."
+    h2_en: "A leaking pipeline, <i>stitched back</i> in ten weeks."
+    body_fr: "Plateau, SaaS B2B de 47 personnes, perdait du pipeline et des heures chaque semaine dans des flux marketing, ventes et finance gérés à la main. Trois agents, un nettoyage CRM, une trace auditable, et la mesure avant/après pour le prouver."
+    body_en: "Plateau, a 47-person B2B SaaS, was leaking pipeline and hours every week across marketing, sales and finance handoffs run by hand. Three agents, a CRM cleanup, an audit trail, and before/after measurement to prove it."
+    points:
+      - label_fr: "+2,4 M€ de pipeline récupéré"
+        label_en: "+€2.4M pipeline recovered"
+      - label_fr: "22 h/sem rendues à l'équipe RevOps"
+        label_en: "22 h/wk returned to the RevOps team"
+      - label_fr: "Mis en production en 10 semaines"
+        label_en: "Shipped to production in 10 weeks"
+    media_src: "/images/cas/cas-plateau.webp"
+    media_alt_fr: "Illustration éditoriale : entonnoir de pipeline à l'encre dont les fuites sont recousues, goutte terracotta récupérée en sortie."
+    media_alt_en: "Editorial illustration: ink pipeline funnel with its leaks stitched back, a terracotta drop recovered at the outlet."
+    media_caption_fr: "Plateau · SaaS B2B · 10 semaines"
+    media_caption_en: "Plateau · B2B SaaS · 10 weeks"
   - type: problem-statement
     kicker_fr: "§ Le contexte"
     kicker_en: "§ Context"
@@ -219,6 +233,22 @@ sections:
         title_en: "Fully manual overdue-payment sequence"
         body_fr: "Aucune personnalisation, aucun suivi automatique. Taux de récupération : 34 % sur les paiements en retard de moins de 30 jours."
         body_en: "No personalization, no automatic follow-through. Recovery rate: 34% on payments overdue by less than 30 days."
+  - type: metric-callout-band
+    background: "ink"
+    kicker_fr: "§ L'impact chiffré"
+    kicker_en: "§ The measured impact"
+    context_fr: "Mesuré avant/après sur 8 semaines, instrumenté côté HubSpot, Stripe et dbt, validé par leur Head of RevOps."
+    context_en: "Measured before/after over 8 weeks, instrumented through HubSpot, Stripe and dbt, validated by their Head of RevOps."
+    metrics:
+      - value: "€2.4M"
+        label_fr: "Pipeline récupéré"
+        label_en: "Pipeline recovered"
+      - value: "22 h"
+        label_fr: "Économisées par semaine"
+        label_en: "Saved per week"
+      - value: "10 sem"
+        label_fr: "Du brief à la production"
+        label_en: "From brief to production"
   - type: method-timeline
     kicker_fr: "§ 02 · L'approche"
     kicker_en: "§ 02 · The approach"
@@ -301,30 +331,14 @@ sections:
         delta_fr: "−93 %"
         delta_en: "−93%"
         trend: "down"
-    background: "paper"
-  - type: stat-block
-    h2_fr: "Résultats mesurés."
-    h2_en: "Measured results."
-    metrics:
-      - value: "€2.4M"
-        label_fr: "Pipeline récupéré"
-        label_en: "Pipeline recovered"
-        emphasis: false
-      - value: "22 h"
-        label_fr: "Heures économisées/semaine"
-        label_en: "Hours saved per week"
-        emphasis: false
-      - value: "10 sem"
-        label_fr: "Time-to-prod"
-        label_en: "Time-to-production"
-        emphasis: false
-    layout: "grid-3"
+    background: "paper-2"
   - type: pull-quote-block
+    background: "ink"
     quote_fr: "L'équipe finance a arrêté de recevoir des appels de clients relancés à tort."
     quote_en: "The finance team stopped receiving calls from customers wrongly dunned."
     cite_fr: "Head of RevOps · Plateau"
     cite_en: "Head of RevOps · Plateau"
-    variant: "centered"
+    variant: "inline"
   - type: tech-stack-band
     kicker_fr: "§ 04 · La stack"
     kicker_en: "§ 04 · The stack"
@@ -361,5 +375,5 @@ sections:
       label_en: "See services →"
       href: "/offres"
       variant: "ghost"
-    background: "paper"
+    background: "ink"
 ---

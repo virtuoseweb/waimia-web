@@ -178,13 +178,27 @@ sections:
       - label_fr: "Stack"
         label_en: "Stack"
         value: "Claude Opus 4.7 · Claude Sonnet 4.6 · Notion MCP"
-  - type: media-block
-    media_kind: image
-    src: "/images/cas/cas-halcyon.webp"
-    alt_fr: "Illustration éditoriale : pile de documents stylisés produits en chaîne par un mécanisme à l'encre, un document terracotta mis en avant."
-    alt_en: "Editorial illustration: stack of stylized documents produced in sequence by an ink mechanism, one terracotta document highlighted."
-    width: 1536
-    height: 1024
+  - type: feature-split-media
+    background: "paper-2"
+    reversed: true
+    kicker_fr: "§ Le cas en bref"
+    kicker_en: "§ The case at a glance"
+    h2_fr: "La production documentaire <i>rendue</i> au temps d'analyse."
+    h2_en: "Document production <i>handed back</i> to thinking time."
+    body_fr: "Chez Halcyon, cabinet de conseil en stratégie de 28 consultants, 40 à 45 % du temps facturable partait en mise en forme et reformulation. Trois agents calés sur la structure maison ont rendu ces heures à l'analyse, sans toucher au jugement stratégique."
+    body_en: "At Halcyon, a 28-consultant strategy firm, 40 to 45% of billable time went to formatting and rewriting. Three agents built on the in-house structure handed those hours back to analysis, without touching strategic judgment."
+    points:
+      - label_fr: "120 h consultant libérées au T1 2026"
+        label_en: "120 consulting hours recovered in Q1 2026"
+      - label_fr: "3 projets sur 3 livrés dans les délais"
+        label_en: "3 of 3 projects delivered on time"
+      - label_fr: "−57 % de temps de production par livrable"
+        label_en: "−57% production time per deliverable"
+    media_src: "/images/cas/cas-halcyon.webp"
+    media_alt_fr: "Illustration éditoriale : pile de documents stylisés produits en chaîne par un mécanisme à l'encre, un document terracotta mis en avant."
+    media_alt_en: "Editorial illustration: stack of stylized documents produced in sequence by an ink mechanism, one terracotta document highlighted."
+    media_caption_fr: "Halcyon · conseil en stratégie · 8 semaines"
+    media_caption_en: "Halcyon · strategy consulting · 8 weeks"
   - type: problem-statement
     kicker_fr: "§ Le contexte"
     kicker_en: "§ Context"
@@ -225,6 +239,13 @@ sections:
         title_en: "Back-and-forth with senior consultants"
         body_fr: "Cycles de relecture répétés avec les consultants seniors, versions gérées par email. Aucune de ces tâches n'était incompressible."
         body_en: "Repeated review cycles with senior consultants, versions managed over email. None of these were irreducible tasks."
+  - type: pull-quote-block
+    background: "ink"
+    quote_fr: "Trois consultants seniors ont dit que c'était la première fois depuis deux ans qu'ils sentaient que leur travail analytique reflétait vraiment ce pour quoi ils étaient payés."
+    quote_en: "Three senior consultants said it was the first time in two years they felt their analytical work reflected what they were actually paid to think about."
+    cite_fr: "Consultant senior · Halcyon"
+    cite_en: "Senior consultant · Halcyon"
+    variant: "inline"
   - type: method-timeline
     kicker_fr: "§ 02 · L'approche"
     kicker_en: "§ 02 · The approach"
@@ -314,30 +335,23 @@ sections:
         delta_fr: "enquête interne"
         delta_en: "internal survey"
         trend: "up"
-    background: "paper"
-  - type: stat-block
-    h2_fr: "Résultats mesurés."
-    h2_en: "Measured results."
-    lede_fr: "Sur le Q1 2026, 12 semaines post-déploiement, 6 projets actifs. La surprise qualitative : le temps libéré n'est pas allé à plus d'interactions clients, les seniors l'ont utilisé pour approfondir le fond, entretiens supplémentaires, recommandations affinées."
-    lede_en: "Over Q1 2026, 12 weeks post-deployment, 6 active projects. The quality surprise: the recovered time did not go to more client-facing interactions, seniors used it to go deeper on substance, additional interviews, sharper recommendations."
+    background: "paper-2"
+  - type: metric-callout-band
+    background: "ink"
+    kicker_fr: "§ Ce que ça a changé"
+    kicker_en: "§ What it changed"
+    context_fr: "Sur le Q1 2026, 12 semaines post-déploiement, 6 projets actifs. La surprise : le temps libéré n'est pas allé à plus d'interactions clients, les seniors l'ont utilisé pour approfondir le fond, entretiens supplémentaires, recommandations affinées."
+    context_en: "Over Q1 2026, 12 weeks post-deployment, 6 active projects. The surprise: the recovered time did not go to more client-facing interactions, seniors used it to go deeper on substance, additional interviews, sharper recommendations."
     metrics:
       - value: "120 h"
-        label_fr: "Heures libérées (Q1 2026)"
-        label_en: "Hours recovered (Q1 2026)"
-        emphasis: false
+        label_fr: "Libérées au T1 2026"
+        label_en: "Recovered in Q1 2026"
       - value: "3/3"
-        label_fr: "Projets livrés on-time"
+        label_fr: "Projets livrés à temps"
         label_en: "On-time projects"
-        emphasis: false
-      - value: "-57%"
-        label_fr: "Réduction temps livrables"
-        label_en: "Deliverable time reduction"
-        emphasis: false
-    layout: "grid-3"
-  - type: pull-quote-block
-    quote_fr: "Trois consultants seniors ont dit que c'était la première fois depuis deux ans qu'ils sentaient que leur travail analytique reflétait vraiment ce pour quoi ils étaient payés."
-    quote_en: "Three senior consultants said it was the first time in two years they felt their analytical work reflected what they were actually paid to think about."
-    variant: "centered"
+      - value: "−57 %"
+        label_fr: "De temps par livrable"
+        label_en: "Time per deliverable"
   - type: tech-stack-band
     kicker_fr: "§ 04 · La stack"
     kicker_en: "§ 04 · The stack"
@@ -374,5 +388,5 @@ sections:
       label_en: "See services →"
       href: "/offres"
       variant: "ghost"
-    background: "paper"
+    background: "ink"
 ---
