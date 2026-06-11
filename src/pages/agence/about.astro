@@ -27,18 +27,41 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
         <p>Waimia est née en 2024 d'une observation répétée&nbsp;: la plupart des projets IA livrent des démos, pas des produits. Un POC passe en comité, brille en showroom, puis cale en juin.</p>
         <p>Notre angle est l'inverse. On <i>livre</i>. On signe. On reste joignables si l'agent tombe. On apprend en faisant, pas en réunissant des comités.</p>
 
+        {/* §02 · Stance : refus en grille à puces serif accent (idiome /agence cells) */}
         <Kicker tone="" class="about-kicker">§ 02 · Stance</Kicker>
         <h2>Ce que nous <i>refusons</i>.</h2>
-        <ul>
-          <li>Le théâtre IA : purple-glass, cerveau-circuit, hexagones flottants.</li>
-          <li>Les ateliers de cadrage sans livrable signé.</li>
-          <li>Les pitch decks qui promettent l'impossible et cachent les limites des modèles.</li>
-          <li>Les agents non-auditables qui transforment le SaaS en boîte noire.</li>
+        <ul class="about-refus">
+          <li><span class="about-refus-x" aria-hidden="true">✕</span>Le théâtre IA&nbsp;: purple-glass, cerveau-circuit, hexagones flottants.</li>
+          <li><span class="about-refus-x" aria-hidden="true">✕</span>Les ateliers de cadrage sans livrable signé.</li>
+          <li><span class="about-refus-x" aria-hidden="true">✕</span>Les pitch decks qui promettent l'impossible et cachent les limites des modèles.</li>
+          <li><span class="about-refus-x" aria-hidden="true">✕</span>Les agents non-auditables qui transforment le SaaS en boîte noire.</li>
         </ul>
 
+        {/* §03 · Méthode : quatre livrables en rangs numérotés (idiome MethodTimeline) */}
         <Kicker tone="" class="about-kicker">§ 03 · Méthode</Kicker>
         <h2>Quatre <i>livrables</i>, jamais un de plus.</h2>
-        <p>Chaque mission produit&nbsp;: un schéma de l'existant, un mode opératoire d'exécution, une trace d'audit rejouable, un humain d'astreinte nommé. Ni slides, ni feuille de route à 18 mois.</p>
+        <ol class="about-livrables">
+          <li>
+            <span class="about-livrables-n">01</span>
+            <span class="about-livrables-t">Un schéma de l'existant</span>
+            <span class="about-livrables-d">Vos vrais workflows cartographiés, pas vos présentations.</span>
+          </li>
+          <li>
+            <span class="about-livrables-n">02</span>
+            <span class="about-livrables-t">Un mode opératoire d'exécution</span>
+            <span class="about-livrables-d">Ce que l'agent fait, étape par étape, reproductible.</span>
+          </li>
+          <li>
+            <span class="about-livrables-n">03</span>
+            <span class="about-livrables-t">Une trace d'audit rejouable</span>
+            <span class="about-livrables-d">Chaque décision tracée, re-rejouable, jamais une boîte noire.</span>
+          </li>
+          <li>
+            <span class="about-livrables-n">04</span>
+            <span class="about-livrables-t">Un humain d'astreinte nommé</span>
+            <span class="about-livrables-d">Ni slides, ni feuille de route à 18 mois. Un interlocuteur joignable.</span>
+          </li>
+        </ol>
 
         <Kicker tone="" class="about-kicker">§ 04 · Équipe</Kicker>
         <h2>Des <i>humains</i> derrière chaque mission.</h2>
@@ -130,6 +153,76 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   .about-prose ul li { margin-bottom: 0.45em; }
   .about-prose i { font-style: italic; }
 
+  /* §02 · Refus : grille 2 col, puces ✕ accent, hairline (casse la prose) */
+  .about-prose ul.about-refus {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .about-refus li {
+    margin: 0;
+    background: var(--paper);
+    padding: var(--space-5) var(--space-5) var(--space-5) var(--space-7);
+    position: relative;
+    font-size: var(--text-body-lead);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .about-refus-x {
+    position: absolute;
+    left: var(--space-5);
+    top: var(--space-5);
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-lede);
+  }
+
+  /* §03 · Livrables : rangs numérotés serif accent (idiome MethodTimeline) */
+  .about-prose ol.about-livrables {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .about-livrables li {
+    display: grid;
+    grid-template-columns: minmax(48px, auto) 1fr;
+    column-gap: var(--space-6);
+    align-items: baseline;
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .about-livrables li:last-child { border-bottom: 1px solid var(--hairline); }
+  .about-livrables-n {
+    grid-row: span 2;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(28px, 3.4vw, 46px);
+    line-height: 0.9;
+    letter-spacing: var(--tracking-display);
+    color: var(--accent);
+  }
+  .about-livrables-t {
+    font-family: var(--font-sans);
+    font-size: clamp(18px, 1.8vw, 22px);
+    font-weight: var(--fw-medium);
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .about-livrables-d {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin-top: var(--space-2);
+    max-width: 46ch;
+  }
+
   /* ── Aside sticky ── */
   .about-aside {
     border-left: 1px solid var(--hairline);
@@ -210,6 +303,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   /* Responsive */
   @media (max-width: 900px) {
     .about-grid { grid-template-columns: 1fr; }
+    .about-prose ul.about-refus { grid-template-columns: 1fr; }
     .about-aside {
       border-left: none;
       padding-left: 0;

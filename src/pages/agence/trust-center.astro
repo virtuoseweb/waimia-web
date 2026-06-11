@@ -87,14 +87,29 @@ const sections = [
 
     <section id="data">
       <h2><Bi fr={"Vos données,"} en={"Your data,"} /><br /><i>vos règles</i>.</h2>
-      <h3><Bi fr={"Pas de rétention Anthropic"} en={"No Anthropic retention"} /></h3>
-      <p><Bi fr="Accord no-retention signé avec Anthropic. Vos données traversent les modèles sans y rester." en="No-retention agreement signed with Anthropic. Your data flows through models without staying." /></p>
-      <h3><Bi fr={"Zéro donnée sortante"} en={"Zero outgoing data"} /></h3>
-      <p><Bi fr="Self-hosted disponible (vLLM/Ollama). Vos données ne quittent jamais votre infrastructure." en="Self-hosted available (vLLM/Ollama). Your data never leaves your infrastructure." /></p>
-      <h3><Bi fr={"Minimisation appliquée"} en={"Minimization applied"} /></h3>
-      <p><Bi fr="Chaque agent reçoit le minimum de données nécessaires à son rôle. Documenté, signé, audité." en="Each agent receives the minimum data necessary for its role. Documented, signed, audited." /></p>
-      <h3><Bi fr={"Résidence configurable"} en={"Configurable residency"} /></h3>
-      <p><Bi fr="EU-Frankfurt par défaut. CH-Zurich pour clients suisses. US si explicitement choisi." en="EU-Frankfurt by default. CH-Zurich for Swiss clients. US if explicitly chosen." /></p>
+      {/* Grille de cards sobres 2 col : eyebrow mono + titre serif + corps (scannable, sérieux) */}
+      <div class="tc-rules">
+        <article class="tc-rule">
+          <span class="tc-rule-k">01 · Rétention</span>
+          <h3 class="tc-rule-t"><Bi fr={"Pas de rétention Anthropic"} en={"No Anthropic retention"} /></h3>
+          <p class="tc-rule-d"><Bi fr="Accord no-retention signé avec Anthropic. Vos données traversent les modèles sans y rester." en="No-retention agreement signed with Anthropic. Your data flows through models without staying." /></p>
+        </article>
+        <article class="tc-rule">
+          <span class="tc-rule-k">02 · Sortie</span>
+          <h3 class="tc-rule-t"><Bi fr={"Zéro donnée sortante"} en={"Zero outgoing data"} /></h3>
+          <p class="tc-rule-d"><Bi fr="Self-hosted disponible (vLLM/Ollama). Vos données ne quittent jamais votre infrastructure." en="Self-hosted available (vLLM/Ollama). Your data never leaves your infrastructure." /></p>
+        </article>
+        <article class="tc-rule">
+          <span class="tc-rule-k">03 · Minimisation</span>
+          <h3 class="tc-rule-t"><Bi fr={"Minimisation appliquée"} en={"Minimization applied"} /></h3>
+          <p class="tc-rule-d"><Bi fr="Chaque agent reçoit le minimum de données nécessaires à son rôle. Documenté, signé, audité." en="Each agent receives the minimum data necessary for its role. Documented, signed, audited." /></p>
+        </article>
+        <article class="tc-rule">
+          <span class="tc-rule-k">04 · Résidence</span>
+          <h3 class="tc-rule-t"><Bi fr={"Résidence configurable"} en={"Configurable residency"} /></h3>
+          <p class="tc-rule-d"><Bi fr="EU-Frankfurt par défaut. CH-Zurich pour clients suisses. US si explicitement choisi." en="EU-Frankfurt by default. CH-Zurich for Swiss clients. US if explicitly chosen." /></p>
+        </article>
+      </div>
       <EditorialTable
         caption="Sous-traitants de traitement"
         columns={['Sous-traitant', 'Rôle', 'Zone']}
@@ -109,12 +124,92 @@ const sections = [
 
     <section id="design">
       <h2><Bi fr={"Nos principes"} en={"Our principles"} /><br /><i>de design</i>.</h2>
-      <h3><Bi fr={"Human-in-the-loop sur les décisions critiques"} en={"Human-in-the-loop on critical decisions"} /></h3>
-      <h3><Bi fr={"Traçabilité totale, zéro boîte noire"} en={"Full traceability, zero black box"} /></h3>
-      <h3><Bi fr={"Scope minimal : l'agent ne fait que ce qu'il doit"} en={"Minimal scope: the agent only does what it should"} /></h3>
-      <h3><Bi fr={"Dégradation gracieuse : l'agent échoue prévisiblement"} en={"Graceful degradation: the agent fails predictably"} /></h3>
-      <h3><Bi fr={"Explicabilité à la demande"} en={"Explainability on demand"} /></h3>
-      <h3><Bi fr={"Tests de biais et d'équité avant déploiement"} en={"Bias and fairness testing before deployment"} /></h3>
+      {/* Six principes en rangs numérotés serif (séparateurs hairline, scannable) */}
+      <ol class="tc-principles">
+        <li><span class="tc-principles-n">01</span><h3 class="tc-principles-t"><Bi fr={"Human-in-the-loop sur les décisions critiques"} en={"Human-in-the-loop on critical decisions"} /></h3></li>
+        <li><span class="tc-principles-n">02</span><h3 class="tc-principles-t"><Bi fr={"Traçabilité totale, zéro boîte noire"} en={"Full traceability, zero black box"} /></h3></li>
+        <li><span class="tc-principles-n">03</span><h3 class="tc-principles-t"><Bi fr={"Scope minimal : l'agent ne fait que ce qu'il doit"} en={"Minimal scope: the agent only does what it should"} /></h3></li>
+        <li><span class="tc-principles-n">04</span><h3 class="tc-principles-t"><Bi fr={"Dégradation gracieuse : l'agent échoue prévisiblement"} en={"Graceful degradation: the agent fails predictably"} /></h3></li>
+        <li><span class="tc-principles-n">05</span><h3 class="tc-principles-t"><Bi fr={"Explicabilité à la demande"} en={"Explainability on demand"} /></h3></li>
+        <li><span class="tc-principles-n">06</span><h3 class="tc-principles-t"><Bi fr={"Tests de biais et d'équité avant déploiement"} en={"Bias and fairness testing before deployment"} /></h3></li>
+      </ol>
     </section>
   </Fragment>
 </TrustLegalTemplate>
+
+<style is:global>
+  /* §data · Vos données : grille de cards sobres 2 col (eyebrow mono + titre serif + corps) */
+  .tc-rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    margin: var(--space-7) 0;
+  }
+  .tc-rule {
+    background: var(--paper);
+    padding: var(--space-6);
+  }
+  .tc-rule-k {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+  .tc-rule-t {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-card);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+  }
+  .tc-rule-d {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* §design · Principes : rangs numérotés serif accent + séparateurs hairline */
+  ol.tc-principles {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+  }
+  ol.tc-principles li {
+    display: grid;
+    grid-template-columns: minmax(44px, auto) 1fr;
+    column-gap: var(--space-6);
+    align-items: baseline;
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--hairline);
+    margin: 0;
+  }
+  ol.tc-principles li:last-child { border-bottom: 1px solid var(--hairline); }
+  .tc-principles-n {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(24px, 2.6vw, 38px);
+    line-height: 0.9;
+    letter-spacing: var(--tracking-display);
+    color: var(--accent);
+  }
+  .tc-principles-t {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-row);
+    font-weight: var(--fw-medium);
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .tc-rules { grid-template-columns: 1fr; }
+  }
+</style>
