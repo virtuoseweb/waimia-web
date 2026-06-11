@@ -83,11 +83,14 @@ const mastheadData = {
       </a>
       <div class="cas-secondary">
         {rest.map((c) => (
-          <a href={`/cas/${c.slug}`} class="cas-card" transition:name={`card-${transitionIdFromHref(`/cas/${c.slug}`)}`}>
-            <div class="cas-card-kicker">§ Case {c.caseNum} · {c.sector} · {c.duration}</div>
-            <h2 class="cas-card-title">{c.title}</h2>
-            <p class="cas-card-headline">{c.headline}</p>
-            <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
+          <a href={`/cas/${c.slug}`} class="cas-card cas-card--row" transition:name={`card-${transitionIdFromHref(`/cas/${c.slug}`)}`}>
+            <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
+            <div class="cas-card-body">
+              <div class="cas-card-kicker">§ {c.sector} · {c.duration}</div>
+              <h2 class="cas-card-title">{c.title}</h2>
+              <p class="cas-card-headline">{c.headline}</p>
+              <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
+            </div>
           </a>
         ))}
       </div>
@@ -161,6 +164,33 @@ const mastheadData = {
     max-width: 480px;
     margin-top: var(--space-2);
   }
+  .cas-card--row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+  .cas-card-index {
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--muted);
+    flex: none;
+    font-feature-settings: 'lnum' 1, 'tnum' 1;
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .cas-card:hover .cas-card-index { color: var(--accent); }
+  .cas-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+    border-left: 1px solid var(--hairline);
+    padding-left: var(--space-5);
+  }
+  .cas-card-body .cas-card-headline { flex: 0 1 auto; }
   .cas-card-kicker {
     font-family: var(--font-mono, monospace);
     font-size: var(--text-eyebrow);
@@ -249,13 +279,16 @@ const mastheadData = {
   @media (max-width: 800px) {
     .cas-grid { grid-template-columns: 1fr; }
     .cas-card--featured { padding: 36px 28px 28px; }
+    .cas-card--row { gap: var(--space-4); }
+    .cas-card-body { padding-left: var(--space-4); }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .cas-card,
     .cas-card-title,
     .cas-card-headline,
-    .cas-card-cta {
+    .cas-card-cta,
+    .cas-card-index {
       transition: none !important;
       transform: none !important;
       box-shadow: none !important;
