@@ -58,25 +58,50 @@ svg {
 }
 
 /* ─── SEMANTIC TYPE ─── */
+/* Directive typo 2026-06-11 (docs/41) : la MASSE des titres bascule en Instrument Sans
+   (var(--font-sans)). Le serif (var(--font-display)) ne sert plus QU'À l'emphase :
+   relever un mot/fragment via <i> sous un titre (ou la classe utilitaire .u-serif-accent).
+   Le contraste passe par la graisse (var(--fw-medium)/--fw-semibold), pas par l'italique.
+   Exception signature : le hero home (.hero-headline) garde son rendu display (cf plus bas). */
 h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--text-h1-hero);
   line-height: var(--leading-h1);
-  letter-spacing: var(--tracking-display);
-  font-weight: var(--fw-regular);
+  letter-spacing: -0.015em;
+  font-weight: var(--fw-semibold);
 }
 h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--text-h2-grand);
   line-height: var(--leading-h1);
-  letter-spacing: var(--tracking-display);
-  font-weight: var(--fw-regular);
+  letter-spacing: -0.015em;
+  font-weight: var(--fw-medium);
 }
 h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--text-h2-section);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
+  font-weight: var(--fw-medium);
+}
+/* Emphase serif : un mot/fragment relevé dans un titre (<i>) ou via .u-serif-accent.
+   Réplique le pattern éprouvé .home-typo :is(h2,h3) i. Pas de nouveau token. */
+h1 i,
+h2 i,
+h3 i,
+.u-serif-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-display);
+}
+/* Exception signature HERO : le h1 du hero home reste en Instrument Serif (élément
+   signature intouché par la directive typo). Le composant Hero.astro porte déjà sa
+   propre règle scopée display ; ce filet global garantit la persistance de l'exception
+   même si la règle scopée venait à changer. Ne PAS basculer .hero-headline en sans. */
+.hero-headline {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-display);
   font-weight: var(--fw-regular);
 }
 h4 {

@@ -63,8 +63,9 @@ const isFr = lang === 'fr';
   #act-4{padding:var(--section-base) 0}
   .cases-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(20px,2.5vw,32px);padding-bottom:14px;border-bottom:1px solid var(--hairline);flex-wrap:wrap;gap:10px}
   .cases-spec{font-family:var(--font-mono);font-size:var(--text-eyebrow);color:var(--muted);letter-spacing:.1em}
-  .cases-h2{font-family:var(--font-display);font-size:var(--text-h2-section);line-height:var(--leading-h2);letter-spacing:var(--tracking-display);max-width:1080px;margin-bottom:clamp(24px,3vw,40px);font-weight:var(--fw-regular);text-wrap:balance}
-  .cases-h2 :global(i){font-style:italic;color:var(--accent)}
+  /* H2 = masse → Instrument Sans medium ; <i> reste relevé serif italic accent */
+  .cases-h2{font-family:var(--font-sans);font-size:var(--text-h2-section);line-height:var(--leading-h2);letter-spacing:-0.015em;max-width:1080px;margin-bottom:clamp(24px,3vw,40px);font-weight:var(--fw-medium);text-wrap:balance}
+  .cases-h2 :global(i){font-family:var(--font-display);font-style:italic;font-weight:var(--fw-regular);color:var(--accent)}
 
   .cases-tbl{}
   .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-fast) var(--ease, var(--ease)),padding-left 320ms var(--ease)}
@@ -74,7 +75,7 @@ const isFr = lang === 'fr';
 
   .cases-idx{font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
   /* Cases client titre · réutilise H2-tight token (entre row et h2 standard) */
-  .cases-client{font-family:var(--font-display);font-size:var(--text-h2-tight);line-height:var(--leading-h2);letter-spacing:-0.02em;font-weight:var(--fw-regular);font-style:italic}
+  .cases-client{font-family:var(--font-sans);font-size:var(--text-h2-tight);line-height:var(--leading-h2);letter-spacing:-0.015em;font-weight:var(--fw-medium);font-style:normal}
   .cases-col{display:flex;flex-direction:column;gap:var(--space-1)}
   .cases-col-k{font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
   .cases-col-v{font-size:var(--text-ui);color:var(--muted);line-height:var(--leading-lede)}

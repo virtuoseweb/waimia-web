@@ -38,7 +38,7 @@ const {
 } = Astro.props;
 
 const isInk = tone === 'ink';
-const bg = isInk ? '#17140F' : 'var(--paper)';
+const bg = isInk ? 'var(--ink-2)' : 'var(--paper)';
 const border = isInk ? 'rgba(var(--paper-rgb),.14)' : 'var(--hairline-strong)';
 const dotColor = isInk ? 'rgba(var(--paper-rgb),.22)' : 'var(--hairline-strong)';
 const headerBg = isInk ? 'transparent' : 'var(--paper-2)';

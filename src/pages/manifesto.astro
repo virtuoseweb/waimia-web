@@ -88,7 +88,7 @@ const articleLd = buildArticle({
 
       {/* bottom CTAs */}
       <div class="mf-grid mf-grid--hero" style="display:grid;gap:var(--space-8);align-items:end;max-width:1600px">
-        <p style="font-family:var(--font-display);font-size:clamp(15px,1.4vw,22px);line-height:var(--leading-lede);color:rgba(var(--paper-rgb), .85);max-width:420px;margin:0">
+        <p style="font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:clamp(15px,1.4vw,22px);line-height:var(--leading-lede);color:rgba(var(--paper-rgb), .85);max-width:420px;margin:0">
           {lang === 'fr'
             ? "On câble l'IA dans vos outils marketing, sales et web : acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process."
             : "We wire AI into your marketing, sales and web stack: acquisition, content, CRM, site, analytics, brand. Without changing your process."}
@@ -114,7 +114,7 @@ const articleLd = buildArticle({
     <div class="b-marquee-track">
       {tripled.map((logo) => (
         <>
-          <span style="font-family:var(--font-display);font-size:clamp(24px,2.8vw,36px);padding:0 30px;color:var(--paper)">{logo}</span>
+          <span style="font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:clamp(24px,2.8vw,36px);padding:0 30px;color:var(--paper)">{logo}</span>
           <span style="padding:0 4px;color:var(--accent);font-size:24px;align-self:center">◦</span>
         </>
       ))}
@@ -371,47 +371,51 @@ const articleLd = buildArticle({
   /* V7 harmonisation typographique · Manifesto H1 + H2 cap cohérent
      · Page spéciale peut rester plus imposante que home mais dans la même famille
      · H1 cap 132px (vs ancien 220px) = 1.43× du H1 home tokenisé (92px) */
+  /* Directive typo : titres manifeste = masse → Instrument Sans (graisse appuyée).
+     Les fragments <i> restent relevés en Instrument Serif italic = emphase. */
   .manifesto-h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(44px, 7.5vw, 108px);
     line-height: 0.94;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.02em;
     color: var(--paper);
     text-wrap: balance;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     margin: 0;
     max-width: 1400px;
   }
-  .manifesto-h1 i { font-style: italic; }
+  .manifesto-h1 i { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
   .manifesto-h1 i.accent { color: var(--accent); }
 
   .manifesto-h1-subhead {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: clamp(18px, 1.8vw, 26px);
     line-height: 1.35;
     color: rgba(var(--paper-rgb), 0.7);
     margin: clamp(24px, 3vw, 40px) 0 0;
     max-width: var(--wrap-prose);
     text-wrap: pretty;
-    font-weight: var(--fw-regular);
   }
   .manifesto-h1-subhead i {
+    font-family: var(--font-display);
     font-style: italic;
+    font-weight: var(--fw-regular);
     color: var(--accent);
   }
 
   /* H2 sections grandes (manifeste, déclaration) · cap 96px cohérent avec home text-h2-grand */
   .manifesto-h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: clamp(36px, 6vw, 96px);
     line-height: var(--leading-h2);
-    letter-spacing: var(--tracking-display);
+    letter-spacing: -0.015em;
     max-width: 1200px;
     margin: 0 0 clamp(48px, 6vw, 80px);
     text-wrap: balance;
-    font-weight: var(--fw-regular);
   }
-  .manifesto-h2 i { font-style: italic; }
+  .manifesto-h2 i { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
   .manifesto-h2 i.accent { color: var(--accent); }
   /* Variant paper · sur fond ink (acte I) */
   .manifesto-h2--paper { color: var(--paper); font-family: var(--font-sans); }
