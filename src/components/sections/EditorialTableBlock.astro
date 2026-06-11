@@ -30,8 +30,8 @@ const tmRows = data.type === 'tech-models-table'
   ? data.models.map((m) => [
       m.name,
       m.version,
-      '',
-      '',
+      m.cost ?? '',
+      m.context ?? '',
       isFr ? m.use_case_fr : m.use_case_en,
     ])
   : [];

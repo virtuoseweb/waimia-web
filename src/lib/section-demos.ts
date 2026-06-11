@@ -2297,9 +2297,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     caption_fr: 'Modèles Claude · profil de tâche',
     caption_en: 'Claude models · task profile',
     models: [
-      { name: 'Claude Haiku 4.5', version: '4.5', use_case_fr: 'Triage, classification, scoring, tâches répétitives à fort volume', use_case_en: 'Triage, classification, scoring, high-volume repetitive tasks' },
-      { name: 'Claude Sonnet 4.6', version: '4.6', use_case_fr: 'Rédaction, analyse, agents, la plupart des workflows enterprise', use_case_en: 'Writing, analysis, agents, most enterprise workflows' },
-      { name: 'Claude Opus 4.7', version: '4.7', use_case_fr: 'Raisonnement complexe, stratégie, audit critique, cas exigeants', use_case_en: 'Complex reasoning, strategy, critical audit, demanding cases' },
+      { name: 'Claude Haiku 4.5', version: '4.5', cost: '€', context: '200K tokens', use_case_fr: 'Triage, classification, scoring, tâches répétitives à fort volume', use_case_en: 'Triage, classification, scoring, high-volume repetitive tasks' },
+      { name: 'Claude Sonnet 4.6', version: '4.6', cost: '€€', context: '1M tokens', use_case_fr: 'Rédaction, analyse, agents, la plupart des workflows enterprise', use_case_en: 'Writing, analysis, agents, most enterprise workflows' },
+      { name: 'Claude Opus 4.7', version: '4.7', cost: '€€€', context: '1M tokens', use_case_fr: 'Raisonnement complexe, stratégie, audit critique, cas exigeants', use_case_en: 'Complex reasoning, strategy, critical audit, demanding cases' },
     ],
   },
   'tech-when-dual': {

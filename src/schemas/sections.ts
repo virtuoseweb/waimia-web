@@ -2059,6 +2059,8 @@ export const techModelsTableSchema = z.object({
       z.object({
         name: z.string(),
         version: z.string(),
+        cost: z.string().optional(),
+        context: z.string().optional(),
         use_case_fr: z.string(),
         use_case_en: z.string(),
       }),
