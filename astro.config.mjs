@@ -67,10 +67,10 @@ export default defineConfig({
     // redirect canonique pour préserver l'URL indexée.
     '/careers': '/agence/careers',
     '/en/careers': '/en/agence/careers',
-    // V-F1 2026-06-11 · docs/40 §2 (plan 301, item 3) : /archive (index legacy) et
-    // /agence/hero-lab (lab périmé par R5a, remplacé par le design-system) supprimés.
+    // V-F1 2026-06-11 · docs/40 §2 (plan 301, item 3) : /archive (index legacy) supprimé.
     '/archive': '/',
-    '/agence/hero-lab': '/agence/design-system',
+    // /agence/hero-lab restauré 2026-06-11 (lab de comparaison des heros du catalogue) :
+    // le 301 vers /agence/design-system est levé, la page répond 200 (noindex, outil interne).
     // A4 cleanup 2026-05-10 · /ressources/cas/* → /cas/* (canonical) — doublon SEO supprimé
     '/ressources/cas': '/cas',
     '/ressources/cas/plateau': '/cas/plateau',
