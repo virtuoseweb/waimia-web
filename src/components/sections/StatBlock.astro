@@ -178,9 +178,6 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
   .stat-block[data-bg='ink'] {
     background: var(--ink);
     color: var(--paper);
-    --muted: rgba(var(--paper-rgb), 0.64);
-    --hairline: rgba(var(--paper-rgb), 0.14);
-    --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
   .stat-block[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
   /* PullQuote interne (split-quote · scope composant distinct) : corps + guillemet + signature sur ink. */
@@ -256,9 +253,6 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
   .proof-bar[data-bg='ink'] {
     background: var(--ink);
     color: var(--paper);
-    --muted: rgba(var(--paper-rgb), 0.64);
-    --hairline: rgba(var(--paper-rgb), 0.14);
-    --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
   .proof-bar[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 </style>

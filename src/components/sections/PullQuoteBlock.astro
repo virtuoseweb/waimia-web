@@ -40,9 +40,7 @@ const background = data.background;
   .pull-quote-block[data-bg='ink'] {
     background: var(--ink);
     color: var(--paper);
-    --muted: rgba(var(--paper-rgb), 0.64);
     --ink-2: rgba(var(--paper-rgb), 0.82);
-    --hairline: rgba(var(--paper-rgb), 0.14);
   }
   /* PullQuote interne (composant scope distinct) : corps + guillemet + signature sur ink. */
   .pull-quote-block[data-bg='ink'] :global(.pull-quote-body) { color: var(--paper); }

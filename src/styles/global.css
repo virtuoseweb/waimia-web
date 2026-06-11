@@ -256,6 +256,14 @@ pre {
   padding: 18px 30px;
   font-size: var(--text-body-sm);
 }
+/* Idiome dark mutualisé · toute section ink hérite des 3 vars contextuelles
+   (valeurs majoritaires des 89 blocs locaux purgés — les déviants gardent leur override scoped) */
+[data-bg='ink'],
+.on-dark {
+  --muted: rgba(var(--paper-rgb), 0.64);
+  --hairline: rgba(var(--paper-rgb), 0.14);
+  --hairline-strong: rgba(var(--paper-rgb), 0.28);
+}
 .on-dark .btn-ghost,
 [data-bg='ink'] .btn-ghost {
   border-color: var(--paper);
