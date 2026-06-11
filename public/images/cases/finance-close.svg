@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Clôture financière accélérée — barres descendantes au trait sumi-e">
+  <rect width="800" height="600" fill="#F6F1E8"/>
+  <g fill="none" stroke="#0C0B09" stroke-linecap="round" stroke-linejoin="round">
+    <!-- baseline (ledger) -->
+    <path d="M150 440 C300 446 500 444 660 436" stroke-width="0.9" stroke-dasharray="52 18"/>
+    <!-- faint axis -->
+    <path d="M150 150 L150 440" stroke-width="0.7" stroke-dasharray="10 12"/>
+    <!-- descending bars: J+9 -> J+3, the close shrinking -->
+    <path d="M214 440 L214 192 C214 182 219 178 226 184 C233 190 235 201 234 213 L230 439" stroke-width="2.4"/>
+    <path d="M324 440 L324 256 C324 247 329 243 336 249 C343 255 345 266 344 277 L340 439" stroke-width="2"/>
+    <path d="M434 440 L434 318 C434 310 439 307 446 312 C453 317 455 327 454 337 L450 439" stroke-width="1.7"/>
+    <path d="M544 440 L544 372 C544 365 549 362 556 367 C563 372 565 381 564 390 L560 439" stroke-width="1.4"/>
+    <!-- accelerating trend sweep over the bars -->
+    <path d="M222 196 C300 240 360 280 446 318 C520 350 580 372 654 392" stroke-width="2.7"/>
+    <path d="M222 196 C304 242 362 282 448 320 C522 352 582 374 654 392" stroke-width="1.1" stroke-dasharray="92 24"/>
+    <!-- arrow head at the fast end -->
+    <path d="M650 392 C644 389 639 388 634 389" stroke-width="1.1"/>
+    <path d="M654 392 C651 398 649 403 649 409" stroke-width="1.1"/>
+    <!-- compressed calendar marks under the timeline -->
+    <path d="M214 472 L214 488 M324 472 L324 488 M434 472 L434 488 M544 472 L544 488" stroke-width="1"/>
+    <path d="M205 480 L553 480" stroke-width="0.7" stroke-dasharray="6 10"/>
+  </g>
+  <!-- single accent: the final, fastest close -->
+  <path d="M652 390 C657 384 667 386 670 393 C666 401 655 402 650 395 C649 393 650 391 652 390 Z" fill="#C94F2E"/>
+</svg>
