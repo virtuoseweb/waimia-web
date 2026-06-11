@@ -494,14 +494,14 @@ const heroData: SectionByType<'hero-sector'> = {
     margin-bottom: var(--space-3);
   }
   .sol-sec-hd h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 72px);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .sol-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .sol-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-aside {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);
@@ -540,11 +540,11 @@ const heroData: SectionByType<'hero-sector'> = {
     margin-bottom: var(--space-3);
   }
   .sol-pain-grid :global(.pain-card h3) {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(22px, 1.8vw, 26px);
     line-height: 1.2;
     margin: 0 0 var(--space-3);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
   }
   .sol-pain-grid :global(.pain-card p) {
     font-size: var(--text-body-lead);
@@ -606,11 +606,11 @@ const heroData: SectionByType<'hero-sector'> = {
     margin-bottom: 6px;
   }
   .sol-workflow-body :global(.wf-name h3) {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(19px, 1.5vw, 22px);
     line-height: 1.2;
     margin: 0;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
   }
   .sol-workflow-body :global(.wf-model) {
     font-family: var(--font-mono);
@@ -634,22 +634,22 @@ const heroData: SectionByType<'hero-sector'> = {
   /* ───── Prose MDX rich body (slot workflows avec contenu narrative) ───── */
   .sol-workflow-body :global(h2) {
     grid-column: 2 / span 7;
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(28px, 3vw, 40px);
     line-height: var(--leading-h3);
     letter-spacing: -0.012em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-8) 0 var(--space-4);
     color: var(--ink);
     max-width: 880px;
   }
   .sol-workflow-body :global(h3):not(.wf-name h3) {
     grid-column: 2 / span 7;
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(20px, 1.8vw, 24px);
     line-height: 1.2;
     margin: var(--space-6) 0 var(--space-3);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
   }
   .sol-workflow-body :global(p):not(.wf-how p) {
     grid-column: 2 / span 7;
@@ -726,15 +726,15 @@ const heroData: SectionByType<'hero-sector'> = {
   .sol-roi-hd { margin-bottom: clamp(28px, 4vw, 48px); }
   .sol-roi-hd .kicker { color: var(--accent); }
   .sol-roi-hd h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 72px);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
     color: var(--paper);
   }
-  .sol-roi-hd h2 :global(i) { color: var(--accent); font-style: italic; }
+  .sol-roi-hd h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-roi-grid {
     gap: clamp(24px, 3vw, 48px);
   }
@@ -785,15 +785,15 @@ const heroData: SectionByType<'hero-sector'> = {
   .sol-case-dark .kicker { color: var(--accent); }
   .sol-case-dark .wrap-inner { max-width: 480px; }
   .sol-case-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(28px, 3.5vw, 44px);
     line-height: 1.05;
     letter-spacing: -0.016em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-3) 0 20px;
     text-wrap: balance;
   }
-  .sol-case-title :global(i) { color: var(--accent); font-style: italic; }
+  .sol-case-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-case-body {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);
@@ -877,11 +877,11 @@ const heroData: SectionByType<'hero-sector'> = {
     padding-top: var(--space-1);
   }
   .sol-stack-grid :global(.stack-card h3) {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(18px, 1.5vw, 21px);
     line-height: 1.15;
     margin: 0;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     letter-spacing: -0.01em;
   }
   .sol-stack-grid :global(.stack-card p) {
@@ -1002,13 +1002,13 @@ const heroData: SectionByType<'hero-sector'> = {
     padding: clamp(40px, 5vw, 64px) 0;
   }
   .sol-cta-final h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(48px, 7vw, 96px);
     line-height: 0.95;
     margin: 0 0 var(--space-6);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
   }
-  .sol-cta-final h2 :global(i) { color: var(--accent); font-style: italic; }
+  .sol-cta-final h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-cta-body p {
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 19px);

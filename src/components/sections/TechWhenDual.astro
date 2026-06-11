@@ -54,14 +54,14 @@ const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
     align-items: end;
   }
   .tech-sec-hd h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 72px);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .tech-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .tech-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-aside {
     font-family: var(--font-display);
     font-size: clamp(15px, 1.3vw, 17px);

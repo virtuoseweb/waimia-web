@@ -106,7 +106,7 @@ const isFr = lang === 'fr';
     --hairline-strong:rgba(var(--paper-rgb),0.28);
   }
   #act-4[data-bg='ink'] :is(.cases-h2,.cases-client){color:var(--paper)}
-  #act-4[data-bg='ink'] .cases-h2 :global(i){color:var(--accent)}
+  #act-4[data-bg='ink'] .cases-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color:var(--accent); }
   /* hover : voile clair subtil au lieu du paper-2 clair ; impact en texte clair lisible. */
   #act-4[data-bg='ink'] .cases-row:hover{background:rgba(var(--paper-rgb),0.05)}
   #act-4[data-bg='ink'] .cases-impact{color:var(--paper)}

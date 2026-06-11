@@ -48,8 +48,8 @@ const ctaSecondary = isFr ? data.cta_secondary_label_fr : data.cta_secondary_lab
     line-height: .94; letter-spacing: -0.035em; color: var(--paper);
     text-wrap: balance; font-weight: var(--fw-regular); margin: 0; max-width: 1400px;
   }
-  .hero-liquid__h1 :global(i) { font-style: italic; }
-  .hero-liquid__h1 :global(i.accent) { color: var(--accent); }
+  .hero-liquid__h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
+  .hero-liquid__h1 :global(i.accent) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   .hero-liquid__lede {
     font-family: var(--font-display); font-size: clamp(18px,1.8vw,26px);
     line-height: 1.35; color: rgba(var(--paper-rgb), .72); margin: 0; max-width: var(--wrap-prose); text-wrap: pretty;

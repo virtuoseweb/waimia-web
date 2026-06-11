@@ -43,16 +43,16 @@ const columns = [data.left, data.right];
   :global(.hub-lb-k) { display: block; margin-bottom: 14px; }
   .hub-blog-h2,
   .hub-lb-h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(28px, 3.4vw, 44px);
     line-height: 1;
     letter-spacing: -0.022em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: 0 0 18px;
     text-wrap: balance;
   }
   .hub-blog-h2 :global(i),
-  .hub-lb-h2 :global(i) { font-style: italic; color: var(--accent); }
+  .hub-lb-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hub-blog-lead,
   .hub-lb-lead {
     font-family: var(--font-sans);
@@ -81,7 +81,7 @@ const columns = [data.left, data.right];
     border-top-color: rgba(var(--paper-rgb), 0.14);
   }
   .hub-blog-lb[data-bg='ink'] :is(h2, h3, p, span, li) { color: var(--paper); }
-  .hub-blog-lb[data-bg='ink'] :is(.hub-blog-h2, .hub-lb-h2) :global(i) { color: var(--accent); }
+  .hub-blog-lb[data-bg='ink'] :is(.hub-blog-h2, .hub-lb-h2) :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   .hub-blog-lb[data-bg='ink'] :is(.hub-blog-lead, .hub-lb-lead) { color: rgba(var(--paper-rgb), 0.64); }
   /* RelatedCards (molecule globale) : texte herite paper, lead/accent ajustes, hover sur ink */
   .hub-blog-lb[data-bg='ink'] :global(.related-lead) { color: rgba(var(--paper-rgb), 0.64); }

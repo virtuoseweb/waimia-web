@@ -442,15 +442,15 @@ const offerLd = {
 
   :global(.cf-section-k) { display: block; margin-bottom: var(--space-4); }
   .cf-section-h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(40px, 6vw, 88px);
     line-height: var(--leading-h1);
     letter-spacing: 0;
     margin: 0 0 var(--space-5);
     text-wrap: balance;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
   }
-  .cf-section-h2 :global(i) { font-style: italic; color: var(--accent); }
+  .cf-section-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .cf-section-lead,
   .cf-stack-lead {
     font-family: var(--font-sans);

@@ -140,13 +140,14 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
     border-bottom: 1px solid var(--hairline);
   }
   :where(.comparison-table) h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0 0 var(--spacing-block);
   }
-  :where(.comparison-table) h2 :global(i) { font-style: italic; }
+  :where(.comparison-table) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .comparison-table__wrap { overflow-x: auto; }
   :where(.comparison-table) table {
     width: 100%;
@@ -210,13 +211,14 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
     margin-bottom: var(--spacing-block);
   }
   :where(.pcm) h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
-  :where(.pcm) h2 :global(i) { font-style: italic; }
+  :where(.pcm) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .pcm__body {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

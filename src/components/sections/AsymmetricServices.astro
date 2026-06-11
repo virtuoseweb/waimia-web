@@ -72,13 +72,13 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     font-size: clamp(34px, 5.2vw, 84px);
     line-height: var(--leading-h2);
     letter-spacing: -0.02em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     text-wrap: balance;
     max-width: 1200px;
     margin: 0 0 clamp(40px, 5vw, 64px);
   }
   .asym-svc__title :global(i) { font-family: var(--font-display); font-style: italic; }
-  .asym-svc__title :global(i.acc), .asym-svc__title :global(.acc) { color: var(--accent); }
+  .asym-svc__title :global(i.acc), .asym-svc__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   .asym-svc__title :global(strong) { font-weight: var(--fw-semibold); }
 
   .asym-svc__intro {

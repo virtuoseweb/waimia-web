@@ -114,7 +114,7 @@ const revisedLabel = finalRevisedAt
     font-weight: var(--fw-regular);
     margin: 0;
   }
-  .trust-h1 :global(i) { font-style: italic; color: var(--accent); }
+  .trust-h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .trust-lede {
     font-family: var(--font-display);
     font-style: italic;
@@ -199,23 +199,24 @@ const revisedLabel = finalRevisedAt
     padding-top: 0;
   }
   .trust-sections :global(h2) {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 64px);
-    line-height: 1;
-    letter-spacing: -0.022em;
-    font-weight: var(--fw-regular);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-medium);
     margin: 0 0 36px;
     text-wrap: balance;
   }
-  .trust-sections :global(h2 i) { font-style: italic; color: var(--accent); }
+  .trust-sections :global(h2 i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); color: var(--accent); }
   .trust-sections :global(h3) {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(20px, 2.2vw, 26px);
-    line-height: 1.2;
-    font-weight: var(--fw-regular);
+    line-height: 1.22;
+    font-weight: var(--fw-medium);
     margin: clamp(28px, 3vw, 40px) 0 var(--space-3);
     color: var(--ink);
   }
+  .trust-sections :global(h3 i), .trust-sections :global(h3 em) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); color: var(--accent); }
   .trust-sections :global(p) { margin: 0 0 1.2em; }
   .trust-sections :global(ul) { margin: 0 0 1.4em 1.5em; }
   .trust-sections :global(li) { margin-bottom: 0.5em; }

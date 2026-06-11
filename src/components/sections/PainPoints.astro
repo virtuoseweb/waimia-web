@@ -58,14 +58,14 @@ const events = data.items.map((item, i) => ({
     margin-bottom: var(--space-3);
   }
   .sol-sec-hd h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 72px);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .sol-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .sol-sec-hd :global(i) { font-family: var(--font-display); color: var(--accent); font-style: italic; font-weight: var(--fw-regular); }
   .sol-aside {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);
@@ -104,11 +104,18 @@ const events = data.items.map((item, i) => ({
     margin-bottom: var(--space-3);
   }
   .sol-pain-grid :global(.pain-card h3) {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(22px, 1.8vw, 26px);
-    line-height: 1.2;
+    line-height: 1.22;
     margin: 0 0 var(--space-3);
+    font-weight: var(--fw-medium);
+  }
+  .sol-pain-grid :global(.pain-card h3 i),
+  .sol-pain-grid :global(.pain-card h3 em) {
+    font-family: var(--font-display);
+    font-style: italic;
     font-weight: var(--fw-regular);
+    color: var(--accent);
   }
   .sol-pain-grid :global(.pain-card p) {
     font-size: var(--text-body-lead);
@@ -128,7 +135,7 @@ const events = data.items.map((item, i) => ({
     --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
   .sol-sec[data-bg='ink'] .sol-sec-hd h2 { color: var(--paper); }
-  .sol-sec[data-bg='ink'] .sol-sec-hd :global(i) { color: var(--accent); }
+  .sol-sec[data-bg='ink'] .sol-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   .sol-sec[data-bg='ink'] .sol-aside { color: rgba(var(--paper-rgb), 0.64); }
   /* Timeline (molecule editorial, classes reelles .timeline-*) sur ink :
      titre (--ink) + corps (--ink-2) etaient sombres sur sombre -> repassent paper.

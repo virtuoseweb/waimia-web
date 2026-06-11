@@ -82,9 +82,9 @@ const gridClass = [
     margin: 0 0 20px;
   }
   .tier-h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(40px, 6vw, 88px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     line-height: var(--leading-h1);
     letter-spacing: -0.024em;
     margin: 0 0 18px;
@@ -139,9 +139,9 @@ const gridClass = [
     margin: 0;
   }
   .card-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(28px, 3.5vw, 48px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     line-height: 1;
     letter-spacing: -0.02em;
     margin: 0;
@@ -225,7 +225,7 @@ const gridClass = [
     --hairline: rgba(var(--paper-rgb), 0.14);
   }
   .tier-section[data-bg='ink'] .tier-h2 { color: var(--paper); }
-  .tier-section[data-bg='ink'] .tier-h2 :global(i) { color: var(--accent); }
+  .tier-section[data-bg='ink'] .tier-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   /* Offer-cards : panneaux sombres sureleves (au lieu du paper-2 clair), bord clair. */
   .tier-section[data-bg='ink'] .offer-card {
     background: rgba(var(--paper-rgb), 0.04);

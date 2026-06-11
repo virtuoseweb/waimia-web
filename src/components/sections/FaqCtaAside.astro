@@ -90,13 +90,14 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
     margin-bottom: var(--space-8);
   }
   h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
-  h2 :global(i) { font-style: italic; }
+  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   .faq-cta__item { border-top: 1px solid var(--hairline); }
   .faq-cta__item:last-child { border-bottom: 1px solid var(--hairline); }
@@ -147,13 +148,13 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
     gap: var(--space-4);
   }
   .faq-cta__card-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-style: italic;
     font-size: var(--text-h3-row);
     color: var(--ink);
     line-height: var(--leading-h3);
     margin: 0;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
   }
   .faq-cta__card-body {
     font-family: var(--font-sans);

@@ -106,12 +106,19 @@ const { events, orientation = 'vertical', numbered = true } = Astro.props;
     margin-bottom: var(--space-2, 8px);
   }
   .timeline-title {
-    font-family: var(--font-display, 'Instrument Serif', serif);
+    font-family: var(--font-sans);
     font-size: clamp(20px, 1.8vw, 26px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink, #0C0B09);
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.22;
+  }
+  .timeline-title :global(i),
+  .timeline-title :global(em) {
+    font-family: var(--font-display, 'Instrument Serif', serif);
+    font-style: italic;
+    font-weight: var(--fw-regular);
+    color: var(--accent);
   }
   .timeline-meta {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);

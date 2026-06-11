@@ -98,13 +98,14 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
     margin-inline: auto;
   }
   h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-grand);
     line-height: 1.05;
     color: var(--ink);
     margin: 0;
   }
-  h2 :global(i) { font-style: italic; }
+  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   p {
     font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 20px);
@@ -137,7 +138,7 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
     max-width: 560px;
     margin: 0 auto;
   }
-  .cta-final__sub :global(i) { font-style: italic; color: var(--accent); }
+  .cta-final__sub :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .cta-final[data-bg="ink"] .cta-final__avail,
   .cta-final[data-bg="ink"] .cta-final__sub,
   .cta-final[data-bg="accent"] .cta-final__avail,
@@ -156,17 +157,17 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
     padding: clamp(40px, 5vw, 64px) 0;
   }
   .sol-cta-final h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(48px, 7vw, 96px);
     line-height: 0.95;
     margin: 0 0 var(--space-6);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     /* Neutralisation colocalisation : la règle `h2` nue du noyau (color: var(--ink))
        matche aussi cette branche ; on fixe la couleur à sa valeur ORIGINALE
        (héritée de .sol-sec-dark = var(--paper)) → rendu identique. */
     color: var(--paper);
   }
-  .sol-cta-final h2 :global(i) { color: var(--accent); font-style: italic; }
+  .sol-cta-final h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-cta-body p {
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 19px);

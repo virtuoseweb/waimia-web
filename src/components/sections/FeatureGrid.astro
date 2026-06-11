@@ -153,13 +153,14 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     margin-bottom: var(--spacing-block);
   }
   :where(.feature-grid) h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
-  :where(.feature-grid) h2 :global(i) { font-style: italic; }
+  :where(.feature-grid) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .feature-grid__list {
     list-style: none;
     margin: 0;
@@ -179,9 +180,9 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
   }
   .feature-grid__icon { margin-bottom: var(--space-1); }
   .feature-grid__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 20px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     line-height: 1.2;
   }
@@ -290,11 +291,11 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     margin-bottom: var(--space-4);
   }
   .deliverables-grid__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h2);
     letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     text-wrap: balance;
     margin: 0;
@@ -356,13 +357,13 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     transition: transform var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
   }
   .deliverables-grid__card h3 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h3-row);
     font-style: italic;
     line-height: var(--leading-h3);
     letter-spacing: var(--tracking-display);
     margin: var(--space-3) 0;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     text-wrap: balance;
     transition: transform var(--dur-trim) var(--ease);
@@ -421,11 +422,11 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     margin: 0 0 14px;
   }
   .commitments-grid__h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h2);
     letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     max-width: 760px;
     margin: 0 0 clamp(28px, 3vw, 44px);
     color: var(--ink);
@@ -452,11 +453,11 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     border-right: none;
   }
   .commitments-grid__cell-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(17px, 1.6vw, 22px);
     line-height: 1.25;
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     margin: 0 0 var(--space-3);
   }
@@ -503,13 +504,14 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
   }
 
   :where(.icon-trio) h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0 0 var(--spacing-block);
   }
-  :where(.icon-trio) h2 :global(i) { font-style: italic; }
+  :where(.icon-trio) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   .icon-trio__cols {
     list-style: none;
@@ -545,9 +547,9 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
   }
 
   .icon-trio__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 20px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     line-height: 1.2;
   }
