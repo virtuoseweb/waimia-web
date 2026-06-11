@@ -9,6 +9,7 @@
 export const prerender = true;
 
 import ConversionFunnelTemplate from '../../components/templates/ConversionFunnelTemplate.astro';
+import TerminalMockup from '../../components/ui/molecules/TerminalMockup.astro';
 
 const heroStats = [
   { k: '95%',   label_fr: 'généré par IA',         label_en: 'AI-generated' },
@@ -171,11 +172,26 @@ const relatedCards = [
     Plateau sert de preuve courte : même stack Astro, même logique d'agent éditeur, même transfert final. Le cas montre ce qui change quand le site devient une surface de conversion mesurable.
   </Fragment>
   <Fragment slot="demo-mockup">
-    <div style="font-family:var(--font-mono);font-size:var(--text-ui);color:rgba(var(--paper-rgb), .6);padding:var(--space-6);text-align:center">
-      <div style="font-size:48px;margin-bottom:14px">▸</div>
-      Cas en ligne · Plateau
-      <div style="margin-top:14px;font-size:var(--text-eyebrow)">Voir le site et le tunnel <a href="/cas/plateau" style="color:var(--accent);text-decoration:underline">Plateau →</a></div>
-    </div>
+    <TerminalMockup
+      label="waimia · plateau.fr · agent éditeur"
+      status="◉ live"
+      tone="ink"
+      bodyPadding={18}
+      class="demo-terminal"
+    >
+      <pre class="demo-pre"><span class="demo-prompt">$</span> waimia edit "ajoute le cas client ACME sur /services"
+<span class="demo-out">→ 3 fichiers modifiés · PR #142 ouverte · attente validation</span>
+
+<span class="demo-prompt">$</span> waimia ship --check
+<span class="demo-line">build Astro 6 · 24 pages statiques générées</span>
+<span class="demo-line">Lighthouse  <span class="demo-bad">23</span> → <span class="demo-good">78</span>  (WordPress → Waimia)</span>
+<span class="demo-line">cookies     <span class="demo-good">4</span> / page  ·  JSON-LD + sitemap + llms.txt <span class="demo-good">OK</span></span>
+<span class="demo-out">→ déployé sur l'edge Vercel · TTFB ~30 ms</span></pre>
+      <div class="demo-foot">
+        <span>Plateau · WordPress remplacé en 6 semaines, 12 h hebdo de CMS supprimées.</span>
+        <a href="/cas/plateau">Lire le cas Plateau →</a>
+      </div>
+    </TerminalMockup>
   </Fragment>
 
   <Fragment slot="features-headline">
@@ -200,3 +216,48 @@ const relatedCards = [
     </span>
   </Fragment>
 </ConversionFunnelTemplate>
+
+<style>
+  /* Le slot demo-mockup contient désormais un vrai TerminalMockup (preuve live cas Plateau).
+     On neutralise les contraintes flex-center / aspect-ratio 16:9 / fond ink du conteneur
+     parent UNIQUEMENT quand il porte ce terminal, pour un affichage pleine largeur lisible. */
+  :global(.cf-demo-mockup:has(.demo-terminal)) {
+    aspect-ratio: auto;
+    display: block;
+    background: transparent;
+    border: none;
+    overflow: visible;
+  }
+  :global(.demo-terminal) { width: 100%; }
+  .demo-pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: clamp(12px, 1.05vw, 14px);
+    line-height: 1.85;
+    color: rgba(var(--paper-rgb), 0.82);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .demo-prompt { color: var(--accent); margin-right: 0.5em; }
+  .demo-out { color: rgba(var(--paper-rgb), 0.55); }
+  .demo-line { color: rgba(var(--paper-rgb), 0.78); }
+  .demo-good { color: var(--accent); font-weight: var(--fw-medium); }
+  .demo-bad { color: rgba(var(--paper-rgb), 0.45); text-decoration: line-through; }
+  .demo-foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-5);
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.12);
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.6);
+  }
+  .demo-foot a { color: var(--accent); text-decoration: none; white-space: nowrap; }
+  .demo-foot a:hover { text-decoration: underline; }
+</style>

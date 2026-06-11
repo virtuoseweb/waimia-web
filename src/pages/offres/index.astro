@@ -7,6 +7,7 @@ import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
 import OfferTierGrid from '../../components/sections/OfferTierGrid.astro';
+import RelatedCardsBand from '../../components/sections/RelatedCardsBand.astro';
 import TierPyramidSvg from '../../components/sections/TierPyramidSvg.astro';
 import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
 
@@ -50,8 +51,44 @@ const ctaData = {
   body_en: 'AI audit in 5 days. First agent in production in 4 weeks. Measured ROI, never estimated.',
   cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact', variant: 'primary' as const },
   cta_secondary: { label_fr: 'Voir la pyramide →', label_en: 'See the pyramid →', href: '/offres', variant: 'ghost' as const },
-  background: 'paper' as const,
+  background: 'ink' as const,
 } satisfies SectionByType<'cta-final'>;
+
+const relatedCasesData = {
+  type: 'related-cards-band' as const,
+  background: 'paper-2' as const,
+  kicker_fr: '§ Preuves · Études de cas',
+  kicker_en: '§ Proof · Case studies',
+  cards: [
+    {
+      kicker_fr: 'CAS · ACQUISITION',
+      kicker_en: 'CASE · ACQUISITION',
+      title_fr: 'Plateau · 2,4 M€ de pipeline récupéré',
+      title_en: 'Plateau · €2.4M of pipeline recovered',
+      lead_fr: 'Growth System IA : séquences de réactivation, landing pages, suivi câblé en 8 semaines.',
+      lead_en: 'Growth System AI: reactivation sequences, landing pages, tracking wired in 8 weeks.',
+      href: '/cas/plateau',
+    },
+    {
+      kicker_fr: 'CAS · PRODUCTIVITÉ',
+      kicker_en: 'CASE · PRODUCTIVITY',
+      title_fr: 'Halcyon · 120 h consultant libérées',
+      title_en: 'Halcyon · 120 consultant hours freed',
+      lead_fr: 'Workflows internes automatisés, équipe formée, gain mesuré dès le premier mois.',
+      lead_en: 'Automated internal workflows, team trained, measured gain from month one.',
+      href: '/cas/halcyon',
+    },
+    {
+      kicker_fr: 'CAS · PILOTAGE',
+      kicker_en: 'CASE · REPORTING',
+      title_fr: 'Northbound Capital · −2 jours de clôture',
+      title_en: 'Northbound Capital · −2 days to close',
+      lead_fr: 'Clôture mensuelle raccourcie, données réconciliées, tableaux fiables avant la réunion.',
+      lead_en: 'Monthly close shortened, data reconciled, reliable dashboards before the meeting.',
+      href: '/cas/northbound',
+    },
+  ],
+} satisfies SectionByType<'related-cards-band'>;
 
 const pyramidData = {
   type: 'tier-pyramid-svg' as const,
@@ -254,6 +291,9 @@ const tierPartnershipData = {
 
   <!-- 5. TIER III · PARTENARIAT -->
   <OfferTierGrid data={tierPartnershipData} lang="fr" />
+
+  <!-- 5b. PREUVES · ÉTUDES DE CAS -->
+  <RelatedCardsBand data={relatedCasesData} lang="fr" />
 
   <!-- 6. MANIFESTO COURT -->
   <section class="manifesto">
