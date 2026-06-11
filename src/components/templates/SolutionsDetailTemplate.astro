@@ -36,6 +36,11 @@ import KeyMetric from '../editorial/KeyMetric.astro';
 import EditorialTable from '../editorial/EditorialTable.astro';
 import Dingbat from '../editorial/Dingbat.astro';
 import HeroOfferDetail from '../sections/HeroOfferDetail.astro';
+import MetricCalloutBand from '../sections/MetricCalloutBand.astro';
+import CaseSpotlight from '../sections/CaseSpotlight.astro';
+import FeatureSplitMedia from '../sections/FeatureSplitMedia.astro';
+import DiagnosticStages from '../sections/DiagnosticStages.astro';
+import TrustBadgesBand from '../sections/TrustBadgesBand.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import { langFromPath } from '../../lib/i18n';
@@ -73,6 +78,13 @@ interface Props {
   cta_title_en?: string;
   cta_body_fr?: string;
   cta_body_en?: string;
+  /** Recomposition (tpl-recomp) — sections cataloguées INK/habillées, fed par la page.
+   *  Optionnelles : si absentes, le template garde le rendu legacy (backward-compat). */
+  impactBand?: SectionByType<'metric-callout-band'>;
+  caseSpotlight?: SectionByType<'case-spotlight'>;
+  featureSplit?: SectionByType<'feature-split-media'>;
+  diagnostic?: SectionByType<'diagnostic-stages'>;
+  trustBadges?: SectionByType<'trust-badges-band'>;
 }
 
 const {
@@ -94,6 +106,11 @@ const {
   case_results: propsCaseResults = [],
   cta_title_fr: propsCtaTitleFr,
   cta_body_fr: propsCtaBodyFr,
+  impactBand,
+  caseSpotlight,
+  featureSplit,
+  diagnostic,
+  trustBadges,
 } = Astro.props;
 
 const lang = langFromPath(Astro.url.pathname);
@@ -328,87 +345,86 @@ const heroData: SectionByType<'hero-sector'> = {
       </div>
     </section>
 
-    {/* ────────── 4. ROI BAND DARK ────────── */}
-    <section class="sol-sec sol-sec-dark sol-proof reveal-stagger" data-screen-label="04 ROI Band">
-      <div class="wrap g12 g12--full">
-        <header class="sol-roi-hd section-eyebrow col-12">
-          <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Preuve macro</Kicker>
-          <h2><i>Preuve</i> macro</h2>
-        </header>
-        <div class="sol-roi-grid col-12 g12">
-          {effectiveROI.length > 0 ? (
-            effectiveROI.map((metric, index) => {
-              const placement = proofMetricPlacements[index % proofMetricPlacements.length];
-              return (
-                <div class={placement.class}>
-                  <KeyMetric
-                    value={metric.value}
-                    label={metric.label}
-                    size={placement.size}
-                    align={placement.align}
-                    variant={placement.variant}
-                  />
-                </div>
-              );
-            })
-          ) : (
-            <Fragment set:html={roiHtml} />
-          )}
-        </div>
-      </div>
-    </section>
-
-    {/* ────────── 5. CASE STUDY SPLIT ────────── */}
-    <section class="sol-case reveal-stagger" data-screen-label="05 Case Study">
-      <div class="sol-case-grid">
-        <div class="sol-case-dark">
-          <div class="wrap-inner">
-            <Kicker><slot name="case-kicker">{propsCaseKicker ?? 'Cas client'}</slot></Kicker>
-            <h2 class="sol-case-title"><slot name="case-title" /></h2>
-            <p class="sol-case-body">
-              {propsCaseBodyFr
-                ? (lang === 'en' ? (propsCaseBodyEn ?? propsCaseBodyFr) : propsCaseBodyFr)
-                : <slot name="case-body" />}
-            </p>
-            <a class="sol-case-cta" href={lang === 'fr' ? '/cas' : '/en/cas'}>
-              <slot name="case-cta-label">{propsCaseCta ?? 'Voir le cas complet →'}</slot>
-            </a>
-          </div>
-        </div>
-        <div class="sol-case-light">
-          <div class="wrap-inner">
-            <Kicker>Résultats</Kicker>
-            <div class="sol-case-results">
-              {propsCaseResults.length > 0 ? (
-                propsCaseResults.map((r) => (
-                  <div class="res-row">
-                    <div class="res-v">{r.value}</div>
-                    <div class="res-l" set:html={(lang === 'en' ? (r.label_en ?? r.label_fr) : r.label_fr).replace(/\n/g, '<br/>')} />
-                  </div>
-                ))
-              ) : (
-                <slot name="case-results" />
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* ────────── 5b. FAQ ÉDITORIALE (optionnel) ────────── */}
-    {faqHtml.trim() && (
-      <section class="sol-sec sol-faq reveal-stagger" data-screen-label="05b FAQ">
+    {/* ────────── 4. IMPACT CHIFFRÉ — INK (recompo : metric-callout-band) ────────── */}
+    {impactBand ? (
+      <MetricCalloutBand data={impactBand} {lang} />
+    ) : (
+      <section class="sol-sec sol-sec-dark sol-proof reveal-stagger" data-screen-label="04 ROI Band">
         <div class="wrap g12 g12--full">
-          <header class="sol-sec-hd section-eyebrow col-prose">
-            <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Questions</Kicker>
-            <h2><i>Questions</i><br/>fréquentes</h2>
+          <header class="sol-roi-hd section-eyebrow col-12">
+            <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Preuve macro</Kicker>
+            <h2><i>Preuve</i> macro</h2>
           </header>
-          <div class="sol-faq-body col-12">
-            <Fragment set:html={faqHtml} />
+          <div class="sol-roi-grid col-12 g12">
+            {effectiveROI.length > 0 ? (
+              effectiveROI.map((metric, index) => {
+                const placement = proofMetricPlacements[index % proofMetricPlacements.length];
+                return (
+                  <div class={placement.class}>
+                    <KeyMetric
+                      value={metric.value}
+                      label={metric.label}
+                      size={placement.size}
+                      align={placement.align}
+                      variant={placement.variant}
+                    />
+                  </div>
+                );
+              })
+            ) : (
+              <Fragment set:html={roiHtml} />
+            )}
           </div>
         </div>
       </section>
     )}
+
+    {/* ────────── 5. CAS CONCRET — INK (recompo : case-spotlight) ────────── */}
+    {caseSpotlight ? (
+      <CaseSpotlight data={caseSpotlight} {lang} />
+    ) : (
+      <section class="sol-case reveal-stagger" data-screen-label="05 Case Study">
+        <div class="sol-case-grid">
+          <div class="sol-case-dark">
+            <div class="wrap-inner">
+              <Kicker><slot name="case-kicker">{propsCaseKicker ?? 'Cas client'}</slot></Kicker>
+              <h2 class="sol-case-title"><slot name="case-title" /></h2>
+              <p class="sol-case-body">
+                {propsCaseBodyFr
+                  ? (lang === 'en' ? (propsCaseBodyEn ?? propsCaseBodyFr) : propsCaseBodyFr)
+                  : <slot name="case-body" />}
+              </p>
+              <a class="sol-case-cta" href={lang === 'fr' ? '/cas' : '/en/cas'}>
+                <slot name="case-cta-label">{propsCaseCta ?? 'Voir le cas complet →'}</slot>
+              </a>
+            </div>
+          </div>
+          <div class="sol-case-light">
+            <div class="wrap-inner">
+              <Kicker>Résultats</Kicker>
+              <div class="sol-case-results">
+                {propsCaseResults.length > 0 ? (
+                  propsCaseResults.map((r) => (
+                    <div class="res-row">
+                      <div class="res-v">{r.value}</div>
+                      <div class="res-l" set:html={(lang === 'en' ? (r.label_en ?? r.label_fr) : r.label_fr).replace(/\n/g, '<br/>')} />
+                    </div>
+                  ))
+                ) : (
+                  <slot name="case-results" />
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* ────────── 5a. SECTION EXPLICATIVE HABILLÉE — paper (recompo : feature-split-media) ────────── */}
+    {featureSplit && <FeatureSplitMedia data={featureSplit} {lang} />}
+
+    {/* ────────── 5c. OÙ EN ÊTES-VOUS — paper-2 (recompo : diagnostic-stages) ────────── */}
+    {diagnostic && <DiagnosticStages data={diagnostic} {lang} />}
 
     {/* ────────── 6. DEPARTMENT STACK ────────── */}
     <section class="sol-sec sol-sec-paper sol-tools reveal" data-screen-label="06 Stack">
@@ -454,6 +470,24 @@ const heroData: SectionByType<'hero-sector'> = {
 
     {/* ────────── 6c. CAS CLIENTS (slot optionnel — secteurs) ────────── */}
     {hasExtraCases && <slot name="extra-cases" />}
+
+    {/* ────────── 6d. RÉASSURANCE — INK strip (recompo : trust-badges-band) ────────── */}
+    {trustBadges && <TrustBadgesBand data={trustBadges} {lang} />}
+
+    {/* ────────── 6e. FAQ ÉDITORIALE CONDENSÉE (optionnel) ────────── */}
+    {faqHtml.trim() && (
+      <section class="sol-sec sol-faq reveal-stagger" data-screen-label="06e FAQ">
+        <div class="wrap g12 g12--full">
+          <header class="sol-sec-hd section-eyebrow col-prose">
+            <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Questions</Kicker>
+            <h2><i>Questions</i><br/>fréquentes</h2>
+          </header>
+          <div class="sol-faq-body col-12">
+            <Fragment set:html={faqHtml} />
+          </div>
+        </div>
+      </section>
+    )}
 
     {/* ────────── 7. CTA DEPT-AUGMENTED DARK ────────── */}
     <section class="sol-sec sol-sec-dark sol-cta reveal" data-screen-label="07 CTA">
