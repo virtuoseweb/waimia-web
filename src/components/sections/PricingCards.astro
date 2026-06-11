@@ -1,0 +1,219 @@
+---
+// Section · pricing-cards · 3 tiers côte à côte, carte « Recommandé » mise en avant.
+// Composé de · Kicker (atom) · Button (atom). DS figé, tokens uniquement.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'pricing-cards'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const footnote = isFr ? data.footnote_fr : data.footnote_en;
+---
+
+<section class="pricing-cards" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="pricing-cards__header">
+      {kicker && <Kicker tone="muted">{kicker}</Kicker>}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      {lede && <p class="pricing-cards__lede">{lede}</p>}
+    </div>
+    <div class="pricing-cards__grid" style={`--col-count: ${data.tiers.length}`}>
+      {data.tiers.map((tier: (typeof data.tiers)[number], i: number) => (
+        <article class:list={['pricing-cards__card', tier.featured && 'is-featured']}>
+          {tier.featured && (
+            <span class="pricing-cards__badge">{isFr ? 'Recommandé' : 'Recommended'}</span>
+          )}
+          <header class="pricing-cards__card-hd">
+            <span class="pricing-cards__idx">§ {String(i + 1).padStart(2, '0')}</span>
+            <strong class="pricing-cards__name">{isFr ? tier.name_fr : tier.name_en}</strong>
+          </header>
+          <div class="pricing-cards__price">
+            <span class="pricing-cards__price-k">{tier.price}</span>
+            {(isFr ? tier.period_fr : tier.period_en) && (
+              <span class="pricing-cards__period">{isFr ? tier.period_fr : tier.period_en}</span>
+            )}
+          </div>
+          <ul class="pricing-cards__features">
+            {(isFr ? tier.features_fr : tier.features_en).map((f: string) => (
+              <li><span class="pricing-cards__check" aria-hidden="true">▸</span><span>{f}</span></li>
+            ))}
+          </ul>
+          <Button
+            href={tier.cta.href}
+            variant={tier.featured ? 'accent' : (tier.cta.variant as any)}
+            size="lg"
+            class="pricing-cards__btn"
+          >
+            {isFr ? tier.cta.label_fr : tier.cta.label_en}
+          </Button>
+        </article>
+      ))}
+    </div>
+    {footnote && <p class="pricing-cards__footnote">{footnote}</p>}
+  </div>
+</section>
+
+<style>
+  .pricing-cards {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pricing-cards__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 64ch;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+  .pricing-cards__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .pricing-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--col-count, 3), 1fr);
+    gap: var(--space-5);
+    align-items: start;
+  }
+  .pricing-cards__card {
+    position: relative;
+    padding: var(--space-7) var(--space-6);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 14px;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    transition: border-color 240ms var(--ease), transform 320ms var(--ease);
+  }
+  .pricing-cards__card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+  .pricing-cards__card.is-featured {
+    border-color: var(--accent);
+    background: var(--paper-2);
+    box-shadow: 0 24px 60px rgba(var(--accent-rgb), 0.08);
+  }
+  .pricing-cards__badge {
+    position: absolute;
+    top: -12px;
+    left: var(--space-5);
+    background: var(--accent);
+    color: var(--paper);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px var(--space-3);
+    border-radius: var(--radius-pill);
+  }
+  .pricing-cards__card-hd {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .pricing-cards__idx {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    color: var(--accent);
+    letter-spacing: 0.14em;
+  }
+  .pricing-cards__name {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: var(--fw-regular);
+  }
+  .pricing-cards__card.is-featured .pricing-cards__name { color: var(--accent); }
+  .pricing-cards__price {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pricing-cards__price-k {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1;
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+  }
+  .pricing-cards__period {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .pricing-cards__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+  }
+  .pricing-cards__features li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .pricing-cards__check {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    flex-shrink: 0;
+  }
+  .pricing-cards__btn { width: 100%; }
+  .pricing-cards__footnote {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin: var(--spacing-block) 0 0;
+  }
+  @media (max-width: 900px) {
+    .pricing-cards__grid { grid-template-columns: 1fr; }
+  }
+  /* ── Alternance des fonds (docs/37 §2.6) ── */
+  .pricing-cards[data-bg='paper-2'] { background: var(--paper-2); }
+  .pricing-cards[data-bg='paper-3'] { background: var(--paper-3); }
+  .pricing-cards[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.86);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+    --paper: var(--ink);
+    --paper-2: rgba(var(--paper-rgb), 0.06);
+  }
+  .pricing-cards[data-bg='ink'] :is(h2, .pricing-cards__price-k) { color: var(--paper); }
+</style>

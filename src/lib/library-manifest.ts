@@ -168,6 +168,12 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'asymmetric-services',       consumers: [] },
   { id: 'terminal-mockup',           consumers: [] },
   { id: 'terminal-metrics-strip',    consumers: [] },
+  // >>> [gen-pricing] start
+  // Mission gen-pricing 2026-06-11 — 3 types pricing-sections (catalogue, 0 consommateur live)
+  { id: 'pricing-cards',             consumers: [] },
+  { id: 'pricing-toggle',            consumers: [] },
+  { id: 'pricing-single-highlight',  consumers: [] },
+  // <<< [gen-pricing] end
 ];
 
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────

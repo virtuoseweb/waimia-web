@@ -2406,6 +2406,94 @@ export const terminalMetricsStripSchema = z.object({
     .max(6),
 });
 
+// >>> [gen-pricing] start
+// PRICING · 3 nouveaux types (catégorie pricing-sections).
+
+// pricing-cards · 3 tiers côte à côte, carte « Recommandé » mise en avant.
+const pricingCardTierSchema = z.object({
+  name_fr: z.string(),
+  name_en: z.string(),
+  price: z.string(),
+  period_fr: z.string().optional(),
+  period_en: z.string().optional(),
+  features_fr: z.array(z.string()),
+  features_en: z.array(z.string()),
+  cta: ctaSchema,
+  featured: z.boolean().default(false),
+});
+export const pricingCardsSchema = z.object({
+  type: z.literal('pricing-cards'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  tiers: z.array(pricingCardTierSchema).min(2).max(4),
+  footnote_fr: z.string().optional(),
+  footnote_en: z.string().optional(),
+});
+
+// pricing-toggle · grille + bascule mensuel/annuel (prix doubles par tier).
+const pricingToggleTierSchema = z.object({
+  name_fr: z.string(),
+  name_en: z.string(),
+  price_monthly: z.string(),
+  price_annual: z.string(),
+  suffix_monthly_fr: z.string().optional(),
+  suffix_monthly_en: z.string().optional(),
+  suffix_annual_fr: z.string().optional(),
+  suffix_annual_en: z.string().optional(),
+  features_fr: z.array(z.string()),
+  features_en: z.array(z.string()),
+  cta: ctaSchema,
+  featured: z.boolean().default(false),
+});
+export const pricingToggleSchema = z.object({
+  type: z.literal('pricing-toggle'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  label_monthly_fr: z.string(),
+  label_monthly_en: z.string(),
+  label_annual_fr: z.string(),
+  label_annual_en: z.string(),
+  save_badge_fr: z.string().optional(),
+  save_badge_en: z.string().optional(),
+  tiers: z.array(pricingToggleTierSchema).min(2).max(4),
+});
+
+// pricing-single-highlight · offre mono-produit en grand format.
+export const pricingSingleHighlightSchema = z.object({
+  type: z.literal('pricing-single-highlight'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  name_fr: z.string(),
+  name_en: z.string(),
+  desc_fr: z.string().optional(),
+  desc_en: z.string().optional(),
+  anchor_price: z.string().optional(),
+  anchor_label_fr: z.string().optional(),
+  anchor_label_en: z.string().optional(),
+  price: z.string(),
+  period_fr: z.string().optional(),
+  period_en: z.string().optional(),
+  benefits_fr: z.array(z.string()).min(2),
+  benefits_en: z.array(z.string()).min(2),
+  cta: ctaSchema,
+  guarantee_fr: z.string().optional(),
+  guarantee_en: z.string().optional(),
+  secondary_note_fr: z.string().optional(),
+  secondary_note_en: z.string().optional(),
+});
+// <<< [gen-pricing] end
+
 /* ─── Union discriminée pour validation ─── */
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -2522,6 +2610,11 @@ export const sectionSchema = z.discriminatedUnion('type', [
   asymmetricServicesSchema,
   terminalMockupSectionSchema,
   terminalMetricsStripSchema,
+  // >>> [gen-pricing] start
+  pricingCardsSchema,
+  pricingToggleSchema,
+  pricingSingleHighlightSchema,
+  // <<< [gen-pricing] end
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

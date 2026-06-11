@@ -1,0 +1,237 @@
+---
+// Section · pricing-single-highlight · offre mono-produit en grand format.
+// 1 carte large centrée, prix d'ancrage, liste de bénéfices, garantie, CTA fort.
+// Composé de · Kicker (atom) · Button (atom). DS figé, tokens uniquement.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'pricing-single-highlight'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const name = isFr ? data.name_fr : data.name_en;
+const desc = isFr ? data.desc_fr : data.desc_en;
+const period = isFr ? data.period_fr : data.period_en;
+const anchor = isFr ? data.anchor_label_fr : data.anchor_label_en;
+const guarantee = isFr ? data.guarantee_fr : data.guarantee_en;
+const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
+---
+
+<section class="pricing-single" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="pricing-single__header">
+      {kicker && <Kicker tone="muted">{kicker}</Kicker>}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+    </div>
+
+    <article class="pricing-single__card">
+      <div class="pricing-single__lead">
+        <strong class="pricing-single__name">{name}</strong>
+        {desc && <p class="pricing-single__desc">{desc}</p>}
+        <div class="pricing-single__price">
+          {data.anchor_price && (
+            <span class="pricing-single__anchor">
+              <s>{data.anchor_price}</s>
+              {anchor && <span class="pricing-single__anchor-label">{anchor}</span>}
+            </span>
+          )}
+          <span class="pricing-single__price-k">{data.price}</span>
+          {period && <span class="pricing-single__period">{period}</span>}
+        </div>
+        <Button
+          href={data.cta.href}
+          variant={(data.cta.variant as any) ?? 'accent'}
+          size="lg"
+          class="pricing-single__btn"
+        >
+          {isFr ? data.cta.label_fr : data.cta.label_en}
+        </Button>
+        {guarantee && (
+          <p class="pricing-single__guarantee"><span aria-hidden="true">✓</span> {guarantee}</p>
+        )}
+      </div>
+
+      <div class="pricing-single__benefits">
+        <span class="pricing-single__benefits-label">{isFr ? 'Inclus' : 'Included'}</span>
+        <ul class="pricing-single__list">
+          {(isFr ? data.benefits_fr : data.benefits_en).map((b: string) => (
+            <li><span class="pricing-single__check" aria-hidden="true">▸</span><span>{b}</span></li>
+          ))}
+        </ul>
+        {secondaryNote && <p class="pricing-single__note">{secondaryNote}</p>}
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .pricing-single {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pricing-single__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 64ch;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+
+  .pricing-single__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--paper-2);
+    box-shadow: 0 24px 60px rgba(var(--accent-rgb), 0.08);
+  }
+  .pricing-single__lead {
+    padding: var(--space-8) var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    border-right: 1px solid var(--hairline);
+  }
+  .pricing-single__name {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: var(--fw-regular);
+  }
+  .pricing-single__desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .pricing-single__price {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pricing-single__anchor {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+  }
+  .pricing-single__anchor s { text-decoration-color: var(--accent); }
+  .pricing-single__anchor-label {
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pricing-single__price-k {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1;
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+  }
+  .pricing-single__period {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .pricing-single__btn { width: 100%; }
+  .pricing-single__guarantee {
+    display: flex;
+    gap: var(--space-2);
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--ink-2);
+    margin: 0;
+    line-height: var(--leading-body);
+  }
+  .pricing-single__guarantee span { color: var(--accent); flex-shrink: 0; }
+
+  .pricing-single__benefits {
+    padding: var(--space-8) var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    background: var(--paper);
+  }
+  .pricing-single__benefits-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .pricing-single__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+  }
+  .pricing-single__list li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .pricing-single__check {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    flex-shrink: 0;
+  }
+  .pricing-single__note {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin: var(--space-3) 0 0;
+    line-height: var(--leading-body);
+  }
+  @media (max-width: 900px) {
+    .pricing-single__card { grid-template-columns: 1fr; }
+    .pricing-single__lead { border-right: none; border-bottom: 1px solid var(--hairline); }
+  }
+  /* ── Alternance des fonds ── */
+  .pricing-single[data-bg='paper-2'] { background: var(--paper-2); }
+  .pricing-single[data-bg='paper-3'] { background: var(--paper-3); }
+  .pricing-single[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.86);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+    --paper: var(--ink);
+    --paper-2: rgba(var(--paper-rgb), 0.06);
+  }
+  .pricing-single[data-bg='ink'] :is(h2, .pricing-single__price-k) { color: var(--paper); }
+</style>
