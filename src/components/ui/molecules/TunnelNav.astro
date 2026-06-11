@@ -4,11 +4,15 @@ interface Props {
   lang?: 'fr' | 'en';
 }
 const { currentStep, lang = 'fr' } = Astro.props;
+// Les routes du tunnel site-web-ia sont servies par `/offres/[offre]/tunnel/[step]`
+// (cf src/pages/offres/[offre]/tunnel/[step].astro) → offre_slug `site-web-ia`,
+// step 1-4. L'ancien pattern `/offres/site-web-ia-tunnel(/mecanique…)` n'a jamais
+// existé en route (404 site-wide, SR-42 §3).
 const steps = [
-  { n: 1, label_fr: 'Constat', label_en: 'Problem', href: '/offres/site-web-ia-tunnel' },
-  { n: 2, label_fr: 'Mécanique', label_en: 'How it works', href: '/offres/site-web-ia-tunnel/mecanique' },
-  { n: 3, label_fr: 'Preuves', label_en: 'Proof', href: '/offres/site-web-ia-tunnel/preuves' },
-  { n: 4, label_fr: 'Décision', label_en: 'Decision', href: '/offres/site-web-ia-tunnel/conversion' },
+  { n: 1, label_fr: 'Constat', label_en: 'Problem', href: '/offres/site-web-ia/tunnel/1' },
+  { n: 2, label_fr: 'Mécanique', label_en: 'How it works', href: '/offres/site-web-ia/tunnel/2' },
+  { n: 3, label_fr: 'Preuves', label_en: 'Proof', href: '/offres/site-web-ia/tunnel/3' },
+  { n: 4, label_fr: 'Décision', label_en: 'Decision', href: '/offres/site-web-ia/tunnel/4' },
 ];
 ---
 <nav class="tunnel-nav" aria-label={lang === 'fr' ? 'Étapes du tunnel' : 'Tunnel steps'}>
