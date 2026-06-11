@@ -639,6 +639,7 @@ export const marqueeBandSchema = z.object({
 // Grille de 3 problèmes/frictions : num + kicker + h3 + body, grid auto-fit minmax 280px
 export const problemsGridSchema = z.object({
   type: z.literal('problems-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
   problems: z
@@ -741,6 +742,7 @@ export const operatingLayerSchema = z.object({
 // Manifesto block — grand bloc display italique, kicker mono
 export const manifestoBlockSchema = z.object({
   type: z.literal('manifesto-block'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   text_fr: z.string(),
@@ -1010,6 +1012,7 @@ export const guaranteeBlockSchema = z.object({
 // Diagramme d'architecture · N canaux entrée → système central → M sorties (signature visuelle)
 export const architectureDiagramSchema = z.object({
   type: z.literal('architecture-diagram'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   fig_num: z.string(),
   fig_title_fr: z.string(),
   fig_title_en: z.string(),
@@ -1037,6 +1040,7 @@ export const architectureDiagramSchema = z.object({
 // Grille de services 3×2 avec métrique, body et ligne de connecteurs
 export const servicesGridSchema = z.object({
   type: z.literal('services-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   fig_num: z.string(),
   fig_title_fr: z.string(),
   fig_title_en: z.string(),
@@ -1083,6 +1087,7 @@ export const servicesGridSchema = z.object({
 // variant 'cards-only' = les 4 cards seules (1 info = 1 représentation), enrichies stage + prix + jauge
 export const maturityPyramidSchema = z.object({
   type: z.literal('maturity-pyramid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   variant: z.enum(['full', 'cards-only']).default('full'),
   roman: z.string(),
   label_fr: z.string(),
@@ -1136,6 +1141,7 @@ export const maturityPyramidSchema = z.object({
 // Index éditorial de cas d'usage horizontaux (rows numérotées vers /solutions/*)
 export const useCaseIndexSchema = z.object({
   type: z.literal('use-case-index'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   roman: z.string(),
   label_fr: z.string(),
   label_en: z.string(),
@@ -1165,6 +1171,7 @@ export const useCaseIndexSchema = z.object({
 // Grille de cas clients · table éditoriale 6 colonnes (idx · client · secteur · stack · impact)
 export const caseCardGridSchema = z.object({
   type: z.literal('case-card-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   fig_num: z.string(),
   fig_title_fr: z.string(),
   fig_title_en: z.string(),
@@ -1201,6 +1208,7 @@ export const caseCardGridSchema = z.object({
 // Pyramide SVG isocèle de l'offre · 3 tiers labellisés
 export const tierPyramidSvgSchema = z.object({
   type: z.literal('tier-pyramid-svg'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   aria_label_fr: z.string(),
   aria_label_en: z.string(),
   tiers: z
@@ -1217,6 +1225,7 @@ export const tierPyramidSvgSchema = z.object({
 // Grille de palier d'offres · standard / featured hero dark / transparent
 export const offerTierGridSchema = z.object({
   type: z.literal('offer-tier-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   variant: z.enum(['standard', 'featured', 'transparent']).default('standard'),
   wrap: z.boolean().default(true),
   eyebrow_fr: z.string(),
@@ -1262,6 +1271,7 @@ export const offerTierGridSchema = z.object({
 // Grille auteurs · cartes photo / rôle / description / compteur / CTA
 export const teamCardGridSchema = z.object({
   type: z.literal('team-card-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   cta_label_fr: z.string().default('Voir le profil →'),
   cta_label_en: z.string().default('View profile →'),
   count_singular_fr: z.string().default('publication'),
@@ -1323,6 +1333,7 @@ export const heroAtlasSchema = z.object({
 // Persona detail · grille 2×2 + footer méta sombre
 export const personaAttributesGridSchema = z.object({
   type: z.literal('persona-attributes-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   blocks: z
     .array(
       z.object({
@@ -1357,6 +1368,7 @@ const relatedCardSchema = z.object({
 // Split éditorial ressources · blog / livres blancs
 export const editorialSplitGridSchema = z.object({
   type: z.literal('editorial-split-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   left: z.object({
     slot: z.literal('left').default('left'),
     kicker_fr: z.string(),
@@ -1384,6 +1396,7 @@ export const editorialSplitGridSchema = z.object({
 // Bande secteurs à venir · kicker + H2 + pills
 export const comingSoonPillsSchema = z.object({
   type: z.literal('coming-soon-pills'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h2_fr: z.string(),
@@ -1397,6 +1410,7 @@ export const comingSoonPillsSchema = z.object({
 // Grille de 3 engagements / garanties (hairline border, titre display + body sans)
 export const commitmentsGridSchema = z.object({
   type: z.literal('commitments-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1419,6 +1433,7 @@ export const commitmentsGridSchema = z.object({
 // Callout de marque fond paper-2 : kicker §, h2 display italic, body + CTA optionnel
 export const brandedCalloutSchema = z.object({
   type: z.literal('branded-callout'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h2_fr: z.string(),
@@ -1433,6 +1448,7 @@ export const brandedCalloutSchema = z.object({
 // Index éditorial de publications (lignes numérotées : date · tag · titre · flèche)
 export const editorialPreviewSchema = z.object({
   type: z.literal('editorial-preview'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   roman: z.string().optional(),
@@ -1465,6 +1481,7 @@ export const editorialPreviewSchema = z.object({
 // Bande newsletter fond sombre : titre éditorial + formulaire capture email
 export const newsletterBandSchema = z.object({
   type: z.literal('newsletter-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1483,6 +1500,7 @@ export const newsletterBandSchema = z.object({
 // Barre de spécifications projet : N colonnes (label + valeur), CSS var --spec-cols
 export const specBarSchema = z.object({
   type: z.literal('spec-bar'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   specs: z
@@ -1500,6 +1518,7 @@ export const specBarSchema = z.object({
 // Grille de livrables tangibles : cards numérotées + tag format/durée
 export const deliverablesGridSchema = z.object({
   type: z.literal('deliverables-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),
@@ -1526,6 +1545,7 @@ export const deliverablesGridSchema = z.object({
 // Bande stack technologique : kicker + lead + rangée de pills
 export const techStackBandSchema = z.object({
   type: z.literal('tech-stack-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   lead_fr: z.string().optional(),
@@ -1545,6 +1565,7 @@ export const techStackBandSchema = z.object({
 // Bande de cards connexes : header optionnel + molécule RelatedCards
 export const relatedCardsBandSchema = z.object({
   type: z.literal('related-cards-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   cards: z
@@ -1576,6 +1597,7 @@ export const pullQuoteBlockSchema = z.object({
 // Liste d'inclusions inline séparée par point médian
 export const inclusionsListSchema = z.object({
   type: z.literal('inclusions-list'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   title_fr: z.string().optional(),
@@ -1587,6 +1609,7 @@ export const inclusionsListSchema = z.object({
 // Énoncé macro-typo du problème avec stats optionnelles
 export const problemStatementSchema = z.object({
   type: z.literal('problem-statement'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   statement_fr: z.string(),
@@ -1860,6 +1883,7 @@ export const comparisonDuoSchema = z.object({
 // Liste-catalogue éditoriale de services (rows § num · titre · desc · meta · flèche) - remontée HubTemplate « SERVICE CATALOG »
 export const serviceCatalogListSchema = z.object({
   type: z.literal('service-catalog-list'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   roman: z.string(),
   label_fr: z.string(),
   label_en: z.string(),
@@ -1891,6 +1915,7 @@ export const serviceCatalogListSchema = z.object({
 // Section qualification fit/no-fit sur fond ink - remontée HubTemplate « FIT / NO FIT » + molécule FitColumns
 export const fitColumnsSchema = z.object({
   type: z.literal('fit-columns'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   heading_fr: z.string(),
@@ -1910,6 +1935,7 @@ export const fitColumnsSchema = z.object({
 // Comparateur éditorial : header (kicker + heading display) + tableau bilingue - remontée page conseil « Comparateur services » + composant EditorialTable
 export const editorialTableBlockSchema = z.object({
   type: z.literal('editorial-table-block'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   heading_fr: z.string(),
@@ -1926,6 +1952,7 @@ export const editorialTableBlockSchema = z.object({
 // Arbre de décision : header (kicker + heading display) + <ol> numéroté - remontée page conseil « Arbre de décision »
 export const decisionListSchema = z.object({
   type: z.literal('decision-list'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   heading_fr: z.string(),
@@ -1946,6 +1973,7 @@ export const decisionListSchema = z.object({
 // §2 Positioning Split · prise de position éditoriale (statement manifesto + facts mono kv)
 export const techPositioningSplitSchema = z.object({
   type: z.literal('tech-positioning-split'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),
@@ -1969,6 +1997,7 @@ export const techPositioningSplitSchema = z.object({
 // §3 Capabilities Specs · inventaire technique en table (capacité · description · statut)
 export const techCapabilitiesSpecsSchema = z.object({
   type: z.literal('tech-capabilities-specs'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),
@@ -1991,6 +2020,7 @@ export const techCapabilitiesSpecsSchema = z.object({
 // §4 Models Table · comparaison modèles (5 colonnes Modèle / Profil / Coût / Contexte / Usages)
 export const techModelsTableSchema = z.object({
   type: z.literal('tech-models-table'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),
@@ -2014,6 +2044,7 @@ export const techModelsTableSchema = z.object({
 // §5 When To Use Dual · aide décision (puces +/− mono)
 export const techWhenDualSchema = z.object({
   type: z.literal('tech-when-dual'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),
@@ -2033,6 +2064,7 @@ export const techWhenDualSchema = z.object({
 // §6 Integration Flow · position dans la stack en frise verticale numérotée
 export const techIntegrationFlowSchema = z.object({
   type: z.literal('tech-integration-flow'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),
@@ -2055,6 +2087,7 @@ export const techIntegrationFlowSchema = z.object({
 // §Solutions · Pain Points · 3 cards numérotées (empathie métier "pourquoi ça bloque")
 export const painPointsSchema = z.object({
   type: z.literal('pain-points'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   eyebrow_fr: z.string().default('§ Friction'),
   eyebrow_en: z.string().default('§ Friction'),
   h2_fr: z.string(),
@@ -2078,6 +2111,7 @@ export const painPointsSchema = z.object({
 // §Solutions · Workflows Table · brique signature 5 colonnes (№ / workflow / modèle / gain / comment)
 export const workflowTableSchema = z.object({
   type: z.literal('workflow-table'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   eyebrow_fr: z.string().default('§ Workflows'),
   eyebrow_en: z.string().default('§ Workflows'),
   h2_fr: z.string(),
@@ -2149,6 +2183,7 @@ export const caseSplitSchema = z.object({
 // §Solutions · Department Stack · table éditoriale outils (catégorie / outil / rôle)
 export const departmentStackSchema = z.object({
   type: z.literal('department-stack'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   eyebrow_fr: z.string().default('§ Stack outils'),
   eyebrow_en: z.string().default('§ Tool stack'),
   h2_fr: z.string(),
@@ -2176,6 +2211,7 @@ export const departmentStackSchema = z.object({
 // §École · Catalogue de cours/formations · tableau (#/Titre/Niveau/Durée/Prix) · EcoleHubTemplate
 export const courseCatalogTableSchema = z.object({
   type: z.literal('course-catalog-table'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   title_fr: z.string(),
   title_en: z.string(),
   rows: z
@@ -2197,6 +2233,7 @@ export const courseCatalogTableSchema = z.object({
 // §École · Liste de parcours/learning paths · titre + description · EcoleHubTemplate
 export const learningPathListSchema = z.object({
   type: z.literal('learning-path-list'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   title_fr: z.string(),
   title_en: z.string(),
   items: z
@@ -2241,7 +2278,7 @@ export const terminalTableSectionSchema = z.object({
   h2_en: z.string(),
   intro_fr: z.string().optional(),
   intro_en: z.string().optional(),
-  background: z.enum(['paper', 'paper-2']).default('paper'),
+  background: z.enum(['paper', 'paper-2', 'ink']).default('paper'),
   /** grid-template-columns de la table · ex: "60px 180px 1fr 120px" */
   cols: z.string(),
   headers: z.array(bilingualString).min(2).max(8),
@@ -2344,7 +2381,7 @@ export const asymmetricServicesSchema = z.object({
   h2_en: z.string(),
   intro_fr: z.string().optional(),
   intro_en: z.string().optional(),
-  background: z.enum(['paper', 'paper-2']).default('paper'),
+  background: z.enum(['paper', 'paper-2', 'ink']).default('paper'),
   items: z
     .array(
       z.object({
@@ -2663,7 +2700,7 @@ export const contactFormSchema = z.object({
 // Section prise de RDV : embed CalEmbed + copy de réassurance.
 export const bookingEmbedSchema = z.object({
   type: z.literal('booking-embed'),
-  background: z.enum(['paper', 'paper-2', 'paper-3']).optional(),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -2753,7 +2790,7 @@ export const articleGridSchema = z.object({
   h2_en: z.string().optional(),
   intro_fr: z.string().optional(),
   intro_en: z.string().optional(),
-  background: z.enum(['paper', 'paper-2', 'paper-3']).default('paper'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
   columns: z.enum(['2', '3']).default('3'),
   articles: z
     .array(
@@ -2785,7 +2822,7 @@ export const resourceCardGridSchema = z.object({
   h2_en: z.string().optional(),
   intro_fr: z.string().optional(),
   intro_en: z.string().optional(),
-  background: z.enum(['paper', 'paper-2', 'paper-3']).default('paper'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
   columns: z.enum(['2', '3']).default('3'),
   resources: z
     .array(
