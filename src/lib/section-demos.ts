@@ -1028,6 +1028,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   },
   'stat-block': {
     type: 'stat-block',
+    background: 'ink',
     h2_fr: 'Signal <i>terrain</i>',
     h2_en: 'Field <i>signal</i>',
     quote_fr: "En cinq jours, nous avions un workflow déployé et un plan d'action validé par le comité.",
@@ -2299,7 +2300,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     models: [
       { name: 'Claude Haiku 4.5', version: '4.5', cost: '€', context: '200K tokens', use_case_fr: 'Triage, classification, scoring, tâches répétitives à fort volume', use_case_en: 'Triage, classification, scoring, high-volume repetitive tasks' },
       { name: 'Claude Sonnet 4.6', version: '4.6', cost: '€€', context: '1M tokens', use_case_fr: 'Rédaction, analyse, agents, la plupart des workflows enterprise', use_case_en: 'Writing, analysis, agents, most enterprise workflows' },
-      { name: 'Claude Opus 4.7', version: '4.7', cost: '€€€', context: '1M tokens', use_case_fr: 'Raisonnement complexe, stratégie, audit critique, cas exigeants', use_case_en: 'Complex reasoning, strategy, critical audit, demanding cases' },
+      { name: 'Claude Opus 4.8', version: '4.8', cost: '€€€', context: '1M tokens', use_case_fr: 'Raisonnement complexe, stratégie, audit critique, cas exigeants', use_case_en: 'Complex reasoning, strategy, critical audit, demanding cases' },
     ],
   },
   'tech-when-dual': {
