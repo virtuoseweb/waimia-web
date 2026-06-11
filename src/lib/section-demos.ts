@@ -353,16 +353,16 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   // >>> [gen-trust-proof] start
   'trust-badges-band': {
     type: 'trust-badges-band',
-    background: 'paper',
-    kicker_fr: 'Réassurance',
-    kicker_en: 'Reassurance',
-    h2_fr: 'Vos données restent <i>les vôtres</i>',
-    h2_en: 'Your data stays <i>yours</i>',
+    background: 'ink',
+    variant: 'strip',
+    kicker_fr: 'Confiance',
+    kicker_en: 'Trust',
     badges: [
-      { glyph: '⚿', label_fr: 'Conformité RGPD', label_en: 'GDPR compliant', value_fr: 'Données UE', value_en: 'EU data' },
-      { glyph: '◉', label_fr: 'Hébergement', label_en: 'Hosting', value_fr: 'France · OVHcloud', value_en: 'France · OVHcloud' },
-      { glyph: '✓', label_fr: 'Chiffrement', label_en: 'Encryption', value_fr: 'TLS 1.3 · AES-256', value_en: 'TLS 1.3 · AES-256' },
-      { glyph: '↺', label_fr: 'Réversibilité', label_en: 'Reversibility', value_fr: 'Export à tout moment', value_en: 'Export anytime' },
+      { label_fr: 'Partenaire Anthropic', label_en: 'Anthropic partner' },
+      { label_fr: 'Claude Certified Architect', label_en: 'Claude Certified Architect' },
+      { label_fr: 'AI Act ready', label_en: 'AI Act ready' },
+      { label_fr: 'RGPD', label_en: 'GDPR' },
+      { label_fr: 'ISO 27001', label_en: 'ISO 27001' },
     ],
   },
   'testimonial-logo-metric': {
@@ -2918,6 +2918,72 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     cta_note_en: 'Starting from a flat-rate pilot, satisfied or refunded within 30 days.',
   },
   // <<< [new-standard] end
+  // >>> [sections-gap] start
+  'diagnostic-stages': {
+    type: 'diagnostic-stages',
+    background: 'paper-2',
+    kicker_fr: 'Auto-diagnostic',
+    kicker_en: 'Self-assessment',
+    h2_fr: 'Où en <i>êtes-vous</i> ?',
+    h2_en: 'Where do <i>you</i> stand?',
+    lede_fr: 'Situez votre organisation sur la trajectoire d’adoption des agents IA, puis choisissez la prochaine étape concrète.',
+    lede_en: 'Place your organisation on the AI-agent adoption path, then pick the next concrete step.',
+    stages: [
+      { glyph: '○', title_fr: 'Curiosité', title_en: 'Curiosity', body_fr: 'Vous explorez l’IA générative en ordre dispersé, sans cas d’usage prioritaire.', body_en: 'You explore generative AI in a scattered way, without a priority use case.', phase_fr: 'Phase 0', phase_en: 'Phase 0', href: '/offres/audit-ia' },
+      { glyph: '◔', title_fr: 'Premiers tests', title_en: 'First trials', body_fr: 'Quelques prompts manuels en production, mais rien d’industrialisé ni de mesuré.', body_en: 'A few manual prompts in production, but nothing industrialised or measured.', phase_fr: 'Phase 1', phase_en: 'Phase 1', href: '/offres/pilote' },
+      { glyph: '◑', title_fr: 'Premier agent', title_en: 'First agent', body_fr: 'Un agent tourne sur un workflow ciblé, avec des résultats que vous suivez déjà.', body_en: 'One agent runs on a targeted workflow, with results you already track.', phase_fr: 'Phase 2', phase_en: 'Phase 2', href: '/offres/deploiement', current: true },
+      { glyph: '◕', title_fr: 'Mise à l’échelle', title_en: 'Scaling', body_fr: 'Plusieurs agents en production, une gouvernance et une trace de chaque décision.', body_en: 'Several agents in production, governance and a trace for every decision.', phase_fr: 'Phase 3', phase_en: 'Phase 3', href: '/offres/run' },
+      { glyph: '●', title_fr: 'Organisation augmentée', title_en: 'Augmented org', body_fr: 'Vos équipes composent leurs propres agents, l’IA est un réflexe de chaque métier.', body_en: 'Your teams compose their own agents, AI is a reflex across every function.', phase_fr: 'Phase 4', phase_en: 'Phase 4', href: '/agence' },
+    ],
+  },
+  'case-spotlight': {
+    type: 'case-spotlight',
+    variant: 'media-left',
+    kicker_fr: 'Un cas concret',
+    kicker_en: 'A concrete case',
+    title_fr: 'Un groupe de distribution divise sa <i>clôture</i> mensuelle par trois',
+    title_en: 'A retail group <i>cuts</i> its monthly close by three',
+    media_src: '/images/cases/finance-close.svg',
+    media_alt: 'Tableau de bord de clôture comptable augmentée par agents Waimia',
+    media_caption: 'Clôture J+3 · réconciliation automatisée',
+    quote_fr: 'En deux semaines, un agent comptable utilisé quotidiennement a divisé notre clôture par trois.',
+    quote_en: 'In two weeks, a daily-used accounting agent cut our monthly close by three.',
+    attribution_fr: 'Directrice financière · Groupe distribution',
+    attribution_en: 'CFO · Retail group',
+    metrics: [
+      { k: '−72%', label_fr: 'temps de clôture mensuelle', label_en: 'monthly close time' },
+      { k: '92%', label_fr: 'précision des écritures auto', label_en: 'auto-entry accuracy' },
+      { k: '2 sem.', label_fr: 'jusqu’à la mise en production', label_en: 'to production' },
+    ],
+    tags: [
+      { fr: 'Finance', en: 'Finance' },
+      { fr: 'Comptabilité', en: 'Accounting' },
+      { fr: 'Agent souverain', en: 'Sovereign agent' },
+    ],
+    cta_href: '/cas',
+    cta_label_fr: 'Lire le cas complet',
+    cta_label_en: 'Read the full case',
+  },
+  'testimonial-metrics': {
+    type: 'testimonial-metrics',
+    background: 'ink',
+    variant: 'quote-left',
+    kicker_fr: 'Preuve client',
+    kicker_en: 'Client proof',
+    quote_fr: 'En deux semaines, un agent commercial utilisé quotidiennement a redessiné notre pipeline. La conformité a validé sans réserve.',
+    quote_en: 'In two weeks, a daily-used sales agent reshaped our pipeline. Compliance signed off without reservation.',
+    author: 'Responsable revenue',
+    role_fr: 'Direction commerciale',
+    role_en: 'Revenue lead',
+    company: 'Scale-up B2B',
+    metrics: [
+      { k: '×2,4', label_fr: 'leads qualifiés par mois', label_en: 'qualified leads per month' },
+      { k: '−62%', label_fr: 'temps de qualification', label_en: 'qualification time' },
+      { k: '2,4 h', label_fr: 'gagnées par commercial / jour', label_en: 'saved per rep per day' },
+      { k: '+2,4 M€', label_fr: 'de pipeline débloqué', label_en: 'pipeline unlocked' },
+    ],
+  },
+  // <<< [sections-gap] end
 };
 
 export function getSectionDemo(type: SectionType): DemoData | undefined {

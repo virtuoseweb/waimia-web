@@ -1,0 +1,204 @@
+---
+// Section catalogue · case-spotlight (catégorie Case Sections)
+// Vitrine de cas concret insérable partout (levier conversion) : carte INK pleine largeur
+// avec visuel habillé à gauche + bloc droit = titre serti d'un relevé accent, citation à
+// barre accent, métriques massives latérales, tags méta mono et CTA. Pattern source :
+// maquette ref-finance-compta « Un cas concret » (carte INK + métriques + citation barre accent).
+// Image stylisée DANS un bloc composé (directive 44 §6 : pas de media-block brut).
+// Typo (directive docs/41) : titre en var(--font-sans), <i> serif réservé au relevé d'un mot.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'case-spotlight'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const title = isFr ? data.title_fr : data.title_en;
+const quote = isFr ? data.quote_fr : data.quote_en;
+const attribution = isFr ? data.attribution_fr : data.attribution_en;
+const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
+const metrics = data.metrics ?? [];
+const tags = data.tags ?? [];
+const variant = data.variant ?? 'media-left';
+---
+<section class="cspot" data-bg={data.background ?? 'ink'} data-variant={variant}>
+  <div class="wrap-wide">
+    {kicker && <Kicker tone="accent" class="cspot__kicker reveal">{kicker}</Kicker>}
+    <div class="cspot__card reveal">
+      {data.media_src && (
+        <figure class="cspot__media">
+          <img src={data.media_src} alt={data.media_alt ?? ''} loading="lazy" decoding="async" />
+          {data.media_caption && <figcaption>{isFr ? data.media_caption : data.media_caption}</figcaption>}
+        </figure>
+      )}
+      <div class="cspot__body">
+        {tags.length > 0 && (
+          <ul class="cspot__tags">
+            {tags.map((t) => <li>{isFr ? t.fr : t.en}</li>)}
+          </ul>
+        )}
+        <h3 class="cspot__title" set:html={title} />
+        {quote && (
+          <blockquote class="cspot__quote">
+            <p set:html={quote} />
+            {attribution && <cite class="cspot__cite">{attribution}</cite>}
+          </blockquote>
+        )}
+        {metrics.length > 0 && (
+          <div class="cspot__metrics" style={`--cs-mcols:${Math.min(metrics.length, 3)}`}>
+            {metrics.map((m) => (
+              <div class="cspot__metric">
+                <span class="cspot__metric-k">{m.k}</span>
+                <span class="cspot__metric-l">{isFr ? m.label_fr : m.label_en}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        {data.cta_href && ctaLabel && (
+          <a class="btn btn-accent cspot__cta" href={data.cta_href}>{ctaLabel}</a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cspot { padding-block: var(--section-base); }
+  .cspot[data-bg='paper-2'] { background: var(--paper-2); }
+  .cspot[data-bg='paper-3'] { background: var(--paper-3); }
+
+  :global(.cspot__kicker) { margin-bottom: var(--space-5); }
+
+  .cspot__card {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(var(--space-6), 4vw, var(--space-10));
+    align-items: stretch;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    padding: clamp(var(--space-6), 3vw, var(--space-9));
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.16);
+  }
+  .cspot[data-bg='paper-2'] .cspot__card,
+  .cspot[data-bg='paper-3'] .cspot__card { box-shadow: var(--shadow-card-rest); }
+  .cspot[data-variant='media-right'] .cspot__card { grid-template-columns: 7fr 5fr; }
+  .cspot[data-variant='media-right'] .cspot__media { order: 2; }
+
+  .cspot__media {
+    margin: 0;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: rgba(var(--paper-rgb), 0.04);
+    display: flex;
+    flex-direction: column;
+  }
+  .cspot__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cspot__media figcaption {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--muted);
+    padding: var(--space-3) var(--space-4);
+    border-top: 1px solid var(--hairline);
+  }
+
+  .cspot__body { display: flex; flex-direction: column; gap: var(--space-5); }
+
+  .cspot__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .cspot__tags li {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-full);
+    padding: 3px var(--space-3);
+  }
+
+  .cspot__title {
+    font-family: var(--font-sans);
+    font-size: clamp(26px, 3.4vw, 44px);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    margin: 0;
+    color: var(--paper);
+  }
+  .cspot__title :global(i) { font-family: var(--font-display); font-style: italic; }
+  .cspot__title :global(.acc) { color: var(--accent); }
+
+  .cspot__quote {
+    margin: 0;
+    padding-left: var(--space-5);
+    border-left: 2px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .cspot__quote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(18px, 1.9vw, 24px);
+    line-height: var(--leading-h3);
+    color: var(--paper);
+    margin: 0;
+  }
+  .cspot__cite {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  .cspot__metrics {
+    display: grid;
+    grid-template-columns: repeat(var(--cs-mcols, 3), 1fr);
+    gap: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--hairline);
+  }
+  .cspot__metric { display: flex; flex-direction: column; gap: var(--space-2); }
+  .cspot__metric-k {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+  }
+  .cspot__metric-l {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: 22ch;
+  }
+
+  .cspot__cta { align-self: flex-start; margin-top: var(--space-2); }
+
+  @media (max-width: 860px) {
+    .cspot__card,
+    .cspot[data-variant='media-right'] .cspot__card { grid-template-columns: 1fr; }
+    .cspot[data-variant='media-right'] .cspot__media { order: 0; }
+    .cspot__metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .cspot__metrics { grid-template-columns: 1fr; }
+  }
+</style>

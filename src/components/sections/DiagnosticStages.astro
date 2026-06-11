@@ -1,0 +1,186 @@
+---
+// Section catalogue · diagnostic-stages (catégorie Conversion Sections)
+// Auto-diagnostic « Où en êtes-vous ? » : 4 à 6 stades de maturité en cards horizontales
+// cliquables (glyph + n° + titre + description + phase méta + lien). Le stade `current`
+// est relevé en accent (« vous êtes ici ») pour situer le visiteur et l'orienter vers
+// l'étape suivante → levier de conversion + qualification. Pattern source : maquette
+// ref-finance-compta « Où en êtes-vous ? » (5 stades, stade actif accent).
+// Typo (directive docs/41) : titres en var(--font-sans), <i> serif réservé au relevé d'un mot.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'diagnostic-stages'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const stages = data.stages;
+---
+<section class="diag" data-bg={data.background}>
+  <div class="wrap-wide">
+    {(kicker || h2 || lede) && (
+      <header class="diag__head reveal">
+        {kicker && <Kicker tone="accent" class="diag__kicker">{kicker}</Kicker>}
+        {h2 && <h2 class="diag__h2" set:html={h2} />}
+        {lede && <p class="diag__lede">{lede}</p>}
+      </header>
+    )}
+    <ol class="diag__track reveal-stagger" style={`--diag-cols:${stages.length}`}>
+      {stages.map((s, i) => {
+        const title = isFr ? s.title_fr : s.title_en;
+        const body = isFr ? s.body_fr : s.body_en;
+        const phase = isFr ? s.phase_fr : s.phase_en;
+        const Wrapper = s.href ? 'a' : 'div';
+        return (
+          <li class="diag__stage" data-current={s.current ? 'true' : 'false'}>
+            <Wrapper class="diag__card" {...(s.href ? { href: s.href } : {})}>
+              <div class="diag__top">
+                <span class="diag__num">{String(i + 1).padStart(2, '0')}</span>
+                {s.glyph && <span class="diag__glyph" aria-hidden="true">{s.glyph}</span>}
+              </div>
+              {s.current && <span class="diag__here">{isFr ? 'Vous êtes ici' : 'You are here'}</span>}
+              <h3 class="diag__title" set:html={title} />
+              <p class="diag__body">{body}</p>
+              {phase && <span class="diag__phase">{phase}</span>}
+            </Wrapper>
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .diag { padding-block: var(--section-base); }
+  .diag[data-bg='paper-2'] { background: var(--paper-2); }
+  .diag[data-bg='paper-3'] { background: var(--paper-3); }
+  .diag[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+
+  .diag__head { max-width: var(--wrap-prose); margin-bottom: var(--space-9); }
+  :global(.diag__kicker) { margin-bottom: var(--space-3); }
+  .diag__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .diag__h2 :global(i) { font-family: var(--font-display); font-style: italic; }
+  .diag__h2 :global(.acc) { color: var(--accent); }
+  .diag__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 60ch;
+    margin: var(--space-4) 0 0;
+  }
+
+  .diag__track {
+    display: grid;
+    grid-template-columns: repeat(var(--diag-cols, 5), 1fr);
+    border-top: 1px solid var(--hairline);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: none;
+  }
+  .diag__stage { display: flex; border-right: 1px solid var(--hairline); }
+  .diag__stage:last-child { border-right: none; }
+
+  .diag__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--space-5);
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    border-top: 2px solid transparent;
+    margin-top: -1px;
+    transition: background .22s ease, border-color .22s ease;
+  }
+  a.diag__card:hover { background: rgba(var(--accent-rgb), 0.05); border-top-color: var(--accent); }
+
+  .diag__stage[data-current='true'] .diag__card {
+    background: rgba(var(--accent-rgb), 0.07);
+    border-top: 2px solid var(--accent);
+  }
+  .diag[data-bg='ink'] .diag__stage[data-current='true'] .diag__card {
+    background: rgba(var(--accent-rgb), 0.16);
+  }
+
+  .diag__top { display: flex; align-items: center; justify-content: space-between; }
+  .diag__num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1;
+    color: var(--muted);
+  }
+  .diag__stage[data-current='true'] .diag__num { color: var(--accent); }
+  .diag__glyph { font-size: 18px; line-height: 1; color: var(--muted); }
+  .diag__stage[data-current='true'] .diag__glyph { color: var(--accent); }
+
+  .diag__here {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-full);
+    padding: 2px var(--space-2);
+  }
+
+  .diag__title {
+    font-family: var(--font-sans);
+    font-size: clamp(17px, 1.6vw, 21px);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-medium);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .diag[data-bg='ink'] .diag__title { color: var(--paper); }
+  .diag__title :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
+  .diag__title :global(.acc) { color: var(--accent); }
+
+  .diag__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+  .diag__phase {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+
+  @media (max-width: 1000px) {
+    .diag__track { grid-template-columns: repeat(2, 1fr); }
+    .diag__stage { border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+    .diag__stage:nth-child(2n) { border-right: none; }
+  }
+  @media (max-width: 560px) {
+    .diag__track { grid-template-columns: 1fr; }
+    .diag__stage { border-right: none; }
+  }
+</style>
