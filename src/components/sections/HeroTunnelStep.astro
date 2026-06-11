@@ -18,6 +18,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const isHero = data.step === 1;
 const padStep = (n: number) => String(n).padStart(2, '0');
+const bg = data.type === 'hero-tunnel-step' ? data.background : undefined;
 const tshKicker =
   data.type === 'tunnel-step-hero'
     ? (isFr
@@ -57,7 +58,7 @@ const tshKicker =
   <p class="tunnel-step-hero__lede">{isFr ? data.lede_fr : data.lede_en}</p>
 </section>
 ) : (
-<section class="hero-tunnel-step wrap-wide">
+<section class="hero-tunnel-step wrap-wide" data-bg={bg}>
   <Kicker as="p" tone="accent" letterSpacing=".10em" class="hero-tunnel-step__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
   <div
     class="hero-tunnel-step__progress"
@@ -222,4 +223,16 @@ const tshKicker =
     }
     .tunnel-step-hero__progress-step:last-child { border-bottom: none; }
   }
+
+  /* ── Variantes de fond hero-tunnel-step (defaut clair sans data-bg = inchange) ── */
+  .hero-tunnel-step[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-tunnel-step[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-tunnel-step[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .hero-tunnel-step[data-bg='ink'] .hero-tunnel-step__h1 { color: var(--paper); }
+  .hero-tunnel-step[data-bg='ink'] .hero-tunnel-step__lede { color: rgba(var(--paper-rgb), 0.8); }
 </style>

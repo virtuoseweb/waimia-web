@@ -45,7 +45,7 @@ const cfWrapStyle = wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined;
 const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-conversion-funnel__num';
 ---
 {data.type === 'hero-conversion-funnel' ? (
-<section class="hero-conversion-funnel">
+<section class="hero-conversion-funnel" data-bg={data.background}>
   <div class="wrap-wide" style={cfWrapStyle}>
     <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
     <h1 class="hero-conversion-funnel__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
@@ -103,7 +103,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   </div>
 </section>
 ) : isPillar ? (
-<section class="hero-pillar-hub">
+<section class="hero-pillar-hub" data-bg={data.background}>
   <div class="wrap-wide">
     <Kicker class="hero-pillar-hub__meta">{isFr ? data.meta_kicker_fr : data.meta_kicker_en}</Kicker>
     <Kicker tone="accent" class="hero-pillar-hub__num">§ {data.hub_num}</Kicker>
@@ -124,7 +124,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   </div>
 </section>
 ) : (
-<section class="hero-hub-stats">
+<section class="hero-hub-stats" data-bg={data.background}>
   <div class="wrap-wide">
     <Kicker class="hero-hub-stats__meta">{isFr ? data.meta_kicker_fr : data.meta_kicker_en}</Kicker>
     <Kicker tone="accent" class="hero-hub-stats__num">§ {data.hub_num}</Kicker>
@@ -211,6 +211,20 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     .hero-hub-stats__cell:nth-child(2n) { border-right: none; }
   }
 
+  /* ── hero-hub-stats · fonds optionnels (defaut clair inchange) ────────── */
+  .hero-hub-stats[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-hub-stats[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-hub-stats[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .hero-hub-stats[data-bg='ink'] .hero-hub-stats__h1 { color: var(--paper); }
+  .hero-hub-stats[data-bg='ink'] .hero-hub-stats__value { color: var(--paper); }
+  .hero-hub-stats[data-bg='ink'] .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent); }
+
   /* ── hero-pillar-hub (copie byte-identique depuis HeroPillarHub.astro) ─── */
   .hero-pillar-hub { padding: calc(var(--header-height) + 24px) var(--space-6) 0; }
   :global(.hero-pillar-hub__meta) { display: inline-flex; gap: var(--space-2); margin-bottom: var(--space-5); }
@@ -263,6 +277,20 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     }
     .hero-pillar-hub__stats :global(.key-metric:last-child) { border-bottom: none; }
   }
+
+  /* ── hero-pillar-hub · fonds optionnels (defaut clair inchange) ───────── */
+  .hero-pillar-hub[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-pillar-hub[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-pillar-hub[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .hero-pillar-hub[data-bg='ink'] .hero-pillar-hub__h1 { color: var(--paper); }
+  .hero-pillar-hub[data-bg='ink'] :global(.key-metric-value) { color: var(--paper); }
+  .hero-pillar-hub[data-bg='ink'] :global(.key-metric-accent .key-metric-value) { color: var(--accent); }
 
   /* ── hero-conversion-funnel ────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-conversion-funnel` (collision max-width). */
@@ -376,4 +404,24 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     .hero-conversion-funnel__stats { grid-template-columns: 1fr 1fr; }
     .hero-conversion-funnel__benefits ul { grid-template-columns: 1fr; }
   }
+
+  /* ── hero-conversion-funnel · fonds optionnels (defaut clair inchange) ── */
+  .hero-conversion-funnel[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-conversion-funnel[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-conversion-funnel[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.78);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__h1 { color: var(--paper); }
+  .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__benefits li { color: rgba(var(--paper-rgb), 0.86); }
+  .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__meta span {
+    background: rgba(var(--paper-rgb), 0.06);
+    border-color: rgba(var(--paper-rgb), 0.28);
+  }
+  .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__stat-value { color: var(--paper); }
+  .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent); }
 </style>

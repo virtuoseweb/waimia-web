@@ -15,7 +15,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="hero-form-inline">
+<section class="hero-form-inline" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="hero-form-inline__grid">
       <div class="hero-form-inline__copy">
@@ -118,5 +118,26 @@ const isFr = lang === 'fr';
   }
   @media (max-width: 880px) {
     .hero-form-inline__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Variantes de fond (defaut clair sans data-bg = rendu inchange) ── */
+  .hero-form-inline[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-form-inline[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-form-inline[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .hero-form-inline[data-bg='ink'] .hero-form-inline__h1 { color: var(--paper); }
+  .hero-form-inline[data-bg='ink'] .hero-form-inline__lede { color: rgba(var(--paper-rgb), 0.8); }
+  /* La carte formulaire reste un panneau clair lisible : on restaure le contexte
+     clair (couleur + tokens muted/hairline) a l'interieur, sinon le texte du form
+     herite du paper de la section et devient illisible sur la carte claire. */
+  .hero-form-inline[data-bg='ink'] .hero-form-inline__panel {
+    color: var(--ink);
+    border-color: rgba(var(--ink-rgb), 0.12);
+    --muted: rgba(var(--ink-rgb), 0.6);
+    --hairline: rgba(var(--ink-rgb), 0.12);
   }
 </style>

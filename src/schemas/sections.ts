@@ -94,6 +94,7 @@ const timelineEventSchema = z.object({
 // HERO variants
 export const heroSplitSchema = z.object({
   type: z.literal('hero-split'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h1_fr: z.string(),
@@ -160,6 +161,7 @@ export const heroServiceDetailSchema = z.object({
 // Hero · page pilier / hub (h1 le plus monumental, stats-grid 4-col optionnelle)
 export const heroPillarHubSchema = z.object({
   type: z.literal('hero-pillar-hub'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   meta_kicker_fr: z.string(),
   meta_kicker_en: z.string(),
   hub_num: z.string(),
@@ -259,6 +261,7 @@ export const heroProblemIndexSchema = z.object({
 // Hero · cas client par secteur (SolutionsDetailTemplate) · dept + h1 + lead italique + CTA + tags
 export const heroSectorSchema = z.object({
   type: z.literal('hero-sector'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   hero_variant: z.enum(['equilibre', 'showcase', 'encadre']).optional(),
   dept_fr: z.string(),
   dept_en: z.string(),
@@ -399,6 +402,7 @@ export const listIndexSectionSchema = z.object({
 // Hero · détail d'une offre (OffresDetailTemplate) · cercles concentriques + tier + h1 + lead + CTA
 export const heroOfferDetailSchema = z.object({
   type: z.literal('hero-offer-detail'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   hero_variant: z.enum(['equilibre', 'showcase', 'encadre']).optional(),
   breadcrumb_label_fr: z.string().optional(),
   breadcrumb_label_en: z.string().optional(),
@@ -426,6 +430,7 @@ export const heroOfferDetailSchema = z.object({
 // Hero · couche technologique (TechnologiesDetailTemplate) · triangles SVG + layer badge + h1 + lead + CTA
 export const heroTechLayerSchema = z.object({
   type: z.literal('hero-tech-layer'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   layer_type: z.enum(['claude', 'os', 'orch']).default('claude'),
   layer_label_fr: z.string(),
   layer_label_en: z.string(),
@@ -441,6 +446,7 @@ export const heroTechLayerSchema = z.object({
 // Hero · entonnoir conversion flagship (ConversionFunnelTemplate) · meta pills + benefits + proof + 2 CTA + stats
 export const heroConversionFunnelSchema = z.object({
   type: z.literal('hero-conversion-funnel'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   funnel_num: z.string(),
   h1_fr: z.string(),
   h1_en: z.string(),
@@ -483,6 +489,7 @@ export const heroConversionFunnelSchema = z.object({
 // Hero · hub avec stats (HubTemplate) · meta_kicker + num + h1 maximal + lede + KeyMetric grid 4-col
 export const heroHubStatsSchema = z.object({
   type: z.literal('hero-hub-stats'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   meta_kicker_fr: z.string(),
   meta_kicker_en: z.string(),
   hub_num: z.string(),
@@ -529,6 +536,7 @@ export const heroDetailMenuSchema = z.object({
 // Hero · page auteur (AuthorPageTemplate) · breadcrumb équipe + role eyebrow + h1 split lead+accent + lede + portrait
 export const heroAuthorSchema = z.object({
   type: z.literal('hero-author'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   team_label_fr: z.string().optional(),
   team_label_en: z.string().optional(),
   team_href: z.string().optional(),
@@ -544,6 +552,7 @@ export const heroAuthorSchema = z.object({
 // Hero · lead magnet (LeadMagnetTemplate) · 2-col texte/cover + meta + download card
 export const heroLeadMagnetSchema = z.object({
   type: z.literal('hero-lead-magnet'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h1_fr: z.string(),
@@ -587,6 +596,7 @@ export const heroCourseSchema = z.object({
 // Hero · étape tunnel (TunnelStepTemplate) · kicker + progress bar [NN] + h1 (hero ou section) + lede
 export const heroTunnelStepSchema = z.object({
   type: z.literal('hero-tunnel-step'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   step: z.number().int().min(1),
@@ -2539,6 +2549,7 @@ export const pricingSingleHighlightSchema = z.object({
 // hero-form-inline · hero de capture lead above-the-fold (copy + form email/CTA).
 export const heroFormInlineSchema = z.object({
   type: z.literal('hero-form-inline'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h1_fr: z.string(),
@@ -2556,6 +2567,7 @@ export const heroFormInlineSchema = z.object({
 // hero-social-proof · hero centré + bande de preuve sociale (stats + rating) above-fold.
 export const heroSocialProofSchema = z.object({
   type: z.literal('hero-social-proof'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h1_fr: z.string(),

@@ -29,7 +29,7 @@ const offerSumie =
 ---
 
 {data.type === 'hero-tech-layer' ? (
-  <section class:list={['hero-tech-layer', `hero-tech-layer--${layerType}`]} transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+  <section class:list={['hero-tech-layer', `hero-tech-layer--${layerType}`]} data-bg={data.background} transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
     <svg class:list={['hero-tech-layer__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
       <polygon points="1100,80 1340,80 1220,300" fill="none" stroke="currentColor" stroke-width=".6" opacity=".18"/>
       <polygon points="1160,140 1320,140 1240,280" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".25"/>
@@ -53,6 +53,7 @@ const offerSumie =
 ) : (
   <section
     class:list={['hero-detail', `hero-detail--${heroVariant}`, data.type === 'hero-sector' ? 'hero-sector' : 'hero-offer-detail', 'reveal']}
+    data-bg={data.background}
     transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}
   >
     <div class="hero-detail__wrap" style={wrapMax ? `--hod-wrap: ${wrapMax}` : undefined}>
@@ -332,5 +333,47 @@ const offerSumie =
     .hero-detail__meta--copy { margin-top: var(--space-6); }
     .hero-detail__sumie { min-width: 0; }
     .hero-tech-layer__sub { grid-template-columns: 1fr; }
+  }
+
+  /* ── Variantes de fond (defaut clair sans data-bg = rendu inchange) ── */
+  /* hero-detail : sert hero-sector + hero-offer-detail (meme root .hero-detail) */
+  .hero-detail[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-detail[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-detail[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --ink-2: rgba(var(--paper-rgb), 0.5);
+  }
+  .hero-detail[data-bg='ink'] :is(h1, h2, h3) { color: var(--paper); }
+  .hero-detail[data-bg='ink'] .hero-detail__lead { color: rgba(var(--paper-rgb), 0.8); }
+  .hero-detail[data-bg='ink'] .hero-detail__geo { color: rgba(var(--paper-rgb), 0.85); }
+  .hero-detail[data-bg='ink'] .hero-detail__tag {
+    color: var(--paper);
+    background: rgba(var(--paper-rgb), 0.06);
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+  .hero-detail[data-bg='ink'].hero-detail--encadre .hero-detail__visual {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+
+  /* hero-tech-layer */
+  .hero-tech-layer[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-tech-layer[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-tech-layer[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .hero-tech-layer[data-bg='ink'] :is(h1, h2, h3) { color: var(--paper); }
+  .hero-tech-layer[data-bg='ink'] .hero-tech-layer__lead { color: rgba(var(--paper-rgb), 0.8); }
+  .hero-tech-layer[data-bg='ink'] .hero-tech-layer__layer--os,
+  .hero-tech-layer[data-bg='ink'] .hero-tech-layer__layer--orch { color: var(--paper); }
+  .hero-tech-layer[data-bg='ink'] .hero-tech-layer__cta {
+    background: var(--paper);
+    color: var(--ink);
   }
 </style>

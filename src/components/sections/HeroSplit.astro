@@ -29,7 +29,7 @@ const isFr = lang === 'fr';
 ---
 
 {data.type === 'hero-author' ? (
-  <section class="hero-author" transition:name={transitionId ? `card-${transitionId}` : undefined}>
+  <section class="hero-author" data-bg={data.background} transition:name={transitionId ? `card-${transitionId}` : undefined}>
     <div class="hero-author__copy">
       {data.team_label_fr && (
         <nav class="hero-author__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
@@ -60,7 +60,7 @@ const isFr = lang === 'fr';
     </figure>
   </section>
 ) : data.type === 'hero-lead-magnet' ? (
-  <section class="hero-lead-magnet" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+  <section class="hero-lead-magnet" data-bg={data.background} transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
     <div class="wrap-wide hero-lead-magnet__grid">
       <div class="hero-lead-magnet__text">
         <Kicker tone="accent" class="hero-lead-magnet__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -98,7 +98,7 @@ const isFr = lang === 'fr';
     </div>
   </section>
 ) : (
-<section class="hero-split">
+<section class="hero-split" data-bg={data.background}>
   <div class="wrap-wide">
   <div class="hero-split__inner">
     <div class="hero-split__left">
@@ -186,6 +186,23 @@ const isFr = lang === 'fr';
   @media (max-width: 768px) {
     .hero-split__inner { grid-template-columns: 1fr; }
     .hero-split__right { display: none; }
+  }
+
+  /* ── hero-split · fonds optionnels (defaut clair inchange) ─────────────── */
+  .hero-split[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-split[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-split[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .hero-split[data-bg='ink'] h1,
+  .hero-split[data-bg='ink'] p { color: var(--paper); }
+  .hero-split[data-bg='ink'] .hero-split__right {
+    border-color: rgba(var(--paper-rgb), 0.16);
+    background: rgba(var(--paper-rgb), 0.04);
   }
 
   /* ── hero-author (déjà qualifié à la source) ───────────────────────────── */
@@ -286,6 +303,22 @@ const isFr = lang === 'fr';
     .hero-author__h1 { font-size: clamp(64px, 18vw, 92px); }
   }
 
+  /* ── hero-author · fonds optionnels (defaut clair inchange) ───────────── */
+  .hero-author[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-author[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-author[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.78);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .hero-author[data-bg='ink'] .hero-author__h1 { color: var(--paper); }
+  .hero-author[data-bg='ink'] .hero-author__lede { color: rgba(var(--paper-rgb), 0.78); }
+  .hero-author[data-bg='ink'] .hero-author__bc { color: rgba(var(--paper-rgb), 0.64); }
+  .hero-author[data-bg='ink'] .hero-author__portrait { color: var(--paper); }
+  .hero-author[data-bg='ink'] .hero-author__portrait-frame { border-color: rgba(var(--paper-rgb), 0.16); }
+
   /* ── hero-lead-magnet ──────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-lead-magnet` (collision max-width). */
   .hero-lead-magnet { padding: 140px var(--space-6) clamp(40px, 5vw, 72px); border-bottom: 1px solid var(--hairline); }
@@ -359,5 +392,25 @@ const isFr = lang === 'fr';
   }
   @media (max-width: 768px) {
     .hero-lead-magnet__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── hero-lead-magnet · fonds optionnels (defaut clair inchange) ──────── */
+  .hero-lead-magnet[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-lead-magnet[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-lead-magnet[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.78);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .hero-lead-magnet[data-bg='ink'] .hero-lead-magnet__h1 { color: var(--paper); }
+  .hero-lead-magnet[data-bg='ink'] .hero-lead-magnet__lede { color: rgba(var(--paper-rgb), 0.78); }
+  .hero-lead-magnet[data-bg='ink'] .hero-lead-magnet__meta { color: rgba(var(--paper-rgb), 0.64); }
+  .hero-lead-magnet[data-bg='ink'] .hero-lead-magnet__download-label { color: rgba(var(--paper-rgb), 0.64); }
+  .hero-lead-magnet[data-bg='ink'] .hero-lead-magnet__cover {
+    border-color: rgba(var(--paper-rgb), 0.28);
+    background: rgba(var(--paper-rgb), 0.06);
   }
 </style>

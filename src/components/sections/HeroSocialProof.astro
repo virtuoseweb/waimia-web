@@ -15,9 +15,10 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const stats = data.stats.map((s) => ({ k: s.k, label_fr: s.label_fr, label_en: s.label_en }));
+const statTone = data.background === 'ink' ? 'ink' : 'paper';
 ---
 
-<section class="hero-social-proof">
+<section class="hero-social-proof" data-bg={data.background}>
   <div class="wrap-tight hero-social-proof__head">
     {(isFr ? data.kicker_fr : data.kicker_en) && (
       <Kicker tone="accent">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -42,7 +43,7 @@ const stats = data.stats.map((s) => ({ k: s.k, label_fr: s.label_fr, label_en: s
     )}
   </div>
   <div class="wrap-wide hero-social-proof__band reveal reveal-fade">
-    <StatRow stats={stats} tone="paper" />
+    <StatRow stats={stats} tone={statTone} />
   </div>
 </section>
 
@@ -102,4 +103,16 @@ const stats = data.stats.map((s) => ({ k: s.k, label_fr: s.label_fr, label_en: s
   @media (max-width: 700px) {
     .hero-social-proof__band { margin-top: var(--space-6); }
   }
+
+  /* ── Variantes de fond (defaut clair sans data-bg = rendu inchange) ── */
+  .hero-social-proof[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-social-proof[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-social-proof[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .hero-social-proof[data-bg='ink'] .hero-social-proof__h1 { color: var(--paper); }
+  .hero-social-proof[data-bg='ink'] .hero-social-proof__lede { color: rgba(var(--paper-rgb), 0.8); }
 </style>
