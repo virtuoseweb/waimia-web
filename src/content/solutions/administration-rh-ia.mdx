@@ -52,7 +52,7 @@ stack:
     role_fr: "Extraction des notes de frais, classement documentaire, réponses répétitives."
     role_en: "Expense report extraction, document filing, repetitive answers."
     category: "Modèle volume"
-  - name: "Claude Opus 4.7"
+  - name: "Claude Opus 4.8"
     role_fr: "Rédaction de contrats, courriers RH et procédures d'onboarding."
     role_en: "Contract drafting, HR letters and onboarding procedures."
     category: "Modèle créatif"
@@ -101,7 +101,7 @@ sections:
     h1_fr: "Administration<br/>& <i>RH</i>"
     h1_en: "Administration<br/>& <i>HR</i>"
     lead_fr: "L'administratif RH qui se traite sans vous accaparer. Onboarding, paie, notes de frais, demandes internes : le répétitif part en pilote, l'humain garde le jugement."
-    lead_en: "HR admin that handles itself without monopolising you. Onboarding, payroll, expense reports, internal requests: the repetitive goes on autopilot, the human keeps the judgement."
+    lead_en: "The HR admin that handles itself without monopolising you. Onboarding, payroll, expenses, internal requests: the repetitive goes on autopilot, the human keeps the judgement."
     cta:
       label_fr: "Parler à un expert →"
       label_en: "Talk to an expert →"
@@ -111,23 +111,14 @@ sections:
     meta_en: "HR · Office Manager · Leadership"
     tags:
       - { label_fr: "Onboarding", label_en: "Onboarding" }
-      - { label_fr: "Paie", label_en: "Payroll" }
       - { label_fr: "Notes de frais", label_en: "Expense reports" }
-      - { label_fr: "Documents", label_en: "Documents" }
       - { label_fr: "Demandes internes", label_en: "Internal requests" }
-  - type: "media-block"
-    background: "paper-2"
-    media_kind: "image"
-    display: "inset"
-    src: "/images/themes/theme-productivite.webp"
-    alt_fr: "Illustration éditoriale : une pile de documents à l'encre se classant d'elle-même en dossiers nets, le dossier traité en terracotta."
-    alt_en: "Editorial illustration: a stack of ink documents filing itself into clean folders, the processed folder in terracotta."
-    width: 1024
-    height: 1024
+      - { label_fr: "Documents", label_en: "Documents" }
+      - { label_fr: "Validation humaine", label_en: "Human validation" }
   - type: "pain-points"
-    background: "paper"
-    h2_fr: "<i>Points</i><br/>de friction"
-    h2_en: "<i>Friction</i><br/>points"
+    background: "paper-2"
+    h2_fr: "Le répétitif qui <i>déborde</i>"
+    h2_en: "The repetitive that <i>overflows</i>"
     items:
       - title_fr: "L'onboarding qui s'éternise"
         title_en: "The onboarding that drags on"
@@ -141,10 +132,23 @@ sections:
         title_en: "The same questions, again"
         body_fr: "Combien de jours de congé me reste-t-il ? Où est mon attestation ? Comment poser un RTT ? Les RH répondent dix fois par semaine aux mêmes questions, alors que la réponse existe déjà quelque part dans un document."
         body_en: "How many holiday days do I have left? Where's my certificate? How do I book a day off? HR answers the same questions ten times a week, even though the answer already lives somewhere in a document."
+  - type: "process-steps"
+    background: "ink"
+    kicker_fr: "L'arrivée, orchestrée"
+    kicker_en: "The arrival, orchestrated"
+    h2_fr: "De la signature au <i>premier jour</i>, sans liste manuelle."
+    h2_en: "From signature to <i>day one</i>, with no manual checklist."
+    intro_fr: "L'onboarding est le cas d'école : une cascade d'étapes prévisibles que l'humain ne devrait plus cocher à la main."
+    intro_en: "Onboarding is the textbook case: a cascade of predictable steps the human should no longer tick by hand."
+    steps:
+      - { title_fr: "Signature", title_en: "Signature", body_fr: "Dès le contrat signé, la cascade se déclenche. Aucune relance manuelle pour lancer le processus.", body_en: "The moment the contract is signed, the cascade triggers. No manual nudge to start the process.", meta_fr: "Jour 0", meta_en: "Day 0" }
+      - { title_fr: "Provisionnement", title_en: "Provisioning", body_fr: "Comptes, accès, boîte mail et outils créés et reliés au bon profil, sans oubli.", body_en: "Accounts, access, mailbox and tools created and linked to the right profile, nothing forgotten.", meta_fr: "Jours 1 à 3", meta_en: "Days 1 to 3" }
+      - { title_fr: "Documents", title_en: "Documents", body_fr: "Contrat, règlement, attestations générés depuis vos modèles et déposés à signer.", body_en: "Contract, policy, certificates generated from your templates and dropped for signature.", meta_fr: "Avant l'arrivée", meta_en: "Before arrival" }
+      - { title_fr: "Validation", title_en: "Validation", body_fr: "L'office manager relit une checklist déjà cochée et confirme. Il valide, il ne reconstitue plus.", body_en: "The office manager reviews an already-ticked checklist and confirms. They validate, no longer rebuild.", meta_fr: "Premier jour", meta_en: "Day one" }
   - type: "workflow-table"
     background: "paper-2"
-    h2_fr: "<i>Ce qu'on</i><br/>automatise"
-    h2_en: "<i>What we</i><br/>automate"
+    h2_fr: "<i>Le quotidien</i><br/>délesté"
+    h2_en: "<i>The daily grind</i><br/>offloaded"
     workflows:
       - num: "01"
         kicker_fr: "Onboarding"
@@ -181,47 +185,79 @@ sections:
         kicker_en: "Documents"
         title_fr: "Génération et classement"
         title_en: "Generation and filing"
-        model_fr: "Claude Opus 4.7<br/>+ Workspace"
-        model_en: "Claude Opus 4.7<br/>+ Workspace"
+        model_fr: "Claude Opus 4.8<br/>+ Workspace"
+        model_en: "Claude Opus 4.8<br/>+ Workspace"
         gain: "×4"
         how_fr: "Contrats, avenants, attestations générés depuis vos modèles, classés au bon endroit. La validation humaine reste sur chaque pièce qui engage l'entreprise."
         how_en: "Contracts, amendments, certificates generated from your templates, filed in the right place. Human validation stays on every document that binds the company."
-  - type: "roi-band"
-    h2_fr: "<i>Preuve</i> macro"
-    h2_en: "<i>Macro</i> proof"
+  - type: "editorial-table-block"
+    background: "paper"
+    kicker_fr: "La frontière"
+    kicker_en: "The boundary"
+    heading_fr: "<i>Ce qui part en pilote</i><br/>et ce qui reste humain"
+    heading_en: "<i>What goes on autopilot</i><br/>and what stays human"
+    caption_fr: "La ligne est nette : le répétitif s'automatise, la décision qui engage reste à l'humain"
+    caption_en: "The line is clear: the repetitive automates, the binding decision stays human"
+    columns_fr: ["Tâche RH", "Traitée par l'agent", "Décision humaine"]
+    columns_en: ["HR task", "Handled by the agent", "Human decision"]
+    rows_fr:
+      - ["Onboarding d'un nouvel arrivant", "Cascade comptes, accès, documents, matériel", "Choix du package et validation finale"]
+      - ["Note de frais", "Lecture, catégorisation, préparation au remboursement", "Validation de la dépense"]
+      - ["Question interne courante", "Réponse sourcée dans vos documents RH", "Cas particulier ou sensible"]
+      - ["Contrat ou avenant", "Génération depuis modèle, classement", "Relecture et signature"]
+    rows_en:
+      - ["Onboarding a new joiner", "Cascade of accounts, access, documents, equipment", "Package choice and final validation"]
+      - ["Expense report", "Reading, categorisation, reimbursement prep", "Expense approval"]
+      - ["Common internal question", "Answer sourced from your HR documents", "Edge or sensitive case"]
+      - ["Contract or amendment", "Template-based generation, filing", "Review and signature"]
+    variant: "editorial"
+  - type: "metric-callout-band"
+    background: "ink"
+    kicker_fr: "Le temps rendu aux RH"
+    kicker_en: "Time given back to HR"
+    context_fr: "Pas une promesse de RH sans humain. Une moyenne mesurée sur les services administratifs que nous avons délestés du répétitif, le jugement toujours humain."
+    context_en: "Not a promise of HR without humans. An average measured on the admin teams we have relieved of the repetitive, judgement always human."
     metrics:
       - value: "−68%"
-        label_fr: "temps administratif par recrue"
-        label_en: "admin time per hire"
+        label_fr: "temps d'onboarding par recrue"
+        label_en: "onboarding time per hire"
       - value: "48h"
-        label_fr: "délai de traitement notes de frais"
-        label_en: "expense report turnaround"
-      - value: "100%"
-        label_fr: "décisions RH validées humain"
-        label_en: "HR decisions human-validated"
+        label_fr: "délai de remboursement des frais"
+        label_en: "expense reimbursement delay"
       - value: "3,9×"
         label_fr: "ROI mesuré à 12 mois"
         label_en: "ROI measured at 12 months"
-  - type: "case-split"
+  - type: "case-spotlight"
+    background: "ink"
+    variant: "media-right"
     kicker_fr: "Déploiement client · ETI services (anonymisé)"
     kicker_en: "Client deployment · Mid-market services (anonymised)"
-    title_fr: "Une ETI de services.<br/><i>Temps administratif</i><br/>divisé par trois."
-    title_en: "A services mid-market firm.<br/><i>Admin time</i><br/>cut to a third."
-    body_fr: "Une ETI de services, sous accord de confidentialité, voyait sa fonction RH submergée par l'administratif : onboardings manuels, notes de frais en retard, mêmes questions internes en boucle. Waimia a déployé un système branché sur le SIRH et la base documentaire qui orchestre l'onboarding, extrait les notes de frais et répond aux demandes internes courantes, en laissant chaque décision sensible à un humain. Le temps administratif par recrue a chuté des deux tiers et l'équipe RH s'est recentrée sur l'accompagnement, pas la saisie."
-    body_en: "A services mid-market company, under NDA, watched its HR function drown in admin: manual onboardings, late expense reports, the same internal questions on a loop. Waimia deployed a system plugged into the HRIS and document base that orchestrates onboarding, extracts expense reports and answers common internal requests, leaving every sensitive decision to a human. Admin time per hire dropped by two thirds and the HR team refocused on support, not data entry."
-    cta_label_fr: "Voir nos cas clients →"
-    cta_label_en: "See our client cases →"
+    title_fr: "ETI de services.<br/>L'onboarding réduit aux <i>deux tiers</i>."
+    title_en: "Mid-market services firm.<br/>Onboarding cut by <i>two thirds</i>."
+    media_src: "/images/besoins/besoin-operer.webp"
+    media_alt: "Illustration éditoriale : administration RH orchestrée, le répétitif délesté."
+    media_caption: "Administration & RH IA"
+    quote_fr: "Notre office manager a arrêté de redouter les arrivées du lundi. Tout est prêt avant lui."
+    quote_en: "Our office manager stopped dreading Monday arrivals. Everything is ready before them."
+    attribution_fr: "Direction RH, ETI services"
+    attribution_en: "HR leadership, mid-market services firm"
+    metrics:
+      - k: "−68%"
+        label_fr: "temps d'onboarding"
+        label_en: "onboarding time"
+      - k: "48h"
+        label_fr: "remboursement des frais"
+        label_en: "expense reimbursement"
+      - k: "100%"
+        label_fr: "pièces validées par un humain"
+        label_en: "documents human-validated"
+    tags:
+      - { fr: "Onboarding", en: "Onboarding" }
+      - { fr: "Notes de frais", en: "Expenses" }
+      - { fr: "Demandes internes", en: "Internal requests" }
     cta_href: "/cas"
-    results:
-      - value: "−68%"
-        label_fr: "temps administratif\npar recrue"
-        label_en: "admin time\nper hire"
-      - value: "48h"
-        label_fr: "délai notes\nde frais"
-        label_en: "expense report\nturnaround"
-      - value: "100%"
-        label_fr: "décisions\nvalidées humain"
-        label_en: "decisions\nhuman-validated"
+    cta_label_fr: "Voir nos cas →"
+    cta_label_en: "See our cases →"
   - type: "department-stack"
     background: "paper-2"
     h2_fr: "<i>Outils</i><br/>déployés"
@@ -243,7 +279,7 @@ sections:
         role_en: "Expense report extraction, document filing, repetitive answers."
       - category_fr: "Modèle créatif"
         category_en: "Creative model"
-        tool: "Claude Opus 4.7"
+        tool: "Claude Opus 4.8"
         role_fr: "Rédaction de contrats, courriers RH et procédures d'onboarding."
         role_en: "Contract drafting, HR letters and onboarding procedures."
       - category_fr: "SIRH connecté"
@@ -261,9 +297,19 @@ sections:
         tool: "LangGraph"
         role_fr: "Orchestration des process multi-étapes avec validation humaine intégrée."
         role_en: "Multi-step process orchestration with built-in human validation."
+  - type: "trust-badges-band"
+    background: "ink"
+    variant: "cells"
+    kicker_fr: "Données sensibles, cadre tenu"
+    kicker_en: "Sensitive data, framework held"
+    badges:
+      - { glyph: "⚿", label_fr: "Données RH chiffrées", value_fr: "RGPD", label_en: "HR data encrypted", value_en: "GDPR" }
+      - { glyph: "✓", label_fr: "Validation humaine", value_fr: "sur chaque pièce", label_en: "Human validation", value_en: "on every document" }
+      - { glyph: "◉", label_fr: "Hébergement", value_fr: "UE", label_en: "Hosting", value_en: "EU" }
+      - { glyph: "§", label_fr: "Accès SIRH", value_fr: "gardé chez vous", label_en: "HRIS access", value_en: "kept with you" }
   - type: "department-cta"
     h2_fr: "Administratif traité.<br/>RH libérée."
     h2_en: "Admin handled.<br/>HR freed."
-    body_fr: "45 minutes. On regarde votre charge administrative RH actuelle, on chiffre les 3 process à fort ROI. Si on n'a rien à proposer, on le dit."
-    body_en: "45 minutes. We look at your current HR admin load, price the 3 high-ROI processes. If we have nothing to offer, we say so."
+    body_fr: "45 minutes. On regarde vos process RH actuels, on chiffre le répétitif à confier à un agent. Si on n'a rien à proposer, on le dit."
+    body_en: "45 minutes. We look at your current HR processes, price the repetitive to hand to an agent. If we have nothing to offer, we say so."
 ---
