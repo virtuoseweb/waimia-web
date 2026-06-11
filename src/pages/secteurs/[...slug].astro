@@ -99,8 +99,8 @@ const RECIPES: Record<string, SectorRecipe> = {
     caseAttribution_fr: 'Direction financière, Northbound Capital',
     caseAttribution_en: 'Finance leadership, Northbound Capital',
     caseTags: [{ fr: 'Clôture', en: 'Closing' }, { fr: 'Réconciliation', en: 'Reconciliation' }, { fr: 'Human-in-the-loop', en: 'Human-in-the-loop' }],
-    diag_lede_fr: "Quatre stades de maturité. Repérez le vôtre, on cible le premier workflow à câbler.",
-    diag_lede_en: 'Four maturity stages. Spot yours, we target the first workflow to wire.',
+    diag_lede_fr: "Quatre paliers de clôture. Repérez le vôtre, on câble d'abord l'étape qui vous coûte le plus de jours.",
+    diag_lede_en: 'Four closing tiers. Spot yours, we wire first the step that costs you the most days.',
     diagStages: [
       { glyph: '01', title_fr: 'Tout à la main', title_en: 'All by hand', body_fr: "Saisie, réconciliation et mémos sont 100 % manuels. La clôture prend 9 jours et plus.", body_en: 'Entry, reconciliation and memos are 100% manual. Closing takes 9 days and more.', phase_fr: 'Manuel', phase_en: 'Manual' },
       { glyph: '02', title_fr: 'Macros et tableurs', title_en: 'Macros and spreadsheets', body_fr: "Vous tenez avec des macros Excel fragiles, mais rien n'est connecté ni traçable.", body_en: 'You hold on with fragile Excel macros, but nothing is connected or traceable.', phase_fr: 'Bricolé', phase_en: 'Patched', current: true },
@@ -109,9 +109,20 @@ const RECIPES: Record<string, SectorRecipe> = {
     ],
     trustExtra_fr: 'Hébergement français (HDS si besoin)', trustExtra_en: 'French hosting (HDS if needed)',
     // Finance/DAF : la PREUVE CHIFFRÉE ouvre (mindset closing « montre-moi les chiffres »),
-    // le cas concret l'ancre, le « comment ça marche » rassure, et le diagnostic de maturité
-    // CLÔT après le stack (next step : où en êtes-vous → on cible le 1er workflow).
-    recompoOrder: ['impact', 'case', 'feature', 'diagnostic'],
+    // le « comment ça marche » rassure, le metric-shift ink donne l'avant/après mesuré de la
+    // clôture (bloc signature finance, absent ailleurs), et le diagnostic de maturité CLÔT
+    // après le stack. Le case ink sort de l'ordre recompo (toujours présent via CaseCardGrid).
+    shift_kicker_fr: 'Avant → après', shift_kicker_en: 'Before → after',
+    shift_h2_fr: "Ce que la clôture <i>perd en poids</i>.",
+    shift_h2_en: 'What the close <i>sheds</i>.',
+    shift_lede_fr: "Trois étapes de clôture, avant et après le câblage. La clôture mensuelle passe de 9 jours à 3, sans changer de logiciel comptable.",
+    shift_lede_en: 'Three closing steps, before and after wiring. Monthly close goes from 9 days to 3, with no accounting software change.',
+    shifts: [
+      { label_fr: 'Réconciliation bancaire', label_en: 'Bank reconciliation', before: '2 jours', after: '20 min', delta_fr: 'par dossier', delta_en: 'per file', trend: 'down' },
+      { label_fr: 'Mémo de variance CODIR', label_en: 'CODIR variance memo', before: '5 h', after: '15 min', delta_fr: 'rédaction', delta_en: 'drafting', trend: 'down' },
+      { label_fr: 'Préparation audit CAC', label_en: 'CAC audit preparation', before: '3 semaines', after: '8 jours', delta_fr: 'clôture 9j → 3j', delta_en: 'close 9d → 3d', trend: 'down' },
+    ],
+    recompoOrder: ['impact', 'feature', 'shift', 'diagnostic'],
     recompoAfterStack: ['diagnostic'],
   },
   'services-b2b': {
@@ -139,10 +150,24 @@ const RECIPES: Record<string, SectorRecipe> = {
       { glyph: '04', title_fr: 'Cabinet câblé', title_en: 'Wired firm', body_fr: 'Acquisition, proposals et marge live tournent en continu. La capacité facturable revient.', body_en: 'Acquisition, proposals and live margin run continuously. Billable capacity returns.', phase_fr: 'Système', phase_en: 'System' },
     ],
     trustExtra_fr: 'Code et prompts transférables', trustExtra_en: 'Transferable code and prompts',
-    // Services B2B : la fragilité structurelle (« pipeline sur 2 noms ») est le vrai sujet →
-    // le DIAGNOSTIC de maturité OUVRE la séquence, le « comment ça marche » puis le cas suivent,
-    // et la preuve chiffrée INK referme APRÈS le stack (la métrique comme verdict final).
-    recompoOrder: ['diagnostic', 'feature', 'case', 'impact'],
+    // Services B2B : le sujet n'est pas un état de maturité (ça, c'est finance) mais la MISE EN
+    // ROUTE d'un système d'acquisition. La method-timeline (bloc signature services, les 90 jours
+    // de déploiement audit → prod) OUVRE, le « comment ça marche » suit, le cas Plateau ancre la
+    // preuve en ink, et l'impact chiffré INK referme APRÈS le stack. Le diagnostic-stages (clone
+    // visible de finance) est RETIRÉ de l'ordre — ses données restent en place, non rendues.
+    method_kicker_fr: 'Les 90 jours', method_kicker_en: 'The 90 days',
+    method_h2_fr: "De l'audit du stack à un <i>pipeline qui tourne la nuit</i>.",
+    method_h2_en: 'From stack audit to a <i>pipeline that runs overnight</i>.',
+    method_lede_fr: "Quatre semaines pour le premier workflow, 90 jours pour un pipeline actif sans recruter. Pas de migration, pas de changement de CRM.",
+    method_lede_en: 'Four weeks for the first workflow, 90 days for an active pipeline without hiring. No migration, no CRM change.',
+    methodSteps: [
+      { num: 'S1', label_fr: 'Audit et connexion CRM', label_en: 'Audit and CRM connection', body_fr: "On cartographie le stack existant, CRM, boîte mail, base prospects, et on branche les connecteurs MCP en lecture seule. Aucune migration.", body_en: 'We map the existing stack, CRM, mailbox, prospect base, and plug MCP connectors in read-only. No migration.', meta_fr: '§ Semaine 1', meta_en: '§ Week 1' },
+      { num: 'S2', label_fr: 'Entraînement sur vos templates', label_en: 'Training on your templates', body_fr: "L'agent proposals apprend sur vos propositions historiques ; l'agent pipeline ingère l'historique CRM réel pour contextualiser ses relances.", body_en: 'The proposals agent learns from your historical bids; the pipeline agent ingests real CRM history to contextualise its follow-ups.', meta_fr: '§ Semaine 2', meta_en: '§ Week 2' },
+      { num: 'S3', label_fr: 'Pilote sur 5 proposals réelles', label_en: 'Pilot on 5 real proposals', body_fr: "Cinq propositions générées et validées par votre équipe avant envoi. Le temps non-facturable par proposal chute de 80 %.", body_en: 'Five proposals generated and validated by your team before sending. Non-billable time per proposal drops 80 %.', meta_fr: '§ Semaine 3', meta_en: '§ Week 3' },
+      { num: 'S4', label_fr: 'Mise en production', label_en: 'Production rollout', body_fr: "Ajustements puis bascule. Chaque proposal et chaque relance restent validées avant départ. Souveraineté totale : code, prompts et connecteurs vous appartiennent.", body_en: 'Adjustments then go-live. Every proposal and follow-up stays validated before sending. Full sovereignty: code, prompts and connectors are yours.', meta_fr: '§ Semaine 4', meta_en: '§ Week 4' },
+      { num: 'J+90', label_fr: 'Pipeline actif 24/7', label_en: 'Pipeline active 24/7', body_fr: "Médiane observée à 90 jours : 840 K€ de pipeline reconnecté et 3 meetings qualifiés de plus par semaine, sans recruter de SDR.", body_en: 'Observed median at 90 days: €840K pipeline reconnected and 3 extra qualified meetings per week, without hiring an SDR.', meta_fr: '§ Et après', meta_en: "§ What's next" },
+    ],
+    recompoOrder: ['method', 'feature', 'case', 'impact'],
     recompoAfterStack: ['impact'],
   },
   'industrie': {
