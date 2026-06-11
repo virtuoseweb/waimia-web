@@ -212,11 +212,12 @@ const offerSumie =
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
+    justify-content: flex-start;
+    gap: var(--space-6);
   }
   .hero-detail__art {
     position: relative;
+    flex: 1 1 auto;
     width: min(100%, 520px);
     min-height: 300px;
     display: grid;
@@ -244,10 +245,13 @@ const offerSumie =
   .hero-detail__actions {
     width: min(100%, 520px);
     display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: var(--space-3) var(--space-5);
   }
+  .hero-detail__actions .hero-detail__meta { margin-inline-start: auto; }
   .hero-detail__meta {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
@@ -331,6 +335,9 @@ const offerSumie =
     .hero-detail--encadre .hero-detail__sub { grid-template-columns: 1fr; }
     .hero-detail__copy { min-height: auto; }
     .hero-detail__meta--copy { margin-top: var(--space-6); }
+    .hero-detail__visual { align-items: flex-start; }
+    .hero-detail__art { width: 100%; }
+    .hero-detail__actions { width: 100%; flex-direction: row; align-items: baseline; }
     .hero-detail__sumie { min-width: 0; }
     .hero-tech-layer__sub { grid-template-columns: 1fr; }
   }
