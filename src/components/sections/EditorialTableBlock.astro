@@ -111,13 +111,13 @@ const tmRows = data.type === 'tech-models-table'
     margin-bottom: var(--space-4);
   }
   .ed-table-block-h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(34px, 4.5vw, 64px);
     line-height: .96;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: 0 0 28px;
   }
-  .ed-table-block-h2 :global(i) { color: var(--accent); font-style: italic; }
+  .ed-table-block-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
 
   /* ───── tech-models-table (preset) — CSS VERBATIM TechModelsTable.astro,
      `.wrap` scopé qualifié `:where(.tech-sec) .wrap` (spécificité inchangée) ───── */
@@ -134,14 +134,14 @@ const tmRows = data.type === 'tech-models-table'
     padding-inline: clamp(18px, 3vw, 32px);
   }
   .tech-sec-hd h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 72px);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .tech-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .tech-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-aside {
     font-family: var(--font-display);
     font-size: clamp(15px, 1.3vw, 17px);
@@ -191,14 +191,14 @@ const tmRows = data.type === 'tech-models-table'
     margin-bottom: var(--space-3);
   }
   .sol-sec-hd h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 72px);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .sol-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .sol-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-aside {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);
@@ -245,7 +245,7 @@ const tmRows = data.type === 'tech-models-table'
   .tech-sec[data-bg='ink'] .tech-aside,
   .sol-sec[data-bg='ink'] .sol-aside { color: rgba(var(--paper-rgb), 0.7); }
   /* L'italique accent reste lisible sur fond sombre */
-  .ed-table-block[data-bg='ink'] .ed-table-block-h2 :global(i) { color: var(--accent); }
+  .ed-table-block[data-bg='ink'] .ed-table-block-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
 
   /* Wrap borde du preset tech-models sur ink */
   .tech-sec[data-bg='ink'] .tech-models-table-wrap {

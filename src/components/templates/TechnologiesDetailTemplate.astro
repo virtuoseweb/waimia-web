@@ -445,14 +445,14 @@ const serviceLd = buildService({ name: title, description });
     align-items: end;
   }
   .tech-sec-hd h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 72px);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .tech-sec-hd :global(i) { color: var(--accent); font-style: italic; }
+  .tech-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-aside {
     font-family: var(--font-display);
     font-size: clamp(15px, 1.3vw, 17px);
@@ -487,14 +487,14 @@ const serviceLd = buildService({ name: title, description });
     margin-top: 0;
   }
   .tech-pos-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 64px);
     line-height: 0.98;
     letter-spacing: -0.02em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 var(--space-5);
   }
-  .tech-pos-title :global(i) { color: var(--accent); font-style: italic; }
+  .tech-pos-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-pos-statement {
     font-family: var(--font-display);
     font-size: clamp(22px, 2.4vw, 32px);
@@ -505,7 +505,7 @@ const serviceLd = buildService({ name: title, description });
     margin-bottom: 0;
     text-wrap: balance;
   }
-  .tech-pos-statement :global(em) { color: var(--accent); font-style: italic; }
+  .tech-pos-statement :global(em) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-pos-facts {
     display: grid;
     grid-template-columns: 1fr;
@@ -703,11 +703,11 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-int-flow :global(.flow-node--active .flow-layer) { color: var(--accent); }
   .tech-int-flow :global(.flow-node h3) {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 18px);
     line-height: 1.2;
     margin: 0 0 var(--space-2);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
   }
   .tech-int-flow :global(.flow-body) {
@@ -749,9 +749,9 @@ const serviceLd = buildService({ name: title, description });
   .tt-specs tbody tr:last-child { border-bottom: none; }
   .tt-specs tbody tr:hover { background: rgba(var(--ink-rgb), 0.02); }
   .tt-spec-name {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 18px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     padding: 20px var(--space-5) 20px 0;
     vertical-align: top;
@@ -792,9 +792,9 @@ const serviceLd = buildService({ name: title, description });
   }
   .tt-eco-inline :global(.eco-card h3) {
     display: inline;
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 18px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     font-style: normal;
   }
@@ -841,13 +841,13 @@ const serviceLd = buildService({ name: title, description });
     padding: clamp(40px, 5vw, 64px) 0;
   }
   .tech-cta-final h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(48px, 7vw, 96px);
     line-height: 0.95;
     margin: 0 0 var(--space-6);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
   }
-  .tech-cta-final h2 :global(i) { color: var(--accent); font-style: italic; }
+  .tech-cta-final h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-cta-body p {
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 19px);

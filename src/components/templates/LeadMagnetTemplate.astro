@@ -266,15 +266,15 @@ const tocEvents = toc.map((item, index) => ({
   }
   :global(.lm-form-k) { display: block; }
   .lm-form-h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(28px, 3.6vw, 44px);
     line-height: 1.05;
     letter-spacing: -0.02em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: 0 0 var(--space-3);
     text-wrap: balance;
   }
-  .lm-form-h2 :global(i) { font-style: italic; color: var(--accent); }
+  .lm-form-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .form-row { display: flex; flex-direction: column; gap: 6px; }
   .form-row label {
     font-family: var(--font-mono);
@@ -349,9 +349,9 @@ const tocEvents = toc.map((item, index) => ({
   }
   .lm-footer-action h2 {
     margin: 0;
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(32px, 4vw, 56px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     line-height: 1;
     text-wrap: balance;
   }

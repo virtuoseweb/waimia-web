@@ -64,15 +64,15 @@ const placements = [
   .sol-roi-hd { margin-bottom: clamp(28px, 4vw, 48px); }
   .sol-roi-hd .kicker { color: var(--accent); }
   .sol-roi-hd h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 72px);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
     color: var(--paper);
   }
-  .sol-roi-hd h2 :global(i) { color: var(--accent); font-style: italic; }
+  .sol-roi-hd h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-roi-grid {
     gap: clamp(24px, 3vw, 48px);
   }

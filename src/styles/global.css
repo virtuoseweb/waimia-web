@@ -615,10 +615,11 @@ a:not([class]):hover,
   color: var(--accent);
 }
 .mega-col-hd .t {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 22px;
-  letter-spacing: -0.012em;
-  line-height: 1.08;
+  letter-spacing: -0.01em;
+  line-height: var(--leading-h3);
+  font-weight: var(--fw-medium);
 }
 .mega-col ul {
   list-style: none;
@@ -751,11 +752,19 @@ a:not([class]):hover,
   color: var(--accent);
 }
 .mega-featured .ttl {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 38px;
-  line-height: 0.98;
-  letter-spacing: -0.022em;
+  line-height: 1;
+  letter-spacing: -0.018em;
   color: var(--ink);
+  font-weight: var(--fw-medium);
+}
+.mega-featured .ttl :global(i),
+.mega-featured .ttl em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--accent);
 }
 .mega-featured .bd {
   font-size: var(--text-ui);
@@ -907,10 +916,11 @@ a:not([class]):hover,
   color: var(--muted);
 }
 .m-sheet-acc-head .ttl {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
   font-size: clamp(30px, 6vw, 42px);
-  letter-spacing: -0.02em;
-  line-height: 1;
+  letter-spacing: -0.018em;
+  line-height: var(--leading-h2);
   flex: 1;
   padding-right: var(--space-4);
   padding-left: 14px;
@@ -949,9 +959,10 @@ a:not([class]):hover,
   margin-bottom: 6px;
 }
 .m-sheet-acc-col .t {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
   font-size: 20px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.008em;
   margin-bottom: 10px;
 }
 .m-sheet-acc-col a {
@@ -1013,9 +1024,10 @@ a:not([class]):hover,
 .m-sheet-simple {
   display: block;
   padding: 22px 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
   font-size: clamp(30px, 6vw, 42px);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.018em;
   border-bottom: 1px solid var(--hairline);
 }
 
@@ -1324,15 +1336,18 @@ a:not([class]):hover,
    propagation automatique à TOUS les composants utilisant SectionHeader
    (Pyramid, Departments, FieldNotes, Cases, et toutes pages /solutions, /offres, etc.) */
 .sec-hd h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--text-h2-section);
   line-height: var(--leading-h2);
-  letter-spacing: -0.026em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-medium);
 }
+/* Emphase serif : seul le fragment <i> relève en Instrument Serif accent (directive 41). */
 .sec-hd h2 i {
+  font-family: var(--font-display);
   font-style: italic;
+  font-weight: var(--fw-regular);
   color: var(--accent);
 }
 .sec-hd .aside {
@@ -1376,12 +1391,19 @@ a:not([class]):hover,
   text-transform: uppercase;
 }
 .editorial-cell .e-title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(20px, 2.2vw, 30px);
-  line-height: 1.08;
-  letter-spacing: -0.016em;
-  font-weight: var(--fw-regular);
+  line-height: var(--leading-h3);
+  letter-spacing: -0.012em;
+  font-weight: var(--fw-medium);
   text-wrap: balance;
+}
+.editorial-cell .e-title :global(i),
+.editorial-cell .e-title em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--accent);
 }
 .editorial-cell .e-body {
   font-size: clamp(12px, 1.1vw, 13.5px);
@@ -1488,11 +1510,18 @@ a:not([class]):hover,
   letter-spacing: var(--tracking-mono);
 }
 .case-row .client {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(22px, 2.8vw, 38px);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  font-weight: var(--fw-medium);
+}
+.case-row .client :global(i),
+.case-row .client em {
+  font-family: var(--font-display);
+  font-style: italic;
   font-weight: var(--fw-regular);
+  color: var(--accent);
 }
 .case-row .sector,
 .case-row .dur {
@@ -1548,12 +1577,19 @@ a:not([class]):hover,
   color: var(--accent);
 }
 .how-row .ttl {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(22px, 2.5vw, 38px);
   line-height: var(--leading-h3);
-  letter-spacing: -0.018em;
-  font-weight: var(--fw-regular);
+  letter-spacing: -0.015em;
+  font-weight: var(--fw-medium);
   text-wrap: balance;
+}
+.how-row .ttl :global(i),
+.how-row .ttl em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--accent);
 }
 .how-row .desc {
   font-size: clamp(12px, 1.2vw, 14.5px);

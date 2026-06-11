@@ -93,13 +93,14 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
     gap: var(--space-4);
   }
   :where(.stat-block) h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
-  :where(.stat-block) h2 :global(i) { font-style: italic; }
+  :where(.stat-block) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   :where(.stat-block) p {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

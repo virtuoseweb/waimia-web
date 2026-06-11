@@ -69,13 +69,13 @@ const meta = isFr ? data.meta_fr : data.meta_en;
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     letter-spacing: -0.02em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     text-wrap: balance;
     max-width: 1100px;
     margin: 0 0 var(--space-5);
   }
   .tbl-sec__title :global(i) { font-family: var(--font-display); font-style: italic; }
-  .tbl-sec__title :global(.acc) { color: var(--accent); }
+  .tbl-sec__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   .tbl-sec__title :global(strong) { font-weight: var(--fw-semibold); }
 
   .tbl-sec__intro {

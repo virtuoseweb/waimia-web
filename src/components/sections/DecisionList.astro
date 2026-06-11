@@ -53,13 +53,13 @@ const heading = isFr ? data.heading_fr : data.heading_en;
     margin-bottom: var(--space-4);
   }
   .decision-list-h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(30px, 3.8vw, 54px);
     line-height: .98;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: 0;
   }
-  .decision-list-h2 :global(i) { color: var(--accent); font-style: italic; }
+  .decision-list-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .decision-list-ol {
     list-style: none;
     margin: 0;

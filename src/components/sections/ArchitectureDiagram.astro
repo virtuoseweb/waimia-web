@@ -119,17 +119,17 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
 
   /* H2 token sémantique unifié · cf tokens.css */
   .sysarch-h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h2);
     letter-spacing: var(--tracking-display);
     max-width: 880px;
     margin: 0 0 clamp(24px, 3vw, 40px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     text-wrap: balance;
     color: var(--ink);
   }
-  .sysarch-h2 :global(i) { font-style: italic; color: var(--accent); }
+  .sysarch-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
 
   .sysarch-fig {
     margin: 0;
@@ -158,7 +158,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
     text-wrap: balance;
     margin: 0;
   }
-  .sysarch-cap :global(i) { font-style: italic; color: var(--accent); }
+  .sysarch-cap :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
 
   /* Flux dessinés au scroll · pathLength=1 normalisé · le .in vient du scroll-reveal (.reveal-fade) */
   .sysarch-flow {

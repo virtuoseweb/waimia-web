@@ -51,11 +51,11 @@ const isFr = lang === 'fr';
     margin: 0 0 18px;
   }
   .branded-callout__h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(24px, 2.8vw, 44px);
     line-height: 1.12;
     letter-spacing: -0.022em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     margin: 0 0 20px;
     text-wrap: balance;
@@ -101,6 +101,6 @@ const isFr = lang === 'fr';
     border-color: rgba(var(--paper-rgb), 0.14);
   }
   .branded-callout[data-bg='ink'] .branded-callout__h2 { color: var(--paper); }
-  .branded-callout[data-bg='ink'] .branded-callout__h2 :global(i) { color: var(--accent); }
+  .branded-callout[data-bg='ink'] .branded-callout__h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   .branded-callout[data-bg='ink'] :is(.branded-callout__body1, .branded-callout__body2) { color: rgba(var(--paper-rgb), 0.7); }
 </style>

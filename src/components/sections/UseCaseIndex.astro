@@ -99,14 +99,21 @@ const isFr = lang === 'fr';
 
   /* H3 row token sémantique · cf tokens.css */
   .dept-row-label {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h3-row);
-    font-style: italic;
-    font-weight: var(--fw-regular);
+    font-style: normal;
+    font-weight: var(--fw-medium);
     line-height: var(--leading-h3);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.018em;
     color: var(--ink);
     transition: color var(--dur-fast) var(--ease, var(--ease));
+  }
+  .dept-row-label :global(i),
+  .dept-row-label :global(em) {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-regular);
+    color: var(--accent);
   }
 
   .dept-row-tag {

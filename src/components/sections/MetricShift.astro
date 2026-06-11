@@ -67,16 +67,16 @@ const hasHeader = Boolean(kicker || h2 || lede);
     margin-bottom: var(--space-4);
   }
   .metric-shift__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h2);
     letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     text-wrap: balance;
     margin: 0;
   }
-  .metric-shift__title :global(i) { font-style: italic; color: var(--accent); }
+  .metric-shift__title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .metric-shift__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

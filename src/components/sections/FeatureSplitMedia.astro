@@ -71,14 +71,15 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
     align-items: flex-start;
   }
   h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
     max-width: 18ch;
   }
-  h2 :global(i) { font-style: italic; }
+  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .feature-split__body {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

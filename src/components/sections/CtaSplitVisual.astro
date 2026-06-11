@@ -120,13 +120,14 @@ const isFr = lang === 'fr';
   }
 
   h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
-  h2 :global(i) { font-style: italic; }
+  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   .cta-split__body {
     font-family: var(--font-sans);

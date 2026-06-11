@@ -66,13 +66,13 @@ const hasCopy = Boolean(kicker || h2 || intro);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     letter-spacing: -0.02em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     text-wrap: balance;
     margin: 0 0 var(--space-5);
   }
   .term-mock[data-bg='ink'] .term-mock__title { color: var(--paper); }
   .term-mock__title :global(i) { font-family: var(--font-display); font-style: italic; }
-  .term-mock__title :global(i.acc), .term-mock__title :global(.acc) { color: var(--accent); }
+  .term-mock__title :global(i.acc), .term-mock__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   .term-mock__title :global(strong) { font-weight: var(--fw-semibold); }
 
   .term-mock__intro {

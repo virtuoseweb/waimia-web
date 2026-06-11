@@ -33,13 +33,14 @@ const isFr = lang === 'fr';
     border-bottom: 1px solid var(--hairline);
   }
   h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0 0 var(--spacing-block);
   }
-  h2 :global(i) { font-style: italic; }
+  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .timeline-block__list {
     list-style: none;
     margin: 0;
@@ -60,9 +61,9 @@ const isFr = lang === 'fr';
     gap: var(--space-2);
   }
   .timeline-block__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(16px, 1.6vw, 22px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     line-height: 1.2;
   }

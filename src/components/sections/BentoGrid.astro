@@ -49,13 +49,14 @@ const cells = data.cells ?? [];
   }
 
   h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h2-section);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
   }
-  h2 :global(i) { font-style: italic; }
+  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   /* Grille bento : 5 cellules en 3 colonnes x 2 lignes
      Cellule 1 : grande, occupe col 1-2 / row 1-2 (2x2)
@@ -121,9 +122,9 @@ const cells = data.cells ?? [];
   }
 
   .bento-grid__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 22px);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     color: var(--ink);
     line-height: 1.2;
   }

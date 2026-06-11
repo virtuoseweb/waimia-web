@@ -82,14 +82,14 @@ const facts = data.facts ?? [];
     margin-top: 0;
   }
   .tech-pos-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(36px, 5vw, 64px);
     line-height: 0.98;
     letter-spacing: -0.02em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     margin: var(--space-2) 0 var(--space-5);
   }
-  .tech-pos-title :global(i) { color: var(--accent); font-style: italic; }
+  .tech-pos-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-pos-statement {
     font-family: var(--font-display);
     font-size: clamp(22px, 2.4vw, 32px);
@@ -100,7 +100,7 @@ const facts = data.facts ?? [];
     margin-bottom: 0;
     text-wrap: balance;
   }
-  .tech-pos-statement :global(em) { color: var(--accent); font-style: italic; }
+  .tech-pos-statement :global(em) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-pos-facts {
     display: grid;
     grid-template-columns: 1fr;

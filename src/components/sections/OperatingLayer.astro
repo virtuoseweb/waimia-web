@@ -94,14 +94,14 @@ const isFr = lang === 'fr';
     align-items: start;
   }
   .operating-layer__h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(40px,8vw,128px);
     line-height: .94;
     letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
     text-wrap: balance;
   }
-  .operating-layer__h2 :global(i) { font-style: italic; color: var(--accent); }
+  .operating-layer__h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .operating-layer__lede {
     margin-top: 30px;
     font-size: clamp(15px,1.5vw,18px);

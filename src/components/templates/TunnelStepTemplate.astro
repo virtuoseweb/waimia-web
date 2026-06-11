@@ -92,7 +92,8 @@ const prev_href = prev_step ? `/offres/${offre_slug}/tunnel/${step - 1}` : undef
   border-top: 1px solid var(--hairline);
 }
 .tnl-body :global(h2) {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
   font-size: var(--text-h2-section);
   line-height: var(--leading-h3);
   letter-spacing: -.01em;
@@ -100,7 +101,8 @@ const prev_href = prev_step ? `/offres/${offre_slug}/tunnel/${step - 1}` : undef
   margin-bottom: var(--space-6);
 }
 .tnl-body :global(h3) {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
   font-size: var(--text-h3-row);
   line-height: 1.25;
   color: var(--ink);
@@ -115,7 +117,7 @@ const prev_href = prev_step ? `/offres/${offre_slug}/tunnel/${step - 1}` : undef
   margin-bottom: var(--space-5);
 }
 .tnl-body :global(strong) { font-weight: var(--fw-semibold); }
-.tnl-body :global(em) { font-style: italic; }
+.tnl-body :global(em) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 .tnl-body :global(ul) {
   list-style: none;
   padding: 0;
