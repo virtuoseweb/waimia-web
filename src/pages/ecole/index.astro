@@ -4,7 +4,7 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
-import CourseCatalogTable from '../../components/sections/CourseCatalogTable.astro';
+import OfferTierGrid from '../../components/sections/OfferTierGrid.astro';
 import LearningPathList from '../../components/sections/LearningPathList.astro';
 import type { SectionByType } from '../../schemas/sections';
 
@@ -13,6 +13,25 @@ const formations = allCourses.filter((c) => c.data.course_type === 'formation');
 const parcours = allCourses.filter((c) => c.data.course_type === 'parcours');
 const ateliers = allCourses.filter((c) => c.data.course_type === 'atelier');
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+
+// Cours phare = le plus complet (modules + durée), traité en featured ; le reste en cards.
+const courseScore = (c: any) =>
+  (c.data.modules?.length ?? 0) * 10 + (c.data.duration_hours ?? 0);
+const sortedFormations = [...formations].sort((a, b) => courseScore(b) - courseScore(a));
+const flagship = sortedFormations[0];
+const fd = flagship?.data as any;
+const restFormations = sortedFormations.slice(1);
+
+const priceLabel = (c: any, isFr: boolean) => {
+  const eur = c?.data?.pricing?.one_time_eur;
+  if (eur === 0) return isFr ? 'GRATUIT' : 'FREE';
+  if (eur != null) return `${eur} €`;
+  return isFr ? 'FORMATION' : 'COURSE';
+};
+const levelLabels: Record<string, Record<string, string>> = {
+  fr: { debutant: 'Débutant', intermediaire: 'Intermédiaire', avance: 'Avancé', expert: 'Expert' },
+  en: { debutant: 'Beginner', intermediaire: 'Intermediate', avance: 'Advanced', expert: 'Expert' },
+};
 
 const title = lang === 'fr'
   ? 'École Waimia · Catalogue formations IA'
@@ -43,22 +62,52 @@ const heroData = {
   stats_label_en: statsLabelEn,
 } satisfies SectionByType<'hero-academy-hub'>;
 
-// ── Catalogue formations → course-catalog-table ──
-type CatalogRow = SectionByType<'course-catalog-table'>['rows'][number];
-const catalogRows: CatalogRow[] = formations.map((entry, i) => {
-  const d = entry.data as any;
-  return {
-    num: String(i + 1).padStart(2, '0'),
-    title_fr: d.title_fr,
-    title_en: d.title_en,
-    level: d.level,
-    duration_hours: d.duration_hours,
-    price_eur: d.pricing?.one_time_eur,
-    href: `/ecole/cours/${entry.id}`,
-  };
-});
-const catalogueTitleFr = 'Catalogue formations';
-const catalogueTitleEn = 'Course catalog';
+// ── Catalogue formations → offer-tier-grid (featured = cours phare, cards = reste) ──
+const courseLead = (c: any, isFr: boolean) => {
+  const lvl = levelLabels[isFr ? 'fr' : 'en'][c.data.level] ?? c.data.level;
+  const desc = isFr ? c.data.description_fr : c.data.description_en;
+  const dur = `${c.data.duration_hours}h`;
+  return isFr ? `${desc} · ${lvl} · ${dur}` : `${desc} · ${lvl} · ${dur}`;
+};
+
+const formationsGrid: SectionByType<'offer-tier-grid'> | null = flagship
+  ? {
+      type: 'offer-tier-grid',
+      variant: 'featured',
+      wrap: false,
+      background: 'paper-2',
+      eyebrow_fr: 'CATALOGUE · FORMATIONS',
+      eyebrow_en: 'CATALOG · COURSES',
+      h2_fr: 'Des formations qui livrent.',
+      h2_en: 'Courses that deliver.',
+      lede_fr: 'Cas réels, accès immédiat, résultats mesurables. Commencez par le cours phare.',
+      lede_en: 'Real cases, immediate access, measurable results. Start with the flagship course.',
+      featured_card: {
+        eyebrow_fr: `COURS PHARE · ${priceLabel(flagship, true)}`,
+        eyebrow_en: `FLAGSHIP COURSE · ${priceLabel(flagship, false)}`,
+        title_fr: fd.title_fr,
+        title_en: fd.title_en,
+        sub_fr: `${levelLabels.fr[fd.level] ?? fd.level} · ${fd.duration_hours}h · ${fd.modules?.length ?? 0} modules`,
+        sub_en: `${levelLabels.en[fd.level] ?? fd.level} · ${fd.duration_hours}h · ${fd.modules?.length ?? 0} modules`,
+        lead_fr: fd.description_fr,
+        lead_en: fd.description_en,
+        cta_fr: 'Voir la formation →',
+        cta_en: 'See the course →',
+        href: `/ecole/cours/${flagship.id}`,
+      },
+      offers: restFormations.map((c) => ({
+        price_fr: priceLabel(c, true),
+        price_en: priceLabel(c, false),
+        title_fr: c.data.title_fr,
+        title_en: c.data.title_en,
+        lead_fr: courseLead(c, true),
+        lead_en: courseLead(c, false),
+        cta_fr: 'Voir la formation →',
+        cta_en: 'See the course →',
+        href: `/ecole/cours/${c.id}`,
+      })),
+    }
+  : null;
 
 // ── Parcours → learning-path-list ──
 type PathItem = SectionByType<'learning-path-list'>['items'][number];
@@ -79,12 +128,9 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
     <!-- HERO -->
     <HeroCentered data={heroData} lang={lang} wrap={false} topPad="48px" />
 
-    <!-- CATALOGUE FORMATIONS -->
-    {catalogRows.length > 0 && (
-      <CourseCatalogTable
-        data={{ type: 'course-catalog-table', title_fr: catalogueTitleFr, title_en: catalogueTitleEn, rows: catalogRows }}
-        lang={lang}
-      />
+    <!-- CATALOGUE FORMATIONS · grille featured (cours phare) + cards -->
+    {formationsGrid && formationsGrid.offers.length > 0 && (
+      <OfferTierGrid data={formationsGrid} lang={lang} />
     )}
 
     <!-- SECTION PARCOURS -->
