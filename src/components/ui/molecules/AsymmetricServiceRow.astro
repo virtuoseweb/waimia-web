@@ -51,14 +51,15 @@ const { num, label, body, reverse = false, class: extraClass = '' } = Astro.prop
   .u-asym-svc-row{display:grid;grid-template-columns:140px 1fr 2fr 100px;gap:clamp(20px,3vw,40px);align-items:baseline;padding:clamp(36px,4.5vw,48px) 0;border-top:1px solid var(--hairline)}
   .u-asym-svc-row[data-reverse="true"]{grid-template-columns:100px 2fr 1fr 140px}
 
+  /* Numéro = relevé serif italic accent (emphase, conservé). Nom = masse → Instrument Sans medium. */
   .u-asym-num{font-family:var(--font-display);font-size:clamp(40px,5vw,64px);line-height:.9;color:var(--accent);font-style:italic}
-  .u-asym-name{font-family:var(--font-display);font-size:clamp(32px,4.5vw,56px);line-height:1;letter-spacing:-0.02em}
+  .u-asym-name{font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:clamp(32px,4.5vw,56px);line-height:1;letter-spacing:-0.015em}
   .u-asym-body{font-size:clamp(13px,1.3vw,16px);line-height:1.55;color:var(--muted);max-width:500px}
   /* Arrow aligné à droite (Kicker rendu via composition · text-transform:none pour la flèche) */
   :global(.u-asym-arr){text-align:right;text-transform:none}
   :global(.u-asym-arr-l){text-transform:none}
   .u-asym-body-r{font-size:clamp(13px,1.3vw,16px);line-height:1.55;color:var(--muted);max-width:500px;margin-left:auto;text-align:right}
-  .u-asym-name-r{font-family:var(--font-display);font-size:clamp(32px,4.5vw,56px);line-height:1;letter-spacing:-0.02em;text-align:right}
+  .u-asym-name-r{font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:clamp(32px,4.5vw,56px);line-height:1;letter-spacing:-0.015em;text-align:right}
   .u-asym-num-r{font-family:var(--font-display);font-size:clamp(40px,5vw,64px);line-height:.9;color:var(--accent);font-style:italic;text-align:right}
 
   @media (max-width:900px){
