@@ -260,7 +260,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
           transition:name={transitionId ? `hero-h1-${transitionId}` : undefined}
           set:html={isFr ? data.h1_fr : data.h1_en}
         />
-        <p class="hero-essay__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+        <p class="hero-essay__lede reveal reveal-fade" set:html={isFr ? data.lede_fr : data.lede_en} />
         <div class="hero-essay__meta">
           <span>{data.author}</span>
           <span aria-hidden>·</span>

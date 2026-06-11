@@ -43,7 +43,7 @@
 
 ### `announcement-banner`
 
-> Bandeau d&rsquo;annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.
+> Bandeau d’annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.
 > AnnouncementBanner · src/components/sections/AnnouncementBanner.astro · marketing/banner-sections
 > status : stable · tags : alert, announcement, banner, dismissible, promo, strip
 
@@ -516,7 +516,7 @@
 
 ### `article-grid`
 
-> Grille de cartes d&rsquo;articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.
+> Grille de cartes d’articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.
 > ArticleGrid · src/components/sections/ArticleGrid.astro · marketing/content-listing-sections
 > status : stable · tags : articles, blog, cards, editorial, grid, listing
 
@@ -2593,7 +2593,7 @@
 | `tier_en` | string | oui |  |  |
 | `tier_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--header-height` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-body-sm` `--text-eyebrow` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body-sm` `--text-eyebrow` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
@@ -2686,7 +2686,7 @@
 | `meta_fr` | string | non |  |  |
 | `tags` | array | non |  | max:8 |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--header-height` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-body-sm` `--text-eyebrow` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body-sm` `--text-eyebrow` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
@@ -2839,7 +2839,7 @@
 | `meta_en` | string | non |  |  |
 | `meta_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--header-height` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-body-sm` `--text-eyebrow` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body-sm` `--text-eyebrow` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
@@ -3243,9 +3243,9 @@
 | `text_fr` | string | oui |  |  |
 | `tone` | enum | non | ink | ink | paper |
 
-**Tokens** : `--accent` `--act-cols` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-rgb` `--section-loose` `--space-1` `--space-10` `--space-4` `--space-6` `--space-8` `--text-body-md`
+**Tokens** : `--accent` `--act-cols` `--dur-trim` `--ease-out` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--ms-lit` `--muted` `--paper` `--paper-rgb` `--section-loose` `--space-1` `--space-10` `--space-4` `--space-6` `--space-8` `--text-body-md`
 
-**Classes scoped** : .acc .manifesto-act .manifesto-act__grid .manifesto-act__label .manifesto-act__num .manifesto-act__roman .manifesto-act__stat-k .manifesto-act__stat-p .manifesto-act__stats .manifesto-act__sub .manifesto-act__text
+**Classes scoped** : .acc .manifesto-act .manifesto-act__grid .manifesto-act__label .manifesto-act__num .manifesto-act__roman .manifesto-act__stat-k .manifesto-act__stat-p .manifesto-act__stats .manifesto-act__sub .manifesto-act__text .ms-manifesto-progressive .ms-word .ts
 
 **Dette hardcode** : 10 valeur(s) — -0.02em, -0.03em, 120px, 1px, 280px, 768px, clamp(28px, 4.2vw, 64px), clamp(40px, 6vw, 80px)
 
@@ -3270,9 +3270,9 @@
 | `text_fr` | string | oui |  |  |
 | `tone` | enum | non | ink | ink | accent |
 
-**Tokens** : `--accent` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--ink` `--paper` `--paper-rgb` `--section-grand`
+**Tokens** : `--accent` `--dur-trim` `--ease-out` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--ink` `--ms-lit` `--paper` `--paper-rgb` `--section-grand`
 
-**Classes scoped** : .acc .manifesto-stmt .manifesto-stmt__grid .manifesto-stmt__inner .manifesto-stmt__kicker .manifesto-stmt__text
+**Classes scoped** : .acc .manifesto-stmt .manifesto-stmt__grid .manifesto-stmt__inner .manifesto-stmt__kicker .manifesto-stmt__text .ms-manifesto-progressive .ms-word .ts
 
 **Dette hardcode** : 10 valeur(s) — -0.02em, 0%, 1400px, 1px, 30%, 48px, 70%, 80%
 
@@ -3656,7 +3656,7 @@
 
 **Tokens** : `--accent` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section`
 
-**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
+**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .pull-quote-attr .pull-quote-body .pull-quote-cite .pull-quote-mark .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
 **Dette hardcode** : 12 valeur(s) — -1px, 0.1em, 140px, 1px, 2px, 480px, 6px, 768px
 
@@ -3741,7 +3741,7 @@
 
 **Tokens** : `--accent` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section`
 
-**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
+**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .pull-quote-attr .pull-quote-body .pull-quote-cite .pull-quote-mark .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
 **Dette hardcode** : 12 valeur(s) — -1px, 0.1em, 140px, 1px, 2px, 480px, 6px, 768px
 
