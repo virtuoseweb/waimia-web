@@ -1,25 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Clôture financière accélérée — barres descendantes au trait sumi-e">
-  <rect width="800" height="600" fill="#F6F1E8"/>
-  <g fill="none" stroke="#0C0B09" stroke-linecap="round" stroke-linejoin="round">
-    <!-- baseline (ledger) -->
-    <path d="M150 440 C300 446 500 444 660 436" stroke-width="0.9" stroke-dasharray="52 18"/>
-    <!-- faint axis -->
-    <path d="M150 150 L150 440" stroke-width="0.7" stroke-dasharray="10 12"/>
-    <!-- descending bars: J+9 -> J+3, the close shrinking -->
-    <path d="M214 440 L214 192 C214 182 219 178 226 184 C233 190 235 201 234 213 L230 439" stroke-width="2.4"/>
-    <path d="M324 440 L324 256 C324 247 329 243 336 249 C343 255 345 266 344 277 L340 439" stroke-width="2"/>
-    <path d="M434 440 L434 318 C434 310 439 307 446 312 C453 317 455 327 454 337 L450 439" stroke-width="1.7"/>
-    <path d="M544 440 L544 372 C544 365 549 362 556 367 C563 372 565 381 564 390 L560 439" stroke-width="1.4"/>
-    <!-- accelerating trend sweep over the bars -->
-    <path d="M222 196 C300 240 360 280 446 318 C520 350 580 372 654 392" stroke-width="2.7"/>
-    <path d="M222 196 C304 242 362 282 448 320 C522 352 582 374 654 392" stroke-width="1.1" stroke-dasharray="92 24"/>
-    <!-- arrow head at the fast end -->
-    <path d="M650 392 C644 389 639 388 634 389" stroke-width="1.1"/>
-    <path d="M654 392 C651 398 649 403 649 409" stroke-width="1.1"/>
-    <!-- compressed calendar marks under the timeline -->
-    <path d="M214 472 L214 488 M324 472 L324 488 M434 472 L434 488 M544 472 L544 488" stroke-width="1"/>
-    <path d="M205 480 L553 480" stroke-width="0.7" stroke-dasharray="6 10"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" role="img" aria-label="Cas finance : cloture mensuelle acceleree. Grand livre de chiffres alignes, marqueur de jours gagnes et coche de validation">
+  <rect width="720" height="540" fill="#F6F1E8"/>
+
+  <!-- ledger sheet -->
+  <rect x="64" y="80" width="384" height="380" rx="14" fill="#EFE9DD" stroke="rgba(12,11,9,0.09)" stroke-width="1"/>
+  <rect x="64" y="80" width="384" height="380" rx="14" fill="none" stroke="#0C0B09" stroke-width="1.6"/>
+
+  <!-- ledger header rule -->
+  <path d="M64 124 L448 124" fill="none" stroke="#0C0B09" stroke-width="1.2"/>
+  <path d="M96 102 L210 102" fill="none" stroke="#6B6560" stroke-width="1" stroke-linecap="round" stroke-dasharray="40 10"/>
+  <!-- two columns separator -->
+  <path d="M320 124 L320 432" fill="none" stroke="rgba(12,11,9,0.09)" stroke-width="1"/>
+
+  <!-- ledger rows : label run (left) + aligned figure ticks (right column) -->
+  <g fill="none" stroke="#6B6560" stroke-width="1" stroke-linecap="round">
+    <path d="M96 160 L260 160" stroke-dasharray="30 10"/>
+    <path d="M96 196 L236 196" stroke-dasharray="24 10"/>
+    <path d="M96 232 L268 232" stroke-dasharray="34 10"/>
+    <path d="M96 268 L228 268" stroke-dasharray="20 10"/>
+    <path d="M96 304 L256 304" stroke-dasharray="28 10"/>
+    <path d="M96 340 L240 340" stroke-dasharray="26 10"/>
+    <path d="M96 376 L264 376" stroke-dasharray="32 10"/>
   </g>
-  <!-- single accent: the final, fastest close -->
-  <path d="M652 390 C657 384 667 386 670 393 C666 401 655 402 650 395 C649 393 650 391 652 390 Z" fill="#C94F2E"/>
+  <!-- right column : right-aligned figures (mono ticks ending flush at x=416) -->
+  <g fill="none" stroke="#0C0B09" stroke-width="1.5" stroke-linecap="round">
+    <path d="M360 160 L416 160"/>
+    <path d="M372 196 L416 196"/>
+    <path d="M352 232 L416 232"/>
+    <path d="M376 268 L416 268"/>
+    <path d="M360 304 L416 304"/>
+    <path d="M348 340 L416 340"/>
+    <path d="M368 376 L416 376"/>
+  </g>
+  <!-- total rule -->
+  <path d="M340 408 L416 408" fill="none" stroke="#0C0B09" stroke-width="1.2"/>
+  <path d="M336 422 L416 422" fill="none" stroke="#0C0B09" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- right side : days-saved marker + validation -->
+  <!-- calendar card -->
+  <rect x="504" y="120" width="152" height="148" rx="12" fill="#EFE9DD" stroke="rgba(12,11,9,0.09)" stroke-width="1"/>
+  <rect x="504" y="120" width="152" height="148" rx="12" fill="none" stroke="#0C0B09" stroke-width="1.6"/>
+  <path d="M504 152 L656 152" fill="none" stroke="#0C0B09" stroke-width="1.2"/>
+  <g fill="none" stroke="#0C0B09" stroke-width="1.4" stroke-linecap="round">
+    <path d="M528 112 L528 132"/>
+    <path d="M632 112 L632 132"/>
+  </g>
+  <!-- grid dots -->
+  <g fill="#6B6560">
+    <circle cx="528" cy="180" r="2.2"/><circle cx="560" cy="180" r="2.2"/><circle cx="592" cy="180" r="2.2"/><circle cx="624" cy="180" r="2.2"/>
+    <circle cx="528" cy="212" r="2.2"/><circle cx="560" cy="212" r="2.2"/>
+  </g>
+  <!-- "J-2" days-gained marker : the target close day, in accent -->
+  <circle cx="600" cy="220" r="22" fill="none" stroke="#C94F2E" stroke-width="2"/>
+  <path d="M584 220 L592 220 M596 208 L596 232" fill="none" stroke="#C94F2E" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M608 210 C616 210 618 216 614 220 C611 223 608 224 608 230 L620 230"
+        fill="none" stroke="#C94F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- validation check (confirmed close), bottom-right -->
+  <circle cx="588" cy="372" r="40" fill="none" stroke="#0C0B09" stroke-width="1.8"/>
+  <path d="M570 372 L583 386 L608 356" fill="none" stroke="#0C0B09" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- small motion ticks suggesting speed -->
+  <g fill="none" stroke="#6B6560" stroke-width="1.2" stroke-linecap="round">
+    <path d="M636 360 L656 360"/>
+    <path d="M636 372 L650 372"/>
+    <path d="M636 384 L656 384"/>
+  </g>
 </svg>
