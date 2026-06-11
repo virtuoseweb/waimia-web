@@ -9,10 +9,24 @@ export const prerender = true;
 // Niveau 2 (satellite) = ce hub + pages /secteurs/<slug>.
 
 import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
 import ComingSoonPills from '../../components/sections/ComingSoonPills.astro';
+
+// Résultat phare par secteur = metricsHero de la fiche secteur (sourcé, honnête).
+// Dédup inter-cartes : on prend la 1ʳᵉ métrique dont la valeur n'est pas déjà
+// affichée sur une autre carte (évite deux « 1 200h » côte à côte).
+const sectorEntries = (await getCollection('secteurs')).filter((e) => e.data.visible);
+const usedResultValues = new Set<string>();
+const flagshipResult = (slug: string) => {
+  const metrics = sectorEntries.find((e) => e.id === slug)?.data.metricsHero ?? [];
+  const m = metrics.find((x) => !usedResultValues.has(x.value)) ?? metrics[0];
+  if (!m) return null;
+  usedResultValues.add(m.value);
+  return { value: m.value, label: m.label_fr };
+};
 
 const sectorsLive = [
   {
@@ -23,6 +37,7 @@ const sectorsLive = [
     sub_fr: 'Cabinets, conseil, agences, prestataires',
     pains_fr: 'Pipeline qui tient sur 2 commerciaux. Contenu invisible. Reporting bricolé.',
     href: '/secteurs/services-b2b',
+    result: flagshipResult('services-b2b'),
   },
   {
     num: '02',
@@ -32,6 +47,7 @@ const sectorsLive = [
     sub_fr: 'ERP connecté, maintenance, qualité',
     pains_fr: 'Données dispersées dans 3 ERPs. Maintenance réactive. Qualité tardive.',
     href: '/secteurs/industrie',
+    result: flagshipResult('industrie'),
   },
   {
     num: '03',
@@ -41,6 +57,7 @@ const sectorsLive = [
     sub_fr: 'Réconciliation, reporting, conformité',
     pains_fr: 'Excel partout. Clôture en 9 jours. Audit qui dure 3 semaines.',
     href: '/secteurs/finance-compta',
+    result: flagshipResult('finance-compta'),
   },
 ];
 
@@ -133,6 +150,12 @@ const ctaData = {
         <h2 class="sector-title">{s.label_fr}</h2>
         <p class="sector-sub">{s.sub_fr}</p>
         <p class="sector-pains">{s.pains_fr}</p>
+        {s.result && (
+          <div class="sector-result">
+            <span class="sector-result-v">{s.result.value}</span>
+            <span class="sector-result-l">{s.result.label}</span>
+          </div>
+        )}
         <span class="sector-cta">Voir le secteur →</span>
       </a>
     ))}
@@ -269,8 +292,32 @@ const ctaData = {
     color: var(--muted);
     font-size: var(--text-body-sm);
     line-height: 1.6;
-    margin: 0 0 28px;
+    margin: 0 0 var(--space-5);
     flex-grow: 1;
+  }
+  .sector-result {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--hairline);
+    margin-bottom: var(--space-4);
+  }
+  .sector-result-v {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.4vw, 34px);
+    line-height: 1;
+    color: var(--accent);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.01em;
+  }
+  .sector-result-l {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: var(--leading-lede);
   }
   .sector-cta {
     font-family: var(--font-mono);
