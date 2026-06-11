@@ -40,7 +40,10 @@ const {
   id = 'cal-embed',
 } = Astro.props as Props;
 
-const calLink = `${username}/${eventType}`;
+// Sanitize final : strip tout espace/retour-ligne (les env vars Vercel
+// PUBLIC_CAL_* peuvent contenir un \n interne que .trim() des défauts ne couvre
+// pas → slug `simonberos\n/audit\n` rendu en /n/audit/n/embed = 404. Cf it.14.
+const calLink = `${username}/${eventType}`.replace(/\s+/g, '');
 ---
 {/* Resource hints · Cal.com SaaS (app.cal.com sert embed.js + l'iframe de réservation).
    Source de vérité = ce composant (rendu uniquement sur les pages qui embarquent Cal),
