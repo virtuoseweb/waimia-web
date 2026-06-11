@@ -290,13 +290,19 @@ const tierPartnershipData = {
   </div>
 
   <!-- 4. TIER II · TRANSFORMATION -->
-  <OfferTierGrid data={tierTransformationData} lang="fr" />
+  <div class="tier-rhythm-base">
+    <OfferTierGrid data={tierTransformationData} lang="fr" />
+  </div>
 
   <!-- 5. TIER III · PARTENARIAT -->
-  <OfferTierGrid data={tierPartnershipData} lang="fr" />
+  <div class="tier-rhythm-base">
+    <OfferTierGrid data={tierPartnershipData} lang="fr" />
+  </div>
 
   <!-- 5b. PREUVES · ÉTUDES DE CAS -->
-  <RelatedCardsBand data={relatedCasesData} lang="fr" />
+  <div class="related-rhythm-base">
+    <RelatedCardsBand data={relatedCasesData} lang="fr" />
+  </div>
 
   <!-- 6. MANIFESTO COURT -->
   <section class="manifesto">
@@ -319,11 +325,26 @@ const tierPartnershipData = {
      déjà aérée crée un vide ; on retombe sur --section-base (famille rythme). */
   .tier-i-after-pyramid :global(.tier-section) {
     padding-top: var(--section-base);
+    padding-bottom: var(--section-base);
+  }
+
+  /* ── Resserrer le rythme des paliers suivants (suppression bandes mortes) ──
+     Chaque .tier-section embarque --section-loose (160px) en haut ET en bas :
+     entre deux paliers consécutifs cela empile ~320px de vide non intentionnel
+     (mesuré : gaps de 358px). On retombe sur --section-base (96px) — même
+     famille de rythme, 0 nouveau token — pour que chaque acte reste dense. */
+  .tier-rhythm-base :global(.tier-section) {
+    padding-top: var(--section-base);
+    padding-bottom: var(--section-base);
+  }
+  /* La bande Preuves consomme un knob dédié du composant (fallback loose). */
+  .related-rhythm-base {
+    --related-cards-band-pad: var(--section-base);
   }
 
   /* ── MANIFESTO ─────────────────────────────────────────────── */
   .manifesto {
-    padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 80px);
+    padding: var(--section-base) clamp(20px, 5vw, 80px);
     background: var(--paper-2);
     text-align: center;
   }

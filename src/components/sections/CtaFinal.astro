@@ -78,7 +78,7 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
      l'arbitrage interne avec .cta-final__avail/.cta-final__sub (mono → sans, bug vu
      au GF-1). La fuite inter-branches vers department-cta est neutralisée côté preset
      (cf. note .sol-cta-final h2). ───── */
-  .cta-final { padding-block: var(--section-base); }
+  .cta-final { padding-block: var(--section-base) var(--section-tight); }
   .cta-final[data-bg="paper"] { background: var(--paper); border-block: 1px solid var(--hairline); }
   .cta-final[data-bg="paper-2"] { background: var(--paper-2); border-block: 1px solid var(--hairline); }
   .cta-final[data-bg="paper-3"] { background: var(--paper-3); border-block: 1px solid var(--hairline); }

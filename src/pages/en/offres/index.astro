@@ -254,10 +254,14 @@ const tierPartnershipData = {
   </div>
 
   <!-- 4. TIER II · TRANSFORMATION -->
-  <OfferTierGrid data={tierTransformationData} lang="en" />
+  <div class="tier-rhythm-base">
+    <OfferTierGrid data={tierTransformationData} lang="en" />
+  </div>
 
   <!-- 5. TIER III · PARTNERSHIP -->
-  <OfferTierGrid data={tierPartnershipData} lang="en" />
+  <div class="tier-rhythm-base">
+    <OfferTierGrid data={tierPartnershipData} lang="en" />
+  </div>
 
   <!-- 6. SHORT MANIFESTO -->
   <section class="manifesto">
@@ -280,11 +284,22 @@ const tierPartnershipData = {
      leaves a void ; fall back to --section-base (rhythm family). */
   .tier-i-after-pyramid :global(.tier-section) {
     padding-top: var(--section-base);
+    padding-bottom: var(--section-base);
+  }
+
+  /* ── Tighten the rhythm of the following tiers (remove dead bands) ──
+     Each .tier-section carries --section-loose (160px) top AND bottom : between
+     two consecutive tiers this stacks ~320px of unintended void (measured gaps
+     of 358px). Fall back to --section-base (96px) — same rhythm family, 0 new
+     token — so each act stays dense. */
+  .tier-rhythm-base :global(.tier-section) {
+    padding-top: var(--section-base);
+    padding-bottom: var(--section-base);
   }
 
   /* ── MANIFESTO ─────────────────────────────────────────────── */
   .manifesto {
-    padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 80px);
+    padding: var(--section-base) clamp(20px, 5vw, 80px);
     background: var(--paper-2);
     text-align: center;
   }
