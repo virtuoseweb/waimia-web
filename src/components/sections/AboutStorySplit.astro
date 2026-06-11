@@ -1,0 +1,145 @@
+---
+// about-story-split (about-sections) — récit fondateur 2 colonnes : narratif gauche, timeline droite.
+// Dark natif (data-bg). En-tête et colonnes partagent l'axe gauche du conteneur.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'about-story-split'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const paragraphs = (isFr ? data.paragraphs_fr : data.paragraphs_en) ?? [];
+const milestones = data.milestones ?? [];
+const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
+---
+
+<section class="about-story" data-bg={data.background}>
+  <div class="wrap-wide about-story__grid">
+    <div class="about-story__narrative">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <div class="about-story__body">
+        {paragraphs.map((p: string) => (
+          <p>{p}</p>
+        ))}
+      </div>
+    </div>
+
+    <aside class="about-story__aside">
+      {asideTitle && <span class="about-story__aside-title">{asideTitle}</span>}
+      <ol class="about-story__timeline">
+        {milestones.map((m: (typeof milestones)[number]) => (
+          <li class="about-story__milestone">
+            <span class="about-story__year">{m.year}</span>
+            <span class="about-story__label">{isFr ? m.label_fr : m.label_en}</span>
+          </li>
+        ))}
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .about-story {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .about-story__grid {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: clamp(var(--space-8), 6vw, var(--space-12));
+    align-items: start;
+  }
+  .about-story__narrative {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+  .about-story__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .about-story__body p {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: var(--leading-prose);
+    max-width: 60ch;
+    margin: 0;
+  }
+  .about-story__aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    border-left: 1px solid var(--hairline);
+    padding-left: clamp(var(--space-5), 3vw, var(--space-8));
+  }
+  .about-story__aside-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .about-story__timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .about-story__milestone {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--hairline);
+  }
+  .about-story__milestone:last-child { border-bottom: 1px solid var(--hairline); }
+  .about-story__year {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-row);
+    color: var(--accent);
+    line-height: 1;
+  }
+  .about-story__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-body);
+  }
+  @media (max-width: 860px) {
+    .about-story__grid { grid-template-columns: 1fr; gap: var(--space-8); }
+    .about-story__aside {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-6);
+    }
+  }
+  /* ── Dark natif (docs/43) · remap scopé aux enfants ── */
+  .about-story[data-bg='paper-2'] { background: var(--paper-2); }
+  .about-story[data-bg='paper-3'] { background: var(--paper-3); }
+  .about-story[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .about-story[data-bg='ink'] :is(h2) { color: var(--paper); }
+</style>

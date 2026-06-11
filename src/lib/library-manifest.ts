@@ -77,6 +77,19 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'versus-competitors',        consumers: [] },
   { id: 'logo-marquee',              consumers: [] },
   // <<< [gen-trust-proof] end
+  // >>> [new-standard] start
+  // Lot new-standard 2026-06-11 — 10 types standard B2B-SaaS, dark natif (catalogue-only)
+  { id: 'team-bio-grid',                consumers: [] },
+  { id: 'about-story-split',            consumers: [] },
+  { id: 'footer-cta-band',              consumers: [] },
+  { id: 'integrations-grid',            consumers: [] },
+  { id: 'feature-split-media',          consumers: [] },
+  { id: 'metric-callout-band',          consumers: [] },
+  { id: 'testimonial-single-spotlight', consumers: [] },
+  { id: 'faq-two-column',               consumers: [] },
+  { id: 'cta-newsletter-footer',        consumers: [] },
+  { id: 'comparison-pricing-callout',   consumers: [] },
+  // <<< [new-standard] end
   // ── Live (34) ───────────────────────────────────────────────────────────────
   { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetailTemplate.astro'] },
   { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetailTemplate.astro'] },

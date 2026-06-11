@@ -1,0 +1,172 @@
+---
+// team-bio-grid (team-sections) — grille équipe : photo + nom + rôle + bio courte.
+// Dark natif (data-bg). Alignement gauche discipliné : en-tête + cartes partagent l'axe gauche.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'team-bio-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const members = data.members ?? [];
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('');
+---
+
+<section class="team-bio-grid" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="team-bio-grid__header">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="team-bio-grid__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+
+    <ul class="team-bio-grid__list" data-cols={data.columns}>
+      {members.map((m: (typeof members)[number]) => (
+        <li class="team-bio-grid__card">
+          <span class="team-bio-grid__avatar" aria-hidden="true">
+            {m.photo_src ? (
+              <img src={m.photo_src} alt="" loading="lazy" />
+            ) : (
+              <span class="team-bio-grid__initials">{initials(m.name)}</span>
+            )}
+          </span>
+          <strong class="team-bio-grid__name">
+            {m.link_href ? <a href={m.link_href}>{m.name}</a> : m.name}
+          </strong>
+          <span class="team-bio-grid__role">{isFr ? m.role_fr : m.role_en}</span>
+          <p class="team-bio-grid__bio">{isFr ? m.bio_fr : m.bio_en}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .team-bio-grid {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .team-bio-grid__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+  .team-bio-grid__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: var(--leading-lede);
+    max-width: 60ch;
+    margin: 0;
+  }
+  .team-bio-grid__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-6);
+  }
+  .team-bio-grid__list[data-cols='2'] { grid-template-columns: repeat(2, 1fr); }
+  .team-bio-grid__list[data-cols='3'] { grid-template-columns: repeat(3, 1fr); }
+  .team-bio-grid__list[data-cols='4'] { grid-template-columns: repeat(4, 1fr); }
+  .team-bio-grid__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: flex-start;
+    text-align: left;
+  }
+  .team-bio-grid__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper-2);
+    display: grid;
+    place-items: center;
+    margin-bottom: var(--space-2);
+  }
+  .team-bio-grid__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .team-bio-grid__initials {
+    font-family: var(--font-mono);
+    font-size: var(--text-body-base);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .team-bio-grid__name {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-card);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .team-bio-grid__name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .team-bio-grid__name a:hover { border-color: var(--accent); }
+  .team-bio-grid__role {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .team-bio-grid__bio {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: 1.6;
+    margin: var(--space-2) 0 0;
+  }
+  @media (max-width: 1023px) {
+    .team-bio-grid__list[data-cols='3'],
+    .team-bio-grid__list[data-cols='4'] { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .team-bio-grid__list[data-cols='2'],
+    .team-bio-grid__list[data-cols='3'],
+    .team-bio-grid__list[data-cols='4'] { grid-template-columns: 1fr; }
+  }
+  /* ── Dark natif (docs/43) · paper par défaut inchangé · remap scopé aux enfants ── */
+  .team-bio-grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .team-bio-grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .team-bio-grid[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+    --paper-2: rgba(var(--paper-rgb), 0.06);
+  }
+  .team-bio-grid[data-bg='ink'] :is(h2, .team-bio-grid__name) { color: var(--paper); }
+</style>

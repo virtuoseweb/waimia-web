@@ -1,0 +1,160 @@
+---
+// testimonial-single-spotlight (testimonial-sections) — un témoignage plein écran.
+// Dark natif (ink par défaut). Grande citation à gauche, portrait + attribution à droite.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'testimonial-single-spotlight'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const initials = data.author
+  .split(' ')
+  .map((w) => w[0])
+  .slice(0, 2)
+  .join('');
+---
+
+<section class="testimonial-spotlight" data-bg={data.background}>
+  <div class="wrap-wide testimonial-spotlight__grid">
+    <div class="testimonial-spotlight__main">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <blockquote class="testimonial-spotlight__quote">
+        {isFr ? data.quote_fr : data.quote_en}
+      </blockquote>
+    </div>
+
+    <figure class="testimonial-spotlight__author">
+      <span class="testimonial-spotlight__portrait" aria-hidden="true">
+        {data.portrait_src ? (
+          <img src={data.portrait_src} alt="" loading="lazy" />
+        ) : (
+          <span class="testimonial-spotlight__initials">{initials}</span>
+        )}
+      </span>
+      <figcaption class="testimonial-spotlight__attr">
+        <span class="testimonial-spotlight__name">{data.author}</span>
+        <span class="testimonial-spotlight__role">
+          {isFr ? data.role_fr : data.role_en}{data.company ? `, ${data.company}` : ''}
+        </span>
+        {data.logo_src && (
+          <img class="testimonial-spotlight__logo" src={data.logo_src} alt={data.company ?? ''} loading="lazy" />
+        )}
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .testimonial-spotlight {
+    padding-block: var(--section-grand);
+    border-block: 1px solid var(--hairline);
+  }
+  .testimonial-spotlight__grid {
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: clamp(var(--space-8), 6vw, var(--space-12));
+    align-items: center;
+  }
+  .testimonial-spotlight__main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .testimonial-spotlight__quote {
+    font-family: var(--font-display);
+    font-size: var(--text-pull-quote);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+    max-width: 24ch;
+  }
+  .testimonial-spotlight__quote::before { content: '\201C'; }
+  .testimonial-spotlight__quote::after { content: '\201D'; }
+  .testimonial-spotlight__author {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: flex-start;
+    border-left: 1px solid var(--hairline);
+    padding-left: clamp(var(--space-5), 3vw, var(--space-8));
+  }
+  .testimonial-spotlight__portrait {
+    width: 88px;
+    height: 88px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: rgba(var(--paper-rgb), 0.06);
+    display: grid;
+    place-items: center;
+  }
+  .testimonial-spotlight__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .testimonial-spotlight__initials {
+    font-family: var(--font-mono);
+    font-size: var(--text-body-md);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .testimonial-spotlight__attr {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .testimonial-spotlight__name {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-row);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .testimonial-spotlight__role {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-lede);
+  }
+  .testimonial-spotlight__logo {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+    margin-top: var(--space-3);
+    opacity: 0.78;
+  }
+  @media (max-width: 860px) {
+    .testimonial-spotlight__grid { grid-template-columns: 1fr; gap: var(--space-7); }
+    .testimonial-spotlight__author {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-6);
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-5);
+    }
+  }
+  /* ── Dark natif (docs/43) · ink par défaut · remap scopé aux enfants ── */
+  .testimonial-spotlight[data-bg='paper-2'] { background: var(--paper-2); }
+  .testimonial-spotlight[data-bg='paper-3'] { background: var(--paper-3); }
+  .testimonial-spotlight[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.16);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .testimonial-spotlight[data-bg='ink'] :is(.testimonial-spotlight__quote, .testimonial-spotlight__name) {
+    color: var(--paper);
+  }
+</style>

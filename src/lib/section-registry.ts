@@ -145,6 +145,18 @@ import PricingCards from '../components/sections/PricingCards.astro';
 import PricingToggle from '../components/sections/PricingToggle.astro';
 import PricingSingleHighlight from '../components/sections/PricingSingleHighlight.astro';
 // <<< [gen-pricing] end
+// >>> [new-standard] start
+import TeamBioGrid from '../components/sections/TeamBioGrid.astro';
+import AboutStorySplit from '../components/sections/AboutStorySplit.astro';
+import FooterCtaBand from '../components/sections/FooterCtaBand.astro';
+import IntegrationsGrid from '../components/sections/IntegrationsGrid.astro';
+import FeatureSplitMedia from '../components/sections/FeatureSplitMedia.astro';
+import MetricCalloutBand from '../components/sections/MetricCalloutBand.astro';
+import TestimonialSingleSpotlight from '../components/sections/TestimonialSingleSpotlight.astro';
+import FaqTwoColumn from '../components/sections/FaqTwoColumn.astro';
+import CtaNewsletterFooter from '../components/sections/CtaNewsletterFooter.astro';
+import ComparisonPricingCallout from '../components/sections/ComparisonPricingCallout.astro';
+// <<< [new-standard] end
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -1532,6 +1544,108 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Single-product offer in large format: one wide centred card with anchor price, benefits list, guarantee and strong CTA. Ideal for single-offer landings.',
   },
   // <<< [gen-pricing] end
+  // >>> [new-standard] start
+  'team-bio-grid': {
+    component: TeamBioGrid,
+    category: 'marketing',
+    subcategory: 'Team Sections',
+    categorySlug: 'team-sections',
+    tags: ['team', 'people', 'bio', 'grid', 'about'],
+    status: 'stable',
+    description_fr: 'Grille d’équipe : photo, nom, rôle et bio courte par membre, en 2 à 4 colonnes alignées. Idéale pour une page À propos ou Équipe qui humanise la marque.',
+    description_en: 'Team grid: photo, name, role and a short bio per member, in 2 to 4 aligned columns. Ideal for an About or Team page that humanises the brand.',
+  },
+  'about-story-split': {
+    component: AboutStorySplit,
+    category: 'marketing',
+    subcategory: 'About Sections',
+    categorySlug: 'about-sections',
+    tags: ['about', 'story', 'mission', 'timeline', 'split'],
+    status: 'stable',
+    description_fr: 'Récit fondateur en deux colonnes : texte narratif de mission à gauche, timeline de jalons datés à droite. Raconte l’histoire de la marque sans verbiage.',
+    description_en: 'Founder narrative in two columns: a mission story on the left, a dated milestone timeline on the right. Tells the brand story without filler.',
+  },
+  'footer-cta-band': {
+    component: FooterCtaBand,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['cta', 'band', 'full-bleed', 'conversion', 'pre-footer'],
+    status: 'stable',
+    description_fr: 'Bande CTA finale pleine largeur (titre, sous-titre, un à deux boutons), pensée comme le climax juste avant le footer. Sombre par défaut pour trancher avec la page.',
+    description_en: 'Full-bleed final CTA band (title, subtitle, one or two buttons), designed as the climax right before the footer. Dark by default to contrast with the page.',
+  },
+  'integrations-grid': {
+    component: IntegrationsGrid,
+    category: 'marketing',
+    subcategory: 'Logo Sections',
+    categorySlug: 'logo-sections',
+    tags: ['integrations', 'logos', 'grid', 'ecosystem', 'connectors'],
+    status: 'stable',
+    description_fr: 'Grille de logos d’intégrations groupés par catégorie (CRM, communication, données). Répond à l’objection « est-ce que ça se branche à nos outils ? » d’un coup d’œil.',
+    description_en: 'Integration logo grid grouped by category (CRM, communication, data). Answers the “does it plug into our tools?” objection at a glance.',
+  },
+  'feature-split-media': {
+    component: FeatureSplitMedia,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['feature', 'split', 'media', 'mockup', 'reversed'],
+    status: 'stable',
+    description_fr: 'Une feature majeure exposée en deux colonnes : texte et points clés d’un côté, mockup ou capture de l’autre. Le champ reversed permet d’alterner les côtés au fil de la page.',
+    description_en: 'One major feature laid out in two columns: copy and key points on one side, mockup or screenshot on the other. The reversed field alternates sides down the page.',
+  },
+  'metric-callout-band': {
+    component: MetricCalloutBand,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['stats', 'metric', 'callout', 'band', 'impact'],
+    status: 'stable',
+    description_fr: 'Bande d’une à trois métriques héro surdimensionnées accompagnées d’une phrase de contexte. Frappe fort sur un résultat chiffré, sombre par défaut pour la mise en avant.',
+    description_en: 'A band of one to three oversized hero metrics paired with a context sentence. Lands a single quantified result hard, dark by default for emphasis.',
+  },
+  'testimonial-single-spotlight': {
+    component: TestimonialSingleSpotlight,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['testimonial', 'spotlight', 'quote', 'portrait', 'single'],
+    status: 'stable',
+    description_fr: 'Un seul témoignage en plein écran : grande citation, portrait, logo client et attribution nom/rôle. Donne tout le poids à une voix client, sombre par défaut.',
+    description_en: 'A single full-screen testimonial: a large quote, portrait, client logo and name/role attribution. Gives full weight to one client voice, dark by default.',
+  },
+  'faq-two-column': {
+    component: FaqTwoColumn,
+    category: 'marketing',
+    subcategory: 'FAQ Sections',
+    categorySlug: 'faq-sections',
+    tags: ['faq', 'two-column', 'static', 'questions', 'scan'],
+    status: 'stable',
+    description_fr: 'FAQ en deux colonnes statiques (question en gras, réponse en dessous), sans accordéon. Pensée pour le scan rapide quand toutes les réponses doivent être visibles d’emblée.',
+    description_en: 'FAQ in two static columns (bold question, answer beneath), with no accordion. Built for fast scanning when every answer should be visible upfront.',
+  },
+  'cta-newsletter-footer': {
+    component: CtaNewsletterFooter,
+    category: 'marketing',
+    subcategory: 'Newsletter Sections',
+    categorySlug: 'newsletter-sections',
+    tags: ['newsletter', 'cta', 'email', 'capture', 'pre-footer'],
+    status: 'stable',
+    description_fr: 'Capture email compacte multi-colonne de type pré-footer : titre, champ, bouton et mention RGPD sur une ligne. Sombre par défaut pour clore la page sur l’abonnement.',
+    description_en: 'Compact multi-column pre-footer email capture: title, field, button and GDPR notice on one row. Dark by default to close the page on the subscription.',
+  },
+  'comparison-pricing-callout': {
+    component: ComparisonPricingCallout,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['comparison', 'value-prop', 'pricing', 'bridge', 'callout'],
+    status: 'stable',
+    description_fr: 'Bloc « pourquoi nous » en trois colonnes de propositions de valeur, terminé par un CTA et une mention. Sert de pont entre les features et la page tarifaire.',
+    description_en: 'A “why us” block in three value-proposition columns, closed by a CTA and a note. Bridges the gap between features and the pricing page.',
+  },
+  // <<< [new-standard] end
 };
 
 export const SECTION_REGISTRY: Record<SectionType, AstroComponent> = Object.fromEntries(

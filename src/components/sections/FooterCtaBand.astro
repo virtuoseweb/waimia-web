@@ -1,0 +1,92 @@
+---
+// footer-cta-band (cta-sections) — bande CTA finale pleine largeur, climax avant footer.
+// Dark natif (ink par défaut). Contenu aligné à gauche dans wrap-wide, boutons à droite en desktop.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'footer-cta-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const buttons = data.buttons ?? [];
+---
+
+<section class="footer-cta" data-bg={data.background}>
+  <div class="wrap-wide footer-cta__inner">
+    <div class="footer-cta__copy">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.subtitle_fr : data.subtitle_en) && (
+        <p class="footer-cta__subtitle">{isFr ? data.subtitle_fr : data.subtitle_en}</p>
+      )}
+    </div>
+    <div class="footer-cta__actions">
+      {buttons.map((b: (typeof buttons)[number]) => (
+        <Button href={b.href} variant={b.variant} size="lg">
+          {isFr ? b.label_fr : b.label_en}
+        </Button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .footer-cta {
+    padding-block: var(--section-grand);
+    border-block: 1px solid var(--hairline);
+  }
+  .footer-cta__inner {
+    display: grid;
+    grid-template-columns: 1.5fr auto;
+    gap: clamp(var(--space-6), 5vw, var(--space-10));
+    align-items: center;
+  }
+  .footer-cta__copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-grand);
+    line-height: var(--leading-h2);
+    color: var(--ink);
+    margin: 0;
+    max-width: 22ch;
+  }
+  h2 :global(i) { font-style: italic; }
+  .footer-cta__subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: var(--leading-lede);
+    max-width: 52ch;
+    margin: 0;
+  }
+  .footer-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+  }
+  @media (max-width: 860px) {
+    .footer-cta__inner { grid-template-columns: 1fr; gap: var(--space-7); }
+    .footer-cta__actions { justify-content: flex-start; }
+  }
+  /* ── Dark natif (docs/43) · ink par défaut · remap scopé aux enfants ── */
+  .footer-cta[data-bg='paper-2'] { background: var(--paper-2); }
+  .footer-cta[data-bg='paper-3'] { background: var(--paper-3); }
+  .footer-cta[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.66);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .footer-cta[data-bg='ink'] :is(h2) { color: var(--paper); }
+</style>

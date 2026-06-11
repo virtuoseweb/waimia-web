@@ -3051,6 +3051,213 @@ export const logoMarqueeSchema = z.object({
 });
 // <<< [gen-trust-proof] end
 
+// >>> [new-standard] start
+// Lot new-standard 2026-06-11 — 10 nouveaux types standard B2B-SaaS, dark natif dès création.
+// background: z.enum(['paper','paper-2','paper-3','ink']) sur chaque type (champ obligatoire dark).
+
+// 1. team-bio-grid (team-sections) : grille équipe photo + nom + rôle + bio courte (2-4 colonnes).
+const teamBioMemberSchema = z.object({
+  photo_src: z.string().optional(),
+  name: z.string(),
+  role_fr: z.string(),
+  role_en: z.string(),
+  bio_fr: z.string(),
+  bio_en: z.string(),
+  link_href: z.string().optional(),
+});
+export const teamBioGridSchema = z.object({
+  type: z.literal('team-bio-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  columns: z.enum(['2', '3', '4']).default('3'),
+  members: z.array(teamBioMemberSchema).min(2).max(12),
+});
+
+// 2. about-story-split (about-sections) : récit fondateur, 2 colonnes (texte narratif + timeline/chiffres).
+const aboutStoryMilestoneSchema = z.object({
+  year: z.string(),
+  label_fr: z.string(),
+  label_en: z.string(),
+});
+export const aboutStorySplitSchema = z.object({
+  type: z.literal('about-story-split'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  paragraphs_fr: z.array(z.string()).min(1).max(5),
+  paragraphs_en: z.array(z.string()).min(1).max(5),
+  aside_title_fr: z.string().optional(),
+  aside_title_en: z.string().optional(),
+  milestones: z.array(aboutStoryMilestoneSchema).min(2).max(8),
+});
+
+// 3. footer-cta-band (cta-sections) : bande CTA finale pleine largeur, climax avant footer.
+const footerCtaButtonSchema = z.object({
+  label_fr: z.string(),
+  label_en: z.string(),
+  href: z.string(),
+  variant: z.enum(['primary', 'ghost', 'accent']).default('primary'),
+});
+export const footerCtaBandSchema = z.object({
+  type: z.literal('footer-cta-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('ink'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  subtitle_fr: z.string().optional(),
+  subtitle_en: z.string().optional(),
+  buttons: z.array(footerCtaButtonSchema).min(1).max(2),
+});
+
+// 4. integrations-grid (logo-sections) : grille de logos d'intégrations groupés par catégorie.
+const integrationItemSchema = z.object({
+  logo_src: z.string().optional(),
+  name: z.string(),
+  href: z.string().optional(),
+});
+const integrationGroupSchema = z.object({
+  group_fr: z.string(),
+  group_en: z.string(),
+  items: z.array(integrationItemSchema).min(2).max(12),
+});
+export const integrationsGridSchema = z.object({
+  type: z.literal('integrations-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  groups: z.array(integrationGroupSchema).min(1).max(6),
+});
+
+// 5. feature-split-media (feature-sections) : feature majeure texte + mockup, champ reversed.
+const featureSplitPointSchema = z.object({
+  label_fr: z.string(),
+  label_en: z.string(),
+});
+export const featureSplitMediaSchema = z.object({
+  type: z.literal('feature-split-media'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  reversed: z.boolean().default(false),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+  points: z.array(featureSplitPointSchema).max(6).default([]),
+  media_src: z.string().optional(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
+  media_caption_fr: z.string().optional(),
+  media_caption_en: z.string().optional(),
+  cta_label_fr: z.string().optional(),
+  cta_label_en: z.string().optional(),
+  cta_href: z.string().optional(),
+});
+
+// 6. metric-callout-band (stats-sections) : bande 1-3 métriques héro surdimensionnées + contexte.
+const metricCalloutItemSchema = z.object({
+  value: z.string(),
+  label_fr: z.string(),
+  label_en: z.string(),
+});
+export const metricCalloutBandSchema = z.object({
+  type: z.literal('metric-callout-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('ink'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  context_fr: z.string(),
+  context_en: z.string(),
+  metrics: z.array(metricCalloutItemSchema).min(1).max(3),
+});
+
+// 7. testimonial-single-spotlight (testimonial-sections) : un témoignage plein écran.
+export const testimonialSingleSpotlightSchema = z.object({
+  type: z.literal('testimonial-single-spotlight'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('ink'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  quote_fr: z.string(),
+  quote_en: z.string(),
+  author: z.string(),
+  role_fr: z.string(),
+  role_en: z.string(),
+  company: z.string().optional(),
+  portrait_src: z.string().optional(),
+  logo_src: z.string().optional(),
+});
+
+// 8. faq-two-column (faq-sections) : FAQ 2 colonnes statiques, scan rapide sans accordéon.
+const faqTwoColItemSchema = z.object({
+  q_fr: z.string(),
+  q_en: z.string(),
+  a_fr: z.string(),
+  a_en: z.string(),
+});
+export const faqTwoColumnSchema = z.object({
+  type: z.literal('faq-two-column'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  items: z.array(faqTwoColItemSchema).min(2).max(12),
+});
+
+// 9. cta-newsletter-footer (newsletter-sections) : capture email compacte pré-footer + RGPD.
+export const ctaNewsletterFooterSchema = z.object({
+  type: z.literal('cta-newsletter-footer'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('ink'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  subtitle_fr: z.string().optional(),
+  subtitle_en: z.string().optional(),
+  placeholder_fr: z.string().default('vous@entreprise.com'),
+  placeholder_en: z.string().default('you@company.com'),
+  button_label_fr: z.string().default('S’abonner'),
+  button_label_en: z.string().default('Subscribe'),
+  consent_fr: z.string().optional(),
+  consent_en: z.string().optional(),
+  action: z.string().optional(),
+});
+
+// 10. comparison-pricing-callout (comparison-sections) : bloc « pourquoi nous » 3 colonnes, bridge feature→pricing.
+const comparisonValuePropSchema = z.object({
+  glyph: z.string().optional(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+});
+export const comparisonPricingCalloutSchema = z.object({
+  type: z.literal('comparison-pricing-callout'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  columns: z.array(comparisonValuePropSchema).min(2).max(4),
+  cta_label_fr: z.string().optional(),
+  cta_label_en: z.string().optional(),
+  cta_href: z.string().optional(),
+  cta_note_fr: z.string().optional(),
+  cta_note_en: z.string().optional(),
+});
+// <<< [new-standard] end
+
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroCenteredSchema,
@@ -3199,6 +3406,18 @@ export const sectionSchema = z.discriminatedUnion('type', [
   versusCompetitorsSchema,
   logoMarqueeSchema,
   // <<< [gen-trust-proof] end
+  // >>> [new-standard] start
+  teamBioGridSchema,
+  aboutStorySplitSchema,
+  footerCtaBandSchema,
+  integrationsGridSchema,
+  featureSplitMediaSchema,
+  metricCalloutBandSchema,
+  testimonialSingleSpotlightSchema,
+  faqTwoColumnSchema,
+  ctaNewsletterFooterSchema,
+  comparisonPricingCalloutSchema,
+  // <<< [new-standard] end
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

@@ -1,0 +1,142 @@
+---
+// comparison-pricing-callout (comparison-sections) — bloc « pourquoi nous » 3 colonnes value-prop,
+// bridge feature → pricing. Dark natif (data-bg). En-tête + colonnes + CTA sur l'axe gauche.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'comparison-pricing-callout'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const columns = data.columns ?? [];
+const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
+const ctaNote = isFr ? data.cta_note_fr : data.cta_note_en;
+---
+
+<section class="cmp-callout" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="cmp-callout__header">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+    </div>
+
+    <ul class="cmp-callout__cols">
+      {columns.map((c: (typeof columns)[number]) => (
+        <li class="cmp-callout__col">
+          {c.glyph && <span class="cmp-callout__glyph" aria-hidden="true">{c.glyph}</span>}
+          <strong class="cmp-callout__col-title">{isFr ? c.title_fr : c.title_en}</strong>
+          <p class="cmp-callout__col-body">{isFr ? c.body_fr : c.body_en}</p>
+        </li>
+      ))}
+    </ul>
+
+    {ctaLabel && data.cta_href && (
+      <div class="cmp-callout__bridge">
+        <Button href={data.cta_href} variant="primary" size="lg">{ctaLabel}</Button>
+        {ctaNote && <span class="cmp-callout__note">{ctaNote}</span>}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .cmp-callout {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cmp-callout__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+  .cmp-callout__cols {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .cmp-callout__col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+    padding: var(--space-6);
+    padding-left: var(--space-6);
+    border-left: 1px solid var(--hairline);
+  }
+  .cmp-callout__col:first-child { padding-left: 0; border-left: none; }
+  .cmp-callout__glyph {
+    font-family: var(--font-mono);
+    font-size: var(--text-h3-card);
+    color: var(--accent);
+    line-height: 1;
+  }
+  .cmp-callout__col-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-card);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .cmp-callout__col-body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .cmp-callout__bridge {
+    margin-top: var(--spacing-block);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+  .cmp-callout__note {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    font-style: italic;
+    color: var(--muted);
+    line-height: var(--leading-body);
+    max-width: 44ch;
+  }
+  @media (max-width: 860px) {
+    .cmp-callout__cols { grid-template-columns: 1fr; }
+    .cmp-callout__col {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--hairline);
+      padding-block: var(--space-5);
+    }
+    .cmp-callout__col:first-child { border-top: none; padding-top: 0; }
+  }
+  /* ── Dark natif (docs/43) · remap scopé aux enfants ── */
+  .cmp-callout[data-bg='paper-2'] { background: var(--paper-2); }
+  .cmp-callout[data-bg='paper-3'] { background: var(--paper-3); }
+  .cmp-callout[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .cmp-callout[data-bg='ink'] :is(h2, .cmp-callout__col-title) { color: var(--paper); }
+</style>

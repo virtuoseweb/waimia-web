@@ -1,0 +1,108 @@
+---
+// metric-callout-band (stats-sections) — 1 à 3 métriques héro surdimensionnées + phrase de contexte.
+// Dark natif (ink par défaut). Contexte à gauche, métriques en grille sur l'axe gauche du conteneur.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'metric-callout-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const metrics = data.metrics ?? [];
+---
+
+<section class="metric-callout" data-bg={data.background} data-count={metrics.length}>
+  <div class="wrap-wide">
+    <div class="metric-callout__head">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <p class="metric-callout__context">{isFr ? data.context_fr : data.context_en}</p>
+    </div>
+    <ul class="metric-callout__list">
+      {metrics.map((m: (typeof metrics)[number]) => (
+        <li class="metric-callout__item">
+          <span class="metric-callout__value">{m.value}</span>
+          <span class="metric-callout__label">{isFr ? m.label_fr : m.label_en}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .metric-callout {
+    padding-block: var(--section-base);
+    border-block: 1px solid var(--hairline);
+  }
+  .metric-callout__head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+  }
+  .metric-callout__context {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lead);
+    color: var(--muted);
+    line-height: var(--leading-lede);
+    max-width: 64ch;
+    margin: 0;
+  }
+  .metric-callout__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+  .metric-callout[data-count='1'] .metric-callout__list { grid-template-columns: 1fr; }
+  .metric-callout[data-count='2'] .metric-callout__list { grid-template-columns: repeat(2, 1fr); }
+  .metric-callout[data-count='3'] .metric-callout__list { grid-template-columns: repeat(3, 1fr); }
+  .metric-callout__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-6) var(--space-6) var(--space-6) 0;
+    border-right: 1px solid var(--hairline);
+    padding-right: var(--space-6);
+  }
+  .metric-callout__item:first-child { padding-left: 0; }
+  .metric-callout__item:last-child { border-right: none; }
+  .metric-callout__value {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 0.95;
+    color: var(--accent);
+    letter-spacing: var(--tracking-display);
+  }
+  .metric-callout__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    font-style: italic;
+    color: var(--muted);
+    line-height: var(--leading-lede);
+  }
+  @media (max-width: 760px) {
+    .metric-callout[data-count='2'] .metric-callout__list,
+    .metric-callout[data-count='3'] .metric-callout__list { grid-template-columns: 1fr; }
+    .metric-callout__item {
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+      padding: var(--space-5) 0;
+    }
+    .metric-callout__item:last-child { border-bottom: none; }
+  }
+  /* ── Dark natif (docs/43) · ink par défaut · remap scopé aux enfants ── */
+  .metric-callout[data-bg='paper-2'] { background: var(--paper-2); }
+  .metric-callout[data-bg='paper-3'] { background: var(--paper-3); }
+  .metric-callout[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.66);
+    --hairline: rgba(var(--paper-rgb), 0.16);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+</style>
