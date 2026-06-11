@@ -183,6 +183,11 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
     --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
   .stat-block[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  /* PullQuote interne (split-quote · scope composant distinct) : corps + guillemet + signature sur ink. */
+  .stat-block[data-bg='ink'] :global(.pull-quote-body) { color: var(--paper); }
+  .stat-block[data-bg='ink'] :global(.pull-quote-mark) { color: rgba(var(--paper-rgb), 0.5); }
+  .stat-block[data-bg='ink'] :global(.pull-quote-attr) { color: rgba(var(--paper-rgb), 0.82); }
+  .stat-block[data-bg='ink'] :global(.pull-quote-cite) { color: rgba(var(--paper-rgb), 0.6); }
 
   /* ───── proof-bar (preset strip) — CSS VERBATIM ProofBarSection.astro ───── */
   .proof-bar {
