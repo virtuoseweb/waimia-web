@@ -26,21 +26,24 @@ const isFr = lang === 'fr';
   </div>
   )}
   <ol class="method-timeline__list">
-    {data.steps.map((step: (typeof data.steps)[number]) => (
+    {data.steps.map((step: (typeof data.steps)[number]) => {
+      const meta = isFr ? step.meta_fr : step.meta_en;
+      return (
       <li class="method-timeline__step">
-        <Kicker tone="accent" size={10} class="method-timeline__num">{step.num}</Kicker>
+        <span class="method-timeline__sn">{step.num}</span>
         <div class="method-timeline__content">
           <strong class="method-timeline__label">{isFr ? step.label_fr : step.label_en}</strong>
           <p>{isFr ? step.body_fr : step.body_en}</p>
-          {(isFr ? step.meta_fr : step.meta_en) && (
-            <Kicker tone="dim" size={10}>{isFr ? step.meta_fr : step.meta_en}</Kicker>
-          )}
           {step.duration_fr && isFr && (
             <Kicker tone="muted" size={10}>↓ {step.duration_fr}</Kicker>
           )}
         </div>
+        <div class="method-timeline__aside">
+          {meta && <span class="method-timeline__meta">{meta}</span>}
+        </div>
       </li>
-    ))}
+      );
+    })}
   </ol>
   </div>
 </section>
@@ -80,20 +83,40 @@ const isFr = lang === 'fr';
   }
   .method-timeline__step {
     display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 20px;
+    grid-template-columns: minmax(64px, 0.7fr) minmax(0, 2.2fr) minmax(140px, 1fr);
+    column-gap: var(--space-7);
+    align-items: start;
     padding-block: var(--space-6);
     border-top: 1px solid var(--hairline);
   }
   .method-timeline__step:last-child { border-bottom: 1px solid var(--hairline); }
-  .method-timeline__num {
+  .method-timeline__sn {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(28px, 3.4vw, 52px);
+    line-height: 0.9;
+    letter-spacing: var(--tracking-display);
+    color: var(--accent);
     align-self: start;
-    padding-top: 10px;
   }
   .method-timeline__content {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
+  }
+  .method-timeline__aside {
+    justify-self: end;
+    text-align: right;
+    align-self: start;
+    padding-top: var(--space-2);
+  }
+  .method-timeline__meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: var(--leading-lede);
   }
   .method-timeline__label {
     font-family: var(--font-sans);
@@ -115,7 +138,7 @@ const isFr = lang === 'fr';
     color: var(--muted);
     line-height: 1.6;
     margin: 0;
-    max-width: 64ch;
+    max-width: 52ch;
   }
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .method-timeline[data-bg='paper-2'] { background: var(--paper-2); }
@@ -125,4 +148,20 @@ const isFr = lang === 'fr';
     color: var(--paper);
   }
   .method-timeline[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .method-timeline[data-bg='ink'] .method-timeline__meta { color: rgba(var(--paper-rgb), 0.6); }
+
+  /* Mobile : colonne unique, numéro + meta repassent au-dessus/dessous du corps. */
+  @media (max-width: 768px) {
+    .method-timeline__step {
+      grid-template-columns: 1fr;
+      row-gap: var(--space-3);
+    }
+    .method-timeline__sn { font-size: clamp(24px, 7vw, 36px); }
+    .method-timeline__aside {
+      justify-self: start;
+      text-align: left;
+      padding-top: 0;
+      order: 3;
+    }
+  }
 </style>
