@@ -23,6 +23,12 @@ const cookbooks = [
   { code: 'CB · 06', tag: 'Dette', title: 'Migrer 200 bots RPA vers des agents Claude',
     lead: 'Triage qui survit / qui meurt / qui était du théâtre. Inclut grille de priorisation.' },
 ];
+
+// Featured = LE cookbook le plus représentatif (le runbook RevOps qu'on suit en interne,
+// le plus vendeur : requêtes dbt + politiques d'écriture). Le reste reste en grille.
+const [featured, ...rest] = cookbooks;
+const cbMailto = (c: { code: string; title: string }) =>
+  `mailto:bonjour@waimia.com?subject=${encodeURIComponent(c.code + ' · ' + c.title)}`;
 ---
 <UtilityTemplate
   variant="list"
@@ -47,9 +53,19 @@ const cookbooks = [
   </Fragment>
 
   <Fragment slot="list">
+    <a class="cb-featured reveal" href={cbMailto(featured)}>
+      <div class="cb-meta">
+        <span class="cb-code">{featured.code}</span>
+        <span class="cb-tag">Cookbook phare · {featured.tag}</span>
+      </div>
+      <h2 class="cb-featured-title">{featured.title}</h2>
+      <p class="cb-featured-lead">{featured.lead}</p>
+      <span class="cb-go">Demander le cookbook (NDA) →</span>
+    </a>
+
     <div class="cb-grid reveal-stagger">
-      {cookbooks.map((c) => (
-        <a class="cb-card" href={`mailto:bonjour@waimia.com?subject=${encodeURIComponent(c.code + ' · ' + c.title)}`}>
+      {rest.map((c) => (
+        <a class="cb-card" href={cbMailto(c)}>
           <div class="cb-meta">
             <span class="cb-code">{c.code}</span>
             <span class="cb-tag">{c.tag}</span>
@@ -64,6 +80,38 @@ const cookbooks = [
 </UtilityTemplate>
 
 <style>
+  .cb-featured {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: clamp(36px, 5vw, 64px);
+    margin-bottom: var(--space-6);
+    background: var(--ink);
+    color: var(--paper);
+    border: 2px solid var(--accent);
+    transition: transform 260ms var(--ease);
+  }
+  .cb-featured:hover { transform: translateY(-3px); }
+  .cb-featured .cb-code { color: var(--accent); }
+  .cb-featured .cb-tag { color: rgba(var(--paper-rgb), 0.6); }
+  .cb-featured-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    font-weight: var(--fw-regular);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .cb-featured-lead {
+    font-size: var(--text-body-lead);
+    line-height: 1.55;
+    color: rgba(var(--paper-rgb), 0.78);
+    text-wrap: pretty;
+    margin: 0;
+    max-width: 640px;
+  }
+  .cb-featured .cb-go { color: var(--accent); }
   .cb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--hairline-strong); border-bottom: 1px solid var(--hairline-strong); }
   .cb-card { padding: clamp(28px, 3vw, 44px); border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 14px; color: inherit; transition: background 240ms var(--ease); }
   .cb-card:nth-child(2n) { border-right: none; }
