@@ -219,6 +219,50 @@ function parseClasses() {
   return { classes, duplicateClasses };
 }
 
+// ── Dette scoped : groupes de déclarations dupliqués cross-fichiers dans les <style> des composants ──
+// Angle mort historique : CLASS_FILES ne couvre que les CSS globaux alors que ~197 composants
+// portent un bloc <style> scoped. On extrait chaque règle, on normalise sa signature de
+// déclarations (mêmes propriétés/valeurs, ordre trié) et on ne garde que les signatures
+// présentes dans >= 2 fichiers distincts (= duplication réelle cross-composants).
+// Seules les signatures de >= 2 déclarations comptent : une règle à déclaration unique
+// (ex. `color:var(--paper)`) est du CSS normal, pas un groupe dupliqué (métrique audit ~280).
+const COMPONENTS_DIR = 'src/components';
+
+function extractStyleBlocks(source) {
+  return [...source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((match) => match[1]);
+}
+
+function parseScopedDuplicates() {
+  const componentFiles = listFiles(join(ROOT, COMPONENTS_DIR))
+    .filter((file) => extname(file) === '.astro')
+    .map((file) => relative(ROOT, file))
+    .sort(alpha);
+
+  const groups = new Map(); // signature -> Set<file>
+  for (const file of componentFiles) {
+    for (const block of extractStyleBlocks(read(file))) {
+      for (const rule of parseRules(block)) {
+        // Frames de @keyframes (from/to/N%) : pas des sélecteurs réutilisables, bruit exclu.
+        if (/^(?:from|to|\d+(?:\.\d+)?%)(?:\s*,|$)/.test(rule.selector)) continue;
+        const signature = declarationSignature(rule.body);
+        if (!signature || !signature.includes(';')) continue;
+        const filesForSignature = groups.get(signature) ?? new Set();
+        filesForSignature.add(file);
+        groups.set(signature, filesForSignature);
+      }
+    }
+  }
+
+  return [...groups.entries()]
+    .map(([signature, files]) => ({
+      signature,
+      count: files.size,
+      files: [...files].sort(alpha),
+    }))
+    .filter((group) => group.count >= 2)
+    .sort((a, b) => b.count - a.count || alpha(a.signature, b.signature));
+}
+
 const tokens = parseTokens(read(TOKENS_FILE));
 const sourceFiles = listFiles(join(ROOT, 'src'))
   .filter((file) => ['.astro', '.css'].includes(extname(file)))
@@ -230,6 +274,7 @@ const tokenConsumers = tokens.map(({ name }) => {
   return { token: name, count: files.length, files };
 });
 const { classes, duplicateClasses } = parseClasses();
+const scopedDuplicates = parseScopedDuplicates();
 const unusedTokens = tokenConsumers.filter(({ count }) => count === 0).map(({ token }) => token);
 
 const registry = {
@@ -237,15 +282,17 @@ const registry = {
   tokenConsumers,
   classes,
   duplicateClasses,
+  scopedDuplicates,
   stats: {
     tokenCount: tokens.length,
     classCount: classes.length,
     duplicateGroupCount: duplicateClasses.length,
+    scopedDuplicateGroupCount: scopedDuplicates.length,
     unusedTokens,
   },
 };
 
 writeFileSync(join(ROOT, OUTPUT_FILE), JSON.stringify(registry, null, 2) + '\n', 'utf8');
 console.log(
-  `ds-registry: ${tokens.length} tokens, ${classes.length} classes, ${duplicateClasses.length} duplicate groups, ${unusedTokens.length} unused tokens`,
+  `ds-registry: ${tokens.length} tokens, ${classes.length} classes, ${duplicateClasses.length} duplicate groups, ${scopedDuplicates.length} scoped duplicate groups, ${unusedTokens.length} unused tokens`,
 );

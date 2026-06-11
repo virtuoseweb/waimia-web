@@ -10,7 +10,11 @@
  * verticaux de section.
  *
  * Regles verifiees :
- *  R1 — `var(--spacing-section)` (token fluide supprime R4) = INTERDIT partout dans src/.
+ *  R1 — `var(--spacing-section)` (token fluide supprime R4) = INTERDIT partout dans src/,
+ *       AVEC ou SANS fallback (`var(--spacing-section, 4rem)` compte aussi : le token
+ *       n'existe pas, seul le fallback s'applique = rythme hors famille). Idem pour le
+ *       token inexistant `var(--section)` nu (la famille est --section-tight|base|loose|grand).
+ *       Scanne TOUT src/ : composants ET pages (angle mort pages corrige 2026-06-11).
  *  R2 — Dans src/components/sections/*.astro : toute declaration padding/padding-block/
  *       padding-top/padding-bottom contenant un clamp(...) en px dont le MAX >= 72px
  *       = rythme vertical bespoke -> INTERDIT (consommer un cran --section-*).
@@ -37,7 +41,11 @@ const HERO_EXEMPT = (name) =>
 
 const MAX_BESPOKE_PX = 72; // au-dela : c'est un cran de section qui s'ignore
 
-// ── R1 : var(--spacing-section) interdit dans tout src/ ──
+// ── R1 : var(--spacing-section) interdit dans tout src/ (pages incluses), fallback ou pas ──
+// `var(--spacing-section, 4rem)` est AUSSI une violation : le token n'existe plus, seul le
+// fallback s'applique -> rythme hors famille, invisible si on ne matche que la forme nue.
+// `var(--section)` nu (sans -tight|base|loose|grand ni fallback) = token inexistant -> violation.
+const R1_RE = /var\(\s*--spacing-section\b[^)]*\)|var\(\s*--section\s*\)/g;
 const r1Hits = [];
 function walk(dir) {
   for (const entry of readdirSync(dir)) {
@@ -46,11 +54,9 @@ function walk(dir) {
     if (st.isDirectory()) walk(p);
     else if (/\.(astro|css|ts|tsx|mdx)$/.test(entry)) {
       const src = readFileSync(p, 'utf8');
-      let idx = src.indexOf('var(--spacing-section)');
-      while (idx !== -1) {
-        const line = src.slice(0, idx).split('\n').length;
-        r1Hits.push(`${relative(ROOT, p)}:${line}`);
-        idx = src.indexOf('var(--spacing-section)', idx + 1);
+      for (const m of src.matchAll(R1_RE)) {
+        const line = src.slice(0, m.index).split('\n').length;
+        r1Hits.push(`${relative(ROOT, p)}:${line} -> ${m[0]}`);
       }
     }
   }
@@ -110,7 +116,7 @@ for (const f of files) {
 
 console.log('check-section-rhythm — famille --section-* (R4)');
 console.log(`Sections scannees : ${files.length} · usages de crans --section-* : ${cranCount}`);
-console.log(`\nR1 var(--spacing-section) (token supprime) : ${r1Hits.length}`);
+console.log(`\nR1 var(--spacing-section) / var(--section) nus ou avec fallback (tokens supprimes, scan = tout src/ y compris pages) : ${r1Hits.length}`);
 r1Hits.slice(0, REPORT ? Infinity : 5).forEach((h) => console.log('  ⛔ ' + h));
 console.log(`R2 clamps verticaux bespoke >= ${MAX_BESPOKE_PX}px (hors heros R5 / vh) : ${r2Hits.length}`);
 r2Hits.slice(0, REPORT ? Infinity : 10).forEach((h) => console.log('  ⛔ ' + h));
