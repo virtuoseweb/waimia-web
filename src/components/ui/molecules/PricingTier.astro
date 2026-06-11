@@ -99,7 +99,9 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     position: absolute;
     top: -12px;
     left: 24px;
-    background: var(--accent);
+    /* accent-2 (terracotta foncee) : paper sur accent = 4.02 (sous AA),
+       paper sur accent-2 = 5.57 (AA franc), identite accent preservee. */
+    background: var(--accent-2);
     color: var(--paper);
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);

@@ -129,6 +129,9 @@ const tmRows = data.type === 'tech-models-table'
     gap: clamp(24px, 4vw, 80px);
     margin-bottom: clamp(40px, 5vw, 64px);
     align-items: end;
+    /* Aligne l'axe gauche de l'en-tete sur la 1ere colonne du tableau :
+       compense le padding interne du panel .tech-models-table-wrap (meme clamp). */
+    padding-inline: clamp(18px, 3vw, 32px);
   }
   .tech-sec-hd h2 {
     font-family: var(--font-display);
