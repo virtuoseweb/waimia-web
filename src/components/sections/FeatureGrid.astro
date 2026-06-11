@@ -23,10 +23,15 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
 const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4) : 3;
+// problems-grid : nombre de colonnes piloté par le nombre de cartes pour éviter
+// les cellules orphelines (4 cartes en 3 colonnes laissaient une demi-rangée vide,
+// remplie par le fond de grille → grand rectangle gris). 4 → 2×2, 3/6 → 3, sinon 2.
+const pgCount = data.type === 'problems-grid' ? data.problems.length : 0;
+const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
 ---
 
 {data.type === 'problems-grid' ? (
-  <section class="problems-grid wrap-wide reveal-blur-clip" data-bg={data.background}>
+  <section class="problems-grid wrap-wide reveal-blur-clip" data-bg={data.background} style={`--problems-grid-cols: ${pgCols}`}>
     <h2 class="problems-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
     <div class="problems-grid__cards">
       {data.problems.map((p, i) => (
@@ -196,7 +201,7 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
   /* ───── problems-grid (preset) — CSS VERBATIM ProblemsGrid.astro, `.wrap-wide` scopé
      qualifié `.wrap-wide:where(.problems-grid)` (spécificité inchangée) ───── */
   .wrap-wide:where(.problems-grid) { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
-  .problems-grid { padding-block: var(--section-loose); border-top: 1px solid rgba(var(--ink-rgb), .07); }
+  .problems-grid { padding-block: var(--section-base); border-top: 1px solid rgba(var(--ink-rgb), .07); }
   .problems-grid__h2 {
     font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
     font-size: clamp(24px, 3vw, 40px);
@@ -206,12 +211,18 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
   }
   .problems-grid__cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(var(--problems-grid-cols, 3), 1fr);
     gap: 1px;
     background: rgba(var(--ink-rgb), .08);
     border: 1px solid rgba(var(--ink-rgb), .08);
     border-radius: var(--radius-xs);
     overflow: hidden;
+  }
+  @media (max-width: 900px) {
+    .problems-grid__cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .problems-grid__cards { grid-template-columns: 1fr; }
   }
   .problems-grid__card {
     background: var(--paper);
