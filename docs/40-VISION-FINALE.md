@@ -177,7 +177,7 @@ Le hero home est intouchable (modèle du site, docs/39 §excellent, hors P1-5 mo
 ### 6.3 Grille d'audit standard (4 axes, applicable à chaque page : home, services, templates)
 
 1. **Verdict par section existante** : garder / fusionner / recomposer / supprimer, avec détection des redondances (1 info = 1 représentation) et du décoratif non fonctionnel.
-2. **Sections MANQUANTES** du point de vue narration de conversion B2B + patterns des vainqueurs Awwwards : preuve sociale incarnée, démonstration concrète, traitement des objections, ancrage prix, point de vue tranché. Chaque manque est mappé vers le catalogue existant (106 types) ou devient une demande de création (4 touchpoints).
+2. **Sections MANQUANTES** du point de vue narration de conversion B2B + patterns des vainqueurs Awwwards : preuve sociale incarnée, démonstration concrète, traitement des objections, ancrage prix, point de vue tranché. Chaque manque est mappé vers le catalogue existant (147 types) ou devient une demande de création (4 touchpoints).
 3. **Gap qualité Awwwards par section gardée** : micro-interactions, tension typographique, rythme des fonds, détails éditoriaux, sensation de scroll. Concret et actionnable, pas « améliorer le design ».
 4. **Bilan structurel** : séquence cible avec rôle narratif par slot + slots où le catalogue n'a PAS de section à la hauteur = backlog DS priorisé (s'inscrit dans la croissance post-consolidation, doctrine docs/37 A8).
 
@@ -203,6 +203,16 @@ Chantiers en cours à NE PAS dupliquer : **R6** (extinction templates : purge st
 | **V-F8 · Extension motion (non prioritaire)** | §8 : pilote 1 page signature, gated perf | V-F7 fini + PageSpeed mesuré ≥ 97 avant | rien | PageSpeed mobile ≥ 97 APRÈS + reduced-motion vérifié + 0 CLS |
 
 Discipline : 1 vague = 1 branche/worktree, gates verts, GF-1 preview avant merge, SR par vague (inchangé docs/37 §3). V-F1 est lançable immédiatement (coordination R6 sur le seul point stubs).
+
+### État d'avancement V-F (2026-06-11, nuit autonome)
+
+GitHub `main` = `0e92360` (5 commits batchés, EN ATTENTE de déploiement, blocker quota Vercel Hobby, cf `tasks/ORCH-STATE.md`). Prod sert encore `f17d324`.
+
+- **V-F6 · Étiquetage catalogue : FAIT** (`e8f9816`). Champ dérivé `usage` (`library-manifest.ts`), badges site/library sur design-system + preview + components, filtre Tout/Utilisé/Bibliothèque, gate `check-usage-manifest`. Counts 51 site / 96 library / 147 total. GF-1 prod-build PASS (badges, filtre, badge site accent-2 5.57:1).
+- **V-F1 (partiel) · `/archive` traité** (`cbed3dc`) : plutôt que supprimer le lien footer, une vraie page « Plan du site » bilingue a été créée (`src/pages/plan-du-site.astro` + EN), dérivée de `sitemap.ts` (93 liens, 0 inventé). Reste V-F1 : purge des 3 collections archivées + 34 MDX + migrations `.astro` vers MDX.
+- **Hors V-F (directives docs/43) : dark systématique + 10 standards B2B-SaaS + polish** livrés (`7f60958` align tech-models-table + badge pricing AA, `0e92360` colonnes Coût/Contexte). Catalogue à **147 types**.
+- **Liens morts user-facing corrigés** (`cbed3dc`) : `/ressources/cas` vers `/cas`, `/legal/privacy` vers `/agence/trust-center`, twitter vers x. Restent des décisions produit (7 sous-offres conseil sans page, `/mon-compte`, index EN solutions « coming soon ») en attente Simon.
+- **À venir** : V-F2 (home), V-F3 (landing site-web-ia, §4.1), V-F4 (tunnel, §4.2), V-F5 (secteurs facettés, §2), V-F7 (passe Awwwards), V-F8 (motion). V-F3/V-F4 démarrent avec le déploiement débloqué (GF-1 prod) et cadrage copy.
 
 ## §8 · Extension future : islands React motion (lenis / gsap / three)
 
