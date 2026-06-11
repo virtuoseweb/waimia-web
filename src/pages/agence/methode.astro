@@ -5,7 +5,6 @@ export const prerender = true;
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import Timeline from '../../components/editorial/Timeline.astro';
-import MethodeProcessDiagram from '../../components/svg/geometric/MethodeProcessDiagram.astro';
 import MetricCalloutBand from '../../components/sections/MetricCalloutBand.astro';
 import SpecBar from '../../components/sections/SpecBar.astro';
 import { getProofPoint } from '../../data/proof-points';
@@ -98,11 +97,6 @@ const impactData = {
     <h2 class="sr-only">Les cinq phases</h2>
     <Timeline events={timelineEvents} numbered={true} />
 
-    {/* ── DIAGRAM ── */}
-    <div class="meth-diagram reveal">
-      <MethodeProcessDiagram />
-    </div>
-
     {/* ── IMPACT MESURÉ · bande INK + 3 métriques réelles ── */}
     <div class="meth-impact reveal">
       <MetricCalloutBand data={impactData} lang="fr" />
@@ -159,12 +153,6 @@ const impactData = {
   }
   .meth-cadence { margin-block: clamp(40px, 5vw, 64px) clamp(56px, 7vw, 88px); }
   .meth-impact { margin-block: clamp(56px, 7vw, 88px); }
-
-  /* ── Diagram ── */
-  .meth-diagram {
-    margin: clamp(48px, 6vw, 80px) 0;
-    max-width: var(--wrap-read);
-  }
 
   /* ── Garanties ── */
   .meth-garanties {
