@@ -38,11 +38,17 @@ import TechPillRow from '../../components/ui/molecules/TechPillRow.astro';
 import RelatedCards from '../../components/ui/molecules/RelatedCards.astro';
 
 import { listCategories, listSections } from '../../lib/section-registry';
-import { LIBRARY_ORGANISMS } from '../../lib/library-manifest';
+import { LIBRARY_ORGANISMS, getUsage, getConsumers } from '../../lib/library-manifest';
 import DsLocalNav from '../../components/library/DsLocalNav.astro';
 
 const sectionCategories = listCategories();
-const sectionItems = listSections();
+// Étiquetage catalogue (docs/40 §3) : usage 'site' | 'library' + nombre de consommateurs.
+const sectionItems = listSections().map((section) => {
+  const consumers = getConsumers(section.type);
+  return { ...section, usage: getUsage(section.type), consumerCount: consumers.length };
+});
+const usageSiteCount = sectionItems.filter((s) => s.usage === 'site').length;
+const usageLibraryCount = sectionItems.filter((s) => s.usage === 'library').length;
 
 const atomKnobs = {
   Kicker: [
@@ -839,6 +845,17 @@ const sectionSchemaKnobs = {
 
         <div class="ds-subsection">
           <h3 class="ds-h3">{sectionItems.length} sections disponibles</h3>
+          <div class="ds-usage-filters" data-usage-filters aria-label="Filtrer par usage">
+            <button class="ds-filter-chip is-active" type="button" data-usage="all" aria-pressed="true">
+              Tout ({sectionItems.length})
+            </button>
+            <button class="ds-filter-chip" type="button" data-usage="site" aria-pressed="false">
+              Utilisé ({usageSiteCount})
+            </button>
+            <button class="ds-filter-chip" type="button" data-usage="library" aria-pressed="false">
+              Bibliothèque ({usageLibraryCount})
+            </button>
+          </div>
           <div class="ds-section-filters" data-section-filters>
             <button class="ds-filter-chip is-active" type="button" data-filter="all" aria-pressed="true">
               Toutes ({sectionItems.length})
@@ -852,7 +869,7 @@ const sectionSchemaKnobs = {
 
           <div class="ds-sections-grid" data-section-grid>
             {sectionItems.map((section) => (
-              <article class="ds-section-card" data-category={section.categorySlug}>
+              <article class="ds-section-card" data-category={section.categorySlug} data-usage={section.usage}>
                 <a class="ds-card-frame-link" href={`/preview/${section.type}`} aria-label={`Prévisualiser ${section.type}`}>
                   <div class="ds-card-preview" data-preview-frame data-max-height="230" aria-hidden="true">
                     <iframe class="ds-card-frame" src={`/preview/${section.type}`} title={`Aperçu ${section.type}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
@@ -862,7 +879,14 @@ const sectionSchemaKnobs = {
                   <a class="ds-section-card-link" href={`/categories/${section.categorySlug}`}><code>{section.type}</code></a>
                   <span class={`ds-status ds-status--${section.status}`}>{section.status}</span>
                 </div>
-                <span class="ds-category-badge">{section.subcategory}</span>
+                <div class="ds-card-badges">
+                  {section.usage === 'site' ? (
+                    <span class="ds-usage-badge ds-usage-badge--site">Sur waimia · {section.consumerCount}</span>
+                  ) : (
+                    <span class="ds-usage-badge ds-usage-badge--library">Bibliothèque</span>
+                  )}
+                  <span class="ds-category-badge">{section.subcategory}</span>
+                </div>
                 <p>{section.description_fr}</p>
                 <a class="ds-section-card-cmp" href={`/components/${section.type}`}>Voir composant →</a>
                 <div class="ds-tag-row" aria-label={`Tags ${section.type}`}>
@@ -970,28 +994,49 @@ const sectionSchemaKnobs = {
   <script is:inline>
     (() => {
       const filterRoot = document.querySelector('[data-section-filters]');
+      const usageRoot = document.querySelector('[data-usage-filters]');
       const cards = Array.from(document.querySelectorAll('[data-section-grid] [data-category]'));
       if (!filterRoot || cards.length === 0) return;
 
-      const chips = Array.from(filterRoot.querySelectorAll('[data-filter]'));
+      const catChips = Array.from(filterRoot.querySelectorAll('[data-filter]'));
+      const usageChips = usageRoot ? Array.from(usageRoot.querySelectorAll('[data-usage]')) : [];
+
+      let activeCategory = 'all';
+      let activeUsage = 'all';
+
+      const apply = () => {
+        cards.forEach((card) => {
+          const catOk = activeCategory === 'all' || card.getAttribute('data-category') === activeCategory;
+          const usageOk = activeUsage === 'all' || card.getAttribute('data-usage') === activeUsage;
+          card.toggleAttribute('hidden', !(catOk && usageOk));
+        });
+      };
 
       filterRoot.addEventListener('click', (event) => {
         const chip = event.target instanceof HTMLElement ? event.target.closest('[data-filter]') : null;
         if (!(chip instanceof HTMLElement)) return;
-
-        const filter = chip.dataset.filter ?? 'all';
-
-        chips.forEach((item) => {
+        activeCategory = chip.dataset.filter ?? 'all';
+        catChips.forEach((item) => {
           const active = item === chip;
           item.classList.toggle('is-active', active);
           item.setAttribute('aria-pressed', String(active));
         });
-
-        cards.forEach((card) => {
-          const visible = filter === 'all' || card.getAttribute('data-category') === filter;
-          card.toggleAttribute('hidden', !visible);
-        });
+        apply();
       });
+
+      if (usageRoot) {
+        usageRoot.addEventListener('click', (event) => {
+          const chip = event.target instanceof HTMLElement ? event.target.closest('[data-usage]') : null;
+          if (!(chip instanceof HTMLElement)) return;
+          activeUsage = chip.dataset.usage ?? 'all';
+          usageChips.forEach((item) => {
+            const active = item === chip;
+            item.classList.toggle('is-active', active);
+            item.setAttribute('aria-pressed', String(active));
+          });
+          apply();
+        });
+      }
     })();
   </script>
 
@@ -1597,6 +1642,39 @@ const sectionSchemaKnobs = {
     font-size: var(--text-mono-xs);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+  }
+  /* ─── Étiquetage catalogue (docs/40 §3 · V-F6) ─── */
+  .ds-usage-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+  .ds-card-badges {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .ds-usage-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    line-height: 1;
+    padding: 5px 7px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .ds-usage-badge--site {
+    border-color: var(--accent);
+    color: var(--accent-2);
+  }
+  .ds-usage-badge--library {
+    border-color: var(--hairline-strong);
+    color: var(--muted);
   }
   .ds-section-card p {
     flex: 1;

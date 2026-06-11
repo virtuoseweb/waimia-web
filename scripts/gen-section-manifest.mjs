@@ -20,6 +20,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SECTIONS_SCHEMA_FILE = 'src/schemas/sections.ts';
 const REGISTRY_FILE = 'src/lib/section-registry.ts';
+const LIBRARY_MANIFEST_FILE = 'src/lib/library-manifest.ts';
 const TOKENS_FILE = 'src/styles/tokens.css';
 const SECTIONS_DIR = 'src/components/sections';
 const OUTPUT_JSON = 'src/data/ds-section-manifest.json';
@@ -43,6 +44,75 @@ function parseTokens(source) {
     tokens.set(name, value);
   }
   return tokens;
+}
+
+// ─── Library manifest parsing (usage + consumers, docs/40 §3) ────────────────
+
+/**
+ * Parses src/lib/library-manifest.ts to extract per-type usage + consumers.
+ * Resolves the only named consumer constant (SOLUTIONS_CONSUMERS) and the
+ * USAGE_OVERRIDES map. Usage derives as: override ?? (consumers.length ? 'site' : 'library').
+ * Returns Map<id, { usage, consumers }>.
+ */
+function parseLibraryManifest(source) {
+  // Resolve named consumer arrays (e.g. const SOLUTIONS_CONSUMERS = [ '...', ... ];)
+  const namedArrays = new Map();
+  for (const m of source.matchAll(/const\s+([A-Z][A-Z0-9_]*)\s*=\s*\[([\s\S]*?)\];/g)) {
+    const values = [...m[2].matchAll(/'([^']+)'/g)].map((v) => v[1]);
+    namedArrays.set(m[1], values);
+  }
+
+  // Parse USAGE_OVERRIDES object body (may be empty)
+  const overrides = new Map();
+  const ovMatch = /USAGE_OVERRIDES[^=]*=\s*\{([\s\S]*?)\};/.exec(source);
+  if (ovMatch) {
+    for (const m of ovMatch[1].matchAll(/'?([a-z][a-z0-9-]*)'?\s*:\s*'(site|library)'/g)) {
+      overrides.set(m[1], m[2]);
+    }
+  }
+
+  // Isolate the SECTION_USAGE array body
+  const startMatch = /const\s+SECTION_USAGE[^=]*=\s*\[/.exec(source);
+  if (!startMatch) throw new Error('SECTION_USAGE not found in library-manifest');
+  const arrStart = startMatch.index + startMatch[0].length - 1; // at '['
+  let depth = 0;
+  let arrEnd = -1;
+  for (let i = arrStart; i < source.length; i++) {
+    if (source[i] === '[') depth++;
+    else if (source[i] === ']') {
+      depth--;
+      if (depth === 0) { arrEnd = i; break; }
+    }
+  }
+  const body = source.slice(arrStart + 1, arrEnd);
+
+  const result = new Map();
+  // Each entry: { id: 'type', consumers: [...] | NAMED_CONST }
+  // Balanced-bracket scan : un chemin consommateur peut contenir ']' littéral
+  // (ex. routes dynamiques 'personas/[slug].astro') — un regex non-greedy
+  // tronquerait au premier ']'. On parse l'array par profondeur.
+  for (const m of body.matchAll(/id:\s*'([a-z][a-z0-9-]*)'\s*,\s*consumers:\s*/g)) {
+    const id = m[1];
+    let p = m.index + m[0].length;
+    while (p < body.length && /\s/.test(body[p])) p++;
+    let consumers;
+    if (body[p] === '[') {
+      let bd = 0;
+      let end = -1;
+      for (let i = p; i < body.length; i++) {
+        if (body[i] === '[') bd++;
+        else if (body[i] === ']') { bd--; if (bd === 0) { end = i; break; } }
+      }
+      const inner = body.slice(p + 1, end);
+      consumers = [...inner.matchAll(/'([^']+)'/g)].map((v) => v[1]);
+    } else {
+      const nm = /^[A-Z][A-Z0-9_]*/.exec(body.slice(p));
+      consumers = nm ? namedArrays.get(nm[0]) ?? [] : [];
+    }
+    const usage = overrides.get(id) ?? (consumers.length > 0 ? 'site' : 'library');
+    result.set(id, { usage, consumers });
+  }
+  return result;
 }
 
 // ─── Registry parsing ─────────────────────────────────────────────────────────
@@ -540,6 +610,9 @@ function main() {
   const registrySource = read(REGISTRY_FILE);
   const registryEntries = parseRegistry(registrySource);
 
+  // Parse library manifest (usage + consumers, docs/40 §3)
+  const usageEntries = parseLibraryManifest(read(LIBRARY_MANIFEST_FILE));
+
   // Parse schemas
   const schemaSource = read(SECTIONS_SCHEMA_FILE);
 
@@ -577,12 +650,16 @@ function main() {
       scopedClasses,
     );
 
+    const usageInfo = usageEntries.get(typeId) ?? { usage: 'library', consumers: [] };
+
     manifest.push({
       id: typeId,
       component: {
         name: meta.componentName,
         path: componentPath,
       },
+      usage: usageInfo.usage,
+      consumers: [...usageInfo.consumers].sort(alpha),
       category: meta.category,
       categorySlug: meta.categorySlug,
       subcategory: meta.subcategory,
@@ -626,9 +703,11 @@ function main() {
   const totalTokenRefs = manifest.reduce((s, e) => s + e.tokensUsed.length, 0);
   const totalHardcoded = manifest.reduce((s, e) => s + e.hardcodedLiterals.count, 0);
   const totalFields = manifest.reduce((s, e) => s + e.schemaFields.length, 0);
+  const siteCount = manifest.filter((e) => e.usage === 'site').length;
+  const libraryCount = manifest.filter((e) => e.usage === 'library').length;
 
   console.log(
-    `section-manifest: ${manifest.length} types, ${totalFields} schema fields, ${totalTokenRefs} token refs, ${totalHardcoded} hardcoded literals`,
+    `section-manifest: ${manifest.length} types (${siteCount} site, ${libraryCount} library), ${totalFields} schema fields, ${totalTokenRefs} token refs, ${totalHardcoded} hardcoded literals`,
   );
 }
 

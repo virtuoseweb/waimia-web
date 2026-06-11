@@ -8,6 +8,14 @@ import type { SectionType } from '../schemas/sections';
 
 export type SectionRendering = 'live' | 'catalogue-only';
 
+/**
+ * Étiquetage catalogue (docs/40 §3, V-F6) :
+ *   - 'site'    = utilisé sur waimia.com (au moins un consommateur live)
+ *   - 'library' = bibliothèque pure (0 usage live), réutilisable pour d'autres DA
+ * Dérivé de `consumers.length`, sauf override manuel (USAGE_OVERRIDES).
+ */
+export type SectionUsage = 'site' | 'library';
+
 export interface LibrarySectionEntry {
   id: string;
   /** categorySlug dérivé de SECTIONS */
@@ -15,6 +23,8 @@ export interface LibrarySectionEntry {
   /** Nom du composant Astro dérivé de SECTIONS */
   component: string;
   rendering: SectionRendering;
+  /** étiquette catalogue dérivée de consumers + overrides */
+  usage: SectionUsage;
   /** templates/pages/mdx consommateurs (live) ou [] (catalogue-only) */
   consumers: string[];
 }
@@ -222,6 +232,22 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // <<< [gen-pricing] end
 ];
 
+// ── Overrides d'étiquetage manuels (docs/40 §3) ──────────────────────────────
+// Force l'étiquette `usage` d'un type, en dérogation de la dérivation auto
+// (consumers.length > 0 ? 'site' : 'library'). Vide par défaut.
+// Exemples d'usage légitime :
+//   - garder un type en 'library' malgré des consumers (ex. consommateur de test/dev),
+//   - exposer un type en 'site' avant son câblage réel (réservé à un client).
+// Renseigner avec parcimonie : l'étiquette dérive des consumers réels par défaut.
+const USAGE_OVERRIDES: Partial<Record<SectionType, SectionUsage>> = {
+  // (vide) · aucun override en vigueur.
+};
+
+/** Dérive l'étiquette catalogue : override manuel sinon dérivation par consumers. */
+export function deriveUsage(id: SectionType, consumers: string[]): SectionUsage {
+  return USAGE_OVERRIDES[id] ?? (consumers.length > 0 ? 'site' : 'library');
+}
+
 // ── LIBRARY_SECTIONS (category/component dérivés de SECTIONS) ─────────────────
 
 export const LIBRARY_SECTIONS: LibrarySectionEntry[] = SECTION_USAGE.map(
@@ -230,8 +256,14 @@ export const LIBRARY_SECTIONS: LibrarySectionEntry[] = SECTION_USAGE.map(
     category: SECTIONS[id].categorySlug,
     component: (SECTIONS[id].component as unknown as { name: string }).name,
     rendering: consumers.length > 0 ? 'live' : 'catalogue-only',
+    usage: deriveUsage(id, consumers),
     consumers,
   }),
+);
+
+/** Index id → entrée, pour lookup O(1) par les pages catalogue. */
+const SECTION_BY_ID = new Map<string, LibrarySectionEntry>(
+  LIBRARY_SECTIONS.map((s) => [s.id, s]),
 );
 
 // ── LIBRARY_ORGANISMS (hand-authored — §3 matrice 2026-06-04) ────────────────
@@ -266,4 +298,21 @@ export function liveSections(): LibrarySectionEntry[] {
 
 export function catalogueOnlySections(): LibrarySectionEntry[] {
   return LIBRARY_SECTIONS.filter((s) => s.rendering === 'catalogue-only');
+}
+
+// ── Étiquetage catalogue (docs/40 §3, V-F6) ──────────────────────────────────
+
+/** Étiquette catalogue d'un type ('library' par défaut si type inconnu). */
+export function getUsage(id: string): SectionUsage {
+  return SECTION_BY_ID.get(id)?.usage ?? 'library';
+}
+
+/** Liste des consommateurs live d'un type ([] si type inconnu). */
+export function getConsumers(id: string): string[] {
+  return SECTION_BY_ID.get(id)?.consumers ?? [];
+}
+
+/** Entrée manifest complète pour un type (undefined si type inconnu). */
+export function getSectionUsageEntry(id: string): LibrarySectionEntry | undefined {
+  return SECTION_BY_ID.get(id);
 }

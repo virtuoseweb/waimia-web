@@ -13,6 +13,7 @@ import '../../styles/grid.css';
 import '../../styles/scroll-reveal.css';
 import { listSections, SECTION_REGISTRY } from '../../lib/section-registry';
 import { SECTION_DEMOS } from '../../lib/section-demos';
+import { getUsage, getConsumers } from '../../lib/library-manifest';
 
 export function getStaticPaths() {
   return listSections().map((section) => ({ params: { type: section.type } }));
@@ -21,6 +22,10 @@ export function getStaticPaths() {
 const { type } = Astro.params as { type: string };
 const C = SECTION_REGISTRY[type as keyof typeof SECTION_REGISTRY] as any;
 const demo = SECTION_DEMOS[type as keyof typeof SECTION_DEMOS];
+
+// Étiquetage catalogue (docs/40 §3) : badge usage en overlay (lisible light + ink).
+const usage = getUsage(type);
+const consumerCount = getConsumers(type).length;
 ---
 <!doctype html>
 <html lang="fr" data-lang="fr">
@@ -34,6 +39,27 @@ const demo = SECTION_DEMOS[type as keyof typeof SECTION_DEMOS];
         via IntersectionObserver (absent ici). On force l'état final. */}
     <style is:inline>
       html, body { margin: 0; padding: 0; background: var(--paper, #fff); }
+      /* Badge usage (docs/40 §3) · overlay fixe, fond opaque + bordure pour
+         rester lisible sur toute section, light comme [data-bg='ink']. */
+      .ds-preview-usage {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        z-index: 9999;
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 9px;
+        background: var(--paper);
+        border: 1px solid var(--hairline);
+        color: var(--ink-2);
+        font-family: var(--font-mono);
+        font-size: var(--text-mono-xs);
+        line-height: 1;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .ds-preview-usage--site { border-color: var(--accent); color: var(--accent-2); }
       .reveal, .reveal-up, .reveal-fade, .reveal-slide, .reveal-snap,
       .scale-in, .blur-in, .clip-up, .hair-draw, .row-lines,
       .reveal-mask-up, .reveal-zoom-in, .reveal-blur-clip,
@@ -49,6 +75,11 @@ const demo = SECTION_DEMOS[type as keyof typeof SECTION_DEMOS];
     </style>
   </head>
   <body>
+    {usage === 'site' ? (
+      <span class="ds-preview-usage ds-preview-usage--site">Sur waimia · {consumerCount}</span>
+    ) : (
+      <span class="ds-preview-usage ds-preview-usage--library">Bibliothèque</span>
+    )}
     {C && demo ? <C data={demo} lang="fr" /> : <p style="font-family:monospace;padding:24px">Section inconnue : {type}</p>}
   </body>
 </html>
