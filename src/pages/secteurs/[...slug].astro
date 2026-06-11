@@ -33,6 +33,206 @@ const caseTitleParts = caseData ? caseData.title_fr.split('·').map((part: strin
 // Listing « Cas clients » (mandat) : 3 cas, priorité au secteur courant (facets.sector === id),
 // complétés par les cas les plus proches. Section cataloguée case-card-grid, secteur visible.
 const caseGridData = await sectorCaseGridData(entry.id, 'fr');
+
+/* ─────────────────────────────────────────────────────────────────────────
+   RECOMPOSITION tpl-recomp · sections cataloguées INK/habillées, fed ici.
+   Toutes les données viennent du MDX secteur + du cas lié (0 invention).
+   La config par secteur ne fait que VARIER l'illustration + le fond + l'ordre
+   (singularité demandée) à partir de contenu réel.
+   ───────────────────────────────────────────────────────────────────────── */
+type SectorRecipe = {
+  themeImage: string;
+  themeAlt_fr: string;
+  themeAlt_en: string;
+  featureReversed: boolean;
+  feature_kicker_fr: string; feature_kicker_en: string;
+  feature_h2_fr: string; feature_h2_en: string;
+  feature_body_fr: string; feature_body_en: string;
+  feature_points_fr: string[]; feature_points_en: string[];
+  caseQuote_fr: string; caseQuote_en: string;
+  caseAttribution_fr: string; caseAttribution_en: string;
+  caseTags: Array<{ fr: string; en: string }>;
+  diag_lede_fr: string; diag_lede_en: string;
+  diagStages: Array<{
+    glyph: string; title_fr: string; title_en: string;
+    body_fr: string; body_en: string; phase_fr: string; phase_en: string; current?: boolean;
+  }>;
+  trustExtra_fr: string; trustExtra_en: string;
+};
+
+const RECIPES: Record<string, SectorRecipe> = {
+  'finance-compta': {
+    themeImage: '/images/themes/theme-finance.webp',
+    themeAlt_fr: "Illustration éditoriale : registres et colonnes financières à l'encre, une cellule clé en terracotta.",
+    themeAlt_en: 'Editorial illustration: ledgers and financial columns in ink, one key cell in terracotta.',
+    featureReversed: false,
+    feature_kicker_fr: 'Comment ça marche', feature_kicker_en: 'How it works',
+    feature_h2_fr: "Un Excel qui <i>parle</i>, pas une boîte noire.", feature_h2_en: 'An Excel that <i>talks</i>, not a black box.',
+    feature_body_fr: "On se branche sur votre existant : Sage, Cegid, QuickBooks, Divalto ou Excel. La réconciliation bancaire passe de 2 jours à 20 minutes, les mémos variance de 5 heures à 15 minutes, la consolidation multi-entités de 2 jours à une heure. Human-in-the-loop obligatoire : aucune écriture n'est passée sans validation.",
+    feature_body_en: 'We plug into your existing setup: Sage, Cegid, QuickBooks, Divalto or Excel. Bank reconciliation goes from 2 days to 20 minutes, variance memos from 5 hours to 15 minutes, multi-entity consolidation from 2 days to one hour. Mandatory human-in-the-loop: no entry is posted without validation.',
+    feature_points_fr: ['Réconciliation bancaire en 20 min au lieu de 2 jours', 'Mémos variance générés et validés en 15 min', 'Aucun changement de logiciel comptable requis'],
+    feature_points_en: ['Bank reconciliation in 20 min instead of 2 days', 'Variance memos generated and validated in 15 min', 'No accounting software change required'],
+    caseQuote_fr: "Le goulot n'était pas l'accès aux données. C'était le temps nécessaire pour trouver le bon chiffre, le contextualiser et rédiger une réponse bien cadrée.",
+    caseQuote_en: 'The bottleneck was not data access. It was the time needed to find the right figure, contextualise it and write a well-framed answer.',
+    caseAttribution_fr: 'Direction financière, Northbound Capital',
+    caseAttribution_en: 'Finance leadership, Northbound Capital',
+    caseTags: [{ fr: 'Clôture', en: 'Closing' }, { fr: 'Réconciliation', en: 'Reconciliation' }, { fr: 'Human-in-the-loop', en: 'Human-in-the-loop' }],
+    diag_lede_fr: "Quatre stades de maturité. Repérez le vôtre, on cible le premier workflow à câbler.",
+    diag_lede_en: 'Four maturity stages. Spot yours, we target the first workflow to wire.',
+    diagStages: [
+      { glyph: '01', title_fr: 'Tout à la main', title_en: 'All by hand', body_fr: "Saisie, réconciliation et mémos sont 100 % manuels. La clôture prend 9 jours et plus.", body_en: 'Entry, reconciliation and memos are 100% manual. Closing takes 9 days and more.', phase_fr: 'Manuel', phase_en: 'Manual' },
+      { glyph: '02', title_fr: 'Macros et tableurs', title_en: 'Macros and spreadsheets', body_fr: "Vous tenez avec des macros Excel fragiles, mais rien n'est connecté ni traçable.", body_en: 'You hold on with fragile Excel macros, but nothing is connected or traceable.', phase_fr: 'Bricolé', phase_en: 'Patched', current: true },
+      { glyph: '03', title_fr: 'Outils isolés', title_en: 'Isolated tools', body_fr: 'Un logiciel comptable existe mais les données restent en silos, la consolidation est lente.', body_en: 'An accounting tool exists but data stays in silos, consolidation is slow.', phase_fr: 'Partiel', phase_en: 'Partial' },
+      { glyph: '04', title_fr: 'Clôture câblée', title_en: 'Wired closing', body_fr: 'Réconciliation, mémos et consolidation automatisés. Clôture en 3 jours, audit en 8.', body_en: 'Automated reconciliation, memos and consolidation. Closing in 3 days, audit in 8.', phase_fr: 'Système', phase_en: 'System' },
+    ],
+    trustExtra_fr: 'Hébergement français (HDS si besoin)', trustExtra_en: 'French hosting (HDS if needed)',
+  },
+  'services-b2b': {
+    themeImage: '/images/themes/theme-productivite.webp',
+    themeAlt_fr: "Illustration éditoriale : flux de livrables et propositions à l'encre, une pièce maîtresse en terracotta.",
+    themeAlt_en: 'Editorial illustration: flow of deliverables and proposals in ink, one centerpiece in terracotta.',
+    featureReversed: true,
+    feature_kicker_fr: 'Comment ça marche', feature_kicker_en: 'How it works',
+    feature_h2_fr: "Le temps non-facturable, <i>récupéré</i>.", feature_h2_en: 'Non-billable time, <i>recovered</i>.',
+    feature_body_fr: "Proposals, reportings et relances consomment 30 à 40 % du temps d'un consultant senior. On automatise ces tâches : génération de proposals en moins de 80 % du temps, dashboards marge live, séquences de relance contextualisées sur l'historique CRM réel. La capacité facturable revient à l'équipe.",
+    feature_body_en: "Proposals, reporting and follow-ups consume 30 to 40% of a senior consultant's time. We automate these tasks: proposal generation in under 80% of the time, live margin dashboards, follow-up sequences contextualised on real CRM history. Billable capacity returns to the team.",
+    feature_points_fr: ['Proposals générées en −80 % de temps, validées avant envoi', 'Dashboard marge live pour ajuster les staffings', 'Relances contextualisées sur l\'historique CRM réel'],
+    feature_points_en: ['Proposals generated in −80% time, validated before sending', 'Live margin dashboard to adjust staffing', 'Follow-ups contextualised on real CRM history'],
+    caseQuote_fr: "L'équipe finance a arrêté de recevoir des appels de clients relancés à tort.",
+    caseQuote_en: 'The finance team stopped getting calls from customers chased by mistake.',
+    caseAttribution_fr: 'Direction commerciale, Plateau',
+    caseAttribution_en: 'Sales leadership, Plateau',
+    caseTags: [{ fr: 'Proposals', en: 'Proposals' }, { fr: 'Pipeline', en: 'Pipeline' }, { fr: 'Marge live', en: 'Live margin' }],
+    diag_lede_fr: "Quatre stades de maturité. Repérez le vôtre, on cible le premier système à câbler.",
+    diag_lede_en: 'Four maturity stages. Spot yours, we target the first system to wire.',
+    diagStages: [
+      { glyph: '01', title_fr: 'Pipeline sur 2 noms', title_en: 'Pipeline on 2 names', body_fr: "Tout repose sur 1-2 associés. Un départ, et l'acquisition s'arrête.", body_en: 'Everything rests on 1-2 partners. One departure, and acquisition stops.', phase_fr: 'Fragile', phase_en: 'Fragile' },
+      { glyph: '02', title_fr: 'Proposals à 12h', title_en: '12h proposals', body_fr: 'Chaque proposition est rédigée de zéro. Le temps non-facturable explose.', body_en: 'Every proposal is written from scratch. Non-billable time explodes.', phase_fr: 'Subi', phase_en: 'Endured', current: true },
+      { glyph: '03', title_fr: 'Reporting bricolé', title_en: 'Patchy reporting', body_fr: 'Les reportings client sont refaits à la main, la marge se découvre en fin de mois.', body_en: 'Client reporting is redone by hand, margin is discovered at month-end.', phase_fr: 'Manuel', phase_en: 'Manual' },
+      { glyph: '04', title_fr: 'Cabinet câblé', title_en: 'Wired firm', body_fr: 'Acquisition, proposals et marge live tournent en continu. La capacité facturable revient.', body_en: 'Acquisition, proposals and live margin run continuously. Billable capacity returns.', phase_fr: 'Système', phase_en: 'System' },
+    ],
+    trustExtra_fr: 'Code et prompts transférables', trustExtra_en: 'Transferable code and prompts',
+  },
+  'industrie': {
+    themeImage: '/images/themes/theme-industrie.webp',
+    themeAlt_fr: "Illustration éditoriale : ligne de production et capteurs à l'encre, une alerte prédictive en terracotta.",
+    themeAlt_en: 'Editorial illustration: production line and sensors in ink, one predictive alert in terracotta.',
+    featureReversed: false,
+    feature_kicker_fr: 'Comment ça marche', feature_kicker_en: 'How it works',
+    feature_h2_fr: "Une couche IA <i>additive</i>, pas une migration.", feature_h2_en: 'An <i>additive</i> AI layer, not a migration.',
+    feature_body_fr: "Vos ERP restent en place : SAP, Sage, Cegid. Des connecteurs MCP lisent vos flux en lecture seule, un orchestrateur unifie la vue. La maintenance prédictive détecte les dérives 7 à 14 jours à l'avance. En cas de coupure, l'agent bascule en mode dégradé local. Aucun process n'est piloté sans validation humaine.",
+    feature_body_en: 'Your ERPs stay in place: SAP, Sage, Cegid. MCP connectors read your flows in read-only, an orchestrator unifies the view. Predictive maintenance detects drifts 7 to 14 days ahead. In case of outage, the agent switches to local degraded mode. No process is driven without human validation.',
+    feature_points_fr: ['Connexion ERP en lecture seule, zéro migration', 'Maintenance prédictive 7 à 14 jours à l\'avance', 'Mode dégradé local en cas de coupure réseau'],
+    feature_points_en: ['Read-only ERP connection, zero migration', 'Predictive maintenance 7 to 14 days ahead', 'Local degraded mode in case of network outage'],
+    caseQuote_fr: "La cause racine n'était jamais un problème de personnel. C'était un problème de circulation de l'information.",
+    caseQuote_en: 'The root cause was never a staffing problem. It was an information-flow problem.',
+    caseAttribution_fr: 'Direction des opérations, Caserne Industries',
+    caseAttribution_en: 'Operations leadership, Caserne Industries',
+    caseTags: [{ fr: 'ERP connectés', en: 'Connected ERP' }, { fr: 'Maintenance prédictive', en: 'Predictive maintenance' }, { fr: 'OEE', en: 'OEE' }],
+    diag_lede_fr: "Quatre stades de maturité. Repérez le vôtre, on cible le premier flux à connecter.",
+    diag_lede_en: 'Four maturity stages. Spot yours, we target the first flow to connect.',
+    diagStages: [
+      { glyph: '01', title_fr: 'ERP en silos', title_en: 'Siloed ERPs', body_fr: '3-4 ERP non connectés. Chaque vue consolidée se fait à la main, avec retard.', body_en: '3-4 unconnected ERPs. Each consolidated view is done by hand, with delay.', phase_fr: 'Cloisonné', phase_en: 'Siloed', current: true },
+      { glyph: '02', title_fr: 'Maintenance réactive', title_en: 'Reactive maintenance', body_fr: "On répare après la panne. Les arrêts non planifiés coûtent cher chaque trimestre.", body_en: 'You repair after the breakdown. Unplanned stoppages cost dearly each quarter.', phase_fr: 'Subi', phase_en: 'Endured' },
+      { glyph: '03', title_fr: 'Reporting figé', title_en: 'Frozen reporting', body_fr: 'Les indicateurs industriels arrivent en J+10, la qualité se détecte trop tard.', body_en: 'Industrial indicators arrive on D+10, quality is detected too late.', phase_fr: 'Différé', phase_en: 'Delayed' },
+      { glyph: '04', title_fr: 'Usine câblée', title_en: 'Wired plant', body_fr: 'ERP unifiés, maintenance prédictive, reporting live. OEE +12 points, délais −72 %.', body_en: 'Unified ERPs, predictive maintenance, live reporting. OEE +12 points, delays −72%.', phase_fr: 'Système', phase_en: 'System' },
+    ],
+    trustExtra_fr: 'Mode dégradé local garanti', trustExtra_en: 'Guaranteed local degraded mode',
+  },
+};
+
+const recipe = RECIPES[entry.id];
+
+// Impact INK — 3 métriques les plus fortes du metricsHero (écarte la ligne ROI redondante
+// déjà reprise dans le case-spotlight).
+const impactMetrics = d.metricsHero.slice(0, 3).map((m) => ({
+  value: m.value,
+  label_fr: m.label_fr,
+  label_en: m.label_en,
+}));
+const impactBand = impactMetrics.length >= 1 ? {
+  type: 'metric-callout-band' as const,
+  background: 'ink' as const,
+  kicker_fr: "L'impact chiffré",
+  kicker_en: 'The measured impact',
+  context_fr: `Pas une promesse. Une moyenne mesurée sur les déploiements ${shortTitle.toLowerCase()} que nous avons livrés.`,
+  context_en: `Not a promise. An average measured on the ${shortTitle.toLowerCase()} deployments we have delivered.`,
+  metrics: impactMetrics,
+} : undefined;
+
+// Cas concret INK — carte case-spotlight depuis le cas lié + image cover + citation réelle.
+const caseSpotlight = (caseData && recipe) ? {
+  type: 'case-spotlight' as const,
+  background: 'ink' as const,
+  variant: 'media-left' as const,
+  kicker_fr: `Un cas concret · ${caseData.sector_fr}`,
+  kicker_en: `A concrete case · ${caseData.sector_en}`,
+  title_fr: caseData.title_fr,
+  title_en: caseData.title_en,
+  media_src: caseData.heroImage,
+  media_alt: recipe.themeAlt_fr,
+  media_caption: caseData.sector_fr,
+  quote_fr: recipe.caseQuote_fr,
+  quote_en: recipe.caseQuote_en,
+  attribution_fr: recipe.caseAttribution_fr,
+  attribution_en: recipe.caseAttribution_en,
+  metrics: (caseData.metrics ?? []).slice(0, 3).map((m) => ({ k: m.value, label_fr: m.label_fr, label_en: m.label_en })),
+  tags: recipe.caseTags,
+  cta_href: '/cas',
+  cta_label_fr: 'Voir le cas complet →',
+  cta_label_en: 'See full case →',
+} : undefined;
+
+// Section explicative habillée — feature-split-media, image thème du secteur DANS un bloc composé.
+const featureSplit = recipe ? {
+  type: 'feature-split-media' as const,
+  background: 'paper' as const,
+  reversed: recipe.featureReversed,
+  kicker_fr: recipe.feature_kicker_fr,
+  kicker_en: recipe.feature_kicker_en,
+  h2_fr: recipe.feature_h2_fr,
+  h2_en: recipe.feature_h2_en,
+  body_fr: recipe.feature_body_fr,
+  body_en: recipe.feature_body_en,
+  points: recipe.feature_points_fr.map((p, i) => ({ label_fr: p, label_en: recipe.feature_points_en[i] ?? p })),
+  media_src: recipe.themeImage,
+  media_alt_fr: recipe.themeAlt_fr,
+  media_alt_en: recipe.themeAlt_en,
+  media_caption_fr: shortTitle,
+  media_caption_en: shortTitle,
+} : undefined;
+
+// Où en êtes-vous — diagnostic-stages, 4 stades adaptés au secteur.
+const diagnostic = recipe ? {
+  type: 'diagnostic-stages' as const,
+  background: 'paper-2' as const,
+  kicker_fr: 'Où en êtes-vous ?',
+  kicker_en: 'Where are you?',
+  h2_fr: `Votre ${shortTitle.toLowerCase()}, <i>aujourd'hui</i>.`,
+  h2_en: `Your ${shortTitle.toLowerCase()}, <i>today</i>.`,
+  lede_fr: recipe.diag_lede_fr,
+  lede_en: recipe.diag_lede_en,
+  stages: recipe.diagStages,
+} : undefined;
+
+// Réassurance — trust-badges-band strip INK, badge final varié par secteur.
+const trustBadges = recipe ? {
+  type: 'trust-badges-band' as const,
+  background: 'ink' as const,
+  variant: 'strip' as const,
+  kicker_fr: 'Réassurance',
+  kicker_en: 'Reassurance',
+  badges: [
+    { label_fr: 'Partenaire Anthropic', label_en: 'Anthropic Partner' },
+    { label_fr: 'Claude Certified Architect', label_en: 'Claude Certified Architect' },
+    { label_fr: 'Conforme AI Act', label_en: 'AI Act compliant' },
+    { label_fr: 'RGPD', label_en: 'GDPR' },
+    { label_fr: recipe.trustExtra_fr, label_en: recipe.trustExtra_en },
+  ],
+} : undefined;
+
+// FAQ condensée — 4 questions max (mandat : la FAQ 7 items plombe le rythme).
+const faqCondensed = (d.faq_fr ?? []).slice(0, 4);
 ---
 <SolutionsDetailTemplate
   title={`${d.title_fr} · Waimia`}
@@ -45,6 +245,11 @@ const caseGridData = await sectorCaseGridData(entry.id, 'fr');
   case_kicker={caseData ? `Cas client · ${caseData.sector_fr}` : undefined}
   case_body_fr={caseData?.description_fr}
   case_results={caseData?.metrics ?? []}
+  impactBand={impactBand}
+  caseSpotlight={caseSpotlight}
+  featureSplit={featureSplit}
+  diagnostic={diagnostic}
+  trustBadges={trustBadges}
 >
   <Fragment slot="title">{shortTitle}</Fragment>
   <Fragment slot="lead"><p>{d.description_fr}</p></Fragment>
@@ -73,10 +278,10 @@ const caseGridData = await sectorCaseGridData(entry.id, 'fr');
       {caseTitleParts[0]}{caseTitleParts[1] && <Fragment><br/><i>{caseTitleParts[1]}</i></Fragment>}
     </Fragment>
   )}
-  {d.faq_fr && d.faq_fr.length > 0 && (
+  {faqCondensed.length > 0 && (
     <Fragment slot="faq">
       <div class="ws-faq">
-        {d.faq_fr.map((f, i) => (
+        {faqCondensed.map((f, i) => (
           <div class="ws-faq-item">
             <div class="ws-faq-q">
               <span class="ws-faq-mark">Q · {String(i + 1).padStart(2, '0')}</span>
