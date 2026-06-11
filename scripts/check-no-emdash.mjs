@@ -17,6 +17,7 @@ const COMMENT_LINE_RE = /^\s*(?:\/\/|\*|\/\*)/;
 const TARGETS = [
   { dir: 'src/content', extensions: new Set(['.md', '.mdx', '.json', '.yaml', '.yml']), ignoreComments: false },
   { dir: 'src/data', extensions: new Set(['.ts', '.json']), ignoreComments: true },
+  { dir: 'src/lib', extensions: new Set(['.ts']), ignoreComments: true },
   { dir: 'src/components', extensions: new Set(['.astro']), ignoreComments: true },
   { dir: 'src/pages', extensions: new Set(['.astro']), ignoreComments: true },
   { dir: 'src/layouts', extensions: new Set(['.astro']), ignoreComments: true },

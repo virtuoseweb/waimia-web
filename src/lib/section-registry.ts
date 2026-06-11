@@ -710,8 +710,8 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     categorySlug: 'timelines',
     tags: ['process', 'timeline', 'sticky', 'scrub', 'pin', 'steps'],
     status: 'stable',
-    description_fr: 'Section "comment on livre" — sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).',
-    description_en: 'How-we-ship section — sticky pin scrub: N steps with numline and scroll-driven stage cards (graceful mobile degradation).',
+    description_fr: 'Section "comment on livre", sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).',
+    description_en: 'How-we-ship section, sticky pin scrub: N steps with numline and scroll-driven stage cards (graceful mobile degradation).',
   },
   'operating-layer': {
     component: OperatingLayer,
@@ -1050,8 +1050,8 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     categorySlug: 'feature-sections',
     tags: ['commitments', 'guarantees', 'grid', 'trust'],
     status: 'stable',
-    description_fr: 'Grille hairline de 2 à 6 engagements ou garanties, titre display et corps sans — extrait de la page Méthode.',
-    description_en: 'Hairline grid of 2–6 commitments or guarantees, display title and sans body — sourced from the Méthode page.',
+    description_fr: 'Grille hairline de 2 à 6 engagements ou garanties, titre display et corps sans, extrait de la page Méthode.',
+    description_en: 'Hairline grid of 2–6 commitments or guarantees, display title and sans body, sourced from the Méthode page.',
   },
   'branded-callout': {
     component: BrandedCallout,
@@ -1070,8 +1070,8 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     categorySlug: 'feature-sections',
     tags: ['editorial', 'preview', 'blog', 'rows', 'numbered'],
     status: 'stable',
-    description_fr: 'Index éditorial de publications en lignes numérotées (num · date · tag · titre italique · flèche) — extrait de FieldNotes.',
-    description_en: 'Editorial publication index as numbered rows (num · date · tag · italic title · arrow) — sourced from FieldNotes.',
+    description_fr: 'Index éditorial de publications en lignes numérotées (num · date · tag · titre italique · flèche), extrait de FieldNotes.',
+    description_en: 'Editorial publication index as numbered rows (num · date · tag · italic title · arrow), sourced from FieldNotes.',
   },
   'newsletter-band': {
     component: NewsletterBand,
@@ -1090,8 +1090,8 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     categorySlug: 'stats-sections',
     tags: ['specs', 'meta', 'case-study', 'grid', 'mono'],
     status: 'stable',
-    description_fr: 'Barre de spécifications projet N colonnes (label mono + valeur) avec grille CSS var — extrait de CaseStudyTemplate.',
-    description_en: 'N-column project spec bar (mono label + value) with CSS var grid — sourced from CaseStudyTemplate.',
+    description_fr: 'Barre de spécifications projet N colonnes (label mono + valeur) avec grille CSS var, extrait de CaseStudyTemplate.',
+    description_en: 'N-column project spec bar (mono label + value) with CSS var grid, sourced from CaseStudyTemplate.',
   },
   'deliverables-grid': {
     component: FeatureGrid,

@@ -8,8 +8,8 @@ export function caseCardGridData(lang: 'fr' | 'en'): SectionByType<'case-card-gr
   return {
     type: 'case-card-grid',
     fig_num: 'FIG IV · 4.0',
-    fig_title_fr: 'Acte IV — Les preuves',
-    fig_title_en: 'Act IV — The proof',
+    fig_title_fr: 'Acte IV · Les preuves',
+    fig_title_en: 'Act IV · The proof',
     spec_fr: '4 DOSSIERS · BLOCS DE DONNÉES',
     spec_en: '4 CASE FILES · DATA BLOCKS',
     h2_fr: 'Quatre dossiers. <i>Secteur</i> · durée · stack · impact.',
