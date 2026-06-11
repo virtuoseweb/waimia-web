@@ -709,7 +709,7 @@ const jsonLd = [
   .mdx-rail__type {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
     color: var(--accent);
   }
@@ -725,19 +725,19 @@ const jsonLd = [
   .mdx-rail__fact {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
-    color: var(--text-secondary, #444);
+    color: var(--muted);
     padding-bottom: var(--space-2);
     border-bottom: 1px solid var(--hairline);
   }
   .mdx-rail__fact:last-child { border-bottom: none; }
-  .mdx-rail__fact.is-price { font-weight: var(--fw-semibold); color: var(--ink, #111); }
+  .mdx-rail__fact.is-price { font-weight: var(--fw-semibold); color: var(--ink); }
   .mdx-rail__fact.is-accent { color: var(--accent); }
   .mdx-rail__cta {
     margin-top: var(--space-3);
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     font-weight: var(--fw-semibold);
-    color: var(--ink, #111);
+    color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid var(--accent);
     padding-bottom: 3px;
@@ -747,9 +747,9 @@ const jsonLd = [
   .mdx-rail__note {
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
-    color: var(--text-muted, #888);
+    color: var(--muted);
   }
 
   /* CTA FINALE */
