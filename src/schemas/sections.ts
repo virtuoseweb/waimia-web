@@ -890,6 +890,31 @@ export const socialProofSchema = z.object({
   marquee: z.boolean().default(true),
 });
 
+// ecosystem-partners · logos partenaires unifiés (masque alpha + currentColor).
+// docs/48 · grille groupée par catégorie / mur / marquee. Variante dark `ink`.
+export const ecosystemPartnersSchema = z.object({
+  type: z.literal('ecosystem-partners'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  layout: z.enum(['wall', 'grid', 'marquee']).default('grid'),
+  partners: z
+    .array(
+      z.object({
+        name: z.string(),
+        asset: z.string(),
+        href: z.string().optional(),
+        external: z.boolean().optional(),
+        category: z.string().optional(),
+      }),
+    )
+    .min(1),
+});
+
 // CONTENT
 export const methodTimelineSchema = z.object({
   type: z.literal('method-timeline'),
@@ -3435,6 +3460,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   statBlockSchema,
   metricShiftSchema,
   socialProofSchema,
+  ecosystemPartnersSchema,
   methodTimelineSchema,
   featureGridSchema,
   comparisonTableSchema,

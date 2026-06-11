@@ -10,6 +10,8 @@ export const prerender = true;
 import Base from '../../layouts/Base.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import SocialProof from '../../components/sections/SocialProof.astro';
+import EcosystemPartners from '../../components/sections/EcosystemPartners.astro';
+import { PARTNERS, PARTNER_CATEGORY_LABELS, type PartnerCategory } from '../../data/partners';
 import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
 import RelatedCards from '../../components/ui/molecules/RelatedCards.astro';
@@ -96,6 +98,25 @@ const socialProofData = {
   marquee: true,
 };
 
+const ecosystemPartnersData = {
+  type: 'ecosystem-partners' as const,
+  background: 'paper-2' as const,
+  kicker_fr: '§ Écosystème · partenaires technologiques',
+  kicker_en: '§ Ecosystem · technology partners',
+  h2_fr: 'Une stack <i>éprouvée</i>. Des partenaires <i>certifiés</i>.',
+  h2_en: 'A <i>proven</i> stack. <i>Certified</i> partners.',
+  lede_fr: 'Les technologies que nous intégrons et opérons au quotidien, regroupées par usage. Chaque logo mène à sa page ou à la ressource officielle.',
+  lede_en: 'The technologies we integrate and operate daily, grouped by use case. Each logo links to its page or official resource.',
+  layout: 'grid' as const,
+  partners: PARTNERS.map((p) => ({
+    name: p.name,
+    asset: p.asset,
+    href: p.href,
+    external: p.external,
+    category: PARTNER_CATEGORY_LABELS[p.category as PartnerCategory].fr,
+  })),
+} satisfies SectionByType<'ecosystem-partners'>;
+
 const ctaData = {
   type: 'cta-final' as const,
   h2_fr: 'Prêt à livrer un <em>agent</em>,<br />pas un slide deck ?',
@@ -116,6 +137,9 @@ const ctaData = {
 
   {/* PARTNER BAND · réutilisation section SocialProof homepage */}
   <SocialProof data={socialProofData} lang="fr" />
+
+  {/* ÉCOSYSTÈME PARTENAIRES · logos unifiés cliquables, groupés par catégorie */}
+  <EcosystemPartners data={ecosystemPartnersData} lang="fr" />
 
   {/* 3 STACK LAYERS */}
   <section class="hub-layers">

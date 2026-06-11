@@ -52,6 +52,7 @@ import HeroLiquid from '../components/sections/HeroLiquid.astro';
 import StatBlock from '../components/sections/StatBlock.astro';
 import MetricShift from '../components/sections/MetricShift.astro';
 import SocialProof from '../components/sections/SocialProof.astro';
+import EcosystemPartners from '../components/sections/EcosystemPartners.astro';
 import MethodTimeline from '../components/sections/MethodTimeline.astro';
 import FeatureGrid from '../components/sections/FeatureGrid.astro';
 import ComparisonTable from '../components/sections/ComparisonTable.astro';
@@ -800,6 +801,16 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Section de logos clients ou partenaires pour installer une preuve sociale immédiate.',
     description_en: 'Client or partner logo section for establishing immediate social proof.',
+  },
+  'ecosystem-partners': {
+    component: EcosystemPartners,
+    category: 'marketing',
+    subcategory: 'Logo Sections',
+    categorySlug: 'logo-sections',
+    tags: ['logos', 'partners', 'ecosystem', 'grid', 'marquee'],
+    status: 'stable',
+    description_fr: 'Logos partenaires technologiques unifiés (masque alpha + currentColor), groupés par catégorie, grille / mur / marquee, variante dark.',
+    description_en: 'Unified technology partner logos (alpha mask + currentColor), grouped by category, grid / wall / marquee, dark variant.',
   },
   'method-timeline': {
     component: MethodTimeline,

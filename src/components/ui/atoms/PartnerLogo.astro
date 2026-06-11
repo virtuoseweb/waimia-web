@@ -1,0 +1,65 @@
+---
+// Atome · PartnerLogo
+// Rendu unifié des logos partenaires : technique masque alpha
+// (`mask-image` + `background: currentColor`). Tous les logos rendent dans
+// une seule couleur (theme-aware via `currentColor`). Cf docs/48.
+//
+// Un masque a un ratio intrinsèque variable. On fixe la HAUTEUR (`--logo-h`)
+// et une LARGEUR par défaut (`--logo-w`) ; `mask-size: contain` centre le
+// glyphe dans la boîte. La largeur peut être surchargée par logo si besoin.
+//
+// Usage :
+//   <PartnerLogo name="Claude" asset="/logos/partners/partner-claude.png" href="/technologies/claude-models" />
+//   <PartnerLogo name="AWS" asset="/logos/partners/partner-aws.png" href="https://aws.amazon.com" external />
+
+interface Props {
+  /** Libellé affiché (alt / aria-label / title). */
+  name: string;
+  /** Chemin du masque : `/logos/partners/partner-<slug>.png|svg`. */
+  asset: string;
+  /** Lien optionnel. Sans href → rend un `<span>`. */
+  href?: string;
+  /** Lien externe → `target="_blank" rel="noopener"`. */
+  external?: boolean;
+  /** Hauteur de la boîte (défaut `28px`). */
+  h?: string;
+  /** Largeur de la boîte (défaut `120px`). */
+  w?: string;
+  /** Classes additionnelles. */
+  class?: string;
+}
+
+const { name, asset, href, external = false, h = '28px', w = '120px', class: extraClass = '' } = Astro.props;
+
+const style = `--logo:url(${asset});--logo-h:${h};--logo-w:${w}`;
+const cls = `partner-logo ${extraClass}`.trim();
+---
+{href ? (
+  <a
+    class={cls}
+    style={style}
+    href={href}
+    aria-label={name}
+    title={name}
+    {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+  ></a>
+) : (
+  <span class={cls} style={style} aria-label={name} title={name} role="img"></span>
+)}
+
+<style>
+  .partner-logo {
+    display: inline-block;
+    width: var(--logo-w, 120px);
+    height: var(--logo-h, 28px);
+    min-width: 64px;
+    -webkit-mask: var(--logo) center/contain no-repeat;
+    mask: var(--logo) center/contain no-repeat;
+    background: currentColor;
+    color: var(--muted);
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+  a.partner-logo:hover {
+    color: var(--ink);
+  }
+</style>

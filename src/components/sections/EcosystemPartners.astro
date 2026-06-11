@@ -1,0 +1,183 @@
+---
+// Section cataloguée · ecosystem-partners (docs/48)
+// Rend une grille/mur/marquee de logos partenaires unifiés (atome PartnerLogo).
+// Variante dark via background:'ink' + idiome [data-bg='ink'] (modèle SocialProof).
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import PartnerLogo from '../ui/atoms/PartnerLogo.astro';
+
+interface Props {
+  data: SectionByType<'ecosystem-partners'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const layout = data.layout ?? 'grid';
+
+type PartnerItem = (typeof data.partners)[number];
+
+// En layout grid : regrouper par catégorie (ordre d'apparition conservé).
+const groups: { category: string; items: PartnerItem[] }[] = [];
+if (layout === 'grid') {
+  for (const p of data.partners) {
+    const cat = p.category ?? 'autres';
+    let g = groups.find((x) => x.category === cat);
+    if (!g) {
+      g = { category: cat, items: [] };
+      groups.push(g);
+    }
+    g.items.push(p);
+  }
+}
+---
+
+<section class="eco-partners" data-bg={data.background} data-layout={layout}>
+  {(kicker || h2 || lede) && (
+    <div class="wrap-wide eco-partners__head">
+      {kicker && <Kicker tone="muted" class="eco-partners__kicker">{kicker}</Kicker>}
+      {h2 && <h2 class="eco-partners__h2" set:html={h2} />}
+      {lede && <p class="eco-partners__lede" set:html={lede} />}
+    </div>
+  )}
+
+  {layout === 'grid' ? (
+    <div class="wrap-wide eco-partners__groups">
+      {groups.map((g) => (
+        <div class="eco-partners__group">
+          <Kicker tone="muted" class="eco-partners__group-title">{g.category}</Kicker>
+          <ul class="eco-partners__grid">
+            {g.items.map((p) => (
+              <li class="eco-partners__cell">
+                <PartnerLogo name={p.name} asset={p.asset} href={p.href} external={p.external} h="40px" w="132px" />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  ) : layout === 'marquee' ? (
+    <div class="eco-partners__marquee-wrap" aria-hidden="true">
+      <ul class="eco-partners__marquee">
+        {[...data.partners, ...data.partners].map((p) => (
+          <li class="eco-partners__cell">
+            <PartnerLogo name={p.name} asset={p.asset} h="28px" w="120px" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : (
+    <div class="wrap-wide">
+      <ul class="eco-partners__wall">
+        {data.partners.map((p) => (
+          <li class="eco-partners__cell">
+            <PartnerLogo name={p.name} asset={p.asset} href={p.href} external={p.external} h="32px" w="124px" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</section>
+
+<style>
+  .eco-partners {
+    padding-block: var(--section);
+    overflow: hidden;
+  }
+  .eco-partners__head { margin-bottom: var(--space-7); }
+  .eco-partners__kicker { display: block; margin-bottom: var(--space-3); }
+  .eco-partners__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 56px);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.022em;
+    font-weight: var(--fw-regular);
+    margin: 0 0 var(--space-3);
+    text-wrap: balance;
+  }
+  .eco-partners__h2 :global(i) { font-style: italic; color: var(--accent); }
+  .eco-partners__lede {
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: var(--wrap-prose);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  /* ── GRID ── */
+  .eco-partners__groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+  .eco-partners__group-title {
+    display: block;
+    margin-bottom: var(--space-4);
+    text-transform: capitalize;
+  }
+  .eco-partners__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+    gap: var(--space-5) var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  /* ── WALL ── */
+  .eco-partners__wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5) var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  /* ── MARQUEE ── */
+  .eco-partners__marquee-wrap { position: relative; }
+  .eco-partners__marquee {
+    display: flex;
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: max-content;
+    animation: eco-marquee 36s linear infinite;
+  }
+  @keyframes eco-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .eco-partners__marquee { animation: none; }
+  }
+
+  .eco-partners__cell {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Alternance des fonds + variante dark (modèle BentoGrid/SocialProof) ── */
+  .eco-partners[data-bg='paper-2'] { background: var(--paper-2); }
+  .eco-partners[data-bg='paper-3'] { background: var(--paper-3); }
+  .eco-partners[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .eco-partners[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+</style>
+
+<style is:global>
+  /* Le masque hérite de currentColor : sur fond ink, les logos passent en paper. */
+  .eco-partners[data-bg='ink'] .partner-logo { color: var(--paper); }
+  .eco-partners[data-bg='ink'] a.partner-logo:hover { color: #fff; }
+</style>

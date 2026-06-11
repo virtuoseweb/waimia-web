@@ -1092,6 +1092,22 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     ],
     marquee: true,
   },
+  'ecosystem-partners': {
+    type: 'ecosystem-partners',
+    kicker_fr: 'Écosystème partenaires',
+    kicker_en: 'Partner ecosystem',
+    h2_fr: 'Une stack éprouvée, des partenaires certifiés',
+    h2_en: 'A proven stack, certified partners',
+    layout: 'grid',
+    partners: [
+      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/technologies/claude-models', category: 'ai' },
+      { name: 'OpenAI', asset: '/logos/partners/partner-openai.png', href: 'https://openai.com', external: true, category: 'ai' },
+      { name: 'Amazon Web Services', asset: '/logos/partners/partner-aws.png', href: 'https://aws.amazon.com', external: true, category: 'cloud' },
+      { name: 'Microsoft', asset: '/logos/partners/partner-microsoft.png', href: '/technologies/microsoft-power-platform', category: 'cloud' },
+      { name: 'Salesforce', asset: '/logos/partners/partner-salesforce.png', href: 'https://www.salesforce.com', external: true, category: 'crm' },
+      { name: 'HubSpot', asset: '/logos/partners/partner-hubspot.png', href: 'https://www.hubspot.com', external: true, category: 'crm' },
+    ],
+  },
   'method-timeline': {
     type: 'method-timeline',
     kicker_fr: 'Méthode · 4 étapes',
