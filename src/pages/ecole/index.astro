@@ -130,7 +130,9 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
 
     <!-- CATALOGUE FORMATIONS · grille featured (cours phare) + cards -->
     {formationsGrid && formationsGrid.offers.length > 0 && (
-      <OfferTierGrid data={formationsGrid} lang={lang} />
+      <div class="ecole-formations" data-card-count={formationsGrid.offers.length}>
+        <OfferTierGrid data={formationsGrid} lang={lang} />
+      </div>
     )}
 
     <!-- SECTION PARCOURS -->
@@ -176,5 +178,20 @@ const ctaText = lang === 'fr' ? 'Demander un parcours sur mesure' : 'Request a c
 
   .cta-link:hover {
     color: var(--accent);
+  }
+
+  /* ───── Micro-rythme it.10 · équilibrage de la rangée de cards sous le featured ─────
+     OfferTierGrid (partagé, intact) rend `.tier-ii-grid` en 3 colonnes fixes. Avec 2
+     formations restantes (hors cours phare), le 3ᵉ tiers reste vide. On adapte le nombre
+     de colonnes au nombre de cards DEPUIS la page (override local `:global`, comme le
+     pattern count-driven de FeatureGrid), sans toucher au composant. Le repli mobile
+     (1 colonne, < 900px) du composant reste prioritaire (override borné à ≥ 901px). */
+  @media (min-width: 901px) {
+    .ecole-formations[data-card-count='2'] :global(.tier-ii-grid) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .ecole-formations[data-card-count='1'] :global(.tier-ii-grid) {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 </style>

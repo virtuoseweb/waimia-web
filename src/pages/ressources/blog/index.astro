@@ -51,5 +51,15 @@ const formatDate = (d: Date) => {
 </UtilityTemplate>
 
 <style>
-  .blog-list { max-width: 1100px; }
+  /* max-width live + resserrage micro-rythme du blanc hero→liste (it.10) :
+     le masthead `hero-hub-listing` (bottom clamp ~72px) + `.list-body` (top clamp ~100px)
+     du template partagé creusaient une bande vide ; on remonte la liste d'un cran --space
+     depuis la page (override local, template intact). */
+  .blog-list {
+    max-width: 1100px;
+    margin-top: calc(-1 * var(--space-9));
+  }
+  @media (max-width: 768px) {
+    .blog-list { margin-top: calc(-1 * var(--space-7)); }
+  }
 </style>
