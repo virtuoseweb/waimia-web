@@ -26,6 +26,8 @@ import RelatedByCluster from '../ui/molecules/RelatedByCluster.astro';
 import TagPills from '../ui/molecules/TagPills.astro';
 import type { SectionByType } from '../../schemas/sections';
 import { localizeHref } from '../../lib/i18n';
+import AuthorByline from '../ui/molecules/AuthorByline.astro';
+import { splitLocaleHtml, filterHeadingsForHtml } from '../../lib/blog-locale-split';
 
 interface RelatedCard {
   kicker: string;
@@ -78,6 +80,10 @@ interface Props {
   cluster?: string;
   /** ID de l'article courant (pour exclure de RelatedByCluster) */
   articleId?: string;
+  /** Slug auteur pour le byline en tête d'article. */
+  bylineAuthorSlug?: string;
+  /** Date de publication brute (pour le byline en tête). */
+  publishedAt?: Date | string;
 }
 const {
   title,
@@ -102,10 +108,21 @@ const {
   headings,
   cluster,
   articleId,
+  bylineAuthorSlug,
+  publishedAt,
 } = Astro.props as Props;
 
 const headlineHtml = (await Astro.slots.render('headline')).trim();
 const ledeHtml = (await Astro.slots.render('lede')).trim();
+
+// Corps MDX bilingue : on isole la moitié de la locale rendue (FR avant le
+// premier <hr> racine, EN après) et on retire le séparateur. Sommaire + a11y
+// filtrés sur les seuls headings présents dans la moitié retenue.
+const rawBodyHtml = await Astro.slots.render('body');
+const localizedBodyHtml = splitLocaleHtml(rawBodyHtml, lang);
+const localizedHeadings = filterHeadingsForHtml(headings, localizedBodyHtml);
+const tocCount = localizedHeadings.filter((h) => h.depth === 2 || h.depth === 3).length;
+const hasToc = tocCount >= 2;
 const heroData = {
   type: 'hero-essay',
   kicker_fr: kicker,
@@ -183,31 +200,19 @@ const articleLd = buildArticle({
 
     {/* BODY */}
     <div class="essay-body">
-      {(() => {
-        const hasSources = sources && sources.length > 0;
-        const hasToc = headings && headings.filter((h) => h.depth === 2 || h.depth === 3).length >= 2;
-        const layoutClass = hasToc && hasSources
-          ? 'essay-layout--three-col'
-          : hasToc
-          ? 'essay-layout--with-toc'
-          : hasSources
-          ? 'essay-layout--with-aside'
-          : '';
-        return null;
-      })()}
-      {/* Layout calculé dans les attributs inline ci-dessous */}
       <div class:list={['essay-layout', {
-        'essay-layout--three-col': headings && headings.filter((h) => h.depth === 2 || h.depth === 3).length >= 2 && sources && sources.length > 0,
-        'essay-layout--with-toc': headings && headings.filter((h) => h.depth === 2 || h.depth === 3).length >= 2 && !(sources && sources.length > 0),
-        'essay-layout--with-aside': !(headings && headings.filter((h) => h.depth === 2 || h.depth === 3).length >= 2) && sources && sources.length > 0,
+        'essay-layout--three-col': hasToc && sources && sources.length > 0,
+        'essay-layout--with-toc': hasToc && !(sources && sources.length > 0),
+        'essay-layout--with-aside': !hasToc && sources && sources.length > 0,
       }]}>
-        {headings && headings.filter((h) => h.depth === 2 || h.depth === 3).length >= 2 && (
+        {hasToc && (
           <aside class="essay-toc">
-            <TableOfContents headings={headings} lang={lang} />
+            <TableOfContents headings={localizedHeadings} lang={lang} />
           </aside>
         )}
         <div class="essay-prose reveal">
-          <slot name="body" />
+          <AuthorByline authorSlug={bylineAuthorSlug} date={publishedAt} readingTime={readingTime} />
+          <Fragment set:html={localizedBodyHtml} />
           <div class="essay-share-end">
             <ShareButtons url={canonicalUrl} title={title} lang={lang} />
           </div>
