@@ -106,6 +106,14 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -585,6 +593,14 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -771,6 +787,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -1002,6 +1022,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -1154,6 +1178,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -1361,6 +1389,14 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -1533,6 +1569,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -2075,6 +2115,275 @@
     "agentGuide": "Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 16 litteral(s) hardcode(s) (-0.016em, -0.01em, -2px)."
   },
   {
+    "id": "case-spotlight",
+    "component": {
+      "name": "CaseSpotlight",
+      "path": "src/components/sections/CaseSpotlight.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "tags": [
+      "case",
+      "conversion",
+      "dark",
+      "metrics",
+      "proof",
+      "spotlight"
+    ],
+    "status": "stable",
+    "description_fr": "Vitrine de cas concret insérable partout : carte INK avec visuel habillé + titre serti d’un relevé accent, citation à barre accent, métriques massives latérales, tags méta et CTA. Levier de conversion à fort impact.",
+    "description_en": "A concrete-case showcase you can drop anywhere: an INK card with a styled visual + a title with an accent highlight, an accent-bar quote, large lateral metrics, meta tags and a CTA. A high-impact conversion lever.",
+    "schemaFields": [
+      {
+        "name": "attribution_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "attribution_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "cta_href",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "media_alt",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "media_caption",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "media_src",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "metrics",
+        "type": "array",
+        "required": false,
+        "constraint": "max:3"
+      },
+      {
+        "name": "quote_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "quote_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "tags",
+        "type": "array",
+        "required": false,
+        "constraint": "max:4"
+      },
+      {
+        "name": "title_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "title_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "constraint": "media-left | media-right"
+      }
+    ],
+    "scopedClasses": [
+      "acc",
+      "cspot",
+      "cspot__body",
+      "cspot__card",
+      "cspot__cite",
+      "cspot__cta",
+      "cspot__kicker",
+      "cspot__media",
+      "cspot__metric",
+      "cspot__metric-k",
+      "cspot__metric-l",
+      "cspot__metrics",
+      "cspot__quote",
+      "cspot__tags",
+      "cspot__title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--cs-mcols",
+        "value": ""
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-card",
+        "value": "10px"
+      },
+      {
+        "name": "--radius-full",
+        "value": "50%"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--shadow-card-rest",
+        "value": "0 0 0 1px var(--hairline)"
+      },
+      {
+        "name": "--space-10",
+        "value": "80px"
+      },
+      {
+        "name": "--space-2",
+        "value": "8px"
+      },
+      {
+        "name": "--space-3",
+        "value": "12px"
+      },
+      {
+        "name": "--space-4",
+        "value": "16px"
+      },
+      {
+        "name": "--space-5",
+        "value": "24px"
+      },
+      {
+        "name": "--space-6",
+        "value": "32px"
+      },
+      {
+        "name": "--space-9",
+        "value": "64px"
+      },
+      {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
+        "name": "--text-eyebrow",
+        "value": "11px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 13,
+      "samples": [
+        "-0.02em",
+        "-0.03em",
+        ".1em",
+        "100%",
+        "1px",
+        "2px",
+        "3px",
+        "480px"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-0.02em, -0.03em, .1em)."
+  },
+  {
     "id": "code-showcase",
     "component": {
       "name": "CodeShowcase",
@@ -2202,8 +2511,8 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-regular",
-        "value": "400"
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--hairline",
@@ -2395,16 +2704,16 @@
     ],
     "tokensUsed": [
       {
-        "name": "--font-display",
-        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
-      },
-      {
         "name": "--font-mono",
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
-        "name": "--fw-regular",
-        "value": "400"
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--hairline",
@@ -2473,7 +2782,7 @@
         "clamp(32px, 4vw, 60px)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-6. Couleur : --ink --muted --paper. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.022em, 0.1em, 10px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.022em, 0.1em, 10px)."
   },
   {
     "id": "commitments-grid",
@@ -2618,6 +2927,10 @@
       {
         "name": "--font-serif",
         "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -2924,6 +3237,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -3132,6 +3449,14 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--fw-semibold",
         "value": "600"
       },
@@ -3334,6 +3659,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -3625,6 +3954,10 @@
       {
         "name": "--fw-medium",
         "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -4447,6 +4780,10 @@
         "value": "500"
       },
       {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -4779,6 +5116,14 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -4969,6 +5314,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -5167,6 +5520,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -5346,6 +5703,14 @@
       {
         "name": "--font-mono",
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -5554,6 +5919,10 @@
       {
         "name": "--font-serif",
         "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -6093,6 +6462,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -6184,6 +6557,231 @@
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-rgb. Typographie : --font-display --font-sans. Dette : 16 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
+  },
+  {
+    "id": "diagnostic-stages",
+    "component": {
+      "name": "DiagnosticStages",
+      "path": "src/components/sections/DiagnosticStages.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "process-sections",
+    "subcategory": "Process Sections",
+    "tags": [
+      "conversion",
+      "diagnostic",
+      "maturity",
+      "self-assessment",
+      "stages"
+    ],
+    "status": "stable",
+    "description_fr": "Auto-diagnostic « Où en êtes-vous ? » : 4 à 6 stades de maturité en cards horizontales cliquables, le stade courant relevé en accent (« vous êtes ici »). Situe le visiteur et l’oriente vers l’étape suivante (conversion + qualification).",
+    "description_en": "A “Where do you stand?” self-assessment: 4 to 6 maturity stages as clickable horizontal cards, the current stage highlighted in accent (“you are here”). Places the visitor and points them to the next step (conversion + qualification).",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "stages",
+        "type": "array",
+        "required": true,
+        "constraint": "min:4 max:6"
+      }
+    ],
+    "scopedClasses": [
+      "acc",
+      "diag",
+      "diag__body",
+      "diag__card",
+      "diag__glyph",
+      "diag__h2",
+      "diag__head",
+      "diag__here",
+      "diag__kicker",
+      "diag__lede",
+      "diag__num",
+      "diag__phase",
+      "diag__stage",
+      "diag__title",
+      "diag__top",
+      "diag__track"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-rgb",
+        "value": "201, 79, 46"
+      },
+      {
+        "name": "--diag-cols",
+        "value": ""
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-full",
+        "value": "50%"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-2",
+        "value": "8px"
+      },
+      {
+        "name": "--space-3",
+        "value": "12px"
+      },
+      {
+        "name": "--space-4",
+        "value": "16px"
+      },
+      {
+        "name": "--space-5",
+        "value": "24px"
+      },
+      {
+        "name": "--space-6",
+        "value": "32px"
+      },
+      {
+        "name": "--space-9",
+        "value": "64px"
+      },
+      {
+        "name": "--text-body-md",
+        "value": "17px"
+      },
+      {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
+        "name": "--text-eyebrow",
+        "value": "11px"
+      },
+      {
+        "name": "--text-h2-section",
+        "value": "clamp(28px, 4vw, 56px)"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 13,
+      "samples": [
+        "-0.01em",
+        "-0.02em",
+        "-1px",
+        ".08em",
+        ".12em",
+        "100%",
+        "1000px",
+        "18px"
+      ]
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px)."
   },
   {
     "id": "editorial-preview",
@@ -6485,6 +7083,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -6675,6 +7277,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -6859,8 +7465,8 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-regular",
-        "value": "400"
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-semibold",
@@ -7000,6 +7606,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -7201,6 +7815,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -7377,6 +7995,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--fw-semibold",
@@ -7580,6 +8206,14 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -7771,6 +8405,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--fw-semibold",
@@ -8006,6 +8648,10 @@
       {
         "name": "--font-serif",
         "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -8310,6 +8956,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -8961,6 +9615,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -9101,6 +9759,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -9261,6 +9927,10 @@
     ],
     "tokensUsed": [
       {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
         "name": "--dur-base",
         "value": "400ms"
       },
@@ -9279,6 +9949,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -9383,7 +10057,7 @@
         "640px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --ink --ink-rgb --muted. Typographie : --font-display --font-sans. Dette : 10 litteral(s) hardcode(s) (0%, 100%, 133%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent --ink --ink-rgb. Typographie : --font-display --font-sans. Dette : 10 litteral(s) hardcode(s) (0%, 100%, 133%)."
   },
   {
     "id": "guarantee-block",
@@ -9428,16 +10102,12 @@
     ],
     "tokensUsed": [
       {
-        "name": "--font-display",
-        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
-      },
-      {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-regular",
-        "value": "400"
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--hairline",
@@ -9498,7 +10168,7 @@
         "clamp(18px, 1.8vw, 24px)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-5. Couleur : --ink --muted --paper. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (1px, 56px, 600px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 56px, 600px)."
   },
   {
     "id": "hero-academy-hub",
@@ -12934,6 +13604,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -17204,6 +17878,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -18530,8 +19208,12 @@
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
       {
-        "name": "--fw-regular",
-        "value": "400"
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--hairline",
@@ -18568,7 +19250,7 @@
         "640px"
       ]
     },
-    "agentGuide": "Espacement : --space-8. Couleur : --accent --muted. Typographie : --font-display --fw-regular. Dette : 18 litteral(s) hardcode(s) (-0.02em, -0.03em, 1200px)."
+    "agentGuide": "Espacement : --space-8. Couleur : --accent --muted. Typographie : --font-display --font-sans. Dette : 18 litteral(s) hardcode(s) (-0.02em, -0.03em, 1200px)."
   },
   {
     "id": "icon-trio",
@@ -18702,6 +19384,10 @@
       {
         "name": "--font-serif",
         "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -18941,10 +19627,6 @@
         "value": "#C94F2E"
       },
       {
-        "name": "--font-display",
-        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
-      },
-      {
         "name": "--font-mono",
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
@@ -18953,8 +19635,8 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-regular",
-        "value": "400"
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--hairline",
@@ -19047,7 +19729,7 @@
         "clamp(var(--text-body-sm)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --ink --paper. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, clamp(var(--space-5), clamp(var(--space-7))."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --ink --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (1px, clamp(var(--space-5), clamp(var(--space-7))."
   },
   {
     "id": "integrations-grid",
@@ -19149,6 +19831,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -19740,6 +20430,18 @@
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -19806,7 +20508,7 @@
         "3px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --spacing-block. Couleur : --accent --ink --paper. Typographie : --font-display --leading-h3. Dette : 13 litteral(s) hardcode(s) (-1px, 100%, 110px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --spacing-block. Couleur : --accent --ink --paper. Typographie : --font-display --font-sans. Dette : 13 litteral(s) hardcode(s) (-1px, 100%, 110px)."
   },
   {
     "id": "manifesto-act",
@@ -20813,12 +21515,20 @@
     ],
     "tokensUsed": [
       {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
         "name": "--font-display",
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -20896,7 +21606,7 @@
         "clamp(18px, 1.8vw, 24px)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --ink --muted --paper. Typographie : --font-display --font-sans. Dette : 5 litteral(s) hardcode(s) (10px, 1px, 20px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent --ink --muted. Typographie : --font-display --font-sans. Dette : 5 litteral(s) hardcode(s) (10px, 1px, 20px)."
   },
   {
     "id": "metric-callout-band",
@@ -21159,6 +21869,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -21414,6 +22128,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -21583,6 +22301,14 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -21718,6 +22444,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -21938,6 +22672,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -22149,6 +22887,14 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -22328,6 +23074,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -22680,6 +23430,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -22936,6 +23690,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -23227,6 +23985,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -23434,6 +24196,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -23669,6 +24435,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -24122,6 +24892,10 @@
       {
         "name": "--font-serif",
         "value": ""
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -24615,6 +25389,14 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
       },
       {
         "name": "--hairline",
@@ -25478,6 +26260,14 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -25667,12 +26457,16 @@
         "value": "cubic-bezier(0.22, 1, 0.36, 1)"
       },
       {
-        "name": "--font-display",
-        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
-      },
-      {
         "name": "--font-mono",
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--hairline",
@@ -25765,7 +26559,7 @@
         "110px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.022em, -2px, .14em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 21 litteral(s) hardcode(s) (-0.022em, -2px, .14em)."
   },
   {
     "id": "services-grid",
@@ -26398,6 +27192,14 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -26763,6 +27565,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -27184,6 +27990,14 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--fw-semibold",
         "value": "600"
       },
@@ -27394,10 +28208,6 @@
         "value": "cubic-bezier(0.16, 1, 0.30, 1)"
       },
       {
-        "name": "--font-display",
-        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
-      },
-      {
         "name": "--font-mono",
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
@@ -27406,8 +28216,8 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-regular",
-        "value": "400"
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--ink",
@@ -27488,7 +28298,7 @@
         "20px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-2px, .12em, .1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 14 litteral(s) hardcode(s) (-2px, .12em, .1em)."
   },
   {
     "id": "tech-capabilities-specs",
@@ -27591,6 +28401,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -27773,6 +28587,14 @@
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -27831,7 +28653,7 @@
         "820px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --fw-regular. Dette : 13 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
   },
   {
     "id": "tech-models-table",
@@ -27896,7 +28718,7 @@
       {
         "name": "models",
         "type": "array",
-        "required": true,
+        "required": false,
         "constraint": "min:1"
       },
       {
@@ -27950,6 +28772,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -28151,6 +28977,14 @@
       {
         "name": "--font-mono",
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -28764,6 +29598,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -29077,6 +29915,18 @@
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -29143,7 +29993,7 @@
         "clamp(20px, 2.5vw, 40px)"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-4 --spacing-block. Couleur : --accent --ink --paper. Typographie : --font-display --leading-h3. Dette : 9 litteral(s) hardcode(s) (-1px, 16px, 1px)."
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-4 --spacing-block. Couleur : --accent --ink --paper. Typographie : --font-display --font-sans. Dette : 9 litteral(s) hardcode(s) (-1px, 16px, 1px)."
   },
   {
     "id": "testimonial-logo-metric",
@@ -29359,6 +30209,215 @@
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.01em, -2px, .12em)."
+  },
+  {
+    "id": "testimonial-metrics",
+    "component": {
+      "name": "TestimonialMetrics",
+      "path": "src/components/sections/TestimonialMetrics.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "tags": [
+      "b2b",
+      "metrics",
+      "proof",
+      "quote",
+      "testimonial"
+    ],
+    "status": "stable",
+    "description_fr": "Témoignage chiffré : grande citation serif d’un côté + grille de 3 à 4 métriques massives de l’autre, reliées par une barre accent. Combine la voix client et le résultat mesuré en un seul bloc de réassurance.",
+    "description_en": "A quantified testimonial: a large serif quote on one side + a grid of 3 to 4 large metrics on the other, joined by an accent bar. Combines the client’s voice and the measured outcome in a single reassurance block.",
+    "schemaFields": [
+      {
+        "name": "author",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "company",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "metrics",
+        "type": "array",
+        "required": true,
+        "constraint": "min:3 max:4"
+      },
+      {
+        "name": "quote_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "quote_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "role_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "role_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "constraint": "quote-left | quote-right"
+      }
+    ],
+    "scopedClasses": [
+      "tmet",
+      "tmet__attr",
+      "tmet__grid",
+      "tmet__kicker",
+      "tmet__metric",
+      "tmet__metric-k",
+      "tmet__metric-l",
+      "tmet__metrics-col",
+      "tmet__name",
+      "tmet__quote",
+      "tmet__quote-col",
+      "tmet__role"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-12",
+        "value": "120px"
+      },
+      {
+        "name": "--space-2",
+        "value": "8px"
+      },
+      {
+        "name": "--space-5",
+        "value": "24px"
+      },
+      {
+        "name": "--space-6",
+        "value": "32px"
+      },
+      {
+        "name": "--space-7",
+        "value": "40px"
+      },
+      {
+        "name": "--space-8",
+        "value": "48px"
+      },
+      {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
+        "name": "--text-caption",
+        "value": "12px"
+      },
+      {
+        "name": "--text-h3-row",
+        "value": "clamp(20px, 2vw, 28px)"
+      },
+      {
+        "name": "--tm-cols",
+        "value": ""
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 11,
+      "samples": [
+        "-0.01em",
+        "-0.03em",
+        ".08em",
+        "1px",
+        "2px",
+        "480px",
+        "860px",
+        "clamp(24px, 3vw, 40px)"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.01em, -0.03em, .08em)."
   },
   {
     "id": "testimonial-single-spotlight",
@@ -29740,6 +30799,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -29926,8 +30989,8 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-regular",
-        "value": "400"
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-semibold",
@@ -30104,6 +31167,13 @@
         "name": "kicker_fr",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "default": "cells",
+        "constraint": "cells | strip"
       }
     ],
     "scopedClasses": [
@@ -30113,8 +31183,12 @@
       "trust-badges__grid",
       "trust-badges__h2",
       "trust-badges__head",
+      "trust-badges__item",
+      "trust-badges__item-glyph",
+      "trust-badges__item-label",
       "trust-badges__kicker",
       "trust-badges__label",
+      "trust-badges__strip",
       "trust-badges__value"
     ],
     "tokensUsed": [
@@ -30179,6 +31253,10 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-full",
+        "value": "50%"
+      },
+      {
         "name": "--section-tight",
         "value": "var(--space-8)"
       },
@@ -30207,8 +31285,16 @@
         "value": "15px"
       },
       {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
         "name": "--text-caption",
         "value": "12px"
+      },
+      {
+        "name": "--text-eyebrow",
+        "value": "11px"
       },
       {
         "name": "--text-h3-row",
@@ -30221,17 +31307,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 8,
       "samples": [
         "-0.01em",
         ".04em",
+        ".1em",
         "1px",
         "20px",
+        "4px",
         "560px",
         "900px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.01em, .04em, 1px)."
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, .04em, .1em)."
   },
   {
     "id": "trust-legal-section",
@@ -30344,6 +31432,14 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -30358,6 +31454,10 @@
       {
         "name": "--ink-2",
         "value": "#1A1814"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
       },
       {
         "name": "--leading-lede",
@@ -30420,8 +31520,8 @@
     "hardcodedLiterals": {
       "count": 26,
       "samples": [
-        "-0.022em",
         "-0.028em",
+        "-0.02em",
         "0.08em",
         "0.1em",
         "0.5em",
@@ -30430,7 +31530,7 @@
         "1.5em"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 26 litteral(s) hardcode(s) (-0.022em, -0.028em, 0.08em)."
+    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --ink --ink-2. Typographie : --font-display --font-mono. Dette : 26 litteral(s) hardcode(s) (-0.028em, -0.02em, 0.08em)."
   },
   {
     "id": "tunnel-step-hero",
@@ -30914,6 +32014,14 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -30986,7 +32094,7 @@
     "hardcodedLiterals": {
       "count": 22,
       "samples": [
-        "-0.02em",
+        "-0.018em",
         ".12em",
         ".14em",
         ".16em",
@@ -30996,7 +32104,7 @@
         "28px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.02em, .12em, .14em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.018em, .12em, .14em)."
   },
   {
     "id": "versus-competitors",
@@ -31322,6 +32430,14 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -31475,6 +32591,7 @@
       }
     ],
     "scopedClasses": [
+      "acc",
       "why-stalls",
       "why-stalls__aside",
       "why-stalls__fig",
@@ -31497,6 +32614,14 @@
       {
         "name": "--font-mono",
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -31693,6 +32818,10 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
