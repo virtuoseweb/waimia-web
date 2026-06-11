@@ -41,6 +41,7 @@ import TerminalMockup from '../../components/ui/molecules/TerminalMockup.astro';
 // Sections cataloguées (rendu inline → réactif au token LIVE, contrairement aux iframes)
 import { SECTION_REGISTRY, listSections, listCategories } from '../../lib/section-registry';
 import { SECTION_DEMOS } from '../../lib/section-demos';
+import { sectionSchema } from '../../schemas/sections';
 import DsLocalNav from '../../components/library/DsLocalNav.astro';
 
 import registry from '../../data/ds-registry.json';
@@ -144,6 +145,114 @@ const studioData = JSON.stringify({
   demoPresets: DEMO_PRESETS,
   originals: Object.fromEntries(tokens.map((token) => [token.name, token.value])),
 });
+
+// ── Atelier de section : carte des champs éditables par type ──────────────────
+// On introspecte le discriminatedUnion Zod pour récupérer, par type :
+//   - background : options de l'enum `background` (ex. paper/paper-2/paper-3/ink)
+//   - variants   : tout champ enum dont le nom contient « variant »
+//   - texts      : champs texte principaux (titre/kicker/lede), classés par rôle
+//     pour cibler un élément DOM générique dans la preview (h1/h2, kicker, lede).
+// L'introspection est défensive (try/catch) : un échec n'empêche pas le build.
+type WorkshopText = { field: string; role: 'title' | 'kicker' | 'lede'; value: string };
+type WorkshopFieldMap = {
+  background: string[];
+  variants: Record<string, string[]>;
+  texts: WorkshopText[];
+};
+
+const TITLE_KEYS = ['h1_fr', 'h2_fr', 'title_fr', 'heading_fr', 'name_lead', 'text_fr'];
+const KICKER_KEYS = ['kicker_fr', 'eyebrow_fr', 'spec_fr', 'meta_kicker_fr', 'parent_kicker_fr', 'dept_fr', 'tier_fr'];
+const LEDE_KEYS = ['lede_fr', 'lead_fr', 'intro_fr', 'context_fr', 'subtitle_fr', 'aside_fr'];
+
+function enumOptions(node: any): string[] | null {
+  // Déballe ZodOptional/ZodDefault/ZodNullable, retourne les options si c'est un ZodEnum.
+  let cur = node;
+  for (let i = 0; cur && i < 6; i += 1) {
+    const def = cur._def;
+    if (!def) break;
+    // ZodEnum : valeurs en `values` (array) ou `entries` (objet) selon la version zod.
+    if (Array.isArray(def.values)) return def.values.map(String);
+    if (def.entries && typeof def.entries === 'object') {
+      const vals = Object.values(def.entries).filter((v) => typeof v === 'string');
+      if (vals.length) return vals as string[];
+    }
+    if (def.innerType) { cur = def.innerType; continue; }
+    if (def.schema) { cur = def.schema; continue; }
+    if (typeof def.type === 'object' && def.type?._def) { cur = def.type; continue; }
+    break;
+  }
+  return null;
+}
+
+const workshopFields: Record<string, WorkshopFieldMap> = {};
+let workshopDebug = '';
+try {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const def = (sectionSchema as any)._def;
+  // ZodDiscriminatedUnion · `optionsMap` est une Map<typeLiteral, optionSchema> :
+  // la clé EST le type discriminant (source robuste, indépendante de l'accès au literal).
+  const entries: Array<[string, any]> = [];
+  const optionsMap = def?.optionsMap;
+  const isMapLike = optionsMap && typeof optionsMap.forEach === 'function' && typeof optionsMap.size === 'number';
+  if (isMapLike) {
+    optionsMap.forEach((v: any, k: any) => entries.push([String(k), v]));
+  } else if (Array.isArray(def?.options)) {
+    for (const opt of def.options) {
+      const rs = opt?._def?.shape;
+      const sh = typeof rs === 'function' ? rs() : rs;
+      // Le literal du discriminant peut être à .value (ZodLiteral) ou dans .values (Set).
+      let lit: unknown = sh?.type?._def?.value;
+      if (typeof lit !== 'string') {
+        const vals = sh?.type?._def?.values;
+        if (Array.isArray(vals) && typeof vals[0] === 'string') lit = vals[0];
+        else if (vals && typeof vals.values === 'function') {
+          const first = [...vals][0]; if (typeof first === 'string') lit = first;
+        }
+      }
+      if (typeof lit === 'string') entries.push([lit, opt]);
+    }
+  }
+  workshopDebug = `entries=${entries.length}`;
+  for (const [literal, opt] of entries) {
+    const rawShape = opt?._def?.shape;
+    const shape = typeof rawShape === 'function' ? rawShape() : (rawShape ?? opt?.shape ?? null);
+    if (!shape) continue;
+    const demo = SECTION_DEMOS[literal as keyof typeof SECTION_DEMOS] as Record<string, unknown> | undefined;
+
+    const map: WorkshopFieldMap = { background: [], variants: {}, texts: [] };
+
+    const bg = enumOptions(shape.background);
+    if (bg) map.background = bg.filter((v) => v !== 'accent'); // 'accent' n'est pas un data-bg générique
+
+    for (const key of Object.keys(shape)) {
+      if (key === 'type' || key === 'background') continue;
+      if (key.toLowerCase().includes('variant')) {
+        const opts = enumOptions(shape[key]);
+        if (opts && opts.length) map.variants[key] = opts;
+      }
+    }
+
+    const pushText = (key: string, role: WorkshopText['role']) => {
+      if (!(key in shape)) return;
+      const value = demo && typeof demo[key] === 'string' ? (demo[key] as string) : '';
+      map.texts.push({ field: key, role, value });
+    };
+    // Un seul champ par rôle (le 1er présent), pour rester lisible.
+    const titleKey = TITLE_KEYS.find((k) => k in shape);
+    const kickerKey = KICKER_KEYS.find((k) => k in shape);
+    const ledeKey = LEDE_KEYS.find((k) => k in shape);
+    if (titleKey) pushText(titleKey, 'title');
+    if (kickerKey) pushText(kickerKey, 'kicker');
+    if (ledeKey) pushText(ledeKey, 'lede');
+
+    workshopFields[literal] = map;
+  }
+} catch (err) {
+  // Introspection impossible : l'atelier reste fonctionnel pour background générique.
+  workshopDebug = `error: ${(err as Error)?.message ?? String(err)}`;
+}
+
+const workshopData = JSON.stringify({ fields: workshopFields, debug: workshopDebug });
 
 // Token le plus consommé (sélection initiale de la carte d'impact)
 const topConsumer = [...consumers].sort((a, b) => b.count - a.count)[0];
@@ -699,6 +808,63 @@ const moleculesRendered = 12;
           </div>
         </section>
 
+        {/* 3ter. Atelier de section : personnalise UNE section, preview LIVE sans reload */}
+        <section class="studio-section studio-workshop" id="ds-workshop">
+          <ChapterLabel num="04 bis" title="Atelier de section" />
+          <p class="studio-section-lede">
+            Sélectionne un type dans le catalogue ci-dessus (ou ci-dessous le type courant),
+            puis change son <strong>fond</strong>, sa <strong>variante</strong> ou ses
+            <strong>textes</strong> : l'aperçu réagit <strong>en direct, sans rechargement</strong>.
+            Le fond applique <code>data-bg</code> sur la section ; les composants ink-ready se
+            repeignent instantanément.
+          </p>
+
+          <div class="studio-workshop-layout">
+            <aside class="studio-workshop-controls" aria-label="Variables de la section">
+              <div class="studio-workshop-head">
+                <span class="studio-workshop-head-label">Type</span>
+                <code id="workshop-current-type" data-default-type={catalogDefaultType}>{catalogDefaultType}</code>
+              </div>
+
+              <div class="workshop-field" data-workshop-bg-wrap>
+                <span class="workshop-field-label">background (data-bg)</span>
+                <div id="workshop-bg-group" class="workshop-btn-row" role="group" aria-label="Fond de la section"></div>
+              </div>
+
+              <div id="workshop-variants" class="studio-workshop-variants" hidden></div>
+
+              <div id="workshop-texts" class="studio-workshop-texts" hidden></div>
+
+              <p id="workshop-empty" class="studio-workshop-empty" hidden>
+                Ce type n'expose pas de variable simple (fond / variante / texte) dans l'atelier.
+              </p>
+
+              <div class="studio-actions studio-workshop-actions">
+                <button id="workshop-reset" class="studio-btn" type="button">Réinitialiser</button>
+                <button id="workshop-export" class="studio-btn studio-btn--accent" type="button">Exporter la config JSON</button>
+              </div>
+              <pre id="workshop-export-out" class="studio-export-out" aria-live="polite"></pre>
+            </aside>
+
+            <div class="studio-workshop-stage">
+              <div class="studio-workshop-stage-head">
+                <span class="studio-workshop-stage-title">Aperçu LIVE</span>
+                <a id="workshop-open-preview" href={`/preview/${catalogDefaultType}`} class="studio-workshop-open">plein écran →</a>
+              </div>
+              <iframe
+                id="workshop-preview"
+                class="studio-workshop-frame"
+                title="Aperçu live de la section personnalisée (sans rechargement)"
+                loading="lazy"
+              ></iframe>
+              <p class="studio-workshop-note">
+                Les modifications de fond / variante / texte ne rechargent jamais ce cadre :
+                elles manipulent directement son DOM.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* 3. Doublons & dette */}
         <section class="studio-section studio-section--debt">
           <ChapterLabel num="05" title="Doublons & dette (avant de figer le DS)" />
@@ -758,8 +924,11 @@ const moleculesRendered = 12;
 
   {/* Île de données pour le JS (carte d'impact) */}
   <script type="application/json" id="ds-studio-data" set:html={studioData}></script>
+  {/* Île de données pour l'atelier de section (champs éditables par type) */}
+  <script type="application/json" id="ds-workshop-data" set:html={workshopData}></script>
   <script>
     import '../../scripts/ds-studio.js';
+    import '../../scripts/ds-section-workshop.js';
   </script>
 </Base>
 
@@ -835,6 +1004,7 @@ const moleculesRendered = 12;
   :global(body.ds-clean) .studio-impact,
   :global(body.ds-clean) .studio-catalog,
   :global(body.ds-clean) .studio :global(.ds-local-nav),
+  :global(body.ds-clean) .studio-workshop,
   :global(body.ds-clean) .studio-section--debt {
     display: none;
   }
@@ -1149,6 +1319,75 @@ const moleculesRendered = 12;
   .studio-catalog-side-links a:hover { color: var(--paper); text-decoration: underline; text-underline-offset: 0.2em; }
   #catalog-preview { display: block; width: 100%; height: 62vh; border: 0; background: var(--paper); }
   .studio-catalog-note {
+    font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted);
+    margin: 0; padding: var(--space-2) var(--space-3); border-top: 1px solid var(--hairline);
+  }
+
+  /* ── Atelier de section ── */
+  .studio-workshop-layout {
+    display: grid; grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    gap: var(--space-5); align-items: start;
+  }
+  @media (max-width: 1080px) { .studio-workshop-layout { grid-template-columns: 1fr; } }
+  .studio-workshop-controls {
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-md);
+    background: var(--paper); padding: var(--space-4);
+    display: flex; flex-direction: column; gap: var(--space-4);
+  }
+  .studio-workshop-head {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+    padding-bottom: var(--space-3); border-bottom: 1px solid var(--hairline);
+  }
+  .studio-workshop-head-label {
+    font-family: var(--font-mono); font-size: var(--text-eyebrow); text-transform: uppercase;
+    letter-spacing: var(--tracking-mono); color: var(--muted);
+  }
+  .studio-workshop-head code {
+    font-size: var(--text-ui); font-weight: var(--fw-semibold); color: var(--accent);
+    background: var(--paper-2);
+  }
+  .workshop-field { display: flex; flex-direction: column; gap: var(--space-2); }
+  .workshop-field-label {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted);
+    text-transform: lowercase; letter-spacing: var(--tracking-mono);
+  }
+  .workshop-btn-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .workshop-bg-btn.is-active,
+  .workshop-variant-btn.is-active {
+    background: var(--accent); color: var(--accent-ink); border-color: var(--accent);
+  }
+  .studio-workshop-variants { display: flex; flex-direction: column; gap: var(--space-3); }
+  .studio-workshop-texts { display: flex; flex-direction: column; gap: var(--space-3); }
+  .workshop-text-field textarea {
+    resize: vertical; line-height: var(--leading-body);
+  }
+  .studio-workshop-empty {
+    font-family: var(--font-sans); font-size: var(--text-body-sm); color: var(--muted); margin: 0;
+  }
+  .studio-workshop-actions { flex-wrap: wrap; }
+  .studio-workshop-stage {
+    position: sticky; top: var(--space-5);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-md);
+    background: var(--paper); overflow: hidden;
+  }
+  @media (max-width: 1080px) { .studio-workshop-stage { position: static; } }
+  .studio-workshop-stage-head {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+    padding: var(--space-2) var(--space-3); background: var(--ink);
+  }
+  .studio-workshop-stage-title {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--paper);
+    text-transform: uppercase; letter-spacing: var(--tracking-mono);
+  }
+  .studio-workshop-open {
+    font-family: var(--font-mono); font-size: var(--text-mono-xs);
+    color: color-mix(in srgb, var(--paper) 68%, var(--ink)); text-decoration: none;
+  }
+  .studio-workshop-open:hover { color: var(--paper); text-decoration: underline; text-underline-offset: 0.2em; }
+  .studio-workshop-frame {
+    display: block; width: 100%; height: 62vh; border: 0; background: var(--paper);
+  }
+  .studio-workshop-note {
     font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted);
     margin: 0; padding: var(--space-2) var(--space-3); border-top: 1px solid var(--hairline);
   }
