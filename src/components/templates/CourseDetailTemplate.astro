@@ -137,18 +137,37 @@ const heroData = {
   lede_fr: data.description_fr,
   lede_en: data.description_en,
   pills: heroPills,
-  cta_primary: {
-    label_fr: isPlaceholder ? 'Inscriptions bientôt disponibles' : `S'inscrire${priceStrFr ? `: ${priceStrFr}` : ''}`,
-    label_en: isPlaceholder ? 'Enrollment coming soon': `Enroll${priceStrEn ? `: ${priceStrEn}`: ''}`,
-    href: stripeLink ?? '#',
-    variant: 'primary',
-  },
-  cta_secondary: {
-    label_fr: 'Une question ? →',
-    label_en: 'Have a question? →',
-    href: '/contact',
-    variant: 'ghost',
-  },
+  // Hiérarchie CTA : quand l'inscription n'est pas encore ouverte (placeholder),
+  // le seul chemin réellement actionnable est « nous contacter ». On le promeut
+  // donc en CTA primaire (solide, cliquable) et on relègue l'état « bientôt
+  // disponible » au lien secondaire informatif — au lieu d'afficher un bouton
+  // primaire désactivé/grisé qui domine visuellement un lien actif plus discret.
+  cta_primary: isPlaceholder
+    ? {
+        label_fr: 'Une question ? Parlons-en →',
+        label_en: 'Have a question? Let’s talk →',
+        href: '/contact',
+        variant: 'primary',
+      }
+    : {
+        label_fr: `S'inscrire${priceStrFr ? `: ${priceStrFr}` : ''}`,
+        label_en: `Enroll${priceStrEn ? `: ${priceStrEn}`: ''}`,
+        href: stripeLink ?? '#',
+        variant: 'primary',
+      },
+  cta_secondary: isPlaceholder
+    ? {
+        label_fr: 'Inscriptions bientôt disponibles',
+        label_en: 'Enrollment coming soon',
+        href: '/contact',
+        variant: 'ghost',
+      }
+    : {
+        label_fr: 'Une question ? →',
+        label_en: 'Have a question? →',
+        href: '/contact',
+        variant: 'ghost',
+      },
 } satisfies SectionByType<'hero-course'>;
 
 // ── Breadcrumb ─────────────────────────────────────────────────────────────
@@ -201,7 +220,7 @@ const jsonLd = [
         lang={lang}
         topPad="0"
         wrap={false}
-        ctaPrimaryDisabled={isPlaceholder}
+        ctaPrimaryDisabled={false}
         ctaPrimaryExternal={!isPlaceholder}
         ghostStyle="legacy"
       />
@@ -366,8 +385,37 @@ const jsonLd = [
       )}
 
       <!-- ── MDX BODY ───────────────────────────────────────────────────── -->
-      <section class="section mdx-body">
-        <slot />
+      <!-- Layout éditorial 2 colonnes : prose à gauche (mesure de lecture
+           contrôlée), rail meta sticky à droite (type, durée, prix, CTA) pour
+           supprimer la moitié droite morte du mur de prose. -->
+      <section class="section mdx-section">
+        <div class="mdx-layout">
+          <div class="mdx-body">
+            <slot />
+          </div>
+          <aside class="mdx-rail">
+            <div class="mdx-rail__inner">
+              <span class="mdx-rail__type">§ {typeLabel}</span>
+              {heroPills.length > 0 && (
+                <ul class="mdx-rail__facts">
+                  {heroPills.map((p) => (
+                    <li class={`mdx-rail__fact${p.variant === 'price' ? ' is-price' : ''}${p.variant === 'accent' ? ' is-accent' : ''}`}>
+                      {fr ? p.label_fr : p.label_en}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {isPlaceholder ? (
+                <a class="mdx-rail__cta" href="/contact">{fr ? 'Une question ? Parlons-en →' : 'Have a question? Let’s talk →'}</a>
+              ) : (
+                <a class="mdx-rail__cta" href={stripeLink} target="_blank" rel="noopener noreferrer">{ctaEnroll}</a>
+              )}
+              {isPlaceholder && (
+                <span class="mdx-rail__note">{fr ? 'Inscriptions bientôt disponibles' : 'Enrollment coming soon'}</span>
+              )}
+            </div>
+          </aside>
+        </div>
       </section>
 
       <!-- ── CTA FINALE ─────────────────────────────────────────────────── -->
@@ -616,12 +664,19 @@ const jsonLd = [
     font-size: var(--text-body-sm);
   }
 
-  /* MDX BODY */
-  .mdx-body {
+  /* MDX BODY — layout éditorial 2 colonnes */
+  .mdx-section {
     border-top: 1px solid var(--hairline);
     margin-top: var(--space-8);
     padding-top: var(--space-8);
   }
+  .mdx-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: start;
+  }
+  .mdx-body { max-width: var(--wrap-prose); min-width: 0; }
 
   .mdx-body :global(h2) {
     font-family: var(--font-sans);
@@ -629,6 +684,7 @@ const jsonLd = [
     font-weight: var(--fw-medium);
     margin: 36px 0 14px;
   }
+  .mdx-body :global(h2:first-child) { margin-top: 0; }
 
   .mdx-body :global(p) {
     font-family: var(--font-sans);
@@ -636,6 +692,64 @@ const jsonLd = [
     line-height: 1.7;
     color: var(--text-secondary, #444);
     margin-bottom: 18px;
+  }
+
+  /* Rail meta sticky à droite */
+  .mdx-rail { min-width: 0; }
+  .mdx-rail__inner {
+    position: sticky;
+    top: clamp(80px, 9vw, 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding-left: var(--space-5);
+    border-left: 1px solid var(--hairline-strong);
+  }
+  .mdx-rail__type {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .mdx-rail__facts {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2) 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+  }
+  .mdx-rail__fact {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--text-secondary, #444);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .mdx-rail__fact:last-child { border-bottom: none; }
+  .mdx-rail__fact.is-price { font-weight: var(--fw-semibold); color: var(--ink, #111); }
+  .mdx-rail__fact.is-accent { color: var(--accent); }
+  .mdx-rail__cta {
+    margin-top: var(--space-3);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--ink, #111);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 3px;
+    transition: color 0.15s;
+  }
+  .mdx-rail__cta:hover { color: var(--accent); }
+  .mdx-rail__note {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted, #888);
   }
 
   /* CTA FINALE */
@@ -665,6 +779,25 @@ const jsonLd = [
   .cta-accent { color: var(--accent); }
 
   /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .mdx-layout { grid-template-columns: 1fr; gap: var(--space-7); }
+    .mdx-rail { order: -1; }
+    .mdx-rail__inner {
+      position: static;
+      flex-flow: row wrap;
+      align-items: center;
+      gap: var(--space-3) var(--space-5);
+      padding-left: 0;
+      padding-bottom: var(--space-5);
+      border-left: none;
+      border-bottom: 1px solid var(--hairline-strong);
+    }
+    .mdx-rail__facts { flex-flow: row wrap; width: auto; margin-top: 0; gap: var(--space-2) var(--space-4); }
+    .mdx-rail__fact { border-bottom: none; padding-bottom: 0; }
+    .mdx-rail__cta { margin-top: 0; }
+    .mdx-body { max-width: none; }
+  }
+
   @media (max-width: 768px) {
     .module-row {
       grid-template-columns: 28px 1fr 56px;
