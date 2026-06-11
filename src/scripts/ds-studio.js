@@ -23,6 +23,8 @@ function initStudio() {
 
   const DATA = JSON.parse(dataEl.textContent || '{}');
   const consumers = DATA.consumers || {};
+  const tokenSections = DATA.tokenSections || {};
+  const demoPresets = DATA.demoPresets || {};
   const originals = new Map(Object.entries(DATA.originals || {}));
   const SAVE_PENDING_KEY = 'ds-save-pending';
   const SAVE_RELOADED_KEY = 'ds-save-reloaded';
@@ -70,6 +72,7 @@ function initStudio() {
   function refreshDerivedSurfaces() {
     renderContrast(root, contrastList);
     applyOverridesToPreview();
+    renderCompare();
   }
 
   // ── Application d'un override ──────────────────────────────────────────────
@@ -130,6 +133,33 @@ function initStudio() {
   const impactName = container.querySelector('#impact-token');
   const impactCount = container.querySelector('#impact-count');
   const impactList = container.querySelector('#impact-list');
+  const inspectorToken = container.querySelector('#inspector-token');
+  const inspectorCount = container.querySelector('#inspector-count');
+  const inspectorList = container.querySelector('#inspector-sections');
+
+  // ── Inspecteur : sections cataloguées consommant le token (manifest) ───────
+  function showInspector(token) {
+    const sections = tokenSections[token] || [];
+    if (inspectorToken) inspectorToken.textContent = token;
+    if (inspectorCount) inspectorCount.textContent = String(sections.length);
+    if (!inspectorList) return;
+    inspectorList.replaceChildren();
+    sections.forEach((type) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'studio-inspector-btn';
+      btn.dataset.inspectorType = type;
+      btn.textContent = type;
+      btn.addEventListener('click', () => {
+        loadCatalogType(type);
+        const catalogSection = container.querySelector('#catalogue');
+        if (catalogSection) catalogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(btn);
+      inspectorList.appendChild(li);
+    });
+  }
 
   function showImpact(token) {
     const info = consumers[token] || { count: 0, files: [] };
@@ -153,6 +183,7 @@ function initStudio() {
     container.querySelectorAll('[data-token-row]').forEach((r) =>
       r.classList.toggle('is-selected', r.getAttribute('data-token-row') === token),
     );
+    showInspector(token);
   }
 
   container.querySelectorAll('[data-token-row]').forEach((row) => {
@@ -576,6 +607,7 @@ function initStudio() {
       const frameRoot = frame?.contentDocument?.documentElement;
       if (!frameRoot) return;
       originals.forEach((_value, token) => frameRoot.style.removeProperty(token));
+      if (baselineHeld) return; // mode comparaison : on montre la baseline
       dirty.forEach((value, token) => frameRoot.style.setProperty(token, value));
     });
   }
@@ -677,8 +709,10 @@ function initStudio() {
     Object.keys(readPresets()).sort().forEach((name) => {
       const row = document.createElement('div');
       row.className = 'studio-preset-row';
+      if (name in demoPresets) row.classList.add('is-demo');
 
       const label = document.createElement('span');
+      label.className = 'studio-preset-row-name';
       label.textContent = name;
 
       const actions = document.createElement('span');
@@ -706,14 +740,181 @@ function initStudio() {
     presetSave.addEventListener('click', () => {
       const name = presetName ? presetName.value.trim() : '';
       if (!name) {
-        toast('Donne un nom au preset');
+        toast('Donne un nom au thème');
         if (presetName) presetName.focus();
         return;
       }
       savePreset(name);
-      toast(`Preset « ${name} » sauvegardé`);
+      toast(`Thème « ${name} » sauvegardé`);
     });
   }
+
+  // ── Thèmes : export / import JSON + seed des thèmes de démo ─────────────────
+  const presetExport = container.querySelector('#preset-export');
+  const presetImport = container.querySelector('#preset-import');
+  const presetImportFile = container.querySelector('#preset-import-file');
+  const presetSeed = container.querySelector('#preset-seed');
+
+  function seedDemoPresets(force = false) {
+    const presets = readPresets();
+    let added = 0;
+    Object.entries(demoPresets).forEach(([name, tokensObj]) => {
+      if (force || !(name in presets)) {
+        presets[name] = { ...tokensObj };
+        added += 1;
+      }
+    });
+    if (added) writePresets(presets);
+    return added;
+  }
+
+  if (presetExport) {
+    presetExport.addEventListener('click', async () => {
+      const presets = readPresets();
+      if (!Object.keys(presets).length) {
+        toast('Aucun thème à exporter');
+        return;
+      }
+      const json = JSON.stringify(presets, null, 2);
+      try {
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'waimia-ds-themes.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        toast(`${Object.keys(presets).length} thème(s) exporté(s)`);
+      } catch {
+        toast('Export indisponible');
+      }
+    });
+  }
+
+  if (presetImport && presetImportFile) {
+    presetImport.addEventListener('click', () => presetImportFile.click());
+    presetImportFile.addEventListener('change', () => {
+      const file = presetImportFile.files && presetImportFile.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(String(reader.result || '{}'));
+          if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('format');
+          const presets = readPresets();
+          let merged = 0;
+          Object.entries(parsed).forEach(([name, tokensObj]) => {
+            if (tokensObj && typeof tokensObj === 'object' && !Array.isArray(tokensObj)) {
+              presets[String(name)] = tokensObj;
+              merged += 1;
+            }
+          });
+          writePresets(presets);
+          toast(`${merged} thème(s) importé(s)`);
+        } catch {
+          toast('Fichier JSON invalide');
+        } finally {
+          presetImportFile.value = '';
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  if (presetSeed) {
+    presetSeed.addEventListener('click', () => {
+      const added = seedDemoPresets(true);
+      toast(added ? `${added} thème(s) de démo chargé(s)` : 'Thèmes de démo déjà présents');
+    });
+  }
+
+  // ── Comparateur avant / après ──────────────────────────────────────────────
+  const compareCount = container.querySelector('#compare-count');
+  const compareDiff = container.querySelector('#compare-diff');
+  const compareBaseline = container.querySelector('#compare-baseline');
+  let baselineHeld = false;
+
+  function renderCompare() {
+    if (compareCount) compareCount.textContent = String(dirty.size);
+    if (!compareDiff) return;
+    compareDiff.replaceChildren();
+    [...dirty.entries()].sort((a, b) => a[0].localeCompare(b[0])).forEach(([token, value]) => {
+      const old = originals.get(token) ?? '';
+      const row = document.createElement('div');
+      row.className = 'studio-compare-row';
+
+      const name = document.createElement('span');
+      name.className = 'studio-compare-row-token';
+      name.textContent = token;
+
+      const vals = document.createElement('span');
+      vals.className = 'studio-compare-row-vals';
+      if (/^#[\da-f]{3,8}$/i.test(old)) {
+        const sw = document.createElement('span');
+        sw.className = 'studio-compare-swatch';
+        sw.style.background = old;
+        vals.appendChild(sw);
+      }
+      const oldEl = document.createElement('span');
+      oldEl.className = 'studio-compare-old';
+      oldEl.textContent = old;
+      const arrow = document.createElement('span');
+      arrow.className = 'studio-compare-arrow';
+      arrow.textContent = '→';
+      const newEl = document.createElement('span');
+      newEl.className = 'studio-compare-new';
+      newEl.textContent = value;
+      vals.append(oldEl, arrow, newEl);
+      if (/^#[\da-f]{3,8}$/i.test(value)) {
+        const sw = document.createElement('span');
+        sw.className = 'studio-compare-swatch';
+        sw.style.background = value;
+        vals.appendChild(sw);
+      }
+
+      row.append(name, vals);
+      compareDiff.appendChild(row);
+    });
+  }
+
+  function holdBaseline(on) {
+    baselineHeld = on;
+    if (compareBaseline) compareBaseline.setAttribute('aria-pressed', String(on));
+    if (on) {
+      dirty.forEach((_v, token) => root.style.removeProperty(token));
+    } else {
+      dirty.forEach((v, token) => root.style.setProperty(token, v));
+    }
+    applyOverridesToPreview();
+  }
+
+  if (compareBaseline) {
+    const press = () => { if (dirty.size) holdBaseline(true); };
+    const release = () => { if (baselineHeld) holdBaseline(false); };
+    compareBaseline.addEventListener('mousedown', press);
+    compareBaseline.addEventListener('mouseup', release);
+    compareBaseline.addEventListener('mouseleave', release);
+    compareBaseline.addEventListener('touchstart', (e) => { e.preventDefault(); press(); }, { passive: false });
+    compareBaseline.addEventListener('touchend', release);
+  }
+
+  if (window.__dsStudioBaselineKeyHandler) {
+    document.removeEventListener('keydown', window.__dsStudioBaselineKeyHandler);
+    document.removeEventListener('keyup', window.__dsStudioBaselineKeyHandlerUp);
+  }
+  window.__dsStudioBaselineKeyHandler = (event) => {
+    if (event.key.toLowerCase() !== 'b' || event.repeat) return;
+    const t = event.target;
+    const typing = t instanceof HTMLTextAreaElement || t instanceof HTMLInputElement || (t instanceof HTMLElement && t.isContentEditable);
+    if (typing) return;
+    if (dirty.size && !baselineHeld) holdBaseline(true);
+  };
+  window.__dsStudioBaselineKeyHandlerUp = (event) => {
+    if (event.key.toLowerCase() !== 'b') return;
+    if (baselineHeld) holdBaseline(false);
+  };
+  document.addEventListener('keydown', window.__dsStudioBaselineKeyHandler);
+  document.addEventListener('keyup', window.__dsStudioBaselineKeyHandlerUp);
 
   // ── Toast ────────────────────────────────────────────────────────────────────
   let toastTimer = null;
@@ -785,7 +986,11 @@ function initStudio() {
       save: savePreset,
       apply: applyPreset,
       remove: removePreset,
+      seedDemos: seedDemoPresets,
     },
+    inspect: (token) => tokenSections[token] || [],
+    selectToken: showImpact,
+    compare: { hold: holdBaseline, diff: () => [...dirty.entries()].map(([name, value]) => ({ name, value, old: originals.get(name) ?? '' })) },
   };
 
   setSaveState('idle');
@@ -840,6 +1045,9 @@ function initStudio() {
       }
     });
   }
+
+  // Seed des thèmes de démo au tout 1er chargement (si aucun thème perso encore).
+  if (!Object.keys(readPresets()).length) seedDemoPresets(false);
 
   refreshExportCount();
   refreshHistoryButtons();
