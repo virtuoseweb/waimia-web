@@ -43,7 +43,7 @@
 
 ### `announcement-banner`
 
-> Bandeau d&rsquo;annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.
+> Bandeau d’annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.
 > AnnouncementBanner · src/components/sections/AnnouncementBanner.astro · marketing/banner-sections
 > status : stable · tags : alert, announcement, banner, dismissible, promo, strip
 
@@ -516,7 +516,7 @@
 
 ### `article-grid`
 
-> Grille de cartes d&rsquo;articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.
+> Grille de cartes d’articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.
 > ArticleGrid · src/components/sections/ArticleGrid.astro · marketing/content-listing-sections
 > status : stable · tags : articles, blog, cards, editorial, grid, listing
 

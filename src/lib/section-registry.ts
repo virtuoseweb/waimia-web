@@ -277,7 +277,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     categorySlug: 'content-listing-sections',
     tags: ['blog', 'articles', 'grid', 'cards', 'editorial', 'listing'],
     status: 'stable',
-    description_fr: 'Grille de cartes d&rsquo;articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.',
+    description_fr: 'Grille de cartes d’articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.',
     description_en: 'Grid of article/blog cards: optional image, tag, title, date, read time, excerpt, author and link, in 2 or 3 columns. The B2B editorial classic.',
   },
   'resource-card-grid': {
@@ -327,7 +327,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     categorySlug: 'banner-sections',
     tags: ['banner', 'announcement', 'promo', 'alert', 'dismissible', 'strip'],
     status: 'stable',
-    description_fr: 'Bandeau d&rsquo;annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.',
+    description_fr: 'Bandeau d’annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.',
     description_en: 'Thin announcement/promo banner: optional badge, short text and link, optional dismiss button, accent, ink or paper-2 variants.',
   },
   // <<< [gen-structure] end
