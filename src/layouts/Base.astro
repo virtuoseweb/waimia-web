@@ -172,9 +172,11 @@ const additionalLd = additionalJsonLd
     <script>
       import { initScrollReveal } from '../lib/animations/scroll-reveal';
       import { initSplitLetterReveal } from '../lib/animations/split-letter';
+      import { initMotionSignature } from '../lib/animations/motion-signature';
 
       initScrollReveal();
       initSplitLetterReveal();
+      initMotionSignature();
     </script>
 
     {/* IntersectionObserver léger pour activer les classes .reveal/.in — réexécuté après View Transitions */}

@@ -72,6 +72,16 @@ const stats = data.stats ?? [];
   .manifesto-act__text :global(i.acc), .manifesto-act__text :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   .manifesto-act__text :global(strong) { font-weight: var(--fw-semibold); }
 
+  /* ── MOMENT motion signature : manifeste progressif (lecture guidée scroll-driven) ──
+     Mots .ms-word (posés par motion-signature.ts) : opacity pilotée par --ms-lit (0→1).
+     Anime l'opacity seule → 0 CLS, identique sur fond ink. Sans JS / reduced-motion :
+     pas de .ms-word, le texte plein reste affiché. */
+  .manifesto-act__text.ms-manifesto-progressive :global(.ms-word) {
+    opacity: calc(0.2 + 0.8 * var(--ms-lit, 1));
+    transition: opacity var(--dur-trim) var(--ease-out);
+    will-change: opacity;
+  }
+
   .manifesto-act__stats {
     display: grid;
     grid-template-columns: repeat(var(--act-cols, 3), 1fr);
