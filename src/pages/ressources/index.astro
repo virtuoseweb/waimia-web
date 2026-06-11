@@ -199,7 +199,29 @@ const resourceGridData = {
   })),
 } satisfies SectionByType<'resource-card-grid'>;
 
-// ── DERNIERS ARTICLES · vraie grille éditoriale (4 articles longs récents) ──
+// ── ARTICLE VEDETTE · la note longue la plus récente, mise en avant distincte ──
+const _featArticle = [...blogLongReads].sort(byDate)[0];
+const featuredArticleData = _featArticle
+  ? ({
+      type: 'feature-split-media' as const,
+      background: 'paper' as const,
+      reversed: true,
+      kicker_fr: `§ À la une · ${(_featArticle.data.editorialType ?? 'Essai')}`,
+      kicker_en: `§ Featured · ${(_featArticle.data.editorialType ?? 'Essay')}`,
+      h2_fr: _featArticle.data.title_fr,
+      h2_en: _featArticle.data.title_en,
+      body_fr: _featArticle.data.description_fr,
+      body_en: _featArticle.data.description_en,
+      points: [],
+      media_caption_fr: `${_featArticle.data.readingTime ? `${_featArticle.data.readingTime} min de lecture · ` : ''}${_featArticle.data.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}`,
+      media_caption_en: `${_featArticle.data.readingTime ? `${_featArticle.data.readingTime} min read · ` : ''}${_featArticle.data.publishedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`,
+      cta_label_fr: 'Lire l\'article →',
+      cta_label_en: 'Read the article →',
+      cta_href: `/ressources/blog/${_featArticle.id}`,
+    } satisfies SectionByType<'feature-split-media'>)
+  : null;
+
+// ── DERNIERS ARTICLES · vraie grille éditoriale (le reste des notes longues récentes) ──
 const articleGridData = {
   type: 'article-grid' as const,
   background: 'paper-2' as const,
@@ -208,7 +230,7 @@ const articleGridData = {
   kicker_en: '§ Blog · most recent',
   h2_fr: 'Les <i>dernières</i> notes longues.',
   h2_en: 'The <i>latest</i> long reads.',
-  articles: blogLongReads.slice(0, 6).map((b) => ({
+  articles: [...blogLongReads].sort(byDate).filter((b) => b.id !== _featArticle?.id).slice(0, 6).map((b) => ({
     tag_fr: (b.data.editorialType ?? 'Essai').toUpperCase(),
     tag_en: (b.data.editorialType ?? 'Essay').toUpperCase(),
     title_fr: b.data.title_fr,
@@ -300,6 +322,9 @@ const ctaData = {
 
   {/* GRILLE PAR FORMAT · compteurs réels · paper */}
   <ResourceCardGrid data={resourceGridData} lang="fr" />
+
+  {/* ARTICLE VEDETTE · note longue la plus récente · paper */}
+  {featuredArticleData && <FeatureSplitMedia data={featuredArticleData} lang="fr" />}
 
   {/* DERNIERS ARTICLES · vraie grille éditoriale · paper-2 */}
   <ArticleGrid data={articleGridData} lang="fr" />
