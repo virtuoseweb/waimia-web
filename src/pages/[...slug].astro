@@ -35,7 +35,8 @@ export function getStaticPaths() {
   // N'ajoute ici une route QUE si une page réelle la référence en href.
   const routes = [
     // Hubs sans page spécifique, référencés par breadcrumbs/nav/404
-    'agence', 'trust',
+    // ('agence' retiré : page composable réelle src/pages/agence/index.astro + /en/agence)
+    'trust',
     // Détail offres (← hubs technologies, page DS EN, MDX revops)
     'offres/audit-process-intelligence', 'offres/mcp-connectors', 'offres/agents-metiers',
     // Technologies (← pages DS, preview operating-layer, lang-switch claude-models ;
