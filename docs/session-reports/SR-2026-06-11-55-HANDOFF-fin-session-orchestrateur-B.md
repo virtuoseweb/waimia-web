@@ -37,12 +37,32 @@ SRs détaillés : `docs/session-reports/SR-2026-06-11-{47..55}*.md` (preuves GF-
 
 ## 4. Tâches en attente que tu hérites (avec tout le contexte)
 
-1. **QUOTA VERCEL HOBBY ÉPUISÉ (100 deploys/jour)** : aucun deploy ne part depuis ~16:00 ; reset ≈ **2026-06-12 16:03 CEST**. Un **cron one-shot `d374f95b` à 16:12 existe dans MA session (session-only : il MOURRA avec elle)** → À REPRENDRE CHEZ TOI : demain ≥ 16:05, déclencher un deploy (POST `api.vercel.com/v13/deployments`, payload `{"name":"waimia-web","project":"prj_MHc3bkMf2mxa5U2gFCiaH7RlbuWj","target":"production","gitSource":{"type":"github","repoId":1256430757,"ref":"main"}}`, teamId `team_Dz7XreG9vf9VoKmxeaAsIKF0`, token : `python3 -c "import json;print(json.load(open('/Users/simonberos/Library/Application Support/com.vercel.cli/auth.json'))['token'])"`), poller READY, puis **GF-1 PROD consolidé** : les 8 harness `GF_BASE=https://waimia.com node <harness>` : `/tmp/wmission/gf1-batch8/gf1.mjs`, `/tmp/wmission/critique6/gf1-secteurs.mjs`, `/tmp/wmission/critique7/gf1-it7.mjs`, `/tmp/wmission/critique8/gf1-it8.mjs`, `/tmp/wmission/critique9/gf1-it9.mjs`, `/tmp/wmission/critique9/gf1-it10.mjs`, `/tmp/wmission/critique9/gf1-it11.mjs` (sonde trust-center par texte, cf SR-53), `/tmp/wmission/critique12/gf1-tunnel-essay.mjs`. Puis SR.
+1. **QUOTA VERCEL HOBBY ÉPUISÉ (100 deploys/jour)** : aucun deploy ne part depuis ~16:00 ; reset ≈ **2026-06-12 16:03 CEST**. Le webhook GitHub→Vercel n'est PAS cassé : c'est le quota qui refuse en silence (cause-racine documentée `tasks/lessons.md:310-313`). **Procédure demain ≥ 16:05 (corrigée, PAS d'API à appeler)** : le dernier push (51e733c+) datant d'avant le reset, Vercel n'a créé aucun build → faire un **commit vide + push** (`git commit --allow-empty -m "chore: redeploy post-quota" && git push`) : le webhook tire et Vercel build automatiquement. Vérifier qu'un deployment BUILDING apparaît (MCP Vercel `list_deployments` ou dashboard), poller READY **avec exit 1 sur timeout** (leçon `lessons.md:307`), vérifier que la prod sert bien le HEAD (etag/marqueur), puis **GF-1 PROD consolidé** : les 8 harness `GF_BASE=https://waimia.com node <harness>` : `/tmp/wmission/gf1-batch8/gf1.mjs`, `/tmp/wmission/critique6/gf1-secteurs.mjs`, `/tmp/wmission/critique7/gf1-it7.mjs`, `/tmp/wmission/critique8/gf1-it8.mjs`, `/tmp/wmission/critique9/gf1-it9.mjs`, `/tmp/wmission/critique9/gf1-it10.mjs`, `/tmp/wmission/critique9/gf1-it11.mjs` (sonde trust-center par texte, cf SR-53), `/tmp/wmission/critique12/gf1-tunnel-essay.mjs`. Puis SR. (L'API `v13/deployments` ne sert qu'au DIAGNOSTIC quota : 402 = saturé, champ `reset` = heure de déblocage.)
 2. **Re-critique it.13 post-deploy** : la 12 a tout re-noté ≥ 4,3 sauf veille 4,1 ; P3 connus restants : monotonie cards offres rangée « Construire » (léger), /careers colonne droite vide (assumé), marqueurs timeline secteurs hétérogènes (`03`/`J+1`/`T2 2026`), volume contenu (école 3 cours, veille 1 brief = contenu, pas design).
 3. **Photos équipe /agence** : bloqué asset Simon (inchangé).
 4. **Task list Claude Code** : #26 AWWWARDS-ITÉRATIF (in_progress, cette boucle), #20 VISION FINALE docs/40 (reliquats : clean collections, arbo cas-par-secteur, étiquettes catalogue).
 5. **Conventions de cette boucle à conserver** : worker = worktree isolé + brief avec interdits durs (0 git nulle part y compris `git -C`/`cd`, 0 re-délégation, fichiers nommés, 0 U+2014 même en commentaire, 0 nouveau token, segment worktree vérifié avant chaque Edit) ; l'orchestrateur committe ; chaînes de validation TOUJOURS en `&&` avec exit explicite + strip-ANSI python pour « N errors » ; `git -C` partout ; pipeline sur worktree de validation détaché ; une sonde GF-1 qui contredit la mesure d'un worker → re-mesurer proprement (page fraîche, scroll contrôlé, sélecteur par TEXTE pas par classe inventée) avant de conclure (3 faux négatifs de harness aujourd'hui, 0 vrai défaut) ; vérifier le mapping page→template par grep AVANT de nommer le fichier d'un brief (la critique 9 avait mal localisé CourseDetailTemplate vs EssayTemplate).
 
-## 5. Interdits permanents (rappel, inchangés)
+## 5. Preuves visuelles `docs/visual-audit/` : TES 6 lots d'audit untracked ont été committés
+
+`docs/visual-audit/` est la convention TRACKÉE du repo (329 preuves déjà committées). Tes 6 lots untracked (`align-audit/` 2,8M, `ds-studio-audit/` 2,0M, `qa-audit/` 8,0M, `prod-batch/` 232K, `prod-sweep/` 636K + `REPORT-2026-06-11.md`, `polish/prod-tech-align.png`) étaient complets (aucune écriture en cours détectée) : ils ont été **committés en fin de session B** pour les mettre à l'abri, AUCUN fichier modifié, juste `git add` de l'existant. Si tu préfères une autre organisation (purge des lots intermédiaires, .gitignore des sweeps), c'est ta main.
+
+## 6. Inventaire COMPLET de ce qui reste en attente (au-delà de la boucle awwwards)
+
+**Chez toi (orchestrateur unique désormais)** :
+- Deploy post-quota + GF-1 prod (point 4.1) : LE plus urgent : la prod sert `f17d324`, main a ~30 commits d'avance.
+- Re-critique it.13 post-deploy (point 4.2) + suite task #26 AWWWARDS-ITÉRATIF.
+- Task #20 VISION FINALE (docs/40) : clean collections, arbo cas-par-secteur, étiquettes catalogue, landing+tunnel parfaits.
+- **Migration templates registry : 11/18 restants** (Master Plan §5 : facile = TrustLegal/ListIndex/Utility/Welcome ; dur = CaseStudy/Essay/CourseDetail ; très dur = ConversionFunnel/AuthorPage/Technologies/Solutions/OffresDetail) + runbook `docs/22`.
+- **GF-1 sweep des 58 previews** (CLAUDE.md §Reste à faire ; secret `VERCEL_AUTOMATION_BYPASS_SECRET` requis pour la voie auto, sinon voie locale serve-dist).
+- Tes chantiers en cours : worktrees `ecosystem-partners` (hub techno à finir : la section est posée, gates remis au vert par 20f1c44), 2 worktrees d'audit, stash `feat/library-heroes-enrich`.
+
+**Arbitrages SIMON (bloquants, ne pas trancher à sa place)** : Solutions HeroSector infidèle/hero non migré · 3 types vt=0 (TrustLegal/Welcome/ListIndex : cataloguer ou bespoke) · sort design-system vs ds-studio · delta ~32px Offres/Tech · **upgrade Vercel Pro 20$/mois** (seul remède structurel au quota : paiement = sa décision).
+
+**Bloqué ressources externes** : photos équipe /agence (assets Simon) · MailerLite (token invalide) · volume contenu (veille 1 brief vs promesse hebdo, école 3 cours).
+
+**Hors repo (écosystème)** : readiness collaborateurs + nettoyage Vercel (4 projets, waimia-v2/cal builds ERROR, README périmé, 0 CI/branch-protection, PR #1 draft) · Amploi V1 livrée (dormant) · OS v5 Lockdown (dormant).
+
+## 7. Interdits permanents (rappel, inchangés)
 
 MORATOIRE CODEX (0 `codex exec` jusqu'à signal Simon) · workers = Opus 4.8 · masthead `/solutions` = veto structure · U+2014 interdit partout (gate) · `.env.openai` jamais committer · MailerLite bloqué (token invalide) · ne pas toucher waimia-v2 · prod = waimia.com · upgrade Vercel Pro = décision Simon uniquement (paiement).
