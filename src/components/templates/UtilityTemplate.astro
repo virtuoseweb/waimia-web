@@ -187,7 +187,11 @@ const autoCrumbs: Crumb[] = isList ? [] : breadcrumb ?? (() => {
   </Base>
 ) : (
   <Base title={title} description={description} jsonLd={jsonLd}>
-    {autoCrumbs.length > 0 && <Breadcrumb lang={lang} items={autoCrumbs} />}
+    {autoCrumbs.length > 0 && (
+      <div class="util-crumbs wrap-wide">
+        <Breadcrumb lang={lang} items={autoCrumbs} />
+      </div>
+    )}
     {/* MASTHEAD · composant catalogué hero-utility-masthead (contenu via props).
         align (left/centered) piloté par `data.align` → géré nativement par le composant.
         wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut du
@@ -211,6 +215,8 @@ const autoCrumbs: Crumb[] = isList ? [] : breadcrumb ?? (() => {
   /* Masthead migré vers le composant catalogué `HeroUtilityMasthead` (sections/).
      Règles `.util-hd/.util-hd-centered/.util-kicker/.util-h1/.util-lede` supprimées
      (structure + CSS désormais portés par le composant — source unique). */
+  /* Breadcrumb : dégage le header fixe (sinon clip derrière la navbar sticky). */
+  .util-crumbs { padding-top: calc(var(--header-height) + var(--space-5)); }
   .util-body { padding: clamp(60px, 8vw, 100px) var(--space-6); }
   /* Branche list (ex-ListIndexTemplate) */
   .list-body { padding: clamp(60px, 8vw, 100px) var(--space-6); }

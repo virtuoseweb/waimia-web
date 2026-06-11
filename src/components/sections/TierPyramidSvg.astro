@@ -11,15 +11,15 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const tiers = [
-  { yRoman: 101, yLabel: 118, roman: data.tiers[2]?.roman, label: isFr ? data.tiers[2]?.label_fr : data.tiers[2]?.label_en },
-  { yRoman: 227, yLabel: 244, roman: data.tiers[1]?.roman, label: isFr ? data.tiers[1]?.label_fr : data.tiers[1]?.label_en },
-  { yRoman: 340, yLabel: 357, roman: data.tiers[0]?.roman, label: isFr ? data.tiers[0]?.label_fr : data.tiers[0]?.label_en },
+  { yRoman: 98, yLabel: 124, roman: data.tiers[2]?.roman, label: isFr ? data.tiers[2]?.label_fr : data.tiers[2]?.label_en },
+  { yRoman: 224, yLabel: 250, roman: data.tiers[1]?.roman, label: isFr ? data.tiers[1]?.label_fr : data.tiers[1]?.label_en },
+  { yRoman: 338, yLabel: 364, roman: data.tiers[0]?.roman, label: isFr ? data.tiers[0]?.label_fr : data.tiers[0]?.label_en },
 ];
 ---
 
 <div class="pyramid-wrap reveal" data-bg={data.background}>
   <svg
-    viewBox="0 0 800 440"
+    viewBox="0 0 800 408"
     xmlns="http://www.w3.org/2000/svg"
     role="img"
     aria-label={isFr ? data.aria_label_fr : data.aria_label_en}
@@ -35,8 +35,8 @@ const tiers = [
 
     {tiers.map((tier) => (
       <>
-        <text x="400" y={tier.yRoman} text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--muted)" letter-spacing="0.1em">{tier.roman}</text>
-        <text x="400" y={tier.yLabel} text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" fill="var(--muted-2)">{tier.label}</text>
+        <text x="400" y={tier.yRoman} text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="16" fill="var(--muted)" letter-spacing="0.16em">{tier.roman}</text>
+        <text x="400" y={tier.yLabel} text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="17" font-weight="500" fill="var(--ink)" letter-spacing="-0.01em">{tier.label}</text>
       </>
     ))}
   </svg>
@@ -46,7 +46,7 @@ const tiers = [
   .pyramid-wrap {
     display: flex;
     justify-content: center;
-    padding: var(--section-base) var(--space-6);
+    padding: var(--section-base) var(--space-6) var(--space-7);
   }
   .pyramid-wrap svg {
     width: 100%;
@@ -66,5 +66,5 @@ const tiers = [
   .pyramid-wrap[data-bg='ink'] svg polygon[stroke='var(--ink)'],
   .pyramid-wrap[data-bg='ink'] svg line[stroke='var(--ink)'] { stroke: rgba(var(--paper-rgb), 0.5); }
   .pyramid-wrap[data-bg='ink'] svg text[fill='var(--muted)'] { fill: rgba(var(--paper-rgb), 0.78); }
-  .pyramid-wrap[data-bg='ink'] svg text[fill='var(--muted-2)'] { fill: rgba(var(--paper-rgb), 0.6); }
+  .pyramid-wrap[data-bg='ink'] svg text[fill='var(--ink)'] { fill: var(--paper); }
 </style>

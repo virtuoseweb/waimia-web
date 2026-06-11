@@ -284,7 +284,9 @@ const tierPartnershipData = {
   <TierPyramidSvg data={pyramidData} lang="fr" />
 
   <!-- 3. TIER I · DÉCOUVERTE -->
-  <OfferTierGrid data={tierDiscoveryData} lang="fr" />
+  <div class="tier-i-after-pyramid">
+    <OfferTierGrid data={tierDiscoveryData} lang="fr" />
+  </div>
 
   <!-- 4. TIER II · TRANSFORMATION -->
   <OfferTierGrid data={tierTransformationData} lang="fr" />
@@ -311,6 +313,13 @@ const tierPartnershipData = {
 </Base>
 
 <style>
+  /* ── Resserrer le palier I après la pyramide (suppression bande morte) ──
+     Le cran d'ouverture --section-loose (160px) après une section graphique
+     déjà aérée crée un vide ; on retombe sur --section-base (famille rythme). */
+  .tier-i-after-pyramid :global(.tier-section) {
+    padding-top: var(--section-base);
+  }
+
   /* ── MANIFESTO ─────────────────────────────────────────────── */
   .manifesto {
     padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 80px);
