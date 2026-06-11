@@ -69,20 +69,49 @@ function splitWords(root: HTMLElement): HTMLElement[] {
   return words;
 }
 
+// Cherche le track pinne (.manifesto-stmt-pin[data-ms-pinned]) ancetre du bloc texte,
+// SI ET SEULEMENT SI le pin est reellement actif (la section est sticky). En mobile /
+// reduced-motion, le track est neutralise (hauteur auto, section non sticky) → on retombe
+// sur la lecture guidee simple basee sur la position de la section.
+function activePinTrack(el: HTMLElement): HTMLElement | null {
+  const track = el.closest<HTMLElement>('[data-ms-pinned]');
+  if (!track) return null;
+  const section = track.querySelector<HTMLElement>('.manifesto-stmt--pinned');
+  if (!section) return null;
+  if (getComputedStyle(section).position !== 'sticky') return null;
+  return track;
+}
+
 function updateManifesto(): void {
   manifestoRaf = 0;
   const vh = window.innerHeight || 1;
   for (const el of manifestoEls) {
     const words = (el as HTMLElement & { _msWords?: HTMLElement[] })._msWords;
     if (!words || words.length === 0) continue;
-    const rect = el.getBoundingClientRect();
-    // Progression : 0 quand le haut du bloc atteint 80% du viewport,
-    // 1 quand le bas du bloc remonte a 30% du viewport. Lecture guidee.
-    const start = vh * 0.8;
-    const end = vh * 0.3;
-    const travel = rect.height + (start - end);
-    const scrolled = start - rect.top;
-    const progress = Math.max(0, Math.min(1, scrolled / travel));
+
+    let progress: number;
+    const track = activePinTrack(el);
+    if (track) {
+      // Narration pinnee : la progression se calcule sur la PLAGE du track (et non la
+      // position du bloc texte). 0 quand le haut du track atteint le haut du viewport,
+      // 1 quand on a scrolle toute la hauteur excedentaire (track.height - vh). La
+      // revelation des mots se deroule ainsi pendant que la section reste sticky.
+      const trackRect = track.getBoundingClientRect();
+      const extra = Math.max(1, track.offsetHeight - vh);
+      // Reveal complet a ~85% de la plage → le manifeste pleinement allume « tient »
+      // un court instant avant que le track ne se libere (sortie naturelle).
+      const raw = -trackRect.top / extra;
+      progress = Math.max(0, Math.min(1, raw / 0.85));
+    } else {
+      // Lecture guidee simple : 0 quand le haut du bloc atteint 80% du viewport,
+      // 1 quand le bas du bloc remonte a 30% du viewport.
+      const rect = el.getBoundingClientRect();
+      const start = vh * 0.8;
+      const end = vh * 0.3;
+      const travel = rect.height + (start - end);
+      const scrolled = start - rect.top;
+      progress = Math.max(0, Math.min(1, scrolled / travel));
+    }
     const lit = progress * words.length;
     for (let i = 0; i < words.length; i++) {
       // Chaque mot s'eclaire sur une fenetre douce (anti-tout-ou-rien).

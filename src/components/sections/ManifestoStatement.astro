@@ -17,13 +17,25 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="manifesto-stmt" data-tone={data.tone}>
-  {data.show_grid && <div class="manifesto-stmt__grid" aria-hidden="true"></div>}
-  <div class="wrap-wide manifesto-stmt__inner">
-    <Kicker class="manifesto-stmt__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-    <p class="manifesto-stmt__text reveal" set:html={isFr ? data.text_fr : data.text_en} />
+{data.pinned ? (
+  <div class="manifesto-stmt-pin" data-ms-pinned>
+    <section class="manifesto-stmt manifesto-stmt--pinned" data-tone={data.tone}>
+      {data.show_grid && <div class="manifesto-stmt__grid" aria-hidden="true"></div>}
+      <div class="wrap-wide manifesto-stmt__inner">
+        <Kicker class="manifesto-stmt__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        <p class="manifesto-stmt__text reveal" set:html={isFr ? data.text_fr : data.text_en} />
+      </div>
+    </section>
   </div>
-</section>
+) : (
+  <section class="manifesto-stmt" data-tone={data.tone}>
+    {data.show_grid && <div class="manifesto-stmt__grid" aria-hidden="true"></div>}
+    <div class="wrap-wide manifesto-stmt__inner">
+      <Kicker class="manifesto-stmt__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      <p class="manifesto-stmt__text reveal" set:html={isFr ? data.text_fr : data.text_en} />
+    </div>
+  </section>
+)}
 
 <style>
   .manifesto-stmt {
@@ -88,5 +100,46 @@ const isFr = lang === 'fr';
     opacity: calc(0.2 + 0.8 * var(--ms-lit, 1));
     transition: opacity var(--dur-trim) var(--ease-out);
     will-change: opacity;
+  }
+
+  /* ── CRAN SUPÉRIEUR · narration scroll-pinnée (opt-in `pinned`, /agence) ──
+     Le track réserve une hauteur de scroll déterministe EN CSS (pas de calcul JS
+     a posteriori → 0 layout shift pour les sections suivantes). La section devient
+     sticky plein viewport : le scroll « appartient » à la déclaration le temps que
+     les mots s'allument (motion-signature.ts calcule --ms-lit sur la plage du track
+     via [data-ms-pinned]), puis se libère naturellement en sortie de track.
+     Desktop + motion uniquement. Mobile ≤768px et reduced-motion : track neutralisé
+     (hauteur auto, section non sticky) → lecture guidée simple, zéro zone morte. */
+  .manifesto-stmt-pin {
+    position: relative;
+    min-height: 280vh; /* plage de scroll réservée, déterministe */
+  }
+  .manifesto-stmt--pinned {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Mobile : pas de pin (plage trop coûteuse au pouce) → lecture guidée simple. */
+  @media (max-width: 768px) {
+    .manifesto-stmt-pin { min-height: 0; }
+    .manifesto-stmt--pinned {
+      position: static;
+      min-height: 0;
+      display: block;
+    }
+  }
+
+  /* Reduced-motion : ni pin ni animation → section normale, texte plein. */
+  @media (prefers-reduced-motion: reduce) {
+    .manifesto-stmt-pin { min-height: 0; }
+    .manifesto-stmt--pinned {
+      position: static;
+      min-height: 0;
+      display: block;
+    }
   }
 </style>
