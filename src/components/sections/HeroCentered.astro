@@ -92,7 +92,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 ---
 {data.type === 'hero-hub-masthead' ? (
   data.variant === 'listing' ? (
-    <section class:list={['hero-hub-listing', mastScale === 'standard' && 'hero-hub-listing--standard']}>
+    <section class:list={['hero-hub-listing', mastScale === 'standard' && 'hero-hub-listing--standard']} data-bg={data.background}>
       {data.decoration && (
         <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
           <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
@@ -106,7 +106,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
       </div>
     </section>
   ) : data.variant === 'detail' ? (
-    <section class:list={['hero-utility', `hero-utility--${data.align ?? 'left'}`, mastScale === 'standard' && 'hero-utility--standard']}>
+    <section class:list={['hero-utility', `hero-utility--${data.align ?? 'left'}`, mastScale === 'standard' && 'hero-utility--standard']} data-bg={data.background}>
       <div class="wrap-wide" style={wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined}>
         {data.kicker_fr && (
           <Kicker class={`hero-utility__kicker${rv}`}>{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
@@ -117,7 +117,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
       </div>
     </section>
   ) : (
-    <section class:list={['hero-hub-masthead', mastScale === 'standard' && 'hero-hub-masthead--standard']}>
+    <section class:list={['hero-hub-masthead', mastScale === 'standard' && 'hero-hub-masthead--standard']} data-bg={data.background}>
       <div class="wrap-wide">
         <Kicker class="hero-hub-masthead__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         <h1 class="hero-hub-masthead__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} transition:name={data.transition_id ? `hero-h1-${data.transition_id}` : undefined} />
@@ -126,7 +126,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </section>
   )
 ) : data.type === 'hero-hub-listing' ? (
-  <section class:list={['hero-hub-listing', listBorder && 'hero-hub-listing--bordered']} style={listStyle}>
+  <section class:list={['hero-hub-listing', listBorder && 'hero-hub-listing--bordered']} style={listStyle} data-bg={data.background}>
     {data.decoration && (
       <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
         <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
@@ -163,7 +163,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </div>
   </section>
 ) : data.type === 'hero-utility-masthead' ? (
-  <section class:list={['hero-utility', `hero-utility--${data.align ?? 'left'}`]}>
+  <section class:list={['hero-utility', `hero-utility--${data.align ?? 'left'}`]} data-bg={data.background}>
     <div class="wrap-wide" style={wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined}>
       {data.kicker_fr && (
         <Kicker class={`hero-utility__kicker${rv}`}>{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
@@ -173,7 +173,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </div>
   </section>
 ) : data.type === 'hero-academy-hub' ? (
-  <section class:list={['hero-academy-hub', !wrap && 'hero-academy-hub--unwrapped']} style={topPad ? `--hahub-top-pad: ${topPad}` : undefined}>
+  <section class:list={['hero-academy-hub', !wrap && 'hero-academy-hub--unwrapped']} style={topPad ? `--hahub-top-pad: ${topPad}` : undefined} data-bg={data.background}>
     <div class="hero-academy-hub__hero">
       <Kicker as="p" class="hero-academy-hub__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       <h1 class="hero-academy-hub__heading" set:html={isFr ? data.h1_fr : data.h1_en} />
@@ -186,7 +186,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     )}
   </section>
 ) : data.type === 'hero-course' ? (
-  <section class="hero-course" style={topPad ? `--hero-course-top-pad: ${topPad}` : undefined}>
+  <section class="hero-course" style={topPad ? `--hero-course-top-pad: ${topPad}` : undefined} data-bg={data.background}>
     {wrap ? (
       <div class="wrap-wide">
         <header class:list={['hero-course__hd', ghostStyle === 'legacy' && 'hero-course__hd--legacy-ghost']}>
@@ -238,7 +238,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     )}
   </section>
 ) : data.type === 'hero-detail-menu' ? (
-  <section class="hero-detail-menu" style={topPad ? `padding-top:${topPad}` : undefined}>
+  <section class="hero-detail-menu" style={topPad ? `padding-top:${topPad}` : undefined} data-bg={data.background}>
     <div class="wrap-wide" style={wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined}>
       <Kicker class="hero-detail-menu__parent">{isFr ? data.parent_kicker_fr : data.parent_kicker_en}</Kicker>
       <Kicker tone="accent" class="hero-detail-menu__num">§ {data.detail_num}</Kicker>
@@ -247,7 +247,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </div>
   </section>
 ) : data.type === 'hero-essay' ? (
-  <section class="hero-essay">
+  <section class="hero-essay" data-bg={data.background}>
     <header
       class="hero-essay__hd"
       transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}
@@ -276,7 +276,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     )}
   </section>
 ) : data.type === 'hero-case-study' ? (
-  <section class="hero-case-study" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}>
+  <section class="hero-case-study" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined} data-bg={data.background}>
     <div class="hero-case-study__mast" style={topPad ? `--hcs-top-pad: ${topPad}` : undefined}>
       <svg class="hero-case-study__deco reveal-blur-clip" viewBox="0 0 600 500" aria-hidden="true" focusable="false" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
         <circle cx="480" cy="80" r="220" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
@@ -303,7 +303,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     )}
   </section>
 ) : data.type === 'hero-service-masthead' ? (
-  <section class="hero-service-masthead">
+  <section class="hero-service-masthead" data-bg={data.background}>
     <div class="wrap-wide">
       <Kicker class="hero-service-masthead__num">§ Service {data.service_num}</Kicker>
       <h1 class="hero-service-masthead__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
@@ -311,7 +311,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </div>
   </section>
 ) : data.type === 'hero-service-detail' ? (
-  <section class="hero-service-detail" style={topPad ? `padding-top:${topPad}` : undefined}>
+  <section class="hero-service-detail" style={topPad ? `padding-top:${topPad}` : undefined} data-bg={data.background}>
     <div class="wrap-wide">
       <Kicker class="hero-service-detail__num">§ Service {data.service_num}</Kicker>
       <h1 class="hero-service-detail__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
@@ -329,7 +329,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </div>
   </section>
 ) : data.type === 'hero-landing' ? (
-  <section class="hero-landing wrap-wide">
+  <section class="hero-landing wrap-wide" data-bg={data.background}>
     <p class="hero-landing__eyebrow reveal">{isFr ? data.eyebrow_fr : data.eyebrow_en}</p>
     <h1 class="hero-landing__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
     <p class="hero-landing__lede reveal">{isFr ? data.lede_fr : data.lede_en}</p>
@@ -348,7 +348,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     )}
   </section>
 ) : (
-  <section class="hero-centered">
+  <section class="hero-centered" data-bg={data.background}>
     <div class="wrap-wide">
     <div class="hero-centered__inner">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -414,6 +414,14 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   @media (max-width: 768px) {
     .hero-centered__inner { max-width: 100%; }
   }
+  .hero-centered[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-centered[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-centered[data-bg='ink'] {
+    background: var(--ink);
+    border-bottom-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .hero-centered[data-bg='ink'] h1,
+  .hero-centered[data-bg='ink'] p { color: var(--paper); }
 
   /* ── hero-hub-masthead ─────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-hub-masthead` (collision max-width). */
@@ -438,6 +446,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     margin: var(--space-6) 0 0;
     max-width: 580px;
   }
+  .hero-hub-masthead[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-hub-masthead[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-hub-masthead[data-bg='ink'] { background: var(--ink); }
+  .hero-hub-masthead[data-bg='ink'] .hero-hub-masthead__h1 { color: var(--paper); }
+  .hero-hub-masthead[data-bg='ink'] .hero-hub-masthead__lede { color: rgba(var(--paper-rgb), 0.7); }
 
   /* ── hero-hub-listing (déjà qualifié à la source) ──────────────────────── */
   .hero-hub-listing {
@@ -486,6 +499,13 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   @media (max-width: 768px) {
     .hero-hub-listing__deco { width: 260px; height: 200px; opacity: 0.6; }
   }
+  .hero-hub-listing[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-hub-listing[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-hub-listing[data-bg='ink'] { background: var(--ink); }
+  .hero-hub-listing[data-bg='ink'] .hero-hub-listing__deco { color: var(--paper); }
+  .hero-hub-listing[data-bg='ink'] .hero-hub-listing__h1 { color: var(--paper); }
+  .hero-hub-listing[data-bg='ink'] .hero-hub-listing__lede { color: rgba(var(--paper-rgb), 0.7); }
+  .hero-hub-listing[data-bg='ink'].hero-hub-listing--bordered { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
 
   /* ── hero-problem-index ────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-problem-index` (collision max-width). */
@@ -571,6 +591,14 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     margin-left: auto;
     margin-right: auto;
   }
+  .hero-utility[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-utility[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-utility[data-bg='ink'] {
+    background: var(--ink);
+    border-bottom-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .hero-utility[data-bg='ink'] .hero-utility__h1 { color: var(--paper); }
+  .hero-utility[data-bg='ink'] .hero-utility__lede { color: rgba(var(--paper-rgb), 0.7); }
 
   /* ── scale=standard : échelle utilitaire des mastheads (réutilise le token h1-hero, 0 nouveau token) ── */
   .hero-hub-masthead--standard .hero-hub-masthead__h1,
@@ -626,6 +654,14 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     text-transform: uppercase;
     color: var(--muted-2);
   }
+  .hero-academy-hub[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-academy-hub[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-academy-hub[data-bg='ink'] { background: var(--ink); }
+  .hero-academy-hub[data-bg='ink'] .hero-academy-hub__hero,
+  .hero-academy-hub[data-bg='ink'] .hero-academy-hub__stats { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .hero-academy-hub[data-bg='ink'] .hero-academy-hub__heading { color: var(--paper); }
+  .hero-academy-hub[data-bg='ink'] .hero-academy-hub__lede,
+  .hero-academy-hub[data-bg='ink'] .hero-academy-hub__stats-text { color: rgba(var(--paper-rgb), 0.7); }
 
   /* ── hero-course ───────────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-course` (collision max-width 1100px). */
@@ -709,6 +745,31 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     transition: color 0.15s;
   }
   .hero-course__hd--legacy-ghost .hero-course__btn-ghost:hover { color: var(--accent); }
+  .hero-course[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-course[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-course[data-bg='ink'] { background: var(--ink); }
+  .hero-course[data-bg='ink'] .hero-course__hd { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .hero-course[data-bg='ink'] .hero-course__title { color: var(--paper); }
+  .hero-course[data-bg='ink'] .hero-course__lede { color: rgba(var(--paper-rgb), 0.7); }
+  .hero-course[data-bg='ink'] .hero-course__pill {
+    color: rgba(var(--paper-rgb), 0.7);
+    border-color: rgba(var(--paper-rgb), 0.22);
+  }
+  .hero-course[data-bg='ink'] .hero-course__pill--price {
+    color: var(--paper);
+    border-color: var(--paper);
+  }
+  .hero-course[data-bg='ink'] .hero-course__btn-primary {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--paper);
+  }
+  .hero-course[data-bg='ink'] .hero-course__btn-primary:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  .hero-course[data-bg='ink'] .hero-course__btn-ghost {
+    color: var(--paper);
+    border-bottom-color: rgba(var(--paper-rgb), 0.22);
+  }
+  .hero-course[data-bg='ink'] .hero-course__hd--legacy-ghost .hero-course__btn-ghost { color: rgba(var(--paper-rgb), 0.7); }
 
   /* ── hero-detail-menu ──────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-detail-menu` (collision max-width). */
@@ -735,6 +796,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     text-wrap: balance;
     margin: 0;
   }
+  .hero-detail-menu[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-detail-menu[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-detail-menu[data-bg='ink'] { background: var(--ink); }
+  .hero-detail-menu[data-bg='ink'] .hero-detail-menu__h1 { color: var(--paper); }
+  .hero-detail-menu[data-bg='ink'] .hero-detail-menu__lede { color: rgba(var(--paper-rgb), 0.7); }
 
   /* ── hero-essay (déjà qualifié à la source) ────────────────────────────── */
   .hero-essay__hd {
@@ -785,6 +851,13 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     object-fit: cover;
     display: block;
   }
+  .hero-essay[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-essay[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-essay[data-bg='ink'] { background: var(--ink); }
+  .hero-essay[data-bg='ink'] .hero-essay__hd { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .hero-essay[data-bg='ink'] .hero-essay__h1 { color: var(--paper); }
+  .hero-essay[data-bg='ink'] .hero-essay__lede,
+  .hero-essay[data-bg='ink'] .hero-essay__meta { color: rgba(var(--paper-rgb), 0.7); }
 
   /* ── hero-case-study (déjà qualifié à la source) ───────────────────────── */
   .hero-case-study__mast {
@@ -850,6 +923,19 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     .hero-case-study__specs-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-case-study__deco { width: 280px; height: 240px; opacity: 0.6; }
   }
+  .hero-case-study[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-case-study[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-case-study[data-bg='ink'] { background: var(--ink); }
+  .hero-case-study[data-bg='ink'] .hero-case-study__deco {
+    color: var(--paper);
+    mix-blend-mode: normal;
+    opacity: 0.18;
+  }
+  .hero-case-study[data-bg='ink'] .hero-case-study__h1,
+  .hero-case-study[data-bg='ink'] .hero-case-study__spec-v { color: var(--paper); }
+  .hero-case-study[data-bg='ink'] .hero-case-study__specs,
+  .hero-case-study[data-bg='ink'] .hero-case-study__specs-grid,
+  .hero-case-study[data-bg='ink'] .hero-case-study__spec { border-color: rgba(var(--paper-rgb), 0.14); }
 
   /* ── hero-service-detail ── */
   .hero-service-detail { padding: calc(var(--header-height) + 24px) var(--space-6) 0; }
@@ -908,6 +994,15 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     .hero-service-detail__metric { border-right: none; border-bottom: 1px solid var(--hairline); }
     .hero-service-detail__metric:last-child { border-bottom: none; }
   }
+  .hero-service-detail[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-service-detail[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-service-detail[data-bg='ink'] { background: var(--ink); }
+  .hero-service-detail[data-bg='ink'] .hero-service-detail__h1,
+  .hero-service-detail[data-bg='ink'] .hero-service-detail__metric-v { color: var(--paper); }
+  .hero-service-detail[data-bg='ink'] .hero-service-detail__lede,
+  .hero-service-detail[data-bg='ink'] .hero-service-detail__metric-l { color: rgba(var(--paper-rgb), 0.7); }
+  .hero-service-detail[data-bg='ink'] .hero-service-detail__metrics,
+  .hero-service-detail[data-bg='ink'] .hero-service-detail__metric { border-color: rgba(var(--paper-rgb), 0.14); }
 
   /* ── hero-service-masthead ── */
   .hero-service-masthead { padding: 140px var(--space-6) 0; }
@@ -932,6 +1027,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     text-wrap: balance;
     margin: 0;
   }
+  .hero-service-masthead[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-service-masthead[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-service-masthead[data-bg='ink'] { background: var(--ink); }
+  .hero-service-masthead[data-bg='ink'] .hero-service-masthead__h1 { color: var(--paper); }
+  .hero-service-masthead[data-bg='ink'] .hero-service-masthead__lede { color: rgba(var(--paper-rgb), 0.7); }
 
   /* ── hero-landing ──────────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-landing` (collision max-width). */
@@ -997,4 +1097,20 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   @media (max-width: 640px) {
     .hero-landing__ctas { flex-direction: column; }
   }
+  .hero-landing[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-landing[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-landing[data-bg='ink'] { background: var(--ink); }
+  .hero-landing[data-bg='ink'] .hero-landing__h1,
+  .hero-landing[data-bg='ink'] .hero-landing__lede { color: var(--paper); }
+  .hero-landing[data-bg='ink'] .hero-landing__eyebrow,
+  .hero-landing[data-bg='ink'] .hero-landing__avail { color: rgba(var(--paper-rgb), 0.7); }
+  .hero-landing[data-bg='ink'] .hero-landing__btn-primary {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .hero-landing[data-bg='ink'] .hero-landing__btn-secondary {
+    color: var(--paper);
+    border-color: rgba(var(--paper-rgb), 0.22);
+  }
+  .hero-landing[data-bg='ink'] .hero-landing__btn-secondary:hover { border-color: var(--paper); }
 </style>

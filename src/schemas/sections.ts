@@ -115,6 +115,7 @@ export const heroSplitSchema = z.object({
 
 export const heroCenteredSchema = z.object({
   type: z.literal('hero-centered'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h1_fr: z.string(),
@@ -138,6 +139,7 @@ export const heroFullBleedSchema = z.object({
 // Hero · listing de hub (masthead éditorial, h1 monumental, 0 CTA)
 export const heroHubListingSchema = z.object({
   type: z.literal('hero-hub-listing'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h1_fr: z.string(),
@@ -150,6 +152,7 @@ export const heroHubListingSchema = z.object({
 // Hero · détail d'un service (kicker § Service N.M, lede + proof-bar optionnelle)
 export const heroServiceDetailSchema = z.object({
   type: z.literal('hero-service-detail'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   service_num: z.string(),
   h1_fr: z.string(),
   h1_en: z.string(),
@@ -175,6 +178,7 @@ export const heroPillarHubSchema = z.object({
 // Hero · étude de cas (kicker § Case N, h1 + SVG déco géométrique top-right)
 export const heroCaseStudySchema = z.object({
   type: z.literal('hero-case-study'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   case_num: z.string(),
   eyebrow_fr: z.string().default('§ Cas client'),
   eyebrow_en: z.string().default('§ Case study'),
@@ -232,6 +236,7 @@ export const heroHomeSchema = z.object({
 // Hero · landing magnétique (offres/site-web-ia-landing) · eyebrow + h1 italic + 2 CTA + dispo
 export const heroLandingSchema = z.object({
   type: z.literal('hero-landing'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   eyebrow_fr: z.string(),
   eyebrow_en: z.string(),
   h1_fr: z.string(),
@@ -286,6 +291,7 @@ export const heroSectorSchema = z.object({
 // Hero · masthead générique utilitaire (about / méthode / academy) · kicker + h1 + lede + align
 export const heroUtilityMastheadSchema = z.object({
   type: z.literal('hero-utility-masthead'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h1_fr: z.string(),
@@ -298,6 +304,7 @@ export const heroUtilityMastheadSchema = z.object({
 // Hero · hub académie (EcoleHubTemplate) · kicker mono + h1 + lede + bande stats
 export const heroAcademyHubSchema = z.object({
   type: z.literal('hero-academy-hub'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h1_fr: z.string(),
@@ -314,6 +321,7 @@ export const heroAcademyHubSchema = z.object({
 // variant 'detail' = style hero-utility (kicker optionnel, align gauche|centré)
 export const heroHubMastheadSchema = z.object({
   type: z.literal('hero-hub-masthead'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h1_fr: z.string(),
@@ -514,6 +522,7 @@ export const heroHubStatsSchema = z.object({
 // Hero · masthead service (ServiceDetailTemplate) · kicker § Service N + h1 + lede sobre
 export const heroServiceMastheadSchema = z.object({
   type: z.literal('hero-service-masthead'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   service_num: z.string(),
   h1_fr: z.string(),
   h1_en: z.string(),
@@ -524,6 +533,7 @@ export const heroServiceMastheadSchema = z.object({
 // Hero · menu détail (DetailMenuTemplate) · parent kicker + num accent + h1 + lede sobre
 export const heroDetailMenuSchema = z.object({
   type: z.literal('hero-detail-menu'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   parent_kicker_fr: z.string(),
   parent_kicker_en: z.string(),
   detail_num: z.string(),
@@ -573,6 +583,7 @@ export const heroLeadMagnetSchema = z.object({
 // Hero · cours/formation (CourseDetailTemplate) · kicker + title + lede + meta-pills + cta-group
 export const heroCourseSchema = z.object({
   type: z.literal('hero-course'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   type_label_fr: z.string(),
   type_label_en: z.string(),
   title_fr: z.string(),
@@ -763,6 +774,7 @@ export const manifestoBlockSchema = z.object({
 // Hero · essai éditorial (kicker + h1 + lede italique + meta auteur/date/temps)
 export const heroEssaySchema = z.object({
   type: z.literal('hero-essay'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h1_fr: z.string(),
