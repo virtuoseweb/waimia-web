@@ -58,6 +58,11 @@ type SectorRecipe = {
     body_fr: string; body_en: string; phase_fr: string; phase_en: string; current?: boolean;
   }>;
   trustExtra_fr: string; trustExtra_en: string;
+  // Composition propre au secteur (mandat R2) — ordre + position des blocs recompo.
+  // Chaque secteur a une SÉQUENCE distincte : un bloc différent ouvre, un bloc ink différent
+  // clôt (rendu après le Stack). Pilotage par la donnée, pas par clonage de template.
+  recompoOrder: Array<'impact' | 'case' | 'feature' | 'diagnostic'>;
+  recompoAfterStack: Array<'impact' | 'case' | 'feature' | 'diagnostic'>;
 };
 
 const RECIPES: Record<string, SectorRecipe> = {
@@ -86,6 +91,11 @@ const RECIPES: Record<string, SectorRecipe> = {
       { glyph: '04', title_fr: 'Clôture câblée', title_en: 'Wired closing', body_fr: 'Réconciliation, mémos et consolidation automatisés. Clôture en 3 jours, audit en 8.', body_en: 'Automated reconciliation, memos and consolidation. Closing in 3 days, audit in 8.', phase_fr: 'Système', phase_en: 'System' },
     ],
     trustExtra_fr: 'Hébergement français (HDS si besoin)', trustExtra_en: 'French hosting (HDS if needed)',
+    // Finance/DAF : la PREUVE CHIFFRÉE ouvre (mindset closing « montre-moi les chiffres »),
+    // le cas concret l'ancre, le « comment ça marche » rassure, et le diagnostic de maturité
+    // CLÔT après le stack (next step : où en êtes-vous → on cible le 1er workflow).
+    recompoOrder: ['impact', 'case', 'feature', 'diagnostic'],
+    recompoAfterStack: ['diagnostic'],
   },
   'services-b2b': {
     themeImage: '/images/themes/theme-productivite.webp',
@@ -112,6 +122,11 @@ const RECIPES: Record<string, SectorRecipe> = {
       { glyph: '04', title_fr: 'Cabinet câblé', title_en: 'Wired firm', body_fr: 'Acquisition, proposals et marge live tournent en continu. La capacité facturable revient.', body_en: 'Acquisition, proposals and live margin run continuously. Billable capacity returns.', phase_fr: 'Système', phase_en: 'System' },
     ],
     trustExtra_fr: 'Code et prompts transférables', trustExtra_en: 'Transferable code and prompts',
+    // Services B2B : la fragilité structurelle (« pipeline sur 2 noms ») est le vrai sujet →
+    // le DIAGNOSTIC de maturité OUVRE la séquence, le « comment ça marche » puis le cas suivent,
+    // et la preuve chiffrée INK referme APRÈS le stack (la métrique comme verdict final).
+    recompoOrder: ['diagnostic', 'feature', 'case', 'impact'],
+    recompoAfterStack: ['impact'],
   },
   'industrie': {
     themeImage: '/images/themes/theme-industrie.webp',
@@ -138,6 +153,12 @@ const RECIPES: Record<string, SectorRecipe> = {
       { glyph: '04', title_fr: 'Usine câblée', title_en: 'Wired plant', body_fr: 'ERP unifiés, maintenance prédictive, reporting live. OEE +12 points, délais −72 %.', body_en: 'Unified ERPs, predictive maintenance, live reporting. OEE +12 points, delays −72%.', phase_fr: 'Système', phase_en: 'System' },
     ],
     trustExtra_fr: 'Mode dégradé local garanti', trustExtra_en: 'Guaranteed local degraded mode',
+    // Industrie : l'objection n°1 est « pas une migration » → le « comment ça marche » (couche
+    // additive) OUVRE pour lever le risque, le cas terrain crédibilise, le diagnostic situe,
+    // et la preuve INK referme. Aucun bloc après le stack : séquence resserrée, tout en amont
+    // (rythme distinct des 2 autres secteurs : finance clôt par diag, services par impact).
+    recompoOrder: ['feature', 'case', 'diagnostic', 'impact'],
+    recompoAfterStack: [],
   },
 };
 
@@ -250,6 +271,8 @@ const faqCondensed = (d.faq_fr ?? []).slice(0, 4);
   featureSplit={featureSplit}
   diagnostic={diagnostic}
   trustBadges={trustBadges}
+  recompoOrder={recipe?.recompoOrder}
+  recompoAfterStack={recipe?.recompoAfterStack}
 >
   <Fragment slot="title">{shortTitle}</Fragment>
   <Fragment slot="lead"><p>{d.description_fr}</p></Fragment>
