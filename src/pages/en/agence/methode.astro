@@ -5,7 +5,6 @@ export const prerender = true;
 import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import Timeline from '../../../components/editorial/Timeline.astro';
-import MethodeProcessDiagram from '../../../components/svg/geometric/MethodeProcessDiagram.astro';
 
 const phases = [
   {
@@ -56,11 +55,6 @@ const timelineEvents = phases.map(p => ({
     {/* ── PHASES via Timeline ── */}
     <h2 class="sr-only">The five phases</h2>
     <Timeline events={timelineEvents} numbered={true} />
-
-    {/* ── DIAGRAM ── */}
-    <div class="meth-diagram reveal">
-      <MethodeProcessDiagram />
-    </div>
 
     {/* ── MENTION VIRTUOSEOS ── */}
     <div class="meth-os reveal">
@@ -155,10 +149,5 @@ const timelineEvents = phases.map(p => ({
   @media (max-width: 700px) {
     .meth-os { padding-inline: var(--space-5); }
     .meth-cta { flex-direction: column; align-items: flex-start; }
-  }
-
-  .meth-diagram {
-    margin: clamp(48px, 6vw, 80px) 0;
-    max-width: var(--wrap-read);
   }
 </style>
