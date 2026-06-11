@@ -69,3 +69,31 @@ Pourquoi : 1000 types Zod dupliqués = dette × 1000. Le volume vient de presets
 2. **`data-bg` consolidé d'abord**, `data-palette`/`data-density` ajoutés ensuite (1 mécanisme d'état par axe — recommandation audit).
 3. Persistance presets = JSON committé + `themes.css`, via extension de l'intégration dev-only existante (word de sécurité réutilisé).
 4. STYLE global (composant) / CONTENU local (instance) / instance globale = miroir content-collection.
+
+## 8. Décision Tailwind — ACTÉE (2026-06-11, analyse de fond + context7)
+
+**Question Simon** : pour l'industrialisation, adopter les utilities/variables/attributs Tailwind v4 (quitte à un refactor massif) + variables maison limitées, OU garder l'idiome maison ?
+
+**Verdict : Option C — HYBRIDE, migration incrémentale (jamais big-bang).**
+
+Fait technique décisif (sourcé context7 `/websites/tailwindcss`) : les variables `@theme` de Tailwind v4 **sont des CSS custom properties**. En mode **`@theme inline { --color-accent: var(--accent) }`**, l'utility `bg-accent` compile vers `background-color: var(--color-accent)` → **redéfinir `--accent` à runtime via `setProperty` repeint toutes les utilities**. Donc Tailwind v4 et l'idiome maison **ne sont pas concurrents** : avec `@theme inline`, ils partagent le MÊME mécanisme de theming. ⚠️ Sans `inline` (état actuel), Tailwind fige la valeur dans l'utility → le DS Studio ne pourrait plus repeindre. L'état présent (`@theme` non-inline + 0 utility consommée + 10 tokens morts) = pire des deux mondes.
+
+**Principe directeur (à graver)** : les **tokens maison restent l'UNIQUE source de vérité**. Tailwind ne les possède pas, il les **consomme** via `@theme inline`. Le DS Studio édite la source ; Tailwind + CSS scoped + `data-*` repeignent ensemble.
+
+**Répartition des 3 registres** :
+1. Structurel répétitif (bg/text, spacing, flex/grid) → **utilities Tailwind sémantiques** mappées sur les tokens.
+2. Axes de variation (palette/layout/density) → **`data-*` + `@custom-variant`** (formalise l'idiome `data-bg`/`data-layout`/`data-density` déjà en place).
+3. Créatif / signature (masks, clip-path, géométrie, bento async, awwwards) → **CSS scoped** intouché. La différenciation reste libre.
+
+**Chemin de migration (incrémental, zéro big-bang — conforme zéro-dette)** :
+1. **Fondation** : convertir le `@theme` mort → **`@theme inline`** pointant vers TOUS les tokens consommés. Validation GF-1 : DS Studio bouge `--accent` → une utility `bg-accent` test repeint en live (screenshot + `getComputedStyle`).
+2. **Axes** : déclarer `@custom-variant data-bg-ink (&[data-bg=ink])` etc. (additif, 0 migration de composant).
+3. **Migration opportuniste** : quand on touche un composant, remplacer le *structurel* de son `<style>` par utilities ; **laisser le créatif en scoped**. Jamais de masse.
+4. **Presets** : un preset = `{ tokens: {…overrides}, props, data-axes }` — l'agent IA génère des combinaisons déclaratives, pas du CSS.
+
+**Garde-fous (à ajouter à `check:token-purity`)** :
+- Tout token couleur dans `@theme` doit être `inline` ET pointer `var(--token-maison)` (jamais de littéral hex).
+- Presets = classes **littérales complètes** (jamais `bg-${color}` → casse la purge JIT ; sinon safelist).
+- Onboarding : « structurel = utilities, créatif = scoped » + lint densité d'arbitrary values.
+
+**Ordre d'exécution global (anti-dette, validé Simon)** : Phase 1 harmonisation profonde 100% (3 vérifs sévères + juge critique) → Phase 2 DS Studio builder → Phase 3 scale presets. La fondation `@theme inline` s'insère en début de Phase 2 (elle conditionne l'authoring Tailwind des presets, mais pas l'harmonisation des tokens qui est neutre vis-à-vis de Tailwind).
