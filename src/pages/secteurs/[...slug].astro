@@ -61,8 +61,25 @@ type SectorRecipe = {
   // Composition propre au secteur (mandat R2) — ordre + position des blocs recompo.
   // Chaque secteur a une SÉQUENCE distincte : un bloc différent ouvre, un bloc ink différent
   // clôt (rendu après le Stack). Pilotage par la donnée, pas par clonage de template.
-  recompoOrder: Array<'impact' | 'case' | 'feature' | 'diagnostic'>;
-  recompoAfterStack: Array<'impact' | 'case' | 'feature' | 'diagnostic'>;
+  recompoOrder: Array<'impact' | 'case' | 'feature' | 'diagnostic' | 'method' | 'shift'>;
+  recompoAfterStack: Array<'impact' | 'case' | 'feature' | 'diagnostic' | 'method' | 'shift'>;
+  // Blocs d'OSSATURE propres à UN secteur (mandat R2 résiduel : varier la présence/absence
+  // de blocs, pas seulement l'ordre). Optionnels : seuls les secteurs qui les fournissent
+  // les rendent — les autres gardent leur silhouette historique au pixel.
+  method_kicker_fr?: string; method_kicker_en?: string;
+  method_h2_fr?: string; method_h2_en?: string;
+  method_lede_fr?: string; method_lede_en?: string;
+  methodSteps?: Array<{
+    num: string; label_fr: string; label_en: string;
+    body_fr: string; body_en: string; meta_fr?: string; meta_en?: string;
+  }>;
+  shift_kicker_fr?: string; shift_kicker_en?: string;
+  shift_h2_fr?: string; shift_h2_en?: string;
+  shift_lede_fr?: string; shift_lede_en?: string;
+  shifts?: Array<{
+    label_fr: string; label_en: string; before: string; after: string;
+    delta_fr?: string; delta_en?: string; trend?: 'up' | 'down' | 'flat';
+  }>;
 };
 
 const RECIPES: Record<string, SectorRecipe> = {
@@ -153,12 +170,39 @@ const RECIPES: Record<string, SectorRecipe> = {
       { glyph: '04', title_fr: 'Usine câblée', title_en: 'Wired plant', body_fr: 'ERP unifiés, maintenance prédictive, reporting live. OEE +12 points, délais −72 %.', body_en: 'Unified ERPs, predictive maintenance, live reporting. OEE +12 points, delays −72%.', phase_fr: 'Système', phase_en: 'System' },
     ],
     trustExtra_fr: 'Mode dégradé local garanti', trustExtra_en: 'Guaranteed local degraded mode',
-    // Industrie : l'objection n°1 est « pas une migration » → le « comment ça marche » (couche
-    // additive) OUVRE pour lever le risque, le cas terrain crédibilise, le diagnostic situe,
-    // et la preuve INK referme. Aucun bloc après le stack : séquence resserrée, tout en amont
-    // (rythme distinct des 2 autres secteurs : finance clôt par diag, services par impact).
-    recompoOrder: ['feature', 'case', 'diagnostic', 'impact'],
-    recompoAfterStack: [],
+    // Industrie : OSSATURE propre (mandat R2 résiduel) — pas seulement un ordre différent,
+    // des BLOCS que les 2 autres secteurs n'ont pas. Métier terrain → la page suit le
+    // mouvement physique d'un audit de flux : le « comment ça marche » (couche additive)
+    // lève l'objection migration, le cas Caserne crédibilise, la FRISE D'AUDIT TERRAIN
+    // (method-timeline, bloc absent de finance/services) déroule les 3 couches on-site,
+    // l'AVANT→APRÈS (metric-shift ink, idem absent ailleurs) montre ce que l'audit a
+    // déplacé, et l'impact chiffré clôt APRÈS le stack. Le diagnostic-stages des 2 autres
+    // secteurs est RETIRÉ ici : silhouette immédiatement distincte côte à côte.
+    // Contenu 100 % cas réel Caserne (src/content/cases/caserne.mdx), zéro fait inventé.
+    method_kicker_fr: "L'audit terrain", method_kicker_en: 'The field audit',
+    method_h2_fr: 'Du diagnostic terrain à la <i>mise en production</i>.',
+    method_h2_en: 'From field diagnosis to <i>production rollout</i>.',
+    method_lede_fr: "Deux jours on-site chez Caserne Industries, trois couches de lecture, un plan d'action sous 24 heures.",
+    method_lede_en: 'Two days on-site at Caserne Industries, three reading layers, an action plan within 24 hours.',
+    methodSteps: [
+      { num: '01', label_fr: 'Entretiens structurés', label_en: 'Structured interviews', body_fr: "Les 3 responsables de site et 6 superviseurs de ligne : qu'est-ce qui déraille, quand, entre qui, et quelle information manque à ce moment.", body_en: 'The 3 site managers and 6 line supervisors: what breaks, when, between whom, and what information is missing when it does.', meta_fr: '§ Couche 1 · on-site', meta_en: '§ Layer 1 · on-site' },
+      { num: '02', label_fr: 'Revue documentaire', label_en: 'Document review', body_fr: 'Revue systématique des journaux de remise de quart, des historiques de messagerie interne et des comptes rendus de réunions de coordination du trimestre précédent.', body_en: 'Systematic review of shift handoff logs, internal messaging records, and coordination meeting minutes from the previous quarter.', meta_fr: '§ Couche 2 · trimestre passé', meta_en: '§ Layer 2 · past quarter' },
+      { num: '03', label_fr: 'Parcours terrain', label_en: 'Physical walkthrough', body_fr: "Points de contact inter-sites parcourus physiquement : rapports de quart tels que produits réellement, circuits d'escalade tels qu'utilisés effectivement, outils en pratique réelle versus procédure déclarée.", body_en: 'Inter-site communication touchpoints walked physically: shift reports as actually produced, escalation paths as actually used, tools in effective practice versus stated procedure.', meta_fr: '§ Couche 3 · pratique réelle', meta_en: '§ Layer 3 · effective practice' },
+      { num: 'J+1', label_fr: "Plan d'action sous 24 h", label_en: 'Action plan in 24 h', body_fr: '12 actions précises, chacune avec un propriétaire, une date cible et un score effort/impact, sans attendre un cycle de validation en comité de pilotage.', body_en: '12 specific actions, each with an owner, a target date, and an effort-to-impact score, no waiting for a steering committee validation cycle.', meta_fr: '§ Livraison', meta_en: '§ Delivery' },
+      { num: 'T2 2026', label_fr: 'Mise en production', label_en: 'Production rollout', body_fr: "Caserne évalue un tableau de bord partagé alimenté en temps réel par l'ERP de chaque site, et Waimia cadre un digest matinal Claude qui remonte les conflits inter-sites avant la première prise de poste. Prérequis : la standardisation des exports ERP menée en parallèle, achèvement estimé T2 2026.", body_en: "Caserne is evaluating a shared dashboard updated in real time from each site's ERP, and Waimia is scoping a Claude-powered morning digest surfacing cross-site conflicts before the first shift. Prerequisite: the ERP data export standardization running in parallel, estimated completion Q2 2026.", meta_fr: '§ Et après', meta_en: "§ What's next" },
+    ],
+    shift_kicker_fr: 'Avant → après', shift_kicker_en: 'Before → after',
+    shift_h2_fr: "Ce que l'audit a <i>déplacé</i>.",
+    shift_h2_en: 'What the audit <i>moved</i>.',
+    shift_lede_fr: "Trois flux physiques, avant et après le plan d'action issu des 4 goulots documentés. Délais inter-sites : −35 % estimés, sans recruter.",
+    shift_lede_en: 'Three physical flows, before and after the action plan built on the 4 documented bottlenecks. Inter-site delays: −35% estimated, without hiring.',
+    shifts: [
+      { label_fr: "Résolution d'une anomalie inter-sites", label_en: 'Cross-site anomaly resolution', before: '3-4 h', after: 'SLA 30 min', delta_fr: '5 → 2 étapes', delta_en: '5 → 2 steps', trend: 'down' },
+      { label_fr: 'Réunion de coordination hebdo', label_en: 'Weekly coordination meeting', before: '90 min', after: '3 × 20 min + 30 min', delta_fr: '−3 h/sem/responsable', delta_en: '−3 h/wk/manager', trend: 'down' },
+      { label_fr: 'Plan de recrutement', label_en: 'Recruitment plan', before: '12 opérateurs', after: '0', delta_fr: 'mis en attente', delta_en: 'put on hold', trend: 'down' },
+    ],
+    recompoOrder: ['feature', 'case', 'method', 'shift', 'impact'],
+    recompoAfterStack: ['impact'],
   },
 };
 
@@ -236,6 +280,34 @@ const diagnostic = recipe ? {
   stages: recipe.diagStages,
 } : undefined;
 
+// Frise d'audit terrain — method-timeline (bloc d'ossature propre à industrie : du
+// diagnostic terrain à la mise en production, 5 étapes du cas Caserne).
+const methodTimeline = (recipe && recipe.methodSteps && recipe.method_h2_fr && recipe.method_h2_en) ? {
+  type: 'method-timeline' as const,
+  background: 'paper-2' as const,
+  kicker_fr: recipe.method_kicker_fr,
+  kicker_en: recipe.method_kicker_en,
+  h2_fr: recipe.method_h2_fr,
+  h2_en: recipe.method_h2_en,
+  lede_fr: recipe.method_lede_fr,
+  lede_en: recipe.method_lede_en,
+  steps: recipe.methodSteps,
+} : undefined;
+
+// Avant → après — metric-shift INK (bloc d'ossature propre à industrie : flux physiques
+// mesurés avant/après, données du cas Caserne).
+const metricShift = (recipe && recipe.shifts) ? {
+  type: 'metric-shift' as const,
+  background: 'ink' as const,
+  kicker_fr: recipe.shift_kicker_fr,
+  kicker_en: recipe.shift_kicker_en,
+  h2_fr: recipe.shift_h2_fr,
+  h2_en: recipe.shift_h2_en,
+  lede_fr: recipe.shift_lede_fr,
+  lede_en: recipe.shift_lede_en,
+  shifts: recipe.shifts,
+} : undefined;
+
 // Réassurance — trust-badges-band strip INK, badge final varié par secteur.
 const trustBadges = recipe ? {
   type: 'trust-badges-band' as const,
@@ -270,6 +342,8 @@ const faqCondensed = (d.faq_fr ?? []).slice(0, 4);
   caseSpotlight={caseSpotlight}
   featureSplit={featureSplit}
   diagnostic={diagnostic}
+  methodTimeline={methodTimeline}
+  metricShift={metricShift}
   trustBadges={trustBadges}
   recompoOrder={recipe?.recompoOrder}
   recompoAfterStack={recipe?.recompoAfterStack}

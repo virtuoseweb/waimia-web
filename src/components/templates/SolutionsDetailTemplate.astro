@@ -40,6 +40,8 @@ import MetricCalloutBand from '../sections/MetricCalloutBand.astro';
 import CaseSpotlight from '../sections/CaseSpotlight.astro';
 import FeatureSplitMedia from '../sections/FeatureSplitMedia.astro';
 import DiagnosticStages from '../sections/DiagnosticStages.astro';
+import MethodTimeline from '../sections/MethodTimeline.astro';
+import MetricShift from '../sections/MetricShift.astro';
 import TrustBadgesBand from '../sections/TrustBadgesBand.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
@@ -84,14 +86,16 @@ interface Props {
   caseSpotlight?: SectionByType<'case-spotlight'>;
   featureSplit?: SectionByType<'feature-split-media'>;
   diagnostic?: SectionByType<'diagnostic-stages'>;
+  methodTimeline?: SectionByType<'method-timeline'>;
+  metricShift?: SectionByType<'metric-shift'>;
   trustBadges?: SectionByType<'trust-badges-band'>;
   /** Différenciation de composition (mandat secteurs) — ordre des blocs recompo.
    *  Chaque clé : 'impact' | 'case' | 'feature' | 'diagnostic'. Les clés listées dans
    *  `recompoAfterStack` sont rendues APRÈS le bloc Stack (variation de rythme : un bloc ink
    *  peut ouvrir ou clore la séquence selon le secteur). Toute clé absente des deux listes
    *  n'est pas rendue. Si `recompoOrder` est absent → ordre legacy fixe (solutions inchangées). */
-  recompoOrder?: Array<'impact' | 'case' | 'feature' | 'diagnostic'>;
-  recompoAfterStack?: Array<'impact' | 'case' | 'feature' | 'diagnostic'>;
+  recompoOrder?: Array<'impact' | 'case' | 'feature' | 'diagnostic' | 'method' | 'shift'>;
+  recompoAfterStack?: Array<'impact' | 'case' | 'feature' | 'diagnostic' | 'method' | 'shift'>;
 }
 
 const {
@@ -117,6 +121,8 @@ const {
   caseSpotlight,
   featureSplit,
   diagnostic,
+  methodTimeline,
+  metricShift,
   trustBadges,
   recompoOrder,
   recompoAfterStack = [],
@@ -289,8 +295,10 @@ const recompoBlocks = {
   case: caseSpotlight ? ('case' as const) : null,
   feature: featureSplit ? ('feature' as const) : null,
   diagnostic: diagnostic ? ('diagnostic' as const) : null,
+  method: methodTimeline ? ('method' as const) : null,
+  shift: metricShift ? ('shift' as const) : null,
 };
-type RecompoKey = 'impact' | 'case' | 'feature' | 'diagnostic';
+type RecompoKey = 'impact' | 'case' | 'feature' | 'diagnostic' | 'method' | 'shift';
 const LEGACY_ORDER: RecompoKey[] = ['impact', 'case', 'feature', 'diagnostic'];
 const requestedOrder: RecompoKey[] = recompoOrder ?? LEGACY_ORDER;
 // Une clé n'est rendue qu'une fois et seulement si son bloc existe.
@@ -453,6 +461,8 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
       : key === 'case' && caseSpotlight ? <CaseSpotlight data={caseSpotlight} {lang} />
       : key === 'feature' && featureSplit ? <FeatureSplitMedia data={featureSplit} {lang} />
       : key === 'diagnostic' && diagnostic ? <DiagnosticStages data={diagnostic} {lang} />
+      : key === 'method' && methodTimeline ? <MethodTimeline data={methodTimeline} {lang} />
+      : key === 'shift' && metricShift ? <MetricShift data={metricShift} {lang} />
       : null
     ))}
 
@@ -491,6 +501,8 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
       : key === 'case' && caseSpotlight ? <CaseSpotlight data={caseSpotlight} {lang} />
       : key === 'feature' && featureSplit ? <FeatureSplitMedia data={featureSplit} {lang} />
       : key === 'diagnostic' && diagnostic ? <DiagnosticStages data={diagnostic} {lang} />
+      : key === 'method' && methodTimeline ? <MethodTimeline data={methodTimeline} {lang} />
+      : key === 'shift' && metricShift ? <MetricShift data={metricShift} {lang} />
       : null
     ))}
 
