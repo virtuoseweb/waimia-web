@@ -460,10 +460,10 @@ const jsonLd = [
     font-size: var(--text-body-sm);
     font-weight: var(--fw-semibold);
     padding: var(--space-3) var(--space-5);
-    background: var(--ink, #111);
+    background: var(--ink);
     color: var(--paper);
     text-decoration: none;
-    border: 1px solid var(--ink, #111);
+    border: 1px solid var(--ink);
     transition: background 0.15s, border-color 0.15s;
   }
 
@@ -481,7 +481,7 @@ const jsonLd = [
   .btn-ghost {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
-    color: var(--text-secondary, #444);
+    color: var(--muted);
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.15s;
@@ -555,7 +555,7 @@ const jsonLd = [
   }
 
   .mono { font-family: var(--font-mono); font-size: var(--text-caption); }
-  .muted { color: var(--text-muted, #888); }
+  .muted { color: var(--muted); }
 
   .type-pill {
     font-family: var(--font-mono);
@@ -565,13 +565,13 @@ const jsonLd = [
     padding: 2px 6px;
     border: 1px solid var(--hairline);
     border-radius: var(--radius-xs);
-    color: var(--text-muted, #888);
+    color: var(--muted);
   }
 
   .type-pill--lecture    { border-color: #3a7d44; color: #3a7d44; }
   .type-pill--exercice   { border-color: var(--accent); color: var(--accent); }
   .type-pill--projet     { border-color: #7b4ea6; color: #7b4ea6; }
-  .type-pill--evaluation { border-color: var(--ink, #111); color: var(--ink, #111); }
+  .type-pill--evaluation { border-color: var(--ink); color: var(--ink); }
 
   /* PREREQS */
   .prereq-list {
@@ -595,7 +595,7 @@ const jsonLd = [
     position: absolute;
     left: 0;
     font-family: var(--font-mono);
-    color: var(--text-muted, #888);
+    color: var(--muted);
   }
 
   /* INFO GRID (atelier/certification) */
@@ -620,7 +620,7 @@ const jsonLd = [
     font-size: var(--text-eyebrow);
     letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
-    color: var(--text-muted, #888);
+    color: var(--muted);
     padding-right: var(--space-4);
   }
 
@@ -640,7 +640,7 @@ const jsonLd = [
   .chain-num {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    color: var(--text-muted, #888);
+    color: var(--muted);
     min-width: 28px;
   }
 
@@ -648,7 +648,7 @@ const jsonLd = [
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     font-weight: var(--fw-medium);
-    color: var(--ink, #111);
+    color: var(--ink);
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.15s;
@@ -690,7 +690,7 @@ const jsonLd = [
     font-family: var(--font-sans);
     font-size: var(--text-body-lead);
     line-height: 1.7;
-    color: var(--text-secondary, #444);
+    color: var(--muted);
     margin-bottom: 18px;
   }
 
@@ -709,7 +709,7 @@ const jsonLd = [
   .mdx-rail__type {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
     color: var(--accent);
   }
@@ -725,19 +725,19 @@ const jsonLd = [
   .mdx-rail__fact {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
-    color: var(--text-secondary, #444);
+    color: var(--muted);
     padding-bottom: var(--space-2);
     border-bottom: 1px solid var(--hairline);
   }
   .mdx-rail__fact:last-child { border-bottom: none; }
-  .mdx-rail__fact.is-price { font-weight: var(--fw-semibold); color: var(--ink, #111); }
+  .mdx-rail__fact.is-price { font-weight: var(--fw-semibold); color: var(--ink); }
   .mdx-rail__fact.is-accent { color: var(--accent); }
   .mdx-rail__cta {
     margin-top: var(--space-3);
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     font-weight: var(--fw-semibold);
-    color: var(--ink, #111);
+    color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid var(--accent);
     padding-bottom: 3px;
@@ -747,9 +747,9 @@ const jsonLd = [
   .mdx-rail__note {
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
-    color: var(--text-muted, #888);
+    color: var(--muted);
   }
 
   /* CTA FINALE */
@@ -769,7 +769,7 @@ const jsonLd = [
   .cta-link {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
-    color: var(--text-secondary, #444);
+    color: var(--muted);
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.15s;

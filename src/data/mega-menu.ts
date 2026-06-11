@@ -509,6 +509,46 @@ const AGENCE: MegaMenuSection = {
         },
       ],
     },
+    {
+      kicker: { fr: 'ÉCOSYSTÈME', en: 'ECOSYSTEM' },
+      title: { fr: 'Partenaires technologiques', en: 'Technology partners' },
+      goal: { fr: 'Stack éprouvée, partenaires certifiés', en: 'Proven stack, certified partners' },
+      links: [
+        {
+          label: { fr: 'Toutes les technologies', en: 'All technologies' },
+          href: '/technologies',
+          description: {
+            fr: 'Claude, open-source, VirtuoseOS : la stack complète.',
+            en: 'Claude, open-source, VirtuoseOS: the full stack.',
+          },
+          featured: true,
+        },
+        {
+          label: { fr: 'Claude Models', en: 'Claude Models' },
+          href: '/technologies/claude-models',
+          description: {
+            fr: 'Haiku, Sonnet, Opus, Code : un modèle par tâche.',
+            en: 'Haiku, Sonnet, Opus, Code: one model per task.',
+          },
+        },
+        {
+          label: { fr: 'Microsoft Power Platform', en: 'Microsoft Power Platform' },
+          href: '/technologies/microsoft-power-platform',
+          description: {
+            fr: 'Power BI, Power Apps, Power Automate, Copilot.',
+            en: 'Power BI, Power Apps, Power Automate, Copilot.',
+          },
+        },
+        {
+          label: { fr: 'VirtuoseOS', en: 'VirtuoseOS' },
+          href: '/technologies/virtuoseos',
+          description: {
+            fr: 'Notre kernel multi-workspace, decision layer.',
+            en: 'Our multi-workspace kernel, decision layer.',
+          },
+        },
+      ],
+    },
   ],
   featured: {
     kicker: { fr: 'ANCRAGE', en: 'LOCATION' },
