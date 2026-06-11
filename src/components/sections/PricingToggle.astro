@@ -1,0 +1,285 @@
+---
+// Section · pricing-toggle · grille de cartes + bascule mensuel/annuel (CSS-only, 0 JS hydration).
+// Le toggle est un <input type=checkbox> dont l'état :checked pilote l'affichage des prix
+// via le sélecteur :has() (mensuel par défaut, annuel quand coché). Économie annuelle affichée.
+// Composé de · Kicker (atom) · Button (atom). DS figé, tokens uniquement.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'pricing-toggle'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const monthlyLabel = isFr ? data.label_monthly_fr : data.label_monthly_en;
+const annualLabel = isFr ? data.label_annual_fr : data.label_annual_en;
+const saveBadge = isFr ? data.save_badge_fr : data.save_badge_en;
+const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<section class="pricing-toggle" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="pricing-toggle__header">
+      {kicker && <Kicker tone="muted">{kicker}</Kicker>}
+      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+    </div>
+
+    <div class="pricing-toggle__switch-row">
+      <input type="checkbox" id={toggleId} class="pricing-toggle__input" hidden />
+      <span class="pricing-toggle__switch-label" data-for="monthly">{monthlyLabel}</span>
+      <label for={toggleId} class="pricing-toggle__switch" aria-label={`${monthlyLabel} / ${annualLabel}`}>
+        <span class="pricing-toggle__knob" aria-hidden="true"></span>
+      </label>
+      <span class="pricing-toggle__switch-label" data-for="annual">{annualLabel}</span>
+      {saveBadge && <span class="pricing-toggle__save">{saveBadge}</span>}
+    </div>
+
+    <div class="pricing-toggle__grid" style={`--col-count: ${data.tiers.length}`}>
+      {data.tiers.map((tier: (typeof data.tiers)[number], i: number) => (
+        <article class:list={['pricing-toggle__card', tier.featured && 'is-featured']}>
+          {tier.featured && (
+            <span class="pricing-toggle__badge">{isFr ? 'Recommandé' : 'Recommended'}</span>
+          )}
+          <header class="pricing-toggle__card-hd">
+            <span class="pricing-toggle__idx">§ {String(i + 1).padStart(2, '0')}</span>
+            <strong class="pricing-toggle__name">{isFr ? tier.name_fr : tier.name_en}</strong>
+          </header>
+          <div class="pricing-toggle__price">
+            <span class="pricing-toggle__price-k" data-period="monthly">
+              {tier.price_monthly}
+              <span class="pricing-toggle__suffix">{isFr ? tier.suffix_monthly_fr : tier.suffix_monthly_en}</span>
+            </span>
+            <span class="pricing-toggle__price-k" data-period="annual">
+              {tier.price_annual}
+              <span class="pricing-toggle__suffix">{isFr ? tier.suffix_annual_fr : tier.suffix_annual_en}</span>
+            </span>
+          </div>
+          <ul class="pricing-toggle__features">
+            {(isFr ? tier.features_fr : tier.features_en).map((f: string) => (
+              <li><span class="pricing-toggle__check" aria-hidden="true">▸</span><span>{f}</span></li>
+            ))}
+          </ul>
+          <Button
+            href={tier.cta.href}
+            variant={tier.featured ? 'accent' : (tier.cta.variant as any)}
+            size="lg"
+            class="pricing-toggle__btn"
+          >
+            {isFr ? tier.cta.label_fr : tier.cta.label_en}
+          </Button>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-toggle {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pricing-toggle__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    max-width: 64ch;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+
+  /* ── Switch row ── */
+  .pricing-toggle__switch-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--spacing-block);
+    flex-wrap: wrap;
+  }
+  .pricing-toggle__switch-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .pricing-toggle__switch {
+    position: relative;
+    display: inline-flex;
+    width: 52px;
+    height: 28px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-pill);
+    background: var(--paper-2);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  }
+  .pricing-toggle__knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-pill);
+    background: var(--accent);
+    transition: transform 220ms var(--ease);
+  }
+  .pricing-toggle__save {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(var(--accent-rgb), 0.4);
+    border-radius: var(--radius-pill);
+    padding: var(--space-1) var(--space-3);
+  }
+
+  /* CSS-only toggle : :has() lit l'état du checkbox masqué */
+  .pricing-toggle:has(.pricing-toggle__input:checked) .pricing-toggle__knob {
+    transform: translateX(24px);
+  }
+  .pricing-toggle:has(.pricing-toggle__input:checked) .pricing-toggle__switch {
+    border-color: var(--accent);
+  }
+  .pricing-toggle__switch-label[data-for='annual'] { color: var(--muted); }
+  .pricing-toggle:has(.pricing-toggle__input:checked) .pricing-toggle__switch-label[data-for='monthly'] { color: var(--muted); }
+  .pricing-toggle:has(.pricing-toggle__input:checked) .pricing-toggle__switch-label[data-for='annual'] { color: var(--ink); }
+  .pricing-toggle:not(:has(.pricing-toggle__input:checked)) .pricing-toggle__switch-label[data-for='monthly'] { color: var(--ink); }
+
+  /* prix : mensuel visible par défaut, annuel quand coché */
+  .pricing-toggle__price-k[data-period='annual'] { display: none; }
+  .pricing-toggle:has(.pricing-toggle__input:checked) .pricing-toggle__price-k[data-period='monthly'] { display: none; }
+  .pricing-toggle:has(.pricing-toggle__input:checked) .pricing-toggle__price-k[data-period='annual'] { display: flex; }
+
+  /* ── Cartes ── */
+  .pricing-toggle__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--col-count, 3), 1fr);
+    gap: var(--space-5);
+    align-items: start;
+  }
+  .pricing-toggle__card {
+    position: relative;
+    padding: var(--space-7) var(--space-6);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 14px;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    transition: border-color 240ms var(--ease), transform 320ms var(--ease);
+  }
+  .pricing-toggle__card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+  .pricing-toggle__card.is-featured {
+    border-color: var(--accent);
+    background: var(--paper-2);
+    box-shadow: 0 24px 60px rgba(var(--accent-rgb), 0.08);
+  }
+  .pricing-toggle__badge {
+    position: absolute;
+    top: -12px;
+    left: var(--space-5);
+    background: var(--accent);
+    color: var(--paper);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px var(--space-3);
+    border-radius: var(--radius-pill);
+  }
+  .pricing-toggle__card-hd { display: flex; flex-direction: column; gap: var(--space-2); }
+  .pricing-toggle__idx {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    color: var(--accent);
+    letter-spacing: 0.14em;
+  }
+  .pricing-toggle__name {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: var(--fw-regular);
+  }
+  .pricing-toggle__card.is-featured .pricing-toggle__name { color: var(--accent); }
+  .pricing-toggle__price {
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pricing-toggle__price-k {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1;
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .pricing-toggle__suffix {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .pricing-toggle__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+  }
+  .pricing-toggle__features li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .pricing-toggle__check {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    flex-shrink: 0;
+  }
+  .pricing-toggle__btn { width: 100%; }
+  @media (max-width: 900px) {
+    .pricing-toggle__grid { grid-template-columns: 1fr; }
+  }
+  /* ── Alternance des fonds ── */
+  .pricing-toggle[data-bg='paper-2'] { background: var(--paper-2); }
+  .pricing-toggle[data-bg='paper-3'] { background: var(--paper-3); }
+  .pricing-toggle[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.86);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+    --paper: var(--ink);
+    --paper-2: rgba(var(--paper-rgb), 0.06);
+  }
+  .pricing-toggle[data-bg='ink'] :is(h2, .pricing-toggle__price-k) { color: var(--paper); }
+</style>

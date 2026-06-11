@@ -111,6 +111,11 @@ import ManifestoAct from '../components/sections/ManifestoAct.astro';
 import AsymmetricServices from '../components/sections/AsymmetricServices.astro';
 import TerminalMockupSection from '../components/sections/TerminalMockupSection.astro';
 import TerminalMetricsStrip from '../components/sections/TerminalMetricsStrip.astro';
+// >>> [gen-pricing] start
+import PricingCards from '../components/sections/PricingCards.astro';
+import PricingToggle from '../components/sections/PricingToggle.astro';
+import PricingSingleHighlight from '../components/sections/PricingSingleHighlight.astro';
+// <<< [gen-pricing] end
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -1248,6 +1253,38 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_fr: 'Strip KPI télémétrie tout mono : 2 à 6 cellules clé/valeur bordées de hairlines, esthétique console (uptime, agents, release), fonds paper, paper-2 ou ink.',
     description_en: 'All-mono telemetry KPI strip: 2 to 6 key/value cells with hairline borders, console aesthetics (uptime, agents, release), paper, paper-2 or ink backgrounds.',
   },
+  // >>> [gen-pricing] start
+  'pricing-cards': {
+    component: PricingCards,
+    category: 'marketing',
+    subcategory: 'Pricing Sections',
+    categorySlug: 'pricing-sections',
+    tags: ['pricing', 'cards', 'tiers', 'recommended', 'plans'],
+    status: 'stable',
+    description_fr: 'Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.',
+    description_en: 'Grid of 2 to 4 pricing cards side by side with a highlighted "Recommended" card, price, period, features and CTA per card. Anchoring by contrast.',
+  },
+  'pricing-toggle': {
+    component: PricingToggle,
+    category: 'marketing',
+    subcategory: 'Pricing Sections',
+    categorySlug: 'pricing-sections',
+    tags: ['pricing', 'toggle', 'monthly', 'annual', 'plans', 'switch'],
+    status: 'stable',
+    description_fr: 'Grille de cartes de prix avec bascule mensuel/annuel (CSS-only, sans JS) qui change les prix affichés et signale l\'économie annuelle.',
+    description_en: 'Pricing card grid with a monthly/annual toggle (CSS-only, no JS) that swaps the displayed prices and surfaces the annual saving.',
+  },
+  'pricing-single-highlight': {
+    component: PricingSingleHighlight,
+    category: 'marketing',
+    subcategory: 'Pricing Sections',
+    categorySlug: 'pricing-sections',
+    tags: ['pricing', 'single', 'highlight', 'offer', 'anchor', 'guarantee'],
+    status: 'stable',
+    description_fr: 'Offre mono-produit en grand format : une carte large centrée avec prix d\'ancrage, liste de bénéfices, garantie et CTA fort. Idéal landing mono-offre.',
+    description_en: 'Single-product offer in large format: one wide centred card with anchor price, benefits list, guarantee and strong CTA. Ideal for single-offer landings.',
+  },
+  // <<< [gen-pricing] end
 };
 
 export const SECTION_REGISTRY: Record<SectionType, AstroComponent> = Object.fromEntries(
