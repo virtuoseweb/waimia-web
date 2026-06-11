@@ -23,8 +23,6 @@ interface Props {
   username?: string;
   /** Event type slug (default: env PUBLIC_CAL_EVENT_TYPE) */
   eventType?: string;
-  /** Namespace Cal isolant l'instance (default: env PUBLIC_CAL_NAMESPACE) */
-  namespace?: string;
   /** Theme · auto/light/dark */
   theme?: 'auto' | 'light' | 'dark';
   /** Layout · seul `inline` est supporté avec @calcom/embed-react ici */
@@ -38,7 +36,6 @@ interface Props {
 const {
   username = (import.meta.env.PUBLIC_CAL_USERNAME ?? 'simonberos').trim(),
   eventType = (import.meta.env.PUBLIC_CAL_EVENT_TYPE ?? 'audit').trim(),
-  namespace = (import.meta.env.PUBLIC_CAL_NAMESPACE ?? 'audit').trim(),
   theme = 'light',
   id = 'cal-embed',
 } = Astro.props as Props;
@@ -54,7 +51,6 @@ const calLink = `${username}/${eventType}`;
 <div id={id} class="cal-inline">
   <CalEmbedReact
     client:only="react"
-    namespace={namespace}
     calLink={calLink}
     theme={theme}
   />

@@ -146,9 +146,11 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
             <div class="badge">{t(item.featured.kicker, lang)}</div>
             <div class="ttl">{t(item.featured.label, lang)}</div>
             <div class="bd">{t(item.featured.body, lang)}</div>
-            <a class="img lift" href={lh(item.featured.href)} aria-hidden="true" tabindex="-1">
-              {item.featured.image && <img src={item.featured.image} alt="" loading="lazy" decoding="async" />}
-            </a>
+            {item.featured.image && (
+              <a class="img lift" href={lh(item.featured.href)} aria-hidden="true" tabindex="-1">
+                <img src={item.featured.image} alt="" loading="lazy" decoding="async" />
+              </a>
+            )}
             <a class="cta" href={lh(item.featured.href)}>
               {t(item.featured.cta, lang)}
             </a>
