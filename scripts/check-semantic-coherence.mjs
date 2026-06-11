@@ -8,9 +8,13 @@
  * de section) et SURFACE en warn les cas d'arbitrage réservé (proches mais non-exacts).
  *
  * Règles :
- *  R1 (warn) — `color: var(--ink-2|--ink-3)` hors sélecteurs de titres (h1/h2/h3/title/
- *       heading/display) : l'idiome texte secondaire est --muted ; ink-2/3 sur du body
- *       text = arbitrage à documenter. Warn (pas fail) : cas légitimes possibles.
+ *  R1 (RETIRÉ 2026-06-11) — anciennement : warn sur `color: var(--ink-2|--ink-3)` hors
+ *       titres. FAUX POSITIF confirmé par audit indépendant : --ink-2 (#1A1814) / --ink-3
+ *       (#2B2620) sont l'échelle de texte FORT (chapô, excerpt, body proéminent), distincte
+ *       de --muted (#6B6560) = texte ATÉNUÉ. ink-2/3 sur du body n'est PAS une dérive, et un
+ *       regex de sélecteur ne peut pas distinguer un chapô fort d'une légende faible → la
+ *       règle est retirée (elle ne crie plus au loup). La vraie dérive token de ce registre
+ *       = fallback hex fantôme `var(--token-inexistant, #hex)` → futur gate dédié.
  *  R2 (fail/warn) — bordures `rgba(var(--ink-rgb), A)` :
  *       A = 0.09 exact  -> FAIL « utiliser var(--hairline) »        (parité exacte du token)
  *       A = 0.18 exact  -> FAIL « utiliser var(--hairline-strong) » (parité exacte du token)
@@ -62,7 +66,6 @@ function enclosingSelector(src, index) {
   return src.slice(start + 1, open).replace(/\/\*[\s\S]*?\*\//g, '').trim();
 }
 
-const TITLE_SELECTOR_RE = /h1|h2|h3|h4|title|heading|display|-hd\b|__num|kicker/i;
 const ON_DARK_RE = /\[data-bg=['"]?ink['"]?\]|\.on-dark/;
 
 let scanned = 0;
@@ -72,13 +75,8 @@ for (const file of astroFiles(COMPONENTS_DIR)) {
   const rel = relative(ROOT, file);
   const inSections = file.startsWith(SECTIONS_DIR + '/') || dirname(file) === SECTIONS_DIR;
 
-  // ── R1 (warn) — color: var(--ink-2|--ink-3) hors titres ──
-  for (const m of src.matchAll(/(?<![-\w])color:\s*var\(--ink-(2|3)\)/g)) {
-    const sel = enclosingSelector(src, m.index);
-    if (!TITLE_SELECTOR_RE.test(sel)) {
-      warns.push(`R1 ${rel}:${lineOf(src, m.index)} -> "${m[0]}" sur « ${sel || '(inline?)'} » : texte secondaire = var(--muted) ; ink-2/3 hors titre = arbitrage à documenter`);
-    }
-  }
+  // ── R1 RETIRÉ (2026-06-11) — voir l'en-tête : --ink-2/3 = échelle texte fort légitime,
+  //    pas une dérive ; faux positif confirmé par audit indépendant. ──
 
   // ── R2 — bordures rgba(var(--ink-rgb), A) ──
   for (const m of src.matchAll(/border[^:;{}]*:\s*[^;{}]*rgba\(var\(--ink-rgb\),\s*(\.?\d*\.?\d+)\)/g)) {

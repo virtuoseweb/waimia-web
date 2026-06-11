@@ -612,6 +612,22 @@ function initStudio() {
     });
   }
 
+  // Ré-applique les overrides après une navigation View-Transition interne à l'iframe
+  // (l'event `load` ne se déclenche pas sur un swap Astro client-side).
+  const swapBoundDocs = new WeakSet();
+  function attachSwapReapply(frame) {
+    try {
+      // Astro dispatche astro:after-swap sur le DOCUMENT de l'iframe (pas le window) ;
+      // le document persiste à travers les View Transitions → un seul listener suffit.
+      const doc = frame.contentDocument;
+      if (!doc || swapBoundDocs.has(doc)) return; // anti-doublon par identité de référence
+      swapBoundDocs.add(doc);
+      doc.addEventListener('astro:after-swap', applyOverridesToPreview);
+    } catch {
+      // cross-origin défensif : pas d'accès → on ignore silencieusement
+    }
+  }
+
   function loadPreview(force = false) {
     if (!previewFrame || !previewRoute) return;
     const route = previewRoute.value;
@@ -625,7 +641,7 @@ function initStudio() {
   }
   if (previewRoute) previewRoute.addEventListener('change', () => loadPreview(true));
   if (previewRefresh) previewRefresh.addEventListener('click', () => loadPreview(true));
-  if (previewFrame) previewFrame.addEventListener('load', applyOverridesToPreview);
+  if (previewFrame) previewFrame.addEventListener('load', () => { applyOverridesToPreview(); attachSwapReapply(previewFrame); });
 
   // ── Catalogue : aperçu du type sélectionné (hérite des overrides LIVE) ─────
   const catalogCurrent = container.querySelector('#catalog-current');
@@ -647,7 +663,7 @@ function initStudio() {
     btn.addEventListener('click', () => loadCatalogType(btn.getAttribute('data-catalog-type')));
   });
   if (catalogFrame) {
-    catalogFrame.addEventListener('load', applyOverridesToPreview);
+    catalogFrame.addEventListener('load', () => { applyOverridesToPreview(); attachSwapReapply(catalogFrame); });
     const initialType = catalogCurrent ? catalogCurrent.textContent.trim() : '';
     if (initialType) {
       container.querySelectorAll('[data-catalog-type]').forEach((btn) => {
