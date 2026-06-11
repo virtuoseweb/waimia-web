@@ -52,7 +52,7 @@ if (layout === 'grid') {
           <ul class="eco-partners__grid">
             {g.items.map((p) => (
               <li class="eco-partners__cell">
-                <PartnerLogo name={p.name} asset={p.asset} href={p.href} external={p.external} h="40px" w="132px" />
+                <PartnerLogo name={p.name} asset={p.asset} href={p.href} external={p.external} h={p.box?.h ?? '40px'} w={p.box?.w ?? '132px'} />
               </li>
             ))}
           </ul>
@@ -64,7 +64,7 @@ if (layout === 'grid') {
       <ul class="eco-partners__marquee">
         {[...data.partners, ...data.partners].map((p) => (
           <li class="eco-partners__cell">
-            <PartnerLogo name={p.name} asset={p.asset} h="28px" w="120px" />
+            <PartnerLogo name={p.name} asset={p.asset} h={p.box?.h ?? '28px'} w={p.box?.w ?? '120px'} />
           </li>
         ))}
       </ul>
@@ -73,8 +73,9 @@ if (layout === 'grid') {
     <div class="wrap-wide">
       <ul class="eco-partners__wall">
         {data.partners.map((p) => (
-          <li class="eco-partners__cell">
-            <PartnerLogo name={p.name} asset={p.asset} href={p.href} external={p.external} h="32px" w="124px" />
+          <li class="eco-partners__cell eco-partners__cell--labeled">
+            <PartnerLogo name={p.name} asset={p.asset} href={p.href} external={p.external} h={p.box?.h ?? '44px'} w={p.box?.w ?? '64px'} />
+            <span class="eco-partners__wall-label">{p.name}</span>
           </li>
         ))}
       </ul>
@@ -130,14 +131,29 @@ if (layout === 'grid') {
   }
 
   /* ── WALL ── */
+  /* Grille équilibrée : les éléments (souvent peu nombreux, ex. 4 outils
+     Power Platform) se distribuent uniformément au lieu de s'agglutiner. */
   .eco-partners__wall {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-5) var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-6) var(--space-5);
     list-style: none;
     margin: 0;
     padding: 0;
-    align-items: center;
+    align-items: start;
+    justify-items: center;
+  }
+  /* Cellule glyphe + libellé empilés (lisibilité : chaque marque est nommée). */
+  .eco-partners__cell--labeled {
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  .eco-partners__wall-label {
+    font-size: var(--text-body-sm);
+    line-height: 1.3;
+    color: var(--muted);
+    text-wrap: balance;
   }
 
   /* ── MARQUEE ── */
@@ -174,6 +190,7 @@ if (layout === 'grid') {
     color: var(--paper);
   }
   .eco-partners[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .eco-partners[data-bg='ink'] .eco-partners__wall-label { color: var(--paper); opacity: 0.78; }
 </style>
 
 <style is:global>

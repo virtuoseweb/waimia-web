@@ -910,6 +910,11 @@ export const ecosystemPartnersSchema = z.object({
         href: z.string().optional(),
         external: z.boolean().optional(),
         category: z.string().optional(),
+        // Calibrage poids optique (docs/48) : rétrécit la boîte des marques
+        // compactes pour égaliser le poids d'encre. Surcharge --logo-w/--logo-h.
+        box: z
+          .object({ h: z.string().optional(), w: z.string().optional() })
+          .optional(),
       }),
     )
     .min(1),

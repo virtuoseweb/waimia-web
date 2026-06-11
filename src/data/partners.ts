@@ -27,6 +27,16 @@ export interface Partner {
   href?: string;
   /** true si href externe → target _blank rel noopener. */
   external?: boolean;
+  /**
+   * Calibrage optionnel du POIDS OPTIQUE (docs/48). Les masques rendent dans
+   * une boîte (`mask-size: contain`) : un wordmark large remplit la largeur et
+   * paraît gros, une marque compacte rend petite et « perdue ». On rétrécit la
+   * boîte des marques compactes (le glyphe devient relativement plus présent)
+   * et on laisse les wordmarks larges, pour égaliser le poids d'encre dans la
+   * grille. Surcharge `--logo-w`/`--logo-h` via l'atome PartnerLogo. Une valeur
+   * absente = boîte par défaut du layout (wordmark large).
+   */
+  box?: { h?: string; w?: string };
 }
 
 export const PARTNERS: Partner[] = [
@@ -37,6 +47,8 @@ export const PARTNERS: Partner[] = [
     asset: '/logos/partners/partner-claude.png',
     category: 'ai',
     href: '/technologies/claude-models',
+    // Wordmark + étoile : large mais moins étiré que les pleins wordmarks.
+    box: { w: '108px' },
   },
   {
     slug: 'openai',
@@ -52,6 +64,8 @@ export const PARTNERS: Partner[] = [
     asset: '/logos/partners/partner-copilot.svg',
     category: 'ai',
     href: '/technologies/microsoft-power-platform',
+    // Glyphe outline compact (icône carrée) → boîte étroite pour le présenter.
+    box: { w: '66px' },
   },
   // ── Cloud ──
   {
@@ -84,6 +98,8 @@ export const PARTNERS: Partner[] = [
     asset: '/logos/partners/partner-power-bi.svg',
     category: 'data',
     href: '/technologies/microsoft-power-platform',
+    // Glyphe outline (barres) légèrement plus large que carré.
+    box: { w: '72px' },
   },
   {
     slug: 'sap',
@@ -117,6 +133,8 @@ export const PARTNERS: Partner[] = [
     asset: '/logos/partners/partner-power-apps.svg',
     category: 'microsoft',
     href: '/technologies/microsoft-power-platform',
+    // Glyphe outline compact (losange) → boîte étroite.
+    box: { w: '64px' },
   },
   {
     slug: 'power-automate',
@@ -124,6 +142,8 @@ export const PARTNERS: Partner[] = [
     asset: '/logos/partners/partner-power-automate.svg',
     category: 'microsoft',
     href: '/technologies/microsoft-power-platform',
+    // Glyphe outline compact (éclair) → boîte étroite.
+    box: { w: '64px' },
   },
   // ── Certification ──
   {
@@ -150,6 +170,8 @@ export const PARTNERS: Partner[] = [
     category: 'cloud',
     href: 'https://github.com',
     external: true,
+    // Mark glyphe (octocat) compact → boîte étroite.
+    box: { w: '60px' },
   },
   {
     slug: 'claude-mark',
@@ -157,6 +179,8 @@ export const PARTNERS: Partner[] = [
     asset: '/logos/partners/partner-claude-mark.png',
     category: 'ai',
     href: '/technologies/claude-models',
+    // Mark étoile compact → boîte étroite.
+    box: { w: '54px' },
   },
 ];
 
