@@ -15,8 +15,9 @@ const isFr = lang === 'fr';
 const kicker = isFr ? data.kicker_fr : data.kicker_en;
 const h2 = isFr ? data.h2_fr : data.h2_en;
 const badges = data.badges;
+const variant = data.variant ?? 'cells';
 ---
-<section class="trust-badges" data-bg={data.background}>
+<section class="trust-badges" data-bg={data.background} data-variant={variant}>
   <div class="wrap-wide">
     {(kicker || h2) && (
       <header class="trust-badges__head reveal">
@@ -24,17 +25,28 @@ const badges = data.badges;
         {h2 && <h2 class="trust-badges__h2" set:html={h2} />}
       </header>
     )}
-    <ul class="trust-badges__grid reveal-stagger" style={`--tb-cols:${badges.length}`}>
-      {badges.map((b, i) => (
-        <li class="trust-badges__cell" data-last={i === badges.length - 1 ? 'true' : 'false'}>
-          {b.glyph && <span class="trust-badges__glyph" aria-hidden="true">{b.glyph}</span>}
-          <span class="trust-badges__label">{isFr ? b.label_fr : b.label_en}</span>
-          {(isFr ? b.value_fr : b.value_en) && (
-            <span class="trust-badges__value">{isFr ? b.value_fr : b.value_en}</span>
-          )}
-        </li>
-      ))}
-    </ul>
+    {variant === 'strip' ? (
+      <ul class="trust-badges__strip reveal-stagger">
+        {badges.map((b) => (
+          <li class="trust-badges__item">
+            {b.glyph && <span class="trust-badges__item-glyph" aria-hidden="true">{b.glyph}</span>}
+            <span class="trust-badges__item-label">{isFr ? b.label_fr : b.label_en}</span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <ul class="trust-badges__grid reveal-stagger" style={`--tb-cols:${badges.length}`}>
+        {badges.map((b, i) => (
+          <li class="trust-badges__cell" data-last={i === badges.length - 1 ? 'true' : 'false'}>
+            {b.glyph && <span class="trust-badges__glyph" aria-hidden="true">{b.glyph}</span>}
+            <span class="trust-badges__label">{isFr ? b.label_fr : b.label_en}</span>
+            {(isFr ? b.value_fr : b.value_en) && (
+              <span class="trust-badges__value">{isFr ? b.value_fr : b.value_en}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
 </section>
 
@@ -100,6 +112,53 @@ const badges = data.badges;
     color: var(--muted);
   }
   .trust-badges[data-bg='ink'] .trust-badges__value { color: rgba(var(--paper-rgb), .6); }
+
+  /* Variante strip : items mono uppercase inline, séparés par une puce accent.
+     Modèle = bandeau certifications (ref-offre-deploiement). */
+  .trust-badges__strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3) var(--space-5);
+    list-style: none;
+    margin: 0;
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .trust-badges[data-bg='ink'] .trust-badges__strip {
+    border-top-color: rgba(var(--paper-rgb), .14);
+    border-bottom-color: rgba(var(--paper-rgb), .14);
+  }
+  .trust-badges__item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    position: relative;
+  }
+  .trust-badges__item:not(:last-child)::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    margin-left: var(--space-5);
+  }
+  .trust-badges__item-glyph { font-size: var(--text-body-sm); line-height: 1; color: var(--accent); }
+  .trust-badges__item-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+  }
+  .trust-badges[data-bg='ink'] .trust-badges__item-label { color: rgba(var(--paper-rgb), .72); }
+
+  @media (max-width: 560px) {
+    .trust-badges__strip { gap: var(--space-3); }
+    .trust-badges__item:not(:last-child)::after { margin-left: var(--space-3); }
+  }
 
   @media (max-width: 900px) {
     .trust-badges__grid { grid-template-columns: repeat(2, 1fr); }

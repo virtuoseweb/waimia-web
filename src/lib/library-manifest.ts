@@ -100,6 +100,11 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'cta-newsletter-footer',        consumers: [] },
   { id: 'comparison-pricing-callout',   consumers: [] },
   // <<< [new-standard] end
+  // >>> [sections-gap] start
+  { id: 'diagnostic-stages',            consumers: [] },
+  { id: 'case-spotlight',               consumers: [] },
+  { id: 'testimonial-metrics',          consumers: [] },
+  // <<< [sections-gap] end
   // ── Live (34) ───────────────────────────────────────────────────────────────
   { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetailTemplate.astro'] },
   { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetailTemplate.astro'] },

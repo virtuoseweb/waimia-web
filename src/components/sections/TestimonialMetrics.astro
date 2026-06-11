@@ -1,0 +1,144 @@
+---
+// Section catalogue · testimonial-metrics (catégorie Testimonial Sections)
+// Témoignage chiffré : grande citation serif d'un côté (preuve sociale qualitative) +
+// grille de 3-4 métriques massives de l'autre (preuve chiffrée), reliées par une barre
+// accent. Combine la voix client et le résultat mesuré en un seul bloc de réassurance.
+// Pattern source : maquette ref-offre-deploiement (citation « En deux semaines… » + 4 métriques).
+// Distinct de testimonial-single-spotlight (quote + portrait, SANS métriques) et de
+// testimonial-logo-metric (grille de cartes, 1 métrique par carte).
+// Typo (directive docs/41) : la citation EST le relevé serif (signature), métriques en display.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'testimonial-metrics'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const quote = isFr ? data.quote_fr : data.quote_en;
+const role = isFr ? data.role_fr : data.role_en;
+const metrics = data.metrics;
+const variant = data.variant ?? 'quote-left';
+---
+<section class="tmet" data-bg={data.background} data-variant={variant}>
+  <div class="wrap-wide tmet__grid">
+    <div class="tmet__quote-col reveal">
+      {kicker && <Kicker tone="accent" class="tmet__kicker">{kicker}</Kicker>}
+      <blockquote class="tmet__quote">{quote}</blockquote>
+      <footer class="tmet__attr">
+        <span class="tmet__name">{data.author}</span>
+        <span class="tmet__role">{role}{data.company ? ` · ${data.company}` : ''}</span>
+      </footer>
+    </div>
+    <div class="tmet__metrics-col reveal-stagger" style={`--tm-cols:${metrics.length >= 4 ? 2 : 1}`}>
+      {metrics.map((m) => (
+        <div class="tmet__metric">
+          <span class="tmet__metric-k">{m.k}</span>
+          <span class="tmet__metric-l">{isFr ? m.label_fr : m.label_en}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tmet {
+    padding-block: var(--section-base);
+    border-block: 1px solid var(--hairline);
+  }
+  .tmet[data-bg='paper-2'] { background: var(--paper-2); }
+  .tmet[data-bg='paper-3'] { background: var(--paper-3); }
+  .tmet[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    border-block-color: rgba(var(--paper-rgb), 0.14);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+
+  .tmet__grid {
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    gap: clamp(var(--space-8), 6vw, var(--space-12));
+    align-items: center;
+  }
+  .tmet[data-variant='quote-right'] .tmet__grid { grid-template-columns: 5fr 6fr; }
+  .tmet[data-variant='quote-right'] .tmet__quote-col { order: 2; }
+
+  .tmet__quote-col { display: flex; flex-direction: column; gap: var(--space-5); }
+  :global(.tmet__kicker) { margin-bottom: 0; }
+
+  /* La citation EST le relevé serif (directive : serif = signature/relevé) */
+  .tmet__quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 40px);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+    quotes: '\201C' '\201D';
+  }
+  .tmet__quote::before { content: open-quote; }
+  .tmet__quote::after { content: close-quote; }
+  .tmet[data-bg='ink'] .tmet__quote { color: var(--paper); }
+
+  .tmet__attr { display: flex; flex-direction: column; gap: 2px; }
+  .tmet__name {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-row);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .tmet[data-bg='ink'] .tmet__name { color: var(--paper); }
+  .tmet__role {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+
+  .tmet__metrics-col {
+    display: grid;
+    grid-template-columns: repeat(var(--tm-cols, 1), 1fr);
+    gap: var(--space-7) var(--space-6);
+    padding-left: clamp(var(--space-5), 3vw, var(--space-8));
+    border-left: 1px solid var(--hairline);
+  }
+  .tmet__metric { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tmet__metric-k {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 6vw, 84px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+  }
+  .tmet__metric-l {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: 22ch;
+  }
+
+  @media (max-width: 860px) {
+    .tmet__grid,
+    .tmet[data-variant='quote-right'] .tmet__grid { grid-template-columns: 1fr; }
+    .tmet[data-variant='quote-right'] .tmet__quote-col { order: 0; }
+    .tmet__metrics-col {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-7);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .tmet__metrics-col { grid-template-columns: 1fr; }
+  }
+</style>

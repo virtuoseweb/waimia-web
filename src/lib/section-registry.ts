@@ -156,6 +156,9 @@ import TestimonialSingleSpotlight from '../components/sections/TestimonialSingle
 import FaqTwoColumn from '../components/sections/FaqTwoColumn.astro';
 import CtaNewsletterFooter from '../components/sections/CtaNewsletterFooter.astro';
 import ComparisonPricingCallout from '../components/sections/ComparisonPricingCallout.astro';
+import DiagnosticStages from '../components/sections/DiagnosticStages.astro';
+import CaseSpotlight from '../components/sections/CaseSpotlight.astro';
+import TestimonialMetrics from '../components/sections/TestimonialMetrics.astro';
 // <<< [new-standard] end
 
 /**
@@ -1645,6 +1648,38 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_fr: 'Bloc « pourquoi nous » en trois colonnes de propositions de valeur, terminé par un CTA et une mention. Sert de pont entre les features et la page tarifaire.',
     description_en: 'A “why us” block in three value-proposition columns, closed by a CTA and a note. Bridges the gap between features and the pricing page.',
   },
+  // >>> [sections-gap] start
+  'diagnostic-stages': {
+    component: DiagnosticStages,
+    category: 'marketing',
+    subcategory: 'Process Sections',
+    categorySlug: 'process-sections',
+    tags: ['diagnostic', 'maturity', 'stages', 'conversion', 'self-assessment'],
+    status: 'stable',
+    description_fr: 'Auto-diagnostic « Où en êtes-vous ? » : 4 à 6 stades de maturité en cards horizontales cliquables, le stade courant relevé en accent (« vous êtes ici »). Situe le visiteur et l’oriente vers l’étape suivante (conversion + qualification).',
+    description_en: 'A “Where do you stand?” self-assessment: 4 to 6 maturity stages as clickable horizontal cards, the current stage highlighted in accent (“you are here”). Places the visitor and points them to the next step (conversion + qualification).',
+  },
+  'case-spotlight': {
+    component: CaseSpotlight,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['case', 'spotlight', 'proof', 'metrics', 'conversion', 'dark'],
+    status: 'stable',
+    description_fr: 'Vitrine de cas concret insérable partout : carte INK avec visuel habillé + titre serti d’un relevé accent, citation à barre accent, métriques massives latérales, tags méta et CTA. Levier de conversion à fort impact.',
+    description_en: 'A concrete-case showcase you can drop anywhere: an INK card with a styled visual + a title with an accent highlight, an accent-bar quote, large lateral metrics, meta tags and a CTA. A high-impact conversion lever.',
+  },
+  'testimonial-metrics': {
+    component: TestimonialMetrics,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['testimonial', 'metrics', 'quote', 'proof', 'b2b'],
+    status: 'stable',
+    description_fr: 'Témoignage chiffré : grande citation serif d’un côté + grille de 3 à 4 métriques massives de l’autre, reliées par une barre accent. Combine la voix client et le résultat mesuré en un seul bloc de réassurance.',
+    description_en: 'A quantified testimonial: a large serif quote on one side + a grid of 3 to 4 large metrics on the other, joined by an accent bar. Combines the client’s voice and the measured outcome in a single reassurance block.',
+  },
+  // <<< [sections-gap] end
   // <<< [new-standard] end
 };
 

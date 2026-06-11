@@ -2981,6 +2981,9 @@ const trustBadgeSchema = z.object({
 export const trustBadgesBandSchema = z.object({
   type: z.literal('trust-badges-band'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
+  // 'cells' = grille hairline (glyph + label + valeur) ; 'strip' = items mono uppercase
+  // inline séparés par une puce accent (modèle bandeau certifications, ref-offre-deploiement).
+  variant: z.enum(['cells', 'strip']).default('cells'),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string().optional(),
@@ -3285,6 +3288,87 @@ export const comparisonPricingCalloutSchema = z.object({
 });
 // <<< [new-standard] end
 
+// >>> [sections-gap] start
+// Lot sections-gap 2026-06-11 — types manquants conversion / réassurance / GEO
+// dérivés des 2 maquettes de référence (docs/44). Dark natif via background .optional().
+
+// diagnostic-stages (conversion-sections) : auto-diagnostic « Où en êtes-vous ? »,
+// 4-6 stades horizontaux cliquables, stade `current` relevé accent (« vous êtes ici »).
+const diagnosticStageSchema = z.object({
+  glyph: z.string().optional(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+  phase_fr: z.string().optional(),
+  phase_en: z.string().optional(),
+  href: z.string().optional(),
+  current: z.boolean().optional(),
+});
+export const diagnosticStagesSchema = z.object({
+  type: z.literal('diagnostic-stages'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  stages: z.array(diagnosticStageSchema).min(4).max(6),
+});
+
+// case-spotlight (case-sections) : carte INK image + métriques latérales massives +
+// citation à barre accent + tags méta + CTA. Vitrine de cas concret (conversion).
+const caseSpotlightMetricSchema = z.object({
+  k: z.string(),
+  label_fr: z.string(),
+  label_en: z.string(),
+});
+const caseSpotlightTagSchema = z.object({ fr: z.string(), en: z.string() });
+export const caseSpotlightSchema = z.object({
+  type: z.literal('case-spotlight'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  variant: z.enum(['media-left', 'media-right']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  media_src: z.string().optional(),
+  media_alt: z.string().optional(),
+  media_caption: z.string().optional(),
+  quote_fr: z.string().optional(),
+  quote_en: z.string().optional(),
+  attribution_fr: z.string().optional(),
+  attribution_en: z.string().optional(),
+  metrics: z.array(caseSpotlightMetricSchema).max(3).optional(),
+  tags: z.array(caseSpotlightTagSchema).max(4).optional(),
+  cta_href: z.string().optional(),
+  cta_label_fr: z.string().optional(),
+  cta_label_en: z.string().optional(),
+});
+
+// testimonial-metrics (testimonial-sections) : grande citation serif + grille 3-4 métriques.
+const testimonialMetricsItemSchema = z.object({
+  k: z.string(),
+  label_fr: z.string(),
+  label_en: z.string(),
+});
+export const testimonialMetricsSchema = z.object({
+  type: z.literal('testimonial-metrics'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  variant: z.enum(['quote-left', 'quote-right']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  quote_fr: z.string(),
+  quote_en: z.string(),
+  author: z.string(),
+  role_fr: z.string(),
+  role_en: z.string(),
+  company: z.string().optional(),
+  metrics: z.array(testimonialMetricsItemSchema).min(3).max(4),
+});
+// <<< [sections-gap] end
+
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroCenteredSchema,
@@ -3445,6 +3529,11 @@ export const sectionSchema = z.discriminatedUnion('type', [
   ctaNewsletterFooterSchema,
   comparisonPricingCalloutSchema,
   // <<< [new-standard] end
+  // >>> [sections-gap] start
+  diagnosticStagesSchema,
+  caseSpotlightSchema,
+  testimonialMetricsSchema,
+  // <<< [sections-gap] end
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];
