@@ -4,7 +4,7 @@
 
 ## 1. État prod (vérifié empiriquement)
 
-- **main = `3c7fd3d` poussé, live 01:49** sur waimia.com. Contenu des 2 derniers batches (tous GF-1 prod PASS, SRs 30-34 dans docs/session-reports/) :
+- **main = `d156eb5` poussé, live 02:02** (+ home recomposée V-F2, SR-35) sur waimia.com. Contenu des 2 derniers batches (tous GF-1 prod PASS, SRs 30-34 dans docs/session-reports/) :
   - Mega menu Solutions hiérarchisé (maquette Simon : 3 titres alignés top=120, badges « Offre phare » sur Growth System IA + Site web IA, image cas Plateau en 4e colonne).
   - V-F1 collections : 25 → 19 (pages/knowledgeBase/brandVoice archivées docs/archive/content/, guarantees → src/data/guarantees.ts, 605 pages, /archive + /agence/hero-lab en 301).
   - **Catalogue 113 types / 18 catégories** (+7 : terminal-table, editorial-write-feed, manifesto-statement, manifesto-act, asymmetric-services, terminal-mockup, terminal-metrics-strip).
@@ -14,12 +14,11 @@
 
 ## 2. EN COURS au moment du handoff
 
-- **Worker home-recomp-v2** (recomposition home, worktree `.worktrees/homerecomp`, branche `feat/home-recomposition`, base `6495c4a`) : TOURNAIT ENCORE à la coupure. Il meurt avec la session. **Reprise** : lire `/tmp/wmission/homerecomp/STATE.md` + `git -C .worktrees/homerecomp status` ; si travail partiel cohérent → relancer un worker Opus 4.8 de reprise sur le worktree avec le même brief (résumé : recomposer TOUTES les sections de la home SAUF le hero, principe « 1 information = 1 représentation », cible docs/visual-audit/home/README.md = séquence 10 slots, QuoteSpotlight à créer, MaturityPyramid répète 4× la même info, « 12h » affiché 3×, + directive typo docs/41, + screenshots section par section conservés dans docs/visual-audit/home/). ⚠️ Sa base `6495c4a` est ANCIENNE : rebaser le worktree sur main d'abord ou merger main dans sa branche avant reprise.
-- Worktrees à nettoyer après leurs merges (déjà mergés : megamenu, vf1clean, catgap, dsnav, imgwire) : `git worktree remove .worktrees/<x>` + `git branch -d feat/<x>`.
+- PLUS AUCUN worker en course : home-recomp a LIVRÉ (mergé `d156eb5`, GF-1 prod PASS 02:04, SR-35). Worktrees nettoyés.
 
 ## 3. PROCHAINES TÂCHES (ordre recommandé)
 
-1. **Finir/reprendre la recomposition home** (cf §2). GF-1 : screenshots par section + computed + cohérence inter-surfaces.
+1. ~~Recomposition home~~ LIVRÉE (SR-35). Reste l’arbitrage compression ~8 900 px vs cible 8 300 (retirer CtaBand 90px + resserrer FAQ si souhaité).
 2. **V-TYPO transverse** (docs/41-DIRECTIVE-TYPO-CONTRASTE.md) : serif = emphase d'un mot seulement, masse en Instrument Sans (global.css h1/h2/h3 lignes ~62-129 = cœur de bascule), gras > italique, fonds contrastés par blocs. Inventaire des violations molecules : /tmp/wmission/catgap/REPORT.md (EditorialWriteRow, AsymmetricServiceRow, EditorialCaseCard, ManifestoAccent, TerminalMockup hex hardcodé #17140F). Worker Opus 4.8 (décisions cas par cas) + preuves paired computed avant/après par template.
 3. **V-F3 landing site-web-ia parfaite** (docs/40 §4) : 8 slots composable, exposée dans le footer, qualité Awwwards. + **tunnel 4 steps étalon** (docs/40 §4.2, offre_label_map hardcodée de tunnel/[step].astro à résorber).
 4. **Étiquettes catalogue usage site|library** (docs/40 §3) : badge + filtre /agence/design-system + gate, dérivé de library-manifest (les 7 nouveaux types ont consumers `[]` = library).
