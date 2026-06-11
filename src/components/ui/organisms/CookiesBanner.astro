@@ -38,53 +38,53 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 9999;
-    background: var(--paper);
+    z-index: 80;
+    background: var(--paper-2);
     border-top: 1px solid var(--hairline);
-    padding: 14px 0;
-    box-shadow: 0 -4px 24px rgba(var(--ink-rgb), .06);
+    padding: var(--space-3) 0;
   }
   .cb-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-5);
+    gap: var(--space-4);
     flex-wrap: wrap;
   }
   .cb-text {
     font-size: var(--text-ui);
     color: var(--ink-2);
-    line-height: 1.55;
-    max-width: 640px;
+    line-height: var(--leading-relaxed);
+    max-width: 680px;
     margin: 0;
     text-wrap: pretty;
   }
   .cb-actions {
     display: flex;
-    gap: 10px;
+    gap: var(--space-2);
     flex-shrink: 0;
     flex-wrap: wrap;
   }
   .cb-btn {
-    padding: 9px 20px;
-    font-family: var(--font-sans);
-    font-size: var(--text-ui);
-    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    border-radius: var(--radius-xs);
     cursor: pointer;
-    border: 1px solid var(--hairline);
-    transition: all var(--dur-fast) ease;
+    border: 1px solid var(--hairline-strong);
+    transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease, background var(--dur-fast) ease;
     font-weight: var(--fw-medium);
-    letter-spacing: .01em;
-  }
-  .cb-btn--primary {
-    background: var(--ink);
-    color: var(--paper);
-    border-color: var(--ink);
-  }
-  .cb-btn--primary:hover { opacity: .85 }
-  .cb-btn--secondary {
     background: transparent;
     color: var(--ink-2);
+  }
+  .cb-btn--primary {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .cb-btn--primary:hover {
+    background: var(--ink);
+    color: var(--paper);
   }
   .cb-btn--secondary:hover {
     border-color: var(--ink);
