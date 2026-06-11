@@ -1351,7 +1351,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     ],
     all_label_fr: 'Tous les dossiers →',
     all_label_en: 'All case files →',
-    all_href: '/ressources/cas',
+    all_href: '/cas',
   },
   'tier-pyramid-svg': {
     type: 'tier-pyramid-svg',

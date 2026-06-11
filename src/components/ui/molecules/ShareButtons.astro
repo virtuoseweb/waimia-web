@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { url, title, lang = 'fr' } = Astro.props;
-const twitterHref = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+const twitterHref = `https://x.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
 const linkedinHref = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
 const copyLabel = lang === 'en' ? 'Copy link' : 'Copier le lien';
 const shareLabel = lang === 'en' ? 'Share' : 'Partager';

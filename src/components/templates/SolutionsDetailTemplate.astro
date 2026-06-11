@@ -366,7 +366,7 @@ const heroData: SectionByType<'hero-sector'> = {
                 ? (lang === 'en' ? (propsCaseBodyEn ?? propsCaseBodyFr) : propsCaseBodyFr)
                 : <slot name="case-body" />}
             </p>
-            <a class="sol-case-cta" href="/ressources/cas">
+            <a class="sol-case-cta" href={lang === 'fr' ? '/cas' : '/en/cas'}>
               <slot name="case-cta-label">{propsCaseCta ?? 'Voir le cas complet →'}</slot>
             </a>
           </div>
