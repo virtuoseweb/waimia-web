@@ -33,7 +33,7 @@ const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
 <section class="list-hd">
   <div class="wrap-wide">
     <Kicker class="list-kicker">{finalKicker}</Kicker>
-    <h1 class="list-h1 reveal-mask-up">
+    <h1 class="list-h1 reveal-mask-up u-serif-accent">
       {Astro.slots.has('headline') ? <slot name="headline" /> : <Fragment set:html={finalTitle} />}
     </h1>
     <p class="list-lede">
@@ -75,7 +75,6 @@ const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
     text-wrap: balance;
     margin: 0;
   }
-  .list-h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .list-lede {
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.2vw, 32px);

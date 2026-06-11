@@ -21,7 +21,7 @@ const heading = isFr ? data.heading_fr : data.heading_en;
     <div class="decision-list-grid">
       <div>
         <Kicker class="decision-list-kicker">{kicker}</Kicker>
-        <h2 id="decision-list-h2" class="decision-list-h2" set:html={heading} />
+        <h2 id="decision-list-h2" class="decision-list-h2 u-serif-accent" set:html={heading} />
       </div>
       <ol class="decision-list-ol">
         {data.items.map((item, index) => (
@@ -59,7 +59,6 @@ const heading = isFr ? data.heading_fr : data.heading_en;
     font-weight: var(--fw-medium);
     margin: 0;
   }
-  .decision-list-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .decision-list-ol {
     list-style: none;
     margin: 0;

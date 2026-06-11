@@ -14,13 +14,13 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="fz" data-bg={data.background}>
+<section class="fz sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="fz__header reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.lede_fr : data.lede_en) && (
         <p class="fz__lede">{isFr ? data.lede_fr : data.lede_en}</p>
       )}
@@ -50,7 +50,7 @@ const isFr = lang === 'fr';
             {(isFr ? row.kicker_fr : row.kicker_en) && (
               <Kicker tone="accent">{isFr ? row.kicker_fr : row.kicker_en}</Kicker>
             )}
-            <h3>{isFr ? row.h3_fr : row.h3_en}</h3>
+            <h3 class="u-serif-accent u-serif-accent-em">{isFr ? row.h3_fr : row.h3_en}</h3>
             <p>{isFr ? row.body_fr : row.body_en}</p>
             {(isFr ? row.link_label_fr : row.link_label_en) && row.link_href && (
               <a class="fz__link" href={row.link_href}>
@@ -66,10 +66,6 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  .fz {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
 
   .fz__header {
     display: flex;
@@ -77,15 +73,6 @@ const isFr = lang === 'fr';
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
     max-width: 640px;
-  }
-
-  .fz__header h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
   }
 
   .fz__header h2 :global(i) {
@@ -151,12 +138,6 @@ const isFr = lang === 'fr';
     color: var(--ink);
     line-height: 1.22;
     margin: 0;
-  }
-  .fz__text h3 :global(i), .fz__text h3 :global(em) {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: var(--fw-regular);
-    color: var(--accent);
   }
 
   .fz__text p {

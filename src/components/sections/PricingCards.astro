@@ -16,11 +16,11 @@ const lede = isFr ? data.lede_fr : data.lede_en;
 const footnote = isFr ? data.footnote_fr : data.footnote_en;
 ---
 
-<section class="pricing-cards" data-bg={data.background}>
+<section class="pricing-cards sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="pricing-cards__header">
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {lede && <p class="pricing-cards__lede">{lede}</p>}
     </div>
     <div class="pricing-cards__grid" style={`--col-count: ${data.tiers.length}`}>
@@ -60,10 +60,6 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
 </section>
 
 <style>
-  .pricing-cards {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .pricing-cards__header {
     display: flex;
     flex-direction: column;
@@ -71,15 +67,6 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
     margin-bottom: var(--spacing-block);
     max-width: 64ch;
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .pricing-cards__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);

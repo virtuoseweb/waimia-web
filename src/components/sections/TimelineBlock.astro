@@ -10,7 +10,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="timeline-block" data-bg={data.background}>
+<section class="timeline-block sec-base" data-bg={data.background}>
   <div class="wrap-wide">
   <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
   <ol class="timeline-block__list">
@@ -28,10 +28,6 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  .timeline-block {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   h2 {
     font-family: var(--font-sans);
     font-weight: var(--fw-medium);
@@ -40,7 +36,6 @@ const isFr = lang === 'fr';
     color: var(--ink);
     margin: 0 0 var(--spacing-block);
   }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .timeline-block__list {
     list-style: none;
     margin: 0;

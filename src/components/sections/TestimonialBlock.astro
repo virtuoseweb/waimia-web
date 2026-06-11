@@ -10,14 +10,14 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="testimonial-block" data-bg={data.background}>
+<section class="testimonial-block sec-base" data-bg={data.background}>
   <div class="wrap-wide">
   <div class="testimonial-block__header">
     {(isFr ? data.kicker_fr : data.kicker_en) && (
       <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     )}
     {(isFr ? data.h2_fr : data.h2_en) && (
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     )}
   </div>
   <ul class="testimonial-block__list" data-layout={data.layout}>
@@ -37,25 +37,12 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  .testimonial-block {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .testimonial-block__header {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .testimonial-block__list {
     list-style: none;
     margin: 0;

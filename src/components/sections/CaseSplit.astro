@@ -24,7 +24,7 @@ const href = data.cta_href.startsWith('/') ? prefix + data.cta_href : data.cta_h
     <div class="sol-case-dark">
       <div class="wrap-inner">
         <Kicker>{kicker}</Kicker>
-        <h2 class="sol-case-title" set:html={title} />
+        <h2 class="sol-case-title u-serif-accent" set:html={title} />
         <p class="sol-case-body">{body}</p>
         <a class="sol-case-cta" href={href}>{ctaLabel}</a>
       </div>
@@ -70,7 +70,6 @@ const href = data.cta_href.startsWith('/') ? prefix + data.cta_href : data.cta_h
     margin: var(--space-3) 0 20px;
     text-wrap: balance;
   }
-  .sol-case-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-case-body {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);

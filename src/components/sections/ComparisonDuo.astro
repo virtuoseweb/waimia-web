@@ -14,13 +14,13 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="comparison-duo" data-bg={data.background} aria-labelledby="comparison-duo-h2">
+<section class="comparison-duo sec-base" data-bg={data.background} aria-labelledby="comparison-duo-h2">
   <div class="wrap-wide">
     <div class="comparison-duo__header reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 id="comparison-duo-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 id="comparison-duo-h2" class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
     <div class="comparison-duo__grid reveal-stagger">
@@ -64,10 +64,6 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  .comparison-duo {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
 
   .comparison-duo__header {
     display: flex;
@@ -75,16 +71,6 @@ const isFr = lang === 'fr';
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
-
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   .comparison-duo__grid {
     display: grid;

@@ -55,7 +55,7 @@ const revisedLabel = finalRevisedAt
 <section class="trust-hd">
   <div class="wrap-wide">
     <Kicker class="trust-kicker"><Bi fr={finalKickerFr} en={finalKickerEn} /></Kicker>
-    <h1 class="trust-h1 reveal">
+    <h1 class="trust-h1 reveal u-serif-accent">
       {Astro.slots.has('headline') ? <slot name="headline" /> : <Fragment set:html={finalTitle} />}
     </h1>
     <p class="trust-lede reveal">
@@ -114,7 +114,6 @@ const revisedLabel = finalRevisedAt
     font-weight: var(--fw-regular);
     margin: 0;
   }
-  .trust-h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .trust-lede {
     font-family: var(--font-display);
     font-style: italic;

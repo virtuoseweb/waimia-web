@@ -26,7 +26,7 @@ const events = data.items.map((item, i) => ({
 ---
 <section class="sol-sec sol-friction reveal-stagger" data-bg={data.background} data-screen-label="02 Pain Points">
   <div class="wrap g12 g12--full">
-    <header class="sol-sec-hd section-eyebrow col-prose">
+    <header class="sol-sec-hd section-eyebrow col-prose u-serif-accent">
       <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
       <h2 set:html={h2} />
     </header>
@@ -65,7 +65,6 @@ const events = data.items.map((item, i) => ({
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .sol-sec-hd :global(i) { font-family: var(--font-display); color: var(--accent); font-style: italic; font-weight: var(--fw-regular); }
   .sol-aside {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);

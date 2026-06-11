@@ -19,13 +19,13 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
 ---
 
 {data.type === 'pricing-comparison-matrix' ? (
-  <section class="pcm" data-bg={data.background}>
+  <section class="pcm sec-base" data-bg={data.background}>
     <div class="wrap-wide">
       <div class="pcm__header">
         {(isFr ? data.kicker_fr : data.kicker_en) && (
           <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         )}
-        <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+        <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
         {(isFr ? data.body_fr : data.body_en) && (
           <p class="pcm__body">{isFr ? data.body_fr : data.body_en}</p>
         )}
@@ -98,7 +98,7 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
     </div>
   </section>
 ) : (
-  <section class="comparison-table" data-bg={data.background}>
+  <section class="comparison-table sec-base" data-bg={data.background}>
     <div class="wrap-wide">
     <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
     <div class="comparison-table__wrap">
@@ -133,12 +133,6 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
 )}
 
 <style>
-  /* ───── comparison-table (noyau) — CSS d'origine, sélecteurs d'éléments nus
-     qualifiés `:where(.comparison-table)` (spécificité inchangée) ───── */
-  .comparison-table {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   :where(.comparison-table) h2 {
     font-family: var(--font-sans);
     font-weight: var(--fw-medium);
@@ -147,7 +141,6 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
     color: var(--ink);
     margin: 0 0 var(--spacing-block);
   }
-  :where(.comparison-table) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .comparison-table__wrap { overflow-x: auto; }
   :where(.comparison-table) table {
     width: 100%;
@@ -194,28 +187,12 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
     color: var(--paper);
   }
   .comparison-table[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
-
-  /* ───── pricing-comparison-matrix (preset) — CSS VERBATIM PricingComparisonMatrix.astro,
-     `h2` nu qualifié `:where(.pcm)` ───── */
-  .pcm {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .pcm__header {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
-  :where(.pcm) h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  :where(.pcm) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .pcm__body {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

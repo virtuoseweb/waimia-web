@@ -27,7 +27,7 @@ const placements = [
   <div class="wrap g12 g12--full">
     <header class="sol-roi-hd section-eyebrow col-12">
       <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
-      <h2 set:html={h2} />
+      <h2 class="u-serif-accent" set:html={h2} />
     </header>
     <div class="sol-roi-grid col-12 g12">
       {data.metrics.map((m, i) => {
@@ -72,7 +72,6 @@ const placements = [
     margin: var(--space-2) 0 0;
     color: var(--paper);
   }
-  .sol-roi-hd h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-roi-grid {
     gap: clamp(24px, 3vw, 48px);
   }

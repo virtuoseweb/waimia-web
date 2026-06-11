@@ -24,7 +24,7 @@ const isFr = lang === 'fr';
 
     <div class="operating-layer__grid">
       <div>
-        <h2 id="operating-layer-h2" class="operating-layer__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+        <h2 id="operating-layer-h2" class="operating-layer__h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
         <p class="operating-layer__lede">{isFr ? data.lede_fr : data.lede_en}</p>
         <div class="operating-layer__ctas">
           <Button href={data.cta_primary.href} variant="accent" size="lg" mag={0.18}>
@@ -101,7 +101,6 @@ const isFr = lang === 'fr';
     font-weight: var(--fw-medium);
     text-wrap: balance;
   }
-  .operating-layer__h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .operating-layer__lede {
     margin-top: 30px;
     font-size: clamp(15px,1.5vw,18px);

@@ -21,11 +21,11 @@ const items = data.items.map((it) => ({
 }));
 ---
 
-<section class="fa" data-bg={data.background}>
+<section class="fa sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="fa__header">
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
-      <h2 set:html={heading} />
+      <h2 class="sec-base-h2 u-serif-accent" set:html={heading} />
       {lede && <p class="fa__lede">{lede}</p>}
     </div>
     <div class="fa__list">
@@ -49,10 +49,6 @@ const items = data.items.map((it) => ({
 </section>
 
 <style>
-  .fa {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .fa__header {
     display: flex;
     flex-direction: column;
@@ -60,15 +56,6 @@ const items = data.items.map((it) => ({
     margin-bottom: var(--spacing-block);
     max-width: 64ch;
   }
-  .fa h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  .fa h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .fa__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

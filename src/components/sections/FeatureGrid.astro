@@ -95,7 +95,7 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     </div>
   </section>
 ) : data.type === 'icon-trio' ? (
-  <section class="icon-trio" data-bg={data.background}>
+  <section class="icon-trio sec-base" data-bg={data.background}>
     <div class="wrap-wide">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -117,13 +117,13 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     </div>
   </section>
 ) : (
-  <section class="feature-grid" data-bg={data.background}>
+  <section class="feature-grid sec-base" data-bg={data.background}>
     <div class="wrap-wide">
     <div class="feature-grid__header">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
     <ul class="feature-grid__list" data-cols={fgCols}>
       {data.features.map((f: (typeof data.features)[number]) => (
@@ -141,26 +141,12 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
 )}
 
 <style>
-  /* ───── feature-grid (noyau) — CSS d'origine, `h2` nus qualifiés `:where(.feature-grid)` ───── */
-  .feature-grid {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .feature-grid__header {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
-  :where(.feature-grid) h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  :where(.feature-grid) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .feature-grid__list {
     list-style: none;
     margin: 0;
@@ -480,12 +466,6 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
   .commitments-grid[data-bg='ink'] :is(.commitments-grid__h2, .commitments-grid__cell-title) { color: var(--paper); }
   .commitments-grid[data-bg='ink'] :is(.commitments-grid__body, .commitments-grid__cell-body) { color: rgba(var(--paper-rgb), 0.64); }
 
-  /* ───── icon-trio (preset) — CSS VERBATIM IconTrio.astro, `h2` nus qualifiés `:where(.icon-trio)` ───── */
-  .icon-trio {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
-
   .icon-trio .wrap-wide > :global(.kicker) {
     display: block;
     margin-bottom: var(--space-4);
@@ -499,7 +479,6 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     color: var(--ink);
     margin: 0 0 var(--spacing-block);
   }
-  :where(.icon-trio) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   .icon-trio__cols {
     list-style: none;

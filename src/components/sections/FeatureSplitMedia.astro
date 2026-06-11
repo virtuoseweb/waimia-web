@@ -16,7 +16,7 @@ const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
 const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
 ---
 
-<section class="feature-split" data-bg={data.background} data-reversed={data.reversed ? 'true' : 'false'}>
+<section class="feature-split sec-base" data-bg={data.background} data-reversed={data.reversed ? 'true' : 'false'}>
   <div class="wrap-wide feature-split__grid">
     <div class="feature-split__copy">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -52,10 +52,6 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
 </section>
 
 <style>
-  .feature-split {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .feature-split__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -79,7 +75,6 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
     margin: 0;
     max-width: 18ch;
   }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .feature-split__body {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

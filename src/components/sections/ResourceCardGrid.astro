@@ -35,7 +35,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
               <Kicker as="span" tone="accent" class="resource-card__kind">{isFr ? r.kind_fr : r.kind_en}</Kicker>
               {r.gated && <span class="resource-card__gated">{isFr ? 'Inscription' : 'Sign-up'}</span>}
             </div>
-            <h3 class="resource-card__title">{isFr ? r.title_fr : r.title_en}</h3>
+            <h3 class="resource-card__title u-serif-accent">{isFr ? r.title_fr : r.title_en}</h3>
             {desc && <p class="resource-card__desc">{desc}</p>}
             <div class="resource-card__foot">
               {r.format && <span class="resource-card__format">{r.format}</span>}
@@ -124,7 +124,6 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     margin: 0;
     text-wrap: balance;
   }
-  .resource-card__title :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); color: var(--accent); }
 
   .resource-card__desc {
     font-family: var(--font-sans);

@@ -53,7 +53,7 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
     </div>
     <Kicker tone="accent" class="welcome-kicker">{finalKicker}</Kicker>
 
-    <h1 class="welcome-h1">
+    <h1 class="welcome-h1 u-serif-accent">
       {Astro.slots.has('headline') ? <slot name="headline" /> : <Fragment set:html={finalTitle} />}
     </h1>
     <p class="welcome-lede">
@@ -110,7 +110,6 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
     text-wrap: balance;
     margin: 0 0 20px;
   }
-  .welcome-h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .welcome-lede {
     font-family: var(--font-display);
     font-style: italic;

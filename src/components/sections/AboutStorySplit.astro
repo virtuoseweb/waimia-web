@@ -15,13 +15,13 @@ const milestones = data.milestones ?? [];
 const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
 ---
 
-<section class="about-story" data-bg={data.background}>
+<section class="about-story sec-base" data-bg={data.background}>
   <div class="wrap-wide about-story__grid">
     <div class="about-story__narrative">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       <div class="about-story__body">
         {paragraphs.map((p: string) => (
           <p>{p}</p>
@@ -44,10 +44,6 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
 </section>
 
 <style>
-  .about-story {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .about-story__grid {
     display: grid;
     grid-template-columns: 7fr 5fr;
@@ -59,15 +55,6 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
     flex-direction: column;
     gap: var(--space-5);
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .about-story__body {
     display: flex;
     flex-direction: column;

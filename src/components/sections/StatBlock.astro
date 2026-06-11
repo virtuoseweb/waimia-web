@@ -42,11 +42,11 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
     </div>
   </section>
 ) : (
-  <section class="stat-block" data-bg={data.background}>
+  <section class="stat-block sec-base" data-bg={data.background}>
     <div class="wrap-wide">
     <div class="stat-block__header">
       {(isFr ? data.h2_fr : data.h2_en) && (
-        <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+        <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       )}
       {(isFr ? data.lede_fr : data.lede_en) && (
         <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
@@ -81,26 +81,12 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
 )}
 
 <style>
-  /* ───── stat-block (noyau) — CSS d'origine, `h2`/`p` nus qualifiés `:where(.stat-block)` ───── */
-  .stat-block {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .stat-block__header {
     margin-bottom: var(--spacing-block);
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
   }
-  :where(.stat-block) h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  :where(.stat-block) h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   :where(.stat-block) p {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

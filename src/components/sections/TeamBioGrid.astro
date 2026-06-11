@@ -19,13 +19,13 @@ const initials = (name: string) =>
     .join('');
 ---
 
-<section class="team-bio-grid" data-bg={data.background}>
+<section class="team-bio-grid sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="team-bio-grid__header">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.lede_fr : data.lede_en) && (
         <p class="team-bio-grid__lede">{isFr ? data.lede_fr : data.lede_en}</p>
       )}
@@ -53,25 +53,12 @@ const initials = (name: string) =>
 </section>
 
 <style>
-  .team-bio-grid {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .team-bio-grid__header {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .team-bio-grid__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

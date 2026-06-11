@@ -36,7 +36,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
             </div>
             <div class="process-steps__content">
               <div class="process-steps__row">
-                <h3 class="process-steps__title">{isFr ? step.title_fr : step.title_en}</h3>
+                <h3 class="process-steps__title u-serif-accent">{isFr ? step.title_fr : step.title_en}</h3>
                 {meta && <Kicker as="span" tone="muted" class="process-steps__meta">{meta}</Kicker>}
               </div>
               <p class="process-steps__body">{isFr ? step.body_fr : step.body_en}</p>
@@ -135,7 +135,6 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     color: var(--ink);
     margin: 0;
   }
-  .process-steps__title :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); color: var(--accent); }
   .process-steps__body {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);

@@ -29,12 +29,12 @@ const asideNote = isFr ? data.aside_note_fr : data.aside_note_en;
 const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
 ---
 
-<section class="faq-cta" data-bg={data.background}>
+<section class="faq-cta sec-base" data-bg={data.background}>
   <div class="wrap-wide faq-cta__grid">
     <div class="faq-cta__main">
       <div class="faq-cta__header">
         {kicker && <Kicker tone="muted">{kicker}</Kicker>}
-        <h2 set:html={heading} />
+        <h2 class="sec-base-h2" set:html={heading} />
       </div>
       <div class="faq-cta__list">
         {items.map((item, i) => (
@@ -73,10 +73,6 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
 <JsonLd data={faqPage(items)} />
 
 <style>
-  .faq-cta {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .faq-cta__grid {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
@@ -89,15 +85,6 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
     gap: var(--space-4);
     margin-bottom: var(--space-8);
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   .faq-cta__item { border-top: 1px solid var(--hairline); }
   .faq-cta__item:last-child { border-bottom: 1px solid var(--hairline); }

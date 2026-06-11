@@ -22,7 +22,7 @@ const isFr = lang === 'fr';
         {(isFr ? data.kicker_fr : data.kicker_en) && (
           <Kicker tone="accent">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         )}
-        <h1 class="hero-form-inline__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+        <h1 class="hero-form-inline__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
         <p class="hero-form-inline__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
         {data.proof && data.proof.length > 0 && (
           <ul class="hero-form-inline__proof">
@@ -67,7 +67,6 @@ const isFr = lang === 'fr';
     color: var(--ink);
     margin: 0;
   }
-  .hero-form-inline__h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hero-form-inline__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

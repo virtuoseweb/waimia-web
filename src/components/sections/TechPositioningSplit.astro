@@ -20,14 +20,14 @@ const facts = data.facts ?? [];
     <div class="tech-pos-split">
       <div class="tech-pos-left">
         <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-        <h2 class="tech-pos-title" set:html={isFr ? data.title_fr : data.title_en} />
+        <h2 class="tech-pos-title u-serif-accent" set:html={isFr ? data.title_fr : data.title_en} />
         {(isFr ? data.aside_fr : data.aside_en) && (
           <p class="tech-aside">{isFr ? data.aside_fr : data.aside_en}</p>
         )}
       </div>
       <div class="tech-pos-right">
         <Callout variant="manifesto" size="lg">
-          <div class="tech-pos-statement" set:html={isFr ? data.statement_fr : data.statement_en} />
+          <div class="tech-pos-statement u-serif-accent-em" set:html={isFr ? data.statement_fr : data.statement_en} />
         </Callout>
         {facts.length > 0 && (
           <div class="tech-pos-facts">
@@ -89,7 +89,6 @@ const facts = data.facts ?? [];
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 var(--space-5);
   }
-  .tech-pos-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-pos-statement {
     font-family: var(--font-display);
     font-size: clamp(22px, 2.4vw, 32px);
@@ -100,7 +99,6 @@ const facts = data.facts ?? [];
     margin-bottom: 0;
     text-wrap: balance;
   }
-  .tech-pos-statement :global(em) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-pos-facts {
     display: grid;
     grid-template-columns: 1fr;

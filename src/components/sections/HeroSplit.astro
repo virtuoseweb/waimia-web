@@ -39,7 +39,7 @@ const isFr = lang === 'fr';
         </nav>
       )}
       <span class="hero-author__eyebrow">§ {isFr ? data.role_fr : data.role_en}</span>
-      <h1 class="hero-author__h1 reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined}>
+      <h1 class="hero-author__h1 reveal-mask-up u-serif-accent-em" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined}>
         {data.name_lead}<em>{data.name_accent}</em>
       </h1>
       <p class="hero-author__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
@@ -64,7 +64,7 @@ const isFr = lang === 'fr';
     <div class="wrap-wide hero-lead-magnet__grid">
       <div class="hero-lead-magnet__text">
         <Kicker tone="accent" class="hero-lead-magnet__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-        <h1 class="hero-lead-magnet__h1 reveal-mask-up" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
+        <h1 class="hero-lead-magnet__h1 reveal-mask-up u-serif-accent" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
         <p class="hero-lead-magnet__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
         <div class="hero-lead-magnet__meta">
           <span>{isFr ? data.format_fr : data.format_en}</span>
@@ -159,7 +159,6 @@ const isFr = lang === 'fr';
     color: var(--ink);
     margin: 0;
   }
-  .hero-split h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .hero-split p {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
@@ -249,7 +248,6 @@ const isFr = lang === 'fr';
     color: var(--ink);
     text-wrap: balance;
   }
-  .hero-author__h1 em { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hero-author__lede {
     font-family: var(--font-display);
     font-size: var(--text-lede, clamp(21px, 2vw, 30px));
@@ -334,7 +332,6 @@ const isFr = lang === 'fr';
     font-weight: var(--fw-regular);
     margin: 0 0 var(--space-5);
   }
-  .hero-lead-magnet__h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hero-lead-magnet__lede {
     font-family: var(--font-sans);
     font-style: italic;

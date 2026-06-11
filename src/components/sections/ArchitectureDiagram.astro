@@ -29,7 +29,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
       </span>
     </header>
 
-    <h2 id="sysarch-h2" class="sysarch-h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+    <h2 id="sysarch-h2" class="sysarch-h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
 
     <figure class="sysarch-fig reveal reveal-fade">
       <svg
@@ -88,7 +88,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
         )}
       </svg>
 
-      <figcaption class="sysarch-cap" set:html={isFr ? data.caption_fr : data.caption_en} />
+      <figcaption class="sysarch-cap u-serif-accent" set:html={isFr ? data.caption_fr : data.caption_en} />
     </figure>
   </div>
 </section>
@@ -129,7 +129,6 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
     text-wrap: balance;
     color: var(--ink);
   }
-  .sysarch-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
 
   .sysarch-fig {
     margin: 0;
@@ -158,7 +157,6 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
     text-wrap: balance;
     margin: 0;
   }
-  .sysarch-cap :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
 
   /* Flux dessinés au scroll · pathLength=1 normalisé · le .in vient du scroll-reveal (.reveal-fade) */
   .sysarch-flow {

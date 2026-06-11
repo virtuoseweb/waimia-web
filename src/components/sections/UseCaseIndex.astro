@@ -29,7 +29,7 @@ const isFr = lang === 'fr';
         <li>
           <a class="dept-row" href={item.href}>
             <span class="dept-row-num"><span class="dept-row-num-prefix">{isFr ? data.num_prefix_fr : data.num_prefix_en} </span>{`0${i + 1}`}</span>
-            <span class="dept-row-label">{isFr ? item.label_fr : item.label_en}</span>
+            <span class="dept-row-label u-serif-accent u-serif-accent-em">{isFr ? item.label_fr : item.label_en}</span>
             <span class="dept-row-tag">{isFr ? item.tag_fr : item.tag_en}</span>
             <span class="dept-row-arr" aria-hidden>→</span>
           </a>
@@ -107,13 +107,6 @@ const isFr = lang === 'fr';
     letter-spacing: -0.018em;
     color: var(--ink);
     transition: color var(--dur-fast) var(--ease, var(--ease));
-  }
-  .dept-row-label :global(i),
-  .dept-row-label :global(em) {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: var(--fw-regular);
-    color: var(--accent);
   }
 
   .dept-row-tag {

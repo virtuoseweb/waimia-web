@@ -10,13 +10,13 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="gallery-masonry" data-bg={data.background}>
+<section class="gallery-masonry sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="gallery-masonry__header reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.intro_fr : data.intro_en) && (
         <p class="gallery-masonry__intro">{isFr ? data.intro_fr : data.intro_en}</p>
       )}
@@ -37,7 +37,7 @@ const isFr = lang === 'fr';
               <div class="gallery-masonry__placeholder" aria-hidden="true" />
             )}
             <figcaption class="gallery-masonry__caption">
-              <span class="gallery-masonry__caption-title">
+              <span class="gallery-masonry__caption-title u-serif-accent u-serif-accent-em">
                 {isFr ? item.title_fr : item.title_en}
               </span>
               {(isFr ? item.body_fr : item.body_en) && (
@@ -59,10 +59,6 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  .gallery-masonry {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
 
   .gallery-masonry__header {
     display: flex;
@@ -71,17 +67,6 @@ const isFr = lang === 'fr';
     margin-bottom: var(--spacing-block);
     max-width: 640px;
   }
-
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   .gallery-masonry__intro {
     font-family: var(--font-sans);
@@ -190,13 +175,6 @@ const isFr = lang === 'fr';
     font-weight: var(--fw-medium);
     color: var(--paper);
     line-height: 1.22;
-  }
-  .gallery-masonry__caption-title :global(i),
-  .gallery-masonry__caption-title :global(em) {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: var(--fw-regular);
-    color: var(--accent);
   }
 
   .gallery-masonry__caption-body {

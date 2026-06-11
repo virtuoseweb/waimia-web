@@ -13,13 +13,13 @@ const isFr = lang === 'fr';
 const items = data.items ?? [];
 ---
 
-<section class="faq-two-col" data-bg={data.background}>
+<section class="faq-two-col sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="faq-two-col__header">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
     <dl class="faq-two-col__grid">
@@ -34,25 +34,12 @@ const items = data.items ?? [];
 </section>
 
 <style>
-  .faq-two-col {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .faq-two-col__header {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .faq-two-col__grid {
     margin: 0;
     display: grid;

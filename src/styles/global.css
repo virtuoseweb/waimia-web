@@ -84,16 +84,33 @@ h3 {
   letter-spacing: -0.015em;
   font-weight: var(--fw-medium);
 }
-/* Emphase serif : un mot/fragment relevé dans un titre (<i>) ou via .u-serif-accent.
+/* Emphase serif : un mot/fragment relevé dans un titre (<i>).
    Réplique le pattern éprouvé .home-typo :is(h2,h3) i. Pas de nouveau token. */
 h1 i,
 h2 i,
-h3 i,
-.u-serif-accent {
+h3 i {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: var(--fw-regular);
   letter-spacing: var(--tracking-display);
+}
+/* Consolidation A2 : l'emphase <i>/<em> vient du CONTENU (set:html), la classe se pose donc
+   sur l'élément conteneur (titre, lede, header de section). Byte-parité avec les blocs
+   scoped purgés : 3 props (sans letter-spacing) pour .u-serif, + color accent pour
+   .u-serif-accent. Variantes -em séparées : on n'élargit JAMAIS i vers em à l'aveugle
+   (un <em> non stylé localement doit rester en rendu hérité). */
+.u-serif i,
+.u-serif-em em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+}
+.u-serif-accent i,
+.u-serif-accent-em em {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-regular);
 }
 /* Exception signature HERO : le h1 du hero home reste en Instrument Serif (élément
    signature intouché par la directive typo). Le composant Hero.astro porte déjà sa
@@ -1302,6 +1319,22 @@ a:not([class]):hover,
   padding: var(--section-loose) var(--gut);
   border-bottom: 1px solid var(--hairline);
   position: relative;
+}
+/* Consolidation A3 : section standard du catalogue (cran --section-base + hairline),
+   mutualisation byte-exacte des ~32 blocs scoped purgés. Distinct de .sec (loose + gut
+   + relative). .sec-base-h2 = le titre h2 de ces sections (distinct de .sec-hd h2 :
+   leading/tracking différents). Ne pas fusionner sans preuve de parité. */
+.sec-base {
+  border-bottom: 1px solid var(--hairline);
+  padding-block: var(--section-base);
+}
+.sec-base-h2 {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2-section);
+  font-weight: var(--fw-medium);
+  line-height: var(--leading-h3);
+  margin: 0;
 }
 .sec-paper {
   background: var(--paper-2);

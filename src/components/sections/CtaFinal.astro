@@ -26,7 +26,7 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
     <div class="wrap wrap-tight">
       <div class="sol-cta-final">
         <Dingbat variant="asterism" size="sm" />
-        <h2><i set:html={isFr ? data.h2_fr : data.h2_en} /></h2>
+        <h2 class="u-serif-accent"><i set:html={isFr ? data.h2_fr : data.h2_en} /></h2>
         <div class="sol-cta-body">
           <p>{isFr ? data.body_fr : data.body_en}</p>
           <div class="sol-cta-btns">
@@ -64,7 +64,7 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
         )}
       </div>
       {(isFr ? data.reassurance_fr : data.reassurance_en) && (
-        <p class="cta-final__sub" set:html={isFr ? data.reassurance_fr : data.reassurance_en} />
+        <p class="cta-final__sub u-serif-accent" set:html={isFr ? data.reassurance_fr : data.reassurance_en} />
       )}
     </div>
     </div>
@@ -105,7 +105,6 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
     color: var(--ink);
     margin: 0;
   }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   p {
     font-family: var(--font-sans);
     font-size: clamp(16px, 1.4vw, 20px);
@@ -138,7 +137,6 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
     max-width: 560px;
     margin: 0 auto;
   }
-  .cta-final__sub :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .cta-final[data-bg="ink"] .cta-final__avail,
   .cta-final[data-bg="ink"] .cta-final__sub,
   .cta-final[data-bg="accent"] .cta-final__avail,
@@ -167,7 +165,6 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
        (héritée de .sol-sec-dark = var(--paper)) → rendu identique. */
     color: var(--paper);
   }
-  .sol-cta-final h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-cta-body p {
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 19px);

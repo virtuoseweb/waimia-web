@@ -12,13 +12,13 @@ const isFr = lang === 'fr';
 const cells = data.cells ?? [];
 ---
 
-<section class="bento-grid" data-bg={data.background}>
+<section class="bento-grid sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="bento-grid__header">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
     <ul class="bento-grid__mosaic">
@@ -36,10 +36,6 @@ const cells = data.cells ?? [];
 </section>
 
 <style>
-  .bento-grid {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
 
   .bento-grid__header {
     display: flex;
@@ -47,16 +43,6 @@ const cells = data.cells ?? [];
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
-
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   /* Grille bento : 5 cellules en 3 colonnes x 2 lignes
      Cellule 1 : grande, occupe col 1-2 / row 1-2 (2x2)

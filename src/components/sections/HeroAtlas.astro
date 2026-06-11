@@ -21,7 +21,7 @@ const isFr = lang === 'fr';
         <span class="kick-dot" aria-hidden="true"></span>
         <span>{isFr ? data.kicker_fr : data.kicker_en}</span>
       </Kicker>
-      <h1 class="hero-atlas-title reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      <h1 class="hero-atlas-title reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
       <p class="hero-atlas-subhead" set:html={isFr ? data.subhead_fr : data.subhead_en} />
       <p class="hero-atlas-lead" set:html={isFr ? data.lead_fr : data.lead_en} />
       <div class="hero-atlas-ctas">
@@ -129,7 +129,6 @@ const isFr = lang === 'fr';
     text-wrap: balance;
     max-width: var(--wrap-read);
   }
-  .hero-atlas-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hero-atlas-lead {
     font-family: var(--font-sans);
     font-size: var(--text-lede);

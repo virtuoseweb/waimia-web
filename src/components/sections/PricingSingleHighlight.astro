@@ -21,11 +21,11 @@ const guarantee = isFr ? data.guarantee_fr : data.guarantee_en;
 const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
 ---
 
-<section class="pricing-single" data-bg={data.background}>
+<section class="pricing-single sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="pricing-single__header">
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
     <article class="pricing-single__card">
@@ -69,10 +69,6 @@ const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
 </section>
 
 <style>
-  .pricing-single {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .pricing-single__header {
     display: flex;
     flex-direction: column;
@@ -80,15 +76,6 @@ const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
     margin-bottom: var(--spacing-block);
     max-width: 64ch;
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   .pricing-single__card {
     display: grid;

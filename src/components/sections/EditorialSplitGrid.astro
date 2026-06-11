@@ -21,7 +21,7 @@ const columns = [data.left, data.right];
     {columns.map((column) => (
       <div>
         <Kicker tone="accent" class={column.slot === 'right' ? 'hub-lb-k' : 'hub-blog-k'}>{isFr ? column.kicker_fr : column.kicker_en}</Kicker>
-        <h2 class={column.slot === 'right' ? 'hub-lb-h2' : 'hub-blog-h2'} set:html={isFr ? column.h2_fr : column.h2_en} />
+        <h2 class={column.slot === 'right' ? 'hub-lb-h2 u-serif-accent' : 'hub-blog-h2 u-serif-accent'} set:html={isFr ? column.h2_fr : column.h2_en} />
         <p class={column.slot === 'right' ? 'hub-lb-lead' : 'hub-blog-lead'}>{isFr ? column.lede_fr : column.lede_en}</p>
         <RelatedCards cards={column.cards} />
         <div class={column.slot === 'right' ? 'hub-lb-cta' : 'hub-blog-cta'}>
@@ -51,8 +51,6 @@ const columns = [data.left, data.right];
     margin: 0 0 18px;
     text-wrap: balance;
   }
-  .hub-blog-h2 :global(i),
-  .hub-lb-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hub-blog-lead,
   .hub-lb-lead {
     font-family: var(--font-sans);

@@ -20,11 +20,11 @@ const saveBadge = isFr ? data.save_badge_fr : data.save_badge_en;
 const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<section class="pricing-toggle" data-bg={data.background}>
+<section class="pricing-toggle sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="pricing-toggle__header">
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
     <div class="pricing-toggle__switch-row">
@@ -77,10 +77,6 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
 </section>
 
 <style>
-  .pricing-toggle {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .pricing-toggle__header {
     display: flex;
     flex-direction: column;
@@ -88,15 +84,6 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
     margin-bottom: var(--space-6);
     max-width: 64ch;
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
 
   /* ── Switch row ── */
   .pricing-toggle__switch-row {

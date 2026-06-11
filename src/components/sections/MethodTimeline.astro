@@ -10,7 +10,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="method-timeline" data-bg={data.background}>
+<section class="method-timeline sec-base" data-bg={data.background}>
   <div class="wrap-wide">
   {(data.kicker_fr || data.kicker_en || data.h2_fr || data.h2_en || data.lede_fr || data.lede_en) && (
   <div class="method-timeline__header">
@@ -18,7 +18,7 @@ const isFr = lang === 'fr';
       <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     )}
     {(isFr ? data.h2_fr : data.h2_en) && (
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     )}
     {(isFr ? data.lede_fr : data.lede_en) && (
       <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
@@ -30,7 +30,7 @@ const isFr = lang === 'fr';
       <li class="method-timeline__step">
         <Kicker tone="accent" size={10} class="method-timeline__num">{step.num}</Kicker>
         <div class="method-timeline__content">
-          <strong class="method-timeline__label">{isFr ? step.label_fr : step.label_en}</strong>
+          <strong class="method-timeline__label u-serif-accent u-serif-accent-em">{isFr ? step.label_fr : step.label_en}</strong>
           <p>{isFr ? step.body_fr : step.body_en}</p>
           {(isFr ? step.meta_fr : step.meta_en) && (
             <Kicker tone="dim" size={10}>{isFr ? step.meta_fr : step.meta_en}</Kicker>
@@ -46,10 +46,6 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  .method-timeline {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .method-timeline__header {
     display: flex;
     flex-direction: column;
@@ -57,15 +53,6 @@ const isFr = lang === 'fr';
     margin-bottom: var(--spacing-block);
     max-width: 64ch;
   }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; }
   .method-timeline__header p {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
@@ -101,13 +88,6 @@ const isFr = lang === 'fr';
     font-weight: var(--fw-medium);
     color: var(--ink);
     line-height: 1.22;
-  }
-  .method-timeline__label :global(i),
-  .method-timeline__label :global(em) {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: var(--fw-regular);
-    color: var(--accent);
   }
   .method-timeline__content p {
     font-family: var(--font-sans);

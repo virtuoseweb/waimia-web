@@ -39,7 +39,7 @@ const tmRows = data.type === 'tech-models-table'
 {data.type === 'tech-models-table' ? (
   <section class="tech-sec tech-sec-paper" data-bg={data.background} data-screen-label="04 Models">
     <div class="wrap">
-      <div class="tech-sec-hd">
+      <div class="tech-sec-hd u-serif-accent">
         <div>
           <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
           <h2 set:html={isFr ? data.title_fr : data.title_en} />
@@ -61,7 +61,7 @@ const tmRows = data.type === 'tech-models-table'
 ) : data.type === 'department-stack' ? (
   <section class="sol-sec sol-sec-paper sol-tools reveal" data-bg={data.background} data-screen-label="06 Stack">
     <div class="wrap g12 g12--full">
-      <header class="sol-sec-hd section-eyebrow col-prose">
+      <header class="sol-sec-hd section-eyebrow col-prose u-serif-accent">
         <Kicker as="span" tone="accent" class="eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</Kicker>
         <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
       </header>
@@ -88,7 +88,7 @@ const tmRows = data.type === 'tech-models-table'
   <section class="ed-table-block reveal-stagger" data-bg={data.background} aria-labelledby="ed-table-block-h2">
     <div class="wrap-wide">
       <Kicker class="ed-table-block-kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-      <h2 id="ed-table-block-h2" class="ed-table-block-h2" set:html={isFr ? data.heading_fr : data.heading_en} />
+      <h2 id="ed-table-block-h2" class="ed-table-block-h2 u-serif-accent" set:html={isFr ? data.heading_fr : data.heading_en} />
       <EditorialTable
         caption={isFr ? data.caption_fr : data.caption_en}
         columns={isFr ? data.columns_fr : data.columns_en}
@@ -117,7 +117,6 @@ const tmRows = data.type === 'tech-models-table'
     font-weight: var(--fw-medium);
     margin: 0 0 28px;
   }
-  .ed-table-block-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
 
   /* ───── tech-models-table (preset) — CSS VERBATIM TechModelsTable.astro,
      `.wrap` scopé qualifié `:where(.tech-sec) .wrap` (spécificité inchangée) ───── */
@@ -141,7 +140,6 @@ const tmRows = data.type === 'tech-models-table'
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .tech-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-aside {
     font-family: var(--font-display);
     font-size: clamp(15px, 1.3vw, 17px);
@@ -198,7 +196,6 @@ const tmRows = data.type === 'tech-models-table'
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .sol-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .sol-aside {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 17px);

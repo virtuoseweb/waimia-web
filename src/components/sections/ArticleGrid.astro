@@ -39,7 +39,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
             )}
             <div class="article-card__body">
               {tag && <Kicker as="span" tone="accent" class="article-card__tag">{tag}</Kicker>}
-              <h3 class="article-card__title">{isFr ? a.title_fr : a.title_en}</h3>
+              <h3 class="article-card__title u-serif-accent">{isFr ? a.title_fr : a.title_en}</h3>
               {excerpt && <p class="article-card__excerpt">{excerpt}</p>}
               <div class="article-card__meta">
                 {a.author && <span class="article-card__author">{a.author}</span>}
@@ -131,7 +131,6 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     margin: 0;
     text-wrap: balance;
   }
-  .article-card__title :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); color: var(--accent); }
 
   .article-card__excerpt {
     font-family: var(--font-sans);

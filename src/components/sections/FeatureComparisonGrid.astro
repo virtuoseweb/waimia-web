@@ -16,11 +16,11 @@ const kicker = isFr ? data.kicker_fr : data.kicker_en;
 const lede = isFr ? data.lede_fr : data.lede_en;
 ---
 
-<section class="fcg" data-bg={data.background}>
+<section class="fcg sec-base" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="fcg__header">
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
-      <h2 set:html={heading} />
+      <h2 class="sec-base-h2 u-serif-accent" set:html={heading} />
       {lede && <p class="fcg__lede">{lede}</p>}
     </div>
     <div class="fcg__grid" data-cols={data.columns.length}>
@@ -44,10 +44,6 @@ const lede = isFr ? data.lede_fr : data.lede_en;
 </section>
 
 <style>
-  .fcg {
-    padding-block: var(--section-base);
-    border-bottom: 1px solid var(--hairline);
-  }
   .fcg__header {
     display: flex;
     flex-direction: column;
@@ -55,15 +51,6 @@ const lede = isFr ? data.lede_fr : data.lede_en;
     margin-bottom: var(--spacing-block);
     max-width: 64ch;
   }
-  .fcg h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h2-section);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-    margin: 0;
-  }
-  .fcg h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .fcg__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);

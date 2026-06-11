@@ -48,7 +48,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
 <section class="hero-conversion-funnel" data-bg={data.background}>
   <div class="wrap-wide" style={cfWrapStyle}>
     <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
-    <h1 class="hero-conversion-funnel__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <h1 class="hero-conversion-funnel__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
     <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
     {data.meta_pills && data.meta_pills.length > 0 && (
       <div class="hero-conversion-funnel__meta reveal-stagger" aria-label={isFr ? "Repères de l'offre" : 'Offer markers'}>
@@ -107,7 +107,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   <div class="wrap-wide">
     <Kicker class="hero-pillar-hub__meta">{isFr ? data.meta_kicker_fr : data.meta_kicker_en}</Kicker>
     <Kicker tone="accent" class="hero-pillar-hub__num">§ {data.hub_num}</Kicker>
-    <h1 class="hero-pillar-hub__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <h1 class="hero-pillar-hub__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
     <p class="hero-pillar-hub__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
     {data.stats && data.stats.length > 0 && (
       <div class="hero-pillar-hub__stats reveal-stagger">
@@ -128,7 +128,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   <div class="wrap-wide">
     <Kicker class="hero-hub-stats__meta">{isFr ? data.meta_kicker_fr : data.meta_kicker_en}</Kicker>
     <Kicker tone="accent" class="hero-hub-stats__num">§ {data.hub_num}</Kicker>
-    <h1 class="hero-hub-stats__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <h1 class="hero-hub-stats__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
     <div class="hero-hub-stats__lede reveal">
       {ledeDropCap
         ? <p><DropCap variant="mono">{ledeDropCap}</DropCap><Fragment set:html={isFr ? data.lede_fr : data.lede_en}/></p>
@@ -164,7 +164,6 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     font-weight: var(--fw-regular);
     margin: 0;
   }
-  .hero-hub-stats__h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hero-hub-stats__lede {
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.4vw, 30px);
@@ -236,7 +235,6 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     color: var(--ink);
     margin: 0;
   }
-  .hero-pillar-hub__h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hero-pillar-hub__lede {
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.4vw, 30px);
@@ -300,7 +298,6 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     font-weight: var(--fw-regular);
     margin: 0 0 var(--space-6);
   }
-  .hero-conversion-funnel__h1 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .hero-conversion-funnel__lede {
     font-family: var(--font-sans);
     font-size: clamp(20px, 2.4vw, 30px);

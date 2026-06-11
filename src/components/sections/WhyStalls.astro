@@ -17,7 +17,7 @@ const isFr = lang === 'fr';
     <div class="why-stalls__grid">
       <aside class="why-stalls__aside">
         <ChapterLabel num={data.chapter_num} title={isFr ? data.chapter_title_fr : data.chapter_title_en} />
-        <h2 id="why-stalls-h2" class="why-stalls__h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+        <h2 id="why-stalls-h2" class="why-stalls__h2 u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
         <p class="why-stalls__lead">{isFr ? data.aside_lead_fr : data.aside_lead_en}</p>
       </aside>
       <div class="why-stalls__rows row-lines">
@@ -45,7 +45,6 @@ const isFr = lang === 'fr';
     font-weight: var(--fw-medium);
     margin-top: 22px;
   }
-  .why-stalls__h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .why-stalls__h2 :global(span) { display: block; }
   .why-stalls__lead {
     margin-top: 20px;

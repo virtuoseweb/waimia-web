@@ -25,7 +25,7 @@ const events = data.steps.map((s) => ({
 ---
 <section class="tech-sec tech-sec-paper tech-integration" data-bg={data.background} data-screen-label="06 Integration">
   <div class="wrap">
-    <div class="tech-sec-hd">
+    <div class="tech-sec-hd u-serif-accent">
       <div>
         <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         <h2 set:html={isFr ? data.title_fr : data.title_en} />
@@ -60,7 +60,6 @@ const events = data.steps.map((s) => ({
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .tech-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
   .tech-aside {
     font-family: var(--font-display);
     font-size: clamp(15px, 1.3vw, 17px);

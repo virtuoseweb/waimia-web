@@ -23,7 +23,7 @@ const isFr = lang === 'fr';
       <span class="services-grid__spec">{isFr ? data.spec_fr : data.spec_en}</span>
     </header>
 
-    <h2 id="services-grid-h2" class="services-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+    <h2 id="services-grid-h2" class="services-grid__h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
 
     <div class="services-grid__grid reveal-stagger">
       {data.services.map((s) => (
@@ -110,7 +110,6 @@ const isFr = lang === 'fr';
     text-wrap: balance;
     color: var(--ink);
   }
-  .services-grid__h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); font-style: italic; color: var(--accent); }
   .services-grid__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
