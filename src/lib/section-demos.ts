@@ -2863,7 +2863,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     role_fr: 'Directrice des opérations',
     role_en: 'Head of Operations',
     company: 'Lumen Retail',
-    portrait_src: '/media/portrait-camille-rousseau.jpg',
+    portrait_src: '/media/portrait-camille-rousseau.svg',
     logo_src: '/logos/client-lumen.svg',
   },
   'faq-two-column': {
