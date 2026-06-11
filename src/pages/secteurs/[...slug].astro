@@ -3,6 +3,8 @@ export const prerender = true;
 
 import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
 import SolutionsDetailTemplate from '../../components/templates/SolutionsDetailTemplate.astro';
+import CaseCardGrid from '../../components/sections/CaseCardGrid.astro';
+import { sectorCaseGridData } from '../../lib/sector-cases';
 
 export async function getStaticPaths() {
   const entries = await getCollection('secteurs');
@@ -27,6 +29,10 @@ const shortTitle = d.title_fr.split('·')[0].trim();
 const caseEntry = d.caseRef ? await getEntry('cases', d.caseRef) : null;
 const caseData = caseEntry?.data;
 const caseTitleParts = caseData ? caseData.title_fr.split('·').map((part: string) => part.trim()) : [];
+
+// Listing « Cas clients » (mandat) : 3 cas, priorité au secteur courant (facets.sector === id),
+// complétés par les cas les plus proches. Section cataloguée case-card-grid, secteur visible.
+const caseGridData = await sectorCaseGridData(entry.id, 'fr');
 ---
 <SolutionsDetailTemplate
   title={`${d.title_fr} · Waimia`}
@@ -83,4 +89,7 @@ const caseTitleParts = caseData ? caseData.title_fr.split('·').map((part: strin
     </Fragment>
   )}
   <Fragment slot="cta-title">Votre secteur {shortTitle},<br/>câblé.</Fragment>
+  <Fragment slot="extra-cases">
+    <CaseCardGrid data={caseGridData} lang="fr" />
+  </Fragment>
 </SolutionsDetailTemplate>
