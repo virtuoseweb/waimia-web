@@ -19,7 +19,7 @@ const levelLabels: Record<string, Record<string, string>> = {
 
 const title = isFr ? data.title_fr : data.title_en;
 ---
-<div class="catalogue">
+<div class="catalogue" data-bg={data.background}>
   <h2 class="section-title">{title}</h2>
   <div class="catalogue-table">
     <div class="table-header">
@@ -164,4 +164,27 @@ const title = isFr ? data.title_fr : data.title_en;
     .col-niveau { display: none; }
     .col-duree { display: none; }
   }
+
+  /* ════════ Fonds composables R4 · defaut clair inchange ════════ */
+  /* Le bloc .catalogue n'a pas de fond par defaut ; on en pose un + padding-block
+     uniquement quand data-bg est present (la mise en page claire reste intacte). */
+  .catalogue[data-bg='paper-2'] { background: var(--paper-2); padding-block: var(--space-9); }
+  .catalogue[data-bg='paper-3'] { background: var(--paper-3); padding-block: var(--space-9); }
+  .catalogue[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: var(--space-9);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .catalogue[data-bg='ink'] .catalogue-table,
+  .catalogue[data-bg='ink'] .table-header,
+  .catalogue[data-bg='ink'] .table-row { border-color: rgba(var(--paper-rgb), 0.14); }
+  .catalogue[data-bg='ink'] .table-row:hover { background: rgba(var(--accent-rgb), 0.12); }
+  .catalogue[data-bg='ink'] .row-title { color: var(--paper); }
+  .catalogue[data-bg='ink'] .col-num,
+  .catalogue[data-bg='ink'] .mono { color: rgba(var(--paper-rgb), 0.7); }
+  /* Pills : conserver l'accent, eclaircir les variantes muted/expert pour le contraste */
+  .catalogue[data-bg='ink'] .pill--debutant { color: rgba(var(--paper-rgb), 0.64); border-color: rgba(var(--paper-rgb), 0.3); }
+  .catalogue[data-bg='ink'] .pill--expert { color: var(--paper); border-color: rgba(var(--paper-rgb), 0.55); }
 </style>

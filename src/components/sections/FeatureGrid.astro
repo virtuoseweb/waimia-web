@@ -26,7 +26,7 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
 ---
 
 {data.type === 'problems-grid' ? (
-  <section class="problems-grid wrap-wide reveal-blur-clip">
+  <section class="problems-grid wrap-wide reveal-blur-clip" data-bg={data.background}>
     <h2 class="problems-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
     <div class="problems-grid__cards">
       {data.problems.map((p, i) => (
@@ -40,7 +40,7 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     </div>
   </section>
 ) : data.type === 'deliverables-grid' ? (
-  <section class="deliverables-grid" style={`--deliverables-grid-cols: ${dgCols}`}>
+  <section class="deliverables-grid" data-bg={data.background} style={`--deliverables-grid-cols: ${dgCols}`}>
     <div class="wrap-wide">
       <header class="deliverables-grid__hd">
         <Kicker as="span" tone="accent" class="deliverables-grid__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -68,7 +68,7 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     </div>
   </section>
 ) : data.type === 'commitments-grid' ? (
-  <section class="commitments-grid" aria-labelledby="commitments-grid-h2">
+  <section class="commitments-grid" data-bg={data.background} aria-labelledby="commitments-grid-h2">
     <div class="wrap-wide">
       {(data.kicker_fr || data.kicker_en) && (
         <Kicker as="p" tone="accent" class="commitments-grid__kicker">
@@ -257,6 +257,24 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
     line-height: var(--leading-prose);
     color: var(--muted);
   }
+  /* ── Alternance des fonds R4 · defaut clair = rendu inchange ── */
+  .problems-grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .problems-grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .problems-grid[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .problems-grid[data-bg='ink'] .problems-grid__cards {
+    background: rgba(var(--paper-rgb), 0.12);
+    border-color: rgba(var(--paper-rgb), 0.12);
+  }
+  .problems-grid[data-bg='ink'] .problems-grid__card {
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+  .problems-grid[data-bg='ink'] :is(.problems-grid__h2, h3) { color: var(--paper); }
+  .problems-grid[data-bg='ink'] :is(.problems-grid__num, p) { color: rgba(var(--paper-rgb), 0.64); }
 
   /* ───── deliverables-grid (preset) — CSS VERBATIM DeliverablesGrid.astro ───── */
   .deliverables-grid {
@@ -376,6 +394,21 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
       padding-right: 0;
     }
   }
+  /* ── Alternance des fonds R4 · defaut clair = rendu inchange ── */
+  .deliverables-grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .deliverables-grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .deliverables-grid[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .deliverables-grid[data-bg='ink'] :is(.deliverables-grid__title, .deliverables-grid__card h3) { color: var(--paper); }
+  .deliverables-grid[data-bg='ink'] :is(.deliverables-grid__lead, .deliverables-grid__card p) { color: rgba(var(--paper-rgb), 0.72); }
+  .deliverables-grid[data-bg='ink'] .deliverables-grid__card:hover {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-top-color: var(--accent);
+  }
 
   /* ───── commitments-grid (preset) — CSS VERBATIM CommitmentsGrid.astro ───── */
   .commitments-grid {
@@ -446,6 +479,17 @@ const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4
       border-bottom: none;
     }
   }
+  /* ── Alternance des fonds R4 · defaut clair = rendu inchange ── */
+  .commitments-grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .commitments-grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .commitments-grid[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .commitments-grid[data-bg='ink'] :is(.commitments-grid__h2, .commitments-grid__cell-title) { color: var(--paper); }
+  .commitments-grid[data-bg='ink'] :is(.commitments-grid__body, .commitments-grid__cell-body) { color: rgba(var(--paper-rgb), 0.64); }
 
   /* ───── icon-trio (preset) — CSS VERBATIM IconTrio.astro, `h2` nus qualifiés `:where(.icon-trio)` ───── */
   .icon-trio {

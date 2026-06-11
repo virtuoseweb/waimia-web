@@ -10,9 +10,11 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+// `background` (passe 0 R4) pas encore present sur ce schema → lecture defensive sans toucher au schema.
+const background = data.background;
 ---
 
-<section class="pull-quote-block">
+<section class="pull-quote-block" data-bg={background}>
   <div class="wrap-wide">
     <PullQuote
       attribution={isFr ? data.cite_fr : data.cite_en}
@@ -31,4 +33,20 @@ const isFr = lang === 'fr';
   .pull-quote-block :global(.pull-quote) {
     margin-block: 0;
   }
+
+  /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair inchange ── */
+  .pull-quote-block[data-bg='paper-2'] { background: var(--paper-2); }
+  .pull-quote-block[data-bg='paper-3'] { background: var(--paper-3); }
+  .pull-quote-block[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.82);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  /* PullQuote interne (composant scope distinct) : corps + guillemet + signature sur ink. */
+  .pull-quote-block[data-bg='ink'] :global(.pull-quote-body) { color: var(--paper); }
+  .pull-quote-block[data-bg='ink'] :global(.pull-quote-mark) { color: rgba(var(--paper-rgb), 0.5); }
+  .pull-quote-block[data-bg='ink'] :global(.pull-quote-attr) { color: rgba(var(--paper-rgb), 0.82); }
+  .pull-quote-block[data-bg='ink'] :global(.pull-quote-cite) { color: rgba(var(--paper-rgb), 0.6); }
 </style>

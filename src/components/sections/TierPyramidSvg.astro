@@ -17,7 +17,7 @@ const tiers = [
 ];
 ---
 
-<div class="pyramid-wrap reveal">
+<div class="pyramid-wrap reveal" data-bg={data.background}>
   <svg
     viewBox="0 0 800 440"
     xmlns="http://www.w3.org/2000/svg"
@@ -53,4 +53,18 @@ const tiers = [
     max-width: 800px;
     height: auto;
   }
+
+  /* ── Alternance des fonds · defaut (transparent/paper) = rendu inchange ── */
+  .pyramid-wrap[data-bg='paper-2'] { background: var(--paper-2); }
+  .pyramid-wrap[data-bg='paper-3'] { background: var(--paper-3); }
+  .pyramid-wrap[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  /* Traits du triangle (stroke=--ink invisible sur ink) repassent paper attenue ;
+     labels muted repassent en paper attenue. Inline SVG attrs ecrases par CSS. */
+  .pyramid-wrap[data-bg='ink'] svg polygon[stroke='var(--ink)'],
+  .pyramid-wrap[data-bg='ink'] svg line[stroke='var(--ink)'] { stroke: rgba(var(--paper-rgb), 0.5); }
+  .pyramid-wrap[data-bg='ink'] svg text[fill='var(--muted)'] { fill: rgba(var(--paper-rgb), 0.78); }
+  .pyramid-wrap[data-bg='ink'] svg text[fill='var(--muted-2)'] { fill: rgba(var(--paper-rgb), 0.6); }
 </style>

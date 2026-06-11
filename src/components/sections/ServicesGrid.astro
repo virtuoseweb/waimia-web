@@ -11,7 +11,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="services-grid" aria-labelledby="services-grid-h2">
+<section class="services-grid" data-bg={data.background} aria-labelledby="services-grid-h2">
   <div class="wrap-wide">
     <header class="services-grid__hd">
       <div class="services-grid__chapter">
@@ -258,5 +258,21 @@ const isFr = lang === 'fr';
   @media (max-width: 600px) {
     .services-grid__grid { grid-template-columns: 1fr; }
     .services-grid__cell { border-right: none !important; }
+  }
+  /* ── Alternance des fonds R4 · defaut paper-2 (clair) = rendu inchange ── */
+  .services-grid[data-bg='paper'] { background: var(--paper); }
+  .services-grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .services-grid[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  /* Connecteurs / metas mono : utilisent --ink direct -> recolore clair */
+  .services-grid[data-bg='ink'] :is(.services-grid__h2, .services-grid__cell-title, .services-grid__cell-fig, .services-grid__cell-foot-val, .services-grid__foot-link) { color: var(--paper); }
+  .services-grid[data-bg='ink'] :is(.services-grid__cell-body, .services-grid__cell-foot-key) { color: rgba(var(--paper-rgb), 0.64); }
+  .services-grid[data-bg='ink'] .services-grid__cell:hover {
+    background: rgba(var(--paper-rgb), 0.05);
+    border-color: var(--accent);
   }
 </style>

@@ -11,12 +11,14 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+// `background` (passe 0 R4) pas encore present sur ce schema → lecture defensive sans toucher au schema.
+const background = data.background;
 const text = isFr ? data.text_fr : data.text_en;
 const badge = isFr ? data.badge_fr : data.badge_en;
 const linkLabel = isFr ? data.link_label_fr : data.link_label_en;
 const closeLabel = isFr ? 'Fermer' : 'Dismiss';
 ---
-<section class="announce" data-tone={data.tone}>
+<section class="announce" data-tone={data.tone} data-bg={background}>
   <div class="wrap-wide announce__inner">
     <p class="announce__text">
       {badge && <span class="announce__badge">{badge}</span>}
@@ -115,6 +117,18 @@ const closeLabel = isFr ? 'Fermer' : 'Dismiss';
   .announce[data-tone='paper-2'] { background: var(--paper-2); color: var(--ink); border-block: 1px solid var(--hairline); }
   .announce[data-tone='paper-2'] .announce__badge { background: var(--accent); color: var(--paper); }
   .announce[data-tone='paper-2'] .announce__link { color: var(--accent); }
+
+  /* Support data-bg cohérent (R4) · n'écrase le tone que si background explicite est posé.
+     'ink' reprend le traitement sombre soigné du tone ink ; paper-2/paper-3 fonds clairs. */
+  .announce[data-bg='paper-2'] { background: var(--paper-2); color: var(--ink); border-block: 1px solid var(--hairline); }
+  .announce[data-bg='paper-2'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-bg='paper-2'] .announce__link { color: var(--accent); }
+  .announce[data-bg='paper-3'] { background: var(--paper-3); color: var(--ink); border-block: 1px solid var(--hairline); }
+  .announce[data-bg='paper-3'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-bg='paper-3'] .announce__link { color: var(--accent); }
+  .announce[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .announce[data-bg='ink'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-bg='ink'] .announce__link { color: var(--accent); }
 
   @media (max-width: 640px) {
     .announce__inner { padding-right: var(--space-7); }

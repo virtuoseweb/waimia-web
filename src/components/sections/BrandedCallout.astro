@@ -12,7 +12,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="branded-callout" aria-labelledby="branded-callout-h2">
+<section class="branded-callout" data-bg={data.background} aria-labelledby="branded-callout-h2">
   <div class="wrap-wide">
     <div class="branded-callout__box reveal">
       <Kicker as="p" tone="accent" class="branded-callout__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -84,4 +84,23 @@ const isFr = lang === 'fr';
     margin-top: var(--space-5);
     display: inline-flex;
   }
+
+  /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair inchange ── */
+  .branded-callout[data-bg='paper-2'] { background: var(--paper-2); }
+  .branded-callout[data-bg='paper-3'] { background: var(--paper-3); }
+  .branded-callout[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  /* Panneau interne : surface sombre surelevee (pas le paper-2 clair) + bord plus net. */
+  .branded-callout[data-bg='ink'] .branded-callout__box {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .branded-callout[data-bg='ink'] .branded-callout__h2 { color: var(--paper); }
+  .branded-callout[data-bg='ink'] .branded-callout__h2 :global(i) { color: var(--accent); }
+  .branded-callout[data-bg='ink'] :is(.branded-callout__body1, .branded-callout__body2) { color: rgba(var(--paper-rgb), 0.7); }
 </style>

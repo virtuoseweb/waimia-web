@@ -17,7 +17,7 @@ const outputs = isFr ? data.outputs_fr : data.outputs_en;
 // Exemples concrets par canal (absorption du rôle FeatureGrid · tooltip natif SVG)
 const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?? [];
 ---
-<section id="system-architecture" class="sysarch" aria-labelledby="sysarch-h2">
+<section id="system-architecture" class="sysarch" data-bg={data.background} aria-labelledby="sysarch-h2">
   <div class="wrap-wide">
     <header class="sysarch-hd">
       <ChapterLabel
@@ -190,5 +190,24 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
   @media (max-width: 700px) {
     .sysarch-h2 { font-size: clamp(24px, 6.5vw, 38px); }
     .sysarch-svg { max-height: 240px; }
+  }
+  /* ── Alternance des fonds R4 · defaut paper (clair) = rendu inchange ──
+     Le SVG lit --ink / --ink-2 via fill/stroke inline : les remapper suffit
+     a basculer textes + traits sur fond sombre (accent inchange, deja lisible). */
+  .sysarch[data-bg='paper-2'] { background: var(--paper-2); }
+  .sysarch[data-bg='paper-3'] { background: var(--paper-3); }
+  .sysarch[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .sysarch[data-bg='ink'] :is(.sysarch-h2, .sysarch-cap) { color: var(--paper); }
+  .sysarch[data-bg='ink'] .sysarch-spec { color: rgba(var(--paper-rgb), 0.64); }
+  /* SVG : remap --ink / --ink-2 SUR le svg (pas la section, sinon background:var(--ink)
+     deviendrait clair). Les fill/stroke inline pointent ces vars -> deviennent clairs. */
+  .sysarch[data-bg='ink'] .sysarch-svg {
+    --ink: var(--paper);
+    --ink-2: rgba(var(--paper-rgb), 0.7);
   }
 </style>

@@ -11,7 +11,7 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="sec" aria-labelledby="dept-h2">
+<section class="sec" aria-labelledby="dept-h2" data-bg={data.background}>
   <div class="wrap-wide">
     <SectionHeader
       roman={data.roman}
@@ -181,5 +181,31 @@ const isFr = lang === 'fr';
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--accent);
+  }
+
+  /* ── Alternance des fonds R4 · defaut paper = rendu inchange ── */
+  .sec[aria-labelledby="dept-h2"][data-bg='paper-2'] { background: var(--paper-2); }
+  .sec[aria-labelledby="dept-h2"][data-bg='paper-3'] { background: var(--paper-3); }
+
+  /* ── Idiome dark (ink) — fond sombre soigne, contraste AA ── */
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] :global(.sec-hd h2) { color: var(--paper); }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] :global(.sec-hd .aside) { color: var(--muted); }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] .dept-index { border-top-color: var(--hairline-strong); }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] .dept-row { border-bottom-color: var(--hairline); }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] .dept-row-label { color: var(--paper); }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] .dept-row-num,
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] .dept-row-arr { color: var(--muted); }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] .dept-row-tag { color: rgba(var(--paper-rgb), 0.82); }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] .dept-row:hover { background: rgba(var(--paper-rgb), 0.05); }
+  .sec[aria-labelledby="dept-h2"][data-bg='ink'] .dept-sector {
+    background: var(--ink-2);
+    border-color: var(--hairline-strong);
   }
 </style>

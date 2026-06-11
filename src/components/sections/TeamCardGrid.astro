@@ -12,7 +12,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="eq-grid-sec">
+<section class="eq-grid-sec" data-bg={data.background}>
   <div class="wrap">
     <div class="eq-grid">
       {data.members.map((member) => (
@@ -145,4 +145,31 @@ const isFr = lang === 'fr';
     margin: 0 auto;
     padding: 0 clamp(20px, 4vw, 48px);
   }
+
+  /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair inchange ── */
+  .eq-grid-sec[data-bg='paper-2'] { background: var(--paper-2); }
+  .eq-grid-sec[data-bg='paper-3'] { background: var(--paper-3); }
+  .eq-grid-sec[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  /* Cartes : panneau sombre sureleve, bord clair, texte clair, hover voile clair. */
+  .eq-grid-sec[data-bg='ink'] .eq-card {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.1);
+    color: var(--paper);
+  }
+  .eq-grid-sec[data-bg='ink'] .eq-card:hover {
+    background: rgba(var(--paper-rgb), 0.08);
+    border-color: var(--accent);
+    border-top-color: var(--accent);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  }
+  .eq-grid-sec[data-bg='ink'] .eq-card-name { color: var(--paper); }
+  .eq-grid-sec[data-bg='ink'] .eq-card-desc { color: rgba(var(--paper-rgb), 0.64); }
+  .eq-grid-sec[data-bg='ink'] .eq-card-meta { border-top-color: rgba(var(--paper-rgb), 0.1); }
+  .eq-grid-sec[data-bg='ink'] .eq-card-count { color: rgba(var(--paper-rgb), 0.6); }
+  /* role + cta restent sur --accent (lisible sur ink). */
 </style>

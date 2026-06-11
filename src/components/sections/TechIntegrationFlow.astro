@@ -23,7 +23,7 @@ const events = data.steps.map((s) => ({
   variant: 'default' as const,
 }));
 ---
-<section class="tech-sec tech-sec-paper" data-screen-label="06 Integration">
+<section class="tech-sec tech-sec-paper tech-integration" data-bg={data.background} data-screen-label="06 Integration">
   <div class="wrap">
     <div class="tech-sec-hd">
       <div>
@@ -94,5 +94,22 @@ const events = data.steps.map((s) => ({
 
   @media (max-width: 800px) {
     .tech-sec-hd { grid-template-columns: 1fr; }
+  }
+  /* ── Alternance des fonds R4 · defaut paper-2 (clair) = rendu inchange ── */
+  .tech-integration[data-bg='paper'] { background: var(--paper); }
+  .tech-integration[data-bg='paper-3'] { background: var(--paper-3); }
+  .tech-integration[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .tech-integration[data-bg='ink'] .tech-sec-hd h2 { color: var(--paper); }
+  .tech-integration[data-bg='ink'] .tech-aside { color: rgba(var(--paper-rgb), 0.64); }
+  /* Timeline / Dingbat (enfants editoriaux) lisent --ink / --ink-2 -> remap sur le
+     conteneur (descendant), pas la section (sinon background:var(--ink) deviendrait clair). */
+  .tech-integration[data-bg='ink'] :is(.tech-int-flow, .tech-sec-hd) {
+    --ink: var(--paper);
+    --ink-2: rgba(var(--paper-rgb), 0.78);
   }
 </style>

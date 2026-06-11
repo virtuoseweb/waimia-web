@@ -15,7 +15,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const facts = data.facts ?? [];
 ---
-<section class="tech-sec tech-sec-paper tech-positioning reveal-stagger" data-screen-label="02 Positioning">
+<section class="tech-sec tech-sec-paper tech-positioning reveal-stagger" data-bg={data.background} data-screen-label="02 Positioning">
   <div class="wrap">
     <div class="tech-pos-split">
       <div class="tech-pos-left">
@@ -152,5 +152,25 @@ const facts = data.facts ?? [];
       grid-template-columns: 1fr;
       gap: var(--space-1);
     }
+  }
+  /* ── Alternance des fonds R4 · defaut paper-2 (clair) = rendu inchange ── */
+  .tech-positioning[data-bg='paper'] { background: var(--paper); }
+  .tech-positioning[data-bg='paper-3'] { background: var(--paper-3); }
+  .tech-positioning[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .tech-positioning[data-bg='ink'] :is(.tech-pos-title, .tech-pos-statement) { color: var(--paper); }
+  .tech-positioning[data-bg='ink'] .tech-aside { color: rgba(var(--paper-rgb), 0.64); }
+  .tech-positioning[data-bg='ink'] .tech-pos-right::before { background: rgba(var(--paper-rgb), 0.28); }
+  .tech-positioning[data-bg='ink'] .tech-pos-facts { border-top-color: rgba(var(--paper-rgb), 0.14); }
+  .tech-positioning[data-bg='ink'] .tech-pos-facts .fact { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .tech-positioning[data-bg='ink'] .tech-pos-facts .fact-k { color: rgba(var(--paper-rgb), 0.64); }
+  /* Callout manifesto (enfant editorial) : ses bordures lisent --ink / --ink-2.
+     Remap SUR le callout (descendant) -> bordures + corps clairs sans casser le fond section. */
+  .tech-positioning[data-bg='ink'] :global(.callout) {
+    --ink: var(--paper);
+    --ink-2: rgba(var(--paper-rgb), 0.78);
   }
 </style>

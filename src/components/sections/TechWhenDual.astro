@@ -15,7 +15,7 @@ const isFr = lang === 'fr';
 const useItems = (isFr ? data.use_items_fr : data.use_items_en) ?? [];
 const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
 ---
-<section class="tech-sec" data-screen-label="05 When To Use">
+<section class="tech-sec" data-bg={data.background} data-screen-label="05 When To Use">
   <div class="wrap">
     <div class="tech-sec-hd">
       <div>
@@ -128,4 +128,22 @@ const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
     .tech-sec-hd { grid-template-columns: 1fr; }
     .tech-when-dual { grid-template-columns: 1fr; }
   }
+
+  /* ════════ Fonds composables R4 · defaut paper inchange ════════ */
+  .tech-sec[data-bg='paper-2'] { background: var(--paper-2); }
+  .tech-sec[data-bg='paper-3'] { background: var(--paper-3); }
+  .tech-sec[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+  }
+  .tech-sec[data-bg='ink'] h2 { color: var(--paper); }
+  .tech-sec[data-bg='ink'] .tech-aside { color: rgba(var(--paper-rgb), 0.7); }
+  /* Listes use/avoid sur ink : hairlines clairs, texte lisible, signes + / − ajustes */
+  .tech-sec[data-bg='ink'] .tech-when-list { border-top-color: rgba(var(--paper-rgb), 0.14); }
+  .tech-sec[data-bg='ink'] .tech-when-list li { border-bottom-color: rgba(var(--paper-rgb), 0.1); }
+  .tech-sec[data-bg='ink'] .tech-when-list--use li { color: var(--paper); }
+  .tech-sec[data-bg='ink'] .tech-when-list--avoid li { color: rgba(var(--paper-rgb), 0.62); }
+  .tech-sec[data-bg='ink'] .tech-when-list--avoid li::before { color: rgba(var(--paper-rgb), 0.62); }
+  .tech-sec[data-bg='ink'] .tech-when-col--avoid :global(.tech-when-kicker) { color: rgba(var(--paper-rgb), 0.64); }
 </style>

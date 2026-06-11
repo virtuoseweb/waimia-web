@@ -13,7 +13,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<div class="persona-detail__grid">
+<div class="persona-detail__grid" data-bg={data.background}>
   {data.blocks.map((block) => (
     <section class="persona-detail__block">
       <Kicker as="span" size={10} class="persona-kicker">{isFr ? block.kicker_fr : block.kicker_en}</Kicker>
@@ -91,6 +91,29 @@ const isFr = lang === 'fr';
     color: var(--paper);
     margin: 0;
   }
+  /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair inchange ── */
+  .persona-detail__grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .persona-detail__grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .persona-detail__grid[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.82);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    padding: var(--space-6);
+  }
+  /* Blocs : panneaux sombres sureleves (au lieu du paper-2 clair), bord clair. */
+  .persona-detail__grid[data-bg='ink'] .persona-detail__block {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.12);
+  }
+  .persona-detail__grid[data-bg='ink'] .persona-detail__block li { color: var(--ink-2); }
+  .persona-detail__grid[data-bg='ink'] .persona-detail__block li::before { color: var(--accent); }
+  /* Meta : deja sombre par design ; bord clair pour la detacher du fond ink. */
+  .persona-detail__grid[data-bg='ink'] .persona-detail__meta {
+    border: 1px solid rgba(var(--paper-rgb), 0.16);
+  }
+
   @media (max-width: 768px) {
     .persona-detail__grid { grid-template-columns: 1fr; }
     .persona-detail__meta { grid-template-columns: 1fr; grid-column: span 1; }

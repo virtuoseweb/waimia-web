@@ -24,7 +24,7 @@ const gridClass = [
 ].filter(Boolean).join(' ');
 ---
 
-<section class={sectionClass}>
+<section class={sectionClass} data-bg={data.background}>
   <div class={data.wrap ? undefined : 'wrap-wide'}>
     <p class="tier-eyebrow reveal-snap">{isFr ? data.eyebrow_fr : data.eyebrow_en}</p>
     <h2 class="tier-h2 reveal">{isFr ? data.h2_fr : data.h2_en}</h2>
@@ -213,6 +213,31 @@ const gridClass = [
     letter-spacing: 0.1em;
     color: var(--accent);
   }
+  /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair/variant inchange.
+     data-bg='ink' harmonise toute la section en sombre (le hero-card etait deja ink). ── */
+  .tier-section[data-bg='paper-2'] { background: var(--paper-2); }
+  .tier-section[data-bg='paper-3'] { background: var(--paper-3); }
+  .tier-section[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --muted-2: rgba(var(--paper-rgb), 0.5);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .tier-section[data-bg='ink'] .tier-h2 { color: var(--paper); }
+  .tier-section[data-bg='ink'] .tier-h2 :global(i) { color: var(--accent); }
+  /* Offer-cards : panneaux sombres sureleves (au lieu du paper-2 clair), bord clair. */
+  .tier-section[data-bg='ink'] .offer-card {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.12);
+    color: var(--paper);
+  }
+  .tier-section[data-bg='ink'] .offer-card--transparent { background: transparent; }
+  .tier-section[data-bg='ink'] .offer-card:hover { border-color: var(--accent); }
+  .tier-section[data-bg='ink'] .offer-card--transparent:hover { background: rgba(var(--paper-rgb), 0.05); }
+  .tier-section[data-bg='ink'] .card-title { color: var(--paper); }
+  /* card-lead/price restent sur --muted (redefini clair) ; card-cta sur --accent. */
+
   @media (max-width: 900px) {
     .tier-grid,
     .tier-ii-grid,

@@ -16,7 +16,7 @@ const isFr = lang === 'fr';
 const columns = [data.left, data.right];
 ---
 
-<section class="hub-blog-lb">
+<section class="hub-blog-lb" data-bg={data.background}>
   <div class="wrap-wide hub-blog-lb-grid reveal-stagger">
     {columns.map((column) => (
       <div>
@@ -68,4 +68,24 @@ const columns = [data.left, data.right];
       grid-template-columns: 1fr;
     }
   }
+
+  /* ── Alternance des fonds · defaut (transparent/paper) = rendu inchange ── */
+  .hub-blog-lb[data-bg='paper-2'] { background: var(--paper-2); }
+  .hub-blog-lb[data-bg='paper-3'] { background: var(--paper-3); }
+  .hub-blog-lb[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+    border-top-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .hub-blog-lb[data-bg='ink'] :is(h2, h3, p, span, li) { color: var(--paper); }
+  .hub-blog-lb[data-bg='ink'] :is(.hub-blog-h2, .hub-lb-h2) :global(i) { color: var(--accent); }
+  .hub-blog-lb[data-bg='ink'] :is(.hub-blog-lead, .hub-lb-lead) { color: rgba(var(--paper-rgb), 0.64); }
+  /* RelatedCards (molecule globale) : texte herite paper, lead/accent ajustes, hover sur ink */
+  .hub-blog-lb[data-bg='ink'] :global(.related-lead) { color: rgba(var(--paper-rgb), 0.64); }
+  .hub-blog-lb[data-bg='ink'] :global(.related-k),
+  .hub-blog-lb[data-bg='ink'] :global(.related-go) { color: var(--accent); }
+  .hub-blog-lb[data-bg='ink'] :global(.related-card:hover) { background: rgba(var(--paper-rgb), 0.05); }
 </style>

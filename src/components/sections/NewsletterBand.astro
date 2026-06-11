@@ -16,7 +16,7 @@ const ctaLabel = isFr ? (data.cta_label_fr ?? "S'abonner →") : (data.cta_label
 const hint = isFr ? data.hint_fr : data.hint_en;
 ---
 
-<section class="newsletter-band" aria-labelledby="newsletter-band-h2">
+<section class="newsletter-band" data-bg={data.background} aria-labelledby="newsletter-band-h2">
   <div class="newsletter-band__inner wrap-wide">
     <div class="newsletter-band__left reveal">
       {(data.kicker_fr || data.kicker_en) && (
@@ -148,6 +148,23 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     color: rgba(var(--paper-rgb), 0.35);
     margin: 10px 0 0;
   }
+  /* ── data-bg R4 · defaut (absent) ET 'ink' = bande sombre inchangee.
+     Variantes claires paper/paper-2/paper-3 : on reflechit la palette sur fond clair. ── */
+  .newsletter-band[data-bg='paper'] { background: var(--paper); color: var(--ink); }
+  .newsletter-band[data-bg='paper-2'] { background: var(--paper-2); color: var(--ink); }
+  .newsletter-band[data-bg='paper-3'] { background: var(--paper-3); color: var(--ink); }
+  .newsletter-band:is([data-bg='paper'], [data-bg='paper-2'], [data-bg='paper-3']) .newsletter-band__h2 { color: var(--ink); }
+  .newsletter-band:is([data-bg='paper'], [data-bg='paper-2'], [data-bg='paper-3']) .newsletter-band__h2 :global(i) { color: var(--accent); }
+  .newsletter-band:is([data-bg='paper'], [data-bg='paper-2'], [data-bg='paper-3']) .newsletter-band__lead { color: var(--muted); }
+  .newsletter-band:is([data-bg='paper'], [data-bg='paper-2'], [data-bg='paper-3']) .newsletter-band__field { border-color: var(--hairline-strong); }
+  .newsletter-band:is([data-bg='paper'], [data-bg='paper-2'], [data-bg='paper-3']) .newsletter-band__input {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .newsletter-band:is([data-bg='paper'], [data-bg='paper-2'], [data-bg='paper-3']) .newsletter-band__input::placeholder { color: var(--muted); }
+  .newsletter-band:is([data-bg='paper'], [data-bg='paper-2'], [data-bg='paper-3']) .newsletter-band__input:focus { background: var(--paper-2); }
+  .newsletter-band:is([data-bg='paper'], [data-bg='paper-2'], [data-bg='paper-3']) .newsletter-band__hint { color: var(--muted); }
+
   @media (max-width: 860px) {
     .newsletter-band__inner {
       grid-template-columns: 1fr;

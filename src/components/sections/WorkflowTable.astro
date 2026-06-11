@@ -21,7 +21,7 @@ const head = isFr
   ? ['№', 'Workflow', 'Modèle', 'Gain', 'Comment']
   : ['№', 'Workflow', 'Model', 'Gain', 'How'];
 ---
-<section class="sol-sec sol-sec-paper sol-workflows reveal-stagger" data-screen-label="03 Workflows">
+<section class="sol-sec sol-sec-paper sol-workflows reveal-stagger" data-bg={data.background} data-screen-label="03 Workflows">
   <div class="wrap g12 g12--full">
     <header class="sol-sec-hd section-eyebrow col-prose">
       <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
@@ -192,5 +192,33 @@ const head = isFr
     }
     .sol-workflow-body :global(.wf-n) { font-size: 24px; margin-bottom: var(--space-1); }
     .sol-workflow-body :global(.wf-gain) { margin: 6px 0; }
+  }
+
+  /* ════════ Fonds composables R4 · defaut paper-2 inchange ════════ */
+  .sol-sec[data-bg='paper-3'] { background: var(--paper-3); }
+  .sol-sec[data-bg='ink'].sol-sec-paper {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.82);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+    border-block-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .sol-sec[data-bg='ink'] .sol-sec-hd h2 { color: var(--paper); }
+  .sol-sec[data-bg='ink'] .sol-aside { color: rgba(var(--paper-rgb), 0.7); }
+  /* Table workflows sur ink : hairlines, numero accent, modele/comment clairs */
+  .sol-sec[data-bg='ink'] .sol-workflow-table,
+  .sol-sec[data-bg='ink'] .sol-workflow-head { border-color: rgba(var(--paper-rgb), 0.14); }
+  .sol-sec[data-bg='ink'] .sol-workflow-head { color: rgba(var(--paper-rgb), 0.64); }
+  .sol-sec[data-bg='ink'] .sol-workflow-body :global(.wf-row) { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .sol-sec[data-bg='ink'] .sol-workflow-body :global(.wf-row:hover) { background: rgba(var(--accent-rgb), 0.1); }
+  .sol-sec[data-bg='ink'] .sol-workflow-body :global(.wf-name h3),
+  .sol-sec[data-bg='ink'] .sol-workflow-body :global(.wf-how) { color: var(--paper); }
+  .sol-sec[data-bg='ink'] .sol-workflow-body :global(.wf-model) { color: rgba(var(--paper-rgb), 0.82); }
+  .sol-sec[data-bg='ink'] .sol-workflow-body :global(.wf-gain) { color: rgba(var(--paper-rgb), 0.82); }
+  .sol-sec[data-bg='ink'] :global(.callout) {
+    color: rgba(var(--paper-rgb), 0.72);
+    border-left-color: rgba(var(--paper-rgb), 0.28);
   }
 </style>

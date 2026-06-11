@@ -157,9 +157,9 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     background: var(--ink);
     color: var(--paper);
     --muted: rgba(var(--paper-rgb), 0.64);
-    --ink: var(--paper);
     --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
+  .process-steps[data-bg='ink'] > * { --ink: var(--paper); }
   .process-steps[data-bg='ink'] .process-steps__h2,
   .process-steps[data-bg='ink'] .process-steps__title { color: var(--paper); }
 </style>

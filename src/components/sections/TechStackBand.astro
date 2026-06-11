@@ -17,7 +17,7 @@ const pills = data.pills.map((p) => ({
 }));
 ---
 
-<section class="tech-stack-band">
+<section class="tech-stack-band" data-bg={data.background}>
   <div class="wrap-wide">
     <Kicker as="span" tone="accent" class="tech-stack-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     {(isFr ? data.lead_fr : data.lead_en) && (
@@ -52,4 +52,17 @@ const pills = data.pills.map((p) => ({
     font-style: italic;
     color: var(--accent);
   }
+  /* ── Alternance des fonds R4 · defaut paper-2 (clair) = rendu inchange ── */
+  .tech-stack-band[data-bg='paper'] { background: var(--paper); }
+  .tech-stack-band[data-bg='paper-3'] { background: var(--paper-3); }
+  .tech-stack-band[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .tech-stack-band[data-bg='ink'] .tech-stack-band__lead { color: rgba(var(--paper-rgb), 0.78); }
+  /* Pills (molecule TechPillRow) : texte herite -> force clair sur ink */
+  .tech-stack-band[data-bg='ink'] :global(.tech-pill) { color: var(--paper); }
 </style>

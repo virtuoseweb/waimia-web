@@ -21,7 +21,7 @@ const cards = data.cards.map((c) => ({
 }));
 ---
 
-<section class="related-cards-band">
+<section class="related-cards-band" data-bg={data.background}>
   <div class="wrap-wide">
     {(isFr ? data.kicker_fr : data.kicker_en) && (
       <Kicker as="span" class="related-cards-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -46,5 +46,27 @@ const cards = data.cards.map((c) => ({
   :global(.related-cards-band__grid .related-card:hover) {
     background: var(--paper-2);
     transform: translateY(-2px);
+  }
+
+  /* ── Alternance des fonds R4 · defaut paper = rendu inchange ── */
+  .related-cards-band[data-bg='paper-2'] { background: var(--paper-2); }
+  .related-cards-band[data-bg='paper-3'] { background: var(--paper-3); }
+
+  /* ── Idiome dark (ink) — fond sombre soigne, contraste AA ── */
+  .related-cards-band[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .related-cards-band[data-bg='ink'] :global(.related-cards-band__kicker) { color: var(--paper); }
+  .related-cards-band[data-bg='ink'] :global(.related-card) { border-top-color: var(--hairline-strong); }
+  .related-cards-band[data-bg='ink'] :global(.related-card .related-title) { color: var(--paper); }
+  .related-cards-band[data-bg='ink'] :global(.related-card .related-lead) { color: var(--muted); }
+  .related-cards-band[data-bg='ink'] :global(.related-card .related-k),
+  .related-cards-band[data-bg='ink'] :global(.related-card .related-go) { color: var(--accent); }
+  .related-cards-band[data-bg='ink'] :global(.related-cards-band__grid .related-card:hover) {
+    background: rgba(var(--paper-rgb), 0.05);
   }
 </style>

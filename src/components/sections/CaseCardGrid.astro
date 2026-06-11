@@ -12,7 +12,7 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section id="act-4" class="sec" aria-labelledby="cases-h2">
+<section id="act-4" class="sec" data-bg={data.background} aria-labelledby="cases-h2">
   <div class="wrap-wide">
     <header class="cases-hd">
       <ChapterLabel
@@ -94,4 +94,20 @@ const isFr = lang === 'fr';
   @media (max-width:600px){
     .cases-row{grid-template-columns:1fr}
   }
+
+  /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair inchange ── */
+  #act-4[data-bg='paper-2']{background:var(--paper-2)}
+  #act-4[data-bg='paper-3']{background:var(--paper-3)}
+  #act-4[data-bg='ink']{
+    background:var(--ink);
+    color:var(--paper);
+    --muted:rgba(var(--paper-rgb),0.64);
+    --hairline:rgba(var(--paper-rgb),0.14);
+    --hairline-strong:rgba(var(--paper-rgb),0.28);
+  }
+  #act-4[data-bg='ink'] :is(.cases-h2,.cases-client){color:var(--paper)}
+  #act-4[data-bg='ink'] .cases-h2 :global(i){color:var(--accent)}
+  /* hover : voile clair subtil au lieu du paper-2 clair ; impact en texte clair lisible. */
+  #act-4[data-bg='ink'] .cases-row:hover{background:rgba(var(--paper-rgb),0.05)}
+  #act-4[data-bg='ink'] .cases-impact{color:var(--paper)}
 </style>

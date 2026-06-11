@@ -12,7 +12,7 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="manifesto-block" aria-labelledby="manifesto-block-anchor">
+<section class="manifesto-block" data-bg={data.background} aria-labelledby="manifesto-block-anchor">
   <div class="wrap-wide">
     <Kicker class="manifesto-block__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     <p id="manifesto-block-anchor" class="manifesto-block__text reveal" set:html={isFr ? data.text_fr : data.text_en} />
@@ -23,7 +23,6 @@ const isFr = lang === 'fr';
   .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 48px); }
   .manifesto-block {
     padding: var(--section-grand) 0;
-    background: var(--paper);
     position: relative;
     overflow: hidden;
   }
@@ -39,4 +38,16 @@ const isFr = lang === 'fr';
   }
   .manifesto-block__text :global(.acc) { color: var(--accent); }
   .manifesto-block__text :global(span) { color: var(--accent); }
+
+  /* ── Alternance des fonds · defaut paper (clair) = rendu inchange ── */
+  .manifesto-block[data-bg='paper-2'] { background: var(--paper-2); }
+  .manifesto-block[data-bg='paper-3'] { background: var(--paper-3); }
+  .manifesto-block[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .manifesto-block[data-bg='ink'] :is(.manifesto-block__kicker, .manifesto-block__text) { color: var(--paper); }
+  /* L'accent terracotta des span reste lisible sur ink */
+  .manifesto-block[data-bg='ink'] .manifesto-block__text :global(.acc),
+  .manifesto-block[data-bg='ink'] .manifesto-block__text :global(span) { color: var(--accent); }
 </style>

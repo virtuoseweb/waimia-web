@@ -40,6 +40,21 @@ const intro = isFr ? data.intro_fr : data.intro_en;
 <style>
   .asym-svc { padding-block: var(--section-loose); }
   .asym-svc[data-bg='paper-2'] { background: var(--paper-2); }
+  .asym-svc[data-bg='paper-3'] { background: var(--paper-3); }
+  .asym-svc[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.82);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .asym-svc[data-bg='ink'] :is(h2, p, span, strong) { color: var(--paper); }
+  /* Le relevé serif italic et l'accent restent sur --accent (lisible sur ink). */
+  .asym-svc[data-bg='ink'] .asym-svc__title :global(i.acc),
+  .asym-svc[data-bg='ink'] .asym-svc__title :global(.acc),
+  .asym-svc[data-bg='ink'] .asym-svc__accent { color: var(--accent); }
+  .asym-svc[data-bg='ink'] .asym-svc__intro { color: var(--ink-2); }
 
   .asym-svc__hd {
     display: flex;

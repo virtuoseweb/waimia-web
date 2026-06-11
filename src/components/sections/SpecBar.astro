@@ -14,6 +14,7 @@ const cols = data.specs.length;
 
 <section
   class="spec-bar"
+  data-bg={data.background}
   style={`--spec-cols: ${cols}`}
   aria-label={isFr ? (data.kicker_fr ?? 'Spécifications'): (data.kicker_en ?? 'Specifications')}
 >
@@ -85,4 +86,16 @@ const cols = data.specs.length;
       border-bottom: 1px solid var(--hairline);
     }
   }
+
+  /* ════════ Fonds composables R4 · defaut paper-2 inchange ════════ */
+  .spec-bar[data-bg='paper'] { background: var(--paper); }
+  .spec-bar[data-bg='paper-3'] { background: var(--paper-3); }
+  .spec-bar[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.16);
+    border-block-color: rgba(var(--paper-rgb), 0.16);
+  }
+  .spec-bar[data-bg='ink'] .spec-bar__value { color: var(--paper); }
 </style>

@@ -13,7 +13,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="hub-coming">
+<section class="hub-coming" data-bg={data.background}>
   <div class="wrap-wide">
     <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     <h2 class="coming-h2">{isFr ? data.h2_fr : data.h2_en}</h2>
@@ -60,4 +60,16 @@ const isFr = lang === 'fr';
     padding: var(--space-2) 18px;
     border-radius: var(--radius-xs);
   }
+  /* ── Alternance des fonds R4 · defaut paper-2 (clair) = rendu inchange ── */
+  .hub-coming[data-bg='paper'] { background: var(--paper); }
+  .hub-coming[data-bg='paper-3'] { background: var(--paper-3); }
+  .hub-coming[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .hub-coming[data-bg='ink'] .coming-h2 { color: var(--paper); }
+  .hub-coming[data-bg='ink'] .coming-pill { color: rgba(var(--paper-rgb), 0.7); }
 </style>

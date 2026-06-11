@@ -13,7 +13,7 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="tech-sec" data-screen-label="03 Capabilities">
+<section class="tech-sec" data-bg={data.background} data-screen-label="03 Capabilities">
   <div class="wrap">
     <div class="tech-sec-hd">
       <div>
@@ -148,4 +148,22 @@ const isFr = lang === 'fr';
   @media (max-width: 800px) {
     .tech-sec-hd { grid-template-columns: 1fr; }
   }
+
+  /* ════════ Fonds composables R4 · defaut paper inchange ════════ */
+  .tech-sec[data-bg='paper-2'] { background: var(--paper-2); }
+  .tech-sec[data-bg='paper-3'] { background: var(--paper-3); }
+  .tech-sec[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .tech-sec[data-bg='ink'] h2 { color: var(--paper); }
+  .tech-sec[data-bg='ink'] .tech-aside { color: rgba(var(--paper-rgb), 0.7); }
+  /* Table specs sur ink : entetes, hairlines, noms/desc clairs, hover subtil */
+  .tech-sec[data-bg='ink'] .tt-specs thead th { color: rgba(var(--paper-rgb), 0.64); border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .tech-sec[data-bg='ink'] .tt-specs tbody tr { border-bottom-color: rgba(var(--paper-rgb), 0.1); }
+  .tech-sec[data-bg='ink'] .tt-specs tbody tr:hover { background: rgba(var(--paper-rgb), 0.04); }
+  .tech-sec[data-bg='ink'] .tt-spec-name { color: var(--paper); }
+  .tech-sec[data-bg='ink'] .tt-spec-desc { color: rgba(var(--paper-rgb), 0.82); }
 </style>

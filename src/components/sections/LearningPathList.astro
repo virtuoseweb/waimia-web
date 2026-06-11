@@ -13,7 +13,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const title = isFr ? data.title_fr : data.title_en;
 ---
-<div class="parcours-section">
+<div class="parcours-section" data-bg={data.background}>
   <h2 class="section-title">{title}</h2>
   <div class="parcours-list">
     {data.items.map((item) => {
@@ -72,4 +72,16 @@ const title = isFr ? data.title_fr : data.title_en;
     margin: 0;
     line-height: var(--leading-body);
   }
+
+  /* ── Alternance des fonds · defaut (transparent/paper) = rendu inchange ── */
+  .parcours-section[data-bg='paper-2'] { background: var(--paper-2); }
+  .parcours-section[data-bg='paper-3'] { background: var(--paper-3); }
+  .parcours-section[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .parcours-section[data-bg='ink'] .parcours-title { color: var(--paper); }
+  .parcours-section[data-bg='ink'] :is(.section-title, .parcours-desc) { color: rgba(var(--paper-rgb), 0.64); }
 </style>

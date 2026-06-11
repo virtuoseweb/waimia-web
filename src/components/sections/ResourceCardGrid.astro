@@ -172,4 +172,28 @@ const intro = isFr ? data.intro_fr : data.intro_en;
   /* ── Alternance des fonds R4 ── */
   .resource-grid[data-bg='paper-2'] { background: var(--paper-2); }
   .resource-grid[data-bg='paper-3'] { background: var(--paper-3); }
+
+  /* ── Idiome dark (ink) — fond sombre soigné, contraste AA ── */
+  .resource-grid[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .resource-grid[data-bg='ink'] :is(h2, h3, p, span, strong) { color: var(--paper); }
+  .resource-grid[data-bg='ink'] .resource-grid__intro { color: var(--muted); }
+  .resource-grid[data-bg='ink'] .resource-card {
+    background: var(--ink-2);
+    border-color: var(--hairline);
+    border-left-color: var(--accent);
+  }
+  .resource-grid[data-bg='ink'] .resource-card__desc { color: var(--muted); }
+  .resource-grid[data-bg='ink'] .resource-card__gated {
+    color: var(--muted);
+    border-color: var(--hairline);
+  }
+  .resource-grid[data-bg='ink'] .resource-card__foot { border-top-color: var(--hairline); }
+  .resource-grid[data-bg='ink'] .resource-card__format { color: var(--muted); }
+  .resource-grid[data-bg='ink'] .resource-card__cta { color: var(--accent); }
 </style>

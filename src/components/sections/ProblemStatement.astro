@@ -13,7 +13,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="problem-statement">
+<section class="problem-statement" data-bg={data.background}>
   <div class="wrap-wide">
     <Kicker as="span" tone="accent" class="problem-statement__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     <div class:list={['problem-statement__statement', data.dropcap && 'problem-statement__statement--dropcap']}>
@@ -108,4 +108,20 @@ const isFr = lang === 'fr';
       border-bottom: none;
     }
   }
+
+  /* ── Alternance des fonds · defaut paper = rendu inchange ── */
+  .problem-statement[data-bg='paper-2'] { background: var(--paper-2); }
+  .problem-statement[data-bg='paper-3'] { background: var(--paper-3); }
+  .problem-statement[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .problem-statement[data-bg='ink'] :is(h1, h2, h3, h4, p, li, dt, dd, span, strong) { color: var(--paper); }
+  /* L'accent italique (statement + value) reste lisible sur ink */
+  .problem-statement[data-bg='ink'] .problem-statement__text :is(i, em) { color: var(--accent); }
+  .problem-statement[data-bg='ink'] .problem-statement__value { color: var(--paper); }
+  .problem-statement[data-bg='ink'] .problem-statement__label { color: rgba(var(--paper-rgb), 0.64); }
 </style>

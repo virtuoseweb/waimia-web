@@ -20,7 +20,7 @@ const isFr = lang === 'fr';
 const cardsOnly = data.variant === 'cards-only';
 const showFull = !cardsOnly && Boolean(data.steps);
 ---
-<section class="sec sec-paper" aria-labelledby="pyramid-h2">
+<section class="sec sec-paper" data-bg={data.background} aria-labelledby="pyramid-h2">
   <div class="wrap-wide">
     <SectionHeader
       roman={data.roman}
@@ -322,4 +322,43 @@ const showFull = !cardsOnly && Boolean(data.steps);
     .pyramid-step, .pyramid-step:nth-child(n) { border-right: none; border-bottom: 1px solid var(--hairline); }
     .pyramid-step:last-child { border-bottom: none; }
   }
+
+  /* ── Alternance des fonds · defaut .sec-paper (clair) = rendu inchange ── */
+  .sec[data-bg='paper-2'] { background: var(--paper-2); }
+  .sec[data-bg='paper-3'] { background: var(--paper-3); }
+  .sec[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.74);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  /* Texte principal repasse en paper ; l'accent terracotta reste */
+  .sec[data-bg='ink'] :is(h2, h3, p, li, .e-title, .e-body, .pyramid-step-verb) { color: var(--paper); }
+  .sec[data-bg='ink'] :is(.e-tag, .e-stage, .e-list, .pyramid-step-roman) { color: rgba(var(--paper-rgb), 0.64); }
+  .sec[data-bg='ink'] .pyramid-step-stage { color: rgba(var(--paper-rgb), 0.74); }
+  .sec[data-bg='ink'] .e-num { color: var(--paper); }
+  /* Cartes editorial : fond legerement releve + bord paper-hairline sur ink */
+  .sec[data-bg='ink'] :global(.editorial-cell) {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .sec[data-bg='ink'] .pyramid-asym .editorial-cell:first-child {
+    border-color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.10);
+  }
+  .sec[data-bg='ink'] :global(.editorial-cell:hover) {
+    border-color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.12);
+  }
+  /* Jauge / prix : accent conserve, base hairline paper */
+  .sec[data-bg='ink'] .pyramid-asym .editorial-cell .e-gauge { background: rgba(var(--paper-rgb), 0.14); }
+  .sec[data-bg='ink'] .pyramid-asym .editorial-cell .e-price { border-top-color: rgba(var(--paper-rgb), 0.18); }
+  /* SVG paliers : les fills/strokes en --ink/--ink-2 (texte invisible sur ink) repassent paper ;
+     l'accent terracotta des paliers I-II reste. Inline fill SVG est ecrase par cette regle CSS. */
+  .sec[data-bg='ink'] .pyramid-svg svg text[fill='var(--ink)'] { fill: var(--paper); }
+  .sec[data-bg='ink'] .pyramid-svg svg text[fill='var(--ink-2)'] { fill: rgba(var(--paper-rgb), 0.74); }
+  .sec[data-bg='ink'] .pyramid-svg svg rect[stroke='var(--ink-2)'] { stroke: rgba(var(--paper-rgb), 0.5); }
+  .sec[data-bg='ink'] .pyramid-svg svg rect[stroke='var(--hairline-strong)'] { stroke: rgba(var(--paper-rgb), 0.28); }
 </style>

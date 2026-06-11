@@ -16,7 +16,7 @@ const isFr = lang === 'fr';
 const kicker = isFr ? data.kicker_fr : data.kicker_en;
 const heading = isFr ? data.heading_fr : data.heading_en;
 ---
-<section class="decision-list reveal-stagger" aria-labelledby="decision-list-h2">
+<section class="decision-list reveal-stagger" aria-labelledby="decision-list-h2" data-bg={data.background}>
   <div class="wrap-wide">
     <div class="decision-list-grid">
       <div>
@@ -81,4 +81,24 @@ const heading = isFr ? data.heading_fr : data.heading_en;
     letter-spacing: .12em;
     color: var(--accent);
   }
+
+  /* ── Alternance des fonds R4 · defaut paper = rendu inchange ── */
+  .decision-list[data-bg='paper-2'] { background: var(--paper-2); }
+  .decision-list[data-bg='paper-3'] { background: var(--paper-3); }
+
+  /* ── Idiome dark (ink) — fond sombre soigne, contraste AA ── */
+  .decision-list[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .decision-list[data-bg='ink'] :is(h2, p, span, li) { color: var(--paper); }
+  .decision-list[data-bg='ink'] .decision-list-grid { border-top-color: rgba(var(--paper-rgb), 0.18); }
+  .decision-list[data-bg='ink'] .decision-list-item {
+    border-bottom-color: rgba(var(--paper-rgb), 0.12);
+    color: var(--paper);
+  }
+  .decision-list[data-bg='ink'] .decision-list-num { color: var(--accent); }
 </style>

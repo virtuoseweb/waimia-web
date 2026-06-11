@@ -13,7 +13,7 @@ const isFr = lang === 'fr';
 const items = isFr ? data.items_fr : data.items_en;
 ---
 
-<section class="inclusions-list">
+<section class="inclusions-list" data-bg={data.background}>
   <div class="wrap-wide">
     {((isFr ? data.kicker_fr : data.kicker_en) || (isFr ? data.title_fr : data.title_en)) && (
       <header class="inclusions-list__hd">
@@ -83,4 +83,21 @@ const items = isFr ? data.items_fr : data.items_en;
     margin: 0 var(--space-2);
     font-family: var(--font-mono);
   }
+
+  /* ── Alternance des fonds R4 · defaut paper = rendu inchange ── */
+  .inclusions-list[data-bg='paper-2'] { background: var(--paper-2); }
+  .inclusions-list[data-bg='paper-3'] { background: var(--paper-3); }
+
+  /* ── Idiome dark (ink) — fond sombre soigne, contraste AA ── */
+  .inclusions-list[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .inclusions-list[data-bg='ink'] :is(h2, li, span) { color: var(--paper); }
+  .inclusions-list[data-bg='ink'] .inclusions-list__items { border-top-color: var(--hairline); }
+  .inclusions-list[data-bg='ink'] .inclusions-list__items li { color: var(--paper); }
+  .inclusions-list[data-bg='ink'] .inclusions-list__items li + li::before { color: var(--accent); }
 </style>

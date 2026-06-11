@@ -101,4 +101,35 @@ const meta = isFr ? data.meta_fr : data.meta_en;
     .tbl-sec__cell[data-role='status'],
     .tbl-sec__cell[data-role='arrow'] { text-align: left; }
   }
+
+  /* ── Fonds composables R4 · defaut paper = rendu inchange ── */
+  .tbl-sec[data-bg='paper-3'] { background: var(--paper-3); }
+  .tbl-sec[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.82);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .tbl-sec[data-bg='ink'] .tbl-sec__hd { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .tbl-sec[data-bg='ink'] .tbl-sec__title { color: var(--paper); }
+  .tbl-sec[data-bg='ink'] .tbl-sec__intro { color: rgba(var(--paper-rgb), 0.82); }
+  /* Roles de cellules ajustes sur ink */
+  .tbl-sec[data-bg='ink'] .tbl-sec__cell[data-role='id'],
+  .tbl-sec[data-bg='ink'] .tbl-sec__cell[data-role='body'],
+  .tbl-sec[data-bg='ink'] .tbl-sec__cell[data-role='arrow'] { color: rgba(var(--paper-rgb), 0.64); }
+  .tbl-sec[data-bg='ink'] .tbl-sec__cell[data-role='title'],
+  .tbl-sec[data-bg='ink'] .tbl-sec__cell[data-role='mono'] { color: var(--paper); }
+  /* Frame de la molecule TerminalTable sur ink · bord clair, head/rows ajustes */
+  .tbl-sec[data-bg='ink'] :global(.u-edit-tbl) {
+    border-color: rgba(var(--paper-rgb), 0.28);
+    background: var(--ink);
+  }
+  .tbl-sec[data-bg='ink'] :global(.u-edit-tbl-head) {
+    background: rgba(var(--paper-rgb), 0.05);
+    border-bottom-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .tbl-sec[data-bg='ink'] :global(.u-edit-tbl-row) { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .tbl-sec[data-bg='ink'] :global(.u-edit-tbl-row:hover) { background: rgba(var(--paper-rgb), 0.05); }
 </style>

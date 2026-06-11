@@ -133,10 +133,10 @@ const caption = isFr ? data.caption_fr : data.caption_en;
     background: var(--ink);
     color: var(--paper);
     --muted: rgba(var(--paper-rgb), 0.64);
-    --ink: var(--paper);
     --hairline: rgba(var(--paper-rgb), 0.14);
     --hairline-strong: rgba(var(--paper-rgb), 0.28);
   }
+  .data-table[data-bg='ink'] > * { --ink: var(--paper); }
   .data-table[data-bg='ink'] .data-table__h2 { color: var(--paper); }
   .data-table[data-bg='ink'][data-striped='true'] tbody tr:nth-child(even) { background: rgba(var(--paper-rgb), 0.05); }
 </style>

@@ -20,7 +20,7 @@ const hasIntro = !!(data.intro_fr || data.intro_en);
 const yesItems = isFr ? data.yes_items_fr : data.yes_items_en;
 const noItems = isFr ? data.no_items_fr : data.no_items_en;
 ---
-<section class="fit-sec">
+<section class="fit-sec" data-bg={data.background}>
   <div class="wrap-wide">
     {hasKicker && (
       <Kicker tone="dim" class="fit-sec-kicker">
@@ -82,5 +82,39 @@ const noItems = isFr ? data.no_items_fr : data.no_items_en;
   :global(.fit-sec-cols .fit-col:hover) {
     background: rgba(var(--paper-rgb), 0.04);
     transform: translateY(-2px);
+  }
+
+  /* ════════ Fonds composables R4 ════════
+     Defaut (background absent) ET data-bg='ink' = rendu ink intentionnel inchange.
+     Les variantes paper basculent la section en clair + reajustent la molecule
+     FitColumns (qui est codee en --paper-rgb) vers des hairlines/texte ink-rgb. */
+  .fit-sec[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  .fit-sec[data-bg='paper'],
+  .fit-sec[data-bg='paper-2'],
+  .fit-sec[data-bg='paper-3'] {
+    color: var(--ink);
+  }
+  .fit-sec[data-bg='paper'] { background: var(--paper); }
+  .fit-sec[data-bg='paper-2'] { background: var(--paper-2); }
+  .fit-sec[data-bg='paper-3'] { background: var(--paper-3); }
+
+  .fit-sec[data-bg^='paper'] .fit-sec-h2 { color: var(--ink); }
+  .fit-sec[data-bg^='paper'] .fit-sec-callout :global(.callout) {
+    color: rgba(var(--ink-rgb), 0.72);
+    border-left-color: rgba(var(--ink-rgb), 0.28);
+  }
+  .fit-sec[data-bg^='paper'] :global(.fit-sec-cols),
+  .fit-sec[data-bg^='paper'] :global(.fit-sec-cols .fit-col) {
+    border-color: var(--hairline);
+  }
+  .fit-sec[data-bg^='paper'] :global(.fit-sec-cols .fit-col:hover) {
+    background: rgba(var(--ink-rgb), 0.03);
+  }
+  .fit-sec[data-bg^='paper'] :global(.fit-col-no) { border-left-color: var(--hairline); }
+  .fit-sec[data-bg^='paper'] :global(.fit-k-muted) { color: var(--muted); }
+  .fit-sec[data-bg^='paper'] :global(.fit-col li) {
+    border-top-color: var(--hairline);
+    color: var(--ink);
   }
 </style>

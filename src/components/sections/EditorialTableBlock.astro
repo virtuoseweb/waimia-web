@@ -37,7 +37,7 @@ const tmRows = data.type === 'tech-models-table'
   : [];
 ---
 {data.type === 'tech-models-table' ? (
-  <section class="tech-sec tech-sec-paper" data-screen-label="04 Models">
+  <section class="tech-sec tech-sec-paper" data-bg={data.background} data-screen-label="04 Models">
     <div class="wrap">
       <div class="tech-sec-hd">
         <div>
@@ -59,7 +59,7 @@ const tmRows = data.type === 'tech-models-table'
     </div>
   </section>
 ) : data.type === 'department-stack' ? (
-  <section class="sol-sec sol-sec-paper sol-tools reveal" data-screen-label="06 Stack">
+  <section class="sol-sec sol-sec-paper sol-tools reveal" data-bg={data.background} data-screen-label="06 Stack">
     <div class="wrap g12 g12--full">
       <header class="sol-sec-hd section-eyebrow col-prose">
         <Kicker as="span" tone="accent" class="eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</Kicker>
@@ -85,7 +85,7 @@ const tmRows = data.type === 'tech-models-table'
     </div>
   </section>
 ) : (
-  <section class="ed-table-block reveal-stagger" aria-labelledby="ed-table-block-h2">
+  <section class="ed-table-block reveal-stagger" data-bg={data.background} aria-labelledby="ed-table-block-h2">
     <div class="wrap-wide">
       <Kicker class="ed-table-block-kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       <h2 id="ed-table-block-h2" class="ed-table-block-h2" set:html={isFr ? data.heading_fr : data.heading_en} />
@@ -213,5 +213,68 @@ const tmRows = data.type === 'tech-models-table'
   .sol-stack-grid {
     display: block;
     border-top: 1px solid var(--hairline);
+  }
+
+  /* ════════ Fonds composables R4 · defaut clair inchange ════════ */
+  /* Noyau editorial-table-block (pas de fond par defaut → paper) */
+  .ed-table-block[data-bg='paper-2'] { background: var(--paper-2); }
+  .ed-table-block[data-bg='paper-3'] { background: var(--paper-3); }
+  /* Presets tech/sol : paper-2 reste le defaut (classes -paper) ; on neutralise sur ink */
+  .tech-sec[data-bg='paper-3'] { background: var(--paper-3); }
+  .tech-sec[data-bg='ink'].tech-sec-paper { background: var(--ink); }
+  .sol-sec[data-bg='paper-3'] { background: var(--paper-3); }
+  .sol-sec[data-bg='ink'].sol-sec-paper { background: var(--ink); }
+
+  /* ── Idiome ink commun aux 3 variantes ── */
+  .ed-table-block[data-bg='ink'],
+  .tech-sec[data-bg='ink'],
+  .sol-sec[data-bg='ink'] {
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink-2: rgba(var(--paper-rgb), 0.82);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .ed-table-block[data-bg='ink'] { background: var(--ink); }
+  .ed-table-block[data-bg='ink'] :is(h2, p, li) { color: var(--paper); }
+  .tech-sec[data-bg='ink'] :is(h2, .tech-aside),
+  .sol-sec[data-bg='ink'] :is(h2) { color: var(--paper); }
+  .tech-sec[data-bg='ink'] .tech-aside,
+  .sol-sec[data-bg='ink'] .sol-aside { color: rgba(var(--paper-rgb), 0.7); }
+  /* L'italique accent reste lisible sur fond sombre */
+  .ed-table-block[data-bg='ink'] .ed-table-block-h2 :global(i) { color: var(--accent); }
+
+  /* Wrap borde du preset tech-models sur ink */
+  .tech-sec[data-bg='ink'] .tech-models-table-wrap {
+    background: rgba(var(--paper-rgb), 0.03);
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+
+  /* ── Molecule EditorialTable (.ed-table*) ajustee sur ink (3 variantes) ── */
+  :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-caption) {
+    color: rgba(var(--paper-rgb), 0.64);
+    border-bottom-color: rgba(var(--paper-rgb), 0.28);
+  }
+  :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-th) {
+    color: rgba(var(--paper-rgb), 0.64);
+    border-bottom-color: rgba(var(--paper-rgb), 0.55);
+  }
+  :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-td) {
+    color: rgba(var(--paper-rgb), 0.82);
+    border-bottom-color: rgba(var(--paper-rgb), 0.14);
+  }
+  :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-editorial .ed-table-td:first-child) {
+    color: rgba(var(--paper-rgb), 0.64);
+  }
+  :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-tr:hover) {
+    background: rgba(var(--paper-rgb), 0.05);
+  }
+  :is(.ed-table-block, .tech-sec, .sol-sec)[data-bg='ink'] :global(.ed-table-tr:last-child .ed-table-td) {
+    border-bottom-color: rgba(var(--paper-rgb), 0.55);
+  }
+  /* Callout aside (department-stack) sur ink */
+  .sol-sec[data-bg='ink'] :global(.callout) {
+    color: rgba(var(--paper-rgb), 0.72);
+    border-left-color: rgba(var(--paper-rgb), 0.28);
   }
 </style>

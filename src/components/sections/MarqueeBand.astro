@@ -14,7 +14,7 @@ const items = (isFr ? data.items_fr : data.items_en) ?? data.items_fr;
 const sep = data.separator ?? '·';
 const loops = data.repeat ?? 2;
 ---
-<div class="marquee-band" aria-hidden="true">
+<div class="marquee-band" data-bg={data.background} aria-hidden="true">
   <div class="marquee-band__track">
     {Array.from({ length: loops }).map(() => (
       items.map((item) => (
@@ -61,4 +61,16 @@ const loops = data.repeat ?? 2;
   @media (prefers-reduced-motion: reduce) {
     .marquee-band__track { animation: none; }
   }
+
+  /* ── Alternance des fonds · defaut (transparent/paper) = rendu inchange ── */
+  .marquee-band[data-bg='paper-2'] { background: var(--paper-2); }
+  .marquee-band[data-bg='paper-3'] { background: var(--paper-3); }
+  .marquee-band[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    border-top-color: rgba(var(--paper-rgb), 0.14);
+    border-bottom-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .marquee-band[data-bg='ink'] .marquee-band__item { color: var(--paper); }
+  .marquee-band[data-bg='ink'] .marquee-band__sep { color: var(--accent); }
 </style>

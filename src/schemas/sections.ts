@@ -630,6 +630,7 @@ export const tunnelStepNavSchema = z.object({
 // Bandeau marquee mono uppercase infini scroll (avec respect prefers-reduced-motion)
 export const marqueeBandSchema = z.object({
   type: z.literal('marquee-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   items_fr: z.array(z.string()).min(2).max(12),
   items_en: z.array(z.string()).min(2).max(12).optional(),
   separator: z.string().default('·'),
@@ -1587,6 +1588,7 @@ export const relatedCardsBandSchema = z.object({
 // Citation éditoriale isolée : wrapper catalogue autour de PullQuote
 export const pullQuoteBlockSchema = z.object({
   type: z.literal('pull-quote-block'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   quote_fr: z.string(),
   quote_en: z.string(),
   cite_fr: z.string().optional(),
@@ -2924,6 +2926,7 @@ export const codeShowcaseSchema = z.object({
 // §Banner Sections · Bandeau d'annonce/promo fin (texte + lien, dismissible, variante accent/ink).
 export const announcementBannerSchema = z.object({
   type: z.literal('announcement-banner'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   text_fr: z.string(),
   text_en: z.string(),
   link_label_fr: z.string().optional(),

@@ -12,7 +12,7 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="sec" aria-labelledby="notes-h2">
+<section class="sec" aria-labelledby="notes-h2" data-bg={data.background}>
   <div class="wrap-wide">
     <SectionHeader
       roman={data.roman}
@@ -161,4 +161,26 @@ const isFr = lang === 'fr';
       display: none;
     }
   }
+
+  /* ── Alternance des fonds R4 · defaut paper = rendu inchange ── */
+  .sec[aria-labelledby="notes-h2"][data-bg='paper-2'] { background: var(--paper-2); }
+  .sec[aria-labelledby="notes-h2"][data-bg='paper-3'] { background: var(--paper-3); }
+
+  /* ── Idiome dark (ink) — fond sombre soigne, contraste AA ── */
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] :global(.sec-hd h2) { color: var(--paper); }
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] :global(.sec-hd .aside) { color: var(--muted); }
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] .notes-index { border-top-color: var(--hairline-strong); }
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] .notes-row { border-bottom-color: var(--hairline); }
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] .notes-row-text { color: var(--paper); }
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] .notes-row-date,
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] .notes-row-arr { color: var(--muted); }
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] .notes-row-tag { color: rgba(var(--paper-rgb), 0.82); }
+  .sec[aria-labelledby="notes-h2"][data-bg='ink'] .notes-row:hover { background: rgba(var(--paper-rgb), 0.05); }
 </style>
