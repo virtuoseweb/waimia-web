@@ -17,4 +17,12 @@
 
 ## Preuves d'intégration
 
-astro check `- 0 errors` · build `Complete!` · 7 gates PASS · push `4592d36..f1c8580` · GF-1 prod : addendum ci-dessous après deploy.
+astro check `- 0 errors` · build `Complete!` · 7 gates PASS · push `4592d36..f1c8580`.
+
+## Addendum GF-1 PROD (deploy f1c8580 live, ~12:30)
+
+- Landing : 200, h1 opacity 1, 3 `data-bg="ink"`, pricing présent, CTA vers tunnel/1 présent.
+- Tunnel 1→4 : 200 partout, h1 opacity 1 ; un seul CTA next visible par step (les compteurs > 1 de la sonde brute = liens « précédent » + nav de progression, vérifié).
+- Step 4 : bloc « noir sur blanc » présent + `https://cal.com/simonberos/audit` + `/contact?offer=site-web-ia&source=tunnel-conversion` (curl).
+- stat-block ink : citation `rgb(246,241,232)` sur fond ink, opacity 1 (fix live).
+- ⚠️ Incident sonde : le 1er poll (« guarantee ») a matché l'ANCIEN build → GF-1 sondait l'ancienne prod (faux signaux ink=0). Leçon tasks/lessons.md : marqueur de poll vérifié absent du build courant avant usage.
