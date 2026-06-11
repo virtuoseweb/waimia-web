@@ -78,4 +78,15 @@ const isFr = lang === 'fr';
   .manifesto-stmt[data-tone='ink'] .manifesto-stmt__text :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
   /* Sur fond accent, le relevé reste paper (contraste par la graisse, pas la couleur) */
   .manifesto-stmt[data-tone='accent'] .manifesto-stmt__text :global(.acc) { font-weight: var(--fw-semibold); }
+
+  /* ── MOMENT motion signature : manifeste progressif (lecture guidée scroll-driven) ──
+     Chaque mot (.ms-word, posé par motion-signature.ts) passe d'une teinte estompée à
+     la pleine encre selon --ms-lit (0→1, piloté par le scroll). Anime l'opacity seule
+     → 0 CLS, et marche identiquement sur fond ink (couleur conservée, opacity variée).
+     Sans JS / reduced-motion : pas de .ms-word, le texte plein s'affiche tel quel. */
+  .manifesto-stmt__text.ms-manifesto-progressive :global(.ms-word) {
+    opacity: calc(0.2 + 0.8 * var(--ms-lit, 1));
+    transition: opacity var(--dur-trim) var(--ease-out);
+    will-change: opacity;
+  }
 </style>
