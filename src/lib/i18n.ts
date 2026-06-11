@@ -44,6 +44,11 @@ const FR_ONLY_STATIC = new Set([
   '/offres/revops', '/offres/site-web-ia',
   '/offres/site-web-ia-landing', '/offres/audit-maturite-ia',
   '/agence/careers', '/agence/docs', '/agence/governance', '/agence/trust-center',
+  // DS Studio / Hero Lab : outils internes FR-only (pas de miroir /en/agence/ds-studio
+  // ni /en/agence/hero-lab → sinon le switcher de langue du Header pointait vers un 404,
+  // SR-42 §3). Déclarés FR-only → le toggle s'affiche désactivé (comme les autres pages
+  // sans miroir EN), aucun /en/* 404 émis.
+  '/agence/ds-studio', '/agence/hero-lab',
   '/ressources/blog', '/ressources/blog/brain-circuit', '/ressources/academy',
   '/ressources/changelog',
   '/ressources/cookbooks', '/ressources/cookbooks/claude-cowork-rollout',
