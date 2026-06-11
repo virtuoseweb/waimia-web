@@ -211,9 +211,25 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
     --muted: rgba(var(--paper-rgb), 0.64);
     --ink-2: rgba(var(--paper-rgb), 0.86);
     --hairline: rgba(var(--paper-rgb), 0.14);
-    --hairline-strong: rgba(var(--paper-rgb), 0.28);
-    --paper: var(--ink);
-    --paper-2: rgba(var(--paper-rgb), 0.06);
+    --hairline-strong: rgba(var(--paper-rgb), 0.22);
   }
-  .pricing-cards[data-bg='ink'] :is(h2, .pricing-cards__price-k) { color: var(--paper); }
+  /* Tous les textes/atomes lisibles AA sur fond sombre */
+  .pricing-cards[data-bg='ink'] :is(h2, h3, strong, a, dt, dd) { color: var(--paper); }
+  .pricing-cards[data-bg='ink'] .pricing-cards__lede,
+  .pricing-cards[data-bg='ink'] .pricing-cards__name,
+  .pricing-cards[data-bg='ink'] .pricing-cards__period,
+  .pricing-cards[data-bg='ink'] .pricing-cards__footnote { color: rgba(var(--paper-rgb), 0.64); }
+  .pricing-cards[data-bg='ink'] .pricing-cards__price-k { color: var(--paper); }
+  .pricing-cards[data-bg='ink'] .pricing-cards__features li { color: rgba(var(--paper-rgb), 0.86); }
+  /* Cartes : surfaces sombres élevées, hairlines clairs */
+  .pricing-cards[data-bg='ink'] .pricing-cards__card {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .pricing-cards[data-bg='ink'] .pricing-cards__card.is-featured {
+    background: rgba(var(--paper-rgb), 0.07);
+    border-color: var(--accent);
+  }
+  /* Accent reste lisible sur sombre (idx, check, name featured, badge) */
+  .pricing-cards[data-bg='ink'] .pricing-cards__card.is-featured .pricing-cards__name { color: var(--accent); }
 </style>

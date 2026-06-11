@@ -256,19 +256,23 @@ pre {
   padding: 18px 30px;
   font-size: var(--text-body-sm);
 }
-.on-dark .btn-ghost {
+.on-dark .btn-ghost,
+[data-bg='ink'] .btn-ghost {
   border-color: var(--paper);
   color: var(--paper);
 }
-.on-dark .btn-ghost:hover {
+.on-dark .btn-ghost:hover,
+[data-bg='ink'] .btn-ghost:hover {
   background: var(--paper);
   color: var(--ink);
 }
-.on-dark .btn-primary {
+.on-dark .btn-primary,
+[data-bg='ink'] .btn-primary {
   background: var(--paper);
   color: var(--ink);
 }
-.on-dark .btn-primary:hover {
+.on-dark .btn-primary:hover,
+[data-bg='ink'] .btn-primary:hover {
   background: var(--accent);
   color: var(--paper);
 }

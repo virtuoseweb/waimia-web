@@ -158,7 +158,14 @@ const isFr = lang === 'fr';
     color: var(--paper);
     --muted: rgba(var(--paper-rgb), 0.64);
     --hairline: rgba(var(--paper-rgb), 0.14);
-    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+    --hairline-strong: rgba(var(--paper-rgb), 0.22);
   }
-  .pricing-table[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  /* Tous les textes/atomes lisibles AA sur fond sombre */
+  .pricing-table[data-bg='ink'] :is(h2, h3, strong, a) { color: var(--paper); }
+  .pricing-table[data-bg='ink'] .pricing-table__tier-name { color: rgba(var(--paper-rgb), 0.64); }
+  .pricing-table[data-bg='ink'] .pricing-table__price { color: var(--paper); }
+  .pricing-table[data-bg='ink'] .pricing-table__features li { color: rgba(var(--paper-rgb), 0.86); }
+  /* Colonne phare : surface sombre élevée + accent lisible */
+  .pricing-table[data-bg='ink'] .pricing-table__tier--featured { background: rgba(var(--paper-rgb), 0.05); }
+  .pricing-table[data-bg='ink'] .pricing-table__tier--featured .pricing-table__tier-name { color: var(--accent); }
 </style>

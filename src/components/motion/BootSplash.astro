@@ -50,7 +50,10 @@ const subtitle = lang === 'fr' ? subtitleFr : subtitleEn;
     align-items: center;
     justify-content: center;
     background: var(--paper);
-    z-index: 200;
+    /* Au-dessus de TOUT pendant l'intro (header z 60, skip-link z 1000) pour
+       un splash plein ecran propre sans residu top-left. Apres le fade,
+       visibility:hidden rend le focus skip-link a nouveau operant. */
+    z-index: 1100;
     animation: boot-fade 1720ms forwards;
     will-change: opacity;
   }
