@@ -1,0 +1,114 @@
+---
+// Section catalogue · trust-badges-band (catégorie Trust Sections)
+// Bandeau de badges de réassurance (sécurité, hébergement, conformité, garanties) en cellules
+// hairline, placé juste avant le CTA pour lever l'objection risque. Calque hairline-cells de
+// terminal-metrics-strip, mais orienté confiance (glyph + label + valeur), pas télémétrie.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'trust-badges-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const badges = data.badges;
+---
+<section class="trust-badges" data-bg={data.background}>
+  <div class="wrap-wide">
+    {(kicker || h2) && (
+      <header class="trust-badges__head reveal">
+        {kicker && <Kicker class="trust-badges__kicker">{kicker}</Kicker>}
+        {h2 && <h2 class="trust-badges__h2" set:html={h2} />}
+      </header>
+    )}
+    <ul class="trust-badges__grid reveal-stagger" style={`--tb-cols:${badges.length}`}>
+      {badges.map((b, i) => (
+        <li class="trust-badges__cell" data-last={i === badges.length - 1 ? 'true' : 'false'}>
+          {b.glyph && <span class="trust-badges__glyph" aria-hidden="true">{b.glyph}</span>}
+          <span class="trust-badges__label">{isFr ? b.label_fr : b.label_en}</span>
+          {(isFr ? b.value_fr : b.value_en) && (
+            <span class="trust-badges__value">{isFr ? b.value_fr : b.value_en}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .trust-badges { padding-block: var(--section-tight); }
+  .trust-badges[data-bg='paper-2'] { background: var(--paper-2); }
+  .trust-badges[data-bg='paper-3'] { background: var(--paper-3); }
+  .trust-badges[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  .trust-badges__head { margin-bottom: var(--space-6); max-width: var(--wrap-prose); }
+  :global(.trust-badges__kicker) { margin-bottom: var(--space-3); }
+  .trust-badges__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-row);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .trust-badges__h2 :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
+
+  .trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--tb-cols, 4), 1fr);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .trust-badges[data-bg='ink'] .trust-badges__grid {
+    border-top-color: rgba(var(--paper-rgb), .14);
+    border-bottom-color: rgba(var(--paper-rgb), .14);
+  }
+
+  .trust-badges__cell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border-right: 1px solid var(--hairline);
+  }
+  .trust-badges__cell[data-last='true'] { border-right: none; }
+  .trust-badges[data-bg='ink'] .trust-badges__cell { border-right-color: rgba(var(--paper-rgb), .12); }
+  .trust-badges[data-bg='ink'] .trust-badges__cell[data-last='true'] { border-right: none; }
+
+  .trust-badges__glyph {
+    font-size: 20px;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .trust-badges__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lead);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+  .trust-badges[data-bg='ink'] .trust-badges__label { color: var(--paper); }
+  .trust-badges__value {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    letter-spacing: .04em;
+    color: var(--muted);
+  }
+  .trust-badges[data-bg='ink'] .trust-badges__value { color: rgba(var(--paper-rgb), .6); }
+
+  @media (max-width: 900px) {
+    .trust-badges__grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-badges__cell:nth-child(2n) { border-right: none; }
+    .trust-badges__cell { border-bottom: 1px solid var(--hairline); }
+    .trust-badges[data-bg='ink'] .trust-badges__cell { border-bottom-color: rgba(var(--paper-rgb), .12); }
+  }
+  @media (max-width: 560px) {
+    .trust-badges__grid { grid-template-columns: 1fr; }
+    .trust-badges__cell { border-right: none; }
+  }
+</style>

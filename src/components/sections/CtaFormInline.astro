@@ -1,0 +1,227 @@
+---
+// CtaFormInline · section CONVERSION · bande CTA + mini-formulaire inline (email + bouton)
+// Capture à l'instant d'intention, sans page dédiée. Variante newsletter/lead.
+// Reprend le contrat /api/newsletter + honeypot du pattern NewsletterSignup.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'cta-form-inline'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const heading = isFr ? data.h2_fr : data.h2_en;
+const body = isFr ? data.body_fr : data.body_en;
+const placeholder = isFr ? data.placeholder_fr : data.placeholder_en;
+const submit = isFr ? data.submit_label_fr : data.submit_label_en;
+const hint = isFr ? data.hint_fr : data.hint_en;
+const action = data.form_action ?? '/api/newsletter';
+---
+
+<section class="cta-form" data-bg={data.background} data-nl-lang={lang}>
+  <div class="wrap-wide cta-form__inner">
+    <div class="cta-form__text">
+      {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+      <h2 set:html={heading} />
+      {body && <p class="cta-form__body">{body}</p>}
+    </div>
+
+    <form class="cta-form__form" action={action} method="post" novalidate data-nl-form>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
+      <div class="cta-form__row">
+        <label for="cta-form-email" class="sr-only">Email</label>
+        <input
+          id="cta-form-email"
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          placeholder={placeholder}
+          aria-describedby="cta-form-error cta-form-hint"
+          class="cta-form__input"
+        />
+        <button type="submit" class="cta-form__btn" data-mag="0.15">{submit}</button>
+      </div>
+      <p id="cta-form-error" class="cta-form__error" aria-live="assertive" hidden data-nl-error></p>
+      {hint && <p id="cta-form-hint" class="cta-form__hint">{hint}</p>}
+    </form>
+    <p class="cta-form__confirm" aria-live="polite" hidden data-nl-confirm>
+      {isFr ? '✓ Bien reçu. Vérifiez votre boîte mail.' : '✓ Got it. Check your inbox.'}
+    </p>
+  </div>
+</section>
+
+<style>
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  .cta-form {
+    padding-block: var(--section-base);
+    border-block: 1px solid var(--hairline);
+  }
+  .cta-form__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+  .cta-form__text { display: flex; flex-direction: column; gap: var(--space-4); }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+  .cta-form__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  .cta-form__form { display: flex; flex-direction: column; gap: 10px; }
+  .cta-form__row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cta-form__input {
+    flex: 1;
+    min-width: 200px;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--hairline);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--dur-trim) var(--ease);
+    outline: none;
+  }
+  .cta-form__input:focus { border-color: var(--ink); }
+  .cta-form__input:focus-visible { border-color: var(--ink); outline: 2px solid var(--ink); outline-offset: 2px; }
+  .cta-form__input::placeholder { color: var(--muted); }
+  .cta-form__input--error { border-color: var(--accent); }
+  .cta-form__btn {
+    padding: var(--space-3) var(--space-5);
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: opacity var(--dur-fast) ease;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+  .cta-form__btn:hover { opacity: 0.82; }
+  .cta-form__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .cta-form__error {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+  .cta-form__hint {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+  .cta-form__confirm {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--ink);
+    font-weight: var(--fw-medium);
+    margin: var(--space-4) 0 0;
+  }
+
+  /* Fonds */
+  .cta-form[data-bg='paper-2'] { background: var(--paper-2); }
+  .cta-form[data-bg='paper-3'] { background: var(--paper-3); }
+  .cta-form[data-bg='accent'] { background: var(--accent); }
+  .cta-form[data-bg='accent'] :is(h2, .cta-form__body) { color: var(--paper); }
+  .cta-form[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.18);
+  }
+  .cta-form[data-bg='ink'] :is(h2, .cta-form__body, .cta-form__confirm) { color: var(--paper); }
+  .cta-form[data-bg='ink'] .cta-form__input { background: rgba(var(--paper-rgb), 0.06); color: var(--paper); }
+  .cta-form[data-bg='ink'] .cta-form__btn { background: var(--paper); color: var(--ink); }
+
+  @media (max-width: 860px) {
+    .cta-form__inner { grid-template-columns: 1fr; gap: var(--space-7); }
+  }
+</style>
+
+<script is:inline>
+(function () {
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function bind(form) {
+    if (form.dataset.ctaFormBound) return;
+    form.dataset.ctaFormBound = '1';
+    var section = form.closest('[data-nl-lang]');
+    var lang = section ? section.dataset.nlLang : 'fr';
+    var email = form.querySelector('input[name="email"]');
+    var honeypot = form.querySelector('input[name="website"]');
+    var errorEl = form.querySelector('[data-nl-error]');
+    var btn = form.querySelector('.cta-form__btn');
+    function showError(msg) {
+      if (!errorEl) return;
+      errorEl.textContent = msg;
+      errorEl.removeAttribute('hidden');
+      if (email) email.classList.add('cta-form__input--error');
+    }
+    function clearError() {
+      if (!errorEl) return;
+      errorEl.setAttribute('hidden', '');
+      errorEl.textContent = '';
+      if (email) email.classList.remove('cta-form__input--error');
+    }
+    if (email) { email.addEventListener('input', clearError); email.addEventListener('focus', clearError); }
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError();
+      var value = email ? email.value.trim() : '';
+      if (!value || !EMAIL_RE.test(value)) {
+        showError(lang === 'fr' ? 'Adresse email invalide.' : 'Invalid email address.');
+        if (email) email.focus();
+        return;
+      }
+      if (btn) btn.disabled = true;
+      var payload = { email: value, lang: lang, website: honeypot ? honeypot.value : '' };
+      try {
+        var res = await fetch(form.getAttribute('action') || '/api/newsletter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        var data = await res.json();
+        if (data.ok) {
+          form.style.display = 'none';
+          var confirm = section && section.querySelector('[data-nl-confirm]');
+          if (confirm) confirm.removeAttribute('hidden');
+        } else {
+          showError(data.error || (lang === 'fr' ? 'Erreur, veuillez réessayer.' : 'Error, please try again.'));
+          if (btn) btn.disabled = false;
+        }
+      } catch (_) {
+        showError(lang === 'fr' ? 'Erreur réseau, veuillez réessayer.' : 'Network error, please try again.');
+        if (btn) btn.disabled = false;
+      }
+    });
+  }
+  document.querySelectorAll('.cta-form [data-nl-form]').forEach(bind);
+  document.addEventListener('astro:page-load', function () {
+    document.querySelectorAll('.cta-form [data-nl-form]').forEach(function (f) { delete f.dataset.ctaFormBound; bind(f); });
+  });
+})();
+</script>

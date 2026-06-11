@@ -1,0 +1,147 @@
+---
+// feature-comparison-grid · différenciation légère « nous vs eux » en grille.
+// Deux (ou trois) colonnes de cartes côte à côte ; chaque ligne = un critère
+// avec check / cross. Plus léger que comparison-table (matrice lourde). 0 token neuf.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'feature-comparison-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const heading = isFr ? data.h2_fr : data.h2_en;
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+---
+
+<section class="fcg" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="fcg__header">
+      {kicker && <Kicker tone="muted">{kicker}</Kicker>}
+      <h2 set:html={heading} />
+      {lede && <p class="fcg__lede">{lede}</p>}
+    </div>
+    <div class="fcg__grid" data-cols={data.columns.length}>
+      {data.columns.map((col) => (
+        <article class={`fcg__col${col.highlighted ? ' is-highlighted' : ''}`}>
+          <header class="fcg__col-head">
+            <span class="fcg__col-label">{isFr ? col.label_fr : col.label_en}</span>
+          </header>
+          <ul class="fcg__rows">
+            {col.rows.map((row) => (
+              <li class={`fcg__row${row.included ? ' is-in' : ' is-out'}`}>
+                <span class="fcg__mark" aria-hidden="true">{row.included ? '✓' : '✕'}</span>
+                <span class="fcg__row-text">{isFr ? row.text_fr : row.text_en}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .fcg {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .fcg__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 64ch;
+  }
+  .fcg h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  .fcg h2 :global(i) { font-style: italic; color: var(--accent); }
+  .fcg__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .fcg__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--c, 2), 1fr);
+    gap: var(--space-5);
+  }
+  .fcg__grid[data-cols='3'] { --c: 3; }
+  .fcg__col {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    padding: clamp(24px, 3vw, 40px);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .fcg__col.is-highlighted {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-card-rest);
+    background: var(--paper-2);
+  }
+  .fcg__col-label {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+  }
+  .fcg__rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .fcg__row {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+  }
+  .fcg__mark {
+    flex-shrink: 0;
+    font-weight: var(--fw-semibold);
+    width: var(--space-4);
+  }
+  .fcg__row.is-in .fcg__mark { color: var(--accent); }
+  .fcg__row.is-out { color: var(--muted); }
+  .fcg__row.is-out .fcg__mark { color: var(--muted); }
+
+  .fcg[data-bg='paper-2'] { background: var(--paper-2); }
+  .fcg[data-bg='paper-2'] .fcg__col { background: var(--paper); }
+  .fcg[data-bg='paper-3'] { background: var(--paper-3); }
+  .fcg[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .fcg[data-bg='ink'] h2 { color: var(--paper); }
+  .fcg[data-bg='ink'] .fcg__col {
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+  .fcg[data-bg='ink'] .fcg__col-label,
+  .fcg[data-bg='ink'] .fcg__row.is-in { color: var(--paper); }
+  .fcg[data-bg='ink'] .fcg__col.is-highlighted { background: rgba(var(--paper-rgb), 0.08); }
+
+  @media (max-width: 760px) {
+    .fcg__grid, .fcg__grid[data-cols='3'] { grid-template-columns: 1fr; --c: 1; }
+  }
+</style>

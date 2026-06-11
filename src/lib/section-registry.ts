@@ -108,6 +108,35 @@ import TerminalTableSection from '../components/sections/TerminalTableSection.as
 import EditorialWriteFeed from '../components/sections/EditorialWriteFeed.astro';
 import ManifestoStatement from '../components/sections/ManifestoStatement.astro';
 import ManifestoAct from '../components/sections/ManifestoAct.astro';
+// >>> [gen-hero-feature] start
+import HeroFormInline from '../components/sections/HeroFormInline.astro';
+import HeroSocialProof from '../components/sections/HeroSocialProof.astro';
+import FeatureComparisonGrid from '../components/sections/FeatureComparisonGrid.astro';
+import FeatureAccordion from '../components/sections/FeatureAccordion.astro';
+// <<< [gen-hero-feature] end
+// >>> [gen-conversion] start
+import FaqCtaAside from '../components/sections/FaqCtaAside.astro';
+import CtaFormInline from '../components/sections/CtaFormInline.astro';
+import ContactForm from '../components/sections/ContactForm.astro';
+import BookingEmbed from '../components/sections/BookingEmbed.astro';
+import NewsletterSignupSection from '../components/sections/NewsletterSignupSection.astro';
+// <<< [gen-conversion] end
+// >>> [gen-structure] start
+import DataTable from '../components/sections/DataTable.astro';
+import ArticleGrid from '../components/sections/ArticleGrid.astro';
+import ResourceCardGrid from '../components/sections/ResourceCardGrid.astro';
+import ProcessSteps from '../components/sections/ProcessSteps.astro';
+import TimelineHorizontal from '../components/sections/TimelineHorizontal.astro';
+import CodeShowcase from '../components/sections/CodeShowcase.astro';
+import AnnouncementBanner from '../components/sections/AnnouncementBanner.astro';
+// <<< [gen-structure] end
+// >>> [gen-trust-proof] start
+import TrustBadgesBand from '../components/sections/TrustBadgesBand.astro';
+import TestimonialLogoMetric from '../components/sections/TestimonialLogoMetric.astro';
+import StatCounter from '../components/sections/StatCounter.astro';
+import VersusCompetitors from '../components/sections/VersusCompetitors.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+// <<< [gen-trust-proof] end
 import AsymmetricServices from '../components/sections/AsymmetricServices.astro';
 import TerminalMockupSection from '../components/sections/TerminalMockupSection.astro';
 import TerminalMetricsStrip from '../components/sections/TerminalMetricsStrip.astro';
@@ -121,6 +150,224 @@ import PricingSingleHighlight from '../components/sections/PricingSingleHighligh
  * Section registry — single source of truth pour composants et métadonnées marketplace.
  */
 export const SECTIONS: Record<SectionType, SectionDescriptor> = {
+  // >>> [gen-hero-feature] start
+  'hero-form-inline': {
+    component: HeroFormInline,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'form', 'lead', 'capture', 'newsletter', 'above-fold'],
+    status: 'stable',
+    description_fr: 'Hero de capture lead above-the-fold : promesse à gauche, formulaire email/CTA à droite postant sur /api/newsletter, points de réassurance optionnels.',
+    description_en: 'Above-the-fold lead-capture hero: promise on the left, email/CTA form on the right posting to /api/newsletter, optional reassurance points.',
+  },
+  'hero-social-proof': {
+    component: HeroSocialProof,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    tags: ['hero', 'social-proof', 'stats', 'rating', 'trust', 'above-fold'],
+    status: 'stable',
+    description_fr: 'Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.',
+    description_en: 'Centered hero with above-the-fold social proof: heading, CTA, optional customer rating and a key-figures band (StatRow) under the fold.',
+  },
+  'feature-comparison-grid': {
+    component: FeatureComparisonGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['feature', 'comparison', 'us-vs-them', 'grid', 'differentiation'],
+    status: 'stable',
+    description_fr: 'Différenciation légère « nous vs eux » en grille de cartes : 2 ou 3 colonnes, lignes cochées ou barrées, colonne mise en avant. Plus léger que la table comparative.',
+    description_en: 'Lightweight "us vs them" differentiation as a card grid: 2 or 3 columns, check or cross rows, one highlighted column. Lighter than the comparison table.',
+  },
+  'feature-accordion': {
+    component: FeatureAccordion,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['feature', 'accordion', 'progressive-disclosure', 'details', 'saas'],
+    status: 'stable',
+    description_fr: 'Features en progressive disclosure : accordéon natif <details>, chaque item ouvre un détail explicatif et une métadonnée optionnelle. Premier item ouvrable par défaut.',
+    description_en: 'Features in progressive disclosure: native <details> accordion, each item reveals an explanatory body and optional meta. First item can open by default.',
+  },
+  // <<< [gen-hero-feature] end
+  // >>> [gen-conversion] start
+  'faq-cta-aside': {
+    component: FaqCtaAside,
+    category: 'marketing',
+    subcategory: 'FAQ Sections',
+    categorySlug: 'faq-sections',
+    tags: ['faq', 'accordion', 'cta', 'aside', 'sticky', 'lead', 'conversion'],
+    status: 'stable',
+    description_fr: 'FAQ en accordéon à gauche et panneau de réassurance avec CTA collant à droite, pour transformer une FAQ passive en capture de lead.',
+    description_en: 'Accordion FAQ on the left with a sticky reassurance and CTA panel on the right, turning a passive FAQ into lead capture.',
+  },
+  'cta-form-inline': {
+    component: CtaFormInline,
+    category: 'marketing',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
+    tags: ['cta', 'form', 'inline', 'email', 'newsletter', 'lead', 'capture'],
+    status: 'stable',
+    description_fr: 'Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l\'instant d\'intention.',
+    description_en: 'CTA band with an inline mini-form (email and button), to capture a lead or newsletter sign-up at the moment of intent.',
+  },
+  'contact-form': {
+    component: ContactForm,
+    category: 'marketing',
+    subcategory: 'Contact Sections',
+    categorySlug: 'contact-sections',
+    tags: ['contact', 'form', 'name', 'email', 'message', 'lead'],
+    status: 'stable',
+    description_fr: 'Section contact avec formulaire (nom, email, message) et colonne coordonnées, action vers /api/contact, bilingue.',
+    description_en: 'Contact section with a form (name, email, message) and a details column, posting to /api/contact, bilingual.',
+  },
+  'booking-embed': {
+    component: BookingEmbed,
+    category: 'marketing',
+    subcategory: 'Contact Sections',
+    categorySlug: 'contact-sections',
+    tags: ['contact', 'booking', 'cal', 'embed', 'meeting', 'rdv', 'conversion'],
+    status: 'stable',
+    description_fr: 'Section de prise de rendez-vous intégrant le widget Cal.com (CalEmbed) avec une copy de réassurance, pour réserver un audit ou un appel.',
+    description_en: 'Booking section embedding the Cal.com widget (CalEmbed) with reassurance copy, to book an audit or a call.',
+  },
+  'newsletter-signup-section': {
+    component: NewsletterSignupSection,
+    category: 'marketing',
+    subcategory: 'Newsletter Sections',
+    categorySlug: 'newsletter-sections',
+    tags: ['newsletter', 'subscribe', 'email', 'signup', 'full-width', 'climax'],
+    status: 'stable',
+    description_fr: 'Section d\'inscription newsletter pleine largeur (réutilise NewsletterSignup), fonds au choix dont ink pour un climax de page.',
+    description_en: 'Full-width newsletter sign-up section (reuses NewsletterSignup), with a background enum including ink for a page climax.',
+  },
+  // <<< [gen-conversion] end
+  // >>> [gen-structure] start
+  'data-table': {
+    component: DataTable,
+    category: 'marketing',
+    subcategory: 'Table Sections',
+    categorySlug: 'table-sections',
+    tags: ['table', 'data', 'rows', 'comparison', 'neutral', 'striped'],
+    status: 'stable',
+    description_fr: 'Table de données neutre générique : en-tête optionnel, colonnes avec alignements, lignes et cellules typées (emphase), zébrures et légende. Distincte des tables habillées terminal ou éditoriale.',
+    description_en: 'Neutral generic data table: optional header, columns with alignments, rows and typed cells (emphasis), zebra striping and caption. Distinct from the terminal or editorial dressed tables.',
+  },
+  'article-grid': {
+    component: ArticleGrid,
+    category: 'marketing',
+    subcategory: 'Content Listing Sections',
+    categorySlug: 'content-listing-sections',
+    tags: ['blog', 'articles', 'grid', 'cards', 'editorial', 'listing'],
+    status: 'stable',
+    description_fr: 'Grille de cartes d&rsquo;articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.',
+    description_en: 'Grid of article/blog cards: optional image, tag, title, date, read time, excerpt, author and link, in 2 or 3 columns. The B2B editorial classic.',
+  },
+  'resource-card-grid': {
+    component: ResourceCardGrid,
+    category: 'marketing',
+    subcategory: 'Content Listing Sections',
+    categorySlug: 'content-listing-sections',
+    tags: ['resources', 'downloads', 'grid', 'cards', 'cta', 'lead-magnet'],
+    status: 'stable',
+    description_fr: 'Grille de ressources téléchargeables : type (livre blanc, cookbook, outil), titre, description, format, badge gated et CTA, en 2 ou 3 colonnes.',
+    description_en: 'Grid of downloadable resources: kind (white paper, cookbook, tool), title, description, format, gated badge and CTA, in 2 or 3 columns.',
+  },
+  'process-steps': {
+    component: ProcessSteps,
+    category: 'marketing',
+    subcategory: 'Process Sections',
+    categorySlug: 'process-sections',
+    tags: ['process', 'steps', 'how-it-works', 'numbered', 'onboarding', 'method'],
+    status: 'stable',
+    description_fr: '« Comment ça marche » en étapes numérotées verticales : numéro, titre, description et meta par étape, connecteurs visuels entre paliers, fonds paper à ink.',
+    description_en: 'How it works in vertical numbered steps: number, title, description and meta per step, visual connectors between stages, paper to ink backgrounds.',
+  },
+  'timeline-horizontal': {
+    component: TimelineHorizontal,
+    category: 'marketing',
+    subcategory: 'Timelines',
+    categorySlug: 'timelines',
+    tags: ['timeline', 'horizontal', 'roadmap', 'dated', 'scroll', 'milestones'],
+    status: 'stable',
+    description_fr: 'Frise chronologique horizontale datée (roadmap) : événements à statut (done/active/upcoming), date, label et body, scroll-snap horizontal, empilement vertical sur mobile.',
+    description_en: 'Dated horizontal timeline (roadmap): status events (done/active/upcoming), date, label and body, horizontal scroll-snap, vertical stacking on mobile.',
+  },
+  'code-showcase': {
+    component: CodeShowcase,
+    category: 'marketing',
+    subcategory: 'Terminal Sections',
+    categorySlug: 'terminal-sections',
+    tags: ['code', 'showcase', 'syntax', 'mono', 'devtools', 'saas'],
+    status: 'stable',
+    description_fr: 'Vitrine de code annoté pour devtools/SaaS technique : copy explicative, bloc code mono avec numéros de ligne et commentaires bilingues alignés, label fichier et langage, tone encre ou paper.',
+    description_en: 'Annotated code showcase for devtools/technical SaaS: explanatory copy, mono code block with line numbers and aligned bilingual comments, file and language label, ink or paper tone.',
+  },
+  'announcement-banner': {
+    component: AnnouncementBanner,
+    category: 'marketing',
+    subcategory: 'Banner Sections',
+    categorySlug: 'banner-sections',
+    tags: ['banner', 'announcement', 'promo', 'alert', 'dismissible', 'strip'],
+    status: 'stable',
+    description_fr: 'Bandeau d&rsquo;annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.',
+    description_en: 'Thin announcement/promo banner: optional badge, short text and link, optional dismiss button, accent, ink or paper-2 variants.',
+  },
+  // <<< [gen-structure] end
+  // >>> [gen-trust-proof] start
+  'trust-badges-band': {
+    component: TrustBadgesBand,
+    category: 'marketing',
+    subcategory: 'Trust Sections',
+    categorySlug: 'trust-sections',
+    tags: ['trust', 'badges', 'security', 'compliance', 'reassurance'],
+    status: 'stable',
+    description_fr: 'Bandeau de badges de réassurance (sécurité, hébergement, conformité RGPD, garanties) en cellules hairline mono, placé juste avant le CTA pour lever l’objection risque.',
+    description_en: 'Reassurance badge band (security, hosting, GDPR compliance, guarantees) in mono hairline cells, placed right before the CTA to remove the risk objection.',
+  },
+  'testimonial-logo-metric': {
+    component: TestimonialLogoMetric,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['testimonial', 'logo', 'metric', 'b2b', 'social-proof'],
+    status: 'stable',
+    description_fr: 'Carte de preuve B2B la plus persuasive : logo client + citation attribuée + métrique d’impact chiffrée par carte. Combine preuve sociale, autorité de marque et résultat mesuré.',
+    description_en: 'The most persuasive B2B proof card: client logo + attributed quote + a quantified impact metric per card. Combines social proof, brand authority and measured outcome.',
+  },
+  'stat-counter': {
+    component: StatCounter,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['stats', 'counter', 'count-up', 'animated', 'kpi'],
+    status: 'stable',
+    description_fr: 'Compteur animé count-up déclenché à l’entrée dans le viewport (île React client:visible), grille de 2 à 4 stats. Respecte prefers-reduced-motion et reste lisible sans JS.',
+    description_en: 'Animated count-up counter triggered on viewport entry (React island client:visible), grid of 2 to 4 stats. Respects prefers-reduced-motion and stays readable without JS.',
+  },
+  'versus-competitors': {
+    component: VersusCompetitors,
+    category: 'marketing',
+    subcategory: 'Comparison Sections',
+    categorySlug: 'comparison-sections',
+    tags: ['comparison', 'competitors', 'versus', 'table', 'highlight'],
+    status: 'stable',
+    description_fr: 'Comparatif « nous vs alternatives » avec colonne « nous » mise en avant, lignes de critères groupées et cellules check / cross / partiel. Distinct de la matrice tarifaire interne.',
+    description_en: 'A “us vs alternatives” comparison with the “us” column highlighted, grouped criteria rows and check / cross / partial cells. Distinct from the internal pricing matrix.',
+  },
+  'logo-marquee': {
+    component: LogoMarquee,
+    category: 'marketing',
+    subcategory: 'Logo Sections',
+    categorySlug: 'logo-sections',
+    tags: ['logos', 'marquee', 'scroll', 'trusted-by', 'image'],
+    status: 'stable',
+    description_fr: 'Bandeau de logos image à défilement infini (« ils nous font confiance »), marquee CSS, grayscale optionnel. Respecte prefers-reduced-motion. Distinct du marquee-band texte mono.',
+    description_en: 'Infinite-scroll image logo band (“trusted by”), CSS marquee, optional grayscale. Respects prefers-reduced-motion. Distinct from the mono-text marquee-band.',
+  },
+  // <<< [gen-trust-proof] end
   'hero-split': {
     component: HeroSplit,
     category: 'marketing',

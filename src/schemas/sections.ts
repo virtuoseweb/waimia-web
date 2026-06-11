@@ -2496,6 +2496,521 @@ export const pricingSingleHighlightSchema = z.object({
 
 /* ─── Union discriminée pour validation ─── */
 
+// >>> [gen-hero-feature] start
+// hero-form-inline · hero de capture lead above-the-fold (copy + form email/CTA).
+export const heroFormInlineSchema = z.object({
+  type: z.literal('hero-form-inline'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  form_title_fr: z.string(),
+  form_title_en: z.string(),
+  proof: z
+    .array(z.object({ text_fr: z.string(), text_en: z.string() }))
+    .max(4)
+    .optional(),
+});
+
+// hero-social-proof · hero centré + bande de preuve sociale (stats + rating) above-fold.
+export const heroSocialProofSchema = z.object({
+  type: z.literal('hero-social-proof'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  rating_fr: z.string().optional(),
+  rating_en: z.string().optional(),
+  stats: z
+    .array(z.object({ k: z.string(), label_fr: z.string(), label_en: z.string() }))
+    .min(2)
+    .max(4),
+});
+
+// feature-comparison-grid · différenciation légère « nous vs eux » en grille (check/cross).
+export const featureComparisonGridSchema = z.object({
+  type: z.literal('feature-comparison-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  columns: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+        highlighted: z.boolean().default(false),
+        rows: z
+          .array(z.object({ text_fr: z.string(), text_en: z.string(), included: z.boolean() }))
+          .min(1)
+          .max(10),
+      }),
+    )
+    .min(2)
+    .max(3),
+});
+
+// feature-accordion · features en progressive disclosure (accordéon titre → détail).
+export const featureAccordionSchema = z.object({
+  type: z.literal('feature-accordion'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  open_first: z.boolean().default(false),
+  items: z
+    .array(
+      z.object({
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        meta_fr: z.string().optional(),
+        meta_en: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(8),
+});
+// <<< [gen-hero-feature] end
+
+// >>> [gen-conversion] start
+// FAQ + Conversion + Contact + Newsletter (audit famille CONVERSION)
+
+// FAQ accordéon (gauche) + panneau réassurance/CTA sticky (droite) — transforme une FAQ passive en capture lead.
+export const faqCtaAsideSchema = z.object({
+  type: z.literal('faq-cta-aside'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  items: z.array(faqItemSchema).min(2),
+  open_first: z.boolean().optional(),
+  aside_title_fr: z.string(),
+  aside_title_en: z.string(),
+  aside_body_fr: z.string().optional(),
+  aside_body_en: z.string().optional(),
+  aside_cta: ctaSchema,
+  aside_note_fr: z.string().optional(),
+  aside_note_en: z.string().optional(),
+});
+
+// Bande CTA avec mini-formulaire inline (email + bouton) — variante newsletter/lead, capture à l'instant d'intention.
+export const ctaFormInlineSchema = z.object({
+  type: z.literal('cta-form-inline'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink', 'accent']).default('paper-2'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  body_fr: z.string().optional(),
+  body_en: z.string().optional(),
+  placeholder_fr: z.string().default('votre@email.com'),
+  placeholder_en: z.string().default('your@email.com'),
+  submit_label_fr: z.string().default("S'inscrire →"),
+  submit_label_en: z.string().default('Sign up →'),
+  hint_fr: z.string().optional(),
+  hint_en: z.string().optional(),
+  form_action: z.string().optional(),
+});
+
+// Section contact avec formulaire (nom/email/message) + colonne coordonnées, action vers /api/contact.
+export const contactFormSchema = z.object({
+  type: z.literal('contact-form'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  body_fr: z.string().optional(),
+  body_en: z.string().optional(),
+  name_label_fr: z.string().default('Nom'),
+  name_label_en: z.string().default('Name'),
+  email_label_fr: z.string().default('Email'),
+  email_label_en: z.string().default('Email'),
+  message_label_fr: z.string().default('Message'),
+  message_label_en: z.string().default('Message'),
+  submit_label_fr: z.string().default('Envoyer →'),
+  submit_label_en: z.string().default('Send →'),
+  form_action: z.string().default('/api/contact'),
+  hint_fr: z.string().optional(),
+  hint_en: z.string().optional(),
+  details: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+        value: z.string(),
+        href: z.string().optional(),
+      }),
+    )
+    .optional(),
+});
+
+// Section prise de RDV : embed CalEmbed + copy de réassurance.
+export const bookingEmbedSchema = z.object({
+  type: z.literal('booking-embed'),
+  background: z.enum(['paper', 'paper-2', 'paper-3']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  body_fr: z.string().optional(),
+  body_en: z.string().optional(),
+  reassurance: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .min(1)
+    .max(4)
+    .optional(),
+  cal_username: z.string().optional(),
+  cal_event_type: z.string().optional(),
+  cal_namespace: z.string().optional(),
+});
+
+// Section d'inscription newsletter pleine largeur (réutilise NewsletterSignup), fonds enum (ink = climax).
+export const newsletterSignupSectionSchema = z.object({
+  type: z.literal('newsletter-signup-section'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('ink'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  body_fr: z.string().optional(),
+  body_en: z.string().optional(),
+  hint_fr: z.string().optional(),
+  hint_en: z.string().optional(),
+});
+// <<< [gen-conversion] end
+
+// >>> [gen-structure] start
+// §Table Sections · Table de données neutre générique (en-tête + lignes + cellules typées).
+// Distincte de terminal-table (habillée console) et editorial-write-feed (feed) : data brute.
+export const dataTableSchema = z.object({
+  type: z.literal('data-table'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
+  striped: z.boolean().default(false),
+  caption_fr: z.string().optional(),
+  caption_en: z.string().optional(),
+  columns: z
+    .array(
+      z.object({
+        label_fr: z.string(),
+        label_en: z.string(),
+        align: z.enum(['start', 'center', 'end']).default('start'),
+      }),
+    )
+    .min(2)
+    .max(8),
+  rows: z
+    .array(
+      z.object({
+        cells: z
+          .array(
+            z.object({
+              text_fr: z.string(),
+              text_en: z.string(),
+              emphasis: z.boolean().default(false),
+            }),
+          )
+          .min(2)
+          .max(8),
+      }),
+    )
+    .min(1)
+    .max(20),
+});
+
+// §Content Listing Sections · Grille de cartes d'articles/blog (image, tag, titre, date, extrait).
+export const articleGridSchema = z.object({
+  type: z.literal('article-grid'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2', 'paper-3']).default('paper'),
+  columns: z.enum(['2', '3']).default('3'),
+  articles: z
+    .array(
+      z.object({
+        image: z.string().optional(),
+        tag_fr: z.string().optional(),
+        tag_en: z.string().optional(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        excerpt_fr: z.string().optional(),
+        excerpt_en: z.string().optional(),
+        date: z.string().optional(),
+        read_time_fr: z.string().optional(),
+        read_time_en: z.string().optional(),
+        author: z.string().optional(),
+        href: z.string(),
+      }),
+    )
+    .min(2)
+    .max(12),
+});
+
+// §Content Listing Sections · Grille de ressources téléchargeables (icône/type + titre + CTA).
+export const resourceCardGridSchema = z.object({
+  type: z.literal('resource-card-grid'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2', 'paper-3']).default('paper'),
+  columns: z.enum(['2', '3']).default('3'),
+  resources: z
+    .array(
+      z.object({
+        kind_fr: z.string(),
+        kind_en: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        desc_fr: z.string().optional(),
+        desc_en: z.string().optional(),
+        format: z.string().optional(),
+        href: z.string(),
+        cta_label_fr: z.string().optional(),
+        cta_label_en: z.string().optional(),
+        gated: z.boolean().default(false),
+      }),
+    )
+    .min(2)
+    .max(9),
+});
+
+// §Process Sections · « Comment ça marche » en étapes numérotées verticales (1..N, connecteurs).
+export const processStepsSchema = z.object({
+  type: z.literal('process-steps'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
+  steps: z
+    .array(
+      z.object({
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        meta_fr: z.string().optional(),
+        meta_en: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(8),
+});
+
+// §Timelines · Frise chronologique horizontale datée (roadmap), scroll-snap. Stack vertical mobile.
+export const timelineHorizontalSchema = z.object({
+  type: z.literal('timeline-horizontal'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
+  events: z
+    .array(
+      z.object({
+        date_fr: z.string().optional(),
+        date_en: z.string().optional(),
+        label_fr: z.string(),
+        label_en: z.string(),
+        body_fr: z.string().optional(),
+        body_en: z.string().optional(),
+        status: z.enum(['done', 'active', 'upcoming']).default('upcoming'),
+      }),
+    )
+    .min(2)
+    .max(10),
+});
+
+// §Terminal Sections · Vitrine de code annoté (bloc code + copy explicatif), cible devtools/SaaS.
+export const codeShowcaseSchema = z.object({
+  type: z.literal('code-showcase'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  intro_fr: z.string().optional(),
+  intro_en: z.string().optional(),
+  background: z.enum(['paper', 'paper-2', 'ink']).default('paper'),
+  tone: z.enum(['ink', 'paper']).default('ink'),
+  label: z.string().default(''),
+  lang_label: z.string().default(''),
+  show_line_numbers: z.boolean().default(true),
+  lines: z
+    .array(
+      z.object({
+        text: z.string(),
+        comment_fr: z.string().optional(),
+        comment_en: z.string().optional(),
+      }),
+    )
+    .min(1)
+    .max(24),
+});
+
+// §Banner Sections · Bandeau d'annonce/promo fin (texte + lien, dismissible, variante accent/ink).
+export const announcementBannerSchema = z.object({
+  type: z.literal('announcement-banner'),
+  text_fr: z.string(),
+  text_en: z.string(),
+  link_label_fr: z.string().optional(),
+  link_label_en: z.string().optional(),
+  href: z.string().optional(),
+  badge_fr: z.string().optional(),
+  badge_en: z.string().optional(),
+  tone: z.enum(['accent', 'ink', 'paper-2']).default('accent'),
+  dismissible: z.boolean().default(false),
+});
+// <<< [gen-structure] end
+
+// >>> [gen-trust-proof] start
+// Famille PREUVE / CRÉDIBILITÉ — 5 types (trust · testimonial · stats · comparison · logo)
+
+// trust-badges-band (trust-sections) : bandeau badges réassurance (sécurité, hébergement, conformité, garanties)
+// en cellules hairline mono, juste avant le CTA. Lève l'objection risque.
+const trustBadgeSchema = z.object({
+  glyph: z.string().optional(), // pictogramme texte court (◉, ✓, ⚿…) — pas d'icône externe
+  label_fr: z.string(),
+  label_en: z.string(),
+  value_fr: z.string().optional(),
+  value_en: z.string().optional(),
+});
+export const trustBadgesBandSchema = z.object({
+  type: z.literal('trust-badges-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  badges: z.array(trustBadgeSchema).min(3).max(8),
+});
+
+// testimonial-logo-metric (testimonial-sections) : carte B2B = logo client + citation + métrique d'impact chiffrée.
+// Réutilise le pattern testimonial (quote/author/role) + métrique inline (KeyMetric).
+const testimonialLogoMetricCardSchema = z.object({
+  logo_src: z.string().optional(),
+  company: z.string(),
+  quote_fr: z.string(),
+  quote_en: z.string(),
+  author: z.string(),
+  role_fr: z.string(),
+  role_en: z.string(),
+  metric_value: z.string(),
+  metric_label_fr: z.string(),
+  metric_label_en: z.string(),
+  href: z.string().optional(),
+});
+export const testimonialLogoMetricSchema = z.object({
+  type: z.literal('testimonial-logo-metric'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  cards: z.array(testimonialLogoMetricCardSchema).min(2).max(6),
+});
+
+// stat-counter (stats-sections) : compteur animé count-up au scroll (île React client:visible,
+// respecte prefers-reduced-motion). Grille de 2-4 stats. La valeur finale est rendue côté serveur
+// (visible sans JS) ; l'île n'enrobe que l'animation count-up.
+const statCounterItemSchema = z.object({
+  value: z.string(), // valeur finale affichée (ex. '99.9%', '120', '4.8') — la partie numérique est animée
+  prefix: z.string().optional(),
+  suffix: z.string().optional(),
+  label_fr: z.string(),
+  label_en: z.string(),
+});
+export const statCounterSchema = z.object({
+  type: z.literal('stat-counter'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  stats: z.array(statCounterItemSchema).min(2).max(4),
+  animate: z.boolean().default(true),
+});
+
+// versus-competitors (comparison-sections) : comparatif « nous vs alternatives »,
+// colonne « nous » highlightée, lignes de critères avec check/cross/partiel.
+const versusColumnSchema = z.object({
+  name_fr: z.string(),
+  name_en: z.string(),
+  featured: z.boolean().default(false), // la colonne « nous »
+});
+const versusRowSchema = z.object({
+  feature_fr: z.string(),
+  feature_en: z.string(),
+  group_fr: z.string().optional(),
+  group_en: z.string().optional(),
+  values: z.array(z.union([z.string(), z.boolean()])).min(1),
+});
+export const versusCompetitorsSchema = z.object({
+  type: z.literal('versus-competitors'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  columns: z.array(versusColumnSchema).min(2).max(5),
+  rows: z.array(versusRowSchema).min(3),
+});
+
+// logo-marquee (logo-sections) : bandeau de logos IMAGE défilant (« ils nous font confiance »),
+// marquee CSS, respecte reduced-motion. Distinct de marquee-band (texte mono).
+const logoMarqueeItemSchema = z.object({
+  src: z.string(),
+  name_fr: z.string(),
+  name_en: z.string(),
+  href: z.string().optional(),
+});
+export const logoMarqueeSchema = z.object({
+  type: z.literal('logo-marquee'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  logos: z.array(logoMarqueeItemSchema).min(4).max(24),
+  speed: z.enum(['slow', 'base']).default('base'),
+  grayscale: z.boolean().default(true),
+});
+// <<< [gen-trust-proof] end
+
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroCenteredSchema,
@@ -2615,6 +3130,35 @@ export const sectionSchema = z.discriminatedUnion('type', [
   pricingToggleSchema,
   pricingSingleHighlightSchema,
   // <<< [gen-pricing] end
+  // >>> [gen-hero-feature] start
+  heroFormInlineSchema,
+  heroSocialProofSchema,
+  featureComparisonGridSchema,
+  featureAccordionSchema,
+  // <<< [gen-hero-feature] end
+  // >>> [gen-conversion] start
+  faqCtaAsideSchema,
+  ctaFormInlineSchema,
+  contactFormSchema,
+  bookingEmbedSchema,
+  newsletterSignupSectionSchema,
+  // <<< [gen-conversion] end
+  // >>> [gen-structure] start
+  dataTableSchema,
+  articleGridSchema,
+  resourceCardGridSchema,
+  processStepsSchema,
+  timelineHorizontalSchema,
+  codeShowcaseSchema,
+  announcementBannerSchema,
+  // <<< [gen-structure] end
+  // >>> [gen-trust-proof] start
+  trustBadgesBandSchema,
+  testimonialLogoMetricSchema,
+  statCounterSchema,
+  versusCompetitorsSchema,
+  logoMarqueeSchema,
+  // <<< [gen-trust-proof] end
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

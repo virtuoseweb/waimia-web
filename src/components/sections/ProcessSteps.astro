@@ -1,0 +1,165 @@
+---
+// Section catalogue · process-steps (catégorie Process Sections)
+// « Comment ça marche » en étapes numérotées verticales (1..N) : numéro, titre, description,
+// meta optionnelle, connecteurs visuels entre paliers. Composé de tokens + Kicker atom.
+// Typo (directive 2026-06-11) : masses en var(--font-sans), serif italic réservé au relevé <i>.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'process-steps'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const intro = isFr ? data.intro_fr : data.intro_en;
+---
+<section class="process-steps" data-bg={data.background}>
+  <div class="wrap-wide">
+    {(kicker || h2 || intro) && (
+      <div class="process-steps__hd">
+        {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+        {h2 && <h2 class="process-steps__h2" set:html={h2} />}
+        {intro && <p class="process-steps__intro">{intro}</p>}
+      </div>
+    )}
+    <ol class="process-steps__list">
+      {data.steps.map((step, i) => {
+        const meta = isFr ? step.meta_fr : step.meta_en;
+        return (
+          <li class="process-steps__step">
+            <div class="process-steps__track" aria-hidden="true">
+              <div class="process-steps__num">{String(i + 1).padStart(2, '0')}</div>
+              <div class="process-steps__connector"></div>
+            </div>
+            <div class="process-steps__content">
+              <div class="process-steps__row">
+                <h3 class="process-steps__title">{isFr ? step.title_fr : step.title_en}</h3>
+                {meta && <Kicker as="span" tone="muted" class="process-steps__meta">{meta}</Kicker>}
+              </div>
+              <p class="process-steps__body">{isFr ? step.body_fr : step.body_en}</p>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .process-steps { padding-block: var(--section-base); }
+
+  .process-steps__hd {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-9);
+    max-width: 760px;
+  }
+  .process-steps__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .process-steps__h2 :global(i),
+  .process-steps__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+  .process-steps__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-base);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .process-steps__list { list-style: none; margin: 0; padding: 0; }
+
+  .process-steps__step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-6);
+  }
+
+  .process-steps__track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .process-steps__num {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+    font-weight: var(--fw-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .process-steps__connector {
+    flex: 1;
+    width: 1px;
+    min-height: var(--space-6);
+    background: var(--hairline-strong);
+  }
+  .process-steps__step:last-child .process-steps__connector { display: none; }
+
+  .process-steps__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-bottom: var(--space-9);
+  }
+  .process-steps__step:last-child .process-steps__content { padding-bottom: 0; }
+
+  .process-steps__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .process-steps__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-card);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+  }
+  .process-steps__title :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); color: var(--accent); }
+  .process-steps__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+    max-width: var(--wrap-prose);
+  }
+
+  @media (max-width: 640px) {
+    .process-steps__step { gap: var(--space-4); }
+    .process-steps__num { width: 40px; height: 40px; }
+  }
+
+  /* ── Alternance des fonds R4 ── */
+  .process-steps[data-bg='paper-2'] { background: var(--paper-2); }
+  .process-steps[data-bg='paper-3'] { background: var(--paper-3); }
+  .process-steps[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink: var(--paper);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .process-steps[data-bg='ink'] .process-steps__h2,
+  .process-steps[data-bg='ink'] .process-steps__title { color: var(--paper); }
+</style>

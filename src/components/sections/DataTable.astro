@@ -1,0 +1,142 @@
+---
+// Section catalogue · data-table (catégorie Table Sections)
+// Table de données neutre générique : en-tête optionnel, colonnes avec alignements,
+// lignes/cellules typées (emphase), zébrures et légende. Distincte de terminal-table
+// (habillée console) et editorial-write-feed (feed). Composée de tokens + Kicker atom.
+// Typo (directive 2026-06-11) : masses en var(--font-sans), serif italic réservé au relevé <i>.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'data-table'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const intro = isFr ? data.intro_fr : data.intro_en;
+const caption = isFr ? data.caption_fr : data.caption_en;
+---
+<section class="data-table" data-bg={data.background} data-striped={data.striped}>
+  <div class="wrap-wide">
+    {(kicker || h2 || intro) && (
+      <div class="data-table__hd">
+        {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+        {h2 && <h2 class="data-table__h2" set:html={h2} />}
+        {intro && <p class="data-table__intro">{intro}</p>}
+      </div>
+    )}
+    <div class="data-table__scroll">
+      <table class="data-table__table">
+        {caption && <caption class="data-table__caption">{caption}</caption>}
+        <thead>
+          <tr>
+            {data.columns.map((col) => (
+              <th scope="col" data-align={col.align}>{isFr ? col.label_fr : col.label_en}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.rows.map((row) => (
+            <tr>
+              {row.cells.map((cell, ci) => {
+                const align = data.columns[ci]?.align ?? 'start';
+                return (
+                  <td data-align={align} data-emphasis={cell.emphasis}>{isFr ? cell.text_fr : cell.text_en}</td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .data-table { padding-block: var(--section-base); }
+
+  .data-table__hd {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-9);
+    max-width: 760px;
+  }
+  .data-table__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .data-table__h2 :global(i),
+  .data-table__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+  .data-table__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-base);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .data-table__scroll { overflow-x: auto; }
+
+  .data-table__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+  }
+  .data-table__caption {
+    caption-side: bottom;
+    text-align: start;
+    font-size: var(--text-caption);
+    color: var(--muted);
+    padding-top: var(--space-4);
+  }
+
+  .data-table__table th {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: var(--fw-regular);
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--hairline-strong);
+    white-space: nowrap;
+  }
+  .data-table__table td {
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--ink);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+  }
+  .data-table__table td[data-emphasis='true'] { font-weight: var(--fw-semibold); }
+
+  [data-align='start'] { text-align: start; }
+  [data-align='center'] { text-align: center; }
+  [data-align='end'] { text-align: end; }
+
+  .data-table[data-striped='true'] tbody tr:nth-child(even) { background: var(--paper-2); }
+
+  /* ── Alternance des fonds R4 ── */
+  .data-table[data-bg='paper-2'] { background: var(--paper-2); }
+  .data-table[data-bg='paper-2'][data-striped='true'] tbody tr:nth-child(even) { background: var(--paper-3); }
+  .data-table[data-bg='paper-3'] { background: var(--paper-3); }
+  .data-table[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --ink: var(--paper);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .data-table[data-bg='ink'] .data-table__h2 { color: var(--paper); }
+  .data-table[data-bg='ink'][data-striped='true'] tbody tr:nth-child(even) { background: rgba(var(--paper-rgb), 0.05); }
+</style>

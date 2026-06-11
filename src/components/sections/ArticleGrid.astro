@@ -1,0 +1,174 @@
+---
+// Section catalogue · article-grid (catégorie Content Listing Sections)
+// Grille de cartes d'articles/blog : image optionnelle, tag, titre, date, temps de lecture,
+// extrait, auteur, lien. Le classique éditorial B2B. Composé de tokens + Kicker atom.
+// Typo (directive 2026-06-11) : masses en var(--font-sans), serif italic réservé au relevé <i>.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'article-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const intro = isFr ? data.intro_fr : data.intro_en;
+---
+<section class="article-grid" data-bg={data.background}>
+  <div class="wrap-wide">
+    {(kicker || h2 || intro) && (
+      <div class="article-grid__hd">
+        {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+        {h2 && <h2 class="article-grid__h2" set:html={h2} />}
+        {intro && <p class="article-grid__intro">{intro}</p>}
+      </div>
+    )}
+    <div class="article-grid__list" data-cols={data.columns}>
+      {data.articles.map((a) => {
+        const tag = isFr ? a.tag_fr : a.tag_en;
+        const excerpt = isFr ? a.excerpt_fr : a.excerpt_en;
+        const readTime = isFr ? a.read_time_fr : a.read_time_en;
+        return (
+          <a class="article-card" href={a.href}>
+            {a.image && (
+              <div class="article-card__media">
+                <img src={a.image} alt="" loading="lazy" />
+              </div>
+            )}
+            <div class="article-card__body">
+              {tag && <Kicker as="span" tone="accent" class="article-card__tag">{tag}</Kicker>}
+              <h3 class="article-card__title">{isFr ? a.title_fr : a.title_en}</h3>
+              {excerpt && <p class="article-card__excerpt">{excerpt}</p>}
+              <div class="article-card__meta">
+                {a.author && <span class="article-card__author">{a.author}</span>}
+                {a.date && <span>{a.date}</span>}
+                {readTime && <span>{readTime}</span>}
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .article-grid { padding-block: var(--section-base); }
+
+  .article-grid__hd {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-9);
+    max-width: 760px;
+  }
+  .article-grid__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .article-grid__h2 :global(i),
+  .article-grid__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+  .article-grid__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-base);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .article-grid__list { display: grid; gap: var(--space-6); }
+  .article-grid__list[data-cols='2'] { grid-template-columns: repeat(2, 1fr); }
+  .article-grid__list[data-cols='3'] { grid-template-columns: repeat(3, 1fr); }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-top: 2px solid transparent;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 280ms var(--ease), transform 280ms var(--ease), box-shadow 280ms var(--ease);
+  }
+  .article-card:hover {
+    border-color: var(--accent);
+    border-top-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .article-card__media {
+    aspect-ratio: 16 / 9;
+    background: var(--paper-3);
+    overflow: hidden;
+  }
+  .article-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .article-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+  }
+  :global(.article-card__tag) { margin-bottom: var(--space-1); }
+
+  .article-card__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-card);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.01em;
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .article-card__title :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); color: var(--accent); }
+
+  .article-card__excerpt {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .article-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: auto;
+    padding-top: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+  }
+  .article-card__author { color: var(--ink); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .article-card { transition: none !important; }
+    .article-card:hover { transform: none !important; }
+  }
+
+  @media (max-width: 980px) {
+    .article-grid__list[data-cols='3'] { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .article-grid__list[data-cols='2'],
+    .article-grid__list[data-cols='3'] { grid-template-columns: 1fr; }
+  }
+
+  /* ── Alternance des fonds R4 ── */
+  .article-grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .article-grid[data-bg='paper-2'] .article-card { background: var(--paper); }
+  .article-grid[data-bg='paper-3'] { background: var(--paper-3); }
+</style>

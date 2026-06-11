@@ -1,0 +1,120 @@
+---
+// BookingEmbed · section CONVERSION · prise de RDV (widget Cal.com) + copy de réassurance
+// Réutilise la molécule CalEmbed (island React @calcom/embed-react). Bilingue.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import CalEmbed from '../ui/molecules/CalEmbed.astro';
+
+interface Props {
+  data: SectionByType<'booking-embed'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const heading = isFr ? data.h2_fr : data.h2_en;
+const body = isFr ? data.body_fr : data.body_en;
+const reassurance = data.reassurance ?? [];
+---
+
+<section class="booking-embed" data-bg={data.background}>
+  <div class="wrap-wide booking-embed__grid">
+    <div class="booking-embed__intro">
+      {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+      <h2 set:html={heading} />
+      {body && <p class="booking-embed__body">{body}</p>}
+      {reassurance.length > 0 && (
+        <ul class="booking-embed__reassurance">
+          {reassurance.map((r) => (
+            <li>
+              <span class="booking-embed__check" aria-hidden="true">✓</span>
+              <span>{isFr ? r.label_fr : r.label_en}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+    <div class="booking-embed__widget">
+      <CalEmbed
+        username={data.cal_username}
+        eventType={data.cal_event_type}
+        namespace={data.cal_namespace}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .booking-embed {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .booking-embed__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: var(--space-10);
+    align-items: start;
+  }
+  .booking-embed__intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: sticky;
+    top: var(--space-8);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+  .booking-embed__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+    max-width: 44ch;
+    text-wrap: pretty;
+  }
+  .booking-embed__reassurance {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .booking-embed__reassurance li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--ink);
+  }
+  .booking-embed__check {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .booking-embed__widget {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-base);
+    padding: var(--space-4);
+    background: var(--paper);
+  }
+
+  /* Fonds */
+  .booking-embed[data-bg='paper-2'] { background: var(--paper-2); }
+  .booking-embed[data-bg='paper-3'] { background: var(--paper-3); }
+
+  @media (max-width: 900px) {
+    .booking-embed__grid { grid-template-columns: 1fr; gap: var(--space-8); }
+    .booking-embed__intro { position: static; }
+  }
+</style>

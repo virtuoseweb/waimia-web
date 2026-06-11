@@ -1,0 +1,98 @@
+---
+// NewsletterSignupSection · section CONVERSION · inscription newsletter pleine largeur
+// Réutilise la molécule NewsletterSignup (variant inline). Fonds enum (ink = climax de page).
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import NewsletterSignup from '../ui/molecules/NewsletterSignup.astro';
+
+interface Props {
+  data: SectionByType<'newsletter-signup-section'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const heading = isFr ? data.h2_fr : data.h2_en;
+const body = isFr ? data.body_fr : data.body_en;
+const hint = isFr ? data.hint_fr : data.hint_en;
+---
+
+<section class="nl-section" data-bg={data.background}>
+  <div class="wrap-wide nl-section__inner">
+    <div class="nl-section__head">
+      {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+      <h2 set:html={heading} />
+      {body && <p class="nl-section__body">{body}</p>}
+    </div>
+    <div class="nl-section__form">
+      <NewsletterSignup lang={lang} variant="inline" />
+      {hint && <p class="nl-section__hint">{hint}</p>}
+    </div>
+  </div>
+</section>
+
+<style>
+  .nl-section {
+    padding-block: var(--section-base);
+    border-block: 1px solid var(--hairline);
+  }
+  .nl-section__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-6);
+  }
+  .nl-section__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: 60ch;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  h2 :global(i) { font-style: italic; }
+  .nl-section__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .nl-section__form {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .nl-section__hint {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Fonds */
+  .nl-section[data-bg='paper-2'] { background: var(--paper-2); }
+  .nl-section[data-bg='paper-3'] { background: var(--paper-3); }
+  .nl-section[data-bg='ink'] {
+    background: var(--ink);
+    --muted: rgba(var(--paper-rgb), 0.66);
+    --hairline: rgba(var(--paper-rgb), 0.16);
+  }
+  .nl-section[data-bg='ink'] :is(h2, .nl-section__body) { color: var(--paper); }
+  /* La molécule NewsletterSignup expose ses propres classes : on adapte input/bouton sur ink */
+  .nl-section[data-bg='ink'] :global(.nl-input) { background: rgba(var(--paper-rgb), 0.06); color: var(--paper); }
+  .nl-section[data-bg='ink'] :global(.nl-btn) { background: var(--paper); color: var(--ink); }
+</style>

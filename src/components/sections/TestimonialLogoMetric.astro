@@ -1,0 +1,173 @@
+---
+// Section catalogue · testimonial-logo-metric (catégorie Testimonial Sections)
+// Carte de preuve B2B la plus persuasive : logo client + citation attribuée + métrique d'impact
+// chiffrée par carte. Combine preuve sociale, autorité de marque et résultat mesuré.
+// Réutilise le pattern KeyMetric (chiffre dominant + label mono) inline dans chaque carte.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'testimonial-logo-metric'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const cards = data.cards;
+---
+<section class="tlm" data-bg={data.background}>
+  <div class="wrap-wide">
+    {(kicker || h2) && (
+      <header class="tlm__head reveal">
+        {kicker && <Kicker class="tlm__kicker">{kicker}</Kicker>}
+        {h2 && <h2 class="tlm__h2" set:html={h2} />}
+      </header>
+    )}
+    <ul class="tlm__grid reveal-stagger" style={`--tlm-cols:${Math.min(cards.length, 3)}`}>
+      {cards.map((c) => {
+        const role = isFr ? c.role_fr : c.role_en;
+        const quote = isFr ? c.quote_fr : c.quote_en;
+        const metricLabel = isFr ? c.metric_label_fr : c.metric_label_en;
+        const Wrapper = c.href ? 'a' : 'div';
+        return (
+          <li class="tlm__card">
+            <Wrapper class="tlm__inner" {...(c.href ? { href: c.href } : {})}>
+              <div class="tlm__logo">
+                {c.logo_src
+                  ? <img src={c.logo_src} alt={c.company} loading="lazy" decoding="async" />
+                  : <span class="tlm__logo-text">{c.company}</span>}
+              </div>
+              <blockquote class="tlm__quote">{quote}</blockquote>
+              <div class="tlm__metric">
+                <span class="tlm__metric-value">{c.metric_value}</span>
+                <span class="tlm__metric-label">{metricLabel}</span>
+              </div>
+              <footer class="tlm__author">
+                <span class="tlm__author-name">{c.author}</span>
+                <span class="tlm__author-role">{role}{c.company ? ` · ${c.company}` : ''}</span>
+              </footer>
+            </Wrapper>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .tlm { padding-block: var(--section); }
+  .tlm[data-bg='paper-2'] { background: var(--paper-2); }
+  .tlm[data-bg='paper-3'] { background: var(--paper-3); }
+  .tlm[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  .tlm__head { margin-bottom: var(--space-8); max-width: var(--wrap-prose); }
+  :global(.tlm__kicker) { margin-bottom: var(--space-3); }
+  .tlm__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-row);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .tlm__h2 :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
+
+  .tlm__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--tlm-cols, 2), 1fr);
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tlm__card { display: flex; }
+  .tlm__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-7);
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card-rest);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+  a.tlm__inner:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+  .tlm[data-bg='ink'] .tlm__inner {
+    background: rgba(var(--paper-rgb), .04);
+    border-color: rgba(var(--paper-rgb), .14);
+    box-shadow: none;
+  }
+
+  .tlm__logo { height: 28px; display: flex; align-items: center; }
+  .tlm__logo img { max-height: 28px; width: auto; object-fit: contain; }
+  .tlm__logo-text {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+  .tlm[data-bg='ink'] .tlm__logo-text { color: rgba(var(--paper-rgb), .6); }
+
+  .tlm__quote {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md, 17px);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+    margin: 0;
+    quotes: '\201C' '\201D';
+  }
+  .tlm__quote::before { content: open-quote; }
+  .tlm__quote::after { content: close-quote; }
+  .tlm[data-bg='ink'] .tlm__quote { color: var(--paper); }
+
+  .tlm__metric {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--hairline);
+    margin-top: auto;
+  }
+  .tlm[data-bg='ink'] .tlm__metric { border-top-color: rgba(var(--paper-rgb), .14); }
+  .tlm__metric-value {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(32px, 3.4vw, 44px);
+    line-height: 0.92;
+    color: var(--accent);
+  }
+  .tlm__metric-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    max-width: 180px;
+  }
+  .tlm[data-bg='ink'] .tlm__metric-label { color: rgba(var(--paper-rgb), .6); }
+
+  .tlm__author { display: flex; flex-direction: column; gap: 2px; }
+  .tlm__author-name {
+    font-family: var(--font-sans);
+    font-size: var(--text-ui);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+  }
+  .tlm[data-bg='ink'] .tlm__author-name { color: var(--paper); }
+  .tlm__author-role {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--muted);
+  }
+  .tlm[data-bg='ink'] .tlm__author-role { color: rgba(var(--paper-rgb), .55); }
+
+  @media (max-width: 900px) {
+    .tlm__grid { grid-template-columns: 1fr; }
+  }
+</style>

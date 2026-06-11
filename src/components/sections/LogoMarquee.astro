@@ -1,0 +1,109 @@
+---
+// Section catalogue · logo-marquee (catégorie Logo Sections)
+// Bandeau de logos IMAGE à défilement infini (« ils nous font confiance »), marquee CSS.
+// Distinct de marquee-band (texte mono). Grayscale optionnel vers couleur au hover.
+// Respecte prefers-reduced-motion (animation coupée, logos statiques en flex-wrap).
+// Le track est dupliqué (×2) pour une boucle continue (translateX -50%).
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'logo-marquee'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const logos = data.logos;
+const speed = data.speed ?? 'base';
+const grayscale = data.grayscale ?? true;
+---
+<section class="logo-marquee" data-bg={data.background} data-grayscale={grayscale ? 'true' : 'false'} data-speed={speed}>
+  <div class="wrap-wide">
+    {kicker && <Kicker class="logo-marquee__kicker">{kicker}</Kicker>}
+  </div>
+  <div class="logo-marquee__viewport" role="list" aria-label={isFr ? 'Logos clients' : 'Client logos'}>
+    <div class="logo-marquee__track">
+      {[0, 1].map((dup) => (
+        logos.map((logo) => {
+          const name = isFr ? logo.name_fr : logo.name_en;
+          const Wrapper = logo.href ? 'a' : 'span';
+          return (
+            <Wrapper
+              class="logo-marquee__item"
+              role="listitem"
+              aria-hidden={dup === 1 ? 'true' : 'false'}
+              {...(logo.href ? { href: logo.href } : {})}
+            >
+              <img src={logo.src} alt={name} loading="lazy" decoding="async" />
+            </Wrapper>
+          );
+        })
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .logo-marquee { padding-block: var(--section-tight); }
+  .logo-marquee[data-bg='paper-2'] { background: var(--paper-2); }
+  .logo-marquee[data-bg='paper-3'] { background: var(--paper-3); }
+  .logo-marquee[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  :global(.logo-marquee__kicker) { margin-bottom: var(--space-5); }
+
+  .logo-marquee__viewport {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+  .logo-marquee__track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    animation: logo-marquee-scroll 40s linear infinite;
+  }
+  .logo-marquee[data-speed='slow'] .logo-marquee__track { animation-duration: 64s; }
+
+  .logo-marquee__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--space-7);
+    height: 40px;
+    flex: 0 0 auto;
+  }
+  .logo-marquee__item img {
+    max-height: 32px;
+    width: auto;
+    object-fit: contain;
+    transition: filter .3s ease, opacity .3s ease;
+  }
+  .logo-marquee[data-grayscale='true'] .logo-marquee__item img {
+    filter: grayscale(1);
+    opacity: .62;
+  }
+  .logo-marquee[data-grayscale='true'] .logo-marquee__item:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  .logo-marquee[data-bg='ink'] .logo-marquee__item img { filter: grayscale(1) invert(1) brightness(1.8); }
+  .logo-marquee[data-bg='ink'][data-grayscale='false'] .logo-marquee__item img { filter: none; }
+
+  @keyframes logo-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee__viewport { -webkit-mask-image: none; mask-image: none; }
+    .logo-marquee__track {
+      animation: none;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+    /* En reduced-motion on masque la 2e copie (les items dup=1) pour éviter le doublon visuel. */
+    .logo-marquee__item[aria-hidden='true'] { display: none; }
+  }
+</style>

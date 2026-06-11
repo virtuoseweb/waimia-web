@@ -1,0 +1,105 @@
+---
+// hero-social-proof · hero centré + bande de preuve sociale above-the-fold.
+// Titre + lede + CTA, puis une bande de stats (StatRow) sous le pli haut, plus
+// une note/rating optionnelle. Trust avant le scroll. Réutilise StatRow + Button.
+// Géométrie hero (exempte rythme R5). 0 nouveau token.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+import StatRow from '../ui/molecules/StatRow.astro';
+
+interface Props {
+  data: SectionByType<'hero-social-proof'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const stats = data.stats.map((s) => ({ k: s.k, label_fr: s.label_fr, label_en: s.label_en }));
+---
+
+<section class="hero-social-proof">
+  <div class="wrap-tight hero-social-proof__head">
+    {(isFr ? data.kicker_fr : data.kicker_en) && (
+      <Kicker tone="accent">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    )}
+    <h1 class="hero-social-proof__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <p class="hero-social-proof__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+    <div class="hero-social-proof__ctas">
+      <Button href={data.cta_primary.href} variant={data.cta_primary.variant as any} size="lg" mag={data.cta_primary.mag ?? 0.18}>
+        {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+      </Button>
+      {data.cta_secondary && (
+        <Button href={data.cta_secondary.href} variant={data.cta_secondary.variant as any} size="md">
+          {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+        </Button>
+      )}
+    </div>
+    {(isFr ? data.rating_fr : data.rating_en) && (
+      <p class="hero-social-proof__rating">
+        <span class="hero-social-proof__stars" aria-hidden="true">★★★★★</span>
+        {isFr ? data.rating_fr : data.rating_en}
+      </p>
+    )}
+  </div>
+  <div class="wrap-wide hero-social-proof__band reveal reveal-fade">
+    <StatRow stats={stats} tone="paper" />
+  </div>
+</section>
+
+<style>
+  .hero-social-proof {
+    padding-top: calc(var(--section-base) + var(--header-height));
+    padding-bottom: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-social-proof__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-block);
+  }
+  .hero-social-proof__h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-h1-hero);
+    line-height: var(--leading-h2);
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .hero-social-proof__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-social-proof__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede);
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    max-width: 56ch;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .hero-social-proof__ctas {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-social-proof__rating {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+  }
+  .hero-social-proof__stars { color: var(--accent); letter-spacing: 0.1em; }
+  .hero-social-proof__band {
+    margin-top: var(--spacing-block);
+  }
+  @media (max-width: 700px) {
+    .hero-social-proof__band { margin-top: var(--space-6); }
+  }
+</style>

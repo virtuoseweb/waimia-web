@@ -1,0 +1,180 @@
+---
+// Section catalogue · timeline-horizontal (catégorie Timelines)
+// Frise chronologique horizontale datée (roadmap) : événements à statut, scroll-snap horizontal,
+// empilement vertical sur mobile. Distincte des timelines verticales existantes.
+// Composé de tokens + Kicker atom.
+// Typo (directive 2026-06-11) : masses en var(--font-sans), serif italic réservé au relevé <i>.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'timeline-horizontal'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const intro = isFr ? data.intro_fr : data.intro_en;
+const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
+  isFr
+    ? { done: 'Livré', active: 'En cours', upcoming: 'À venir' }[s]
+    : { done: 'Shipped', active: 'In progress', upcoming: 'Upcoming' }[s];
+---
+<section class="timeline-h" data-bg={data.background}>
+  <div class="wrap-wide">
+    {(kicker || h2 || intro) && (
+      <div class="timeline-h__hd">
+        {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+        {h2 && <h2 class="timeline-h__h2" set:html={h2} />}
+        {intro && <p class="timeline-h__intro">{intro}</p>}
+      </div>
+    )}
+    <ol class="timeline-h__track">
+      {data.events.map((ev) => {
+        const date = isFr ? ev.date_fr : ev.date_en;
+        const body = isFr ? ev.body_fr : ev.body_en;
+        return (
+          <li class="timeline-h__event" data-status={ev.status}>
+            <div class="timeline-h__rail" aria-hidden="true">
+              <span class="timeline-h__dot"></span>
+            </div>
+            <div class="timeline-h__card">
+              {date && <Kicker as="span" tone="muted" class="timeline-h__date">{date}</Kicker>}
+              <h3 class="timeline-h__label">{isFr ? ev.label_fr : ev.label_en}</h3>
+              {body && <p class="timeline-h__body">{body}</p>}
+              <span class="timeline-h__status">{statusLabel(ev.status)}</span>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .timeline-h { padding-block: var(--section-base); }
+
+  .timeline-h__hd {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-9);
+    max-width: 760px;
+  }
+  .timeline-h__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .timeline-h__h2 :global(i),
+  .timeline-h__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+  .timeline-h__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-base);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .timeline-h__track {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 var(--space-4);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(240px, 1fr);
+    gap: var(--space-6);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .timeline-h__event { scroll-snap-align: start; display: flex; flex-direction: column; }
+
+  .timeline-h__rail {
+    position: relative;
+    height: 2px;
+    background: var(--hairline-strong);
+    margin-bottom: var(--space-5);
+  }
+  .timeline-h__dot {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: var(--radius-full);
+    background: var(--paper);
+    border: 2px solid var(--hairline-strong);
+    transform: translateY(-50%);
+  }
+  .timeline-h__event[data-status='done'] .timeline-h__dot { background: var(--accent); border-color: var(--accent); }
+  .timeline-h__event[data-status='active'] .timeline-h__dot { background: var(--paper); border-color: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.18); }
+  .timeline-h__event[data-status='active'] .timeline-h__rail { background: var(--accent); }
+  .timeline-h__event[data-status='done'] .timeline-h__rail { background: var(--accent); }
+
+  .timeline-h__card { display: flex; flex-direction: column; gap: var(--space-2); }
+  :global(.timeline-h__date) { margin-bottom: var(--space-1); }
+
+  .timeline-h__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-row);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+  }
+  .timeline-h__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+  .timeline-h__status {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: var(--space-2);
+  }
+  .timeline-h__event[data-status='active'] .timeline-h__status { color: var(--accent); }
+
+  @media (max-width: 760px) {
+    .timeline-h__track {
+      grid-auto-flow: row;
+      grid-auto-columns: auto;
+      grid-template-columns: 1fr;
+      overflow-x: visible;
+    }
+    .timeline-h__event { flex-direction: row; gap: var(--space-5); }
+    .timeline-h__rail {
+      width: 2px;
+      height: auto;
+      min-height: var(--space-11);
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+    .timeline-h__dot { top: 0; left: 50%; transform: translateX(-50%); }
+  }
+
+  /* ── Alternance des fonds R4 ── */
+  .timeline-h[data-bg='paper-2'] { background: var(--paper-2); }
+  .timeline-h[data-bg='paper-3'] { background: var(--paper-3); }
+  .timeline-h[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  }
+  .timeline-h[data-bg='ink'] .timeline-h__h2,
+  .timeline-h[data-bg='ink'] .timeline-h__label { color: var(--paper); }
+  .timeline-h[data-bg='ink'] .timeline-h__dot { background: var(--ink); border-color: rgba(var(--paper-rgb), 0.4); }
+  .timeline-h[data-bg='ink'] .timeline-h__event[data-status='done'] .timeline-h__dot,
+  .timeline-h[data-bg='ink'] .timeline-h__event[data-status='active'] .timeline-h__dot { background: var(--accent); }
+</style>

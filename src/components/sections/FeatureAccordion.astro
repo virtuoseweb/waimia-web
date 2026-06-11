@@ -1,0 +1,138 @@
+---
+// feature-accordion · features en progressive disclosure (accordéon).
+// Reprend le pattern <details>/<summary> de FaqAccordion mais orienté features :
+// chaque item = titre + corps explicatif + détail optionnel (meta). 0 token neuf.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'feature-accordion'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const heading = isFr ? data.h2_fr : data.h2_en;
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const items = data.items.map((it) => ({
+  title: isFr ? it.title_fr : it.title_en,
+  body: isFr ? it.body_fr : it.body_en,
+  meta: isFr ? it.meta_fr : it.meta_en,
+}));
+---
+
+<section class="fa" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="fa__header">
+      {kicker && <Kicker tone="muted">{kicker}</Kicker>}
+      <h2 set:html={heading} />
+      {lede && <p class="fa__lede">{lede}</p>}
+    </div>
+    <div class="fa__list">
+      {items.map((item, i) => (
+        <details class="fa__item" name="feature-accordion" open={data.open_first && i === 0}>
+          <summary class="fa__q">
+            <Kicker as="span" tone="accent" size={10} class="fa__q-label">
+              {String(i + 1).padStart(2, '0')}
+            </Kicker>
+            <span class="fa__q-title">{item.title}</span>
+            <span class="fa__arrow" aria-hidden="true">↓</span>
+          </summary>
+          <div class="fa__a">
+            <p class="fa__body">{item.body}</p>
+            {item.meta && <p class="fa__meta">{item.meta}</p>}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .fa {
+    padding-block: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .fa__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 64ch;
+  }
+  .fa h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-section);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+  }
+  .fa h2 :global(i) { font-style: italic; color: var(--accent); }
+  .fa__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .fa__item { border-top: 1px solid var(--hairline); }
+  .fa__item:last-child { border-bottom: 1px solid var(--hairline); }
+  .fa__q {
+    list-style: none;
+    display: flex;
+    gap: var(--space-4);
+    align-items: baseline;
+    padding-block: var(--space-5);
+    cursor: pointer;
+    user-select: none;
+  }
+  .fa__q::-webkit-details-marker { display: none; }
+  .fa__q-label { flex-shrink: 0; line-height: 1; }
+  .fa__q-title {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.8vw, 26px);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    flex: 1;
+  }
+  .fa__arrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    transition: transform var(--dur-fast) var(--ease);
+    flex-shrink: 0;
+  }
+  details[open] .fa__arrow { transform: rotate(180deg); }
+  .fa__a { padding: 0 0 var(--space-5) var(--space-9); }
+  .fa__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    color: var(--muted);
+    line-height: var(--leading-prose);
+    margin: 0;
+    max-width: 64ch;
+  }
+  .fa__meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: var(--space-3) 0 0;
+  }
+
+  .fa[data-bg='paper-2'] { background: var(--paper-2); }
+  .fa[data-bg='paper-3'] { background: var(--paper-3); }
+  .fa[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+  }
+  .fa[data-bg='ink'] :is(h2, .fa__q-title) { color: var(--paper); }
+
+  @media (max-width: 700px) {
+    .fa__a { padding-left: 0; }
+  }
+</style>

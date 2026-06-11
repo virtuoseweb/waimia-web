@@ -1,0 +1,122 @@
+---
+// Section catalogue · announcement-banner (catégorie Banner Sections)
+// Bandeau d'annonce/promo fin : badge optionnel, texte court + lien, fermeture optionnelle
+// (dismissible), variantes accent/ink/paper-2. Composé de tokens.
+// Typo (directive 2026-06-11) : masse en var(--font-sans), serif italic réservé au relevé <i>.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'announcement-banner'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const text = isFr ? data.text_fr : data.text_en;
+const badge = isFr ? data.badge_fr : data.badge_en;
+const linkLabel = isFr ? data.link_label_fr : data.link_label_en;
+const closeLabel = isFr ? 'Fermer' : 'Dismiss';
+---
+<section class="announce" data-tone={data.tone}>
+  <div class="wrap-wide announce__inner">
+    <p class="announce__text">
+      {badge && <span class="announce__badge">{badge}</span>}
+      <span set:html={text} />
+      {linkLabel && data.href && (
+        <a class="announce__link" href={data.href}>{linkLabel} <span aria-hidden="true">→</span></a>
+      )}
+    </p>
+    {data.dismissible && (
+      <button type="button" class="announce__close" data-announce-close aria-label={closeLabel}>
+        <span aria-hidden="true">×</span>
+      </button>
+    )}
+  </div>
+</section>
+
+{data.dismissible && (
+  <script>
+    document.querySelectorAll('[data-announce-close]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const banner = btn.closest('.announce');
+        if (banner instanceof HTMLElement) banner.hidden = true;
+      });
+    });
+  </script>
+)}
+
+<style>
+  .announce { font-family: var(--font-sans); }
+  .announce[hidden] { display: none; }
+
+  .announce__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    padding-block: var(--space-3);
+    position: relative;
+  }
+
+  .announce__text {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: var(--text-ui);
+    line-height: var(--leading-body);
+    margin: 0;
+    text-align: center;
+  }
+  .announce__text :global(i) { font-family: var(--font-display); font-style: italic; }
+
+  .announce__badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    font-weight: var(--fw-medium);
+    border-radius: var(--radius-pill);
+    padding: 2px var(--space-3);
+  }
+
+  .announce__link {
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity var(--dur-fast) var(--ease);
+  }
+  .announce__link:hover { opacity: 0.7; }
+
+  .announce__close {
+    position: absolute;
+    right: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: var(--text-body-base);
+    line-height: 1;
+    padding: var(--space-2);
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity var(--dur-fast) var(--ease);
+  }
+  .announce__close:hover { opacity: 1; }
+
+  /* Variantes de tone */
+  .announce[data-tone='accent'] { background: var(--accent); color: var(--paper); }
+  .announce[data-tone='accent'] .announce__badge { background: rgba(var(--paper-rgb), 0.2); }
+  .announce[data-tone='accent'] .announce__link { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
+
+  .announce[data-tone='ink'] { background: var(--ink); color: var(--paper); }
+  .announce[data-tone='ink'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-tone='ink'] .announce__link { color: var(--accent); }
+
+  .announce[data-tone='paper-2'] { background: var(--paper-2); color: var(--ink); border-block: 1px solid var(--hairline); }
+  .announce[data-tone='paper-2'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-tone='paper-2'] .announce__link { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .announce__inner { padding-right: var(--space-7); }
+  }
+</style>

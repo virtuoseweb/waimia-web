@@ -1,0 +1,188 @@
+---
+// Section catalogue · versus-competitors (catégorie Comparison Sections)
+// Comparatif « nous vs alternatives » : colonne « nous » (featured) mise en avant, lignes de
+// critères groupées, cellules check (✓) / cross (✗) / valeur texte (« partielle »…).
+// Distinct de pricing-comparison-matrix (plans internes) : ici on se compare à des alternatives
+// nommées du marché. Calque tabulaire générique, highlight de la colonne featured.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'versus-competitors'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const columns = data.columns;
+const rows = data.rows;
+
+// Regroupe les lignes par groupe consécutif (group optionnel) pour insérer des séparateurs.
+type Row = (typeof rows)[number];
+const groupsOrder: { label: string | undefined; rows: Row[] }[] = [];
+for (const row of rows) {
+  const label = isFr ? row.group_fr : row.group_en;
+  const last = groupsOrder[groupsOrder.length - 1];
+  if (last && last.label === label) last.rows.push(row);
+  else groupsOrder.push({ label, rows: [row] });
+}
+
+function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
+  if (v === true) return 'yes';
+  if (v === false) return 'no';
+  return 'text';
+}
+---
+<section class="versus" data-bg={data.background}>
+  <div class="wrap-wide">
+    <header class="versus__head reveal">
+      {kicker && <Kicker class="versus__kicker">{kicker}</Kicker>}
+      <h2 class="versus__h2" set:html={h2} />
+    </header>
+
+    <div class="versus__scroll reveal">
+      <table class="versus__table" style={`--vs-cols:${columns.length}`}>
+        <thead>
+          <tr>
+            <th class="versus__corner" scope="col"></th>
+            {columns.map((c) => (
+              <th
+                class="versus__colhead"
+                data-featured={c.featured ? 'true' : 'false'}
+                scope="col"
+              >
+                {isFr ? c.name_fr : c.name_en}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {groupsOrder.map((group) => (
+            <>
+              {group.label && (
+                <tr class="versus__grouprow">
+                  <th class="versus__group" scope="rowgroup" colspan={columns.length + 1}>{group.label}</th>
+                </tr>
+              )}
+              {group.rows.map((row) => (
+                <tr class="versus__row">
+                  <th class="versus__feature" scope="row">{isFr ? row.feature_fr : row.feature_en}</th>
+                  {columns.map((c, ci) => {
+                    const v = row.values[ci];
+                    const kind = v === undefined ? 'no' : cellKind(v);
+                    return (
+                      <td class="versus__cell" data-featured={c.featured ? 'true' : 'false'} data-kind={kind}>
+                        {kind === 'yes' && <span class="versus__icon versus__icon--yes" aria-label={isFr ? 'Oui' : 'Yes'}>✓</span>}
+                        {kind === 'no' && <span class="versus__icon versus__icon--no" aria-label={isFr ? 'Non' : 'No'}>✗</span>}
+                        {kind === 'text' && <span class="versus__text">{v as string}</span>}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .versus { padding-block: var(--section); }
+  .versus[data-bg='paper-2'] { background: var(--paper-2); }
+  .versus[data-bg='paper-3'] { background: var(--paper-3); }
+  .versus[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  .versus__head { margin-bottom: var(--space-8); max-width: var(--wrap-prose); }
+  :global(.versus__kicker) { margin-bottom: var(--space-3); }
+  .versus__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-grand);
+    line-height: var(--leading-h2);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .versus__h2 :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
+
+  .versus__scroll { overflow-x: auto; }
+  .versus__table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  .versus__colhead,
+  .versus__feature,
+  .versus__cell,
+  .versus__group {
+    padding: var(--space-4) var(--space-5);
+    text-align: left;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .versus[data-bg='ink'] .versus__colhead,
+  .versus[data-bg='ink'] .versus__feature,
+  .versus[data-bg='ink'] .versus__cell,
+  .versus[data-bg='ink'] .versus__group { border-bottom-color: rgba(var(--paper-rgb), .12); }
+
+  .versus__corner { width: 34%; border-bottom: 1px solid var(--hairline); }
+  .versus__colhead {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    text-align: center;
+    vertical-align: bottom;
+  }
+  .versus[data-bg='ink'] .versus__colhead { color: rgba(var(--paper-rgb), .6); }
+  .versus__colhead[data-featured='true'] {
+    color: var(--paper);
+    background: var(--ink);
+    font-weight: var(--fw-semibold);
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+  }
+  .versus[data-bg='ink'] .versus__colhead[data-featured='true'] {
+    color: var(--ink);
+    background: var(--accent);
+  }
+
+  .versus__group {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--accent);
+    background: rgba(var(--ink-rgb), .02);
+  }
+  .versus[data-bg='ink'] .versus__group { background: rgba(var(--paper-rgb), .04); }
+
+  .versus__feature {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lead);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+  .versus[data-bg='ink'] .versus__feature { color: var(--paper); }
+
+  .versus__cell { text-align: center; vertical-align: middle; }
+  .versus__cell[data-featured='true'] { background: rgba(var(--accent-rgb), .06); }
+  .versus[data-bg='ink'] .versus__cell[data-featured='true'] { background: rgba(var(--accent-rgb), .14); }
+
+  .versus__icon { font-size: 16px; line-height: 1; }
+  .versus__icon--yes { color: var(--accent); }
+  .versus__icon--no { color: var(--muted); opacity: .55; }
+  .versus[data-bg='ink'] .versus__icon--no { color: rgba(var(--paper-rgb), .4); }
+  .versus__text {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--muted);
+  }
+  .versus[data-bg='ink'] .versus__text { color: rgba(var(--paper-rgb), .6); }
+
+  .versus__row:last-child .versus__cell[data-featured='true'] {
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
+  }
+</style>

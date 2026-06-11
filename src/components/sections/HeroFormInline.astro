@@ -1,0 +1,122 @@
+---
+// hero-form-inline · hero de capture lead above-the-fold.
+// Colonne gauche : kicker + h1 + lede + proof ; colonne droite : carte formulaire
+// email/CTA postant sur /api/newsletter (réutilise NewsletterSignup variant inline).
+// Géométrie hero (exempte rythme R5). 0 nouveau token.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import NewsletterSignup from '../ui/molecules/NewsletterSignup.astro';
+
+interface Props {
+  data: SectionByType<'hero-form-inline'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="hero-form-inline">
+  <div class="wrap-wide">
+    <div class="hero-form-inline__grid">
+      <div class="hero-form-inline__copy">
+        {(isFr ? data.kicker_fr : data.kicker_en) && (
+          <Kicker tone="accent">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        )}
+        <h1 class="hero-form-inline__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+        <p class="hero-form-inline__lede reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
+        {data.proof && data.proof.length > 0 && (
+          <ul class="hero-form-inline__proof">
+            {data.proof.map((p) => (
+              <li>
+                <span class="hero-form-inline__proof-mark" aria-hidden="true">✓</span>
+                {isFr ? p.text_fr : p.text_en}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <aside class="hero-form-inline__panel reveal-stagger" aria-label={isFr ? 'Formulaire' : 'Form'}>
+        <p class="hero-form-inline__panel-label">{isFr ? data.form_title_fr : data.form_title_en}</p>
+        <NewsletterSignup lang={lang} variant="inline" />
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-form-inline {
+    padding-top: calc(var(--section-base) + var(--header-height));
+    padding-bottom: var(--section-base);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-form-inline__grid {
+    display: grid;
+    grid-template-columns: 54fr 46fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
+  }
+  .hero-form-inline__copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-block);
+  }
+  .hero-form-inline__h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-h1-hero);
+    line-height: var(--leading-h2);
+    color: var(--ink);
+    margin: 0;
+  }
+  .hero-form-inline__h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hero-form-inline__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+    max-width: 48ch;
+    margin: 0;
+  }
+  .hero-form-inline__proof {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .hero-form-inline__proof li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    color: var(--muted);
+    line-height: var(--leading-relaxed);
+  }
+  .hero-form-inline__proof-mark {
+    color: var(--accent);
+    font-weight: var(--fw-semibold);
+    flex-shrink: 0;
+  }
+  .hero-form-inline__panel {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-base);
+    padding: clamp(28px, 3.5vw, 48px);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .hero-form-inline__panel-label {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    margin: 0;
+    font-weight: var(--fw-regular);
+  }
+  @media (max-width: 880px) {
+    .hero-form-inline__grid { grid-template-columns: 1fr; }
+  }
+</style>

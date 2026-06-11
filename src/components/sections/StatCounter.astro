@@ -1,0 +1,110 @@
+---
+// Section catalogue · stat-counter (catégorie Stats Sections)
+// Grille de 2 à 4 stats avec compteur animé count-up déclenché à l'entrée dans le viewport.
+// L'île React (StatCounterValue, client:visible) n'enrobe QUE le chiffre animé ; le label, le
+// kicker et le titre sont rendus côté Astro (indexables, visibles sans JS). La valeur finale est
+// l'état initial de l'île → lisible sans hydratation et dans les previews statiques (sans scroll).
+// Respecte prefers-reduced-motion (pas d'animation, valeur finale directe).
+import Kicker from '../ui/atoms/Kicker.astro';
+import StatCounterValue from './StatCounterValue.tsx';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'stat-counter'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const stats = data.stats;
+const animate = data.animate ?? true;
+---
+<section class="stat-counter" data-bg={data.background}>
+  <div class="wrap-wide">
+    {(kicker || h2) && (
+      <header class="stat-counter__head reveal">
+        {kicker && <Kicker class="stat-counter__kicker">{kicker}</Kicker>}
+        {h2 && <h2 class="stat-counter__h2" set:html={h2} />}
+      </header>
+    )}
+    <ul class="stat-counter__grid reveal-stagger" style={`--sc-cols:${stats.length}`}>
+      {stats.map((s) => (
+        <li class="stat-counter__cell">
+          <StatCounterValue
+            client:visible
+            value={s.value}
+            prefix={s.prefix}
+            suffix={s.suffix}
+            animate={animate}
+          />
+          <span class="stat-counter__label">{isFr ? s.label_fr : s.label_en}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .stat-counter { padding-block: var(--section); }
+  .stat-counter[data-bg='paper-2'] { background: var(--paper-2); }
+  .stat-counter[data-bg='paper-3'] { background: var(--paper-3); }
+  .stat-counter[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  .stat-counter__head { margin-bottom: var(--space-8); max-width: var(--wrap-prose); }
+  :global(.stat-counter__kicker) { margin-bottom: var(--space-3); }
+  .stat-counter__h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-row);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .stat-counter__h2 :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
+
+  .stat-counter__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--sc-cols, 4), 1fr);
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .stat-counter__cell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-top: var(--space-5);
+    border-top: 2px solid var(--ink);
+  }
+  .stat-counter[data-bg='ink'] .stat-counter__cell { border-top-color: var(--accent); }
+
+  :global(.stat-counter__num) {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-counter[data-bg='ink'] :global(.stat-counter__num) { color: var(--paper); }
+
+  .stat-counter__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    max-width: 220px;
+  }
+  .stat-counter[data-bg='ink'] .stat-counter__label { color: rgba(var(--paper-rgb), .6); }
+
+  @media (max-width: 900px) {
+    .stat-counter__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .stat-counter__grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -44,6 +44,39 @@ const SOLUTIONS_CONSUMERS = [
 ];
 
 const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
+  // >>> [gen-hero-feature] start
+  // Génération bibliothèque 2026-06-11 — 4 nouveaux types hero/feature (catalogue-only).
+  { id: 'hero-form-inline',          consumers: [] },
+  { id: 'hero-social-proof',         consumers: [] },
+  { id: 'feature-comparison-grid',   consumers: [] },
+  { id: 'feature-accordion',         consumers: [] },
+  // <<< [gen-hero-feature] end
+  // >>> [gen-conversion] start
+  // Famille CONVERSION (audit-conversion) · catalogue-only (0 consommateur live)
+  { id: 'faq-cta-aside',             consumers: [] },
+  { id: 'cta-form-inline',           consumers: [] },
+  { id: 'contact-form',              consumers: [] },
+  { id: 'booking-embed',             consumers: [] },
+  { id: 'newsletter-signup-section', consumers: [] },
+  // <<< [gen-conversion] end
+  // >>> [gen-structure] start
+  // Mission gen-structure 2026-06-11 — 7 types blueprint (data/content-listing/process/timeline/terminal/banner)
+  // usage library (0 consommateur live : catalogue-only)
+  { id: 'data-table',                consumers: [] },
+  { id: 'article-grid',              consumers: [] },
+  { id: 'resource-card-grid',        consumers: [] },
+  { id: 'process-steps',             consumers: [] },
+  { id: 'timeline-horizontal',       consumers: [] },
+  { id: 'code-showcase',             consumers: [] },
+  { id: 'announcement-banner',       consumers: [] },
+  // <<< [gen-structure] end
+  // >>> [gen-trust-proof] start
+  { id: 'trust-badges-band',         consumers: [] },
+  { id: 'testimonial-logo-metric',   consumers: [] },
+  { id: 'stat-counter',              consumers: [] },
+  { id: 'versus-competitors',        consumers: [] },
+  { id: 'logo-marquee',              consumers: [] },
+  // <<< [gen-trust-proof] end
   // ── Live (34) ───────────────────────────────────────────────────────────────
   { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetailTemplate.astro'] },
   { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetailTemplate.astro'] },
