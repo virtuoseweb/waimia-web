@@ -4,15 +4,18 @@
  * Hydraté `client:only="react"` côté Astro pour éviter le SSR sur `window`.
  * Snippet de référence : https://app.cal.com/event-types · embed React
  *
- * Fix 2026-06-11 : namespace retiré — le prop namespace de @calcom/embed-react
- * injecte une route /n/{namespace}/n/ que Cal.com SaaS ne sert pas (HTTP 404).
- * L'URL propre sans namespace (https://app.cal.com/simonberos/audit/embed)
- * répond 200. Embed unique sur la page, isolation inutile.
+ * ⚠️ NE PAS retirer `namespace` (régression it.13/06e5e91, re-corrigée 2026-06-12).
+ * Sans namespace, getCalApi() fait `Cal("init","")` → le embed.js live sérialise
+ * le namespace vide en `/n/` dans le path → app.cal.com/<user>/n/<event>/n/embed = 404
+ * (booking cassé). Un namespace NON-VIDE ("audit") donne l'URL propre 200. Prouvé
+ * par test embed.js live isolé 2026-06-12.
  */
 import Cal, { getCalApi } from '@calcom/embed-react';
 import { useEffect } from 'react';
 
 interface Props {
+  /** Namespace Cal isolant l'instance sur la page (default: "audit") */
+  namespace?: string;
   /** Slug `username/event-type` (default: "simonberos/audit") */
   calLink?: string;
   /** Thème (default: "light") */
@@ -20,22 +23,24 @@ interface Props {
 }
 
 export default function CalEmbedReact({
+  namespace = 'audit',
   calLink = 'simonberos/audit',
   theme = 'light',
 }: Props) {
   useEffect(() => {
     (async () => {
-      const cal = await getCalApi();
+      const cal = await getCalApi({ namespace });
       cal('ui', {
         theme,
         hideEventTypeDetails: false,
         layout: 'month_view',
       });
     })();
-  }, [theme]);
+  }, [namespace, theme]);
 
   return (
     <Cal
+      namespace={namespace}
       calLink={calLink}
       style={{ width: '100%', height: '100%', overflow: 'scroll' }}
       config={{
