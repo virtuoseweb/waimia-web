@@ -180,13 +180,27 @@ sections:
       - label_fr: "Stack"
         label_en: "Stack"
         value: "Claude Sonnet 4.6 · Notion MCP · Excel"
-  - type: media-block
-    media_kind: image
-    src: "/images/cas/cas-northbound.webp"
-    alt_fr: "Illustration éditoriale : calendrier abstrait et courbe de clôture à l'encre, deux cases barrées et un point terracotta, symbole de clôture mensuelle accélérée."
-    alt_en: "Editorial illustration: abstract ink calendar and closing curve, two crossed-out cells and a terracotta dot, a symbol of a faster monthly close."
-    width: 1536
-    height: 1024
+  - type: feature-split-media
+    background: "paper-2"
+    reversed: true
+    kicker_fr: "§ Le cas en bref"
+    kicker_en: "§ The case at a glance"
+    h2_fr: "Deux jours de clôture rendus, <i>sans</i> changer d'outil."
+    h2_en: "Two close days given back, <i>without</i> changing a tool."
+    body_fr: "Northbound Capital, gestion d'actifs (340 M€ d'encours, 3 personnes en finance), passait 5 à 6 jours de clôture à répondre aux mêmes questions. Contrainte ferme : aucun nouvel outil. Un agent câblé sur leur stack existante traite désormais 80 % des questions de clôture tout seul."
+    body_en: "Northbound Capital, asset management (€340M AUM, a 3-person finance team), spent 5 to 6 close days answering the same questions. Hard constraint: no new tools. An agent wired onto their existing stack now handles 80% of closing questions on its own."
+    points:
+      - label_fr: "80 % des questions de clôture traitées automatiquement"
+        label_en: "80% of closing questions handled automatically"
+      - label_fr: "−2 jours de charge mensuelle pour la CFO"
+        label_en: "−2 days of monthly load for the CFO"
+      - label_fr: "Mis en production en 5 jours, sans nouvel outil"
+        label_en: "Shipped in 5 days, no new tool"
+    media_src: "/images/cas/cas-northbound.webp"
+    media_alt_fr: "Illustration éditoriale : calendrier abstrait et courbe de clôture à l'encre, deux cases barrées et un point terracotta, symbole de clôture mensuelle accélérée."
+    media_alt_en: "Editorial illustration: abstract ink calendar and closing curve, two crossed-out cells and a terracotta dot, a symbol of a faster monthly close."
+    media_caption_fr: "Northbound Capital · gestion d'actifs · 5 jours"
+    media_caption_en: "Northbound Capital · asset management · 5 days"
   - type: problem-statement
     kicker_fr: "§ Le contexte"
     kicker_en: "§ Context"
@@ -237,6 +251,22 @@ sections:
         title_en: "Ad hoc validations"
         body_fr: "Demandes de validation ponctuelles adressées directement à la CFO pendant la clôture."
         body_en: "Ad hoc validation requests addressed directly to the CFO during the close."
+  - type: metric-callout-band
+    background: "ink"
+    kicker_fr: "§ L'impact chiffré"
+    kicker_en: "§ The measured impact"
+    context_fr: "Mesuré sur trois clôtures consécutives, à stack constante, sans nouvel outil ni migration de données."
+    context_en: "Measured across three consecutive closes, on a constant stack, with no new tool and no data migration."
+    metrics:
+      - value: "80 %"
+        label_fr: "Questions de clôture automatisées"
+        label_en: "Closing questions automated"
+      - value: "−2 j"
+        label_fr: "De charge mensuelle CFO"
+        label_en: "Of monthly CFO load"
+      - value: "5 j"
+        label_fr: "Du brief à la production"
+        label_en: "From brief to production"
   - type: method-timeline
     kicker_fr: "§ 02 · L'approche"
     kicker_en: "§ 02 · The approach"
@@ -322,30 +352,14 @@ sections:
         delta_fr: "80 %"
         delta_en: "80%"
         trend: "up"
-    background: "paper"
-  - type: stat-block
-    h2_fr: "Résultats mesurés."
-    h2_en: "Measured results."
-    lede_fr: "Mesurés sur les 3 premières clôtures post-déploiement. Deux jours ouvrés complets libérés par mois : sur 12 mois, 24 jours de temps CFO redirigés vers l'analyse de portefeuille, les relations investisseurs et les chantiers réglementaires systématiquement reportés."
-    lede_en: "Measured over the first 3 closes post-deployment. Two full working days freed per month: over 12 months, that is 24 days of CFO time redirected to portfolio analysis, investor relations, and consistently deferred regulatory projects."
-    metrics:
-      - value: "80 %"
-        label_fr: "Questions de clôture traitées automatiquement"
-        label_en: "Closing questions handled automatically"
-        emphasis: false
-      - value: "−2 j"
-        label_fr: "Jours de charge récupérés par mois"
-        label_en: "Days recovered per month"
-        emphasis: false
-      - value: "5 j"
-        label_fr: "Time-to-production"
-        label_en: "Time-to-production"
-        emphasis: false
-    layout: "grid-3"
+    background: "paper-2"
   - type: pull-quote-block
+    background: "ink"
     quote_fr: "Le goulot n'était pas l'accès aux données. C'était le temps CFO nécessaire pour trouver le bon chiffre, le contextualiser, et rédiger une réponse bien cadrée en un paragraphe."
     quote_en: "The bottleneck wasn't data access. It was the CFO's time required to retrieve the right figure, place it in context, and draft a well-framed one-paragraph response."
-    variant: "centered"
+    cite_fr: "CFO · Northbound Capital"
+    cite_en: "CFO · Northbound Capital"
+    variant: "inline"
   - type: tech-stack-band
     kicker_fr: "§ 04 · La stack"
     kicker_en: "§ 04 · The stack"
@@ -376,5 +390,5 @@ sections:
       label_en: "See services →"
       href: "/offres"
       variant: "ghost"
-    background: "paper"
+    background: "ink"
 ---
