@@ -52,7 +52,7 @@ stack:
     role_fr: "Traitement de volume : saisies, rapprochements, tri et extraction par fonction."
     role_en: "Volume handling: entries, reconciliations, sorting and extraction per function."
     category: "Modèle volume"
-  - name: "Claude Opus 4.7"
+  - name: "Claude Opus 4.8"
     role_fr: "Rédaction métier nuancée, procédures, courriers et synthèses de fond."
     role_en: "Nuanced functional writing, procedures, letters and in-depth summaries."
     category: "Modèle créatif"
@@ -95,39 +95,54 @@ sources: []
 tags: []
 sections:
   - type: "hero-sector"
-    background: "ink"
-    dept_fr: "AGENTS IA"
-    dept_en: "AI AGENTS"
+    background: "paper"
+    dept_fr: "DÉPARTEMENT"
+    dept_en: "DEPARTMENT"
     h1_fr: "Agents<br/><i>métiers</i>"
-    h1_en: "Functional<br/><i>agents</i>"
-    lead_fr: "Un agent par fonction, branché sur les outils que vous avez déjà. La compta, le support, les ops gagnent un coéquipier. L'humain garde la décision, partout."
-    lead_en: "One agent per function, plugged into the tools you already have. Accounting, support, ops each gain a teammate. The human keeps the decision, everywhere."
+    h1_en: "Functional<br/><i>Agents</i>"
+    lead_fr: "Un agent par fonction, branché sur les outils que vous avez déjà. La compta, le support, les ops gagnent un coéquipier. L'humain garde la décision, pas la corvée."
+    lead_en: "One agent per function, wired into the tools you already have. Accounting, support, ops gain a teammate. The human keeps the decision, not the chore."
     cta:
-      label_fr: "Voir les agents en action →"
-      label_en: "See the agents in action →"
+      label_fr: "Parler à un expert →"
+      label_en: "Talk to an expert →"
       href: "/contact"
       variant: "primary"
     meta_fr: "Direction · COO · Responsables métiers"
-    meta_en: "Leadership · COO · Function leads"
+    meta_en: "Leadership · COO · Function heads"
     tags:
-      - { label_fr: "Agents spécialisés", label_en: "Specialised agents" }
-      - { label_fr: "Compta", label_en: "Accounting" }
-      - { label_fr: "Support", label_en: "Support" }
-      - { label_fr: "Ops", label_en: "Ops" }
-      - { label_fr: "Intégration outils", label_en: "Tool integration" }
-  - type: "media-block"
+      - { label_fr: "Agent comptable", label_en: "Accounting agent" }
+      - { label_fr: "Agent support", label_en: "Support agent" }
+      - { label_fr: "Agent ops", label_en: "Ops agent" }
+      - { label_fr: "Connecteurs natifs", label_en: "Native connectors" }
+      - { label_fr: "Validation par fonction", label_en: "Per-function validation" }
+  - type: "comparison-duo"
     background: "paper-2"
-    media_kind: "image"
-    display: "inset"
-    src: "/images/themes/theme-productivite.webp"
-    alt_fr: "Illustration éditoriale : plusieurs silhouettes d'agents à l'encre reliées chacune à un outil métier, l'agent actif en terracotta."
-    alt_en: "Editorial illustration: several ink agent silhouettes each linked to a functional tool, the active agent in terracotta."
-    width: 1024
-    height: 1024
+    kicker_fr: "Deux façons d'ajouter de l'IA"
+    kicker_en: "Two ways to add AI"
+    h2_fr: "Un outil de plus, ou <i>un coéquipier</i>"
+    h2_en: "One more tool, or <i>a teammate</i>"
+    without_label_fr: "L'assistant générique"
+    without_label_en: "The generic assistant"
+    without_title_fr: "À côté du métier, jamais dedans"
+    without_title_en: "Beside the function, never inside it"
+    without_items:
+      - { text_fr: "Une interface de plus à apprendre, à alimenter, à maintenir", text_en: "One more interface to learn, feed and maintain" }
+      - { text_fr: "Il ignore votre plan comptable, vos process, vos règles ops", text_en: "It ignores your chart of accounts, your processes, your ops rules" }
+      - { text_fr: "Les données sont recopiées, donc doublées et vite périmées", text_en: "Data is copied over, so duplicated and quickly stale" }
+      - { text_fr: "Sans garde-fou clair, déléguer reste un risque qu'on n'ose pas", text_en: "Without a clear guardrail, delegating stays a risk nobody dares" }
+    with_label_fr: "L'agent métier"
+    with_label_en: "The functional agent"
+    with_title_fr: "Dans vos outils, calibré sur votre fonction"
+    with_title_en: "Inside your tools, calibrated to your function"
+    with_items:
+      - { text_fr: "Il lit et écrit dans la compta, le support et les ops que vous avez déjà", text_en: "It reads and writes in the accounting, support and ops you already have" }
+      - { text_fr: "Il connaît vos pièces, vos process et vos règles réelles", text_en: "It knows your documents, your processes and your real rules" }
+      - { text_fr: "Aucune migration, aucun doublon : branchement par connecteur natif", text_en: "No migration, no duplicate: connection via native connector" }
+      - { text_fr: "Des points de validation calibrés sur le risque de chaque fonction", text_en: "Validation checkpoints calibrated to each function's risk" }
   - type: "pain-points"
     background: "paper"
-    h2_fr: "<i>Points</i><br/>de friction"
-    h2_en: "<i>Friction</i><br/>points"
+    h2_fr: "Pourquoi l'IA reste <i>à la porte</i>"
+    h2_en: "Why AI stays <i>at the door</i>"
     items:
       - title_fr: "L'outil de plus"
         title_en: "One more tool"
@@ -141,10 +156,31 @@ sections:
         title_en: "The fear of losing control"
         body_fr: "Déléguer du métier à une IA inquiète, à juste titre : que se passe-t-il si elle se trompe sur une écriture comptable ou un engagement client ? Sans garde-fous clairs, l'automatisation est un risque qu'on n'ose pas prendre."
         body_en: "Delegating functional work to an AI worries people, rightly so: what happens if it errs on an accounting entry or a client commitment? Without clear guardrails, automation is a risk nobody dares take."
+  - type: "architecture-diagram"
+    background: "ink"
+    fig_num: "FIG · MÉTIERS"
+    fig_title_fr: "Un agent par fonction"
+    fig_title_en: "One agent per function"
+    spec_fr: "FONCTIONS · AGENTS · OUTILS"
+    spec_en: "FUNCTIONS · AGENTS · TOOLS"
+    h2_fr: "Pas un assistant,<br/>une <i>équipe</i> d'agents."
+    h2_en: "Not one assistant,<br/>a <i>team</i> of agents."
+    inputs_fr: ["Compta", "Support", "Ops", "Demandes internes", "Documents"]
+    inputs_en: ["Accounting", "Support", "Ops", "Internal requests", "Documents"]
+    outputs_fr: ["Écritures préparées", "Tickets triés", "Tableaux tenus", "Validations humaines"]
+    outputs_en: ["Prepared entries", "Sorted tickets", "Maintained boards", "Human validations"]
+    system_label: "Waimia"
+    system_kicker: "AI AGENTS"
+    system_subtitle: "un par fonction"
+    show_loop: true
+    loop_label_fr: "VALIDATION HUMAINE PAR FONCTION"
+    loop_label_en: "PER-FUNCTION HUMAN VALIDATION"
+    caption_fr: "Chaque fonction reçoit son agent, branché sur ses outils réels. Au milieu, une orchestration commune qui pose un point de validation humaine calibré sur le risque de chaque métier."
+    caption_en: "Each function gets its agent, wired into its real tools. In between, a shared orchestration that sets a human validation checkpoint calibrated to each function's risk."
   - type: "workflow-table"
     background: "paper-2"
-    h2_fr: "<i>Ce que font</i><br/>les agents"
-    h2_en: "<i>What the</i><br/>agents do"
+    h2_fr: "<i>Un agent</i><br/>par métier"
+    h2_en: "<i>One agent</i><br/>per function"
     workflows:
       - num: "01"
         kicker_fr: "Compta"
@@ -186,42 +222,45 @@ sections:
         gain: "0 dérive"
         how_fr: "Chaque agent a ses points de validation humaine, calibrés sur le risque de sa fonction. Rien d'engageant ne part sans qu'un humain ait tranché."
         how_en: "Each agent has its human validation checkpoints, calibrated to its function's risk. Nothing binding goes out without a human decision."
-  - type: "roi-band"
-    h2_fr: "<i>Preuve</i> macro"
-    h2_en: "<i>Macro</i> proof"
-    metrics:
-      - value: "−58%"
-        label_fr: "temps sur le répétitif métier"
-        label_en: "time on repetitive functional work"
-      - value: "0"
-        label_fr: "nouvel outil à apprendre"
-        label_en: "new tool to learn"
-      - value: "100%"
-        label_fr: "décisions sensibles validées humain"
-        label_en: "sensitive decisions human-validated"
-      - value: "4,2×"
-        label_fr: "ROI mesuré à 12 mois"
-        label_en: "ROI measured at 12 months"
-  - type: "case-split"
-    kicker_fr: "Déploiement client · PME multi-fonctions (anonymisé)"
-    kicker_en: "Client deployment · Multi-function SME (anonymised)"
-    title_fr: "Une PME multi-fonctions.<br/><i>Trois agents</i><br/>dans les outils en place."
-    title_en: "A multi-function SME.<br/><i>Three agents</i><br/>inside the tools in place."
-    body_fr: "Une PME, sous accord de confidentialité, avait testé plusieurs outils IA génériques sans résultat : trop à côté du métier, trop à apprendre. Waimia a déployé des agents spécialisés branchés directement sur les outils en place, un pour la compta, un pour le support, un pour les ops, chacun nourri des règles réelles de sa fonction et encadré par une validation humaine sur les décisions sensibles. Le temps passé sur le répétitif métier a baissé de plus de moitié, sans qu'aucune équipe n'ait eu à apprendre une nouvelle interface."
-    body_en: "An SME, under NDA, had tried several generic AI tools to no avail: too far from the function, too much to learn. Waimia deployed specialised agents plugged directly into the tools in place, one for accounting, one for support, one for ops, each fed the real rules of its function and bounded by human validation on sensitive decisions. Time spent on repetitive functional work fell by more than half, without any team having to learn a new interface."
-    cta_label_fr: "Voir nos cas clients →"
-    cta_label_en: "See our client cases →"
-    cta_href: "/cas"
-    results:
-      - value: "−58%"
-        label_fr: "temps sur le\nrépétitif métier"
-        label_en: "time on repetitive\nfunctional work"
-      - value: "3"
-        label_fr: "fonctions\néquipées d'un agent"
-        label_en: "functions\ngiven an agent"
-      - value: "0"
-        label_fr: "nouvel outil\nà apprendre"
-        label_en: "new tool\nto learn"
+  - type: "metric-shift"
+    background: "ink"
+    kicker_fr: "Avant l'agent, après l'agent"
+    kicker_en: "Before the agent, after the agent"
+    h2_fr: "La même fonction, <i>déchargée</i>."
+    h2_en: "The same function, <i>unburdened</i>."
+    lede_fr: "Trois indicateurs de charge, mesurés avant et après déploiement des agents, à effectif constant."
+    lede_en: "Three workload indicators, measured before and after deploying the agents, at constant headcount."
+    shifts:
+      - { label_fr: "Temps comptable sur le répétitif", label_en: "Accounting time on the repetitive", before: "100 %", after: "42 %", delta_fr: "−58 %", delta_en: "−58 %", trend: "down" }
+      - { label_fr: "Tickets support traités hors horaires", label_en: "Support tickets handled off-hours", before: "0", after: "24/7", delta_fr: "+continu", delta_en: "+continuous", trend: "up" }
+      - { label_fr: "Décisions engageantes sans validation humaine", label_en: "Binding decisions without human validation", before: "incertain", after: "0", delta_fr: "0 dérive", delta_en: "0 drift", trend: "down" }
+  - type: "feature-zigzag"
+    background: "paper"
+    kicker_fr: "Trois fonctions, trois agents"
+    kicker_en: "Three functions, three agents"
+    h2_fr: "Chacun <i>spécialisé</i>, aucun générique"
+    h2_en: "Each one <i>specialised</i>, none generic"
+    lede_fr: "Un agent métier n'est utile que s'il connaît le terrain. Chacun est calibré sur les outils, les pièces et les règles de sa fonction."
+    lede_en: "A functional agent is only useful if it knows the field. Each is calibrated on its function's tools, documents and rules."
+    rows:
+      - kicker_fr: "Compta"
+        kicker_en: "Accounting"
+        h3_fr: "Il connaît votre plan comptable"
+        h3_en: "It knows your chart of accounts"
+        body_fr: "L'agent comptable lit vos pièces réelles, applique vos règles d'imputation et prépare des écritures propres. Le comptable valide au lieu de saisir, et garde la main sur tout ce qui sort."
+        body_en: "The accounting agent reads your real documents, applies your posting rules and prepares clean entries. The accountant validates instead of keying, and keeps control of everything that ships."
+      - kicker_fr: "Support"
+        kicker_en: "Support"
+        h3_fr: "Il connaît vos process de réponse"
+        h3_en: "It knows your response processes"
+        body_fr: "L'agent support trie, répond au documenté et escalade le reste, nourri de vos procédures réelles. L'équipe humaine ne voit que les cas qui demandent du jugement, à toute heure."
+        body_en: "The support agent triages, answers the documented and escalates the rest, fed by your real procedures. The human team only sees the cases that need judgement, around the clock."
+      - kicker_fr: "Ops"
+        kicker_en: "Ops"
+        h3_fr: "Il connaît vos tableaux de bord"
+        h3_en: "It knows your dashboards"
+        body_fr: "L'agent ops suit les tâches, relance en interne et tient les tableaux à jour depuis vos outils. Les responsables pilotent sur des données propres au lieu de courir après les statuts."
+        body_en: "The ops agent tracks tasks, follows up internally and keeps the boards current from your tools. Leads steer on clean data instead of chasing statuses."
   - type: "department-stack"
     background: "paper-2"
     h2_fr: "<i>Outils</i><br/>déployés"
@@ -243,7 +282,7 @@ sections:
         role_en: "Volume handling: entries, reconciliations, sorting and extraction per function."
       - category_fr: "Modèle créatif"
         category_en: "Creative model"
-        tool: "Claude Opus 4.7"
+        tool: "Claude Opus 4.8"
         role_fr: "Rédaction métier nuancée, procédures, courriers et synthèses de fond."
         role_en: "Nuanced functional writing, procedures, letters and in-depth summaries."
       - category_fr: "Outils métiers"
@@ -261,9 +300,19 @@ sections:
         tool: "LangGraph"
         role_fr: "Boucle d'agent durable avec points de validation humaine par fonction."
         role_en: "Durable agent loop with human validation checkpoints per function."
+  - type: "testimonial-single-spotlight"
+    background: "ink"
+    kicker_fr: "Déploiement client · PME multi-fonctions (anonymisé)"
+    kicker_en: "Client deployment · Multi-function SME (anonymised)"
+    quote_fr: "On n'a pas ajouté un logiciel. On a donné un coéquipier à chaque équipe, dans les outils qu'elle utilisait déjà."
+    quote_en: "We did not add a piece of software. We gave each team a teammate, inside the tools it already used."
+    author: "Direction des opérations"
+    role_fr: "COO"
+    role_en: "COO"
+    company: "PME multi-fonctions"
   - type: "department-cta"
     h2_fr: "Chaque fonction,<br/>augmentée."
     h2_en: "Every function,<br/>augmented."
-    body_fr: "45 minutes. On regarde vos fonctions et vos outils actuels, on chiffre les agents à fort ROI. Si on n'a rien à proposer, on le dit."
-    body_en: "45 minutes. We look at your functions and current tools, price the high-ROI agents. If we have nothing to offer, we say so."
+    body_fr: "45 minutes. On regarde vos fonctions actuelles, on chiffre les agents à déployer en premier. Si on n'a rien à proposer, on le dit."
+    body_en: "45 minutes. We look at your current functions, price the agents to deploy first. If we have nothing to offer, we say so."
 ---
