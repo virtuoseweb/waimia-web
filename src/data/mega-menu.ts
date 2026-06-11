@@ -151,7 +151,7 @@ const RESSOURCES: MegaMenuSection = {
         },
         {
           label: { fr: 'Cas clients', en: 'Case studies' },
-          href: '/cas',
+          href: '/secteurs',
           description: {
             fr: 'Résultats mesurés en clair.',
             en: 'Measured results in the clear.',
@@ -194,35 +194,35 @@ const SOLUTIONS: MegaMenuSection = {
       },
       links: [
         {
-          label: { fr: 'Growth System IA', en: 'AI Growth System' },
-          href: '/offres/growth-system-ia',
-          description: {
-            fr: 'Acquisition et conversion automatisées, de bout en bout.',
-            en: 'Acquisition and conversion automated, end to end.',
-          },
-          badge: { fr: 'Offre phare', en: 'Flagship' },
-          featured: true,
+          label: { fr: 'Site web IA', en: 'Website AI' },
+          href: '/offres/site-web-ia',
+          description: { fr: 'Site Astro + IA · vitrine + acquisition.', en: 'Astro + AI site · showcase + acquisition.' },
         },
         {
-          label: { fr: 'Acquisition IA', en: 'AI Acquisition' },
-          href: '/solutions/acquisition-ia',
-          description: { fr: 'Plus de leads qualifiés, sans recruter.', en: 'More qualified leads, without hiring.' },
-        },
-        {
-          label: { fr: 'CRM & relances IA', en: 'CRM & AI follow-ups' },
-          href: '/solutions/crm-relances-ia',
-          description: { fr: 'Pipeline commercial qui ne dort jamais.', en: 'A sales pipeline that never sleeps.' },
-        },
-        {
-          label: { fr: 'Contenu SEO / GEO IA', en: 'SEO/GEO content with AI' },
+          label: { fr: 'SEO & GEO', en: 'SEO & GEO' },
           href: '/solutions/contenu-seo-geo-ia',
           description: { fr: 'Du contenu trouvé par Google ET les IA.', en: 'Content found by Google AND AI engines.' },
         },
         {
-          label: { fr: 'Site web IA', en: 'AI website' },
-          href: '/offres/site-web-ia',
-          description: { fr: 'Site Astro + IA · vitrine + acquisition.', en: 'Astro + AI site · showcase + acquisition.' },
-          badge: { fr: 'Offre phare', en: 'Flagship' },
+          label: { fr: 'Content marketing', en: 'Content marketing' },
+          href: '/solutions/content-marketing-ia',
+          description: { fr: 'Une ligne éditoriale qui attire et convertit.', en: 'An editorial line that attracts and converts.' },
+        },
+        {
+          label: { fr: 'Publicité en ligne', en: 'Online advertising' },
+          href: '/solutions/publicite-en-ligne',
+          description: { fr: 'Campagnes pilotées au ROI, sans gaspillage.', en: 'ROI-driven campaigns, without waste.' },
+        },
+        {
+          label: { fr: 'Tunnel de vente', en: 'Sales funnel' },
+          href: '/solutions/tunnel-de-vente',
+          description: { fr: 'Du premier clic à la signature, sans friction.', en: 'From first click to signature, frictionless.' },
+        },
+        {
+          label: { fr: 'Agent marketing & commercial', en: 'Marketing & sales agent' },
+          href: '/solutions/agent-marketing-commercial',
+          description: { fr: 'Un agent qui prospecte et relance en continu.', en: 'An agent that prospects and follows up continuously.' },
+          badge: { fr: 'Agent IA', en: 'AI agent' },
         },
       ],
       footer: {
@@ -239,24 +239,35 @@ const SOLUTIONS: MegaMenuSection = {
       },
       links: [
         {
-          label: { fr: 'Growth Intelligence', en: 'Growth Intelligence' },
-          href: '/offres/growth-intelligence',
-          description: { fr: 'Pilotage temps réel et lisibilité des données.', en: 'Real-time intelligence and data clarity.' },
-        },
-        {
-          label: { fr: 'RevOps Rebuild', en: 'RevOps Rebuild' },
+          label: { fr: 'RevOps', en: 'RevOps' },
           href: '/offres/revops',
           description: { fr: 'CRM + entrepôt + billing réconciliés · 10 sem.', en: 'CRM + warehouse + billing reconciled · 10 wks.' },
         },
         {
-          label: { fr: 'Conseil & audit IA', en: 'AI Consulting & audit' },
-          href: '/offres/conseil',
-          description: { fr: '7 services audit, feuille de route, gouvernance.', en: '7 audit, roadmap and governance services.' },
+          label: { fr: 'Tableaux de bord & analytics', en: 'Dashboards & analytics' },
+          href: '/solutions/tableaux-de-bord-analytics',
+          description: { fr: 'Vos chiffres clés, lisibles en un coup d\'œil.', en: 'Your key numbers, readable at a glance.' },
         },
         {
-          label: { fr: 'Activation IA · 1 semaine', en: 'AI Activation · 1 week' },
-          href: '/offres/activation-ia',
-          description: { fr: "Audit + formation. La porte d'entrée rapide.", en: 'Audit + training. The fast-track entry point.' },
+          label: { fr: 'Reporting IA', en: 'AI reporting' },
+          href: '/solutions/reporting-ia',
+          description: { fr: 'Des rapports générés et commentés par l\'IA.', en: 'Reports generated and commented by AI.' },
+        },
+        {
+          label: { fr: 'Données centralisées', en: 'Centralized data' },
+          href: '/solutions/donnees-centralisees',
+          description: { fr: 'Une seule source de vérité, partout connectée.', en: 'One source of truth, connected everywhere.' },
+        },
+        {
+          label: { fr: 'Prévisionnel IA', en: 'AI forecasting' },
+          href: '/solutions/previsionnel-ia',
+          description: { fr: 'Anticipez le pipeline et la trésorerie.', en: 'Anticipate pipeline and cash flow.' },
+        },
+        {
+          label: { fr: 'Agent analytique', en: 'Analytics agent' },
+          href: '/solutions/agent-analytique',
+          description: { fr: 'Un agent qui répond à vos questions de pilotage.', en: 'An agent that answers your steering questions.' },
+          badge: { fr: 'Agent IA', en: 'AI agent' },
         },
       ],
     },
@@ -269,29 +280,35 @@ const SOLUTIONS: MegaMenuSection = {
       },
       links: [
         {
-          label: { fr: 'Productivité IA', en: 'AI Productivity' },
-          href: '/solutions/productivite-ia',
-          description: { fr: 'Vos équipes Excel et Office, augmentées.', en: 'Your Excel and Office teams, augmented.' },
+          label: { fr: 'CRM & relances', en: 'CRM & follow-ups' },
+          href: '/solutions/crm-relances-ia',
+          description: { fr: 'Pipeline commercial qui ne dort jamais.', en: 'A sales pipeline that never sleeps.' },
         },
         {
-          label: { fr: 'Support client IA', en: 'AI Customer Support' },
+          label: { fr: 'Automatisation de tâches & outils connectés', en: 'Task automation & connected tools' },
+          href: '/solutions/productivite-ia',
+          description: { fr: 'Vos outils reliés, vos tâches automatisées.', en: 'Your tools linked, your tasks automated.' },
+        },
+        {
+          label: { fr: 'Service client IA', en: 'AI customer service' },
           href: '/solutions/support-client-ia',
           description: { fr: 'Réponses 24/7, escalade humaine intelligente.', en: '24/7 answers, smart human escalation.' },
         },
         {
-          label: { fr: 'Productivité Opérationnelle IA', en: 'Operational AI' },
-          href: '/offres/productivite-operationnelle-ia',
-          description: { fr: 'Tâches répétitives automatisées, workflows fluidifiés.', en: 'Repetitive tasks automated, workflows streamlined.' },
+          label: { fr: 'Administration & RH', en: 'Admin & HR' },
+          href: '/solutions/administration-rh-ia',
+          description: { fr: 'Paperasse, onboarding et suivi allégés.', en: 'Paperwork, onboarding and tracking lightened.' },
         },
         {
-          label: { fr: 'Infrastructure IA · ETI', en: 'AI Infrastructure · Enterprise' },
-          href: '/offres/infrastructure-ia',
-          description: { fr: 'Systèmes connectés à grande échelle, multi-sites.', en: 'Connected systems at scale, multi-site.' },
+          label: { fr: 'Légal IA', en: 'Legal AI' },
+          href: '/solutions/legal-ia',
+          description: { fr: 'Contrats relus et risques signalés en amont.', en: 'Contracts reviewed and risks flagged upfront.' },
         },
         {
-          label: { fr: 'Application IA pour PME', en: 'AI Application for SMBs' },
-          href: '/offres/application-ia-pme',
-          description: { fr: 'App dédiée 8 à 12 sem. ETI/PME.', en: 'Dedicated app 8–12 wks. SMB/SME.' },
+          label: { fr: 'Agents métiers', en: 'Business agents' },
+          href: '/solutions/agents-metiers',
+          description: { fr: 'Des agents taillés pour vos process internes.', en: 'Agents tailored to your internal processes.' },
+          badge: { fr: 'Agent IA', en: 'AI agent' },
         },
       ],
       footer: {
@@ -301,72 +318,77 @@ const SOLUTIONS: MegaMenuSection = {
     },
   ],
   featured: {
-    kicker: { fr: 'CAS CLIENT VEDETTE', en: 'FEATURED CASE' },
-    label: { fr: '+€2,4 M de pipeline récupéré', en: '+€2.4M pipeline recovered' },
+    kicker: { fr: 'OFFRE VEDETTE', en: 'FLAGSHIP OFFER' },
+    label: { fr: 'Growth System IA', en: 'AI Growth System' },
     body: {
-      fr: 'Pipeline commercial reconnecté, qualification automatisée, visibilité temps réel. SaaS B2B · 10 semaines.',
-      en: 'Sales pipeline reconnected, qualification automated, real-time visibility. B2B SaaS · 10 weeks.',
+      fr: 'Le système complet d\'acquisition et de conversion, automatisé de bout en bout.',
+      en: 'The complete acquisition and conversion system, automated end to end.',
     },
-    cta: { fr: 'Lire le cas →', en: 'Read the case →' },
-    href: '/cas/plateau',
-    // Visuel du cas Plateau (sert le contenu : c'est le cas raconté juste au-dessus).
-    image: '/images/cas/cas-plateau.webp',
+    cta: { fr: 'Découvrir l\'offre →', en: 'Explore the offer →' },
+    href: '/offres/growth-system-ia',
+    // Illustration éditoriale « acquisition / inbound growth » (flux convergeant
+    // vers un point terracotta) : sert directement le propos de l'offre vedette,
+    // distincte du visuel du cas Plateau (désormais featured de Cas clients).
+    image: '/images/besoins/besoin-acquerir.webp',
   },
 };
 
 // ─── CAS CLIENTS · simplifié (R3 §5) : 1 colonne « Résultats mesurés » (4 cas
 // vedettes, métriques en label) + featured = livre blanc AI Act (ne pas tripler
 // Plateau, déjà featured de Solutions). Format 1 col + featured = data-cols=2.
+// ─── CAS CLIENTS · refonte 2026-06 (mandat Simon) : 1 colonne « Par secteur »
+// (la preuve par le métier, liens vers /secteurs/*) + featured = CAS CLIENT
+// VEDETTE Plateau (visuel libéré du menu Solutions). parentHref → /secteurs :
+// le listing /cas n'est plus exposé dans le mega menu (reste accessible via
+// footer / plan du site) ; /cas reste dans matchPrefixes pour l'état actif.
 const CAS: MegaMenuSection = {
   parent: 'cas',
   label: { fr: 'Cas clients', en: 'Case studies' },
-  parentHref: '/cas',
+  parentHref: '/secteurs',
+  matchPrefixes: ['/cas'],
   lead: {
     fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesurés, pas promis.',
     en: 'Pipelines reconnected, qualification automated, operations streamlined. Measured ROI, not promised.',
   },
   columns: [
     {
-      kicker: { fr: 'RÉSULTATS MESURÉS', en: 'MEASURED RESULTS' },
-      title: { fr: 'Cas vedettes', en: 'Flagship cases' },
+      kicker: { fr: 'PAR SECTEUR', en: 'BY INDUSTRY' },
+      title: { fr: 'Par secteur', en: 'By industry' },
+      goal: { fr: 'La preuve par votre métier', en: 'Proof from your industry' },
       links: [
         {
-          label: { fr: 'Plateau · +€2,4M pipeline récupéré', en: 'Plateau · +€2.4M pipeline recovered' },
-          href: '/cas/plateau',
-          description: { fr: 'SaaS B2B · 10 sem · qualification + relances automatisées.', en: 'B2B SaaS · 10 wks · qualification + automated follow-ups.' },
-          featured: true,
+          label: { fr: 'Services B2B · +2,4 M€ pipeline · 120 h libérées', en: 'B2B services · +€2.4M pipeline · 120 h recovered' },
+          href: '/secteurs/services-b2b',
+          description: { fr: 'Pipeline reconnecté, qualification et relances automatisées.', en: 'Pipeline reconnected, qualification and follow-ups automated.' },
         },
         {
-          label: { fr: 'Halcyon · 120 h consultant libérées', en: 'Halcyon · 120 consulting hours recovered' },
-          href: '/cas/halcyon',
-          description: { fr: 'Conseil en stratégie · 8 sem · agents de production documentaire.', en: 'Strategy consulting · 8 wks · document production agents.' },
+          label: { fr: 'Industrie · 4 goulots identifiés en 48 h', en: 'Manufacturing · 4 bottlenecks surfaced in 48 h' },
+          href: '/secteurs/industrie',
+          description: { fr: 'Plan d\'action sous 24 h, sans recruter.', en: 'Action plan within 24 h, no hiring.' },
         },
         {
-          label: { fr: 'Northbound · clôture allégée de 2 jours', en: 'Northbound · −2 days on monthly close' },
-          href: '/cas/northbound',
-          description: { fr: 'Gestion d\'actifs · 5 j · 80 % des questions de clôture automatisées.', en: 'Asset management · 5 days · 80% of close questions automated.' },
-        },
-        {
-          label: { fr: 'Caserne · 4 goulots identifiés en 48 h', en: 'Caserne · 4 bottlenecks surfaced in 48 h' },
-          href: '/cas/caserne',
-          description: { fr: 'Industrie · 2 j · plan d\'action sous 24 h, sans recruter.', en: 'Manufacturing · 2 days · action plan within 24 h, no hiring.' },
+          label: { fr: 'Finance & Compta · clôture allégée de 2 jours', en: 'Finance & accounting · −2 days on monthly close' },
+          href: '/secteurs/finance-compta',
+          description: { fr: '80 % des questions de clôture automatisées.', en: '80% of close questions automated.' },
         },
       ],
       footer: {
-        label: { fr: 'Voir tous les cas →', en: 'See all cases →' },
-        href: '/cas',
+        label: { fr: 'Tous les secteurs →', en: 'All industries →' },
+        href: '/secteurs',
       },
     },
   ],
   featured: {
-    kicker: { fr: 'LIVRE BLANC', en: 'WHITE PAPER' },
-    label: { fr: "Dossier Préparation à l'AI Act", en: 'AI Act Readiness Dossier' },
+    kicker: { fr: 'CAS CLIENT VEDETTE', en: 'FEATURED CASE' },
+    label: { fr: 'Plateau · +€2,4 M de pipeline récupéré', en: 'Plateau · +€2.4M pipeline recovered' },
     body: {
-      fr: "Le dossier de conformité complet pour anticiper l'AI Act avant de lancer un projet IA opérationnel.",
-      en: 'The complete compliance dossier to anticipate the AI Act before launching an operational AI project.',
+      fr: 'Pipeline commercial reconnecté, qualification automatisée, visibilité temps réel. SaaS B2B · 10 semaines.',
+      en: 'Sales pipeline reconnected, qualification automated, real-time visibility. B2B SaaS · 10 weeks.',
     },
-    cta: { fr: 'Ouvrir le livre blanc →', en: 'Open the white paper →' },
-    href: '/ressources/livres-blancs/ai-act-readiness',
+    cta: { fr: 'Lire le cas →', en: 'Read the case →' },
+    href: '/cas/plateau',
+    // Visuel du cas Plateau (libéré du menu Solutions où il était featured).
+    image: '/images/cas/cas-plateau.webp',
   },
 };
 
