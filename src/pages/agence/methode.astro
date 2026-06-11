@@ -6,6 +6,9 @@ import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import Timeline from '../../components/editorial/Timeline.astro';
 import MethodeProcessDiagram from '../../components/svg/geometric/MethodeProcessDiagram.astro';
+import MetricCalloutBand from '../../components/sections/MetricCalloutBand.astro';
+import SpecBar from '../../components/sections/SpecBar.astro';
+import { getProofPoint } from '../../data/proof-points';
 
 const phases = [
   {
@@ -40,6 +43,38 @@ const timelineEvents = phases.map(p => ({
   title: p.label_fr,
   body: p.body_fr,
 }));
+
+// ── Cadence de la méthode · SpecBar (rythme rejouable, fond paper-2) ──
+const cadenceData = {
+  type: 'spec-bar' as const,
+  background: 'paper-2' as const,
+  kicker_fr: '§ Cadence',
+  kicker_en: '§ Cadence',
+  specs: [
+    { label_fr: 'Phases', label_en: 'Phases', value: '5' },
+    { label_fr: 'Audit livré', label_en: 'Audit delivered', value: '5 jours' },
+    { label_fr: 'Pilote en prod', label_en: 'Pilot in prod', value: '2 semaines' },
+    { label_fr: 'Pour démarrer', label_en: 'To get started', value: '45 min' },
+  ],
+} satisfies import('../../schemas/sections').SectionByType<'spec-bar'>;
+
+// ── Impact mesuré · MetricCalloutBand INK · 3 chiffres canoniques (proof-points.ts, 0 invention) ──
+const _audit = getProofPoint('time-5-jours-audit');
+const _pilote = getProofPoint('time-2-semaines-pilote');
+const _equipe = getProofPoint('adoption-100pct-equipe');
+const impactData = {
+  type: 'metric-callout-band' as const,
+  background: 'ink' as const,
+  kicker_fr: '§ Ce que la méthode garantit',
+  kicker_en: '§ What the method guarantees',
+  context_fr: 'On ne vend pas un cabinet : un protocole rejouable, chiffré à chaque étape. Trois engagements tenus sur chaque mission, repris des projets déjà livrés.',
+  context_en: 'We do not sell a consultancy: a replayable protocol, measured at every step. Three commitments kept on every mission, taken from projects already delivered.',
+  metrics: [
+    { value: _audit?.value ?? '5 jours', label_fr: 'pour l\'audit complet de maturité IA', label_en: 'for the full AI maturity audit' },
+    { value: _pilote?.value ?? '2 semaines', label_fr: 'pour un premier pilote en production', label_en: 'for a first pilot in production' },
+    { value: _equipe?.value ?? '100%', label_fr: 'des équipes formées et autonomes', label_en: 'of teams trained and autonomous' },
+  ],
+} satisfies import('../../schemas/sections').SectionByType<'metric-callout-band'>;
 ---
 <UtilityTemplate
   title="Notre méthode · Process Intelligence · Waimia"
@@ -54,6 +89,11 @@ const timelineEvents = phases.map(p => ({
 >
   <Fragment slot="body">
 
+    {/* ── CADENCE · proof-bar specs (paper-2) ── */}
+    <div class="meth-cadence reveal">
+      <SpecBar data={cadenceData} lang="fr" />
+    </div>
+
     {/* ── PHASES via Timeline ── */}
     <h2 class="sr-only">Les cinq phases</h2>
     <Timeline events={timelineEvents} numbered={true} />
@@ -61,6 +101,11 @@ const timelineEvents = phases.map(p => ({
     {/* ── DIAGRAM ── */}
     <div class="meth-diagram reveal">
       <MethodeProcessDiagram />
+    </div>
+
+    {/* ── IMPACT MESURÉ · bande INK + 3 métriques réelles ── */}
+    <div class="meth-impact reveal">
+      <MetricCalloutBand data={impactData} lang="fr" />
     </div>
 
     {/* ── GARANTIES ── */}
@@ -107,6 +152,14 @@ const timelineEvents = phases.map(p => ({
 </UtilityTemplate>
 
 <style>
+  /* ── Cadence · spec-bar (breakout du padding body pour pleine largeur) ── */
+  .meth-cadence,
+  .meth-impact {
+    margin-inline: calc(-1 * var(--space-6));
+  }
+  .meth-cadence { margin-block: clamp(40px, 5vw, 64px) clamp(56px, 7vw, 88px); }
+  .meth-impact { margin-block: clamp(56px, 7vw, 88px); }
+
   /* ── Diagram ── */
   .meth-diagram {
     margin: clamp(48px, 6vw, 80px) 0;
@@ -150,10 +203,11 @@ const timelineEvents = phases.map(p => ({
     .meth-garantie:last-child { border-bottom: none; }
   }
 
-  /* ── VirtuoseOS ── */
+  /* ── VirtuoseOS · encart mis en valeur (barre accent) ── */
   .meth-os {
     background: var(--paper-2);
     border: 1px solid var(--hairline);
+    border-left: 3px solid var(--accent);
     padding: clamp(32px, 4vw, 56px);
     margin-bottom: clamp(72px, 9vw, 120px);
     max-width: 800px;
