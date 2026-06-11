@@ -15,8 +15,9 @@ const veille = allBlog
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const formatDate = (d: Date) => {
+  const dd = String(d.getDate()).padStart(2, '0');
   const mm = String(d.getMonth() + 1).padStart(2, '0');
-  return `${mm}.${d.getFullYear()}`;
+  return `${dd}.${mm}`;
 };
 ---
 <UtilityTemplate
@@ -48,13 +49,15 @@ const formatDate = (d: Date) => {
 
     {veille.length < 3 && (
       <div class="vi-soon">
-        <p class="vi-soon-kicker">§ Premières synthèses publiées</p>
-        <p class="vi-soon-text">
-          La veille hebdomadaire Waimia démarre. La prochaine synthèse arrive bientôt :
-          une vraie analyse écrite, sans SaaS Notion partagé ni Twitter recyclé, pour les PME
-          qui n'ont pas le temps de tout suivre. En attendant la cadence pleine, creusez un sujet
-          en profondeur avec nos essais et cookbooks.
-        </p>
+        <div class="vi-soon-copy">
+          <p class="vi-soon-kicker">§ Premières synthèses publiées</p>
+          <p class="vi-soon-text">
+            La veille hebdomadaire Waimia démarre. La prochaine synthèse arrive bientôt :
+            une vraie analyse écrite, sans SaaS Notion partagé ni Twitter recyclé, pour les PME
+            qui n'ont pas le temps de tout suivre. En attendant la cadence pleine, creusez un sujet
+            en profondeur avec nos essais et cookbooks.
+          </p>
+        </div>
         <div class="vi-cta-row">
           <Button href="/ressources/blog" variant="primary" size="md">Lire le blog →</Button>
           <Button href="/ressources/cookbooks" variant="ghost" size="md">Voir les cookbooks →</Button>
@@ -67,10 +70,17 @@ const formatDate = (d: Date) => {
 <style>
   .vi-list { max-width: 1100px; }
   .vi-soon {
-    max-width: 60ch;
+    max-width: 1100px;
     margin-top: var(--space-6);
     padding-top: var(--space-6);
     border-top: 1px solid var(--hairline);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-6);
+    align-items: center;
+  }
+  .vi-soon-copy {
+    max-width: 60ch;
   }
   .vi-soon-kicker {
     font-family: var(--font-mono);
@@ -85,11 +95,23 @@ const formatDate = (d: Date) => {
     font-size: 18px;
     line-height: 1.6;
     color: var(--ink-2);
-    margin: 0 0 var(--space-5);
+    margin: 0;
   }
   .vi-cta-row {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: var(--space-3);
+    align-items: stretch;
+  }
+  @media (max-width: 900px) {
+    .vi-soon {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      align-items: start;
+    }
+    .vi-cta-row {
+      flex-direction: row;
+    }
   }
 </style>
