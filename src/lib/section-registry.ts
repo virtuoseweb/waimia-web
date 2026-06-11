@@ -23,6 +23,12 @@ export interface SectionDescriptor {
   description_fr: string;
   description_en: string;
   preview?: string;
+  /**
+   * Famille (regroupement intra-catégorie, niveau 2 de la taxonomie docs/45 :
+   * Catégorie -> Famille -> Variante(type) -> Déclinaison(preset)). Optionnel,
+   * posé d'abord sur la famille hero comme référence (Phase B, docs/46).
+   */
+  family?: string;
 }
 
 // Imports section components (sera étendu Wave T2.2 par worker Sonnet)
@@ -388,6 +394,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
+    family: 'hero',
     tags: ['hero', 'split', 'cta'],
     status: 'stable',
     description_fr: "Hero en deux colonnes pour présenter une offre avec visuel et appel à l'action principal.",
@@ -398,6 +405,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     category: 'marketing',
     subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
+    family: 'hero',
     tags: ['hero', 'centered', 'cta'],
     status: 'stable',
     description_fr: 'Hero centré pour poser une proposition de valeur claire et guider vers une action principale.',

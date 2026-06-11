@@ -98,7 +98,7 @@ const isFr = lang === 'fr';
     </div>
   </section>
 ) : (
-<section class="hero-split" data-bg={data.background}>
+<section class="hero-split" data-bg={data.background} data-layout={data.layout} data-density={data.density}>
   <div class="wrap-wide">
   <div class="hero-split__inner">
     <div class="hero-split__left">
@@ -135,13 +135,15 @@ const isFr = lang === 'fr';
 
 <style>
   .hero-split {
-    padding-top: calc(var(--section-base) + var(--header-height));
-    padding-bottom: var(--section-base);
+    /* density via --sec-pad (cran --section-*) ; défaut = parité stricte (--section-base). */
+    padding-top: calc(var(--sec-pad, var(--section-base)) + var(--header-height));
+    padding-bottom: var(--sec-pad, var(--section-base));
     border-bottom: 1px solid var(--hairline);
   }
   .hero-split__inner {
     display: grid;
-    grid-template-columns: 58fr 42fr;
+    /* layout via --sec-grid (preset de grille layouts.css) ; défaut = parité stricte (58fr 42fr). */
+    grid-template-columns: var(--sec-grid, 58fr 42fr);
     gap: clamp(32px, 5vw, 80px);
     align-items: center;
   }

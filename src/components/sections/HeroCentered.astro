@@ -348,7 +348,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     )}
   </section>
 ) : (
-  <section class="hero-centered" data-bg={data.background}>
+  <section class="hero-centered" data-bg={data.background} data-layout={data.layout} data-density={data.density}>
     <div class="wrap-wide">
     <div class="hero-centered__inner">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -376,8 +376,9 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
      `h1`/`p` nus qualifiés par `.hero-centered` pour éviter la contamination
      des autres variantes colocalisées (scope partagé). Visuel inchangé. */
   .hero-centered {
-    padding-top: calc(var(--section-base) + var(--header-height));
-    padding-bottom: var(--section-base);
+    /* density via --sec-pad (cran --section-*) ; défaut = parité stricte (--section-base). */
+    padding-top: calc(var(--sec-pad, var(--section-base)) + var(--header-height));
+    padding-bottom: var(--sec-pad, var(--section-base));
     border-bottom: 1px solid var(--hairline);
     text-align: center;
   }
@@ -388,6 +389,16 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-block);
+  }
+  /* layout via --sec-grid (preset de grille layouts.css) : n'agit QUE si un data-layout
+     est posé sur la section → le défaut (colonne flex centrée) reste byte-identique. */
+  .hero-centered[data-layout] .hero-centered__inner {
+    display: grid;
+    grid-template-columns: var(--sec-grid, 1fr);
+    max-width: 100%;
+    align-items: start;
+    gap: clamp(32px, 5vw, 80px);
+    text-align: left;
   }
   .hero-centered h1 {
     font-family: var(--font-display);

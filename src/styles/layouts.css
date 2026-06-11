@@ -1,0 +1,28 @@
+/* Waimia · layouts.css — axe LAYOUT + DENSITY du système de variation (Phase B, docs/46).
+   Couche 2 (classes/état partagés). Importé par global.css.
+
+   Idiome (déjà prouvé par hero-detail--* et --hod-wrap) : le composant pose
+   data-layout / data-density sur sa section racine et consomme deux CSS vars :
+     - grid-template-columns: var(--sec-grid, <défaut famille>)
+     - padding-block: var(--sec-pad, <défaut famille>)
+   Le défaut (2e argument du var) garantit 0 régression quand layout/density sont absents.
+
+   Pureté DS : les fractions de grille sont STRUCTURELLES (pas des tokens couleur) →
+   conformes check-token-purity. Les paddings de densité = crans --section-* existants
+   (conformes check-section-rhythm, famille --section-tight|base|loose|grand). */
+
+/* ── Axe LAYOUT — table de presets de grille (--sec-grid) ─────────────────── */
+[data-layout='split-3-1']      { --sec-grid: 3fr 1fr; }
+[data-layout='split-1-3']      { --sec-grid: 1fr 3fr; }
+[data-layout='even-2']         { --sec-grid: 1fr 1fr; }
+[data-layout='even-3']         { --sec-grid: 1fr 1fr 1fr; }
+[data-layout='even-4']         { --sec-grid: 1fr 1fr 1fr 1fr; }
+[data-layout='center-1-2-1']   { --sec-grid: 1fr 2fr 1fr; }
+[data-layout='editorial-6-1-1']{ --sec-grid: 6fr 1fr 1fr; }
+
+/* ── Axe DENSITY — cran de rythme vertical (--sec-pad) ─────────────────────
+   Mappe sur la famille --section-* (crans fixes, DS Studio pilotable). 'base' est
+   le défaut implicite via le 2e argument du var() côté composant → pas de règle. */
+[data-density='compact'] { --sec-pad: var(--section-tight); }
+[data-density='base']    { --sec-pad: var(--section-base); }
+[data-density='ample']   { --sec-pad: var(--section-loose); }

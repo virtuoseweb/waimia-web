@@ -1,0 +1,80 @@
+---
+// Waimia · Route preview chrome-less d'un PRESET d'une section (Phase B, docs/46).
+// Rend le composant du type avec la demo par défaut SURCHARGÉE par les props du preset
+// (background / layout / density). Même chrome-less que /preview/[type].astro : pas de
+// header/footer, état révélé forcé, noindex. getStaticPaths imbriqué sur SECTION_PRESETS.
+
+import '../../../styles/global.css';
+import '../../../styles/grid.css';
+import '../../../styles/scroll-reveal.css';
+import { SECTION_REGISTRY } from '../../../lib/section-registry';
+import { SECTION_DEMOS } from '../../../lib/section-demos';
+import { SECTION_PRESETS } from '../../../lib/section-presets';
+import type { SectionType } from '../../../schemas/sections';
+
+export function getStaticPaths() {
+  return Object.entries(SECTION_PRESETS).flatMap(([type, presets]) =>
+    (presets ?? []).map((preset) => ({
+      params: { type, preset: preset.id },
+      props: { presetProps: preset.props, label: preset.label },
+    })),
+  );
+}
+
+const { type, preset } = Astro.params as { type: string; preset: string };
+const { presetProps, label } = Astro.props as {
+  presetProps: Record<string, unknown>;
+  label: string;
+};
+
+const C = SECTION_REGISTRY[type as keyof typeof SECTION_REGISTRY] as any;
+const demo = SECTION_DEMOS[type as SectionType];
+// Le preset surcharge la demo par défaut (style global, contenu hérité de la demo).
+const data = demo ? { ...demo, ...presetProps } : undefined;
+---
+<!doctype html>
+<html lang="fr" data-lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{`Aperçu · ${type} · ${preset}`}</title>
+    <style is:inline>
+      html, body { margin: 0; padding: 0; background: var(--paper, #fff); }
+      .ds-preview-usage {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        z-index: 9999;
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 9px;
+        background: var(--paper);
+        border: 1px solid var(--hairline);
+        color: var(--ink-2);
+        font-family: var(--font-mono);
+        font-size: var(--text-mono-xs);
+        line-height: 1;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .reveal, .reveal-up, .reveal-fade, .reveal-slide, .reveal-snap,
+      .scale-in, .blur-in, .clip-up, .hair-draw, .row-lines,
+      .reveal-mask-up, .reveal-zoom-in, .reveal-blur-clip,
+      .reveal-curtain, .reveal-split-letter,
+      .reveal-stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        clip-path: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="ds-preview-usage">Preset · {label}</span>
+    {C && data ? <C data={data} lang="fr" /> : <p style="font-family:monospace;padding:24px">Preset inconnu : {type} / {preset}</p>}
+  </body>
+</html>
