@@ -2367,6 +2367,11 @@ export const manifestoStatementSchema = z.object({
   text_en: z.string(),
   tone: z.enum(['ink', 'accent']).default('ink'),
   show_grid: z.boolean().default(false),
+  /** Narration scroll-pinnée : la section reste sticky plein viewport pendant ~250vh
+   *  de scroll et la lecture guidée (--ms-lit) se déroule sur toute cette plage.
+   *  Desktop + motion only (mobile ≤768px et reduced-motion retombent en lecture guidée
+   *  simple, sans zone de scroll réservée). Opt-in — réservé à /agence. */
+  pinned: z.boolean().default(false),
 });
 
 // §Manifesto Sections · Acte numéroté : label sticky (numéro romain + sous-titre) +
