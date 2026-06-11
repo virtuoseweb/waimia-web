@@ -85,6 +85,13 @@ interface Props {
   featureSplit?: SectionByType<'feature-split-media'>;
   diagnostic?: SectionByType<'diagnostic-stages'>;
   trustBadges?: SectionByType<'trust-badges-band'>;
+  /** Différenciation de composition (mandat secteurs) — ordre des blocs recompo.
+   *  Chaque clé : 'impact' | 'case' | 'feature' | 'diagnostic'. Les clés listées dans
+   *  `recompoAfterStack` sont rendues APRÈS le bloc Stack (variation de rythme : un bloc ink
+   *  peut ouvrir ou clore la séquence selon le secteur). Toute clé absente des deux listes
+   *  n'est pas rendue. Si `recompoOrder` est absent → ordre legacy fixe (solutions inchangées). */
+  recompoOrder?: Array<'impact' | 'case' | 'feature' | 'diagnostic'>;
+  recompoAfterStack?: Array<'impact' | 'case' | 'feature' | 'diagnostic'>;
 }
 
 const {
@@ -111,6 +118,8 @@ const {
   featureSplit,
   diagnostic,
   trustBadges,
+  recompoOrder,
+  recompoAfterStack = [],
 } = Astro.props;
 
 const lang = langFromPath(Astro.url.pathname);
@@ -271,6 +280,25 @@ const heroData: SectionByType<'hero-sector'> = {
   meta_en: meta || undefined,
   tags: heroTags,
 };
+
+/* Différenciation de composition (mandat secteurs) — résolution de l'ordre des blocs recompo.
+   Legacy (recompoOrder absent) : ordre fixe historique impact → case → feature → diagnostic,
+   tous avant le Stack. Les pages /solutions ne passent pas recompoOrder → 0 changement pour elles. */
+const recompoBlocks = {
+  impact: impactBand ? ('impact' as const) : null,
+  case: caseSpotlight ? ('case' as const) : null,
+  feature: featureSplit ? ('feature' as const) : null,
+  diagnostic: diagnostic ? ('diagnostic' as const) : null,
+};
+type RecompoKey = 'impact' | 'case' | 'feature' | 'diagnostic';
+const LEGACY_ORDER: RecompoKey[] = ['impact', 'case', 'feature', 'diagnostic'];
+const requestedOrder: RecompoKey[] = recompoOrder ?? LEGACY_ORDER;
+// Une clé n'est rendue qu'une fois et seulement si son bloc existe.
+const afterStackKeys = new Set<RecompoKey>(recompoAfterStack.filter((k) => recompoBlocks[k]));
+const beforeStack: RecompoKey[] = requestedOrder.filter(
+  (k) => recompoBlocks[k] && !afterStackKeys.has(k),
+);
+const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has(k));
 ---
 <Base {title} {description} {noindex} jsonLd={[serviceLd]}>
     <Breadcrumb
@@ -345,10 +373,8 @@ const heroData: SectionByType<'hero-sector'> = {
       </div>
     </section>
 
-    {/* ────────── 4. IMPACT CHIFFRÉ — INK (recompo : metric-callout-band) ────────── */}
-    {impactBand ? (
-      <MetricCalloutBand data={impactBand} {lang} />
-    ) : (
+    {/* ────────── 4. LEGACY FALLBACK — ROI Band INK (solutions sans metric-callout-band typé) ────────── */}
+    {!impactBand && (
       <section class="sol-sec sol-sec-dark sol-proof reveal-stagger" data-screen-label="04 ROI Band">
         <div class="wrap g12 g12--full">
           <header class="sol-roi-hd section-eyebrow col-12">
@@ -379,10 +405,8 @@ const heroData: SectionByType<'hero-sector'> = {
       </section>
     )}
 
-    {/* ────────── 5. CAS CONCRET — INK (recompo : case-spotlight) ────────── */}
-    {caseSpotlight ? (
-      <CaseSpotlight data={caseSpotlight} {lang} />
-    ) : (
+    {/* ────────── 5. LEGACY FALLBACK — Case Study Split (solutions sans case-spotlight typé) ────────── */}
+    {!caseSpotlight && (
       <section class="sol-case reveal-stagger" data-screen-label="05 Case Study">
         <div class="sol-case-grid">
           <div class="sol-case-dark">
@@ -420,11 +444,17 @@ const heroData: SectionByType<'hero-sector'> = {
       </section>
     )}
 
-    {/* ────────── 5a. SECTION EXPLICATIVE HABILLÉE — paper (recompo : feature-split-media) ────────── */}
-    {featureSplit && <FeatureSplitMedia data={featureSplit} {lang} />}
-
-    {/* ────────── 5c. OÙ EN ÊTES-VOUS — paper-2 (recompo : diagnostic-stages) ────────── */}
-    {diagnostic && <DiagnosticStages data={diagnostic} {lang} />}
+    {/* ────────── 5b. RECOMPO BLOCS (ordre pilotable par secteur — variation de composition) ──────────
+         beforeStack : blocs typés rendus AVANT le Stack, dans l'ordre `recompoOrder` du secteur.
+         Pages /solutions : impactBand/caseSpotlight absents → la liste beforeStack est vide,
+         seuls les fallbacks legacy ci-dessus s'affichent (0 changement). */}
+    {beforeStack.map((key) => (
+      key === 'impact' && impactBand ? <MetricCalloutBand data={impactBand} {lang} />
+      : key === 'case' && caseSpotlight ? <CaseSpotlight data={caseSpotlight} {lang} />
+      : key === 'feature' && featureSplit ? <FeatureSplitMedia data={featureSplit} {lang} />
+      : key === 'diagnostic' && diagnostic ? <DiagnosticStages data={diagnostic} {lang} />
+      : null
+    ))}
 
     {/* ────────── 6. DEPARTMENT STACK ────────── */}
     <section class="sol-sec sol-sec-paper sol-tools reveal" data-screen-label="06 Stack">
@@ -452,6 +482,17 @@ const heroData: SectionByType<'hero-sector'> = {
         </div>
       </div>
     </section>
+
+    {/* ────────── 6a. RECOMPO BLOCS APRÈS STACK (variation de rythme par secteur) ──────────
+         Un secteur peut faire clore sa séquence par un bloc ink/diagnostic APRÈS le Stack
+         (≠ legacy : tout avant le Stack). Vide pour /solutions (recompoAfterStack non passé). */}
+    {afterStack.map((key) => (
+      key === 'impact' && impactBand ? <MetricCalloutBand data={impactBand} {lang} />
+      : key === 'case' && caseSpotlight ? <CaseSpotlight data={caseSpotlight} {lang} />
+      : key === 'feature' && featureSplit ? <FeatureSplitMedia data={featureSplit} {lang} />
+      : key === 'diagnostic' && diagnostic ? <DiagnosticStages data={diagnostic} {lang} />
+      : null
+    ))}
 
     {/* ────────── 6b. LIVRABLES (optionnel) ────────── */}
     {livrablesHtml.trim() && (
