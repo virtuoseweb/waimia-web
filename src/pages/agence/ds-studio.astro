@@ -261,7 +261,7 @@ const topConsumer = [...consumers].sort((a, b) => b.count - a.count)[0];
 type Dup = { signature: string; classes: string[] };
 const duplicateClasses = registry.duplicateClasses as Dup[];
 const stats = registry.stats as {
-  tokenCount: number; classCount: number; duplicateGroupCount: number; unusedTokens: string[];
+  tokenCount: number; classCount: number; duplicateGroupCount: number; scopedDuplicateGroupCount: number; unusedTokens: string[];
 };
 
 // ── Échantillon de sections variées (rendu inline, réactif au LIVE) ──────────
