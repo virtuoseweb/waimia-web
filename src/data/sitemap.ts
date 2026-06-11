@@ -187,7 +187,7 @@ export const MM_TECH: MegaMenu = {
       label: { en: 'Anthropic · primary', fr: 'Anthropic · premier partenaire' },
       tint: '#C94F2E',
       items: [
-        { href: '/technologies/claude-models', label: { en: 'Claude models · Opus · Sonnet · Haiku', fr: 'Modèles Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.7 · Sonnet 4.6 · Haiku 4.5.', fr: 'Opus 4.7 · Sonnet 4.6 · Haiku 4.5.' } },
+        { href: '/technologies/claude-models', label: { en: 'Claude models · Opus · Sonnet · Haiku', fr: 'Modèles Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.' } },
         { href: '/technologies/claude-code', label: { en: 'Claude Code & Managed Agents', fr: 'Claude Code & Managed Agents' } },
         { href: '/technologies/claude-surfaces', label: { en: 'Claude Cowork · Skills · MCP', fr: 'Claude Cowork · Skills · MCP' } },
         { href: '/technologies/integrations-office', label: { en: 'Office · Chrome · Excel · PPT · Word · Slack', fr: 'Office · Chrome · Excel · PPT · Word · Slack' } },
