@@ -1,0 +1,202 @@
+---
+// Page · /agence · L'Agence (recomposition composable)
+// Rendu 100 % composable : tableau `sections` typé SectionData → SectionsRenderer
+// (registry). AUCUN markup de section inline (règle anti-orphelin CLAUDE.md) :
+// chaque bloc est un type catalogué, alimenté par des FAITS déjà présents sur le
+// site (facts /agence/about, cas réels Plateau/Northbound/Caserne, TRUST_BADGES
+// de src/data/sitemap.ts, méthode 5 phases /agence/methode).
+//
+// Rythme éditorial swiss (directive docs/44) : alternance paper / paper-2 / INK,
+// 3 blocs ink (manifesto-statement · metric-callout-band · cta-final) jamais plus
+// de deux paper d'affilée. Le miroir EN (/en/agence) réutilise ce même tableau.
+export const prerender = true;
+
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import { langFromPath } from '../../lib/i18n';
+import type { SectionData } from '../../schemas/sections';
+
+// Tableau partagé (bilingue) — exporté pour le miroir EN.
+export const agenceSections: SectionData[] = [
+  // 1 · HERO (paper) — posture boutique + faits clés chiffrés
+  {
+    type: 'hero-hub-stats',
+    background: 'paper',
+    meta_kicker_fr: "§ L'Agence · Waimia",
+    meta_kicker_en: '§ The Agency · Waimia',
+    hub_num: '00',
+    h1_fr: 'Une agence <i>boutique</i>.<br/>Deux bureaux. Une posture.',
+    h1_en: 'A <i>boutique</i> agency.<br/>Two offices. One posture.',
+    lede_fr: "Waimia câble des agents IA dans les outils des PME et ETI. On livre du code le mardi, on lit le pipeline le vendredi. Pas de chaîne offshore, pas de diaporama de comité.",
+    lede_en: 'Waimia wires AI agents into the tools of mid-market companies. We ship code on Tuesdays, we read the pipeline on Fridays. No offshore chain, no committee slideshow.',
+    stats: [
+      { value: '2024', label_fr: 'fondée · Paris', label_en: 'founded · Paris', emphasis: false },
+      { value: 'Paris · Genève', label_fr: 'deux bureaux', label_en: 'two offices', emphasis: false },
+      { value: '€18M+', label_fr: 'pipeline audité', label_en: 'pipeline audited', emphasis: true },
+      { value: '43', label_fr: 'missions menées', label_en: 'engagements run', emphasis: false },
+    ],
+  },
+
+  // 2 · MANIFESTE court (INK) — conviction
+  {
+    type: 'manifesto-statement',
+    kicker_fr: '§ Notre conviction',
+    kicker_en: '§ Our conviction',
+    text_fr: 'La plupart des projets IA livrent des <i>démos</i>, pas des produits. Nous faisons l&rsquo;inverse : on <span class="acc">livre</span>, on signe, on reste joignables si l&rsquo;agent tombe. Le goulot n&rsquo;est jamais le modèle. Ce sont les rails, les règles, et l&rsquo;humain qui sait quand débrancher.',
+    text_en: 'Most AI projects ship <i>demos</i>, not products. We do the opposite: we <span class="acc">ship</span>, we sign, we stay reachable if the agent fails. The bottleneck is never the model. It is the rails, the rules, and the human who knows when to unplug.',
+    tone: 'ink',
+    show_grid: true,
+  },
+
+  // 3 · MÉTHODE (paper) — 5 phases (sourcées /agence/methode)
+  {
+    type: 'method-timeline',
+    background: 'paper',
+    kicker_fr: '§ Notre méthode · Process Intelligence',
+    kicker_en: '§ Our method · Process Intelligence',
+    h2_fr: 'Cinq <i>phases</i>. Pas de diaporama.',
+    h2_en: 'Five <i>phases</i>. No slideshow.',
+    lede_fr: 'On documente, on mesure, on corrige. Un protocole rejouable, pas un secret de cabinet. Le mardi on câble, le vendredi on mesure.',
+    lede_en: 'We document, we measure, we correct. A replayable protocol, not a cabinet secret. We wire on Tuesdays, we measure on Fridays.',
+    steps: [
+      { num: '01', label_fr: 'Cartographie', label_en: 'Mapping', body_fr: 'On regarde votre métier, pas vos présentations. Vos vrais workflows, vos vrais bouchons.', body_en: 'We look at your business, not your presentations. Your real workflows, your real bottlenecks.' },
+      { num: '02', label_fr: 'Priorisation', label_en: 'Prioritization', body_fr: 'On classe les workflows par ROI, pas par sophistication technique. Le gain rapide passe en premier.', body_en: 'We rank workflows by ROI, not by technical sophistication. The quick win comes first.' },
+      { num: '03', label_fr: 'Câblage', label_en: 'Wiring', body_fr: 'On câble les agents dans vos outils existants : Excel, HubSpot, votre ERP. Pas de migration.', body_en: 'We wire agents into your existing tools: Excel, HubSpot, your ERP. No migration.' },
+      { num: '04', label_fr: 'Mesure', label_en: 'Measurement', body_fr: "Chaque workflow a sa métrique avant/après. Si ça ne mesure rien, ça n'existe pas.", body_en: 'Every workflow has its before/after metric. If it measures nothing, it does not exist.' },
+      { num: '05', label_fr: 'Passation', label_en: 'Handover', body_fr: 'Vous prenez la main. Documentation, mode opératoire, formation. Pas de boîte noire.', body_en: 'You take control. Documentation, runbook, training. No black box.' },
+    ],
+  },
+
+  // 4 · IMPACT (INK) — métriques massives
+  {
+    type: 'metric-callout-band',
+    background: 'ink',
+    kicker_fr: '§ Preuve macro',
+    kicker_en: '§ Macro proof',
+    context_fr: 'Mesuré sur nos missions : on réoriente les équipes vers le travail à valeur pendant que les agents absorbent le répétitif. Chiffres selon périmètre, stack et maturité d&rsquo;équipe.',
+    context_en: 'Measured across our engagements: we redirect teams toward high-value work while agents absorb the repetitive load. Figures depend on scope, stack and team maturity.',
+    metrics: [
+      { value: '×3,7', label_fr: 'ROI moyen à 12 mois', label_en: 'average 12-month ROI' },
+      { value: '5 jours', label_fr: 'du brief à la première mesure', label_en: 'from brief to first measurement' },
+      { value: '+12h', label_fr: 'récupérées par équipe / semaine', label_en: 'recovered per team / week' },
+    ],
+  },
+
+  // 5 · CAS VEDETTE (paper, carte ink) — Plateau (cas réel)
+  {
+    type: 'case-split',
+    kicker_fr: 'Cas client · SaaS B2B',
+    kicker_en: 'Client case · B2B SaaS',
+    title_fr: 'Plateau a récupéré <i>2,4 M€</i> de pipeline dormant en dix semaines.',
+    title_en: 'Plateau recovered <i>€2.4M</i> of dormant pipeline in ten weeks.',
+    body_fr: "Trois agents câblés sur HubSpot, Stripe et dbt : réconciliation finance, triage des leads, relances dunning. La refonte RevOps a rendu à l'équipe vingt-deux heures par semaine.",
+    body_en: 'Three agents wired into HubSpot, Stripe and dbt: finance reconciliation, lead triage, dunning follow-ups. The RevOps rebuild gave the team back twenty-two hours a week.',
+    cta_label_fr: 'Voir le cas Plateau →',
+    cta_label_en: 'See the Plateau case →',
+    cta_href: '/cas/plateau',
+    results: [
+      { value: '€2,4M', label_fr: 'pipeline\nrécupéré', label_en: 'pipeline\nrecovered' },
+      { value: '22 h', label_fr: 'économisées\npar semaine', label_en: 'saved\nper week' },
+      { value: '10 sem', label_fr: 'du brief à\nla production', label_en: 'from brief to\nproduction' },
+    ],
+  },
+
+  // 6 · STACK (paper-2) — écosystème Anthropic + outils
+  {
+    type: 'tech-stack-band',
+    background: 'paper-2',
+    kicker_fr: '§ La stack',
+    kicker_en: '§ The stack',
+    lead_fr: "Anthropic d'abord, open-source quand il faut. Une stack courte, auditable, branchée sur vos outils existants. Pas de refonte si un connecteur suffit.",
+    lead_en: 'Anthropic first, open-source when needed. A short, auditable stack wired to your existing tools. No rebuild when a connector is enough.',
+    pills: [
+      { label_fr: 'Claude Opus', label_en: 'Claude Opus', kind: 'primary' },
+      { label_fr: 'Claude Sonnet', label_en: 'Claude Sonnet', kind: 'primary' },
+      { label_fr: 'Claude Haiku', label_en: 'Claude Haiku', kind: 'primary' },
+      { label_fr: 'MCP · Skills', label_en: 'MCP · Skills', kind: 'primary' },
+      { label_fr: 'HubSpot', label_en: 'HubSpot', kind: 'neutral' },
+      { label_fr: 'Excel · ERP', label_en: 'Excel · ERP', kind: 'neutral' },
+      { label_fr: 'PostgreSQL', label_en: 'PostgreSQL', kind: 'open' },
+      { label_fr: 'Audit trail', label_en: 'Audit trail', kind: 'open' },
+    ],
+  },
+
+  // 7 · RÉASSURANCE (paper) — trust badges réels (sitemap.ts TRUST_BADGES)
+  {
+    type: 'trust-badges-band',
+    background: 'paper',
+    kicker_fr: '§ Réassurance',
+    kicker_en: '§ Reassurance',
+    h2_fr: 'Partenariats et conformité, <i>en clair</i>',
+    h2_en: 'Partnerships and compliance, <i>in plain text</i>',
+    badges: [
+      { glyph: '◆', label_fr: 'Partenaire Anthropic', label_en: 'Anthropic Partner', value_fr: 'Parcours expert francophone', value_en: 'Francophone expert track' },
+      { glyph: '✦', label_fr: 'Claude Certified Architect', label_en: 'Claude Certified Architect', value_fr: 'Architecture agentique', value_en: 'Agentic architecture' },
+      { glyph: '◉', label_fr: 'Activateur Francenum', label_en: 'Francenum activator', value_fr: 'Expert IA & numérique', value_en: 'AI & digital expert' },
+      { glyph: '⚿', label_fr: 'AI Act ready', label_en: 'AI Act ready', value_fr: 'Conformité anticipée', value_en: 'Compliance ahead' },
+      { glyph: '✓', label_fr: 'RGPD', label_en: 'GDPR · RGPD', value_fr: 'Données UE', value_en: 'EU data' },
+      { glyph: '⬡', label_fr: 'ISO 27001 · aligné', label_en: 'ISO 27001 · aligned', value_fr: 'Sécurité de l&rsquo;information', value_en: 'Information security' },
+    ],
+  },
+
+  // 8 · FONDATEUR / ORIGINE (paper-2) — narratif sobre + jalons (faits seulement)
+  {
+    type: 'about-story-split',
+    background: 'paper-2',
+    kicker_fr: '§ Origine & posture',
+    kicker_en: '§ Origin & posture',
+    h2_fr: "Née d'une <i>frustration</i> de chantier",
+    h2_en: 'Born from a <i>delivery</i> frustration',
+    paragraphs_fr: [
+      "Waimia est née en 2024 d'une observation répétée : un POC passe en comité, brille en showroom, puis cale en juin. Nous avons pris le problème par l'autre bout.",
+      'Simon Beros pilote l&rsquo;architecture. Une équipe courte, senior, où chaque client connaît son interlocuteur direct, pas un account manager rotatif.',
+      'Ce que nous refusons : le théâtre IA, les ateliers de cadrage sans livrable signé, les agents non auditables qui transforment le logiciel en boîte noire.',
+    ],
+    paragraphs_en: [
+      'Waimia was born in 2024 from a recurring observation: a POC clears committee, shines in the showroom, then stalls in June. We took the problem from the other end.',
+      'Simon Beros leads the architecture. A short, senior team where each client knows their direct contact, not a rotating account manager.',
+      'What we refuse: AI theatre, framing workshops with no signed deliverable, non-auditable agents that turn software into a black box.',
+    ],
+    aside_title_fr: 'Repères',
+    aside_title_en: 'Markers',
+    milestones: [
+      { year: '2024', label_fr: 'Fondation à Paris', label_en: 'Founded in Paris' },
+      { year: 'FR · CH', label_fr: 'Deux bureaux : Paris et Genève', label_en: 'Two offices: Paris and Geneva' },
+      { year: 'Anthropic', label_fr: 'Partenaire · Claude Certified Architect', label_en: 'Partner · Claude Certified Architect' },
+      { year: 'Francenum', label_fr: 'Activateur · expert IA & numérique', label_en: 'Activator · AI & digital expert' },
+    ],
+  },
+
+  // 9 · CTA FINAL (INK)
+  {
+    type: 'cta-final',
+    background: 'ink',
+    chapter_num: '§ · 00',
+    chapter_title_fr: 'Travailler avec nous',
+    chapter_title_en: 'Work with us',
+    h2_fr: 'Quarante-cinq minutes pour voir si c&rsquo;est <i>le bon format</i>.',
+    h2_en: 'Forty-five minutes to see if it is <i>the right fit</i>.',
+    body_fr: "On regarde, on audite, on chiffre. Si on n'a rien d'utile à vous proposer, on le dit. On ne relance pas.",
+    body_en: 'We look, we audit, we price. If we have nothing useful to offer, we say so. No follow-up.',
+    availability_fr: '● DISPONIBLE · RÉPONSE SOUS 24H',
+    availability_en: '● AVAILABLE · RESPONSE IN 24H',
+    cta_primary: { label_fr: 'Démarrer un diagnostic →', label_en: 'Start a diagnostic →', href: '/contact', variant: 'primary' },
+    cta_secondary: { label_fr: 'Voir la méthode', label_en: 'See the method', href: '/agence/methode', variant: 'ghost' },
+    reassurance_fr: 'Diagnostic <i>gratuit</i> · sans engagement · réponse <i>sous 24h</i>.',
+    reassurance_en: 'Free <i>diagnostic</i> · no commitment · reply <i>within 24h</i>.',
+  },
+];
+
+const lang = langFromPath(Astro.url.pathname);
+---
+<Base
+  title="L'Agence · Waimia · Architectes de systèmes agentiques"
+  description="Agence IA boutique fondée à Paris en 2024, bureaux Paris-Genève. Méthode Process Intelligence, partenaire Anthropic, conformité AI Act et RGPD. On livre des agents qui exécutent."
+>
+  <Breadcrumb lang={lang} items={[
+    { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+    { label: lang === 'fr' ? "L'Agence" : 'The Agency' },
+  ]} />
+  <SectionsRenderer sections={agenceSections} lang={lang} />
+</Base>

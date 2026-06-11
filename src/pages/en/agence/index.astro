@@ -1,0 +1,24 @@
+---
+// Page · /en/agence · The Agency (EN mirror)
+// Réutilise le tableau bilingue `agenceSections` défini côté FR (/agence) : un seul
+// jeu de données composable, rendu en `lang='en'`. Aucun markup de section inline.
+export const prerender = true;
+
+import Base from '../../../layouts/Base.astro';
+import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../../../components/ui/molecules/Breadcrumb.astro';
+import { langFromPath } from '../../../lib/i18n';
+import { agenceSections } from '../../agence/index.astro';
+
+const lang = langFromPath(Astro.url.pathname);
+---
+<Base
+  title="The Agency · Waimia · Agentic Systems Architects"
+  description="Boutique AI agency founded in Paris in 2024, Paris-Geneva offices. Process Intelligence method, Anthropic partner, AI Act and GDPR compliant. We ship agents that execute."
+>
+  <Breadcrumb lang={lang} items={[
+    { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+    { label: lang === 'fr' ? "L'Agence" : 'The Agency' },
+  ]} />
+  <SectionsRenderer sections={agenceSections} lang={lang} />
+</Base>
