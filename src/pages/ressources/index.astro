@@ -13,11 +13,15 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
-import RelatedCards from '../../components/ui/molecules/RelatedCards.astro';
 import Button from '../../components/ui/atoms/Button.astro';
 import Bi from '../../components/ui/atoms/Bi.astro';
 import EditorialSplitGrid from '../../components/sections/EditorialSplitGrid.astro';
+import FeatureSplitMedia from '../../components/sections/FeatureSplitMedia.astro';
+import ResourceCardGrid from '../../components/sections/ResourceCardGrid.astro';
+import ArticleGrid from '../../components/sections/ArticleGrid.astro';
+import MetricCalloutBand from '../../components/sections/MetricCalloutBand.astro';
 import { langFromPath } from '../../lib/i18n';
+import { isLegacyRoutedType } from '../../lib/blog-routing';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import { blogEntryHref } from '../../lib/blog-routing';
 
@@ -46,44 +50,8 @@ const sortedCases = [...allCases].sort(byDate);
 const sortedCookbooks = [...allCookbooks].sort(byDate);
 const sortedLivresBlancs = [...allLivresBlancs].sort(byDate);
 
-// Trois lectures vedettes : livre blanc le plus récent · blog le plus récent · veille-ia
+// Ressource vedette : livre blanc le plus récent (asset le plus fort)
 const _lb0 = sortedLivresBlancs[0];
-const _b0 = sortedBlog[0];
-const tools = [
-  ...(_lb0 ? [{
-    kicker: 'LIVRE BLANC · 01',
-    title_fr: _lb0.data.title_fr,
-    title_en: _lb0.data.title_en,
-    lead_fr: `${_lb0.data.pages} pages · téléchargeable →`,
-    lead_en: `${_lb0.data.pages} pages · downloadable →`,
-    href: `/ressources/livres-blancs/${_lb0.id}`,
-  }] : []),
-  ...(_b0 ? [{
-    kicker: `${(_b0.data.editorialType ?? 'ESSAI').toUpperCase()} · 02`,
-    title_fr: _b0.data.title_fr,
-    title_en: _b0.data.title_en,
-    lead_fr: `${_b0.data.description_fr} →`,
-    lead_en: `${_b0.data.description_en} →`,
-    href: blogEntryHref(_b0),
-  }] : []),
-  {
-    kicker: 'VEILLE · 03',
-    title_fr: 'Veille IA · hebdo',
-    title_en: 'AI watch · weekly',
-    lead_fr: 'Synthèses signées Waimia, sans bruit →',
-    lead_en: 'Signed Waimia briefs, no noise →',
-    href: '/ressources/veille-ia',
-  },
-];
-
-const cookbookCards = sortedCookbooks.map((c, i) => ({
-  kicker: `COOKBOOK · ${String(i + 1).padStart(2, '0')}`,
-  title_fr: c.data.title_fr,
-  title_en: c.data.title_en,
-  lead_fr: `${c.data.description_fr} →`,
-  lead_en: `${c.data.description_en} →`,
-  href: `/ressources/cookbooks/${c.id}`,
-}));
 
 // hrefs corrigés : /cas/{slug} (pas /ressources/cas/)
 const caseCards = sortedCases.map((c, i) => ({
@@ -112,6 +80,162 @@ const livresBlancsCards = sortedLivresBlancs.map((lb, i) => ({
   lead_en: `${lb.data.description_en} →`,
   href: `/ressources/livres-blancs/${lb.id}`,
 }));
+
+// ── Compteurs RÉELS par catégorie (0 invention) ──
+const blogLongReads = sortedBlog.filter((b) => !isLegacyRoutedType(b));
+const fieldNotes = sortedBlog.filter((b) => b.data.type === 'field-note');
+const veilleIa = sortedBlog.filter((b) => b.data.type === 'veille-ia');
+const nBlog = blogLongReads.length;
+const nFieldNotes = fieldNotes.length;
+const nVeille = veilleIa.length;
+const nCookbooks = sortedCookbooks.length;
+const nLivresBlancs = sortedLivresBlancs.length;
+const allOutils = await getCollection('outils');
+const nOutils = allOutils.length;
+
+// ── FEATURED : la ressource la plus forte = livre blanc le plus récent (32 pages) ──
+const featuredData = _lb0
+  ? ({
+      type: 'feature-split-media' as const,
+      background: 'paper-2' as const,
+      reversed: false,
+      kicker_fr: '§ À la une · Livre blanc',
+      kicker_en: '§ Featured · White paper',
+      h2_fr: _lb0.data.title_fr,
+      h2_en: _lb0.data.title_en,
+      body_fr: _lb0.data.description_fr,
+      body_en: _lb0.data.description_en,
+      points: (_lb0.data.chapters_fr ?? []).slice(0, 4).map((c: string, i: number) => ({
+        label_fr: c,
+        label_en: (_lb0.data.chapters_en ?? [])[i] ?? c,
+      })),
+      media_caption_fr: `${_lb0.data.pages} pages · ${_lb0.data.format_fr ?? 'PDF'}`,
+      media_caption_en: `${_lb0.data.pages} pages · ${_lb0.data.format_en ?? 'PDF'}`,
+      cta_label_fr: 'Lire le livre blanc →',
+      cta_label_en: 'Read the white paper →',
+      cta_href: `/ressources/livres-blancs/${_lb0.id}`,
+    } satisfies SectionByType<'feature-split-media'>)
+  : null;
+
+// ── GRILLE par TYPE · une card par catégorie NON VIDE, compteur réel ──
+const categories = [
+  nBlog > 0 && {
+    kind_fr: 'Articles', kind_en: 'Articles',
+    title_fr: 'Le blog', title_en: 'The blog',
+    desc_fr: 'Essais, notes et avis. Publiés quand on a vraiment quelque chose à dire.',
+    desc_en: 'Essays, notes and reviews. Published when we genuinely have something to say.',
+    format: `${nBlog} ${nBlog > 1 ? 'articles' : 'article'}`,
+    href: '/ressources/blog',
+    cta_label_fr: 'Lire les articles', cta_label_en: 'Read the articles',
+  },
+  nLivresBlancs > 0 && {
+    kind_fr: 'Livres blancs', kind_en: 'White papers',
+    title_fr: 'Documents PDF', title_en: 'PDF documents',
+    desc_fr: 'Téléchargeables, cités par nos clients en comité de direction.',
+    desc_en: 'Downloadable, cited by our clients in board meetings.',
+    format: `${nLivresBlancs} ${nLivresBlancs > 1 ? 'documents' : 'document'}`,
+    href: '/ressources/livres-blancs',
+    cta_label_fr: 'Télécharger', cta_label_en: 'Download', gated: true,
+  },
+  nCookbooks > 0 && {
+    kind_fr: 'Cookbooks', kind_en: 'Cookbooks',
+    title_fr: 'Recettes de méthode', title_en: 'Method recipes',
+    desc_fr: 'Les protocoles qu\'on applique en mission, pas à pas.',
+    desc_en: 'The protocols we apply on missions, step by step.',
+    format: `${nCookbooks} ${nCookbooks > 1 ? 'recettes' : 'recette'}`,
+    href: '/ressources/cookbooks',
+    cta_label_fr: 'Suivre la recette', cta_label_en: 'Follow the recipe',
+  },
+  nOutils > 0 && {
+    kind_fr: 'Outils', kind_en: 'Tools',
+    title_fr: 'Calculateurs gratuits', title_en: 'Free calculators',
+    desc_fr: 'ROI, TCO, conformité AI Act. Sans formulaire, sans funnel.',
+    desc_en: 'ROI, TCO, AI Act compliance. No form, no funnel.',
+    format: `${nOutils} ${nOutils > 1 ? 'outils' : 'outil'}`,
+    href: '/ressources/outils',
+    cta_label_fr: 'Utiliser l\'outil', cta_label_en: 'Use the tool',
+  },
+  nFieldNotes > 0 && {
+    kind_fr: 'Notes de terrain', kind_en: 'Field notes',
+    title_fr: 'Notes de terrain', title_en: 'Field notes',
+    desc_fr: 'Observations courtes prises pendant les missions, sans filtre.',
+    desc_en: 'Short observations taken during missions, unfiltered.',
+    format: `${nFieldNotes} ${nFieldNotes > 1 ? 'notes' : 'note'}`,
+    href: '/ressources/field-notes',
+    cta_label_fr: 'Lire les notes', cta_label_en: 'Read the notes',
+  },
+  nVeille > 0 && {
+    kind_fr: 'Veille IA', kind_en: 'AI watch',
+    title_fr: 'Veille IA hebdo', title_en: 'Weekly AI watch',
+    desc_fr: 'Synthèses signées Waimia. Ce qui compte, sans le bruit.',
+    desc_en: 'Signed Waimia briefs. What matters, without the noise.',
+    format: `${nVeille} ${nVeille > 1 ? 'éditions' : 'édition'}`,
+    href: '/ressources/veille-ia',
+    cta_label_fr: 'Lire la veille', cta_label_en: 'Read the watch',
+  },
+].filter(Boolean) as Array<{
+  kind_fr: string; kind_en: string; title_fr: string; title_en: string;
+  desc_fr: string; desc_en: string; format: string; href: string;
+  cta_label_fr: string; cta_label_en: string; gated?: boolean;
+}>;
+
+const resourceGridData = {
+  type: 'resource-card-grid' as const,
+  background: 'paper' as const,
+  columns: '3' as const,
+  kicker_fr: '§ Par format · tout ce qu\'on publie',
+  kicker_en: '§ By format · everything we publish',
+  h2_fr: 'Choisissez votre <i>entrée</i>.',
+  h2_en: 'Pick your <i>way in</i>.',
+  intro_fr: 'Six formats, des compteurs réels. Rien d\'inventé : ce que vous voyez est ce qui existe.',
+  intro_en: 'Six formats, real counters. Nothing invented: what you see is what exists.',
+  resources: categories.map((c) => ({
+    kind_fr: c.kind_fr, kind_en: c.kind_en,
+    title_fr: c.title_fr, title_en: c.title_en,
+    desc_fr: c.desc_fr, desc_en: c.desc_en,
+    format: c.format, href: c.href,
+    cta_label_fr: c.cta_label_fr, cta_label_en: c.cta_label_en,
+    gated: c.gated ?? false,
+  })),
+} satisfies SectionByType<'resource-card-grid'>;
+
+// ── DERNIERS ARTICLES · vraie grille éditoriale (4 articles longs récents) ──
+const articleGridData = {
+  type: 'article-grid' as const,
+  background: 'paper-2' as const,
+  columns: '3' as const,
+  kicker_fr: '§ Blog · les plus récents',
+  kicker_en: '§ Blog · most recent',
+  h2_fr: 'Les <i>dernières</i> notes longues.',
+  h2_en: 'The <i>latest</i> long reads.',
+  articles: blogLongReads.slice(0, 6).map((b) => ({
+    tag_fr: (b.data.editorialType ?? 'Essai').toUpperCase(),
+    tag_en: (b.data.editorialType ?? 'Essay').toUpperCase(),
+    title_fr: b.data.title_fr,
+    title_en: b.data.title_en,
+    excerpt_fr: b.data.description_fr,
+    excerpt_en: b.data.description_en,
+    date: b.data.publishedAt.toISOString().slice(0, 10),
+    read_time_fr: b.data.readingTime ? `${b.data.readingTime} min` : undefined,
+    read_time_en: b.data.readingTime ? `${b.data.readingTime} min` : undefined,
+    href: `/ressources/blog/${b.id}`,
+  })),
+} satisfies SectionByType<'article-grid'>;
+
+// ── BANDE INK · preuve éditoriale chiffrée (compteurs réels du hub) ──
+const proofBandData = {
+  type: 'metric-callout-band' as const,
+  background: 'ink' as const,
+  kicker_fr: '§ Le fond éditorial',
+  kicker_en: '§ The editorial substance',
+  context_fr: 'Pas un blog d\'agence. Un fonds de travail signé, relu, daté. Chaque chiffre ci-dessous est le compte réel de ce qui est en ligne aujourd\'hui.',
+  context_en: 'Not an agency blog. A signed, reviewed, dated body of work. Every figure below is the real count of what is online today.',
+  metrics: [
+    { value: String(nBlog + nFieldNotes + nVeille), label_fr: 'notes publiées', label_en: 'published notes' },
+    { value: String(nLivresBlancs + nCookbooks), label_fr: 'documents de méthode', label_en: 'method documents' },
+    { value: String(sortedCases.length), label_fr: 'cas clients signés', label_en: 'signed client cases' },
+  ],
+} satisfies SectionByType<'metric-callout-band'>;
 
 const splitData = {
   type: 'editorial-split-grid' as const,
@@ -168,25 +292,28 @@ const ctaData = {
   description="Toutes les ressources Waimia : cas clients NDA-protected, notes de terrain, cookbooks de méthodes, calculateurs TCO/ROI/AI Act."
   jsonLd={collectionLd}
 >
-  {/* MASTHEAD */}
+  {/* MASTHEAD · paper */}
   <HeroCentered data={mastheadData} lang="fr" />
 
-  {/* FEATURED TOOLS */}
-  <section class="hub-tools">
-    <div class="wrap-wide">
-      <Kicker tone="accent" class="hub-tools-k">§ Lectures · trois entrées gratuites sans sign-up</Kicker>
-      <h2 class="hub-tools-h2">Trois <i>lectures</i>. Pas de funnel commercial.</h2>
-      <RelatedCards cards={tools} />
-    </div>
-  </section>
+  {/* FEATURED · livre blanc le plus fort · paper-2 */}
+  {featuredData && <FeatureSplitMedia data={featuredData} lang="fr" />}
 
-  {/* CAS CLIENTS · 5 cards vers vraies sub-pages */}
+  {/* GRILLE PAR FORMAT · compteurs réels · paper */}
+  <ResourceCardGrid data={resourceGridData} lang="fr" />
+
+  {/* DERNIERS ARTICLES · vraie grille éditoriale · paper-2 */}
+  <ArticleGrid data={articleGridData} lang="fr" />
+
+  {/* BANDE INK · preuve éditoriale chiffrée */}
+  <MetricCalloutBand data={proofBandData} lang="fr" />
+
+  {/* CAS CLIENTS · 4 dossiers signés · paper */}
   <section class="hub-cases-detail">
     <div class="wrap-wide">
-      <Kicker tone="accent" class="hub-cd-k">§ Cas clients · 4 dossiers signés</Kicker>
-      <h2 class="hub-cd-h2">Quatre <i>missions</i>. Toutes mesurées.</h2>
+      <Kicker tone="accent" class="hub-cd-k">§ Cas clients · {sortedCases.length} dossiers signés</Kicker>
+      <h2 class="hub-cd-h2">{caseCards.length === 4 ? 'Quatre' : String(caseCards.length)} <i>missions</i>. Toutes mesurées.</h2>
       <p class="hub-cd-lead">
-        Pas de témoignages publicitaires : chaque cas est lu, validé et signé par le client. Quatre clients externes, quatre dossiers chiffrés.
+        Pas de témoignages publicitaires : chaque cas est lu, validé et signé par le client. Des clients externes, des dossiers chiffrés.
       </p>
       <ol class="hub-cd-list reveal-stagger">
         {caseCards.map((c) => (
@@ -206,22 +333,10 @@ const ctaData = {
     </div>
   </section>
 
-  {/* COOKBOOKS · 3 cards vers vraies sub-pages */}
-  <section class="hub-cookbooks">
-    <div class="wrap-wide">
-      <Kicker tone="accent" class="hub-cookbooks-k">§ Cookbooks · 3 recettes signées</Kicker>
-      <h2 class="hub-cookbooks-h2">Les <i>recettes</i> qu'on applique en mission.</h2>
-      <RelatedCards cards={cookbookCards} />
-      <div class="hub-cookbooks-cta">
-        <Button href="/ressources/cookbooks" variant="ghost" size="lg">Tous les cookbooks →</Button>
-      </div>
-    </div>
-  </section>
-
-  {/* BLOG + LIVRES BLANCS · pages détaillées */}
+  {/* BLOG + LIVRES BLANCS · split éditorial vers pages détaillées · paper */}
   <EditorialSplitGrid data={splitData} lang="fr" />
 
-  {/* NEWSLETTER BAND */}
+  {/* NEWSLETTER BAND · ink */}
   <section id="newsletter" class="hub-nl">
     <div class="wrap-wide hub-nl-wrap">
       <div>
@@ -256,27 +371,7 @@ const ctaData = {
 </Base>
 
 <style>
-  .hub-tools,
-  .hub-cookbooks { padding: clamp(80px, 10vw, 120px) var(--space-6); }
-  :global(.hub-tools-k),
-  :global(.hub-cookbooks-k) { display: block; margin-bottom: 18px; }
-  .hub-tools-h2,
-  .hub-cookbooks-h2 {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 6vw, 88px);
-    line-height: var(--leading-h1);
-    letter-spacing: -0.024em;
-    margin: 0 0 clamp(40px, 5vw, 72px);
-    text-wrap: balance;
-    font-weight: var(--fw-regular);
-  }
-  .hub-tools-h2 :global(i),
-  .hub-cookbooks-h2 :global(i) { font-style: italic; color: var(--accent); }
-
-  .hub-cookbooks { background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-  .hub-cookbooks-cta { margin-top: clamp(28px, 3vw, 44px); }
-
-  .hub-cases-detail { padding: clamp(80px, 10vw, 120px) var(--space-6); }
+  .hub-cases-detail { padding: clamp(80px, 10vw, 120px) var(--space-6); background: var(--paper); }
   :global(.hub-cd-k) { display: block; margin-bottom: 18px; }
   .hub-cd-h2 {
     font-family: var(--font-display);
