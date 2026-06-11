@@ -84,7 +84,7 @@ if (layout === 'grid') {
 
 <style>
   .eco-partners {
-    padding-block: var(--section);
+    padding-block: var(--section-tight);
     overflow: hidden;
   }
   .eco-partners__head { margin-bottom: var(--space-7); }
@@ -179,5 +179,5 @@ if (layout === 'grid') {
 <style is:global>
   /* Le masque hérite de currentColor : sur fond ink, les logos passent en paper. */
   .eco-partners[data-bg='ink'] .partner-logo { color: var(--paper); }
-  .eco-partners[data-bg='ink'] a.partner-logo:hover { color: #fff; }
+  .eco-partners[data-bg='ink'] a.partner-logo:hover { color: var(--paper); }
 </style>
