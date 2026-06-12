@@ -8,7 +8,7 @@ export const prerender = true;
  *   Acte I  promesse & preuve  → Hero (intouché) + bande de preuve unifiée (StatBlock + SocialProof)
  *   Acte II système & offre    → ArchitectureDiagram (FIG 2.0) + ServicesGrid fusionnée UseCaseIndex (FIG 2.5)
  *   Acte III engagement        → MaturityPyramid cards-only (stage + prix d'entrée) + CtaInline
- *   Acte IV preuves clients    → CaseCardGrid + FAQ (Q.01 ouverte) + Notes de terrain ×3
+ *   Acte IV domaines           → CaseCardGrid (domaines d'intervention) + FAQ (Q.01 ouverte) + Notes de terrain ×3
  *   Acte V  action             → BookSession (ink)
  *
  * Retirés de la home (restent au catalogue / autres pages) :
@@ -44,9 +44,10 @@ import { PROOF_POINTS } from '../data/proof-points';
 import { localizeHref } from '../lib/i18n';
 import type { SectionByType } from '../schemas/sections';
 
-// ── Acte I · Bande de preuve unifiée (audit home §02+03) ───────────────────────
-// 3 métriques NON présentes dans le hero (le « 12h/sem » vit déjà dans la preuve n°1
-// du hero, 250 px plus haut) + lien d'attribution vers les 4 dossiers (chiffres sourcés).
+// ── Acte I · Bande d'engagements unifiée (audit home §02+03) ───────────────────
+// 3 repères NON présents dans le hero (le « 12h/sem » vit déjà dans la preuve n°1
+// du hero, 250 px plus haut) + lien vers les domaines d'intervention. Honnêteté : ce
+// sont des engagements/capacités (audit 5j, pilote, ROI mesuré sur vos données), 0 résultat client.
 const proofBarData = {
   type: 'proof-bar' as const,
   layout: 'horizontal' as const,
@@ -59,8 +60,8 @@ const proofBarData = {
     label_en: m.label.en,
     emphasis: false,
   })),
-  link_label_fr: 'Voir les 4 dossiers →',
-  link_label_en: 'See the 4 case files →',
+  link_label_fr: "Voir les domaines d'intervention →",
+  link_label_en: 'See where we intervene →',
   link_href: localizeHref('/cas', 'fr'),
 } satisfies SectionByType<'proof-bar'>;
 
@@ -108,9 +109,9 @@ const architectureDiagramData = {
 } satisfies SectionByType<'architecture-diagram'>;
 
 // ── Acte II · FIG 2.5 L'offre (ServicesGrid fusionnée avec UseCaseIndex) ───────
-// Métriques dédupliquées (1 info = 1 représentation) : « +840 K€ » vit dans la bande
-// preuve, « +12h/sem » dans le hero → remplacées par des chiffres PROPRES au service,
-// sourcés src/data/proof-points.ts (roi-leads-x2-4 · time-30pct-taches-reduites).
+// Métriques dédupliquées (1 info = 1 représentation) → repères PROPRES au service,
+// tirés de src/data/proof-points.ts (roi-leads-x2-4 · time-30pct-taches-reduites).
+// Honnêteté : ce sont des objectifs/capacités visés, mesurés sur vos données, pas des résultats clients.
 const ppValue = (id: string) => PROOF_POINTS.find((p) => p.id === id)?.value ?? '';
 const SERVICE_METRIC_OVERRIDES: Record<string, { fr: string; en: string }> = {
   '02': { fr: `${ppValue('roi-leads-x2-4')} leads`, en: `${ppValue('roi-leads-x2-4').replace(',', '.')} leads` },
@@ -288,7 +289,7 @@ const faqItems = [
 
     <SectionTransition phrase="Promesse vérifiable, pas discours." />
 
-    {/* 07 — Cases · 4 dossiers anonymisés (CASE_FEED) · le logo croisé plus haut devient dossier */}
+    {/* 07 — CaseCardGrid · 4 domaines d'intervention (CASE_FEED) · secteur · durée · stack · ce qu'on câble */}
     <CaseCardGrid data={caseCardGridData('fr')} lang="fr" />
 
     {/* 08 — FaqAccordion · 8 questions PME-first · Q.01 (prix) ouverte par défaut */}

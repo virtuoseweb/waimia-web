@@ -5,8 +5,9 @@ export const prerender = true;
 // Page de vente UNIQUE au-dessus du tunnel, exposée en campagne (ads, social).
 // Rendu 100 % COMPOSABLE (anti-orphelin) : aucun markup inline. La séquence narrative
 // de 8 slots est une liste `sections[]` validée par le schéma, rendue par SectionsRenderer
-// (registry → composants catalogués). Copy = référentiels réels (proof-points / guarantees
-// / cas Plateau du tunnel), 0 chiffre inventé. JSON-LD Service + index,follow conservés.
+// (registry → composants catalogués). Honnêteté (vague 2) : studio solo, 0 client réel.
+// Copy = capacités/engagements (proof-points / guarantees), 0 résultat client inventé,
+// 0 témoignage mis en scène. JSON-LD Service + index,follow conservés.
 import Base from '../../layouts/Base.astro';
 import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
@@ -16,7 +17,7 @@ import { buildService } from '../../lib/seo/schema-builder';
 const service = buildService({
   name: 'Site Web IA-first',
   description:
-    'Site web automatisé par IA pour générer des leads en continu via 3 agents (Content, CRM, Social). ROI mesuré en 90 jours.',
+    'Site web automatisé par IA pour générer des leads en continu via 3 agents (Content, CRM, Social). ROI mesuré sur vos données sous 90 jours.',
 });
 
 const TUNNEL_HREF = '/offres/site-web-ia/tunnel/1';
@@ -31,9 +32,9 @@ const sections: SectionData[] = [
     h1_fr: 'Votre site génère des leads<br/><em>pendant que vous dormez.</em>',
     h1_en: 'Your website generates leads<br/><em>while you sleep.</em>',
     lede_fr:
-      'Trois agents IA orchestrent votre site, votre contenu et votre CRM. Résultat : un flux constant de leads qualifiés, mesuré dès les premières semaines, jamais estimé.',
+      'Trois agents IA orchestrent votre site, votre contenu et votre CRM. Objectif : un flux constant de leads qualifiés, mesuré sur vos données dès les premières semaines, jamais inventé.',
     lede_en:
-      'Three AI agents orchestrate your website, content and CRM. The result: a steady flow of qualified leads, measured from week one, never estimated.',
+      'Three AI agents orchestrate your website, content and CRM. The goal: a steady flow of qualified leads, measured on your data from week one, never invented.',
     cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: AUDIT_HREF, variant: 'primary' },
     cta_secondary: { label_fr: 'Voir la démonstration', label_en: 'See the walkthrough', href: TUNNEL_HREF, variant: 'ghost' },
     availability_fr: '◉ Booking T3 2026 · 4 places',
@@ -87,37 +88,37 @@ const sections: SectionData[] = [
       'Three agents feed one 100/100 static site. In between, a system that publishes, follows up and distributes continuously, then reinjects the measurement, with no manual chasing.',
   },
 
-  // ── 4a · PREUVE INCARNÉE (metric-shift, cas Plateau réel · référentiel) ─────
+  // ── 4a · CE QUE LE SYSTÈME VISE (metric-shift, cibles capacité · 0 résultat client) ─────
   {
     type: 'metric-shift',
     background: 'paper',
-    kicker_fr: '§ 02 · Résultats mesurés',
-    kicker_en: '§ 02 · Measured results',
-    h2_fr: 'Avant → <i>après</i>.',
-    h2_en: 'Before → <i>after</i>.',
-    lede_fr: 'Cas type, SaaS B2B dâune trentaine de personnes. Mesuré à 10 semaines, jamais estimé.',
-    lede_en: 'Typical case, a ~30-person B2B SaaS. Measured at 10 weeks, never estimated.',
+    kicker_fr: '§ 02 · Ce que le système vise',
+    kicker_en: '§ 02 · What the system targets',
+    h2_fr: 'Point de départ → <i>cible</i>.',
+    h2_en: 'Starting point → <i>target</i>.',
+    lede_fr: 'Studio solo, pas de cas client à mettre en scène. Voici les cibles qu\'on instrumente, mesurées sur vos données, baseline posée au départ.',
+    lede_en: 'Solo studio, no client case to stage. Here are the targets we instrument, measured on your data, with a baseline set upfront.',
     shifts: [
-      { label_fr: 'Score Lighthouse', label_en: 'Lighthouse score', before: '23', after: '100', delta_fr: '+77 pts', delta_en: '+77 pts', trend: 'up' },
-      { label_fr: 'Leads qualifiés / mois', label_en: 'Qualified leads / month', before: 'baseline', after: '×2,4', delta_fr: '×2,4', delta_en: '×2,4', trend: 'up' },
+      { label_fr: 'Score Lighthouse', label_en: 'Lighthouse score', before: '~23', after: '100', delta_fr: '+77 pts', delta_en: '+77 pts', trend: 'up' },
+      { label_fr: 'Leads qualifiés / mois', label_en: 'Qualified leads / month', before: 'baseline', after: '×2,4 visé', delta_fr: '×2,4 visé', delta_en: '×2.4 target', trend: 'up' },
       { label_fr: 'Gestion CMS', label_en: 'CMS management', before: '12 h/sem', after: '0 h/sem', delta_fr: '−12 h', delta_en: '−12 h', trend: 'down' },
-      { label_fr: 'ROI à 12 mois', label_en: '12-month ROI', before: 'baseline', after: '4,1×', delta_fr: '4,1×', delta_en: '4,1×', trend: 'up' },
+      { label_fr: 'ROI à 12 mois', label_en: '12-month ROI', before: 'baseline', after: 'suivi', delta_fr: 'mesuré', delta_en: 'measured', trend: 'up' },
     ],
   },
 
-  // ── 4b · PREUVE INCARNÉE (quote-spotlight, citation client Plateau) ─────────
+  // ── 4b · ENGAGEMENT (quote-spotlight, posture honnête · pas de témoignage client inventé) ────
   {
     type: 'quote-spotlight',
     background: 'paper-2',
-    kicker_fr: 'Témoignage client',
-    kicker_en: 'Client testimonial',
+    kicker_fr: 'Notre engagement',
+    kicker_en: 'Our commitment',
     quote_fr:
-      "On a remplacé notre WordPress par un site Waimia en 6 semaines. L'agent éditeur a éliminé les 12 h hebdo passées dans le CMS. On est passé de <i>23 à 100</i> sur Lighthouse.",
+      "Un site Astro IA-native remplace un WordPress chargé en quelques semaines. L'agent éditeur supprime les heures passées dans le CMS, et on vise <i>100/100</i> sur Lighthouse, mesuré sur votre site, pas promis sur le nôtre.",
     quote_en:
-      'We replaced our WordPress with a Waimia site in 6 weeks. The editorial agent removed the 12 weekly hours spent in the CMS. We went from <i>23 to 100</i> on Lighthouse.',
-    author: 'Direction marketing',
-    role_fr: 'Direction marketing . SaaS B2B',
-    role_en: 'Marketing lead . B2B SaaS',
+      'An AI-native Astro site replaces a loaded WordPress in a few weeks. The editor agent removes the hours spent in the CMS, and we target <i>100/100</i> on Lighthouse, measured on your site, not promised on ours.',
+    author: 'Waimia',
+    role_fr: 'Studio solo . Montpellier',
+    role_en: 'Solo studio . Montpellier',
   },
 
   // ── 5 · OFFRE + ANCRAGE PRIX (pricing-cards ×3, palier mis en avant) ────────
@@ -208,7 +209,7 @@ const sections: SectionData[] = [
 ---
 <Base
   title="Site Web IA-first : leads automatisés en 90 jours · Waimia"
-  description="Votre site génère des leads pendant que vous dormez. 3 agents IA, lead-gen automatisé, ROI mesuré en 90 jours."
+  description="Votre site génère des leads pendant que vous dormez. 3 agents IA, lead-gen automatisé, ROI mesuré sur vos données sous 90 jours."
   jsonLd={service}
 >
   <div class="wrap-wide">
