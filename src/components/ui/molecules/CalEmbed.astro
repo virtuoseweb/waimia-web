@@ -19,9 +19,9 @@
 import CalEmbedReact from './CalEmbedReact.tsx';
 
 interface Props {
-  /** Slug Cal.com (default: env PUBLIC_CAL_USERNAME) */
+  /** Slug Cal.com (default: 'simonberos') */
   username?: string;
-  /** Event type slug (default: env PUBLIC_CAL_EVENT_TYPE) */
+  /** Event type slug (default: 'audit') */
   eventType?: string;
   /** Theme · auto/light/dark */
   theme?: 'auto' | 'light' | 'dark';
@@ -31,21 +31,22 @@ interface Props {
   id?: string;
 }
 
-// `.trim()` défensif : `vercel env add` via `echo 'value' |` stocke parfois
-// la valeur avec un \n trailing qui casse le slug Cal.com (404 en prod).
+// Valeurs HARDCODÉES (= snippet officiel Cal.com app.cal.com/event-types).
+// Historique : avant le 2026-06-12 ces valeurs venaient des env vars Vercel
+// PUBLIC_CAL_USERNAME/EVENT_TYPE. Ces env vars contenaient un LITTÉRAL `\n`
+// (backslash+n saisi dans l'UI) → calLink baké `simonberos\n/audit\n` → le parser
+// d'URL convertit `\`→`/` → `simonberos/n/audit/n/embed` = 404. L'indirection env
+// var était une sur-ingénierie inutile (valeurs constantes) qui a créé le bug.
+// On hardcode comme le snippet officiel → 0 surface de corruption.
 const {
-  username = (import.meta.env.PUBLIC_CAL_USERNAME ?? 'simonberos').trim(),
-  eventType = (import.meta.env.PUBLIC_CAL_EVENT_TYPE ?? 'audit').trim(),
+  username = 'simonberos',
+  eventType = 'audit',
   theme = 'light',
   id = 'cal-embed',
 } = Astro.props as Props;
 
-// Sanitize final (ROOT CAUSE prouvée 2026-06-12 via HTML prod baké) : les env
-// vars Vercel PUBLIC_CAL_* contiennent un LITTÉRAL `\n` (backslash+n, qqn a tapé
-// `\n` dans l'UI) → calLink `simonberos\n/audit\n`. Le parser d'URL du navigateur
-// convertit `\`→`/` → path `simonberos/n/audit/n/embed` = 404. Ni .trim() ni
-// .replace(/\s+/) ne l'attrapent (backslash+n n'est PAS un whitespace). On retire
-// d'abord toute séquence backslash-escape (`\.`) PUIS le whitespace réel.
+// Sanitize défensif (ceinture+bretelles si un jour un prop arrive sali) : retire
+// toute séquence backslash-escape (`\.`) puis le whitespace.
 const calLink = `${username}/${eventType}`.replace(/\\./g, '').replace(/\s+/g, '');
 ---
 {/* Resource hints · Cal.com SaaS (app.cal.com sert embed.js + l'iframe de réservation).
