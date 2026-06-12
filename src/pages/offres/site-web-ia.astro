@@ -14,7 +14,7 @@ import TerminalMockup from '../../components/ui/molecules/TerminalMockup.astro';
 const heroStats = [
   { k: '95%',   label_fr: 'généré par IA',         label_en: 'AI-generated' },
   { k: '6 sem', label_fr: 'mise en ligne médiane',  label_en: 'median go-live' },
-  { k: '×3.4',  label_fr: 'conversion vs WordPress', label_en: 'conversion vs WordPress' },
+  { k: '3 000 €', label_fr: 'à partir de · HT',     label_en: 'from · excl. VAT' },
   { k: '100/100', label_fr: 'Lighthouse',          label_en: 'Lighthouse' },
 ];
 
@@ -38,44 +38,39 @@ const steps = [
 ];
 
 const tiers = [
-  { idx: '01', tier: 'Starter', highlight: false,
-    price: '7 900 €', period: 'HT · forfait livraison',
-    desc_fr: 'Site MVP natif IA', desc_en: 'IA-native MVP site',
+  { idx: '01', tier: 'Essentiel', highlight: true,
+    price: '3 000 €', period: 'HT · forfait livraison',
+    desc_fr: 'Site IA-native livré', desc_en: 'AI-native site, delivered',
     features: [
-      'Astro 6 + React 19 (95% IA)',
-      "Jusqu'à 8 pages (home + 6 services + contact)",
-      'Agent éditeur de contenu inclus',
+      'Astro 6 + React (généré par IA)',
+      "Home + jusqu'à 6 pages",
+      'Agent éditeur de contenu (Git)',
       'Socle GEO (sitemap + JSON-LD + llms.txt)',
-      'Moins de 5 cookies par page cible',
-      '1 mois de routine GEO offerte',
       'Hébergement Vercel optimisé',
+      '1 mois de routine GEO offert',
+      'Garantie 14 jours',
     ],
-    ctaLabel: 'Démarrer Starter →', ctaHref: '/contact?offer=site-web-ia&tier=starter' },
-  { idx: '02', tier: 'Standard', highlight: true,
-    price: '14 900 €', period: 'HT · forfait livraison',
-    desc_fr: 'Site complet + IA continue', desc_en: 'Full site + continuous AI',
+    ctaLabel: 'Démarrer Essentiel →', ctaHref: '/contact?offer=site-web-ia&tier=essentiel' },
+  { idx: '02', tier: 'Complet', highlight: false,
+    price: '6 000 €', period: 'HT · forfait livraison',
+    desc_fr: 'Site complet + GEO continu', desc_en: 'Full site + continuous GEO',
     features: [
-      'Tout Starter inclus',
-      "Jusqu'à 25 pages (hubs + sous-pages)",
-      'Agent éditeur multi-langues (FR + EN)',
-      'GEO routine mensuelle 6 mois',
-      'Modèles email & lead magnets Resend',
-      'Cal.com intégré + suivi sur mesure',
-      'Tests A/B IA sur landing pages',
-      'Transfert code + contenu + hébergement documenté',
+      'Tout Essentiel inclus',
+      "Jusqu'à 15 pages (hubs + sous-pages)",
+      'Routine GEO 6 mois',
+      'Intégrations email (Resend) + Cal.com',
+      'Transfert clé en main documenté (code + contenu + hébergement)',
     ],
-    ctaLabel: 'Démarrer Standard →', ctaHref: '/contact?offer=site-web-ia&tier=standard' },
-  { idx: '03', tier: 'Custom', highlight: false,
-    price: 'Sur devis', period: 'À partir de 35 000 €',
-    desc_fr: 'Plateforme sur-mesure', desc_en: 'Custom platform',
+    ctaLabel: 'Démarrer Complet →', ctaHref: '/contact?offer=site-web-ia&tier=complet' },
+  { idx: '03', tier: 'Sur-mesure', highlight: false,
+    price: 'Sur devis', period: 'À partir de 12 000 €',
+    desc_fr: 'Plateforme + agents internes', desc_en: 'Platform + internal agents',
     features: [
-      'Tout Standard inclus',
-      'Pages illimitées + multi-tenant',
-      'Agents internes VirtuoseOS (tarifs, devis, support)',
-      'Intégrations CRM/entrepôt natives',
-      'Auto-hébergement possible (vLLM/Ollama)',
-      'SLA 24/7 + astreinte humaine nommée',
-      'Routine GEO 12 mois incluse',
+      'Tout Complet inclus',
+      'Pages illimitées',
+      'Agents internes (devis, support)',
+      'Intégrations CRM natives',
+      'SLA dédié',
     ],
     ctaLabel: 'Demander un devis →', ctaHref: '#devis' },
 ];
@@ -92,9 +87,9 @@ const techPills = [
 ];
 
 const proofMetrics = [
-  { k: '×3.4',   label_fr: 'conversion vs WordPress', label_en: 'conversion vs WordPress' },
+  { k: 'Statique', label_fr: 'HTML pré-rendu, indexable LLM', label_en: 'pre-rendered HTML, LLM-indexable' },
   { k: '100/100', label_fr: 'score Lighthouse',       label_en: 'Lighthouse score' },
-  { k: '−85%',   label_fr: "temps d'édition",         label_en: 'edit time' },
+  { k: 'Git',    label_fr: 'contenu versionné, vous possédez tout', label_en: 'versioned content, you own everything' },
   { k: '0 €',    label_fr: 'licence CMS',              label_en: 'CMS license' },
 ];
 
@@ -108,7 +103,9 @@ const faq = [
   { q: "Êtes-vous compatible avec mon CMS actuel (HubSpot, Webflow, WordPress) ?",
     a: "Oui. On peut migrer le contenu existant par parsing automatique, ou hybrider : Astro pour les pages publiques, votre CMS pour le blog ou l'admin. Devis exact après audit gratuit de 10 jours." },
   { q: "Combien coûte le maintien après livraison ?",
-    a: "L'hébergement Vercel coûte 0-20 €/mois selon le trafic. La routine GEO est un forfait mensuel optionnel : à partir de 490 €/mois pour Starter, 1 490 €/mois pour Standard. Aucun coût caché." },
+    a: "L'hébergement Vercel coûte 0-20 €/mois selon le trafic. La routine GEO est un forfait mensuel optionnel : à partir de 290 €/mois (Essentiel) ou 690 €/mois (Complet). Aucun coût caché." },
+  { q: "Et après le site ? Comment Waimia va plus loin ?",
+    a: "Le site est le produit d'appel. Une fois en ligne, on peut bâtir par-dessus un Growth System IA (système d'acquisition complet : contenu, GEO continu, captation et nurturing) puis brancher des agents à l'usage (devis, support, prospection) à partir de 300 €/mois. On avance par paliers, sans engagement de la suite." },
   { q: "Qui possède le site après livraison ?",
     a: "Vous. On vous transfère le site clé en main : code, contenu, compte d'hébergement, variables, documentation et procédure de reprise. Pas de captivité agence, pas de plugin propriétaire obligatoire." },
   { q: "Que couvre la garantie 14 jours ?",
@@ -129,7 +126,7 @@ const relatedCards = [
 ---
 <ConversionFunnelTemplate
   title="Site web natif IA · Astro+React 95 % généré par IA · Waimia"
-  description="Un site web généré et édité par agents IA. Astro+React, 95 % natif IA, agent éditeur intégré, routine GEO mensuelle. À partir de 7 900 €."
+  description="Un site web généré et édité par agents IA. Astro+React, 95 % natif IA, agent éditeur intégré, routine GEO mensuelle. À partir de 3 000 € HT."
   funnelNum="01"
   heroStats={heroStats}
   steps={steps}
