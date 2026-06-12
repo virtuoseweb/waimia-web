@@ -28,10 +28,10 @@ export const DEFAULT_SCREENS = [
     label: '00 · Workspace',
     title: { en: 'A workspace per client, isolated.', fr: 'Un workspace par client, isolé.' },
     rows: [
-      ['plateau-saas',     'SaaS B2B',     'active'],
-      ['halcyon-health',   'Healthtech',    'active'],
-      ['northbound-fin',   'Fintech EU',    'active'],
-      ['caserne-ind',      'Industry FR',   'active'],
+      ['saas-b2b',         'SaaS B2B',     'active'],
+      ['healthtech',       'Healthtech',    'active'],
+      ['fintech-eu',       'Fintech EU',    'active'],
+      ['industry-fr',      'Industry FR',   'active'],
     ],
   },
   {
@@ -75,11 +75,11 @@ const DEFAULT_COPY: ProductReelCopy = {
   appName: 'virtuoseos',
   liveStatus: '◉ live',
   workspacesHeading: 'Workspaces · 4 active',
-  kernelHeading: 'Kernel · plateau-saas',
-  kernelCommand: '$ virtuose kernel.status --workspace=plateau-saas',
+  kernelHeading: 'Kernel · saas-b2b',
+  kernelCommand: '$ virtuose kernel.status --workspace=saas-b2b',
   kernelStatus: 'kernel ok · 14 agents running · 0 errors · rev 2.4.1',
   agentsHeading: 'Agents · 14 active',
-  pipelineHeading: 'Pipeline · plateau-saas',
+  pipelineHeading: 'Pipeline · saas-b2b',
   pipelineActiveValue: '€ 19 540 active',
 };
 

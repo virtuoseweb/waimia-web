@@ -710,10 +710,10 @@ const sectionSchemaKnobs = {
         <div class="ds-subsection">
           <h3 class="ds-h3">StatRow</h3>
           <StatRow stats={[
-            { k: '43',    label_fr: 'interventions',   label_en: 'engagements' },
-            { k: '€18M+', label_fr: 'pipeline audité', label_en: 'pipeline audited' },
-            { k: '× 4',   label_fr: 'taux de réussite', label_en: 'success rate' },
-            { k: '12',    label_fr: 'juridictions UE',  label_en: 'EU jurisdictions' },
+            { k: '5 j',    label_fr: 'pour cibler le levier', label_en: 'to pinpoint the lever' },
+            { k: '4 sem.', label_fr: 'au premier workflow',   label_en: 'to first workflow' },
+            { k: '1',      label_fr: 'interlocuteur unique',  label_en: 'single point of contact' },
+            { k: '12',     label_fr: 'juridictions UE',       label_en: 'EU jurisdictions' },
           ]} />
           <div class="ds-knobs">{moleculeKnobs.StatRow.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
         </div>
@@ -732,7 +732,7 @@ const sectionSchemaKnobs = {
         <div class="ds-subsection">
           <h3 class="ds-h3">RelatedCards (3 cards · pattern fin de page)</h3>
           <RelatedCards cards={[
-            { kicker: 'CASE 04', title_fr: 'Plateau SaaS', title_en: 'Plateau SaaS', lead_fr: '+€2.4M pipeline →', lead_en: '+€2.4M pipeline →', href: '/cas/plateau' },
+            { kicker: 'CAS', title_fr: 'Études de cas', title_en: 'Case studies', lead_fr: 'À venir →', lead_en: 'Coming soon →', href: '/cas' },
             { kicker: 'OFFRE 03.1', title_fr: 'RevOps Rebuild', title_en: 'RevOps Rebuild', lead_fr: 'Le service inspiré →', lead_en: 'Inspired service →', href: '/offres/revops' },
             { kicker: 'LÉGAL', title_fr: 'Confidentialité', title_en: 'Privacy', lead_fr: 'Politique données →', lead_en: 'Data policy →', href: '/politique-confidentialite' },
           ]} />
@@ -972,7 +972,7 @@ const sectionSchemaKnobs = {
           <li><code>WelcomeTemplate</code> → <a href="/bienvenue/audit" class="ds-link">/bienvenue/audit</a></li>
           <li><code>UtilityTemplate</code> → <a href="/agence/about" class="ds-link">/agence/about</a></li>
           <li><code>TrustLegalTemplate</code> → <a href="/politique-confidentialite" class="ds-link">/politique-confidentialite</a></li>
-          <li><code>CaseStudyTemplate</code> → <a href="/cas/caserne" class="ds-link">/cas/caserne</a></li>
+          <li><code>CaseStudyTemplate</code> → <a href="/cas" class="ds-link">/cas</a></li>
           <li><code>ServiceDetailTemplate</code> → <a href="/offres/revops" class="ds-link">/offres/revops</a></li>
           <li><code>SolutionsDetailTemplate</code> → <a href="/solutions" class="ds-link">/solutions</a></li>
           <li><code>OffresDetailTemplate</code> → <a href="/offres" class="ds-link">/offres</a></li>

@@ -357,19 +357,19 @@ const CAS: MegaMenuSection = {
       goal: { fr: 'La preuve par votre métier', en: 'Proof from your industry' },
       links: [
         {
-          label: { fr: 'Services B2B · +2,4 M€ pipeline · 120 h libérées', en: 'B2B services · +€2.4M pipeline · 120 h recovered' },
-          href: '/secteurs/services-b2b',
+          label: { fr: 'Services B2B', en: 'B2B services' },
+          href: '/secteurs',
           description: { fr: 'Pipeline reconnecté, qualification et relances automatisées.', en: 'Pipeline reconnected, qualification and follow-ups automated.' },
         },
         {
-          label: { fr: 'Industrie · 4 goulots identifiés en 48 h', en: 'Manufacturing · 4 bottlenecks surfaced in 48 h' },
-          href: '/secteurs/industrie',
-          description: { fr: 'Plan d\'action sous 24 h, sans recruter.', en: 'Action plan within 24 h, no hiring.' },
+          label: { fr: 'Industrie', en: 'Manufacturing' },
+          href: '/secteurs',
+          description: { fr: 'Données réunies, goulots identifiés, plan d\'action.', en: 'Data unified, bottlenecks surfaced, action plan.' },
         },
         {
-          label: { fr: 'Finance & Compta · clôture allégée de 2 jours', en: 'Finance & accounting · −2 days on monthly close' },
-          href: '/secteurs/finance-compta',
-          description: { fr: '80 % des questions de clôture automatisées.', en: '80% of close questions automated.' },
+          label: { fr: 'Finance & Compta', en: 'Finance & accounting' },
+          href: '/secteurs',
+          description: { fr: 'Réconciliation, reporting et clôture allégés.', en: 'Reconciliation, reporting and close streamlined.' },
         },
       ],
       footer: {
@@ -379,16 +379,14 @@ const CAS: MegaMenuSection = {
     },
   ],
   featured: {
-    kicker: { fr: 'CAS CLIENT VEDETTE', en: 'FEATURED CASE' },
-    label: { fr: 'Plateau · +€2,4 M de pipeline récupéré', en: 'Plateau · +€2.4M pipeline recovered' },
+    kicker: { fr: 'ÉTUDES DE CAS', en: 'CASE STUDIES' },
+    label: { fr: 'Premiers cas en préparation', en: 'First cases in preparation' },
     body: {
-      fr: 'Pipeline commercial reconnecté, qualification automatisée, visibilité temps réel. SaaS B2B · 10 semaines.',
-      en: 'Sales pipeline reconnected, qualification automated, real-time visibility. B2B SaaS · 10 weeks.',
+      fr: 'On publie un cas une fois le résultat mesuré et l\'accord du client obtenu. Pas de témoignage mis en scène.',
+      en: 'We publish a case once the result is measured and the client has agreed. No staged testimonials.',
     },
-    cta: { fr: 'Lire le cas →', en: 'Read the case →' },
-    href: '/cas/plateau',
-    // Visuel du cas Plateau (libéré du menu Solutions où il était featured).
-    image: '/images/cas/cas-plateau.webp',
+    cta: { fr: 'Parler de votre projet →', en: 'Discuss your project →' },
+    href: '/cas',
   },
 };
 
@@ -479,14 +477,6 @@ const AGENCE: MegaMenuSection = {
           description: {
             fr: 'Haiku, Sonnet, Opus, Code : un modèle par tâche.',
             en: 'Haiku, Sonnet, Opus, Code: one model per task.',
-          },
-        },
-        {
-          label: { fr: 'VirtuoseOS', en: 'VirtuoseOS' },
-          href: '/technologies/virtuoseos',
-          description: {
-            fr: 'Notre kernel multi-workspace, decision layer.',
-            en: 'Our multi-workspace kernel, decision layer.',
           },
         },
       ],

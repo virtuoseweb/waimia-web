@@ -72,14 +72,14 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
     },
   ],
   featured: {
-    kicker: { en: 'FEATURED CASE', fr: 'CAS CLIENT VEDETTE' },
-    label: { en: '+€2.4M pipeline recovered', fr: '+€2,4 M de pipeline récupéré' },
+    kicker: { en: 'CASE STUDIES', fr: 'ÉTUDES DE CAS' },
+    label: { en: 'First cases in preparation', fr: 'Premiers cas en préparation' },
     body: {
-      en: 'Sales pipeline reconnected, qualification automated, real-time visibility. B2B SaaS · 10 weeks.',
-      fr: 'Pipeline commercial reconnecté, qualification automatisée, visibilité temps réel. SaaS B2B · 10 semaines.',
+      en: 'Pipeline reconnected, qualification automated, real-time visibility. We publish a case once the result is measured.',
+      fr: 'Pipeline reconnecté, qualification automatisée, visibilité temps réel. On publie un cas une fois le résultat mesuré.',
     },
-    cta: { en: 'Read the case →', fr: 'Lire le cas →' },
-    href: '/cas/plateau',
+    cta: { en: 'Discuss your project →', fr: 'Parler de votre projet →' },
+    href: '/cas',
   },
 };
 
@@ -144,12 +144,12 @@ export const MM_CASES_NEW: MegaMenu = {
   cols: [
     {
       kicker: { en: 'BY PAIN POINT', fr: 'PAR DOULEUR' },
-      label: { en: 'Flagship cases', fr: 'Cas vedettes' },
+      label: { en: 'Case studies', fr: 'Études de cas' },
       items: [
-        { href: '/cas/plateau', label: { en: 'Plateau · +€2.4M pipeline recovered', fr: 'Plateau · +€2,4M pipeline récupéré' }, lead: { en: 'B2B SaaS · 10 weeks · qualification + automated follow-ups.', fr: 'SaaS B2B · 10 semaines · qualification + relances automatisées.' }, featured: true },
-        { href: '/cas/halcyon', label: { en: 'Halcyon · −38% triage time', fr: 'Halcyon · −38% temps de triage' }, lead: { en: 'Healthtech · 6 weeks · AI request routing.', fr: 'Santé-tech · 6 semaines · routage IA des demandes.' } },
-        { href: '/cas/northbound', label: { en: 'Northbound · ×3.1 SQL conversion', fr: 'Northbound · ×3,1 conversion SQL' }, lead: { en: 'EU Fintech · 14 weeks · automated lead scoring.', fr: 'Fintech EU · 14 semaines · lead scoring automatisé.' } },
-        { href: '/cas/caserne', label: { en: 'Caserne · 1,200 hours/year saved', fr: 'Caserne · 1 200 h/an récupérées' }, lead: { en: 'FR Industry · 8 weeks · back-office automation.', fr: 'Industrie FR · 8 semaines · automatisation back-office.' } },
+        { href: '/cas', label: { en: 'B2B acquisition', fr: 'Acquisition B2B' }, lead: { en: 'Pipeline reconnected · automated qualification & follow-ups.', fr: 'Pipeline reconnecté · qualification et relances automatisées.' }, featured: true },
+        { href: '/cas', label: { en: 'Consulting & firms', fr: 'Conseil & cabinets' }, lead: { en: 'Proposals and follow-ups automated.', fr: 'Proposals et relances automatisés.' } },
+        { href: '/cas', label: { en: 'Finance & management', fr: 'Finance & gestion' }, lead: { en: 'Monthly close streamlined, reporting wired.', fr: 'Clôture allégée, reporting câblé.' } },
+        { href: '/cas', label: { en: 'Industry & SMEs', fr: 'Industrie & PME' }, lead: { en: 'Bottlenecks surfaced, action plan delivered.', fr: 'Goulots identifiés, plan d’action livré.' } },
       ],
     },
     {
@@ -164,11 +164,11 @@ export const MM_CASES_NEW: MegaMenu = {
     },
   ],
   featured: {
-    kicker: { en: 'TESTIMONIAL', fr: 'TÉMOIGNAGE' },
-    label: { en: 'How Plateau doubled its follow-up rate', fr: 'Comment Plateau a doublé son taux de relance' },
-    body: { en: 'Before: 12% of leads followed up. After: 67%. Without hiring.', fr: 'Avant : 12% des leads relancés. Après : 67%. Sans recrutement.' },
-    cta: { en: 'Read the story →', fr: "Lire l'histoire →" },
-    href: '/cas/plateau',
+    kicker: { en: 'CASE STUDIES', fr: 'ÉTUDES DE CAS' },
+    label: { en: 'First cases in preparation', fr: 'Premiers cas en préparation' },
+    body: { en: 'We publish a case once the result is measured and the client has agreed. No staged testimonials.', fr: 'On publie un cas une fois le résultat mesuré et l’accord du client obtenu. Pas de témoignage mis en scène.' },
+    cta: { en: 'Discuss your project →', fr: 'Parler de votre projet →' },
+    href: '/cas',
   },
 };
 
@@ -197,7 +197,7 @@ export const MM_TECH: MegaMenu = {
       kicker: { en: 'OPEN SOURCE · SOVEREIGN', fr: 'OPEN SOURCE · SOUVERAIN' },
       label: { en: 'Self-hosted', fr: 'Self-hosted' },
       items: [
-        { href: '/technologies/virtuoseos', label: { en: 'VirtuoseOS · sovereign agent runtime', fr: 'VirtuoseOS · runtime souverain' }, lead: { en: 'Our open agent OS · self-hosted, audit-ready.', fr: "Notre OS d'agents · auto-hébergé, traçable." }, featured: true },
+        { href: '/technologies', label: { en: 'VirtuoseOS · sovereign agent runtime', fr: 'VirtuoseOS · runtime souverain' }, lead: { en: 'Our open agent OS · self-hosted, audit-ready.', fr: "Notre OS d'agents · auto-hébergé, traçable." }, featured: true },
         { href: '/technologies/inference', label: { en: 'vLLM · Ollama · Prem AI', fr: 'vLLM · Ollama · Prem AI' } },
         { href: '/technologies/open-source-models', label: { en: 'Qwen 3.5 · Llama 4 · DeepSeek V3.2 · GLM-5', fr: 'Qwen 3.5 · Llama 4 · DeepSeek V3.2 · GLM-5' } },
         { href: '/technologies/rag-prive', label: { en: 'Private RAG · vector DBs', fr: 'RAG privé · vector DBs' } },
@@ -478,18 +478,22 @@ export const TRUST_BADGES: TrustBadge[] = [
 ];
 
 // ─── CLIENT LOGOS (marquee)
+// Honnêteté : pas de faux logos clients. On affiche les technologies réellement
+// opérées (la marquee « social proof » dit la stack, pas des clients inventés).
 export const CLIENT_LOGOS = [
-  'Ayla', 'Veriform', 'Northbound', 'Plateau', 'Halcyon', 'Opalfield',
-  'Stratoclay', 'Meridian&Fils', 'Vireo', 'Caserne', 'Ouest.io', 'Nimbra',
-  'Kilnwright', 'Hestia Labs', 'Obsidienne', 'Brume', 'Perla Finance', 'Verger',
+  'Claude', 'Anthropic', 'HubSpot', 'Notion', 'Make', 'n8n',
+  'Airtable', 'Stripe', 'Google Workspace', 'Microsoft 365', 'Slack', 'Zapier',
+  'France Num', 'MCP', 'Vercel', 'Supabase', 'PostgreSQL', 'OpenAI',
 ] as const;
 
 // ─── HOMEPAGE · core content
+// Honnêteté : on affiche notre MÉTHODE (vérifiable) plutôt que des résultats
+// clients moyens inventés. Pas de chiffres de pipeline ni de ROI fabriqués.
 export const HERO_METRICS = [
-  { k: '01', n: '12h/sem', label: { en: 'saved per team / week', fr: 'économisées par équipe / semaine' } },
-  { k: '02', n: '23', label: { en: 'workflows automated on average', fr: 'workflows automatisés en moyenne' } },
-  { k: '03', n: '+€840K', label: { en: 'pipeline reactivated · median clients', fr: 'pipeline récupéré · médiane clients' } },
-  { k: '04', n: '3,4×', label: { en: 'measured ROI at 12 months', fr: 'ROI mesuré à 12 mois' } },
+  { k: '01', n: '5 jours', label: { en: 'to audit and pinpoint the lever', fr: 'pour auditer et cibler le levier' } },
+  { k: '02', n: '4 sem.', label: { en: 'to a first workflow in production', fr: 'jusqu’au premier workflow en production' } },
+  { k: '03', n: '1', label: { en: 'single point of contact, end to end', fr: 'interlocuteur unique, de bout en bout' } },
+  { k: '04', n: 'Mesuré', label: { en: 'ROI measured, never estimated', fr: 'ROI mesuré, jamais estimé' } },
 ];
 
 export const PYRAMID_TIERS = [
@@ -536,21 +540,24 @@ export const DEPARTMENTS_GRID = [
   { slug: 'support-client-ia', label: { en: 'Customer Support', fr: 'Support client' }, tag: { en: 'Triage · resolution · escalation', fr: 'Triage · résolution · escalade' } },
 ];
 
-// Facts alignés sur la collection src/content/cases/* (source de vérité · harmonisation vague visuelle 2026-06-10).
+// Honnêteté : pas de cas clients inventés ni de métriques fabriquées. On décrit
+// des TYPES de chantiers (vérifiables comme méthode), sans nom de client ni
+// chiffre de résultat non sourcé. Les liens pointent vers /cas (études à venir),
+// jamais vers une fiche de cas fictive. Featured = le blueprint interne (réel).
 export const CASE_FEED = [
-  { slug: 'plateau',    client: 'Plateau',            sector: { en: 'B2B SaaS',            fr: 'SaaS B2B' },                 duration: '10 sem', stack: 'Claude · HubSpot · dbt',                   impact: { en: '+€2.4M pipeline recovered · 22 h/wk saved', fr: '+2,4 M€ pipeline récupéré · 22 h/sem économisées' } },
-  { slug: 'halcyon',    client: 'Halcyon',            sector: { en: 'Strategy consulting', fr: 'Conseil en stratégie' },     duration: '8 sem',  stack: 'Claude · Notion MCP',                      impact: { en: '120 consulting hours recovered · 3 projects on time', fr: '120 h consultant libérées · 3 projets livrés on-time' } },
-  { slug: 'northbound', client: 'Northbound Capital', sector: { en: 'Asset management',    fr: "Gestion d'actifs" },         duration: '5 j',    stack: 'Claude · Notion MCP · Excel',              impact: { en: '−2 days of monthly close · 80% close questions automated', fr: '−2 j de clôture mensuelle · 80 % questions auto-traitées' } },
-  { slug: 'caserne',    client: 'Caserne Industries', sector: { en: 'Manufacturing',       fr: 'Industrie manufacturière' }, duration: '2 j',    stack: 'Claude · revue documentaire · entretiens', impact: { en: '4 bottlenecks surfaced · −35% inter-site delays', fr: '4 goulots documentés · −35 % délais inter-sites' } },
-  { slug: 'virtuoseos', client: 'VirtuoseOS',     sector: { en: 'Internal blueprint', fr: 'Blueprint interne' }, duration: 'ongoing', stack: 'Claude · open-source · multi-agent', impact: { en: 'The operating system under every delivery', fr: 'Le système opérationnel sous chaque livraison' }, featured: true },
+  { slug: '', client: 'Acquisition B2B', sector: { en: 'B2B SaaS', fr: 'SaaS B2B' }, duration: '10 sem', stack: 'Claude · HubSpot · dbt', impact: { en: 'Pipeline reconnected, qualification automated', fr: 'Pipeline reconnecté, qualification automatisée' } },
+  { slug: '', client: 'Conseil & cabinets', sector: { en: 'Strategy consulting', fr: 'Conseil en stratégie' }, duration: '8 sem', stack: 'Claude · Notion MCP', impact: { en: 'Proposals and follow-ups automated', fr: 'Proposals et relances automatisés' } },
+  { slug: '', client: 'Gestion & finance', sector: { en: 'Asset management', fr: "Gestion d'actifs" }, duration: '5 j', stack: 'Claude · Notion MCP · Excel', impact: { en: 'Monthly close streamlined, reporting wired', fr: 'Clôture allégée, reporting câblé' } },
+  { slug: '', client: 'Industrie & PME', sector: { en: 'Manufacturing', fr: 'Industrie manufacturière' }, duration: '2 j', stack: 'Claude · revue documentaire · entretiens', impact: { en: 'Bottlenecks surfaced, action plan delivered', fr: 'Goulots identifiés, plan d’action livré' } },
+  { slug: '', client: 'VirtuoseOS', sector: { en: 'Internal blueprint', fr: 'Blueprint interne' }, duration: 'ongoing', stack: 'Claude · open-source · multi-agent', impact: { en: 'The operating system under every delivery', fr: 'Le système opérationnel sous chaque livraison' }, featured: true },
 ];
 
 export const FIELD_NOTES = [
-  { date: '04.2026', tag: { en: 'CASE',       fr: 'CAS' },     text: { en: 'Halcyon: 120 consulting hours recovered in 8 weeks.',                            fr: 'Halcyon : 120 h consultant libérées en 8 semaines.' } },
-  { date: '04.2026', tag: { en: 'UPDATE',    fr: 'MISE À JOUR' }, text: { en: 'VirtuoseOS 2.4: multi-workspace kernels, French locale.',                        fr: 'VirtuoseOS 2.4 : noyaux multi-workspace, locale FR.' } },
+  { date: '04.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'Consulting firms: where the 8-week proposal-automation lever sits.',              fr: 'Cabinets de conseil : où se trouve le levier d’automatisation des proposals.' } },
+  { date: '04.2026', tag: { en: 'METHOD',    fr: 'MÉTHODE' },  text: { en: 'Multi-workspace kernels, French locale, replayable audit trail.',                fr: 'Noyaux multi-workspace, locale FR, audit trail re-rejouable.' } },
   { date: '03.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'HubSpot + Claude: the unglamorous pattern that actually ships.',                  fr: 'HubSpot + Claude : le pattern discret qui livre vraiment.' } },
   { date: '03.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'Against the brain-circuit aesthetic.',                                            fr: "Contre l'esthétique cerveau-circuit." } },
-  { date: '02.2026', tag: { en: 'CASE',       fr: 'CAS' },     text: { en: 'Plateau SaaS: RevOps rebuild, €2.4M pipeline recovered.',                        fr: 'Plateau SaaS: refonte RevOps, 2,4 M€ de pipeline récupéré.' } },
+  { date: '02.2026', tag: { en: 'METHOD',    fr: 'MÉTHODE' },  text: { en: 'RevOps rebuild: reconnect site, CRM, follow-ups into one pipeline.',             fr: 'Refonte RevOps : reconnecter site, CRM et relances dans un seul pipeline.' } },
 ];
 
 // ─── CAPABILITY MAP · 8 catégories du scope Waimia complet · home strip
