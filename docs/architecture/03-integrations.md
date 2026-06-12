@@ -192,7 +192,7 @@ VirtuoseOS (notre kernel) utilise Claude Opus pour l'analyse, Sonnet pour la pro
 
 ---
 
-## Astro SSR config
+## Astro static config
 
 Le projet est en `output: 'static'` (Astro 6, SSG) ; seules les routes `/api/*` sont des fonctions Vercel (verrouillé, cf strategy/05-stack-decision).
 
@@ -201,15 +201,15 @@ Le projet est en `output: 'static'` (Astro 6, SSG) ; seules les routes `/api/*` 
 import vercel from "@astrojs/vercel";
 
 export default defineConfig({
-  output: "server",
+  output: "static",
   adapter: vercel(),
   // ...
 });
 ```
 
-Les pages `content` (homepage, /offres/conseil, /ressources/cas/plateau, etc.) sont rendues SSR mais cachées au edge Vercel (équivalent SSG avec invalidation). Les API routes (`/api/*`) sont des Vercel Functions on-demand.
+Toutes les pages `content` (homepage, /offres/*, /ressources/blog/*, etc.) sont **prerendues au build** (HTML statique servi par le CDN Vercel). Seules les routes `/api/*` sont des Vercel Functions on-demand (envoi de formulaires : academy, contact, devis, lead-magnet, newsletter).
 
-> **Anti-pattern à éviter** : ne PAS ajouter `export const prerender = true` à toutes les pages. Le cache edge Vercel suffit pour les pages content. Le SSR permet aussi des opt-in par page (ex : `/admin/*` user-specific futur).
+> **Conséquence** : une modification de contenu nécessite un nouveau build/déploiement (pas de SSR runtime). Le `adapter: vercel()` ne sert ici qu'aux fonctions `/api/*` ; le reste est du HTML statique pur.
 
 ---
 
