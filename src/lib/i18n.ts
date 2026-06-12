@@ -56,7 +56,7 @@ const FR_ONLY_STATIC = new Set([
   '/ressources/field-notes',
   // Pages FR-only « bare » (index sans sous-chemin) — non couvertes par les
   // préfixes à slash final ci-dessous (`startsWith('/x/')` ne matche pas `/x`).
-  '/ressources/testimonials', '/ressources/outils', '/ressources/personas', '/ressources/veille-ia',
+  '/ressources/outils', '/ressources/personas', '/ressources/veille-ia',
   '/technologies/virtuoseos',
   // Thank-you pages post-conversion FR-only (audit/livre-blanc/newsletter SONT bilingues → exclus).
   '/bienvenue/contact', '/bienvenue/commande', '/bienvenue/formation', '/bienvenue/abonnement',
@@ -71,7 +71,7 @@ const FR_ONLY_STATIC = new Set([
 const FR_ONLY_PREFIXES = [
   '/glossaire/', '/secteurs/',
   '/ressources/cookbooks/', '/ressources/livres-blancs/', '/ressources/field-notes/',
-  '/ressources/personas/', '/ressources/testimonials/', '/ressources/veille-ia/',
+  '/ressources/personas/', '/ressources/veille-ia/',
   '/ressources/categorie/', '/ressources/outils/', '/ressources/silo/', '/ressources/tag/',
   '/equipe/', '/ecole/', '/commerce/',
   '/categories/', // catalogue marketplace (FR-only, v1.5)

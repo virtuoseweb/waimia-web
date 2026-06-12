@@ -4429,6 +4429,10 @@
         "value": "var(--space-11)"
       },
       {
+        "name": "--section-tight",
+        "value": "var(--space-8)"
+      },
+      {
         "name": "--space-3",
         "value": "12px"
       },
@@ -6072,6 +6076,10 @@
         "value": "var(--space-11)"
       },
       {
+        "name": "--section-tight",
+        "value": "var(--space-8)"
+      },
+      {
         "name": "--space-3",
         "value": "12px"
       },
@@ -6663,6 +6671,7 @@
     "scopedClasses": [
       "eco-partners",
       "eco-partners__cell",
+      "eco-partners__cell--labeled",
       "eco-partners__grid",
       "eco-partners__group-title",
       "eco-partners__groups",
@@ -6673,6 +6682,7 @@
       "eco-partners__marquee",
       "eco-partners__marquee-wrap",
       "eco-partners__wall",
+      "eco-partners__wall-label",
       "partner-logo"
     ],
     "tokensUsed": [
@@ -6737,22 +6747,27 @@
         "value": "40px"
       },
       {
+        "name": "--text-body-sm",
+        "value": "14px"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 6,
       "samples": [
         "-0.022em",
         "-50%",
         "132px",
+        "140px",
         "clamp(16px, 1.6vw, 20px)",
         "clamp(28px, 4vw, 56px)"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --fw-regular. Dette : 5 litteral(s) hardcode(s) (-0.022em, -50%, 132px)."
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-display --fw-regular. Dette : 6 litteral(s) hardcode(s) (-0.022em, -50%, 132px)."
   },
   {
     "id": "editorial-preview",

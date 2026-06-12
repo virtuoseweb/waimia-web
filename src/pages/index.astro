@@ -8,7 +8,7 @@ export const prerender = true;
  *   Acte I  promesse & preuve  → Hero (intouché) + bande de preuve unifiée (StatBlock + SocialProof)
  *   Acte II système & offre    → ArchitectureDiagram (FIG 2.0) + ServicesGrid fusionnée UseCaseIndex (FIG 2.5)
  *   Acte III engagement        → MaturityPyramid cards-only (stage + prix d'entrée) + CtaInline
- *   Acte IV preuves clients    → QuoteSpotlight (ink) + CaseCardGrid + FAQ (Q.01 ouverte) + Notes de terrain ×3
+ *   Acte IV preuves clients    → CaseCardGrid + FAQ (Q.01 ouverte) + Notes de terrain ×3
  *   Acte V  action             → BookSession (ink)
  *
  * Retirés de la home (restent au catalogue / autres pages) :
@@ -19,7 +19,6 @@ export const prerender = true;
  * Typo (directive 2026-06-11) : la masse passe en sans via la couche `.home-typo`
  * (global.css), le serif italique ne fait que relever les fragments <i>. Hero hors scope.
  */
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import BootSplash from '../components/motion/BootSplash.astro';
 import ScrollProgress from '../components/ui/atoms/ScrollProgress.astro';
@@ -31,7 +30,6 @@ import ArchitectureDiagram from '../components/sections/ArchitectureDiagram.astr
 import ServicesGrid        from '../components/sections/ServicesGrid.astro';
 import MaturityPyramid     from '../components/sections/MaturityPyramid.astro';
 import CtaBandSection      from '../components/sections/CtaBandSection.astro';
-import QuoteSpotlight      from '../components/sections/QuoteSpotlight.astro';
 import CaseCardGrid        from '../components/sections/CaseCardGrid.astro';
 import { caseCardGridData } from '../lib/case-card-grid-data';
 import FaqAccordion        from '../components/sections/FaqAccordion.astro';
@@ -222,24 +220,6 @@ const ctaInlineData = {
   background: 'paper-2' as const,
 } satisfies SectionByType<'cta-band'>;
 
-// ── Acte IV · Parole client (manque n°1 de l'audit : zéro voix humaine) ────────
-// Testimonial le plus fort de la collection : plateau-saas-coo (featured, vocabulaire
-// « câblé », 5 jours / ROI 6 semaines = écho direct du hero, et le dossier Plateau
-// se matérialise juste en dessous dans CaseCardGrid).
-const testimonials = await getCollection('testimonials');
-const spotlight = testimonials.find((t) => t.id.startsWith('plateau-saas-coo')) ?? testimonials[0];
-const quoteSpotlightData = {
-  type: 'quote-spotlight' as const,
-  background: 'ink' as const,
-  kicker_fr: 'ACTE IV · PAROLE CLIENT',
-  kicker_en: 'ACT IV · CLIENT VOICE',
-  quote_fr: spotlight.data.quote_fr.replace('câblé', '<i>câblé</i>'),
-  quote_en: spotlight.data.quote_en.replace('wired', '<i>wired</i>'),
-  author: spotlight.data.author,
-  role_fr: `${spotlight.data.role_fr} · ${spotlight.data.company}`,
-  role_en: `${spotlight.data.role_en} · ${spotlight.data.company}`,
-} satisfies SectionByType<'quote-spotlight'>;
-
 // FAQ PME-first · 8 questions scannables (V5 : + CMS · + brand consistency)
 const faqItems = [
   {
@@ -307,9 +287,6 @@ const faqItems = [
     <CtaBandSection data={ctaInlineData} lang="fr" />
 
     <SectionTransition phrase="Promesse vérifiable, pas discours." />
-
-    {/* 06 — QuoteSpotlight · parole client incarnée sur ink (Acte IV) */}
-    <QuoteSpotlight data={quoteSpotlightData} lang="fr" />
 
     {/* 07 — Cases · 4 dossiers anonymisés (CASE_FEED) · le logo croisé plus haut devient dossier */}
     <CaseCardGrid data={caseCardGridData('fr')} lang="fr" />
