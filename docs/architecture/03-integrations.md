@@ -194,7 +194,7 @@ VirtuoseOS (notre kernel) utilise Claude Opus pour l'analyse, Sonnet pour la pro
 
 ## Astro SSR config
 
-Le projet est passé en `output: 'server'` (Astro 6) avec adapter Vercel pour permettre les API routes (`/api/*`).
+Le projet est en `output: 'static'` (Astro 6, SSG) ; seules les routes `/api/*` sont des fonctions Vercel (verrouillé, cf strategy/05-stack-decision).
 
 ```js
 // astro.config.mjs

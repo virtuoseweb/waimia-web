@@ -1,178 +1,40 @@
-# Handoff Waimia — Bootstrap session fresh (MAJ 2026-06-01)
+# Session handoff · 2026-06-11 ~02:00 · ÉCRIT POUR LA PROCHAINE SESSION (Opus 4.8 + workers Sonnet 4.6/Opus 4.8)
 
-> **À LIRE EN PREMIER au démarrage de toute nouvelle session Waimia.**
-> Source de vérité du point d'arrêt. Reconstruit le 2026-06-01 après audit complet des
-> branches (lecture seule, prod intacte). Remplace le handoff du 2026-05-17/18.
+> Contexte : Simon bascule l'orchestrateur de Fable 5 vers **Opus 4.8** (coût). Workers : **Opus 4.8 dès qu'il y a réflexion** (design, arbitrage, fidélité, GF-1 à interpréter), **Sonnet 4.6 pour le mécanique borné spec'd** (< 800 LoC, old→new exacts). Moratoire Codex toujours actif (0 `codex exec` sans signal Simon).
 
----
+## 1. État prod (vérifié empiriquement)
 
-## ⭐ Plan directeur 2026-06-01 — migration POLYREPO (gouverne la reprise)
+- **main = `d156eb5` poussé, live 02:02** (+ home recomposée V-F2, SR-35) sur waimia.com. Contenu des 2 derniers batches (tous GF-1 prod PASS, SRs 30-34 dans docs/session-reports/) :
+  - Mega menu Solutions hiérarchisé (maquette Simon : 3 titres alignés top=120, badges « Offre phare » sur Growth System IA + Site web IA, image cas Plateau en 4e colonne).
+  - V-F1 collections : 25 → 19 (pages/knowledgeBase/brandVoice archivées docs/archive/content/, guarantees → src/data/guarantees.ts, 605 pages, /archive + /agence/hero-lab en 301).
+  - **Catalogue 113 types / 18 catégories** (+7 : terminal-table, editorial-write-feed, manifesto-statement, manifesto-act, asymmetric-services, terminal-mockup, terminal-metrics-strip).
+  - DS Studio : volet `#catalogue` (browser data-driven), barre DsLocalNav sur 4 pages, aperçu live-token.
+  - Images : 13/16 webp câblées (covers cas, besoins sur offres piliers, thèmes inset sur solutions).
+- Gates : astro check 0 errors + build Complete! + 8 gates PASS sur `3c7fd3d` (noms exacts : check-touchpoints, check-no-emdash, check-section-rhythm, check-content-refs, check-token-purity, check-form-endpoints, check-media-query-var, check-token-lock ; +check-static-quality).
 
-**Décision Simon** : `apps/web` devient un **repo standalone propre** (`virtuoseweb/waimia-web`) que Vercel build au push. Le monorepo `waimia-v2` devient un **agrégateur léger** (submodules) pour centraliser sur GitHub sans alourdir. ADR complet : [`../../docs/architecture.md`](../../docs/architecture.md).
+## 2. EN COURS au moment du handoff
 
-Blocs (ordre verrouillé anti-rework — consolider AVANT d'extraire) :
+- PLUS AUCUN worker en course : home-recomp a LIVRÉ (mergé `d156eb5`, GF-1 prod PASS 02:04, SR-35). Worktrees nettoyés.
 
-| Bloc | Tâche | Gate | Statut |
-|---|---|---|---|
-| 0 | ADR + docs cible | — | ✅ 2026-06-01 |
-| A | M05 SEO (§3) | build → `dist/llms*.txt` | ☐ |
-| B | Consolider Sessions 01-06 (§4.2) | build + Playwright (rule 40/33) | ☐ |
-| C | Extraire apps/web → `waimia-web` (subtree split + `pnpm install` + build) | build vert | ☐ |
-| D | Vercel relink `waimia-v2` → `waimia-web` (root `.`) | preview 200 + Playwright | ☐ (OAuth = Simon) |
-| E | Monorepo → submodules + docs | clone léger vérifié | ☐ |
-| F | Cleanup branches (§6) | — | ☐ |
+## 3. PROCHAINES TÂCHES (ordre recommandé)
 
-> `apps/web` est **self-contained vérifié** (name déjà `waimia-web`, 0 dep workspace) → extraction propre.
+1. ~~Recomposition home~~ LIVRÉE (SR-35). Reste l’arbitrage compression ~8 900 px vs cible 8 300 (retirer CtaBand 90px + resserrer FAQ si souhaité).
+2. **V-TYPO transverse** (docs/41-DIRECTIVE-TYPO-CONTRASTE.md) : serif = emphase d'un mot seulement, masse en Instrument Sans (global.css h1/h2/h3 lignes ~62-129 = cœur de bascule), gras > italique, fonds contrastés par blocs. Inventaire des violations molecules : /tmp/wmission/catgap/REPORT.md (EditorialWriteRow, AsymmetricServiceRow, EditorialCaseCard, ManifestoAccent, TerminalMockup hex hardcodé #17140F). Worker Opus 4.8 (décisions cas par cas) + preuves paired computed avant/après par template.
+3. **V-F3 landing site-web-ia parfaite** (docs/40 §4) : 8 slots composable, exposée dans le footer, qualité Awwwards. + **tunnel 4 steps étalon** (docs/40 §4.2, offre_label_map hardcodée de tunnel/[step].astro à résorber).
+4. **Étiquettes catalogue usage site|library** (docs/40 §3) : badge + filtre /agence/design-system + gate, dérivé de library-manifest (les 7 nouveaux types ont consumers `[]` = library).
+5. **R7b hub par besoin + secteurs** (docs/40 §2) : /cas/<slug> canonique, secteurs = listings facettés, 301 /solutions/fintech→/secteurs/fintech, fix caseRef finance-compta. Ensuite câbler theme-industrie.webp (bloqué par template secteurs legacy).
+6. **Restes R6** : extinction OffresDetail/TechDetail/SolutionsDetail + ConversionFunnel composable (détail SR-27 §3 + docs/40 §7).
+7. **Micro-fixes backlog** : alt vide sur media-block en tête des cas (l'alt manifest est sur la card hub seulement) ; copy design-system citant ServiceDetail/ListIndex supprimés ; sitemap.ts:484 lien /archive ; carte hero-lab dans design-system.astro (FR:175/EN:119) ; « T3 2026 » wrap MastheadRow.astro:32 ; claims roi_metrics solutions non sourcées (trancher en vague contenu) ; routes EN secteurs (décision Simon).
+8. **Vague visuelle docs/39** (alternance fonds, trous CTA, mobile) : largement absorbée par les vagues ci-dessus, réconcilier ce qui reste.
 
----
+## 4. Leçons opérationnelles de cette session (NE PAS ré-apprendre)
 
-## 0. Garde-fous compte (ne JAMAIS confondre avec Amploi)
+- **Git multi-worktree orchestrateur** : TOUJOURS `git -C <chemin-absolu>`, JAMAIS `cd && git ...` (un cd non persisté a fait merger le batch sur la branche d'un worker ; détection = reflog main muet + « Already up to date » suspect).
+- **Briefs workers** : STATE.md première action ; AUCUNE commande git (y compris par chemin/`-C`) ; AUCUNE re-délégation ; fichiers nommés ; **port serve-dist dédié par worker** (4331+, vérifier que c'est SON dist) ; **chromium isolé, pas le Playwright MCP partagé** (une page worker a été re-naviguée par un autre worker) ; U+2014 interdit ; directive typo docs/41 dans tout brief touchant l'UI.
+- À chaque retour de worker écrivain : `git -C <repo> log --graph -3` de main AVANT tout (vecteur n°3 rule 45), contre-vérif rule 09 (gates relancés + screenshots inspectés), commit branche par l'orchestrateur.
+- Batcher les pushes (Vercel Hobby) ; poll deploy par sonde curl discriminante (ex. une URL nouvelle → 200, ou une supprimée → 301) ; GF-1 prod ensuite.
+- Interdits permanents : Codex (moratoire), MailerLite (token invalide, attendre nouveau token Simon), masthead /solutions (veto structure), `.env.openai` jamais committé, prod = waimia.com SANS slash final.
 
-| | **Waimia** (ce repo) | Amploi (NE PAS toucher) |
-|---|---|---|
-| Repo local | `/Users/simonberos/waimia-site/site` | `/Users/simonberos/Developer/amploi-project/amploi-astro` |
-| GitHub | `virtuoseweb/waimia-v2` | `vigiscope-site/amploi-astro` |
-| Vercel org | `team_Dz7XreG9vf9VoKmxeaAsIKF0` | `team_EyhJ4VT8pZp4nhnfW59WlUCd` |
-| Projets Vercel | `waimia-v2` (waimia.com) · `waimia-v2-cal` (cal.waimia.com) | `amploi-astro` |
+## 5. Références
 
-**`main` → waimia.com en prod.** Toute branche `feat/*` n'est PAS déployée en prod.
-
----
-
-## 1. État global — deux chantiers distincts
-
-| Chantier | Domaine | État |
-|---|---|---|
-| **apps/cal** (cal.waimia.com) | Booking + email | ✅ **CLOS** — PRs #1-6 mergées dans `origin/main`, déployé, pipeline email validé E2E (Resend HTTPS + `normalizeFromAddress`). Rien à reprendre. |
-| **apps/web** (waimia.com) | Le SITE design/SEO/pages | 🟡 **EN COURS** — Sessions 01-06 livrées mais **NON-MERGÉES** (3 branches parallèles). M05 SEO reste. `main` est en retard. |
-
-**Où on s'était arrêté** : Phase 4 SEO/GEO, mission **M05 rate-limited** (jamais faite), puis cutoff usage 5h le 17-18 mai. Depuis, seul le chantier cal a avancé (clos).
-
----
-
-## 2. Topologie branches (audit empirique 2026-06-01)
-
-`main` (= `origin/main`) tip = `5b57257` (batch-d, 17 mai). **Tout le travail Sessions 01-06 est sur 3 branches non-mergées** partageant une base commune de 19 commits, puis divergeant :
-
-| Branche | Travail propre au sommet | ahead/main | Verdict |
-|---|---|---|---|
-| `feat/phase-1-design` ⭐ | Session-04 **SEO** M01-M04 (+ base 01-03) | 25 | **TRONC** — branche de reprise |
-| `feat/phase-5-drifts` | Session-05 **nettoyage** (pages legacy, ressources data-driven) | 22 | Consolider dans le tronc |
-| `feat/phase-6-pages` | Session-06 **pages** (About, Méthode, trust-center, welcome) | 22 | Consolider dans le tronc |
-| `feat/api-to-actions` | Migration 5 routes API → Astro Actions (type-safe) | 1 | **PARK** — base candidate Session-07. Basée sur commit scope-creep reverté. Ni merge ni delete. |
-| `feat/megamenu-v2-cabling` | doublons rebasés (batch-c, header) | 5 | 🗑️ DELETE — canoniques déjà dans le tronc |
-| `feat/megamenu-v3-simplification` | doublon rebasé (`54da7e4` = `cdc4a0c`) | 10 | 🗑️ DELETE — idem |
-| `hero-v8-attempt-1` | essai hero v8 (stale, 14 mai) | 3 (behind 109) | 🗑️ DELETE-pending — check visuel 2 min d'abord |
-
-**19 branches avril** (`refactor/*`, `refonte/*`, `monorepo-pivot`, `feat/*` ère handoff2) = fully merged dans main → DELETE sûr.
-**Résidus remote PRs cal squash-mergées** (`origin/chore/cal-from-test`, `origin/docs/architecture-monorepo`, `origin/docs/cal-runbook-13.16`, `origin/docs/cal-runbook-13.17`, `origin/fix/cal-resend-from-format`, `origin/fix/cal-smtp-resend-sdk`) → DELETE remote sûr.
-
-> **Pourquoi rien n'a été mergé dans main** : gel de merge documenté (« ne pas merger Phase 1 avant que l'autre agent finisse `feat/api-to-actions` — collision forms »). Ce gel est désormais **levable** : api-to-actions est isolé (1 commit parqué), il ne bloque plus la consolidation 01-06.
-
----
-
-## 3. Mission M05 SEO — action immédiate
-
-**Vérifié empiriquement 2026-06-01** : `apps/web/src/integrations/` n'existe pas, aucune trace de `astro-llms-txt` dans `astro.config.mjs`/`package.json` → **M05 = 0 %**. Le `llms.txt` actuel est la version manuelle de M02 (14 KB).
-
-⚠️ Les briefs `/tmp/codex-missions/sessions/session-04-seo-geo/` ont été **effacés par le reboot V19**. Reconstruction (~15 min) depuis l'essentiel ci-dessous.
-
-**Objectif M05** : remplacer le `llms.txt` manuel par génération auto + pages `.md` par route.
-
-**Étapes (sur `feat/phase-1-design`)** :
-1. `cd apps/web && pnpm add @4hse/astro-llms-txt` (plugin npm public v1.0.5)
-2. Récupérer l'intégration custom de référence (éprouvée sur l'autre site VirtuoseWeb) :
-   `mkdir -p apps/web/src/integrations && gh api /repos/virtuoseweb/sitewebastro/contents/src/integrations/llms-md-pages.ts --jq .content | base64 -d > apps/web/src/integrations/llms-md-pages.ts`
-   (302 lignes, HTML→MD regex, zéro dépendance)
-3. Modifier `apps/web/astro.config.mjs` : ajouter `@4hse/astro-llms-txt` (docSet llms-full/llms-small, promote solutions/agence/contact/methode) + l'intégration custom `llms-md-pages`
-4. `rm apps/web/public/llms.txt` (sera auto-généré)
-5. `pnpm build` → vérifier `dist/llms.txt`, `dist/llms-full.txt`, `dist/llms-small.txt`, `dist/**/*.md`
-6. Commit `seo(m05): @4hse/astro-llms-txt + llms-md-pages custom` + push
-7. Clôture Phase 4 SEO/GEO (5/5) → cocher M05 dans doc 16
-
-**Délégation** : worker Codex GPT-5 si dispo, sinon T2/T3 worker Claude (rule 41). Scope ~300 LoC config+intégration → worker, pas Opus direct (GF-2).
-
----
-
-## 4. Plan d'exécution session fresh (ordre)
-
-1. **M05** (§3) → clôture Phase 4 SEO.
-2. **Lever le gel + consolider Sessions 01-06** vers `main` :
-   - Stratégie : merger `feat/phase-5-drifts` puis `feat/phase-6-pages` dans `feat/phase-1-design` (base commune → conflits limités aux commits de tête), OU branche d'intégration `feat/site-ready-consolidation`.
-   - **Gates AVANT merge vers main** : `pnpm build` vert (rule 40, multi-branches) + Playwright above-fold + `getComputedStyle()` H1/CTA home FR/EN (rule 33 + GF-1) + `pnpm exec astro check`.
-   - `npm install`/`pnpm install` si `package.json` change pendant le merge (rule 27).
-3. **Nettoyage branches** (commandes §6) — après consolidation.
-4. **Arbitrage Simon** : `feat/api-to-actions` revive (Session-07) ou drop ? `hero-v8-attempt-1` garder le design ou delete ?
-5. Reprendre le **Master Plan Site-Ready** (doc 35) : rendering final (T14.2e-h), DS showcase + CI lock (T14.3/T14.5), CSS coherence (T14.4a-d), QA finale (T13).
-
----
-
-## 5. Reste à faire « Site Ready » (doc 35 — 14 gates)
-
-Buckets restants (IDs détaillés dans `docs/16-EXECUTION-TRACKER.md`) :
-- **Rendering final** : `output: 'static'` (T14.2e), audit prerender/ISR (T14.2f-h)
-- **Design System closure** : showcase complet FR/EN (T14.3d/e), audit islands (T14.3g), snapshots Playwright (T14.3h), **CI lock composant non-showcasé** (T14.5d/e)
-- **CSS coherence** : audit inline/hardcoded → tokens (T14.4a-d, doc 30 à créer)
-- **QA finale** : Lighthouse 10 pages (T13.3), schema.org validator (T13.4), Playwright 20 pages, preview Vercel verte (T13.9/10)
-- **Contenu business** : blog pillar 4/5 restants (T9.1), 20 articles cluster (T9.2), cookbooks (T9.3), livres blancs (T9.6), produits/abonnements MDX (T9.8/9)
-- **Conversion infra (Session-07)** : forms typés + BotID, quiz A/B, Stripe Payment Links + Customer Portal (T6.x ; base possible = `feat/api-to-actions`)
-- **Telemetry (Session-08+)** : Vercel Analytics/Speed Insights/Sentry
-- **Sessions 08/09/10** : content pillar / page audits Simon-grade 14 axes / QA lock CI → placeholders à briefer
-
----
-
-## 6. Commandes nettoyage branches (exécution délibérée)
-
-```bash
-cd /Users/simonberos/waimia-site/site
-
-# Doublons / essais (LOCAL) — après vérif visuelle hero-v8
-git branch -D feat/megamenu-v2-cabling feat/megamenu-v3-simplification hero-v8-attempt-1
-
-# 19 branches fully-merged (LOCAL) — sûr
-for b in chore/code-review-followup feat/conversion-resend-cal feat/direction-switcher-routes \
-  feat/footer-dev-index feat/handoff2-complete feat/hub-landings-composition feat/logo-headline-hover \
-  feat/phase-d-remaining feat/phase-g-fixes feat/templates-handoff2 feat/templates-validation-phase \
-  fix/cursor-progress-deduplication fix/header-uniform monorepo-pivot refactor/atomic-components \
-  refactor/atomic-deep refactor/atomic-rigorous refactor/clean-architecture refonte/v2-direction-apparatus; do
-  git branch -d "$b"
-done
-
-# Résidus remote PRs cal squash-mergées (REMOTE) — sûr
-for b in chore/cal-from-test docs/architecture-monorepo docs/cal-runbook-13.16 \
-  docs/cal-runbook-13.17 fix/cal-resend-from-format fix/cal-smtp-resend-sdk; do
-  git push origin --delete "$b"
-done
-```
-
-⚠️ NE PAS supprimer : `feat/phase-1-design`, `feat/phase-5-drifts`, `feat/phase-6-pages`, `feat/api-to-actions`, `main`.
-
----
-
-## 7. Pointeurs persistants
-
-- **Master Plan** : `apps/web/docs/35-MASTER-PLAN-SITE-READY.md` (8 phases, 14 gates Site Ready)
-- **Tracker** : `apps/web/docs/16-EXECUTION-TRACKER.md` (Tiers T1-T14, réconcilié 2026-06-01)
-- **Master Index persistant** : `~/.claude/projects/-Users-simonberos/memory/project_waimia_master_index_persistent.md` (auto-chargé)
-- **Architecture monorepo** : `docs/architecture-monorepo.md` · **Runbook cal** : `docs/cal-deploy-runbook.md`
-- **Recipe pattern V1** : `~/.claude/recipes/astro-tina-site-v1.md`
-- **Tracking pages** : `apps/web/docs/12-PAGES-QUALITY-TRACKING.md` · **Contrat DS** : `docs/28-DESIGN-SYSTEM-CONTRACT.md`
-- Audits : `docs/31` (composants) · `docs/32` (templates) · `docs/33` (pages taxonomie) · `docs/34` (verdicts ambigus)
-
-## 8. Stack rappel
-
-Astro 6.1.9 SSR git-based CMS · React 19 · Tailwind 4 · pnpm workspaces + Turbo · `apps/cal` exclu (Yarn Berry). Build : `pnpm build` (PAS `astro check` seul — rule 40). DS figé → composition (rule 28).
-
----
-
-## Annexe — Historique commits SEO Phase 4 (sur `feat/phase-1-design`)
-
-```
-7d5ee72 seo(m04): astro-seo + astro-robots-txt · migration plugins officiels
-c1b0af4 seo(m03): OG endpoint PNG + meta tags complets + logo JSON-LD
-96b392c feat(seo-m02): Session-04 M02 · hreflang + sitemap + llms.txt
-4d5d906 feat(seo-m01): Session-04 M01 · Schema JSON-LD audit + Course/Product builders
-4668459 perf(m03): Session-03 M03 · self-host fonts woff2 + drop Google Fonts CDN
-198c550 feat(perf): Session-03 Mission-01 · output static activé (T1.1)
-cffa6ae fix(a11y-m03): Session-02 M03 · contraste WCAG AA + reduced-motion + forms focus
-```
+docs/00-MASTER-PLAN.md (canonique) · docs/37 (refonte, statuts) · docs/39 (vague visuelle) · docs/40 (VISION FINALE : arbo, collections, landing, tunnel, étiquettes) · docs/41 (typo) · docs/38 (images, 3 textures non câblées) · docs/visual-audit/* (preuves + audits) · SRs 27-34 docs/session-reports/.

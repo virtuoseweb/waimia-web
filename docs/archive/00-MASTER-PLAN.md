@@ -1,3 +1,8 @@
+> ⚠️ **ARCHIVÉ (réorg 2026-06-11).** Plan périmé (147 types / `main` 4942d93).
+> Source de vérité courante = **`docs/README.md`** + **`docs/state/51-ETAT-REEL-CHANTIERS.md`** + `tasks/ORCH-STATE.md`. Conservé pour historique.
+
+---
+
 # 00 — MASTER PLAN Waimia (source de vérité unique)
 
 > **Plan canonique unique.** Remplace et archive les anciens fragments (`12-`, `14-`, `16-`, `20-DESIGN-SYSTEM-CATALOGUE-PLAN`, `20-SESSION-NEXT`, `23-INDUSTRIALISATION-VISION`, `24-HANDOFF`, `35-MASTER-PLAN-SITE-READY`, `SESSION-HANDOFF-*`) déplacés dans `docs/archive/`.

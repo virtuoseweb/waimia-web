@@ -4,6 +4,8 @@ Site vitrine de **Waimia** — agence IA experte Claude. Dépôt **standalone** 
 
 > Production : **<https://waimia.com>** · Org GitHub : **`virtuoseweb`** · Dépôt : **`virtuoseweb/waimia-web`**
 
+> 📒 **Documentation projet** : `docs/README.md` = index maître (stratégie SEO/site, marketing, business, design system, état des chantiers). `CLAUDE.md` = garde-fous + règles agent.
+
 ## Prérequis
 
 - **Node** : version épinglée dans [`.nvmrc`](.nvmrc) (`22.12.0`). Avec `nvm` : `nvm use`. Le `package.json` exige `node >= 22.12.0`.
