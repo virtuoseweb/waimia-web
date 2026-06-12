@@ -469,12 +469,12 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'AI Act · GDPR · LPD', fr: 'AI Act · RGPD · LPD' },
       },
       {
-        href: '/agence/trust-center#privacy',
+        href: '/politique-confidentialite',
         label: { en: 'Privacy policy', fr: 'Politique de confidentialité' },
       },
       {
-        href: '/agence/trust-center#cgv',
-        label: { en: 'Terms & conditions', fr: 'Mentions légales & CGV' },
+        href: '/mentions-legales',
+        label: { en: 'Legal notice & terms', fr: 'Mentions légales & CGV' },
       },
       {
         href: '/agence/trust-center#cookies',
