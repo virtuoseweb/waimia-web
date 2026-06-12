@@ -65,7 +65,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'solutions/acquisition-ia',
       'solutions/contenu-seo-geo-ia',
       'solutions/site-web-ia-pme',
-      'secteurs/services-b2b',
     ],
   },
   {
@@ -106,8 +105,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     sources: [
       'solutions/crm-relances-ia',
       'offres/growth-system-ia',
-      'cases/plateau',
-      'secteurs/services-b2b',
     ],
   },
   {
@@ -118,7 +115,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "L'acquisition tient sur 1 ou 2 commerciaux : une absence et les leads s'évaporent. Recruter un SDR coûte cher, monte lentement en charge et repart.",
     description_en:
       'Acquisition relies on 1 or 2 salespeople: one absence and leads evaporate. Hiring an SDR is expensive, slow to ramp, and short-lived.',
-    sources: ['solutions/acquisition-ia', 'secteurs/services-b2b'],
+    sources: ['solutions/acquisition-ia'],
   },
   {
     id: 'reporting-manuel-excel',
@@ -132,8 +129,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'pain-points/reporting-manuel-excel',
       'solutions/finance',
       'solutions/productivite-ia',
-      'secteurs/finance-compta',
-      'cases/northbound',
       'offres/growth-intelligence',
     ],
   },
@@ -151,7 +146,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'solutions/productivite-ia',
       'solutions/site-web-ia-pme',
       'offres/growth-intelligence',
-      'secteurs/industrie',
     ],
   },
   {
@@ -177,8 +171,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'solutions/productivite-ia',
       'solutions/site-web-ia-pme',
       'offres/productivite-operationnelle-ia',
-      'secteurs/finance-compta',
-      'cases/halcyon',
     ],
   },
   {
@@ -283,7 +275,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "ERP non connectés, flux inter-sites opaques, qualité détectée trop tard : les goulots qui coûtent le plus ne sont ni identifiés ni documentés.",
     description_en:
       'Disconnected ERPs, opaque inter-site flows, quality detected too late: the costliest bottlenecks are neither identified nor documented.',
-    sources: ['cases/caserne', 'secteurs/industrie', 'offres/conseil'],
+    sources: ['offres/conseil'],
   },
 ] as const;
 

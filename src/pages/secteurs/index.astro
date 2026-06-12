@@ -28,46 +28,31 @@ const flagshipResult = (slug: string) => {
   return { value: m.value, label: m.label_fr };
 };
 
-const sectorsLive = [
-  {
-    num: '01',
-    kicker: 'SECTEUR · 01',
-    label_fr: 'Services B2B',
-    label_en: 'B2B Services',
-    sub_fr: 'Cabinets, conseil, agences, prestataires',
-    pains_fr: 'Pipeline qui tient sur 2 commerciaux. Contenu invisible. Reporting bricolé.',
-    href: '/secteurs/services-b2b',
-    result: flagshipResult('services-b2b'),
-  },
-  {
-    num: '02',
-    kicker: 'SECTEUR · 02',
-    label_fr: 'Industrie & PME industrielles',
-    label_en: 'Industrial SMEs',
-    sub_fr: 'ERP connecté, maintenance, qualité',
-    pains_fr: 'Données dispersées dans 3 ERPs. Maintenance réactive. Qualité tardive.',
-    href: '/secteurs/industrie',
-    result: flagshipResult('industrie'),
-  },
-  {
-    num: '03',
-    kicker: 'SECTEUR · 03',
-    label_fr: 'Finance & cabinets comptables',
-    label_en: 'Finance & Accounting',
-    sub_fr: 'Réconciliation, reporting, conformité',
-    pains_fr: 'Excel partout. Clôture en 9 jours. Audit qui dure 3 semaines.',
-    href: '/secteurs/finance-compta',
-    result: flagshipResult('finance-compta'),
-  },
-];
+// Cartes secteur pilotées par la collection : ne rend que les fiches réellement
+// publiées (visible). Tant qu'aucune fiche secteur sourcée n'existe, la grille
+// disparaît proprement — pas de lien vers une page vide (honnêteté).
+const SECTOR_CARD_META: Record<string, { kicker: string; label_fr: string; label_en: string; sub_fr: string; pains_fr: string }> = {
+  'services-b2b': { kicker: 'SECTEUR · 01', label_fr: 'Services B2B', label_en: 'B2B Services', sub_fr: 'Cabinets, conseil, agences, prestataires', pains_fr: 'Pipeline qui tient sur 2 commerciaux. Contenu invisible. Reporting bricolé.' },
+  'industrie': { kicker: 'SECTEUR · 02', label_fr: 'Industrie & PME industrielles', label_en: 'Industrial SMEs', sub_fr: 'ERP connecté, maintenance, qualité', pains_fr: 'Données dispersées dans 3 ERPs. Maintenance réactive. Qualité tardive.' },
+  'finance-compta': { kicker: 'SECTEUR · 03', label_fr: 'Finance & cabinets comptables', label_en: 'Finance & Accounting', sub_fr: 'Réconciliation, reporting, conformité', pains_fr: 'Excel partout. Clôture en 9 jours. Audit qui dure 3 semaines.' },
+};
 
-const sectorsToCome = [
-  'Santé-tech',
-  'Retail & e-commerce',
-  'Immobilier',
-  'BTP',
-  'Cabinets juridiques',
-];
+const sectorsLive = sectorEntries
+  .map((e, i) => {
+    const meta = SECTOR_CARD_META[e.id];
+    if (!meta) return null;
+    return {
+      num: String(i + 1).padStart(2, '0'),
+      kicker: meta.kicker,
+      label_fr: meta.label_fr,
+      label_en: meta.label_en,
+      sub_fr: meta.sub_fr,
+      pains_fr: meta.pains_fr,
+      href: `/secteurs/${e.id}`,
+      result: flagshipResult(e.id),
+    };
+  })
+  .filter((s): s is NonNullable<typeof s> => s !== null);
 
 const comingData = {
   type: 'coming-soon-pills' as const,
@@ -106,7 +91,7 @@ const ctaData = {
 ---
 <Base
   title="Secteurs · adaptés à votre métier · Waimia"
-  description="Mêmes systèmes IA. Vocabulaire, KPIs et workflows adaptés à votre secteur. Trois secteurs visibles aujourd'hui : d'autres à venir."
+  description="Mêmes systèmes IA. Vocabulaire, KPIs et workflows adaptés à votre secteur. Les fiches secteur arrivent, à mesure qu'on accumule des cas pour parler juste."
 >
   <section class="hub-mast">
     <div class="wrap-wide">
@@ -116,7 +101,9 @@ const ctaData = {
         Pas une offre par secteur. Une méthode. Adaptée au vocabulaire, aux KPIs et aux workflows de votre métier.
       </p>
       <p class="hub-canonical">
-        Trois secteurs aujourd'hui. D'autres à venir, quand on aura assez de cas pour parler juste.
+        {sectorsLive.length > 0
+          ? "Des secteurs aujourd'hui. D'autres à venir, quand on aura assez de cas pour parler juste."
+          : "Les fiches secteur arrivent. On les publie quand on a assez de cas pour parler juste, pas avant."}
       </p>
       <svg class="sector-svg-sig" viewBox="0 0 260 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <!-- Finance : balance -->
@@ -141,6 +128,7 @@ const ctaData = {
     </div>
   </section>
 
+  {sectorsLive.length > 0 && (
   <section class="hub-sectors-live wrap-wide" aria-label="Secteurs disponibles">
     {sectorsLive.map((s) => (
       <a href={s.href} class="sector-card">
@@ -160,6 +148,7 @@ const ctaData = {
       </a>
     ))}
   </section>
+  )}
 
   <ComingSoonPills data={comingData} lang="fr" />
 

@@ -369,9 +369,9 @@ const sectionSchemaKnobs = {
         <div class="ds-subsection">
           <h3 class="ds-h3">StatRow</h3>
           <StatRow stats={[
-            { k: '43', label_fr: 'interventions', label_en: 'engagements' },
-            { k: '€18M+', label_fr: 'pipeline audité', label_en: 'pipeline audited' },
-            { k: '× 4', label_fr: 'taux de réussite', label_en: 'success rate' },
+            { k: '5 j', label_fr: 'pour cibler le levier', label_en: 'to pinpoint the lever' },
+            { k: '4 sem.', label_fr: 'au premier workflow', label_en: 'to first workflow' },
+            { k: '1', label_fr: 'interlocuteur unique', label_en: 'single point of contact' },
             { k: '12', label_fr: 'juridictions UE', label_en: 'EU jurisdictions' },
           ]} />
           <div class="ds-knobs">{moleculeKnobs.StatRow.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
@@ -390,7 +390,7 @@ const sectionSchemaKnobs = {
         <div class="ds-subsection">
           <h3 class="ds-h3">RelatedCards</h3>
           <RelatedCards cards={[
-            { kicker: 'CASE 04', title_fr: 'Plateau SaaS', title_en: 'Plateau SaaS', lead_fr: '+€2.4M pipeline →', lead_en: '+€2.4M pipeline →', href: '/en/cas/plateau' },
+            { kicker: 'CAS', title_fr: 'Études de cas', title_en: 'Case studies', lead_fr: 'À venir →', lead_en: 'Coming soon →', href: '/en/cas' },
             { kicker: 'OFFER 03.1', title_fr: 'RevOps Rebuild', title_en: 'RevOps Rebuild', lead_fr: 'Le service inspiré →', lead_en: 'Inspired service →', href: '/en/offres/revops' },
             { kicker: 'LEGAL', title_fr: 'Confidentialité', title_en: 'Privacy', lead_fr: 'Politique données →', lead_en: 'Data policy →', href: '/politique-confidentialite' },
           ]} />
@@ -637,7 +637,7 @@ const sectionSchemaKnobs = {
           <li><code>WelcomeTemplate</code> → <a href="/en/bienvenue/audit" class="ds-link">/en/bienvenue/audit</a></li>
           <li><code>UtilityTemplate</code> → <a href="/en/agence/about" class="ds-link">/en/agence/about</a></li>
           <li><code>TrustLegalTemplate</code> → <a href="/politique-confidentialite" class="ds-link">/politique-confidentialite</a></li>
-          <li><code>CaseStudyTemplate</code> → <a href="/en/cas/caserne" class="ds-link">/en/cas/caserne</a></li>
+          <li><code>CaseStudyTemplate</code> → <a href="/en/cas" class="ds-link">/en/cas</a></li>
           <li><code>ServiceDetailTemplate</code> → <a href="/en/offres/composable-pilot" class="ds-link">/en/offres/composable-pilot</a></li>
           <li><code>SolutionsDetailTemplate</code> → <a href="/en/solutions/acquisition-ia" class="ds-link">/en/solutions/acquisition-ia</a></li>
           <li><code>OffresDetailTemplate</code> → <a href="/en/offres/activation-ia" class="ds-link">/en/offres/activation-ia</a></li>

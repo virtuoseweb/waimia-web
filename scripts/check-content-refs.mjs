@@ -49,7 +49,11 @@ function collectSlugs(collection) {
     const m = src.match(/^slug:\s*["']?([a-z0-9-]+)["']?\s*$/m);
     slugs.set(m ? m[1] : f.replace(/\.mdx$/, ''), f);
   }
-  if (slugs.size === 0) {
+  // Collections légitimement vidables (purge P0.2-H : cas/secteurs fictifs retirés,
+  // reconstruction réelle en P0.6). Un dossier vide n'est PAS une erreur de parse :
+  // les références vers ces slugs sont déjà nettoyées en amont (relatedCases: [] etc.).
+  const MAY_BE_EMPTY = new Set(['cases', 'secteurs']);
+  if (slugs.size === 0 && !MAY_BE_EMPTY.has(collection)) {
     console.error(`✗ FATAL : 0 entrée parsée dans src/content/${collection}`);
     process.exit(2);
   }

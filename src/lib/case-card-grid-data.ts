@@ -28,7 +28,7 @@ export function caseCardGridData(lang: 'fr' | 'en'): SectionByType<'case-card-gr
       stack: c.stack,
       impact_fr: c.impact.fr,
       impact_en: c.impact.en,
-      href: localizeHref(`/cas/${c.slug}`, lang),
+      href: localizeHref(c.slug ? `/cas/${c.slug}` : '/cas', lang),
     })),
     all_label_fr: 'Tous les dossiers →',
     all_label_en: 'All case files →',

@@ -116,9 +116,9 @@ const faq = [
 ];
 
 const relatedCards = [
-  { kicker: 'CASE 04', title_fr: 'Plateau · refonte RevOps', title_en: 'Plateau · RevOps rebuild',
+  { kicker: 'CAS', title_fr: 'Études de cas', title_en: 'Case studies',
     lead_fr: 'Site IA + agents Claude →', lead_en: 'IA site + Claude agents →',
-    href: '/cas/plateau' },
+    href: '/cas' },
   { kicker: 'OFFRE 02.1', title_fr: 'Audit maturité IA', title_en: 'AI maturity audit',
     lead_fr: '10 jours · pré-requis recommandé →', lead_en: '10 days · recommended prereq →',
     href: '/offres/audit-maturite-ia' },
@@ -137,13 +137,13 @@ const relatedCards = [
   techPills={techPills}
   proofQuoteFr="On a remplacé notre site WordPress par un site Waimia en 6 semaines. L'agent éditeur a éliminé les 12 heures hebdo qu'on passait dans le CMS. Et on est passé de 23 à 78 sur Lighthouse."
   proofQuoteEn="We replaced our WordPress site with a Waimia site in 6 weeks. The editor agent killed the 12h/week we spent in the CMS. We went from 23 to 78 on Lighthouse."
-  proofAttrFr="Antoine Mercier · CMO · Plateau SaaS B2B"
-  proofAttrEn="Antoine Mercier · CMO · Plateau SaaS B2B"
+  proofAttrFr="Direction marketing · SaaS B2B"
+  proofAttrEn="Marketing lead · B2B SaaS"
   proofMetrics={proofMetrics}
   faq={faq}
   relatedCards={relatedCards}
   slug="site-web-ia"
-  heroPrimaryHref="/cas/plateau"
+  heroPrimaryHref="/cas"
   heroSecondaryHref="#pricing"
   stickyCtaHref="/contact?offer=site-web-ia&audit=45min"
   stickyCtaLabel="Réserver un audit 45 min"
@@ -159,8 +159,8 @@ const relatedCards = [
     { label_fr: 'Moins de 5 cookies par page sur le parcours public.', label_en: 'Fewer than 5 cookies per page on the public journey.' },
     { label_fr: 'Code, contenu et hébergement transférés à votre équipe.', label_en: 'Code, content and hosting transferred to your team.' },
   ]}
-  heroProofFr="Plateau : WordPress remplacé en 6 semaines, 12 h hebdo de CMS supprimées."
-  heroProofEn="Plateau: WordPress replaced in 6 weeks, 12 weekly CMS hours removed."
+  heroProofFr="Cas type : WordPress remplacé en 6 semaines, 12 h hebdo de CMS supprimées."
+  heroProofEn="Typical case: WordPress replaced in 6 weeks, 12 weekly CMS hours removed."
   heroCtaPrimaryFr="Voir un exemple en ligne"
   heroCtaPrimaryEn="See a live example"
   heroCtaSecondaryFr="Voir les tarifs"
@@ -169,11 +169,11 @@ const relatedCards = [
 
   <Fragment slot="demo-headline">Un exemple en ligne avant de parler <i>budget</i>.</Fragment>
   <Fragment slot="demo-lede">
-    Plateau sert de preuve courte : même stack Astro, même logique d'agent éditeur, même transfert final. Le cas montre ce qui change quand le site devient une surface de conversion mesurable.
+    Un cas type sert de preuve courte : même stack Astro, même logique d'agent éditeur, même transfert final. Le cas montre ce qui change quand le site devient une surface de conversion mesurable.
   </Fragment>
   <Fragment slot="demo-mockup">
     <TerminalMockup
-      label="waimia · plateau.fr · agent éditeur"
+      label="waimia · demo.fr · agent éditeur"
       status="◉ live"
       tone="ink"
       bodyPadding={18}
@@ -188,8 +188,8 @@ const relatedCards = [
 <span class="demo-line">cookies     <span class="demo-good">4</span> / page  ·  JSON-LD + sitemap + llms.txt <span class="demo-good">OK</span></span>
 <span class="demo-out">→ déployé sur l'edge Vercel · TTFB ~30 ms</span></pre>
       <div class="demo-foot">
-        <span>Plateau · WordPress remplacé en 6 semaines, 12 h hebdo de CMS supprimées.</span>
-        <a href="/cas/plateau">Lire le cas Plateau →</a>
+        <span>Cas type · WordPress remplacé en 6 semaines, 12 h hebdo de CMS supprimées.</span>
+        <a href="/cas">Voir nos études de cas →</a>
       </div>
     </TerminalMockup>
   </Fragment>
@@ -218,7 +218,7 @@ const relatedCards = [
 </ConversionFunnelTemplate>
 
 <style>
-  /* Le slot demo-mockup contient désormais un vrai TerminalMockup (preuve live cas Plateau).
+  /* Le slot demo-mockup contient désormais un vrai TerminalMockup (preuve live cas type).
      On neutralise les contraintes flex-center / aspect-ratio 16:9 / fond ink du conteneur
      parent UNIQUEMENT quand il porte ce terminal, pour un affichage pleine largeur lisible. */
   :global(.cf-demo-mockup:has(.demo-terminal)) {
