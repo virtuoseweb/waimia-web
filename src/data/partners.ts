@@ -63,7 +63,7 @@ export const PARTNERS: Partner[] = [
     name: 'Microsoft Copilot',
     asset: '/logos/partners/partner-copilot.svg',
     category: 'ai',
-    href: '/technologies/microsoft-power-platform',
+    // href retiré (P0.1-a) : page partenaire Microsoft condamnée (purge P0.2H) → logo sans lien.
     // Glyphe outline compact (icône carrée) → boîte étroite pour le présenter.
     box: { w: '66px' },
   },
@@ -89,7 +89,7 @@ export const PARTNERS: Partner[] = [
     name: 'Microsoft',
     asset: '/logos/partners/partner-microsoft.png',
     category: 'cloud',
-    href: '/technologies/microsoft-power-platform',
+    // href retiré (P0.1-a) : page partenaire Microsoft condamnée (purge P0.2H) → logo sans lien.
   },
   // ── Data ──
   {
@@ -97,7 +97,7 @@ export const PARTNERS: Partner[] = [
     name: 'Microsoft Power BI',
     asset: '/logos/partners/partner-power-bi.svg',
     category: 'data',
-    href: '/technologies/microsoft-power-platform',
+    // href retiré (P0.1-a) : page partenaire Microsoft condamnée (purge P0.2H) → logo sans lien.
     // Glyphe outline (barres) légèrement plus large que carré.
     box: { w: '72px' },
   },
@@ -132,7 +132,7 @@ export const PARTNERS: Partner[] = [
     name: 'Microsoft Power Apps',
     asset: '/logos/partners/partner-power-apps.svg',
     category: 'microsoft',
-    href: '/technologies/microsoft-power-platform',
+    // href retiré (P0.1-a) : page partenaire Microsoft condamnée (purge P0.2H) → logo sans lien.
     // Glyphe outline compact (losange) → boîte étroite.
     box: { w: '64px' },
   },
@@ -141,7 +141,7 @@ export const PARTNERS: Partner[] = [
     name: 'Microsoft Power Automate',
     asset: '/logos/partners/partner-power-automate.svg',
     category: 'microsoft',
-    href: '/technologies/microsoft-power-platform',
+    // href retiré (P0.1-a) : page partenaire Microsoft condamnée (purge P0.2H) → logo sans lien.
     // Glyphe outline compact (éclair) → boîte étroite.
     box: { w: '64px' },
   },
