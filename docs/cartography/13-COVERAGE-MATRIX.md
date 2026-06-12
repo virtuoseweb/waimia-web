@@ -60,7 +60,7 @@ Pages composeuses directes (19) : home `index.astro`+`en/index.astro` (9 organis
 |---|---|---|
 | **MERGE→ (jumeau + live, cible conversion)** — 9 | Hero→`hero-home` · SystemArchitecture→`architecture-diagram` · SixServices→`services-grid` · Pyramid→`maturity-pyramid` · Departments→`use-case-index` · Cases→`case-card-grid` · FieldNotes→`editorial-preview` · BookSession→`cta-final` · FooterMarquee→`marquee-band` | Migrer home FR/EN (+atlas/solutions pour Cases/FieldNotes) vers le registry → retirer l'organism. GF-1 strict (home live). |
 | **KEEP-bespoke** — 5 | AtlasGrid · CookiesBanner (global Base.astro, 100 % pages) · PersonaSwitcher · Stub (catch-all) · ManifestoAccent (à cataloguer plus tard, 2 pages) | Garder hors catalogue (chrome/infra). |
-| **ORPHAN / DEL?** — 7 | HowWeShip, Manifesto, OperatingLayer, WhyAIStalls, WritingNotes (jumeau existe → suppression après archivage) · Offices, SigBand (0 jumeau, 0 conso → suppression simple) | Suppression nette, 0 page touchée. Dette immédiate. |
+| **ORPHAN supprimés ✅ (FAIT `8df9546`)** — 7 | HowWeShip, Manifesto, OperatingLayer, WhyAIStalls, WritingNotes (jumeau catalogué = source unique) · Offices, SigBand (0 jumeau, 0 conso) | Suppression nette, 0 page touchée. **Fait** : manifest 21→14, 0 import mort (cf doc 15 §39). |
 
 ## 4. Canonique par catégorie (Phase 1c — proposition, curation Simon)
 
@@ -83,7 +83,7 @@ Pages composeuses directes (19) : home `index.astro`+`en/index.astro` (9 organis
 
 ## 5. Backlog de conversion → data-driven (Phase 2, ordre proposé)
 
-1. **Quick wins dette** : supprimer les 7 organismes ORPHAN (5 ont un jumeau, 2 purs) — 0 page touchée.
+1. ~~**Quick wins dette** : supprimer les 7 organismes ORPHAN (5 ont un jumeau, 2 purs).~~ ✅ **FAIT** (`8df9546`, manifest 21→14, 0 import mort) — cf doc 15 §39.
 2. **Pages hub/listing légères** : remplacer les `CtaFinal`/`SocialProof` boulonnés par le rendu registry (faible risque).
 3. **Templates → data-driven** : convertir les 18 templates pour qu'ils consomment le registry (héros + body via `SectionsRenderer`) au lieu d'imports directs. 1 template = 1 vague, GF-1.
 4. **Home FR/EN** : migrer les 9 organismes MERGE→ vers leurs jumeaux catalogués (risque HIGH, GF-1 strict).
