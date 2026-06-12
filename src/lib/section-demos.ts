@@ -1549,7 +1549,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       cards: [
         { kicker: 'NOTE 01', title_fr: 'Pourquoi les agents IA échouent en PME', title_en: 'Why AI agents fail in SMBs', lead_fr: 'La dette de process précède la dette technique.', lead_en: 'Process debt comes before technical debt.', href: '/ressources/blog/essai-pillar-ia-pme-2026' },
         { kicker: 'NOTE 02', title_fr: 'Le CRM comme mémoire opérationnelle', title_en: 'CRM as operational memory', lead_fr: 'Une stack utile commence par une mémoire propre.', lead_en: 'A useful stack starts with clean memory.', href: '/ressources/blog/cabler-son-crm-en-10-jours' },
-        { kicker: 'NOTE 03', title_fr: 'Mesurer avant d’automatiser', title_en: 'Measure before automating', lead_fr: 'Un agent sans métrique devient vite un gadget.', lead_en: 'An agent without metrics quickly becomes a gadget.', href: '/ressources/blog/le-syndrome-du-dashboard-isole' },
+        { kicker: 'NOTE 03', title_fr: 'Agent IA ou automatisation classique', title_en: 'AI agent vs classic automation', lead_fr: 'Choisir le bon outil avant d’écrire la moindre règle.', lead_en: 'Pick the right tool before writing a single rule.', href: '/ressources/blog/agent-ia-vs-automatisation-classique-2026' },
       ],
       cta: { label_fr: 'Tous les articles →', label_en: 'All articles →', href: '/ressources/blog', variant: 'ghost' },
     },
@@ -2448,9 +2448,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     title_fr: 'Catalogue formations',
     title_en: 'Course catalog',
     rows: [
-      { num: '01', title_fr: 'Intro à l IA pour PME B2B', title_en: 'Intro to AI for SMB B2B', level: 'debutant', duration_hours: 6, price_eur: 0, href: '/ecole/cours/intro-ia-pme-b2b' },
-      { num: '02', title_fr: 'Prompter Claude pour le travail', title_en: 'Prompting Claude for work', level: 'intermediaire', duration_hours: 4, price_eur: 290, href: '/ecole/cours/prompter-claude-pour-les-non-tech' },
-      { num: '03', title_fr: 'Automatiser ses workflows métier', title_en: 'Automating business workflows', level: 'avance', duration_hours: 8, price_eur: 590, href: '/ecole/cours/automatiser-relances-crm-en-4-heures' },
+      { num: '01', title_fr: 'Intro à l IA pour PME B2B', title_en: 'Intro to AI for SMB B2B', level: 'debutant', duration_hours: 6, price_eur: 0, href: '#' },
+      { num: '02', title_fr: 'Prompter Claude pour le travail', title_en: 'Prompting Claude for work', level: 'intermediaire', duration_hours: 4, price_eur: 290, href: '#' },
+      { num: '03', title_fr: 'Automatiser ses workflows métier', title_en: 'Automating business workflows', level: 'avance', duration_hours: 8, price_eur: 590, href: '#' },
     ],
   },
   'learning-path-list': {

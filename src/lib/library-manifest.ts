@@ -111,7 +111,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-service-detail',   consumers: [] }, // R6 purge : ServiceDetailTemplate supprimé en R0 (revops full-composable) → catalogue-only
   { id: 'hero-case-study',       consumers: ['src/components/templates/CaseStudyTemplate.astro'] },
   { id: 'hero-utility-masthead', consumers: ['src/components/templates/UtilityTemplate.astro'] },
-  { id: 'hero-academy-hub',      consumers: ['src/pages/ecole/index.astro'] },
+  { id: 'hero-academy-hub',      consumers: [] }, // P0.2-F : page hub /ecole supprimée (cours stub non vendables) → catalogue-only
   { id: 'hero-conversion-funnel',consumers: ['src/components/templates/ConversionFunnelTemplate.astro'] },
   { id: 'hero-hub-stats',        consumers: ['src/content/offres/conseil.mdx'] }, // R6 purge : HubTemplate supprimé en R0 ; vérité actuelle = conseil composable
   { id: 'hero-detail-menu',      consumers: ['src/components/templates/DetailMenuTemplate.astro'] },
@@ -219,8 +219,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'department-stack',          consumers: SOLUTIONS_CONSUMERS },
   { id: 'department-cta',            consumers: SOLUTIONS_CONSUMERS },
   // Wave 1.5 — École hub : 2 blocs bespoke EcoleHubTemplate catalogués, consommés par la page hub École (rendu direct)
-  { id: 'course-catalog-table',      consumers: ['src/pages/ecole/index.astro'] },
-  { id: 'learning-path-list',        consumers: ['src/pages/ecole/index.astro'] },
+  { id: 'course-catalog-table',      consumers: [] }, // P0.2-F : page hub /ecole supprimée → catalogue-only
+  { id: 'learning-path-list',        consumers: [] }, // P0.2-F : page hub /ecole supprimée → catalogue-only
   // Mission catalogue-gap 2026-06-11 — 7 types extraits des patterns /console + /manifesto,
   // usage library (0 consommateur : les pages live console.astro/manifesto.astro restent bespoke)
   { id: 'terminal-table',            consumers: [] },

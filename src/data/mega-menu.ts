@@ -420,15 +420,6 @@ const AGENCE: MegaMenuSection = {
           featured: true,
         },
         {
-          label: { fr: 'École Waimia', en: 'Waimia School' },
-          href: '/ecole',
-          description: {
-            fr: 'Formations IA pour vos équipes.',
-            en: 'AI training for your teams.',
-          },
-          featured: true,
-        },
-        {
           label: { fr: 'Simon Beros · CV Founder', en: 'Simon Beros · Founder CV' },
           href: '/equipe/simon-beros',
           description: {

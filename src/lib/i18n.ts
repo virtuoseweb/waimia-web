@@ -62,7 +62,7 @@ const FR_ONLY_STATIC = new Set([
   '/bienvenue/contact', '/bienvenue/commande', '/bienvenue/formation', '/bienvenue/abonnement',
   '/glossaire', '/secteurs', '/secteurs/finance-compta',
   '/secteurs/industrie', '/secteurs/services-b2b',
-  '/equipe', '/archive', '/ecole', '/commerce',
+  '/equipe', '/archive', '/commerce',
   // Pages légales FR-only (droit français, pas de miroir /en/) — même cas que trust-center.
   '/mentions-legales', '/cgv', '/politique-confidentialite',
 ]);
@@ -73,7 +73,7 @@ const FR_ONLY_PREFIXES = [
   '/ressources/cookbooks/', '/ressources/livres-blancs/', '/ressources/field-notes/',
   '/ressources/personas/', '/ressources/veille-ia/',
   '/ressources/categorie/', '/ressources/outils/', '/ressources/silo/', '/ressources/tag/',
-  '/equipe/', '/ecole/', '/commerce/',
+  '/equipe/', '/commerce/',
   '/categories/', // catalogue marketplace (FR-only, v1.5)
 ];
 
