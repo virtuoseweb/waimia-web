@@ -86,13 +86,18 @@ _(vide)_
   - Preuve GF-1 : `grep` 0 référence cassée aux anciens numéros + build vert (les docs ne
     cassent pas le build, vérifier les imports MDX éventuels) + arbo finale = §3 README.
   - Dépend de : —
-- [ ] **P0.0-b — Corrections factuelles de doc** (`state/01 §f-ter`).
+- [x] **P0.0-b — Corrections factuelles de doc** (`state/01 §f-ter`). **VÉRIFIÉ DÉJÀ FAIT (nuit 2026-06-12, GF-4)**.
   - Objectif : corriger `architecture/03` (`output:'static'` et non `'server'`),
     `architecture/01+05` (TinaCMS et non Pages CMS / `.pages.yml`), `architecture/04`
     (projet Vercel `waimia-web` et non `waimia-v2`), `architecture/02` (`author = reference`),
     et purger partout « cas fictifs gardés » (→ supprimés per `strategy/02 §2H`).
   - Fichiers : `docs/architecture/0{1,2,3,4,5}-*.md`, `docs/strategy/01`, `state/01`.
-  - Preuve GF-1 : `grep -rn "output:'server'\|\.pages\.yml\|waimia-v2\|cas fictifs gardés" docs/` = 0 résiduel.
+  - Preuve GF-1 : grep ciblé sur les docs **live** (hors manifestes-à-supprimer + archive + notes-de-suivi) =
+    0 inexactitude. `architecture/03` = « Astro static config » ✅ · `01/05/06` = TinaCMS (0 `.pages.yml`/Pages CMS) ✅
+    · `04` = projet Vercel `waimia-web` ✅ · `strategy/01` affirme « cas fictifs SUPPRIMÉS (pas gardés) » L11/61/184 ✅.
+    Les seules occurrences résiduelles du grep large sont **légitimes** : (a) manifestes `FINALISATION/CONSOLIDATION`
+    qui DÉCRIVENT la correction (supprimés en P0.0-a) ; (b) `docs/archive/*` historique ; (c) `arch/06` où
+    `output:'server'` réfère correctement à l'ancien pattern obsolète + l'exemple officiel Tina (waimia-web reste static).
   - Dépend de : —
 - [ ] **P0.0-c — Slim `CLAUDE.md`** (`FINALISATION-MANIFEST §2`).
   - Objectif : alléger `CLAUDE.md` racine (ne pas surcharger la config Claude Code) sans perdre
