@@ -25,6 +25,21 @@ const { sections, lang } = Astro.props;
     console.error(`[SectionsRenderer] Type inconnu: ${section.type}`);
     return null;
   }
+  // Ancre optionnelle (cf sectionsArraySchema) : point de scroll `id` injecte AVANT la
+  // section, hors-flux visuel (height:0/width:0/overflow:hidden) -> 0 impact mise en page.
+  // scroll-margin-top compense le header fixe (.hdr, global scroll-padding-top: 80px).
+  const anchor = (section as any).anchor;
   // Pattern W6 : sections attendent `{ data, lang }` (pas spread props)
-  return <Component data={section as any} lang={lang} />;
+  const rendered = <Component data={section as any} lang={lang} />;
+  if (!anchor) return rendered;
+  return (
+    <>
+      <span
+        id={anchor}
+        aria-hidden="true"
+        style="display:block;height:0;width:0;overflow:hidden;scroll-margin-top:clamp(80px, 12vh, 120px);"
+      ></span>
+      {rendered}
+    </>
+  );
 })}
