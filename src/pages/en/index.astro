@@ -7,9 +7,8 @@ export const prerender = true;
  * Mirrors pages/index.astro (FR). Principle: 1 piece of information = 1 representation.
  * 10-slot sequence: Act I promise & proof → Act II system & offer → Act III engagement
  * → Act IV client proof → Act V action. FeatureGrid + UseCaseIndex removed from home
- * (kept in the catalogue), 3 of 8 interludes kept, BookSession + QuoteSpotlight on ink.
+ * (kept in the catalogue), 3 of 8 interludes kept, BookSession on ink.
  */
-import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import BootSplash from '../../components/motion/BootSplash.astro';
 import ScrollProgress from '../../components/ui/atoms/ScrollProgress.astro';
@@ -21,7 +20,6 @@ import ArchitectureDiagram from '../../components/sections/ArchitectureDiagram.a
 import ServicesGrid        from '../../components/sections/ServicesGrid.astro';
 import MaturityPyramid     from '../../components/sections/MaturityPyramid.astro';
 import CtaBandSection      from '../../components/sections/CtaBandSection.astro';
-import QuoteSpotlight      from '../../components/sections/QuoteSpotlight.astro';
 import CaseCardGrid        from '../../components/sections/CaseCardGrid.astro';
 import { caseCardGridData } from '../../lib/case-card-grid-data';
 import FaqAccordion        from '../../components/sections/FaqAccordion.astro';
@@ -199,21 +197,6 @@ const ctaInlineData = {
   background: 'paper-2' as const,
 } satisfies SectionByType<'cta-band'>;
 
-// ── Act IV · Client voice (audit gap #1: zero human voice on the page) ─────────
-const testimonials = await getCollection('testimonials');
-const spotlight = testimonials.find((t) => t.id.startsWith('plateau-saas-coo')) ?? testimonials[0];
-const quoteSpotlightData = {
-  type: 'quote-spotlight' as const,
-  background: 'ink' as const,
-  kicker_fr: 'ACTE IV · PAROLE CLIENT',
-  kicker_en: 'ACT IV · CLIENT VOICE',
-  quote_fr: spotlight.data.quote_fr.replace('câblé', '<i>câblé</i>'),
-  quote_en: spotlight.data.quote_en.replace('wired', '<i>wired</i>'),
-  author: spotlight.data.author,
-  role_fr: `${spotlight.data.role_fr} · ${spotlight.data.company}`,
-  role_en: `${spotlight.data.role_en} · ${spotlight.data.company}`,
-} satisfies SectionByType<'quote-spotlight'>;
-
 // FAQ SMB-first · 8 questions (V5: + CMS, + brand consistency)
 const faqItems = [
   {
@@ -281,9 +264,6 @@ const faqItems = [
     <CtaBandSection data={ctaInlineData} lang="en" />
 
     <SectionTransition phrase="Verifiable promise, not pitch." />
-
-    {/* 06 — QuoteSpotlight · embodied client voice on ink (Act IV) */}
-    <QuoteSpotlight data={quoteSpotlightData} lang="en" />
 
     {/* 07 — Cases · 4 anonymized dossiers (CASE_FEED) */}
     <CaseCardGrid data={caseCardGridData('en')} lang="en" />
