@@ -40,10 +40,13 @@ const {
   id = 'cal-embed',
 } = Astro.props as Props;
 
-// Sanitize final : strip tout espace/retour-ligne (les env vars Vercel
-// PUBLIC_CAL_* peuvent contenir un \n interne que .trim() des défauts ne couvre
-// pas → slug `simonberos\n/audit\n` rendu en /n/audit/n/embed = 404. Cf it.14.
-const calLink = `${username}/${eventType}`.replace(/\s+/g, '');
+// Sanitize final (ROOT CAUSE prouvée 2026-06-12 via HTML prod baké) : les env
+// vars Vercel PUBLIC_CAL_* contiennent un LITTÉRAL `\n` (backslash+n, qqn a tapé
+// `\n` dans l'UI) → calLink `simonberos\n/audit\n`. Le parser d'URL du navigateur
+// convertit `\`→`/` → path `simonberos/n/audit/n/embed` = 404. Ni .trim() ni
+// .replace(/\s+/) ne l'attrapent (backslash+n n'est PAS un whitespace). On retire
+// d'abord toute séquence backslash-escape (`\.`) PUIS le whitespace réel.
+const calLink = `${username}/${eventType}`.replace(/\\./g, '').replace(/\s+/g, '');
 ---
 {/* Resource hints · Cal.com SaaS (app.cal.com sert embed.js + l'iframe de réservation).
    Source de vérité = ce composant (rendu uniquement sur les pages qui embarquent Cal),
