@@ -8,7 +8,7 @@
 | UI islands     | **React 19** (hydratation à la demande)      | Pour les composants motion (KineticHeadline, MegaMenu, ProductReel).      |
 | Styling        | **Tailwind v4** CSS-first (`@theme`)         | Tokens DS exposés sans dupliquer ; classes legacy préservées.             |
 | Contenu        | **Astro content collections** + **MDX**      | Type-safe via Zod schemas, supporte composants React dans le markdown.    |
-| CMS git-based  | **Pages CMS** (pagescms.org)                 | Branch-aware, GitHub OAuth, config YAML simple, état de l'art 2026.       |
+| CMS git-based  | **TinaCMS** (pagescms.org)                 | Branch-aware, GitHub OAuth, config YAML simple, état de l'art 2026.       |
 | i18n           | **Astro i18n natif** (`/` FR · `/en/*`)      | URLs propres, hreflang automatique, meilleur que un toggle DOM.           |
 | Hébergement    | **Vercel** (adapter `@astrojs/vercel`)       | Edge cache + ISR si besoin, preview deployments, bon support Astro.       |
 
@@ -20,7 +20,7 @@ waimia-site/
 ├── handoff/                       ← réf. handoff Claude Design (read-only)
 └── site/                          ← le repo Astro
     ├── public/
-    │   ├── admin/                 ← Pages CMS / Decap admin (config.yml)
+    │   ├── admin/                 ← TinaCMS (tina/config.ts)
     │   ├── llms.txt               ← GEO/AIO · résumé pour LLM crawlers
     │   ├── robots.txt
     │   └── fonts/                 ← optionnel, fonts self-hosted
@@ -103,13 +103,13 @@ Chaque page existe en `/page` (FR) et `/en/page` (EN). Le composant `<Bi en="" f
 - BootSplash `client:only="react"` (pas de SSR pour éviter flash)
 - Sections statiques restent en pur Astro (zéro JS livré)
 
-### 4. CMS · Pages CMS
+### 4. CMS · TinaCMS (édition visuelle, 100% Astro)
 
-Config dans `.pages.yml` à la racine du repo. Permet à Simon (ou un éditeur) d'ajouter
+Config dans `tina/config.ts` du repo. Permet à Simon (ou un éditeur) d'ajouter
 une étude de cas, un article de blog, un témoignage via UI sans toucher au code.
 Authentification GitHub OAuth, branche `main` ou PR auto.
 
-Alternative documentée : Decap CMS (legacy) si Pages CMS n'est pas dispo.
+Référence à jour : architecture/06-tina-astro.
 
 ### 5. Build & déploiement
 

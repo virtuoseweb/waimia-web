@@ -6,7 +6,7 @@
 
 ## 1. Vercel · variables d'environnement
 
-Dashboard : <https://vercel.com/virtuoseweb/waimia-v2/settings/environment-variables>
+Dashboard : <https://vercel.com/virtuoseweb/waimia-web/settings/environment-variables>
 
 ### Variables requises (Production · Preview · Development)
 
@@ -172,37 +172,37 @@ Push sur `main` déclenche auto-deploy. Vérifier :
 vercel ls --prod
 
 # Logs build live
-vercel logs https://waimia-v2.vercel.app
+vercel logs https://waimia-web.vercel.app
 ```
 
 ### 4.2 Smoke tests post-deploy
 
 ```bash
 # Test page live
-curl -I https://waimia-v2.vercel.app/offres/site-web-ia
+curl -I https://waimia-web.vercel.app/offres/site-web-ia
 # Attendu : 200 OK
 
 # Test API contact (sans envoi réel)
-curl -X POST https://waimia-v2.vercel.app/api/contact \
+curl -X POST https://waimia-web.vercel.app/api/contact \
   -H "Content-Type: application/json" \
   -d '{"name":"Test","email":"test@example.com","brief":"smoke test"}'
 # Attendu : { "ok": true, "redirect": "/bienvenue/contact" }
 
 # Test Cal embed visuel
-# Naviguer vers https://waimia-v2.vercel.app/contact
+# Naviguer vers https://waimia-web.vercel.app/contact
 # Vérifier que l'iframe Cal.com charge en bas de page
 ```
 
 ### 4.3 Tests Playwright contre prod
 
 ```bash
-PLAYWRIGHT_BASE_URL=https://waimia-v2.vercel.app npx playwright test
+PLAYWRIGHT_BASE_URL=https://waimia-web.vercel.app npx playwright test
 # Attendu : 31+6 fixme passent (les fixme passeront aussi en prod car build statique)
 ```
 
 ### 4.4 Email de bout en bout
 
-1. Aller sur `https://waimia-v2.vercel.app/contact`
+1. Aller sur `https://waimia-web.vercel.app/contact`
 2. Remplir form avec votre email pro
 3. Soumettre
 4. Vérifier réception email confirmation (depuis bonjour@waimia.fr)

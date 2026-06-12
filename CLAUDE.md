@@ -4,16 +4,16 @@ Repo **standalone** Astro 6 SSG → déployé sur **`waimia.com`** (Vercel proje
 Org GitHub : **`virtuoseweb`**. ⚠️ NE PAS toucher le repo `waimia-v2` (monorepo agrégateur).
 
 ## 🚀 Reprise de session — LIRE EN PREMIER
-**`docs/00-MASTER-PLAN.md`** = plan canonique unique (vision + état vérifié + axes A-I + phases 0-6 avec waves/statuts/preuves + backlog + index docs). Lu EN PREMIER par l'orchestrateur ET par un agent IA. Source de vérité du progrès = git + task list Claude Code + gates `scripts/check-*.mjs`.
-État (2026-06-11) : **industrialisation DS en prod + vague dark + nouveaux standards mergés** (`main` = `4942d93`). Catalogue **147 types** composables (5 touchpoints désormais : schéma + demos + registry + manifest + composant, gates verts ; +10 standards B2B-SaaS le 2026-06-11). **Variante dark `ink` systématique** (directive `docs/43`) : champ `background` `.optional()` sur la majorité des sections + idiome `[data-bg='ink']` (modèle `BentoGrid`), boutons CTA gérés globalement (`global.css` `[data-bg='ink'] .btn-ghost/.btn-primary`), héros en cours de câblage (6 composants, vetos HeroHome + masthead /solutions). DS Studio (`/agence/ds-studio`) + persistance git couches A/C. **Suivi orchestration nocturne = `tasks/ORCH-STATE.md`**. **Blocker historique = registry adoption** (templates via `SectionsRenderer`). Anciens fragments → `docs/archive/`.
+**`docs/README.md`** = index maître (START HERE) : carte des docs (réorganisés en dossiers thématiques) + board des chantiers + ordre de lecture selon la mission. Lu EN PREMIER par l'orchestrateur ET par un agent IA. **Mission prioritaire P0 = refonte SEO/GEO + base propre** : `docs/strategy/02-site-etat-final.md` (spec d'état final) + `docs/strategy/01` + `docs/state/01`. Source de vérité du progrès = git + task list Claude Code + gates `scripts/check-*.mjs` + `tasks/ORCH-STATE.md`. *(L'ancien `docs/00-MASTER-PLAN.md` est périmé → `docs/archive/`.)*
+État DS (réf, possiblement daté — croiser README/ORCH-STATE) : industrialisation DS en prod + vague dark. Catalogue ~151 types composables (5 touchpoints : schéma + demos + registry + manifest + composant). **Variante dark `ink` systématique** (directive `docs/directives/02-dark-variantes.md`) : champ `background` `.optional()` sur la majorité des sections + idiome `[data-bg='ink']` (modèle `BentoGrid`), boutons CTA gérés globalement (`global.css` `[data-bg='ink'] .btn-ghost/.btn-primary`), héros en cours de câblage (6 composants, vetos HeroHome + masthead /solutions). DS Studio (`/agence/ds-studio`) + persistance git couches A/C. **Suivi orchestration nocturne = `tasks/ORCH-STATE.md`**. **Blocker historique = registry adoption** (templates via `SectionsRenderer`). Anciens fragments → `docs/archive/`.
 
 ## ⚙️ Initialisation (cloud vs local) — via le plugin partagé `vw-guardrails`
 - **Cloud** (claude.ai/code) : seuls **ce `CLAUDE.md`** + le **`.claude/` du repo** s'activent (le `~/.claude` global n'est PAS cloné — doc Anthropic : « only hooks committed to the repo run »). Le `.claude/settings.json` **déclare le marketplace `virtuoseweb` + le plugin `vw-guardrails@virtuoseweb`** → au démarrage de session cloud, Claude Code **installe le plugin** depuis `github.com/virtuoseweb/claude-config` (public) : hook SessionStart (recharge GF-1..GF-6, affiche `☁️ CLOUD`), agent `visual-proof-reviewer`, commande `/vw-guardrails:guardrails`.
 - **Local** : `.claude/` repo (plugin) **+** `~/.claude` global (arsenal complet). Le hook plugin émet une ligne courte en local (le global couvre déjà les GF).
 - Source unique des garde-fous portables = repo **`virtuoseweb/claude-config`** (mise à jour = push + bump version ; cloud récupère au prochain boot, local via `claude plugin update`).
 - Fallback : si le réseau cloud bloque l'install du plugin, **ce `CLAUDE.md` reste lu** (garde-fous inline ci-dessous).
-- Checklist de vérif d'init (les 2 surfaces) : `docs/20` §6.
-- **Autonomie** : local = `bypassPermissions` déjà global (`~/.claude/settings.json`) ; cloud = autonome par design (sandbox isolée). Rien à taper. Détail : `docs/20` §7.
+- Checklist de vérif d'init (les 2 surfaces) : `docs/archive/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md` §6.
+- **Autonomie** : local = `bypassPermissions` déjà global (`~/.claude/settings.json`) ; cloud = autonome par design (sandbox isolée). Rien à taper. Détail : `docs/archive/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md` §7.
 
 ## Stack & commandes
 - Astro 6 (`output: 'static'` + `@astrojs/vercel`), React islands, Tailwind 4, pnpm.
@@ -54,8 +54,8 @@ Deux rendus de page : **composable** = frontmatter MDX `sections: [...]` → `<S
   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin <branche>`
 
 ## Orchestration multi-agents (cloud + local)
-Branches isolées (`git worktree`), agent teams (debate/cross-layer), **workflows** pour le balayage à grande échelle (ex. GF-1 sur les 57 previews), `claude --bg` pour les missions longues supervisées. Détail + découpe suggérée : `docs/20`.
+Branches isolées (`git worktree`), agent teams (debate/cross-layer), **workflows** pour le balayage à grande échelle (ex. GF-1 sur les 57 previews), `claude --bg` pour les missions longues supervisées. Détail + découpe suggérée : `docs/archive/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md`.
 
 ## Reste à faire (P1)
-1. **Migration templates (11/18 restants)** → faire consommer le registry par `src/components/templates/*` (7 migrés : ConversionFunnel/DetailMenu/ServiceDetail/Utility/CourseDetail/EcoleHub/Hub ; AuthorPage→HeroAuthor en cours = 1ʳᵉ famille VT). GF-1 par page. Runbook + mapping sourcé : `docs/22`. ⚠️ 3 vt=0 (TrustLegal/Welcome/ListIndex) sans composant catalogué dédié → arbitrage requis.
+1. **Migration templates (11/18 restants)** → faire consommer le registry par `src/components/templates/*` (7 migrés : ConversionFunnel/DetailMenu/ServiceDetail/Utility/CourseDetail/EcoleHub/Hub ; AuthorPage→HeroAuthor en cours = 1ʳᵉ famille VT). GF-1 par page. Runbook + mapping sourcé : `docs/audits/01-template-registry-migration.md`. ⚠️ 3 vt=0 (TrustLegal/Welcome/ListIndex) sans composant catalogué dédié → arbitrage requis.
 2. **GF-1 sweep** sur preview Vercel (les 58 `/preview/<type>`) — secret `VERCEL_AUTOMATION_BYPASS_SECRET` requis pour le gate auto (sinon sweep local via `scripts/serve-dist.mjs`, parité prod).

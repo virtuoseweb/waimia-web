@@ -53,7 +53,7 @@ Astro **ne serait pas** le bon choix si Waimia devenait :
 ## Implications opérationnelles
 
 1. Continuer à exploiter `prerender = true` (SSG par défaut)
-2. Migration `output: 'server' → 'static'` débloquée par T14.2c (bug Rolldown fixé upstream)
+2. Migration `output: 'server' → 'static'` **FAITE** (bug Rolldown fixé) — le repo est en `static`
 3. Islands React justifiées **uniquement** quand CSS pur insuffisant (cf doc 28 axe Performance)
 4. Pas de réécriture vers TanStack à l'horizon roadmap Waimia 2026-2027
 
