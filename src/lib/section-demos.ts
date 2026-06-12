@@ -357,12 +357,14 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     variant: 'strip',
     kicker_fr: 'Confiance',
     kicker_en: 'Trust',
+    // Données de DÉMONSTRATION du catalogue (placeholders neutres).
+    // P0.2-D : certifications/conformités réglementaires retirées (claims non détenus).
     badges: [
       { label_fr: 'Partenaire Anthropic', label_en: 'Anthropic partner' },
-      { label_fr: 'Claude Certified Architect', label_en: 'Claude Certified Architect' },
-      { label_fr: 'AI Act ready', label_en: 'AI Act ready' },
-      { label_fr: 'RGPD', label_en: 'GDPR' },
-      { label_fr: 'ISO 27001', label_en: 'ISO 27001' },
+      { label_fr: 'Activateur France Num', label_en: 'France Num activator' },
+      { label_fr: 'Badge démo · A', label_en: 'Demo badge · A' },
+      { label_fr: 'Badge démo · B', label_en: 'Demo badge · B' },
+      { label_fr: 'Badge démo · C', label_en: 'Demo badge · C' },
     ],
   },
   'testimonial-logo-metric': {
@@ -460,7 +462,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     lede_fr: 'Le composable W6 expose 19 sections cataloguées. Chaque section atomique, testée, validée.',
     lede_en: 'W6 composable exposes 19 catalogued sections. Each atomic, tested, validated.',
     cta_primary: { label_fr: 'Voir le catalogue →', label_en: 'View catalogue →', href: '/agence/design-system', variant: 'primary' },
-    cta_secondary: { label_fr: 'Lire la doc', label_en: 'Read the docs', href: '/agence/docs', variant: 'ghost' },
+    cta_secondary: { label_fr: 'Lire la doc', label_en: 'Read the docs', href: '/technologies', variant: 'ghost' },
     right_block: { kind: 'workflow-svg' },
   },
   'hero-centered': {
@@ -1012,7 +1014,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     lede_fr: "Un manifeste en cinq actes. Lu d’une traite, dix minutes. Appliqué chez vous, quatre semaines.",
     lede_en: 'A manifesto in five acts. Read in one sitting, ten minutes. Applied at your company, four weeks.',
     cta_primary_label_fr: 'Prendre RDV →', cta_primary_label_en: 'Book a session →', cta_primary_href: '/contact',
-    cta_secondary_label_fr: 'La plateforme', cta_secondary_label_en: 'The platform', cta_secondary_href: '/console',
+    cta_secondary_label_fr: 'La plateforme', cta_secondary_label_en: 'The platform', cta_secondary_href: '/technologies',
   },
   'proof-bar': {
     type: 'proof-bar',
@@ -1857,7 +1859,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         body_en: 'We design, deploy, and document every workflow with your team. No black box: everything stays readable, editable, extensible.',
         link_label_fr: 'Explorer les cas clients',
         link_label_en: 'Explore client cases',
-        link_href: '/atlas',
+        link_href: '/cas',
       },
       {
         kicker_fr: 'Transfert',

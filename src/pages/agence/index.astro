@@ -123,22 +123,21 @@ export const agenceSections: SectionData[] = [
     ],
   },
 
-  // 7 · RÉASSURANCE (paper) — trust badges réels (sitemap.ts TRUST_BADGES)
+  // 7 · RÉASSURANCE (paper) — partenariats/labels publics réels uniquement.
+  // P0.2-D : certifications/conformités non détenues retirées (Claude Certified Architect,
+  // AI Act ready, RGPD, ISO 27001 alignée = claims non prouvés, risque légal).
   {
     type: 'trust-badges-band',
     background: 'paper',
     variant: 'cells',
     kicker_fr: '§ Réassurance',
     kicker_en: '§ Reassurance',
-    h2_fr: 'Partenariats et conformité, <i>en clair</i>',
-    h2_en: 'Partnerships and compliance, <i>in plain text</i>',
+    h2_fr: 'Nos partenariats, <i>en clair</i>',
+    h2_en: 'Our partnerships, <i>in plain text</i>',
     badges: [
       { glyph: '◆', label_fr: 'Partenaire Anthropic', label_en: 'Anthropic Partner', value_fr: 'Parcours expert francophone', value_en: 'Francophone expert track' },
-      { glyph: '✦', label_fr: 'Claude Certified Architect', label_en: 'Claude Certified Architect', value_fr: 'Architecture agentique', value_en: 'Agentic architecture' },
       { glyph: '◉', label_fr: 'Activateur France Num', label_en: 'France Num activator', value_fr: 'Expert IA & numérique', value_en: 'AI & digital expert' },
-      { glyph: '⚿', label_fr: 'AI Act ready', label_en: 'AI Act ready', value_fr: 'Conformité anticipée', value_en: 'Compliance ahead' },
-      { glyph: '✓', label_fr: 'RGPD', label_en: 'GDPR · RGPD', value_fr: 'Données UE', value_en: 'EU data' },
-      { glyph: '⬡', label_fr: 'ISO 27001 · aligné', label_en: 'ISO 27001 · aligned', value_fr: 'Sécurité de l’information', value_en: 'Information security' },
+      { glyph: '◇', label_fr: 'Livrables transférables', label_en: 'Transferable deliverables', value_fr: 'Code & prompts à vous', value_en: 'Code & prompts you own' },
     ],
   },
 
@@ -165,7 +164,7 @@ export const agenceSections: SectionData[] = [
     milestones: [
       { year: '2024', label_fr: 'Fondation à Paris', label_en: 'Founded in Paris' },
       { year: 'FR · CH', label_fr: 'Deux bureaux : Paris et Genève', label_en: 'Two offices: Paris and Geneva' },
-      { year: 'Anthropic', label_fr: 'Partenaire · Claude Certified Architect', label_en: 'Partner · Claude Certified Architect' },
+      { year: 'Anthropic', label_fr: 'Partenaire · parcours expert francophone', label_en: 'Partner · francophone expert track' },
       { year: 'France Num', label_fr: 'Activateur · expert IA & numérique', label_en: 'Activator · AI & digital expert' },
     ],
   },

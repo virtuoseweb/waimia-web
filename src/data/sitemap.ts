@@ -218,9 +218,9 @@ export const MM_TECH: MegaMenu = {
   featured: {
     kicker: { en: 'PARTNERSHIP', fr: 'PARTENARIAT' },
     label: { en: 'Anthropic Partner', fr: 'Partenaire Anthropic' },
-    body: { en: 'Francophone expert track. Claude Certified Architect.', fr: 'Parcours expert francophone. Claude Certified Architect.' },
-    cta: { en: 'Our certifications →', fr: 'Nos certifications →' },
-    href: '/agence#certifications',
+    body: { en: 'Francophone expert track, Anthropic partner.', fr: 'Parcours expert francophone, partenaire Anthropic.' },
+    cta: { en: 'Our partnerships →', fr: 'Nos partenariats →' },
+    href: '/agence',
   },
 };
 
@@ -286,8 +286,8 @@ export const MM_AGENCY_NEW: MegaMenu = {
   label: { en: 'The Agency', fr: "L'Agence" },
   href: '/agence',
   lead: {
-    en: 'A team based in Paris and Geneva. An anti-theatre method. A Trust Center that details everything.',
-    fr: 'Une équipe basée à Paris et Genève. Une méthode anti-théâtre. Un Trust Center qui détaille tout.',
+    en: 'A team based in Paris and Geneva. An anti-theatre method, with signed deliverables.',
+    fr: 'Une équipe basée à Paris et Genève. Une méthode anti-théâtre, des livrables signés.',
   },
   cols: [
     {
@@ -296,18 +296,15 @@ export const MM_AGENCY_NEW: MegaMenu = {
       items: [
         { href: '/agence/about', label: { en: 'About Waimia', fr: 'À propos de Waimia' } },
         { href: '/agence/methode', label: { en: 'Our method · Process Intelligence', fr: 'Notre méthode · Process Intelligence' }, lead: { en: 'Audit, deployment, measurement, no PowerPoint.', fr: 'Audit, déploiement, mesure, pas de PowerPoint.' }, featured: true },
-        { href: '/agence/careers', label: { en: 'Careers', fr: 'Carrières' } },
         { href: '/equipe/simon-beros', label: { en: 'Simon Beros · Founder CV', fr: 'Simon Beros · CV Founder' }, lead: { en: 'Agentic systems architecture.', fr: 'Architecture systèmes agentiques.' } },
       ],
     },
     {
-      kicker: { en: 'TRUST', fr: 'CONFIANCE' },
-      label: { en: 'Guarantees & legal', fr: 'Garanties & légal' },
+      kicker: { en: 'CONTACT', fr: 'CONTACT' },
+      label: { en: 'Talk to us', fr: 'Nous parler' },
       items: [
-        { href: '/agence/trust-center', label: { en: 'Trust Center · AI Act, GDPR, ISO', fr: 'Trust Center · AI Act, RGPD, ISO' }, lead: { en: 'All controls, in plain text.', fr: 'Tous les contrôles, en clair.' } },
         { href: '/contact', label: { en: 'Contact us · 45 min', fr: 'Nous contacter · 45 min' }, lead: { en: 'Free scoping, honest audit, or nothing.', fr: 'Cadrage gratuit, audit honnête, ou rien.' } },
-        { href: '/agence/governance', label: { en: 'Governance · ethics committee', fr: 'Gouvernance · ethics committee' }, lead: { en: 'AI ethics committee + whistleblowing.', fr: 'Comité ethics IA + whistleblowing.' } },
-        { href: '/agence/docs', label: { en: 'Technical documentation', fr: 'Documentation technique' }, lead: { en: 'Our stack + integrations.', fr: 'Notre stack + intégrations.' } },
+        { href: '/manifesto', label: { en: 'Manifesto', fr: 'Manifesto' }, lead: { en: 'Operational AI, not theatre.', fr: 'Une IA opérationnelle, pas du théâtre.' } },
       ],
     },
   ],
@@ -339,7 +336,7 @@ export type FooterCol = {
 };
 
 export const FOOTER_COLS: FooterCol[] = [
-  // Col 1 — L'Agence (ajout R3 : Manifesto · Console · Atlas, accessibles depuis le footer)
+  // Col 1 — L'Agence (R3 ; trust-center/careers/console/atlas retirés P0.2-D : pages démos/fictives supprimées)
   {
     heading: { en: 'The Agency', fr: "L'Agence" },
     items: [
@@ -351,14 +348,7 @@ export const FOOTER_COLS: FooterCol[] = [
           fr: 'Notre méthode · Process Intelligence',
         },
       },
-      {
-        href: '/agence/trust-center',
-        label: { en: 'Trust Center', fr: 'Trust Center' },
-      },
-      { href: '/agence/careers', label: { en: 'Careers', fr: 'Carrières' } },
       { href: '/manifesto', label: { en: 'Manifesto', fr: 'Manifesto' } },
-      { href: '/console', label: { en: 'Console', fr: 'Console' } },
-      { href: '/atlas', label: { en: 'Atlas', fr: 'Atlas' } },
       { href: '/contact', label: { en: 'Contact', fr: 'Nous contacter' } },
     ],
   },
@@ -452,33 +442,22 @@ export const FOOTER_COLS: FooterCol[] = [
       },
     ],
   },
-  // Col 5 — Légal & Archive
+  // Col 5 — Légal & Archive (trust-center retiré P0.2-D : pages légales réelles uniquement)
   {
-    heading: { en: 'Trust & Legal', fr: 'Légal & Archive' },
+    heading: { en: 'Legal', fr: 'Légal' },
     shield: true,
     items: [
-      {
-        href: '/agence/trust-center',
-        label: {
-          en: 'Trust Center · AI Act, GDPR, ISO',
-          fr: 'Trust Center · AI Act, RGPD, ISO',
-        },
-      },
-      {
-        href: '/agence/trust-center#ai-act',
-        label: { en: 'AI Act · GDPR · LPD', fr: 'AI Act · RGPD · LPD' },
-      },
       {
         href: '/politique-confidentialite',
         label: { en: 'Privacy policy', fr: 'Politique de confidentialité' },
       },
       {
         href: '/mentions-legales',
-        label: { en: 'Legal notice & terms', fr: 'Mentions légales & CGV' },
+        label: { en: 'Legal notice', fr: 'Mentions légales' },
       },
       {
-        href: '/agence/trust-center#cookies',
-        label: { en: 'Cookie settings', fr: 'Gestion des cookies' },
+        href: '/cgv',
+        label: { en: 'Terms of sale', fr: 'CGV' },
       },
       {
         href: '/plan-du-site',
@@ -490,13 +469,12 @@ export const FOOTER_COLS: FooterCol[] = [
 
 // ─── TRUST BADGES
 export type TrustBadge = { k: string; label: BiText; kind: 'partner' | 'cert' | 'compliance' };
+// P0.2-D · badges de certification/conformité non détenus retirés (risque légal :
+// Claude Certified Architect, AI Act ready, RGPD, ISO 27001 alignée = claims non prouvés).
+// Conservés : partenariats/labels publics vérifiables uniquement.
 export const TRUST_BADGES: TrustBadge[] = [
-  { k: 'ANTHROPIC',   kind: 'partner',    label: { en: 'Anthropic Partner', fr: 'Partenaire Anthropic' } },
-  { k: 'CLAUDE-ARCH', kind: 'cert',       label: { en: 'Claude Certified Architect', fr: 'Claude Certified Architect' } },
-  { k: 'FRANCENUM',   kind: 'cert',       label: { en: 'France Num · AI & digital expert', fr: 'Activateur France Num · expert IA' } },
-  { k: 'AI-ACT',      kind: 'compliance', label: { en: 'AI Act ready', fr: 'AI Act ready' } },
-  { k: 'RGPD',        kind: 'compliance', label: { en: 'GDPR · RGPD', fr: 'RGPD' } },
-  { k: 'ISO-27001',   kind: 'compliance', label: { en: 'ISO 27001 · aligned', fr: 'ISO 27001 · aligné' } },
+  { k: 'ANTHROPIC', kind: 'partner', label: { en: 'Anthropic Partner', fr: 'Partenaire Anthropic' } },
+  { k: 'FRANCENUM', kind: 'partner', label: { en: 'France Num · AI & digital expert', fr: 'Activateur France Num · expert IA' } },
 ];
 
 // ─── CLIENT LOGOS (marquee)
@@ -684,14 +662,13 @@ export const CAPABILITY_MAP: CapabilityCategory[] = [
     k: '08',
     kicker: { en: 'GOVERNANCE', fr: 'GOUVERNANCE' },
     label: { en: 'AI Act · GDPR · Security', fr: 'AI Act · RGPD · Sécurité' },
-    lead: { en: 'Trust Center, classified risk, audit logs, sovereign architecture when needed.', fr: "Trust Center, risque classifié, journaux d'audit, architecture souveraine si besoin." },
+    lead: { en: 'Classified risk, audit logs, sovereign architecture when needed.', fr: "Risque classifié, journaux d'audit, architecture souveraine si besoin." },
     items: [
-      { en: 'Trust Center', fr: 'Trust Center' },
       { en: 'AI Act classification', fr: 'Classification AI Act' },
       { en: 'GDPR · RGPD · LPD', fr: 'RGPD · LPD' },
       { en: 'Audit logs & data sovereignty', fr: 'Journaux & souveraineté données' },
     ],
-    href: '/agence/trust-center',
+    href: '/offres/conseil',
   },
 ];
 

@@ -400,8 +400,8 @@ const AGENCE: MegaMenuSection = {
   label: { fr: "L'Agence", en: 'The Agency' },
   parentHref: '/agence',
   lead: {
-    fr: 'Une équipe basée à Paris et Genève. Une méthode anti-théâtre. Un Trust Center qui détaille tout.',
-    en: 'A team based in Paris and Geneva. An anti-theatre method. A Trust Center that details everything.',
+    fr: 'Une équipe basée à Paris et Genève. Une méthode anti-théâtre, des livrables signés.',
+    en: 'A team based in Paris and Geneva. An anti-theatre method, with signed deliverables.',
   },
   columns: [
     {
@@ -431,10 +431,6 @@ const AGENCE: MegaMenuSection = {
           featured: true,
         },
         {
-          label: { fr: 'Carrières', en: 'Careers' },
-          href: '/agence/careers',
-        },
-        {
           label: { fr: 'Simon Beros · CV Founder', en: 'Simon Beros · Founder CV' },
           href: '/equipe/simon-beros',
           description: {
@@ -445,7 +441,7 @@ const AGENCE: MegaMenuSection = {
       ],
     },
     {
-      kicker: { fr: 'MANIFESTE & DÉMOS', en: 'MANIFESTO & DEMOS' },
+      kicker: { fr: 'MANIFESTE', en: 'MANIFESTO' },
       title: { fr: 'Notre vision en action', en: 'Our vision in action' },
       links: [
         {
@@ -457,57 +453,11 @@ const AGENCE: MegaMenuSection = {
           },
           featured: true,
         },
-        {
-          label: { fr: 'Console', en: 'Console' },
-          href: '/console',
-          description: {
-            fr: "L'IA Waimia en démonstration, en direct.",
-            en: 'Waimia AI in a live demonstration.',
-          },
-        },
-        {
-          label: { fr: 'Atlas', en: 'Atlas' },
-          href: '/atlas',
-          description: {
-            fr: 'La cartographie de nos quatre piliers.',
-            en: 'The cartography of our four pillars.',
-          },
-        },
       ],
       footer: {
         label: { fr: 'Ouvrir le design system →', en: 'Open the design system →' },
         href: '/agence/design-system',
       },
-    },
-    {
-      kicker: { fr: 'CONFIANCE', en: 'TRUST' },
-      title: { fr: 'Garanties & légal', en: 'Guarantees & legal' },
-      links: [
-        {
-          label: { fr: 'Trust Center', en: 'Trust Center' },
-          href: '/agence/trust-center',
-          description: {
-            fr: 'AI Act, RGPD, ISO : tous les contrôles en clair.',
-            en: 'AI Act, GDPR, ISO: all controls in plain text.',
-          },
-        },
-        {
-          label: { fr: 'Gouvernance', en: 'Governance' },
-          href: '/agence/governance',
-          description: {
-            fr: 'Comité ethics IA + whistleblowing.',
-            en: 'AI ethics committee + whistleblowing.',
-          },
-        },
-        {
-          label: { fr: 'Documentation', en: 'Documentation' },
-          href: '/agence/docs',
-          description: {
-            fr: 'Notre stack, nos intégrations, notre méthode.',
-            en: 'Our stack, integrations, and method.',
-          },
-        },
-      ],
     },
     {
       kicker: { fr: 'ÉCOSYSTÈME', en: 'ECOSYSTEM' },
