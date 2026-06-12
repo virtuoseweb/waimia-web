@@ -221,7 +221,7 @@ _(vide)_
   - Fichiers : routes `/en/*`, config i18n (laisser le mécanisme, retirer la génération EN).
   - Preuve GF-1 : sitemap = FR only (~28 URLs) + build vert + `astro check` 0 + 0 hreflang EN orphelin.
   - Dépend de : tous les lots de contenu ci-dessus (éviter de purger EN deux fois).
-- [ ] **P0.2-J — Purge collections mortes & fichiers parasites** (`state/01 §f-bis`).
+- [x] **P0.2-J — Purge collections mortes & fichiers parasites** (`state/01 §f-bis`). ✅ **RÉSOLU (no-op documenté, nuit 2026-06-12)** : triangulation GF-4 → cibles déjà supprimées (templates `ServiceDetail`/`Hub` en R0, pages parasites, collections nommées inexistantes) OU gardées exprès (`cas`/`secteurs` per `strategy/02`, schéma `courses` = asset réutilisable École). Détail : `night-sessions/2026-06-12.md`.
   - Objectif : purger collections 0-entrée (`produits`, `abonnements`, `landingPages`, `welcomePages`,
     `newsletter`) + 43 MDX dormants (`brandVoice`/`painPoints`/`knowledgeBase`/`proofPoints`/`guarantees`) ;
     supprimer `src/pages/test-composable.astro` + `archive.astro` ; supprimer templates code-mort
