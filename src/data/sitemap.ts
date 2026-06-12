@@ -64,9 +64,6 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       kicker: { en: 'BY SECTOR', fr: 'PAR SECTEUR' },
       label: { en: 'Adapted to your industry', fr: 'Adapté à votre métier' },
       items: [
-        { href: '/secteurs/services-b2b', label: { en: 'B2B Services', fr: 'Services B2B' }, lead: { en: 'Consulting, agencies, services firms.', fr: 'Cabinets, conseil, agences, prestataires.' } },
-        { href: '/secteurs/industrie', label: { en: 'Industry & manufacturing SMBs', fr: 'Industrie & PME industrielles' }, lead: { en: 'Connected ERP, maintenance, quality.', fr: 'ERP connecté, maintenance, qualité.' } },
-        { href: '/secteurs/finance-compta', label: { en: 'Finance & accounting firms', fr: 'Finance & cabinets comptables' }, lead: { en: 'Reconciliation, reporting, compliance.', fr: 'Réconciliation, reporting, conformité.' } },
         { href: '/secteurs', label: { en: 'All sectors →', fr: 'Tous les secteurs →' } },
       ],
     },
@@ -190,7 +187,6 @@ export const MM_TECH: MegaMenu = {
         { href: '/technologies/claude-models', label: { en: 'Claude models · Opus · Sonnet · Haiku', fr: 'Modèles Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.' } },
         { href: '/technologies/claude-code', label: { en: 'Claude Code & Managed Agents', fr: 'Claude Code & Managed Agents' } },
         { href: '/technologies/claude-surfaces', label: { en: 'Claude Cowork · Skills · MCP', fr: 'Claude Cowork · Skills · MCP' } },
-        { href: '/technologies/integrations-office', label: { en: 'Office · Chrome · Excel · PPT · Word · Slack', fr: 'Office · Chrome · Excel · PPT · Word · Slack' } },
       ],
     },
     {
@@ -198,10 +194,6 @@ export const MM_TECH: MegaMenu = {
       label: { en: 'Self-hosted', fr: 'Self-hosted' },
       items: [
         { href: '/technologies', label: { en: 'VirtuoseOS · sovereign agent runtime', fr: 'VirtuoseOS · runtime souverain' }, lead: { en: 'Our open agent OS · self-hosted, audit-ready.', fr: "Notre OS d'agents · auto-hébergé, traçable." }, featured: true },
-        { href: '/technologies/inference', label: { en: 'vLLM · Ollama · Prem AI', fr: 'vLLM · Ollama · Prem AI' } },
-        { href: '/technologies/open-source-models', label: { en: 'Qwen 3.5 · Llama 4 · DeepSeek V3.2 · GLM-5', fr: 'Qwen 3.5 · Llama 4 · DeepSeek V3.2 · GLM-5' } },
-        { href: '/technologies/rag-prive', label: { en: 'Private RAG · vector DBs', fr: 'RAG privé · vector DBs' } },
-        { href: '/technologies/fine-tuning', label: { en: 'Fine-tuning on private data', fr: 'Fine-tuning sur données privées' } },
       ],
     },
     {
@@ -210,8 +202,6 @@ export const MM_TECH: MegaMenu = {
       items: [
         { href: '/technologies', label: { en: 'Technologies hub · the full stack', fr: 'Hub Technologies · la stack complète' }, lead: { en: 'Anthropic · open-source · orchestration.', fr: "Anthropic · open-source · orchestration." }, featured: true },
         { href: '/technologies/frameworks', label: { en: 'LangGraph · CrewAI · AutoGen', fr: 'LangGraph · CrewAI · AutoGen' } },
-        { href: '/technologies/no-code', label: { en: 'Make · n8n · Zapier', fr: 'Make · n8n · Zapier' } },
-        { href: '/technologies/observability', label: { en: 'Observability · LangSmith · Helicone', fr: 'Observabilité · LangSmith · Helicone' } },
       ],
     },
   ],
