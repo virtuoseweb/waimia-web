@@ -35,7 +35,8 @@ const {
 
 const isInk = tone === 'ink';
 const borderColor = isInk ? 'rgba(var(--paper-rgb),.12)' : 'var(--hairline)';
-const lang_label = lang === 'fr' ? 'Bilingue FR · EN' : 'Bilingual EN · FR';
+// P0.2-I · lancement FR monolingue : claim bilingue retiré de la meta-bar.
+const lang_label = lang === 'fr' ? 'Édition française' : 'French edition';
 const kickerTone = isInk ? 'dim' : 'muted';
 ---
 <div

@@ -13,7 +13,11 @@ import { langFromPath, alternateHref, t, hasBilingualMirror, localizeHref } from
 
 const lang = langFromPath(Astro.url.pathname);
 const altHref = alternateHref(Astro.url.pathname, lang);
-const enMirror = hasBilingualMirror(Astro.url.pathname);
+// P0.2-I · lancement FR monolingue : le miroir /en n'est plus généré.
+// On force enMirror=false pour que le switcher FR/EN ne s'affiche jamais
+// (sinon il pointerait vers un /en/* en 404). Infra i18n conservée :
+// restaurer `hasBilingualMirror(Astro.url.pathname)` pour réactiver l'EN.
+const enMirror = false;
 const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
 
 // i18n · tous les liens de panel passent par la localisation (R3 fix) :
@@ -73,18 +77,14 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
 
     {/* Lang toggle + CTA + burger (mobile) */}
     <div class="hdr-end">
-      {(lang === 'en' || enMirror) ? (
+      {/* P0.2-I · lancement FR monolingue : switcher FR/EN retiré (le miroir /en
+          n'est plus généré). Réactiver le bloc ci-dessous + enMirror pour l'EN. */}
+      {enMirror && (
         <a href={altHref} class="lang-toggle" aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}>
           <span class={lang === 'fr' ? 'on' : ''}>FR</span>
           <span class="sep">·</span>
           <span class={lang === 'en' ? 'on' : ''}>EN</span>
         </a>
-      ) : (
-        <span class="lang-toggle lang-toggle-disabled" aria-disabled="true" title="Version anglaise indisponible pour cette page">
-          <span class="on">FR</span>
-          <span class="sep">·</span>
-          <span>EN</span>
-        </span>
       )}
       <a href={ctaHref} class="cta" data-mag="0.18">
         {lang === 'fr' ? 'Réserver un audit' : 'Book an audit'}
@@ -217,14 +217,11 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     ))}
   </nav>
   <div class="m-sheet-end">
-    {(lang === 'en' || enMirror) ? (
+    {/* P0.2-I · lancement FR monolingue : lien English retiré du menu mobile. */}
+    {enMirror && (
       <a href={altHref} class="btn btn-ghost">
         {lang === 'fr' ? 'English →' : 'Français →'}
       </a>
-    ) : (
-      <span class="btn btn-ghost lang-toggle-disabled" aria-disabled="true" title="Version anglaise indisponible pour cette page">
-        English →
-      </span>
     )}
     <a href={ctaHref} class="btn btn-primary">
       {lang === 'fr' ? 'Réserver un audit →' : 'Book an audit →'}
