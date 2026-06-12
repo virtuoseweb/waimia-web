@@ -64,6 +64,8 @@ const FR_ONLY_STATIC = new Set([
   '/glossaire', '/secteurs', '/secteurs/finance-compta',
   '/secteurs/industrie', '/secteurs/services-b2b',
   '/equipe', '/archive', '/ecole', '/commerce',
+  // Pages légales FR-only (droit français, pas de miroir /en/) — même cas que trust-center.
+  '/mentions-legales', '/cgv', '/politique-confidentialite',
 ]);
 
 // Préfixes de routes FR-only (contenu dynamique sans équivalent EN).

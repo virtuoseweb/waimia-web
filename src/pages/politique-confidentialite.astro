@@ -1,0 +1,137 @@
+---
+// Page · /politique-confidentialite · Politique de confidentialité
+export const prerender = true;
+
+// Composé de · TrustLegalTemplate (TOC sticky + sections RGPD)
+// Sections empilées via slot `sections`.
+
+import TrustLegalTemplate from '../components/templates/TrustLegalTemplate.astro';
+import Bi from '../components/ui/atoms/Bi.astro';
+import Callout from '../components/editorial/Callout.astro';
+
+const sections = [
+  { id: 'responsable',       title_fr: 'Responsable du traitement',            title_en: 'Data controller' },
+  { id: 'donnees-collectees', title_fr: 'Données collectées',                   title_en: 'Data collected' },
+  { id: 'finalites',         title_fr: 'Finalités du traitement',              title_en: 'Processing purposes' },
+  { id: 'bases-legales',     title_fr: 'Bases légales',                        title_en: 'Legal bases' },
+  { id: 'cookies',           title_fr: 'Cookies et traceurs',                  title_en: 'Cookies and trackers' },
+  { id: 'conservation',      title_fr: 'Durée de conservation',                title_en: 'Retention period' },
+  { id: 'destinataires',     title_fr: 'Destinataires des données',            title_en: 'Data recipients' },
+  { id: 'droits',            title_fr: 'Vos droits',                           title_en: 'Your rights' },
+  { id: 'contact',           title_fr: 'Contact',                              title_en: 'Contact' },
+];
+---
+<TrustLegalTemplate
+  title="Politique de confidentialité · Waimia"
+  description="Politique de confidentialité et de protection des données personnelles du site waimia.com, conforme au RGPD."
+  kickerFr="Politique de confidentialité"
+  kickerEn="Privacy policy"
+  revisedAt="2026-06-12"
+  version="v1.0"
+  sections={sections}
+>
+  <Fragment slot="headline">
+    <i>Politique de </i><br />confidentialité.
+  </Fragment>
+  <Fragment slot="lede">
+    Comment vos données personnelles sont collectées, utilisées et protégées.
+  </Fragment>
+
+  <Fragment slot="sections">
+    <section id="responsable">
+      <h2><Bi fr="Responsable du traitement" en="Data controller" /></h2>
+      <p><Bi
+        fr="Le responsable de traitement des données personnelles collectées via le site waimia.com est VirtuoseWeb, entreprise individuelle exploitée par Simon Beros. Toute demande relative à vos données peut être adressée à notre référent données."
+        en="The controller of personal data collected through the waimia.com website is VirtuoseWeb, a sole proprietorship operated by Simon Beros. Any request regarding your data may be sent to our data referent."
+      /></p>
+      <ul>
+        <li><Bi fr="Contact général :" en="General contact:" /> <a href="mailto:bonjour@waimia.fr">bonjour@waimia.fr</a></li>
+        <li><Bi fr="Référent données :" en="Data referent:" /> <a href="mailto:dpo@waimia.com">dpo@waimia.com</a></li>
+      </ul>
+    </section>
+
+    <section id="donnees-collectees">
+      <h2><Bi fr="Données collectées" en="Data collected" /></h2>
+      <h3><Bi fr="Via les formulaires" en="Through forms" /></h3>
+      <ul>
+        <li><Bi fr="Nom, prénom et adresse e-mail." en="Last name, first name and email address." /></li>
+        <li><Bi fr="Numéro de téléphone (facultatif)." en="Phone number (optional)." /></li>
+        <li><Bi fr="Informations sur l'entreprise et description du projet." en="Company information and project description." /></li>
+      </ul>
+      <h3><Bi fr="Collectées automatiquement" en="Collected automatically" /></h3>
+      <ul>
+        <li><Bi fr="Adresse IP (anonymisée)." en="IP address (anonymized)." /></li>
+        <li><Bi fr="Navigateur et système d'exploitation." en="Browser and operating system." /></li>
+        <li><Bi fr="Pages visitées et durée de consultation." en="Pages visited and time spent." /></li>
+        <li><Bi fr="Source de trafic." en="Traffic source." /></li>
+      </ul>
+    </section>
+
+    <section id="finalites">
+      <h2><Bi fr="Finalités du traitement" en="Processing purposes" /></h2>
+      <ul>
+        <li><Bi fr="Répondre aux demandes adressées via le site." en="Respond to requests submitted through the site." /></li>
+        <li><Bi fr="Adresser des communications commerciales (avec consentement)." en="Send commercial communications (with consent)." /></li>
+        <li><Bi fr="Améliorer l'expérience utilisateur." en="Improve the user experience." /></li>
+        <li><Bi fr="Analyser la fréquentation (statistiques anonymisées)." en="Analyze site traffic (anonymized statistics)." /></li>
+      </ul>
+    </section>
+
+    <section id="bases-legales">
+      <h2><Bi fr="Bases légales" en="Legal bases" /></h2>
+      <ul>
+        <li><Bi fr="Consentement (communications commerciales, cookies non essentiels)." en="Consent (commercial communications, non-essential cookies)." /></li>
+        <li><Bi fr="Intérêt légitime (analyses de fréquentation)." en="Legitimate interest (traffic analytics)." /></li>
+        <li><Bi fr="Exécution contractuelle (devis et prestations)." en="Contract performance (quotes and services)." /></li>
+      </ul>
+    </section>
+
+    <section id="cookies">
+      <h2><Bi fr="Cookies et traceurs" en="Cookies and trackers" /></h2>
+      <p><Bi
+        fr="Le site utilise des cookies essentiels (gestion de la session et des préférences) ainsi que des cookies analytiques déposés avec votre consentement, dont les données sont anonymisées. Vous pouvez gérer vos préférences directement depuis votre navigateur ou sur demande auprès de notre référent données."
+        en="The site uses essential cookies (session and preference management) as well as analytics cookies placed with your consent, whose data is anonymized. You may manage your preferences directly from your browser or on request to our data referent."
+      /></p>
+    </section>
+
+    <section id="conservation">
+      <h2><Bi fr="Durée de conservation" en="Retention period" /></h2>
+      <ul>
+        <li><Bi fr="Données de contact : 3 ans." en="Contact data: 3 years." /></li>
+        <li><Bi fr="Données analytiques : 26 mois." en="Analytics data: 26 months." /></li>
+        <li><Bi fr="Cookies : 13 mois." en="Cookies: 13 months." /></li>
+      </ul>
+    </section>
+
+    <section id="destinataires">
+      <h2><Bi fr="Destinataires des données" en="Data recipients" /></h2>
+      <p><Bi
+        fr="Vos données ne sont pas vendues à des tiers. Elles peuvent être partagées avec nos sous-traitants techniques et, le cas échéant, avec les autorités compétentes lorsque la loi l'impose."
+        en="Your data is not sold to third parties. It may be shared with our technical subprocessors and, where applicable, with the competent authorities when required by law."
+      /></p>
+    </section>
+
+    <section id="droits">
+      <h2><Bi fr="Vos droits" en="Your rights" /></h2>
+      <p><Bi
+        fr="Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition sur vos données personnelles."
+        en="In accordance with the GDPR and the French Data Protection Act, you have the rights of access, rectification, erasure, restriction, portability and objection regarding your personal data."
+      /></p>
+      <Callout variant="info"><p><Bi
+        fr="Pour exercer ces droits, contactez"
+        en="To exercise these rights, contact"
+      /> <a href="mailto:dpo@waimia.com">dpo@waimia.com</a>. <Bi
+        fr="Le délai de réponse est de 30 jours. Vous pouvez également introduire une réclamation auprès de la CNIL :"
+        en="The response time is 30 days. You may also lodge a complaint with the CNIL:"
+      /> <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p></Callout>
+    </section>
+
+    <section id="contact">
+      <h2><Bi fr="Contact" en="Contact" /></h2>
+      <p><Bi
+        fr="Pour toute question relative à la présente politique ou au traitement de vos données personnelles, vous pouvez nous écrire à"
+        en="For any question regarding this policy or the processing of your personal data, you may write to us at"
+      /> <a href="mailto:bonjour@waimia.fr">bonjour@waimia.fr</a> <Bi fr="ou à" en="or at" /> <a href="mailto:dpo@waimia.com">dpo@waimia.com</a>.</p>
+    </section>
+  </Fragment>
+</TrustLegalTemplate>
