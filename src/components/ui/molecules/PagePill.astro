@@ -1,14 +1,12 @@
 ---
-// DirectionSwitcher · barre flottante bottom-left · 4 directions de la homepage
+// DirectionSwitcher · barre flottante bottom-left · 2 directions de la homepage
 // Refonte v3 · pattern Slots Astro :
-//   — Astro rend les 4 boutons + état actif en HTML pur (indexable LLM, fonctionne sans JS)
+//   — Astro rend les boutons + état actif en HTML pur (indexable LLM, fonctionne sans JS)
 //   — PagePillIsland (React, client:visible) ne gère que .is-visible (apparition au scroll)
 //
-// Les 4 directions :
+// Les 2 directions (Console/Atlas retirés P0.2-D : pages démos supprimées) :
 //   A · Apparatus = /            (manifeste linéaire 5 actes · current home)
 //   B · Manifesto = /manifesto   (LiquidHero canvas + asymmetric services · DirectionB legacy)
-//   C · Console   = /console     (terminal hero + ProductReel sticky · DirectionC legacy)
-//   ✦ Atlas       = /atlas       (cartographie 4 piliers + persona switcher · ma proposition)
 
 import PagePillIsland from './PagePillIsland.tsx';
 import { langFromPath, localizeHref } from '../../../lib/i18n';
@@ -23,10 +21,8 @@ function isActive(p: string) {
 }
 
 const directions = [
-  { k: 'A', label: 'Apparatus', href: localizeHref('/', lang),         active: isActive('/') && !isActive('/manifesto') && !isActive('/console') && !isActive('/atlas') },
+  { k: 'A', label: 'Apparatus', href: localizeHref('/', lang),         active: isActive('/') && !isActive('/manifesto') },
   { k: 'B', label: 'Manifesto', href: localizeHref('/manifesto', lang), active: isActive('/manifesto') },
-  { k: 'C', label: 'Console',   href: localizeHref('/console', lang),   active: isActive('/console') },
-  { k: '✦', label: 'Atlas',     href: localizeHref('/atlas', lang),     active: isActive('/atlas') },
 ];
 ---
 <PagePillIsland client:visible>

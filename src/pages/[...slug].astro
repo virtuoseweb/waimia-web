@@ -36,7 +36,8 @@ export function getStaticPaths() {
   const routes = [
     // Hubs sans page spécifique, référencés par breadcrumbs/nav/404
     // ('agence' retiré : page composable réelle src/pages/agence/index.astro + /en/agence)
-    'trust',
+    // ('trust' retiré P0.2-D : stub Trust Center à fausses certifs ISO/SOC, risque légal ;
+    //  plus aucun href entrant après purge des démos agence)
     // Détail offres (← hubs technologies, page DS EN, MDX revops)
     'offres/audit-process-intelligence', 'offres/mcp-connectors', 'offres/agents-metiers',
     // Technologies (← pages DS, preview operating-layer, lang-switch claude-models ;
@@ -120,14 +121,6 @@ const TITLES: Record<string, { kicker: { fr: string; en: string }; title: { fr: 
     body: {
       fr: "Audit IA en 5 jours. Premier agent en production en 4 semaines. Réponse sous 4 h en jours ouvrés.",
       en: 'AI audit in 5 days. First agent in production in 4 weeks. Reply under 4 h on business days.',
-    },
-  },
-  trust: {
-    kicker: { fr: '§ Trust Center', en: '§ Trust Center' },
-    title: { fr: "Conformité par défaut. Souveraineté à la carte.", en: 'Compliance by default. Sovereignty on demand.' },
-    body: {
-      fr: "AI Act · RGPD · LPD · ISO 27001 aligné. Liste complète des contrôles, mentions légales, gestion cookies.",
-      en: 'AI Act · GDPR · LPD · ISO 27001 aligned. Full controls list, terms, cookie management.',
     },
   },
   careers: {

@@ -97,7 +97,7 @@ const articleLd = buildArticle({
           <PillCTA href={flh('/contact', lang)} variant="accent" mag={0.18}>
             {lang === 'fr' ? 'Prendre RDV →' : 'Book a session →'}
           </PillCTA>
-          <PillCTA href={flh('/console', lang)} variant="ghost-dark">
+          <PillCTA href={flh('/technologies', lang)} variant="ghost-dark">
             {lang === 'fr' ? 'La plateforme' : 'The platform'}
           </PillCTA>
         </div>
@@ -187,7 +187,7 @@ const articleLd = buildArticle({
   {/* MANIFESTO ACCENT · réutilisé */}
   <ManifestoAccent />
 
-  {/* ACTE III · CTA simplifié vers /console pour la console XL */}
+  {/* ACTE III · CTA vers /technologies (VirtuoseOS · plateforme) */}
   <section style="padding:clamp(64px,8vw,112px) clamp(20px,4vw,48px);background:var(--ink);color:var(--paper);text-align:center">
     <div class="signature-grid on-dark"></div>
     <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1">
@@ -206,8 +206,8 @@ const articleLd = buildArticle({
           ? <>La plateforme interne qui orchestre marketing, sales, contenu, web, CRM, analytics et marque. Multi-workspace · multi-agents · documentée · transmissible. Construite pour livrer chez vous, déployée chez nous, <i style="font-style:italic;color:var(--accent)">propriétaire à vie</i> dans votre stack.</>
           : <>The internal platform orchestrating marketing, sales, content, web, CRM, analytics and brand. Multi-workspace · multi-agent · documented · transferable. Built to ship with you, deployed by us, <i style="font-style:italic;color:var(--accent)">owned for life</i> in your stack.</>}
       </p>
-      <PillCTA href={flh('/console', lang)} variant="accent-mono" mag={0.18}>
-        ▸ {lang === 'fr' ? 'Voir la console' : 'Discover the platform'}
+      <PillCTA href={flh('/technologies', lang)} variant="accent-mono" mag={0.18}>
+        ▸ {lang === 'fr' ? 'Voir la plateforme' : 'Discover the platform'}
       </PillCTA>
     </div>
   </section>
