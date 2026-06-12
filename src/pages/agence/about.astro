@@ -7,14 +7,14 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
 import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
 ---
 <UtilityTemplate
-  title="L'Agence · Pourquoi Waimia · Architectes de systèmes agentiques"
-  description="Une agence IA boutique, francophone, fondée entre Paris et Genève. On livre des agents qui exécutent, pas des présentations qui tournent en comité."
-  kicker="§ L'Agence"
+  title="Le Studio · Pourquoi Waimia · Architecte de systèmes agentiques"
+  description="Un studio IA solo, francophone, basé à Montpellier. On livre des agents qui exécutent, pas des présentations qui tournent en comité."
+  kicker="§ Le Studio"
   align="left"
-  headlineFr="Une agence IA boutique. <i>Francophone</i>, par choix."
-  headlineEn="A boutique AI agency. <i>Bilingual</i>, by choice."
-  ledeFr="Pas de chaîne offshore. Une équipe courte qui livre du code le mardi et mesure le pipeline le vendredi."
-  ledeEn="No offshore chain. No PowerPoint model. A lean team that ships code on Tuesdays and reads the pipeline on Fridays."
+  headlineFr="Un studio IA solo. <i>Francophone</i>, par choix."
+  headlineEn="A solo AI studio. <i>Bilingual</i>, by choice."
+  ledeFr="Pas de chaîne offshore. Un praticien qui livre du code le mardi et lit le pipeline le vendredi."
+  ledeEn="No offshore chain. No PowerPoint model. A practitioner who ships code on Tuesdays and reads the pipeline on Fridays."
 >
   <Fragment slot="body">
     <div class="about-grid reveal-stagger">
@@ -23,9 +23,9 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
       <article class="about-prose">
 
         <Kicker tone="" class="about-kicker">§ 01 · Origine</Kicker>
-        <h2>Une agence née d'une <i>frustration</i> de chantier.</h2>
-        <p>Waimia est née en 2024 d'une observation répétée&nbsp;: la plupart des projets IA livrent des démos, pas des produits. Un POC passe en comité, brille en showroom, puis cale en juin.</p>
-        <p>Notre angle est l'inverse. On <i>livre</i>. On signe. On reste joignables si l'agent tombe. On apprend en faisant, pas en réunissant des comités.</p>
+        <h2>Un studio né d'une <i>frustration</i> de chantier.</h2>
+        <p>Waimia part d'une observation répétée&nbsp;: la plupart des projets IA livrent des démos, pas des produits. Un POC passe en comité, brille en showroom, puis cale en juin.</p>
+        <p>L'angle du studio est l'inverse. On <i>livre</i>. On signe. On reste joignable si l'agent tombe. On apprend en faisant, pas en réunissant des comités.</p>
 
         {/* §02 · Stance : refus en grille à puces serif accent (idiome /agence cells) */}
         <Kicker tone="" class="about-kicker">§ 02 · Stance</Kicker>
@@ -63,9 +63,9 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
           </li>
         </ol>
 
-        <Kicker tone="" class="about-kicker">§ 04 · Équipe</Kicker>
-        <h2>Des <i>humains</i> derrière chaque mission.</h2>
-        <p>Dix personnes, toutes seniors, toutes nommées. Simon Beros pilote l'architecture. Chaque client connaît son interlocuteur direct, pas un account manager rotatif.</p>
+        <Kicker tone="" class="about-kicker">§ 04 · L'interlocuteur</Kicker>
+        <h2>Un <i>humain</i> derrière chaque mission.</h2>
+        <p>Simon Beros câble et pilote chaque mission lui-même. Pas d'account manager rotatif, pas d'agence relai&nbsp;: vous parlez directement à celui qui livre. Quand la charge l'exige, le studio s'appuie sur un réseau de partenaires de confiance, nommés au cas par cas.</p>
 
       </article>
 
@@ -74,29 +74,28 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
 
         <Kicker class="about-aside-k">Faits clés</Kicker>
         <dl class="about-facts">
-          <div><dt>Fondée</dt><dd>2024 · Paris</dd></div>
-          <div><dt>Fondateur</dt><dd>Simon Beros (CEO)</dd></div>
-          <div><dt>Bureaux</dt><dd>Paris (FR) · Genève (CH)</dd></div>
-          <div><dt>Équipe</dt><dd>10 personnes · 100 % seniors</dd></div>
-          <div><dt>Clients</dt><dd>SaaS B2B · Fintech UE · Industrie · Santé</dd></div>
+          <div><dt>Forme</dt><dd>Studio solo · Waimia / VirtuoseWeb</dd></div>
+          <div><dt>Fondateur</dt><dd>Simon Beros</dd></div>
+          <div><dt>Ancrage</dt><dd>Montpellier (FR) · à distance partout</dd></div>
+          <div><dt>Interlocuteur</dt><dd>Direct · celui qui câble est celui qui livre</dd></div>
+          <div><dt>Périmètre</dt><dd>PME &amp; ETI · acquisition, CRM, productivité</dd></div>
           <div><dt>Partenariats</dt><dd>Anthropic · Activateur France Num</dd></div>
-          <div><dt>Volumes 2025</dt><dd>43 missions · €18M+ pipeline audité</dd></div>
           <div><dt>Langues</dt><dd>Français + anglais (parité stricte)</dd></div>
         </dl>
 
         {/* Stats massifs */}
-        <div class="about-stats" aria-label="Chiffres clés">
+        <div class="about-stats" aria-label="Repères">
           <div class="about-stat">
-            <span class="about-stat-n">43</span>
-            <span class="about-stat-l">missions actives</span>
+            <span class="about-stat-n">5 j</span>
+            <span class="about-stat-l">du brief à la première mesure</span>
           </div>
           <div class="about-stat">
-            <span class="about-stat-n">€18M+</span>
-            <span class="about-stat-l">pipeline audité</span>
+            <span class="about-stat-n">4 sem</span>
+            <span class="about-stat-l">premier agent en production</span>
           </div>
           <div class="about-stat">
-            <span class="about-stat-n">100%</span>
-            <span class="about-stat-l">profils seniors</span>
+            <span class="about-stat-n">1</span>
+            <span class="about-stat-l">interlocuteur, pas un comité</span>
           </div>
         </div>
 

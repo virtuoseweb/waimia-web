@@ -175,7 +175,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     details: [
       { label_fr: 'Email', label_en: 'Email', value: 'hello@waimia.com', href: 'mailto:hello@waimia.com' },
       { label_fr: 'Réponse', label_en: 'Response', value: 'Sous 24h ouvrées' },
-      { label_fr: 'Base', label_en: 'Based in', value: 'Paris · à distance partout' },
+      { label_fr: 'Base', label_en: 'Based in', value: 'Montpellier · à distance partout' },
     ],
   },
   'booking-embed': {

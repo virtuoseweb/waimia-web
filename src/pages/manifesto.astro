@@ -33,9 +33,9 @@ const lang = langFromPath(Astro.url.pathname);
 
 // V7 stats alignées doctrine Waimia · cohérent avec ProofBar home (HERO_METRICS)
 const STATS = [
-  { n:'+12h',  text: { en: 'saved per team / week across acquisition, CRM, content and reporting.',     fr: 'économisées par équipe / semaine sur acquisition, CRM, contenu et reporting.' } },
-  { n:'23',    text: { en: 'workflows wired on average across marketing, sales, content and brand.',     fr: 'workflows câblés en moyenne sur marketing, sales, contenu et marque.' } },
-  { n:'3,4×',  text: { en: 'measured ROI at 12 months · scope, stack, team maturity dependent.',         fr: 'ROI mesuré à 12 mois · selon périmètre, stack et maturité d’équipe.' } },
+  { n:'5 j',   text: { en: 'from brief to first measurement across acquisition, CRM, content and reporting.', fr: 'du brief à la première mesure sur acquisition, CRM, contenu et reporting.' } },
+  { n:'4 sem', text: { en: 'to ship the first agent in production, not a demo.',                              fr: 'pour livrer le premier agent en production, pas une démo.' } },
+  { n:'1',     text: { en: 'direct contact · the person who wires it is the person who ships it.',           fr: 'interlocuteur direct · celui qui câble est celui qui livre.' } },
 ];
 
 const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
@@ -63,7 +63,7 @@ const articleLd = buildArticle({
       {/* top meta */}
       <div class="b-hero-meta">
         <Kicker as="span" class="b-hero-dim">Waimia · Manifeste 02</Kicker>
-        <Kicker as="span" class="b-hero-dim">Paris · 2026</Kicker>
+        <Kicker as="span" class="b-hero-dim">Montpellier · 2026</Kicker>
         <Kicker as="span" class="b-hero-dim"><span style="color:var(--accent)">◉</span> Booking T3</Kicker>
       </div>
 

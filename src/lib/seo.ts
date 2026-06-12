@@ -14,12 +14,13 @@ export function organization() {
     name: ORG_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/og/logo.svg`,
-    description: "Agence IA experte de l'écosystème Claude. Architectes de systèmes agentiques.",
-    foundingDate: '2024',
-    address: [
-      { '@type': 'PostalAddress', addressLocality: 'Paris',  addressCountry: 'FR' },
-      { '@type': 'PostalAddress', addressLocality: 'Genève', addressCountry: 'CH' },
-    ],
+    description: "Studio IA expert de l'écosystème Claude. Architecte de systèmes agentiques pour PME.",
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Montpellier',
+      addressRegion: 'Occitanie',
+      addressCountry: 'FR',
+    },
     sameAs: [
       'https://www.linkedin.com/company/waimia',
       'https://x.com/waimia_ai',
