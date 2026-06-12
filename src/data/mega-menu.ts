@@ -532,14 +532,6 @@ const AGENCE: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Microsoft Power Platform', en: 'Microsoft Power Platform' },
-          href: '/technologies/microsoft-power-platform',
-          description: {
-            fr: 'Power BI, Power Apps, Power Automate, Copilot.',
-            en: 'Power BI, Power Apps, Power Automate, Copilot.',
-          },
-        },
-        {
           label: { fr: 'VirtuoseOS', en: 'VirtuoseOS' },
           href: '/technologies/virtuoseos',
           description: {
