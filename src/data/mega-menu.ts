@@ -400,8 +400,8 @@ const AGENCE: MegaMenuSection = {
   label: { fr: "L'Agence", en: 'The Agency' },
   parentHref: '/agence',
   lead: {
-    fr: 'Une équipe basée à Paris et Genève. Une méthode anti-théâtre, des livrables signés.',
-    en: 'A team based in Paris and Geneva. An anti-theatre method, with signed deliverables.',
+    fr: 'Un studio solo basé à Montpellier. Une méthode anti-théâtre, des livrables signés.',
+    en: 'A solo studio based in Montpellier. An anti-theatre method, with signed deliverables.',
   },
   columns: [
     {
@@ -494,13 +494,13 @@ const AGENCE: MegaMenuSection = {
   ],
   featured: {
     kicker: { fr: 'ANCRAGE', en: 'LOCATION' },
-    label: { fr: 'Paris · Genève', en: 'Paris · Geneva' },
+    label: { fr: 'Montpellier · France', en: 'Montpellier · France' },
     body: {
-      fr: 'Deux bureaux. Une seule méthode. Parité française et helvétique.',
-      en: 'Two offices. One method. French and Swiss parity.',
+      fr: 'Un studio solo. Une seule méthode. Interlocuteur direct, pas un comité.',
+      en: 'A solo studio. One method. A direct contact, not a committee.',
     },
-    cta: { fr: 'Voir les bureaux →', en: 'See the offices →' },
-    href: '/agence/about#bureaux',
+    cta: { fr: 'Découvrir le studio →', en: 'Discover the studio →' },
+    href: '/agence/about',
   },
 };
 

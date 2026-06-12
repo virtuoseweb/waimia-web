@@ -28,9 +28,9 @@ import { langFromPath, t as ft, localizeHref as flh } from '../../lib/i18n';
 const lang = langFromPath(Astro.url.pathname);
 
 const STATS = [
-  { n:'43',  text: { en: 'tools in the average RevOps stack.',                      fr: 'outils dans la stack RevOps moyenne.' } },
-  { n:'< 9', text: { en: 'touch the same customer record.',                         fr: 'touchent le même enregistrement client.' } },
-  { n:'× 4', text: { en: 'success rate for agents shipped in 6 weeks vs 6 months.', fr: 'de réussite pour les agents livrés en 6 semaines vs 6 mois.' } },
+  { n:'5 j',   text: { en: 'from brief to first measurement across acquisition, CRM, content and reporting.', fr: 'du brief à la première mesure sur acquisition, CRM, contenu et reporting.' } },
+  { n:'4 sem', text: { en: 'to ship the first agent in production, not a demo.',                              fr: 'pour livrer le premier agent en production, pas une démo.' } },
+  { n:'1',     text: { en: 'direct contact · the person who wires it is the person who ships it.',           fr: 'interlocuteur direct · celui qui câble est celui qui livre.' } },
 ];
 
 const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
@@ -48,7 +48,7 @@ const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
       {/* top meta */}
       <div class="b-hero-meta">
         <Kicker as="span" class="b-hero-dim">Waimia · Manifeste 02</Kicker>
-        <Kicker as="span" class="b-hero-dim">Paris · 2026</Kicker>
+        <Kicker as="span" class="b-hero-dim">Montpellier · 2026</Kicker>
         <Kicker as="span" class="b-hero-dim"><span style="color:var(--accent)">◉</span> Booking T3</Kicker>
       </div>
 
