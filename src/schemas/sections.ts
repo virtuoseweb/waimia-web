@@ -3603,7 +3603,28 @@ export type SectionData = (typeof sectionSchema)['_output'];
  * })
  * ```
  */
-export const sectionsArraySchema = z.array(sectionSchema).default([]);
+/**
+ * Ancre optionnelle par section : chaque element du tableau peut porter, EN PLUS de
+ * sa variante discriminee par `type`, un champ `anchor` (slug kebab-case) qui produit
+ * un point d'ancrage scrollable `id` au rendu (cf SectionsRenderer.astro).
+ *
+ * On utilise `z.intersection(sectionSchema, ...)` plutot que d'ajouter `anchor` aux 151
+ * variantes : l'intersection PRESERVE la discrimination par `type` ET conserve `anchor`
+ * en sortie (Zod strip les cles inconnues par defaut, donc un simple `anchor:` serait
+ * silencieusement supprime sans ce wrapper). Verifie empiriquement (anchor survit, type
+ * preserve, slug invalide rejete).
+ */
+const sectionWithAnchorSchema = z.intersection(
+  sectionSchema,
+  z.object({
+    anchor: z
+      .string()
+      .regex(/^[a-z0-9-]+$/, 'anchor doit etre un slug kebab-case (a-z, 0-9, tirets)')
+      .optional(),
+  }),
+);
+
+export const sectionsArraySchema = z.array(sectionWithAnchorSchema).default([]);
 
 /* ─── Type helpers ─── */
 
