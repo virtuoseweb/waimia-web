@@ -138,8 +138,8 @@ export const MM_CASES_NEW: MegaMenu = {
   label: { en: 'Case studies', fr: 'Cas clients' },
   href: '/cas',
   lead: {
-    en: 'Pipelines reconnected, qualification automated, operations streamlined. Measured ROI, not promised.',
-    fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesurés, pas promis.',
+    en: 'Pipelines reconnected, qualification automated, operations streamlined. ROI measured on your data, never invented.',
+    fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesuré sur vos données, jamais inventé.',
   },
   cols: [
     {
@@ -236,9 +236,9 @@ export const MM_RESOURCES: MegaMenu = {
   cols: [
     {
       kicker: { en: 'PROOF', fr: 'PREUVES' },
-      label: { en: 'Case files & testimonials', fr: 'Cas & témoignages' },
+      label: { en: 'Cases & internal blueprint', fr: 'Cas & blueprint interne' },
       items: [
-        { href: '/cas', label: { en: 'Case studies · measured ROI', fr: 'Études de cas · ROI mesuré' } },
+        { href: '/cas', label: { en: 'Case studies · in preparation', fr: 'Études de cas · en préparation' } },
         { href: '/ressources/cas/virtuoseos', label: { en: 'VirtuoseOS · blueprint case', fr: 'VirtuoseOS · cas blueprint' }, featured: true },
         { href: '/ressources/changelog', label: { en: 'Changelog · Claude versions', fr: 'Changelog · versions Claude' }, lead: { en: 'Anthropic product releases watch.', fr: 'Veille produit Anthropic releases.' } },
       ],
@@ -488,7 +488,7 @@ export const HERO_METRICS = [
   { k: '01', n: '5 jours', label: { en: 'to audit and pinpoint the lever', fr: 'pour auditer et cibler le levier' } },
   { k: '02', n: '4 sem.', label: { en: 'to a first workflow in production', fr: 'jusqu’au premier workflow en production' } },
   { k: '03', n: '1', label: { en: 'single point of contact, end to end', fr: 'interlocuteur unique, de bout en bout' } },
-  { k: '04', n: 'Mesuré', label: { en: 'ROI measured, never estimated', fr: 'ROI mesuré, jamais estimé' } },
+  { k: '04', n: 'Mesuré', label: { en: 'ROI measured on your data, never invented', fr: 'ROI mesuré sur vos données, jamais inventé' } },
 ];
 
 export const PYRAMID_TIERS = [
@@ -535,15 +535,17 @@ export const DEPARTMENTS_GRID = [
   { slug: 'support-client-ia', label: { en: 'Customer Support', fr: 'Support client' }, tag: { en: 'Triage · resolution · escalation', fr: 'Triage · résolution · escalade' } },
 ];
 
-// Honnêteté : pas de cas clients inventés ni de métriques fabriquées. On décrit
-// des TYPES de chantiers (vérifiables comme méthode), sans nom de client ni
-// chiffre de résultat non sourcé. Les liens pointent vers /cas (études à venir),
-// jamais vers une fiche de cas fictive. Featured = le blueprint interne (réel).
+// Honnêteté (vague 2) : studio solo, 0 client réel, 0 cas livré. Ce ne sont donc PAS
+// des dossiers/preuves de livraisons clientes mais les DOMAINES D'INTERVENTION où Waimia
+// câble des systèmes, avec le type d'engagement (durée de déploiement, stack). Aucun nom de
+// client, aucun résultat client chiffré. `impact` = ce que le chantier VISE à câbler, pas un
+// résultat mesuré existant. Les liens pointent vers /cas (premiers cas en cours de rédaction).
+// Featured = le blueprint interne VirtuoseOS (réel, projet propre).
 export const CASE_FEED = [
-  { slug: '', client: 'Acquisition B2B', sector: { en: 'B2B SaaS', fr: 'SaaS B2B' }, duration: '10 sem', stack: 'Claude · HubSpot · dbt', impact: { en: 'Pipeline reconnected, qualification automated', fr: 'Pipeline reconnecté, qualification automatisée' } },
-  { slug: '', client: 'Conseil & cabinets', sector: { en: 'Strategy consulting', fr: 'Conseil en stratégie' }, duration: '8 sem', stack: 'Claude · Notion MCP', impact: { en: 'Proposals and follow-ups automated', fr: 'Proposals et relances automatisés' } },
-  { slug: '', client: 'Gestion & finance', sector: { en: 'Asset management', fr: "Gestion d'actifs" }, duration: '5 j', stack: 'Claude · Notion MCP · Excel', impact: { en: 'Monthly close streamlined, reporting wired', fr: 'Clôture allégée, reporting câblé' } },
-  { slug: '', client: 'Industrie & PME', sector: { en: 'Manufacturing', fr: 'Industrie manufacturière' }, duration: '2 j', stack: 'Claude · revue documentaire · entretiens', impact: { en: 'Bottlenecks surfaced, action plan delivered', fr: 'Goulots identifiés, plan d’action livré' } },
+  { slug: '', client: 'Acquisition B2B', sector: { en: 'B2B SaaS', fr: 'SaaS B2B' }, duration: '10 sem', stack: 'Claude · HubSpot · dbt', impact: { en: 'Reconnect the pipeline, automate qualification', fr: 'Reconnecter le pipeline, automatiser la qualification' } },
+  { slug: '', client: 'Conseil & cabinets', sector: { en: 'Strategy consulting', fr: 'Conseil en stratégie' }, duration: '8 sem', stack: 'Claude · Notion MCP', impact: { en: 'Automate proposals and follow-ups', fr: 'Automatiser proposals et relances' } },
+  { slug: '', client: 'Gestion & finance', sector: { en: 'Asset management', fr: "Gestion d'actifs" }, duration: '5 j', stack: 'Claude · Notion MCP · Excel', impact: { en: 'Streamline the monthly close, wire reporting', fr: 'Alléger la clôture, câbler le reporting' } },
+  { slug: '', client: 'Industrie & PME', sector: { en: 'Manufacturing', fr: 'Industrie manufacturière' }, duration: '2 j', stack: 'Claude · revue documentaire · entretiens', impact: { en: 'Surface bottlenecks, deliver an action plan', fr: 'Identifier les goulots, livrer un plan d’action' } },
   { slug: '', client: 'VirtuoseOS', sector: { en: 'Internal blueprint', fr: 'Blueprint interne' }, duration: 'ongoing', stack: 'Claude · open-source · multi-agent', impact: { en: 'The operating system under every delivery', fr: 'Le système opérationnel sous chaque livraison' }, featured: true },
 ];
 

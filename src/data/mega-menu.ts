@@ -153,8 +153,8 @@ const RESSOURCES: MegaMenuSection = {
           label: { fr: 'Cas clients', en: 'Case studies' },
           href: '/secteurs',
           description: {
-            fr: 'Résultats mesurés en clair.',
-            en: 'Measured results in the clear.',
+            fr: 'Premiers cas en cours de rédaction.',
+            en: 'First cases in preparation.',
           },
         },
       ],
@@ -347,8 +347,8 @@ const CAS: MegaMenuSection = {
   parentHref: '/secteurs',
   matchPrefixes: ['/cas'],
   lead: {
-    fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesurés, pas promis.',
-    en: 'Pipelines reconnected, qualification automated, operations streamlined. Measured ROI, not promised.',
+    fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesuré sur vos données, jamais inventé.',
+    en: 'Pipelines reconnected, qualification automated, operations streamlined. ROI measured on your data, never invented.',
   },
   columns: [
     {
