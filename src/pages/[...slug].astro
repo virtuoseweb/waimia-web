@@ -47,11 +47,10 @@ export function getStaticPaths() {
     // Ressources EN (← nav des pages EN réelles ; FR masqués par pages/redirects)
     'ressources/cas', 'ressources/blog', 'ressources/cookbooks',
   ];
-  // Génère les versions FR et EN
-  return routes.flatMap((r) => [
-    { params: { slug: r } },
-    { params: { slug: `en/${r}` } },
-  ]);
+  // P0.2-I · lancement FR monolingue : on ne génère plus les stubs `en/*`
+  // (le miroir /en n'est plus produit). Réactiver `{ slug: \`en/${r}\` }`
+  // pour regénérer les variantes EN.
+  return routes.map((r) => ({ params: { slug: r } }));
 }
 
 const { slug } = Astro.params;

@@ -93,6 +93,13 @@ const FR_ONLY_PATH_SEGMENTS = ['/tunnel/'];
  * Utilisé pour n'émettre `hreflang="en-US"` que sur les pages effectivement traduites.
  */
 export function hasBilingualMirror(pathname: string): boolean {
+  // P0.2-I · lancement FR monolingue : le miroir /en n'est plus généré.
+  // On force `false` → plus de hreflang="en-US" émis (Base.astro) ni de
+  // switcher de langue (Header.astro) pointant vers un /en/* en 404.
+  // Infra i18n conservée : retirer ce court-circuit pour réactiver l'EN
+  // (la logique data-driven FR_ONLY/EN_ONLY ci-dessous reste valide).
+  return false;
+  /* eslint-disable no-unreachable */
   // Pages EN-only (servies sous /en/* sans miroir FR) → pas de hreflang fr-FR (404).
   if (EN_ONLY_PREFIXES.some((p) => pathname.startsWith(p))) return false;
   if (FR_ONLY_STATIC.has(pathname)) return false;

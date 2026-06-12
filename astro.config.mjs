@@ -66,7 +66,7 @@ export default defineConfig({
     // entrant, en doublon d'intention avec la vraie page /agence/careers) →
     // redirect canonique pour préserver l'URL indexée.
     '/careers': '/agence/careers',
-    '/en/careers': '/en/agence/careers',
+    // P0.2-I · /en/careers retiré (miroir /en non généré en FR monolingue).
     // V-F1 2026-06-11 · docs/40 §2 (plan 301, item 3) : /archive (index legacy) supprimé.
     '/archive': '/',
     // /agence/hero-lab restauré 2026-06-11 (lab de comparaison des heros du catalogue) :
@@ -95,7 +95,9 @@ export default defineConfig({
     mdx(),
     tina(),
     sitemap({
-      i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR', en: 'en-US' } },
+      // P0.2-I · lancement FR monolingue : sitemap FR only (plus de miroir /en).
+      // Réactiver `en: 'en-US'` ici quand le miroir EN sera regénéré.
+      i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR' } },
       // Filtre sitemap.xml :
       //  · /bienvenue/* : thank-you pages post-conversion (déjà noindex sur la page,
       //    pas de raison qu'elles soient crawlables/indexées)
