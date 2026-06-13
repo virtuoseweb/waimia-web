@@ -282,6 +282,7 @@ _(vide)_
 
 **Phase B — hub Acquérir + 3 pages service**
 - [ ] **P0.3-a — Hub pilier Acquérir `/acquerir`** + redirect `301 /offres/growth-system-ia → /acquerir`.
+  - 🟢 PAGE FAITE (commit d26a8b5, GF-1 : build Complete! + `/acquerir` généré indexable + H1 opacity1 + 3 liens `/services/*` cliquables DOM + ancres seo-geo/publicite/agent-marketing + screenshot). ⏭️ RESTE : 301 `growth-system-ia`→`/acquerir` + retrait ancienne page de `offres` + lien depuis méga-menu (= vague bascule P0.5-a, après revue Simon). Case `[x]` quand le 301 + la bascule sont posés.
   - Objectif : recomposer `growth-system-ia.mdx` (déjà composable) en hub : vision système marketing IA + présentation des 3 services + sections ancrées `#site-web-ia`, `#content-marketing`, `#tunnel-conversion`. Maillage vers `/services/*`.
   - Fichiers : `src/content/offres/growth-system-ia.mdx` (→ route `/acquerir`), config redirect.
   - Preuve GF-1 : screenshot above-fold + ancres scroll OK + `/offres/growth-system-ia` → 301 + build vert.
