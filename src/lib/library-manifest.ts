@@ -106,7 +106,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'testimonial-metrics',          consumers: [] },
   // <<< [sections-gap] end
   // ── Live (34) ───────────────────────────────────────────────────────────────
-  { id: 'hero-offer-detail',     consumers: ['src/components/templates/OffresDetailTemplate.astro'] },
+  { id: 'hero-offer-detail',     consumers: [] }, // P0.3-h : OffresDetailTemplate (legacy mort) supprimé → catalogue-only (section live via 7 MDX offres composables)
   { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetailTemplate.astro'] },
   { id: 'hero-service-detail',   consumers: [] }, // R6 purge : ServiceDetailTemplate supprimé en R0 (revops full-composable) → catalogue-only
   { id: 'hero-case-study',       consumers: ['src/components/templates/CaseStudyTemplate.astro'] },
