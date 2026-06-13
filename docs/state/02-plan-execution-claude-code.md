@@ -269,7 +269,8 @@ _(vide)_
   - Fichiers : `src/components/templates/OffresDetailTemplate.astro`, `src/pages/[...slug].astro`, `library-manifest.ts`.
   - Preuve GF-1 : build vert + les 3 URLs renvoient 404 + 0 import résiduel (`grep`).
   - Dépend de : mapping `state/06` (état template confirmé).
-- [ ] **P0.3-i — Propager `seo.noindex` vers `<Base>` dans `[...slug].astro`** (bug remonté par P0.3-b).
+- [x] **P0.3-i — Propager `seo.noindex` vers `<Base>` dans `[...slug].astro`** (bug remonté par P0.3-b). <!-- sb commit=26e7fc0 gf1=y note=offres+solutions+technologies-noindex-meta-robots-verifie-dist -->
+  - FAIT : offres/solutions/technologies `[...slug].astro` propagent `data.seo?.noindex`. `Base.astro` honorait déjà la prop. secteurs/cas filtrent déjà noindex dans `getStaticPaths` (non concernés).
   - Objectif : la route composable `src/pages/offres/[...slug].astro` ne passe pas `data.seo.noindex` à `<Base noindex>` → meta robots reste `index, follow` malgré `seo.noindex: true`. **Bloquant pour les landings `/lp/<slug>`** (ADR-003, doivent être noindex). Vérifier aussi les autres routes composables (`secteurs`, `solutions`).
   - Preuve GF-1 : build vert + page noindex → `<meta name="robots" content="noindex">` présent dans le HTML généré (`grep` dist).
   - Dépend de : —
@@ -602,14 +603,14 @@ _(vide)_
 ### Tâches finies
 - [x] **P2.5 — Passe typo transverse** <!-- sb commit=5d975da gf1=y note=heros-headers-5composants-override-scope-rebascule-font-sans+veto-masthead-respecte --> : héros/headers serif-full → base `--font-sans`, accent serif sur emphase de quelques mots (cause réelle : règles scopées des composants écrasaient le global, pas `global.css`). 5 composants (HeroCentered, HeroHubStats, HeroSplit, ProblemStatement, FitColumnsSection), 0 nouveau token. Vetos respectés : HeroHome `/`, masthead `/solutions`. GF-1 : getComputedStyle Inter Tight base + Instrument Serif accent, opacity 1.
 ### Tâches en attente
-- [ ] **P2.5-b — Reliquat hero-landing : raccourcir l'accent serif à un mot** (data-driven).
+- [x] **P2.5-b — Reliquat hero-landing : raccourcir l'accent serif à un mot** (data-driven). <!-- sb commit=cf302b9 gf1=y note=h1-hero-landing-accent-dernier-mot-dormez-sleep-rendu-dist -->
   - Objectif : la démo `hero-landing` enveloppe une clause entière (`pendant que vous dormez.`) dans `<em>` → accent serif sur toute la proposition. Raccourcir à un mot/segment dans `section-demos.ts` (`h1_fr`/`h1_en`). Idem auditer les autres titres data-driven.
   - Preuve GF-1 : screenshot hero-landing + accent serif sur 1 mot.
   - Dépend de : —
 
 ## Chantier P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13
 ### Tâches finies
-_(vide)_
+- [x] **P2.6-a — Fix overflow `hero-offer-detail` + habillage des médias (audit #2/#3)** <!-- sb commit=53ed1c3 gf1=y note=overflow-text-wrap-balance-H1-entier+placeholders-motif-radial-tokens-existants --> : overflow H1 `white-space:nowrap` → `text-wrap:balance` (`.hero-detail__title` partagée, H1 entier) ; placeholders média gris (`hero-split`, `feature-tabs`, `feature-zigzag`) habillés (motif diagonal + radial accent, pattern `feature-split-media`, tokens existants + variantes ink). 0 nouveau token/asset. GF-1 : screenshots `_current/v2-*` + getComputedStyle.
 ### Tâches en attente
 - [ ] **P2.6 — W1 typo / W3 recomposition templates secteurs+offres / W4 images stylisées** + re-critique
   it.13 post-deploy (= T-5). Te poser : quelles sections paraissent pauvres/monotones (cards « Construire ») ? Preuve GF-1.
