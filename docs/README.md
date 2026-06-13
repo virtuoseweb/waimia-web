@@ -86,7 +86,7 @@ docs/
 ├── directives/  (3)       01 typo · 02 dark · 03 awwwards (LIVE court)
 ├── state/       (7)       01 chantiers · 02 plan-execution-claude-code (BACKLOG MAÎTRE, phases P0→P4) · 03 critique · 04 brand-review · 05 design-refonte (détail PHASE P2) · RESUME-CLAUDE-CODE · prochain-chantier (LIVE volatile)
 ├── audits/      (2)       01 template-registry-migration · 02 token-coherence (RÉFÉRENCE)
-├── specs/       (2)       01 ecosystem-partners · 02 adr-architecture-site (ADR)
+├── specs/       (3)       01 ecosystem-partners · 02 adr-architecture-site (ADR-002) · 03 adr-ouverture-silo-acquerir (ADR-003, ouvre Acquérir en silo)
 ├── archive/               périmé / superseded (32 docs archivés : cartography, audits consommés, DS périmés…)
 ├── session-reports/       journaux de session horodatés (SR-*)
 ├── cartography/           (vidé → archive) · audit-refonte/ · visual-audit/ (mémoire visuelle, cf son README)

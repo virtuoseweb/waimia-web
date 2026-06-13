@@ -1,6 +1,8 @@
 # ADR-002 — Architecture du site : un silo SEO/GEO + trois piliers vitrine légers
 
-- **Statut** : Accepté
+> ⚠️ **Amendé par `ADR-003` (2026-06-13)** : le pilier **Acquérir (Growth System IA)** est ouvert en silo développé (pages de service réelles + landings). Piloter et Opérer restent régis par CET ADR (vitrine légère, jamais référencés offensivement). Lire `specs/03-adr-ouverture-silo-acquerir.md` pour l'état courant du pilier Acquérir.
+
+- **Statut** : Accepté (partiellement amendé par ADR-003 pour le seul pilier Acquérir)
 - **Date** : 2026-06-12
 - **Décideur** : Simon (Waimia, solo) + arbitrage expert
 - **Portée** : architecture d'information, arborescence, stratégie SEO/GEO, structure du funnel consulting
