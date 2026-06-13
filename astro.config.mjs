@@ -128,13 +128,15 @@ export default defineConfig({
           // Commerce détail (/commerce/product|subscription/*) : CTA Stripe placeholder
           // (liens test_/portail fictif) → pages noindex défensif tant que le checkout
           // réel n'est pas branché. Hors sitemap pour cohérence noindex↔crawl.
-          !page.includes('/commerce/')
+          !page.includes('/commerce/') &&
+          // Landing pages (/lp/*) : noindex par défaut (ADR-003) → hors sitemap.
+          !page.includes('/lp/')
         );
       },
     }),
     robotsTxt({
       policy: [
-        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/ds-studio', '/agence/hero-lab', '/preview/', '/components/', '/categories/'] },
+        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/ds-studio', '/agence/hero-lab', '/preview/', '/components/', '/categories/', '/lp/'] },
         { userAgent: 'GPTBot', allow: '/' },
         { userAgent: 'ClaudeBot', allow: '/' },
         { userAgent: 'anthropic-ai', allow: '/' },

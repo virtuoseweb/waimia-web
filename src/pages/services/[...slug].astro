@@ -1,0 +1,45 @@
+---
+export const prerender = true;
+
+// Page SSG · /services/[slug] · rendu 100 % composable (registry) · ADR-003.
+// MDX sans `sections:` = erreur de build volontaire (anti-orphelin).
+
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import { buildService } from '../../lib/seo/schema-builder';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('services');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const title = lang === 'en' ? data.title_en: data.title_fr;
+const description = lang === 'en' ? data.description_en: data.description_fr;
+
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error(`services/${entry.id} : frontmatter \`sections:\` requis (page service composable, anti-orphelin)`);
+}
+
+const serviceLd = buildService({ name: title, description });
+---
+
+<Base title={title} description={description} jsonLd={[serviceLd]} noindex={data.seo?.noindex}>
+  <Breadcrumb
+    lang={lang}
+    items={[
+      { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+      { label: 'Services', href: lang === 'fr' ? '/services' : '/en/services' },
+      { label: title.split(' · ')[0] },
+    ]}
+  />
+  <SectionsRenderer sections={data.sections!} lang={lang} />
+</Base>

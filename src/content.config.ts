@@ -367,6 +367,26 @@ const solutions = defineCollection({
   }),
 });
 
+// ─── Services (ADR-003) · pages de service composables ───
+const services = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/services' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
+// ─── Landing pages (ADR-003) · /lp/<slug> · noindex par défaut ───
+const lp = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/lp' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
 // ─── Technologies (étendu V2) ───
 const technologies = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/technologies' }),
@@ -1038,4 +1058,7 @@ export const collections = {
   integrations,
   // Tier 5 + Tier 6 pre-hook batch 8 (2026-05-16)
   comparisons,
+  // ADR-003 (2026-06-13) : services + landings
+  services,
+  lp,
 };
