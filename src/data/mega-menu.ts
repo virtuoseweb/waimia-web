@@ -195,7 +195,7 @@ const SOLUTIONS: MegaMenuSection = {
       links: [
         {
           label: { fr: 'Site web IA', en: 'Website AI' },
-          href: '/offres/site-web-ia',
+          href: '/services/site-web-intelligent',
           description: { fr: 'Site Astro + IA · vitrine + acquisition.', en: 'Astro + AI site · showcase + acquisition.' },
         },
         {

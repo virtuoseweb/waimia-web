@@ -2,7 +2,7 @@
 // Consolidation de l'existant, 0 invention : les 5 entrées proviennent de src/content/guarantees/*.mdx
 // (ids repris tels quels, MDX archivés dans docs/archive/content/guarantees/). Même pattern que
 // pain-points.ts / proof-points.ts (R7a) : typé, ids stables kebab-case.
-// Consommateurs cibles : landing site-web-ia (slot garanties, docs/40 §4.1) + tunnel step 4 (§4.2).
+// Consommateurs cibles : tunnel step 4 (§4.2) + futur tunnel conversion Phase C.
 // `sources` = chemins de contenu (collection/slug) d'origine, conservés comme trace de provenance.
 // Validé par scripts/check-content-refs.mjs (ids stables kebab-case).
 

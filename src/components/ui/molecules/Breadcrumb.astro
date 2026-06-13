@@ -17,7 +17,7 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
       const isCurrent = i === items.length - 1;
       return (
       <li>
-        {!isCurrent && c.href ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}
+        {isCurrent ? <span aria-current="page">{c.label}</span> : c.href ? <a href={c.href}>{c.label}</a> : <span>{c.label}</span>}
         {i < items.length - 1 && <span class="sep" aria-hidden>/</span>}
       </li>
       );

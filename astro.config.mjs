@@ -80,11 +80,6 @@ export default defineConfig({
     // V-F1 2026-06-11 · pointait vers /archive (supprimé) : re-ciblé directement
     // vers la destination finale pour éviter une chaîne de 301.
     '/ressources/cas/virtuoseos': { status: 301, destination: '/' },
-    // W4 2026-05-15 · Tunnel site-web-ia : anciennes URLs → nouvelle architecture collection
-    '/offres/site-web-ia-tunnel': '/offres/site-web-ia/tunnel/1',
-    '/offres/site-web-ia-tunnel/mecanique': '/offres/site-web-ia/tunnel/2',
-    '/offres/site-web-ia-tunnel/preuves': '/offres/site-web-ia/tunnel/3',
-    '/offres/site-web-ia-tunnel/conversion': '/offres/site-web-ia/tunnel/4',
     // SEO cleanup 2026-06-07 · vestiges de migration blog (migrated-*) dé-indexés
     // (seo.noindex) → redirigés vers l'URL canonique pour résorber le duplicate content.
     '/ressources/blog/migrated-veille-gpt-4o-vision-update': '/ressources/veille-ia/gpt-4o-vision-update',

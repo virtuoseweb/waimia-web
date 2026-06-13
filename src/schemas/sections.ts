@@ -252,7 +252,7 @@ export const heroHomeSchema = z.object({
   offer_href: z.string().optional(),
 });
 
-// Hero · landing magnétique (offres/site-web-ia-landing) · eyebrow + h1 italic + 2 CTA + dispo
+// Hero · landing magnétique · eyebrow + h1 italic + 2 CTA + dispo
 export const heroLandingSchema = z.object({
   type: z.literal('hero-landing'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),

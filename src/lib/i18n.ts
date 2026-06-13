@@ -41,8 +41,8 @@ export const HREFLANG: Record<Lang, string> = { fr: 'fr-FR', en: 'en-US' };
 const FR_ONLY_STATIC = new Set([
   // /offres/conseil retiré 2026-06-10 (R3 nav) : la page EN /en/offres/conseil
   // existe (200) — l'entrée FR-only était périmée (faussait hreflang + localisation nav).
-  '/offres/revops', '/offres/site-web-ia',
-  '/offres/site-web-ia-landing', '/offres/audit-maturite-ia',
+  '/offres/revops',
+  '/offres/audit-maturite-ia',
   // DS Studio / Hero Lab : outils internes FR-only (pas de miroir /en/agence/ds-studio
   // ni /en/agence/hero-lab → sinon le switcher de langue du Header pointait vers un 404,
   // SR-42 §3). Déclarés FR-only → le toggle s'affiche désactivé (comme les autres pages

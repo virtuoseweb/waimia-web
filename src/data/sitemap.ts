@@ -100,7 +100,7 @@ export const MM_OFFRES_NEW: MegaMenu = {
         { href: '/offres/growth-system-ia', label: { en: 'AI Growth System', fr: 'Growth System IA' }, lead: { en: 'Automated acquisition and conversion system. Site, CRM, follow-ups, dashboards: all connected.', fr: "Système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux : tout connecté." }, featured: true },
         { href: '/offres/growth-intelligence', label: { en: 'Growth Intelligence', fr: 'Growth Intelligence' }, lead: { en: 'Real-time intelligence and data clarity for faster decisions.', fr: 'Pilotage temps réel et lisibilité des données pour décider plus vite.' } },
         { href: '/offres/productivite-operationnelle-ia', label: { en: 'Operational AI', fr: 'Productivité Opérationnelle IA' }, lead: { en: 'Repetitive tasks automated, internal workflows streamlined.', fr: 'Tâches répétitives automatisées, workflows internes fluidifiés.' } },
-        { href: '/offres/site-web-ia', label: { en: 'AI website', fr: 'Site web IA' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
+        { href: '/services/site-web-intelligent', label: { en: 'AI website', fr: 'Site web IA' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
         { href: '/offres/revops', label: { en: 'RevOps Rebuild', fr: 'RevOps Rebuild' }, lead: { en: 'CRM + warehouse + billing reconciled · 10 wks.', fr: 'CRM + entrepôt + billing réconciliés · 10 sem.' } },
       ],
     },
