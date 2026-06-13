@@ -108,10 +108,18 @@ Le rendu est **composable** (frontmatter MDX `sections: [...]` → `SectionsRend
 
 ---
 
-## §7 — Points d'URL à confirmer (non bloquants)
+## §7 — Schéma d'URL (résolu, 2026-06-13)
 
-1. **URL des piliers** : verbe de marque (`/acquerir`, `/piloter`, `/operer`) recommandé pour la cohérence (les piliers ne sont pas des cibles SEO offensives, ADR-002), OU keyword (`/growth-system-ia`, `/business-intelligence`, `/operations-ia`). Recommandation : verbe de marque pour le hub + slug keyword pour les services.
-2. **Slugs services** : `site-web-ia`, `content-marketing-ia`, `tunnel-conversion-ia` (alignés sur le preview validé `/services/site-web-ia`).
-3. **Sort de l'actuelle `/offres/growth-system-ia`** : devient le hub pilier Acquérir (redirige ou se réécrit en place).
+Principe : les piliers portent la navigation et la marque, les pages service portent le SEO offensif (les keywords vivent dans les services + le cluster, pas dans le slug du hub). Le silo se construit par maillage interne (hub vers services vers cluster), pas par la profondeur du path.
 
-Ces points seront tranchés à l'ouverture de la Phase A avec le mapping `state/06` en main.
+| Élément | URL | Statut |
+|---|---|---|
+| Pilier Acquérir (hub) | `/acquerir` | retenu (verbe de marque) |
+| Pilier Piloter | `/piloter` | retenu |
+| Pilier Opérer | `/operer` | retenu |
+| Service Site web intelligent | `/services/site-web-ia` (+ `/lp/site-web-ia`) | retenu |
+| Service Content marketing | `/services/content-marketing-ia` (+ `/lp/...`) | retenu |
+| Service Tunnel de conversion | `/services/tunnel-conversion-ia` (+ `/lp/...`) | retenu |
+| Ancienne `/offres/growth-system-ia` | **301 vers `/acquerir`** | exception assumée à la règle 404-net |
+
+**Exception 301 justifiée** : `/offres/growth-system-ia` ne disparaît pas, elle se renomme en hub Acquérir. Un 301 sur une page qui se renomme est l'usage canonique d'une redirection permanente, pas une entorse à la règle 404-net (qui vise les pages supprimées : contenu fictif ou thin). C'est la seule URL du lot potentiellement déjà indexée ; on en préserve l'autorité éventuelle. Toutes les autres anciennes URLs (cf `state/06`) restent en **404 net**.

@@ -241,89 +241,115 @@ _(vide)_
 
 ---
 
-## Chantier P0.3 — Architecture en 3 piliers + silo (sections ancrées)
+## Chantier P0.3 — Silo Acquérir ouvert + piliers Piloter/Opérer (ADR-003)
 
-> Source : `strategy/02 §0bis` (FAIT FOI). **Anti-dilution** : 1 page pilier par famille avec
-> **sections ancrées (`id`)**, le méga-menu pointe les ancres. Réutiliser les **sections cataloguées**
-> (`SectionsRenderer` + frontmatter `sections:`), **jamais de markup inline** (anti-orphelin).
+> Source : **`specs/03-adr-ouverture-silo-acquerir.md` (ADR-003, FAIT FOI)** + mapping `state/06` + audit
+> `visual-audit/AUDIT-SECTIONS-SERVICE.md`. ADR-003 amende ADR-002 : **Acquérir (Growth System IA)**
+> s'ouvre en **silo de 3 pages service**, chacune en 2 surfaces (`/services/<slug>` SEO + `/lp/<slug>`
+> conversion). **Piloter** et **Opérer** restent vitrine légère (sections ancrées, silos non développés).
+> URLs : piliers en verbe (`/acquerir`, `/piloter`, `/operer`), services sous `/services/`, landings sous
+> `/lp/`. Tout en **composable** (`SectionsRenderer` + frontmatter `sections:`), **jamais de markup inline**
+> (anti-orphelin). DS figé : 0 nouveau token. SEO escalonné : Site web IA d'abord.
 
 ### Tâches finies
-- [x] **P0.3-pre — Infra ancres sections composables** : `SectionsRenderer` émet un `id` scrollable optionnel par section (`z.intersection` sur `sectionsArraySchema`, `scroll-margin-top`). Pré-requis de P0.3-a / P0.5-a. <!-- sb commit=38d290b gf1=y note=worker-886916e -->
+- [x] **P0.3-pre — Infra ancres sections composables** : `SectionsRenderer` émet un `id` scrollable optionnel par section (`z.intersection` sur `sectionsArraySchema`, `scroll-margin-top`). Pré-requis de P0.3-f/g + P0.5-a. <!-- sb commit=38d290b gf1=y note=worker-886916e -->
   - Preuve GF-1 : additif 0 régression (build Complete! + pages sans `anchor:` identiques + page test = 1 span + gates verts). Détail : `night-sessions/2026-06-12.md`.
 
 ### Tâches en attente
-- [ ] **P0.3-a — Pilier Growth System IA (Acquérir)** `/offres/growth-system-ia`.
-  - Objectif : page composable avec sections ancrées `#site-web-ia` (résumé + lien vers le silo),
-    `#seo-geo`, `#content-marketing`, `#publicite`, `#tunnel-de-vente`, `#agent-marketing`. Fusionner
-    le contenu utile des solutions Acquérir supprimées (P0.2-C).
-  - Fichiers : `src/content/offres/growth-system-ia.mdx` (frontmatter `sections:`), sections cataloguées
-    (`src/components/sections/*`), `section-demos.ts` si nouvelles données.
-  - Preuve GF-1 : screenshot preview above-fold + `getComputedStyle` (opacity≠0) + ancres résolvent
-    (`#seo-geo` etc. scroll OK) + build vert.
-  - Dépend de : P0.3 pré-requis (sections existantes cataloguées).
-- [ ] **P0.3-b — Pilier Data & Analytics (Piloter)** `/solutions/data-analytics`.
-  - Objectif : sections ancrées `#revops`, `#tableaux-de-bord`, `#reporting-ia`, `#donnees-centralisees`,
-    `#previsionnel-ia`, `#agent-analytique`. Indexé mais **sans cluster** (pas de mise SEO offensive).
-  - Fichiers : `src/content/solutions/data-analytics.mdx`, sections cataloguées.
+
+**Phase A — fondations (template + retrait legacy)**
+- [ ] **P0.3-b — Template page service refondu (séquence composable)**.
+  - Objectif : figer la séquence de slots validée par l'audit, en sections cataloguées : `hero-conversion-funnel → proof-bar → problems-grid + diagnostic-stages → method-timeline + workflow-table → deliverables-grid + feature-split-media → stats-bento/roi-band → comparison-duo → pricing-cards → faq-two-column → footer-cta-band`. Composable pur, réutilisable par les 3 pages service.
+  - Fichiers : sections cataloguées (`src/components/sections/*`), `section-demos.ts` si données.
+  - Preuve GF-1 : page test composée preview above-fold + `getComputedStyle` opacity≠0 + build vert.
+  - Dépend de : P0.3-pre.
+- [ ] **P0.3-h — Retrait `OffresDetailTemplate` (legacy mort) + ses 3 stubs → 404**.
+  - Objectif : supprimer le template orphelin (seul rendu = placeholder `[...slug].astro:164`), router ses 3 stubs (`offres/audit-process-intelligence`, `mcp-connectors`, `agents-metiers`) en 404.
+  - Fichiers : `src/components/templates/OffresDetailTemplate.astro`, `src/pages/[...slug].astro`, `library-manifest.ts`.
+  - Preuve GF-1 : build vert + les 3 URLs renvoient 404 + 0 import résiduel (`grep`).
+  - Dépend de : mapping `state/06` (état template confirmé).
+
+**Phase B — hub Acquérir + 3 pages service**
+- [ ] **P0.3-a — Hub pilier Acquérir `/acquerir`** + redirect `301 /offres/growth-system-ia → /acquerir`.
+  - Objectif : recomposer `growth-system-ia.mdx` (déjà composable) en hub : vision système marketing IA + présentation des 3 services + sections ancrées `#site-web-ia`, `#content-marketing`, `#tunnel-conversion`. Maillage vers `/services/*`.
+  - Fichiers : `src/content/offres/growth-system-ia.mdx` (→ route `/acquerir`), config redirect.
+  - Preuve GF-1 : screenshot above-fold + ancres scroll OK + `/offres/growth-system-ia` → 301 + build vert.
+  - Dépend de : P0.3-b, P0.5-a (mega-menu).
+- [ ] **P0.3-c — Page service Site web intelligent `/services/site-web-ia`** (+ `/lp/site-web-ia`).
+  - Objectif : page service SEO via template P0.3-b. Recycle `solutions/site-web-ia-pme.mdx` (corps PME) + `offres/site-web-ia*.astro` (tunnel/landing). C'est la page muscle-d'abord (cluster P1).
+  - Fichiers : `src/content/.../site-web-ia.mdx` (`sections:`), landing `/lp/`.
+  - Preuve GF-1 : screenshot above-fold service + landing + opacity≠0 + 1 CTA primaire + build vert.
+  - Dépend de : P0.3-b, P0.4-a (cannibalisation).
+- [ ] **P0.3-d — Page service Content marketing intelligent `/services/content-marketing-ia`** (+ `/lp/`).
+  - Objectif : **fusion** `solutions/content-marketing-ia.mdx` (canonique, 8 sections exploitables) + `solutions/contenu-seo-geo-ia.mdx` (volet SEO/GEO). Template P0.3-b.
+  - Fichiers : `src/content/.../content-marketing-ia.mdx`, landing `/lp/`.
+  - Preuve GF-1 : screenshot above-fold + opacity≠0 + build vert.
+  - Dépend de : P0.3-b.
+- [ ] **P0.3-e — Page service Tunnel de conversion `/services/tunnel-conversion-ia`** (+ `/lp/`).
+  - Objectif : recycle `solutions/tunnel-de-vente.mdx` (canonique) + `solutions/acquisition-ia.mdx` (chapô). Template P0.3-b. Quizz lead magnet = Phase C (P0.3-k).
+  - Fichiers : `src/content/.../tunnel-conversion-ia.mdx`, landing `/lp/`.
+  - Preuve GF-1 : screenshot above-fold + opacity≠0 + build vert.
+  - Dépend de : P0.3-b.
+
+**Phase B — piliers vitrine (silos non développés)**
+- [ ] **P0.3-f — Pilier Piloter `/piloter` (Business Intelligence)** — sections ancrées.
+  - Objectif : page vitrine ancrée `#revops`, `#tableaux-de-bord`, `#reporting-ia`, `#donnees-centralisees`, `#previsionnel-ia`, `#agent-analytique`. Indexée, sans cluster (non offensive, ADR-002). Nourrie par les solutions Piloter (cf `state/06` ancres).
+  - Fichiers : `src/content/.../piloter.mdx`, sections cataloguées.
   - Preuve GF-1 : screenshot above-fold + ancres OK + build vert.
-  - Dépend de : —
-- [ ] **P0.3-c — Pilier Automatisation & Agents IA (Opérer)** `/solutions/automatisation-agents-ia`.
-  - Objectif : sections ancrées `#crm-relances`, `#automatisation`, `#service-client`, `#admin-rh`,
-    `#legal`, `#agents-metiers`. **Nom à confirmer Simon** (`[?]`).
-  - Fichiers : `src/content/solutions/automatisation-agents-ia.mdx`, sections cataloguées.
+  - Dépend de : P0.3-pre.
+- [ ] **P0.3-g — Pilier Opérer `/operer` (Opérations IA)** — sections ancrées.
+  - Objectif : page vitrine ancrée `#crm-relances`, `#automatisation`, `#service-client`, `#admin-rh`, `#legal`, `#agents-metiers`. Quelques pages enfant métier possibles (différé). Non offensive.
+  - Fichiers : `src/content/.../operer.mdx`, sections cataloguées.
   - Preuve GF-1 : screenshot above-fold + ancres OK + build vert.
-  - Dépend de : —
-- [ ] **P0.3-d — Page silo `/offres/site-web-ia` (PILIER money page)** — câblage initial.
-  - Objectif : page composable selon **l'ordre canonique de sections** (`strategy/02 §5`) : Hero →
-    Douleur → Promesse → Preuve → Mécanisme → Différenciation → Offre/pricing → Maillage silo → FAQ → CTA.
-    (Enrichissement H1/keyword = P1 ; ici on pose le squelette composable.)
-  - Fichiers : `src/content/offres/site-web-ia.mdx` (`sections:`), sections cataloguées, FAQ schema.
-  - Preuve GF-1 : screenshot above-fold + ordre des sections conforme §5 + 1 seul CTA primaire + build vert.
-  - Dépend de : P0.4 (cannibalisation site-web-ia-pme/landing remontée ici).
+  - Dépend de : P0.3-pre.
+
+**Phase C — conversion (après fondations stables)**
+- [ ] **P0.3-k — Quizz lead magnet** (interactif, Q/R conditionnelles, routage vers l'offre par profil).
+  - Objectif : étude de marché + lead gen + routage. S'appuie sur collections `tunnels` + `outils` existantes. Branché sur les landings `/lp/`.
+  - Fichiers : `src/content/tunnels/*` ou `src/content/outils/*` (type `audit`), composant quizz.
+  - Preuve GF-1 (fonctionnelle) : flow E2E Playwright (réponses → routage correct) + persistance lead vérifiée + build vert.
+  - Dépend de : P0.3-c/d/e (services + landings en place).
 
 ---
 
-## Chantier P0.4 — Cannibalisation « site web IA » + maillage silo
+## Chantier P0.4 — Cannibalisation « site web IA » + maillage silo (ADR-003)
 
-> Source : `strategy/02 §2B,§5.8,§6.5`. 3 URL « site web IA » → 1 pilier.
+> Source : `strategy/02 §2B,§5.8,§6.5` + ADR-003. Les multiples URL « site web IA » convergent vers
+> **1 page service** `/services/site-web-ia` (+ sa landing `/lp/site-web-ia`). Maillage : hub `/acquerir`
+> vers les 3 pages service.
 
 ### Tâches finies
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.4-a — Remonter `site-web-ia-pme` (pains) + `site-web-ia-landing` dans le pilier**.
-  - Objectif : déplacer le contenu utile vers `/offres/site-web-ia`, puis supprimer les 2 sources
-    (élimine la cannibalisation, 1 seule money page).
-  - Fichiers : `src/content/offres/site-web-ia.mdx`, `src/content/solutions/site-web-ia-pme.*`, `src/content/offres/site-web-ia-landing.*`.
-  - Preuve GF-1 : `grep` 0 doublon « site web IA » indexé + build vert + le pilier contient les pains remontés.
-  - Dépend de : P0.3-d.
-- [ ] **P0.4-b — Maillage silo : section « Maillage » du pilier**.
-  - Objectif : liens vers les 5 enfants silo (`contenu-seo-geo-ia`, `content-marketing-ia`,
-    `tunnel-de-vente`, `publicite-en-ligne`, `agent-marketing-commercial`).
-  - Fichiers : `src/content/offres/site-web-ia.mdx`, sections cataloguées (maillage/grid).
+- [ ] **P0.4-a — Converger les sources « site web IA » vers `/services/site-web-ia`**.
+  - Objectif : remonter le contenu utile de `site-web-ia-pme` (pains PME) + `site-web-ia*.astro` (tunnel/landing) dans la page service, puis supprimer les sources (0 doublon indexé, 1 page service + 1 landing).
+  - Fichiers : `src/content/.../site-web-ia.mdx`, `src/content/solutions/site-web-ia-pme.*`, `src/pages/offres/site-web-ia*.astro`.
+  - Preuve GF-1 : `grep` 0 doublon « site web IA » indexé + build vert + la page service contient les pains remontés.
+  - Dépend de : P0.3-c.
+- [ ] **P0.4-b — Maillage silo : hub `/acquerir` → 3 services + inter-services**.
+  - Objectif : section maillage du hub vers `/services/{site-web-ia,content-marketing-ia,tunnel-conversion-ia}` + liens contextuels inter-services.
+  - Fichiers : `src/content/offres/growth-system-ia.mdx` (hub), sections cataloguées (maillage/grid).
   - Preuve GF-1 : `check-content-refs` vert + liens cliquables (screenshot) + build vert.
-  - Dépend de : P0.3-d, P0.2 (enfants silo conservés).
+  - Dépend de : P0.3-a, P0.3-c/d/e.
 
 ---
 
 ## Chantier P0.5 — Méga-menu & Footer resserrés (ancres + whitelist)
 
-> Source : `strategy/02 §6.3,§0bis`. Nav = Offres (Site web IA / Audit / Growth System) · Expertises
-> silo · Cas · Ressources · Agence · Contact. Méga-menu 3 colonnes (Acquérir/Piloter/Opérer) →
-> **liens d'ANCRES** vers les sections des piliers, **sauf « Site web IA »** → page silo dédiée.
+> Source : `strategy/02 §6.3,§0bis` + ADR-003. Méga-menu 3 colonnes (Acquérir/Piloter/Opérer). Colonne
+> **Acquérir** → hub `/acquerir` + liens directs vers les 3 **pages service** `/services/*` (silo ouvert).
+> Colonnes **Piloter** (`/piloter#...`) et **Opérer** (`/operer#...`) → **ancres** (silos non développés).
 
 ### Tâches finies
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.5-a — Recâbler `mega-menu.ts` sur les ancres des piliers**.
-  - Objectif : colonne Acquérir → ancres `growth-system-ia#...` (sauf Site web IA → `/offres/site-web-ia`) ;
-    Piloter → `data-analytics#...` ; Opérer → `automatisation-agents-ia#...`. Aucune entrée vers une
-    page `/solutions/<sous-service>` supprimée.
+- [ ] **P0.5-a — Recâbler `mega-menu.ts` sur l'arbo ADR-003**.
+  - Objectif : colonne Acquérir → `/acquerir` + 3 liens `/services/{site-web-ia,content-marketing-ia,tunnel-conversion-ia}` ; Piloter → `/piloter#...` ; Opérer → `/operer#...`. Aucune entrée vers une page `/solutions/<sous-service>` supprimée (cf `state/06` URLs → 404).
   - Fichiers : `src/data/mega-menu.ts`, `src/components/header/Header.astro`.
-  - Preuve GF-1 : screenshot méga-menu déployé + clic ancre → scroll vers la bonne section
-    (`getComputedStyle` cible visible) + `grep` 0 lien vers route supprimée.
-  - Dépend de : P0.3 (piliers + ancres existants).
+  - Preuve GF-1 : screenshot méga-menu déployé + liens service OK + clic ancre Piloter/Opérer → scroll bonne section (`getComputedStyle` visible) + `grep` 0 lien vers route supprimée.
+  - Dépend de : P0.3 (hub + services + piliers).
 - [ ] **P0.5-b — Footer resserré sur la whitelist** + retrait des routes « encore en Stub ».
   - Objectif : `Footer.astro` ne liste que les pages whitelist (`strategy/02 §1`) ; retirer le bloc
     « routes encore en Stub » (`Footer.astro:186-241`).
