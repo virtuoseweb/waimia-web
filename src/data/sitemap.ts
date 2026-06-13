@@ -205,13 +205,6 @@ export const MM_TECH: MegaMenu = {
       ],
     },
   ],
-  featured: {
-    kicker: { en: 'PARTNERSHIP', fr: 'PARTENARIAT' },
-    label: { en: 'Anthropic Partner', fr: 'Partenaire Anthropic' },
-    body: { en: 'Francophone expert track, Anthropic partner.', fr: 'Parcours expert francophone, partenaire Anthropic.' },
-    cta: { en: 'Our partnerships →', fr: 'Nos partenariats →' },
-    href: '/agence',
-  },
 };
 
 // ─── MEGA-MENU 4 · RESSOURCES
@@ -458,7 +451,6 @@ export type TrustBadge = { k: string; label: BiText; kind: 'partner' | 'cert' | 
 // Claude Certified Architect, AI Act ready, RGPD, ISO 27001 alignée = claims non prouvés).
 // Conservés : partenariats/labels publics vérifiables uniquement.
 export const TRUST_BADGES: TrustBadge[] = [
-  { k: 'ANTHROPIC', kind: 'partner', label: { en: 'Anthropic Partner', fr: 'Partenaire Anthropic' } },
   { k: 'FRANCENUM', kind: 'partner', label: { en: 'France Num · AI & digital expert', fr: 'Activateur France Num · expert IA' } },
 ];
 

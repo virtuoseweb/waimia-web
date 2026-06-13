@@ -360,7 +360,6 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     // Données de DÉMONSTRATION du catalogue (placeholders neutres).
     // P0.2-D : certifications/conformités réglementaires retirées (claims non détenus).
     badges: [
-      { label_fr: 'Partenaire Anthropic', label_en: 'Anthropic partner' },
       { label_fr: 'Activateur France Num', label_en: 'France Num activator' },
       { label_fr: 'Badge démo · A', label_en: 'Demo badge · A' },
       { label_fr: 'Badge démo · B', label_en: 'Demo badge · B' },
