@@ -263,7 +263,7 @@ _(vide)_
   - Fichiers : sections cataloguées (`src/components/sections/*`), `section-demos.ts` si données.
   - Preuve GF-1 : page test composée preview above-fold + `getComputedStyle` opacity≠0 + build vert.
   - Dépend de : P0.3-pre.
-- [ ] **P0.3-h — Retrait `OffresDetailTemplate` (legacy mort) + ses 3 stubs → 404**.
+- [x] **P0.3-h — Retrait `OffresDetailTemplate` (legacy mort) + ses 3 stubs → 404**. <!-- sb commit=e953287 gf1=y note=build-Complete+3stubs-absents-dist+0-import-residuel -->
   - Objectif : supprimer le template orphelin (seul rendu = placeholder `[...slug].astro:164`), router ses 3 stubs (`offres/audit-process-intelligence`, `mcp-connectors`, `agents-metiers`) en 404.
   - Fichiers : `src/components/templates/OffresDetailTemplate.astro`, `src/pages/[...slug].astro`, `library-manifest.ts`.
   - Preuve GF-1 : build vert + les 3 URLs renvoient 404 + 0 import résiduel (`grep`).
