@@ -234,6 +234,10 @@ _(vide)_
   - Fichiers : `src/content/*`, `src/pages/{test-composable,archive}.astro`, `src/components/templates/{ServiceDetail,Hub}Template.astro`, `src/content/config.ts`.
   - Preuve GF-1 : build vert + `astro check` 0 + `check-touchpoints` vert + `grep` 0 import des supprimés.
   - Dépend de : P0.2-A..I (s'assurer qu'aucune route ne les consomme plus).
+- [x] **P0.2-K — Sweep honnêteté data-roots & MDX (vague 1)** : retrait des faux cas clients + métriques-résultats fabriquées (~26 fichiers MDX, ~1740 lignes). <!-- sb commit=66ec505 gf1=y note=batches-dbdf7b8-8335d9f-db73f77 -->
+  - Preuve GF-1 : build Complete! cache-purgé + grep `case_kicker`/`mesuré` = 0 + gates verts + Playwright pages non-thin. Détail : `night-sessions/2026-06-12.md`.
+- [x] **P0.2-L — Sweep honnêteté data-roots (vague 2)** : `proof-points.ts` (26 métriques reframées), `sitemap.ts` (CASE_FEED → domaines), `mega-menu.ts` assainis (~11 fichiers). <!-- sb commit=4fdd6a4 gf1=y note=worker-a668ced -->
+  - Preuve GF-1 : build Complete! + 3 gates + grep HTML site-wide = 0 faux client + Playwright home/cas (h1 opacity 1, reframé « mesuré sur vos données »).
 
 ---
 
@@ -244,7 +248,8 @@ _(vide)_
 > (`SectionsRenderer` + frontmatter `sections:`), **jamais de markup inline** (anti-orphelin).
 
 ### Tâches finies
-_(vide)_
+- [x] **P0.3-pre — Infra ancres sections composables** : `SectionsRenderer` émet un `id` scrollable optionnel par section (`z.intersection` sur `sectionsArraySchema`, `scroll-margin-top`). Pré-requis de P0.3-a / P0.5-a. <!-- sb commit=38d290b gf1=y note=worker-886916e -->
+  - Preuve GF-1 : additif 0 régression (build Complete! + pages sans `anchor:` identiques + page test = 1 span + gates verts). Détail : `night-sessions/2026-06-12.md`.
 
 ### Tâches en attente
 - [ ] **P0.3-a — Pilier Growth System IA (Acquérir)** `/offres/growth-system-ia`.
