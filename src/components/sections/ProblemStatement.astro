@@ -44,11 +44,11 @@ const isFr = lang === 'fr';
     margin-bottom: var(--space-6);
   }
   .problem-statement__text {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: clamp(var(--text-h2-section), 4vw, var(--text-h2-grand));
     line-height: var(--leading-h2);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-medium);
     color: var(--ink);
     text-wrap: balance;
     max-width: 1100px;
@@ -62,7 +62,10 @@ const isFr = lang === 'fr';
   }
   .problem-statement__text :global(i),
   .problem-statement__text :global(em) {
+    font-family: var(--font-display);
     font-style: italic;
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-display);
     color: var(--accent);
   }
   .problem-statement__stats {

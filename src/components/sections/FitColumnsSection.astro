@@ -27,7 +27,7 @@ const noItems = isFr ? data.no_items_fr : data.no_items_en;
         <Bi fr={data.kicker_fr} en={data.kicker_en} />
       </Kicker>
     )}
-    <h2 class="fit-sec-h2" set:html={isFr ? data.heading_fr : data.heading_en} />
+    <h2 class="fit-sec-h2 u-serif-accent" set:html={isFr ? data.heading_fr : data.heading_en} />
     {hasIntro && (
       <div class="fit-sec-callout reveal">
         <Callout variant="info" size="sm">
