@@ -27,6 +27,7 @@ Les 9 sous-agents nommés NE peuvent PAS écrire ce même fichier en parallèle.
 
 ## Régime DS waimia-web — variables figées, catalogue ACTIF (directive Simon 2026-06-13)
 
+> **Source de vérité = `docs/design-system/03-library-strategy.md §9` + `07-health-audit.md`** (industrialisation/audit). Le tableau ci-dessous est un rappel APPLIQUÉ à cette page, pas une source concurrente — toute évolution du régime va dans `03`.
 > ⚠️ Distinction clé vs rule 28 (scopée Amploi `astro-tina-site-v1`, catalogue figé V1) : ici le catalogue est **en construction** (c'est l'objet même du travail de design de template, donc pas figé).
 
 | Action | Statut |

@@ -97,3 +97,29 @@ Fait technique décisif (sourcé context7 `/websites/tailwindcss`) : les variabl
 - Onboarding : « structurel = utilities, créatif = scoped » + lint densité d'arbitrary values.
 
 **Ordre d'exécution global (anti-dette, validé Simon)** : Phase 1 harmonisation profonde 100% (3 vérifs sévères + juge critique) → Phase 2 DS Studio builder → Phase 3 scale presets. La fondation `@theme inline` s'insère en début de Phase 2 (elle conditionne l'authoring Tailwind des presets, mais pas l'harmonisation des tokens qui est neutre vis-à-vis de Tailwind).
+
+---
+
+## 9. Addendum 2026-06-13 — clarifications Simon (ce doc = source de vérité unique)
+
+> **Source de vérité** : pour l'industrialisation catalogue + DS Studio, **CE doc** (`03`) = stratégie/vision ; `07-health-audit.md` = audit sourcé-code + backlog **A-G** + séquençage builder + spec manifest ; `audits/02-token-coherence.md` = audit cohérence tokens. **Pas d'autre doc** (un doublon `strategy/07` créé par erreur le 2026-06-13 a été supprimé — toute mise à jour future va ICI, on ne génère pas une nouvelle étude).
+
+### 9.1 « Réutilisé souvent » ≠ « correct » (réflexion de fond)
+Une valeur réutilisée 30× n'est pas validée par son nombre d'usages : elle peut avoir **divergé dès le départ** et s'être propagée = **une erreur répliquée 30 fois**. L'anti-éparpillement doit interroger les **fondations** (cette valeur/classe a-t-elle un objectif distinct et juste ?), pas compter les occurrences. Preuves déjà documentées de divergence répliquée : le fallback `var(--paper-2, #EFEBE2)` **faux** dans 9 fichiers alors que le token réel est `#EFE9DD` (`07-health-audit.md §3a`), `--accent-offre` inexistant utilisé en fallback (`CaseStudyTemplate.astro:544`), et les 3 vocabulaires couleur concurrents (`audits/02`). → Le chantier d'unification peut imposer des **refactos massives** : deux classes/variables au même objectif = à fusionner, même très réutilisées.
+
+### 9.2 Deux axes (rappel, ne jamais confondre)
+- **DESIGN = TOUJOURS global** : éditer le composant propage à tous ses usages (global ET instancié). C'est la règle anti-orphelin.
+- **CONTENU = 2 modes** : GLOBAL (source unique référencée → propage) vs INSTANCE (design propagé, valeurs de contenu propres). Cf §2 ci-dessus.
+
+### 9.3 Finalité no-code (précision Simon) — les deux SPA, UI/UX impeccable
+DS Studio (variables/valeurs) et Catalogue (composants : catégorie→famille→variante→déclinaison) = **deux mini-SPA, sources de vérité couplées, parfaitement bidirectionnelles**. UI/UX impeccable et rangée exigée, pour **trois acteurs** : Simon, des designers, et **Claude** (browser-control MCP + computer-use). Doivent permettre, sans markup orphelin :
+- **Composer une page** : pour chaque section, choisir catégorie → famille/variante/déclinaison ; prévisualiser ; **enregistrer la composition → nouvelle page**.
+- **Créer une variante** à partir d'un composant existant, en choisissant son **état CONTENU global ou instancié**.
+- **Créer depuis zéro** en piochant les variables du DS Studio (ouvrir le DS Studio, choisir les valeurs) puis créer la section ; ou réutiliser l'existant.
+- Chaque création **s'enregistre proprement au catalogue** (4 touchpoints sync). Cible ultime : Claude génère un **nouveau site** (style différent, nouvelles compositions) en pilotant ces deux SPA.
+
+### 9.4 Régime DS (boundary exacte)
+0 nouvelle **variable/token DS** ; ✅ nouvelles **valeurs/classes Tailwind**, calculs, transparences, déclinaisons **sur l'existant** ; ✅ nouveaux **composants/familles/variantes/déclinaisons** au catalogue (objet du chantier template, via DS Studio + variables DS + 4 touchpoints). Préférer la composition si une famille couvre ~80 %. Réutiliser au maximum les **mêmes** classes/variables = condition de « je change une valeur → tout le catalogue se met à jour ». (Rule globale 28 « 0 nouvelle section » = scopée Amploi `astro-tina-site-v1`, NE s'applique PAS ici.)
+
+### 9.5 Chantiers
+Les chantiers d'industrialisation = **backlog A-G de `07-health-audit.md §2`** (ne pas créer de nouveaux labels). Prioriser A (kill hardcoded direct) + B (manifest par-section) → D+F (consolidation classes + naming) → C (migration templates→registry, le vrai déblocage builder) → E (arbitrage tokens) → G (orphelins). Tout chantier = preuve GF-1 (les deux SPA sont des apps : flow réel testé).
