@@ -185,4 +185,6 @@ const isFr = lang === 'fr';
     color: var(--paper);
   }
   .comparison-duo[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  /* Conformite declinaison ink : la colonne AVEC est en var(--ink) direct -> remap clair (le AVANT reste muted = volontairement attenue) */
+  .comparison-duo[data-bg='ink'] :is(.comparison-duo__card-title--with, .comparison-duo__item--with) { color: var(--paper); }
 </style>

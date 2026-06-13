@@ -187,6 +187,8 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
     color: var(--paper);
   }
   .comparison-table[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  /* Conformite declinaison ink : td/feature sont en var(--ink) direct (regle plus specifique que la couleur heritee) -> remap clair sinon texte invisible sur fond sombre (bug "table vide" image #4) */
+  .comparison-table[data-bg='ink'] :is(td, .comparison-table__feature) { color: var(--paper); }
   .pcm__header {
     display: flex;
     flex-direction: column;
