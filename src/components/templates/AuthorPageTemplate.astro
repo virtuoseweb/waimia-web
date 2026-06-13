@@ -782,12 +782,13 @@ const socialItems = [
     text-decoration: none;
     transition:
       color var(--dur-fast, 180ms) var(--ease, ease),
-      padding-left var(--dur-fast, 180ms) var(--ease, ease);
+      translate var(--dur-fast, 180ms) var(--ease, ease);
   }
 
   .publication-link:hover {
     color: var(--accent);
-    padding-left: var(--space-2);
+    /* slide hors-flux (translate) au lieu de padding-left : meme nudge, 0 reflow */
+    translate: var(--space-2) 0;
   }
 
   .publication-title {

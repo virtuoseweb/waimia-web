@@ -55,12 +55,13 @@ const { num, title_fr, title_en, desc_fr, desc_en, meta, href, class: extraClass
     border-bottom: 1px solid var(--hairline);
     align-items: center;
     color: inherit;
-    transition: background 240ms var(--ease), padding-left 320ms var(--ease);
+    transition: background 240ms var(--ease), translate 320ms var(--ease);
   }
   .svc-row:hover {
     background: var(--paper-2);
-    padding-left: 14px;
-    padding-right: 14px;
+    /* slide hors-flux (translate, propriete individuelle) : compose avec le
+       transform translateY() du .reveal sans l'ecraser ; 0 reflow */
+    translate: 14px 0;
   }
   .svc-row:hover .svc-arr {
     color: var(--accent);
