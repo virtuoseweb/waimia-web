@@ -86,7 +86,7 @@ _(vide)_
   - Preuve GF-1 : `grep` 0 référence cassée aux anciens numéros + build vert (les docs ne
     cassent pas le build, vérifier les imports MDX éventuels) + arbo finale = §3 README.
   - Dépend de : —
-- [x] **P0.0-b — Corrections factuelles de doc** (`state/01 §f-ter`). **VÉRIFIÉ DÉJÀ FAIT (nuit 2026-06-12, GF-4)**.
+- [x] **P0.0-b — Corrections factuelles de doc** (`state/01 §f-ter`). **VÉRIFIÉ DÉJÀ FAIT (nuit 2026-06-12, GF-4)**. <!-- sb commit=417eff6 gf1=n note=doc-grep -->
   - Objectif : corriger `architecture/03` (`output:'static'` et non `'server'`),
     `architecture/01+05` (TinaCMS et non Pages CMS / `.pages.yml`), `architecture/04`
     (projet Vercel `waimia-web` et non `waimia-v2`), `architecture/02` (`author = reference`),
@@ -111,7 +111,7 @@ _(vide)_
   - Fichiers : racine repo, `docs/archive/`, `README.md`.
   - Preuve GF-1 : `ls` racine propre (ou liste résiduelle documentée + raison sandbox) ; `visual-audit/` GARDÉ.
   - Dépend de : —
-- [ ] **P0.0-e — Hygiène git** (`state/01 §f`).
+- [x] **P0.0-e — Hygiène git** (`state/01 §f`). <!-- sb commit=7f286ab gf1=n note=git-only-70to6-branches -->
   - Objectif : `git worktree prune` (5 prunables), trier les 5 branches locales + remotes non
     mergées (`feat/contenu`, `feat/ds-coherence-v4b-phantom-color`, `feat/hero-2col-balance`,
     `fix/forms-api-endpoints-regression`, `worktree-1781168853`), traiter `stash@{0}`.
@@ -131,17 +131,17 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.1-a — Retirer les liens vers `/technologies/microsoft-power-platform` (404 en nav)**.
+- [x] **P0.1-a — Retirer les liens vers `/technologies/microsoft-power-platform` (404 en nav)**. <!-- sb commit=0113bb1 gf1=y note=worker-369978a -->
   - Objectif : supprimer les références (la page sera supprimée en P0.2H de toute façon).
   - Fichiers : `src/data/partners.ts`, `src/lib/section-demos.ts`, `src/data/mega-menu.ts`.
   - Preuve GF-1 : `check-content-refs` vert + `grep` 0 lien résiduel + build vert.
   - Dépend de : —
-- [ ] **P0.1-b — Fixer les 3 liens Stripe PLACEHOLDER (cours école)** ou dé-publier les 3 cours.
+- [x] **P0.1-b — Fixer les 3 liens Stripe PLACEHOLDER (cours école)** ou dé-publier les 3 cours. <!-- sb commit=0113bb1 gf1=y note=worker-369978a -->
   - Objectif : aucun cours non vendable lié en live (école supprimée en P0.2F, donc dé-publier suffit).
   - Fichiers : `src/content/.../ecole/courses/{automatiser-relances-crm-en-4-heures,prompter-claude-pour-les-non-tech,intro-ia-pme-b2b}.mdx`.
   - Preuve GF-1 : `grep` 0 lien Stripe placeholder live + build vert.
   - Dépend de : —
-- [ ] **P0.1-c — Résorber les liens demo → 404 résiduels**.
+- [x] **P0.1-c — Résorber les liens demo → 404 résiduels**. <!-- sb commit=0113bb1 gf1=y note=worker-369978a -->
   - Objectif : `/offres/{audit-ia,deploiement,run,pilote,dette-technique,roadmap-ia,gouvernance-donnees}`
     + `/equipe/{elodie-tran,marc-devauchelle}` (slugs fictifs) + 2 SVG demo (`feature-console.svg`,
     `cases/finance-close.svg`) — re-vérifier au build, fixer ou retirer.
@@ -189,7 +189,7 @@ _(vide)_
   - Fichiers : `src/content/solutions/*`, routes, `mega-menu.ts`, `sitemap.ts`.
   - Preuve GF-1 : build vert + gates verts + le contenu fusionné apparaît dans les piliers (cross-check P0.3).
   - Dépend de : P0.3 (piliers créés pour accueillir le contenu).
-- [ ] **P0.2-D — Lot D : agence / démos fictives** (`careers`, `docs`, `governance`, **`trust-center`**, `/console`, `/atlas`).
+- [x] **P0.2-D — Lot D : agence / démos fictives** (`careers`, `docs`, `governance`, **`trust-center`**, `/console`, `/atlas`). <!-- sb commit=b818142 gf1=y -->
   - Objectif : supprimer (trust-center = **risque légal** : fausses certifs ISO/SOC2/RGPD) + retirer
     les liens `mega-menu.ts` (colonne Agence).
   - Fichiers : routes `/agence/*`, `/console`, `/atlas`, `src/data/mega-menu.ts`.
@@ -202,31 +202,31 @@ _(vide)_
   - Fichiers : `src/content/{changelog,veille-ia,field-notes,livres-blancs,cookbooks}/`, routes, nav, sitemap.
   - Preuve GF-1 : build vert + gates verts + sitemap propre.
   - Dépend de : P0.2-A (personas/testimonials déjà recâblés).
-- [ ] **P0.2-F — Lot F : école** (`ecole` 3 cours stub + `/ecole/*`).
+- [x] **P0.2-F — Lot F : école** (`ecole` 3 cours stub + `/ecole/*`). <!-- sb commit=e453831 gf1=y -->
   - Objectif : supprimer (Stripe placeholder, non vendable) ; régénérer au vrai go-live produit.
   - Fichiers : `src/content/ecole/`, routes `/ecole/*`, nav.
   - Preuve GF-1 : build vert + gates verts + 0 lien école en nav.
   - Dépend de : P0.1-b.
-- [ ] **P0.2-G — Lot G : blog hors silo** (supprimer 15, garder 6 in-silo).
+- [x] **P0.2-G — Lot G : blog hors silo** (supprimer 15, garder 6 in-silo). <!-- sb commit=e453831 gf1=y -->
   - Objectif : GARDER `seo-geo-etre-cite-par-les-ia-generatives`, `automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil`,
     `cabler-son-crm-en-10-jours`, `avis-n8n-vs-zapier-2026`, `agent-ia-vs-automatisation-classique-2026`,
     `essai-pillar-ia-pme-2026` ; SUPPRIMER les 15 hors silo (liste `strategy/02 §2G`).
   - Fichiers : `src/content/blog/*` (ou collection articles), `sitemap.ts`.
   - Preuve GF-1 : build vert + sitemap = 6 articles + 0 lien interne mort vers les supprimés.
   - Dépend de : —
-- [ ] **P0.2-H — Lot H : technologies, secteurs, cas fictifs**.
+- [x] **P0.2-H — Lot H : technologies, secteurs, cas fictifs**. <!-- sb commit=2c02956 gf1=y -->
   - Objectif : supprimer `technologies/virtuoseos` + stubs `claude-code/claude-surfaces/frameworks` +
     `microsoft-power-platform` (garder `claude-models`) ; supprimer **contenu** `secteurs` (3) + `cases`
     (4 fictifs) mais **GARDER les composants/templates** (`CaseStudy`, secteur) pour reconstruire en réel (P0.6).
   - Fichiers : `src/content/{technologies,secteurs,cases}/`, routes, `partners.ts`, `section-demos.ts`, `mega-menu.ts`.
   - Preuve GF-1 : `check-touchpoints` vert (composants conservés) + build vert + sitemap sans fictif.
   - Dépend de : P0.1-a.
-- [ ] **P0.2-I — Lot I : miroir `/en/*` (lancement FR monolingue)**.
+- [x] **P0.2-I — Lot I : miroir `/en/*` (lancement FR monolingue)**. <!-- sb commit=d99d403 gf1=y -->
   - Objectif : supprimer toutes les routes `/en/*` ; **garder l'infra i18n** (réactivable à traction).
   - Fichiers : routes `/en/*`, config i18n (laisser le mécanisme, retirer la génération EN).
   - Preuve GF-1 : sitemap = FR only (~28 URLs) + build vert + `astro check` 0 + 0 hreflang EN orphelin.
   - Dépend de : tous les lots de contenu ci-dessus (éviter de purger EN deux fois).
-- [x] **P0.2-J — Purge collections mortes & fichiers parasites** (`state/01 §f-bis`). ✅ **RÉSOLU (no-op documenté, nuit 2026-06-12)** : triangulation GF-4 → cibles déjà supprimées (templates `ServiceDetail`/`Hub` en R0, pages parasites, collections nommées inexistantes) OU gardées exprès (`cas`/`secteurs` per `strategy/02`, schéma `courses` = asset réutilisable École). Détail : `night-sessions/2026-06-12.md`.
+- [x] **P0.2-J — Purge collections mortes & fichiers parasites** (`state/01 §f-bis`). <!-- sb commit=7f286ab gf1=n note=no-op-GF4 --> ✅ **RÉSOLU (no-op documenté, nuit 2026-06-12)** : triangulation GF-4 → cibles déjà supprimées (templates `ServiceDetail`/`Hub` en R0, pages parasites, collections nommées inexistantes) OU gardées exprès (`cas`/`secteurs` per `strategy/02`, schéma `courses` = asset réutilisable École). Détail : `night-sessions/2026-06-12.md`.
   - Objectif : purger collections 0-entrée (`produits`, `abonnements`, `landingPages`, `welcomePages`,
     `newsletter`) + 43 MDX dormants (`brandVoice`/`painPoints`/`knowledgeBase`/`proofPoints`/`guarantees`) ;
     supprimer `src/pages/test-composable.astro` + `archive.astro` ; supprimer templates code-mort
@@ -343,12 +343,12 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.6-a — Réécrire `/agence/about`** (studio solo, bio véridique).
+- [x] **P0.6-a — Réécrire `/agence/about`** (studio solo, bio véridique). <!-- sb commit=c19a2b4 gf1=y note=feat-118dbb3-proof-65edc90 -->
   - Objectif : retirer agence-10 / bureaux Genève / ancienneté fausse ; positionner praticien solo crédible.
   - Fichiers : `src/content/.../agence/about.*`, sections cataloguées.
   - Preuve GF-1 : screenshot + `grep` 0 mention « 10 personnes / Genève / Paris » + build vert.
   - Dépend de : P0.2-D.
-- [ ] **P0.6-b — Assainir `/manifesto`, `/agence/methode`, `/contact`, `/equipe` + `/equipe/simon-beros`**.
+- [x] **P0.6-b — Assainir `/manifesto`, `/agence/methode`, `/contact`, `/equipe` + `/equipe/simon-beros`**. <!-- sb commit=c19a2b4 gf1=y note=methode-deja-honnete -->
   - Objectif : retirer chiffres inventés (manifesto), corriger l'ancienneté (méthode), retirer fausses
     adresses + cal.com réel (contact), page auteur E-E-A-T fondateur (equipe).
   - Fichiers : `src/content/.../{manifesto,agence/methode,contact}.*`, `src/content/authors/simon-beros.*`.
@@ -372,12 +372,12 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.7-a — Créer `/mentions-legales`**.
+- [x] **P0.7-a — Créer `/mentions-legales`**. <!-- sb commit=b2e9a7d gf1=y -->
   - Objectif : mentions légales conformes (éditeur, hébergeur, SIREN, contact) — données réelles Simon.
   - Fichiers : `src/pages/mentions-legales.astro` (ou MDX composable), sections cataloguées (légal/texte).
   - Preuve GF-1 : page rend (screenshot) + lien footer OK + build vert + `check-content-refs` vert.
   - Dépend de : P0.2-A (pas de section légale orpheline).
-- [ ] **P0.7-b — Créer `/politique-de-confidentialite` (RGPD)**.
+- [x] **P0.7-b — Créer `/politique-de-confidentialite` (RGPD)**. <!-- sb commit=b2e9a7d gf1=y note=route-/politique-confidentialite -->
   - Objectif : politique RGPD conforme (cookies < 5, finalités, droits, DPO/contact).
   - Fichiers : `src/pages/politique-de-confidentialite.astro` (ou MDX), bandeau cookies si applicable.
   - Preuve GF-1 : page rend + lien footer + build vert + cookies réels comptés < 5 (preuve réseau).
@@ -393,7 +393,7 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.8-a — Câbler le pricing 3 000 € HT sur le pilier + hub offres**.
+- [x] **P0.8-a — Câbler le pricing 3 000 € HT sur le pilier + hub offres**. <!-- sb commit=8643949 gf1=y note=push-b1f1125 -->
   - Objectif : section Offre/pricing du pilier (`strategy/02 §5.7`) affiche 3 000 € HT + escalade ;
     hub `/offres` = 3 offres réelles only (audit / site web IA / growth system).
   - Fichiers : `src/content/offres/{site-web-ia,audit-maturite-ia,growth-system-ia}.mdx`, `/offres/index`.
