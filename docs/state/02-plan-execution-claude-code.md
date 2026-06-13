@@ -258,8 +258,9 @@ _(vide)_
 ### Tâches en attente
 
 **Phase A — fondations (template + retrait legacy)**
-- [ ] **P0.3-b — Template page service refondu (séquence composable)**.
+- [x] **P0.3-b — Template page service refondu (séquence composable)**. <!-- sb commit=86aba71 gf1=y note=13-sections-ordre-correct+page-demo-noindex+doc-07+build-Complete -->
   - Objectif : figer la séquence de slots validée par l'audit, en sections cataloguées : `hero-conversion-funnel → proof-bar → problems-grid + diagnostic-stages → method-timeline + workflow-table → deliverables-grid + feature-split-media → stats-bento/roi-band → comparison-duo → pricing-cards → faq-two-column → footer-cta-band`. Composable pur, réutilisable par les 3 pages service.
+  - Livré : page réf `/offres/template-service-ref` (noindex, exclue sitemap) + `docs/state/07-template-page-service.md`. 13 types rendus dans l'ordre, 0 substitution.
   - Fichiers : sections cataloguées (`src/components/sections/*`), `section-demos.ts` si données.
   - Preuve GF-1 : page test composée preview above-fold + `getComputedStyle` opacity≠0 + build vert.
   - Dépend de : P0.3-pre.
@@ -268,6 +269,10 @@ _(vide)_
   - Fichiers : `src/components/templates/OffresDetailTemplate.astro`, `src/pages/[...slug].astro`, `library-manifest.ts`.
   - Preuve GF-1 : build vert + les 3 URLs renvoient 404 + 0 import résiduel (`grep`).
   - Dépend de : mapping `state/06` (état template confirmé).
+- [ ] **P0.3-i — Propager `seo.noindex` vers `<Base>` dans `[...slug].astro`** (bug remonté par P0.3-b).
+  - Objectif : la route composable `src/pages/offres/[...slug].astro` ne passe pas `data.seo.noindex` à `<Base noindex>` → meta robots reste `index, follow` malgré `seo.noindex: true`. **Bloquant pour les landings `/lp/<slug>`** (ADR-003, doivent être noindex). Vérifier aussi les autres routes composables (`secteurs`, `solutions`).
+  - Preuve GF-1 : build vert + page noindex → `<meta name="robots" content="noindex">` présent dans le HTML généré (`grep` dist).
+  - Dépend de : —
 
 **Phase B — hub Acquérir + 3 pages service**
 - [ ] **P0.3-a — Hub pilier Acquérir `/acquerir`** + redirect `301 /offres/growth-system-ia → /acquerir`.
@@ -594,9 +599,13 @@ _(vide)_
 ## Chantier P2.5 — V-TYPO transverse (directive 01, jamais exécutée en transverse)
 ### Tâches finies
 _(vide)_
+### Tâches finies
+- [x] **P2.5 — Passe typo transverse** <!-- sb commit=5d975da gf1=y note=heros-headers-5composants-override-scope-rebascule-font-sans+veto-masthead-respecte --> : héros/headers serif-full → base `--font-sans`, accent serif sur emphase de quelques mots (cause réelle : règles scopées des composants écrasaient le global, pas `global.css`). 5 composants (HeroCentered, HeroHubStats, HeroSplit, ProblemStatement, FitColumnsSection), 0 nouveau token. Vetos respectés : HeroHome `/`, masthead `/solutions`. GF-1 : getComputedStyle Inter Tight base + Instrument Serif accent, opacity 1.
 ### Tâches en attente
-- [ ] **P2.5 — Passe typo transverse** : `global.css:62-129` h1/h2/h3 serif → sans (serif = emphase de
-  quelques mots only). Vetos permanents : HeroHome `/` + masthead `/solutions`. Preuve GF-1 sur pages touchées.
+- [ ] **P2.5-b — Reliquat hero-landing : raccourcir l'accent serif à un mot** (data-driven).
+  - Objectif : la démo `hero-landing` enveloppe une clause entière (`pendant que vous dormez.`) dans `<em>` → accent serif sur toute la proposition. Raccourcir à un mot/segment dans `section-demos.ts` (`h1_fr`/`h1_en`). Idem auditer les autres titres data-driven.
+  - Preuve GF-1 : screenshot hero-landing + accent serif sur 1 mot.
+  - Dépend de : —
 
 ## Chantier P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13
 ### Tâches finies
