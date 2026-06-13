@@ -43,6 +43,7 @@ const tinaWrapper = tina?.[1].islands.offre.wrapper;
 <Base
   title={lang === 'fr' ? data.title_fr : data.title_en}
   description={lang === 'fr' ? data.description_fr : data.description_en}
+  noindex={data.seo?.noindex}
 >
   <Breadcrumb lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },

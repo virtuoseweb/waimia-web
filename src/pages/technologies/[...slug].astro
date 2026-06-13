@@ -33,7 +33,7 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
 
 const serviceLd = buildService({ name: title, description });
 ---
-<Base {title} {description} jsonLd={[serviceLd]}>
+<Base {title} {description} jsonLd={[serviceLd]} noindex={data.seo?.noindex}>
   <Breadcrumb
     lang={lang}
     items={[
