@@ -5,7 +5,7 @@
 - **Décideur** : Simon (Waimia, solo) + arbitrage expert
 - **Portée** : architecture d'information, arborescence, templates de page service, stratégie SEO/GEO + CRO
 - **Amende** : `ADR-002` (silo unique + 3 piliers vitrine légers). ADR-002 reste valide pour Piloter et Opérer ; ADR-003 ouvre **uniquement** le pilier Acquérir en silo développé, ce qu'ADR-002 prévoyait explicitement (« tout futur passage d'un pilier en silo = nouvel ADR »).
-- **Lié à** : `strategy/02-site-etat-final §0bis`, `strategy/01-silo-site-web-ia`, `docs/state/06-mapping-migration-3-piliers` (mapping d'exécution), `docs/visual-audit/AUDIT-SECTIONS-SERVICE` (design du template).
+- **Lié à** : `strategy/06-doctrine-positionnement-architecture-seo` (SOURCE CANONIQUE du positionnement, énoncée par Simon 2026-06-13), `strategy/02-site-etat-final §0bis`, `strategy/01-silo-site-web-ia`, `docs/state/06-mapping-migration-3-piliers` (mapping d'exécution), `docs/visual-audit/AUDIT-SECTIONS-SERVICE` (design du template).
 
 ---
 
@@ -36,9 +36,11 @@ Piloter et Opérer restent **vitrine légère, jamais référencés offensivemen
 
 Trois services réels à fonder **en premier** (CRM intelligent, data/insight, SEO/GEO en page séparée, agents IA, publicité AIO = différés) :
 
-1. **Site web intelligent** (`/services/site-web-ia`)
-2. **Content marketing intelligent** (`/services/content-marketing-ia`) — fusionne le contenu « content marketing » + « contenu SEO/GEO ».
-3. **Tunnel de conversion intelligent** (`/services/tunnel-conversion-ia`) — le quizz lead magnet arrive en Phase C.
+1. **Site web intelligent** (`/services/site-web-intelligent`)
+2. **Content marketing intelligent** (`/services/content-marketing-intelligent`) — fusionne le contenu « content marketing » + « contenu SEO/GEO ».
+3. **Tunnel de conversion intelligent** (`/services/tunnel-conversion-intelligent`) — le quizz lead magnet de scoring arrive en Phase C.
+
+> **Nommage (décision Simon 2026-06-13)** : on met l'accent sur « **intelligent** » (la promesse) plutôt que « IA » (le moyen) dans les slugs ET le copy vedette. « IA » reste mentionné comme le « comment » technique, en appui, pas dans les titres. Slugs résolus : `site-web-intelligent`, `content-marketing-intelligent`, `tunnel-conversion-intelligent`.
 
 Chaque page de service utilise le **template de page service refondu** (cf §3).
 
@@ -117,9 +119,9 @@ Principe : les piliers portent la navigation et la marque, les pages service por
 | Pilier Acquérir (hub) | `/acquerir` | retenu (verbe de marque) |
 | Pilier Piloter | `/piloter` | retenu |
 | Pilier Opérer | `/operer` | retenu |
-| Service Site web intelligent | `/services/site-web-ia` (+ `/lp/site-web-ia`) | retenu |
-| Service Content marketing | `/services/content-marketing-ia` (+ `/lp/...`) | retenu |
-| Service Tunnel de conversion | `/services/tunnel-conversion-ia` (+ `/lp/...`) | retenu |
+| Service Site web intelligent | `/services/site-web-intelligent` (+ `/lp/site-web-intelligent`) | retenu (accent « intelligent », 2026-06-13) |
+| Service Content marketing intelligent | `/services/content-marketing-intelligent` (+ `/lp/...`) | retenu |
+| Service Tunnel de conversion intelligent | `/services/tunnel-conversion-intelligent` (+ `/lp/...`) | retenu |
 | Ancienne `/offres/growth-system-ia` | **301 vers `/acquerir`** | exception assumée à la règle 404-net |
 
 **Exception 301 justifiée** : `/offres/growth-system-ia` ne disparaît pas, elle se renomme en hub Acquérir. Un 301 sur une page qui se renomme est l'usage canonique d'une redirection permanente, pas une entorse à la règle 404-net (qui vise les pages supprimées : contenu fictif ou thin). C'est la seule URL du lot potentiellement déjà indexée ; on en préserve l'autorité éventuelle. Toutes les autres anciennes URLs (cf `state/06`) restent en **404 net**.

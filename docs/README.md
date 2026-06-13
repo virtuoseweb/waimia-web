@@ -78,7 +78,7 @@ EN archivé (lancement FR monolingue).
 ```
 docs/
 ├── README.md              ← CE FICHIER (index, seul .md « libre » à la racine docs/)
-├── strategy/   (5)        SEO / site / GEO (LIVE) — 01 silo · 02 état final site · 03 recherche SEO/GEO · 04 GEO-AIO · 05 stack
+├── strategy/   (6)        SEO / site / GEO (LIVE) — 01 silo · 02 état final site · 03 recherche SEO/GEO · 04 GEO-AIO · 05 stack · 06 doctrine positionnement/archi/SEO (SOURCE CANONIQUE positionnement)
 ├── marketing/  (6)        01 positionnement · 02 GTM · 03 contenu · 04 canaux · 05 boilerplate produit (LIVE)
 ├── business/  (16)        00 références canoniques (voix manifeste, offer ladder, clients) · 01 business plan · 02 étude marché · 03 prospection · 04 comm · 05 sales enablement · 06 fiches offres · 07 pitch RDV · 08 quick wins · 09 leadsourcing+scoring (Firecrawl) · 10 présentations offres · 11 cash-first 90j · 12 competitive brief · 13 modèle financier · 14 marché données réelles · 15 validation client (LIVE)
 ├── architecture/ (9)      standards, content-models, intégrations, déploiement, redirects, tina-astro, images, archi, cms (RÉFÉRENCE)

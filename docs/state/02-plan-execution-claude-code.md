@@ -286,18 +286,18 @@ _(vide)_
   - Fichiers : `src/content/offres/growth-system-ia.mdx` (→ route `/acquerir`), config redirect.
   - Preuve GF-1 : screenshot above-fold + ancres scroll OK + `/offres/growth-system-ia` → 301 + build vert.
   - Dépend de : P0.3-b, P0.5-a (mega-menu).
-- [ ] **P0.3-c — Page service Site web intelligent `/services/site-web-ia`** (+ `/lp/site-web-ia`).
-  - Objectif : page service SEO via template P0.3-b. Recycle `solutions/site-web-ia-pme.mdx` (corps PME) + `offres/site-web-ia*.astro` (tunnel/landing). C'est la page muscle-d'abord (cluster P1).
+- [x] **P0.3-c — Page service Site web intelligent `/services/site-web-intelligent`** (surface service ; `/lp/` = Phase C). <!-- sb commit=c1d07a8 gf1=y note=build-Complete+page-generee+meta-index-follow+H1-opacity1-transform-neutre+CTA-visible+0console-bloquant+screenshot-abovefold -->
+  - Objectif : page service SEO via template P0.3-b. Recycle `solutions/site-web-ia-pme.mdx` (corps PME) + `offres/site-web-ia*.astro` (tunnel/landing). C'est la page muscle-d'abord (cluster P1). Slug `-intelligent` (doctrine `strategy/06`, accent promesse).
   - Fichiers : `src/content/.../site-web-ia.mdx` (`sections:`), landing `/lp/`.
   - Preuve GF-1 : screenshot above-fold service + landing + opacity≠0 + 1 CTA primaire + build vert.
   - Dépend de : P0.3-b, P0.4-a (cannibalisation).
-- [ ] **P0.3-d — Page service Content marketing intelligent `/services/content-marketing-ia`** (+ `/lp/`).
-  - Objectif : **fusion** `solutions/content-marketing-ia.mdx` (canonique, 8 sections exploitables) + `solutions/contenu-seo-geo-ia.mdx` (volet SEO/GEO). Template P0.3-b.
+- [x] **P0.3-d — Page service Content marketing intelligent `/services/content-marketing-intelligent`** (surface service ; `/lp/` = Phase C). <!-- sb commit=c1d07a8 gf1=y note=build-Complete+page-generee+meta-index-follow+H1-opacity1-transform-neutre+CTA-visible+screenshot-abovefold+desc-fr-corrigee-180 -->
+  - Objectif : **fusion** `solutions/content-marketing-ia.mdx` (canonique, 8 sections exploitables) + `solutions/contenu-seo-geo-ia.mdx` (volet SEO/GEO). Template P0.3-b. SEO/GEO reste fusionné ici, PAS de page séparée (doctrine `strategy/06` §3).
   - Fichiers : `src/content/.../content-marketing-ia.mdx`, landing `/lp/`.
   - Preuve GF-1 : screenshot above-fold + opacity≠0 + build vert.
   - Dépend de : P0.3-b.
-- [ ] **P0.3-e — Page service Tunnel de conversion `/services/tunnel-conversion-ia`** (+ `/lp/`).
-  - Objectif : recycle `solutions/tunnel-de-vente.mdx` (canonique) + `solutions/acquisition-ia.mdx` (chapô). Template P0.3-b. Quizz lead magnet = Phase C (P0.3-k).
+- [x] **P0.3-e — Page service Tunnel de conversion intelligent `/services/tunnel-conversion-intelligent`** (surface service ; `/lp/` = Phase C). <!-- sb commit=c1d07a8 gf1=y note=build-Complete+page-generee+meta-index-follow+H1-opacity1-transform-neutre+CTA-visible+screenshot-abovefold+spec-produit-landing3paliers+nurturing-conditionnel -->
+  - Objectif : recycle `solutions/tunnel-de-vente.mdx` (canonique) + `solutions/acquisition-ia.mdx` (chapô). Template P0.3-b. Décrit le produit : landing 3 paliers + lead magnet de scoring + tunnel 3-4 étapes + nurturing conditionnel (interactions email + réponses scoring) + sur-mesure. Quizz/lead magnet réellement construits = Phase C (P0.3-k).
   - Fichiers : `src/content/.../tunnel-conversion-ia.mdx`, landing `/lp/`.
   - Preuve GF-1 : screenshot above-fold + opacity≠0 + build vert.
   - Dépend de : P0.3-b.
