@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `d26a8b5` - 31/75 tâches done (41%).
+État : HEAD `f8ce276` - 34/81 tâches done (42%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 28/48 | 58% | P0.0-a — Exécuter les 3 manifestes de finalisation doc ; P0.0-c — Slim `CLAUDE.md` ; P0.0-d — Nettoyage racine repo & images-preuves ; P0.2-A — Lot A : collections auto-contenu + recâblages ; P0.2-B — Lot B : offres secondaires (+15) |
 | P1 | 0/5 | 0% | P1.1-a — Passe keyword gratuite ; P1.1-b — Appliquer les H1 figés ; P1.2-a — 4-6 articles in-silo supplémentaires ; P1.3-a — JSON-LD + FAQ schema.org ; P1.3-b — `llms.txt` + cohérence entité (GEO/AIO) |
-| P2 | 3/17 | 18% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+9) |
+| P2 | 6/23 | 26% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+12) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 0/3 | 0% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.2-a — Merger le pilote TinaCMS ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -35,6 +35,7 @@
 | P2.0 — Reconstituer l'état réel du design (ghost, AVANT de toucher) | P2 | 0/1 | 0% | - |
 | P2.1 — Couverture & maintenance des captures (NE SE FERME JAMAIS) | P2 | 0/4 | 0% | - |
 | P2.10 — Passe finale Claude Design | P2 | 0/1 | 0% | - |
+| P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 3/6 | 50% | f8ce276 chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow ; f8ce276 chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow ; f8ce276 chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow |
 | P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu) | P2 | 0/1 | 0% | - |
 | P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 0/1 | 0% | - |
 | P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 0/2 | 0% | - |
