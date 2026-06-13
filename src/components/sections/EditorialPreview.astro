@@ -69,12 +69,12 @@ const isFr = lang === 'fr';
     align-items: baseline;
     color: inherit;
     text-decoration: none;
-    transition: background var(--dur-trim) var(--ease), transform var(--dur-hover) var(--ease);
+    transition: background var(--dur-trim) var(--ease), translate var(--dur-hover) var(--ease);
   }
 
   .notes-row:hover {
     background: rgba(var(--accent-rgb), 0.04);
-    transform: translateX(12px);
+    translate: 12px 0;
   }
 
   .notes-row:hover .notes-row-text {

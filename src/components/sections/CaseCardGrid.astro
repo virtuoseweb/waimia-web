@@ -67,8 +67,8 @@ const isFr = lang === 'fr';
   .cases-h2{font-family:var(--font-sans);font-size:var(--text-h2-section);line-height:var(--leading-h2);letter-spacing:-0.015em;max-width:1080px;margin-bottom:clamp(24px,3vw,40px);font-weight:var(--fw-medium);text-wrap:balance}
 
   .cases-tbl{}
-  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-trim) var(--ease),transform var(--dur-hover) var(--ease)}
-  .cases-row:hover{background:var(--paper-2);transform:translateX(12px)}
+  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-trim) var(--ease),translate var(--dur-hover) var(--ease)}
+  .cases-row:hover{background:var(--paper-2);translate:12px 0}
   .cases-row:hover .cases-arr{color:var(--accent);transform:translateX(4px) translateY(-2px)}
   .cases-row:hover .cases-client{color:var(--accent);transition:color var(--dur-fast) var(--ease)}
 

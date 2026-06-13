@@ -117,19 +117,19 @@ const isFr = lang === 'fr';
     border-top: 1px solid var(--hairline-strong);
   }
   .services-grid__cell {
-    padding: clamp(28px, 3vw, 40px) clamp(22px, 2.6vw, 32px) clamp(40px, 4.5vw, 52px);
+    padding: var(--spacing-block) var(--space-6) var(--space-8);
     border-right: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
     min-height: 300px;
     position: relative;
     display: flex;
     flex-direction: column;
-    transition: background var(--dur-hover) var(--ease), border-color var(--dur-hover) var(--ease), transform var(--dur-hover) var(--ease);
+    transition: background var(--dur-hover) var(--ease), border-color var(--dur-hover) var(--ease), translate var(--dur-hover) var(--ease);
   }
   .services-grid__cell:hover {
     background: rgba(var(--accent-rgb), 0.04);
     border-color: var(--accent);
-    transform: translateY(-1px);
+    translate: 0 -1px;
   }
   .services-grid__cell:nth-child(3n) { border-right: none; }
   .services-grid__cell:nth-child(n+4) { border-bottom: none; }

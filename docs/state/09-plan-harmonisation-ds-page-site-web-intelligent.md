@@ -5,6 +5,18 @@
 > Ne remplace pas le brief v6 (`docs/state/08`) : il le **prolonge** (le plan v6 reste, on améliore ce qui a été tranché).
 > Taxonomie + décisions DS = à porter en source unique dans `docs/design-system/03-library-strategy.md`.
 
+> ### 🧭 Routage (où trouve-t-on quoi — pour Claude ou un agent IA qui reprend)
+> | Besoin | Source de vérité |
+> |---|---|
+> | **Taxonomie DS figée** (Catégorie × Famille trans-catégorie · Variante · Déclinaison · Section atomique) | `docs/design-system/03-library-strategy.md §9.6` (sign-off Simon 2026-06-13) |
+> | **Backlog maître + état coché** (ids `P2.11-*`) | `docs/state/02-plan-execution-claude-code.md` → chantier **P2.11** (pointe ici pour le détail) |
+> | **Détail d'exécution de CE chantier** (phases A→E, GF-1, audit annexe A) | **ce fichier** (`docs/state/09`) |
+> | **Brief v6 de la page** (rythme 4 beats, garde-fous §9) | `docs/state/08` |
+> | **Règle no-hardcode + verify-existing-before-create** | rule globale `~/.claude/rules-library/60` + memory `feedback-no-hardcode-verify-existing-before-create` |
+> | **Gate reflow hover** | `scripts/check-hover-reflow.mjs` (`npm run check:hover-reflow`) |
+> | **Hover reflow-safe, pas sur-restrictif** | memory `feedback-hover-reflow-safe-not-overrestrictive` |
+> | **Mission page en cours** | Phase E ci-dessous (recomposition `site-web-intelligent` ≥ live) — attend choix Simon en E1 |
+
 ---
 
 ## 0. Déclencheur (faits vérifiés)
@@ -79,12 +91,13 @@ Conséquences :
 
 ### Phase B — Harmonisation hover (tokens DS EXISTANTS) + fix reflow + sweep + gate
 > **Correction 2026-06-13 (recon `tokens.css`)** : le plan initial proposait de créer des tokens `--hover-*`. Recon prouve que le DS a **déjà** tous les rôles → **0 nouveau token** (conforme règle figée « 0 nouvelle variable DS »). Harmoniser = router les `:hover` vers l'existant.
-- [ ] **B1** **Mapping rôle hover → token EXISTANT** (aucune création) : durée `--dur-hover` (300ms) / `--dur-trim` (220ms micro) · easing `--ease` / `--ease-out` / `--ease-spring` (bounce) · surface `--paper-2` (clair) / `--ink-2`·`--ink-3` (ink) · tinte `rgba(var(--accent-rgb), .08–.1)` · ombre `--shadow-lift` / `--shadow-card-hover`. Distances de transform (`translateY(-2px)`, `scale(1.02)`) = **littéraux légitimes** (géométrie de l'effet), pas des tokens.
-- [ ] **B2** Refactorer les `:hover` des 5 sections pour **consommer ces tokens existants** au lieu des valeurs en dur (260/280/300ms, hex, ombres ad hoc) → changer le token DS Studio repeint tous les hover.
-- [ ] **B3** Offrir un menu **fini** de déclinaisons hover `data-hover="surface" | "tint" | "lift"` (chacune mappée aux tokens existants ci-dessus), défini en **global** (`global.css`, couche 2 partagée) — choix sans chaos, 0 nouveau token.
-- [ ] **B4** **Fix bug `case-card-grid`** : réserver le décalage en base OU `transform: translateX` sur le contenu interne ; **garder** background + flèche + couleur. 0 reflow.
-- [ ] **B5** **Sweep** : `grep` des `:hover` du catalogue touchant une géométrie in-flow (`padding|margin|width|height|gap|grid-template|font-size|font-weight|letter-spacing`) **sans réservation neutralisante** → corriger chacun en reflow-safe (transform/opacity/shadow). Les transforms (growth/bounce/lift) restent.
-- [ ] **B6** **Gate `check-hover-reflow`** (modèle `check-no-emdash`) : échoue si un `:hover` introduit une géométrie in-flow non neutralisée. **N'interdit PAS** les transforms ni les effets.
+- [x] **B1** **Mapping rôle hover → token EXISTANT** (aucune création) : durée `--dur-hover` (300ms) / `--dur-trim` (220ms micro) · easing `--ease` / `--ease-out` / `--ease-spring` (bounce) · surface `--paper-2` (clair) / `--ink-2`·`--ink-3` (ink) · tinte `rgba(var(--accent-rgb), .08–.1)` · ombre `--shadow-lift` / `--shadow-card-hover`. Distances de transform (`translateY(-2px)`, `scale(1.02)`) = **littéraux légitimes** (géométrie de l'effet), pas des tokens. **✅ COMPLÉTÉ 2026-06-13 ; commit `1191a0d` ; GF-1 : bash reflow verification + Playwright hover test (aucun padding résiduel, tous les transforms en place, 0 token créé).**
+- [ ] **B2** Refactorer les `:hover` des 5 sections pour **consommer ces tokens existants** au lieu des valeurs en dur (260/280/300ms, hex, ombres ad hoc) → changer le token DS Studio repeint tous les hover. **🟢 FAIT 2026-06-13 (5 sections : CaseCardGrid/EditorialPreview/ServiceCatalogList/UseCaseIndex/ServicesGrid), GF-1 Playwright prouvé ; commit groupé fin Phase B (pas encore committé → reste `[ ]`).**
+- [ ] **B3** Offrir un menu **fini** de déclinaisons hover `data-hover="surface" | "tint" | "lift"` (chacune mappée aux tokens existants ci-dessus), défin en **global** (`global.css`, couche 2 partagée) — choix sans chaos, 0 nouveau token. **(reste à faire)**
+- [ ] **B4** **Fix bug `case-card-grid`** : réserver le décalage en base OU `transform: translateX` sur le contenu interne ; **garder** background + flèche + couleur. 0 reflow. **🟢 FAIT + GF-1 PROUVÉ 2026-06-13** : `padding-inline` au hover remplacé par la propriété individuelle **`translate: 12px 0`** (la row est `.reveal-stagger > *`, le reveal possède `transform` → `translate` se compose sans conflit, slide visible). Playwright : hover actif (bg `--paper-2`) MAIS hauteur row **161→161**, colonne IMPACT **42→42px**, voisin **413→413**, `translate:12px` rendu → **0 reflow, effet conservé**.
+- [ ] **B5** **Sweep** : `grep` des `:hover` du catalogue touchant une géométrie in-flow → corriger chacun en reflow-safe. **🟢 SWEEP `sections/` FAIT 2026-06-13** : 5 occurrences trouvées et corrigées → 4 rows (`padding-inline`→`translate`), `ServicesGrid` règle déco (`width`→`scaleX(1.875)` + `transform-origin`) + lift cell (`translateY`→`translate` car cell aussi `.reveal-stagger > *`). Reste : sweep `ui/organisms/` + `templates/` (hors catalogue strict) au moment du gate B6.
+- [ ] **B6** **Gate `check-hover-reflow`** (modèle `check-no-emdash`) : échoue si un `:hover` introduit une géométrie in-flow non neutralisée. **N'interdit PAS** les transforms ni les effets. **(reste à faire)**
+- [ ] **B7 (ajout 2026-06-13, trigger Simon)** **Espacement interne de card pilotable DS Studio + 0 hardcode** : router les paddings de card/cell hardcodés vers les **tokens existants** (`--spacing-block`/`--space-*`), JAMAIS un nouveau token (rule 60). **🟢 ServicesGrid FAIT** : `padding: clamp(...)×3` en dur → `var(--spacing-block) var(--space-6) var(--space-8)` (top cape à 48 au lieu de 40 = +air aux larges viewports ; pilotable DS Studio ; 0 reflow, GF-1 Playwright : padding 38→48px selon vw, hauteur cell **300→300** au hover). **Reste = migration catalogue** : `grep padding:.*clamp(` = **30+ composants** hardcodent encore → c'est la **migration des composants** (no-hardcode « littéralement tout », rule 60) à faire en passe dédiée, GF-1 par composant (pas un sed aveugle).
 - **GF-1 B** : sur `/preview/<type>` des sections touchées + page : hover déclenché en Playwright → mesurer que le nombre de lignes / la `boundingClientRect` du voisin **ne change pas** ; screenshot avant/au-hover ; 0 reflow.
 
 ### Phase C — Système de variante + fusion CTA band/card
