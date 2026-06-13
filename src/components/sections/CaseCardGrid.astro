@@ -67,8 +67,8 @@ const isFr = lang === 'fr';
   .cases-h2{font-family:var(--font-sans);font-size:var(--text-h2-section);line-height:var(--leading-h2);letter-spacing:-0.015em;max-width:1080px;margin-bottom:clamp(24px,3vw,40px);font-weight:var(--fw-medium);text-wrap:balance}
 
   .cases-tbl{}
-  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-fast) var(--ease, var(--ease)),padding-left 320ms var(--ease)}
-  .cases-row:hover{background:var(--paper-2);padding-left:14px;padding-right:14px}
+  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-trim) var(--ease),transform var(--dur-hover) var(--ease)}
+  .cases-row:hover{background:var(--paper-2);transform:translateX(12px)}
   .cases-row:hover .cases-arr{color:var(--accent);transform:translateX(4px) translateY(-2px)}
   .cases-row:hover .cases-client{color:var(--accent);transition:color var(--dur-fast) var(--ease)}
 
@@ -79,7 +79,7 @@ const isFr = lang === 'fr';
   .cases-col-k{font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--muted)}
   .cases-col-v{font-size:var(--text-ui);color:var(--muted);line-height:var(--leading-lede)}
   .cases-impact{color:var(--ink);font-weight:var(--fw-medium);font-size:var(--text-body-lead)}
-  .cases-arr{font-family:var(--font-mono);font-size:18px;color:var(--muted);text-align:right;transition:color 240ms var(--ease),transform 320ms var(--ease)}
+  .cases-arr{font-family:var(--font-mono);font-size:18px;color:var(--muted);text-align:right;transition:color var(--dur-trim) var(--ease),transform var(--dur-hover) var(--ease)}
 
   .cases-foot{margin-top:clamp(40px,4vw,56px);text-align:right}
   .cases-foot a{font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}

@@ -73,12 +73,11 @@ const isFr = lang === 'fr';
     border-bottom: 1px solid var(--hairline);
     align-items: center;
     color: inherit;
-    transition: background 240ms var(--ease), padding-left 320ms var(--ease);
+    transition: background var(--dur-trim) var(--ease), transform var(--dur-hover) var(--ease);
   }
   .svc-row:hover {
     background: var(--paper-2);
-    padding-left: 14px;
-    padding-right: 14px;
+    transform: translateX(12px);
   }
   .svc-row:hover .svc-arr {
     color: var(--accent);
@@ -117,7 +116,7 @@ const isFr = lang === 'fr';
     font-size: 22px;
     color: var(--muted);
     text-align: right;
-    transition: color 240ms var(--ease), transform 320ms var(--ease);
+    transition: color var(--dur-trim) var(--ease), transform var(--dur-hover) var(--ease);
   }
 
   /* Footer CTA façon .dept-sector (UseCaseIndex) */

@@ -43,7 +43,7 @@ CATÉGORIE  (ex: hero-header-sections, services, pricing, testimonials…)
 |---|---|---|---|
 | 1. **Variables** | ≈92 tokens (après purge) | fixe | édité par DS Studio → repeint tout. Ce que le client change. |
 | 2. **Classes utilitaires partagées** | ≈30 (`.wrap*`, `.sec`, `.sec-hd`, `.btn-*`, reveals) + axes d'état `data-bg` (puis `data-layout`/`data-density`) | fixe | langage commun de toutes les sections. Reposent sur couche 1. |
-| 3. **Composants-familles** | ≈150 types Zod (1 type = 1 famille) | ~150 | le STYLE global (Figma master). Reposent sur 1+2. |
+| 3. **Sections** (composants) | ≈150 types Zod (**1 type = 1 Section**, pas 1 famille — cf §9.6 ; une **Famille** = squelette partagé par plusieurs sections) | ~150 | le STYLE global (Figma master). Reposent sur 1+2. |
 | 4. **Presets = Variantes × Déclinaisons** | `section-presets.ts` (combinaisons layout × palette × density × effects + demo) | **1000+** | sélectionnables, sauvegardables via DS Studio. Le volume. |
 
 Pourquoi : 1000 types Zod dupliqués = dette × 1000. Le volume vient de presets sur ≈150 composants paramétrés → ~5-7× moins de code, chaque preset conforme aux gates par construction.
@@ -125,3 +125,66 @@ DS Studio (variables/valeurs) et Catalogue (composants : catégorie→famille→
 
 ### 9.5 Chantiers
 Les chantiers d'industrialisation = **backlog A-G de `07-health-audit.md §2`** (ne pas créer de nouveaux labels). Prioriser A (kill hardcoded direct) + B (manifest par-section) → D+F (consolidation classes + naming) → C (migration templates→registry, le vrai déblocage builder) → E (arbitrage tokens) → G (orphelins). Tout chantier = preuve GF-1 (les deux SPA sont des apps : flow réel testé).
+> Chantier courant DS+page = **`state/09-plan-harmonisation-ds-page-site-web-intelligent.md`** (harmonisation hover par tokens + système de variante + fusion CTA + recomposition page, par phases GF-1).
+
+### 9.6 Taxonomie canonique — catégorie / famille / variante / déclinaison (adoptée Simon 2026-06-13)
+Définition unique (FIGÉ #11 matriciel, remplace le #10 « arbre strict intra-catégorie » ; fait foi). Le modèle a **deux questions de classement orthogonales + deux axes de configuration + une unité atomique** :
+- **(A) Classement = une matrice à 2 facettes qui se croisent.** **Catégorie = *pourquoi*** (l'intention : comparer, montrer des métriques, pricing, CTA…). **Famille = *comment*** (le squelette structurel : bento, card-grid, duo-contrast, table, band, timeline…). Ce sont deux axes indépendants : un **même squelette sert plusieurs intentions** → la Famille **traverse les catégories**. Une **Section = la cellule `Catégorie ∩ Famille`** (le bloc concret posable).
+- **(B) Configuration = des axes orthogonaux réutilisables `Variante` + `Déclinaison`** (on règle une section ; le même axe sert N sections, toutes catégories/familles confondues).
+- **Navigation catalogue** = on **browse par Catégorie** (menu haut-niveau, arbre de lecture) ; la **Famille est un filtre transversal** (« montre-moi tous les `card-grid` »), pas un enfant de la catégorie.
+
+Mnémotechnique : **Catégorie = à quoi ça sert (pourquoi) · Famille = quel squelette (comment, trans-catégorie) · Section = le bloc concret = Catégorie ∩ Famille · Variante = quel agencement · Déclinaison = quelle peau.**
+
+| Concept | Nature | Définition | Cardinalité | Porté par (technique) |
+|---|---|---|---|---|
+| **Catégorie** | facette de classement = *pourquoi* | Intention fonctionnelle ; menu haut-niveau du catalogue. | regroupe **N sections** ; une section a **1 catégorie primaire** | tag + `/categories/[slug]` |
+| **Famille** | facette de classement = *comment* (**transversale**) | **Squelette structurel partagé** (bento, card-grid, duo, table, band…) ; porte les **classes CSS de base mutualisées**. **Peut traverser plusieurs catégories.** Éditer la famille (ses classes de base) propage à toutes ses sections. | regroupe **N sections**, potentiellement dans **plusieurs catégories** | classes de base + squelette partagés |
+| **Section / Composant** | **unité atomique posable** = `Catégorie ∩ Famille` | Le bloc concret rendu sur une page ; **schéma de contenu propre**. | l'atome (ne contient rien) | **1 type Zod = 1 `.astro`** |
+| **Variante** | axe de config (orthogonal) | Config **structurelle** d'une section (container, colonnes, densité, média on/off…). Axe **partagé**, défini une fois, réutilisé. | concerne **N sections** | enum (`sectionBaseSchema`) |
+| **Déclinaison** | axe de config (orthogonal) | **Peau / thème** sans changement de structure (palette dark/light, idiome hover). Axe **partagé**, piloté DS Studio. | concerne **N sections** | tokens DS via `data-bg` / `data-hover` |
+
+**Cardinalité (FIGÉ)** : une **Catégorie** regroupe **N Sections** (par intention) ; une **Famille** regroupe **N Sections** (par squelette) et **peut apparaître dans plusieurs Catégories** ; une **Section = `Catégorie ∩ Famille`** (1 type Zod = 1 `.astro`, schéma de contenu propre) ; elle se règle via les **axes Variante + Déclinaison** (réutilisés par d'autres sections). Le **schéma Zod appartient à la Section**, pas à la Famille (correction du 2026-06-13 : l'ancien « famille = schéma Zod » conflait Section et Famille).
+- Exemple **trans-catégorie** (le cas qui justifie le modèle) : famille `card-grid` (grille de cartes uniformes, mêmes classes de base) → section `case-card-grid` (catégorie *cas* ; champs titre+desc+métrique) **+** cartes *features* (catégorie *features* ; champs icône+titre+desc) **+** cartes *équipe* (catégorie *team* ; champs nom+rôle+photo). Schémas différents, **squelette + classes de base partagés** → éditer la famille repeint les trois.
+- Exemple **intra-catégorie** (reste valide) : catégorie `comparison` → famille `duo-contrast` (section `comparison-duo`) **+** famille `editorial-table` (section `comparison-table`). Deux squelettes différents pour une même intention.
+
+**Où vit la base partagée (2 étages, ne pas confondre)** — la « base unifiée » n'est PAS la Famille à elle seule :
+- **Base n°1 = globale (le cœur)** : **couche 1 tokens** (126 vars, `tokens.css`) **+ couche 2 utilitaires** (`.wrap`/`.sec`/`.sec-hd`/`.btn-*`/`.reveal*`, `global.css`). Partagée par **TOUTES** les sections, toutes catégories/familles. **C'est elle** qui garantit « je change une valeur DS Studio → tout se repeint ». ✅ réelle et active aujourd'hui.
+- **Base n°2 = squelette de Famille** : les classes structurelles d'une lignée (ex. un `.card-grid` : grille + coque de carte + hover), partagées par les sections du **même squelette** (trans-catégorie). S'empile **au-dessus** de la base n°1. La **Section** n'ajoute par-dessus que son spécifique (`.cases-*`).
+
+> **État actuel vs cible (honnêteté GF-4)** : la **base n°1** existe et marche (126 tokens + utilitaires globaux). La **base n°2 (squelette de Famille) n'existe PAS encore** : les sections d'un même squelette **dupliquent** au lieu de partager. Mesuré 2026-06-13 sur la lignée `card-grid` : `CaseCardGrid` = 21 classes `.cases-*`, `TeamCardGrid` = 19 `.eq-*`, `ResourceCardGrid` = 21 `.resource-*` ; **seule classe réellement commune aux 3 = `.wrap`** (couche 2). Formaliser le squelette `.card-grid` mutualisé = backlog D/F (`07-health-audit`) + chantier 09. En attendant, « Famille » est un **tag de squelette** (la base n°2 est une cible). Le passage en **trans-catégorie élargit** cette future base n°2 (un seul `.card-grid` pour cas + team + resource) au lieu de la cloisonner par catégorie.
+
+> ✅ **Décision FIGÉE (sign-off Simon 2026-06-13)** : **Famille trans-catégorie** (matriciel #11) adoptée. Une Famille = squelette structurel partagé qui **peut traverser plusieurs catégories** (un seul `card-grid` pour cas + features + équipe). Raison : c'est ce qui rend l'invariant « change une valeur → tout le catalogue se repeint » tenable, la vraie duplication (`card-grid`, `bento`) étant trans-catégorie. L'ancien #10 « lignée d'une seule catégorie » est abandonné.
+
+**Application CTA (tranché 2026-06-13)** : `band` (carré, pleine largeur, `FooterCtaBand`) vs `card` (arrondi, contenu, marge crème, pattern `BookSession`) = même contenu (titre + sous-titre + 2 actions), containment différent → **VARIANTE** `container: band | card` d'une famille `cta-final` (catégorie `cta`). Implémentée proprement en chantier 09 Phase C (pas de hack ponctuel).
+
+**Tableau de propriété des axes (FIGÉ) — quel niveau possède quelle différence.** Référence pour trancher TOUS les cas (y compris atomes/molécules ajoutés, variables vs valeurs) :
+
+| Ce qui diffère entre deux blocs | Niveau | Porté par |
+|---|---|---|
+| Intention (à quoi ça sert : comparer / métriques / pricing / témoignage…) | **Catégorie** | tag / menu catalogue |
+| Squelette structurel fondamental (2-col / table / bento / card-grid / band / timeline…) | **Famille** | classes de base + squelette partagés (trans-catégorie) |
+| Champs/slots **requis** différents **à squelette + intention égaux** (même `card-grid`, mais champs *cas* vs *équipe*) | **Section** | schéma Zod propre (type distinct, **réutilise les classes de la famille**) |
+| Atome/molécule **non prévu** au schéma (nouveau contenu requis) | **Section** (nouveau schéma ; **+** nouvelle **Famille** seulement si le squelette aussi change) | schéma Zod |
+| Atome/molécule **optionnel déjà prévu** au schéma (badge, média, avatar, ligne meta… on/off) | **Variante** | prop bool/enum |
+| Agencement géométrique du **même** contenu (colonnes 2/3/4, conteneur band/card, densité, alignement, ordre, containment/largeur, radius **structurel**) | **Variante** | prop enum (`sectionBaseSchema`) |
+| **Valeur** d'un token DS (couleur, radius cosmétique, ombre, espacement de thème, palette dark/light, idiome hover) | **Déclinaison** | valeur de token via `data-bg` / `data-hover` / thème |
+| **Quelle variable** est référencée pour un rôle (`--accent` ici vs `--ink` là, même rôle) | AUCUN niveau → **divergence à unifier** | §9.1 : un rôle = un token sémantique ; on change sa VALEUR, jamais la variable référencée |
+
+**Invariant d'industrialisation (le plus important)** : le **mapping rôle→token est FIXE dans la famille** (squelette partagé) ; une déclinaison change la **valeur** d'un token, **jamais** le token référencé. C'est précisément ce qu'un squelette **trans-catégorie** permet : `card-grid` mappe ses rôles une fois → changer une valeur dans le DS Studio repeint `case-card-grid`, les cartes *features* et *équipe* d'un coup. Swap de variable pour un même rôle = éparpillement à corriger, pas une déclinaison.
+
+**Où chaque niveau se manipule (figé, pour les 4 consommateurs)** :
+
+| Niveau | Catalogue (UI/UX) | DS Studio | Outil création/édition section | Règle agent IA |
+|---|---|---|---|---|
+| **Catégorie** | filtre / menu haut (par intention) | — | choisir à la création | classer par intention (*pourquoi*) |
+| **Famille** | filtre **transversal** (« tous les `card-grid` ») | — | éditer le **squelette + classes de base** (propage à toutes ses sections, toutes catégories) | « squelette différent → autre famille ; même squelette ailleurs → réutiliser la famille » |
+| **Section** | une carte (cellule Catégorie × Famille) | — | créer/éditer le **schéma Zod** (champs) du bloc | « champs requis différents à squelette+intention égaux → nouvelle section qui réutilise la famille » |
+| **Variante** | sélecteur/onglet dans l'aperçu de la section | — | toggles enum (`container`, `columns`, `density`, options on/off) | « même info, autre agencement → prop variante, pas nouveau composant » |
+| **Déclinaison** | switcher thème (dark/light, hover) sur l'aperçu | **éditer les valeurs de tokens** (+ créer un token = niveau 2) | choisir `data-bg` / `data-hover` | « seulement la peau → token/déclinaison, jamais dupliquer le composant » |
+
+**Test rapide (ordre, 1er « oui » gagne)** — raccourci des tableaux ci-dessus : (1) **squelette structurel** différent (table vs bento vs card-grid…) → **Famille** ; (2) même squelette + même intention mais **champs requis différents** ou atome non prévu au schéma → **Section** (nouveau type Zod qui réutilise la famille) ; (3) même section, autre **agencement/géométrie** ou atome optionnel déjà prévu basculé → **Variante** ; (4) seulement la **peau** (valeurs de tokens, palette, hover) → **Déclinaison**. Doute Famille/Section : le **squelette** (classes de base) change = famille ; seuls les **champs** changent à squelette égal = section. Doute Variante/Déclinaison : ça touche le **layout/la boîte** = variante ; seulement **couleur/hover/valeur** = déclinaison.
+
+Règles d'application :
+- **Déclinaison dark/light déjà câblée** = `background: enum(paper|paper-2|paper-3|ink)` → `data-bg` (107/123 sections). Idiome déclinaison hover = `data-hover="surface|tint|lift"` mappé sur les **tokens DS existants** (`--dur-hover`/`--dur-trim`, `--ease*`, `--paper-2`/`--ink-2`, `rgba(var(--accent-rgb),…)`, `--shadow-lift`/`--shadow-card-hover`) — **0 nouveau token** (recon 2026-06-13 : le DS couvre déjà tous les rôles ; chantier 09 Phase B).
+- **2 niveaux de perso** (cf `state/09 §1`) : niveau 1 = changer la **valeur** d'un token DS → repeint toutes les classes (aucune nouvelle classe) ; niveau 2 (exception délibérée) = nouveau token + nouvelle déclinaison (nouvelle classe).
+- **Conservation** : une famille/variante/déclinaison correctement générée et cataloguée n'est **jamais supprimée** parce qu'une page ne l'utilise pas ; elle enrichit le catalogue, on choisit par page. Non conforme DS → **remise en conformité** (tokens/classes partagés), pas suppression.
