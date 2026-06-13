@@ -274,6 +274,11 @@ _(vide)_
   - Objectif : la route composable `src/pages/offres/[...slug].astro` ne passe pas `data.seo.noindex` à `<Base noindex>` → meta robots reste `index, follow` malgré `seo.noindex: true`. **Bloquant pour les landings `/lp/<slug>`** (ADR-003, doivent être noindex). Vérifier aussi les autres routes composables (`secteurs`, `solutions`).
   - Preuve GF-1 : build vert + page noindex → `<meta name="robots" content="noindex">` présent dans le HTML généré (`grep` dist).
   - Dépend de : —
+- [x] **P0.3-j — Fondation routing `/services` + `/lp` (collections + routes composables)**. <!-- sb commit=5b87ab2 gf1=y note=collections-services+lp+2routes-pattern-solutions+mdv-ref-deplace-offres-vers-services+lp-noindex-sitemap-robots+build-Complete+19-sections+meta-noindex+offres-404 -->
+  - Objectif : poser l'infra structurelle dont dépendent P0.3-c/d/e : collections `services` + `lp` (`content.config.ts`, schéma minimal `baseFields+taxonomyFields+sections`) + routes `src/pages/services/[...slug].astro` et `src/pages/lp/[...slug].astro` (pattern `solutions`, anti-orphelin). MDX de référence déplacé `offres/` → `services/`. `/lp/*` noindex par défaut (sitemap filter + robots disallow).
+  - Fichiers : `src/content.config.ts`, `src/pages/services/[...slug].astro`, `src/pages/lp/[...slug].astro`, `src/content/services/template-service-ref.mdx` (déplacé), `src/data/sitemap-noindex-exclude.ts`, `astro.config.mjs`.
+  - Preuve GF-1 : build `Complete!` + `/services/template-service-ref` générée (19 sections, `<meta name="robots" content="noindex, follow">`) + ancienne `/offres/template-service-ref` absente (404 net) + `/lp` vide (0 MDX, 0 page).
+  - Dépend de : P0.3-b, P0.3-i.
 
 **Phase B — hub Acquérir + 3 pages service**
 - [ ] **P0.3-a — Hub pilier Acquérir `/acquerir`** + redirect `301 /offres/growth-system-ia → /acquerir`.
