@@ -5,8 +5,9 @@
 > Hiérarchie des sources de vérité :
 > 1. **`CLAUDE.md`** (racine) = garde-fous GF-1..GF-6 + règles projet (non négociable).
 > 2. **Ce `README.md`** = carte des docs + ordre de lecture.
-> 3. **`tasks/ORCH-STATE.md`** = journal d'orchestration horodaté (état le plus frais).
-> 4. **git** (log + branches) = vérité d'exécution.
+> 3. **`docs/state/00-BOARD.md`** = board de progression **généré** (Phase / chantier / done-total / % / reste) — vue d'un coup d'œil, sync auto sur git. NE PAS éditer à la main.
+> 4. **`docs/state/02-plan-execution-claude-code.md`** = source de vérité des **tâches** (cases `[x]` + tag `<!-- sb commit=… -->`). Le board en dérive.
+> 5. **git** (log + branches) = vérité d'exécution. *(`tasks/ORCH-STATE.md` = journal narratif d'orchestration, désormais secondaire.)*
 >
 > ⚠️ `docs/00-MASTER-PLAN.md` est **périmé** (147 types / vieux commit). Ne pas s'y fier
 > pour le compteur/état courant — il sera mis à jour ou archivé (cf `REORG-MANIFEST.md`).

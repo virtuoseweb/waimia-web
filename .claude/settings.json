@@ -14,5 +14,15 @@
   },
   "enabledPlugins": {
     "vw-guardrails@virtuoseweb": true
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "bash .claude/hooks/board-sync.sh" }
+        ]
+      }
+    ]
   }
 }
