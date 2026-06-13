@@ -303,12 +303,12 @@ _(vide)_
   - Dépend de : P0.3-b.
 
 **Phase B — piliers vitrine (silos non développés)**
-- [ ] **P0.3-f — Pilier Piloter `/piloter` (Business Intelligence)** — sections ancrées.
+- [x] **P0.3-f — Pilier Piloter `/piloter` (Business Intelligence)** — sections ancrées. <!-- sb commit=eb14387 gf1=y note=page-generee+6-anchors(revops/tableaux-de-bord/reporting-ia/donnees-centralisees/previsionnel-ia/agent-analytique)+meta-index-follow+H1-opacity1+CTA-visible+feature-split-degrade-propre-sans-media+screenshot -->
   - Objectif : page vitrine ancrée `#revops`, `#tableaux-de-bord`, `#reporting-ia`, `#donnees-centralisees`, `#previsionnel-ia`, `#agent-analytique`. Indexée, sans cluster (non offensive, ADR-002). Nourrie par les solutions Piloter (cf `state/06` ancres).
   - Fichiers : `src/content/.../piloter.mdx`, sections cataloguées.
   - Preuve GF-1 : screenshot above-fold + ancres OK + build vert.
   - Dépend de : P0.3-pre.
-- [ ] **P0.3-g — Pilier Opérer `/operer` (Opérations IA)** — sections ancrées.
+- [x] **P0.3-g — Pilier Opérer `/operer` (Opérations IA)** — sections ancrées. <!-- sb commit=eb14387 gf1=y note=page-generee+6-anchors(crm-relances/automatisation/service-client/admin-rh/legal/agents-metiers)+meta-index-follow+H1-opacity1+CTA-visible+screenshot -->
   - Objectif : page vitrine ancrée `#crm-relances`, `#automatisation`, `#service-client`, `#admin-rh`, `#legal`, `#agents-metiers`. Quelques pages enfant métier possibles (différé). Non offensive.
   - Fichiers : `src/content/.../operer.mdx`, sections cataloguées.
   - Preuve GF-1 : screenshot above-fold + ancres OK + build vert.
