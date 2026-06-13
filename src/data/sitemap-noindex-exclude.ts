@@ -24,6 +24,9 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   "/offres/agents-metiers",
   "/offres/audit-process-intelligence",
   "/offres/mcp-connectors",
+  // Page de référence interne (P0.3-b) : démontre la séquence canonique d'une page
+  // de service. noindex (frontmatter seo.noindex) → hors sitemap pour cohérence crawl.
+  "/offres/template-service-ref",
   "/technologies/claude-code",
   "/technologies/claude-surfaces",
   "/technologies/frameworks",
