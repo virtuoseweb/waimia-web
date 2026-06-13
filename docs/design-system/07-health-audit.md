@@ -3,14 +3,29 @@
 > Audit de santé du Design System en vue de l'industrialisation (visual builder / DS Studio).
 > Repo `waimia-web` · Astro 6 SSG · source de vérité prod `waimia.com`.
 > Données : 4 scans (hardcoded-css structure · migration-gaps · class-consolidation · section-listing-format), recoupées contre le code réel (`src/styles/tokens.css`, `src/lib/section-registry.ts`).
-> Ancrage vérifié : 77 composants `sections/*.astro` · 87 entrées registry · 18 templates · 112 pages · `--paper-2: #EFE9DD` (tokens.css:11).
 > Ce doc est **agent-readable** : tables fichier:ligne → token cible, manifest par-section déterministe, séquençage à dépendances explicites. L'orchestrateur relit avant exécution — rien n'est marqué « validé ».
+
+> ## ⚠️ VALEURS RE-MESURÉES 2026-06-13 (les compteurs de ce doc décrivaient un snapshot ANCIEN — utiliser CEUX-CI)
+> Ce doc a été écrit avant l'expansion du catalogue (87→151 types) et avant les Waves de correction hardcoded. Chiffres faux corrigés (vérifiés contre le code, commandes reproductibles) :
+> | Élément | Ce doc disait | **Réel 2026-06-13** | Commande |
+> |---|---|---|---|
+> | Entrées registry / types | 87 | **≈151** | `grep -cE "z\.literal\(" src/schemas/sections.ts` → 153 ; clés `SECTIONS` = 151 |
+> | Composants `sections/*.astro` | 77 | **123** | `ls src/components/sections/*.astro \| wc -l` |
+> | Templates | 18 | **13** | `ls src/components/templates/*.astro \| wc -l` |
+> | Pages `.astro` | 112 | **83** (+11 endpoints `.ts`) | `find src/pages -name '*.astro' \| wc -l` |
+> | Routes via `SectionsRenderer` | 3 | **13** | `grep -rln SectionsRenderer src/pages \| wc -l` (templates : 0) |
+> | Tokens (noms uniques) | — | **≈121** | `grep -oE '^\s*--[a-z0-9-]+' src/styles/tokens.css \| sort -u \| wc -l` |
+> | `#EFEBE2` fallback faux | ×9 à corriger | **0** (corrigé Wave 4.1) | `grep -rn '#EFEBE2' src/` → 0 |
+> | `--accent-offre` bug | `CaseStudy:544` | **0** (corrigé Wave 4.1) | `grep -rn 'accent-offre' src/` → 0 |
+> | `--paper-2: #EFE9DD` @ `tokens.css:11` | (juste) | **CORRECT** | `grep -n paper-2 src/styles/tokens.css` |
+>
+> **DETTE STRUCTURELLE du doc** : ces compteurs sont écrits à la main → ils re-divergeront. Action canonique (cf §6 L280, rule 18) : les faire **générer depuis le code** (script `gen-ds-registry.mjs` étendu) plutôt que les maintenir à la main. Les sections §3 (bugs `#EFEBE2`/`accent-offre`) sont **RÉSOLUES** — gardées pour l'historique, ne plus traiter comme actif.
 
 ---
 
 ## 1. TL;DR — état réel pour l'industrialisation
 
-Le DS a une **fondation token saine** (palette, type, radius, durée, shadow définis dans `tokens.css`) et un **catalogue riche** (87 types en registry, 77 composants `sections/`), mais il n'est **pas encore une machine d'industrialisation** : à runtime, **3 pages sur 112** seulement consomment le registry via `SectionsRenderer` (les MDX `offres/` avec `sections:[...]`). **0/18 templates** passent par le registry — chacun rend son body en markup inline. Résultat : le catalogue dispatche **~5-8% du markup live** ; ~92% est du markup local (templates + pages orphelines). Côté hygiène : **141 valeurs CSS hardcodées** dont **21 directement tokenisables** (notamment un fallback `#EFEBE2` faux répété 9× alors que le token réel est `#EFE9DD`), et un **sprawl de classes** massif (1 480 classes scoped pour 174 globales, 1 434 mono-usage). Naming non grep-able (abréviations `.k` `.t` `.wm` ambiguës).
+Le DS a une **fondation token saine** (palette, type, radius, durée, shadow définis dans `tokens.css`) et un **catalogue riche** (≈151 types en registry, 123 composants `sections/`), mais il n'est **pas encore une machine d'industrialisation** : à runtime, **13 routes sur 83** consomment le registry via `SectionsRenderer`. **0/13 templates** passent par le registry — chacun rend son body en markup inline. Résultat : le catalogue dispatche encore une fraction du markup live ; le gros reste markup local (templates + pages orphelines). Côté hygiène : le lot **21 hardcoded tokenisables** (dont `#EFEBE2` ×9 + `--accent-offre`) est **CORRIGÉ (0 restant, Wave 4.1)** ; reste un **sprawl de classes** scoped massif (~2 800 classes distinctes all-src — chiffre à re-générer, cf bannière). Naming non grep-able (abréviations `.k` `.t` `.wm` ambiguës).
 
 **Verdict : DS opérationnel à ~60% pour un humain qui compose à la main ; ~20% pour un agent / visual builder qui doit composer de façon déterministe.** Le blocage n°1 vers le builder n'est pas l'hygiène CSS (cosmétique), c'est **l'adoption registry** : tant que les templates et hubs rendent du markup inline, le builder ne peut piloter que la fraction MDX. Chantier structurant = migration templates → registry + manifest par-section. L'hygiène CSS et la consolidation classes sont des pré-requis de **fiabilité** du builder, pas de faisabilité.
 

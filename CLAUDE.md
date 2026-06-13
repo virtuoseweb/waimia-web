@@ -39,7 +39,7 @@ Pages catalogue : `/agence/design-system`, `/preview/[type]`, `/components/[type
 
 ### 🧭 Règle d'or ANTI-ORPHELIN (source de vérité = le composant, jamais le markup inline)
 3 familles de blocs — ne pas les confondre :
-- `src/components/sections/*.astro` (~68) = sections **cataloguées** (registry → design-system). **Éditer CE fichier propage partout** où il est importé (catalogue + templates + pages composables) : c'est la source de vérité de son markup/CSS.
+- `src/components/sections/*.astro` (**123**, re-mesuré 2026-06-13 ; « ~68 » était périmé) = sections **cataloguées** (registry → design-system). **Éditer CE fichier propage partout** où il est importé (catalogue + templates + pages composables) : c'est la source de vérité de son markup/CSS.
 - `src/components/ui/organisms/*.astro` (~21) = organisms bespoke composés à la main par les pages (ex. home `src/pages/index.astro`) — **hors catalogue** (les modifier propage aussi, mais ils n'apparaissent pas dans `/agence/design-system`).
 - `src/components/templates/*.astro` (~18) = templates qui **importent** les composants ci-dessus.
 
@@ -66,5 +66,5 @@ Deux rendus de page : **composable** = frontmatter MDX `sections: [...]` → `<S
 Branches isolées (`git worktree`), agent teams (debate/cross-layer), **workflows** pour le balayage à grande échelle (ex. GF-1 sur les 57 previews), `claude --bg` pour les missions longues supervisées. Détail + découpe suggérée : `docs/archive/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md`.
 
 ## Reste à faire (P1)
-1. **Migration templates (11/18 restants)** → faire consommer le registry par `src/components/templates/*` (7 migrés : ConversionFunnel/DetailMenu/ServiceDetail/Utility/CourseDetail/EcoleHub/Hub ; AuthorPage→HeroAuthor en cours = 1ʳᵉ famille VT). GF-1 par page. Runbook + mapping sourcé : `docs/audits/01-template-registry-migration.md`. ⚠️ 3 vt=0 (TrustLegal/Welcome/ListIndex) sans composant catalogué dédié → arbitrage requis.
+1. **Migration templates** (re-mesuré 2026-06-13 : **13 templates** au total, pas 18 ; **0/13 importent `SectionsRenderer`** aujourd'hui → revérifier l'état réel des « migrés » ci-dessous) → faire consommer le registry par `src/components/templates/*` (7 migrés : ConversionFunnel/DetailMenu/ServiceDetail/Utility/CourseDetail/EcoleHub/Hub ; AuthorPage→HeroAuthor en cours = 1ʳᵉ famille VT). GF-1 par page. Runbook + mapping sourcé : `docs/audits/01-template-registry-migration.md`. ⚠️ 3 vt=0 (TrustLegal/Welcome/ListIndex) sans composant catalogué dédié → arbitrage requis.
 2. **GF-1 sweep** sur preview Vercel (les 58 `/preview/<type>`) — secret `VERCEL_AUTOMATION_BYPASS_SECRET` requis pour le gate auto (sinon sweep local via `scripts/serve-dist.mjs`, parité prod).

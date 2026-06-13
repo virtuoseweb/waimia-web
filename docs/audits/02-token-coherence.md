@@ -16,7 +16,7 @@
 > Pièges réels rattrapés par cette rigueur : `--color-success` (compté 0 en naïf, en réalité utilisé
 > dans `comparer/*`), `--text-drop-cap` (0 en naïf, 4 réels dans `DropCap.astro`).
 
-Date : 2026-06-08 · Source de vérité tokens : `src/styles/tokens.css` (258 l).
+Date : 2026-06-08 · Source de vérité tokens : `src/styles/tokens.css` (**283 l**, re-mesuré 2026-06-13 ; « 258 l » périmé · bloc `@theme` à L266).
 
 ---
 

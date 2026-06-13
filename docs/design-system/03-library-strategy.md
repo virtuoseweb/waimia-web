@@ -30,10 +30,10 @@ CATÉGORIE  (ex: hero-header-sections, services, pricing, testimonials…)
 
 ## 3. État réel (cartographies + audit — vérifié)
 
-- **Socle tokens SAIN** : 115 tokens, 96 % consommés (12 823 usages `var()`), gates en place (`tokens.css` verrouillé par `design-system.lock.json`). La dette n'est PAS là.
-- **Dette = styles scoped** : 2 091 classes scoped uniques dont **1 933 one-off (92 %)**, **280 groupes dupliqués cross-fichiers** qu'aucun outil ne mesure (angle mort de `gen-ds-registry.mjs`).
+- **Socle tokens SAIN** : ≈**121** tokens (re-mesuré 2026-06-13 ; le « 115 » initial était périmé), ~96 % consommés (~**12 k** usages `var()`), gates en place (`tokens.css` verrouillé par `design-system.lock.json`). La dette n'est PAS là.
+- **Dette = styles scoped** : chiffre exact PÉRIMÉ (« 2 091 » écrit à la main → re-mesure 2026-06-13 ≈ **2 800 classes scoped distinctes all-src / ~1 370 mono-usage**). Reste l'angle mort de `gen-ds-registry.mjs` (à GÉNÉRER, méthode figée — cf `07-health-audit.md` bannière). ⚠️ « réutilisé souvent » ≠ « correct » : une classe répliquée peut être une divergence d'origine (cf §9.1).
 - **Pas de schema de base partagé** : `background` copié-collé 122×, `variant`/`layout`/`columns` ad hoc (~17 occurrences, nommage incohérent).
-- **Idiome déclinaison couleur réel = `data-bg`** (106/122 sections, 87 %). `[data-palette]`/`[data-density]` n'existent pas. Tailwind v4 importé mais 0 utility consommée (10 tokens `@theme` morts).
+- **Idiome déclinaison couleur réel = `data-bg`** (107/123 sections, re-mesuré 2026-06-13). `[data-palette]`/`[data-density]` n'existent pas. Tailwind v4 importé, **~9 utilities résiduelles seulement** (quasi-mort ; `@theme` non-`inline`, cf `audits/02` — le « 0 utility » littéral était imprécis).
 - **DS Studio** : édite déjà les 115 tokens live (`setProperty` + injection iframes). Catalogue listé mais iframe rechargée au change de type. **Persistance « word de sécurité » EXISTE** : `/api/ds/save` dev-only, garde `DS_SAVE_KEYWORD`, pipeline git anti-main, écrit `tokens.css`. Presets = localStorage only (pas de persistance serveur).
 - **Atelier de section LIVRÉ** (commit 4839398) : édition props live sans reload (fondation studio créatif).
 
@@ -105,6 +105,8 @@ Fait technique décisif (sourcé context7 `/websites/tailwindcss`) : les variabl
 > **Source de vérité** : pour l'industrialisation catalogue + DS Studio, **CE doc** (`03`) = stratégie/vision ; `07-health-audit.md` = audit sourcé-code + backlog **A-G** + séquençage builder + spec manifest ; `audits/02-token-coherence.md` = audit cohérence tokens. **Pas d'autre doc** (un doublon `strategy/07` créé par erreur le 2026-06-13 a été supprimé — toute mise à jour future va ICI, on ne génère pas une nouvelle étude).
 
 ### 9.1 « Réutilisé souvent » ≠ « correct » (réflexion de fond)
+> Méthodologie déjà énoncée par Simon dans `audits/02-token-coherence.md` (2026-06-08, §Méthodo) : « le fait qu'un composant utilise `--a` plutôt que `--b` ne prouve rien — juste que la construction initiale était biaisée ». Ce §9.1 la généralise au catalogue entier.
+
 Une valeur réutilisée 30× n'est pas validée par son nombre d'usages : elle peut avoir **divergé dès le départ** et s'être propagée = **une erreur répliquée 30 fois**. L'anti-éparpillement doit interroger les **fondations** (cette valeur/classe a-t-elle un objectif distinct et juste ?), pas compter les occurrences. Preuves déjà documentées de divergence répliquée : le fallback `var(--paper-2, #EFEBE2)` **faux** dans 9 fichiers alors que le token réel est `#EFE9DD` (`07-health-audit.md §3a`), `--accent-offre` inexistant utilisé en fallback (`CaseStudyTemplate.astro:544`), et les 3 vocabulaires couleur concurrents (`audits/02`). → Le chantier d'unification peut imposer des **refactos massives** : deux classes/variables au même objectif = à fusionner, même très réutilisées.
 
 ### 9.2 Deux axes (rappel, ne jamais confondre)
