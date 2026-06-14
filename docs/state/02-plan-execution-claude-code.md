@@ -597,14 +597,12 @@ _(vide)_
 ## Chantier P2.4 — Nettoyage variables CSS (vagues différées + arbitrages)
 ### Tâches finies
 - [x] **P2.4-c — Renommage tokens DS en rôles lisibles : `--accent-2` → `--accent-sur-clair`** (37 occ / 13 fichiers + 2 JSON dérivés ; valeur #A83D20 inchangée ; rôle « accent AA sur fond clair »). Demande Simon 2026-06-14, noms de rôle compréhensibles dans le DS Studio. Recoupe P2.11-f. GF-1 = build vert + grep résiduel 0. <!-- sb commit=2fa3444 gf1=y -->
+- [x] **P2.4-d — Token rôle `--accent-sur-sombre` #D96A47 (AA 5.72 sur ink) + var de rôle `--accent-text`** : seul rôle manquant prouvé (rule 60-A : `--accent`=4.35, `--accent-sur-clair`=3.14 échouent AA petit-texte sur ink). Var `--accent-text` (défaut `var(--accent)` = identique sur clair) remappée sous `[data-bg=ink]`/`.on-dark` ; migration 601 occ `color: var(--accent)` → `var(--accent-text)` sur 175 fichiers ; co-localisation surfaces sombres brutes (`.hero-card`, `.page-pill-btn.is-active`) ; exposé DS Studio. GF-1 = build vert + audit Playwright contraste /offres 2→0, home 1→0, accent clair inchangé. <!-- sb commit=c6b87a2 gf1=y -->
 ### Tâches en attente
 - [ ] **P2.4-a — Vagues perceptibles** V9d (demi-pixels)/V9e (line-height)/V9f (tracking)/V9g (durées)/
   V9h (collapses) — `audits/02-token-coherence`. Te poser : laquelle change le rendu, laquelle non ?
 - [ ] **P2.4-b [?] — 4 incohérences à trancher (Simon)** : (A) `--section-*` vs `--spacing-*` ;
   (B) `--radius-xs` mal nommé ; (C) `--shadow-hairline`≡`--shadow-card-rest` ; (D) `--col-full`.
-- [ ] **P2.4-d — Token rôle `--accent-sur-sombre` #D96A47 (AA 5.72 sur ink)** : seul rôle manquant
-  (rule 60-A : aucun token existant ne passe AA petit-texte sur fond sombre) ; migrer le petit-texte-accent
-  sur fond sombre + exposer accent-sur-clair/sombre dans DS Studio ; GF-1 axe color-contrast → 0.
 
 ## Chantier P2.5 — V-TYPO transverse (directive 01, jamais exécutée en transverse)
 ### Tâches finies
