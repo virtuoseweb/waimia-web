@@ -44,13 +44,13 @@ const ctaSecondary = isFr ? data.cta_secondary_label_fr : data.cta_secondary_lab
     gap: clamp(20px,2.5vw,36px); max-width: var(--wrap-wide); margin-inline: auto; width: 100%;
   }
   .hero-liquid__h1 {
-    font-family: var(--font-display); font-size: clamp(40px,7vw,100px);
+    font-family: var(--font-display); font-size: var(--text-h1-hero);
     line-height: .94; letter-spacing: -0.035em; color: var(--paper);
     text-wrap: balance; font-weight: var(--fw-regular); margin: 0; max-width: 1400px;
   }
   .hero-liquid__h1 :global(i.accent) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
   .hero-liquid__lede {
-    font-family: var(--font-display); font-size: clamp(18px,1.8vw,26px);
+    font-family: var(--font-display); font-size: var(--text-lede);
     line-height: 1.35; color: rgba(var(--paper-rgb), .72); margin: 0; max-width: var(--wrap-prose); text-wrap: pretty;
   }
   .hero-liquid__cta { display: flex; gap: 10px; flex-wrap: wrap; }
