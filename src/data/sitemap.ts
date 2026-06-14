@@ -172,24 +172,8 @@ export const MM_TECH: MegaMenu = {
       label: { en: 'Anthropic · primary', fr: 'Anthropic · premier partenaire' },
       tint: '#C94F2E',
       items: [
-        { href: '/technologies/claude-models', label: { en: 'Claude models · Opus · Sonnet · Haiku', fr: 'Modèles Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.' } },
-        { href: '/technologies/claude-code', label: { en: 'Claude Code & Managed Agents', fr: 'Claude Code & Managed Agents' } },
-        { href: '/technologies/claude-surfaces', label: { en: 'Claude Cowork · Skills · MCP', fr: 'Claude Cowork · Skills · MCP' } },
-      ],
-    },
-    {
-      kicker: { en: 'OPEN SOURCE · SOVEREIGN', fr: 'OPEN SOURCE · SOUVERAIN' },
-      label: { en: 'Self-hosted', fr: 'Self-hosted' },
-      items: [
-        { href: '/technologies', label: { en: 'VirtuoseOS · sovereign agent runtime', fr: 'VirtuoseOS · runtime souverain' }, lead: { en: 'Our open agent OS · self-hosted, audit-ready.', fr: "Notre OS d'agents · auto-hébergé, traçable." }, featured: true },
-      ],
-    },
-    {
-      kicker: { en: 'FRAMEWORKS · ORCHESTRATION', fr: 'FRAMEWORKS · ORCHESTRATION' },
-      label: { en: 'Multi-agent & no-code', fr: 'Multi-agents & no-code' },
-      items: [
-        { href: '/technologies', label: { en: 'Technologies hub · the full stack', fr: 'Hub Technologies · la stack complète' }, lead: { en: 'Anthropic · open-source · orchestration.', fr: "Anthropic · open-source · orchestration." }, featured: true },
-        { href: '/technologies/frameworks', label: { en: 'LangGraph · CrewAI · AutoGen', fr: 'LangGraph · CrewAI · AutoGen' } },
+        { href: '/technologies/claude-models', label: { en: 'Claude models · Opus · Sonnet · Haiku', fr: 'Modèles Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.' }, featured: true },
+        { href: '/technologies', label: { en: 'Technologies hub · the full stack', fr: 'Hub Technologies · la stack complète' }, lead: { en: 'Anthropic-first · open-source when sovereignty demands it.', fr: "Anthropic d'abord · open-source quand la souveraineté l'exige." } },
       ],
     },
   ],
