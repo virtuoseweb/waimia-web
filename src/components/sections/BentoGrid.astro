@@ -66,8 +66,8 @@ const cells = data.cells ?? [];
     gap: var(--space-3);
     background: var(--paper);
     transition:
-      transform 280ms var(--ease),
-      box-shadow 280ms var(--ease);
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
   }
 
   /* Cellule grande : 2 colonnes x 2 lignes */
@@ -124,7 +124,7 @@ const cells = data.cells ?? [];
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
     color: var(--muted);
-    line-height: 1.6;
+    line-height: var(--leading-relaxed);
     margin: 0;
   }
 
