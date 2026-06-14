@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `c6b87a2` - 37/83 tâches done (45%).
+État : HEAD `8391ea7` - 38/84 tâches done (45%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 28/48 | 58% | P0.0-a — Exécuter les 3 manifestes de finalisation doc ; P0.0-c — Slim `CLAUDE.md` ; P0.0-d — Nettoyage racine repo & images-preuves ; P0.2-A — Lot A : collections auto-contenu + recâblages ; P0.2-B — Lot B : offres secondaires (+15) |
 | P1 | 0/5 | 0% | P1.1-a — Passe keyword gratuite ; P1.1-b — Appliquer les H1 figés ; P1.2-a — 4-6 articles in-silo supplémentaires ; P1.3-a — JSON-LD + FAQ schema.org ; P1.3-b — `llms.txt` + cohérence entité (GEO/AIO) |
-| P2 | 9/25 | 36% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+11) |
+| P2 | 10/26 | 38% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+11) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 0/3 | 0% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.2-a — Merger le pilote TinaCMS ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -38,7 +38,7 @@
 | P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 4/6 | 67% | f8ce276 chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow ; f8ce276 chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow ; 331b7c2 fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) |
 | P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu) | P2 | 0/1 | 0% | - |
 | P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 0/1 | 0% | - |
-| P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 2/4 | 50% | 2fa3444 refactor(ds): P2.4-c (1/2) — migrer accent-2 → accent-sur-clair ; c6b87a2 feat(ds): P2.4-d accent-sur-sombre #D96A47, role var --accent-text (AA petit-texte sur fond sombre) |
+| P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 3/5 | 60% | 2fa3444 refactor(ds): P2.4-c (1/2) — migrer accent-2 → accent-sur-clair ; c6b87a2 feat(ds): P2.4-d accent-sur-sombre #D96A47, role var --accent-text (AA petit-texte sur fond sombre) ; 8391ea7 feat(ds): petit-texte-accent AA sur fond clair (--accent-text defaut accent-sur-clair #A83D20) |
 | P2.5 — V-TYPO transverse (directive 01, jamais exécutée en transverse) | P2 | 2/2 | 100% | 5d975da fix(typo): harmoniser heros/headers serif-full -> base sans + accent serif (P2.5, directive 01) ; cf302b9 fix(typo): raccourcir accent serif hero-landing a un mot (P2.5-b) |
 | P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 1/2 | 50% | 53ed1c3 fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) |
 | P2.7 — Système de variation (#14 Phase B) | P2 | 0/1 | 0% | - |
