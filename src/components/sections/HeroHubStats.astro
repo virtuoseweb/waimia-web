@@ -151,13 +151,24 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
 
 <style>
   /* ── hero-hub-stats ─────────────────────────────────────────────────────── */
-  .hero-hub-stats { padding: 140px var(--space-6) 0; }
+  .hero-hub-stats {
+    min-height: 100vh;
+    min-height: var(--viewport-h);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-6));
+    padding-bottom: var(--space-6);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
   .hero-hub-stats .wrap-wide { max-width: 1200px; margin-inline: auto; }
   :global(.hero-hub-stats__meta) { display: inline-flex; gap: var(--space-2); margin-bottom: var(--space-5); }
   :global(.hero-hub-stats__num) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-stats__h1 {
     font-family: var(--font-display);
-    font-size: var(--text-mega);
+    font-size: var(--text-h1-hero);
     line-height: 0.88;
     letter-spacing: -0.035em;
     text-wrap: balance;
@@ -222,12 +233,23 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   .hero-hub-stats[data-bg='ink'] .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent-text); }
 
   /* ── hero-pillar-hub (copie byte-identique depuis HeroPillarHub.astro) ─── */
-  .hero-pillar-hub { padding: calc(var(--header-height) + var(--space-5)) var(--space-6) 0; }
+  .hero-pillar-hub {
+    min-height: 100vh;
+    min-height: var(--viewport-h);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-6));
+    padding-bottom: var(--space-6);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
   :global(.hero-pillar-hub__meta) { display: inline-flex; gap: var(--space-2); margin-bottom: var(--space-5); }
   :global(.hero-pillar-hub__num) { display: block; margin-bottom: var(--space-5); }
   .hero-pillar-hub__h1 {
     font-family: var(--font-sans);
-    font-size: var(--text-mega);
+    font-size: var(--text-h1-hero);
     line-height: 0.88;
     letter-spacing: -0.035em;
     text-wrap: balance;
@@ -260,7 +282,6 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   .hero-pillar-hub__stats :global(.key-metric:last-child) { border-right: none; }
   .hero-pillar-hub__stats :global(.key-metric-value) { font-style: normal; }
   @media (max-width: 900px) {
-    .hero-pillar-hub { padding-top: calc(var(--header-height) + var(--space-2)); }
     .hero-pillar-hub__stats { grid-template-columns: repeat(2, 1fr); }
     .hero-pillar-hub__stats :global(.key-metric:nth-child(2n)) { border-right: none; }
   }
@@ -286,12 +307,23 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
 
   /* ── hero-conversion-funnel ────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-conversion-funnel` (collision max-width). */
-  .hero-conversion-funnel { padding: 140px var(--space-6) var(--section-base); }
+  .hero-conversion-funnel {
+    min-height: 100vh;
+    min-height: var(--viewport-h);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-6));
+    padding-bottom: var(--space-6);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
   .hero-conversion-funnel .wrap-wide { max-width: 1200px; margin-inline: auto; }
   :global(.hero-conversion-funnel__num) { display: block; margin-bottom: 20px; }
   .hero-conversion-funnel__h1 {
     font-family: var(--font-sans);
-    font-size: var(--text-mega);
+    font-size: var(--text-h1-hero);
     line-height: 0.88;
     letter-spacing: 0;
     text-wrap: balance;

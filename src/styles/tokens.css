@@ -59,6 +59,11 @@
   --header-height:        72px;
   --cookie-banner-height: 0px;
 
+  /* Hauteur viewport mobile-safe : svh = small viewport height, STABLE (ne se réadapte
+     PAS avec la barre nav iOS/Android, contrairement à dvh/vh). Source unique pour les
+     sections plein écran. */
+  --viewport-h: 100svh;
+
   /* ─── FLUID SCALE · knobs globaux paramétriques (P-A) ───
      Knobs pilotables en LIVE par le DS Studio (setProperty sur :root).
      Modifier l'un de ces 3 recalcule tout l'espacement --space-* sans rebuild.
