@@ -58,6 +58,14 @@
   /* Fixed UI heights · pour scroll-margin anchors + cookie-aware spacing */
   --header-height:        72px;
   --cookie-banner-height: 0px;
+
+  /* ─── FLUID SCALE · knobs globaux paramétriques (P-A) ───
+     Knobs pilotables en LIVE par le DS Studio (setProperty sur :root).
+     Modifier l'un de ces 3 recalcule tout l'espacement --space-* sans rebuild.
+     Valeurs unitless (entiers de px) pour entrer dans les calc() d'interpolation. */
+  --fl-min-vw: 360;        /* plage basse d'interpolation viewport (px, unitless) */
+  --fl-max-vw: 1440;       /* plage haute d'interpolation viewport (px, unitless) */
+  --fl-space-shrink: 0.82; /* facteur de réduction mobile de l'espacement (knob DS Studio) */
 }
 
 @media (max-width: 900px) { :root { --gut: 20px; } }
@@ -139,23 +147,42 @@ body {
   --radius-full: 50%;   /* cercles / avatars / dots (distinct de pill 999px) */
 }
 
-/* ─── SPACING SCALE · 8pt grid ─── */
+/* ─── SPACING SCALE · 8pt grid, FLUIDIFIÉE (P-A) ───
+   Chaque cran est un clamp() paramétré par les knobs --fl-* ci-dessus.
+   LEVIER central : ~836 usages var(--space-N) (+ les alias --section-*) héritent
+   automatiquement de la fluidité, sans rebuild. Le DS Studio pilote --fl-space-shrink
+   et --fl-min-vw/--fl-max-vw en live (setProperty sur :root) → tout l'espacement se recalcule.
+
+   Anatomie d'un cran (formule Utopia, paramétrée, source utopia.fyi/blog/clamp) :
+     max     = valeur historique en rem (px/16) = SEUL littéral par cran.
+               ANCHOR desktop @--fl-max-vw : rendu INCHANGÉ (GF-1).
+     min     = calc(max * var(--fl-space-shrink)) → vit avec le knob shrink.
+     delta   = calc(max * (1 - var(--fl-space-shrink))) = (max - min), vit aussi.
+     preferred = calc( min + delta × progression-viewport )
+       progression-viewport = (100vw - (min-vw·1px)) / ((max-vw - min-vw)·1px)
+       (référence --fl-min-vw / --fl-max-vw → vit avec les knobs).
+     Les 3 knobs --fl-* sont donc TOUS référencés : changer shrink OU la plage vw
+     recalcule chaque cran en live (var() uniquement dans des valeurs, jamais dans
+     une condition @media). La grille px historique reste en commentaire à droite. */
 :root {
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 40px;
-  --space-8: 48px;
-  --space-9: 64px;
-  --space-10: 80px;
-  --space-11: 96px;
-  --space-12: 120px;
-  --space-13: 160px;
-  --space-14: 200px;
-  --space-15: 256px;
+  /* --space-1 (4px) : micro-espacement gardé FIXE. À 4px la fluidité n'a pas de
+     sens perceptible (3.3px vs 4px) et fragiliserait hairlines/petits gaps.
+     Reste un literal simple (pas de clamp) → 0 dérive sur le plus petit cran. */
+  --space-1: 0.25rem; /* 4px (fixe, micro · hors fluidité par choix) */
+  --space-2: clamp(calc(0.5rem * var(--fl-space-shrink)), calc((0.5rem * var(--fl-space-shrink)) + (0.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 0.5rem);       /* 8px desktop, ~6.6px @360 */
+  --space-3: clamp(calc(0.75rem * var(--fl-space-shrink)), calc((0.75rem * var(--fl-space-shrink)) + (0.75rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 0.75rem);    /* 12px desktop, ~9.8px @360 */
+  --space-4: clamp(calc(1rem * var(--fl-space-shrink)), calc((1rem * var(--fl-space-shrink)) + (1rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 1rem);                /* 16px desktop, ~13.1px @360 */
+  --space-5: clamp(calc(1.5rem * var(--fl-space-shrink)), calc((1.5rem * var(--fl-space-shrink)) + (1.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 1.5rem);        /* 24px desktop, ~19.7px @360 */
+  --space-6: clamp(calc(2rem * var(--fl-space-shrink)), calc((2rem * var(--fl-space-shrink)) + (2rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2rem);                /* 32px desktop, ~26.2px @360 */
+  --space-7: clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem);        /* 40px desktop, ~32.8px @360 */
+  --space-8: clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem);                /* 48px desktop, ~39.4px @360 */
+  --space-9: clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem);                /* 64px desktop, ~52.5px @360 */
+  --space-10: clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem);              /* 80px desktop, ~65.6px @360 */
+  --space-11: clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem);              /* 96px desktop, ~78.7px @360 */
+  --space-12: clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem);      /* 120px desktop, ~98.4px @360 */
+  --space-13: clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem);          /* 160px desktop, ~131.2px @360 */
+  --space-14: clamp(calc(12.5rem * var(--fl-space-shrink)), calc((12.5rem * var(--fl-space-shrink)) + (12.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 12.5rem);  /* 200px desktop, ~164px @360 */
+  --space-15: clamp(calc(16rem * var(--fl-space-shrink)), calc((16rem * var(--fl-space-shrink)) + (16rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 16rem);          /* 256px desktop, ~209.9px @360 */
 
   /* Section rhythm · LA famille verticale unique (refonte R4, docs/37 §2.4 arbitrage A4)
      Crans FIXES (la version minoritaire a gagné : hiérarchie nette > clamps fluides
