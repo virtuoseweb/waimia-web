@@ -207,42 +207,35 @@ export const MM_RESOURCES: MegaMenu = {
   cols: [
     {
       kicker: { en: 'PROOF', fr: 'PREUVES' },
-      label: { en: 'Cases & internal blueprint', fr: 'Cas & blueprint interne' },
+      label: { en: 'Cases & proof', fr: 'Cas & preuve' },
       items: [
         { href: '/cas', label: { en: 'Case studies · in preparation', fr: 'Études de cas · en préparation' } },
-        { href: '/ressources/cas/virtuoseos', label: { en: 'VirtuoseOS · blueprint case', fr: 'VirtuoseOS · cas blueprint' }, featured: true },
-        { href: '/ressources/changelog', label: { en: 'Changelog · Claude versions', fr: 'Changelog · versions Claude' }, lead: { en: 'Anthropic product releases watch.', fr: 'Veille produit Anthropic releases.' } },
       ],
     },
     {
       kicker: { en: 'BUSINESS INSIGHTS', fr: 'INSIGHTS BUSINESS' },
       label: { en: 'SMB/SME applied AI', fr: 'IA appliquée PME/ETI' },
       items: [
-        { href: '/ressources/cookbooks/claude-cowork-rollout', label: { en: 'Cookbook · Claude Cowork rollout', fr: 'Cookbook · Déploiement Claude Cowork' }, lead: { en: 'Roll out Claude in a team without losing the week.', fr: 'Déployer Claude dans une équipe sans perdre la semaine.' }, featured: true },
-        { href: '/ressources/blog', label: { en: 'Blog · business insights', fr: 'Blog · insights business' } },
-        { href: '/ressources/cookbooks', label: { en: 'Cookbooks & tutorials', fr: 'Cookbooks & tutoriels' }, lead: { en: 'Practical automation patterns for SMB teams.', fr: 'Patterns d’automatisation concrets pour équipes PME.' } },
-        { href: '/ressources/livres-blancs', label: { en: 'White papers · in-depth', fr: 'Livres blancs · études' } },
+        { href: '/ressources/blog', label: { en: 'Blog · business insights', fr: 'Blog · insights business' }, featured: true },
+        { href: '/ressources/blog/brain-circuit', label: { en: 'Essay · Brain circuit', fr: 'Essai · Brain circuit' }, lead: { en: 'How operational AI rewires the company.', fr: "Comment l'IA opérationnelle recâble l'entreprise." } },
       ],
     },
     {
-      kicker: { en: 'DEEP READS', fr: 'LECTURES LONGUES' },
-      label: { en: 'White papers & essays', fr: 'Livres blancs & essais' },
+      kicker: { en: 'TOOLS', fr: 'OUTILS' },
+      label: { en: 'Free calculators', fr: 'Calculateurs gratuits' },
       tint: '#C94F2E',
       items: [
-        { href: '/ressources/livres-blancs/ai-act-readiness', label: { en: 'White paper · AI Act Readiness', fr: "Livre blanc · Préparation à l'AI Act" }, lead: { en: 'The compliance dossier · downloadable.', fr: 'Le dossier de conformité · téléchargeable.' }, featured: true },
-        { href: '/ressources/blog/brain-circuit', label: { en: 'Essay · Brain circuit', fr: 'Essai · Brain circuit' }, lead: { en: 'How operational AI rewires the company.', fr: "Comment l'IA opérationnelle recâble l'entreprise." } },
-        { href: '/ressources/livres-blancs', label: { en: 'All white papers', fr: 'Tous les livres blancs' } },
-        { href: '/ressources/veille-ia', label: { en: 'AI watch · weekly briefs', fr: 'Veille IA · synthèses hebdo' } },
-        { href: '/technologies', label: { en: 'Technologies archive · the stack', fr: 'Archives technologies · la stack' }, lead: { en: 'Claude ecosystem + open-source + frameworks.', fr: "Écosystème Claude + open-source + frameworks." } },
+        { href: '/ressources/outils', label: { en: 'Tools catalog', fr: 'Catalogue outils' }, lead: { en: 'ROI, TCO, AI Act compliance. No form, no funnel.', fr: 'ROI, TCO, conformité AI Act. Sans formulaire, sans funnel.' }, featured: true },
+        { href: '/technologies', label: { en: 'Technologies · the stack', fr: 'Technologies · la stack' }, lead: { en: 'Claude ecosystem positioning.', fr: "Positionnement écosystème Claude." } },
       ],
     },
   ],
   featured: {
-    kicker: { en: 'WHITE PAPER', fr: 'LIVRE BLANC' },
-    label: { en: 'AI Act Readiness Dossier', fr: "Dossier Préparation à l'AI Act" },
-    body: { en: 'The complete compliance dossier to anticipate the AI Act before launching an operational AI project.', fr: "Le dossier de conformité complet pour anticiper l'AI Act avant de lancer un projet IA opérationnel." },
-    cta: { en: 'Open the white paper →', fr: 'Ouvrir le livre blanc →' },
-    href: '/ressources/livres-blancs/ai-act-readiness',
+    kicker: { en: 'BLOG', fr: 'BLOG' },
+    label: { en: 'Business insights for B2B SMBs', fr: 'Insights business pour PME B2B' },
+    body: { en: 'Signed essays and notes on AI-native websites, GEO and acquisition. Published when we genuinely have something to say.', fr: "Essais et notes signés sur les sites IA-native, le GEO et l'acquisition. Publiés quand on a vraiment quelque chose à dire." },
+    cta: { en: 'Read the blog →', fr: 'Lire le blog →' },
+    href: '/ressources/blog',
   },
 };
 
@@ -373,20 +366,8 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Blog', fr: 'Blog' },
       },
       {
-        href: '/ressources/cookbooks',
-        label: { en: 'Cookbooks · guides', fr: 'Cookbooks · guides' },
-      },
-      {
-        href: '/ressources/livres-blancs',
-        label: { en: 'White papers', fr: 'Livres blancs' },
-      },
-      {
         href: '/ressources/outils',
         label: { en: 'Free tools', fr: 'Outils gratuits' },
-      },
-      {
-        href: '/ressources/veille-ia',
-        label: { en: 'AI watch', fr: 'Veille IA' },
       },
       {
         href: '/ressources/#newsletter',

@@ -100,22 +100,6 @@ const RESSOURCES: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Livres blancs', en: 'White papers' },
-          href: '/ressources/livres-blancs',
-          description: {
-            fr: 'Analyses approfondies téléchargeables.',
-            en: 'Deep downloadable analyses.',
-          },
-        },
-        {
-          label: { fr: 'Veille IA', en: 'AI watch' },
-          href: '/ressources/veille-ia',
-          description: {
-            fr: 'Mouvements marché analysés.',
-            en: 'Analyzed market moves.',
-          },
-        },
-        {
           label: { fr: 'Newsletter', en: 'Newsletter' },
           href: '/ressources/#newsletter',
           description: {
@@ -134,14 +118,6 @@ const RESSOURCES: MegaMenuSection = {
       title: { fr: 'Pratique', en: 'Practice' },
       links: [
         {
-          label: { fr: 'Cookbooks', en: 'Cookbooks' },
-          href: '/ressources/cookbooks',
-          description: {
-            fr: 'Recettes techniques actionnables.',
-            en: 'Actionable technical recipes.',
-          },
-        },
-        {
           label: { fr: 'Outils', en: 'Tools' },
           href: '/ressources/outils',
           description: {
@@ -151,7 +127,7 @@ const RESSOURCES: MegaMenuSection = {
         },
         {
           label: { fr: 'Cas clients', en: 'Case studies' },
-          href: '/secteurs',
+          href: '/cas',
           description: {
             fr: 'Premiers cas en cours de rédaction.',
             en: 'First cases in preparation.',

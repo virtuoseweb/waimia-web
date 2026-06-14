@@ -502,50 +502,6 @@ const secteurs = defineCollection({
   }),
 });
 
-// ─── Livres blancs ───
-const livresBlancs = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/livres-blancs' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    pages: z.number().int().positive(),
-    audience_fr: z.string(),
-    audience_en: z.string(),
-    chapters_fr: z.array(z.string()).min(3),
-    chapters_en: z.array(z.string()).min(3),
-    pdfUrl: z.string().optional(),
-    requireEmail: z.boolean().default(true),
-    apiSlug: z.string().regex(/^[a-z0-9-]+$/),
-    coverUrl: z.string().optional(),
-    format_fr: z.string(),
-    format_en: z.string(),
-    author: reference('authors'),
-    contributors: z.array(reference('authors')).default([]),
-    isPremium: z.boolean().default(false),
-    premium_price_eur: z.number().positive().optional(),
-    premium_stripe_link: z.string().url().optional(),
-  }),
-});
-
-// ─── Cookbooks ───
-const cookbooks = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/cookbooks' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    duration_fr: z.string(),
-    duration_en: z.string(),
-    difficulty: z.enum(['Débutant', 'Intermédiaire', 'Avancé']),
-    prerequisites_fr: z.array(z.string()).default([]),
-    prerequisites_en: z.array(z.string()).default([]),
-    steps: z.number().int().positive(),
-    technologies: z.array(z.string()).default([]),
-    author: reference('authors'),
-    contributors: z.array(reference('authors')).default([]),
-    relatedCookbooks: z.array(z.string()).default([]),
-  }),
-});
-
 // ─── Outils ───
 const outils = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/outils' }),
@@ -854,8 +810,6 @@ export const collections = {
   technologies,
   blog,
   secteurs,
-  livresBlancs,
-  cookbooks,
   outils,
   authors,
   // V2 nouvelles (2026-05-15)

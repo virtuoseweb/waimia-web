@@ -43,17 +43,13 @@ const activeAuthors = allAuthors
   });
 
 // Compte articles par auteur (auto-jointure)
-// Post-fusion R1 : la veille IA + les field notes vivent dans blog (champ type).
-const [allBlog, allCookbooks, allLivresBlancs] = await Promise.all([
+// SEO état final : cookbooks + livres-blancs supprimés ; auteurs reliés au blog in-silo.
+const [allBlog] = await Promise.all([
   getCollection('blog'),
-  getCollection('cookbooks'),
-  getCollection('livresBlancs'),
 ]);
 
 const allItems: AuthorLinkedEntry[] = [
   ...allBlog,
-  ...allCookbooks,
-  ...allLivresBlancs,
 ];
 
 const getAuthor = (contentEntry: AuthorLinkedEntry): AuthorRef | undefined => {

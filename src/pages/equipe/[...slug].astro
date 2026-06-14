@@ -36,11 +36,9 @@ const slug = entry.id;
 const { Content } = await render(entry);
 
 // Auto-jointure : tous les contenus de cet auteur, triés par date desc.
-// Post-fusion R1 : la veille IA + les field notes vivent dans blog (champ type).
-const [allBlog, allCookbooks, allLivresBlancs] = await Promise.all([
+// SEO état final : cookbooks + livres-blancs supprimés ; il reste le blog in-silo.
+const [allBlog] = await Promise.all([
   getCollection('blog'),
-  getCollection('cookbooks'),
-  getCollection('livresBlancs'),
 ]);
 
 // Filtre par auteur — la ref `author: reference('authors')` n'est pas encore appliquée
@@ -84,8 +82,8 @@ const shortPosts = blogByAuthor.filter(
 );
 const fieldNotes = blogByAuthor.filter((contentEntry) => contentEntry.data.type === 'field-note');
 const veilleIA = blogByAuthor.filter((contentEntry) => contentEntry.data.type === 'veille-ia');
-const cookbooks = sortByDate(allCookbooks.filter(matchAuthor));
-const livresBlancs = sortByDate(allLivresBlancs.filter(matchAuthor));
+const cookbooks: AuthorLinkedEntry[] = [];
+const livresBlancs: AuthorLinkedEntry[] = [];
 ---
 
 <AuthorPageTemplate
