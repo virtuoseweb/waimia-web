@@ -33,6 +33,7 @@ const ALLOWLIST = {
   'meta-description-length': [],
   'canonical-present': [],
   'noindex-not-in-sitemap': [],
+  'meta-uniqueness': [],
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -245,12 +246,91 @@ function checkNoindexNotInSitemap() {
   return { violations, knownViolations };
 }
 
+// ─── Check 4 : meta-uniqueness ───────────────────────────────────────────────
+
+function extractTitle(html) {
+  const m = /<title>([^<]*)<\/title>/i.exec(html);
+  return m ? m[1].trim() : null;
+}
+
+// Extract content="..." robustly: match by delimiter only (handles curly apostrophes in content)
+function extractContentAttr(tag) {
+  const dq = /content="([^"]*)"/i.exec(tag);
+  if (dq) return dq[1].trim();
+  const sq = /content='([^']*)'/i.exec(tag);
+  if (sq) return sq[1].trim();
+  return null;
+}
+
+function extractDescription(html) {
+  // name="description" content="..." (any attribute order)
+  const m1 = /<meta\s+(?:[^>]*?\s+)?name=["']description["'][^>]*>/i.exec(html);
+  if (m1) {
+    const c = extractContentAttr(m1[0]);
+    if (c !== null) return c;
+  }
+  const m2 = /<meta\s+(?:[^>]*?\s+)?content=(?:"[^"]*"|'[^']*')[^>]*\s+name=["']description["'][^>]*>/i.exec(html);
+  if (m2) {
+    const c = extractContentAttr(m2[0]);
+    if (c !== null) return c;
+  }
+  return null;
+}
+
+function checkMetaUniqueness(files) {
+  const violations = [];
+  const knownViolations = [];
+
+  // Map text -> [file, ...]
+  const titleMap = new Map();
+  const descMap = new Map();
+
+  for (const file of files) {
+    const html = readFileSync(file, 'utf8');
+
+    const title = extractTitle(html);
+    if (title) {
+      if (!titleMap.has(title)) titleMap.set(title, []);
+      titleMap.get(title).push(file);
+    }
+
+    const desc = extractDescription(html);
+    if (desc) {
+      if (!descMap.has(desc)) descMap.set(desc, []);
+      descMap.get(desc).push(file);
+    }
+  }
+
+  // Collect duplicate titles
+  for (const [text, dupeFiles] of titleMap) {
+    if (dupeFiles.length < 2) continue;
+    for (const file of dupeFiles) {
+      const entry = { file, issue: `titre dupliqué sur ${dupeFiles.length} pages`, content: text };
+      if (isAllowlisted('meta-uniqueness', file)) knownViolations.push(entry);
+      else violations.push(entry);
+    }
+  }
+
+  // Collect duplicate descriptions
+  for (const [text, dupeFiles] of descMap) {
+    if (dupeFiles.length < 2) continue;
+    for (const file of dupeFiles) {
+      const entry = { file, issue: `description dupliquée sur ${dupeFiles.length} pages`, content: text };
+      if (isAllowlisted('meta-uniqueness', file)) knownViolations.push(entry);
+      else violations.push(entry);
+    }
+  }
+
+  return { violations, knownViolations };
+}
+
 // ─── Run checks ───────────────────────────────────────────────────────────────
 
 const checks = [
   { name: 'meta-description-length', label: 'Meta description (présence + ≤ 160 chars)', files: indexableFiles },
   { name: 'canonical-present', label: 'Canonical (présence)', files: indexableFiles },
   { name: 'noindex-not-in-sitemap', label: 'Noindex absent du sitemap', files: null },
+  { name: 'meta-uniqueness', label: 'Titres et descriptions uniques par page indexable', files: indexableFiles },
 ];
 
 const results = {};
@@ -258,6 +338,7 @@ const results = {};
 results['meta-description-length'] = checkMetaDescription(indexableFiles);
 results['canonical-present'] = checkCanonical(indexableFiles);
 results['noindex-not-in-sitemap'] = checkNoindexNotInSitemap();
+results['meta-uniqueness'] = checkMetaUniqueness(indexableFiles);
 
 // ─── Report ───────────────────────────────────────────────────────────────────
 
