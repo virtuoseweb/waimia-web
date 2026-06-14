@@ -192,6 +192,16 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
   @media (max-width: 900px) {
     .pricing-cards__grid { grid-template-columns: 1fr; }
   }
+  /* Mobile : densification (espacement/typo tokenisee, sans perte d'info) */
+  @media (max-width: 480px) {
+    .pricing-cards__header { margin-bottom: var(--space-6); gap: var(--space-3); }
+    .pricing-cards__grid { gap: var(--space-4); }
+    .pricing-cards__card { padding: var(--space-5) var(--space-4); gap: var(--space-4); }
+    .pricing-cards__price { padding-block: var(--space-3); }
+    .pricing-cards__price-k { font-size: var(--text-h3); }
+    .pricing-cards__features { gap: var(--space-2); }
+    .pricing-cards__footnote { margin-top: var(--space-6); }
+  }
   /* ── Alternance des fonds (docs/37 §2.6) ── */
   .pricing-cards[data-bg='paper-2'] { background: var(--paper-2); }
   .pricing-cards[data-bg='paper-3'] { background: var(--paper-3); }
