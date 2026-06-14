@@ -676,24 +676,6 @@ const authors = defineCollection({
 // ═════════════════════════════════════════════════════════════════
 
 // ─── Tunnels conversion (multi-étapes par offre) ───
-const tunnels = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/tunnels' }),
-  schema: z.object({
-    ...baseFields,
-    offre_slug: z.string().regex(/^[a-z0-9-]+$/),
-    step: z.number().int().min(1).max(6),
-    step_title_fr: z.string(),
-    step_title_en: z.string(),
-    next_step: z.string().optional(),
-    prev_step: z.string().optional(),
-    cta_label_fr: z.string(),
-    cta_label_en: z.string(),
-    cta_href: z.string(),
-    cta_variant: z.enum(['primary', 'accent', 'ghost']).default('primary'),
-    progress_total: z.number().int().min(2).max(6).default(4),
-  }),
-});
-
 // ─── École : Courses · discriminated union (T3.1a + T3.1f — remplace formations/parcours/ateliers) ───
 const courses = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/ecole/courses' }),
@@ -823,44 +805,6 @@ const personas = defineCollection({
 // ─── Brand Voice ─── (collection `brandVoice` archivée V-F1, docs/40 §1 :
 // gouvernance de marque, pas du contenu de site → docs/archive/content/brand-voice/)
 
-// ─── Commerce (Tier 3.2) · fusion produits + abonnements via discriminated union ───
-const commerce = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/commerce' }),
-  schema: z.discriminatedUnion('commerce_type', [
-    // Produit one-shot (audit-guide, kit-prompts, livre-blanc-premium, workbook, etc.)
-    z.object({
-      commerce_type: z.literal('product'),
-      ...baseFields,
-      ...taxonomyFields,
-      sku: z.string(),
-      price_eur: z.number().int().nonnegative(),
-      stripe_payment_link: z.string().url(),
-      delivery_format: z.enum(['pdf', 'epub', 'video', 'pack-zip', 'notion', 'mixte']),
-      pages_count: z.number().int().positive().optional(),
-      duration_minutes: z.number().int().positive().optional(),
-      preview_url: z.string().url().optional(),
-      benefits_fr: z.array(z.string()).min(3).max(8),
-      benefits_en: z.array(z.string()).min(3).max(8),
-      faq_items: z
-        .array(z.object({ q_fr: z.string(), q_en: z.string(), a_fr: z.string(), a_en: z.string() }))
-        .default([]),
-    }),
-    // Abonnement récurrent (membership Atelier, accès content premium, etc.)
-    z.object({
-      commerce_type: z.literal('subscription'),
-      ...baseFields,
-      ...taxonomyFields,
-      sku: z.string(),
-      price_eur_monthly: z.number().int().nonnegative(),
-      price_eur_yearly: z.number().int().nonnegative().optional(),
-      stripe_billing_portal: z.string().url(),
-      includes_fr: z.array(z.string()).min(3).max(10),
-      includes_en: z.array(z.string()).min(3).max(10),
-      tier: z.enum(['starter', 'pro', 'team']).default('starter'),
-    }),
-  ]),
-});
-
 // ═════════════════════════════════════════════════════════════════
 // Tier 4 · prompts (bibliothèque AI internal/public) — T4.3
 // ═════════════════════════════════════════════════════════════════
@@ -978,11 +922,9 @@ export const collections = {
   outils,
   authors,
   // V2 nouvelles (2026-05-15)
-  tunnels,
   courses,
   // Tier 4 AI-first + Tier 5 SEO (2026-05-15)
   personas,
-  commerce,
   // Tier 4 AI-first + Tier 5 (2026-05-16)
   prompts,
   integrations,
