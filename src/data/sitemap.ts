@@ -161,12 +161,12 @@ export const MM_CASES_NEW: MegaMenu = {
 
 // ─── MEGA-MENU 3 · TECHNOLOGIES
 export const MM_TECH: MegaMenu = {
-  key: 'technologies',
-  label: { en: 'Technologies', fr: 'Technologies' },
-  href: '/technologies',
+  key: 'expertise-claude',
+  label: { en: 'Claude expertise', fr: 'Expertise Claude' },
+  href: '/expertise-claude',
   lead: {
-    en: 'The stack we ship on. Anthropic-first · open-source when sovereignty demands it.',
-    fr: "La stack qu'on déploie. Anthropic d'abord · open-source quand la souveraineté l'exige.",
+    en: 'Anthropic-first for demanding enterprise use. One Claude model per task profile.',
+    fr: "Anthropic d'abord pour les usages enterprise exigeants. Un modèle Claude par profil de tâche.",
   },
   cols: [
     {
@@ -174,8 +174,7 @@ export const MM_TECH: MegaMenu = {
       label: { en: 'Anthropic · primary', fr: 'Anthropic · premier partenaire' },
       tint: '#C94F2E',
       items: [
-        { href: '/technologies/claude-models', label: { en: 'Claude models · Opus · Sonnet · Haiku', fr: 'Modèles Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5.' }, featured: true },
-        { href: '/technologies', label: { en: 'Technologies hub · the full stack', fr: 'Hub Technologies · la stack complète' }, lead: { en: 'Anthropic-first · open-source when sovereignty demands it.', fr: "Anthropic d'abord · open-source quand la souveraineté l'exige." } },
+        { href: '/expertise-claude', label: { en: 'Claude expertise · Opus · Sonnet · Haiku', fr: 'Expertise Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.' }, featured: true },
       ],
     },
   ],
@@ -212,7 +211,7 @@ export const MM_RESOURCES: MegaMenu = {
       tint: '#C94F2E',
       items: [
         { href: '/ressources/outils', label: { en: 'Tools catalog', fr: 'Catalogue outils' }, lead: { en: 'ROI, TCO, AI Act compliance. No form, no funnel.', fr: 'ROI, TCO, conformité AI Act. Sans formulaire, sans funnel.' }, featured: true },
-        { href: '/technologies', label: { en: 'Technologies · the stack', fr: 'Technologies · la stack' }, lead: { en: 'Claude ecosystem positioning.', fr: "Positionnement écosystème Claude." } },
+        { href: '/expertise-claude', label: { en: 'Claude expertise · the stack', fr: 'Expertise Claude · la stack' }, lead: { en: 'Claude ecosystem positioning.', fr: "Positionnement écosystème Claude." } },
       ],
     },
   ],

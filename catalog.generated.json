@@ -1,5 +1,52 @@
 [
   {
+    "id": "about-story-split",
+    "category": "marketing",
+    "categorySlug": "about-sections",
+    "subcategory": "About Sections",
+    "component": "AboutStorySplit",
+    "status": "stable",
+    "tags": [
+      "about",
+      "story",
+      "mission",
+      "timeline",
+      "split"
+    ],
+    "description_fr": "Récit fondateur en deux colonnes : texte narratif de mission à gauche, timeline de jalons datés à droite. Raconte l’histoire de la marque sans verbiage.",
+    "description_en": "Founder narrative in two columns: a mission story on the left, a dated milestone timeline on the right. Tells the brand story without filler.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "announcement-banner",
+    "category": "marketing",
+    "categorySlug": "banner-sections",
+    "subcategory": "Banner Sections",
+    "component": "AnnouncementBanner",
+    "status": "stable",
+    "tags": [
+      "banner",
+      "announcement",
+      "promo",
+      "alert",
+      "dismissible",
+      "strip"
+    ],
+    "description_fr": "Bandeau d’annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.",
+    "description_en": "Thin announcement/promo banner: optional badge, short text and link, optional dismiss button, accent, ink or paper-2 variants.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "architecture-diagram",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -25,6 +72,54 @@
     }
   },
   {
+    "id": "article-grid",
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Content Listing Sections",
+    "component": "ArticleGrid",
+    "status": "stable",
+    "tags": [
+      "blog",
+      "articles",
+      "grid",
+      "cards",
+      "editorial",
+      "listing"
+    ],
+    "description_fr": "Grille de cartes d’articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.",
+    "description_en": "Grid of article/blog cards: optional image, tag, title, date, read time, excerpt, author and link, in 2 or 3 columns. The B2B editorial classic.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "asymmetric-services",
+    "category": "marketing",
+    "categorySlug": "manifesto-sections",
+    "subcategory": "Manifesto Sections",
+    "component": "AsymmetricServices",
+    "status": "stable",
+    "tags": [
+      "manifesto",
+      "services",
+      "asymmetric",
+      "alternating",
+      "editorial",
+      "rows"
+    ],
+    "description_fr": "Services en rangées asymétriques (AsymmetricServiceRow) qui alternent gauche/droite : numéro display, nom, body et flèche, signature de /manifesto Acte II.",
+    "description_en": "Services as asymmetric rows (AsymmetricServiceRow) alternating left/right: display number, name, body and arrow, the /manifesto Act II signature.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "bento-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -39,6 +134,31 @@
     ],
     "description_fr": "Mosaique bento asymetrique de 5 cellules (1 grande 2x2 + 4 petites) pour valoriser les capacites cles avec une mise en page moderne.",
     "description_en": "Asymmetric bento mosaic of 5 cells (1 large 2x2 + 4 small) to highlight key capabilities with a modern layout.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "booking-embed",
+    "category": "marketing",
+    "categorySlug": "contact-sections",
+    "subcategory": "Contact Sections",
+    "component": "BookingEmbed",
+    "status": "stable",
+    "tags": [
+      "contact",
+      "booking",
+      "cal",
+      "embed",
+      "meeting",
+      "rdv",
+      "conversion"
+    ],
+    "description_fr": "Section de prise de rendez-vous intégrant le widget Cal.com (CalEmbed) avec une copy de réassurance, pour réserver un audit ou un appel.",
+    "description_en": "Booking section embedding the Cal.com widget (CalEmbed) with reassurance copy, to book an audit or a call.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -121,6 +241,54 @@
     }
   },
   {
+    "id": "case-spotlight",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "CaseSpotlight",
+    "status": "stable",
+    "tags": [
+      "case",
+      "spotlight",
+      "proof",
+      "metrics",
+      "conversion",
+      "dark"
+    ],
+    "description_fr": "Vitrine de cas concret insérable partout : carte INK avec visuel habillé + titre serti d’un relevé accent, citation à barre accent, métriques massives latérales, tags méta et CTA. Levier de conversion à fort impact.",
+    "description_en": "A concrete-case showcase you can drop anywhere: an INK card with a styled visual + a title with an accent highlight, an accent-bar quote, large lateral metrics, meta tags and a CTA. A high-impact conversion lever.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "code-showcase",
+    "category": "marketing",
+    "categorySlug": "terminal-sections",
+    "subcategory": "Terminal Sections",
+    "component": "CodeShowcase",
+    "status": "stable",
+    "tags": [
+      "code",
+      "showcase",
+      "syntax",
+      "mono",
+      "devtools",
+      "saas"
+    ],
+    "description_fr": "Vitrine de code annoté pour devtools/SaaS technique : copy explicative, bloc code mono avec numéros de ligne et commentaires bilingues alignés, label fichier et langage, tone encre ou paper.",
+    "description_en": "Annotated code showcase for devtools/technical SaaS: explanatory copy, mono code block with line numbers and aligned bilingual comments, file and language label, ink or paper tone.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "coming-soon-pills",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -157,8 +325,8 @@
       "grid",
       "trust"
     ],
-    "description_fr": "Grille hairline de 2 à 6 engagements ou garanties, titre display et corps sans — extrait de la page Méthode.",
-    "description_en": "Hairline grid of 2–6 commitments or guarantees, display title and sans body — sourced from the Méthode page.",
+    "description_fr": "Grille hairline de 2 à 6 engagements ou garanties, titre display et corps sans, extrait de la page Méthode.",
+    "description_en": "Hairline grid of 2–6 commitments or guarantees, display title and sans body, sourced from the Méthode page.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -189,6 +357,29 @@
     }
   },
   {
+    "id": "comparison-pricing-callout",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "ComparisonPricingCallout",
+    "status": "stable",
+    "tags": [
+      "comparison",
+      "value-prop",
+      "pricing",
+      "bridge",
+      "callout"
+    ],
+    "description_fr": "Bloc « pourquoi nous » en trois colonnes de propositions de valeur, terminé par un CTA et une mention. Sert de pont entre les features et la page tarifaire.",
+    "description_en": "A “why us” block in three value-proposition columns, closed by a CTA and a note. Bridges the gap between features and the pricing page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "comparison-table",
     "category": "marketing",
     "categorySlug": "comparison-sections",
@@ -201,6 +392,30 @@
     ],
     "description_fr": "Tableau comparatif pour clarifier les différences entre offres, options ou approches.",
     "description_en": "Comparison table for clarifying differences between offers, options, or approaches.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "contact-form",
+    "category": "marketing",
+    "categorySlug": "contact-sections",
+    "subcategory": "Contact Sections",
+    "component": "ContactForm",
+    "status": "stable",
+    "tags": [
+      "contact",
+      "form",
+      "name",
+      "email",
+      "message",
+      "lead"
+    ],
+    "description_fr": "Section contact avec formulaire (nom, email, message) et colonne coordonnées, action vers /api/contact, bilingue.",
+    "description_en": "Contact section with a form (name, email, message) and a details column, posting to /api/contact, bilingual.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -223,10 +438,8 @@
     ],
     "description_fr": "Tableau du catalogue formations : titre de section et lignes (#, titre, niveau en pill, durée, prix, flèche), une formation par ligne.",
     "description_en": "Course catalog table: a section title and rows (#, title, level pill, duration, price, arrow), one course per row.",
-    "rendering": "live",
-    "consumers": [
-      "src/pages/ecole/index.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -278,9 +491,33 @@
       "src/components/templates/DetailMenuTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
-      "src/pages/en/atlas.astro",
-      "src/content/offres/composable-pilot.mdx"
+      "src/pages/en/atlas.astro"
     ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "cta-form-inline",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "CtaFormInline",
+    "status": "stable",
+    "tags": [
+      "cta",
+      "form",
+      "inline",
+      "email",
+      "newsletter",
+      "lead",
+      "capture"
+    ],
+    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention.",
+    "description_en": "CTA band with an inline mini-form (email and button), to capture a lead or newsletter sign-up at the moment of intent.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -299,6 +536,29 @@
     ],
     "description_fr": "CTA inline discret pour insérer une action contextuelle dans un contenu existant.",
     "description_en": "Subtle inline CTA for inserting a contextual action within existing content.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "cta-newsletter-footer",
+    "category": "marketing",
+    "categorySlug": "newsletter-sections",
+    "subcategory": "Newsletter Sections",
+    "component": "CtaNewsletterFooter",
+    "status": "stable",
+    "tags": [
+      "newsletter",
+      "cta",
+      "email",
+      "capture",
+      "pre-footer"
+    ],
+    "description_fr": "Capture email compacte multi-colonne de type pré-footer : titre, champ, bouton et mention RGPD sur une ligne. Sombre par défaut pour clore la page sur l’abonnement.",
+    "description_en": "Compact multi-column pre-footer email capture: title, field, button and GDPR notice on one row. Dark by default to close the page on the subscription.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -329,6 +589,30 @@
     }
   },
   {
+    "id": "data-table",
+    "category": "marketing",
+    "categorySlug": "table-sections",
+    "subcategory": "Table Sections",
+    "component": "DataTable",
+    "status": "stable",
+    "tags": [
+      "table",
+      "data",
+      "rows",
+      "comparison",
+      "neutral",
+      "striped"
+    ],
+    "description_fr": "Table de données neutre générique : en-tête optionnel, colonnes avec alignements, lignes et cellules typées (emphase), zébrures et légende. Distincte des tables habillées terminal ou éditoriale.",
+    "description_en": "Neutral generic data table: optional header, columns with alignments, rows and typed cells (emphasis), zebra striping and caption. Distinct from the terminal or editorial dressed tables.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "decision-list",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -344,10 +628,8 @@
     ],
     "description_fr": "Arbre de décision : en-tête kicker et titre display à gauche, liste ordonnée numérotée d items à droite, hairlines fines.",
     "description_en": "Decision tree: kicker and display heading on the left, a numbered ordered list of items on the right, thin hairlines.",
-    "rendering": "live",
-    "consumers": [
-      "src/content/offres/conseil.mdx"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -422,6 +704,52 @@
     }
   },
   {
+    "id": "diagnostic-stages",
+    "category": "marketing",
+    "categorySlug": "process-sections",
+    "subcategory": "Process Sections",
+    "component": "DiagnosticStages",
+    "status": "stable",
+    "tags": [
+      "diagnostic",
+      "maturity",
+      "stages",
+      "conversion",
+      "self-assessment"
+    ],
+    "description_fr": "Auto-diagnostic « Où en êtes-vous ? » : 4 à 6 stades de maturité en cards horizontales cliquables, le stade courant relevé en accent (« vous êtes ici »). Situe le visiteur et l’oriente vers l’étape suivante (conversion + qualification).",
+    "description_en": "A “Where do you stand?” self-assessment: 4 to 6 maturity stages as clickable horizontal cards, the current stage highlighted in accent (“you are here”). Places the visitor and points them to the next step (conversion + qualification).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "ecosystem-partners",
+    "category": "marketing",
+    "categorySlug": "logo-sections",
+    "subcategory": "Logo Sections",
+    "component": "EcosystemPartners",
+    "status": "stable",
+    "tags": [
+      "logos",
+      "partners",
+      "ecosystem",
+      "grid",
+      "marquee"
+    ],
+    "description_fr": "Logos partenaires technologiques unifiés (masque alpha + currentColor), groupés par catégorie, grille / mur / marquee, variante dark.",
+    "description_en": "Unified technology partner logos (alpha mask + currentColor), grouped by category, grid / wall / marquee, dark variant.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "editorial-preview",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -435,8 +763,8 @@
       "rows",
       "numbered"
     ],
-    "description_fr": "Index éditorial de publications en lignes numérotées (num · date · tag · titre italique · flèche) — extrait de FieldNotes.",
-    "description_en": "Editorial publication index as numbered rows (num · date · tag · italic title · arrow) — sourced from FieldNotes.",
+    "description_fr": "Index éditorial de publications en lignes numérotées (num · date · tag · titre italique · flèche), extrait de FieldNotes.",
+    "description_en": "Editorial publication index as numbered rows (num · date · tag · italic title · arrow), sourced from FieldNotes.",
     "rendering": "live",
     "consumers": [
       "src/pages/index.astro",
@@ -500,6 +828,30 @@
     }
   },
   {
+    "id": "editorial-write-feed",
+    "category": "marketing",
+    "categorySlug": "table-sections",
+    "subcategory": "Table Sections",
+    "component": "EditorialWriteFeed",
+    "status": "stable",
+    "tags": [
+      "table",
+      "feed",
+      "editorial",
+      "writing",
+      "changelog",
+      "rows"
+    ],
+    "description_fr": "Feed éditorial en lignes cliquables (EditorialWriteRow) : date, tag, texte et flèche par ligne, tone paper ou ink, lien meta type /feed.xml.",
+    "description_en": "Editorial feed as clickable rows (EditorialWriteRow): date, tag, text and arrow per row, paper or ink tone, /feed.xml style meta link.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "faq-accordion",
     "category": "marketing",
     "categorySlug": "faq-sections",
@@ -523,6 +875,100 @@
     }
   },
   {
+    "id": "faq-cta-aside",
+    "category": "marketing",
+    "categorySlug": "faq-sections",
+    "subcategory": "FAQ Sections",
+    "component": "FaqCtaAside",
+    "status": "stable",
+    "tags": [
+      "faq",
+      "accordion",
+      "cta",
+      "aside",
+      "sticky",
+      "lead",
+      "conversion"
+    ],
+    "description_fr": "FAQ en accordéon à gauche et panneau de réassurance avec CTA collant à droite, pour transformer une FAQ passive en capture de lead.",
+    "description_en": "Accordion FAQ on the left with a sticky reassurance and CTA panel on the right, turning a passive FAQ into lead capture.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "faq-two-column",
+    "category": "marketing",
+    "categorySlug": "faq-sections",
+    "subcategory": "FAQ Sections",
+    "component": "FaqTwoColumn",
+    "status": "stable",
+    "tags": [
+      "faq",
+      "two-column",
+      "static",
+      "questions",
+      "scan"
+    ],
+    "description_fr": "FAQ en deux colonnes statiques (question en gras, réponse en dessous), sans accordéon. Pensée pour le scan rapide quand toutes les réponses doivent être visibles d’emblée.",
+    "description_en": "FAQ in two static columns (bold question, answer beneath), with no accordion. Built for fast scanning when every answer should be visible upfront.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "feature-accordion",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "FeatureAccordion",
+    "status": "stable",
+    "tags": [
+      "feature",
+      "accordion",
+      "progressive-disclosure",
+      "details",
+      "saas"
+    ],
+    "description_fr": "Features en progressive disclosure : accordéon natif <details>, chaque item ouvre un détail explicatif et une métadonnée optionnelle. Premier item ouvrable par défaut.",
+    "description_en": "Features in progressive disclosure: native <details> accordion, each item reveals an explanatory body and optional meta. First item can open by default.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "feature-comparison-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "FeatureComparisonGrid",
+    "status": "stable",
+    "tags": [
+      "feature",
+      "comparison",
+      "us-vs-them",
+      "grid",
+      "differentiation"
+    ],
+    "description_fr": "Différenciation légère « nous vs eux » en grille de cartes : 2 ou 3 colonnes, lignes cochées ou barrées, colonne mise en avant. Plus léger que la table comparative.",
+    "description_en": "Lightweight \"us vs them\" differentiation as a card grid: 2 or 3 columns, check or cross rows, one highlighted column. Lighter than the comparison table.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "feature-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -540,6 +986,29 @@
       "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "feature-split-media",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "FeatureSplitMedia",
+    "status": "stable",
+    "tags": [
+      "feature",
+      "split",
+      "media",
+      "mockup",
+      "reversed"
+    ],
+    "description_fr": "Une feature majeure exposée en deux colonnes : texte et points clés d’un côté, mockup ou capture de l’autre. Le champ reversed permet d’alterner les côtés au fil de la page.",
+    "description_en": "One major feature laid out in two columns: copy and key points on one side, mockup or screenshot on the other. The reversed field alternates sides down the page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -615,6 +1084,29 @@
     }
   },
   {
+    "id": "footer-cta-band",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "FooterCtaBand",
+    "status": "stable",
+    "tags": [
+      "cta",
+      "band",
+      "full-bleed",
+      "conversion",
+      "pre-footer"
+    ],
+    "description_fr": "Bande CTA finale pleine largeur (titre, sous-titre, un à deux boutons), pensée comme le climax juste avant le footer. Sombre par défaut pour trancher avec la page.",
+    "description_en": "Full-bleed final CTA band (title, subtitle, one or two buttons), designed as the climax right before the footer. Dark by default to contrast with the page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "gallery-masonry",
     "category": "marketing",
     "categorySlug": "gallery-sections",
@@ -672,10 +1164,8 @@
     ],
     "description_fr": "Hero hub académie : kicker mono, h1 display, lede et bande de stats mono (cours, parcours, alumni).",
     "description_en": "Academy hub hero: mono kicker, display h1, lede, and mono stats strip (courses, paths, alumni).",
-    "rendering": "live",
-    "consumers": [
-      "src/pages/ecole/index.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -869,6 +1359,30 @@
     "consumers": [
       "src/components/templates/EssayTemplate.astro"
     ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-form-inline",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroFormInline",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "form",
+      "lead",
+      "capture",
+      "newsletter",
+      "above-fold"
+    ],
+    "description_fr": "Hero de capture lead above-the-fold : promesse à gauche, formulaire email/CTA à droite postant sur /api/newsletter, points de réassurance optionnels.",
+    "description_en": "Above-the-fold lead-capture hero: promise on the left, email/CTA form on the right posting to /api/newsletter, optional reassurance points.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1078,10 +1592,8 @@
     ],
     "description_fr": "Hero de page offre détail : SVG cercles concentriques signature, breadcrumb, tier kicker, h1 + lead italique, CTA et meta.",
     "description_en": "Offer detail hero: signature concentric circles SVG, breadcrumb, tier kicker, h1 + italic lead, CTA and meta.",
-    "rendering": "live",
-    "consumers": [
-      "src/components/templates/OffresDetailTemplate.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1199,6 +1711,30 @@
     }
   },
   {
+    "id": "hero-social-proof",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "HeroSocialProof",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "social-proof",
+      "stats",
+      "rating",
+      "trust",
+      "above-fold"
+    ],
+    "description_fr": "Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.",
+    "description_en": "Centered hero with above-the-fold social proof: heading, CTA, optional customer rating and a key-figures band (StatRow) under the fold.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-split",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -1212,10 +1748,8 @@
     ],
     "description_fr": "Hero en deux colonnes pour présenter une offre avec visuel et appel à l'action principal.",
     "description_en": "Two-column hero section for presenting an offer with a visual and primary call to action.",
-    "rendering": "live",
-    "consumers": [
-      "src/content/offres/composable-pilot.mdx"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1307,8 +1841,8 @@
       "pin",
       "steps"
     ],
-    "description_fr": "Section \"comment on livre\" — sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).",
-    "description_en": "How-we-ship section — sticky pin scrub: N steps with numline and scroll-driven stage cards (graceful mobile degradation).",
+    "description_fr": "Section \"comment on livre\", sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).",
+    "description_en": "How-we-ship section, sticky pin scrub: N steps with numline and scroll-driven stage cards (graceful mobile degradation).",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -1361,6 +1895,29 @@
     }
   },
   {
+    "id": "integrations-grid",
+    "category": "marketing",
+    "categorySlug": "logo-sections",
+    "subcategory": "Logo Sections",
+    "component": "IntegrationsGrid",
+    "status": "stable",
+    "tags": [
+      "integrations",
+      "logos",
+      "grid",
+      "ecosystem",
+      "connectors"
+    ],
+    "description_fr": "Grille de logos d’intégrations groupés par catégorie (CRM, communication, données). Répond à l’objection « est-ce que ça se branche à nos outils ? » d’un coup d’œil.",
+    "description_en": "Integration logo grid grouped by category (CRM, communication, data). Answers the “does it plug into our tools?” objection at a glance.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "learning-path-list",
     "category": "marketing",
     "categorySlug": "index-sections",
@@ -1374,10 +1931,8 @@
     ],
     "description_fr": "Liste de parcours : titre de section et une ligne par parcours (titre en gras + description).",
     "description_en": "Learning path list: a section title and one row per path (bold title + description).",
-    "rendering": "live",
-    "consumers": [
-      "src/pages/ecole/index.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1398,6 +1953,29 @@
     ],
     "description_fr": "Masthead de listing avec filtres optionnels, conteneur de liste ouvert et footer custom.",
     "description_en": "Listing masthead with optional filters, open list container, and custom footer.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "logo-marquee",
+    "category": "marketing",
+    "categorySlug": "logo-sections",
+    "subcategory": "Logo Sections",
+    "component": "LogoMarquee",
+    "status": "stable",
+    "tags": [
+      "logos",
+      "marquee",
+      "scroll",
+      "trusted-by",
+      "image"
+    ],
+    "description_fr": "Bandeau de logos image à défilement infini (« ils nous font confiance »), marquee CSS, grayscale optionnel. Respecte prefers-reduced-motion. Distinct du marquee-band texte mono.",
+    "description_en": "Infinite-scroll image logo band (“trusted by”), CSS marquee, optional grayscale. Respects prefers-reduced-motion. Distinct from the mono-text marquee-band.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -1428,6 +2006,30 @@
     }
   },
   {
+    "id": "manifesto-act",
+    "category": "marketing",
+    "categorySlug": "manifesto-sections",
+    "subcategory": "Manifesto Sections",
+    "component": "ManifestoAct",
+    "status": "stable",
+    "tags": [
+      "manifesto",
+      "act",
+      "numbered",
+      "stats",
+      "sticky",
+      "ink"
+    ],
+    "description_fr": "Acte numéroté de manifeste : label sticky (numéro romain + sous-titre), statement XL et rangée de chiffres massifs optionnelle, tone encre ou paper.",
+    "description_en": "Numbered manifesto act: sticky label (roman numeral + subtitle), XL statement and an optional row of massive figures, ink or paper tone.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "manifesto-block",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -1443,6 +2045,30 @@
     ],
     "description_fr": "Bloc manifeste intercalary : kicker mono § + grand bloc display italique sans box, span accent terracotta, respiration éditoriale forte.",
     "description_en": "Intercalary manifesto block: § mono kicker + large box-less italic display, terracotta accent span, strong editorial breathing.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "manifesto-statement",
+    "category": "marketing",
+    "categorySlug": "manifesto-sections",
+    "subcategory": "Manifesto Sections",
+    "component": "ManifestoStatement",
+    "status": "stable",
+    "tags": [
+      "manifesto",
+      "statement",
+      "fullscreen",
+      "ink",
+      "accent",
+      "editorial"
+    ],
+    "description_fr": "Déclaration manifeste plein écran : kicker mono et statement XL en sans, relevés italiques serif, tone encre (interlude console) ou terracotta avec grille translucide.",
+    "description_en": "Full-screen manifesto declaration: mono kicker and XL sans statement with serif italic highlights, ink tone (console interlude) or terracotta with a translucent grid.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -1537,9 +2163,31 @@
     "rendering": "live",
     "consumers": [
       "src/components/templates/CaseStudyTemplate.astro",
-      "src/components/templates/DetailMenuTemplate.astro",
-      "src/content/offres/composable-pilot.mdx"
+      "src/components/templates/DetailMenuTemplate.astro"
     ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "metric-callout-band",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "MetricCalloutBand",
+    "status": "stable",
+    "tags": [
+      "stats",
+      "metric",
+      "callout",
+      "band",
+      "impact"
+    ],
+    "description_fr": "Bande d’une à trois métriques héro surdimensionnées accompagnées d’une phrase de contexte. Frappe fort sur un résultat chiffré, sombre par défaut pour la mise en avant.",
+    "description_en": "A band of one to three oversized hero metrics paired with a context sentence. Lands a single quantified result hard, dark by default for emphasis.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1583,6 +2231,30 @@
     ],
     "description_fr": "Bande newsletter fond sombre : titre éditorial large à gauche, formulaire capture email à droite.",
     "description_en": "Dark newsletter band: large editorial headline on the left, email capture form on the right.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "newsletter-signup-section",
+    "category": "marketing",
+    "categorySlug": "newsletter-sections",
+    "subcategory": "Newsletter Sections",
+    "component": "NewsletterSignupSection",
+    "status": "stable",
+    "tags": [
+      "newsletter",
+      "subscribe",
+      "email",
+      "signup",
+      "full-width",
+      "climax"
+    ],
+    "description_fr": "Section d'inscription newsletter pleine largeur (réutilise NewsletterSignup), fonds au choix dont ink pour un climax de page.",
+    "description_en": "Full-width newsletter sign-up section (reuses NewsletterSignup), with a background enum including ink for a page climax.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -1708,6 +2380,29 @@
     }
   },
   {
+    "id": "pricing-cards",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "component": "PricingCards",
+    "status": "stable",
+    "tags": [
+      "pricing",
+      "cards",
+      "tiers",
+      "recommended",
+      "plans"
+    ],
+    "description_fr": "Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.",
+    "description_en": "Grid of 2 to 4 pricing cards side by side with a highlighted \"Recommended\" card, price, period, features and CTA per card. Anchoring by contrast.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "pricing-comparison-matrix",
     "category": "marketing",
     "categorySlug": "pricing-sections",
@@ -1730,6 +2425,30 @@
     }
   },
   {
+    "id": "pricing-single-highlight",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "component": "PricingSingleHighlight",
+    "status": "stable",
+    "tags": [
+      "pricing",
+      "single",
+      "highlight",
+      "offer",
+      "anchor",
+      "guarantee"
+    ],
+    "description_fr": "Offre mono-produit en grand format : une carte large centrée avec prix d'ancrage, liste de bénéfices, garantie et CTA fort. Idéal landing mono-offre.",
+    "description_en": "Single-product offer in large format: one wide centred card with anchor price, benefits list, guarantee and strong CTA. Ideal for single-offer landings.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "pricing-table",
     "category": "marketing",
     "categorySlug": "pricing-sections",
@@ -1743,6 +2462,30 @@
     ],
     "description_fr": "Table de prix pour présenter clairement les formules, paliers et options commerciales.",
     "description_en": "Pricing table for clearly presenting plans, tiers, and commercial options.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "pricing-toggle",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "component": "PricingToggle",
+    "status": "stable",
+    "tags": [
+      "pricing",
+      "toggle",
+      "monthly",
+      "annual",
+      "plans",
+      "switch"
+    ],
+    "description_fr": "Grille de cartes de prix avec bascule mensuel/annuel (CSS-only, sans JS) qui change les prix affichés et signale l'économie annuelle.",
+    "description_en": "Pricing card grid with a monthly/annual toggle (CSS-only, no JS) that swaps the displayed prices and surfaces the annual saving.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -1796,6 +2539,30 @@
     }
   },
   {
+    "id": "process-steps",
+    "category": "marketing",
+    "categorySlug": "process-sections",
+    "subcategory": "Process Sections",
+    "component": "ProcessSteps",
+    "status": "stable",
+    "tags": [
+      "process",
+      "steps",
+      "how-it-works",
+      "numbered",
+      "onboarding",
+      "method"
+    ],
+    "description_fr": "« Comment ça marche » en étapes numérotées verticales : numéro, titre, description et meta par étape, connecteurs visuels entre paliers, fonds paper à ink.",
+    "description_en": "How it works in vertical numbered steps: number, title, description and meta per step, visual connectors between stages, paper to ink backgrounds.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "proof-bar",
     "category": "marketing",
     "categorySlug": "stats-sections",
@@ -1813,8 +2580,7 @@
     "consumers": [
       "src/components/templates/DetailMenuTemplate.astro",
       "src/pages/index.astro",
-      "src/pages/en/index.astro",
-      "src/content/offres/composable-pilot.mdx"
+      "src/pages/en/index.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -1880,6 +2646,30 @@
     ],
     "description_fr": "Bande de trois cards connexes pour relier cas, offres ou ressources en fin de page.",
     "description_en": "Three-card related band for linking cases, offers, or resources near the end of a page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "resource-card-grid",
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Content Listing Sections",
+    "component": "ResourceCardGrid",
+    "status": "stable",
+    "tags": [
+      "resources",
+      "downloads",
+      "grid",
+      "cards",
+      "cta",
+      "lead-magnet"
+    ],
+    "description_fr": "Grille de ressources téléchargeables : type (livre blanc, cookbook, outil), titre, description, format, badge gated et CTA, en 2 ou 3 colonnes.",
+    "description_en": "Grid of downloadable resources: kind (white paper, cookbook, tool), title, description, format, gated badge and CTA, in 2 or 3 columns.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -1976,8 +2766,7 @@
     "description_en": "Client or partner logo section for establishing immediate social proof.",
     "rendering": "live",
     "consumers": [
-      "src/pages/index.astro",
-      "src/pages/technologies/index.astro"
+      "src/pages/index.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -1998,8 +2787,8 @@
       "grid",
       "mono"
     ],
-    "description_fr": "Barre de spécifications projet N colonnes (label mono + valeur) avec grille CSS var — extrait de CaseStudyTemplate.",
-    "description_en": "N-column project spec bar (mono label + value) with CSS var grid — sourced from CaseStudyTemplate.",
+    "description_fr": "Barre de spécifications projet N colonnes (label mono + valeur) avec grille CSS var, extrait de CaseStudyTemplate.",
+    "description_en": "N-column project spec bar (mono label + value) with CSS var grid, sourced from CaseStudyTemplate.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -2021,6 +2810,29 @@
     ],
     "description_fr": "Bloc de statistiques en grille pour mettre en avant des chiffres de performance ou d'impact.",
     "description_en": "Grid-based stats block for highlighting performance or impact figures.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "stat-counter",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "StatCounter",
+    "status": "stable",
+    "tags": [
+      "stats",
+      "counter",
+      "count-up",
+      "animated",
+      "kpi"
+    ],
+    "description_fr": "Compteur animé count-up déclenché à l’entrée dans le viewport (île React client:visible), grille de 2 à 4 stats. Respecte prefers-reduced-motion et reste lisible sans JS.",
+    "description_en": "Animated count-up counter triggered on viewport entry (React island client:visible), grid of 2 to 4 stats. Respects prefers-reduced-motion and stays readable without JS.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -2073,6 +2885,29 @@
     }
   },
   {
+    "id": "team-bio-grid",
+    "category": "marketing",
+    "categorySlug": "team-sections",
+    "subcategory": "Team Sections",
+    "component": "TeamBioGrid",
+    "status": "stable",
+    "tags": [
+      "team",
+      "people",
+      "bio",
+      "grid",
+      "about"
+    ],
+    "description_fr": "Grille d’équipe : photo, nom, rôle et bio courte par membre, en 2 à 4 colonnes alignées. Idéale pour une page À propos ou Équipe qui humanise la marque.",
+    "description_en": "Team grid: photo, name, role and a short bio per member, in 2 to 4 aligned columns. Ideal for an About or Team page that humanises the brand.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "team-card-grid",
     "category": "marketing",
     "categorySlug": "testimonial-sections",
@@ -2114,8 +2949,7 @@
     "description_en": "Technical inventory as a spec table (capability, description, status) with a kicker header and aside.",
     "rendering": "live",
     "consumers": [
-      "src/content/technologies/claude-models.mdx",
-      "src/content/technologies/virtuoseos.mdx"
+      "src/pages/expertise-claude.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -2140,8 +2974,7 @@
     "description_en": "Position in the stack as a numbered vertical timeline (Timeline + Dingbat), one node per integration step.",
     "rendering": "live",
     "consumers": [
-      "src/content/technologies/claude-models.mdx",
-      "src/content/technologies/virtuoseos.mdx"
+      "src/pages/expertise-claude.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -2166,7 +2999,7 @@
     "description_en": "Five-column model comparison table (Model, Profile, Cost, Context, Uses) built on EditorialTable.",
     "rendering": "live",
     "consumers": [
-      "src/content/technologies/claude-models.mdx"
+      "src/pages/expertise-claude.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -2191,8 +3024,7 @@
     "description_en": "Technology positioning in a 50/50 split: kicker, display heading, aside, manifesto statement, and mono key/value facts.",
     "rendering": "live",
     "consumers": [
-      "src/content/technologies/claude-models.mdx",
-      "src/content/technologies/virtuoseos.mdx"
+      "src/pages/expertise-claude.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -2237,11 +3069,80 @@
     ],
     "description_fr": "Aide décision en deux colonnes (utiliser quand / considérer autre chose quand) avec puces mono plus et moins.",
     "description_en": "Two-column decision aid (use when / consider otherwise when) with plus and minus mono bullets.",
-    "rendering": "live",
-    "consumers": [
-      "src/content/technologies/claude-models.mdx",
-      "src/content/technologies/virtuoseos.mdx"
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "terminal-metrics-strip",
+    "category": "marketing",
+    "categorySlug": "terminal-sections",
+    "subcategory": "Terminal Sections",
+    "component": "TerminalMetricsStrip",
+    "status": "stable",
+    "tags": [
+      "terminal",
+      "metrics",
+      "kpi",
+      "mono",
+      "strip",
+      "telemetry"
     ],
+    "description_fr": "Strip KPI télémétrie tout mono : 2 à 6 cellules clé/valeur bordées de hairlines, esthétique console (uptime, agents, release), fonds paper, paper-2 ou ink.",
+    "description_en": "All-mono telemetry KPI strip: 2 to 6 key/value cells with hairline borders, console aesthetics (uptime, agents, release), paper, paper-2 or ink backgrounds.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "terminal-mockup",
+    "category": "marketing",
+    "categorySlug": "terminal-sections",
+    "subcategory": "Terminal Sections",
+    "component": "TerminalMockupSection",
+    "status": "stable",
+    "tags": [
+      "terminal",
+      "console",
+      "mockup",
+      "cli",
+      "platform",
+      "split"
+    ],
+    "description_fr": "Console terminal configurable (frame TerminalMockup) : copy optionnelle à gauche, lignes cmd/out/ok/comment et curseur clignotant, layout split ou pleine largeur.",
+    "description_en": "Configurable terminal console (TerminalMockup frame): optional copy on the left, cmd/out/ok/comment lines and a blinking cursor, split or full-width layout.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "terminal-table",
+    "category": "marketing",
+    "categorySlug": "table-sections",
+    "subcategory": "Table Sections",
+    "component": "TerminalTableSection",
+    "status": "stable",
+    "tags": [
+      "table",
+      "terminal",
+      "console",
+      "rows",
+      "data",
+      "services"
+    ],
+    "description_fr": "Table terminal configurable (frame TerminalTable) : en-tête kicker/meta, titre, puis colonnes, headers et lignes cliquables avec rôle typographique par cellule.",
+    "description_en": "Configurable terminal table (TerminalTable frame): kicker/meta header, heading, then columns, headers and clickable rows with a typographic role per cell.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -2261,6 +3162,75 @@
     ],
     "description_fr": "Bloc témoignage pour mettre en avant une citation client et renforcer la confiance.",
     "description_en": "Testimonial block for highlighting a customer quote and strengthening trust.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "testimonial-logo-metric",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "TestimonialLogoMetric",
+    "status": "stable",
+    "tags": [
+      "testimonial",
+      "logo",
+      "metric",
+      "b2b",
+      "social-proof"
+    ],
+    "description_fr": "Carte de preuve B2B la plus persuasive : logo client + citation attribuée + métrique d’impact chiffrée par carte. Combine preuve sociale, autorité de marque et résultat mesuré.",
+    "description_en": "The most persuasive B2B proof card: client logo + attributed quote + a quantified impact metric per card. Combines social proof, brand authority and measured outcome.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "testimonial-metrics",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "TestimonialMetrics",
+    "status": "stable",
+    "tags": [
+      "testimonial",
+      "metrics",
+      "quote",
+      "proof",
+      "b2b"
+    ],
+    "description_fr": "Témoignage chiffré : grande citation serif d’un côté + grille de 3 à 4 métriques massives de l’autre, reliées par une barre accent. Combine la voix client et le résultat mesuré en un seul bloc de réassurance.",
+    "description_en": "A quantified testimonial: a large serif quote on one side + a grid of 3 to 4 large metrics on the other, joined by an accent bar. Combines the client’s voice and the measured outcome in a single reassurance block.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "testimonial-single-spotlight",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "TestimonialSingleSpotlight",
+    "status": "stable",
+    "tags": [
+      "testimonial",
+      "spotlight",
+      "quote",
+      "portrait",
+      "single"
+    ],
+    "description_fr": "Un seul témoignage en plein écran : grande citation, portrait, logo client et attribution nom/rôle. Donne tout le poids à une voix client, sombre par défaut.",
+    "description_en": "A single full-screen testimonial: a large quote, portrait, client logo and name/role attribution. Gives full weight to one client voice, dark by default.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -2307,6 +3277,53 @@
     ],
     "description_fr": "Bloc chronologique pour raconter une progression, un historique ou une séquence d'événements.",
     "description_en": "Timeline block for telling a progression, history, or sequence of events.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "timeline-horizontal",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timelines",
+    "component": "TimelineHorizontal",
+    "status": "stable",
+    "tags": [
+      "timeline",
+      "horizontal",
+      "roadmap",
+      "dated",
+      "scroll",
+      "milestones"
+    ],
+    "description_fr": "Frise chronologique horizontale datée (roadmap) : événements à statut (done/active/upcoming), date, label et body, scroll-snap horizontal, empilement vertical sur mobile.",
+    "description_en": "Dated horizontal timeline (roadmap): status events (done/active/upcoming), date, label and body, horizontal scroll-snap, vertical stacking on mobile.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "trust-badges-band",
+    "category": "marketing",
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
+    "component": "TrustBadgesBand",
+    "status": "stable",
+    "tags": [
+      "trust",
+      "badges",
+      "security",
+      "compliance",
+      "reassurance"
+    ],
+    "description_fr": "Bandeau de badges de réassurance (sécurité, hébergement, conformité RGPD, garanties) en cellules hairline mono, placé juste avant le CTA pour lever l’objection risque.",
+    "description_en": "Reassurance badge band (security, hosting, GDPR compliance, guarantees) in mono hairline cells, placed right before the CTA to remove the risk objection.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -2405,6 +3422,29 @@
       "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "versus-competitors",
+    "category": "marketing",
+    "categorySlug": "comparison-sections",
+    "subcategory": "Comparison Sections",
+    "component": "VersusCompetitors",
+    "status": "stable",
+    "tags": [
+      "comparison",
+      "competitors",
+      "versus",
+      "table",
+      "highlight"
+    ],
+    "description_fr": "Comparatif « nous vs alternatives » avec colonne « nous » mise en avant, lignes de critères groupées et cellules check / cross / partiel. Distinct de la matrice tarifaire interne.",
+    "description_en": "A “us vs alternatives” comparison with the “us” column highlighted, grouped criteria rows and check / cross / partial cells. Distinct from the internal pricing matrix.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true

@@ -57,7 +57,9 @@ const FR_ONLY_STATIC = new Set([
   // Pages FR-only « bare » (index sans sous-chemin) — non couvertes par les
   // préfixes à slash final ci-dessous (`startsWith('/x/')` ne matche pas `/x`).
   '/ressources/outils', '/ressources/personas', '/ressources/veille-ia',
-  '/technologies/virtuoseos',
+  // Expertise Claude : page d'autorité FR-only (pas de miroir /en/expertise-claude).
+  // Remplace l'ancien /technologies/* (route tree retiré, SEO état final §0ter).
+  '/expertise-claude',
   // Thank-you pages post-conversion FR-only (livre-blanc/newsletter SONT bilingues → exclus).
   // SEO état final : bienvenue/{commande,formation,abonnement,audit} + /secteurs/* supprimés.
   '/bienvenue/contact',

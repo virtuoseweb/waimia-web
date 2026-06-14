@@ -1,0 +1,261 @@
+---
+// Page · /expertise-claude · Page d'AUTORITÉ (E-E-A-T / GEO) sur l'expertise Claude (Anthropic).
+// Remplace l'ancienne couche technologies/claude-models (collection retirée, SEO état final §0ter :
+// « GARDER claude-models → /expertise-claude »). On ne présente plus une « brique de stack » parmi
+// d'autres mais la prise de position de fond : Waimia est anthropic-first parce que Claude est le
+// modèle le plus aligné pour les usages enterprise exigeants, et ce que ce choix change pour le client.
+// Rendu 100 % composable : tableau `expertiseSections` typé SectionData → SectionsRenderer (registry).
+// AUCUN markup inline (règle anti-orphelin CLAUDE.md). Indexable (page d'autorité réelle, pas de noindex).
+// Contenu VÉRIDIQUE : studio solo Simon Beros, anthropic-first réel ; aucun chiffre inventé.
+export const prerender = true;
+
+import Base from '../layouts/Base.astro';
+import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
+import Breadcrumb from '../components/ui/molecules/Breadcrumb.astro';
+import { langFromPath } from '../lib/i18n';
+import type { SectionData } from '../schemas/sections';
+
+export const expertiseSections: SectionData[] = [
+  // 1 · HERO (paper) : promesse d'autorité « expertise Claude », vision anthropic-first
+  {
+    type: 'hero-hub-stats',
+    background: 'paper',
+    meta_kicker_fr: '§ Expertise · Claude (Anthropic)',
+    meta_kicker_en: '§ Expertise · Claude (Anthropic)',
+    hub_num: '01',
+    h1_fr: 'Notre expertise<br/><i>Claude</i>.',
+    h1_en: 'Our <i>Claude</i><br/>expertise.',
+    lede_fr: "Waimia est anthropic-first, pas par dogme, mais parce que Claude est le modèle le plus aligné pour les usages enterprise exigeants : suivi d'instructions strict, sécurité conçue comme contrainte de design, politique d'utilisation contractualisable. On choisit le bon modèle Claude par profil de tâche, on garde la décision côté humain.",
+    lede_en: 'Waimia is anthropic-first, not by dogma, but because Claude is the best-aligned model for demanding enterprise use cases: strict instruction following, safety designed as a constraint, a contractualizable usage policy. We pick the right Claude model per task profile, and keep the decision on the human side.',
+    stats: [
+      { value: 'Haiku', label_fr: 'volume et triage rapide', label_en: 'volume and fast triage', emphasis: false },
+      { value: 'Sonnet', label_fr: 'la plupart des workflows', label_en: 'most workflows', emphasis: true },
+      { value: 'Opus', label_fr: 'raisonnement complexe', label_en: 'complex reasoning', emphasis: false },
+      { value: 'Code', label_fr: 'développement et revue', label_en: 'development and review', emphasis: false },
+    ],
+  },
+
+  // 2 · POSITION ÉDITORIALE (paper-2) : pourquoi Claude, prise de position de fond
+  {
+    type: 'tech-positioning-split',
+    background: 'paper-2',
+    kicker_fr: 'Position Waimia',
+    kicker_en: 'Waimia position',
+    title_fr: 'Pourquoi <i>Claude</i>',
+    title_en: 'Why <i>Claude</i>',
+    aside_fr: "Un studio solo qui assume son choix de modèle plutôt que de l'éviter.",
+    aside_en: 'A solo studio that owns its model choice rather than dodging it.',
+    statement_fr: "Waimia est anthropic-first, pas par dogme, mais parce que Claude est le modèle le plus aligné pour les usages enterprise exigeants. Claude est conçu avec la sécurité comme contrainte de design et non comme correctif ajouté après coup, ce qui change la nature des garde-fous qu'on peut promettre à un client.",
+    statement_en: 'Waimia is anthropic-first, not by dogma, but because Claude is the best-aligned model for demanding enterprise use cases. Claude is designed with safety as a design constraint rather than a patch added afterwards, which changes the nature of the guardrails we can promise a client.',
+    facts: [
+      { k: 'Approche', v_fr: 'Anthropic-first, sans dogme', v_en: 'Anthropic-first, no dogma' },
+      { k: 'Sécurité', v_fr: 'Contrainte de design, pas correctif', v_en: 'Design constraint, not a patch' },
+      { k: 'Décision', v_fr: "Côté humain, l'IA en appui", v_en: 'Human-side, AI in support' },
+    ],
+  },
+
+  // 3 · CAPACITÉS (paper) : inventaire technique véridique repris du fond E-E-A-T existant
+  {
+    type: 'tech-capabilities-specs',
+    background: 'paper',
+    kicker_fr: 'Capacités',
+    kicker_en: 'Capabilities',
+    title_fr: 'Ce que <i>Claude</i><br/>change concrètement',
+    title_en: 'What <i>Claude</i><br/>changes in practice',
+    aside_fr: "Les capacités qu'on exploite au quotidien, pas une fiche marketing.",
+    aside_en: 'The capabilities we use daily, not a marketing sheet.',
+    capabilities: [
+      {
+        name_fr: 'Raisonnement long et complexe',
+        name_en: 'Long and complex reasoning',
+        description_fr: "Chaînes de pensée structurées sur problèmes multi-étapes : analyse, hypothèses, contre-arguments, synthèse.",
+        description_en: 'Structured reasoning chains on multi-step problems: analysis, hypotheses, counter-arguments, synthesis.',
+        status: 'active',
+      },
+      {
+        name_fr: "Suivi d'instructions précis",
+        name_en: 'Precise instruction following',
+        description_fr: "Respect strict des contraintes formelles : formats, ton, règles métier, garde-fous opérationnels.",
+        description_en: 'Strict compliance with formal constraints: formats, tone, business rules, operational guardrails.',
+        status: 'active',
+      },
+      {
+        name_fr: 'Constitutional AI natif',
+        name_en: 'Native Constitutional AI',
+        description_fr: "Alignement par principes intégrés au training : refus contextuels, transparence, traçabilité des décisions.",
+        description_en: 'Principle-based alignment built into training: contextual refusals, transparency, decision traceability.',
+        status: 'active',
+      },
+      {
+        name_fr: 'Vision, texte et code',
+        name_en: 'Vision, text and code',
+        description_fr: "Analyse de documents complexes, schémas, captures et code source, sans pipeline OCR séparé à maintenir.",
+        description_en: 'Analysis of complex documents, diagrams, screenshots and source code, no separate OCR pipeline to maintain.',
+        status: 'active',
+      },
+      {
+        name_fr: 'Génération artefacts structurés',
+        name_en: 'Structured artifact generation',
+        description_fr: "Sorties typées exploitables, JSON Schema, code, documents, directement intégrables dans vos workflows.",
+        description_en: 'Typed, usable outputs, JSON Schema, code, documents, directly integrable into your workflows.',
+        status: 'active',
+      },
+      {
+        name_fr: "Politique d'utilisation claire",
+        name_en: 'Clear usage policy',
+        description_fr: "DPA disponible, responsabilité contractuelle Anthropic, pas de zone grise juridique pour les usages enterprise.",
+        description_en: 'DPA available, Anthropic contractual accountability, no legal gray area for enterprise use.',
+        status: 'active',
+      },
+    ],
+  },
+
+  // 4 · MODÈLES (paper-2) : un modèle par profil de tâche, table véridique (versions réelles)
+  {
+    type: 'tech-models-table',
+    background: 'paper-2',
+    kicker_fr: 'Choisir le bon modèle',
+    kicker_en: 'Choose the right model',
+    title_fr: 'Un <i>modèle</i><br/>par profil de tâche',
+    title_en: 'One <i>model</i><br/>per task profile',
+    aside_fr: "On route à la tâche, pas par habitude : le coût et la latence se choisissent.",
+    aside_en: 'We route per task, not by habit: cost and latency are choices.',
+    caption_fr: 'Modèles Claude · profil de tâche',
+    caption_en: 'Claude models · task profile',
+    models: [
+      {
+        name: 'Claude Haiku 4.5',
+        version: '4.5',
+        use_case_fr: 'Triage, classification, scoring, tâches répétitives à fort volume',
+        use_case_en: 'Triage, classification, scoring, high-volume repetitive tasks',
+      },
+      {
+        name: 'Claude Sonnet 4.6',
+        version: '4.6',
+        use_case_fr: 'Rédaction, analyse, agents, la plupart des workflows enterprise',
+        use_case_en: 'Writing, analysis, agents, most enterprise workflows',
+      },
+      {
+        name: 'Claude Opus 4.8',
+        version: '4.8',
+        use_case_fr: 'Raisonnement complexe, stratégie, audit critique, cas exigeants',
+        use_case_en: 'Complex reasoning, strategy, critical audit, demanding cases',
+      },
+      {
+        name: 'Claude Code',
+        version: '4.x',
+        use_case_fr: 'Développement, revue de code, documentation, modernisation legacy',
+        use_case_en: 'Development, code review, documentation, legacy modernization',
+      },
+    ],
+  },
+
+  // 5 · INTÉGRATION (paper) : où Claude se branche dans une livraison Waimia (frise réelle)
+  {
+    type: 'tech-integration-flow',
+    background: 'paper',
+    kicker_fr: 'Comment on intègre',
+    kicker_en: 'How we integrate',
+    title_fr: "L'expertise <i>en pratique</i>",
+    title_en: 'Expertise <i>in practice</i>',
+    aside_fr: "De la donnée gouvernée à l'observation des coûts par tâche.",
+    aside_en: 'From governed data to per-task cost observation.',
+    steps: [
+      {
+        num: '01',
+        label_fr: 'Données',
+        label_en: 'Data',
+        body_fr: 'Sources métier branchées via Model Context Protocol, accès gouverné, audit logs.',
+        body_en: 'Business sources connected via Model Context Protocol, governed access, audit logs.',
+      },
+      {
+        num: '02',
+        label_fr: 'Modèles',
+        label_en: 'Models',
+        body_fr: 'Claude Haiku, Sonnet, Opus, Code, sélection à la tâche, fallback configurable.',
+        body_en: 'Claude Haiku, Sonnet, Opus, Code, task-level selection, configurable fallback.',
+      },
+      {
+        num: '03',
+        label_fr: 'Orchestration',
+        label_en: 'Orchestration',
+        body_fr: "Graphes d'agents, état durable, retries et human-in-the-loop natifs.",
+        body_en: 'Agent graphs, durable state, native retries and human-in-the-loop.',
+      },
+      {
+        num: '04',
+        label_fr: 'Interface',
+        label_en: 'Interface',
+        body_fr: 'Surfaces de consommation pour équipes et systèmes, pas de fork client lourd.',
+        body_en: 'Consumption surfaces for teams and systems, no heavy client fork.',
+      },
+      {
+        num: '05',
+        label_fr: 'Observation',
+        label_en: 'Observation',
+        body_fr: 'Traces, évaluations, coûts par tâche, visibilité opérationnelle complète.',
+        body_en: 'Traces, evaluations, costs per task, complete operational visibility.',
+      },
+    ],
+  },
+
+  // 6 · FAQ (paper-2) : questions d'autorité (GEO), réponses véridiques sans chiffre inventé
+  {
+    type: 'faq-accordion',
+    background: 'paper-2',
+    kicker_fr: 'Questions fréquentes',
+    kicker_en: 'Frequently asked',
+    h2_fr: "L'expertise Claude, <i>en clair</i>",
+    h2_en: 'Claude expertise, <i>in plain terms</i>',
+    open_first: true,
+    items: [
+      {
+        q_fr: 'Pourquoi être anthropic-first plutôt que multi-modèles ?',
+        q_en: 'Why be anthropic-first rather than multi-model?',
+        a_fr: "Parce que Claude est conçu avec la sécurité comme contrainte de design et non comme correctif. Pour des usages enterprise où la gouvernance et le suivi d'instructions sont critiques, ce choix change ce qu'on peut garantir. On reste pragmatique : si une contrainte impose autre chose, on le dit.",
+        a_en: 'Because Claude is designed with safety as a design constraint, not a patch. For enterprise use where governance and instruction following are critical, that choice changes what we can guarantee. We stay pragmatic: if a constraint requires something else, we say so.',
+      },
+      {
+        q_fr: 'Quelle est la différence entre les modèles Claude ?',
+        q_en: "What's the difference between Claude models?",
+        a_fr: "Haiku pour le volume et le triage rapide, Sonnet pour la plupart des workflows, Opus pour le raisonnement complexe et les cas exigeants, Claude Code pour le développement et la revue. On route à la tâche, pas par habitude.",
+        a_en: 'Haiku for volume and fast triage, Sonnet for most workflows, Opus for complex reasoning and demanding cases, Claude Code for development and review. We route per task, not by habit.',
+      },
+      {
+        q_fr: 'Les données sont-elles retenues par Anthropic via API ?',
+        q_en: 'Does Anthropic retain data via API?',
+        a_fr: "Anthropic ne retient pas les données des requêtes API par défaut. Un DPA est disponible pour les usages enterprise nécessitant une documentation contractuelle. On cadre ce point dès le diagnostic.",
+        a_en: 'Anthropic does not retain data from API requests by default. A DPA is available for enterprise uses requiring contractual documentation. We frame this point from the diagnostic onward.',
+      },
+    ],
+  },
+
+  // 7 · CTA FINAL (ink) : climax avant footer, repointé vers /contact + /agence (pas /technologies, retiré)
+  {
+    type: 'footer-cta-band',
+    background: 'ink',
+    kicker_fr: 'Cadrer votre usage de Claude',
+    kicker_en: 'Frame your use of Claude',
+    h2_fr: 'Quel modèle Claude <i>pour votre contexte ?</i>',
+    h2_en: 'Which Claude model <i>for your context?</i>',
+    subtitle_fr: "On part de vos contraintes réelles, on choisit le modèle par profil de tâche, on cadre les garde-fous et la gouvernance des données. Diagnostic sans engagement, réponse sous 24 h.",
+    subtitle_en: 'We start from your real constraints, choose the model per task profile, frame the guardrails and data governance. Free diagnostic, reply within 24h.',
+    buttons: [
+      { label_fr: 'Parler architecture', label_en: 'Talk architecture', href: '/contact', variant: 'accent' },
+      { label_fr: "Voir l'agence", label_en: 'See the agency', href: '/agence', variant: 'ghost' },
+    ],
+  },
+];
+
+const lang = langFromPath(Astro.url.pathname);
+---
+<Base
+  title="Expertise Claude (Anthropic) · Waimia"
+  description="Notre expertise Claude : anthropic-first pour les usages enterprise exigeants. Un modèle Claude par profil de tâche (Haiku, Sonnet, Opus, Code), sécurité conçue comme contrainte de design, gouvernance des données cadrée."
+>
+  <Breadcrumb lang={lang} items={[
+    { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+    { label: lang === 'fr' ? 'Expertise Claude' : 'Claude expertise' },
+  ]} />
+  <SectionsRenderer sections={expertiseSections} lang={lang} />
+</Base>

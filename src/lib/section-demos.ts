@@ -461,7 +461,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     lede_fr: 'Le composable W6 expose 19 sections cataloguées. Chaque section atomique, testée, validée.',
     lede_en: 'W6 composable exposes 19 catalogued sections. Each atomic, tested, validated.',
     cta_primary: { label_fr: 'Voir le catalogue →', label_en: 'View catalogue →', href: '/agence/design-system', variant: 'primary' },
-    cta_secondary: { label_fr: 'Lire la doc', label_en: 'Read the docs', href: '/technologies', variant: 'ghost' },
+    cta_secondary: { label_fr: 'Lire la doc', label_en: 'Read the docs', href: '/expertise-claude', variant: 'ghost' },
     right_block: { kind: 'workflow-svg' },
   },
   'hero-centered': {
@@ -964,7 +964,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     h2_en: 'The <i>operating layer</i> we ship under.',
     lede_fr: "VirtuoseOS est le kernel qui se trouve sous chaque intervention Waimia : workspaces, agents, trace auditable des commandes, UI française d'abord.",
     lede_en: 'VirtuoseOS is the kernel that sits under every Waimia engagement: workspaces, agents, auditable command trails, a French-first UI.',
-    cta_primary: { label_fr: 'Visite produit →', label_en: 'See product tour →', href: '/technologies/claude-models', variant: 'accent' },
+    cta_primary: { label_fr: 'Visite produit →', label_en: 'See product tour →', href: '/expertise-claude', variant: 'accent' },
     cta_secondary: { label_fr: 'Voir le changelog', label_en: 'Read changelog', href: '/ressources/blog', variant: 'ghost' },
     terminal_label: 'waimia · workspace/demo',
     console_lines: [
@@ -1013,7 +1013,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     lede_fr: "Un manifeste en cinq actes. Lu d’une traite, dix minutes. Appliqué chez vous, quatre semaines.",
     lede_en: 'A manifesto in five acts. Read in one sitting, ten minutes. Applied at your company, four weeks.',
     cta_primary_label_fr: 'Prendre RDV →', cta_primary_label_en: 'Book a session →', cta_primary_href: '/contact',
-    cta_secondary_label_fr: 'La plateforme', cta_secondary_label_en: 'The platform', cta_secondary_href: '/technologies',
+    cta_secondary_label_fr: 'La plateforme', cta_secondary_label_en: 'The platform', cta_secondary_href: '/expertise-claude',
   },
   'proof-bar': {
     type: 'proof-bar',
@@ -1101,7 +1101,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     h2_en: 'A proven stack, certified partners',
     layout: 'grid',
     partners: [
-      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/technologies/claude-models', category: 'ai' },
+      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/expertise-claude', category: 'ai' },
       { name: 'OpenAI', asset: '/logos/partners/partner-openai.png', href: 'https://openai.com', external: true, category: 'ai' },
       { name: 'Amazon Web Services', asset: '/logos/partners/partner-aws.png', href: 'https://aws.amazon.com', external: true, category: 'cloud' },
       { name: 'Microsoft', asset: '/logos/partners/partner-microsoft.png', category: 'cloud' },

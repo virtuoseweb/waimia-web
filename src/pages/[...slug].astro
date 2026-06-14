@@ -42,9 +42,8 @@ export function getStaticPaths() {
     //  agents-metiers — retirés avec le template legacy OffresDetailTemplate (mort) ;
     //  ces routes deviennent 404 en SSG, les vraies offres passent par
     //  src/pages/offres/[...slug].astro composable)
-    // Technologies (← pages DS, preview operating-layer, lang-switch claude-models ;
-    // claude-models FR est masqué par la page collection réelle, seul EN sort en stub)
-    'technologies/claude-models',
+    // Technologies : route tree retiré (SEO état final §0ter). claude-models a migré
+    // vers la page d'autorité /expertise-claude. Plus aucun stub technologies/*.
     // Ressources EN (← nav des pages EN réelles ; FR masqués par pages/redirects)
     'ressources/cas', 'ressources/blog',
   ];

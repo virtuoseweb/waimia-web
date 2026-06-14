@@ -318,61 +318,9 @@ const lp = defineCollection({
   }),
 });
 
-// ─── Technologies (étendu V2) ───
-const technologies = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/technologies' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    family: z.enum(['Claude', 'OpenSource', 'Frameworks', 'Office']),
-    vendor: z.string().optional(),
-    modelVersion: z.string().optional(),
-    contextWindow: z.string().optional(),
-    strengths_fr: z.array(z.string()),
-    strengths_en: z.array(z.string()),
-    limits_fr: z.array(z.string()).optional(),
-    limits_en: z.array(z.string()).optional(),
-    useWhen_fr: z.string(),
-    useWhen_en: z.string(),
-    // V2
-    positioning_fr: z.string().optional(),
-    positioning_en: z.string().optional(),
-    capabilities: z
-      .array(
-        z.object({
-          name_fr: z.string(),
-          name_en: z.string(),
-          description_fr: z.string(),
-          description_en: z.string(),
-          status: z.enum(['active', 'beta', 'planned']).default('active'),
-        }),
-      )
-      .default([]),
-    models: z
-      .array(
-        z.object({
-          name: z.string(),
-          version: z.string(),
-          use_case_fr: z.string(),
-          use_case_en: z.string(),
-        }),
-      )
-      .default([]),
-    ecosystem: z
-      .array(
-        z.object({
-          name: z.string(),
-          role_fr: z.string(),
-          role_en: z.string(),
-        }),
-      )
-      .default([]),
-    benchmarks: z.array(bilingualMetric).default([]),
-    integration_flow: z.array(methodStep).default([]),
-    // Adoption composable (registry) — fallback legacy conservé si absent.
-    sections: sectionsArraySchema.optional(),
-  }),
-});
+// ─── Technologies : collection RETIRÉE (SEO état final §0ter) ───
+// Le contenu claude-models a migré vers la page d'autorité composable
+// src/pages/expertise-claude.astro. Plus aucun MDX, plus aucun consommateur.
 
 // ─── Blog (étendu V2 avec sous-types) ───
 const blog = defineCollection({
@@ -698,7 +646,6 @@ export const collections = {
   // V1 existantes
   cases,
   offres,
-  technologies,
   blog,
   secteurs,
   outils,

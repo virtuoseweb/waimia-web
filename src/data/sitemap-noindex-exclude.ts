@@ -17,10 +17,8 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   "/en/ressources/blog",
   "/en/ressources/cas",
   "/en/ressources/cookbooks",
-  "/en/technologies/claude-code",
-  "/en/technologies/claude-models",
-  "/en/technologies/claude-surfaces",
-  "/en/technologies/frameworks",
+  // Stubs /technologies/* retirés (SEO état final §0ter) : route tree supprimé du
+  // catch-all, expertise migrée vers /expertise-claude (indexable). Entrées no-op retirées.
   "/offres/agents-metiers",
   "/offres/audit-process-intelligence",
   "/offres/mcp-connectors",
@@ -28,9 +26,6 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // page de service (servie sous /services). noindex (frontmatter seo.noindex) → hors
   // sitemap pour cohérence crawl.
   "/services/template-service-ref",
-  "/technologies/claude-code",
-  "/technologies/claude-surfaces",
-  "/technologies/frameworks",
   // Outils internes /agence (DS Studio + Hero Lab) : noindex,follow ET disallow robots.txt
   // → hors sitemap pour cohérence noindex↔crawl (2026-06-14).
   "/agence/ds-studio",

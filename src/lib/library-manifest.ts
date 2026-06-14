@@ -120,8 +120,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'proof-bar',             consumers: ['src/components/templates/DetailMenuTemplate.astro', 'src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'method-timeline',       consumers: ['src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro'] },
   { id: 'feature-grid',          consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'social-proof',          consumers: ['src/pages/index.astro', 'src/pages/technologies/index.astro'] },
-  { id: 'ecosystem-partners',    consumers: ['src/pages/technologies/index.astro'] },
+  { id: 'social-proof',          consumers: ['src/pages/index.astro'] },
+  { id: 'ecosystem-partners',    consumers: [] },
   { id: 'faq-accordion',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // home = organism BookSession (twin merge) → cta-final après migration · R6 : ServiceDetail/Hub purgés (R0), UtilityTemplate ajouté (consommateur réel)
   { id: 'cta-band',              consumers: ['src/components/templates/TrustLegalTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/components/templates/EssayTemplate.astro'] }, // R6 : ListIndexTemplate fusionné dans UtilityTemplate (variant list)
@@ -203,11 +203,11 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'fit-columns',               consumers: ['src/content/offres/conseil.mdx'] },
   { id: 'editorial-table-block',     consumers: ['src/content/offres/conseil.mdx'] },
   { id: 'decision-list',             consumers: [] },
-  { id: 'tech-positioning-split',    consumers: ['src/content/technologies/claude-models.mdx'] },
-  { id: 'tech-capabilities-specs',   consumers: ['src/content/technologies/claude-models.mdx'] },
-  { id: 'tech-models-table',         consumers: ['src/content/technologies/claude-models.mdx'] },
-  { id: 'tech-when-dual',            consumers: ['src/content/technologies/claude-models.mdx'] },
-  { id: 'tech-integration-flow',     consumers: ['src/content/technologies/claude-models.mdx'] },
+  { id: 'tech-positioning-split',    consumers: ['src/pages/expertise-claude.astro'] },
+  { id: 'tech-capabilities-specs',   consumers: ['src/pages/expertise-claude.astro'] },
+  { id: 'tech-models-table',         consumers: ['src/pages/expertise-claude.astro'] },
+  { id: 'tech-when-dual',            consumers: [] },
+  { id: 'tech-integration-flow',     consumers: ['src/pages/expertise-claude.astro'] },
   // Wave 1.4 — 6 types signatures Solutions, consommés par les 8 pages de la collection solutions
   { id: 'pain-points',               consumers: SOLUTIONS_CONSUMERS },
   { id: 'workflow-table',            consumers: SOLUTIONS_CONSUMERS },
