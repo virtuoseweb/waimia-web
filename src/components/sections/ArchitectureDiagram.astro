@@ -186,7 +186,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
 
   /* Mobile : SVG plus petit, H2 réduit */
   @media (max-width: 700px) {
-    .sysarch-h2 { font-size: clamp(24px, 6.5vw, 38px); }
+    .sysarch-h2 { font-size: var(--text-h2-tight); }
     .sysarch-svg { max-height: 240px; }
   }
   /* ── Alternance des fonds R4 · defaut paper (clair) = rendu inchange ──
