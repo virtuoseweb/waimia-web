@@ -188,3 +188,42 @@ Règles d'application :
 - **Déclinaison dark/light déjà câblée** = `background: enum(paper|paper-2|paper-3|ink)` → `data-bg` (107/123 sections). Idiome déclinaison hover = `data-hover="surface|tint|lift"` mappé sur les **tokens DS existants** (`--dur-hover`/`--dur-trim`, `--ease*`, `--paper-2`/`--ink-2`, `rgba(var(--accent-rgb),…)`, `--shadow-lift`/`--shadow-card-hover`) — **0 nouveau token** (recon 2026-06-13 : le DS couvre déjà tous les rôles ; chantier 09 Phase B).
 - **2 niveaux de perso** (cf `state/09 §1`) : niveau 1 = changer la **valeur** d'un token DS → repeint toutes les classes (aucune nouvelle classe) ; niveau 2 (exception délibérée) = nouveau token + nouvelle déclinaison (nouvelle classe).
 - **Conservation** : une famille/variante/déclinaison correctement générée et cataloguée n'est **jamais supprimée** parce qu'une page ne l'utilise pas ; elle enrichit le catalogue, on choisit par page. Non conforme DS → **remise en conformité** (tokens/classes partagés), pas suppression.
+
+## 10. Refonte « fluid modular scale » — base mathématique unique pilotable (plan staté, 2026-06-14)
+
+> Vision Simon (verbatim 2026-06-14) : « des fonctions mathématiques calculées sur une base personnalisable qui redéfinit tous les espacements et valeurs… tout fluide… plusieurs systèmes de mesure du très petit au très grand pour chaque unité (block/section/card/button/padding/margin) + typo… puis réutiliser dans les sections/composants du catalogue… migration complète, remplacement de toutes les valeurs statiques + DS Studio épuré des doublons/variables inutiles. »
+> Méthode canonique = fluid modular scale (Utopia.fyi) confirmée par recherche (web.dev 2025 baseline `cqi`/`pow()`, moderncsstools 2026). Source de vérité d'exécution de CE chantier. Remplace la doctrine R4 « crans fixes » (tokens.css:160-164) pour l'espacement vertical.
+
+### 10.1 — Décisions actées (Simon, AskUserQuestion 2026-06-14)
+- **Ratio DUAL** : ratio plus petit en mobile (≈1.2) que desktop (≈1.333). Hiérarchie punchy desktop SANS aéré mobile (règle empiriquement le 160/256px mesuré trop grand à 375px). Une base, 2 ratios.
+- **Unité rem + vw** : tailles en rem (a11y zoom OK), interpolation vw. Standard Utopia.
+- **Périmètre FLUIDE** : `--text-*`, `--space-*`, `--section-*`, gaps, paddings card/button. **Restent FIXES** : `--radius-*`, bordures 1px, `--dur-*`, font-weight (ne scalent pas avec le viewport de façon sensée).
+- **Échelle** : on FLUIDIFIE les 15 crans `--space-1..15` existants (déjà une palette xs→xxxl riche) au lieu de renommer en 2xs..3xl (zéro churn). Aliases sémantiques (section/card/button) en dérivent.
+
+### 10.2 — Décision pivot : CSS calc() paramétrique LIVE (pas clamps précalculés)
+La base doit recalculer TOUT en direct dans le navigateur (DS Studio `setProperty` → repeint global). Donc racine paramétrique en CSS pur :
+```
+:root{
+  --fl-min-vw: 360; --fl-max-vw: 1440;        /* plage d'interpolation */
+  --fl-base: 1rem;                             /* pas 0 */
+  --fl-ratio-min: 1.2; --fl-ratio-max: 1.333; /* ratio dual (knobs Studio) */
+}
+```
+Chaque pas dérive base × ratio^n (via `pow()`, supporté 2026), avec un `clamp(min, slope·100vw + intercept, max)` où min utilise ratio-min et max ratio-max. Helper unique (mixin CSS custom-property ou util `--fl-step(n)`) → 0 valeur en dur. Clamps précalculés écartés : casseraient le live-tweak (relire `utopia.fyi/blog/clamp`).
+
+### 10.3 — Le levier : migrer les DÉFINITIONS, pas les sites d'appel
+`--space-*` consommé 836× via `var()`, `--section-*` 103× → redéfinir ces tokens (px→clamp math) propage à ~940 usages **sans toucher un composant**. Les titres `--text-*` (9 tokens) sont déjà fluides = modèle à généraliser. Reste à migrer (composants) : ~292 `font-size: clamp()` bruts + ~243 `clamp()` espacement bruts + ~200 px off-grid (14/18/6/10/20px…) → tokens.
+
+### 10.4 — Phasage (anti-dette, GF-1 à chaque phase, branche dédiée)
+- **P-A — Socle paramétrique** : racine `--fl-*` + générateur de pas + fluidifier `--space-1..15`, `--section-*`, consolider `--text-*` sur la même base. GF-1 : à `--fl-max-vw` le rendu desktop ≈ identique à l'actuel (preuve byte-proche) ; à 375px ça rétrécit proprement. **Worker (CSS > 3 lignes, GF-2) + arsenal preamble.**
+- **P-B — DS Studio param-editor** : remplacer les 115 sliders par token par des knobs GLOBAUX (base, ratio-min, ratio-max, vw-min, vw-max) qui recomputent tout en live + garder override avancé par token. (JS applicatif → worker.)
+- **P-C — Migration composants** : remplacer les ~535 clamps bruts → tokens fluides sémantiques. **Mode Workflow** (fan-out, 1 agent/fichier, arsenal preamble + worker-mcp-scoped). Jugement de rôle (quel clamp → quel `--text-*`/`--space-*`), ambigus remontés.
+- **P-D — Réécriture des gates** : `check-section-rhythm` (autoriser clamp dérivé d'un token, interdire seulement les clamps bruts hors token) ; `check-token-purity` V8/V9b (rebaser `LITERAL_MAPPINGS`/`SPACE_PX` sur les tokens fluides) ; re-générer `design-system.lock.json` + `ds-registry.json`. Rappel contrainte : `var()` interdit en condition `@media` (gate `check-media-query-var`) → fluidité par clamp/vw uniquement.
+- **P-E — Purge** : `--space-14` (0 usage), `--color-*` @theme si utilities Tailwind inutilisées (~1 usage `border-paper`), 144 groupes de classes au corps identique + 280 dupes scoped. Épure le DS Studio (« doublons & dette »).
+- **P-F — GF-1 sweep** : Playwright desktop+mobile (375/768/1440) sur N previews + pages clés ; getComputedStyle (tokens résolus, hiérarchie préservée) + screenshots avant/après.
+
+### 10.5 — Risques & garde-fous
+- **Blast radius** = tout le site visuel → chaque phase sur branche, GF-1 avant merge, jamais de push direct main.
+- **Anti-effondrement hiérarchie** (la crainte R4) : neutralisée par ratio systématique (chaque pas garde le ratio aux 2 bouts). Le dual ratio + mesure mobile = preuve à valider en P-A.
+- **A11y** : rem partout (pas px) → zoom navigateur respecté. Vérifier `prefers-reduced-motion` inchangé (durées fixes).
+- **Rule 60** : 0 valeur en dur post-migration ; tout dérive de `--fl-*`. Rule 59 : ce doc = source unique (09 pointe ici).

@@ -257,7 +257,7 @@ Analyse de rôle réel (pas le compte). Verdict par candidat :
 
 | # | Candidat | Constat | Verdict |
 |---|---|---|---|
-| **A** | **Double vocabulaire d'espacement de section** : `--section-base/loose/grand` (fixes, =space-11/13/15, ×16 total) **vs** `--spacing-section/block` (fluides `clamp()`, ×64 total) | Deux intentions pour « rythme de section ». Le commentaire `tokens.css:154` flagge lui-même `--spacing-*` comme « transitoires W6 ». C'est le doublon de rôle #1 du DS. | **PERCEPTIBLE** (fixe 96 vs `clamp(64,8vw,96)` divergent selon viewport) → arbitrage Simon : choisir UNE famille (probable : garder les fluides `--spacing-*`, migrer les `--section-*`, ou inverse). Vague GF-1 dédiée. |
+| **A** | ~~**Double vocabulaire d'espacement de section**~~ **RÉSOLU (refonte R4, vérifié 2026-06-14)** | Le doublon décrit N'EXISTE PLUS. `tokens.css:159-168` : `--section-tight/base/loose/grand` (crans FIXES =space-8/11/13/15) = **« LA famille verticale unique »** (la version fixe a gagné : « hiérarchie nette > clamps fluides »). `--spacing-section` **supprimé** (0 occurrence). `--spacing-block` (clamp 28-48px) a un **rôle distinct** = gap interne de bloc, PAS un cran de section. Usages réels : section-* 142×, spacing-block 39×. Gate `scripts/check-section-rhythm.mjs` actif. | **AUCUN ARBITRAGE** — tranché. Entrée conservée pour ne plus la re-flagger. |
 | **B** | **`--radius-xs` (4px) nommé « xs » mais PLUS GRAND que `--radius-sm` (2px)** | Inversion de l'échelle t-shirt (xs 4 > sm 2 < md 8). Naming incohérent (créé comme « cran manquant sm↔md » mais nommé xs). | **STRUCTUREL** (rename contrat, ×16 usages, byte-équiv si valeur conservée) → arbitrage Simon : renommer (ex. `--radius-sm`→2 reste, `--radius-xs`4→`--radius-smd`/réordonner). |
 | **C** | **`--shadow-hairline` ≡ `--shadow-card-rest`** : valeur **identique** `0 0 0 1px var(--hairline)` (×1 chacun) | Doublon de valeur exact. Mais `--shadow-card-rest` appartient à une **paire rest/hover** (`--shadow-card-hover`), donc rôle sémantique « état repos de card interactive » ≠ « ring séparateur statique ». | **AMBIGU** → arbitrage Simon (byte-équiv de collapse, mais le choix du canonique + valeur de la paire rest/hover relève de l'intention design). Recommandation : garder les deux (la paire justifie), OU collapser `--shadow-card-rest`→`--shadow-hairline` si la paire n'est pas exploitée. |
 | **D** | **`--col-full` = `var(--wrap)`** (alias pur 1440px, ×2 dans `grid.css`) | Indirection sémantique « colonne pleine grille = wrap page ». | **MARGINAL** byte-équiv collapsible (inline `var(--wrap)`) mais l'alias documente l'intention grille → garder (faible valeur à raser). |
@@ -267,3 +267,28 @@ Analyse de rôle réel (pas le compte). Verdict par candidat :
 - **`--gut` (32px responsive : 20@900, 16@600) vs `--space-6` (32px fixe)** : coïncident à 32px sur desktop mais `--gut` est **responsive** (gouttière) et `--space-6` fixe (cran d'échelle). Rôles distincts. **GARDER**.
 
 > Principe (réconcilie « cadre restrictif » + « ne pas aplatir l'intentionnel ») : une coïncidence de valeur n'est un doublon **que si le rôle est identique**. A/B/C/D ci-dessus sont des incohérences réelles mais **perceptibles ou structurelles** → décision Simon, jamais auto-exécutées dans une vague byte-équiv.
+
+## 10 — Migration no-hardcode (rule 60) — résultats V1 + arbitrage off-grid (addendum 2026-06-14)
+
+Chantier #30 « tokeniser les valeurs en dur » exécuté en 2 passes Workflow (1 agent/fichier, substitution mécanique 1:1, mapping DS exact, GF-1 build + Playwright après chaque).
+
+### 10.1 — Livré (V1, commits sur `refactor/token-roles-accent`)
+- **V1-ui** (`f62e30f`) : 13/47 composants `src/components/ui/**` substitués (31 substitutions). Espacement on-grid + durées + font-size 11-17px → `var(--token)`.
+- **V1-sections** (`f6c9bd6`) : 26/123 sections substituées (45 substitutions). Idem. 97 sections déjà conformes ou en clamp.
+- **Ombre ink** (`21bd0c4`) : `TeamCardGrid` `rgba(0,0,0,0.3)` → `rgba(var(--ink-rgb),0.3)` (1 seul cas dans tout le catalogue).
+- Preuve GF-1 : build Complete! 556 pages + Playwright home (H1 opacity:1, `--space-5`/`--dur-hover`/`--text-body-base` résolus, 0 var fantôme).
+
+### 10.2 — V1-bis (bornes clamp on-grid) — DEFERRED, pas mécanique (décision tranchée 2026-06-14)
+68 fichiers ont des `clamp(a, vw, b)` dont les bornes `a`/`b` sont on-grid (40/64px…). Les tokéniser **mécaniquement** (`clamp(var(--space-7),5vw,var(--space-9))`) a été **écarté** : `tokens.css:209` pose la philosophie DS **« zéro duplication clamp() custom »** — l'intention n'est pas de tokéniser les bornes d'un clamp custom mais de **remplacer le clamp custom par le token canonique** (`--spacing-block`, `--text-h2-section`…) quand le rôle correspond. C'est un **jugement design par composant** (quel clamp → quel token de rôle, ou rester custom), pas une substitution 1:1 → relève de l'arbitrage, pas d'une vague Workflow automatique. Lié au candidat **9.3-A** (double vocabulaire d'espacement de section).
+
+### 10.3 — Off-grid récurrents laissés littéraux (candidats arbitrage #33 — créer un token OU rester littéral)
+Valeurs d'espacement HORS grille 8pt rencontrées de façon répétée par les agents (laissées littérales, DS figé) :
+
+| Valeur | Fréquence | Rôle observé | Piste |
+|---|---|---|---|
+| `6px` | très fréquent | gap icône-texte, padding pills | candidat `--space-1.5` SI jamais le DS s'ouvre |
+| `10px`, `14px`, `18px`, `20px`, `22px` | fréquent | gaps / paddings intermédiaires | off-grid d'espacement ; rester littéral OU snapper au cran voisin (arbitrage perceptible) |
+| `2px`, `3px`, `5px` | ponctuel | micro-espacements | sous le 1er cran (4px) ; rester littéral |
+| `28px`, `36px` | ponctuel | marges de titres | off-grid ; arbitrage |
+
+Décision actuelle : **0 token créé** (DS figé, rule 28 projet + directive « variables figées »). Ces valeurs restent littérales jusqu'à arbitrage Simon (#33). Aucune n'est une « violation » bloquante — ce sont des valeurs sans token de rôle exact.
