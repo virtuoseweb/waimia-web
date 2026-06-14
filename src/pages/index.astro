@@ -120,9 +120,8 @@ const SERVICE_METRIC_OVERRIDES: Record<string, { fr: string; en: string }> = {
 // Mapping service → cas d'usage /solutions/* (les 3 mappings réels ; les 6 cas restent
 // atteignables via le pied de grille → /solutions, info UseCaseIndex préservée).
 const SERVICE_USECASES: Record<string, string> = {
-  '02': 'acquisition-ia',
-  '03': 'crm-relances-ia',
-  '05': 'productivite-ia',
+  '02': 'publicite-en-ligne',
+  '03': 'agent-marketing-commercial',
 };
 const usecaseBySlug = (slug: string) => DEPARTMENTS_GRID.find((d) => d.slug === slug);
 const servicesGridData = {

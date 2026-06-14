@@ -867,18 +867,18 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   },
   'tunnel-step-nav': {
     type: 'tunnel-step-nav',
-    prev_href: '/offres/activation-ia/tunnel/1',
+    prev_href: '/solutions/tunnel-de-vente',
     prev_label_fr: '← Étape précédente',
     prev_label_en: '← Previous step',
     cta: {
       label_fr: 'Continuer →',
       label_en: 'Continue →',
-      href: '/offres/activation-ia/tunnel/3',
+      href: '/solutions/tunnel-de-vente',
       variant: 'primary',
     },
     reading_fr: 'Temps de lecture : 2 min',
     reading_en: '2 min read',
-    back_href: '/offres/activation-ia',
+    back_href: '/solutions/tunnel-de-vente',
     back_label: '← Activation IA',
   },
   'marquee-band': {
@@ -1413,7 +1413,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         lead_en: 'Sales and operational KPIs in real time. Clear numbers before the meeting.',
         cta_fr: "Voir l'offre →",
         cta_en: 'View offer →',
-        href: '/offres/growth-intelligence',
+        href: '/offres/growth-system-ia',
       },
       {
         price_fr: '6 À 25 K€',
@@ -1424,7 +1424,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         lead_en: 'Augmented Excel, connected Office, internal workflows that run without human reminders.',
         cta_fr: "Voir l'offre →",
         cta_en: 'View offer →',
-        href: '/offres/productivite-operationnelle-ia',
+        href: '/offres/growth-system-ia',
       },
       {
         price_fr: 'SITE WEB',
@@ -1560,11 +1560,11 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       lede_fr: 'Téléchargeable sans formulaire. Cité par nos clients en comité de direction.',
       lede_en: 'Downloadable without a form. Used by clients in leadership committees.',
       cards: [
-        { kicker: 'PDF 01', title_fr: 'Audit IA marketing', title_en: 'Marketing AI audit', lead_fr: 'La grille terrain pour prioriser sans théâtre.', lead_en: 'The field grid for prioritizing without theatrics.', href: '/ressources/livres-blancs/ia-pme-b2b-2026' },
-        { kicker: 'PDF 02', title_fr: 'Agents IA et gouvernance', title_en: 'AI agents and governance', lead_fr: 'Droits, données, supervision, reprise humaine.', lead_en: 'Rights, data, supervision, human handoff.', href: '/ressources/livres-blancs/ai-act-readiness' },
-        { kicker: 'PDF 03', title_fr: 'Stack revenue IA', title_en: 'AI revenue stack', lead_fr: 'Relier site, CRM, contenu et pilotage.', lead_en: 'Connect website, CRM, content, and dashboards.', href: '/ressources/livres-blancs' },
+        { kicker: 'PDF 01', title_fr: 'Audit IA marketing', title_en: 'Marketing AI audit', lead_fr: 'La grille terrain pour prioriser sans théâtre.', lead_en: 'The field grid for prioritizing without theatrics.', href: '/ressources/blog' },
+        { kicker: 'PDF 02', title_fr: 'Agents IA et gouvernance', title_en: 'AI agents and governance', lead_fr: 'Droits, données, supervision, reprise humaine.', lead_en: 'Rights, data, supervision, human handoff.', href: '/ressources/blog' },
+        { kicker: 'PDF 03', title_fr: 'Stack revenue IA', title_en: 'AI revenue stack', lead_fr: 'Relier site, CRM, contenu et pilotage.', lead_en: 'Connect website, CRM, content, and dashboards.', href: '/ressources/blog' },
       ],
-      cta: { label_fr: 'Tous les livres blancs →', label_en: 'All white papers →', href: '/ressources/livres-blancs', variant: 'ghost' },
+      cta: { label_fr: 'Tous les livres blancs →', label_en: 'All white papers →', href: '/ressources/blog', variant: 'ghost' },
     },
   },
   'coming-soon-pills': {
@@ -1846,7 +1846,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         body_en: 'We map your flows, tools, and blind spots. The result: a prioritised action plan with quick wins and structural projects.',
         link_label_fr: 'Voir le processus',
         link_label_en: 'See the process',
-        link_href: '/offres/conseil',
+        link_href: '/offres',
       },
       {
         kicker_fr: 'Execution',
