@@ -136,7 +136,7 @@ const contactLd = {
     display: flex;
     gap: var(--space-1);
   }
-  .form-row label span:last-child { color: var(--accent); }
+  .form-row label span:last-child { color: var(--accent-text); }
   .form-row input,
   .form-row textarea {
     font-family: var(--font-sans);
@@ -150,9 +150,9 @@ const contactLd = {
   }
   .form-row input:focus,
   .form-row textarea:focus {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
   }
-  .form-errors { color: var(--accent); font-size: var(--text-body-sm); margin-top: var(--space-2); min-height: 1em; }
+  .form-errors { color: var(--accent-text); font-size: var(--text-body-sm); margin-top: var(--space-2); min-height: 1em; }
   .contact-form :global(.btn) { border-radius: var(--radius-xs); }
 
   .contact-aside {
@@ -184,7 +184,7 @@ const contactLd = {
     color: var(--muted);
   }
   .contact-list a {
-    color: var(--accent);
+    color: var(--accent-text);
     transition: color var(--dur-fast) var(--ease);
   }
   .contact-list a:hover { color: var(--accent-sur-clair, var(--accent)); }
@@ -211,7 +211,7 @@ const contactLd = {
     text-wrap: balance;
     font-weight: var(--fw-regular);
   }
-  .contact-cal-h2 :global(i) { font-style: italic; color: var(--accent); }
+  .contact-cal-h2 :global(i) { font-style: italic; color: var(--accent-text); }
   .contact-cal-lead {
     font-size: var(--text-body-base);
     line-height: 1.55;
@@ -221,7 +221,7 @@ const contactLd = {
   }
 
   .form-error-global {
-    color: var(--accent);
+    color: var(--accent-text);
     font-size: var(--text-body-sm);
     line-height: var(--leading-body);
     margin: 0;

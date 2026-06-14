@@ -720,7 +720,7 @@ const moleculesRendered = 12;
             <h3 class="studio-h4">TerminalMockup · tone ink / paper</h3>
             <div class="studio-mol--2col">
               <TerminalMockup label="waimia · studio" status="◉ live" tone="ink">
-                <p style="font-family:var(--font-mono);color:var(--accent);font-size:var(--text-mono-xs)">$ édite --accent → tout se repeint</p>
+                <p style="font-family:var(--font-mono);color:var(--accent-text);font-size:var(--text-mono-xs)">$ édite --accent → tout se repeint</p>
               </TerminalMockup>
               <TerminalMockup label="waimia · studio" status="◉ paper" tone="paper">
                 <p style="font-family:var(--font-mono);color:var(--ink);font-size:var(--text-mono-xs)">$ tone paper</p>
@@ -957,12 +957,12 @@ const moleculesRendered = 12;
     line-height: var(--leading-h1); letter-spacing: var(--tracking-display);
     margin: 0 0 var(--space-4);
   }
-  .studio-h1 i { color: var(--accent); font-style: italic; }
+  .studio-h1 i { color: var(--accent-text); font-style: italic; }
   .studio-lede {
     font-family: var(--font-sans); font-size: var(--text-lede);
     line-height: var(--leading-lede); color: var(--ink-2); margin: 0 0 var(--space-3);
   }
-  .studio-lede a, .studio-section-lede a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+  .studio-lede a, .studio-section-lede a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 0.2em; }
   .studio-meta {
     font-family: var(--font-mono); font-size: var(--text-caption);
     color: var(--muted); margin: 0;
@@ -982,7 +982,7 @@ const moleculesRendered = 12;
     margin-bottom: var(--space-4); padding: var(--space-3);
     border: 1px solid var(--hairline-strong); border-radius: var(--radius-md); background: var(--paper);
   }
-  .studio-toolbar .studio-btn.is-active { border-color: var(--accent); color: var(--accent); }
+  .studio-toolbar .studio-btn.is-active { border-color: var(--accent-text); color: var(--accent-text); }
   .studio-btn:disabled { opacity: 0.45; cursor: not-allowed; }
   .studio-tool-panel {
     margin-bottom: var(--space-5); border: 1px solid var(--hairline-strong);
@@ -1032,7 +1032,7 @@ const moleculesRendered = 12;
     cursor: pointer; transition: background var(--dur-fast) var(--ease);
   }
   .studio-btn:hover { background: var(--paper-3); }
-  .studio-btn--accent { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .studio-btn--accent { background: var(--accent); color: var(--accent-ink); border-color: var(--accent-text); }
   .studio-btn--accent:hover { background: var(--accent-sur-clair); }
 
   .studio-search { display: block; margin: var(--space-4) 0; }
@@ -1058,14 +1058,14 @@ const moleculesRendered = 12;
     border: 1px solid transparent; cursor: pointer;
   }
   .studio-row:hover { background: var(--paper-2); }
-  .studio-row.is-selected { border-color: var(--accent); background: var(--paper-2); }
-  .studio-row.is-dirty .studio-row-name { color: var(--accent); }
+  .studio-row.is-selected { border-color: var(--accent-text); background: var(--paper-2); }
+  .studio-row.is-dirty .studio-row-name { color: var(--accent-text); }
   .studio-row-name {
     font-family: var(--font-mono); font-size: var(--text-mono-xs);
     color: var(--ink-2); background: none; border: none; padding: 0;
     text-align: left; cursor: pointer; word-break: break-all;
   }
-  .studio-row.is-dirty .studio-row-name::after { content: ' ●'; color: var(--accent); }
+  .studio-row.is-dirty .studio-row-name::after { content: ' ●'; color: var(--accent-text); }
   .studio-row-ctrl { display: flex; align-items: center; gap: var(--space-2); }
   .studio-swatch-input {
     width: 32px; height: 28px; padding: 0; border: 1px solid var(--hairline-strong);
@@ -1078,7 +1078,7 @@ const moleculesRendered = 12;
     width: 100%; box-sizing: border-box; min-width: 0;
   }
   .studio-text-input--wide { width: 100%; }
-  .studio-range { flex: 1 1 auto; min-width: 0; accent-color: var(--accent); }
+  .studio-range { flex: 1 1 auto; min-width: 0; accent-color: var(--accent-text); }
   .studio-num { width: 64px; flex: none; }
   .studio-unit { font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted); flex: none; }
 
@@ -1107,18 +1107,18 @@ const moleculesRendered = 12;
   }
   .studio-preset-row { padding: var(--space-1) 0; }
   .studio-preset-row.is-demo .studio-preset-row-name::before {
-    content: '◆ '; color: var(--accent);
+    content: '◆ '; color: var(--accent-text);
   }
 
   /* Comparateur avant / après */
   .studio-compare-tag {
-    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--accent);
+    font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--accent-text);
     border: 1px solid var(--hairline-strong); border-radius: var(--radius-pill);
     padding: 0 var(--space-2); margin-left: var(--space-2);
   }
   .studio-compare-body { display: flex; flex-direction: column; gap: var(--space-2); padding: 0 var(--space-3) var(--space-3); }
   .studio-compare-hold { width: 100%; }
-  .studio-compare-hold[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .studio-compare-hold[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent-text); }
   .studio-compare-help { font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted); margin: 0; }
   .studio-compare-help kbd {
     font-family: var(--font-mono); font-size: 0.9em; background: var(--paper-3);
@@ -1138,7 +1138,7 @@ const moleculesRendered = 12;
   .studio-compare-row-vals { display: flex; align-items: center; gap: var(--space-1); flex: none; }
   .studio-compare-old { color: var(--muted); text-decoration: line-through; }
   .studio-compare-arrow { color: var(--muted-2); }
-  .studio-compare-new { color: var(--accent); }
+  .studio-compare-new { color: var(--accent-text); }
   .studio-compare-swatch {
     width: var(--space-3); height: var(--space-3); border-radius: var(--radius-sm);
     border: 1px solid var(--hairline-strong); flex: none;
@@ -1147,7 +1147,7 @@ const moleculesRendered = 12;
   /* Inspecteur de token (sections du catalogue) */
   .studio-inspector { margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--hairline); }
   .studio-inspector-help { font-family: var(--font-sans); font-size: var(--text-body-sm); color: var(--ink-2); margin: 0 0 var(--space-2); }
-  .studio-inspector-help a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+  .studio-inspector-help a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 0.2em; }
   .studio-inspector-list {
     list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-1);
     max-height: 180px; overflow: auto;
@@ -1162,7 +1162,7 @@ const moleculesRendered = 12;
     border-radius: var(--radius-xs); padding: var(--space-1) var(--space-2); cursor: pointer;
     transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
-  .studio-inspector-btn:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .studio-inspector-btn:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent-text); }
 
   /* ── Main / galerie ── */
   .studio-main {
@@ -1208,7 +1208,7 @@ const moleculesRendered = 12;
   .studio-tile--dark { background: var(--ink); border-color: var(--ink-3); }
   .studio-tile--dark .studio-tag { color: var(--muted-2); background: var(--ink-2); }
   .studio-tile--note { min-height: 72px; }
-  .studio-note-name { font-family: var(--font-mono); font-size: var(--text-ui); color: var(--accent); }
+  .studio-note-name { font-family: var(--font-mono); font-size: var(--text-ui); color: var(--accent-text); }
   .studio-note-role { font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted); }
   .studio-tag {
     font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted);
@@ -1231,7 +1231,7 @@ const moleculesRendered = 12;
     padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--hairline);
     font-family: var(--font-mono); font-size: var(--text-mono-xs);
   }
-  .studio-sec-link { color: var(--accent); text-decoration: none; }
+  .studio-sec-link { color: var(--accent-text); text-decoration: none; }
   .studio-sec-frame { position: relative; max-height: 280px; overflow: hidden; }
   .studio-sec-frame > :first-child { transform: none; }
   .studio-sec-fade {
@@ -1246,7 +1246,7 @@ const moleculesRendered = 12;
     line-height: var(--leading-body); color: var(--ink-2); margin: 0 0 var(--space-3);
   }
   .studio-role strong { font-weight: var(--fw-semibold); color: var(--ink); }
-  .studio-role a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+  .studio-role a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 0.2em; }
 
   /* ── Catalogue complet (browser + aperçu live) ── */
   .studio-catalog-layout {
@@ -1269,7 +1269,7 @@ const moleculesRendered = 12;
     font-family: var(--font-sans); font-size: var(--text-ui);
     font-weight: var(--fw-semibold); color: var(--ink);
   }
-  .studio-cat[open] > summary .studio-cat-label { color: var(--accent); }
+  .studio-cat[open] > summary .studio-cat-label { color: var(--accent-text); }
   .studio-cat-count {
     font-family: var(--font-mono); font-size: var(--text-mono-xs); color: var(--muted);
     border: 1px solid var(--hairline-strong); border-radius: var(--radius-pill);
@@ -1281,7 +1281,7 @@ const moleculesRendered = 12;
   }
   .studio-cat-all a {
     display: inline-block; font-family: var(--font-sans); font-size: var(--text-caption);
-    color: var(--accent); text-decoration: none; padding: var(--space-1) var(--space-2);
+    color: var(--accent-text); text-decoration: none; padding: var(--space-1) var(--space-2);
   }
   .studio-cat-all a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
   .studio-cat-type {
@@ -1300,7 +1300,7 @@ const moleculesRendered = 12;
     font-family: var(--font-mono); font-size: var(--text-mono-xs);
     color: var(--muted); text-decoration: none;
   }
-  .studio-cat-links a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+  .studio-cat-links a:hover { color: var(--accent-text); text-decoration: underline; text-underline-offset: 0.2em; }
   .studio-catalog-side {
     position: sticky; top: var(--space-5);
     border: 1px solid var(--hairline-strong); border-radius: var(--radius-md);
@@ -1347,7 +1347,7 @@ const moleculesRendered = 12;
     letter-spacing: var(--tracking-mono); color: var(--muted);
   }
   .studio-workshop-head code {
-    font-size: var(--text-ui); font-weight: var(--fw-semibold); color: var(--accent);
+    font-size: var(--text-ui); font-weight: var(--fw-semibold); color: var(--accent-text);
     background: var(--paper-2);
   }
   .workshop-field { display: flex; flex-direction: column; gap: var(--space-2); }
@@ -1358,7 +1358,7 @@ const moleculesRendered = 12;
   .workshop-btn-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
   .workshop-bg-btn.is-active,
   .workshop-variant-btn.is-active {
-    background: var(--accent); color: var(--accent-ink); border-color: var(--accent);
+    background: var(--accent); color: var(--accent-ink); border-color: var(--accent-text);
   }
   .studio-workshop-variants { display: flex; flex-direction: column; gap: var(--space-3); }
   .studio-workshop-texts { display: flex; flex-direction: column; gap: var(--space-3); }
@@ -1402,7 +1402,7 @@ const moleculesRendered = 12;
     border: 1px solid var(--hairline-strong); border-radius: var(--radius-md);
     padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-1); background: var(--paper);
   }
-  .studio-debt-k { font-family: var(--font-display); font-size: var(--text-h2-tight); color: var(--accent); }
+  .studio-debt-k { font-family: var(--font-display); font-size: var(--text-h2-tight); color: var(--accent-text); }
   .studio-debt-l { font-family: var(--font-sans); font-size: var(--text-caption); color: var(--muted); }
   .studio-lock-note { font-family: var(--font-sans); font-size: var(--text-body-sm); color: var(--ink-2); margin: var(--space-2) 0; }
 
@@ -1473,7 +1473,7 @@ const moleculesRendered = 12;
   }
   :global(.studio-overlay-count) {
     font-family: var(--font-mono); font-size: var(--text-h2-tight);
-    color: var(--accent); margin: 0; letter-spacing: var(--tracking-mono);
+    color: var(--accent-text); margin: 0; letter-spacing: var(--tracking-mono);
     font-variant-numeric: tabular-nums;
   }
   :global(.studio-overlay--error .studio-overlay-count) { display: none; }

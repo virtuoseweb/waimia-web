@@ -72,7 +72,7 @@ const hasCopy = Boolean(kicker || h2 || intro);
   }
   .term-mock[data-bg='ink'] .term-mock__title { color: var(--paper); }
   .term-mock__title :global(i) { font-family: var(--font-display); font-style: italic; }
-  .term-mock__title :global(i.acc), .term-mock__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
+  .term-mock__title :global(i.acc), .term-mock__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
   .term-mock__title :global(strong) { font-weight: var(--fw-semibold); }
 
   .term-mock__intro {
@@ -100,7 +100,7 @@ const hasCopy = Boolean(kicker || h2 || intro);
   .term-mock__body[data-term-tone='paper'] .term-mock__line[data-kind='out'] .term-mock__line-text { color: var(--muted); }
   .term-mock__body[data-term-tone='ink'] .term-mock__line[data-kind='comment'] .term-mock__line-text { color: rgba(var(--paper-rgb), .45); font-size: var(--text-caption); }
   .term-mock__body[data-term-tone='paper'] .term-mock__line[data-kind='comment'] .term-mock__line-text { color: var(--muted); font-size: var(--text-caption); }
-  .term-mock__prompt, .term-mock__ok { color: var(--accent); }
+  .term-mock__prompt, .term-mock__ok { color: var(--accent-text); }
 
   /* Curseur clignotant · bloc accent, neutralisé en reduced-motion */
   .term-mock__cursor {

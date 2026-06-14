@@ -139,7 +139,7 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
     font-family: var(--font-display);
     font-size: clamp(36px, 5vw, 64px);
     line-height: 1;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .stat-block__label {
     font-family: var(--font-sans);
@@ -219,12 +219,12 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
     padding-bottom: 2px;
     transition: color var(--dur-fast) var(--ease);
   }
-  .proof-bar__link:hover { color: var(--accent); }
+  .proof-bar__link:hover { color: var(--accent-text); }
   .proof-bar__value {
     font-family: var(--font-display);
     font-size: clamp(32px, 4vw, 56px);
     line-height: 1;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .proof-bar__label {
     font-family: var(--font-sans);

@@ -112,23 +112,23 @@ const closeLabel = isFr ? 'Fermer' : 'Dismiss';
 
   .announce[data-tone='ink'] { background: var(--ink); color: var(--paper); }
   .announce[data-tone='ink'] .announce__badge { background: var(--accent); color: var(--paper); }
-  .announce[data-tone='ink'] .announce__link { color: var(--accent); }
+  .announce[data-tone='ink'] .announce__link { color: var(--accent-text); }
 
   .announce[data-tone='paper-2'] { background: var(--paper-2); color: var(--ink); border-block: 1px solid var(--hairline); }
   .announce[data-tone='paper-2'] .announce__badge { background: var(--accent); color: var(--paper); }
-  .announce[data-tone='paper-2'] .announce__link { color: var(--accent); }
+  .announce[data-tone='paper-2'] .announce__link { color: var(--accent-text); }
 
   /* Support data-bg cohérent (R4) · n'écrase le tone que si background explicite est posé.
      'ink' reprend le traitement sombre soigné du tone ink ; paper-2/paper-3 fonds clairs. */
   .announce[data-bg='paper-2'] { background: var(--paper-2); color: var(--ink); border-block: 1px solid var(--hairline); }
   .announce[data-bg='paper-2'] .announce__badge { background: var(--accent); color: var(--paper); }
-  .announce[data-bg='paper-2'] .announce__link { color: var(--accent); }
+  .announce[data-bg='paper-2'] .announce__link { color: var(--accent-text); }
   .announce[data-bg='paper-3'] { background: var(--paper-3); color: var(--ink); border-block: 1px solid var(--hairline); }
   .announce[data-bg='paper-3'] .announce__badge { background: var(--accent); color: var(--paper); }
-  .announce[data-bg='paper-3'] .announce__link { color: var(--accent); }
+  .announce[data-bg='paper-3'] .announce__link { color: var(--accent-text); }
   .announce[data-bg='ink'] { background: var(--ink); color: var(--paper); }
   .announce[data-bg='ink'] .announce__badge { background: var(--accent); color: var(--paper); }
-  .announce[data-bg='ink'] .announce__link { color: var(--accent); }
+  .announce[data-bg='ink'] .announce__link { color: var(--accent-text); }
 
   @media (max-width: 640px) {
     .announce__inner { padding-right: var(--space-7); }

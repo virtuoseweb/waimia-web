@@ -293,7 +293,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   }
   .deliverables-grid__title :global(i) {
     font-style: italic;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .deliverables-grid__lead {
     font-family: var(--font-sans);
@@ -331,11 +331,11 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   }
   .deliverables-grid__card:hover {
     transform: translateY(-2px);
-    border-top-color: var(--accent);
+    border-top-color: var(--accent-text);
     background: var(--paper-2);
   }
   .deliverables-grid__card:hover::before {
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .deliverables-grid__tag {
     display: block;
@@ -343,7 +343,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
     font-size: var(--text-mono-xs);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     margin-bottom: var(--space-2);
     transition: transform var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
   }
@@ -396,7 +396,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   .deliverables-grid[data-bg='ink'] :is(.deliverables-grid__lead, .deliverables-grid__card p) { color: rgba(var(--paper-rgb), 0.72); }
   .deliverables-grid[data-bg='ink'] .deliverables-grid__card:hover {
     background: rgba(var(--paper-rgb), 0.04);
-    border-top-color: var(--accent);
+    border-top-color: var(--accent-text);
   }
 
   /* ───── commitments-grid (preset) — CSS VERBATIM CommitmentsGrid.astro ───── */
@@ -520,7 +520,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
     justify-content: center;
     font-size: clamp(28px, 3vw, 40px);
     line-height: 1;
-    color: var(--accent);
+    color: var(--accent-text);
     font-family: var(--font-display);
   }
 

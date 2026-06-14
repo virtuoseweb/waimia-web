@@ -427,7 +427,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-sec { padding: clamp(72px, 8vw, 120px) 0; position: relative; }
   .tech-sec-paper { background: var(--paper-2); }
   .tech-sec-dark { background: var(--ink); color: var(--paper); }
-  .tech-sec-dark :global(.kicker) { color: var(--accent); }
+  .tech-sec-dark :global(.kicker) { color: var(--accent-text); }
   .eyebrow {
     display: block;
     margin-bottom: 10px;
@@ -435,7 +435,7 @@ const serviceLd = buildService({ name: title, description });
     font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .tech-sec-hd {
     display: grid;
@@ -452,7 +452,7 @@ const serviceLd = buildService({ name: title, description });
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .tech-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
+  .tech-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .tech-aside {
     font-family: var(--font-display);
     font-size: clamp(15px, 1.3vw, 17px);
@@ -494,7 +494,7 @@ const serviceLd = buildService({ name: title, description });
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 var(--space-5);
   }
-  .tech-pos-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
+  .tech-pos-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .tech-pos-statement {
     font-family: var(--font-display);
     font-size: clamp(22px, 2.4vw, 32px);
@@ -505,7 +505,7 @@ const serviceLd = buildService({ name: title, description });
     margin-bottom: 0;
     text-wrap: balance;
   }
-  .tech-pos-statement :global(em) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
+  .tech-pos-statement :global(em) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .tech-pos-facts {
     display: grid;
     grid-template-columns: 1fr;
@@ -530,7 +530,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-pos-facts :global(.fact-v) {
     font-family: var(--font-display);
     font-size: clamp(18px, 1.8vw, 22px);
-    color: var(--accent);
+    color: var(--accent-text);
     line-height: 1;
     font-weight: var(--fw-regular);
     white-space: nowrap;
@@ -591,12 +591,12 @@ const serviceLd = buildService({ name: title, description });
     border-radius: var(--radius-sm);
     display: inline-block;
     background: rgba(var(--accent-rgb), 0.08);
-    color: var(--accent);
+    color: var(--accent-text);
     white-space: nowrap;
   }
   .tech-models-table tbody :global(.mdl-badge--speed) { background: rgba(var(--ink-rgb), 0.06); color: var(--ink); }
-  .tech-models-table tbody :global(.mdl-badge--balance) { background: rgba(var(--accent-rgb), 0.08); color: var(--accent); }
-  .tech-models-table tbody :global(.mdl-badge--power) { background: rgba(var(--accent-rgb), 0.08); color: var(--accent); }
+  .tech-models-table tbody :global(.mdl-badge--balance) { background: rgba(var(--accent-rgb), 0.08); color: var(--accent-text); }
+  .tech-models-table tbody :global(.mdl-badge--power) { background: rgba(var(--accent-rgb), 0.08); color: var(--accent-text); }
   .tech-models-table tbody :global(.mdl-badge--code) { background: rgba(var(--ink-rgb), 0.06); color: var(--ink); }
   .tech-models-table tbody :global(.mdl-cost),
   .tech-models-table tbody :global(.mdl-ctx) {
@@ -619,7 +619,7 @@ const serviceLd = buildService({ name: title, description });
     align-items: start;
   }
   .tech-when-kicker { margin-bottom: 20px; }
-  .tech-when-col--use .tech-when-kicker { color: var(--accent); }
+  .tech-when-col--use .tech-when-kicker { color: var(--accent-text); }
   .tech-when-col--avoid .tech-when-kicker { color: var(--muted); }
   .tech-when-list {
     list-style: none;
@@ -642,7 +642,7 @@ const serviceLd = buildService({ name: title, description });
     left: 0; top: 18px;
     font-family: var(--font-mono);
     font-size: 18px;
-    color: var(--accent);
+    color: var(--accent-text);
     font-weight: var(--fw-medium);
     line-height: 1;
   }
@@ -689,7 +689,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-int-flow :global(.flow-node--active::before) {
     background: var(--accent);
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.15);
   }
   .tech-int-flow :global(.flow-layer) {
@@ -701,7 +701,7 @@ const serviceLd = buildService({ name: title, description });
     margin-bottom: var(--space-2);
     display: block;
   }
-  .tech-int-flow :global(.flow-node--active .flow-layer) { color: var(--accent); }
+  .tech-int-flow :global(.flow-node--active .flow-layer) { color: var(--accent-text); }
   .tech-int-flow :global(.flow-node h3) {
     font-family: var(--font-sans);
     font-size: clamp(15px, 1.3vw, 18px);
@@ -769,7 +769,7 @@ const serviceLd = buildService({ name: title, description });
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     letter-spacing: var(--tracking-mono-tight);
-    color: var(--accent);
+    color: var(--accent-text);
     padding: 20px 0;
     vertical-align: top;
     text-align: right;
@@ -847,7 +847,7 @@ const serviceLd = buildService({ name: title, description });
     margin: 0 0 var(--space-6);
     font-weight: var(--fw-medium);
   }
-  .tech-cta-final h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); font-style: italic; }
+  .tech-cta-final h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .tech-cta-body p {
     font-family: var(--font-display);
     font-size: clamp(16px, 1.4vw, 19px);

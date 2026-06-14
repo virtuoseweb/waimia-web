@@ -62,7 +62,7 @@ const year = new Date().getFullYear();
     <div class="ft-tier1-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(24px,3vw,48px)">
       {FOOTER_COLS.map((col) => (
         <div>
-          <h3 style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;font-weight:var(--fw-medium)">
+          <h3 style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin-bottom:18px;font-weight:var(--fw-medium)">
             {t(col.heading, lang)}
           </h3>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
@@ -288,12 +288,12 @@ const year = new Date().getFullYear();
 
   /* Liens · hover terracotta + petit slide à droite */
   .ft-link{transition:color var(--dur-trim) var(--ease),padding-left 320ms var(--ease)}
-  .ft-link:hover{color:var(--accent)}
+  .ft-link:hover{color:var(--accent-text)}
 
   /* Wordmark · hover anime le dot terracotta (identité vivante) */
   .ft-wordmark i,
   .ft-wordmark .dot{
-    color:var(--accent);
+    color:var(--accent-text);
     display:inline-block;
     transition:transform 480ms var(--ease);
   }
@@ -303,7 +303,7 @@ const year = new Date().getFullYear();
 
   /* Trust pills · hover border accent */
   .trust-pill{transition:border-color 240ms var(--ease),background 240ms var(--ease)}
-  .trust-pill:hover{border-color:var(--accent)}
+  .trust-pill:hover{border-color:var(--accent-text)}
 
   @media (max-width:900px){
     .ft-tier1-grid{grid-template-columns:repeat(2,1fr)!important}
@@ -366,7 +366,7 @@ const year = new Date().getFullYear();
     letter-spacing: .14em;
     text-transform: uppercase;
   }
-  .ft-dev-tag { color: var(--accent); }
+  .ft-dev-tag { color: var(--accent-text); }
   .ft-dev-meta { color: var(--muted); }
 
   .ft-dev-block { margin: 28px 0; }
@@ -396,7 +396,7 @@ const year = new Date().getFullYear();
     font-family: var(--font-mono);
     font-size: var(--text-caption);
   }
-  .ft-dev-num { color: var(--accent); letter-spacing: .1em; }
+  .ft-dev-num { color: var(--accent-text); letter-spacing: .1em; }
   .ft-dev-name { font-weight: var(--fw-medium); color: var(--ink); }
   .ft-dev-type { color: var(--muted); font-size: var(--text-eyebrow); }
 
@@ -422,7 +422,7 @@ const year = new Date().getFullYear();
     font-size: var(--text-mono-xs);
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     display: block;
     margin-bottom: 10px;
   }

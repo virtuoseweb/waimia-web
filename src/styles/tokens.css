@@ -27,7 +27,9 @@
   /* Accent · terracotta */
   --accent:     #C94F2E;
   --accent-sur-clair:   #A83D20;
+  --accent-sur-sombre:  #D96A47;
   --accent-ink: #F6F1E8;
+  --accent-text: var(--accent); /* role : couleur de TEXTE accent ; remappee sous [data-bg=ink] pour AA */
 
   /* RGB channels · pilotent les rgba() composables sans re-hardcoder la couleur
      Usage : rgba(var(--ink-rgb), 0.08) — un seul point de vérité par teinte */
@@ -274,6 +276,7 @@ body {
   --color-muted-2:  #746C63;
   --color-accent:   #C94F2E;
   --color-accent-sur-clair: #A83D20;
+  --color-accent-sur-sombre: #D96A47;
 
   --font-display: "Instrument Serif", ui-serif, Georgia, serif;
   --font-sans:    "Inter Tight", ui-sans-serif, system-ui, sans-serif;

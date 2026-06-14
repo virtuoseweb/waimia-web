@@ -71,7 +71,7 @@ const isFr = lang === 'fr';
   }
   .persona-detail__block li::before {
     content: '▸';
-    color: var(--accent);
+    color: var(--accent-text);
     position: absolute;
     left: 0;
   }
@@ -106,7 +106,7 @@ const isFr = lang === 'fr';
     border-color: rgba(var(--paper-rgb), 0.12);
   }
   .persona-detail__grid[data-bg='ink'] .persona-detail__block li { color: var(--ink-2); }
-  .persona-detail__grid[data-bg='ink'] .persona-detail__block li::before { color: var(--accent); }
+  .persona-detail__grid[data-bg='ink'] .persona-detail__block li::before { color: var(--accent-text); }
   /* Meta : deja sombre par design ; bord clair pour la detacher du fond ink. */
   .persona-detail__grid[data-bg='ink'] .persona-detail__meta {
     border: 1px solid rgba(var(--paper-rgb), 0.16);

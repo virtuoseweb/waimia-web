@@ -181,7 +181,7 @@ const ctaData = {
     text-wrap: balance;
     margin: 0;
   }
-  .hub-h1 :global(i) { font-style: italic; color: var(--accent); }
+  .hub-h1 :global(i) { font-style: italic; color: var(--accent-text); }
 
   .hub-lede {
     font-family: var(--font-sans);
@@ -249,7 +249,7 @@ const ctaData = {
     font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     margin-top: var(--space-5);
   }
   .sector-en-label {
@@ -296,7 +296,7 @@ const ctaData = {
     font-family: var(--font-display);
     font-size: clamp(24px, 2.4vw, 34px);
     line-height: 1;
-    color: var(--accent);
+    color: var(--accent-text);
     font-weight: var(--fw-regular);
     letter-spacing: -0.01em;
   }
@@ -311,7 +311,7 @@ const ctaData = {
   .sector-cta {
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    color: var(--accent);
+    color: var(--accent-text);
     margin-top: auto;
   }
 
@@ -334,7 +334,7 @@ const ctaData = {
     margin: 0 0 var(--space-7);
   }
   .cta-link {
-    color: var(--accent);
+    color: var(--accent-text);
     text-decoration: underline;
     text-underline-offset: 3px;
   }
@@ -351,7 +351,7 @@ const ctaData = {
     transition: background var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
     text-decoration: none;
   }
-  .cta-btn:hover { background: var(--accent); border-color: var(--accent); }
+  .cta-btn:hover { background: var(--accent); border-color: var(--accent-text); }
 
   @media (max-width: 1180px) {
     .hub-sectors-live { grid-template-columns: repeat(2, minmax(0, 1fr)); }

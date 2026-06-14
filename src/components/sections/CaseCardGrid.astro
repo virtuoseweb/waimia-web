@@ -69,8 +69,8 @@ const isFr = lang === 'fr';
   .cases-tbl{}
   .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-trim) var(--ease),translate var(--dur-hover) var(--ease)}
   .cases-row:hover{background:var(--paper-2);translate:12px 0}
-  .cases-row:hover .cases-arr{color:var(--accent);transform:translateX(4px) translateY(-2px)}
-  .cases-row:hover .cases-client{color:var(--accent);transition:color var(--dur-fast) var(--ease)}
+  .cases-row:hover .cases-arr{color:var(--accent-text);transform:translateX(4px) translateY(-2px)}
+  .cases-row:hover .cases-client{color:var(--accent-text);transition:color var(--dur-fast) var(--ease)}
 
   .cases-idx{font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
   /* Cases client titre · réutilise H2-tight token (entre row et h2 standard) */
@@ -82,7 +82,7 @@ const isFr = lang === 'fr';
   .cases-arr{font-family:var(--font-mono);font-size:18px;color:var(--muted);text-align:right;transition:color var(--dur-trim) var(--ease),transform var(--dur-hover) var(--ease)}
 
   .cases-foot{margin-top:clamp(40px,4vw,56px);text-align:right}
-  .cases-foot a{font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
+  .cases-foot a{font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);border-bottom:1px solid var(--accent);padding-bottom:2px}
 
   @media (max-width:1100px){
     .cases-row{grid-template-columns:1fr 1fr;row-gap:6px;padding:var(--space-5) 0}
@@ -105,7 +105,7 @@ const isFr = lang === 'fr';
     --hairline-strong:rgba(var(--paper-rgb),0.28);
   }
   #act-4[data-bg='ink'] :is(.cases-h2,.cases-client){color:var(--paper)}
-  #act-4[data-bg='ink'] .cases-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color:var(--accent); }
+  #act-4[data-bg='ink'] .cases-h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color:var(--accent-text); }
   /* hover : voile clair subtil au lieu du paper-2 clair ; impact en texte clair lisible. */
   #act-4[data-bg='ink'] .cases-row:hover{background:rgba(var(--paper-rgb),0.05)}
   #act-4[data-bg='ink'] .cases-impact{color:var(--paper)}

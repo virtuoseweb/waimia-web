@@ -76,11 +76,11 @@ const columns = [data.left, data.right];
     border-top-color: rgba(var(--paper-rgb), 0.14);
   }
   .hub-blog-lb[data-bg='ink'] :is(h2, h3, p, span, li) { color: var(--paper); }
-  .hub-blog-lb[data-bg='ink'] :is(.hub-blog-h2, .hub-lb-h2) :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
+  .hub-blog-lb[data-bg='ink'] :is(.hub-blog-h2, .hub-lb-h2) :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
   .hub-blog-lb[data-bg='ink'] :is(.hub-blog-lead, .hub-lb-lead) { color: var(--muted); }
   /* RelatedCards (molecule globale) : texte herite paper, lead/accent ajustes, hover sur ink */
   .hub-blog-lb[data-bg='ink'] :global(.related-lead) { color: var(--muted); }
   .hub-blog-lb[data-bg='ink'] :global(.related-k),
-  .hub-blog-lb[data-bg='ink'] :global(.related-go) { color: var(--accent); }
+  .hub-blog-lb[data-bg='ink'] :global(.related-go) { color: var(--accent-text); }
   .hub-blog-lb[data-bg='ink'] :global(.related-card:hover) { background: rgba(var(--paper-rgb), 0.05); }
 </style>

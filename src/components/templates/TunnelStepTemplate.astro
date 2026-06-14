@@ -188,7 +188,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
   color: var(--muted);
 }
 .tnl-rail__step.is-done .tnl-rail__step-num { color: var(--ink); }
-.tnl-rail__step.is-current .tnl-rail__step-num { color: var(--accent); font-weight: var(--fw-semibold); }
+.tnl-rail__step.is-current .tnl-rail__step-num { color: var(--accent-text); font-weight: var(--fw-semibold); }
 .tnl-rail__cta {
   margin-top: var(--space-3);
   font-family: var(--font-sans);
@@ -200,7 +200,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
   padding-bottom: 3px;
   transition: color .15s var(--ease);
 }
-.tnl-rail__cta:hover { color: var(--accent); }
+.tnl-rail__cta:hover { color: var(--accent-text); }
 .tnl-rail__reading {
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);

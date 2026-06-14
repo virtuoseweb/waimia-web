@@ -181,7 +181,7 @@ const personas: PersonaItem[] = collectionEntries.length > 0
   .persona-tabs{display:flex;gap:var(--space-1);margin-bottom:clamp(40px,5vw,72px);border-bottom:1px solid var(--hairline-strong);padding-bottom:0}
   .persona-tab{padding:18px 28px;font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--muted);transition:color 280ms var(--ease),border-color 280ms var(--ease);border-bottom:2px solid transparent;display:flex;gap:10px;align-items:baseline;cursor:pointer}
   .persona-tab:hover{color:var(--ink)}
-  .persona-tab.is-active{color:var(--accent);border-bottom-color:var(--accent)}
+  .persona-tab.is-active{color:var(--accent-text);border-bottom-color:var(--accent-text)}
   .persona-tab .k{opacity:.5}
   .persona-stage{position:relative;min-height:300px}
   .persona-panel{position:absolute;inset:0;opacity:0;transform:translateY(8px);transition:opacity var(--dur-panel) var(--ease),transform var(--dur-panel) var(--ease);pointer-events:none;clip-path:inset(0 0 100% 0)}
@@ -197,7 +197,7 @@ const personas: PersonaItem[] = collectionEntries.length > 0
   .persona-paths a:hover{translate:var(--space-4) 0;background:var(--paper)}
   .persona-paths .i{font-family:var(--font-mono);font-size:var(--text-eyebrow);color:var(--muted);letter-spacing:var(--tracking-mono)}
   .persona-paths .t{font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:clamp(20px,2.2vw,32px);letter-spacing:-0.015em;line-height:var(--leading-h3)}
-  .persona-paths .g{color:var(--accent);font-family:var(--font-mono);font-size:18px;justify-self:end}
+  .persona-paths .g{color:var(--accent-text);font-family:var(--font-mono);font-size:18px;justify-self:end}
 
   @media (max-width:700px){
     .persona-tabs{flex-wrap:wrap}

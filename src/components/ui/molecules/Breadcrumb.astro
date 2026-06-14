@@ -61,12 +61,12 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
     transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
   .breadcrumb a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
+    color: var(--accent-text);
+    border-bottom-color: var(--accent-text);
   }
   .breadcrumb a:focus-visible {
     color: var(--ink);
-    border-bottom-color: var(--accent);
+    border-bottom-color: var(--accent-text);
     outline: 2px solid var(--accent);
     outline-offset: 3px;
     border-radius: var(--radius-xs);

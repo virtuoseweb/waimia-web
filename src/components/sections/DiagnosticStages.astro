@@ -75,7 +75,7 @@ const stages = data.stages;
     margin: 0;
   }
   .diag__h2 :global(i) { font-family: var(--font-display); font-style: italic; }
-  .diag__h2 :global(.acc) { color: var(--accent); }
+  .diag__h2 :global(.acc) { color: var(--accent-text); }
   .diag__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
@@ -109,7 +109,7 @@ const stages = data.stages;
     margin-top: -1px;
     transition: background .22s ease, border-color .22s ease;
   }
-  a.diag__card:hover { background: rgba(var(--accent-rgb), 0.05); border-top-color: var(--accent); }
+  a.diag__card:hover { background: rgba(var(--accent-rgb), 0.05); border-top-color: var(--accent-text); }
 
   .diag__stage[data-current='true'] .diag__card {
     background: rgba(var(--accent-rgb), 0.07);
@@ -127,9 +127,9 @@ const stages = data.stages;
     line-height: 1;
     color: var(--muted);
   }
-  .diag__stage[data-current='true'] .diag__num { color: var(--accent); }
+  .diag__stage[data-current='true'] .diag__num { color: var(--accent-text); }
   .diag__glyph { font-size: 18px; line-height: 1; color: var(--muted); }
-  .diag__stage[data-current='true'] .diag__glyph { color: var(--accent); }
+  .diag__stage[data-current='true'] .diag__glyph { color: var(--accent-text); }
 
   .diag__here {
     align-self: flex-start;
@@ -137,7 +137,7 @@ const stages = data.stages;
     font-size: var(--text-eyebrow);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
-    color: var(--accent);
+    color: var(--accent-text);
     border: 1px solid var(--accent);
     border-radius: var(--radius-full);
     padding: 2px var(--space-2);
@@ -153,7 +153,7 @@ const stages = data.stages;
     margin: 0;
   }
   .diag[data-bg='ink'] .diag__title { color: var(--paper); }
-  .diag__title :global(.acc) { color: var(--accent); }
+  .diag__title :global(.acc) { color: var(--accent-text); }
 
   .diag__body {
     font-family: var(--font-sans);

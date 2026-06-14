@@ -309,7 +309,15 @@ const sectionSchemaKnobs = {
               <div class="ds-swatch-info">
                 <code>--accent-sur-clair</code>
                 <span class="ds-swatch-hex">#A83D20</span>
-                <span class="ds-swatch-role">accent hover</span>
+                <span class="ds-swatch-role">accent sur clair · AA petit-texte sur fond paper</span>
+              </div>
+            </div>
+            <div class="ds-swatch-card">
+              <span class="ds-swatch" style="background:var(--accent-sur-sombre)"></span>
+              <div class="ds-swatch-info">
+                <code>--accent-sur-sombre</code>
+                <span class="ds-swatch-hex">#D96A47</span>
+                <span class="ds-swatch-role">accent sur sombre · AA petit-texte sur fond ink</span>
               </div>
             </div>
             <div class="ds-swatch-card">
@@ -671,8 +679,8 @@ const sectionSchemaKnobs = {
           <p>Mode props: <Bi fr="Bonjour" en="Hello" /></p>
           <p>Mode slots :
             <Bi>
-              <Fragment slot="fr">Construire du <i style="color:var(--accent)">revenue</i>.</Fragment>
-              <Fragment slot="en">Build <i style="color:var(--accent)">revenue</i>.</Fragment>
+              <Fragment slot="fr">Construire du <i style="color:var(--accent-text)">revenue</i>.</Fragment>
+              <Fragment slot="en">Build <i style="color:var(--accent-text)">revenue</i>.</Fragment>
             </Bi>
           </p>
           <div class="ds-knobs">{atomKnobs.Bi.map((knob) => <article class="ds-knob"><span class="ds-knob-name">{knob.name}</span><div class="ds-knob-values">{knob.values.map((value) => <span class="ds-knob-val">{value}</span>)}</div></article>)}</div>
@@ -1060,7 +1068,7 @@ const sectionSchemaKnobs = {
     margin: 0;
     color: var(--ink);
   }
-  .ds-h1 i { font-style: italic; color: var(--accent); }
+  .ds-h1 i { font-style: italic; color: var(--accent-text); }
   .ds-lede {
     font-family: var(--font-sans);
     font-size: clamp(18px, 1.8vw, 24px);
@@ -1078,7 +1086,7 @@ const sectionSchemaKnobs = {
     max-width: var(--wrap-prose);
   }
   .ds-role strong { font-weight: var(--fw-semibold); color: var(--ink); }
-  .ds-role a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+  .ds-role a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 0.2em; }
   .ds-role code {
     font-family: var(--font-mono);
     font-size: 0.9em;
@@ -1129,7 +1137,7 @@ const sectionSchemaKnobs = {
     margin-left: -1px;
     transition: border-color var(--dur-fast) var(--ease);
   }
-  .ds-toc-list li:hover { border-left-color: var(--accent); }
+  .ds-toc-list li:hover { border-left-color: var(--accent-text); }
   .ds-toc-list a {
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
@@ -1137,7 +1145,7 @@ const sectionSchemaKnobs = {
     text-decoration: none;
     line-height: var(--leading-lede);
   }
-  .ds-toc-list a:hover { color: var(--accent); }
+  .ds-toc-list a:hover { color: var(--accent-text); }
 
   /* ─── CONTENT SECTIONS ─── */
   .ds-content { min-width: 0; }
@@ -1173,7 +1181,7 @@ const sectionSchemaKnobs = {
     font-size: var(--text-ui);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     margin: 0 0 var(--space-4);
     border-bottom: 1px solid var(--hairline);
     padding-bottom: var(--space-2);
@@ -1195,7 +1203,7 @@ const sectionSchemaKnobs = {
     max-width: 64ch;
   }
   .ds-link {
-    color: var(--accent);
+    color: var(--accent-text);
     border-bottom: 1px solid currentColor;
     text-decoration: none;
   }
@@ -1254,7 +1262,7 @@ const sectionSchemaKnobs = {
     margin: var(--space-2) 0;
   }
   .ds-editorial-title-demo i { font-style: italic; }
-  .ds-editorial-title-demo i.acc { color: var(--accent); font-style: italic; }
+  .ds-editorial-title-demo i.acc { color: var(--accent-text); font-style: italic; }
 
   /* ─── SWATCH GRID ─── */
   .ds-swatch-grid {
@@ -1564,7 +1572,7 @@ const sectionSchemaKnobs = {
   .ds-section-card-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
   .ds-section-card:hover {
     background: var(--paper);
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     transform: translateY(-2px);
   }
   .ds-section-card[hidden] { display: none; }
@@ -1588,7 +1596,7 @@ const sectionSchemaKnobs = {
     pointer-events: none;
   }
   .ds-card-frame-link { display: block; position: relative; z-index: 2; }
-  .ds-section-card-cmp { position: relative; z-index: 2; font-size: 0.75rem; color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: var(--space-1); }
+  .ds-section-card-cmp { position: relative; z-index: 2; font-size: 0.75rem; color: var(--accent-text); text-decoration: none; display: inline-block; margin-bottom: var(--space-1); }
   .ds-section-card-top {
     display: flex;
     align-items: flex-start;
@@ -1619,8 +1627,8 @@ const sectionSchemaKnobs = {
     white-space: nowrap;
   }
   .ds-status--stable {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--accent-text);
+    color: var(--accent-text);
   }
   .ds-status--wip {
     border-color: var(--muted-2);
@@ -1630,7 +1638,7 @@ const sectionSchemaKnobs = {
     border-color: var(--hairline-strong);
     color: var(--muted-2);
   }
-  .ds-status--bespoke { border-color: var(--accent); color: var(--accent); }
+  .ds-status--bespoke { border-color: var(--accent-text); color: var(--accent-text); }
   .ds-organisms-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--space-3); margin-top:var(--space-4); }
   .ds-organism-card { padding:14px var(--space-4); background:var(--paper-2); border:1px solid var(--hairline); display:flex; flex-direction:column; gap:6px; }
   .ds-organism-card-top { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); }
@@ -1668,7 +1676,7 @@ const sectionSchemaKnobs = {
     letter-spacing: 0.04em;
   }
   .ds-usage-badge--site {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     color: var(--accent-sur-clair);
   }
   .ds-usage-badge--library {
@@ -1769,10 +1777,10 @@ const sectionSchemaKnobs = {
   }
   .ds-hub-card:hover {
     background: var(--paper);
-    border-color: var(--accent);
+    border-color: var(--accent-text);
   }
   .ds-hub-card--featured {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
   }
   .ds-hub-card-label {
     font-family: var(--font-mono);
@@ -1781,7 +1789,7 @@ const sectionSchemaKnobs = {
     color: var(--ink);
   }
   .ds-hub-card--featured .ds-hub-card-label {
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .ds-hub-card-desc {
     font-family: var(--font-sans);

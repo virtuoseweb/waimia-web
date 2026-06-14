@@ -59,7 +59,7 @@ const items = isFr ? data.items_fr : data.items_en;
   }
   .inclusions-list__title :global(i) {
     font-style: italic;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .inclusions-list__items {
     list-style: none;
@@ -79,7 +79,7 @@ const items = isFr ? data.items_fr : data.items_en;
   }
   .inclusions-list__items li + li::before {
     content: '·';
-    color: var(--accent);
+    color: var(--accent-text);
     margin: 0 var(--space-2);
     font-family: var(--font-mono);
   }
@@ -96,5 +96,5 @@ const items = isFr ? data.items_fr : data.items_en;
   .inclusions-list[data-bg='ink'] :is(h2, li, span) { color: var(--paper); }
   .inclusions-list[data-bg='ink'] .inclusions-list__items { border-top-color: var(--hairline); }
   .inclusions-list[data-bg='ink'] .inclusions-list__items li { color: var(--paper); }
-  .inclusions-list[data-bg='ink'] .inclusions-list__items li + li::before { color: var(--accent); }
+  .inclusions-list[data-bg='ink'] .inclusions-list__items li + li::before { color: var(--accent-text); }
 </style>

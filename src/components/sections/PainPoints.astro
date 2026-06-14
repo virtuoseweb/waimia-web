@@ -114,7 +114,7 @@ const events = data.items.map((item, i) => ({
     font-family: var(--font-display);
     font-style: italic;
     font-weight: var(--fw-regular);
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .sol-pain-grid :global(.pain-card p) {
     font-size: var(--text-body-lead);
@@ -131,7 +131,7 @@ const events = data.items.map((item, i) => ({
     color: var(--paper);
   }
   .sol-sec[data-bg='ink'] .sol-sec-hd h2 { color: var(--paper); }
-  .sol-sec[data-bg='ink'] .sol-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
+  .sol-sec[data-bg='ink'] .sol-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
   .sol-sec[data-bg='ink'] .sol-aside { color: var(--muted); }
   /* Timeline (molecule editorial, classes reelles .timeline-*) sur ink :
      titre (--ink) + corps (--ink-2) etaient sombres sur sombre -> repassent paper.
@@ -139,7 +139,7 @@ const events = data.items.map((item, i) => ({
   .sol-sec[data-bg='ink'] :global(.timeline-title) { color: var(--paper); }
   .sol-sec[data-bg='ink'] :global(.timeline-body) { color: rgba(var(--paper-rgb), 0.74); }
   .sol-sec[data-bg='ink'] :global(.timeline-meta) { color: var(--muted); }
-  .sol-sec[data-bg='ink'] :global(.timeline-num) { color: var(--accent); }
+  .sol-sec[data-bg='ink'] :global(.timeline-num) { color: var(--accent-text); }
   /* Filet vertical de la timeline (hairline) lisible sur ink */
   .sol-sec[data-bg='ink'] :global(.timeline-vertical)::before { background: rgba(var(--paper-rgb), 0.14); }
 </style>

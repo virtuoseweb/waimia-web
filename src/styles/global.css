@@ -108,7 +108,7 @@ h3 i {
 }
 .u-serif-accent i,
 .u-serif-accent-em em {
-  color: var(--accent);
+  color: var(--accent-text);
   font-family: var(--font-display);
   font-style: italic;
   font-weight: var(--fw-regular);
@@ -155,7 +155,7 @@ pre {
   font-style: italic;
   font-size: clamp(28px, 3vw, 48px);
   line-height: 1;
-  color: var(--accent);
+  color: var(--accent-text);
   letter-spacing: -0.02em;
   display: inline-block;
 }
@@ -168,7 +168,7 @@ pre {
   line-height: 0.86;
   float: left;
   margin: 0.08em 0.12em -0.08em 0;
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: var(--fw-regular);
 }
 
@@ -281,6 +281,7 @@ pre {
   --muted: rgba(var(--paper-rgb), 0.64);
   --hairline: rgba(var(--paper-rgb), 0.14);
   --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  --accent-text: var(--accent-sur-sombre);
 }
 .on-dark .btn-ghost,
 [data-bg='ink'] .btn-ghost {
@@ -370,7 +371,7 @@ a:not([class]):hover,
 .prose a:hover,
 .editorial-body a:hover,
 .case-body a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
   background-size: 100% 1px, 100% 1px;
   background-position: 0 100%, 0 100%;
 }
@@ -443,10 +444,10 @@ a:not([class]):hover,
 }
 .hdr .wm i {
   font-style: italic;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .hdr .wm .dot {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .hdr-nav {
@@ -489,7 +490,7 @@ a:not([class]):hover,
   transform: rotate(180deg);
 }
 .hdr-nav-trigger.is-active {
-  color: var(--accent);
+  color: var(--accent-text);
   opacity: 1;
 }
 
@@ -638,7 +639,7 @@ a:not([class]):hover,
   font-size: var(--text-mono-xs);
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .mega-col-hd .t {
   font-family: var(--font-sans);
@@ -663,7 +664,7 @@ a:not([class]):hover,
     padding-left var(--dur-hover) var(--ease);
 }
 .mega-link:hover {
-  color: var(--accent);
+  color: var(--accent-text);
   padding-left: var(--space-2);
   border-bottom-color: var(--hairline);
 }
@@ -693,8 +694,8 @@ a:not([class]):hover,
   transition: color var(--dur-trim) var(--ease), border-color var(--dur-trim) var(--ease);
 }
 .mega-col-footer:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--accent-text);
+  border-bottom-color: var(--accent-text);
 }
 
 /* ─ Hiérarchie « par besoin » (refonte mega menu 2026-06, maquette Simon) ─
@@ -745,7 +746,7 @@ a:not([class]):hover,
 }
 .mega-link .arr {
   flex: none;
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: var(--text-body-sm);
 }
 /* Pill « Offre phare » · aligné à droite de la ligne, n'altère ni la flèche
@@ -759,7 +760,7 @@ a:not([class]):hover,
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
   letter-spacing: var(--tracking-mono-tight);
-  color: var(--accent);
+  color: var(--accent-text);
   white-space: nowrap;
 }
 
@@ -775,7 +776,7 @@ a:not([class]):hover,
   font-size: var(--text-mono-xs);
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .mega-featured .ttl {
   font-family: var(--font-sans);
@@ -790,7 +791,7 @@ a:not([class]):hover,
   font-family: var(--font-display);
   font-style: italic;
   font-weight: var(--fw-regular);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .mega-featured .bd {
   font-size: var(--text-ui);
@@ -817,7 +818,7 @@ a:not([class]):hover,
   font-family: var(--font-mono);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-mono);
-  color: var(--accent);
+  color: var(--accent-text);
   margin-top: 6px;
 }
 
@@ -840,8 +841,8 @@ a:not([class]):hover,
   padding-bottom: 1px;
 }
 .mega-bottom a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--accent-text);
+  border-bottom-color: var(--accent-text);
 }
 
 .mega-scrim {
@@ -908,10 +909,10 @@ a:not([class]):hover,
 }
 .m-sheet-top .wm i {
   font-style: italic;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .m-sheet-top .wm .dot {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .m-sheet-close {
   width: 40px;
@@ -960,7 +961,7 @@ a:not([class]):hover,
 }
 .m-sheet-acc.is-open .m-sheet-acc-head .plus {
   transform: rotate(45deg);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .m-sheet-acc-body {
   max-height: 0;
@@ -981,7 +982,7 @@ a:not([class]):hover,
   font-size: var(--text-mono-xs);
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 6px;
 }
 .m-sheet-acc-col .t {
@@ -1002,7 +1003,7 @@ a:not([class]):hover,
   border-bottom: none;
 }
 .m-sheet-acc-col a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 /* Hiérarchie « par besoin » · dégradé mobile (titre + but + citation) */
 .m-sheet-acc-col[data-need] .t {
@@ -1032,7 +1033,7 @@ a:not([class]):hover,
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
   letter-spacing: var(--tracking-mono-tight);
-  color: var(--accent);
+  color: var(--accent-text);
   white-space: nowrap;
   vertical-align: middle;
 }
@@ -1359,7 +1360,7 @@ a:not([class]):hover,
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
   letter-spacing: var(--tracking-caps);
-  color: var(--accent);
+  color: var(--accent-text);
   text-transform: uppercase;
   margin-bottom: var(--space-4);
   display: flex;
@@ -1370,7 +1371,7 @@ a:not([class]):hover,
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(22px, 2.4vw, 36px);
-  color: var(--accent);
+  color: var(--accent-text);
   letter-spacing: -0.02em;
   line-height: 1;
 }
@@ -1390,7 +1391,7 @@ a:not([class]):hover,
   font-family: var(--font-display);
   font-style: italic;
   font-weight: var(--fw-regular);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .sec-hd .aside {
   font-size: clamp(13px, 1.3vw, 15px);
@@ -1423,7 +1424,7 @@ a:not([class]):hover,
   font-size: clamp(48px, 6vw, 88px);
   line-height: 1;
   letter-spacing: -0.03em;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .editorial-cell .e-tag {
   font-family: var(--font-mono);
@@ -1445,7 +1446,7 @@ a:not([class]):hover,
   font-family: var(--font-display);
   font-style: italic;
   font-weight: var(--fw-regular);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .editorial-cell .e-body {
   font-size: clamp(12px, 1.1vw, 13.5px);
@@ -1471,7 +1472,7 @@ a:not([class]):hover,
 }
 .editorial-cell .e-list li::before {
   content: "§";
-  color: var(--accent);
+  color: var(--accent-text);
   font-family: var(--font-display);
   font-style: italic;
   font-size: var(--text-ui);
@@ -1482,7 +1483,7 @@ a:not([class]):hover,
   font-family: var(--font-mono);
   font-size: var(--text-eyebrow);
   letter-spacing: 0.1em;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .ec-grid {
@@ -1563,7 +1564,7 @@ a:not([class]):hover,
   font-family: var(--font-display);
   font-style: italic;
   font-weight: var(--fw-regular);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .case-row .sector,
 .case-row .dur {
@@ -1581,7 +1582,7 @@ a:not([class]):hover,
 .case-row .arr {
   font-family: var(--font-mono);
   font-size: var(--text-body-base);
-  color: var(--accent);
+  color: var(--accent-text);
   opacity: 0;
   transition:
     opacity var(--dur-hover),
@@ -1593,7 +1594,7 @@ a:not([class]):hover,
   transform: translateX(6px);
 }
 .case-row.featured .client {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .how-grid {
@@ -1616,7 +1617,7 @@ a:not([class]):hover,
   font-size: clamp(56px, 7vw, 96px);
   line-height: 0.9;
   letter-spacing: -0.026em;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .how-row .ttl {
   font-family: var(--font-sans);
@@ -1631,7 +1632,7 @@ a:not([class]):hover,
   font-family: var(--font-display);
   font-style: italic;
   font-weight: var(--fw-regular);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .how-row .desc {
   font-size: clamp(12px, 1.2vw, 14.5px);
@@ -1694,6 +1695,7 @@ a:not([class]):hover,
 .page-pill-btn.is-active {
   background: var(--ink);
   color: var(--paper);
+  --accent-text: var(--accent-sur-sombre);
 }
 .page-pill-btn .page-pill-k {
   font-weight: var(--fw-medium);
@@ -1702,7 +1704,7 @@ a:not([class]):hover,
 }
 .page-pill-btn.is-active .page-pill-k {
   opacity: 1;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .page-pill-btn .page-pill-l {
   color: inherit;

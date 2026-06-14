@@ -51,7 +51,7 @@ const loops = data.repeat ?? 2;
   .marquee-band__sep {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
     font-size: var(--text-caption);
-    color: var(--accent);
+    color: var(--accent-text);
     align-self: center;
   }
   @keyframes marquee-band-scroll {
@@ -72,5 +72,5 @@ const loops = data.repeat ?? 2;
     border-bottom-color: rgba(var(--paper-rgb), 0.14);
   }
   .marquee-band[data-bg='ink'] .marquee-band__item { color: var(--paper); }
-  .marquee-band[data-bg='ink'] .marquee-band__sep { color: var(--accent); }
+  .marquee-band[data-bg='ink'] .marquee-band__sep { color: var(--accent-text); }
 </style>

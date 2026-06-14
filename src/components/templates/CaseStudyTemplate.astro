@@ -512,7 +512,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
   }
-  .case-key-metrics .eyebrow { color: var(--accent); margin-bottom: var(--space-7); }
+  .case-key-metrics .eyebrow { color: var(--accent-text); margin-bottom: var(--space-7); }
   .case-km-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -560,7 +560,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     transition: color var(--dur-fast) var(--ease);
   }
   .case-offre-link:last-child { border-bottom: none; }
-  .case-offre-link:hover { color: var(--accent); }
+  .case-offre-link:hover { color: var(--accent-text); }
 
   @media (max-width: 900px) {
     .case-context-grid,
@@ -601,7 +601,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   .related-case-kicker {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    color: var(--accent);
+    color: var(--accent-text);
     letter-spacing: 0.14em;
   }
   .related-case-title {
@@ -621,7 +621,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   .related-case-go {
     font-family: var(--font-mono);
     font-size: var(--text-ui);
-    color: var(--accent);
+    color: var(--accent-text);
   }
   @media (max-width: 800px) {
     .case-related-grid { grid-template-columns: 1fr; }

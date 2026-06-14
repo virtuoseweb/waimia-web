@@ -36,8 +36,8 @@ const isFr = lang === 'fr';
     font-weight: var(--fw-regular);
     text-wrap: balance;
   }
-  .manifesto-block__text :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
-  .manifesto-block__text :global(span) { color: var(--accent); }
+  .manifesto-block__text :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
+  .manifesto-block__text :global(span) { color: var(--accent-text); }
 
   /* ── Alternance des fonds · defaut paper (clair) = rendu inchange ── */
   .manifesto-block[data-bg='paper-2'] { background: var(--paper-2); }
@@ -49,5 +49,5 @@ const isFr = lang === 'fr';
   .manifesto-block[data-bg='ink'] :is(.manifesto-block__kicker, .manifesto-block__text) { color: var(--paper); }
   /* L'accent terracotta des span reste lisible sur ink */
   .manifesto-block[data-bg='ink'] .manifesto-block__text :global(.acc),
-  .manifesto-block[data-bg='ink'] .manifesto-block__text :global(span) { color: var(--accent); }
+  .manifesto-block[data-bg='ink'] .manifesto-block__text :global(span) { color: var(--accent-text); }
 </style>

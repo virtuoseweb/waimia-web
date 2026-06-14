@@ -96,7 +96,7 @@ const action = data.form_action ?? '/api/newsletter';
   .cta-form__input:focus { border-color: var(--ink); }
   .cta-form__input:focus-visible { border-color: var(--ink); outline: 2px solid var(--ink); outline-offset: 2px; }
   .cta-form__input::placeholder { color: var(--muted); }
-  .cta-form__input--error { border-color: var(--accent); }
+  .cta-form__input--error { border-color: var(--accent-text); }
   .cta-form__btn {
     padding: var(--space-3) var(--space-5);
     background: var(--ink);
@@ -116,7 +116,7 @@ const action = data.form_action ?? '/api/newsletter';
   .cta-form__error {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
-    color: var(--accent);
+    color: var(--accent-text);
     letter-spacing: 0.06em;
     margin: 0;
   }

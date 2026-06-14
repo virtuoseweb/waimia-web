@@ -68,7 +68,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     margin: 0;
   }
   .resource-grid__h2 :global(i),
-  .resource-grid__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+  .resource-grid__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); }
   .resource-grid__intro {
     font-family: var(--font-sans);
     font-size: var(--text-body-base);
@@ -97,9 +97,9 @@ const intro = isFr ? data.intro_fr : data.intro_en;
   .resource-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lift);
-    border-top-color: var(--accent);
-    border-right-color: var(--accent);
-    border-bottom-color: var(--accent);
+    border-top-color: var(--accent-text);
+    border-right-color: var(--accent-text);
+    border-bottom-color: var(--accent-text);
   }
 
   .resource-card__top { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); }
@@ -152,7 +152,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     font-family: var(--font-sans);
     font-size: var(--text-ui);
     font-weight: var(--fw-medium);
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -182,7 +182,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
   .resource-grid[data-bg='ink'] .resource-card {
     background: var(--ink-2);
     border-color: var(--hairline);
-    border-left-color: var(--accent);
+    border-left-color: var(--accent-text);
   }
   .resource-grid[data-bg='ink'] .resource-card__desc { color: var(--muted); }
   .resource-grid[data-bg='ink'] .resource-card__gated {
@@ -191,5 +191,5 @@ const intro = isFr ? data.intro_fr : data.intro_en;
   }
   .resource-grid[data-bg='ink'] .resource-card__foot { border-top-color: var(--hairline); }
   .resource-grid[data-bg='ink'] .resource-card__format { color: var(--muted); }
-  .resource-grid[data-bg='ink'] .resource-card__cta { color: var(--accent); }
+  .resource-grid[data-bg='ink'] .resource-card__cta { color: var(--accent-text); }
 </style>

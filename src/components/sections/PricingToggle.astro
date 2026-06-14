@@ -128,7 +128,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
     font-size: var(--text-mono-xs);
     letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     border: 1px solid rgba(var(--accent-rgb), 0.4);
     border-radius: var(--radius-pill);
     padding: var(--space-1) var(--space-3);
@@ -139,7 +139,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
     transform: translateX(24px);
   }
   .pricing-toggle:has(.pricing-toggle__input:checked) .pricing-toggle__switch {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
   }
   .pricing-toggle__switch-label[data-for='annual'] { color: var(--muted); }
   .pricing-toggle:has(.pricing-toggle__input:checked) .pricing-toggle__switch-label[data-for='monthly'] { color: var(--muted); }
@@ -170,11 +170,11 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
     transition: border-color 240ms var(--ease), transform 320ms var(--ease);
   }
   .pricing-toggle__card:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     transform: translateY(-3px);
   }
   .pricing-toggle__card.is-featured {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     background: var(--paper-2);
     box-shadow: 0 24px 60px rgba(var(--accent-rgb), 0.08);
   }
@@ -195,7 +195,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
   .pricing-toggle__idx {
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
-    color: var(--accent);
+    color: var(--accent-text);
     letter-spacing: 0.14em;
   }
   .pricing-toggle__name {
@@ -206,7 +206,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
     color: var(--muted);
     font-weight: var(--fw-regular);
   }
-  .pricing-toggle__card.is-featured .pricing-toggle__name { color: var(--accent); }
+  .pricing-toggle__card.is-featured .pricing-toggle__name { color: var(--accent-text); }
   .pricing-toggle__price {
     padding-block: var(--space-4);
     border-top: 1px solid var(--hairline);
@@ -247,7 +247,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
     color: var(--ink-2);
   }
   .pricing-toggle__check {
-    color: var(--accent);
+    color: var(--accent-text);
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
     flex-shrink: 0;

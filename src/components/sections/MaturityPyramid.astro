@@ -151,14 +151,14 @@ const showFull = !cardsOnly && Boolean(data.steps);
 
   /* Tier I · primary visual weight · border accent + e-num accent par défaut */
   .pyramid-asym .editorial-cell:first-child {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     background: rgba(var(--accent-rgb), 0.025);
   }
   .pyramid-asym .editorial-cell:first-child .e-num {
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .pyramid-asym .editorial-cell:first-child .e-tag {
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .editorial-cell {
@@ -166,12 +166,12 @@ const showFull = !cardsOnly && Boolean(data.steps);
   }
 
   .editorial-cell:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     background: rgba(var(--accent-rgb), 0.04);
   }
 
   .editorial-cell:hover .e-num {
-    color: var(--accent);
+    color: var(--accent-text);
     transition: color var(--dur-fast) var(--ease, var(--ease));
   }
 
@@ -208,7 +208,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
     font-size: var(--text-eyebrow);
     letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     margin-top: var(--space-3);
     padding-top: var(--space-3);
     border-top: 1px dashed var(--hairline);
@@ -307,7 +307,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
     font-family: var(--font-display);
     font-style: italic;
     font-size: clamp(14px, 1.2vw, 17px);
-    color: var(--accent);
+    color: var(--accent-text);
     margin-bottom: var(--space-1);
     letter-spacing: -0.01em;
   }
@@ -342,11 +342,11 @@ const showFull = !cardsOnly && Boolean(data.steps);
     border-color: rgba(var(--paper-rgb), 0.14);
   }
   .sec[data-bg='ink'] .pyramid-asym .editorial-cell:first-child {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     background: rgba(var(--accent-rgb), 0.10);
   }
   .sec[data-bg='ink'] :global(.editorial-cell:hover) {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     background: rgba(var(--accent-rgb), 0.12);
   }
   /* Jauge / prix : accent conserve, base hairline paper */

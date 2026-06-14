@@ -51,10 +51,10 @@ const stats = data.stats ?? [];
     gap: clamp(40px, 6vw, 80px);
   }
   .manifesto-act__label { position: sticky; top: 120px; align-self: start; }
-  .manifesto-act__roman { color: var(--accent); }
+  .manifesto-act__roman { color: var(--accent-text); }
   :global(.manifesto-act__sub) { margin-top: var(--space-1); }
   .manifesto-act[data-tone='ink'] :global(.manifesto-act__num) { color: rgba(var(--paper-rgb), .5) !important; }
-  .manifesto-act[data-tone='ink'] :global(.manifesto-act__num) .manifesto-act__roman { color: var(--accent); }
+  .manifesto-act[data-tone='ink'] :global(.manifesto-act__num) .manifesto-act__roman { color: var(--accent-text); }
   .manifesto-act[data-tone='ink'] :global(.manifesto-act__sub) { color: rgba(var(--paper-rgb), .3) !important; }
 
   /* Directive typo : masse du statement en sans, relevé d'un mot en italique serif */
@@ -69,7 +69,7 @@ const stats = data.stats ?? [];
   }
   .manifesto-act[data-tone='ink'] .manifesto-act__text { color: var(--paper); }
   .manifesto-act__text :global(i) { font-family: var(--font-display); font-style: italic; }
-  .manifesto-act__text :global(i.acc), .manifesto-act__text :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
+  .manifesto-act__text :global(i.acc), .manifesto-act__text :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
   .manifesto-act__text :global(strong) { font-weight: var(--fw-semibold); }
 
   /* ── MOMENT motion signature : manifeste progressif (lecture guidée scroll-driven) ──
@@ -98,7 +98,7 @@ const stats = data.stats ?? [];
     font-size: clamp(56px, 8vw, 132px);
     line-height: 0.92;
     letter-spacing: -0.03em;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .manifesto-act__stat-p {
     margin: var(--space-4) 0 0;

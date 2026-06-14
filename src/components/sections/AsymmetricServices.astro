@@ -50,7 +50,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
   /* Le relevé serif italic et l'accent restent sur --accent (lisible sur ink). */
   .asym-svc[data-bg='ink'] .asym-svc__title :global(i.acc),
   .asym-svc[data-bg='ink'] .asym-svc__title :global(.acc),
-  .asym-svc[data-bg='ink'] .asym-svc__accent { color: var(--accent); }
+  .asym-svc[data-bg='ink'] .asym-svc__accent { color: var(--accent-text); }
   .asym-svc[data-bg='ink'] .asym-svc__intro { color: var(--ink-2); }
 
   .asym-svc__hd {
@@ -61,7 +61,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     gap: var(--space-3);
     margin-bottom: clamp(48px, 7vw, 88px);
   }
-  .asym-svc__accent { color: var(--accent); }
+  .asym-svc__accent { color: var(--accent-text); }
 
   /* Directive typo : titre en sans, relevé d'un mot en italique serif accent */
   .asym-svc__title {
@@ -75,7 +75,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     margin: 0 0 clamp(40px, 5vw, 64px);
   }
   .asym-svc__title :global(i) { font-family: var(--font-display); font-style: italic; }
-  .asym-svc__title :global(i.acc), .asym-svc__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
+  .asym-svc__title :global(i.acc), .asym-svc__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
   .asym-svc__title :global(strong) { font-weight: var(--fw-semibold); }
 
   .asym-svc__intro {
@@ -87,6 +87,6 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     text-wrap: pretty;
     margin: clamp(-24px, -3vw, -40px) 0 clamp(48px, 6vw, 72px);
   }
-  .asym-svc__intro :global(i) { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+  .asym-svc__intro :global(i) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); }
   .asym-svc__intro :global(strong) { font-weight: var(--fw-semibold); }
 </style>

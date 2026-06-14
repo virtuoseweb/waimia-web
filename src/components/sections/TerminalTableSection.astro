@@ -75,7 +75,7 @@ const meta = isFr ? data.meta_fr : data.meta_en;
     margin: 0 0 var(--space-5);
   }
   .tbl-sec__title :global(i) { font-family: var(--font-display); font-style: italic; }
-  .tbl-sec__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent); }
+  .tbl-sec__title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
   .tbl-sec__title :global(strong) { font-weight: var(--fw-semibold); }
 
   .tbl-sec__intro {
@@ -93,8 +93,8 @@ const meta = isFr ? data.meta_fr : data.meta_en;
   .tbl-sec__cell[data-role='title'] { font-family: var(--font-sans); font-size: clamp(18px, 1.8vw, 24px); line-height: var(--leading-h3); font-weight: var(--fw-medium); letter-spacing: -0.01em; }
   .tbl-sec__cell[data-role='body'] { font-size: var(--text-ui); color: var(--muted); line-height: 1.45; padding-right: var(--space-4); }
   .tbl-sec__cell[data-role='mono'] { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--ink); }
-  .tbl-sec__cell[data-role='status'] { font-family: var(--font-mono); font-size: var(--text-eyebrow); color: var(--accent); letter-spacing: .1em; text-align: right; }
-  .tbl-sec__cell[data-role='accent'] { font-size: var(--text-body-sm); color: var(--accent); font-weight: var(--fw-medium); }
+  .tbl-sec__cell[data-role='status'] { font-family: var(--font-mono); font-size: var(--text-eyebrow); color: var(--accent-text); letter-spacing: .1em; text-align: right; }
+  .tbl-sec__cell[data-role='accent'] { font-size: var(--text-body-sm); color: var(--accent-text); font-weight: var(--fw-medium); }
   .tbl-sec__cell[data-role='arrow'] { font-family: var(--font-mono); color: var(--muted); text-align: right; }
 
   @media (max-width: 900px) {

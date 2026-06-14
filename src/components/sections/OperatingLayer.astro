@@ -43,7 +43,7 @@ const isFr = lang === 'fr';
           {data.console_lines.map((line) => (
             <div class="operating-layer__console-row">
               <span class="operating-layer__console-k">{line.k}</span>
-              <span class="operating-layer__console-v" set:html={line.v.replace('◉', '<span style="color:var(--accent)">◉</span>')} />
+              <span class="operating-layer__console-v" set:html={line.v.replace('◉', '<span style="color:var(--accent-text)">◉</span>')} />
             </div>
           ))}
         </div>

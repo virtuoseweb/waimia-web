@@ -91,7 +91,7 @@ const isFr = lang === 'fr';
     display: inline-block;
     transform: translateY(-2px);
   }
-  .services-grid__num { color: var(--accent); font-weight: var(--fw-medium); }
+  .services-grid__num { color: var(--accent-text); font-weight: var(--fw-medium); }
   .services-grid__sep { color: var(--muted); }
   .services-grid__spec {
     font-family: var(--font-mono);
@@ -128,7 +128,7 @@ const isFr = lang === 'fr';
   }
   .services-grid__cell:hover {
     background: rgba(var(--accent-rgb), 0.04);
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     translate: 0 -1px;
   }
   .services-grid__cell:nth-child(3n) { border-right: none; }
@@ -150,7 +150,7 @@ const isFr = lang === 'fr';
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
     letter-spacing: var(--tracking-mono-tight);
-    color: var(--accent);
+    color: var(--accent-text);
     text-transform: uppercase;
     text-align: right;
     white-space: nowrap;
@@ -213,7 +213,7 @@ const isFr = lang === 'fr';
     font-size: var(--text-mono-xs);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     text-decoration: none;
     width: fit-content;
   }
@@ -238,14 +238,14 @@ const isFr = lang === 'fr';
     padding-bottom: 2px;
     transition: color var(--dur-fast) var(--ease);
   }
-  .services-grid__foot-link:hover { color: var(--accent); }
+  .services-grid__foot-link:hover { color: var(--accent-text); }
   .services-grid__cell-arr {
     position: absolute;
     bottom: 18px;
     right: 22px;
     font-family: var(--font-mono);
     font-size: var(--text-ui);
-    color: var(--accent);
+    color: var(--accent-text);
     transition: transform var(--dur-hover) var(--ease);
   }
   .services-grid__cell:hover .services-grid__cell-arr { transform: translateX(4px); }
@@ -270,6 +270,6 @@ const isFr = lang === 'fr';
   .services-grid[data-bg='ink'] :is(.services-grid__cell-body, .services-grid__cell-foot-key) { color: var(--muted); }
   .services-grid[data-bg='ink'] .services-grid__cell:hover {
     background: rgba(var(--paper-rgb), 0.05);
-    border-color: var(--accent);
+    border-color: var(--accent-text);
   }
 </style>

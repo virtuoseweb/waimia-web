@@ -530,7 +530,7 @@ const socialItems = [
   .display-md em,
   .display-lg em {
     font-style: italic;
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .author-expertise {
@@ -636,7 +636,7 @@ const socialItems = [
   }
 
   .author-prose :global(a) {
-    color: var(--accent);
+    color: var(--accent-text);
     text-underline-offset: 0.18em;
   }
 
@@ -701,7 +701,7 @@ const socialItems = [
   }
 
   .essay-link:hover .essay-title {
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .essay-excerpt {
@@ -735,7 +735,7 @@ const socialItems = [
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
     letter-spacing: var(--tracking-mono, 0.12em);
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .method-title {
@@ -786,7 +786,7 @@ const socialItems = [
   }
 
   .publication-link:hover {
-    color: var(--accent);
+    color: var(--accent-text);
     /* slide hors-flux (translate) au lieu de padding-left : meme nudge, 0 reflow */
     translate: var(--space-2) 0;
   }
@@ -836,7 +836,7 @@ const socialItems = [
   }
 
   .ap-resource-link:hover .ap-resource-title {
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .ap-resource-title {
@@ -887,7 +887,7 @@ const socialItems = [
   }
 
   .ap-contact-item:hover {
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .ap-contact-sep {
@@ -914,7 +914,7 @@ const socialItems = [
 
   .ap-pullquote p i {
     font-style: italic;
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .ap-pullquote-cite {
@@ -931,7 +931,7 @@ const socialItems = [
     color: var(--paper);
   }
 
-  /* `.author-cta .eyebrow { color: var(--accent) }` supprimée (R6) :
+  /* `.author-cta .eyebrow { color: var(--accent-text) }` supprimée (R6) :
      redondante, la couleur accent vient de l'atome Kicker (tone="accent"). */
 
   .author-cta .display-lg {

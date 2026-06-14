@@ -79,7 +79,7 @@ const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
     align-items: start;
   }
   .tech-when-kicker { margin-bottom: 20px; }
-  .tech-when-col--use :global(.tech-when-kicker) { color: var(--accent); }
+  .tech-when-col--use :global(.tech-when-kicker) { color: var(--accent-text); }
   .tech-when-col--avoid :global(.tech-when-kicker) { color: var(--muted); }
   .tech-when-list {
     list-style: none;
@@ -102,7 +102,7 @@ const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
     left: 0; top: 18px;
     font-family: var(--font-mono);
     font-size: 18px;
-    color: var(--accent);
+    color: var(--accent-text);
     font-weight: var(--fw-medium);
     line-height: 1;
   }

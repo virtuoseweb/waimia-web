@@ -66,7 +66,7 @@ const isFr = lang === 'fr';
     font-style: italic;
     font-weight: var(--fw-regular);
     letter-spacing: var(--tracking-display);
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .problem-statement__stats {
     display: grid;
@@ -121,7 +121,7 @@ const isFr = lang === 'fr';
   }
   .problem-statement[data-bg='ink'] :is(h1, h2, h3, h4, p, li, dt, dd, span, strong) { color: var(--paper); }
   /* L'accent italique (statement + value) reste lisible sur ink */
-  .problem-statement[data-bg='ink'] .problem-statement__text :is(i, em) { color: var(--accent); }
+  .problem-statement[data-bg='ink'] .problem-statement__text :is(i, em) { color: var(--accent-text); }
   .problem-statement[data-bg='ink'] .problem-statement__value { color: var(--paper); }
   .problem-statement[data-bg='ink'] .problem-statement__label { color: var(--muted); }
 </style>

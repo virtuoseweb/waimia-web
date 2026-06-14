@@ -99,7 +99,7 @@ const isFr = lang === 'fr';
     color: var(--muted);
     font-weight: var(--fw-regular);
   }
-  .pricing-table__tier--featured .pricing-table__tier-name { color: var(--accent); }
+  .pricing-table__tier--featured .pricing-table__tier-name { color: var(--accent-text); }
   .pricing-table__price {
     font-family: var(--font-display);
     font-size: clamp(24px, 2.5vw, 36px);
@@ -128,7 +128,7 @@ const isFr = lang === 'fr';
   }
   .pricing-table__features li:last-child { border-bottom: none; padding-bottom: 0; }
   .pricing-table__check {
-    color: var(--accent);
+    color: var(--accent-text);
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
     flex-shrink: 0;
@@ -153,5 +153,5 @@ const isFr = lang === 'fr';
   .pricing-table[data-bg='ink'] .pricing-table__features li { color: rgba(var(--paper-rgb), 0.86); }
   /* Colonne phare : surface sombre élevée + accent lisible */
   .pricing-table[data-bg='ink'] .pricing-table__tier--featured { background: rgba(var(--paper-rgb), 0.05); }
-  .pricing-table[data-bg='ink'] .pricing-table__tier--featured .pricing-table__tier-name { color: var(--accent); }
+  .pricing-table[data-bg='ink'] .pricing-table__tier--featured .pricing-table__tier-name { color: var(--accent-text); }
 </style>

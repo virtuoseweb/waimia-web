@@ -204,7 +204,7 @@ const pageTransitionId = Astro.url.pathname
     margin: 0 0 var(--space-5);
   }
   .hero-headline i { font-style: italic; }
-  .hero-headline i.acc { color: var(--accent); }
+  .hero-headline i.acc { color: var(--accent-text); }
 
   /* V7 Swiss grid · espace symétrique masthead/H1/sub-block (40/40/40) */
   .hero-masthead { margin-bottom: var(--space-7); }
@@ -237,7 +237,7 @@ const pageTransitionId = Astro.url.pathname
     text-wrap: pretty;
     transition-delay: var(--dur-fast);
   }
-  .hero-lede i { font-style: italic; color: var(--accent); }
+  .hero-lede i { font-style: italic; color: var(--accent-text); }
 
   /* V7 §12 · Mini-map scope · cartographie 3×2 éditoriale (vs strip linéaire)
      · 6 territoires en grid 3 colonnes desktop · 2 cols tablet · stack mobile
@@ -269,7 +269,7 @@ const pageTransitionId = Astro.url.pathname
     font-size: var(--text-eyebrow);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .hero-mm-items {
     font-family: var(--font-sans);
@@ -316,7 +316,7 @@ const pageTransitionId = Astro.url.pathname
     letter-spacing: 0.005em;
     transition-delay: 520ms;
   }
-  .hero-cta-sub i { font-style: italic; color: var(--accent); }
+  .hero-cta-sub i { font-style: italic; color: var(--accent-text); }
 
   /* Right rail · preuves verticales · V7 Swiss grid · justify-content space-between
      pour étirer les 3 proofs sur toute la hauteur de col (égalise col gauche/droite) */
@@ -345,7 +345,7 @@ const pageTransitionId = Astro.url.pathname
     font-size: clamp(36px, 4.6vw, 64px);
     line-height: 1;
     letter-spacing: -0.02em;
-    color: var(--accent);
+    color: var(--accent-text);
     font-weight: var(--fw-regular);
   }
   .hero-proof-label {

@@ -197,7 +197,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     margin-bottom: var(--space-2);
   }
   .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: clamp(40px, 4.5vw, 60px); }
-  .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent); }
+  .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent-text); }
   .hero-hub-stats__label {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
@@ -219,7 +219,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   }
   .hero-hub-stats[data-bg='ink'] .hero-hub-stats__h1 { color: var(--paper); }
   .hero-hub-stats[data-bg='ink'] .hero-hub-stats__value { color: var(--paper); }
-  .hero-hub-stats[data-bg='ink'] .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent); }
+  .hero-hub-stats[data-bg='ink'] .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent-text); }
 
   /* ── hero-pillar-hub (copie byte-identique depuis HeroPillarHub.astro) ─── */
   .hero-pillar-hub { padding: calc(var(--header-height) + 24px) var(--space-6) 0; }
@@ -282,7 +282,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   }
   .hero-pillar-hub[data-bg='ink'] .hero-pillar-hub__h1 { color: var(--paper); }
   .hero-pillar-hub[data-bg='ink'] :global(.key-metric-value) { color: var(--paper); }
-  .hero-pillar-hub[data-bg='ink'] :global(.key-metric-accent .key-metric-value) { color: var(--accent); }
+  .hero-pillar-hub[data-bg='ink'] :global(.key-metric-accent .key-metric-value) { color: var(--accent-text); }
 
   /* ── hero-conversion-funnel ────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-conversion-funnel` (collision max-width). */
@@ -383,7 +383,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     color: var(--ink);
     margin-bottom: var(--space-2);
   }
-  .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent); font-size: clamp(48px, 6vw, 80px); }
+  .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent-text); font-size: clamp(48px, 6vw, 80px); }
   .hero-conversion-funnel__stat-label {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);
@@ -411,5 +411,5 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     border-color: rgba(var(--paper-rgb), 0.28);
   }
   .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__stat-value { color: var(--paper); }
-  .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent); }
+  .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent-text); }
 </style>

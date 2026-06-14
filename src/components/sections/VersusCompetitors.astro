@@ -153,7 +153,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
     font-size: var(--text-caption);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
-    color: var(--accent);
+    color: var(--accent-text);
     background: rgba(var(--ink-rgb), .02);
   }
   .versus[data-bg='ink'] .versus__group { background: rgba(var(--paper-rgb), .04); }
@@ -171,7 +171,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
   .versus[data-bg='ink'] .versus__cell[data-featured='true'] { background: rgba(var(--accent-rgb), .14); }
 
   .versus__icon { font-size: 16px; line-height: 1; }
-  .versus__icon--yes { color: var(--accent); }
+  .versus__icon--yes { color: var(--accent-text); }
   .versus__icon--no { color: var(--muted); opacity: .55; }
   .versus[data-bg='ink'] .versus__icon--no { color: rgba(var(--paper-rgb), .4); }
   .versus__text {

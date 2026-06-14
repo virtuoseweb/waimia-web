@@ -409,14 +409,14 @@ const articleLd = buildArticle({
   content: '§';
   display: inline-block;
   margin-right: 0.4em;
-  color: var(--accent);
+  color: var(--accent-text);
   font-style: normal;
   font-family: var(--font-mono);
   font-size: 0.6em;
   vertical-align: 0.2em;
   letter-spacing: 0;
 }
-.essay-prose :global(h2 i) { font-style: italic; color: var(--accent); }
+.essay-prose :global(h2 i) { font-style: italic; color: var(--accent-text); }
 .essay-prose :global(h3) {
   font-family: var(--font-sans);
   font-size: clamp(20px, 1.8vw, 24px);
@@ -528,7 +528,7 @@ const articleLd = buildArticle({
   text-underline-offset: 3px;
   word-break: break-word;
 }
-.essay-source-link:hover { color: var(--accent); }
+.essay-source-link:hover { color: var(--accent-text); }
 .essay-source-type {
   font-family: var(--font-mono);
   font-size: var(--text-mono-xs);
@@ -563,7 +563,7 @@ const articleLd = buildArticle({
   transition: border-color var(--dur-fast) var(--ease);
 }
 .related-card:hover {
-  border-color: var(--accent);
+  border-color: var(--accent-text);
 }
 .related-card .kicker {
   display: block;
@@ -617,7 +617,7 @@ const articleLd = buildArticle({
   text-underline-offset: 3px;
   transition: color 120ms var(--ease);
 }
-.essay-cta-link:hover { color: var(--accent); }
+.essay-cta-link:hover { color: var(--accent-text); }
 
 /* ── Scroll reveal ────────────────────────────────────── */
 .reveal {

@@ -42,16 +42,16 @@ if (!cluster && tags.length === 0) return Astro.redirect('');
     transition: border-color var(--dur-trim), color var(--dur-trim);
   }
   .tag-pill:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--accent-text);
+    color: var(--accent-text);
   }
   .tag-pill--cluster {
     background: var(--accent);
     color: var(--paper);
-    border-color: var(--accent);
+    border-color: var(--accent-text);
   }
   .tag-pill--cluster:hover {
     background: transparent;
-    color: var(--accent);
+    color: var(--accent-text);
   }
 </style>

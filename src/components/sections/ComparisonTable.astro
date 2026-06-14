@@ -177,7 +177,7 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
   }
   .comparison-table__cell { text-align: center; }
   .comparison-table__bool { font-family: var(--font-mono); font-size: var(--text-body-sm); }
-  .comparison-table__bool--yes { color: var(--accent); }
+  .comparison-table__bool--yes { color: var(--accent-text); }
   .comparison-table__bool--no { color: var(--muted); }
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .comparison-table[data-bg='paper-2'] { background: var(--paper-2); }
@@ -256,7 +256,7 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
     margin-bottom: var(--space-2);
   }
   .pcm__col-plan--featured .pcm__plan-name {
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   /* Plan price */
@@ -327,7 +327,7 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
     font-family: var(--font-mono);
     font-size: var(--text-body-sm);
   }
-  .pcm__glyph--yes { color: var(--accent); }
+  .pcm__glyph--yes { color: var(--accent-text); }
   .pcm__glyph--no  { color: var(--muted); }
 
   /* Text value */

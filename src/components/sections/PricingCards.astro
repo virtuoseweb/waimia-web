@@ -93,11 +93,11 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
     transition: border-color 240ms var(--ease), transform 320ms var(--ease);
   }
   .pricing-cards__card:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     transform: translateY(-3px);
   }
   .pricing-cards__card.is-featured {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     background: var(--paper-2);
     box-shadow: 0 24px 60px rgba(var(--accent-rgb), 0.08);
   }
@@ -124,7 +124,7 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
   .pricing-cards__idx {
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
-    color: var(--accent);
+    color: var(--accent-text);
     letter-spacing: 0.14em;
   }
   .pricing-cards__name {
@@ -135,7 +135,7 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
     color: var(--muted);
     font-weight: var(--fw-regular);
   }
-  .pricing-cards__card.is-featured .pricing-cards__name { color: var(--accent); }
+  .pricing-cards__card.is-featured .pricing-cards__name { color: var(--accent-text); }
   .pricing-cards__price {
     display: flex;
     flex-direction: column;
@@ -176,7 +176,7 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
     color: var(--ink-2);
   }
   .pricing-cards__check {
-    color: var(--accent);
+    color: var(--accent-text);
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
     flex-shrink: 0;
@@ -216,8 +216,8 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
   }
   .pricing-cards[data-bg='ink'] .pricing-cards__card.is-featured {
     background: rgba(var(--paper-rgb), 0.07);
-    border-color: var(--accent);
+    border-color: var(--accent-text);
   }
   /* Accent reste lisible sur sombre (idx, check, name featured, badge) */
-  .pricing-cards[data-bg='ink'] .pricing-cards__card.is-featured .pricing-cards__name { color: var(--accent); }
+  .pricing-cards[data-bg='ink'] .pricing-cards__card.is-featured .pricing-cards__name { color: var(--accent-text); }
 </style>

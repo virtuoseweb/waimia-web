@@ -87,11 +87,11 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     transition: border-color 240ms var(--ease), transform 320ms var(--ease);
   }
   .pricing-tier:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     transform: translateY(-3px);
   }
   .pricing-tier.is-highlighted {
-    border-color: var(--accent);
+    border-color: var(--accent-text);
     background: var(--paper-2);
     box-shadow: 0 24px 60px rgba(var(--accent-rgb), 0.08);
   }
@@ -118,7 +118,7 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
   .pricing-idx {
     font-family: var(--font-mono);
     font-size: var(--text-mono-xs);
-    color: var(--accent);
+    color: var(--accent-text);
     letter-spacing: 0.14em;
   }
   .pricing-tier-name {
@@ -175,7 +175,7 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     color: var(--ink-2);
   }
   .pricing-check {
-    color: var(--accent);
+    color: var(--accent-text);
     font-weight: var(--fw-semibold);
     flex-shrink: 0;
   }
