@@ -777,31 +777,6 @@ const courses = defineCollection({
   ]),
 });
 
-// ─── Personas (Tier 4.1) · profils d'acheteurs typiques pour PersonaSwitcher + targeting ───
-const personas = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/personas' }),
-  schema: z.object({
-    ...baseFields,
-    role_fr: z.string(),
-    role_en: z.string(),
-    pain_points_fr: z.array(z.string()).min(3).max(7),
-    pain_points_en: z.array(z.string()).min(3).max(7),
-    decision_criteria_fr: z.array(z.string()).min(3).max(7),
-    decision_criteria_en: z.array(z.string()).min(3).max(7),
-    objections_fr: z.array(z.string()).min(2).max(5),
-    objections_en: z.array(z.string()).min(2).max(5),
-    proof_points_fr: z.array(z.string()).min(3).max(7),
-    proof_points_en: z.array(z.string()).min(3).max(7),
-    budget_range_fr: z.string(),
-    budget_range_en: z.string(),
-    timeline_fr: z.string(),
-    timeline_en: z.string(),
-    company_size_fr: z.string(),
-    company_size_en: z.string(),
-    sectors: z.array(z.string()).default([]),
-  }),
-});
-
 // ─── Brand Voice ─── (collection `brandVoice` archivée V-F1, docs/40 §1 :
 // gouvernance de marque, pas du contenu de site → docs/archive/content/brand-voice/)
 
@@ -855,44 +830,6 @@ const prompts = defineCollection({
 // ═════════════════════════════════════════════════════════════════
 
 // ═════════════════════════════════════════════════════════════════
-// Tier 5 · integrations (outils tiers connectables Waimia) — T5.2
-// ═════════════════════════════════════════════════════════════════
-
-const integrations = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/integrations' }),
-  schema: z.object({
-    tool_name: z.string().min(1),
-    slug: z.string().regex(/^[a-z0-9-]+$/),
-    vendor: z.string().min(1),
-    category: z.enum([
-      'crm',
-      'data',
-      'automation',
-      'analytics',
-      'communication',
-      'productivity',
-      'ai-platform',
-      'commerce',
-      'hosting',
-      'autre',
-    ]),
-    use_cases_fr: z.array(z.string()).min(1),
-    use_cases_en: z.array(z.string()).min(1),
-    native_or_via_api: z.enum(['native', 'api', 'zapier-make', 'manual']),
-    logo_url: z.string().optional(),
-    description_fr: z.string().min(40).max(400),
-    description_en: z.string().min(40).max(400),
-    pricing_note_fr: z.string().optional(),
-    pricing_note_en: z.string().optional(),
-    publishedAt: z.coerce.date(),
-    seo: z.object({
-      meta_description_fr: z.string().max(160),
-      meta_description_en: z.string().max(160),
-    }).optional(),
-  }),
-});
-
-// ═════════════════════════════════════════════════════════════════
 // Tier 4 · knowledge-base : collection archivée V-F1 (docs/40 §1) : 0 consommateur ;
 // doctrine recyclable (méthode, prix, design) → docs/archive/content/knowledge-base/
 // ═════════════════════════════════════════════════════════════════
@@ -923,11 +860,8 @@ export const collections = {
   authors,
   // V2 nouvelles (2026-05-15)
   courses,
-  // Tier 4 AI-first + Tier 5 SEO (2026-05-15)
-  personas,
-  // Tier 4 AI-first + Tier 5 (2026-05-16)
+  // Tier 4 AI-first (2026-05-16)
   prompts,
-  integrations,
   // ADR-003 (2026-06-13) : services + landings
   services,
   lp,

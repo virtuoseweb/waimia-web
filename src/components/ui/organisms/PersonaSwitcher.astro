@@ -7,7 +7,6 @@
  * T4.1c : consomme la collection `personas` en build-time.
  */
 
-import { getCollection } from 'astro:content';
 import { langFromPath, localizeHref } from '../../../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -24,26 +23,7 @@ type PersonaItem = {
   paths: PathItem[];
 };
 
-// Liens de navigation par slug — non stockés en collection (appartiennent au site, pas au persona)
-const PATHS_BY_SLUG: Record<string, PathItem[]> = {
-  'ceo-pme-b2b': [
-    { fr: 'Activation IA · 1 semaine', en: 'AI Activation · 1 week', href: '/offres/activation-ia' },
-    { fr: 'Growth System IA · acquisition + CRM', en: 'AI Growth System · acquisition + CRM', href: '/offres/growth-system-ia' },
-    { fr: 'Cas client · ROI mesurés', en: 'Customer cases · measured ROI', href: '/cas' },
-  ],
-  'cto-scale-up': [
-    { fr: 'Infrastructure IA · architecture', en: 'AI Infrastructure · architecture', href: '/offres/infrastructure-ia' },
-    { fr: 'Productivité Opérationnelle IA', en: 'Operational AI Productivity', href: '/offres/productivite-operationnelle-ia' },
-    { fr: 'Cookbooks & tutoriels', en: 'Cookbooks & tutorials', href: '/ressources/cookbooks' },
-  ],
-  'cmo-mid-market': [
-    { fr: 'Acquisition IA · contenu & SEO', en: 'AI Acquisition · content & SEO', href: '/solutions/acquisition-ia' },
-    { fr: 'CRM & relances IA', en: 'CRM & AI follow-ups', href: '/solutions/crm-relances-ia' },
-    { fr: 'Growth Intelligence · données', en: 'Growth Intelligence · data', href: '/offres/growth-intelligence' },
-  ],
-};
-
-// Fallback si la collection personas est vide (backward compat)
+// Personas curés (la collection `personas` a été supprimée, SEO état final)
 const FALLBACK_PERSONAS: PersonaItem[] = [
   {
     k: 'ceo',
@@ -83,25 +63,8 @@ const FALLBACK_PERSONAS: PersonaItem[] = [
   },
 ];
 
-const collectionEntries = await getCollection('personas');
-
-const personas: PersonaItem[] = collectionEntries.length > 0
-  ? collectionEntries
-      .sort((a, b) => {
-        const dateDiff = a.data.publishedAt.getTime() - b.data.publishedAt.getTime();
-        return dateDiff !== 0 ? dateDiff : a.data.slug.localeCompare(b.data.slug);
-      })
-      .map((entry) => ({
-        k: entry.data.slug,
-        label_fr: entry.data.title_fr,
-        label_en: entry.data.title_en,
-        role_fr: entry.data.role_fr,
-        role_en: entry.data.role_en,
-        pitch_fr: entry.data.description_fr,
-        pitch_en: entry.data.description_en,
-        paths: PATHS_BY_SLUG[entry.data.slug] ?? [],
-      }))
-  : FALLBACK_PERSONAS;
+// Collection `personas` supprimée (SEO état final) : source unique = personas curés ci-dessous.
+const personas: PersonaItem[] = FALLBACK_PERSONAS;
 ---
 <section class="sec sec-paper" aria-labelledby="persona-h2">
   <div class="wrap-wide">
