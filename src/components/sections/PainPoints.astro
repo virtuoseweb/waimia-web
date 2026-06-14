@@ -30,7 +30,7 @@ const events = data.items.map((item, i) => ({
       <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
       <h2 set:html={h2} />
     </header>
-    <aside class="sol-aside col-aside">
+    <div class="sol-aside col-aside">
       <Callout variant="note" size="sm">
         {aside ? (
           <Fragment set:html={aside} />
@@ -38,7 +38,7 @@ const events = data.items.map((item, i) => ({
           <>Avant d'automatiser, comprendre où le temps se perd. Les frictions récurrentes que nous voyons sur le terrain.</>
         )}
       </Callout>
-    </aside>
+    </div>
     <div class="sol-pain-grid col-12">
       <Timeline events={events} numbered={true} />
     </div>
