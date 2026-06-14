@@ -55,7 +55,7 @@ const { num, title_fr, title_en, desc_fr, desc_en, meta, href, class: extraClass
     border-bottom: 1px solid var(--hairline);
     align-items: center;
     color: inherit;
-    transition: background 240ms var(--ease), translate 320ms var(--ease);
+    transition: background var(--dur-trim) var(--ease), translate var(--dur-hover) var(--ease);
   }
   .svc-row:hover {
     background: var(--paper-2);
@@ -100,7 +100,7 @@ const { num, title_fr, title_en, desc_fr, desc_en, meta, href, class: extraClass
     font-size: 22px;
     color: var(--muted);
     text-align: right;
-    transition: color 240ms var(--ease), transform 320ms var(--ease);
+    transition: color var(--dur-trim) var(--ease), transform var(--dur-hover) var(--ease);
   }
   @media (max-width: 900px) {
     .svc-row {

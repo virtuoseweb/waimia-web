@@ -250,7 +250,7 @@ const pageTransitionId = Astro.url.pathname
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
     border-top: 1px solid var(--hairline);
-    transition-delay: 280ms;
+    transition-delay: var(--dur-hover);
   }
   .hero-mm-item {
     display: flex;
@@ -314,7 +314,7 @@ const pageTransitionId = Astro.url.pathname
     line-height: var(--leading-body);
     color: var(--ink-2);
     letter-spacing: 0.005em;
-    transition-delay: 520ms;
+    transition-delay: var(--dur-panel);
   }
   .hero-cta-sub i { font-style: italic; color: var(--accent-text); }
 
@@ -328,7 +328,7 @@ const pageTransitionId = Astro.url.pathname
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
-    transition-delay: 320ms;
+    transition-delay: var(--dur-hover);
   }
   .hero-proof {
     display: grid;

@@ -58,7 +58,7 @@ const { cards, class: extraClass = '' } = Astro.props;
     flex-direction: column;
     gap: var(--space-2);
     color: inherit;
-    transition: background 240ms var(--ease);
+    transition: background var(--dur-trim) var(--ease);
   }
   .related-card:last-child {
     border-right: none;

@@ -63,7 +63,7 @@ const email = lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr';
 <style>
   /* V6 densification · padding réduit drastiquement (clamp 140-260 → 72-128) */
   /* V-F2 · climax INK (docs/39 P1-8 + audit home 12) : le moment le plus chaud sur le fond le plus fort */
-  .book-session{padding:clamp(72px,9vw,128px) 0 clamp(56px,7vw,96px);background:var(--ink);color:var(--paper);border-top:1px solid var(--hairline);border-radius:0;transition:border-radius 1200ms var(--ease)}
+  .book-session{padding:clamp(72px,9vw,128px) 0 clamp(56px,7vw,96px);background:var(--ink);color:var(--paper);border-top:1px solid var(--hairline);border-radius:0;transition:border-radius var(--dur-reveal) var(--ease)}
   .book-session.in{border-radius:32px 32px 0 0}
   .book-session{--muted:rgba(var(--paper-rgb),0.64);--hairline:rgba(var(--paper-rgb),0.14)}
   .book-h2{color:var(--paper)}

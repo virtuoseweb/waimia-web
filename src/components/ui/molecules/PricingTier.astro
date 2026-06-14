@@ -84,7 +84,7 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
-    transition: border-color 240ms var(--ease), transform 320ms var(--ease);
+    transition: border-color var(--dur-trim) var(--ease), transform var(--dur-hover) var(--ease);
   }
   .pricing-tier:hover {
     border-color: var(--accent-text);
@@ -98,7 +98,7 @@ const { idx, tier, highlight = false, price, period, desc_fr, desc_en, features,
   .pricing-badge {
     position: absolute;
     top: -12px;
-    left: 24px;
+    left: var(--space-5);
     /* accent-sur-clair (terracotta foncee) : paper sur accent = 4.02 (sous AA),
        paper sur accent-sur-clair = 5.57 (AA franc), identite accent preservee. */
     background: var(--accent-sur-clair);

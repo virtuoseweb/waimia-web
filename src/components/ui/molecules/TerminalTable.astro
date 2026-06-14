@@ -62,7 +62,7 @@ const { cols, headers, tone = 'paper', class: extraClass = '' } = Astro.props;
     border-bottom:1px solid var(--hairline);
     align-items:baseline;
     color:inherit;
-    transition:background 180ms var(--ease);
+    transition:background var(--dur-fast) var(--ease);
   }
   :global(.u-edit-tbl-row:last-child){border-bottom:none}
   :global(.u-edit-tbl-row:hover){background:var(--paper-2)}

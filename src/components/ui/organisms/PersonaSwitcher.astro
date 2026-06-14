@@ -179,7 +179,7 @@ const personas: PersonaItem[] = collectionEntries.length > 0
 
 <style>
   .persona-tabs{display:flex;gap:var(--space-1);margin-bottom:clamp(40px,5vw,72px);border-bottom:1px solid var(--hairline-strong);padding-bottom:0}
-  .persona-tab{padding:18px 28px;font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--muted);transition:color 280ms var(--ease),border-color 280ms var(--ease);border-bottom:2px solid transparent;display:flex;gap:10px;align-items:baseline;cursor:pointer}
+  .persona-tab{padding:18px 28px;font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--muted);transition:color var(--dur-hover) var(--ease),border-color var(--dur-hover) var(--ease);border-bottom:2px solid transparent;display:flex;gap:10px;align-items:baseline;cursor:pointer}
   .persona-tab:hover{color:var(--ink)}
   .persona-tab.is-active{color:var(--accent-text);border-bottom-color:var(--accent-text)}
   .persona-tab .k{opacity:.5}
@@ -192,7 +192,7 @@ const personas: PersonaItem[] = collectionEntries.length > 0
   .persona-pitch :global(i){font-family:var(--font-display);font-style:italic;font-weight:var(--fw-regular)}
   .persona-paths{list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--hairline)}
   .persona-paths li{border-bottom:1px solid var(--hairline)}
-  .persona-paths a{display:grid;grid-template-columns:80px 1fr 40px;align-items:baseline;gap:var(--space-5);padding:var(--space-5) 0;color:inherit;transition:translate 360ms var(--ease),background 280ms var(--ease)}
+  .persona-paths a{display:grid;grid-template-columns:80px 1fr 40px;align-items:baseline;gap:var(--space-5);padding:var(--space-5) 0;color:inherit;transition:translate var(--dur-base) var(--ease),background var(--dur-hover) var(--ease)}
   /* slide hors-flux (translate) au lieu de padding lateral : meme nudge, 0 reflow */
   .persona-paths a:hover{translate:var(--space-4) 0;background:var(--paper)}
   .persona-paths .i{font-family:var(--font-mono);font-size:var(--text-eyebrow);color:var(--muted);letter-spacing:var(--tracking-mono)}
