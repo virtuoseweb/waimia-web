@@ -285,19 +285,19 @@
     {
       "name": "--leading-h1",
       "value": "0.96",
-      "group": "type",
-      "comment": "Line-heights cohérents par classe"
+      "group": "motion",
+      "comment": ""
     },
     {
       "name": "--leading-h2",
       "value": "1.02",
-      "group": "type",
+      "group": "motion",
       "comment": ""
     },
     {
       "name": "--leading-h3",
       "value": "1.1",
-      "group": "type",
+      "group": "motion",
       "comment": ""
     },
     {
@@ -559,136 +559,40 @@
       "comment": "Rythme interne des blocs composables (PAS un cran de section · inner gap)"
     },
     {
-      "name": "--text-body-base",
-      "value": "16px",
+      "name": "--text-body",
+      "value": "clamp(15px, 1vw, 17px)",
       "group": "type",
-      "comment": "corps générique 16px (23 occurrences littérales → tokenisées Lot E)"
-    },
-    {
-      "name": "--text-body-lead",
-      "value": "15px",
-      "group": "type",
-      "comment": "corps prose intermédiaire (entre body-sm 14 et body-md 17)"
-    },
-    {
-      "name": "--text-body-md",
-      "value": "17px",
-      "group": "type",
-      "comment": "corps générique 16px (23 occurrences littérales → tokenisées Lot E)"
-    },
-    {
-      "name": "--text-body-sm",
-      "value": "14px",
-      "group": "type",
-      "comment": ""
-    },
-    {
-      "name": "--text-caption",
-      "value": "12px",
-      "group": "type",
-      "comment": "captions / pills / badges mono"
+      "comment": "corps de texte"
     },
     {
       "name": "--text-display",
-      "value": "clamp(48px, 8vw, 128px)",
+      "value": "clamp(46px, 8vw, 116px)",
       "group": "type",
-      "comment": "titre display de section (XXL, au-dessus de h2-grand 96px)"
+      "comment": "climax éditorial / hero principal / wordmark"
     },
     {
-      "name": "--text-drop-cap",
-      "value": "clamp(64px, 6vw, 96px)",
+      "name": "--text-h1",
+      "value": "clamp(34px, 5.5vw, 80px)",
       "group": "type",
-      "comment": "Drop cap · initiale magnifiée"
+      "comment": "titre de page / section fort"
     },
     {
-      "name": "--text-eyebrow",
-      "value": "11px",
+      "name": "--text-h2",
+      "value": "clamp(26px, 3.6vw, 52px)",
       "group": "type",
-      "comment": "uppercase tracking"
+      "comment": "titre de section standard"
     },
     {
-      "name": "--text-h1-display",
-      "value": "clamp(34px, 5vw, 72px)",
+      "name": "--text-h3",
+      "value": "clamp(19px, 1.8vw, 26px)",
       "group": "type",
-      "comment": "gros titre de section / hero secondaire (comble le gap 56->88)"
+      "comment": "sous-titre / titre de carte / lede"
     },
     {
-      "name": "--text-h1-hero",
-      "value": "clamp(40px, 6vw, 92px)",
-      "group": "type",
-      "comment": "H1 hero · manifeste de la page (1 seul par page) · Instrument Serif"
-    },
-    {
-      "name": "--text-h2-grand",
-      "value": "clamp(44px, 7vw, 96px)",
-      "group": "type",
-      "comment": "H2 grand · climax final (BookSession ou rare moment cinématique)"
-    },
-    {
-      "name": "--text-h2-section",
-      "value": "clamp(28px, 4vw, 56px)",
-      "group": "type",
-      "comment": "H2 section · titre par défaut de toute section majeure de page"
-    },
-    {
-      "name": "--text-h2-tight",
-      "value": "clamp(24px, 3vw, 42px)",
-      "group": "type",
-      "comment": "H2 tight · sections compactes (FAQ, sidebar, formats narrow)"
-    },
-    {
-      "name": "--text-h3-card",
-      "value": "clamp(18px, 1.6vw, 24px)",
-      "group": "type",
-      "comment": "H3 card · titres dans cards/cells (CapabilityStrip cells, SixServices cells)"
-    },
-    {
-      "name": "--text-h3-row",
-      "value": "clamp(20px, 2vw, 28px)",
-      "group": "type",
-      "comment": "H3 row · titres dans index/rows éditoriaux (Departments rows, Notes rows)"
-    },
-    {
-      "name": "--text-label",
-      "value": "clamp(13px, 1vw, 15px)",
-      "group": "type",
-      "comment": "labels / meta / legendes secondaires"
-    },
-    {
-      "name": "--text-lede",
-      "value": "clamp(20px, 1.7vw, 24px)",
-      "group": "type",
-      "comment": "Lede · paragraphe d'ouverture surdimensionné"
-    },
-    {
-      "name": "--text-mega",
-      "value": "clamp(60px, 11vw, 180px)",
-      "group": "type",
-      "comment": "hero giant / climax editorial (XXXL)"
-    },
-    {
-      "name": "--text-mono-xs",
-      "value": "10px",
-      "group": "type",
-      "comment": "Mono · JetBrains Mono · seul -xs survient (Kicker extra-small) Cleanup Phase D.1 (2026-05-15) · 2 tailles unused supprimées : lg, sm V2 cohérence (2026-06-08) · -md (11px) fusionné → --text-eyebrow (doublon byte-équivalent)"
-    },
-    {
-      "name": "--text-pull-quote",
-      "value": "clamp(28px, 3.4vw, 44px)",
-      "group": "type",
-      "comment": "Pull quote · breakout citation"
-    },
-    {
-      "name": "--text-stat",
-      "value": "clamp(36px, 6vw, 88px)",
-      "group": "type",
-      "comment": "chiffres de stat / metric numbers (entre h2-grand et display)"
-    },
-    {
-      "name": "--text-ui",
+      "name": "--text-small",
       "value": "13px",
       "group": "type",
-      "comment": "boutons / nav / chrome UI"
+      "comment": "UI / caption / eyebrow / mono / label"
     },
     {
       "name": "--tracking-body",
@@ -719,6 +623,12 @@
       "value": "0.08em",
       "group": "type",
       "comment": "liens/pills mono discrets · tokenisé R4 (3 occ.)"
+    },
+    {
+      "name": "--viewport-h",
+      "value": "100svh",
+      "group": "base",
+      "comment": "Hauteur viewport mobile-safe : svh = small viewport height, STABLE (ne se réadapte PAS avec la barre nav iOS/Android, contrairement à dvh/vh). Source unique pour les sections plein écran."
     },
     {
       "name": "--wrap",
@@ -3904,7 +3814,7 @@
     },
     {
       "token": "--section-base",
-      "count": 63,
+      "count": 62,
       "files": [
         "src/components/sections/ArchitectureDiagram.astro",
         "src/components/sections/ArticleGrid.astro",
@@ -3928,7 +3838,6 @@
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroFormInline.astro",
         "src/components/sections/HeroHome.astro",
-        "src/components/sections/HeroHubStats.astro",
         "src/components/sections/HeroSocialProof.astro",
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/MaturityPyramid.astro",
@@ -5169,82 +5078,25 @@
       ]
     },
     {
-      "token": "--text-body-base",
-      "count": 23,
+      "token": "--text-body",
+      "count": 83,
       "files": [
+        "src/components/sections/AboutStorySplit.astro",
         "src/components/sections/AnnouncementBanner.astro",
         "src/components/sections/ArticleGrid.astro",
-        "src/components/sections/CodeShowcase.astro",
-        "src/components/sections/CtaNewsletterFooter.astro",
-        "src/components/sections/DataTable.astro",
-        "src/components/sections/DecisionList.astro",
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/NewsletterBand.astro",
-        "src/components/sections/ProcessSteps.astro",
-        "src/components/sections/ResourceCardGrid.astro",
-        "src/components/sections/TeamBioGrid.astro",
-        "src/components/sections/TeamCardGrid.astro",
-        "src/components/sections/TimelineHorizontal.astro",
-        "src/components/sections/UseCaseIndex.astro",
-        "src/components/sections/VersusCompetitors.astro",
-        "src/components/templates/ConversionFunnelTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/ui/molecules/EditorialCaseCard.astro",
-        "src/pages/contact.astro",
-        "src/pages/offres/index.astro",
-        "src/pages/ressources/index.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-body-lead",
-      "count": 28,
-      "files": [
+        "src/components/sections/BookingEmbed.astro",
         "src/components/sections/BrandedCallout.astro",
         "src/components/sections/CaseCardGrid.astro",
-        "src/components/sections/CourseCatalogTable.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/LearningPathList.astro",
-        "src/components/sections/MetricCalloutBand.astro",
-        "src/components/sections/NewsletterBand.astro",
-        "src/components/sections/OfferTierGrid.astro",
-        "src/components/sections/PainPoints.astro",
-        "src/components/sections/ServiceCatalogList.astro",
-        "src/components/sections/TeamCardGrid.astro",
-        "src/components/sections/TerminalMetricsStrip.astro",
-        "src/components/sections/TrustBadgesBand.astro",
-        "src/components/sections/TunnelStepNav.astro",
-        "src/components/sections/VersusCompetitors.astro",
-        "src/components/templates/ConversionFunnelTemplate.astro",
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/LeadMagnetTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/ui/molecules/AuthorByline.astro",
-        "src/components/ui/molecules/AuthorCard.astro",
-        "src/components/ui/molecules/ServiceCatalogRow.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/methode.astro",
-        "src/pages/compare/organisms.astro",
-        "src/pages/offres/audit-maturite-ia.astro",
-        "src/pages/ressources/index.astro"
-      ]
-    },
-    {
-      "token": "--text-body-md",
-      "count": 52,
-      "files": [
-        "src/components/editorial/Callout.astro",
-        "src/components/editorial/EditorialTable.astro",
-        "src/components/editorial/Timeline.astro",
-        "src/components/sections/AboutStorySplit.astro",
-        "src/components/sections/BookingEmbed.astro",
+        "src/components/sections/CodeShowcase.astro",
         "src/components/sections/ComparisonTable.astro",
         "src/components/sections/ContactForm.astro",
+        "src/components/sections/CourseCatalogTable.astro",
         "src/components/sections/CtaBandSection.astro",
         "src/components/sections/CtaFormInline.astro",
+        "src/components/sections/CtaNewsletterFooter.astro",
         "src/components/sections/CtaSplitVisual.astro",
+        "src/components/sections/DataTable.astro",
+        "src/components/sections/DecisionList.astro",
         "src/components/sections/DiagnosticStages.astro",
         "src/components/sections/FaqAccordion.astro",
         "src/components/sections/FaqCtaAside.astro",
@@ -5261,47 +5113,366 @@
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/InclusionsList.astro",
         "src/components/sections/IntegrationsGrid.astro",
+        "src/components/sections/LearningPathList.astro",
         "src/components/sections/ManifestoAct.astro",
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricCalloutBand.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferTierGrid.astro",
+        "src/components/sections/PainPoints.astro",
+        "src/components/sections/ProcessSteps.astro",
+        "src/components/sections/ResourceCardGrid.astro",
+        "src/components/sections/ServiceCatalogList.astro",
         "src/components/sections/StatBlock.astro",
         "src/components/sections/StatsBento.astro",
         "src/components/sections/TeamBioGrid.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/TerminalMetricsStrip.astro",
         "src/components/sections/TerminalMockupSection.astro",
         "src/components/sections/TerminalTableSection.astro",
-        "src/components/sections/TestimonialLogoMetric.astro",
         "src/components/sections/TestimonialSingleSpotlight.astro",
         "src/components/sections/TimelineBlock.astro",
+        "src/components/sections/TimelineHorizontal.astro",
+        "src/components/sections/TrustBadgesBand.astro",
         "src/components/sections/TrustLegalSection.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
+        "src/components/sections/TunnelStepNav.astro",
+        "src/components/sections/UseCaseIndex.astro",
+        "src/components/sections/VersusCompetitors.astro",
+        "src/components/templates/ConversionFunnelTemplate.astro",
+        "src/components/templates/CourseDetailTemplate.astro",
+        "src/components/templates/EssayTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro",
+        "src/components/ui/molecules/AuthorByline.astro",
+        "src/components/ui/molecules/AuthorCard.astro",
+        "src/components/ui/molecules/EditorialCaseCard.astro",
+        "src/components/ui/molecules/ServiceCatalogRow.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/hero-lab.astro",
+        "src/pages/agence/methode.astro",
+        "src/pages/compare/organisms.astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
+        "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/offres/index.astro",
         "src/pages/plan-du-site.astro",
         "src/pages/ressources/academy.astro",
+        "src/pages/ressources/index.astro",
         "src/styles/global.css"
       ]
     },
     {
-      "token": "--text-body-sm",
-      "count": 82,
+      "token": "--text-display",
+      "count": 19,
+      "files": [
+        "src/components/editorial/KeyMetric.astro",
+        "src/components/footer/Footer.astro",
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroFullBleed.astro",
+        "src/components/sections/HeroOfferDetail.astro",
+        "src/components/sections/HeroSplit.astro",
+        "src/components/sections/HowWeShip.astro",
+        "src/components/sections/ListIndexSection.astro",
+        "src/components/sections/ManifestoAct.astro",
+        "src/components/sections/OperatingLayer.astro",
+        "src/components/sections/QuoteSpotlight.astro",
+        "src/components/sections/TrustLegalSection.astro",
+        "src/components/ui/molecules/StatRow.astro",
+        "src/components/ui/organisms/ManifestoAccent.astro",
+        "src/components/ui/organisms/Stub.astro",
+        "src/pages/404.astro",
+        "src/pages/agence/design-system.astro",
+        "src/pages/categories/[slug].astro",
+        "src/pages/manifesto.astro"
+      ]
+    },
+    {
+      "token": "--text-h1",
+      "count": 62,
+      "files": [
+        "src/components/editorial/DropCap.astro",
+        "src/components/editorial/KeyMetric.astro",
+        "src/components/motion/BootSplash.astro",
+        "src/components/sections/AsymmetricServices.astro",
+        "src/components/sections/CaseSpotlight.astro",
+        "src/components/sections/CtaFinal.astro",
+        "src/components/sections/EditorialTableBlock.astro",
+        "src/components/sections/FitColumnsSection.astro",
+        "src/components/sections/FooterCtaBand.astro",
+        "src/components/sections/HeroAtlas.astro",
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroFormInline.astro",
+        "src/components/sections/HeroHome.astro",
+        "src/components/sections/HeroHubStats.astro",
+        "src/components/sections/HeroLiquid.astro",
+        "src/components/sections/HeroOfferDetail.astro",
+        "src/components/sections/HeroSocialProof.astro",
+        "src/components/sections/HeroSplit.astro",
+        "src/components/sections/HeroTunnelStep.astro",
+        "src/components/sections/HowWeShip.astro",
+        "src/components/sections/ManifestoBlock.astro",
+        "src/components/sections/ManifestoStatement.astro",
+        "src/components/sections/MetricCalloutBand.astro",
+        "src/components/sections/MetricShift.astro",
+        "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferTierGrid.astro",
+        "src/components/sections/PainPoints.astro",
+        "src/components/sections/PricingSingleHighlight.astro",
+        "src/components/sections/PricingToggle.astro",
+        "src/components/sections/ProblemStatement.astro",
+        "src/components/sections/RoiBand.astro",
+        "src/components/sections/StatBlock.astro",
+        "src/components/sections/StatCounter.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/TechCapabilitiesSpecs.astro",
+        "src/components/sections/TechIntegrationFlow.astro",
+        "src/components/sections/TechPositioningSplit.astro",
+        "src/components/sections/TechWhenDual.astro",
+        "src/components/sections/TestimonialMetrics.astro",
+        "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/VersusCompetitors.astro",
+        "src/components/sections/WelcomeSection.astro",
+        "src/components/sections/WorkflowTable.astro",
+        "src/components/templates/AuthorPageTemplate.astro",
+        "src/components/templates/CaseStudyTemplate.astro",
+        "src/components/templates/ConversionFunnelTemplate.astro",
+        "src/components/templates/DetailMenuTemplate.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro",
+        "src/components/templates/TechnologiesDetailTemplate.astro",
+        "src/components/ui/molecules/AsymmetricServiceRow.astro",
+        "src/components/ui/molecules/EditorialCaseCard.astro",
+        "src/components/ui/organisms/AtlasGrid.astro",
+        "src/components/ui/organisms/BookSession.astro",
+        "src/components/ui/organisms/Hero.astro",
+        "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
+        "src/pages/agence/hero-lab.astro",
+        "src/pages/cas/index.astro",
+        "src/pages/manifesto.astro",
+        "src/pages/plan-du-site.astro",
+        "src/pages/ressources/index.astro",
+        "src/styles/global.css"
+      ]
+    },
+    {
+      "token": "--text-h2",
+      "count": 79,
+      "files": [
+        "src/components/editorial/KeyMetric.astro",
+        "src/components/editorial/PullQuote.astro",
+        "src/components/sections/ArchitectureDiagram.astro",
+        "src/components/sections/ArticleGrid.astro",
+        "src/components/sections/BrandedCallout.astro",
+        "src/components/sections/CaseCardGrid.astro",
+        "src/components/sections/CaseSplit.astro",
+        "src/components/sections/CaseSpotlight.astro",
+        "src/components/sections/CodeShowcase.astro",
+        "src/components/sections/ComingSoonPills.astro",
+        "src/components/sections/ComparisonTable.astro",
+        "src/components/sections/CtaNewsletterFooter.astro",
+        "src/components/sections/DataTable.astro",
+        "src/components/sections/DecisionList.astro",
+        "src/components/sections/DiagnosticStages.astro",
+        "src/components/sections/EcosystemPartners.astro",
+        "src/components/sections/EditorialSplitGrid.astro",
+        "src/components/sections/EditorialWriteFeed.astro",
+        "src/components/sections/FeatureGrid.astro",
+        "src/components/sections/FeatureSplitMedia.astro",
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroHubStats.astro",
+        "src/components/sections/HowWeShip.astro",
+        "src/components/sections/InclusionsList.astro",
+        "src/components/sections/ManifestoAct.astro",
+        "src/components/sections/MaturityPyramid.astro",
+        "src/components/sections/MethodTimeline.astro",
+        "src/components/sections/MetricShift.astro",
+        "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferTierGrid.astro",
+        "src/components/sections/PricingCards.astro",
+        "src/components/sections/PricingTable.astro",
+        "src/components/sections/ProblemStatement.astro",
+        "src/components/sections/ProcessSteps.astro",
+        "src/components/sections/QuoteSpotlight.astro",
+        "src/components/sections/ResourceCardGrid.astro",
+        "src/components/sections/ServiceCatalogList.astro",
+        "src/components/sections/ServicesGrid.astro",
+        "src/components/sections/StatBlock.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/TechStackBand.astro",
+        "src/components/sections/TerminalMockupSection.astro",
+        "src/components/sections/TerminalTableSection.astro",
+        "src/components/sections/TestimonialLogoMetric.astro",
+        "src/components/sections/TestimonialMetrics.astro",
+        "src/components/sections/TestimonialSingleSpotlight.astro",
+        "src/components/sections/TimelineBlock.astro",
+        "src/components/sections/TimelineHorizontal.astro",
+        "src/components/sections/WelcomeSection.astro",
+        "src/components/sections/WhyStalls.astro",
+        "src/components/templates/AuthorPageTemplate.astro",
+        "src/components/templates/CaseStudyTemplate.astro",
+        "src/components/templates/DetailMenuTemplate.astro",
+        "src/components/templates/EssayTemplate.astro",
+        "src/components/templates/LeadMagnetTemplate.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro",
+        "src/components/templates/TunnelStepTemplate.astro",
+        "src/components/ui/molecules/AsymmetricServiceRow.astro",
+        "src/components/ui/molecules/PricingTier.astro",
+        "src/components/ui/molecules/ProofBand.astro",
+        "src/components/ui/molecules/ServiceCatalogRow.astro",
+        "src/components/ui/organisms/AtlasGrid.astro",
+        "src/components/ui/organisms/PersonaSwitcher.astro",
+        "src/pages/agence/about.astro",
+        "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
+        "src/pages/agence/hero-lab.astro",
+        "src/pages/agence/methode.astro",
+        "src/pages/cas/index.astro",
+        "src/pages/components/[type].astro",
+        "src/pages/contact.astro",
+        "src/pages/manifesto.astro",
+        "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/offres/index.astro",
+        "src/pages/plan-du-site.astro",
+        "src/pages/ressources/index.astro",
+        "src/pages/ressources/outils/index.astro",
+        "src/styles/global.css"
+      ]
+    },
+    {
+      "token": "--text-h3",
+      "count": 98,
+      "files": [
+        "src/components/editorial/Callout.astro",
+        "src/components/editorial/Timeline.astro",
+        "src/components/footer/Footer.astro",
+        "src/components/sections/AboutStorySplit.astro",
+        "src/components/sections/ArchitectureDiagram.astro",
+        "src/components/sections/ArticleGrid.astro",
+        "src/components/sections/AsymmetricServices.astro",
+        "src/components/sections/BentoGrid.astro",
+        "src/components/sections/CaseSpotlight.astro",
+        "src/components/sections/ComparisonDuo.astro",
+        "src/components/sections/ComparisonPricingCallout.astro",
+        "src/components/sections/ComparisonTable.astro",
+        "src/components/sections/CtaFinal.astro",
+        "src/components/sections/DiagnosticStages.astro",
+        "src/components/sections/EcosystemPartners.astro",
+        "src/components/sections/EditorialPreview.astro",
+        "src/components/sections/FaqAccordion.astro",
+        "src/components/sections/FaqCtaAside.astro",
+        "src/components/sections/FaqTwoColumn.astro",
+        "src/components/sections/FeatureAccordion.astro",
+        "src/components/sections/FeatureComparisonGrid.astro",
+        "src/components/sections/FeatureGrid.astro",
+        "src/components/sections/FeatureTabs.astro",
+        "src/components/sections/FeatureZigzag.astro",
+        "src/components/sections/GalleryMasonry.astro",
+        "src/components/sections/GuaranteeBlock.astro",
+        "src/components/sections/HeroAtlas.astro",
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroFormInline.astro",
+        "src/components/sections/HeroFullBleed.astro",
+        "src/components/sections/HeroHubStats.astro",
+        "src/components/sections/HeroLiquid.astro",
+        "src/components/sections/HeroOfferDetail.astro",
+        "src/components/sections/HeroSocialProof.astro",
+        "src/components/sections/HeroSplit.astro",
+        "src/components/sections/HeroTunnelStep.astro",
+        "src/components/sections/HowWeShip.astro",
+        "src/components/sections/ListIndexSection.astro",
+        "src/components/sections/MaturityPyramid.astro",
+        "src/components/sections/MethodTimeline.astro",
+        "src/components/sections/MetricShift.astro",
+        "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferTierGrid.astro",
+        "src/components/sections/OperatingLayer.astro",
+        "src/components/sections/PainPoints.astro",
+        "src/components/sections/PersonaAttributesGrid.astro",
+        "src/components/sections/ProcessSteps.astro",
+        "src/components/sections/QuoteSpotlight.astro",
+        "src/components/sections/ResourceCardGrid.astro",
+        "src/components/sections/ServicesGrid.astro",
+        "src/components/sections/StatCounter.astro",
+        "src/components/sections/StepsHorizontal.astro",
+        "src/components/sections/TeamBioGrid.astro",
+        "src/components/sections/TechPositioningSplit.astro",
+        "src/components/sections/TechStackBand.astro",
+        "src/components/sections/TechWhenDual.astro",
+        "src/components/sections/TerminalTableSection.astro",
+        "src/components/sections/TestimonialBlock.astro",
+        "src/components/sections/TestimonialLogoMetric.astro",
+        "src/components/sections/TestimonialMetrics.astro",
+        "src/components/sections/TestimonialSingleSpotlight.astro",
+        "src/components/sections/TimelineBlock.astro",
+        "src/components/sections/TimelineHorizontal.astro",
+        "src/components/sections/TrustBadgesBand.astro",
+        "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/UseCaseIndex.astro",
+        "src/components/sections/WelcomeSection.astro",
+        "src/components/sections/WhyStalls.astro",
+        "src/components/sections/WorkflowTable.astro",
+        "src/components/templates/AuthorPageTemplate.astro",
+        "src/components/templates/CaseStudyTemplate.astro",
+        "src/components/templates/ConversionFunnelTemplate.astro",
+        "src/components/templates/CourseDetailTemplate.astro",
+        "src/components/templates/DetailMenuTemplate.astro",
+        "src/components/templates/EssayTemplate.astro",
+        "src/components/templates/LeadMagnetTemplate.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro",
+        "src/components/templates/TechnologiesDetailTemplate.astro",
+        "src/components/templates/TunnelStepTemplate.astro",
+        "src/components/ui/molecules/EditorialWriteRow.astro",
+        "src/components/ui/molecules/NewsletterSignup.astro",
+        "src/components/ui/molecules/RelatedCards.astro",
+        "src/components/ui/organisms/BookSession.astro",
+        "src/components/ui/organisms/PersonaSwitcher.astro",
+        "src/components/ui/organisms/Stub.astro",
+        "src/pages/404.astro",
+        "src/pages/agence/about.astro",
+        "src/pages/agence/design-system.astro",
+        "src/pages/agence/ds-studio.astro",
+        "src/pages/agence/hero-lab.astro",
+        "src/pages/agence/methode.astro",
+        "src/pages/cas/index.astro",
+        "src/pages/components/[type].astro",
+        "src/pages/manifesto.astro",
+        "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/ressources/academy.astro",
+        "src/pages/ressources/index.astro",
+        "src/styles/global.css"
+      ]
+    },
+    {
+      "token": "--text-small",
+      "count": 169,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
         "src/components/editorial/EditorialTable.astro",
+        "src/components/editorial/KeyMetric.astro",
+        "src/components/editorial/PullQuote.astro",
+        "src/components/editorial/Sidenote.astro",
+        "src/components/editorial/Timeline.astro",
+        "src/components/footer/Footer.astro",
+        "src/components/library/DsLocalNav.astro",
+        "src/components/motion/BootSplash.astro",
         "src/components/sections/AboutStorySplit.astro",
+        "src/components/sections/AnnouncementBanner.astro",
+        "src/components/sections/ArchitectureDiagram.astro",
         "src/components/sections/ArticleGrid.astro",
         "src/components/sections/BentoGrid.astro",
         "src/components/sections/BookingEmbed.astro",
+        "src/components/sections/CaseCardGrid.astro",
+        "src/components/sections/CaseSplit.astro",
         "src/components/sections/CaseSpotlight.astro",
         "src/components/sections/CodeShowcase.astro",
+        "src/components/sections/ComingSoonPills.astro",
         "src/components/sections/ComparisonDuo.astro",
         "src/components/sections/ComparisonPricingCallout.astro",
         "src/components/sections/ComparisonTable.astro",
@@ -5312,9 +5483,12 @@
         "src/components/sections/CtaFormInline.astro",
         "src/components/sections/CtaNewsletterFooter.astro",
         "src/components/sections/DataTable.astro",
+        "src/components/sections/DecisionList.astro",
         "src/components/sections/DiagnosticStages.astro",
         "src/components/sections/EcosystemPartners.astro",
         "src/components/sections/EditorialPreview.astro",
+        "src/components/sections/EditorialSplitGrid.astro",
+        "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/FaqAccordion.astro",
         "src/components/sections/FaqCtaAside.astro",
         "src/components/sections/FaqTwoColumn.astro",
@@ -5325,175 +5499,21 @@
         "src/components/sections/FeatureTabs.astro",
         "src/components/sections/FeatureZigzag.astro",
         "src/components/sections/GalleryMasonry.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroFormInline.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/InclusionsList.astro",
-        "src/components/sections/IntegrationsGrid.astro",
-        "src/components/sections/LearningPathList.astro",
-        "src/components/sections/MediaBlock.astro",
-        "src/components/sections/PersonaAttributesGrid.astro",
-        "src/components/sections/PricingCards.astro",
-        "src/components/sections/PricingSingleHighlight.astro",
-        "src/components/sections/PricingTable.astro",
-        "src/components/sections/PricingToggle.astro",
-        "src/components/sections/ProcessSteps.astro",
-        "src/components/sections/ResourceCardGrid.astro",
-        "src/components/sections/ServicesGrid.astro",
-        "src/components/sections/StatBlock.astro",
-        "src/components/sections/StatsBento.astro",
-        "src/components/sections/StepsHorizontal.astro",
-        "src/components/sections/TeamBioGrid.astro",
-        "src/components/sections/TerminalTableSection.astro",
-        "src/components/sections/TestimonialMetrics.astro",
-        "src/components/sections/TestimonialSingleSpotlight.astro",
-        "src/components/sections/TimelineHorizontal.astro",
-        "src/components/sections/TrustBadgesBand.astro",
-        "src/components/sections/TrustLegalSection.astro",
-        "src/components/sections/WelcomeSection.astro",
-        "src/components/sections/WorkflowTable.astro",
-        "src/components/templates/ConversionFunnelTemplate.astro",
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/ui/atoms/FormErrors.astro",
-        "src/components/ui/molecules/AuthorCard.astro",
-        "src/components/ui/molecules/NewsletterSignup.astro",
-        "src/components/ui/molecules/PricingTier.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/agence/hero-lab.astro",
-        "src/pages/agence/methode.astro",
-        "src/pages/categories/[slug].astro",
-        "src/pages/compare/organisms.astro",
-        "src/pages/contact.astro",
-        "src/pages/offres/audit-maturite-ia.astro",
-        "src/pages/ressources/academy.astro",
-        "src/pages/ressources/index.astro",
-        "src/pages/ressources/outils/index.astro",
-        "src/styles/global.css",
-        "src/styles/grid.css"
-      ]
-    },
-    {
-      "token": "--text-caption",
-      "count": 46,
-      "files": [
-        "src/components/footer/Footer.astro",
-        "src/components/library/DsLocalNav.astro",
-        "src/components/sections/CaseSpotlight.astro",
-        "src/components/sections/ComingSoonPills.astro",
-        "src/components/sections/CourseCatalogTable.astro",
-        "src/components/sections/CtaNewsletterFooter.astro",
-        "src/components/sections/DataTable.astro",
-        "src/components/sections/DiagnosticStages.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroHome.astro",
-        "src/components/sections/HeroHubStats.astro",
-        "src/components/sections/LearningPathList.astro",
-        "src/components/sections/MarqueeBand.astro",
-        "src/components/sections/MaturityPyramid.astro",
-        "src/components/sections/NewsletterBand.astro",
-        "src/components/sections/OfferTierGrid.astro",
-        "src/components/sections/ServiceCatalogList.astro",
-        "src/components/sections/StatCounter.astro",
-        "src/components/sections/StatsBento.astro",
-        "src/components/sections/TechCapabilitiesSpecs.astro",
-        "src/components/sections/TerminalMockupSection.astro",
-        "src/components/sections/TerminalTableSection.astro",
-        "src/components/sections/TestimonialLogoMetric.astro",
-        "src/components/sections/TestimonialMetrics.astro",
-        "src/components/sections/TrustBadgesBand.astro",
-        "src/components/sections/VersusCompetitors.astro",
-        "src/components/sections/WelcomeSection.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/LeadMagnetTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/ui/atoms/TerminalCTA.astro",
-        "src/components/ui/molecules/AuthorCard.astro",
-        "src/components/ui/molecules/ServiceCatalogRow.astro",
-        "src/components/ui/molecules/TechPillRow.astro",
-        "src/components/ui/molecules/TerminalMockup.astro",
-        "src/components/ui/organisms/Hero.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/agence/hero-lab.astro",
-        "src/pages/categories/[slug].astro",
-        "src/pages/compare/organisms.astro",
-        "src/pages/components/[type].astro",
-        "src/pages/ressources/academy.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-display",
-      "count": 12,
-      "files": [
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/HeroSplit.astro",
-        "src/components/sections/ManifestoAct.astro",
-        "src/components/sections/OperatingLayer.astro",
-        "src/components/sections/QuoteSpotlight.astro",
-        "src/components/sections/TrustLegalSection.astro",
-        "src/components/ui/molecules/StatRow.astro",
-        "src/components/ui/organisms/ManifestoAccent.astro",
-        "src/components/ui/organisms/Stub.astro",
-        "src/pages/categories/[slug].astro",
-        "src/pages/manifesto.astro"
-      ]
-    },
-    {
-      "token": "--text-drop-cap",
-      "count": 2,
-      "files": [
-        "src/components/editorial/DropCap.astro",
-        "src/pages/agence/hero-lab.astro"
-      ]
-    },
-    {
-      "token": "--text-eyebrow",
-      "count": 109,
-      "files": [
-        "src/components/editorial/Callout.astro",
-        "src/components/editorial/EditorialTable.astro",
-        "src/components/editorial/KeyMetric.astro",
-        "src/components/editorial/PullQuote.astro",
-        "src/components/editorial/Sidenote.astro",
-        "src/components/editorial/Timeline.astro",
-        "src/components/footer/Footer.astro",
-        "src/components/motion/BootSplash.astro",
-        "src/components/sections/AboutStorySplit.astro",
-        "src/components/sections/ArchitectureDiagram.astro",
-        "src/components/sections/BentoGrid.astro",
-        "src/components/sections/CaseCardGrid.astro",
-        "src/components/sections/CaseSplit.astro",
-        "src/components/sections/CaseSpotlight.astro",
-        "src/components/sections/ComparisonTable.astro",
-        "src/components/sections/ContactForm.astro",
-        "src/components/sections/CourseCatalogTable.astro",
-        "src/components/sections/CtaFinal.astro",
-        "src/components/sections/CtaFormInline.astro",
-        "src/components/sections/DecisionList.astro",
-        "src/components/sections/DiagnosticStages.astro",
-        "src/components/sections/EditorialPreview.astro",
-        "src/components/sections/FaqCtaAside.astro",
-        "src/components/sections/FeatureAccordion.astro",
-        "src/components/sections/FeatureGrid.astro",
         "src/components/sections/HeroAtlas.astro",
         "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroFormInline.astro",
         "src/components/sections/HeroHome.astro",
         "src/components/sections/HeroHubStats.astro",
         "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/HeroSocialProof.astro",
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/HeroTunnelStep.astro",
+        "src/components/sections/InclusionsList.astro",
         "src/components/sections/IntegrationsGrid.astro",
+        "src/components/sections/LearningPathList.astro",
+        "src/components/sections/MarqueeBand.astro",
         "src/components/sections/MaturityPyramid.astro",
+        "src/components/sections/MediaBlock.astro",
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
@@ -5501,31 +5521,50 @@
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainPoints.astro",
+        "src/components/sections/PersonaAttributesGrid.astro",
         "src/components/sections/PricingCards.astro",
         "src/components/sections/PricingSingleHighlight.astro",
         "src/components/sections/PricingTable.astro",
         "src/components/sections/PricingToggle.astro",
         "src/components/sections/ProblemStatement.astro",
+        "src/components/sections/ProcessSteps.astro",
         "src/components/sections/QuoteSpotlight.astro",
+        "src/components/sections/ResourceCardGrid.astro",
         "src/components/sections/RoiBand.astro",
         "src/components/sections/ServiceCatalogList.astro",
         "src/components/sections/ServicesGrid.astro",
+        "src/components/sections/SocialProof.astro",
+        "src/components/sections/SpecBar.astro",
         "src/components/sections/StatBlock.astro",
+        "src/components/sections/StatCounter.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/StepsHorizontal.astro",
         "src/components/sections/TeamBioGrid.astro",
         "src/components/sections/TeamCardGrid.astro",
         "src/components/sections/TechCapabilitiesSpecs.astro",
+        "src/components/sections/TechIntegrationFlow.astro",
         "src/components/sections/TechPositioningSplit.astro",
+        "src/components/sections/TechWhenDual.astro",
+        "src/components/sections/TerminalMetricsStrip.astro",
+        "src/components/sections/TerminalMockupSection.astro",
         "src/components/sections/TerminalTableSection.astro",
+        "src/components/sections/TestimonialLogoMetric.astro",
+        "src/components/sections/TestimonialMetrics.astro",
+        "src/components/sections/TestimonialSingleSpotlight.astro",
+        "src/components/sections/TimelineHorizontal.astro",
         "src/components/sections/TrustBadgesBand.astro",
         "src/components/sections/TrustLegalSection.astro",
         "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
+        "src/components/sections/VersusCompetitors.astro",
+        "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WhyStalls.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/AuthorPageTemplate.astro",
         "src/components/templates/CaseStudyTemplate.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/CourseDetailTemplate.astro",
+        "src/components/templates/DetailMenuTemplate.astro",
         "src/components/templates/EssayTemplate.astro",
         "src/components/templates/LeadMagnetTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
@@ -5533,11 +5572,17 @@
         "src/components/templates/TunnelStepTemplate.astro",
         "src/components/ui/atoms/ChapterLabel.astro",
         "src/components/ui/atoms/FormErrors.astro",
+        "src/components/ui/atoms/PillCTA.astro",
+        "src/components/ui/atoms/SectionTransition.astro",
+        "src/components/ui/atoms/TerminalCTA.astro",
+        "src/components/ui/molecules/AsymmetricServiceRow.astro",
         "src/components/ui/molecules/AuthorByline.astro",
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/Breadcrumb.astro",
+        "src/components/ui/molecules/EditorialCaseCard.astro",
         "src/components/ui/molecules/FitColumns.astro",
         "src/components/ui/molecules/NewsletterSignup.astro",
+        "src/components/ui/molecules/PainPointInline.astro",
         "src/components/ui/molecules/PricingTier.astro",
         "src/components/ui/molecules/ProofBand.astro",
         "src/components/ui/molecules/RelatedByCluster.astro",
@@ -5546,9 +5591,12 @@
         "src/components/ui/molecules/ShareButtons.astro",
         "src/components/ui/molecules/TableOfContents.astro",
         "src/components/ui/molecules/TagPills.astro",
+        "src/components/ui/molecules/TechPillRow.astro",
+        "src/components/ui/molecules/TerminalMockup.astro",
         "src/components/ui/molecules/TunnelNav.astro",
         "src/components/ui/organisms/AtlasGrid.astro",
         "src/components/ui/organisms/BookSession.astro",
+        "src/components/ui/organisms/CookiesBanner.astro",
         "src/components/ui/organisms/FooterMarquee.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/components/ui/organisms/PersonaSwitcher.astro",
@@ -5557,546 +5605,22 @@
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
-        "src/pages/cas/index.astro",
-        "src/pages/categories/[slug].astro",
-        "src/pages/components/[type].astro",
-        "src/pages/contact.astro",
-        "src/pages/manifesto.astro",
-        "src/pages/offres/audit-maturite-ia.astro",
-        "src/pages/plan-du-site.astro",
-        "src/pages/ressources/academy.astro",
-        "src/pages/ressources/index.astro",
-        "src/pages/ressources/outils/index.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-h1-display",
-      "count": 23,
-      "files": [
-        "src/components/sections/CaseSpotlight.astro",
-        "src/components/sections/EditorialTableBlock.astro",
-        "src/components/sections/HeroHome.astro",
-        "src/components/sections/HeroHubStats.astro",
-        "src/components/sections/HowWeShip.astro",
-        "src/components/sections/ManifestoStatement.astro",
-        "src/components/sections/NewsletterBand.astro",
-        "src/components/sections/PainPoints.astro",
-        "src/components/sections/RoiBand.astro",
-        "src/components/sections/TechCapabilitiesSpecs.astro",
-        "src/components/sections/TechIntegrationFlow.astro",
-        "src/components/sections/TechPositioningSplit.astro",
-        "src/components/sections/TechWhenDual.astro",
-        "src/components/sections/TrustLegalSection.astro",
-        "src/components/sections/WorkflowTable.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/ui/molecules/AsymmetricServiceRow.astro",
-        "src/components/ui/molecules/EditorialCaseCard.astro",
-        "src/components/ui/organisms/Hero.astro",
-        "src/pages/cas/index.astro",
-        "src/pages/ressources/index.astro"
-      ]
-    },
-    {
-      "token": "--text-h1-hero",
-      "count": 19,
-      "files": [
-        "src/components/sections/AsymmetricServices.astro",
-        "src/components/sections/HeroAtlas.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroFormInline.astro",
-        "src/components/sections/HeroHome.astro",
-        "src/components/sections/HeroLiquid.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/HeroSocialProof.astro",
-        "src/components/sections/HeroSplit.astro",
-        "src/components/sections/HeroTunnelStep.astro",
-        "src/components/sections/ManifestoBlock.astro",
-        "src/components/sections/OfferTierGrid.astro",
-        "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/templates/ConversionFunnelTemplate.astro",
-        "src/components/ui/organisms/Hero.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/plan-du-site.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-h2-grand",
-      "count": 23,
-      "files": [
-        "src/components/editorial/KeyMetric.astro",
-        "src/components/motion/BootSplash.astro",
-        "src/components/sections/CtaFinal.astro",
-        "src/components/sections/FitColumnsSection.astro",
-        "src/components/sections/FooterCtaBand.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/HeroTunnelStep.astro",
-        "src/components/sections/MetricShift.astro",
-        "src/components/sections/ProblemStatement.astro",
-        "src/components/sections/StatCounter.astro",
-        "src/components/sections/StatsBento.astro",
-        "src/components/sections/TestimonialMetrics.astro",
-        "src/components/sections/VersusCompetitors.astro",
-        "src/components/sections/WelcomeSection.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/ui/organisms/AtlasGrid.astro",
-        "src/components/ui/organisms/BookSession.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/manifesto.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-h2-section",
-      "count": 51,
-      "files": [
-        "src/components/sections/ArchitectureDiagram.astro",
-        "src/components/sections/ArticleGrid.astro",
-        "src/components/sections/CaseCardGrid.astro",
-        "src/components/sections/CodeShowcase.astro",
-        "src/components/sections/ComingSoonPills.astro",
-        "src/components/sections/ComparisonTable.astro",
-        "src/components/sections/DataTable.astro",
-        "src/components/sections/DecisionList.astro",
-        "src/components/sections/DiagnosticStages.astro",
-        "src/components/sections/EcosystemPartners.astro",
-        "src/components/sections/EditorialWriteFeed.astro",
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/FeatureSplitMedia.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/InclusionsList.astro",
-        "src/components/sections/ManifestoAct.astro",
-        "src/components/sections/MetricShift.astro",
-        "src/components/sections/ObjectionHandler.astro",
-        "src/components/sections/OfferTierGrid.astro",
-        "src/components/sections/PricingCards.astro",
-        "src/components/sections/ProblemStatement.astro",
-        "src/components/sections/ProcessSteps.astro",
-        "src/components/sections/QuoteSpotlight.astro",
-        "src/components/sections/ResourceCardGrid.astro",
-        "src/components/sections/ServiceCatalogList.astro",
-        "src/components/sections/ServicesGrid.astro",
-        "src/components/sections/StatBlock.astro",
-        "src/components/sections/StatsBento.astro",
-        "src/components/sections/TerminalMockupSection.astro",
-        "src/components/sections/TerminalTableSection.astro",
-        "src/components/sections/TimelineBlock.astro",
-        "src/components/sections/TimelineHorizontal.astro",
-        "src/components/sections/WelcomeSection.astro",
-        "src/components/sections/WhyStalls.astro",
-        "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/templates/DetailMenuTemplate.astro",
-        "src/components/templates/LeadMagnetTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/ui/molecules/AsymmetricServiceRow.astro",
-        "src/components/ui/molecules/PricingTier.astro",
-        "src/components/ui/molecules/ServiceCatalogRow.astro",
-        "src/components/ui/organisms/AtlasGrid.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/design-system.astro",
         "src/pages/agence/methode.astro",
         "src/pages/cas/index.astro",
+        "src/pages/categories/[slug].astro",
+        "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
         "src/pages/contact.astro",
-        "src/pages/offres/index.astro",
+        "src/pages/manifesto.astro",
+        "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/plan-du-site.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-h2-tight",
-      "count": 28,
-      "files": [
-        "src/components/sections/ArchitectureDiagram.astro",
-        "src/components/sections/BrandedCallout.astro",
-        "src/components/sections/CaseCardGrid.astro",
-        "src/components/sections/CtaNewsletterFooter.astro",
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/HeroHubStats.astro",
-        "src/components/sections/HowWeShip.astro",
-        "src/components/sections/MethodTimeline.astro",
-        "src/components/sections/PricingTable.astro",
-        "src/components/sections/ProblemStatement.astro",
-        "src/components/sections/StatsBento.astro",
-        "src/components/sections/TeamCardGrid.astro",
-        "src/components/sections/TechStackBand.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/LeadMagnetTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/ui/molecules/PricingTier.astro",
-        "src/components/ui/organisms/PersonaSwitcher.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/contact.astro",
-        "src/pages/manifesto.astro",
-        "src/pages/offres/audit-maturite-ia.astro",
-        "src/pages/ressources/index.astro",
-        "src/pages/ressources/outils/index.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-h3-card",
-      "count": 40,
-      "files": [
-        "src/components/sections/ArticleGrid.astro",
-        "src/components/sections/BentoGrid.astro",
-        "src/components/sections/CaseSpotlight.astro",
-        "src/components/sections/ComparisonDuo.astro",
-        "src/components/sections/ComparisonPricingCallout.astro",
-        "src/components/sections/DiagnosticStages.astro",
-        "src/components/sections/EditorialPreview.astro",
-        "src/components/sections/FaqAccordion.astro",
-        "src/components/sections/FaqCtaAside.astro",
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/GalleryMasonry.astro",
-        "src/components/sections/GuaranteeBlock.astro",
-        "src/components/sections/MaturityPyramid.astro",
-        "src/components/sections/MethodTimeline.astro",
-        "src/components/sections/ObjectionHandler.astro",
-        "src/components/sections/OfferTierGrid.astro",
-        "src/components/sections/PainPoints.astro",
-        "src/components/sections/PersonaAttributesGrid.astro",
-        "src/components/sections/ProcessSteps.astro",
-        "src/components/sections/ResourceCardGrid.astro",
-        "src/components/sections/StepsHorizontal.astro",
-        "src/components/sections/TeamBioGrid.astro",
-        "src/components/sections/TechPositioningSplit.astro",
-        "src/components/sections/TechStackBand.astro",
-        "src/components/sections/TerminalTableSection.astro",
-        "src/components/sections/TimelineBlock.astro",
-        "src/components/sections/WorkflowTable.astro",
-        "src/components/templates/ConversionFunnelTemplate.astro",
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/LeadMagnetTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/ui/molecules/EditorialWriteRow.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/agence/methode.astro",
-        "src/pages/manifesto.astro",
-        "src/pages/ressources/academy.astro"
-      ]
-    },
-    {
-      "token": "--text-h3-row",
-      "count": 56,
-      "files": [
-        "src/components/editorial/Callout.astro",
-        "src/components/editorial/Timeline.astro",
-        "src/components/footer/Footer.astro",
-        "src/components/sections/AboutStorySplit.astro",
-        "src/components/sections/BentoGrid.astro",
-        "src/components/sections/ComparisonTable.astro",
-        "src/components/sections/EditorialPreview.astro",
-        "src/components/sections/FaqCtaAside.astro",
-        "src/components/sections/FaqTwoColumn.astro",
-        "src/components/sections/FeatureAccordion.astro",
-        "src/components/sections/FeatureComparisonGrid.astro",
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/FeatureTabs.astro",
-        "src/components/sections/FeatureZigzag.astro",
-        "src/components/sections/HeroAtlas.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroFormInline.astro",
-        "src/components/sections/HeroHubStats.astro",
-        "src/components/sections/MaturityPyramid.astro",
-        "src/components/sections/MetricShift.astro",
-        "src/components/sections/OfferTierGrid.astro",
-        "src/components/sections/OperatingLayer.astro",
-        "src/components/sections/PainPoints.astro",
-        "src/components/sections/ServicesGrid.astro",
-        "src/components/sections/StatCounter.astro",
-        "src/components/sections/TechPositioningSplit.astro",
-        "src/components/sections/TestimonialBlock.astro",
-        "src/components/sections/TestimonialLogoMetric.astro",
-        "src/components/sections/TestimonialMetrics.astro",
-        "src/components/sections/TestimonialSingleSpotlight.astro",
-        "src/components/sections/TimelineHorizontal.astro",
-        "src/components/sections/TrustBadgesBand.astro",
-        "src/components/sections/TrustLegalSection.astro",
-        "src/components/sections/UseCaseIndex.astro",
-        "src/components/sections/WelcomeSection.astro",
-        "src/components/sections/WhyStalls.astro",
-        "src/components/sections/WorkflowTable.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/DetailMenuTemplate.astro",
-        "src/components/templates/LeadMagnetTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/ui/molecules/NewsletterSignup.astro",
-        "src/components/ui/molecules/RelatedCards.astro",
-        "src/components/ui/organisms/PersonaSwitcher.astro",
-        "src/components/ui/organisms/Stub.astro",
-        "src/pages/404.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/hero-lab.astro",
-        "src/pages/cas/index.astro",
-        "src/pages/manifesto.astro",
-        "src/pages/offres/audit-maturite-ia.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-label",
-      "count": 32,
-      "files": [
-        "src/components/sections/CaseSplit.astro",
-        "src/components/sections/CtaFinal.astro",
-        "src/components/sections/EditorialSplitGrid.astro",
-        "src/components/sections/EditorialTableBlock.astro",
-        "src/components/sections/HeroAtlas.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroHome.astro",
-        "src/components/sections/HeroHubStats.astro",
-        "src/components/sections/HeroTunnelStep.astro",
-        "src/components/sections/MaturityPyramid.astro",
-        "src/components/sections/SocialProof.astro",
-        "src/components/sections/TechCapabilitiesSpecs.astro",
-        "src/components/sections/TechIntegrationFlow.astro",
-        "src/components/sections/TechPositioningSplit.astro",
-        "src/components/sections/TechWhenDual.astro",
-        "src/components/sections/WorkflowTable.astro",
-        "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/templates/DetailMenuTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/ui/atoms/SectionTransition.astro",
-        "src/components/ui/molecules/AsymmetricServiceRow.astro",
-        "src/components/ui/molecules/PainPointInline.astro",
-        "src/components/ui/organisms/AtlasGrid.astro",
-        "src/components/ui/organisms/BookSession.astro",
-        "src/components/ui/organisms/Hero.astro",
-        "src/pages/cas/index.astro",
-        "src/pages/categories/[slug].astro",
-        "src/pages/ressources/index.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-lede",
-      "count": 35,
-      "files": [
-        "src/components/editorial/Callout.astro",
-        "src/components/footer/Footer.astro",
-        "src/components/sections/ArchitectureDiagram.astro",
-        "src/components/sections/AsymmetricServices.astro",
-        "src/components/sections/CtaFinal.astro",
-        "src/components/sections/EcosystemPartners.astro",
-        "src/components/sections/HeroAtlas.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroFullBleed.astro",
-        "src/components/sections/HeroHome.astro",
-        "src/components/sections/HeroLiquid.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/HeroSocialProof.astro",
-        "src/components/sections/HeroSplit.astro",
-        "src/components/sections/HeroTunnelStep.astro",
-        "src/components/sections/HowWeShip.astro",
-        "src/components/sections/ListIndexSection.astro",
-        "src/components/sections/OfferTierGrid.astro",
-        "src/components/sections/OperatingLayer.astro",
-        "src/components/sections/QuoteSpotlight.astro",
-        "src/components/sections/TechWhenDual.astro",
-        "src/components/sections/WelcomeSection.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/ConversionFunnelTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/ui/organisms/BookSession.astro",
-        "src/components/ui/organisms/Hero.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/cas/index.astro",
-        "src/pages/components/[type].astro",
-        "src/pages/manifesto.astro",
-        "src/pages/ressources/index.astro"
-      ]
-    },
-    {
-      "token": "--text-mega",
-      "count": 9,
-      "files": [
-        "src/components/editorial/KeyMetric.astro",
-        "src/components/footer/Footer.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroFullBleed.astro",
-        "src/components/sections/HeroHubStats.astro",
-        "src/components/sections/HowWeShip.astro",
-        "src/components/sections/ListIndexSection.astro",
-        "src/pages/404.astro",
-        "src/pages/agence/design-system.astro"
-      ]
-    },
-    {
-      "token": "--text-mono-xs",
-      "count": 53,
-      "files": [
-        "src/components/footer/Footer.astro",
-        "src/components/library/DsLocalNav.astro",
-        "src/components/sections/AnnouncementBanner.astro",
-        "src/components/sections/ArticleGrid.astro",
-        "src/components/sections/CaseCardGrid.astro",
-        "src/components/sections/CodeShowcase.astro",
-        "src/components/sections/ComparisonDuo.astro",
-        "src/components/sections/ComparisonTable.astro",
-        "src/components/sections/CourseCatalogTable.astro",
-        "src/components/sections/DataTable.astro",
-        "src/components/sections/EditorialPreview.astro",
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/FeatureSplitMedia.astro",
-        "src/components/sections/FeatureTabs.astro",
-        "src/components/sections/HeroAtlas.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/MaturityPyramid.astro",
-        "src/components/sections/OperatingLayer.astro",
-        "src/components/sections/PricingCards.astro",
-        "src/components/sections/PricingSingleHighlight.astro",
-        "src/components/sections/PricingTable.astro",
-        "src/components/sections/PricingToggle.astro",
-        "src/components/sections/QuoteSpotlight.astro",
-        "src/components/sections/ResourceCardGrid.astro",
-        "src/components/sections/ServicesGrid.astro",
-        "src/components/sections/SpecBar.astro",
-        "src/components/sections/TerminalMetricsStrip.astro",
-        "src/components/sections/TimelineHorizontal.astro",
-        "src/components/sections/TrustLegalSection.astro",
-        "src/components/sections/WorkflowTable.astro",
-        "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/ui/molecules/AuthorCard.astro",
-        "src/components/ui/molecules/PricingTier.astro",
-        "src/components/ui/molecules/ShareButtons.astro",
-        "src/components/ui/molecules/TableOfContents.astro",
-        "src/components/ui/molecules/TunnelNav.astro",
-        "src/components/ui/organisms/CookiesBanner.astro",
-        "src/components/ui/organisms/PersonaSwitcher.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/agence/hero-lab.astro",
-        "src/pages/categories/[slug].astro",
-        "src/pages/components/[type].astro",
-        "src/pages/contact.astro",
         "src/pages/preview/[type].astro",
         "src/pages/preview/[type]/[preset].astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-pull-quote",
-      "count": 22,
-      "files": [
-        "src/components/editorial/KeyMetric.astro",
-        "src/components/editorial/PullQuote.astro",
-        "src/components/sections/CaseSplit.astro",
-        "src/components/sections/CaseSpotlight.astro",
-        "src/components/sections/DiagnosticStages.astro",
-        "src/components/sections/EditorialSplitGrid.astro",
-        "src/components/sections/MaturityPyramid.astro",
-        "src/components/sections/MethodTimeline.astro",
-        "src/components/sections/MetricShift.astro",
-        "src/components/sections/TestimonialLogoMetric.astro",
-        "src/components/sections/TestimonialMetrics.astro",
-        "src/components/sections/TestimonialSingleSpotlight.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/LeadMagnetTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TunnelStepTemplate.astro",
-        "src/components/ui/molecules/ProofBand.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/hero-lab.astro",
-        "src/pages/agence/methode.astro",
-        "src/pages/offres/audit-maturite-ia.astro"
-      ]
-    },
-    {
-      "token": "--text-stat",
-      "count": 11,
-      "files": [
-        "src/components/editorial/KeyMetric.astro",
-        "src/components/sections/MetricCalloutBand.astro",
-        "src/components/sections/PricingSingleHighlight.astro",
-        "src/components/sections/PricingToggle.astro",
-        "src/components/sections/RoiBand.astro",
-        "src/components/sections/StatBlock.astro",
-        "src/components/templates/DetailMenuTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/pages/manifesto.astro",
-        "src/pages/ressources/index.astro",
-        "src/styles/global.css"
-      ]
-    },
-    {
-      "token": "--text-ui",
-      "count": 43,
-      "files": [
-        "src/components/editorial/KeyMetric.astro",
-        "src/components/footer/Footer.astro",
-        "src/components/library/DsLocalNav.astro",
-        "src/components/sections/AnnouncementBanner.astro",
-        "src/components/sections/CaseCardGrid.astro",
-        "src/components/sections/CaseSplit.astro",
-        "src/components/sections/CourseCatalogTable.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/MetricShift.astro",
-        "src/components/sections/ResourceCardGrid.astro",
-        "src/components/sections/ServicesGrid.astro",
-        "src/components/sections/SpecBar.astro",
-        "src/components/sections/TerminalMockupSection.astro",
-        "src/components/sections/TerminalTableSection.astro",
-        "src/components/sections/TestimonialLogoMetric.astro",
-        "src/components/sections/VersusCompetitors.astro",
-        "src/components/sections/WhyStalls.astro",
-        "src/components/templates/AuthorPageTemplate.astro",
-        "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro",
-        "src/components/ui/atoms/PillCTA.astro",
-        "src/components/ui/atoms/TerminalCTA.astro",
-        "src/components/ui/molecules/AuthorByline.astro",
-        "src/components/ui/molecules/EditorialCaseCard.astro",
-        "src/components/ui/molecules/PainPointInline.astro",
-        "src/components/ui/molecules/RelatedCards.astro",
-        "src/components/ui/molecules/TunnelNav.astro",
-        "src/components/ui/organisms/AtlasGrid.astro",
-        "src/components/ui/organisms/CookiesBanner.astro",
-        "src/pages/agence/about.astro",
-        "src/pages/agence/design-system.astro",
-        "src/pages/agence/ds-studio.astro",
-        "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
-        "src/pages/categories/[slug].astro",
-        "src/pages/contact.astro",
-        "src/pages/offres/audit-maturite-ia.astro",
-        "src/pages/plan-du-site.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
-        "src/styles/global.css"
+        "src/pages/ressources/outils/index.astro",
+        "src/styles/global.css",
+        "src/styles/grid.css"
       ]
     },
     {
@@ -6263,6 +5787,13 @@
       ]
     },
     {
+      "token": "--viewport-h",
+      "count": 1,
+      "files": [
+        "src/components/sections/HeroHubStats.astro"
+      ]
+    },
+    {
       "token": "--wrap",
       "count": 4,
       "files": [
@@ -6357,7 +5888,7 @@
       "tokensUsed": [
         "--accent-text",
         "--font-display",
-        "--text-h2-tight"
+        "--text-h2"
       ],
       "hover": false
     },
@@ -6368,8 +5899,8 @@
         "--accent-text",
         "--dur-hover",
         "--font-mono",
-        "--text-body-base",
-        "--text-body-sm"
+        "--text-body",
+        "--text-small"
       ],
       "hover": false
     },
@@ -6379,7 +5910,7 @@
       "tokensUsed": [
         "--leading-relaxed",
         "--muted",
-        "--text-label"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6389,7 +5920,7 @@
       "tokensUsed": [
         "--accent-text",
         "--font-mono",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-caps"
       ],
       "hover": false
@@ -6400,7 +5931,7 @@
       "tokensUsed": [
         "--leading-relaxed",
         "--muted",
-        "--text-ui"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6432,7 +5963,7 @@
         "--ink-rgb",
         "--radius-xs",
         "--space-2",
-        "--text-ui",
+        "--text-small",
         "--tracking-body"
       ],
       "hover": true
@@ -6472,7 +6003,7 @@
       "name": "btn-lg",
       "file": "src/styles/global.css",
       "tokensUsed": [
-        "--text-body-sm"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6556,10 +6087,9 @@
         "--radius-sm",
         "--space-5",
         "--space-6",
-        "--text-body-base",
-        "--text-eyebrow",
-        "--text-h2-tight",
-        "--text-label",
+        "--text-body",
+        "--text-h2",
+        "--text-small",
         "--tracking-mono"
       ],
       "hover": true
@@ -6598,7 +6128,7 @@
         "--font-sans",
         "--fw-medium",
         "--fw-regular",
-        "--text-h2-tight"
+        "--text-h2"
       ],
       "hover": false
     },
@@ -6687,7 +6217,7 @@
       "name": "col-aside",
       "file": "src/styles/grid.css",
       "tokensUsed": [
-        "--text-body-sm"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6760,8 +6290,7 @@
         "--radius-pill",
         "--shadow-cta-hover",
         "--space-2",
-        "--text-caption",
-        "--text-eyebrow",
+        "--text-small",
         "--tracking-body",
         "--tracking-mono"
       ],
@@ -6773,7 +6302,7 @@
       "tokensUsed": [
         "--leading-relaxed",
         "--muted",
-        "--text-label"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6804,7 +6333,7 @@
       "tokensUsed": [
         "--font-mono",
         "--muted",
-        "--text-eyebrow"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6814,7 +6343,7 @@
       "tokensUsed": [
         "--leading-relaxed",
         "--muted",
-        "--text-label"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6825,7 +6354,7 @@
         "--accent-text",
         "--font-mono",
         "--space-4",
-        "--text-eyebrow"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6838,8 +6367,7 @@
         "--hairline",
         "--ink-2",
         "--space-2",
-        "--text-caption",
-        "--text-ui"
+        "--text-small"
       ],
       "hover": false
     },
@@ -6849,7 +6377,7 @@
       "tokensUsed": [
         "--accent-text",
         "--font-display",
-        "--text-stat"
+        "--text-h1"
       ],
       "hover": false
     },
@@ -6859,7 +6387,7 @@
       "tokensUsed": [
         "--font-mono",
         "--muted",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-caps"
       ],
       "hover": false
@@ -6874,7 +6402,7 @@
         "--fw-medium",
         "--fw-regular",
         "--leading-h3",
-        "--text-h3-row"
+        "--text-h3"
       ],
       "hover": false
     },
@@ -6924,13 +6452,9 @@
         "--space-4",
         "--space-6",
         "--space-7",
-        "--text-caption",
-        "--text-eyebrow",
-        "--text-h3-row",
-        "--text-label",
-        "--text-mono-xs",
-        "--text-stat",
-        "--text-ui",
+        "--text-h1",
+        "--text-h3",
+        "--text-small",
         "--tracking-caps"
       ],
       "hover": true
@@ -6979,7 +6503,7 @@
         "--font-mono",
         "--radius-pill",
         "--space-2",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-mono-tight"
       ],
       "hover": false
@@ -7042,7 +6566,7 @@
       "name": "goal",
       "file": "src/styles/global.css",
       "tokensUsed": [
-        "--text-eyebrow"
+        "--text-small"
       ],
       "hover": false
     },
@@ -7073,7 +6597,7 @@
         "--radius-pill",
         "--shadow-cta-hover",
         "--space-2",
-        "--text-caption",
+        "--text-small",
         "--tracking-body"
       ],
       "hover": false
@@ -7098,7 +6622,7 @@
       "file": "src/styles/global.css",
       "tokensUsed": [
         "--font-sans",
-        "--text-ui",
+        "--text-small",
         "--tracking-body"
       ],
       "hover": false
@@ -7165,7 +6689,7 @@
         "--font-sans",
         "--fw-medium",
         "--fw-regular",
-        "--text-h2-tight"
+        "--text-h2"
       ],
       "hover": false
     },
@@ -7192,9 +6716,9 @@
         "--muted",
         "--space-7",
         "--space-8",
-        "--text-h2-grand",
-        "--text-h2-tight",
-        "--text-label"
+        "--text-h1",
+        "--text-h2",
+        "--text-small"
       ],
       "hover": false
     },
@@ -7204,7 +6728,7 @@
       "tokensUsed": [
         "--font-mono",
         "--muted",
-        "--text-eyebrow",
+        "--text-small",
         "--tracking-mono"
       ],
       "hover": false
@@ -7225,7 +6749,7 @@
       "tokensUsed": [
         "--fw-medium",
         "--ink-2",
-        "--text-label"
+        "--text-small"
       ],
       "hover": false
     },
@@ -7289,7 +6813,7 @@
       "tokensUsed": [
         "--font-display",
         "--ink",
-        "--text-h3-row"
+        "--text-h3"
       ],
       "hover": false
     },
@@ -7299,7 +6823,7 @@
       "tokensUsed": [
         "--accent-text",
         "--font-mono",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-caps"
       ],
       "hover": false
@@ -7317,7 +6841,7 @@
         "--muted",
         "--radius-pill",
         "--space-1",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-mono"
       ],
       "hover": true
@@ -7400,8 +6924,7 @@
         "--space-1",
         "--space-2",
         "--space-3",
-        "--text-body-sm",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-caps",
         "--tracking-mono-tight"
       ],
@@ -7420,9 +6943,9 @@
         "--leading-h2",
         "--muted",
         "--space-4",
-        "--text-body-base",
-        "--text-h2-tight",
-        "--text-mono-xs"
+        "--text-body",
+        "--text-h2",
+        "--text-small"
       ],
       "hover": false
     },
@@ -7450,7 +6973,7 @@
       "tokensUsed": [
         "--hairline-strong",
         "--radius-pill",
-        "--text-body-base"
+        "--text-body"
       ],
       "hover": false
     },
@@ -7471,7 +6994,7 @@
         "--font-sans",
         "--fw-medium",
         "--hairline",
-        "--text-h2-tight"
+        "--text-h2"
       ],
       "hover": false
     },
@@ -7496,7 +7019,7 @@
         "--ink",
         "--muted",
         "--space-1",
-        "--text-h3-row"
+        "--text-h3"
       ],
       "hover": false
     },
@@ -7524,7 +7047,7 @@
         "--ink",
         "--muted",
         "--space-4",
-        "--text-eyebrow",
+        "--text-small",
         "--tracking-mono-tight",
         "--wrap-wide"
       ],
@@ -7551,7 +7074,7 @@
         "--hairline-strong",
         "--ink",
         "--space-2",
-        "--text-eyebrow",
+        "--text-small",
         "--tracking-mono-tight"
       ],
       "hover": true
@@ -7568,8 +7091,7 @@
         "--leading-h3",
         "--space-2",
         "--space-3",
-        "--text-eyebrow",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-caps"
       ],
       "hover": false
@@ -7591,9 +7113,7 @@
         "--paper-2",
         "--space-2",
         "--space-5",
-        "--text-eyebrow",
-        "--text-mono-xs",
-        "--text-ui",
+        "--text-small",
         "--tracking-caps",
         "--tracking-mono"
       ],
@@ -7625,9 +7145,7 @@
         "--muted",
         "--radius-pill",
         "--space-2",
-        "--text-body-sm",
-        "--text-eyebrow",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-body",
         "--tracking-mono-tight"
       ],
@@ -7642,7 +7160,7 @@
         "--ink",
         "--leading-lede",
         "--space-3",
-        "--text-body-md",
+        "--text-body",
         "--tracking-body"
       ],
       "hover": false
@@ -7664,7 +7182,7 @@
         "--accent-text",
         "--font-mono",
         "--space-4",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-caps"
       ],
       "hover": false
@@ -7686,8 +7204,8 @@
         "--font-display",
         "--font-mono",
         "--muted",
-        "--text-h2-grand",
-        "--text-mono-xs"
+        "--text-h1",
+        "--text-small"
       ],
       "hover": false
     },
@@ -7742,7 +7260,7 @@
         "--paper",
         "--radius-pill",
         "--space-2",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-mono"
       ],
       "hover": true
@@ -7777,7 +7295,7 @@
         "--ease",
         "--font-mono",
         "--muted",
-        "--text-body-base"
+        "--text-body"
       ],
       "hover": false
     },
@@ -7812,7 +7330,7 @@
         "--ink",
         "--leading-lede",
         "--space-3",
-        "--text-body-sm"
+        "--text-small"
       ],
       "hover": false
     },
@@ -7822,7 +7340,7 @@
       "tokensUsed": [
         "--font-display",
         "--font-sans",
-        "--text-h2-tight"
+        "--text-h2"
       ],
       "hover": false
     },
@@ -7947,7 +7465,7 @@
       "tokensUsed": [
         "--accent-text",
         "--font-display",
-        "--text-h2-tight"
+        "--text-h2"
       ],
       "hover": false
     },
@@ -8006,7 +7524,7 @@
         "--fw-medium",
         "--ink",
         "--leading-h3",
-        "--text-h2-section"
+        "--text-h2"
       ],
       "hover": false
     },
@@ -8036,10 +7554,8 @@
         "--space-12",
         "--space-4",
         "--space-9",
-        "--text-h2-section",
-        "--text-h2-tight",
-        "--text-label",
-        "--text-mono-xs",
+        "--text-h2",
+        "--text-small",
         "--tracking-caps"
       ],
       "hover": false
@@ -8074,7 +7590,7 @@
       "tokensUsed": [
         "--font-mono",
         "--muted",
-        "--text-eyebrow"
+        "--text-small"
       ],
       "hover": false
     },
@@ -8107,7 +7623,7 @@
         "--paper",
         "--radius-base",
         "--space-3",
-        "--text-caption"
+        "--text-small"
       ],
       "hover": false
     },
@@ -8174,7 +7690,7 @@
         "--fw-regular",
         "--leading-lede",
         "--muted",
-        "--text-eyebrow"
+        "--text-small"
       ],
       "hover": false
     },
@@ -8195,7 +7711,7 @@
         "--fw-medium",
         "--leading-h3",
         "--space-1",
-        "--text-body-sm",
+        "--text-small",
         "--tracking-body"
       ],
       "hover": false
@@ -8219,7 +7735,7 @@
         "--radius-pill",
         "--space-2",
         "--space-3",
-        "--text-mono-xs",
+        "--text-small",
         "--tracking-mono-tight"
       ],
       "hover": false
@@ -8245,7 +7761,7 @@
         "--leading-h2",
         "--leading-h3",
         "--space-4",
-        "--text-h2-tight"
+        "--text-h2"
       ],
       "hover": false
     },
@@ -8334,7 +7850,7 @@
   ],
   "duplicateClasses": [
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-body-base);justify-self:end;opacity:0;transition:opacity var(--dur-hover), transform var(--dur-hover)",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-body);justify-self:end;opacity:0;transition:opacity var(--dur-hover), transform var(--dur-hover)",
       "classes": [
         "arr",
         "case-row"
@@ -8348,21 +7864,21 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);flex:none;font-size:var(--text-body-sm)",
+      "signature": "color:var(--accent-text);flex:none;font-size:var(--text-small)",
       "classes": [
         "arr",
         "mega-link"
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:var(--text-label);line-height:var(--leading-relaxed);max-width:420px;text-wrap:pretty",
+      "signature": "color:var(--muted);font-size:var(--text-small);line-height:var(--leading-relaxed);max-width:420px;text-wrap:pretty",
       "classes": [
         "aside",
         "sec-hd"
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-caps);text-transform:uppercase",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-caps);text-transform:uppercase",
       "classes": [
         "badge",
         "k",
@@ -8371,7 +7887,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:var(--text-ui);line-height:var(--leading-relaxed);max-width:280px",
+      "signature": "color:var(--muted);font-size:var(--text-small);line-height:var(--leading-relaxed);max-width:280px",
       "classes": [
         "bd",
         "mega-featured"
@@ -8547,7 +8063,7 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h2-tight);font-weight:var(--fw-medium);letter-spacing:-0.018em;line-height:1.04",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);letter-spacing:-0.018em;line-height:1.04",
       "classes": [
         "case-row",
         "client"
@@ -8582,7 +8098,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.04em;text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.04em;text-transform:uppercase",
       "classes": [
         "case-row",
         "dur",
@@ -8590,14 +8106,14 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:var(--tracking-mono)",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono)",
       "classes": [
         "case-row",
         "idx"
       ]
     },
     {
-      "signature": "color:var(--ink-2);font-size:var(--text-label);font-weight:var(--fw-medium)",
+      "signature": "color:var(--ink-2);font-size:var(--text-small);font-weight:var(--fw-medium)",
       "classes": [
         "case-row",
         "impact"
@@ -8713,7 +8229,7 @@
       ]
     },
     {
-      "signature": "align-items:center;background:var(--ink);border-radius:var(--radius-pill);color:var(--paper);display:inline-flex;font-size:var(--text-caption);font-weight:var(--fw-medium);gap:var(--space-2);letter-spacing:var(--tracking-body);padding:10px 18px;transition:background var(--dur-hover) var(--ease), transform var(--dur-hover) var(--ease), box-shadow var(--dur-hover) var(--ease)",
+      "signature": "align-items:center;background:var(--ink);border-radius:var(--radius-pill);color:var(--paper);display:inline-flex;font-size:var(--text-small);font-weight:var(--fw-medium);gap:var(--space-2);letter-spacing:var(--tracking-body);padding:10px 18px;transition:background var(--dur-hover) var(--ease), transform var(--dur-hover) var(--ease), box-shadow var(--dur-hover) var(--ease)",
       "classes": [
         "cta",
         "hdr"
@@ -8738,14 +8254,14 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:var(--tracking-mono);margin-top:6px",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono);margin-top:6px",
       "classes": [
         "cta",
         "mega-featured"
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:var(--text-label);line-height:var(--leading-relaxed);text-wrap:pretty",
+      "signature": "color:var(--muted);font-size:var(--text-small);line-height:var(--leading-relaxed);text-wrap:pretty",
       "classes": [
         "desc",
         "e-body",
@@ -8761,14 +8277,14 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.1em;margin-top:var(--space-4)",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.1em;margin-top:var(--space-4)",
       "classes": [
         "e-go",
         "editorial-cell"
       ]
     },
     {
-      "signature": "align-items:center;color:var(--ink-2);display:flex;font-size:var(--text-caption);gap:var(--space-2)",
+      "signature": "align-items:center;color:var(--ink-2);display:flex;font-size:var(--text-small);gap:var(--space-2)",
       "classes": [
         "e-list",
         "editorial-cell"
@@ -8782,28 +8298,28 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);content:\"§\";flex-shrink:0;font-family:var(--font-display);font-size:var(--text-ui);font-style:italic",
+      "signature": "color:var(--accent-text);content:\"§\";flex-shrink:0;font-family:var(--font-display);font-size:var(--text-small);font-style:italic",
       "classes": [
         "e-list",
         "editorial-cell"
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-stat);font-style:italic;letter-spacing:-0.03em;line-height:1",
+      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h1);font-style:italic;letter-spacing:-0.03em;line-height:1",
       "classes": [
         "e-num",
         "editorial-cell"
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-caps);text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-caps);text-transform:uppercase",
       "classes": [
         "e-tag",
         "editorial-cell"
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h3-row);font-weight:var(--fw-medium);letter-spacing:-0.012em;line-height:var(--leading-h3);text-wrap:balance",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h3);font-weight:var(--fw-medium);letter-spacing:-0.012em;line-height:var(--leading-h3);text-wrap:balance",
       "classes": [
         "e-title",
         "editorial-cell"
@@ -8842,14 +8358,14 @@
       ]
     },
     {
-      "signature": "background:rgba(var(--accent-rgb), 0.08);border-radius:var(--radius-pill);color:var(--accent-text);display:inline-block;font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-mono-tight);margin-left:var(--space-2);padding:1px var(--space-2);vertical-align:middle;white-space:nowrap",
+      "signature": "background:rgba(var(--accent-rgb), 0.08);border-radius:var(--radius-pill);color:var(--accent-text);display:inline-block;font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono-tight);margin-left:var(--space-2);padding:1px var(--space-2);vertical-align:middle;white-space:nowrap",
       "classes": [
         "flag",
         "m-sheet-acc-col"
       ]
     },
     {
-      "signature": "background:rgba(var(--accent-rgb), 0.08);border-radius:var(--radius-pill);color:var(--accent-text);flex:none;font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-mono-tight);margin-left:auto;padding:2px 10px;white-space:nowrap",
+      "signature": "background:rgba(var(--accent-rgb), 0.08);border-radius:var(--radius-pill);color:var(--accent-text);flex:none;font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono-tight);margin-left:auto;padding:2px 10px;white-space:nowrap",
       "classes": [
         "flag",
         "mega-link"
@@ -8863,7 +8379,7 @@
       ]
     },
     {
-      "signature": "font-size:var(--text-eyebrow)",
+      "signature": "font-size:var(--text-small)",
       "classes": [
         "goal",
         "mega-col-hd"
@@ -8933,7 +8449,7 @@
       ]
     },
     {
-      "signature": "font-size:var(--text-h2-tight) !important",
+      "signature": "font-size:var(--text-h2) !important",
       "classes": [
         "home-typo",
         "qs-quote"
@@ -8947,14 +8463,14 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h2-grand);font-style:italic;letter-spacing:-0.026em;line-height:0.9",
+      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h1);font-style:italic;letter-spacing:-0.026em;line-height:0.9",
       "classes": [
         "how-row",
         "num"
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h2-tight);font-weight:var(--fw-medium);letter-spacing:-0.015em;line-height:var(--leading-h3);text-wrap:balance",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);letter-spacing:-0.015em;line-height:var(--leading-h3);text-wrap:balance",
       "classes": [
         "how-row",
         "ttl"
@@ -9226,14 +8742,14 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-display);font-size:var(--text-h3-row);font-style:italic;letter-spacing:-0.01em;padding:0 26px",
+      "signature": "color:var(--ink);font-family:var(--font-display);font-size:var(--text-h3);font-style:italic;letter-spacing:-0.01em;padding:0 26px",
       "classes": [
         "item",
         "marquee"
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-caps);margin-bottom:6px;text-transform:uppercase",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-caps);margin-bottom:6px;text-transform:uppercase",
       "classes": [
         "k",
         "m-sheet-acc-col"
@@ -9254,7 +8770,7 @@
       ]
     },
     {
-      "signature": "border-left:2px solid var(--accent);color:var(--ink);font-family:var(--font-display);font-size:var(--text-body-sm);font-style:italic;line-height:var(--leading-lede);margin:10px 0 6px;padding-left:var(--space-3)",
+      "signature": "border-left:2px solid var(--accent);color:var(--ink);font-family:var(--font-display);font-size:var(--text-small);font-style:italic;line-height:var(--leading-lede);margin:10px 0 6px;padding-left:var(--space-3)",
       "classes": [
         "m-sheet-acc-col",
         "q"
@@ -9275,21 +8791,21 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:0.16em",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.16em",
       "classes": [
         "m-sheet-acc-head",
         "num"
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-body-base);transition:transform var(--dur-hover) var(--ease)",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-body);transition:transform var(--dur-hover) var(--ease)",
       "classes": [
         "m-sheet-acc-head",
         "plus"
       ]
     },
     {
-      "signature": "flex:1;font-family:var(--font-sans);font-size:var(--text-h2-tight);font-weight:var(--fw-medium);letter-spacing:-0.018em;line-height:var(--leading-h2);padding-left:14px;padding-right:var(--space-4);text-align:left",
+      "signature": "flex:1;font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);letter-spacing:-0.018em;line-height:var(--leading-h2);padding-left:14px;padding-right:var(--space-4);text-align:left",
       "classes": [
         "m-sheet-acc-head",
         "ttl"
@@ -9374,21 +8890,21 @@
       ]
     },
     {
-      "signature": "color:var(--muted);display:block;font-size:var(--text-eyebrow);font-weight:var(--fw-regular);line-height:var(--leading-lede);margin-top:3px",
+      "signature": "color:var(--muted);display:block;font-size:var(--text-small);font-weight:var(--fw-regular);line-height:var(--leading-lede);margin-top:3px",
       "classes": [
         "mega-link",
         "sub"
       ]
     },
     {
-      "signature": "display:block;font-size:var(--text-body-sm);font-weight:450;letter-spacing:var(--tracking-body)",
+      "signature": "display:block;font-size:var(--text-small);font-weight:450;letter-spacing:var(--tracking-body)",
       "classes": [
         "mega-link",
         "t"
       ]
     },
     {
-      "signature": "align-items:center;color:var(--accent-text);display:flex;font-family:var(--font-mono);font-size:var(--text-mono-xs);gap:14px;letter-spacing:var(--tracking-caps);margin-bottom:var(--space-4);text-transform:uppercase",
+      "signature": "align-items:center;color:var(--accent-text);display:flex;font-family:var(--font-mono);font-size:var(--text-small);gap:14px;letter-spacing:var(--tracking-caps);margin-bottom:var(--space-4);text-transform:uppercase",
       "classes": [
         "n",
         "sec-hd"
@@ -9436,7 +8952,7 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h2-tight);font-style:italic;letter-spacing:-0.02em;line-height:1",
+      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h2);font-style:italic;letter-spacing:-0.02em;line-height:1",
       "classes": [
         "roman",
         "sec-hd"
@@ -9746,7 +9262,7 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h1-display);font-weight:var(--fw-medium);letter-spacing:-0.018em;line-height:var(--leading-h1);margin:var(--space-2) 0 0",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h1);font-weight:var(--fw-medium);letter-spacing:-0.018em;line-height:var(--leading-h1);margin:var(--space-2) 0 0",
       "count": 8,
       "files": [
         "src/components/sections/EditorialTableBlock.astro",
@@ -9773,7 +9289,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.1em;text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.1em;text-transform:uppercase",
       "count": 7,
       "files": [
         "src/components/sections/ContactForm.astro",
@@ -9786,7 +9302,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-sm);line-height:var(--leading-body);margin:0",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-body);margin:0",
       "count": 7,
       "files": [
         "src/components/sections/ArticleGrid.astro",
@@ -9876,7 +9392,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-display);font-size:var(--text-label);font-style:italic;line-height:var(--leading-body);margin:0;max-width:480px",
+      "signature": "color:var(--muted);font-family:var(--font-display);font-size:var(--text-small);font-style:italic;line-height:var(--leading-body);margin:0;max-width:480px",
       "count": 6,
       "files": [
         "src/components/sections/EditorialTableBlock.astro",
@@ -9888,7 +9404,31 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-base);line-height:var(--leading-body);margin:0",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.1em",
+      "count": 6,
+      "files": [
+        "src/components/sections/ArchitectureDiagram.astro",
+        "src/components/sections/EditorialPreview.astro",
+        "src/components/sections/ServiceCatalogList.astro",
+        "src/components/sections/ServicesGrid.astro",
+        "src/components/sections/TrustLegalSection.astro",
+        "src/components/ui/molecules/ServiceCatalogRow.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono);text-transform:uppercase",
+      "count": 6,
+      "files": [
+        "src/components/sections/AboutStorySplit.astro",
+        "src/components/sections/CaseCardGrid.astro",
+        "src/components/sections/FeatureSplitMedia.astro",
+        "src/components/sections/HeroOfferDetail.astro",
+        "src/components/sections/TestimonialLogoMetric.astro",
+        "src/components/templates/TunnelStepTemplate.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-body);margin:0",
       "count": 6,
       "files": [
         "src/components/sections/ArticleGrid.astro",
@@ -9900,7 +9440,7 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h2-section);font-weight:var(--fw-medium);letter-spacing:-0.02em;line-height:var(--leading-h3);margin:0;text-wrap:balance",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);letter-spacing:-0.02em;line-height:var(--leading-h3);margin:0;text-wrap:balance",
       "count": 6,
       "files": [
         "src/components/sections/ArticleGrid.astro",
@@ -9966,6 +9506,39 @@
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.14em",
+      "count": 5,
+      "files": [
+        "src/components/sections/PricingCards.astro",
+        "src/components/sections/PricingToggle.astro",
+        "src/components/templates/CaseStudyTemplate.astro",
+        "src/components/ui/molecules/PricingTier.astro",
+        "src/components/ui/molecules/RelatedCards.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono-tight);text-transform:uppercase",
+      "count": 5,
+      "files": [
+        "src/components/sections/ContactForm.astro",
+        "src/components/sections/TestimonialMetrics.astro",
+        "src/components/templates/CourseDetailTemplate.astro",
+        "src/components/templates/EssayTemplate.astro",
+        "src/components/ui/molecules/AuthorCard.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-relaxed);margin:0",
+      "count": 5,
+      "files": [
+        "src/components/sections/BentoGrid.astro",
+        "src/components/sections/ComparisonPricingCallout.astro",
+        "src/components/sections/FeatureGrid.astro",
+        "src/components/sections/StepsHorizontal.astro",
+        "src/components/ui/molecules/PainPointInline.astro"
       ]
     },
     {
@@ -10074,7 +9647,7 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);flex-shrink:0;font-family:var(--font-mono);font-size:var(--text-mono-xs)",
+      "signature": "color:var(--accent-text);flex-shrink:0;font-family:var(--font-mono);font-size:var(--text-small)",
       "count": 4,
       "files": [
         "src/components/sections/PricingCards.astro",
@@ -10084,7 +9657,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h2-section);font-weight:var(--fw-medium);line-height:var(--leading-h3);margin:0 0 var(--spacing-block)",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);line-height:var(--leading-h3);margin:0 0 var(--spacing-block)",
       "count": 4,
       "files": [
         "src/components/sections/ComparisonTable.astro",
@@ -10094,7 +9667,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h3-card);font-weight:var(--fw-medium);line-height:1.2",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h3);font-weight:var(--fw-medium);line-height:1.2",
       "count": 4,
       "files": [
         "src/components/sections/BentoGrid.astro",
@@ -10104,7 +9677,27 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.06em",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h3);font-weight:var(--fw-semibold);line-height:1.2",
+      "count": 4,
+      "files": [
+        "src/components/sections/ComparisonPricingCallout.astro",
+        "src/components/sections/TeamBioGrid.astro",
+        "src/components/sections/TestimonialMetrics.astro",
+        "src/components/sections/TestimonialSingleSpotlight.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small)",
+      "count": 4,
+      "files": [
+        "src/components/sections/CourseCatalogTable.astro",
+        "src/components/sections/TerminalTableSection.astro",
+        "src/components/sections/TestimonialLogoMetric.astro",
+        "src/components/sections/VersusCompetitors.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.06em",
       "count": 4,
       "files": [
         "src/components/sections/PricingCards.astro",
@@ -10114,33 +9707,13 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.06em;margin:0",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.06em;margin:0",
       "count": 4,
       "files": [
         "src/components/sections/ContactForm.astro",
         "src/components/sections/CtaFormInline.astro",
         "src/components/sections/FaqCtaAside.astro",
         "src/components/sections/NewsletterSignupSection.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.1em",
-      "count": 4,
-      "files": [
-        "src/components/sections/ArchitectureDiagram.astro",
-        "src/components/sections/ServiceCatalogList.astro",
-        "src/components/sections/ServicesGrid.astro",
-        "src/components/ui/molecules/ServiceCatalogRow.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-sm);line-height:var(--leading-relaxed);margin:0",
-      "count": 4,
-      "files": [
-        "src/components/sections/BentoGrid.astro",
-        "src/components/sections/ComparisonPricingCallout.astro",
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/StepsHorizontal.astro"
       ]
     },
     {
@@ -10222,7 +9795,7 @@
       ]
     },
     {
-      "signature": "align-items:baseline;color:var(--ink-2);display:flex;font-family:var(--font-sans);font-size:var(--text-body-sm);gap:var(--space-3);line-height:var(--leading-body)",
+      "signature": "align-items:baseline;color:var(--ink-2);display:flex;font-family:var(--font-sans);font-size:var(--text-small);gap:var(--space-3);line-height:var(--leading-body)",
       "count": 3,
       "files": [
         "src/components/sections/PricingCards.astro",
@@ -10258,7 +9831,7 @@
       ]
     },
     {
-      "signature": "background:transparent;border-radius:var(--radius-xs);border:1px solid rgba(var(--paper-rgb), 0.3);color:var(--paper);display:inline-block;font-size:var(--text-body-sm);font-weight:var(--fw-medium);letter-spacing:var(--tracking-body);padding:14px 28px;text-decoration:none;transition:border-color var(--dur-trim) var(--ease)",
+      "signature": "background:transparent;border-radius:var(--radius-xs);border:1px solid rgba(var(--paper-rgb), 0.3);color:var(--paper);display:inline-block;font-size:var(--text-small);font-weight:var(--fw-medium);letter-spacing:var(--tracking-body);padding:14px 28px;text-decoration:none;transition:border-color var(--dur-trim) var(--ease)",
       "count": 3,
       "files": [
         "src/components/sections/CtaFinal.astro",
@@ -10267,7 +9840,7 @@
       ]
     },
     {
-      "signature": "background:var(--accent-sur-clair);border-radius:var(--radius-pill);color:var(--paper);font-family:var(--font-mono);font-size:var(--text-mono-xs);left:var(--space-5);letter-spacing:0.14em;padding:6px var(--space-3);position:absolute;text-transform:uppercase;top:-12px",
+      "signature": "background:var(--accent-sur-clair);border-radius:var(--radius-pill);color:var(--paper);font-family:var(--font-mono);font-size:var(--text-small);left:var(--space-5);letter-spacing:0.14em;padding:6px var(--space-3);position:absolute;text-transform:uppercase;top:-12px",
       "count": 3,
       "files": [
         "src/components/sections/PricingCards.astro",
@@ -10285,7 +9858,7 @@
       ]
     },
     {
-      "signature": "background:var(--accent);border-radius:var(--radius-xs);color:var(--paper);display:inline-block;font-size:var(--text-body-sm);font-weight:var(--fw-medium);letter-spacing:var(--tracking-body);padding:14px 28px;text-decoration:none;transition:transform var(--dur-trim) var(--ease)",
+      "signature": "background:var(--accent);border-radius:var(--radius-xs);color:var(--paper);display:inline-block;font-size:var(--text-small);font-weight:var(--fw-medium);letter-spacing:var(--tracking-body);padding:14px 28px;text-decoration:none;transition:transform var(--dur-trim) var(--ease)",
       "count": 3,
       "files": [
         "src/components/sections/CtaFinal.astro",
@@ -10330,6 +9903,15 @@
       ]
     },
     {
+      "signature": "border-collapse:collapse;font-family:var(--font-sans);font-size:var(--text-small);width:100%",
+      "count": 3,
+      "files": [
+        "src/components/sections/ComparisonTable.astro",
+        "src/components/sections/TechCapabilitiesSpecs.astro",
+        "src/components/templates/TechnologiesDetailTemplate.astro"
+      ]
+    },
+    {
       "signature": "border-color:var(--accent-text);transform:translateY(-3px)",
       "count": 3,
       "files": [
@@ -10366,7 +9948,7 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.14em;text-transform:uppercase",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.14em;text-transform:uppercase",
       "count": 3,
       "files": [
         "src/components/sections/EditorialPreview.astro",
@@ -10375,12 +9957,12 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:0.14em",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono);text-transform:uppercase",
       "count": 3,
       "files": [
-        "src/components/sections/PricingCards.astro",
-        "src/components/sections/PricingToggle.astro",
-        "src/components/ui/molecules/PricingTier.astro"
+        "src/components/sections/IntegrationsGrid.astro",
+        "src/components/sections/StatsBento.astro",
+        "src/components/sections/TeamBioGrid.astro"
       ]
     },
     {
@@ -10393,7 +9975,16 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-display);font-size:var(--text-h1-hero);line-height:var(--leading-h2);margin:0",
+      "signature": "color:var(--ink-2);font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-lede)",
+      "count": 3,
+      "files": [
+        "src/components/sections/HeroAtlas.astro",
+        "src/components/sections/HeroHome.astro",
+        "src/components/ui/organisms/Hero.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--ink);font-family:var(--font-display);font-size:var(--text-h1);line-height:var(--leading-h2);margin:0",
       "count": 3,
       "files": [
         "src/components/sections/HeroCentered.astro",
@@ -10402,7 +9993,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-body-lead);font-weight:var(--fw-medium)",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-body);font-weight:var(--fw-medium)",
       "count": 3,
       "files": [
         "src/components/sections/CourseCatalogTable.astro",
@@ -10411,7 +10002,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h2-section);font-weight:var(--fw-medium);letter-spacing:var(--tracking-display);line-height:var(--leading-h3);margin:0;text-wrap:balance",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);letter-spacing:var(--tracking-display);line-height:var(--leading-h3);margin:0;text-wrap:balance",
       "count": 3,
       "files": [
         "src/components/sections/FeatureGrid.astro",
@@ -10420,48 +10011,39 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-caption)",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.1em;line-height:var(--leading-lede);text-transform:uppercase",
       "count": 3,
       "files": [
-        "src/components/sections/TerminalTableSection.astro",
-        "src/components/sections/TestimonialLogoMetric.astro",
-        "src/components/sections/VersusCompetitors.astro"
+        "src/components/sections/CaseSplit.astro",
+        "src/components/sections/QuoteSpotlight.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro"
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-mono-tight);text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono)",
       "count": 3,
       "files": [
-        "src/components/templates/CourseDetailTemplate.astro",
-        "src/components/templates/EssayTemplate.astro",
-        "src/components/ui/molecules/AuthorCard.astro"
+        "src/components/sections/CodeShowcase.astro",
+        "src/components/sections/ResourceCardGrid.astro",
+        "src/components/ui/organisms/PersonaSwitcher.astro"
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-mono);text-transform:uppercase",
-      "count": 3,
-      "files": [
-        "src/components/sections/CaseCardGrid.astro",
-        "src/components/sections/FeatureSplitMedia.astro",
-        "src/components/templates/TunnelStepTemplate.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-sm);line-height:var(--leading-body);margin:0;text-wrap:pretty",
-      "count": 3,
-      "files": [
-        "src/components/sections/FaqCtaAside.astro",
-        "src/components/sections/PricingCards.astro",
-        "src/components/sections/PricingSingleHighlight.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-label);font-style:italic;line-height:var(--leading-body);margin:0;max-width:480px",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-small);font-style:italic;line-height:var(--leading-body);margin:0;max-width:480px",
       "count": 3,
       "files": [
         "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/SolutionsDetailTemplate.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-body);margin:0;text-wrap:pretty",
+      "count": 3,
+      "files": [
+        "src/components/sections/FaqCtaAside.astro",
+        "src/components/sections/PricingCards.astro",
+        "src/components/sections/PricingSingleHighlight.astro"
       ]
     },
     {
@@ -10537,7 +10119,16 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h3-row);font-weight:var(--fw-semibold);letter-spacing:-0.01em;line-height:var(--leading-h3);margin:0",
+      "signature": "font-family:var(--font-mono);font-size:var(--text-small)",
+      "count": 3,
+      "files": [
+        "src/components/sections/ComparisonTable.astro",
+        "src/components/sections/CourseCatalogTable.astro",
+        "src/components/templates/CourseDetailTemplate.astro"
+      ]
+    },
+    {
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h3);font-weight:var(--fw-semibold);letter-spacing:-0.01em;line-height:var(--leading-h3);margin:0",
       "count": 3,
       "files": [
         "src/components/sections/StatCounter.astro",
@@ -10816,7 +10407,7 @@
       ]
     },
     {
-      "signature": "background:var(--accent);border-radius:var(--radius-xs);color:var(--paper);display:inline-block;font-size:var(--text-ui);font-weight:var(--fw-medium);letter-spacing:var(--tracking-body);padding:var(--space-3) 22px;text-decoration:none;transition:transform var(--dur-trim) var(--ease)",
+      "signature": "background:var(--accent);border-radius:var(--radius-xs);color:var(--paper);display:inline-block;font-size:var(--text-small);font-weight:var(--fw-medium);letter-spacing:var(--tracking-body);padding:var(--space-3) 22px;text-decoration:none;transition:transform var(--dur-trim) var(--ease)",
       "count": 2,
       "files": [
         "src/components/sections/CaseSplit.astro",
@@ -10864,7 +10455,7 @@
       ]
     },
     {
-      "signature": "background:var(--paper);border-radius:var(--radius-sm);border:1px solid var(--hairline);color:var(--ink);flex:1;font-family:var(--font-sans);font-size:var(--text-body-sm);min-width:200px;outline:none;padding:var(--space-3) var(--space-4);transition:border-color var(--dur-trim) var(--ease)",
+      "signature": "background:var(--paper);border-radius:var(--radius-sm);border:1px solid var(--hairline);color:var(--ink);flex:1;font-family:var(--font-sans);font-size:var(--text-small);min-width:200px;outline:none;padding:var(--space-3) var(--space-4);transition:border-color var(--dur-trim) var(--ease)",
       "count": 2,
       "files": [
         "src/components/sections/CtaFormInline.astro",
@@ -10888,7 +10479,7 @@
       ]
     },
     {
-      "signature": "border-bottom:1px solid var(--hairline, rgba(var(--ink-rgb), 0.12));color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);font-weight:var(--fw-regular);letter-spacing:var(--tracking-mono);padding:0 var(--space-5) 14px 0;text-align:left;text-transform:uppercase;white-space:nowrap",
+      "signature": "border-bottom:1px solid var(--hairline, rgba(var(--ink-rgb), 0.12));color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);font-weight:var(--fw-regular);letter-spacing:var(--tracking-mono);padding:0 var(--space-5) 14px 0;text-align:left;text-transform:uppercase;white-space:nowrap",
       "count": 2,
       "files": [
         "src/components/sections/TechCapabilitiesSpecs.astro",
@@ -10920,7 +10511,7 @@
       ]
     },
     {
-      "signature": "border-bottom:1px solid var(--hairline);color:var(--muted);display:grid;font-family:var(--font-mono);font-size:var(--text-mono-xs);gap:var(--space-5);grid-template-columns:60px 2fr 1.2fr 1fr 2.4fr;letter-spacing:var(--tracking-mono);padding:var(--space-4) 0;text-transform:uppercase",
+      "signature": "border-bottom:1px solid var(--hairline);color:var(--muted);display:grid;font-family:var(--font-mono);font-size:var(--text-small);gap:var(--space-5);grid-template-columns:60px 2fr 1.2fr 1fr 2.4fr;letter-spacing:var(--tracking-mono);padding:var(--space-4) 0;text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/WorkflowTable.astro",
@@ -10957,14 +10548,6 @@
       "files": [
         "src/components/sections/PricingTable.astro",
         "src/components/templates/CourseDetailTemplate.astro"
-      ]
-    },
-    {
-      "signature": "border-collapse:collapse;font-family:var(--font-sans);font-size:var(--text-label);width:100%",
-      "count": 2,
-      "files": [
-        "src/components/sections/TechCapabilitiesSpecs.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro"
       ]
     },
     {
@@ -11064,7 +10647,7 @@
       ]
     },
     {
-      "signature": "color:rgba(var(--paper-rgb), 0.7);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.1em;line-height:var(--leading-lede);text-transform:uppercase",
+      "signature": "color:rgba(var(--paper-rgb), 0.7);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.1em;line-height:var(--leading-lede);text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/RoiBand.astro",
@@ -11104,23 +10687,7 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h1-display);font-weight:var(--fw-regular);letter-spacing:-0.02em;line-height:1",
-      "count": 2,
-      "files": [
-        "src/components/sections/HeroHome.astro",
-        "src/components/ui/organisms/Hero.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h3-card);font-weight:var(--fw-regular);line-height:1;white-space:nowrap",
-      "count": 2,
-      "files": [
-        "src/components/sections/TechPositioningSplit.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-stat);font-weight:var(--fw-regular);letter-spacing:-0.02em;line-height:0.9;margin-bottom:var(--space-4)",
+      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h1);font-weight:var(--fw-regular);letter-spacing:-0.02em;line-height:0.9;margin-bottom:var(--space-4)",
       "count": 2,
       "files": [
         "src/components/sections/RoiBand.astro",
@@ -11128,23 +10695,31 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-caption);letter-spacing:var(--tracking-mono-tight)",
+      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h1);font-weight:var(--fw-regular);letter-spacing:-0.02em;line-height:1",
       "count": 2,
       "files": [
-        "src/components/sections/ServiceCatalogList.astro",
-        "src/components/ui/molecules/ServiceCatalogRow.astro"
+        "src/components/sections/HeroHome.astro",
+        "src/components/ui/organisms/Hero.astro"
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-caption);letter-spacing:var(--tracking-mono-tight);padding:20px 0;text-align:right;vertical-align:top;white-space:nowrap;width:10%",
+      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h2);font-weight:var(--fw-regular);letter-spacing:-0.01em;line-height:1",
       "count": 2,
       "files": [
-        "src/components/sections/TechCapabilitiesSpecs.astro",
+        "src/components/sections/CaseSplit.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--accent-text);font-family:var(--font-display);font-size:var(--text-h3);font-weight:var(--fw-regular);line-height:1;white-space:nowrap",
+      "count": 2,
+      "files": [
+        "src/components/sections/TechPositioningSplit.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro"
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.14em;text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/ServiceCatalogList.astro",
@@ -11152,7 +10727,7 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.06em;margin:0",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.06em;margin:0",
       "count": 2,
       "files": [
         "src/components/sections/ContactForm.astro",
@@ -11160,19 +10735,19 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.14em",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono-tight)",
       "count": 2,
       "files": [
-        "src/components/templates/CaseStudyTemplate.astro",
-        "src/components/ui/molecules/RelatedCards.astro"
+        "src/components/sections/ServiceCatalogList.astro",
+        "src/components/ui/molecules/ServiceCatalogRow.astro"
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:var(--tracking-mono);text-transform:uppercase",
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono-tight);padding:20px 0;text-align:right;vertical-align:top;white-space:nowrap;width:10%",
       "count": 2,
       "files": [
-        "src/components/sections/IntegrationsGrid.astro",
-        "src/components/sections/TeamBioGrid.astro"
+        "src/components/sections/TechCapabilitiesSpecs.astro",
+        "src/components/templates/TechnologiesDetailTemplate.astro"
       ]
     },
     {
@@ -11200,7 +10775,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink-2);font-family:var(--font-display);font-size:var(--text-h3-row);font-weight:var(--fw-regular);line-height:1",
+      "signature": "color:var(--ink-2);font-family:var(--font-display);font-size:var(--text-h3);font-weight:var(--fw-regular);line-height:1",
       "count": 2,
       "files": [
         "src/components/sections/WorkflowTable.astro",
@@ -11208,7 +10783,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink-2);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:0.14em;text-transform:uppercase",
+      "signature": "color:var(--ink-2);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.14em;text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/MaturityPyramid.astro",
@@ -11216,23 +10791,15 @@
       ]
     },
     {
-      "signature": "color:var(--ink-2);font-family:var(--font-sans);font-size:var(--text-caption);line-height:var(--leading-lede)",
-      "count": 2,
-      "files": [
-        "src/components/sections/HeroHome.astro",
-        "src/components/ui/organisms/Hero.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--ink-2);font-family:var(--font-sans);font-size:var(--text-label);letter-spacing:0.005em;line-height:var(--leading-body);margin-top:auto;padding-top:var(--space-5);transition-delay:var(--dur-panel)",
-      "count": 2,
-      "files": [
-        "src/components/sections/HeroHome.astro",
-        "src/components/ui/organisms/Hero.astro"
-      ]
-    },
-    {
       "signature": "color:var(--ink-2);font-family:var(--font-sans);font-size:var(--text-lede, clamp(20px, 1.7vw, 24px));line-height:var(--leading-body, 1.5);max-width:520px;text-wrap:pretty;transition-delay:var(--dur-fast)",
+      "count": 2,
+      "files": [
+        "src/components/sections/HeroHome.astro",
+        "src/components/ui/organisms/Hero.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--ink-2);font-family:var(--font-sans);font-size:var(--text-small);letter-spacing:0.005em;line-height:var(--leading-body);margin-top:auto;padding-top:var(--space-5);transition-delay:var(--dur-panel)",
       "count": 2,
       "files": [
         "src/components/sections/HeroHome.astro",
@@ -11248,7 +10815,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);flex:1;font-family:var(--font-display);font-size:var(--text-h3-card);line-height:1.3",
+      "signature": "color:var(--ink);flex:1;font-family:var(--font-display);font-size:var(--text-h3);line-height:1.3",
       "count": 2,
       "files": [
         "src/components/sections/FaqAccordion.astro",
@@ -11264,7 +10831,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-display);font-size:var(--text-h3-row);font-style:italic;letter-spacing:-0.012em;line-height:1.32;margin-bottom:0;text-wrap:balance",
+      "signature": "color:var(--ink);font-family:var(--font-display);font-size:var(--text-h3);font-style:italic;letter-spacing:-0.012em;line-height:1.32;margin-bottom:0;text-wrap:balance",
       "count": 2,
       "files": [
         "src/components/sections/TechPositioningSplit.astro",
@@ -11272,7 +10839,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-mono);font-size:var(--text-eyebrow);line-height:var(--leading-lede)",
+      "signature": "color:var(--ink);font-family:var(--font-mono);font-size:var(--text-small);line-height:var(--leading-lede)",
       "count": 2,
       "files": [
         "src/components/sections/WorkflowTable.astro",
@@ -11280,7 +10847,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-relaxed);margin:0;max-width:48ch",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-relaxed);margin:0;max-width:48ch",
       "count": 2,
       "files": [
         "src/components/sections/HeroFormInline.astro",
@@ -11288,7 +10855,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h3-card);font-weight:var(--fw-semibold);letter-spacing:-0.01em;line-height:var(--leading-h3);margin:0;text-wrap:balance",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h3);font-weight:var(--fw-semibold);letter-spacing:-0.01em;line-height:var(--leading-h3);margin:0;text-wrap:balance",
       "count": 2,
       "files": [
         "src/components/sections/ArticleGrid.astro",
@@ -11296,23 +10863,23 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h3-card);font-weight:var(--fw-semibold);line-height:1.2",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h3);font-weight:var(--fw-semibold);line-height:var(--leading-h3);margin:0",
       "count": 2,
       "files": [
-        "src/components/sections/ComparisonPricingCallout.astro",
-        "src/components/sections/TeamBioGrid.astro"
+        "src/components/sections/ProcessSteps.astro",
+        "src/components/sections/TimelineHorizontal.astro"
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-h3-row);font-weight:var(--fw-semibold);line-height:1.2",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-small)",
       "count": 2,
       "files": [
-        "src/components/sections/TestimonialMetrics.astro",
-        "src/components/sections/TestimonialSingleSpotlight.astro"
+        "src/components/sections/ComparisonTable.astro",
+        "src/components/ui/molecules/TunnelNav.astro"
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-label);font-weight:var(--fw-medium);padding:20px var(--space-5) 20px 0;vertical-align:top;white-space:nowrap;width:22%",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-small);font-weight:var(--fw-medium);padding:20px var(--space-5) 20px 0;vertical-align:top;white-space:nowrap;width:22%",
       "count": 2,
       "files": [
         "src/components/sections/TechCapabilitiesSpecs.astro",
@@ -11320,7 +10887,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-label);line-height:var(--leading-lede);text-wrap:balance",
+      "signature": "color:var(--ink);font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-lede);text-wrap:balance",
       "count": 2,
       "files": [
         "src/components/sections/HeroHome.astro",
@@ -11328,7 +10895,7 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-size:var(--text-body-lead);line-height:1.55;margin:0",
+      "signature": "color:var(--ink);font-size:var(--text-body);line-height:1.55;margin:0",
       "count": 2,
       "files": [
         "src/components/sections/PainPoints.astro",
@@ -11336,19 +10903,19 @@
       ]
     },
     {
-      "signature": "color:var(--ink);font-size:var(--text-body-sm);line-height:var(--leading-body)",
-      "count": 2,
-      "files": [
-        "src/components/sections/WorkflowTable.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--ink);font-size:var(--text-label);line-height:1.55;padding:20px var(--space-5) 20px 0;vertical-align:top",
+      "signature": "color:var(--ink);font-size:var(--text-small);line-height:1.55;padding:20px var(--space-5) 20px 0;vertical-align:top",
       "count": 2,
       "files": [
         "src/components/sections/TechCapabilitiesSpecs.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--ink);font-size:var(--text-small);line-height:var(--leading-body)",
+      "count": 2,
+      "files": [
+        "src/components/sections/WorkflowTable.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro"
       ]
     },
     {
@@ -11384,7 +10951,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);display:block;font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:0.1em;margin-bottom:6px;text-transform:uppercase",
+      "signature": "color:var(--muted);display:block;font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.1em;margin-bottom:6px;text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/templates/EssayTemplate.astro",
@@ -11392,7 +10959,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);display:flex;flex-wrap:wrap;font-family:var(--font-mono);font-size:var(--text-eyebrow);gap:var(--space-3);letter-spacing:0.1em;text-transform:uppercase",
+      "signature": "color:var(--muted);display:flex;flex-wrap:wrap;font-family:var(--font-mono);font-size:var(--text-small);gap:var(--space-3);letter-spacing:0.1em;text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/HeroCentered.astro",
@@ -11400,7 +10967,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);flex-shrink:0;font-family:var(--font-mono);font-size:var(--text-body-sm);transition:transform var(--dur-fast)",
+      "signature": "color:var(--muted);flex-shrink:0;font-family:var(--font-mono);font-size:var(--text-small);transition:transform var(--dur-fast)",
       "count": 2,
       "files": [
         "src/components/sections/FaqAccordion.astro",
@@ -11416,15 +10983,15 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-caption);font-weight:var(--fw-regular);letter-spacing:var(--tracking-mono-tight);line-height:1;margin:0 0 var(--space-5);text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-body);letter-spacing:var(--tracking-mono);text-transform:uppercase",
       "count": 2,
       "files": [
-        "src/components/sections/CourseCatalogTable.astro",
-        "src/components/sections/LearningPathList.astro"
+        "src/components/sections/TeamBioGrid.astro",
+        "src/components/sections/TestimonialSingleSpotlight.astro"
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);font-weight:var(--fw-regular);letter-spacing:0.14em;text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);font-weight:var(--fw-regular);letter-spacing:0.14em;text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/PricingCards.astro",
@@ -11432,7 +10999,15 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.1em;text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);font-weight:var(--fw-regular);letter-spacing:var(--tracking-mono-tight);line-height:1;margin:0 0 var(--space-5);text-transform:uppercase",
+      "count": 2,
+      "files": [
+        "src/components/sections/CourseCatalogTable.astro",
+        "src/components/sections/LearningPathList.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.1em;text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/TeamCardGrid.astro",
@@ -11440,15 +11015,15 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.1em;line-height:var(--leading-lede);text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.14em;text-transform:uppercase",
       "count": 2,
       "files": [
-        "src/components/sections/CaseSplit.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro"
+        "src/components/sections/PricingSingleHighlight.astro",
+        "src/components/sections/SpecBar.astro"
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:0.1em;margin-bottom:var(--space-3);text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:0.1em;margin-bottom:var(--space-3);text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/PainPoints.astro",
@@ -11456,7 +11031,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:var(--tracking-mono);line-height:var(--leading-lede);text-transform:uppercase",
+      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono);line-height:var(--leading-lede);text-transform:uppercase",
       "count": 2,
       "files": [
         "src/components/sections/MethodTimeline.astro",
@@ -11464,31 +11039,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:var(--tracking-mono);text-transform:uppercase",
-      "count": 2,
-      "files": [
-        "src/components/sections/AboutStorySplit.astro",
-        "src/components/sections/HeroOfferDetail.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:0.1em",
-      "count": 2,
-      "files": [
-        "src/components/sections/EditorialPreview.astro",
-        "src/components/sections/TrustLegalSection.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--muted);font-family:var(--font-mono);font-size:var(--text-mono-xs);letter-spacing:var(--tracking-mono)",
-      "count": 2,
-      "files": [
-        "src/components/sections/CodeShowcase.astro",
-        "src/components/sections/ResourceCardGrid.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-body);margin:0;max-width:56ch",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-body);margin:0;max-width:56ch",
       "count": 2,
       "files": [
         "src/components/sections/ComparisonTable.astro",
@@ -11496,7 +11047,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-body);margin:var(--space-5) 0 0;max-width:680px",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-body);margin:var(--space-5) 0 0;max-width:680px",
       "count": 2,
       "files": [
         "src/components/sections/FeatureGrid.astro",
@@ -11504,7 +11055,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-lede);margin:0;max-width:60ch",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-lede);margin:0;max-width:60ch",
       "count": 2,
       "files": [
         "src/components/sections/IntegrationsGrid.astro",
@@ -11512,7 +11063,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-relaxed);margin:0",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-relaxed);margin:0",
       "count": 2,
       "files": [
         "src/components/sections/GalleryMasonry.astro",
@@ -11520,7 +11071,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-relaxed);margin:0;max-width:64ch",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-relaxed);margin:0;max-width:64ch",
       "count": 2,
       "files": [
         "src/components/sections/GuaranteeBlock.astro",
@@ -11528,7 +11079,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-relaxed);margin:0;max-width:64ch;text-wrap:pretty",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-relaxed);margin:0;max-width:64ch;text-wrap:pretty",
       "count": 2,
       "files": [
         "src/components/sections/FaqAccordion.astro",
@@ -11536,7 +11087,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-md);line-height:var(--leading-relaxed);margin:0;text-wrap:pretty",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-relaxed);margin:0;text-wrap:pretty",
       "count": 2,
       "files": [
         "src/components/sections/FeatureAccordion.astro",
@@ -11544,7 +11095,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body-sm);line-height:var(--leading-body);max-width:22ch",
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-body);max-width:22ch",
       "count": 2,
       "files": [
         "src/components/sections/CaseSpotlight.astro",
@@ -11552,7 +11103,7 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:var(--text-body-lead);line-height:var(--leading-body);max-width:var(--wrap-prose);text-wrap:pretty",
+      "signature": "color:var(--muted);font-size:var(--text-body);line-height:var(--leading-body);max-width:var(--wrap-prose);text-wrap:pretty",
       "count": 2,
       "files": [
         "src/components/sections/ServiceCatalogList.astro",
@@ -11560,7 +11111,15 @@
       ]
     },
     {
-      "signature": "color:var(--muted);font-size:var(--text-label);line-height:1.55;margin:0;max-width:400px;text-wrap:pretty",
+      "signature": "color:var(--muted);font-size:var(--text-small)",
+      "count": 2,
+      "files": [
+        "src/components/footer/Footer.astro",
+        "src/components/sections/TerminalMockupSection.astro"
+      ]
+    },
+    {
+      "signature": "color:var(--muted);font-size:var(--text-small);line-height:1.55;margin:0;max-width:400px;text-wrap:pretty",
       "count": 2,
       "files": [
         "src/components/templates/CaseStudyTemplate.astro",
@@ -11568,7 +11127,7 @@
       ]
     },
     {
-      "signature": "color:var(--paper);font-family:var(--font-sans);font-size:var(--text-h1-display);font-weight:var(--fw-medium);letter-spacing:-0.018em;line-height:var(--leading-h1);margin:var(--space-2) 0 0",
+      "signature": "color:var(--paper);font-family:var(--font-sans);font-size:var(--text-h1);font-weight:var(--fw-medium);letter-spacing:-0.018em;line-height:var(--leading-h1);margin:var(--space-2) 0 0",
       "count": 2,
       "files": [
         "src/components/sections/RoiBand.astro",
@@ -11760,19 +11319,19 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-display);font-size:var(--text-h1-hero);font-weight:var(--fw-regular);letter-spacing:var(--tracking-display, -0.025em);line-height:var(--leading-h1, .96);margin:0 0 var(--space-5);max-width:980px",
-      "count": 2,
-      "files": [
-        "src/components/sections/HeroHome.astro",
-        "src/components/ui/organisms/Hero.astro"
-      ]
-    },
-    {
-      "signature": "font-family:var(--font-display);font-size:var(--text-mega);font-weight:var(--fw-regular);letter-spacing:-0.03em;line-height:0.92;margin:0;text-wrap:balance",
+      "signature": "font-family:var(--font-display);font-size:var(--text-display);font-weight:var(--fw-regular);letter-spacing:-0.03em;line-height:0.92;margin:0;text-wrap:balance",
       "count": 2,
       "files": [
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/ListIndexSection.astro"
+      ]
+    },
+    {
+      "signature": "font-family:var(--font-display);font-size:var(--text-h1);font-weight:var(--fw-regular);letter-spacing:var(--tracking-display, -0.025em);line-height:var(--leading-h1, .96);margin:0 0 var(--space-5);max-width:980px",
+      "count": 2,
+      "files": [
+        "src/components/sections/HeroHome.astro",
+        "src/components/ui/organisms/Hero.astro"
       ]
     },
     {
@@ -11784,7 +11343,15 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h1-display);font-weight:var(--fw-medium);letter-spacing:-0.02em;line-height:0.98;margin:var(--space-2) 0 var(--space-5)",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h1);font-weight:var(--fw-medium);letter-spacing:-0.024em;line-height:0.95;margin:14px 0 0;text-wrap:balance",
+      "count": 2,
+      "files": [
+        "src/components/templates/CaseStudyTemplate.astro",
+        "src/components/templates/DetailMenuTemplate.astro"
+      ]
+    },
+    {
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h1);font-weight:var(--fw-medium);letter-spacing:-0.02em;line-height:0.98;margin:var(--space-2) 0 var(--space-5)",
       "count": 2,
       "files": [
         "src/components/sections/TechPositioningSplit.astro",
@@ -11792,7 +11359,7 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h2-grand);font-weight:var(--fw-medium);line-height:0.95;margin:0 0 var(--space-6)",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h1);font-weight:var(--fw-medium);line-height:0.95;margin:0 0 var(--space-6)",
       "count": 2,
       "files": [
         "src/components/templates/SolutionsDetailTemplate.astro",
@@ -11800,7 +11367,7 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h2-section);font-weight:var(--fw-medium);letter-spacing:-0.015em;line-height:1",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);letter-spacing:-0.015em;line-height:1",
       "count": 2,
       "files": [
         "src/components/ui/molecules/AsymmetricServiceRow.astro",
@@ -11808,7 +11375,15 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h2-section);font-weight:var(--fw-medium);letter-spacing:-0.022em;line-height:1;margin-bottom:10px;text-wrap:balance",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);letter-spacing:-0.016em;line-height:1.05;margin:var(--space-3) 0 20px;text-wrap:balance",
+      "count": 2,
+      "files": [
+        "src/components/sections/CaseSplit.astro",
+        "src/components/templates/SolutionsDetailTemplate.astro"
+      ]
+    },
+    {
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h2);font-weight:var(--fw-medium);letter-spacing:-0.022em;line-height:1;margin-bottom:10px;text-wrap:balance",
       "count": 2,
       "files": [
         "src/components/sections/ServiceCatalogList.astro",
@@ -11816,18 +11391,10 @@
       ]
     },
     {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-h3-card);font-weight:var(--fw-medium);line-height:1.2;margin:0",
+      "signature": "font-family:var(--font-sans);font-size:var(--text-h3);font-weight:var(--fw-medium);line-height:1.2;margin:0",
       "count": 2,
       "files": [
         "src/components/sections/WorkflowTable.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro"
-      ]
-    },
-    {
-      "signature": "font-family:var(--font-sans);font-size:var(--text-pull-quote);font-weight:var(--fw-medium);letter-spacing:-0.016em;line-height:1.05;margin:var(--space-3) 0 20px;text-wrap:balance",
-      "count": 2,
-      "files": [
-        "src/components/sections/CaseSplit.astro",
         "src/components/templates/SolutionsDetailTemplate.astro"
       ]
     },
@@ -11837,6 +11404,22 @@
       "files": [
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/SolutionsDetailTemplate.astro"
+      ]
+    },
+    {
+      "signature": "font-size:var(--text-body);line-height:1",
+      "count": 2,
+      "files": [
+        "src/components/sections/FeatureTabs.astro",
+        "src/components/sections/VersusCompetitors.astro"
+      ]
+    },
+    {
+      "signature": "font-size:var(--text-h3);grid-column:1 / -1",
+      "count": 2,
+      "files": [
+        "src/components/sections/EditorialPreview.astro",
+        "src/components/sections/UseCaseIndex.astro"
       ]
     },
     {
@@ -12049,10 +11632,10 @@
     }
   ],
   "stats": {
-    "tokenCount": 126,
+    "tokenCount": 111,
     "classCount": 196,
     "duplicateGroupCount": 144,
-    "scopedDuplicateGroupCount": 279,
+    "scopedDuplicateGroupCount": 285,
     "unusedTokens": [
       "--color-accent",
       "--color-accent-sur-clair",

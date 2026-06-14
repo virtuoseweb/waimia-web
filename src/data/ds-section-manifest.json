@@ -158,20 +158,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -358,15 +354,11 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -629,20 +621,16 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -861,24 +849,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -1070,12 +1054,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -1248,20 +1232,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -1430,12 +1406,12 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -1600,12 +1576,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       }
     ],
     "tailwindUtils": [],
@@ -1870,27 +1846,15 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -2106,19 +2070,11 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -2387,28 +2343,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -2635,20 +2583,16 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -2812,12 +2756,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -3103,40 +3047,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -3375,16 +3299,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -3561,12 +3481,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -3768,28 +3688,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -4059,16 +3971,12 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
@@ -4249,27 +4157,11 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
-      },
-      {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -4398,12 +4290,12 @@
         "value": "1.5rem"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -4642,24 +4534,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-body",
@@ -4896,16 +4780,12 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -5017,12 +4897,12 @@
         "value": "1.5rem"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -5228,20 +5108,16 @@
         "value": "2rem"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -5400,8 +5276,8 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       }
     ],
     "tailwindUtils": [],
@@ -5604,24 +5480,16 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-caps",
@@ -5767,16 +5635,16 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -6064,40 +5932,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -6338,24 +6186,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-body",
@@ -6603,12 +6443,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -6820,32 +6660,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -7027,16 +6855,16 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--wrap-prose",
@@ -7260,24 +7088,12 @@
         "value": "2rem"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -7423,12 +7239,12 @@
         "value": "2rem"
       },
       {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -7663,12 +7479,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -7827,8 +7643,8 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       }
     ],
     "tailwindUtils": [],
@@ -7970,16 +7786,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -8188,24 +8004,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -8350,12 +8158,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -8535,20 +8343,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -8731,16 +8535,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -9020,40 +8824,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -9300,20 +9084,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -9525,20 +9305,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -9722,12 +9498,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -9931,8 +9707,8 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       }
     ],
     "tailwindUtils": [],
@@ -10091,12 +9867,12 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       }
     ],
     "tailwindUtils": [],
@@ -10269,16 +10045,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -10388,12 +10164,12 @@
         "value": "1.5rem"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -10770,59 +10546,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -11095,28 +10839,16 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -11419,24 +11151,28 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "value": ""
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -11825,59 +11561,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -12269,59 +11973,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -12558,10 +12230,6 @@
         "value": "999px"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -12590,36 +12258,28 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--viewport-h",
+        "value": "100svh"
       },
       {
         "name": "--wrap-wide",
@@ -12628,7 +12288,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 23,
+      "count": 22,
       "samples": [
         "-0.035em",
         "0.1em",
@@ -12637,10 +12297,10 @@
         "10px",
         "11px",
         "1200px",
-        "140px"
+        "18px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
   },
   {
     "id": "hero-course",
@@ -13015,59 +12675,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -13463,59 +13091,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -13941,59 +13537,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -14210,20 +13774,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -14339,12 +13903,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-display",
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -14576,28 +14140,16 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
-      },
-      {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
-      },
-      {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
         "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "value": ""
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -14985,59 +14537,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -15469,59 +14989,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -15736,10 +15224,6 @@
         "value": "999px"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -15768,36 +15252,28 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--viewport-h",
+        "value": "100svh"
       },
       {
         "name": "--wrap-wide",
@@ -15806,7 +15282,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 23,
+      "count": 22,
       "samples": [
         "-0.035em",
         "0.1em",
@@ -15815,10 +15291,10 @@
         "10px",
         "11px",
         "1200px",
-        "140px"
+        "18px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
   },
   {
     "id": "hero-landing",
@@ -16193,59 +15669,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -16577,24 +16021,28 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "value": ""
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -16755,12 +16203,12 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--wrap-prose",
@@ -17058,32 +16506,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-body",
@@ -17289,10 +16725,6 @@
         "value": "999px"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -17321,36 +16753,28 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--viewport-h",
+        "value": "100svh"
       },
       {
         "name": "--wrap-wide",
@@ -17359,7 +16783,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 23,
+      "count": 22,
       "samples": [
         "-0.035em",
         "0.1em",
@@ -17368,10 +16792,10 @@
         "10px",
         "11px",
         "1200px",
-        "140px"
+        "18px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
   },
   {
     "id": "hero-problem-index",
@@ -17736,59 +17160,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -18082,32 +17474,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-body",
@@ -18492,59 +17872,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -18928,59 +18276,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -19194,16 +18510,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -19486,24 +18802,28 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "value": ""
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -19789,32 +19109,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-body",
@@ -20010,24 +19318,16 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -20408,59 +19708,27 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
-      },
-      {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -20626,20 +19894,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-display",
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -20916,40 +20184,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -21125,16 +20373,16 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -21148,7 +20396,7 @@
         "1px",
         "clamp(var(--space-5)",
         "clamp(var(--space-7)",
-        "clamp(var(--text-body-sm)"
+        "clamp(var(--text-small)"
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (1px, clamp(var(--space-5), clamp(var(--space-7))."
@@ -21307,16 +20555,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -21442,16 +20686,12 @@
         "value": "1.5rem"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
@@ -21607,12 +20847,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-display",
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-mega",
-        "value": "clamp(60px, 11vw, 180px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [
@@ -22064,16 +21304,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       }
     ],
     "tailwindUtils": [],
@@ -22187,8 +21427,8 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       }
     ],
     "tailwindUtils": [],
@@ -22336,8 +21576,8 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       }
     ],
     "tailwindUtils": [],
@@ -22450,8 +21690,8 @@
         "value": "246, 241, 232"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -22465,7 +21705,7 @@
         "28px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --text-caption. Dette : 5 litteral(s) hardcode(s) (-50%, .1em, 18px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --text-small. Dette : 5 litteral(s) hardcode(s) (-50%, .1em, 18px)."
   },
   {
     "id": "maturity-pyramid",
@@ -22714,32 +21954,16 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
@@ -22887,8 +22111,8 @@
         "value": "1rem"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--wrap-prose",
@@ -23064,24 +22288,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -23239,16 +22459,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-stat",
-        "value": "clamp(36px, 6vw, 88px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
         "name": "--tracking-display",
@@ -23452,31 +22668,23 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -23689,24 +22897,16 @@
         "value": "1rem"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
-      },
-      {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
@@ -23870,12 +23070,12 @@
         "value": "2rem"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -24007,16 +23207,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -24252,36 +23452,24 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -24496,23 +23684,15 @@
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -24717,24 +23897,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -24872,12 +24048,12 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -25107,20 +24283,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -25348,28 +24516,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -25649,20 +24809,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-stat",
-        "value": "clamp(36px, 6vw, 88px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -25838,20 +24990,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -26108,20 +25252,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-stat",
-        "value": "clamp(36px, 6vw, 88px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -26316,20 +25452,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -26342,7 +25474,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
         "-0.015em",
         "0.16em",
@@ -26350,11 +25482,10 @@
         "1px",
         "800px",
         "clamp(var(--space-8)",
-        "clamp(var(--text-h2-section)",
-        "clamp(var(--text-h2-tight)"
+        "clamp(var(--text-h2)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.015em, 0.16em, 1100px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-0.015em, 0.16em, 1100px)."
   },
   {
     "id": "problems-grid",
@@ -26606,40 +25737,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -26847,20 +25958,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--wrap-prose",
@@ -27066,24 +26177,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-stat",
-        "value": "clamp(36px, 6vw, 88px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -27372,23 +26479,19 @@
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--wrap-prose",
@@ -27734,27 +26837,19 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -27931,16 +27026,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
-      },
-      {
-        "name": "--text-stat",
-        "value": "clamp(36px, 6vw, 88px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -28160,20 +27251,16 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
@@ -28437,27 +27524,15 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -28589,8 +27664,8 @@
         "value": "2rem"
       },
       {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -28601,7 +27676,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-display --text-label. Dette : 2 litteral(s) hardcode(s) (-50%, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-display --text-small. Dette : 2 litteral(s) hardcode(s) (-50%, 1px)."
   },
   {
     "id": "spec-bar",
@@ -28705,11 +27780,7 @@
         "value": ""
       },
       {
-        "name": "--text-mono-xs",
-        "value": "10px"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       }
     ],
@@ -28923,24 +27994,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-stat",
-        "value": "clamp(36px, 6vw, 88px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -29105,16 +28172,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--wrap-prose",
@@ -29305,28 +28372,20 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-display",
@@ -29497,12 +28556,12 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -29682,24 +28741,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
-      },
-      {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -29900,20 +28951,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -30114,20 +29161,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -30309,12 +29348,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -30536,12 +29575,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -30752,24 +29791,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -30914,12 +29945,12 @@
         "value": ""
       },
       {
-        "name": "--text-h2-tight",
-        "value": "clamp(24px, 3vw, 42px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -30929,7 +29960,7 @@
         "1px",
         "760px",
         "clamp(var(--space-6)",
-        "clamp(var(--text-h3-card)"
+        "clamp(var(--text-h3)"
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-6 --space-8. Couleur : --accent-text --ink --muted. Typographie : --font-display --leading-h3. Dette : 4 litteral(s) hardcode(s) (1px, 760px, clamp(var(--space-6))."
@@ -31129,16 +30160,16 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -31258,12 +30289,12 @@
         "value": "1.5rem"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tm-cols",
@@ -31279,7 +30310,7 @@
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --text-body-lead. Dette : 3 litteral(s) hardcode(s) (.14em, 1px, 768px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --text-body. Dette : 3 litteral(s) hardcode(s) (.14em, 1px, 768px)."
   },
   {
     "id": "terminal-mockup",
@@ -31396,19 +30427,15 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       }
     ],
@@ -31546,31 +30573,19 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       }
     ],
@@ -31707,8 +30722,8 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -31896,22 +30911,18 @@
       },
       {
         "name": "--text-body-md",
-        "value": "17px"
+        "value": ""
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -32120,24 +31131,20 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tm-cols",
@@ -32351,20 +31358,20 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-pull-quote",
-        "value": "clamp(28px, 3.4vw, 44px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -32596,16 +31603,16 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -32813,24 +31820,20 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -33017,24 +32020,16 @@
         "value": ""
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
-      },
-      {
-        "name": "--text-eyebrow",
-        "value": "11px"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--wrap-prose",
@@ -33248,32 +32243,24 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-md",
-        "value": "17px"
-      },
-      {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
         "name": "--text-display",
-        "value": "clamp(48px, 8vw, 128px)"
+        "value": "clamp(46px, 8vw, 116px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono-tight",
@@ -33451,24 +32438,16 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h1-hero",
-        "value": "clamp(40px, 6vw, 92px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -33632,12 +32611,12 @@
         "value": "2rem"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -33866,16 +32845,16 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",
@@ -34067,23 +33046,15 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-base",
-        "value": "16px"
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-body-lead",
-        "value": "15px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
-      },
-      {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -34303,28 +33274,20 @@
         "value": "2rem"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-caption",
-        "value": "12px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-grand",
-        "value": "clamp(44px, 7vw, 96px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-lede",
-        "value": "clamp(20px, 1.7vw, 24px)"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--wrap-prose",
@@ -34497,19 +33460,15 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h2-section",
-        "value": "clamp(28px, 4vw, 56px)"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-ui",
+        "name": "--text-small",
         "value": "13px"
       },
       {
@@ -34742,32 +33701,16 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body-sm",
-        "value": "14px"
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-eyebrow",
-        "value": "11px"
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-h1-display",
-        "value": "clamp(34px, 5vw, 72px)"
-      },
-      {
-        "name": "--text-h3-card",
-        "value": "clamp(18px, 1.6vw, 24px)"
-      },
-      {
-        "name": "--text-h3-row",
-        "value": "clamp(20px, 2vw, 28px)"
-      },
-      {
-        "name": "--text-label",
-        "value": "clamp(13px, 1vw, 15px)"
-      },
-      {
-        "name": "--text-mono-xs",
-        "value": "10px"
+        "name": "--text-small",
+        "value": "13px"
       },
       {
         "name": "--tracking-mono",

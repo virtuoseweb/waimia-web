@@ -29,7 +29,7 @@
 | `paragraphs_en` | array | oui |  | min:1 max:5 |
 | `paragraphs_fr` | array | oui |  | min:1 max:5 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h3-row` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .about-story .about-story__aside .about-story__aside-title .about-story__body .about-story__grid .about-story__label .about-story__milestone .about-story__narrative .about-story__timeline .about-story__year
 
@@ -62,7 +62,7 @@
 | `text_fr` | string | oui |  |  |
 | `tone` | enum | non | accent | accent | ink | paper-2 |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-7` `--text-body-base` `--text-mono-xs` `--text-ui` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-7` `--text-body` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .announce .announce__badge .announce__close .announce__inner .announce__link .announce__text
 
@@ -93,7 +93,7 @@
 | `reading_en` | string | non | 2 min read |  |
 | `reading_fr` | string | non | Temps de lecture : 2 min |  |
 
-**Tokens** : `--accent` `--dur-fast` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--muted` `--paper` `--radius-xs` `--section-base` `--space-3` `--space-5` `--space-6` `--text-body-lead` `--text-eyebrow`
+**Tokens** : `--accent` `--dur-fast` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--muted` `--paper` `--radius-xs` `--section-base` `--space-3` `--space-5` `--space-6` `--text-body` `--text-small`
 
 **Classes scoped** : .tunnel-step-nav .tunnel-step-nav__btn-cta .tunnel-step-nav__btn-cta--accent .tunnel-step-nav__btn-cta--ghost .tunnel-step-nav__btn-cta--primary .tunnel-step-nav__btn-ghost .tunnel-step-nav__meta .tunnel-step-nav__meta-back .tunnel-step-nav__meta-reading .wrap-wide
 
@@ -131,7 +131,7 @@
 | `without_title_en` | string | oui |  |  |
 | `without_title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-sm` `--shadow-paper-lift` `--space-1` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-body-sm` `--text-h3-card` `--text-mono-xs`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-sm` `--shadow-paper-lift` `--space-1` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-h3` `--text-small`
 
 **Classes scoped** : .comparison-duo .comparison-duo__badge .comparison-duo__badge--with .comparison-duo__badge--without .comparison-duo__card .comparison-duo__card--with .comparison-duo__card-header .comparison-duo__card-title .comparison-duo__card-title--with .comparison-duo__glyph .comparison-duo__grid .comparison-duo__header .comparison-duo__item .comparison-duo__item--with .comparison-duo__item--without .comparison-duo__list
 
@@ -163,7 +163,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-sm` `--text-h3-card`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-h3` `--text-small`
 
 **Classes scoped** : .cmp-callout .cmp-callout__bridge .cmp-callout__col .cmp-callout__col-body .cmp-callout__col-title .cmp-callout__cols .cmp-callout__glyph .cmp-callout__header .cmp-callout__note
 
@@ -190,7 +190,7 @@
 | `h2_fr` | string | oui |  |  |
 | `rows` | array | oui |  | min:2 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--ease-out` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--ease-out` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__header .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
 
@@ -225,7 +225,7 @@
 | `h2_fr` | string | oui |  |  |
 | `rows` | array | oui |  | min:1 max:12 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1-display` `--text-label`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1` `--text-small`
 
 **Classes scoped** : .astro .callout .ed-table .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-caption .ed-table-editorial .ed-table-figure .ed-table-td .ed-table-th .ed-table-tr .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
@@ -260,7 +260,7 @@
 | `rows_fr` | array | oui |  | min:2 max:6 |
 | `variant` | enum | non | editorial | default | compact | editorial |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1-display` `--text-label`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1` `--text-small`
 
 **Classes scoped** : .astro .callout .ed-table .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-caption .ed-table-editorial .ed-table-figure .ed-table-td .ed-table-th .ed-table-tr .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
@@ -298,7 +298,7 @@
 | `yes_title_en` | string | oui |  |  |
 | `yes_title_fr` | string | oui |  |  |
 
-**Tokens** : `--dur-hover` `--dur-trim` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-6` `--space-9` `--text-h2-grand`
+**Tokens** : `--dur-hover` `--dur-trim` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-6` `--space-9` `--text-h1`
 
 **Classes scoped** : .astro .callout .callout-body .fit-col .fit-col-no .fit-k-muted .fit-sec .fit-sec-callout .fit-sec-cols .fit-sec-h2 .fit-sec-kicker .hub-fit
 
@@ -329,7 +329,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1-display` `--text-label`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1` `--text-small`
 
 **Classes scoped** : .astro .callout .ed-table .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-caption .ed-table-editorial .ed-table-figure .ed-table-td .ed-table-th .ed-table-tr .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
@@ -367,7 +367,7 @@
 | `use_title_en` | string | oui |  |  |
 | `use_title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-8` `--space-9` `--text-h1-display` `--text-label` `--text-lede`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-8` `--space-9` `--text-h1` `--text-h3` `--text-small`
 
 **Classes scoped** : .astro .tech-aside .tech-sec .tech-sec-hd .tech-when-col--avoid .tech-when-col--use .tech-when-dual .tech-when-kicker .tech-when-list .tech-when-list--avoid .tech-when-list--use .wrap
 
@@ -395,7 +395,7 @@
 | `kicker_fr` | string | non |  |  |
 | `rows` | array | oui |  | min:3 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-rgb` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body-base` `--text-body-lead` `--text-caption` `--text-h2-grand` `--text-ui` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-rgb` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body` `--text-h1` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .versus .versus__cell .versus__colhead .versus__corner .versus__feature .versus__group .versus__h2 .versus__head .versus__icon .versus__icon--no .versus__icon--yes .versus__kicker .versus__row .versus__scroll .versus__table .versus__text
 
@@ -424,7 +424,7 @@
 | `h2_fr` | string | oui |  |  |
 | `workflows` | array | oui |  | min:1 max:8 |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body-sm` `--text-eyebrow` `--text-h1-display` `--text-h3-card` `--text-h3-row` `--text-label` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .callout .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-workflow-body .sol-workflow-head .sol-workflow-table .sol-workflows .wf-gain .wf-how .wf-k .wf-model .wf-n .wf-name .wf-row
 
@@ -460,7 +460,7 @@
 | `kicker_fr` | string | non |  |  |
 | `reassurance` | array | non |  | min:1 max:4 |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-base` `--space-10` `--space-3` `--space-4` `--space-8` `--text-body-md` `--text-body-sm`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-base` `--space-10` `--space-3` `--space-4` `--space-8` `--text-body` `--text-small`
 
 **Classes scoped** : .booking-embed .booking-embed__body .booking-embed__check .booking-embed__grid .booking-embed__intro .booking-embed__reassurance .booking-embed__widget
 
@@ -500,7 +500,7 @@
 | `submit_label_en` | string | non | Send → |  |
 | `submit_label_fr` | string | non | Envoyer → |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-base` `--radius-sm` `--space-10` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-base` `--radius-sm` `--space-10` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .contact-form .contact-form__body .contact-form__btn .contact-form__confirm .contact-form__detail .contact-form__details .contact-form__error .contact-form__field .contact-form__form .contact-form__grid .contact-form__hint .contact-form__input .contact-form__input--error .contact-form__intro .contact-form__textarea .sr-only
 
@@ -534,7 +534,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--ink-3` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--section-base` `--shadow-lift` `--space-1` `--space-3` `--space-6` `--space-9` `--text-body-base` `--text-body-sm` `--text-h2-section` `--text-h3-card` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--ink-3` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--section-base` `--shadow-lift` `--space-1` `--space-3` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .acc .article-card .article-card__author .article-card__body .article-card__excerpt .article-card__media .article-card__meta .article-card__tag .article-card__title .article-grid .article-grid__h2 .article-grid__hd .article-grid__intro .article-grid__list
 
@@ -564,7 +564,7 @@
 | `kicker_fr` | string | non |  |  |
 | `resources` | array | non | false | min:2 max:9 |
 
-**Tokens** : `--accent` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--radius-pill` `--section-base` `--shadow-lift` `--space-3` `--space-4` `--space-6` `--space-7` `--space-9` `--text-body-base` `--text-body-sm` `--text-h2-section` `--text-h3-card` `--text-mono-xs` `--text-ui` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--radius-pill` `--section-base` `--shadow-lift` `--space-3` `--space-4` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .acc .resource-card .resource-card__cta .resource-card__desc .resource-card__foot .resource-card__format .resource-card__gated .resource-card__title .resource-card__top .resource-grid .resource-grid__h2 .resource-grid__hd .resource-grid__intro .resource-grid__list
 
@@ -597,7 +597,7 @@
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-5` `--space-9` `--text-body-lead` `--text-h2-tight`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-5` `--space-9` `--text-body` `--text-h2`
 
 **Classes scoped** : .branded-callout .branded-callout__body1 .branded-callout__body2 .branded-callout__box .branded-callout__cta .branded-callout__h2 .branded-callout__kicker
 
@@ -622,7 +622,7 @@
 | `text_en` | string | oui |  |  |
 | `text_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body-md` `--text-body-sm`
+**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body` `--text-small`
 
 **Classes scoped** : .astro .cta-band .cta-band__inner .cta-band__text .cta-inline .cta-inline__text
 
@@ -657,7 +657,7 @@
 | `reassurance_en` | string | non |  |  |
 | `reassurance_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-tight` `--space-10` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-h2-grand` `--text-label` `--text-lede` `--tracking-body` `--tracking-mono`
+**Tokens** : `--accent` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-tight` `--space-10` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--spacing-block` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-mono`
 
 **Classes scoped** : .astro .btn-accent .btn-light .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec .sol-sec-dark .wrap .wrap-tight
 
@@ -692,7 +692,7 @@
 | `submit_label_en` | string | non | Sign up → |  |
 | `submit_label_fr` | string | non | S'inscrire → |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--section-base` `--space-10` `--space-3` `--space-4` `--space-5` `--space-7` `--text-body-md` `--text-body-sm` `--text-eyebrow`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--section-base` `--space-10` `--space-3` `--space-4` `--space-5` `--space-7` `--text-body` `--text-small`
 
 **Classes scoped** : .cta-form .cta-form__body .cta-form__btn .cta-form__confirm .cta-form__error .cta-form__form .cta-form__hint .cta-form__inner .cta-form__input .cta-form__input--error .cta-form__row .cta-form__text .sr-only
 
@@ -719,7 +719,7 @@
 | `text_en` | string | oui |  |  |
 | `text_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body-md` `--text-body-sm`
+**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body` `--text-small`
 
 **Classes scoped** : .astro .cta-band .cta-band__inner .cta-band__text .cta-inline .cta-inline__text
 
@@ -749,7 +749,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-1` `--space-10` `--space-3` `--space-5` `--space-8` `--text-body-md`
+**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-1` `--space-10` `--space-3` `--space-5` `--space-8` `--text-body`
 
 **Classes scoped** : .cta-split .cta-split__body .cta-split__ctas .cta-split__inner .cta-split__kicker .cta-split__svg .cta-split__text .cta-split__visual
 
@@ -780,7 +780,7 @@
 | `secondary_label_en` | string | non | All solutions |  |
 | `secondary_label_fr` | string | non | Toutes les solutions |  |
 
-**Tokens** : `--accent` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-tight` `--space-10` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-h2-grand` `--text-label` `--text-lede` `--tracking-body` `--tracking-mono`
+**Tokens** : `--accent` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-tight` `--space-10` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--spacing-block` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-mono`
 
 **Classes scoped** : .astro .btn-accent .btn-light .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec .sol-sec-dark .wrap .wrap-tight
 
@@ -809,7 +809,7 @@
 | `subtitle_en` | string | non |  |  |
 | `subtitle_fr` | string | non |  |  |
 
-**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-grand` `--space-10` `--space-3` `--space-4` `--space-6` `--space-7` `--text-body-md` `--text-h2-grand`
+**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-grand` `--space-10` `--space-3` `--space-4` `--space-6` `--space-7` `--text-body` `--text-h1`
 
 **Classes scoped** : .footer-cta .footer-cta__actions .footer-cta__copy .footer-cta__inner .footer-cta__subtitle
 
@@ -844,7 +844,7 @@
 | `placeholder_en` | string | non | your@email.com |  |
 | `placeholder_fr` | string | non | votre@email.com |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-4` `--text-body-base` `--text-body-lead` `--text-caption` `--text-eyebrow` `--text-h1-display` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-4` `--text-body` `--text-h1` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .newsletter-band .newsletter-band__btn .newsletter-band__field .newsletter-band__h2 .newsletter-band__hint .newsletter-band__inner .newsletter-band__input .newsletter-band__kicker .newsletter-band__lead
 
@@ -876,7 +876,7 @@
 | `kicker_fr` | string | non |  |  |
 | `open_first` | boolean | non |  |  |
 
-**Tokens** : `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h3-card`
+**Tokens** : `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--spacing-block` `--text-body` `--text-h3` `--text-small`
 
 **Classes scoped** : .faq-accordion .faq-accordion__a .faq-accordion__arrow .faq-accordion__header .faq-accordion__intro .faq-accordion__item .faq-accordion__q .faq-accordion__q-label
 
@@ -911,7 +911,7 @@
 | `kicker_fr` | string | non |  |  |
 | `open_first` | boolean | non |  |  |
 
-**Tokens** : `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-base` `--space-10` `--space-4` `--space-5` `--space-7` `--space-8` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h3-card` `--text-h3-row`
+**Tokens** : `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-base` `--space-10` `--space-4` `--space-5` `--space-7` `--space-8` `--text-body` `--text-h3` `--text-small`
 
 **Classes scoped** : .faq-cta .faq-cta__a .faq-cta__arrow .faq-cta__aside .faq-cta__card .faq-cta__card-body .faq-cta__card-note .faq-cta__card-title .faq-cta__grid .faq-cta__header .faq-cta__item .faq-cta__q .faq-cta__q-label
 
@@ -938,7 +938,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-2` `--space-4` `--space-5` `--space-6` `--space-8` `--spacing-block` `--text-body-sm` `--text-h3-row`
+**Tokens** : `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-2` `--space-4` `--space-5` `--space-6` `--space-8` `--spacing-block` `--text-h3` `--text-small`
 
 **Classes scoped** : .faq-two-col .faq-two-col__a .faq-two-col__grid .faq-two-col__header .faq-two-col__item .faq-two-col__q
 
@@ -963,7 +963,7 @@
 | `h2_fr` | string | oui |  |  |
 | `objections` | array | oui |  | min:2 |
 
-**Tokens** : `--font-display` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-h2-section` `--text-h3-card`
+**Tokens** : `--font-display` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h2` `--text-h3`
 
 **Classes scoped** : .objection-handler .objection-handler__list .objection-handler__objection .objection-handler__response .objection-handler__row .objection-handler__table-head
 
@@ -1008,7 +1008,7 @@
 | `system_label` | string | oui |  |  |
 | `system_subtitle` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-6` `--space-7` `--text-eyebrow` `--text-h2-section` `--text-h2-tight` `--text-lede` `--tracking-display` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-6` `--space-7` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--wrap-prose`
 
 **Classes scoped** : .css .in .is-visible .reveal-fade .sysarch .sysarch-cap .sysarch-fig .sysarch-flow .sysarch-h2 .sysarch-hd .sysarch-loop .sysarch-node .sysarch-spec .sysarch-svg
 
@@ -1035,7 +1035,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-1` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-h3-card` `--text-h3-row`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-1` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
 **Classes scoped** : .bento-grid .bento-grid__body .bento-grid__cell .bento-grid__cell--1 .bento-grid__cell--2 .bento-grid__cell--3 .bento-grid__cell--4 .bento-grid__cell--5 .bento-grid__glyph .bento-grid__header .bento-grid__mosaic .bento-grid__title
 
@@ -1065,7 +1065,7 @@
 | `pills_en` | array | oui |  | min:1 max:16 |
 | `pills_fr` | array | oui |  | min:1 max:16 |
 
-**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-loose` `--space-2` `--space-6` `--space-9` `--text-caption` `--text-h2-section`
+**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-loose` `--space-2` `--space-6` `--space-9` `--text-h2` `--text-small`
 
 **Classes scoped** : .coming-h2 .coming-list .coming-pill .hub-coming
 
@@ -1094,7 +1094,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h2-tight` `--text-h3-card` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
@@ -1121,7 +1121,7 @@
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-4` `--space-6` `--space-9` `--text-body-base` `--text-eyebrow` `--text-h2-section` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-4` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .astro .decision-list .decision-list-grid .decision-list-h2 .decision-list-item .decision-list-kicker .decision-list-num .decision-list-ol
 
@@ -1150,7 +1150,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h2-tight` `--text-h3-card` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
@@ -1185,7 +1185,7 @@
 | `kicker_fr` | string | non |  |  |
 | `roman` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-5` `--space-6` `--text-body-sm` `--text-eyebrow` `--text-h3-card` `--text-h3-row` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-5` `--space-6` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .aside .css .notes-foot .notes-foot-link .notes-index .notes-row .notes-row-arr .notes-row-date .notes-row-num .notes-row-tag .notes-row-text .sec .sec-hd
 
@@ -1209,7 +1209,7 @@
 | `left` | literal | non | left | min:1 max:3 |
 | `right` | literal | non | right | min:1 max:3 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-6` `--text-label` `--text-pull-quote`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-6` `--text-h2` `--text-small`
 
 **Classes scoped** : .hub-blog-cta .hub-blog-h2 .hub-blog-k .hub-blog-lb .hub-blog-lb-grid .hub-blog-lead .hub-lb-cta .hub-lb-h2 .hub-lb-k .hub-lb-lead .related-card .related-go .related-k .related-lead
 
@@ -1239,7 +1239,7 @@
 | `lede_fr` | string | non |  |  |
 | `open_first` | boolean | non | false |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-4` `--space-5` `--space-9` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h3-row` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-4` `--space-5` `--space-9` `--spacing-block` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .fa .fa__a .fa__arrow .fa__body .fa__header .fa__item .fa__lede .fa__meta .fa__q .fa__q-label .fa__q-title
 
@@ -1268,7 +1268,7 @@
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--c` `--font-display` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-7` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h3-row`
+**Tokens** : `--accent-text` `--c` `--font-display` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-7` `--spacing-block` `--text-body` `--text-h3` `--text-small`
 
 **Classes scoped** : .fcg .fcg__col .fcg__col-label .fcg__grid .fcg__header .fcg__lede .fcg__mark .fcg__row .fcg__rows .is-highlighted .is-in .is-out
 
@@ -1296,7 +1296,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h2-tight` `--text-h3-card` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
@@ -1334,7 +1334,7 @@
 | `points` | array | non |  | max:6 |
 | `reversed` | boolean | non | false |  |
 
-**Tokens** : `--accent` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--radius-sm` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--text-body-md` `--text-body-sm` `--text-h2-section` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--radius-sm` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .feature-split .feature-split__body .feature-split__copy .feature-split__cta .feature-split__frame .feature-split__grid .feature-split__media .feature-split__placeholder .feature-split__points
 
@@ -1363,7 +1363,7 @@
 | `kicker_fr` | string | non |  |  |
 | `tabs` | array | non |  | min:2 max:6 |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h3-row` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .feature-tabs .feature-tabs__header .feature-tabs__intro .feature-tabs__panel .feature-tabs__panel-content .feature-tabs__panel-text .feature-tabs__panel-visual .feature-tabs__tab .feature-tabs__tab-icon .feature-tabs__tab-label .feature-tabs__tablist .feature-tabs__visual-box .feature-tabs__visual-label .is-active
 
@@ -1392,7 +1392,7 @@
 | `lede_fr` | string | non |  |  |
 | `rows` | array | non |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-2` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-body-sm` `--text-h3-row`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-2` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
 **Classes scoped** : .fz .fz__header .fz__lede .fz__link .fz__row .fz__rows .fz__svg .fz__text .fz__visual
 
@@ -1415,7 +1415,7 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `guarantees` | array | oui |  | min:1 max:4 |
 
-**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-5` `--text-body-md` `--text-h3-card`
+**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-5` `--text-body` `--text-h3`
 
 **Classes scoped** : .guarantee-block .guarantee-block__content .guarantee-block__item .guarantee-block__list .guarantee-block__num .guarantee-block__title
 
@@ -1442,7 +1442,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h2-tight` `--text-h3-card` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
@@ -1470,11 +1470,11 @@
 | `title_en` | string | non |  |  |
 | `title_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--inclusions-list-pad` `--ink` `--leading-body` `--leading-h3` `--paper` `--paper-2` `--paper-3` `--section-loose` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body-md` `--text-body-sm` `--text-h2-section` `--tracking-display`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--inclusions-list-pad` `--ink` `--leading-body` `--leading-h3` `--paper` `--paper-2` `--paper-3` `--section-loose` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h2` `--text-small` `--tracking-display`
 
 **Classes scoped** : .inclusions-list .inclusions-list__hd .inclusions-list__items .inclusions-list__kicker .inclusions-list__title
 
-**Dette hardcode** : 4 valeur(s) — 1px, clamp(var(--space-5), clamp(var(--space-7), clamp(var(--text-body-sm)
+**Dette hardcode** : 4 valeur(s) — 1px, clamp(var(--space-5), clamp(var(--space-7), clamp(var(--text-small)
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (1px, clamp(var(--space-5), clamp(var(--space-7)).
 
@@ -1496,7 +1496,7 @@
 | `text_en` | string | oui |  |  |
 | `text_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--fw-regular` `--ink` `--paper` `--paper-2` `--paper-3` `--section-grand` `--space-5` `--space-8` `--text-h1-hero`
+**Tokens** : `--accent-text` `--font-display` `--fw-regular` `--ink` `--paper` `--paper-2` `--paper-3` `--section-grand` `--space-5` `--space-8` `--text-h1`
 
 **Classes scoped** : .acc .manifesto-block .manifesto-block__kicker .manifesto-block__text .wrap-wide
 
@@ -1529,7 +1529,7 @@
 | `variant` | enum | non | standard | standard | featured | transparent |
 | `wrap` | boolean | non | true |  |
 
-**Tokens** : `--accent` `--accent-sur-sombre` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h1` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-6` `--space-7` `--space-9` `--text-body-lead` `--text-caption` `--text-eyebrow` `--text-h1-hero` `--text-h2-section` `--text-h3-card` `--text-h3-row` `--text-lede` `--tracking-mono`
+**Tokens** : `--accent` `--accent-sur-sombre` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h1` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .card-cta .card-lead .card-price .card-title .hero-card .hero-card-cta .hero-card-eyebrow .hero-card-lead .hero-card-sub .hero-card-title .offer-card .offer-card--transparent .tier-eyebrow .tier-grid .tier-h2 .tier-ii .tier-ii-grid .tier-iii-grid .tier-lede .tier-section .wrap-wide
 
@@ -1564,7 +1564,7 @@
 | `spec_label` | string | oui |  |  |
 | `terminal_label` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--ink` `--paper` `--paper-rgb` `--radius-md` `--section-grand` `--space-10` `--space-11` `--space-2` `--space-3` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-display` `--text-eyebrow` `--text-h3-row` `--text-lede` `--text-mono-xs` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--ink` `--paper` `--paper-rgb` `--radius-md` `--section-grand` `--space-10` `--space-11` `--space-2` `--space-3` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-display` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .operating-layer .operating-layer__attr-k .operating-layer__attr-v .operating-layer__attrs .operating-layer__console-body .operating-layer__console-cmd .operating-layer__console-k .operating-layer__console-row .operating-layer__console-v .operating-layer__ctas .operating-layer__grid .operating-layer__h2 .operating-layer__hd .operating-layer__lede .operating-layer__spec .wrap-wide
 
@@ -1593,7 +1593,7 @@
 | `h2_fr` | string | oui |  |  |
 | `items` | array | non |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--spacing-block` `--text-body-lead` `--text-eyebrow` `--text-h1-display` `--text-h3-card` `--text-h3-row`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--text-h3` `--text-small`
 
 **Classes scoped** : .callout .eyebrow .pain-card .pk .pn .section-eyebrow .sol-aside .sol-friction .sol-pain-grid .sol-sec .sol-sec-hd .timeline- .timeline-body .timeline-meta .timeline-num .timeline-title .timeline-vertical
 
@@ -1619,7 +1619,7 @@
 | `blocks` | array | oui |  | min:1 |
 | `meta` | array | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--hairline` `--ink` `--ink-2` `--leading-body` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body-sm` `--text-h3-card`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--hairline` `--ink` `--ink-2` `--leading-body` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-h3` `--text-small`
 
 **Classes scoped** : .persona-detail__block .persona-detail__grid .persona-detail__meta .persona-kicker .persona-kicker--dark
 
@@ -1647,13 +1647,13 @@
 | `statement_fr` | string | oui |  |  |
 | `stats` | array | non |  | max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--problem-statement-cols` `--problem-statement-inline` `--problem-statement-pad` `--section-loose` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-eyebrow` `--text-h2-grand` `--text-h2-section` `--text-h2-tight` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--problem-statement-cols` `--problem-statement-inline` `--problem-statement-pad` `--section-loose` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-h1` `--text-h2` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .drop-cap .problem-statement .problem-statement__kicker .problem-statement__label .problem-statement__stat .problem-statement__statement--dropcap .problem-statement__stats .problem-statement__text .problem-statement__value
 
-**Dette hardcode** : 8 valeur(s) — -0.015em, 0.16em, 1100px, 1px, 800px, clamp(var(--space-8), clamp(var(--text-h2-section), clamp(var(--text-h2-tight)
+**Dette hardcode** : 7 valeur(s) — -0.015em, 0.16em, 1100px, 1px, 800px, clamp(var(--space-8), clamp(var(--text-h2)
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.015em, 0.16em, 1100px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-0.015em, 0.16em, 1100px).
 
 ---
 
@@ -1672,7 +1672,7 @@
 | `h2_fr` | string | oui |  |  |
 | `problems` | array | non |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h2-tight` `--text-h3-card` `--text-h3-row` `--text-mono-xs` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
@@ -1732,7 +1732,7 @@
 | `roman` | string | oui |  |  |
 | `services` | array | non |  | min:2 max:8 |
 
-**Tokens** : `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-5` `--space-6` `--space-7` `--text-body-lead` `--text-caption` `--text-eyebrow` `--text-h2-section` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h2` `--text-small` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .aside .astro .dept-sector .sec .sec-hd .svc-arr .svc-cat-footer .svc-cat-list .svc-cat-sec .svc-desc .svc-meta .svc-num .svc-row .svc-title
 
@@ -1765,7 +1765,7 @@
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .services-grid .services-grid__cell .services-grid__cell-arr .services-grid__cell-body .services-grid__cell-fig .services-grid__cell-foot .services-grid__cell-foot-key .services-grid__cell-foot-val .services-grid__cell-head .services-grid__cell-metric .services-grid__cell-rule .services-grid__cell-title .services-grid__cell-uc .services-grid__chapter .services-grid__dot .services-grid__foot .services-grid__foot-link .services-grid__grid .services-grid__h2 .services-grid__hd .services-grid__num .services-grid__sep .services-grid__spec
 
@@ -1794,7 +1794,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-5` `--space-8` `--space-9` `--text-caption` `--text-eyebrow` `--text-h1-display` `--text-label` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-5` `--space-8` `--space-9` `--text-h1` `--text-small` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .astro .tech-aside .tech-cap-table-wrap .tech-sec .tech-sec-hd .tt-spec-desc .tt-spec-name .tt-spec-status .tt-specs .wrap
 
@@ -1825,7 +1825,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-1` `--space-10` `--space-2` `--space-4` `--space-5` `--space-8` `--text-eyebrow` `--text-h1-display` `--text-h3-card` `--text-h3-row` `--text-label`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-1` `--space-10` `--space-2` `--space-4` `--space-5` `--space-8` `--text-h1` `--text-h3` `--text-small`
 
 **Classes scoped** : .astro .callout .fact .fact-k .fact-v .tech-aside .tech-pos-facts .tech-pos-right .tech-pos-split .tech-pos-statement .tech-pos-title .tech-positioning .tech-sec .tech-sec-paper .wrap
 
@@ -1852,11 +1852,11 @@
 | `lead_fr` | string | non |  |  |
 | `pills` | array | non |  | min:2 max:16 |
 
-**Tokens** : `--accent-text` `--font-display` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-4` `--space-6` `--space-8` `--tech-stack-band-inline` `--tech-stack-band-pad` `--text-h2-tight` `--text-h3-card`
+**Tokens** : `--accent-text` `--font-display` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-4` `--space-6` `--space-8` `--tech-stack-band-inline` `--tech-stack-band-pad` `--text-h2` `--text-h3`
 
 **Classes scoped** : .tech-pill .tech-stack-band .tech-stack-band__kicker .tech-stack-band__lead
 
-**Dette hardcode** : 4 valeur(s) — 1px, 760px, clamp(var(--space-6), clamp(var(--text-h3-card)
+**Dette hardcode** : 4 valeur(s) — 1px, 760px, clamp(var(--space-6), clamp(var(--text-h3)
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-6 --space-8. Couleur : --accent-text --ink --muted. Typographie : --font-display --leading-h3. Dette : 4 litteral(s) hardcode(s) (1px, 760px, clamp(var(--space-6)).
 
@@ -1887,7 +1887,7 @@
 | `num_prefix_fr` | string | non | USE CASE |  |
 | `roman` | string | oui |  |  |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body-base` `--text-eyebrow` `--text-h3-row` `--tracking-mono`
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .aside .css .dept-index .dept-row .dept-row-arr .dept-row-label .dept-row-num .dept-row-num-prefix .dept-row-tag .dept-sector .sec .sec-hd
 
@@ -1916,7 +1916,7 @@
 | `h2_fr` | string | oui |  |  |
 | `rows` | array | oui |  | min:2 max:8 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--muted` `--section-grand` `--section-loose` `--space-10` `--space-12` `--space-2` `--space-5` `--space-7` `--space-8` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-ui` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--muted` `--section-grand` `--section-loose` `--space-10` `--space-12` `--space-2` `--space-5` `--space-7` `--space-8` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .acc .why-stalls .why-stalls__aside .why-stalls__fig .why-stalls__grid .why-stalls__h2 .why-stalls__lead .why-stalls__row .why-stalls__row-text .wrap-wide
 
@@ -1949,7 +1949,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--dur-base` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-md` `--space-1` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h3-card`
+**Tokens** : `--dur-base` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-md` `--space-1` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body` `--text-h3` `--text-small`
 
 **Classes scoped** : .gallery-masonry .gallery-masonry__caption .gallery-masonry__caption-body .gallery-masonry__caption-title .gallery-masonry__grid .gallery-masonry__header .gallery-masonry__intro .gallery-masonry__item .gallery-masonry__media .gallery-masonry__placeholder .gallery-masonry__tag
 
@@ -1980,7 +1980,7 @@
 | `src` | string | oui |  |  |
 | `width` | number | non |  |  |
 
-**Tokens** : `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-4` `--text-body-sm` `--wrap-prose`
+**Tokens** : `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-4` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .media-block .media-block__caption .media-block__embed .media-block__img .media-block__svg-wrap .media-block__video
 
@@ -2012,7 +2012,7 @@
 | `stats_label_en` | string | non |  |  |
 | `stats_label_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2049,7 +2049,7 @@
 | `subhead_en` | string | oui |  |  |
 | `subhead_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-h3` `--leading-lede` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-eyebrow` `--text-h1-hero` `--text-h3-row` `--text-label` `--text-lede` `--text-mono-xs` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose` `--wrap-read`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-h3` `--leading-lede` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h1` `--text-h3` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose` `--wrap-read`
 
 **Classes scoped** : .amm-content .amm-deliverable .amm-desc .amm-dot .amm-item .amm-kicker .amm-label .amm-list .amm-num .atlas-mini-map .hero-atlas .hero-atlas-ctas .hero-atlas-inner .hero-atlas-lead .hero-atlas-subhead .hero-atlas-title .kick .kick-dot .signature-grid
 
@@ -2081,7 +2081,7 @@
 | `team_label_en` | string | non |  |  |
 | `team_label_fr` | string | non |  |  |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body-md` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--tracking-display` `--tracking-mono` `--wrap`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--wrap`
 
 **Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
 
@@ -2109,7 +2109,7 @@
 | `h1_fr` | string | oui |  |  |
 | `specs` | array | non |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2138,7 +2138,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2172,13 +2172,13 @@
 | `proof_fr` | string | non |  |  |
 | `stats` | array | non |  | max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-caption` `--text-eyebrow` `--text-h1-display` `--text-h2-tight` `--text-h3-row` `--text-label` `--text-mega` `--tracking-mono-tight` `--wrap-wide`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
 **Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .wrap-wide
 
-**Dette hardcode** : 23 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 140px
+**Dette hardcode** : 22 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 18px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
 
 ---
 
@@ -2203,7 +2203,7 @@
 | `type_label_en` | string | oui |  |  |
 | `type_label_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2232,7 +2232,7 @@
 | `parent_kicker_en` | string | oui |  |  |
 | `parent_kicker_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2267,7 +2267,7 @@
 | `reading_time_en` | string | non |  |  |
 | `reading_time_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2298,7 +2298,7 @@
 | `lede_fr` | string | oui |  |  |
 | `proof` | array | non |  | max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--ink-rgb` `--leading-h2` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-base` `--section-base` `--space-10` `--space-3` `--space-5` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-h1-hero` `--text-h3-row`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--ink-rgb` `--leading-h2` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-base` `--section-base` `--space-10` `--space-3` `--space-5` `--spacing-block` `--text-body` `--text-h1` `--text-h3` `--text-small`
 
 **Classes scoped** : .hero-form-inline .hero-form-inline__copy .hero-form-inline__grid .hero-form-inline__h1 .hero-form-inline__lede .hero-form-inline__panel .hero-form-inline__panel-label .hero-form-inline__proof .hero-form-inline__proof-mark
 
@@ -2325,7 +2325,7 @@
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 
-**Tokens** : `--font-display` `--font-sans` `--hairline` `--header-height` `--ink` `--leading-h1` `--leading-relaxed` `--paper` `--paper-rgb` `--section-loose` `--spacing-block` `--text-lede` `--text-mega`
+**Tokens** : `--font-display` `--font-sans` `--hairline` `--header-height` `--ink` `--leading-h1` `--leading-relaxed` `--paper` `--paper-rgb` `--section-loose` `--spacing-block` `--text-display` `--text-h3`
 
 **Classes scoped** : .hero-fb .hero-fb__inner
 
@@ -2360,7 +2360,7 @@
 | `offer_href` | string | non |  |  |
 | `proofs` | array | oui |  |  |
 
-**Tokens** : `--accent-text` `--dur-base` `--dur-fast` `--dur-hover` `--dur-panel` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-caption` `--text-eyebrow` `--text-h1-display` `--text-h1-hero` `--text-label` `--text-lede` `--tracking-display` `--wrap-wide`
+**Tokens** : `--accent-text` `--dur-base` `--dur-fast` `--dur-hover` `--dur-panel` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--wrap-wide`
 
 **Classes scoped** : .acc .hero-home .hero-home__cta-sub .hero-home__ctas .hero-home__fig .hero-home__headline .hero-home__lede .hero-home__minimap .hero-home__mm-item .hero-home__mm-items .hero-home__mm-label .hero-home__proof .hero-home__proof-label .hero-home__proof-num .hero-home__proofs .hero-home__sub .hero-sig-mark .signature-grid .wrap-wide
 
@@ -2389,7 +2389,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2424,7 +2424,7 @@
 | `transition_id` | string | non |  |  |
 | `variant` | enum | non | hub | hub | listing | detail |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2454,13 +2454,13 @@
 | `meta_kicker_fr` | string | oui |  |  |
 | `stats` | array | non | false | min:2 max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-caption` `--text-eyebrow` `--text-h1-display` `--text-h2-tight` `--text-h3-row` `--text-label` `--text-mega` `--tracking-mono-tight` `--wrap-wide`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
 **Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .wrap-wide
 
-**Dette hardcode** : 23 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 140px
+**Dette hardcode** : 22 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 18px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
 
 ---
 
@@ -2486,7 +2486,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2523,7 +2523,7 @@
 | `lede_fr` | string | oui |  |  |
 | `published_at` | string | oui |  |  |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body-md` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--tracking-display` `--tracking-mono` `--wrap`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--wrap`
 
 **Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
 
@@ -2556,7 +2556,7 @@
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--fw-regular` `--ink` `--paper` `--paper-rgb` `--space-11` `--space-7` `--space-8` `--text-h1-hero` `--text-lede` `--wrap-prose` `--wrap-wide`
+**Tokens** : `--accent-text` `--font-display` `--fw-regular` `--ink` `--paper` `--paper-rgb` `--space-11` `--space-7` `--space-8` `--text-h1` `--text-h3` `--wrap-prose` `--wrap-wide`
 
 **Classes scoped** : .accent .hero-liquid .hero-liquid__cta .hero-liquid__h1 .hero-liquid__inner .hero-liquid__lede .liquid-hero
 
@@ -2592,7 +2592,7 @@
 | `tier_en` | string | oui |  |  |
 | `tier_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body-sm` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-lede` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
@@ -2622,13 +2622,13 @@
 | `meta_kicker_fr` | string | oui |  |  |
 | `stats` | array | non |  | min:2 max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-caption` `--text-eyebrow` `--text-h1-display` `--text-h2-tight` `--text-h3-row` `--text-label` `--text-mega` `--tracking-mono-tight` `--wrap-wide`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
 **Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .wrap-wide
 
-**Dette hardcode** : 23 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 140px
+**Dette hardcode** : 22 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 18px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
 
 ---
 
@@ -2652,7 +2652,7 @@
 | `lede_fr` | string | non |  |  |
 | `transition_id` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2685,7 +2685,7 @@
 | `meta_fr` | string | non |  |  |
 | `tags` | array | non |  | max:8 |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body-sm` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-lede` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
@@ -2713,7 +2713,7 @@
 | `metrics` | array | non |  | min:2 max:4 |
 | `service_num` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2740,7 +2740,7 @@
 | `lede_fr` | string | oui |  |  |
 | `service_num` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2773,7 +2773,7 @@
 | `rating_fr` | string | non |  |  |
 | `stats` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--header-height` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-6` `--spacing-block` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--header-height` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-6` `--spacing-block` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .hero-social-proof .hero-social-proof__band .hero-social-proof__ctas .hero-social-proof__h1 .hero-social-proof__head .hero-social-proof__lede .hero-social-proof__rating .hero-social-proof__stars
 
@@ -2805,7 +2805,7 @@
 | `meta_fr` | string | non |  |  |
 | `right_block` | enum | non |  | mini-map | workflow-svg | stats | image | mockup-terminal |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body-md` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-lede` `--tracking-display` `--tracking-mono` `--wrap`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--wrap`
 
 **Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
 
@@ -2837,7 +2837,7 @@
 | `meta_en` | string | non |  |  |
 | `meta_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body-sm` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-lede` `--text-mono-xs` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
@@ -2867,7 +2867,7 @@
 | `progress_total` | number | oui |  | int min:1 max:12 |
 | `step` | number | oui |  | int min:1 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-10` `--space-11` `--space-6` `--space-7` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-label` `--text-lede`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-10` `--space-11` `--space-6` `--space-7` `--text-h1` `--text-h3` `--text-small`
 
 **Classes scoped** : .hero-tunnel-step .hero-tunnel-step__h1 .hero-tunnel-step__h1--hero .hero-tunnel-step__h1--section .hero-tunnel-step__kicker .hero-tunnel-step__lede .hero-tunnel-step__progress .hero-tunnel-step__progress-step .is-active .tunnel-step-hero .tunnel-step-hero__h1 .tunnel-step-hero__h1--hero .tunnel-step-hero__h1--section .tunnel-step-hero__kicker .tunnel-step-hero__lede .tunnel-step-hero__progress .tunnel-step-hero__progress-step .wrap-wide
 
@@ -2896,7 +2896,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body-lead` `--text-body-md` `--text-body-sm` `--text-caption` `--text-display` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-label` `--text-lede` `--text-mega` `--text-ui` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--space-page-x` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__mast .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
@@ -2949,7 +2949,7 @@
 | `progress_total` | number | oui |  | int min:1 |
 | `step` | number | oui |  | int min:1 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-10` `--space-11` `--space-6` `--space-7` `--text-eyebrow` `--text-h1-hero` `--text-h2-grand` `--text-label` `--text-lede`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-10` `--space-11` `--space-6` `--space-7` `--text-h1` `--text-h3` `--text-small`
 
 **Classes scoped** : .hero-tunnel-step .hero-tunnel-step__h1 .hero-tunnel-step__h1--hero .hero-tunnel-step__h1--section .hero-tunnel-step__kicker .hero-tunnel-step__lede .hero-tunnel-step__progress .hero-tunnel-step__progress-step .is-active .tunnel-step-hero .tunnel-step-hero__h1 .tunnel-step-hero__h1--hero .tunnel-step-hero__h1--section .tunnel-step-hero__kicker .tunnel-step-hero__lede .tunnel-step-hero__progress .tunnel-step-hero__progress-step .wrap-wide
 
@@ -2976,7 +2976,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-sur-clair` `--accent-text` `--dur-fast` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-tight` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body-lead` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-mono-xs` `--text-ui` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-rgb` `--accent-sur-clair` `--accent-text` `--dur-fast` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-tight` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .arrow .catalogue .catalogue-table .col-duree .col-niveau .col-num .mono .pill .pill--avance .pill--debutant .pill--expert .pill--intermediaire .row-title .section-title .table-header .table-row
 
@@ -3003,7 +3003,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body-lead` `--text-body-sm` `--text-caption` `--tracking-mono-tight`
+**Tokens** : `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .parcours-desc .parcours-item .parcours-list .parcours-section .parcours-title .section-title
 
@@ -3036,7 +3036,7 @@
 | `list_html_en` | string | non |  |  |
 | `list_html_fr` | string | non |  |  |
 
-**Tokens** : `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink-2` `--leading-lede` `--section-loose` `--space-3` `--space-5` `--space-6` `--space-9` `--text-lede` `--text-mega`
+**Tokens** : `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink-2` `--leading-lede` `--section-loose` `--space-3` `--space-5` `--space-6` `--space-9` `--text-display` `--text-h3`
 
 **Classes scoped** : .list-body .list-filters .list-footer .list-h1 .list-hd .list-kicker .list-lede
 
@@ -3070,7 +3070,7 @@
 | `lede_fr` | string | non |  |  |
 | `partners` | array | non |  | min:1 |
 
-**Tokens** : `--accent-text` `--font-display` `--fw-regular` `--ink` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--section-tight` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body-sm` `--text-h2-section` `--text-lede` `--wrap-prose`
+**Tokens** : `--accent-text` `--font-display` `--fw-regular` `--ink` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--section-tight` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .eco-partners .eco-partners__cell .eco-partners__cell--labeled .eco-partners__grid .eco-partners__group-title .eco-partners__groups .eco-partners__h2 .eco-partners__head .eco-partners__kicker .eco-partners__lede .eco-partners__marquee .eco-partners__marquee-wrap .eco-partners__wall .eco-partners__wall-label .partner-logo
 
@@ -3099,7 +3099,7 @@
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--space-3` `--space-4` `--space-5` `--space-8` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--space-3` `--space-4` `--space-5` `--space-8` `--spacing-block` `--text-body` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .integrations .integrations__cell .integrations__group .integrations__group-title .integrations__groups .integrations__header .integrations__lede .integrations__list .integrations__name
 
@@ -3179,13 +3179,13 @@
 | `repeat` | number | non | 2 | int min:1 max:4 |
 | `separator` | string | non | · |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--ink` `--ink-rgb` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--text-caption`
+**Tokens** : `--accent-text` `--font-mono` `--ink` `--ink-rgb` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--text-small`
 
 **Classes scoped** : .marquee-band .marquee-band__item .marquee-band__sep .marquee-band__track
 
 **Dette hardcode** : 5 valeur(s) — -50%, .1em, 18px, 1px, 28px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --text-caption. Dette : 5 litteral(s) hardcode(s) (-50%, .1em, 18px).
+**Agent** : Layout : `background` (schema, 0 CSS). Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --text-small. Dette : 5 litteral(s) hardcode(s) (-50%, .1em, 18px).
 
 ---
 
@@ -3205,13 +3205,13 @@
 | `logos` | array | non |  |  |
 | `marquee` | boolean | non | true |  |
 
-**Tokens** : `--font-display` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--section-tight` `--space-5` `--space-6` `--text-label`
+**Tokens** : `--font-display` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--section-tight` `--space-5` `--space-6` `--text-small`
 
 **Classes scoped** : .social-proof .social-proof__kicker .social-proof__logo .social-proof__marquee .social-proof__marquee-wrap .social-proof__static
 
 **Dette hardcode** : 2 valeur(s) — -50%, 1px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-display --text-label. Dette : 2 litteral(s) hardcode(s) (-50%, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-display --text-small. Dette : 2 litteral(s) hardcode(s) (-50%, 1px).
 
 ---
 
@@ -3240,7 +3240,7 @@
 | `num_en` | string | oui |  |  |
 | `num_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-3` `--space-9` `--text-h1-hero` `--text-lede`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-3` `--space-9` `--text-h1` `--text-h3`
 
 **Classes scoped** : .acc .asym-svc .asym-svc__accent .asym-svc__hd .asym-svc__intro .asym-svc__title
 
@@ -3271,7 +3271,7 @@
 | `text_fr` | string | oui |  |  |
 | `tone` | enum | non | ink | ink | paper |
 
-**Tokens** : `--accent-text` `--act-cols` `--dur-trim` `--ease-out` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--ms-lit` `--muted` `--paper` `--paper-rgb` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-4` `--space-6` `--space-8` `--text-body-md` `--text-display` `--text-h2-section`
+**Tokens** : `--accent-text` `--act-cols` `--dur-trim` `--ease-out` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--ms-lit` `--muted` `--paper` `--paper-rgb` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-4` `--space-6` `--space-8` `--text-body` `--text-display` `--text-h2`
 
 **Classes scoped** : .acc .manifesto-act .manifesto-act__grid .manifesto-act__label .manifesto-act__num .manifesto-act__roman .manifesto-act__stat-k .manifesto-act__stat-p .manifesto-act__stats .manifesto-act__sub .manifesto-act__text .ms-manifesto-progressive .ms-word .ts
 
@@ -3299,7 +3299,7 @@
 | `text_fr` | string | oui |  |  |
 | `tone` | enum | non | ink | ink | accent |
 
-**Tokens** : `--accent` `--accent-text` `--dur-trim` `--ease-out` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--ink` `--ms-lit` `--paper` `--paper-rgb` `--section-grand` `--spacing-block` `--text-h1-display`
+**Tokens** : `--accent` `--accent-text` `--dur-trim` `--ease-out` `--font-display` `--font-sans` `--fw-regular` `--fw-semibold` `--ink` `--ms-lit` `--paper` `--paper-rgb` `--section-grand` `--spacing-block` `--text-h1`
 
 **Classes scoped** : .acc .manifesto-stmt .manifesto-stmt__grid .manifesto-stmt__inner .manifesto-stmt__kicker .manifesto-stmt__text .manifesto-stmt--pinned .manifesto-stmt-pin .ms-manifesto-progressive .ms-word .ts
 
@@ -3336,7 +3336,7 @@
 | `subtitle_en` | string | non |  |  |
 | `subtitle_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--section-base` `--space-10` `--space-3` `--space-4` `--space-6` `--text-body-base` `--text-body-sm` `--text-caption` `--text-h2-tight`
+**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--section-base` `--space-10` `--space-3` `--space-4` `--space-6` `--text-body` `--text-h2` `--text-small`
 
 **Classes scoped** : .cta-newsletter .cta-newsletter__consent .cta-newsletter__copy .cta-newsletter__form .cta-newsletter__form-col .cta-newsletter__grid .cta-newsletter__input .cta-newsletter__subtitle .sr-only
 
@@ -3368,7 +3368,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--space-6` `--text-body-md` `--text-eyebrow`
+**Tokens** : `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--space-6` `--text-body` `--text-small`
 
 **Classes scoped** : .nl-btn .nl-input .nl-section .nl-section__body .nl-section__form .nl-section__head .nl-section__hint .nl-section__inner
 
@@ -3401,7 +3401,7 @@
 | `lede_fr` | string | non |  |  |
 | `tiers` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent-rgb` `--accent-sur-clair` `--accent-text` `--col-count` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-mono-xs` `--tracking-display`
+**Tokens** : `--accent-rgb` `--accent-sur-clair` `--accent-text` `--col-count` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-h2` `--text-small` `--tracking-display`
 
 **Classes scoped** : .is-featured .pricing-cards .pricing-cards__badge .pricing-cards__btn .pricing-cards__card .pricing-cards__card-hd .pricing-cards__check .pricing-cards__features .pricing-cards__footnote .pricing-cards__grid .pricing-cards__header .pricing-cards__idx .pricing-cards__lede .pricing-cards__name .pricing-cards__period .pricing-cards__price .pricing-cards__price-k
 
@@ -3431,7 +3431,7 @@
 | `plans` | array | oui |  | min:2 max:4 |
 | `rows` | array | oui |  | min:2 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--ease-out` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--ease-out` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__header .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
 
@@ -3476,7 +3476,7 @@
 | `secondary_note_en` | string | non |  |  |
 | `secondary_note_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-mono-xs` `--text-stat` `--tracking-display` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--spacing-block` `--text-h1` `--text-small` `--tracking-display` `--tracking-mono-tight`
 
 **Classes scoped** : .pricing-single .pricing-single__anchor .pricing-single__anchor-label .pricing-single__benefits .pricing-single__benefits-label .pricing-single__btn .pricing-single__card .pricing-single__check .pricing-single__desc .pricing-single__guarantee .pricing-single__header .pricing-single__lead .pricing-single__list .pricing-single__name .pricing-single__note .pricing-single__period .pricing-single__price .pricing-single__price-k
 
@@ -3503,7 +3503,7 @@
 | `kicker_fr` | string | non |  |  |
 | `tiers` | array | oui |  | min:1 max:5 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--col-count` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-4` `--space-5` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-h2-tight` `--text-mono-xs`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--col-count` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-4` `--space-5` `--spacing-block` `--text-h2` `--text-small`
 
 **Classes scoped** : .pricing-table .pricing-table__btn .pricing-table__check .pricing-table__cta .pricing-table__features .pricing-table__grid .pricing-table__header .pricing-table__price .pricing-table__tier .pricing-table__tier--featured .pricing-table__tier-header .pricing-table__tier-name
 
@@ -3536,7 +3536,7 @@
 | `save_badge_fr` | string | non |  |  |
 | `tiers` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-sur-clair` `--accent-text` `--col-count` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-body-sm` `--text-eyebrow` `--text-mono-xs` `--text-stat` `--tracking-display` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-rgb` `--accent-sur-clair` `--accent-text` `--col-count` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-h1` `--text-small` `--tracking-display` `--tracking-mono-tight`
 
 **Classes scoped** : .is-featured .pricing-toggle .pricing-toggle__badge .pricing-toggle__btn .pricing-toggle__card .pricing-toggle__card-hd .pricing-toggle__check .pricing-toggle__features .pricing-toggle__grid .pricing-toggle__header .pricing-toggle__idx .pricing-toggle__input .pricing-toggle__knob .pricing-toggle__name .pricing-toggle__price .pricing-toggle__price-k .pricing-toggle__save .pricing-toggle__suffix .pricing-toggle__switch .pricing-toggle__switch-label .pricing-toggle__switch-row
 
@@ -3567,7 +3567,7 @@
 | `lede_fr` | string | non |  |  |
 | `stages` | array | oui |  | min:4 max:6 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--diag-cols` `--dur-trim` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h2-section` `--text-h3-card` `--text-pull-quote` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--diag-cols` `--dur-trim` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .acc .diag .diag__body .diag__card .diag__glyph .diag__h2 .diag__head .diag__here .diag__kicker .diag__lede .diag__num .diag__phase .diag__stage .diag__title .diag__top .diag__track
 
@@ -3596,7 +3596,7 @@
 | `kicker_fr` | string | non |  |  |
 | `steps` | array | non |  | min:2 max:8 |
 
-**Tokens** : `--accent` `--accent-ink` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--space-9` `--text-body-base` `--text-body-sm` `--text-h2-section` `--text-h3-card` `--wrap-prose`
+**Tokens** : `--accent` `--accent-ink` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .acc .process-steps .process-steps__body .process-steps__connector .process-steps__content .process-steps__h2 .process-steps__hd .process-steps__intro .process-steps__list .process-steps__num .process-steps__row .process-steps__step .process-steps__title .process-steps__track
 
@@ -3625,7 +3625,7 @@
 | `kicker_fr` | string | non |  |  |
 | `metrics` | array | oui |  | min:1 max:3 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-lead` `--text-body-md` `--text-stat` `--tracking-display`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--tracking-display`
 
 **Classes scoped** : .metric-callout .metric-callout__context .metric-callout__head .metric-callout__item .metric-callout__label .metric-callout__list .metric-callout__value
 
@@ -3654,7 +3654,7 @@
 | `lede_fr` | string | non |  |  |
 | `shifts` | array | non |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-eyebrow` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-pull-quote` `--text-ui` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .metric-shift .metric-shift__after .metric-shift__arrow .metric-shift__before .metric-shift__delta .metric-shift__delta--down .metric-shift__delta--flat .metric-shift__delta--up .metric-shift__hd .metric-shift__kicker .metric-shift__label .metric-shift__lede .metric-shift__row .metric-shift__rows .metric-shift__title .metric-shift__values .metric-shift--ink .metric-shift--paper-2 .metric-shift--paper-3
 
@@ -3683,7 +3683,7 @@
 | `link_label_fr` | string | non |  |  |
 | `metrics` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-stat`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--text-h2` `--text-small`
 
 **Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .pull-quote-attr .pull-quote-body .pull-quote-cite .pull-quote-mark .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
@@ -3709,7 +3709,7 @@
 | `h2_fr` | string | oui |  |  |
 | `metrics` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--ink` `--leading-h1` `--leading-lede` `--paper` `--paper-rgb` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--spacing-block` `--text-eyebrow` `--text-h1-display` `--text-stat`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--ink` `--leading-h1` `--leading-lede` `--paper` `--paper-rgb` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--spacing-block` `--text-h1` `--text-small`
 
 **Classes scoped** : .eyebrow .key-metric-accent .key-metric-label .key-metric-value .kicker .roi-cell .roi-l .roi-v .section-eyebrow .sol-proof .sol-roi-grid .sol-roi-hd .sol-sec .sol-sec-dark .start-10 .start-9
 
@@ -3736,7 +3736,7 @@
 | `kicker_fr` | string | non |  |  |
 | `specs` | array | oui |  | min:2 max:8 |
 
-**Tokens** : `--font-mono` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-5` `--space-6` `--spec-cols` `--text-mono-xs` `--text-ui`
+**Tokens** : `--font-mono` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-5` `--space-6` `--spec-cols` `--text-small`
 
 **Classes scoped** : .spec-bar .spec-bar__grid .spec-bar__item .spec-bar__label .spec-bar__value
 
@@ -3768,7 +3768,7 @@
 | `quote_en` | string | non |  |  |
 | `quote_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h2-section` `--text-stat`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--text-h2` `--text-small`
 
 **Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .pull-quote-attr .pull-quote-body .pull-quote-cite .pull-quote-mark .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
@@ -3796,7 +3796,7 @@
 | `kicker_fr` | string | non |  |  |
 | `stats` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--sc-cols` `--section-base` `--space-3` `--space-5` `--space-6` `--space-8` `--text-caption` `--text-h2-grand` `--text-h3-row` `--wrap-prose`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--sc-cols` `--section-base` `--space-3` `--space-5` `--space-6` `--space-8` `--text-h1` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .stat-counter .stat-counter__cell .stat-counter__grid .stat-counter__h2 .stat-counter__head .stat-counter__kicker .stat-counter__label .stat-counter__num
 
@@ -3823,7 +3823,7 @@
 | `kicker_fr` | string | non |  |  |
 | `stats` | array | oui |  | min:4 max:4 |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--spacing-block` `--text-body-md` `--text-body-sm` `--text-caption` `--text-h2-grand` `--text-h2-section` `--text-h2-tight` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--spacing-block` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .stats-bento .stats-bento__cell .stats-bento__cell--1 .stats-bento__cell--2 .stats-bento__cell--3 .stats-bento__cell--4 .stats-bento__delta .stats-bento__grid .stats-bento__header .stats-bento__label .stats-bento__number
 
@@ -3858,7 +3858,7 @@
 | `rows` | array | non | false | min:2 max:8 |
 | `striped` | boolean | non | false |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--space-9` `--text-body-base` `--text-body-sm` `--text-caption` `--text-h2-section` `--text-mono-xs` `--tracking-caps`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--space-9` `--text-body` `--text-h2` `--text-small` `--tracking-caps`
 
 **Classes scoped** : .acc .data-table .data-table__caption .data-table__h2 .data-table__hd .data-table__intro .data-table__scroll .data-table__table
 
@@ -3888,7 +3888,7 @@
 | `title_fr` | string | non |  |  |
 | `tone` | enum | non | paper | paper | ink |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--paper` `--paper-rgb` `--section-base` `--space-2` `--space-4` `--space-7` `--text-h2-section`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--paper` `--paper-rgb` `--section-base` `--space-2` `--space-4` `--space-7` `--text-h2`
 
 **Classes scoped** : .write-feed .write-feed__hd .write-feed__meta-link .write-feed__title
 
@@ -3904,7 +3904,7 @@
 > TerminalTableSection · src/components/sections/TerminalTableSection.astro · marketing/table-sections
 > status : stable · tags : console, data, rows, services, table, terminal
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-4` `--space-5` `--space-8` `--text-body-md` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h2-section` `--text-h3-card` `--text-ui`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-4` `--space-5` `--space-8` `--text-body` `--text-h2` `--text-h3` `--text-small`
 
 **Classes scoped** : .acc .tbl-sec .tbl-sec__cell .tbl-sec__hd .tbl-sec__intro .tbl-sec__title .u-edit-tbl .u-edit-tbl-head .u-edit-tbl-row
 
@@ -3936,7 +3936,7 @@
 | `lede_fr` | string | non |  |  |
 | `members` | array | oui |  | min:2 max:12 |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--space-2` `--space-4` `--space-6` `--spacing-block` `--text-body-base` `--text-body-md` `--text-body-sm` `--text-eyebrow` `--text-h3-card` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--space-2` `--space-4` `--space-6` `--spacing-block` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .team-bio-grid .team-bio-grid__avatar .team-bio-grid__bio .team-bio-grid__card .team-bio-grid__header .team-bio-grid__initials .team-bio-grid__lede .team-bio-grid__list .team-bio-grid__name .team-bio-grid__role
 
@@ -3971,7 +3971,7 @@
 | `show_line_numbers` | boolean | non | true |  |
 | `tone` | enum | non | ink | ink | paper |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-rgb` `--radius-card` `--radius-pill` `--section-base` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--text-body-base` `--text-body-sm` `--text-h2-section` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-rgb` `--radius-card` `--radius-pill` `--section-base` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .acc .code-showcase .code-showcase__bar .code-showcase__cmt .code-showcase__code .code-showcase__copy .code-showcase__dots .code-showcase__file .code-showcase__frame .code-showcase__grid .code-showcase__h2 .code-showcase__intro .code-showcase__lang .code-showcase__line .code-showcase__ln .code-showcase__text
 
@@ -3996,13 +3996,13 @@
 | `kicker_fr` | string | non |  |  |
 | `metrics` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--font-mono` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-rgb` `--section-tight` `--space-2` `--space-4` `--space-5` `--text-body-lead` `--text-mono-xs` `--tm-cols`
+**Tokens** : `--font-mono` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-rgb` `--section-tight` `--space-2` `--space-4` `--space-5` `--text-body` `--text-small` `--tm-cols`
 
 **Classes scoped** : .term-metrics .term-metrics__cell .term-metrics__grid .term-metrics__k .term-metrics__kicker .term-metrics__v
 
 **Dette hardcode** : 3 valeur(s) — .14em, 1px, 768px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --text-body-lead. Dette : 3 litteral(s) hardcode(s) (.14em, 1px, 768px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --text-body. Dette : 3 litteral(s) hardcode(s) (.14em, 1px, 768px).
 
 ---
 
@@ -4012,7 +4012,7 @@
 > TerminalMockupSection · src/components/sections/TerminalMockupSection.astro · marketing/terminal-sections
 > status : stable · tags : cli, console, mockup, platform, split, terminal
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-rgb` `--section-base` `--space-1` `--space-5` `--space-9` `--text-body-md` `--text-caption` `--text-h2-section` `--text-ui`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-rgb` `--section-base` `--space-1` `--space-5` `--space-9` `--text-body` `--text-h2` `--text-small`
 
 **Classes scoped** : .acc .term-mock .term-mock__body .term-mock__cursor .term-mock__grid .term-mock__intro .term-mock__kicker .term-mock__line .term-mock__line-text .term-mock__ok .term-mock__prompt .term-mock__title
 
@@ -4053,7 +4053,7 @@
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body-lead` `--text-eyebrow` `--text-h2-section` `--text-h2-tight` `--text-mono-xs` `--text-ui` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .cases-arr .cases-client .cases-col .cases-col-k .cases-col-v .cases-foot .cases-h2 .cases-hd .cases-idx .cases-impact .cases-row .cases-spec .cases-tbl
 
@@ -4086,7 +4086,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--radius-xs` `--section-base` `--space-3` `--space-4` `--space-5` `--space-9` `--text-eyebrow` `--text-label` `--text-pull-quote` `--text-ui` `--tracking-body`
+**Tokens** : `--accent` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--radius-xs` `--section-base` `--space-3` `--space-4` `--space-5` `--space-9` `--text-h2` `--text-small` `--tracking-body`
 
 **Classes scoped** : .kicker .res-l .res-row .res-v .sol-case .sol-case-body .sol-case-cta .sol-case-dark .sol-case-grid .sol-case-light .sol-case-results .sol-case-title .wrap-inner
 
@@ -4125,7 +4125,7 @@
 | `title_fr` | string | oui |  |  |
 | `variant` | enum | non |  | media-left | media-right |
 
-**Tokens** : `--accent` `--accent-text` `--cs-mcols` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--radius-full` `--section-base` `--shadow-card-rest` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h1-display` `--text-h3-card` `--text-pull-quote`
+**Tokens** : `--accent` `--accent-text` `--cs-mcols` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--radius-full` `--section-base` `--shadow-card-rest` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-h1` `--text-h2` `--text-h3` `--text-small`
 
 **Classes scoped** : .acc .cspot .cspot__body .cspot__card .cspot__cite .cspot__cta .cspot__kicker .cspot__media .cspot__metric .cspot__metric-k .cspot__metric-l .cspot__metrics .cspot__quote .cspot__tags .cspot__title
 
@@ -4182,7 +4182,7 @@
 | `role_en` | string | oui |  |  |
 | `role_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-1` `--space-4` `--space-5` `--space-7` `--text-display` `--text-eyebrow` `--text-h2-section` `--text-lede` `--text-mono-xs` `--wrap-prose`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-1` `--space-4` `--space-5` `--space-7` `--text-display` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .qs-author .qs-author-name .qs-author-role .qs-avatar .qs-avatar--placeholder .qs-caption .qs-figure .qs-mark .qs-quote .quote-spotlight .wrap-wide
 
@@ -4211,7 +4211,7 @@
 | `cta_label_fr` | string | non | Voir le profil → |  |
 | `members` | array | non | Portrait auteur Waimia | int min:0 max:6 |
 
-**Tokens** : `--accent-text` `--dur-base` `--dur-trim` `--ease` `--ease-out` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-2` `--space-4` `--space-6` `--space-8` `--text-body-base` `--text-body-lead` `--text-eyebrow` `--text-h2-tight` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-base` `--dur-trim` `--ease` `--ease-out` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-2` `--space-4` `--space-6` `--space-8` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .eq-card .eq-card-body .eq-card-count .eq-card-cta .eq-card-desc .eq-card-meta .eq-card-name .eq-card-photo .eq-card-role .eq-grid .eq-grid-sec .wrap
 
@@ -4239,7 +4239,7 @@
 | `layout` | enum | non | grid-2 | carousel | grid-2 | rows |
 | `testimonials` | array | oui |  | min:1 max:6 |
 
-**Tokens** : `--accent-text` `--font-display` `--hairline` `--ink` `--leading-lede` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-4` `--space-7` `--spacing-block` `--text-h3-row`
+**Tokens** : `--accent-text` `--font-display` `--hairline` `--ink` `--leading-lede` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-4` `--space-7` `--spacing-block` `--text-h3`
 
 **Classes scoped** : .testimonial-block .testimonial-block__author .testimonial-block__footer .testimonial-block__header .testimonial-block__item .testimonial-block__list .testimonial-block__quote
 
@@ -4266,7 +4266,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--shadow-card-hover` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-caption` `--text-h3-row` `--text-pull-quote` `--text-ui` `--tlm-cols` `--tracking-mono` `--wrap-prose`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--shadow-card-hover` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-h2` `--text-h3` `--text-small` `--tlm-cols` `--tracking-mono` `--wrap-prose`
 
 **Classes scoped** : .tlm .tlm__author .tlm__author-name .tlm__author-role .tlm__card .tlm__grid .tlm__h2 .tlm__head .tlm__inner .tlm__kicker .tlm__logo .tlm__logo-text .tlm__metric .tlm__metric-label .tlm__metric-value .tlm__quote
 
@@ -4298,7 +4298,7 @@
 | `role_fr` | string | oui |  |  |
 | `variant` | enum | non |  | quote-left | quote-right |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-12` `--space-2` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-sm` `--text-caption` `--text-h2-grand` `--text-h3-row` `--text-pull-quote` `--tm-cols` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-12` `--space-2` `--space-5` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tm-cols` `--tracking-mono-tight`
 
 **Classes scoped** : .tmet .tmet__attr .tmet__grid .tmet__kicker .tmet__metric .tmet__metric-k .tmet__metric-l .tmet__metrics-col .tmet__name .tmet__quote .tmet__quote-col .tmet__role
 
@@ -4330,7 +4330,7 @@
 | `role_en` | string | oui |  |  |
 | `role_fr` | string | oui |  |  |
 
-**Tokens** : `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-grand` `--space-1` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-body-sm` `--text-h3-row` `--text-pull-quote` `--tracking-mono`
+**Tokens** : `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-grand` `--space-1` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .testimonial-spotlight .testimonial-spotlight__attr .testimonial-spotlight__author .testimonial-spotlight__grid .testimonial-spotlight__initials .testimonial-spotlight__logo .testimonial-spotlight__main .testimonial-spotlight__name .testimonial-spotlight__portrait .testimonial-spotlight__quote .testimonial-spotlight__role
 
@@ -4361,7 +4361,7 @@
 | `section_label_fr` | string | oui |  |  |
 | `steps` | array | oui |  | min:3 max:6 |
 
-**Tokens** : `--accent-text` `--ease` `--font-display` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--muted` `--section-loose` `--space-12` `--space-8` `--space-9` `--text-h1-display` `--text-h2-tight` `--text-lede` `--text-mega`
+**Tokens** : `--accent-text` `--ease` `--font-display` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--muted` `--section-loose` `--space-12` `--space-8` `--space-9` `--text-display` `--text-h1` `--text-h2` `--text-h3`
 
 **Classes scoped** : .how-we-ship .how-we-ship__body .how-we-ship__card .how-we-ship__numline .how-we-ship__pip .how-we-ship__roman .how-we-ship__stage .how-we-ship__sticky .how-we-ship__title .how-we-ship__tracks .how-we-ship__wrap .is-active .wrap-wide
 
@@ -4397,7 +4397,7 @@
 | `timeline_label_fr` | string | non | Progression de maturité IA |  |
 | `variant` | enum | non | full | full | cards-only |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-caption` `--text-eyebrow` `--text-h3-card` `--text-h3-row` `--text-label` `--text-mono-xs` `--text-pull-quote` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .e-action .e-body .e-gauge .e-gauge-fill .e-list .e-num .e-price .e-stage .e-tag .e-title .editorial-cell .in .is-visible .pyramid-asym .pyramid-cards-only .pyramid-step .pyramid-step-roman .pyramid-step-stage .pyramid-step-verb .pyramid-svg .pyramid-timeline .reveal-stagger .sec .sec-paper
 
@@ -4426,7 +4426,7 @@
 | `lede_fr` | string | non |  |  |
 | `steps` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--spacing-block` `--text-body-md` `--text-eyebrow` `--text-h2-tight` `--text-h3-card` `--text-pull-quote` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .method-timeline .method-timeline__aside .method-timeline__content .method-timeline__header .method-timeline__label .method-timeline__list .method-timeline__meta .method-timeline__sn .method-timeline__step
 
@@ -4453,7 +4453,7 @@
 | `kicker_fr` | string | non |  |  |
 | `steps` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--accent-ink` `--font-mono` `--font-sans` `--fw-medium` `--hairline-strong` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--space-2` `--space-4` `--space-5` `--space-6` `--space-9` `--spacing-block` `--text-body-sm` `--text-h3-card`
+**Tokens** : `--accent` `--accent-ink` `--font-mono` `--font-sans` `--fw-medium` `--hairline-strong` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--space-2` `--space-4` `--space-5` `--space-6` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
 **Classes scoped** : .steps-horizontal .steps-horizontal__connector .steps-horizontal__content .steps-horizontal__header .steps-horizontal__list .steps-horizontal__pill .steps-horizontal__step .steps-horizontal__title .steps-horizontal__track
 
@@ -4482,7 +4482,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--font-display` `--font-sans` `--fw-medium` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-8` `--space-9` `--text-h1-display` `--text-label`
+**Tokens** : `--accent` `--accent-rgb` `--font-display` `--font-sans` `--fw-medium` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-8` `--space-9` `--text-h1` `--text-small`
 
 **Classes scoped** : .astro .dingbat .tech-aside .tech-int-flow .tech-integration .tech-sec .tech-sec-hd .tech-sec-paper .timeline-content .timeline-item-highlight .timeline-vertical .wrap
 
@@ -4507,7 +4507,7 @@
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 
-**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-5` `--space-6` `--spacing-block` `--text-body-md` `--text-h2-section` `--text-h3-card`
+**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h2` `--text-h3`
 
 **Classes scoped** : .timeline-block .timeline-block__content .timeline-block__date .timeline-block__event .timeline-block__list .timeline-block__title
 
@@ -4536,7 +4536,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-body-base` `--text-body-sm` `--text-h2-section` `--text-h3-row` `--text-mono-xs` `--tracking-mono`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .acc .timeline-h .timeline-h__body .timeline-h__card .timeline-h__date .timeline-h__dot .timeline-h__event .timeline-h__h2 .timeline-h__hd .timeline-h__intro .timeline-h__label .timeline-h__rail .timeline-h__status .timeline-h__track
 
@@ -4566,7 +4566,7 @@
 | `kicker_fr` | string | non |  |  |
 | `variant` | enum | non | cells | cells | strip |
 
-**Tokens** : `--accent` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-tight` `--space-2` `--space-3` `--space-5` `--space-6` `--tb-cols` `--text-body-lead` `--text-body-sm` `--text-caption` `--text-eyebrow` `--text-h3-row` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-tight` `--space-2` `--space-3` `--space-5` `--space-6` `--tb-cols` `--text-body` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .trust-badges .trust-badges__cell .trust-badges__glyph .trust-badges__grid .trust-badges__h2 .trust-badges__head .trust-badges__item .trust-badges__item-glyph .trust-badges__item-label .trust-badges__kicker .trust-badges__label .trust-badges__strip .trust-badges__value
 
@@ -4598,7 +4598,7 @@
 | `sections` | array | oui |  | min:1 max:12 |
 | `version` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-body-sm` `--text-display` `--text-eyebrow` `--text-h1-display` `--text-h3-row` `--text-mono-xs` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .trust-body .trust-footer-version .trust-grid .trust-h1 .trust-hd .trust-kicker .trust-lede .trust-legal-footer .trust-meta .trust-sections .trust-toc .trust-toc-k .trust-toc-num
 
@@ -4631,7 +4631,7 @@
 | `lede_fr` | string | oui |  |  |
 | `next_steps` | array | non |  | min:1 max:3 |
 
-**Tokens** : `--accent` `--accent-sur-clair` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink-2` `--leading-body` `--leading-h1` `--leading-h3` `--muted` `--paper-2` `--radius-lg` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-body-sm` `--text-caption` `--text-h2-grand` `--text-h2-section` `--text-h3-row` `--text-lede` `--wrap-prose`
+**Tokens** : `--accent` `--accent-sur-clair` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink-2` `--leading-body` `--leading-h1` `--leading-h3` `--muted` `--paper-2` `--radius-lg` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .welcome .welcome-back .welcome-foot .welcome-h1 .welcome-kicker .welcome-lede .welcome-mark .welcome-step .welcome-step-cta .welcome-step-num .welcome-step-text .welcome-step-title .welcome-steps .welcome-wrap
 
