@@ -200,7 +200,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
 
   /* ───── problems-grid (preset) — CSS VERBATIM ProblemsGrid.astro, `.wrap-wide` scopé
      qualifié `.wrap-wide:where(.problems-grid)` (spécificité inchangée) ───── */
-  .wrap-wide:where(.problems-grid) { max-width: 1200px; margin-inline: auto; padding-inline: var(--space-10); }
+  .problems-grid__cards { max-width: 1200px; }
   .problems-grid { padding-block: var(--section-base); border-top: 1px solid rgba(var(--ink-rgb), .07); }
   .problems-grid__h2 {
     font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
