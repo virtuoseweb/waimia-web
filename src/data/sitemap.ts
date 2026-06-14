@@ -280,7 +280,9 @@ export type FooterCol = {
 };
 
 export const FOOTER_COLS: FooterCol[] = [
-  // Col 1 — L'Agence (R3 ; trust-center/careers/console/atlas retirés P0.2-D : pages démos/fictives supprimées)
+  // Col 1 — L'Agence (R3 ; trust-center/careers/console/atlas retirés P0.2-D).
+  // Méga-menu V1 (§0ter) : ajout du front local « Agence web Montpellier »
+  // (hors top-nav, reachable via footer + /agence — silo Acquérir).
   {
     heading: { en: 'The Agency', fr: "L'Agence" },
     items: [
@@ -293,6 +295,10 @@ export const FOOTER_COLS: FooterCol[] = [
         },
       },
       { href: '/manifesto', label: { en: 'Manifesto', fr: 'Manifesto' } },
+      {
+        href: '/agence-web-montpellier',
+        label: { en: 'Web agency Montpellier', fr: 'Agence web Montpellier' },
+      },
       { href: '/contact', label: { en: 'Contact', fr: 'Nous contacter' } },
     ],
   },
@@ -318,7 +324,9 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/operer', label: { en: 'Operate →', fr: 'Opérer →' } },
     ],
   },
-  // Col 3 — Offres
+  // Col 3 — Offres (méga-menu V1 : ancien label « Site web IA » retiré, doublon
+  // de la col Solutions /services/site-web-intelligent → remplacé par le hub
+  // Acquérir pour éviter le double lien vers la même page).
   {
     heading: { en: 'Services', fr: 'Offres' },
     items: [
@@ -327,8 +335,8 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'AI Growth System', fr: 'Growth System IA' },
       },
       {
-        href: '/services/site-web-intelligent',
-        label: { en: 'AI website', fr: 'Site web IA' },
+        href: '/acquerir',
+        label: { en: 'Acquire hub', fr: 'Le hub Acquérir' },
       },
       {
         href: '/offres/audit-maturite-ia',
@@ -336,11 +344,11 @@ export const FOOTER_COLS: FooterCol[] = [
       },
     ],
   },
-  // Col 4 — Ressources (enrichie : ajout outils + newsletter + veille)
+  // Col 4 — Ressources (méga-menu V1 : Blog · Outils · Academy + Expertise
+  // Claude en lien d'autorité E-E-A-T ; newsletter conservée via ancre).
   {
     heading: { en: 'Resources', fr: 'Ressources' },
     items: [
-      { href: '/cas', label: { en: 'Case studies', fr: 'Cas clients' } },
       {
         href: '/ressources/blog',
         label: { en: 'Blog', fr: 'Blog' },
@@ -348,6 +356,14 @@ export const FOOTER_COLS: FooterCol[] = [
       {
         href: '/ressources/outils',
         label: { en: 'Free tools', fr: 'Outils gratuits' },
+      },
+      {
+        href: '/ressources/academy',
+        label: { en: 'Academy', fr: 'Academy' },
+      },
+      {
+        href: '/expertise-claude',
+        label: { en: 'Claude expertise', fr: 'Expertise Claude' },
       },
       {
         href: '/ressources/#newsletter',
@@ -375,6 +391,12 @@ export const FOOTER_COLS: FooterCol[] = [
       {
         href: '/plan-du-site',
         label: { en: 'Site map', fr: 'Plan du site' },
+      },
+      // Sitemap XML réel généré par @astrojs/sitemap (sortie par défaut
+      // /sitemap-index.xml) : exposé pour consulter la liste des URLs indexées.
+      {
+        href: '/sitemap-index.xml',
+        label: { en: 'Sitemap (XML)', fr: 'Sitemap (XML)' },
       },
     ],
   },

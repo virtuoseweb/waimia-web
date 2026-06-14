@@ -86,6 +86,9 @@ const RESSOURCES: MegaMenuSection = {
   label: MM_RESOURCES.label,
   parentHref: MM_RESOURCES.href,
   lead: MM_RESOURCES.lead,
+  // Méga-menu V1 (§0ter) : Blog · Outils (calculateur ROI) · Academy.
+  // Retirés : Newsletter, Cas clients (hors périmètre Ressources V1),
+  // livres-blancs, veille-ia, cookbooks, VirtuoseOS (pages supprimées).
   columns: [
     {
       kicker: { fr: 'LECTURES', en: 'READING' },
@@ -98,13 +101,14 @@ const RESSOURCES: MegaMenuSection = {
             fr: 'Insights business pour PME B2B.',
             en: 'Business insights for B2B SMBs.',
           },
+          featured: true,
         },
         {
-          label: { fr: 'Newsletter', en: 'Newsletter' },
-          href: '/ressources/#newsletter',
+          label: { fr: 'Academy', en: 'Academy' },
+          href: '/ressources/academy',
           description: {
-            fr: 'Archives des éditions envoyées.',
-            en: 'Archive of sent editions.',
+            fr: 'Diagnostic maturité IA en 6 questions.',
+            en: 'AI maturity diagnostic in 6 questions.',
           },
         },
       ],
@@ -126,11 +130,11 @@ const RESSOURCES: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Cas clients', en: 'Case studies' },
-          href: '/cas',
+          label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' },
+          href: '/ressources/outils/calculateur-roi-ia',
           description: {
-            fr: 'Premiers cas en cours de rédaction.',
-            en: 'First cases in preparation.',
+            fr: 'Estimez le retour de vos chantiers IA.',
+            en: 'Estimate the return of your AI projects.',
           },
         },
       ],
@@ -168,8 +172,10 @@ const SOLUTIONS: MegaMenuSection = {
         fr: '"Je veux plus de leads qualifiés, sans recruter une équipe marketing."',
         en: '"I want more qualified leads, without hiring a marketing team."',
       },
-      // SEO état final (§0ter) : pages /solutions/* supprimées. Liens repointés
-      // sur les pages service réelles (/services/*) + ancres du hub /acquerir.
+      // SEO état final (§0ter, méga-menu V1) : pages /solutions/* supprimées.
+      // Liens RÉELS sur les 3 pages service (/services/*) + ancres du pilier
+      // /acquerir pour les sous-sujets sans page (SEO & GEO réel, Publicité et
+      // Agent marketing « à venir »). Zéro lien mort (ADR-003 nuance #4).
       links: [
         {
           label: { fr: 'Site web intelligent', en: 'Smart website' },
@@ -187,13 +193,18 @@ const SOLUTIONS: MegaMenuSection = {
           description: { fr: 'Du premier clic à la signature, sans friction.', en: 'From first click to signature, frictionless.' },
         },
         {
+          label: { fr: 'SEO & GEO', en: 'SEO & GEO' },
+          href: '/acquerir#seo-geo',
+          description: { fr: 'Trouvé par Google ET les moteurs IA.', en: 'Found by Google AND AI engines.' },
+        },
+        {
           label: { fr: 'Publicité en ligne', en: 'Online advertising' },
           href: '/acquerir#publicite',
           description: { fr: 'Campagnes pilotées au ROI, sans gaspillage.', en: 'ROI-driven campaigns, without waste.' },
           badge: { fr: 'À venir', en: 'Soon' },
         },
         {
-          label: { fr: 'Agent marketing & commercial', en: 'Marketing & sales agent' },
+          label: { fr: 'Agent marketing', en: 'Marketing agent' },
           href: '/acquerir#agent-marketing',
           description: { fr: 'Un agent qui prospecte et relance en continu.', en: 'An agent that prospects and follows up continuously.' },
           badge: { fr: 'À venir', en: 'Soon' },
@@ -211,14 +222,45 @@ const SOLUTIONS: MegaMenuSection = {
         fr: '"J\'ai des données partout, mais je ne sais pas ce qui marche vraiment."',
         en: '"I have data everywhere, but I don\'t know what\'s actually working."',
       },
-      // SEO état final : pages /solutions Piloter supprimées → pilier à ancres /piloter.
+      // SEO état final (méga-menu V1) : 0 page enfant Piloter → uniquement des
+      // ancres du pilier /piloter (zéro lien mort, ADR-003 nuance #4).
       links: [
         {
-          label: { fr: 'Business Intelligence', en: 'Business Intelligence' },
-          href: '/piloter',
-          description: { fr: 'Tableaux de bord, reporting IA, données centralisées, prévisionnel.', en: 'Dashboards, AI reporting, centralized data, forecasting.' },
+          label: { fr: 'RevOps', en: 'RevOps' },
+          href: '/piloter#revops',
+          description: { fr: 'Process de revenu reconnectés.', en: 'Revenue processes reconnected.' },
+        },
+        {
+          label: { fr: 'Tableaux de bord', en: 'Dashboards' },
+          href: '/piloter#tableaux-de-bord',
+          description: { fr: 'Décider en 2 min, pas en réunion.', en: 'Decide in 2 min, not a meeting.' },
+        },
+        {
+          label: { fr: 'Reporting IA', en: 'AI reporting' },
+          href: '/piloter#reporting-ia',
+          description: { fr: 'Rapports générés et commentés par l\'IA.', en: 'Reports generated and explained by AI.' },
+        },
+        {
+          label: { fr: 'Données centralisées', en: 'Centralized data' },
+          href: '/piloter#donnees-centralisees',
+          description: { fr: 'Une seule source de vérité.', en: 'A single source of truth.' },
+        },
+        {
+          label: { fr: 'Prévisionnel IA', en: 'AI forecasting' },
+          href: '/piloter#previsionnel-ia',
+          description: { fr: 'Anticiper, pas subir.', en: 'Anticipate, don\'t react.' },
+        },
+        {
+          label: { fr: 'Agent analytique', en: 'Analytics agent' },
+          href: '/piloter#agent-analytique',
+          description: { fr: 'Vos questions data, en langage naturel.', en: 'Your data questions, in plain language.' },
+          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
+      footer: {
+        label: { fr: 'Le hub Piloter →', en: 'The Steer hub →' },
+        href: '/piloter',
+      },
     },
     {
       title: { fr: 'Opérer', en: 'Operate' },
@@ -227,17 +269,44 @@ const SOLUTIONS: MegaMenuSection = {
         fr: '"Mon équipe perd des heures sur des tâches répétitives qui pourraient être automatisées."',
         en: '"My team loses hours on repetitive tasks that could be automated."',
       },
-      // SEO état final : pages /solutions Opérer supprimées → pilier à ancres /operer.
+      // SEO état final (méga-menu V1) : pages /solutions Opérer supprimées →
+      // uniquement des ancres du pilier /operer (zéro lien mort).
       links: [
         {
-          label: { fr: 'Operations IA', en: 'AI Operations' },
-          href: '/operer',
-          description: { fr: 'CRM, automatisation, service client, admin/RH, légal, agents métiers.', en: 'CRM, automation, customer service, admin/HR, legal, business agents.' },
+          label: { fr: 'CRM & relances', en: 'CRM & follow-ups' },
+          href: '/operer#crm-relances',
+          description: { fr: 'Le CRM qui relance et qualifie tout seul.', en: 'A CRM that follows up and qualifies on its own.' },
+        },
+        {
+          label: { fr: 'Automatisation', en: 'Automation' },
+          href: '/operer#automatisation',
+          description: { fr: 'Les tâches répétitives tournent sans vous.', en: 'Repetitive tasks run without you.' },
+        },
+        {
+          label: { fr: 'Service client', en: 'Customer service' },
+          href: '/operer#service-client',
+          description: { fr: 'Réponses rapides, ton maîtrisé.', en: 'Fast answers, controlled tone.' },
+        },
+        {
+          label: { fr: 'Admin & RH', en: 'Admin & HR' },
+          href: '/operer#admin-rh',
+          description: { fr: 'Onboarding, paie, documents allégés.', en: 'Onboarding, payroll, documents streamlined.' },
+        },
+        {
+          label: { fr: 'Légal', en: 'Legal' },
+          href: '/operer#legal',
+          description: { fr: 'Contrats et conformité assistés.', en: 'Contracts and compliance assisted.' },
+        },
+        {
+          label: { fr: 'Agents métiers', en: 'Business agents' },
+          href: '/operer#agents-metiers',
+          description: { fr: 'Un agent dédié par fonction clé.', en: 'A dedicated agent per key function.' },
+          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       footer: {
-        label: { fr: 'Tous les cas clients →', en: 'All case studies →' },
-        href: '/cas',
+        label: { fr: 'Le hub Opérer →', en: 'The Operate hub →' },
+        href: '/operer',
       },
     },
   ],
