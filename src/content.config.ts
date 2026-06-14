@@ -861,29 +861,6 @@ const commerce = defineCollection({
   ]),
 });
 
-// ─── Glossary (Tier 5.1) · termes IA/business pour SEO programmatique ───
-const glossary = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/glossary' }),
-  schema: z.object({
-    term_fr: z.string(),
-    term_en: z.string(),
-    slug: z.string(),
-    definition_fr: z.string(),
-    definition_en: z.string(),
-    short_explanation_fr: z.string(),
-    short_explanation_en: z.string(),
-    examples_fr: z.array(z.string()).min(1).max(5),
-    examples_en: z.array(z.string()).min(1).max(5),
-    related_terms: z.array(z.string()).default([]),
-    category: z.enum(['ia-technique', 'ia-business', 'data', 'workflow', 'gouvernance']),
-    publishedAt: z.coerce.date(),
-    seo: z.object({
-      meta_description_fr: z.string().max(160),
-      meta_description_en: z.string().max(160),
-    }),
-  }),
-});
-
 // ═════════════════════════════════════════════════════════════════
 // Tier 4 · prompts (bibliothèque AI internal/public) — T4.3
 // ═════════════════════════════════════════════════════════════════
@@ -977,52 +954,6 @@ const integrations = defineCollection({
 // ═════════════════════════════════════════════════════════════════
 
 // ═════════════════════════════════════════════════════════════════
-// Tier 5 · comparisons (versus-pages SEO programmatique) — T5.3
-// ═════════════════════════════════════════════════════════════════
-
-const comparisons = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/comparisons' }),
-  schema: z.object({
-    slug: z.string().regex(/^[a-z0-9-]+-vs-[a-z0-9-]+$/),
-    slug_a: z.string(),
-    slug_b: z.string(),
-    name_a: z.string().min(1),
-    name_b: z.string().min(1),
-    category: z.enum([
-      'ai-platform',
-      'crm',
-      'automation',
-      'analytics',
-      'hosting',
-      'productivity',
-      'autre',
-    ]),
-    dimensions: z
-      .array(
-        z.object({
-          name_fr: z.string(),
-          name_en: z.string(),
-          a_fr: z.string(),
-          a_en: z.string(),
-          b_fr: z.string(),
-          b_en: z.string(),
-          winner: z.enum(['a', 'b', 'tie']).optional(),
-        }),
-      )
-      .min(3),
-    verdict_fr: z.string().min(40).max(400),
-    verdict_en: z.string().min(40).max(400),
-    use_case_recommendation_fr: z.string().optional(),
-    use_case_recommendation_en: z.string().optional(),
-    publishedAt: z.coerce.date(),
-    seo: z.object({
-      meta_description_fr: z.string().max(160),
-      meta_description_en: z.string().max(160),
-    }).optional(),
-  }),
-});
-
-// ═════════════════════════════════════════════════════════════════
 // Tier 6 · proof-points : collection migrée en référentiel TS (R7a/V-F1, docs/40 §1) :
 // source unique = src/data/proof-points.ts · MDX archivés docs/archive/content/proof-points/
 // ═════════════════════════════════════════════════════════════════
@@ -1051,13 +982,10 @@ export const collections = {
   courses,
   // Tier 4 AI-first + Tier 5 SEO (2026-05-15)
   personas,
-  glossary,
   commerce,
   // Tier 4 AI-first + Tier 5 (2026-05-16)
   prompts,
   integrations,
-  // Tier 5 + Tier 6 pre-hook batch 8 (2026-05-16)
-  comparisons,
   // ADR-003 (2026-06-13) : services + landings
   services,
   lp,

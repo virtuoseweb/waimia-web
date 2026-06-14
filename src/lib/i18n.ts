@@ -60,7 +60,7 @@ const FR_ONLY_STATIC = new Set([
   '/technologies/virtuoseos',
   // Thank-you pages post-conversion FR-only (audit/livre-blanc/newsletter SONT bilingues → exclus).
   '/bienvenue/contact', '/bienvenue/commande', '/bienvenue/formation', '/bienvenue/abonnement',
-  '/glossaire', '/secteurs', '/secteurs/finance-compta',
+  '/secteurs', '/secteurs/finance-compta',
   '/secteurs/industrie', '/secteurs/services-b2b',
   '/equipe', '/archive', '/commerce',
   // Pages légales FR-only (droit français, pas de miroir /en/) — même cas que trust-center.
@@ -69,7 +69,7 @@ const FR_ONLY_STATIC = new Set([
 
 // Préfixes de routes FR-only (contenu dynamique sans équivalent EN).
 const FR_ONLY_PREFIXES = [
-  '/glossaire/', '/secteurs/',
+  '/secteurs/',
   '/ressources/cookbooks/', '/ressources/livres-blancs/', '/ressources/field-notes/',
   '/ressources/personas/', '/ressources/veille-ia/',
   '/ressources/categorie/', '/ressources/outils/', '/ressources/silo/', '/ressources/tag/',
