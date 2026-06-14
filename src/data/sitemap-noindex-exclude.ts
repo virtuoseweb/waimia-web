@@ -31,4 +31,11 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   "/technologies/claude-code",
   "/technologies/claude-surfaces",
   "/technologies/frameworks",
+  // Outils internes /agence (DS Studio + Hero Lab) : noindex,follow ET disallow robots.txt
+  // → hors sitemap pour cohérence noindex↔crawl (2026-06-14).
+  "/agence/ds-studio",
+  "/agence/hero-lab",
+  // Page service DÉMO (placeholders cas/avis/prix balisés) : seo.noindex tant que le contenu
+  // réel n'est pas posé (fiche décision 0004) → hors sitemap pour cohérence (2026-06-14).
+  "/services/site-web-intelligent",
 ]);
