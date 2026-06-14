@@ -3,20 +3,14 @@ import { gsap, ScrollTrigger } from '../gsap-init';
 export function initHomepageNarrative(): void {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  /* Effect 1: Duplicate-text reveal H1 hero */
-  const heroH1 = document.querySelector('.home-hero h1');
-  if (heroH1) {
-    gsap.from('.home-hero .text-duplicate-top', {
-      yPercent: -100,
-      ease: 'power3.out',
-      duration: 1.2,
-    });
-    gsap.from('.home-hero .text-duplicate-bottom', {
-      yPercent: 100,
-      ease: 'power3.out',
-      duration: 1.2,
-      delay: 0.1,
-    });
+  /* Effect 1: Duplicate-text reveal H1 hero (garde la cible reelle - cf Effets 2/3) */
+  const dupTop = document.querySelector('.home-hero .text-duplicate-top');
+  if (dupTop) {
+    gsap.from(dupTop, { yPercent: -100, ease: 'power3.out', duration: 1.2 });
+  }
+  const dupBottom = document.querySelector('.home-hero .text-duplicate-bottom');
+  if (dupBottom) {
+    gsap.from(dupBottom, { yPercent: 100, ease: 'power3.out', duration: 1.2, delay: 0.1 });
   }
 
   /* Effect 2: Sticky section reveals — services pinned */
