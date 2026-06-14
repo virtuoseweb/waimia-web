@@ -18,16 +18,8 @@ const offresJsonLd = {
   description: "Trois tiers d'engagement IA : Découverte, Transformation, Partenariat.",
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Audit Maturité IA', url: 'https://waimia.com/offres/audit-maturite-ia' },
-    { '@type': 'ListItem', position: 2, name: 'Activation IA', url: 'https://waimia.com/offres/activation-ia' },
+    { '@type': 'ListItem', position: 2, name: 'Site Web IA', url: 'https://waimia.com/services/site-web-intelligent' },
     { '@type': 'ListItem', position: 3, name: 'Growth System IA', url: 'https://waimia.com/offres/growth-system-ia' },
-    { '@type': 'ListItem', position: 4, name: 'Growth Intelligence', url: 'https://waimia.com/offres/growth-intelligence' },
-    { '@type': 'ListItem', position: 5, name: 'Productivité Opérationnelle IA', url: 'https://waimia.com/offres/productivite-operationnelle-ia' },
-    { '@type': 'ListItem', position: 6, name: 'Site Web IA', url: 'https://waimia.com/services/site-web-intelligent' },
-    { '@type': 'ListItem', position: 7, name: 'Application IA PME', url: 'https://waimia.com/offres/application-ia-pme' },
-    { '@type': 'ListItem', position: 8, name: 'RevOps', url: 'https://waimia.com/offres/revops' },
-    { '@type': 'ListItem', position: 9, name: 'Claude Cowork', url: 'https://waimia.com/offres/claude-cowork' },
-    { '@type': 'ListItem', position: 10, name: 'Conseil', url: 'https://waimia.com/offres/conseil' },
-    { '@type': 'ListItem', position: 11, name: 'Infrastructure IA', url: 'https://waimia.com/offres/infrastructure-ia' },
   ],
 };
 
@@ -123,17 +115,6 @@ const tierDiscoveryData = {
       cta_en: 'See offer →',
       href: '/offres/audit-maturite-ia',
     },
-    {
-      price_fr: '1 À 5 K€',
-      price_en: '€1K TO €5K',
-      title_fr: 'Activation IA',
-      title_en: 'AI Activation',
-      lead_fr: 'Cinq jours. Un workflow en production. Pas un POC, pas une démo. Un résultat mesurable dès le vendredi.',
-      lead_en: 'Five days. One workflow in production. Not a POC, not a demo. A measurable result by Friday.',
-      cta_fr: "Voir l'offre →",
-      cta_en: 'See offer →',
-      href: '/offres/activation-ia',
-    },
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
 
@@ -163,28 +144,6 @@ const tierTransformationData = {
   },
   offers: [
     {
-      price_fr: '8 À 35 K€',
-      price_en: '€8K TO €35K',
-      title_fr: 'Growth Intelligence',
-      title_en: 'Growth Intelligence',
-      lead_fr: 'KPI commerciaux et opérationnels en temps réel. Des chiffres lisibles avant la réunion.',
-      lead_en: 'Commercial and operational KPIs in real time. Readable numbers before the meeting.',
-      cta_fr: "Voir l'offre →",
-      cta_en: 'See offer →',
-      href: '/offres/growth-intelligence',
-    },
-    {
-      price_fr: '6 À 25 K€',
-      price_en: '€6K TO €25K',
-      title_fr: 'Productivité Opérationnelle IA',
-      title_en: 'Operational Productivity AI',
-      lead_fr: 'Excel augmenté, Office connecté, workflows internes qui tournent sans relance humaine.',
-      lead_en: 'Augmented Excel, connected Office, internal workflows that run without human follow-up.',
-      cta_fr: "Voir l'offre →",
-      cta_en: 'See offer →',
-      href: '/offres/productivite-operationnelle-ia',
-    },
-    {
       price_fr: 'SITE WEB',
       price_en: 'WEBSITE',
       title_fr: 'Site Web IA',
@@ -195,79 +154,9 @@ const tierTransformationData = {
       cta_en: 'See offer →',
       href: '/services/site-web-intelligent',
     },
-    {
-      price_fr: 'APPLICATION',
-      price_en: 'APPLICATION',
-      title_fr: 'Application IA PME',
-      title_en: 'AI App for SMEs',
-      lead_fr: 'Un outil métier sur-mesure, entraîné sur vos données, intégré dans vos workflows existants.',
-      lead_en: 'A bespoke business tool, trained on your data, integrated into your existing workflows.',
-      cta_fr: "Voir l'offre →",
-      cta_en: 'See offer →',
-      href: '/offres/application-ia-pme',
-    },
-    {
-      price_fr: 'REVOPS',
-      price_en: 'REVOPS',
-      title_fr: 'RevOps',
-      title_en: 'RevOps',
-      lead_fr: 'Alignement commercial, marketing, support sur un pipeline unique. Chaque friction identifiée et éliminée.',
-      lead_en: 'Sales, marketing, and support aligned on a single pipeline. Every friction identified and eliminated.',
-      cta_fr: "Voir l'offre →",
-      cta_en: 'See offer →',
-      href: '/offres/revops',
-    },
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
 
-const tierPartnershipData = {
-  type: 'offer-tier-grid' as const,
-  variant: 'transparent' as const,
-  background: 'ink' as const,
-  wrap: true,
-  eyebrow_fr: 'III · PARTENARIAT',
-  eyebrow_en: 'III · PARTNERSHIP',
-  h2_fr: 'Pour ceux qui veulent aller plus loin.',
-  h2_en: 'For those who want to go further.',
-  lede_fr: 'Un engagement dans la durée. Une équipe dédiée. Une ambition partagée.',
-  lede_en: 'A long-term commitment. A dedicated team. A shared ambition.',
-  lede_max_width: '560px',
-  offers: [
-    {
-      price_fr: 'À PARTIR DE 3 500 €',
-      price_en: 'FROM €3,500',
-      title_fr: 'Claude Cowork',
-      title_en: 'Claude Cowork',
-      lead_fr: 'Travaillez directement avec Claude et Simon. Sessions profondes, stratégie IA, implémentation en direct.',
-      lead_en: 'Work directly with Claude and Simon. Deep sessions, AI strategy, live implementation.',
-      cta_fr: "Voir l'offre →",
-      cta_en: 'See offer →',
-      href: '/offres/claude-cowork',
-    },
-    {
-      price_fr: 'CONSEIL',
-      price_en: 'ADVISORY',
-      title_fr: 'Conseil',
-      title_en: 'Advisory',
-      lead_fr: "Accompagnement stratégique sur le temps long. Décisions d'architecture IA, gouvernance, formation équipes.",
-      lead_en: 'Long-term strategic support. AI architecture decisions, governance, team training.',
-      cta_fr: "Voir l'offre →",
-      cta_en: 'See offer →',
-      href: '/offres/conseil',
-    },
-    {
-      price_fr: '25 À 150 K€+',
-      price_en: '€25K TO €150K+',
-      title_fr: 'Infrastructure IA',
-      title_en: 'AI Infrastructure',
-      lead_fr: "Quand les pilotes IA s'éparpillent. Une infra commune, une gouvernance, une équipe interne formée.",
-      lead_en: 'When AI pilots scatter. A shared infrastructure, governance, and a trained internal team.',
-      cta_fr: "Voir l'offre →",
-      cta_en: 'See offer →',
-      href: '/offres/infrastructure-ia',
-    },
-  ],
-} satisfies SectionByType<'offer-tier-grid'>;
 ---
 <Base
   title="Offres · Pyramide narrative · Waimia"
@@ -293,11 +182,6 @@ const tierPartnershipData = {
   <!-- 4. TIER II · TRANSFORMATION -->
   <div class="tier-rhythm-base">
     <OfferTierGrid data={tierTransformationData} lang="fr" />
-  </div>
-
-  <!-- 5. TIER III · PARTENARIAT -->
-  <div class="tier-rhythm-base">
-    <OfferTierGrid data={tierPartnershipData} lang="fr" />
   </div>
 
   <!-- 5b. PREUVES · ÉTUDES DE CAS -->

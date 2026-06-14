@@ -239,11 +239,6 @@ const SOLUTIONS: MegaMenuSection = {
       },
       links: [
         {
-          label: { fr: 'RevOps', en: 'RevOps' },
-          href: '/offres/revops',
-          description: { fr: 'CRM + entrepôt + billing réconciliés · 10 sem.', en: 'CRM + warehouse + billing reconciled · 10 wks.' },
-        },
-        {
           label: { fr: 'Tableaux de bord & analytics', en: 'Dashboards & analytics' },
           href: '/solutions/tableaux-de-bord-analytics',
           description: { fr: 'Vos chiffres clés, lisibles en un coup d\'œil.', en: 'Your key numbers, readable at a glance.' },

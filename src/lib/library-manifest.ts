@@ -119,14 +119,14 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-lead-magnet',      consumers: ['src/components/templates/LeadMagnetTemplate.astro'] },
   { id: 'hero-course',           consumers: ['src/components/templates/CourseDetailTemplate.astro'] },
   { id: 'hero-essay',            consumers: ['src/components/templates/EssayTemplate.astro'] },
-  { id: 'hero-split',            consumers: ['src/content/offres/composable-pilot.mdx'] },
-  { id: 'proof-bar',             consumers: ['src/components/templates/DetailMenuTemplate.astro', 'src/pages/index.astro', 'src/pages/en/index.astro', 'src/content/offres/composable-pilot.mdx'] },
-  { id: 'method-timeline',       consumers: ['src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/content/offres/composable-pilot.mdx'] },
+  { id: 'hero-split',            consumers: [] },
+  { id: 'proof-bar',             consumers: ['src/components/templates/DetailMenuTemplate.astro', 'src/pages/index.astro', 'src/pages/en/index.astro'] },
+  { id: 'method-timeline',       consumers: ['src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro'] },
   { id: 'feature-grid',          consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'social-proof',          consumers: ['src/pages/index.astro', 'src/pages/technologies/index.astro'] },
   { id: 'ecosystem-partners',    consumers: ['src/pages/technologies/index.astro', 'src/content/technologies/microsoft-power-platform.mdx'] },
   { id: 'faq-accordion',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/content/offres/composable-pilot.mdx'] }, // home = organism BookSession (twin merge) → cta-final après migration · R6 : ServiceDetail/Hub purgés (R0), UtilityTemplate ajouté (consommateur réel)
+  { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // home = organism BookSession (twin merge) → cta-final après migration · R6 : ServiceDetail/Hub purgés (R0), UtilityTemplate ajouté (consommateur réel)
   { id: 'cta-band',              consumers: ['src/components/templates/TrustLegalTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/components/templates/EssayTemplate.astro'] }, // R6 : ListIndexTemplate fusionné dans UtilityTemplate (variant list)
   // backfill 2026-06-08 — 7 ids présents au registry, consommés par des pages live (vérifié grep src/pages)
   { id: 'tier-pyramid-svg',      consumers: ['src/pages/offres/index.astro', 'src/pages/en/offres/index.astro'] },

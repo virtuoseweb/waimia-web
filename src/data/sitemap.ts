@@ -98,20 +98,8 @@ export const MM_OFFRES_NEW: MegaMenu = {
       tint: '#C94F2E',
       items: [
         { href: '/offres/growth-system-ia', label: { en: 'AI Growth System', fr: 'Growth System IA' }, lead: { en: 'Automated acquisition and conversion system. Site, CRM, follow-ups, dashboards: all connected.', fr: "Système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux : tout connecté." }, featured: true },
-        { href: '/offres/growth-intelligence', label: { en: 'Growth Intelligence', fr: 'Growth Intelligence' }, lead: { en: 'Real-time intelligence and data clarity for faster decisions.', fr: 'Pilotage temps réel et lisibilité des données pour décider plus vite.' } },
-        { href: '/offres/productivite-operationnelle-ia', label: { en: 'Operational AI', fr: 'Productivité Opérationnelle IA' }, lead: { en: 'Repetitive tasks automated, internal workflows streamlined.', fr: 'Tâches répétitives automatisées, workflows internes fluidifiés.' } },
         { href: '/services/site-web-intelligent', label: { en: 'AI website', fr: 'Site web IA' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
-        { href: '/offres/revops', label: { en: 'RevOps Rebuild', fr: 'RevOps Rebuild' }, lead: { en: 'CRM + warehouse + billing reconciled · 10 wks.', fr: 'CRM + entrepôt + billing réconciliés · 10 sem.' } },
-      ],
-    },
-    {
-      kicker: { en: '02 · TIERS', fr: '02 · NIVEAUX' },
-      label: { en: 'Activation & infrastructure', fr: 'Activation & infrastructure' },
-      items: [
-        { href: '/offres/activation-ia', label: { en: 'AI Activation · 1 week', fr: 'Activation IA · 1 semaine' }, lead: { en: 'Audit + team training. The fast-track entry point.', fr: "Audit + formation des équipes. La porte d'entrée pour activer rapidement." } },
-        { href: '/offres/infrastructure-ia', label: { en: 'AI Infrastructure · Enterprise', fr: 'Infrastructure IA · ETI' }, lead: { en: 'Connected systems at scale, multi-team, multi-site.', fr: 'Systèmes connectés à grande échelle, multi-équipes, multi-sites.' } },
-        { href: '/offres/application-ia-pme', label: { en: 'AI Application for SMBs', fr: 'Application IA pour PME' }, lead: { en: 'Dedicated app 8–12 wks. ETI/SMB.', fr: 'App dédiée 8–12 sem. ETI/PME.' } },
-        { href: '/offres/conseil', label: { en: 'AI Consulting & audit', fr: 'Conseil & audit IA' }, lead: { en: '7 audit/roadmap/governance services.', fr: '7 services audit/feuille de route/gouvernance.' } },
+        { href: '/offres/audit-maturite-ia', label: { en: 'AI Maturity Audit', fr: 'Audit Maturité IA' }, lead: { en: 'Process mapping, priority AI levers, costed roadmap.', fr: 'Cartographie des process, leviers IA prioritaires, feuille de route chiffrée.' } },
       ],
     },
   ],
@@ -366,26 +354,12 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'AI Growth System', fr: 'Growth System IA' },
       },
       {
-        href: '/offres/growth-intelligence',
-        label: { en: 'Growth Intelligence', fr: 'Growth Intelligence' },
+        href: '/services/site-web-intelligent',
+        label: { en: 'AI website', fr: 'Site web IA' },
       },
       {
-        href: '/offres/productivite-operationnelle-ia',
-        label: { en: 'Operational AI', fr: 'Productivité Opérationnelle IA' },
-      },
-      {
-        href: '/offres/activation-ia',
-        label: {
-          en: 'AI Activation · 1 week',
-          fr: 'Activation IA · 1 semaine',
-        },
-      },
-      {
-        href: '/offres/infrastructure-ia',
-        label: {
-          en: 'AI Infrastructure · Enterprise',
-          fr: 'Infrastructure IA · ETI',
-        },
+        href: '/offres/audit-maturite-ia',
+        label: { en: 'AI Maturity Audit', fr: 'Audit Maturité IA' },
       },
     ],
   },
