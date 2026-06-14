@@ -70,7 +70,7 @@ const action = data.form_action ?? '/api/newsletter';
   .cta-form__text { display: flex; flex-direction: column; gap: var(--space-4); }
   .cta-form__body {
     font-family: var(--font-sans);
-    font-size: var(--text-body-md);
+    font-size: var(--text-body);
     line-height: var(--leading-body);
     color: var(--muted);
     margin: 0;
@@ -88,7 +88,7 @@ const action = data.form_action ?? '/api/newsletter';
     background: var(--paper);
     color: var(--ink);
     font-family: var(--font-sans);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     border-radius: var(--radius-sm);
     transition: border-color var(--dur-trim) var(--ease);
     outline: none;
@@ -102,7 +102,7 @@ const action = data.form_action ?? '/api/newsletter';
     background: var(--ink);
     color: var(--paper);
     font-family: var(--font-sans);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     border: none;
     border-radius: var(--radius-sm);
@@ -115,21 +115,21 @@ const action = data.form_action ?? '/api/newsletter';
   .cta-form__btn:disabled { opacity: 0.5; cursor: not-allowed; }
   .cta-form__error {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     color: var(--accent-text);
     letter-spacing: 0.06em;
     margin: 0;
   }
   .cta-form__hint {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     color: var(--muted);
     letter-spacing: 0.06em;
     margin: 0;
   }
   .cta-form__confirm {
     font-family: var(--font-sans);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     color: var(--ink);
     font-weight: var(--fw-medium);
     margin: var(--space-4) 0 0;

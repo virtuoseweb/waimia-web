@@ -66,7 +66,7 @@ const meta = isFr ? data.meta_fr : data.meta_en;
   /* Directive typo : titre en sans, l'italique serif ne relève qu'un mot */
   .tbl-sec__title {
     font-family: var(--font-sans);
-    font-size: var(--text-h2-section);
+    font-size: var(--text-h2);
     line-height: var(--leading-h3);
     letter-spacing: -0.02em;
     font-weight: var(--fw-medium);
@@ -80,7 +80,7 @@ const meta = isFr ? data.meta_fr : data.meta_en;
 
   .tbl-sec__intro {
     font-family: var(--font-sans);
-    font-size: var(--text-body-md);
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--ink-2);
     max-width: 70ch;
@@ -89,12 +89,12 @@ const meta = isFr ? data.meta_fr : data.meta_en;
   }
 
   /* Rôles typographiques des cellules (markup section, molecule intacte) */
-  .tbl-sec__cell[data-role='id'] { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--muted); }
-  .tbl-sec__cell[data-role='title'] { font-family: var(--font-sans); font-size: var(--text-h3-card); line-height: var(--leading-h3); font-weight: var(--fw-medium); letter-spacing: -0.01em; }
-  .tbl-sec__cell[data-role='body'] { font-size: var(--text-ui); color: var(--muted); line-height: 1.45; padding-right: var(--space-4); }
-  .tbl-sec__cell[data-role='mono'] { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--ink); }
-  .tbl-sec__cell[data-role='status'] { font-family: var(--font-mono); font-size: var(--text-eyebrow); color: var(--accent-text); letter-spacing: .1em; text-align: right; }
-  .tbl-sec__cell[data-role='accent'] { font-size: var(--text-body-sm); color: var(--accent-text); font-weight: var(--fw-medium); }
+  .tbl-sec__cell[data-role='id'] { font-family: var(--font-mono); font-size: var(--text-small); color: var(--muted); }
+  .tbl-sec__cell[data-role='title'] { font-family: var(--font-sans); font-size: var(--text-h3); line-height: var(--leading-h3); font-weight: var(--fw-medium); letter-spacing: -0.01em; }
+  .tbl-sec__cell[data-role='body'] { font-size: var(--text-small); color: var(--muted); line-height: 1.45; padding-right: var(--space-4); }
+  .tbl-sec__cell[data-role='mono'] { font-family: var(--font-mono); font-size: var(--text-small); color: var(--ink); }
+  .tbl-sec__cell[data-role='status'] { font-family: var(--font-mono); font-size: var(--text-small); color: var(--accent-text); letter-spacing: .1em; text-align: right; }
+  .tbl-sec__cell[data-role='accent'] { font-size: var(--text-small); color: var(--accent-text); font-weight: var(--fw-medium); }
   .tbl-sec__cell[data-role='arrow'] { font-family: var(--font-mono); color: var(--muted); text-align: right; }
 
   @media (max-width: 900px) {

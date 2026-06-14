@@ -67,7 +67,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
 
   .nl-eyebrow{
     font-family:var(--font-mono);
-    font-size:var(--text-eyebrow);
+    font-size:var(--text-small);
     letter-spacing:.16em;
     text-transform:uppercase;
     color:var(--muted);
@@ -76,14 +76,14 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
   .nl-heading{
     font-family: var(--font-sans);
     font-style:italic;
-    font-size:var(--text-h3-row);
+    font-size:var(--text-h3);
     color:var(--ink);
     margin:0 0 10px;
     line-height:1.15;
     font-weight:var(--fw-regular);
   }
   .nl-sub{
-    font-size:var(--text-body-sm);
+    font-size:var(--text-small);
     color:var(--muted);
     line-height:1.55;
     margin:0 0 var(--space-5);
@@ -100,7 +100,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     background:var(--paper);
     color:var(--ink);
     font-family:var(--font-sans);
-    font-size:var(--text-body-sm);
+    font-size:var(--text-small);
     border-radius:var(--radius-sm);
     transition:border-color var(--dur-trim) var(--ease);
     outline:none;
@@ -111,7 +111,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
   .nl-input--error{border-color:#c0392b}
   .nl-error{
     font-family:var(--font-mono);
-    font-size:var(--text-eyebrow);
+    font-size:var(--text-small);
     color:#c0392b;
     letter-spacing:.06em;
     margin:0;
@@ -121,7 +121,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     background:var(--ink);
     color:var(--paper);
     font-family:var(--font-sans);
-    font-size:var(--text-body-sm);
+    font-size:var(--text-small);
     font-weight:var(--fw-medium);
     border:none;
     border-radius:var(--radius-sm);
@@ -134,13 +134,13 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
   .nl-btn:disabled{opacity:.5;cursor:not-allowed}
   .nl-hint{
     font-family:var(--font-mono);
-    font-size:var(--text-eyebrow);
+    font-size:var(--text-small);
     color:var(--muted);
     letter-spacing:.06em;
     margin:0;
   }
   .nl-confirm{
-    font-size:var(--text-body-sm);
+    font-size:var(--text-small);
     color:var(--ink);
     font-weight:var(--fw-medium);
     margin:0;

@@ -103,7 +103,7 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   :global(.welcome-kicker) { display: inline-block; margin-bottom: var(--space-4); }
   .welcome-h1 {
     font-family: var(--font-display);
-    font-size: var(--text-h2-grand);
+    font-size: var(--text-h1);
     line-height: var(--leading-h1);
     letter-spacing: -0.028em;
     font-weight: var(--fw-regular);
@@ -113,7 +113,7 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   .welcome-lede {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: var(--text-lede);
+    font-size: var(--text-h3);
     color: var(--ink-2);
     margin: 0 auto 60px;
     max-width: 600px;
@@ -143,21 +143,21 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   .welcome-step:hover { border-color: var(--accent-text); }
   .welcome-step-num {
     font-family: var(--font-display);
-    font-size: var(--text-h2-section);
+    font-size: var(--text-h2);
     line-height: 1;
     color: var(--accent-text);
     font-style: italic;
   }
   .welcome-step-title {
     font-family: var(--font-sans);
-    font-size: var(--text-h3-row);
+    font-size: var(--text-h3);
     line-height: var(--leading-h3);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
     margin: 0 0 10px;
   }
   .welcome-step-text {
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     color: var(--muted);
     line-height: 1.55;
     margin: 0 0 var(--space-3);
@@ -165,7 +165,7 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   }
   .welcome-step-cta {
     font-family: var(--font-mono);
-    font-size: var(--text-caption);
+    font-size: var(--text-small);
     color: var(--accent-text);
     letter-spacing: 0.04em;
     border-bottom: 1px solid currentColor;
@@ -178,7 +178,7 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
     border-top: 1px solid var(--hairline);
     padding-top: var(--space-6);
     font-family: var(--font-mono);
-    font-size: var(--text-caption);
+    font-size: var(--text-small);
     color: var(--muted);
   }
   .welcome-back {

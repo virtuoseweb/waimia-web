@@ -64,7 +64,7 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
   }
   .timeline-h__h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h2-section);
+    font-size: var(--text-h2);
     line-height: var(--leading-h3);
     letter-spacing: -0.02em;
     font-weight: var(--fw-medium);
@@ -75,7 +75,7 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
   .timeline-h__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); }
   .timeline-h__intro {
     font-family: var(--font-sans);
-    font-size: var(--text-body-base);
+    font-size: var(--text-body);
     line-height: var(--leading-body);
     color: var(--muted);
     margin: 0;
@@ -122,7 +122,7 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
 
   .timeline-h__label {
     font-family: var(--font-sans);
-    font-size: var(--text-h3-row);
+    font-size: var(--text-h3);
     line-height: var(--leading-h3);
     font-weight: var(--fw-semibold);
     color: var(--ink);
@@ -130,14 +130,14 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
   }
   .timeline-h__body {
     font-family: var(--font-sans);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--muted);
     margin: 0;
   }
   .timeline-h__status {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);

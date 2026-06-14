@@ -99,7 +99,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
   :global(.versus__kicker) { margin-bottom: var(--space-3); }
   .versus__h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h2-grand);
+    font-size: var(--text-h1);
     line-height: var(--leading-h2);
     font-weight: var(--fw-semibold);
     letter-spacing: -0.02em;
@@ -129,7 +129,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
   .versus__corner { width: 34%; border-bottom: 1px solid var(--hairline); }
   .versus__colhead {
     font-family: var(--font-mono);
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono-tight);
     color: var(--muted);
@@ -150,7 +150,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
 
   .versus__group {
     font-family: var(--font-mono);
-    font-size: var(--text-caption);
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
     color: var(--accent-text);
@@ -160,7 +160,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
 
   .versus__feature {
     font-family: var(--font-sans);
-    font-size: var(--text-body-lead);
+    font-size: var(--text-body);
     font-weight: var(--fw-medium);
     color: var(--ink);
   }
@@ -170,13 +170,13 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
   .versus__cell[data-featured='true'] { background: rgba(var(--accent-rgb), .06); }
   .versus[data-bg='ink'] .versus__cell[data-featured='true'] { background: rgba(var(--accent-rgb), .14); }
 
-  .versus__icon { font-size: var(--text-body-base); line-height: 1; }
+  .versus__icon { font-size: var(--text-body); line-height: 1; }
   .versus__icon--yes { color: var(--accent-text); }
   .versus__icon--no { color: var(--muted); opacity: .55; }
   .versus[data-bg='ink'] .versus__icon--no { color: rgba(var(--paper-rgb), .4); }
   .versus__text {
     font-family: var(--font-mono);
-    font-size: var(--text-caption);
+    font-size: var(--text-small);
     color: var(--muted);
   }
   .versus[data-bg='ink'] .versus__text { color: rgba(var(--paper-rgb), .6); }

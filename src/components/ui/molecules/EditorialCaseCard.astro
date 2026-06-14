@@ -72,13 +72,13 @@ const offsetStyle = offset ? `margin-top:${offset}px` : '';
   .u-case-card-hd{display:flex;justify-content:space-between;align-items:baseline}
 
   /* Nom client = masse → Instrument Sans semibold (titre de card) ; emphase serif via <i> */
-  .u-case-card-client{font-family:var(--font-sans);font-weight:var(--fw-semibold);font-size:var(--text-h1-display);line-height:.95;letter-spacing:-0.015em;margin-top:18px;transition:transform var(--dur-trim) var(--ease)}
+  .u-case-card-client{font-family:var(--font-sans);font-weight:var(--fw-semibold);font-size:var(--text-h1);line-height:.95;letter-spacing:-0.015em;margin-top:18px;transition:transform var(--dur-trim) var(--ease)}
 
   .u-case-card-foot{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);padding-top:20px;border-top:1px solid var(--hairline)}
   :global(.u-case-card-k){margin-bottom:6px}
-  .u-case-card-v{font-size:var(--text-ui)}
+  .u-case-card-v{font-size:var(--text-small)}
   .u-case-card-v,.u-case-card-impact{transition:transform var(--dur-trim) var(--ease)}
-  .u-case-card-impact{font-size:var(--text-body-base);color:var(--accent-text);font-weight:var(--fw-medium)}
+  .u-case-card-impact{font-size:var(--text-body);color:var(--accent-text);font-weight:var(--fw-medium)}
   .u-case-card:hover .u-case-card-client,
   .u-case-card:hover .u-case-card-v,
   .u-case-card:hover .u-case-card-impact{transform:translateX(1px)}

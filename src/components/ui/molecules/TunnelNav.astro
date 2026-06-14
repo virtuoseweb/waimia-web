@@ -61,14 +61,14 @@ const steps = [
 .tunnel-nav__step:last-child { border-right: none; }
 .tunnel-nav__num {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   color: var(--muted);
   letter-spacing: .06em;
   text-transform: uppercase;
 }
 .tunnel-nav__label {
   font-family: var(--font-sans);
-  font-size: var(--text-ui);
+  font-size: var(--text-small);
   color: var(--ink);
 }
 .tunnel-nav__step.is-active .tunnel-nav__num,
@@ -89,6 +89,6 @@ const steps = [
 }
 @media (max-width: 640px) {
   .tunnel-nav__label { display: none; }
-  .tunnel-nav__num { font-size: var(--text-eyebrow); }
+  .tunnel-nav__num { font-size: var(--text-small); }
 }
 </style>

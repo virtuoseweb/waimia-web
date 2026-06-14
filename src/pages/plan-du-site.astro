@@ -92,18 +92,18 @@ const linkCountLabel = lang === 'fr'
 ---
 <Base title={title} description={description}>
   <section class="wrap" style="padding-top:var(--section-loose);padding-bottom:var(--space-10)">
-    <p style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin:0 0 16px">
+    <p style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin:0 0 16px">
       {lang === 'fr' ? '§ Navigation' : '§ Navigation'}
     </p>
-    <h1 style="font-size:var(--text-h1-hero);line-height:var(--leading-tight);color:var(--ink);margin:0;max-width:18ch">
+    <h1 style="font-size:var(--text-h1);line-height:var(--leading-tight);color:var(--ink);margin:0;max-width:18ch">
       {lang === 'fr' ? 'Plan du site' : 'Site map'}
     </h1>
-    <p style="font-size:var(--text-body-md);color:var(--ink-2);max-width:56ch;margin-top:var(--space-5);line-height:var(--leading-lede)">
+    <p style="font-size:var(--text-body);color:var(--ink-2);max-width:56ch;margin-top:var(--space-5);line-height:var(--leading-lede)">
       {lang === 'fr'
         ? 'Toutes les destinations du site, regroupées par univers. Une seule source de vérité, dérivée de la navigation.'
         : 'Every destination on the site, grouped by area. A single source of truth, derived from the navigation.'}
     </p>
-    <p style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:var(--space-4)">
+    <p style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:var(--space-4)">
       {linkCountLabel}
     </p>
   </section>
@@ -112,11 +112,11 @@ const linkCountLabel = lang === 'fr'
     {navSections.map((section) => (
       <section class="planmap-section hline" style="padding-top:var(--space-8);padding-bottom:var(--space-4)">
         <div class="planmap-head">
-          <h2 style="font-size:var(--text-h2-section);color:var(--ink);margin:0">
+          <h2 style="font-size:var(--text-h2);color:var(--ink);margin:0">
             <a href={lh(section.href)} class="planmap-title-link">{t(section.title, lang)}</a>
           </h2>
           {section.lead && (
-            <p style="font-size:var(--text-ui);color:var(--muted);max-width:48ch;margin:var(--space-2) 0 0;line-height:var(--leading-lede)">
+            <p style="font-size:var(--text-small);color:var(--muted);max-width:48ch;margin:var(--space-2) 0 0;line-height:var(--leading-lede)">
               {t(section.lead, lang)}
             </p>
           )}
@@ -124,7 +124,7 @@ const linkCountLabel = lang === 'fr'
         <div class="planmap-cols">
           {section.groups.map((group) => (
             <div class="planmap-group">
-              <h3 style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin:0 0 14px;font-weight:var(--fw-medium)">
+              <h3 style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin:0 0 14px;font-weight:var(--fw-medium)">
                 {t(group.heading, lang)}
               </h3>
               <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px">
@@ -142,12 +142,12 @@ const linkCountLabel = lang === 'fr'
 
     <section class="planmap-section hline" style="padding-top:var(--space-8)">
       <div class="planmap-head">
-        <h2 style="font-size:var(--text-h2-section);color:var(--ink);margin:0">{footerHeading}</h2>
+        <h2 style="font-size:var(--text-h2);color:var(--ink);margin:0">{footerHeading}</h2>
       </div>
       <div class="planmap-cols">
         {footerGroups.map((group) => (
           <div class="planmap-group">
-            <h3 style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin:0 0 14px;font-weight:var(--fw-medium)">
+            <h3 style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin:0 0 14px;font-weight:var(--fw-medium)">
               {t(group.heading, lang)}
             </h3>
             <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px">
@@ -187,7 +187,7 @@ const linkCountLabel = lang === 'fr'
     color: var(--accent-text);
   }
   .planmap-link {
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     color: var(--ink-2);
     text-decoration: none;
     line-height: var(--leading-lede);

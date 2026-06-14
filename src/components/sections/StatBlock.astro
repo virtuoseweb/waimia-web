@@ -89,7 +89,7 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
   }
   :where(.stat-block) p {
     font-family: var(--font-sans);
-    font-size: var(--text-body-md);
+    font-size: var(--text-body);
     color: var(--muted);
     line-height: var(--leading-relaxed);
     max-width: 60ch;
@@ -137,13 +137,13 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
   }
   .stat-block__value {
     font-family: var(--font-display);
-    font-size: var(--text-stat);
+    font-size: var(--text-h1);
     line-height: 1;
     color: var(--accent-text);
   }
   .stat-block__label {
     font-family: var(--font-sans);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     font-style: italic;
     color: var(--muted);
     line-height: var(--leading-lede);
@@ -210,7 +210,7 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
     display: inline-block;
     margin-top: var(--space-4);
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink);
@@ -222,13 +222,13 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
   .proof-bar__link:hover { color: var(--accent-text); }
   .proof-bar__value {
     font-family: var(--font-display);
-    font-size: var(--text-h2-section);
+    font-size: var(--text-h2);
     line-height: 1;
     color: var(--accent-text);
   }
   .proof-bar__label {
     font-family: var(--font-sans);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     font-style: italic;
     color: var(--muted);
     line-height: var(--leading-lede);

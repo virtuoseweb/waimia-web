@@ -589,7 +589,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-sec-hd h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h1-display);
+    font-size: var(--text-h1);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
@@ -598,7 +598,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .sol-aside {
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;
@@ -627,7 +627,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-pain-grid :global(.pk) {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
@@ -635,13 +635,13 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-pain-grid :global(.pain-card h3) {
     font-family: var(--font-sans);
-    font-size: var(--text-h3-row);
+    font-size: var(--text-h3);
     line-height: 1.2;
     margin: 0 0 var(--space-3);
     font-weight: var(--fw-medium);
   }
   .sol-pain-grid :global(.pain-card p) {
-    font-size: var(--text-body-lead);
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--ink);
     margin: 0;
@@ -658,7 +658,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
     padding: var(--space-4) 0;
     border-bottom: 1px solid var(--hairline);
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
@@ -692,7 +692,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-workflow-body :global(.wf-name .wf-k) {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -701,26 +701,26 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-workflow-body :global(.wf-name h3) {
     font-family: var(--font-sans);
-    font-size: var(--text-h3-card);
+    font-size: var(--text-h3);
     line-height: 1.2;
     margin: 0;
     font-weight: var(--fw-medium);
   }
   .sol-workflow-body :global(.wf-model) {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     color: var(--ink);
     line-height: var(--leading-lede);
   }
   .sol-workflow-body :global(.wf-gain) {
     font-family: var(--font-display);
-    font-size: var(--text-h3-row);
+    font-size: var(--text-h3);
     color: var(--ink-2);
     line-height: 1;
     font-weight: var(--fw-regular);
   }
   .sol-workflow-body :global(.wf-how) {
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--ink);
   }
@@ -729,7 +729,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-workflow-body :global(h2) {
     grid-column: 2 / span 7;
     font-family: var(--font-sans);
-    font-size: var(--text-h2-tight);
+    font-size: var(--text-h2);
     line-height: var(--leading-h3);
     letter-spacing: -0.012em;
     font-weight: var(--fw-medium);
@@ -740,7 +740,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-workflow-body :global(h3):not(.wf-name h3) {
     grid-column: 2 / span 7;
     font-family: var(--font-sans);
-    font-size: var(--text-lede);
+    font-size: var(--text-h3);
     line-height: 1.2;
     margin: var(--space-6) 0 var(--space-3);
     font-weight: var(--fw-medium);
@@ -748,7 +748,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-workflow-body :global(p):not(.wf-how p) {
     grid-column: 2 / span 7;
     font-family: var(--font-display);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: var(--leading-prose);
     color: var(--ink);
     margin: 0 0 18px;
@@ -758,7 +758,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-workflow-body :global(ol) {
     grid-column: 2 / span 7;
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: var(--leading-prose);
     margin: 0 0 var(--space-5) var(--space-5);
     max-width: var(--wrap-prose);
@@ -781,7 +781,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
     padding: var(--space-4) 0 var(--space-4) var(--space-5);
     margin: var(--space-6) 0;
     font-family: var(--font-display);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: 1.55;
     font-style: italic;
     color: var(--muted);
@@ -793,7 +793,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-workflow-body :global(blockquote p:last-child) {
     margin: 0;
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono-tight);
@@ -809,7 +809,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-workflow-body :global(code) {
     font-family: var(--font-mono);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     background: rgba(var(--ink-rgb), 0.04);
     padding: 2px 6px;
     border-radius: var(--radius-xs);
@@ -821,7 +821,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-roi-hd .kicker { color: var(--accent-text); }
   .sol-roi-hd h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h1-display);
+    font-size: var(--text-h1);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
@@ -847,7 +847,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-roi-grid :global(.roi-v) {
     font-family: var(--font-display);
-    font-size: var(--text-stat);
+    font-size: var(--text-h1);
     line-height: 0.9;
     color: var(--accent-text);
     font-weight: var(--fw-regular);
@@ -856,7 +856,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-roi-grid :global(.roi-l) {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(var(--paper-rgb), 0.7);
@@ -880,7 +880,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-case-dark .wrap-inner { max-width: 480px; }
   .sol-case-title {
     font-family: var(--font-sans);
-    font-size: var(--text-pull-quote);
+    font-size: var(--text-h2);
     line-height: 1.05;
     letter-spacing: -0.016em;
     font-weight: var(--fw-medium);
@@ -890,7 +890,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-case-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .sol-case-body {
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--paper);
     font-style: italic;
@@ -903,7 +903,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
     background: var(--accent);
     color: var(--paper);
     border-radius: var(--radius-xs);
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
@@ -928,7 +928,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-case-results :global(.res-row:last-child) { border-bottom: 1px solid var(--hairline); }
   .sol-case-results :global(.res-v) {
     font-family: var(--font-display);
-    font-size: var(--text-h2-tight);
+    font-size: var(--text-h2);
     line-height: 1;
     color: var(--accent-text);
     font-weight: var(--fw-regular);
@@ -936,7 +936,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-case-results :global(.res-l) {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
@@ -963,7 +963,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-stack-grid :global(.stack-k) {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent-text);
@@ -972,21 +972,21 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-stack-grid :global(.stack-card h3) {
     font-family: var(--font-sans);
-    font-size: var(--text-h3-card);
+    font-size: var(--text-h3);
     line-height: 1.15;
     margin: 0;
     font-weight: var(--fw-medium);
     letter-spacing: -0.01em;
   }
   .sol-stack-grid :global(.stack-card p) {
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--ink-2, var(--muted));
     margin: 0;
   }
   .sol-stack-grid :global(.stack-pill) {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 5px 9px;
@@ -1029,7 +1029,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-faq-body :global(dt),
   .sol-faq-body :global(.ws-faq-q) {
     font-family: var(--font-display);
-    font-size: var(--text-h3-card);
+    font-size: var(--text-h3);
     line-height: 1.2;
     font-weight: var(--fw-regular);
     color: var(--ink);
@@ -1037,7 +1037,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-faq-body :global(.ws-faq-mark) {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent-text);
@@ -1048,7 +1048,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-faq-body :global(dd),
   .sol-faq-body :global(.ws-faq-a) {
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: 1.6;
     color: var(--ink);
     margin: 0;
@@ -1066,7 +1066,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-livrables-body { display: block; }
   .sol-livrables-body :global(.ws-inclusions) {
     font-family: var(--font-mono);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--ink);
@@ -1084,7 +1084,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-livrables-body :global(.ws-sep) {
     color: var(--accent-text);
     padding: 0 14px;
-    font-size: var(--text-body-base);
+    font-size: var(--text-body);
     line-height: 1;
     font-style: normal;
     opacity: 0.7;
@@ -1097,7 +1097,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   }
   .sol-cta-final h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h2-grand);
+    font-size: var(--text-h1);
     line-height: 0.95;
     margin: 0 0 var(--space-6);
     font-weight: var(--fw-medium);
@@ -1105,7 +1105,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
   .sol-cta-final h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .sol-cta-body p {
     font-family: var(--font-display);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--paper);
     font-style: italic;
@@ -1119,7 +1119,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
     background: var(--accent);
     color: var(--paper);
     border-radius: var(--radius-xs);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
@@ -1133,7 +1133,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
     color: var(--paper);
     border: 1px solid rgba(var(--paper-rgb), 0.3);
     border-radius: var(--radius-xs);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);

@@ -97,7 +97,7 @@ const isFr = lang === 'fr';
 
   .qs-quote p {
     font-family: var(--font-display);
-    font-size: var(--text-h2-section);
+    font-size: var(--text-h2);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
@@ -136,7 +136,7 @@ const isFr = lang === 'fr';
     background: var(--ink);
     color: var(--paper);
     font-family: var(--font-display);
-    font-size: var(--text-lede);
+    font-size: var(--text-h3);
     font-weight: var(--fw-regular, 400);
     flex-shrink: 0;
   }
@@ -151,7 +151,7 @@ const isFr = lang === 'fr';
   /* Attribution mono caps · convention éditoriale du site (kickers/specs mono) */
   .qs-author-name {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: var(--fw-regular, 400);
@@ -161,7 +161,7 @@ const isFr = lang === 'fr';
 
   .qs-author-role {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -171,7 +171,7 @@ const isFr = lang === 'fr';
   /* Responsive */
   @media (max-width: 600px) {
     .qs-quote p {
-      font-size: var(--text-lede);
+      font-size: var(--text-h3);
     }
 
     .qs-caption {

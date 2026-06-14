@@ -65,7 +65,7 @@ const cards = data.cards;
   :global(.tlm__kicker) { margin-bottom: var(--space-3); }
   .tlm__h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h3-row);
+    font-size: var(--text-h3);
     line-height: var(--leading-h3);
     font-weight: var(--fw-semibold);
     letter-spacing: -0.01em;
@@ -106,7 +106,7 @@ const cards = data.cards;
   .tlm__logo img { max-height: 28px; width: auto; object-fit: contain; }
   .tlm__logo-text {
     font-family: var(--font-mono);
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
     color: var(--muted);
@@ -137,13 +137,13 @@ const cards = data.cards;
   .tlm__metric-value {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: var(--text-pull-quote);
+    font-size: var(--text-h2);
     line-height: 0.92;
     color: var(--accent-text);
   }
   .tlm__metric-label {
     font-family: var(--font-mono);
-    font-size: var(--text-caption);
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: .1em;
     color: var(--muted);
@@ -154,14 +154,14 @@ const cards = data.cards;
   .tlm__author { display: flex; flex-direction: column; gap: 2px; }
   .tlm__author-name {
     font-family: var(--font-sans);
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     font-weight: var(--fw-semibold);
     color: var(--ink);
   }
   .tlm[data-bg='ink'] .tlm__author-name { color: var(--paper); }
   .tlm__author-role {
     font-family: var(--font-mono);
-    font-size: var(--text-caption);
+    font-size: var(--text-small);
     color: var(--muted);
   }
   .tlm[data-bg='ink'] .tlm__author-role { color: rgba(var(--paper-rgb), .55); }

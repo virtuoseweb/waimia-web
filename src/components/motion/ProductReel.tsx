@@ -151,7 +151,7 @@ export default function ProductReel({ lang, screens = DEFAULT_SCREENS, copy }: P
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '.12em', color: 'var(--accent)', marginBottom: 4 }}>
                   {s.label}
                 </div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2-tight)', lineHeight: 1.02, letterSpacing: '-0.02em' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', lineHeight: 1.02, letterSpacing: '-0.02em' }}>
                   {s.title[lang]}
                 </div>
               </div>

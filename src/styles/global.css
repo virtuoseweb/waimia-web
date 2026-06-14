@@ -66,21 +66,21 @@ svg {
    Exception signature : le hero home (.hero-headline) garde son rendu display (cf plus bas). */
 h1 {
   font-family: var(--font-sans);
-  font-size: var(--text-h1-hero);
+  font-size: var(--text-h1);
   line-height: var(--leading-h1);
   letter-spacing: -0.015em;
   font-weight: var(--fw-semibold);
 }
 h2 {
   font-family: var(--font-sans);
-  font-size: var(--text-h2-grand);
+  font-size: var(--text-h1);
   line-height: var(--leading-h1);
   letter-spacing: -0.015em;
   font-weight: var(--fw-medium);
 }
 h3 {
   font-family: var(--font-sans);
-  font-size: var(--text-h2-section);
+  font-size: var(--text-h2);
   line-height: 1;
   letter-spacing: -0.015em;
   font-weight: var(--fw-medium);
@@ -124,7 +124,7 @@ h3 i {
 }
 h4 {
   font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   font-weight: var(--fw-regular);
@@ -132,14 +132,14 @@ h4 {
 }
 p {
   font-family: var(--font-sans);
-  font-size: var(--text-body-md);
+  font-size: var(--text-body);
   line-height: var(--leading-body);
   letter-spacing: var(--tracking-body);
 }
 code,
 pre {
   font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
 }
 
 /* ─── EDITORIAL ORNAMENTS ───
@@ -153,7 +153,7 @@ pre {
 .act-num {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: var(--text-h2-tight);
+  font-size: var(--text-h2);
   line-height: 1;
   color: var(--accent-text);
   letter-spacing: -0.02em;
@@ -226,7 +226,7 @@ pre {
   gap: var(--space-2);
   padding: 14px 22px;
   border-radius: var(--radius-xs);
-  font-size: var(--text-ui);
+  font-size: var(--text-small);
   font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-body);
   transition:
@@ -272,7 +272,7 @@ pre {
 }
 .btn-lg {
   padding: 18px 30px;
-  font-size: var(--text-body-sm);
+  font-size: var(--text-small);
 }
 /* Idiome dark mutualisé · toute section ink hérite des 3 vars contextuelles
    (valeurs majoritaires des 89 blocs locaux purgés — les déviants gardent leur override scoped) */
@@ -386,7 +386,7 @@ a:not([class]):hover,
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-mono);
-  font-size: var(--text-caption);
+  font-size: var(--text-small);
   letter-spacing: 0.06em;
   border-radius: var(--radius-base);
   transition: top var(--dur-trim) var(--ease);
@@ -457,7 +457,7 @@ a:not([class]):hover,
   justify-content: center;
   font-family: var(--font-sans);
   font-weight: 450;
-  font-size: var(--text-ui);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-body);
 }
 .hdr-nav-item {
@@ -505,7 +505,7 @@ a:not([class]):hover,
   gap: var(--space-1);
   padding: 6px 11px;
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono);
   color: var(--muted);
   border: 1px solid var(--hairline-strong);
@@ -533,7 +533,7 @@ a:not([class]):hover,
   color: var(--paper);
   padding: 10px 18px;
   border-radius: var(--radius-pill);
-  font-size: var(--text-caption);
+  font-size: var(--text-small);
   font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-body);
   transition:
@@ -636,7 +636,7 @@ a:not([class]):hover,
 }
 .mega-col-hd .k {
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--accent-text);
@@ -669,13 +669,13 @@ a:not([class]):hover,
   border-bottom-color: var(--hairline);
 }
 .mega-link .t {
-  font-size: var(--text-body-sm);
+  font-size: var(--text-small);
   font-weight: 450;
   letter-spacing: var(--tracking-body);
   display: block;
 }
 .mega-link .sub {
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
   color: var(--muted);
   font-weight: var(--fw-regular);
   margin-top: 3px;
@@ -686,7 +686,7 @@ a:not([class]):hover,
   display: inline-block;
   margin-top: var(--space-2);
   font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono-tight);
   color: var(--ink);
   border-bottom: 1px solid var(--hairline-strong);
@@ -715,7 +715,7 @@ a:not([class]):hover,
   letter-spacing: -0.02em;
 }
 .mega-col-hd .goal {
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
 }
 .mega-quote {
   border-left: 2px solid var(--accent);
@@ -723,7 +723,7 @@ a:not([class]):hover,
   margin-bottom: var(--space-3);
   font-family: var(--font-display);
   font-style: italic;
-  font-size: var(--text-body-md);
+  font-size: var(--text-body);
   line-height: var(--leading-lede);
   letter-spacing: var(--tracking-body);
   color: var(--ink);
@@ -747,7 +747,7 @@ a:not([class]):hover,
 .mega-link .arr {
   flex: none;
   color: var(--accent-text);
-  font-size: var(--text-body-sm);
+  font-size: var(--text-small);
 }
 /* Pill « Offre phare » · aligné à droite de la ligne, n'altère ni la flèche
    ni le label (flex baseline + margin-left auto). */
@@ -758,7 +758,7 @@ a:not([class]):hover,
   border-radius: var(--radius-pill);
   background: rgba(var(--accent-rgb), 0.08);
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono-tight);
   color: var(--accent-text);
   white-space: nowrap;
@@ -773,7 +773,7 @@ a:not([class]):hover,
 }
 .mega-featured .badge {
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--accent-text);
@@ -794,7 +794,7 @@ a:not([class]):hover,
   color: var(--accent-text);
 }
 .mega-featured .bd {
-  font-size: var(--text-ui);
+  font-size: var(--text-small);
   line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: 280px;
@@ -816,7 +816,7 @@ a:not([class]):hover,
 }
 .mega-featured .cta {
   font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono);
   color: var(--accent-text);
   margin-top: 6px;
@@ -831,7 +831,7 @@ a:not([class]):hover,
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono-tight);
   color: var(--muted);
 }
@@ -919,7 +919,7 @@ a:not([class]):hover,
   height: 40px;
   border: 1px solid var(--hairline-strong);
   border-radius: var(--radius-pill);
-  font-size: var(--text-body-base);
+  font-size: var(--text-body);
 }
 .m-sheet-body {
   padding: var(--space-5) var(--gut) var(--space-7);
@@ -938,14 +938,14 @@ a:not([class]):hover,
 }
 .m-sheet-acc-head .num {
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: 0.16em;
   color: var(--muted);
 }
 .m-sheet-acc-head .ttl {
   font-family: var(--font-sans);
   font-weight: var(--fw-medium);
-  font-size: var(--text-h2-tight);
+  font-size: var(--text-h2);
   letter-spacing: -0.018em;
   line-height: var(--leading-h2);
   flex: 1;
@@ -955,7 +955,7 @@ a:not([class]):hover,
 }
 .m-sheet-acc-head .plus {
   font-family: var(--font-mono);
-  font-size: var(--text-body-base);
+  font-size: var(--text-body);
   color: var(--muted);
   transition: transform var(--dur-hover) var(--ease);
 }
@@ -979,7 +979,7 @@ a:not([class]):hover,
 }
 .m-sheet-acc-col .k {
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--accent-text);
@@ -994,7 +994,7 @@ a:not([class]):hover,
 }
 .m-sheet-acc-col a {
   display: block;
-  font-size: var(--text-body-sm);
+  font-size: var(--text-small);
   padding: var(--space-2) 0;
   color: var(--ink);
   border-bottom: 1px solid var(--hairline);
@@ -1019,7 +1019,7 @@ a:not([class]):hover,
   margin: 10px 0 6px;
   font-family: var(--font-display);
   font-style: italic;
-  font-size: var(--text-body-sm);
+  font-size: var(--text-small);
   line-height: var(--leading-lede);
   color: var(--ink);
 }
@@ -1031,7 +1031,7 @@ a:not([class]):hover,
   border-radius: var(--radius-pill);
   background: rgba(var(--accent-rgb), 0.08);
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono-tight);
   color: var(--accent-text);
   white-space: nowrap;
@@ -1053,7 +1053,7 @@ a:not([class]):hover,
   padding: 22px 0;
   font-family: var(--font-sans);
   font-weight: var(--fw-medium);
-  font-size: var(--text-h2-tight);
+  font-size: var(--text-h2);
   letter-spacing: -0.018em;
   border-bottom: 1px solid var(--hairline);
 }
@@ -1073,7 +1073,7 @@ a:not([class]):hover,
   border: 1px solid var(--hairline-strong);
   border-radius: var(--radius-pill);
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono-tight);
   color: var(--ink);
   background: var(--paper);
@@ -1105,7 +1105,7 @@ a:not([class]):hover,
 }
 .marquee .item {
   font-family: var(--font-display);
-  font-size: var(--text-h3-row);
+  font-size: var(--text-h3);
   padding: 0 26px;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -1333,7 +1333,7 @@ a:not([class]):hover,
 .sec-base-h2 {
   color: var(--ink);
   font-family: var(--font-sans);
-  font-size: var(--text-h2-section);
+  font-size: var(--text-h2);
   font-weight: var(--fw-medium);
   line-height: var(--leading-h3);
   margin: 0;
@@ -1358,7 +1358,7 @@ a:not([class]):hover,
 }
 .sec-hd .n {
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-caps);
   color: var(--accent-text);
   text-transform: uppercase;
@@ -1370,7 +1370,7 @@ a:not([class]):hover,
 .sec-hd .roman {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: var(--text-h2-tight);
+  font-size: var(--text-h2);
   color: var(--accent-text);
   letter-spacing: -0.02em;
   line-height: 1;
@@ -1380,7 +1380,7 @@ a:not([class]):hover,
    (Pyramid, Departments, FieldNotes, Cases, et toutes pages /solutions, /offres, etc.) */
 .sec-hd h2 {
   font-family: var(--font-sans);
-  font-size: var(--text-h2-section);
+  font-size: var(--text-h2);
   line-height: var(--leading-h2);
   letter-spacing: -0.02em;
   text-wrap: balance;
@@ -1394,7 +1394,7 @@ a:not([class]):hover,
   color: var(--accent-text);
 }
 .sec-hd .aside {
-  font-size: var(--text-label);
+  font-size: var(--text-small);
   line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: 420px;
@@ -1421,21 +1421,21 @@ a:not([class]):hover,
 .editorial-cell .e-num {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: var(--text-stat);
+  font-size: var(--text-h1);
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--accent-text);
 }
 .editorial-cell .e-tag {
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-caps);
   color: var(--muted);
   text-transform: uppercase;
 }
 .editorial-cell .e-title {
   font-family: var(--font-sans);
-  font-size: var(--text-h3-row);
+  font-size: var(--text-h3);
   line-height: var(--leading-h3);
   letter-spacing: -0.012em;
   font-weight: var(--fw-medium);
@@ -1449,7 +1449,7 @@ a:not([class]):hover,
   color: var(--accent-text);
 }
 .editorial-cell .e-body {
-  font-size: var(--text-label);
+  font-size: var(--text-small);
   color: var(--muted);
   line-height: var(--leading-relaxed);
   text-wrap: pretty;
@@ -1464,7 +1464,7 @@ a:not([class]):hover,
   border-top: 1px solid var(--hairline);
 }
 .editorial-cell .e-list li {
-  font-size: var(--text-caption);
+  font-size: var(--text-small);
   color: var(--ink-2);
   display: flex;
   align-items: center;
@@ -1475,13 +1475,13 @@ a:not([class]):hover,
   color: var(--accent-text);
   font-family: var(--font-display);
   font-style: italic;
-  font-size: var(--text-ui);
+  font-size: var(--text-small);
   flex-shrink: 0;
 }
 .editorial-cell .e-go {
   margin-top: var(--space-4);
   font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
   letter-spacing: 0.1em;
   color: var(--accent-text);
 }
@@ -1548,13 +1548,13 @@ a:not([class]):hover,
 }
 .case-row .idx {
   font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
   color: var(--muted);
   letter-spacing: var(--tracking-mono);
 }
 .case-row .client {
   font-family: var(--font-sans);
-  font-size: var(--text-h2-tight);
+  font-size: var(--text-h2);
   line-height: 1.04;
   letter-spacing: -0.018em;
   font-weight: var(--fw-medium);
@@ -1569,19 +1569,19 @@ a:not([class]):hover,
 .case-row .sector,
 .case-row .dur {
   font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-small);
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 .case-row .impact {
-  font-size: var(--text-label);
+  font-size: var(--text-small);
   color: var(--ink-2);
   font-weight: var(--fw-medium);
 }
 .case-row .arr {
   font-family: var(--font-mono);
-  font-size: var(--text-body-base);
+  font-size: var(--text-body);
   color: var(--accent-text);
   opacity: 0;
   transition:
@@ -1614,14 +1614,14 @@ a:not([class]):hover,
 .how-row .num {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: var(--text-h2-grand);
+  font-size: var(--text-h1);
   line-height: 0.9;
   letter-spacing: -0.026em;
   color: var(--accent-text);
 }
 .how-row .ttl {
   font-family: var(--font-sans);
-  font-size: var(--text-h2-tight);
+  font-size: var(--text-h2);
   line-height: var(--leading-h3);
   letter-spacing: -0.015em;
   font-weight: var(--fw-medium);
@@ -1635,7 +1635,7 @@ a:not([class]):hover,
   color: var(--accent-text);
 }
 .how-row .desc {
-  font-size: var(--text-label);
+  font-size: var(--text-small);
   color: var(--muted);
   line-height: var(--leading-relaxed);
   text-wrap: pretty;
@@ -1680,7 +1680,7 @@ a:not([class]):hover,
   padding: 7px 14px;
   border-radius: var(--radius-pill);
   font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   color: var(--muted);
@@ -1848,5 +1848,5 @@ a:not([class]):hover,
 }
 /* Citation longue (236 car.) : un cran sous le display H2 → lisibilité + section plus dense */
 .home-typo .qs-quote p {
-  font-size: var(--text-h2-tight) !important;
+  font-size: var(--text-h2) !important;
 }

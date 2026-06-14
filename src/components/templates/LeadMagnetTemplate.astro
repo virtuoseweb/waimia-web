@@ -239,7 +239,7 @@ const tocEvents = toc.map((item, index) => ({
   .lm-abstract-text {
     margin: 20px 0 0;
     font-family: var(--font-display);
-    font-size: var(--text-h2-tight);
+    font-size: var(--text-h2);
     line-height: 1.24;
     color: var(--ink);
     text-wrap: pretty;
@@ -267,7 +267,7 @@ const tocEvents = toc.map((item, index) => ({
   :global(.lm-form-k) { display: block; }
   .lm-form-h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-pull-quote);
+    font-size: var(--text-h2);
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: var(--fw-medium);
@@ -277,7 +277,7 @@ const tocEvents = toc.map((item, index) => ({
   .form-row { display: flex; flex-direction: column; gap: 6px; }
   .form-row label {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -287,7 +287,7 @@ const tocEvents = toc.map((item, index) => ({
   .form-row label span:last-child { color: var(--accent-text); }
   .form-row input {
     font-family: var(--font-display);
-    font-size: var(--text-body-md);
+    font-size: var(--text-body);
     padding: 14px 0;
     border: 0;
     border-bottom: 1px solid var(--hairline-strong);
@@ -297,7 +297,7 @@ const tocEvents = toc.map((item, index) => ({
     transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
   }
   .form-row input:focus { outline: none; border-color: var(--accent-text); background: var(--paper-2); }
-  .lm-foot { font-size: var(--text-caption); line-height: var(--leading-body); color: var(--muted); margin: var(--space-2) 0 0; max-width: 540px; }
+  .lm-foot { font-size: var(--text-small); line-height: var(--leading-body); color: var(--muted); margin: var(--space-2) 0 0; max-width: 540px; }
 
   .lm-toc {
     border-left: 1px solid var(--hairline);
@@ -308,11 +308,11 @@ const tocEvents = toc.map((item, index) => ({
   }
   :global(.lm-toc-k) { display: block; margin-bottom: 18px; }
   .lm-toc :global(.timeline-vertical) { margin: 28px 0 var(--space-7); }
-  .lm-toc :global(.timeline-title) { font-size: var(--text-h3-card); }
-  .lm-toc :global(.timeline-body) { font-size: var(--text-body-lead); }
+  .lm-toc :global(.timeline-title) { font-size: var(--text-h3); }
+  .lm-toc :global(.timeline-body) { font-size: var(--text-body); }
   .lm-toc :global(.callout) { margin-block: var(--space-5); }
   .lm-toc :global(.callout-manifesto) { text-align: left; }
-  .lm-toc :global(.callout-manifesto .callout-body) { font-size: var(--text-h3-row); }
+  .lm-toc :global(.callout-manifesto .callout-body) { font-size: var(--text-h3); }
   .lm-toc :global(.callout p) { margin: 0; }
   .lm-extra-prose {
     margin-top: var(--space-6);
@@ -322,7 +322,7 @@ const tocEvents = toc.map((item, index) => ({
     margin: var(--space-7) 0;
     padding-left: var(--space-5);
     font-family: var(--font-display);
-    font-size: var(--text-h2-tight);
+    font-size: var(--text-h2);
     font-style: italic;
     line-height: 1.22;
     color: var(--ink);
@@ -349,7 +349,7 @@ const tocEvents = toc.map((item, index) => ({
   .lm-footer-action h2 {
     margin: 0;
     font-family: var(--font-sans);
-    font-size: var(--text-h2-section);
+    font-size: var(--text-h2);
     font-weight: var(--fw-medium);
     line-height: 1;
     text-wrap: balance;

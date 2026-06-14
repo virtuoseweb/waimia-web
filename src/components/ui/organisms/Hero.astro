@@ -196,7 +196,7 @@ const pageTransitionId = Astro.url.pathname
   /* H1 · token sémantique unifié --text-h1-hero · cf tokens.css */
   .hero-headline {
     font-family: var(--font-display);
-    font-size: var(--text-h1-hero);
+    font-size: var(--text-h1);
     line-height: var(--leading-h1, .96);
     letter-spacing: var(--tracking-display, -0.025em);
     font-weight: var(--fw-regular);
@@ -266,14 +266,14 @@ const pageTransitionId = Astro.url.pathname
 
   .hero-mm-label {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent-text);
   }
   .hero-mm-items {
     font-family: var(--font-sans);
-    font-size: var(--text-caption);
+    font-size: var(--text-small);
     line-height: var(--leading-lede);
     color: var(--ink-2);
   }
@@ -310,7 +310,7 @@ const pageTransitionId = Astro.url.pathname
     margin-top: auto;
     padding-top: var(--space-5);
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--ink-2);
     letter-spacing: 0.005em;
@@ -342,7 +342,7 @@ const pageTransitionId = Astro.url.pathname
   .hero-proof:last-child { border-bottom: 0; }
   .hero-proof-num {
     font-family: var(--font-display);
-    font-size: var(--text-h1-display);
+    font-size: var(--text-h1);
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--accent-text);
@@ -350,7 +350,7 @@ const pageTransitionId = Astro.url.pathname
   }
   .hero-proof-label {
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: var(--leading-lede);
     color: var(--ink);
     text-wrap: balance;
@@ -380,6 +380,6 @@ const pageTransitionId = Astro.url.pathname
   @media (max-height: 850px) and (min-width: 900px) {
     .hero-a { padding-top: var(--space-10); }
     .hero-sub { margin-top: var(--space-5); padding: var(--space-4) 0 var(--space-7); }
-    .hero-headline { font-size: var(--text-h1-hero); }
+    .hero-headline { font-size: var(--text-h1); }
   }
 </style>

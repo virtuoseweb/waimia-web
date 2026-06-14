@@ -471,7 +471,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   }
   .case-section-h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h1-hero);
+    font-size: var(--text-h1);
     line-height: 0.95;
     letter-spacing: -0.024em;
     text-wrap: balance;
@@ -479,7 +479,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     margin: 14px 0 0;
   }
   .case-section-aside {
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--muted);
     text-wrap: pretty;
@@ -490,7 +490,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   .case-proof { padding: var(--space-10) var(--space-6); }
   .case-proof-quote {
     font-family: var(--font-display);
-    font-size: var(--text-h2-section);
+    font-size: var(--text-h2);
     line-height: var(--leading-h3);
     letter-spacing: -0.018em;
     font-weight: var(--fw-regular);
@@ -501,7 +501,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   }
   .case-proof-attr {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     color: var(--muted);
     letter-spacing: 0.06em;
     font-style: normal;
@@ -525,7 +525,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   :global(.case-stack-k) { display: block; margin-bottom: var(--space-4); }
   .case-stack-lead {
     font-family: var(--font-display);
-    font-size: var(--text-h3-row);
+    font-size: var(--text-h3);
     line-height: 1.3;
     color: var(--muted);
     max-width: 760px;
@@ -543,7 +543,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   }
   .case-related-offres__label {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -600,27 +600,27 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   .related-case-card:hover { background: var(--paper-2); }
   .related-case-kicker {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     color: var(--accent-text);
     letter-spacing: 0.14em;
   }
   .related-case-title {
     font-family: var(--font-sans);
-    font-size: var(--text-h3-row);
+    font-size: var(--text-h3);
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 var(--space-1);
   }
   .related-case-lead {
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     color: var(--muted);
     line-height: var(--leading-body);
     flex: 1;
   }
   .related-case-go {
     font-family: var(--font-mono);
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     color: var(--accent-text);
   }
   @media (max-width: 800px) {

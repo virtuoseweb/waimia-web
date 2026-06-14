@@ -432,7 +432,7 @@ const serviceLd = buildService({ name: title, description });
     display: block;
     margin-bottom: 10px;
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent-text);
@@ -446,7 +446,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-sec-hd h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h1-display);
+    font-size: var(--text-h1);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
@@ -455,7 +455,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-sec-hd :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .tech-aside {
     font-family: var(--font-display);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;
@@ -488,7 +488,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-pos-title {
     font-family: var(--font-sans);
-    font-size: var(--text-h1-display);
+    font-size: var(--text-h1);
     line-height: 0.98;
     letter-spacing: -0.02em;
     font-weight: var(--fw-medium);
@@ -497,7 +497,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-pos-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .tech-pos-statement {
     font-family: var(--font-display);
-    font-size: var(--text-h3-row);
+    font-size: var(--text-h3);
     line-height: 1.32;
     letter-spacing: -0.012em;
     color: var(--ink);
@@ -522,14 +522,14 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-pos-facts :global(.fact-k) {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--muted);
   }
   .tech-pos-facts :global(.fact-v) {
     font-family: var(--font-display);
-    font-size: var(--text-h3-card);
+    font-size: var(--text-h3);
     color: var(--accent-text);
     line-height: 1;
     font-weight: var(--fw-regular);
@@ -537,7 +537,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-pos-facts :global(.fact-l) {
     font-family: var(--font-display);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     line-height: 1.45;
     color: var(--ink);
     font-style: italic;
@@ -555,11 +555,11 @@ const serviceLd = buildService({ name: title, description });
   .tech-models-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
   }
   .tech-models-table thead th {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
@@ -577,14 +577,14 @@ const serviceLd = buildService({ name: title, description });
   .tech-models-table tbody :global(tr:last-child td) { border-bottom: none; }
   .tech-models-table tbody :global(.mdl-name) {
     font-family: var(--font-display);
-    font-size: var(--text-body-md);
+    font-size: var(--text-body);
     color: var(--ink);
     font-weight: var(--fw-regular);
     white-space: nowrap;
   }
   .tech-models-table tbody :global(.mdl-badge) {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     padding: 5px 10px;
@@ -601,12 +601,12 @@ const serviceLd = buildService({ name: title, description });
   .tech-models-table tbody :global(.mdl-cost),
   .tech-models-table tbody :global(.mdl-ctx) {
     font-family: var(--font-mono);
-    font-size: var(--text-ui);
+    font-size: var(--text-small);
     color: var(--ink);
     white-space: nowrap;
   }
   .tech-models-table tbody :global(.mdl-uses) {
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     color: var(--muted);
     line-height: var(--leading-body);
   }
@@ -631,7 +631,7 @@ const serviceLd = buildService({ name: title, description });
     padding: 18px 0 18px 28px;
     border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: 1.45;
     color: var(--ink);
     position: relative;
@@ -694,7 +694,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-int-flow :global(.flow-layer) {
     font-family: var(--font-mono);
-    font-size: var(--text-mono-xs);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
@@ -704,7 +704,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-int-flow :global(.flow-node--active .flow-layer) { color: var(--accent-text); }
   .tech-int-flow :global(.flow-node h3) {
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: 1.2;
     margin: 0 0 var(--space-2);
     font-weight: var(--fw-medium);
@@ -712,7 +712,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-int-flow :global(.flow-body) {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: 0.04em;
     line-height: 1.45;
     color: var(--muted);
@@ -727,11 +727,11 @@ const serviceLd = buildService({ name: title, description });
     width: 100%;
     border-collapse: collapse;
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
   }
   .tt-specs thead th {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
@@ -750,7 +750,7 @@ const serviceLd = buildService({ name: title, description });
   .tt-specs tbody tr:hover { background: rgba(var(--ink-rgb), 0.02); }
   .tt-spec-name {
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     color: var(--ink);
     padding: 20px var(--space-5) 20px 0;
@@ -759,7 +759,7 @@ const serviceLd = buildService({ name: title, description });
     width: 22%;
   }
   .tt-spec-desc {
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--ink);
     padding: 20px var(--space-5) 20px 0;
@@ -767,7 +767,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tt-spec-status {
     font-family: var(--font-mono);
-    font-size: var(--text-caption);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono-tight);
     color: var(--accent-text);
     padding: 20px 0;
@@ -793,7 +793,7 @@ const serviceLd = buildService({ name: title, description });
   .tt-eco-inline :global(.eco-card h3) {
     display: inline;
     font-family: var(--font-sans);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     color: var(--ink);
     font-style: normal;
@@ -803,7 +803,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tt-eco-inline :global(.eco-models) {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -814,7 +814,7 @@ const serviceLd = buildService({ name: title, description });
     flex-wrap: wrap;
     gap: var(--space-1) 0;
     font-family: var(--font-mono);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     color: var(--muted);
   }
   .tt-eco-item {
@@ -842,7 +842,7 @@ const serviceLd = buildService({ name: title, description });
   }
   .tech-cta-final h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h2-grand);
+    font-size: var(--text-h1);
     line-height: 0.95;
     margin: 0 0 var(--space-6);
     font-weight: var(--fw-medium);
@@ -850,7 +850,7 @@ const serviceLd = buildService({ name: title, description });
   .tech-cta-final h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); font-style: italic; }
   .tech-cta-body p {
     font-family: var(--font-display);
-    font-size: var(--text-label);
+    font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--paper);
     font-style: italic;
@@ -864,7 +864,7 @@ const serviceLd = buildService({ name: title, description });
     background: var(--accent);
     color: var(--paper);
     border-radius: var(--radius-xs);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);
@@ -878,7 +878,7 @@ const serviceLd = buildService({ name: title, description });
     color: var(--paper);
     border: 1px solid rgba(var(--paper-rgb), 0.3);
     border-radius: var(--radius-xs);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     text-decoration: none;
     letter-spacing: var(--tracking-body);

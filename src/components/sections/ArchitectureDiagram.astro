@@ -112,7 +112,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
   }
   .sysarch-spec {
     font-family: var(--font-mono);
-    font-size: var(--text-eyebrow);
+    font-size: var(--text-small);
     color: var(--muted);
     letter-spacing: 0.1em;
   }
@@ -120,7 +120,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
   /* H2 token sémantique unifié · cf tokens.css */
   .sysarch-h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h2-section);
+    font-size: var(--text-h2);
     line-height: var(--leading-h3);
     letter-spacing: var(--tracking-display);
     max-width: 880px;
@@ -149,7 +149,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
 
   .sysarch-cap {
     font-family: var(--font-display);
-    font-size: var(--text-lede);
+    font-size: var(--text-h3);
     line-height: 1.35;
     color: var(--ink);
     max-width: var(--wrap-prose);
@@ -186,7 +186,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
 
   /* Mobile : SVG plus petit, H2 réduit */
   @media (max-width: 700px) {
-    .sysarch-h2 { font-size: var(--text-h2-tight); }
+    .sysarch-h2 { font-size: var(--text-h2); }
     .sysarch-svg { max-height: 240px; }
   }
   /* ── Alternance des fonds R4 · defaut paper (clair) = rendu inchange ──

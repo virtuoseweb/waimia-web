@@ -26,7 +26,7 @@ const lang = langFromPath(Astro.url.pathname);
     <h1 style="font-family:var(--font-sans);font-size:var(--text-display);line-height:.94;letter-spacing:-0.018em;font-weight:var(--fw-semibold);text-wrap:balance">
       {lang === 'fr' ? title_fr : title_en}
     </h1>
-    <p style="font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:var(--text-h3-row);color:var(--muted);margin-top:var(--space-6);max-width:780px;line-height:var(--leading-lede);text-wrap:pretty">
+    <p style="font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:var(--text-h3);color:var(--muted);margin-top:var(--space-6);max-width:780px;line-height:var(--leading-lede);text-wrap:pretty">
       {lang === 'fr' ? body_fr : body_en}
     </p>
     <div style="margin-top:48px;display:flex;gap:var(--space-3);flex-wrap:wrap">
@@ -37,7 +37,7 @@ const lang = langFromPath(Astro.url.pathname);
         {lang === 'fr' ? "← Retour à l'accueil" : '← Back to home'}
       </a>
     </div>
-    <div style="margin-top:80px;padding:18px 22px;border:1px dashed var(--hairline-strong);border-radius:var(--radius-md);background:var(--paper-2);font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.06em;color:var(--muted);max-width:640px">
+    <div style="margin-top:80px;padding:18px 22px;border:1px dashed var(--hairline-strong);border-radius:var(--radius-md);background:var(--paper-2);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.06em;color:var(--muted);max-width:640px">
       <span style="color:var(--accent-text)">◉</span> {lang === 'fr' ? "Page en cours de rédaction. Le contenu sera publié via le CMS Pages CMS, pas de redéploiement nécessaire." : 'Page is being written. Content will be published via Pages CMS, no redeployment needed.'}
     </div>
   </div>
