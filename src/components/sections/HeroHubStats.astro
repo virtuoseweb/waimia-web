@@ -427,6 +427,34 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     .hero-conversion-funnel__stats { grid-template-columns: 1fr 1fr; }
     .hero-conversion-funnel__benefits ul { grid-template-columns: 1fr; }
   }
+  /* Mobile (<=480px) : compresse l'espacement vertical pour tenir ~1 viewport
+     sans retirer de contenu. Floor min-height retiré + justify start + gaps
+     resserrés (tokens DS uniquement). Desktop intact. */
+  @media (max-width: 480px) {
+    .hero-conversion-funnel {
+      min-height: 0;
+      justify-content: flex-start;
+      padding-top: calc(var(--header-height) + var(--space-5));
+      padding-bottom: var(--space-7);
+    }
+    .hero-conversion-funnel__h1 { margin: 0 0 var(--space-4); }
+    .hero-conversion-funnel__lede {
+      font-size: var(--text-body);
+      margin: 0 0 var(--space-5);
+    }
+    .hero-conversion-funnel__meta { margin: 0 0 var(--space-4); }
+    .hero-conversion-funnel__cta { margin-bottom: var(--space-6); }
+    .hero-conversion-funnel__benefits { margin: 0 0 var(--space-4); }
+    .hero-conversion-funnel__proof {
+      margin: 0 0 var(--space-5);
+      padding-top: var(--space-3);
+    }
+    .hero-conversion-funnel__stats {
+      margin-top: var(--space-6);
+      gap: var(--space-5);
+      padding-top: var(--space-5);
+    }
+  }
 
   /* ── hero-conversion-funnel · fonds optionnels (defaut clair inchange) ── */
   .hero-conversion-funnel[data-bg='paper-2'] { background: var(--paper-2); }
