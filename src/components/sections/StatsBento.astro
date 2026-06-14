@@ -228,23 +228,25 @@ const stats = data.stats ?? [];
   .stats-bento[data-bg='paper-3'] { background: var(--paper-3); }
 
   /* ── Declinaison dark `ink` (idiome DS, modele BentoGrid) ──────────
-     Section ink → cards lisibles. Les cellules secondaires gardent un
-     fond paper (cartes claires sur fond sombre). La cellule hero, qui
-     est deja sombre par defaut, passe sur `--ink-2` pour rester un
-     bloc distinct du fond `--ink` de la section. Le global
-     `[data-bg='ink']` remappe deja --hairline/--muted sur base paper. */
+     Section ink : cartes secondaires sombres (--ink-2), hero le plus sombre (--ink), texte paper.
+     Aligne sur l'idiome BentoGrid (le remap global --muted base-paper sert le texte clair sur fond sombre). */
   .stats-bento[data-bg='ink'] {
     background: var(--ink);
     color: var(--paper);
   }
   .stats-bento[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
 
-  /* Cellules secondaires : carte claire sur fond sombre (texte ink herite, lisible) */
+  /* Cellules secondaires : cartes sombres sur fond sombre (alignees sur l'idiome BentoGrid). */
   .stats-bento[data-bg='ink'] .stats-bento__cell {
-    background: var(--paper);
-  }
-  /* Cellule hero : deja sombre → `--ink-2` la distingue du fond section */
-  .stats-bento[data-bg='ink'] .stats-bento__cell--1 {
     background: var(--ink-2);
+  }
+  /* Cartes secondaires sombres : le `__number` (base --ink) doit passer paper pour rester lisible.
+     Le `__label` (var(--muted)) est deja remappe paper par le global ink → lisible sur fond sombre. */
+  .stats-bento[data-bg='ink'] .stats-bento__cell .stats-bento__number {
+    color: var(--paper);
+  }
+  /* Cellule hero : la plus sombre, distincte des secondaires --ink-2 */
+  .stats-bento[data-bg='ink'] .stats-bento__cell--1 {
+    background: var(--ink);
   }
 </style>
