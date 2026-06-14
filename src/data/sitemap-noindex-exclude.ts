@@ -33,4 +33,8 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // Page service DÉMO (placeholders cas/avis/prix balisés) : seo.noindex tant que le contenu
   // réel n'est pas posé (fiche décision 0004) → hors sitemap pour cohérence (2026-06-14).
   "/services/site-web-intelligent",
+  // Page locale Montpellier : seo.noindex tant que le NAP/GBP/avis réels ne sont pas posés
+  // (placeholder balisé) → hors sitemap pour cohérence noindex↔crawl. Retirer cette entrée
+  // ET le noindex de la page quand les vraies coordonnées Montpellier seront fournies (2026-06-14).
+  "/agence-web-montpellier",
 ]);
