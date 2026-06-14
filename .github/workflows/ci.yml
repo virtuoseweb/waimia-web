@@ -54,6 +54,12 @@ jobs:
       - name: Gate qualité statique (a11y structurel + liens internes)
         run: node scripts/check-static-quality.mjs
 
+      # Gate SEO sur le dist/ bâti (pages indexées only) : meta description présente + <= 160 chars,
+      # canonical présent, aucune page noindex listée au sitemap (cohérence noindex<->crawl).
+      # Complète check-static-quality (qui couvre h1/img-alt/html-lang). exit 1 sur régression.
+      - name: Gate SEO (meta-length + noindex<->sitemap + canonical)
+        run: node scripts/check-seo.mjs
+
       # Gate pureté DS : interdit tout hex brut réintroduit dans sections/*.astro (le DS est
       # 100% token-driven → l'outil d'identité repeint en swappant les valeurs de tokens).
       # Les rgba de marque restants sont surfacés en dette non-bloquante (à tokeniser).
