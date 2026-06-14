@@ -54,7 +54,7 @@ const hasCopy = Boolean(kicker || h2 || intro);
   .term-mock[data-bg='paper-2'] { background: var(--paper-2); }
   .term-mock[data-bg='ink'] { background: var(--ink); color: var(--paper); }
 
-  .term-mock__grid { display: grid; gap: clamp(32px, 5vw, 56px); align-items: center; }
+  .term-mock__grid { display: grid; gap: var(--space-9); align-items: center; }
   .term-mock__grid[data-layout='split'] { grid-template-columns: 1fr 1fr; }
   .term-mock__grid[data-layout='full'] { grid-template-columns: 1fr; }
 

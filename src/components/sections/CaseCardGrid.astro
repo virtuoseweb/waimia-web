@@ -61,13 +61,13 @@ const isFr = lang === 'fr';
 <style>
   /* V6 densification · "1 viewport par section majeure" */
   #act-4{padding:var(--section-base) 0}
-  .cases-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(20px,2.5vw,32px);padding-bottom:14px;border-bottom:1px solid var(--hairline);flex-wrap:wrap;gap:10px}
+  .cases-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-6);padding-bottom:14px;border-bottom:1px solid var(--hairline);flex-wrap:wrap;gap:10px}
   .cases-spec{font-family:var(--font-mono);font-size:var(--text-eyebrow);color:var(--muted);letter-spacing:.1em}
   /* H2 = masse → Instrument Sans medium ; <i> reste relevé serif italic accent */
-  .cases-h2{font-family:var(--font-sans);font-size:var(--text-h2-section);line-height:var(--leading-h2);letter-spacing:-0.015em;max-width:1080px;margin-bottom:clamp(24px,3vw,40px);font-weight:var(--fw-medium);text-wrap:balance}
+  .cases-h2{font-family:var(--font-sans);font-size:var(--text-h2-section);line-height:var(--leading-h2);letter-spacing:-0.015em;max-width:1080px;margin-bottom:var(--space-7);font-weight:var(--fw-medium);text-wrap:balance}
 
   .cases-tbl{}
-  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-trim) var(--ease),translate var(--dur-hover) var(--ease)}
+  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:var(--space-7) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-trim) var(--ease),translate var(--dur-hover) var(--ease)}
   .cases-row:hover{background:var(--paper-2);translate:12px 0}
   .cases-row:hover .cases-arr{color:var(--accent-text);transform:translateX(4px) translateY(-2px)}
   .cases-row:hover .cases-client{color:var(--accent-text);transition:color var(--dur-fast) var(--ease)}
@@ -81,7 +81,7 @@ const isFr = lang === 'fr';
   .cases-impact{color:var(--ink);font-weight:var(--fw-medium);font-size:var(--text-body-lead)}
   .cases-arr{font-family:var(--font-mono);font-size:18px;color:var(--muted);text-align:right;transition:color var(--dur-trim) var(--ease),transform var(--dur-hover) var(--ease)}
 
-  .cases-foot{margin-top:clamp(40px,4vw,56px);text-align:right}
+  .cases-foot{margin-top:var(--space-9);text-align:right}
   .cases-foot a{font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);border-bottom:1px solid var(--accent);padding-bottom:2px}
 
   @media (max-width:1100px){

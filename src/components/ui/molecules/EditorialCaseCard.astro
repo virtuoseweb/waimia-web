@@ -66,13 +66,13 @@ const offsetStyle = offset ? `margin-top:${offset}px` : '';
 </a>
 
 <style>
-  .u-case-card{display:block;padding:clamp(24px,3vw,40px);background:var(--paper-2);border-radius:18px;border:1px solid var(--hairline);border-top:2px solid transparent;transition:border-color var(--dur-hover) var(--ease),transform var(--dur-hover) var(--ease),box-shadow var(--dur-hover) var(--ease);color:inherit}
+  .u-case-card{display:block;padding:var(--space-7);background:var(--paper-2);border-radius:18px;border:1px solid var(--hairline);border-top:2px solid transparent;transition:border-color var(--dur-hover) var(--ease),transform var(--dur-hover) var(--ease),box-shadow var(--dur-hover) var(--ease);color:inherit}
   .u-case-card:hover{border-color:var(--accent-text);border-top-color:var(--accent-text);transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 
   .u-case-card-hd{display:flex;justify-content:space-between;align-items:baseline}
 
   /* Nom client = masse → Instrument Sans semibold (titre de card) ; emphase serif via <i> */
-  .u-case-card-client{font-family:var(--font-sans);font-weight:var(--fw-semibold);font-size:clamp(36px,5vw,72px);line-height:.95;letter-spacing:-0.015em;margin-top:18px;transition:transform var(--dur-trim) var(--ease)}
+  .u-case-card-client{font-family:var(--font-sans);font-weight:var(--fw-semibold);font-size:var(--text-h1-display);line-height:.95;letter-spacing:-0.015em;margin-top:18px;transition:transform var(--dur-trim) var(--ease)}
 
   .u-case-card-foot{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);padding-top:20px;border-top:1px solid var(--hairline)}
   :global(.u-case-card-k){margin-bottom:6px}

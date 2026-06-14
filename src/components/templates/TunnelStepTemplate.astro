@@ -118,7 +118,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
    le top du body est donc resserré pour supprimer le vide hero→hr (~250 px). */
 .tnl-body {
   padding-top: var(--space-7);
-  padding-bottom: clamp(48px, 6vw, 80px);
+  padding-bottom: var(--space-10);
   border-top: 1px solid var(--hairline);
 }
 
@@ -126,7 +126,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
 .tnl-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 232px;
-  gap: clamp(40px, 5vw, 88px);
+  gap: var(--space-10);
   align-items: start;
 }
 .tnl-prose { max-width: var(--wrap-prose); min-width: 0; }
@@ -145,7 +145,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
 }
 .tnl-rail__gauge {
   font-family: var(--font-display);
-  font-size: clamp(40px, 4.5vw, 56px);
+  font-size: var(--text-h2-section);
   line-height: 0.9;
   letter-spacing: -.02em;
   color: var(--ink);
@@ -222,7 +222,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
     border-left: none;
     border-bottom: 1px solid var(--hairline-strong);
   }
-  .tnl-rail__gauge { font-size: clamp(32px, 9vw, 44px); }
+  .tnl-rail__gauge { font-size: var(--text-pull-quote); }
   .tnl-rail__steps { flex-flow: row wrap; width: auto; margin-top: 0; gap: var(--space-3); }
   .tnl-rail__step::before { width: 12px; }
   .tnl-rail__cta { margin-top: 0; }
@@ -247,7 +247,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
 }
 .tnl-body :global(p) {
   font-family: var(--font-sans);
-  font-size: clamp(15px, 1.4vw, 17px);
+  font-size: var(--text-label);
   line-height: 1.7;
   color: var(--ink);
   max-width: 68ch;
@@ -265,7 +265,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
 }
 .tnl-body :global(ul li) {
   font-family: var(--font-sans);
-  font-size: clamp(14px, 1.3vw, 16px);
+  font-size: var(--text-label);
   color: var(--ink);
   padding-left: var(--space-6);
   position: relative;
@@ -287,7 +287,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
   margin: var(--space-7) 0;
   background: rgba(var(--accent-rgb), .04);
   font-family: var(--font-display);
-  font-size: clamp(16px, 1.8vw, 20px);
+  font-size: var(--text-lede);
   font-style: italic;
   color: var(--ink);
   line-height: var(--leading-body);
@@ -301,7 +301,7 @@ const railSteps = Array.from({ length: progress_total }, (_, i) => i + 1);
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-sans);
-  font-size: clamp(13px, 1.2vw, 15px);
+  font-size: var(--text-label);
   margin-bottom: var(--space-6);
 }
 .tnl-body :global(th) {

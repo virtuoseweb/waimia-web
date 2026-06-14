@@ -137,7 +137,7 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
   }
   .stat-block__value {
     font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: var(--text-stat);
     line-height: 1;
     color: var(--accent-text);
   }
@@ -190,7 +190,7 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
   }
   .proof-bar[data-layout="vertical-stack"] .proof-bar__list { grid-template-columns: 1fr; }
   .proof-bar__item {
-    padding: clamp(16px, 2vw, 32px);
+    padding: var(--space-6);
     border-right: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;

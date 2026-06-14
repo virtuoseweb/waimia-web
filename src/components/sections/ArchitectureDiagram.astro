@@ -104,7 +104,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: clamp(20px, 2.5vw, 32px);
+    margin-bottom: var(--space-6);
     padding-bottom: 14px;
     border-bottom: 1px solid var(--hairline);
     flex-wrap: wrap;
@@ -124,7 +124,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
     line-height: var(--leading-h3);
     letter-spacing: var(--tracking-display);
     max-width: 880px;
-    margin: 0 0 clamp(24px, 3vw, 40px);
+    margin: 0 0 var(--space-7);
     font-weight: var(--fw-medium);
     text-wrap: balance;
     color: var(--ink);
@@ -135,7 +135,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(16px, 2vw, 28px);
+    gap: var(--space-6);
     transition-delay: var(--dur-fast);
   }
 
@@ -149,7 +149,7 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
 
   .sysarch-cap {
     font-family: var(--font-display);
-    font-size: clamp(16px, 1.4vw, 20px);
+    font-size: var(--text-lede);
     line-height: 1.35;
     color: var(--ink);
     max-width: var(--wrap-prose);

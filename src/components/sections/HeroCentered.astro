@@ -397,7 +397,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     grid-template-columns: var(--sec-grid, 1fr);
     max-width: 100%;
     align-items: start;
-    gap: clamp(32px, 5vw, 80px);
+    gap: var(--space-10);
     text-align: left;
   }
   .hero-centered h1 {
@@ -435,12 +435,12 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   /* ── hero-hub-masthead ─────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-hub-masthead` (collision max-width). */
-  .hero-hub-masthead { padding: 140px var(--space-6) clamp(48px, 6vw, 88px); }
+  .hero-hub-masthead { padding: 140px var(--space-6) var(--section-base); }
   .hero-hub-masthead .wrap-wide { max-width: 1200px; margin-inline: auto; }
   :global(.hero-hub-masthead__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-masthead__h1 {
     font-family: var(--font-display);
-    font-size: clamp(60px, 11vw, 180px);
+    font-size: var(--text-mega);
     font-style: italic;
     font-weight: var(--fw-regular);
     line-height: 0.92;
@@ -449,7 +449,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-hub-masthead__lede {
     font-family: var(--font-sans);
-    font-size: clamp(17px, 1.6vw, 19px);
+    font-size: var(--text-lede);
     line-height: var(--leading-prose);
     color: var(--muted);
     margin: var(--space-6) 0 0;
@@ -465,7 +465,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-hub-listing {
     position: relative;
     overflow: hidden;
-    padding: calc(var(--header-height) + var(--space-7)) var(--space-6) clamp(40px, 5vw, 72px);
+    padding: calc(var(--header-height) + var(--space-7)) var(--space-6) var(--space-9);
   }
   .hero-hub-listing--bordered { border-bottom: 1px solid var(--hairline); }
   .hero-hub-listing .wrap-wide { position: relative; z-index: 1; }
@@ -482,7 +482,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   :global(.hero-hub-listing__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-listing__h1 {
     font-family: var(--font-display);
-    font-size: clamp(56px, 11vw, 180px);
+    font-size: var(--text-mega);
     line-height: 0.92;
     letter-spacing: -0.03em;
     font-weight: var(--fw-regular);
@@ -499,7 +499,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     line-height: var(--leading-lede);
   }
   .hero-hub-listing__filters {
-    margin-top: clamp(36px, 4vw, 56px);
+    margin-top: var(--space-8);
     display: flex;
     gap: var(--space-3);
     flex-wrap: wrap;
@@ -517,7 +517,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   /* ── hero-problem-index ────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-problem-index` (collision max-width). */
-  .hero-problem-index { position: relative; overflow: hidden; padding: 140px var(--space-6) clamp(44px, 6vw, 84px); }
+  .hero-problem-index { position: relative; overflow: hidden; padding: 140px var(--space-6) var(--space-10); }
   .hero-problem-index__geo {
     position: absolute; inset: 0; width: 100%; height: 100%;
     pointer-events: none;
@@ -528,7 +528,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   :global(.hero-problem-index__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-problem-index__h1 {
     font-family: var(--font-display);
-    font-size: clamp(56px, 11vw, 180px);
+    font-size: var(--text-mega);
     line-height: 0.92;
     letter-spacing: -0.03em;
     font-weight: var(--fw-regular);
@@ -539,7 +539,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-problem-index__lede {
     font-family: var(--font-sans);
     font-style: italic;
-    font-size: clamp(20px, 2.2vw, 28px);
+    font-size: var(--text-h3-row);
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
     max-width: 760px;
@@ -558,7 +558,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   /* ── hero-utility-masthead ─────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-utility` (collision max-width). */
   .hero-utility {
-    padding: 140px var(--space-6) clamp(40px, 5vw, 72px);
+    padding: 140px var(--space-6) var(--space-9);
     border-bottom: 1px solid var(--hairline);
   }
   .hero-utility--centered { text-align: center; }
@@ -568,7 +568,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   .hero-utility__h1 {
     font-family: var(--font-display);
-    font-size: clamp(56px, 11vw, 180px);
+    font-size: var(--text-mega);
     line-height: 0.92;
     letter-spacing: -0.03em;
     font-weight: var(--fw-regular);
@@ -587,7 +587,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-utility__lede {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(20px, 2.2vw, 32px);
+    font-size: var(--text-h3-row);
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
     max-width: 760px;
@@ -611,7 +611,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-hub-masthead--standard .hero-hub-masthead__h1,
   .hero-hub-listing--standard .hero-hub-listing__h1,
   .hero-utility--standard .hero-utility__h1 {
-    font-size: clamp(56px, 6.75vw, 92px);
+    font-size: var(--text-h1-hero);
   }
 
   /* ── hero-academy-hub ──────────────────────────────────────────────────── */
@@ -785,7 +785,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   :global(.hero-detail-menu__num) { display: block; margin-bottom: var(--space-5); }
   .hero-detail-menu__h1 {
     font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 156px);
+    font-size: var(--text-mega);
     line-height: 0.92;
     letter-spacing: -0.028em;
     text-wrap: balance;
@@ -794,7 +794,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-detail-menu__lede {
     font-family: var(--font-display);
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: var(--text-lede);
     line-height: 1.45;
     max-width: 880px;
     color: var(--muted);
@@ -809,13 +809,13 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   /* ── hero-essay (déjà qualifié à la source) ────────────────────────────── */
   .hero-essay__hd {
-    padding: var(--he-top-pad, calc(var(--header-height) + 24px)) var(--space-6) clamp(40px, 6vw, 80px);
+    padding: var(--he-top-pad, calc(var(--header-height) + 24px)) var(--space-6) var(--space-10);
     border-bottom: 1px solid var(--hairline);
   }
   :global(.hero-essay__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-essay__h1 {
     font-family: var(--font-display);
-    font-size: clamp(48px, 7vw, 96px);
+    font-size: var(--text-h2-grand);
     line-height: var(--leading-h1);
     letter-spacing: -0.026em;
     font-weight: var(--fw-regular);
@@ -827,7 +827,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-essay__lede {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(20px, 2.2vw, 28px);
+    font-size: var(--text-h3-row);
     line-height: var(--leading-lede);
     color: var(--muted);
     margin: var(--space-5) 0 var(--space-6);
@@ -846,7 +846,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-essay__image {
     aspect-ratio: 16/9;
-    margin: clamp(48px, 6vw, 80px) var(--space-6) 0;
+    margin: var(--space-10) var(--space-6) 0;
     overflow: hidden;
   }
   .hero-essay__image :global(img) {
@@ -894,7 +894,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   :global(.hero-case-study__num) { display: block; margin-bottom: var(--space-5); }
   .hero-case-study__h1 {
     font-family: var(--font-display);
-    font-size: clamp(44px, 8vw, 128px);
+    font-size: var(--text-display);
     line-height: 0.92;
     letter-spacing: -0.03em;
     text-wrap: balance;
@@ -945,7 +945,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   :global(.hero-service-detail__num) { display: block; margin-bottom: var(--space-5); }
   .hero-service-detail__h1 {
     font-family: var(--font-sans);
-    font-size: clamp(56px, 9vw, 156px);
+    font-size: var(--text-mega);
     line-height: 0.92;
     letter-spacing: -0.028em;
     text-wrap: balance;
@@ -955,7 +955,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-service-detail__lede {
     font-family: var(--font-display);
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: var(--text-lede);
     line-height: 1.45;
     max-width: 880px;
     color: var(--muted);
@@ -965,12 +965,12 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-service-detail__metrics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    margin-top: clamp(40px, 5vw, 72px);
+    margin-top: var(--space-9);
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
   }
   .hero-service-detail__metric {
-    padding: clamp(20px, 2.5vw, 32px) 20px;
+    padding: var(--space-6) 20px;
     border-right: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;
@@ -1012,7 +1012,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   :global(.hero-service-masthead__num) { display: block; margin-bottom: var(--space-5); }
   .hero-service-masthead__h1 {
     font-family: var(--font-sans);
-    font-size: clamp(56px, 9vw, 156px);
+    font-size: var(--text-mega);
     line-height: 0.92;
     letter-spacing: -0.028em;
     text-wrap: balance;
@@ -1021,7 +1021,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-service-masthead__lede {
     font-family: var(--font-display);
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: var(--text-lede);
     line-height: 1.45;
     max-width: 880px;
     color: var(--muted);
@@ -1036,33 +1036,33 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 
   /* ── hero-landing ──────────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-landing` (collision max-width). */
-  .hero-landing.wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
-  .hero-landing { padding-bottom: clamp(48px, 6vw, 80px); }
+  .hero-landing.wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: var(--space-10); }
+  .hero-landing { padding-bottom: var(--space-10); }
   .hero-landing__eyebrow {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: clamp(11px, 1.2vw, 13px);
+    font-size: var(--text-label);
     text-transform: uppercase;
     letter-spacing: .1em;
     color: var(--muted);
     margin-bottom: var(--space-5);
-    padding-top: clamp(48px, 8vw, 96px);
+    padding-top: var(--space-11);
   }
   .hero-landing__h1 {
     font-family: var(--font-sans);
-    font-size: clamp(40px, 7vw, 96px);
+    font-size: var(--text-h2-grand);
     line-height: 1.03;
     letter-spacing: var(--tracking-display);
     color: var(--ink);
-    margin-bottom: clamp(24px, 4vw, 48px);
+    margin-bottom: var(--space-8);
     max-width: 18ch;
   }
   .hero-landing__lede {
     font-family: var(--font-sans);
-    font-size: clamp(16px, 1.8vw, 20px);
+    font-size: var(--text-lede);
     line-height: var(--leading-relaxed);
     color: var(--ink);
     max-width: 62ch;
-    margin-bottom: clamp(48px, 8vw, 96px);
+    margin-bottom: var(--section-base);
   }
   .hero-landing__ctas { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-5); }
   .hero-landing__btn-primary {

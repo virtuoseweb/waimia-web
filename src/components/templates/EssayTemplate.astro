@@ -310,7 +310,7 @@ const articleLd = buildArticle({
 <style>
 /* ── Body layout ──────────────────────────────────────── */
 .essay-body {
-  padding: clamp(60px, 8vw, 100px) var(--space-6);
+  padding: var(--space-11) var(--space-6);
 }
 .essay-layout {
   max-width: 1200px;
@@ -319,7 +319,7 @@ const articleLd = buildArticle({
 .essay-layout--with-aside {
   display: grid;
   grid-template-columns: 1fr 260px;
-  gap: clamp(40px, 5vw, 80px);
+  gap: var(--space-10);
   align-items: start;
 }
 
@@ -327,7 +327,7 @@ const articleLd = buildArticle({
 .essay-layout--with-toc {
   display: grid;
   grid-template-columns: 220px 1fr;
-  gap: clamp(32px, 4vw, 64px);
+  gap: var(--space-9);
   align-items: start;
   max-width: 1200px;
   margin: 0 auto;
@@ -335,19 +335,19 @@ const articleLd = buildArticle({
 .essay-layout--three-col {
   display: grid;
   grid-template-columns: 220px 1fr 260px;
-  gap: clamp(32px, 4vw, 64px);
+  gap: var(--space-9);
   align-items: start;
   max-width: 1200px;
   margin: 0 auto;
 }
 .essay-toc {
   position: sticky;
-  top: clamp(64px, 8vw, 100px);
+  top: var(--space-11);
   align-self: start;
   min-width: 0;
 }
 .essay-share-end {
-  margin: clamp(40px, 5vw, 64px) 0 var(--space-5);
+  margin: var(--space-9) 0 var(--space-5);
   padding-top: var(--space-5);
   border-top: 1px solid var(--hairline);
 }
@@ -355,14 +355,14 @@ const articleLd = buildArticle({
   margin: 0;
 }
 .essay-related-cluster {
-  padding: 0 var(--space-6) clamp(40px, 5vw, 64px);
+  padding: 0 var(--space-6) var(--space-9);
 }
 
 /* ── Prose ────────────────────────────────────────────── */
 .essay-prose {
   max-width: var(--wrap-prose);
   font-family: var(--font-display);
-  font-size: clamp(17px, 1.45vw, 19px);
+  font-size: var(--text-label);
   line-height: var(--leading-prose);
   color: var(--ink);
   min-width: 0;
@@ -392,7 +392,7 @@ const articleLd = buildArticle({
 
 .essay-prose :global(h2) {
   font-family: var(--font-sans);
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: var(--text-h2-tight);
   font-style: italic;
   font-weight: var(--fw-medium);
   letter-spacing: -0.012em;
@@ -400,7 +400,7 @@ const articleLd = buildArticle({
   /* Rythme resserré : palier 40→56px (esprit --space-7/8) au lieu de 48→72px.
      Supprime les bandes mortes des contenus courts (cookbooks : 1 phrase/section)
      sans tasser les essais longs (h2 28-40px → 40-56px reste aéré). */
-  margin: clamp(40px, 5vw, 56px) 0 var(--space-5);
+  margin: var(--space-8) 0 var(--space-5);
   color: var(--ink);
   max-width: 880px;
   text-wrap: balance;
@@ -421,7 +421,7 @@ const articleLd = buildArticle({
   font-family: var(--font-sans);
   font-size: var(--text-h3-card);
   font-weight: var(--fw-medium);
-  margin: clamp(32px, 4vw, 48px) 0 var(--space-4);
+  margin: var(--space-8) 0 var(--space-4);
   line-height: 1.2;
 }
 .essay-prose :global(p) { margin: 0 0 1.4em; }
@@ -429,9 +429,9 @@ const articleLd = buildArticle({
 .essay-prose :global(blockquote) {
   border-left: 2px solid var(--ink-2);
   padding: var(--space-3) 0 var(--space-3) var(--space-5);
-  margin: clamp(28px, 3vw, 40px) 0;
+  margin: var(--space-7) 0;
   font-family: var(--font-display);
-  font-size: clamp(20px, 1.8vw, 24px);
+  font-size: var(--text-lede);
   font-style: italic;
   line-height: 1.45;
   color: var(--ink-2);
@@ -486,14 +486,14 @@ const articleLd = buildArticle({
   border: none;
   height: 1px;
   background: var(--hairline-strong);
-  margin: clamp(48px, 6vw, 72px) 0;
+  margin: var(--space-9) 0;
   width: 100%;
 }
 
 /* ── Aside sources ────────────────────────────────────── */
 .essay-sources {
   position: sticky;
-  top: clamp(64px, 8vw, 100px);
+  top: var(--space-11);
   align-self: start;
   padding-left: var(--space-5);
   border-left: 1px solid var(--hairline-strong);
@@ -585,13 +585,13 @@ const articleLd = buildArticle({
 
 /* ── Footer 3-col ─────────────────────────────────────── */
 .essay-footer {
-  padding: clamp(60px, 8vw, 100px) var(--space-6);
+  padding: var(--space-11) var(--space-6);
   border-top: 1px solid var(--hairline);
 }
 .essay-footer-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(40px, 5vw, 64px);
+  gap: var(--space-9);
 }
 :global(.essay-related-k) { display: block; margin-bottom: 30px; }
 .essay-footer-cta {

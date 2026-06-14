@@ -70,7 +70,7 @@ const isFr = lang === 'fr';
 </script>
 
 <style>
-  .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 48px); }
+  .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: var(--space-8); }
   .how-we-ship { padding-block: var(--section-loose); }
   .how-we-ship__wrap { position: relative; height: 380vh; }
   .how-we-ship__sticky {
@@ -79,14 +79,14 @@ const isFr = lang === 'fr';
     height: 100vh;
     display: grid;
     grid-template-columns: 120px 1fr;
-    gap: clamp(20px, 3vw, 48px);
+    gap: var(--space-8);
     align-items: center;
-    padding: clamp(60px, 8vh, 120px) 0;
+    padding: var(--space-12) 0;
   }
   .how-we-ship__numline {
     display: flex;
     flex-direction: column;
-    gap: clamp(28px, 4vw, 56px);
+    gap: var(--space-9);
     align-items: flex-start;
     border-left: 1px solid var(--hairline-strong);
     padding-left: 18px;
@@ -94,7 +94,7 @@ const isFr = lang === 'fr';
   .how-we-ship__pip {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(22px, 2.4vw, 36px);
+    font-size: var(--text-h2-tight);
     color: var(--muted);
     transition: color 600ms var(--ease);
   }
@@ -112,7 +112,7 @@ const isFr = lang === 'fr';
   .how-we-ship__roman {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(72px, 10vw, 180px);
+    font-size: var(--text-mega);
     line-height: .9;
     letter-spacing: -0.03em;
     color: var(--accent-text);
@@ -120,7 +120,7 @@ const isFr = lang === 'fr';
   }
   .how-we-ship__title {
     font-family: var(--font-sans);
-    font-size: clamp(32px, 4.5vw, 68px);
+    font-size: var(--text-h1-display);
     line-height: 1;
     letter-spacing: -0.02em;
     font-weight: var(--fw-medium);
@@ -128,7 +128,7 @@ const isFr = lang === 'fr';
     text-wrap: balance;
   }
   .how-we-ship__body {
-    font-size: clamp(14px, 1.4vw, 18px);
+    font-size: var(--text-lede);
     color: var(--muted);
     line-height: 1.55;
     margin-top: 18px;

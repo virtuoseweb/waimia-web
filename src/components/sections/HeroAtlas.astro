@@ -60,7 +60,7 @@ const isFr = lang === 'fr';
 <style>
   .hero-atlas {
     position: relative;
-    padding: clamp(72px,7vw,108px) var(--gut) clamp(48px,5vw,72px);
+    padding: var(--section-base) var(--gut) var(--space-9);
     overflow: hidden;
     border-bottom: 1px solid var(--hairline);
   }
@@ -100,7 +100,7 @@ const isFr = lang === 'fr';
   .hero-atlas-inner {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
-    gap: clamp(48px,5vw,80px);
+    gap: var(--space-10);
     align-items: start;
     max-width: 1500px;
     margin: 0 auto;
@@ -161,7 +161,7 @@ const isFr = lang === 'fr';
   }
   .atlas-mini-map {
     border-left: 1px solid var(--hairline);
-    padding-left: clamp(24px,3vw,40px);
+    padding-left: var(--space-7);
     padding-top: var(--space-1);
   }
   /* Kicker canonisé (R4) · typo portée par l'atome (fusion tracking .18em -> .16em) */
@@ -191,7 +191,7 @@ const isFr = lang === 'fr';
     display: flex;
     gap: var(--space-4);
     align-items: flex-start;
-    padding: clamp(14px,1.8vw,20px) 0;
+    padding: var(--space-4) 0;
     border-top: 1px solid var(--hairline);
   }
   .amm-item:last-child { border-bottom: 1px solid var(--hairline) }
@@ -211,7 +211,7 @@ const isFr = lang === 'fr';
   }
   .amm-label {
     font-family: var(--font-display);
-    font-size: clamp(15px,1.4vw,18px);
+    font-size: var(--text-label);
     font-weight: var(--fw-regular);
     letter-spacing: -0.01em;
     color: var(--ink);
@@ -219,7 +219,7 @@ const isFr = lang === 'fr';
   }
   .amm-desc {
     font-family: var(--font-sans);
-    font-size: clamp(12px,1vw,13px);
+    font-size: var(--text-label);
     color: var(--ink-2);
     line-height: var(--leading-lede);
   }
@@ -240,8 +240,8 @@ const isFr = lang === 'fr';
       border-left: none;
       border-top: 1px solid var(--hairline);
       padding-left: 0;
-      padding-top: clamp(24px,4vw,36px);
-      margin-top: clamp(24px,4vw,36px);
+      padding-top: var(--space-6);
+      margin-top: var(--space-6);
     }
     .amm-list {
       display: grid;

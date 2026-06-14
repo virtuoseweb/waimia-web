@@ -62,13 +62,13 @@ const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
 
 <style>
   .list-hd {
-    padding: 140px var(--space-6) clamp(40px, 5vw, 72px);
+    padding: 140px var(--space-6) var(--space-9);
     border-bottom: 1px solid var(--hairline);
   }
   :global(.list-kicker) { display: block; margin-bottom: var(--space-5); }
   .list-h1 {
     font-family: var(--font-display);
-    font-size: clamp(56px, 11vw, 180px);
+    font-size: var(--text-mega);
     line-height: 0.92;
     letter-spacing: -0.03em;
     font-weight: var(--fw-regular);
@@ -77,7 +77,7 @@ const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
   }
   .list-lede {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2.2vw, 32px);
+    font-size: var(--text-lede);
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
     max-width: 760px;
@@ -85,7 +85,7 @@ const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
     text-wrap: pretty;
   }
   .list-filters {
-    margin-top: clamp(36px, 4vw, 56px);
+    margin-top: var(--space-9);
     display: flex;
     gap: var(--space-3);
     flex-wrap: wrap;

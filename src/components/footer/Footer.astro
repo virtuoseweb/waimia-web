@@ -17,11 +17,11 @@ const year = new Date().getFullYear();
   </h2>
 
   {/* Top — wordmark vibration · hover anime le dot pour ressentir l'identité */}
-  <div class="wrap" style="padding-top:clamp(64px,7vw,110px);padding-bottom:clamp(40px,5vw,80px)">
-    <div class="ft-wordmark" style="font-family:var(--font-display);font-size:clamp(60px,12vw,200px);line-height:.88;letter-spacing:-0.03em;font-weight:var(--fw-regular);color:var(--ink)">
+  <div class="wrap" style="padding-top:var(--space-12);padding-bottom:var(--space-10)">
+    <div class="ft-wordmark" style="font-family:var(--font-display);font-size:var(--text-mega);line-height:.88;letter-spacing:-0.03em;font-weight:var(--fw-regular);color:var(--ink)">
       Waim<i>i</i>a<span class="dot">.</span>
     </div>
-    <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(20px,2vw,28px);color:var(--muted);max-width:640px;margin-top:clamp(16px,2vw,32px);line-height:var(--leading-lede);text-wrap:balance">
+    <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-h3-row);color:var(--muted);max-width:640px;margin-top:var(--space-6);line-height:var(--leading-lede);text-wrap:balance">
       {lang === 'fr'
         ? 'Systèmes IA pour PME et ETI. Acquisition. Opérations. Pilotage. Montpellier.'
         : 'AI systems for SMBs. Acquisition. Operations. Intelligence. Montpellier, France.'}
@@ -29,7 +29,7 @@ const year = new Date().getFullYear();
   </div>
 
   {/* Trust badges row */}
-  <div class="wrap" style="padding-bottom:clamp(40px,4vw,60px)">
+  <div class="wrap" style="padding-bottom:var(--space-9)">
     <div class="trust-row">
       {TRUST_BADGES.map((b) => (
         <span class={`trust-pill ${b.kind}`}>
@@ -41,13 +41,13 @@ const year = new Date().getFullYear();
   </div>
 
   {/* Newsletter section */}
-  <div class="wrap hline" style="padding-top:clamp(40px,4vw,60px);padding-bottom:clamp(40px,4vw,60px)">
+  <div class="wrap hline" style="padding-top:var(--space-9);padding-bottom:var(--space-9)">
     <div class="ft-nl-grid">
       <div class="ft-nl-lead reveal-fade">
         <p style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 16px">
           {lang === 'fr' ? 'Restez informé' : 'Stay informed'}
         </p>
-        <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(18px,2vw,26px);color:var(--ink-2);max-width:320px;line-height:var(--leading-lede);text-wrap:balance;margin:0;font-weight:var(--fw-regular)">
+        <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-lede);color:var(--ink-2);max-width:320px;line-height:var(--leading-lede);text-wrap:balance;margin:0;font-weight:var(--fw-regular)">
           {lang === 'fr'
             ? "Les décisions IA de la semaine, distillées pour les dirigeants."
             : "The week's AI decisions, distilled for leaders."}
@@ -58,8 +58,8 @@ const year = new Date().getFullYear();
   </div>
 
   {/* Tier 1 — 5 colonnes */}
-  <div class="wrap hline" style="padding-top:clamp(40px,4vw,60px);padding-bottom:clamp(60px,6vw,100px)">
-    <div class="ft-tier1-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(24px,3vw,48px)">
+  <div class="wrap hline" style="padding-top:var(--space-9);padding-bottom:var(--space-11)">
+    <div class="ft-tier1-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-8)">
       {FOOTER_COLS.map((col) => (
         <div>
           <h3 style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin-bottom:18px;font-weight:var(--fw-medium)">
@@ -80,7 +80,7 @@ const year = new Date().getFullYear();
   </div>
 
   {import.meta.env.DEV && (
-  <div class="wrap hline ft-devindex" style="padding-top:clamp(40px,4vw,60px);padding-bottom:clamp(40px,4vw,60px)">
+  <div class="wrap hline ft-devindex" style="padding-top:var(--space-9);padding-bottom:var(--space-9)">
     <div class="ft-dev-hd">
       <span class="ft-dev-tag">⌘ DEV INDEX</span>
       <span class="ft-dev-meta">{lang === 'fr' ? 'Navigation complète · 8 templates · 25+ pages' : 'Full navigation · 8 templates · 25+ pages'}</span>
@@ -316,7 +316,7 @@ const year = new Date().getFullYear();
   .ft-nl-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:clamp(40px,5vw,80px);
+    gap:var(--space-10);
     align-items:center;
   }
   @media(max-width:768px){
@@ -372,7 +372,7 @@ const year = new Date().getFullYear();
   .ft-dev-block { margin: 28px 0; }
   .ft-dev-h4 {
     font-family: var(--font-display);
-    font-size: clamp(20px, 2.4vw, 28px);
+    font-size: var(--text-h3-row);
     line-height: var(--leading-h3);
     letter-spacing: -0.018em;
     font-weight: var(--fw-regular);

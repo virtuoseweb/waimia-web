@@ -59,7 +59,7 @@ const kickerTone = isInk ? 'dim' : 'muted';
     border-bottom-color: rgba(var(--paper-rgb), 0.18);
   }
   .stat-cell {
-    padding: clamp(24px, 3vw, 36px) clamp(14px, 2vw, 22px);
+    padding: var(--space-7) var(--space-5);
     border-right: 1px solid var(--hairline);
   }
   .on-ink .stat-cell {
@@ -70,7 +70,7 @@ const kickerTone = isInk ? 'dim' : 'muted';
   }
   .stat-k {
     font-family: var(--font-display);
-    font-size: clamp(48px, 7vw, 112px);
+    font-size: var(--text-display);
     line-height: 0.9;
     letter-spacing: -0.03em;
     font-weight: var(--fw-regular);

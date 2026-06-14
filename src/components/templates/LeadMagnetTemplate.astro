@@ -224,13 +224,13 @@ const tocEvents = toc.map((item, index) => ({
 
 <style>
   .lm-abstract {
-    padding: clamp(52px, 7vw, 88px) var(--space-6);
+    padding: var(--section-base) var(--space-6);
     border-bottom: 1px solid var(--hairline);
   }
   .lm-abstract-grid {
     display: grid;
     grid-template-columns: minmax(0, 7fr) minmax(240px, 4fr);
-    gap: clamp(32px, 6vw, 80px);
+    gap: var(--space-10);
     align-items: start;
   }
   .lm-abstract-copy {
@@ -239,7 +239,7 @@ const tocEvents = toc.map((item, index) => ({
   .lm-abstract-text {
     margin: 20px 0 0;
     font-family: var(--font-display);
-    font-size: clamp(22px, 2.4vw, 34px);
+    font-size: var(--text-h2-tight);
     line-height: 1.24;
     color: var(--ink);
     text-wrap: pretty;
@@ -252,17 +252,17 @@ const tocEvents = toc.map((item, index) => ({
     padding-top: var(--space-2);
   }
 
-  .lm-body { padding: clamp(60px, 8vw, 100px) var(--space-6); }
+  .lm-body { padding: var(--section-base) var(--space-6); }
   .lm-body-grid {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
-    gap: clamp(40px, 6vw, 80px);
+    gap: var(--space-10);
   }
   .lm-form { display: flex; flex-direction: column; gap: 22px; }
   .lm-form {
     border-top: 1px solid var(--ink);
     border-bottom: 1px solid var(--hairline-strong);
-    padding: clamp(24px, 4vw, 40px) 0;
+    padding: var(--space-7) 0;
   }
   :global(.lm-form-k) { display: block; }
   .lm-form-h2 {
@@ -301,7 +301,7 @@ const tocEvents = toc.map((item, index) => ({
 
   .lm-toc {
     border-left: 1px solid var(--hairline);
-    padding-left: clamp(24px, 3vw, 40px);
+    padding-left: var(--space-7);
     align-self: start;
     position: sticky;
     top: 100px;
@@ -322,21 +322,21 @@ const tocEvents = toc.map((item, index) => ({
     margin: var(--space-7) 0;
     padding-left: var(--space-5);
     font-family: var(--font-display);
-    font-size: clamp(22px, 2.4vw, 34px);
+    font-size: var(--text-h2-tight);
     font-style: italic;
     line-height: 1.22;
     color: var(--ink);
   }
 
   .lm-footer-cta {
-    padding: clamp(64px, 9vw, 112px) var(--space-6);
+    padding: var(--section-base) var(--space-6);
     background: var(--ink);
     color: var(--paper);
   }
   .lm-footer-grid {
     display: grid;
     grid-template-columns: minmax(0, 6fr) minmax(280px, 4fr);
-    gap: clamp(40px, 7vw, 96px);
+    gap: var(--space-11);
     align-items: center;
   }
   .lm-footer-cta :global(.pull-quote-body),

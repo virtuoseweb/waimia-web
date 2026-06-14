@@ -447,12 +447,12 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
 </Base>
 
 <style>
-  .case-author-band { padding: clamp(40px, 5vw, 64px) var(--space-6) 0; }
+  .case-author-band { padding: var(--space-9) var(--space-6) 0; }
   .case-author-card-band {
-    padding: clamp(56px, 7vw, 80px) var(--space-6);
+    padding: var(--space-10) var(--space-6);
     border-top: 1px solid var(--hairline);
   }
-  .case-context { padding: clamp(56px, 7vw, 80px) var(--space-6); }
+  .case-context { padding: var(--space-10) var(--space-6); }
   .case-context-grid {
     display: grid;
     grid-template-columns: 240px 1fr;
@@ -461,12 +461,12 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   :global(.case-sticky) { position: sticky; top: 100px; }
   :global(.case-context-k) { display: block; margin-bottom: var(--space-5); }
 
-  .case-approach { padding: clamp(56px, 7vw, 80px) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .case-approach { padding: var(--space-10) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
   .case-section-hd {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: clamp(24px, 4vw, 60px);
-    margin-bottom: clamp(36px, 5vw, 70px);
+    gap: var(--space-9);
+    margin-bottom: var(--space-9);
     align-items: end;
   }
   .case-section-h2 {
@@ -479,7 +479,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     margin: 14px 0 0;
   }
   .case-section-aside {
-    font-size: clamp(13px, 1.3vw, 15px);
+    font-size: var(--text-label);
     line-height: 1.55;
     color: var(--muted);
     text-wrap: pretty;
@@ -487,7 +487,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     margin: 0;
   }
 
-  .case-proof { padding: clamp(56px, 7vw, 80px) var(--space-6); }
+  .case-proof { padding: var(--space-10) var(--space-6); }
   .case-proof-quote {
     font-family: var(--font-display);
     font-size: var(--text-h2-section);
@@ -507,7 +507,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     font-style: normal;
   }
   .case-key-metrics {
-    padding: clamp(40px, 5vw, 72px) var(--space-6);
+    padding: var(--space-10) var(--space-6);
     background: var(--ink);
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
@@ -516,12 +516,12 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   .case-km-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: clamp(24px, 4vw, 60px);
+    gap: var(--space-9);
     align-items: end;
   }
   .case-key-metrics :global(.key-metric-value) { color: var(--paper); }
   .case-key-metrics :global(.key-metric-label) { color: rgba(var(--paper-rgb), 0.55); }
-  .case-stack { padding: clamp(56px, 7vw, 80px) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .case-stack { padding: var(--space-10) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
   :global(.case-stack-k) { display: block; margin-bottom: var(--space-4); }
   .case-stack-lead {
     font-family: var(--font-display);
@@ -530,10 +530,10 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     color: var(--muted);
     max-width: 760px;
     text-wrap: balance;
-    margin: 0 0 clamp(28px, 3vw, 44px);
+    margin: 0 0 var(--space-8);
   }
 
-  .case-related { padding: clamp(56px, 6vw, 80px) var(--space-6); }
+  .case-related { padding: var(--space-10) var(--space-6); }
   :global(.case-related-k) { display: block; margin-bottom: var(--space-6); }
   .case-related-offres {
     margin: var(--space-6, 2rem) 0;
@@ -567,7 +567,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     .case-section-hd { grid-template-columns: 1fr; }
   }
 
-  .case-hero-image { aspect-ratio: 16/9; margin: clamp(48px, 6vw, 80px) var(--space-6); overflow: hidden; }
+  .case-hero-image { aspect-ratio: 16/9; margin: var(--space-10) var(--space-6); overflow: hidden; }
   .case-hero-image :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* Eyebrow · Kicker canonisé (R6) : typo + couleur portées par l'atome
@@ -587,7 +587,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     gap: 0;
   }
   .related-case-card {
-    padding: clamp(22px, 2.5vw, 36px) clamp(18px, 2vw, 28px);
+    padding: var(--space-7) var(--space-6);
     border-right: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;

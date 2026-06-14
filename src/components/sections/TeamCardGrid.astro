@@ -52,7 +52,7 @@ const isFr = lang === 'fr';
   .eq-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: clamp(24px, 3vw, 48px);
+    gap: var(--space-8);
   }
   .eq-card {
     background: var(--paper);
@@ -93,7 +93,7 @@ const isFr = lang === 'fr';
   }
   .eq-card-name {
     font-family: var(--font-sans);
-    font-size: clamp(28px, 2.6vw, 36px);
+    font-size: var(--text-h2-tight);
     line-height: 1.05;
     font-weight: var(--fw-medium);
     margin: 0;
@@ -143,7 +143,7 @@ const isFr = lang === 'fr';
   .wrap {
     max-width: 1240px;
     margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 48px);
+    padding: 0 var(--space-8);
   }
 
   /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair inchange ── */

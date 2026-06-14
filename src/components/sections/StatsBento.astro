@@ -88,7 +88,7 @@ const stats = data.stats ?? [];
   .stats-bento__cell {
     border: 1px solid var(--hairline);
     border-radius: var(--radius-xs);
-    padding: clamp(24px, 3vw, 40px);
+    padding: var(--space-7);
     background: var(--paper);
     display: flex;
     flex-direction: column;
@@ -107,7 +107,7 @@ const stats = data.stats ?? [];
   .stats-bento__cell--1 {
     grid-column: 1 / 3;
     grid-row: 1 / 3;
-    padding: clamp(32px, 4vw, 56px);
+    padding: var(--space-9);
     gap: var(--space-3);
     justify-content: flex-end;
     background: var(--ink);

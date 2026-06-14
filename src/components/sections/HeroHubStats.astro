@@ -157,7 +157,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   :global(.hero-hub-stats__num) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-stats__h1 {
     font-family: var(--font-display);
-    font-size: clamp(64px, 13vw, 200px);
+    font-size: var(--text-mega);
     line-height: 0.88;
     letter-spacing: -0.035em;
     text-wrap: balance;
@@ -166,7 +166,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   }
   .hero-hub-stats__lede {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2.4vw, 30px);
+    font-size: var(--text-h3-row);
     line-height: 1.3;
     margin-top: var(--space-6);
     max-width: 980px;
@@ -185,18 +185,18 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   }
   .hero-hub-stats__cell {
     min-height: 100%;
-    padding: clamp(24px, 3vw, 36px) clamp(14px, 2vw, 22px);
+    padding: var(--space-7) var(--space-5);
     border-right: 1px solid var(--hairline);
   }
   .hero-hub-stats__cell:last-child { border-right: none; }
   .hero-hub-stats__value {
     font-family: var(--font-display);
-    font-size: clamp(28px, 3vw, 40px);
+    font-size: var(--text-h2-tight);
     line-height: 1;
     color: var(--ink);
     margin-bottom: var(--space-2);
   }
-  .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: clamp(40px, 4.5vw, 60px); }
+  .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: var(--text-h1-display); }
   .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent-text); }
   .hero-hub-stats__label {
     font-family: var(--font-mono);
@@ -227,7 +227,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   :global(.hero-pillar-hub__num) { display: block; margin-bottom: var(--space-5); }
   .hero-pillar-hub__h1 {
     font-family: var(--font-sans);
-    font-size: clamp(64px, 13vw, 200px);
+    font-size: var(--text-mega);
     line-height: 0.88;
     letter-spacing: -0.035em;
     text-wrap: balance;
@@ -237,7 +237,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   }
   .hero-pillar-hub__lede {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2.4vw, 30px);
+    font-size: var(--text-h3-row);
     line-height: 1.3;
     margin-top: var(--space-6);
     max-width: 980px;
@@ -254,7 +254,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   }
   .hero-pillar-hub__stats :global(.key-metric) {
     min-height: 100%;
-    padding: clamp(24px, 3vw, 36px) clamp(14px, 2vw, 22px);
+    padding: var(--space-7) var(--space-5);
     border-right: 1px solid var(--hairline);
   }
   .hero-pillar-hub__stats :global(.key-metric:last-child) { border-right: none; }
@@ -286,12 +286,12 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
 
   /* ── hero-conversion-funnel ────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-conversion-funnel` (collision max-width). */
-  .hero-conversion-funnel { padding: 140px var(--space-6) clamp(60px, 8vw, 100px); }
+  .hero-conversion-funnel { padding: 140px var(--space-6) var(--section-base); }
   .hero-conversion-funnel .wrap-wide { max-width: 1200px; margin-inline: auto; }
   :global(.hero-conversion-funnel__num) { display: block; margin-bottom: 20px; }
   .hero-conversion-funnel__h1 {
     font-family: var(--font-sans);
-    font-size: clamp(64px, 12vw, 200px);
+    font-size: var(--text-mega);
     line-height: 0.88;
     letter-spacing: 0;
     text-wrap: balance;
@@ -300,7 +300,7 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   }
   .hero-conversion-funnel__lede {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2.4vw, 30px);
+    font-size: var(--text-h3-row);
     line-height: 1.3;
     margin: 0 0 36px;
     max-width: 980px;
@@ -335,13 +335,13 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px clamp(18px, 3vw, 34px);
+    gap: 10px var(--space-6);
   }
   .hero-conversion-funnel__benefits li {
     position: relative;
     padding-left: 18px;
     font-family: var(--font-display);
-    font-size: clamp(16px, 1.4vw, 19px);
+    font-size: var(--text-label);
     line-height: 1.42;
     color: var(--ink);
   }
@@ -372,18 +372,18 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
     margin-top: 60px;
     display: grid;
     grid-template-columns: 1.25fr repeat(3, 1fr);
-    gap: clamp(20px, 4vw, 56px);
+    gap: var(--space-9);
     border-top: 1px solid var(--hairline);
     padding-top: 28px;
   }
   .hero-conversion-funnel__stat-value {
     font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: var(--text-h1-display);
     line-height: 1;
     color: var(--ink);
     margin-bottom: var(--space-2);
   }
-  .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent-text); font-size: clamp(48px, 6vw, 80px); }
+  .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent-text); font-size: var(--text-h1-display); }
   .hero-conversion-funnel__stat-label {
     font-family: var(--font-mono);
     font-size: var(--text-eyebrow);

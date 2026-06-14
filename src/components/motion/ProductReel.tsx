@@ -131,8 +131,8 @@ export default function ProductReel({ lang, screens = DEFAULT_SCREENS, copy }: P
 
   return (
     <div ref={wrapRef} style={{ height: '320vh', position: 'relative' }}>
-      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', padding: '0 clamp(20px,4vw,48px)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 'clamp(32px,5vw,64px)', alignItems: 'center', width: '100%', maxWidth: 1500, margin: '0 auto' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', padding: '0 var(--space-8)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 'var(--space-9)', alignItems: 'center', width: '100%', maxWidth: 1500, margin: '0 auto' }}>
           {/* Steps left */}
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>
@@ -151,7 +151,7 @@ export default function ProductReel({ lang, screens = DEFAULT_SCREENS, copy }: P
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '.12em', color: 'var(--accent)', marginBottom: 4 }}>
                   {s.label}
                 </div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px,2.5vw,36px)', lineHeight: 1.02, letterSpacing: '-0.02em' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2-tight)', lineHeight: 1.02, letterSpacing: '-0.02em' }}>
                   {s.title[lang]}
                 </div>
               </div>

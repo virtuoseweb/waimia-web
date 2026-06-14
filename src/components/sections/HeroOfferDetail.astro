@@ -144,7 +144,7 @@ const offerSumie =
   }
   .hero-detail__title {
     font-family: var(--font-display);
-    font-size: clamp(52px, 7vw, 112px);
+    font-size: var(--text-h2-grand);
     line-height: var(--leading-h1);
     letter-spacing: var(--tracking-display);
     font-weight: var(--fw-regular);
@@ -171,7 +171,7 @@ const offerSumie =
   }
   .hero-detail__lead {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 1.8vw, 26px);
+    font-size: var(--text-lede);
     line-height: var(--leading-lede);
     color: var(--ink);
     font-style: italic;
@@ -309,7 +309,7 @@ const offerSumie =
   .hero-tech-layer__layer--orch { color: var(--ink); opacity: .65; }
   .hero-tech-layer__title {
     font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 148px);
+    font-size: var(--text-display);
     line-height: .92;
     letter-spacing: var(--tracking-display);
     font-weight: var(--fw-regular);
@@ -317,14 +317,14 @@ const offerSumie =
     text-wrap: balance;
   }
   .hero-tech-layer__sub { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(var(--space-5), 4vw, var(--space-9)); align-items: end; max-width: 1100px; }
-  .hero-tech-layer__lead { font-family: var(--font-sans); font-size: clamp(20px, 2vw, 26px); line-height: var(--leading-lede); color: var(--ink); font-style: italic; margin: 0; }
+  .hero-tech-layer__lead { font-family: var(--font-sans); font-size: var(--text-lede); line-height: var(--leading-lede); color: var(--ink); font-style: italic; margin: 0; }
   .hero-tech-layer__lead :global(span) { color: var(--accent-text); display: block; margin-top: var(--space-2); }
   .hero-tech-layer__actions { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
   .hero-tech-layer__cta { display: inline-block; padding: var(--space-3) var(--space-5); background: var(--ink); color: var(--paper); border-radius: var(--radius-xs); font-size: var(--text-body-sm); font-weight: var(--fw-medium); text-decoration: none; letter-spacing: var(--tracking-body); }
   .hero-tech-layer__meta { font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: var(--tracking-mono); color: var(--muted); text-transform: uppercase; }
   @media (max-width: 880px) {
     .hero-detail { min-height: auto; display: block; padding-top: var(--space-9); }
-    .hero-detail__title { white-space: normal; font-size: clamp(48px, 14vw, 88px); }
+    .hero-detail__title { white-space: normal; font-size: var(--text-h1-hero); }
     .hero-detail__sub,
     .hero-detail--equilibre .hero-detail__sub,
     .hero-detail--showcase .hero-detail__sub,

@@ -63,7 +63,7 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 48px); }
+  .wrap-wide { max-width: 1200px; margin-inline: auto; padding-inline: var(--space-8); }
   .operating-layer {
     padding: var(--section-grand) 0;
     background: var(--ink);
@@ -75,7 +75,7 @@ const isFr = lang === 'fr';
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: clamp(40px,5vw,56px);
+    margin-bottom: var(--space-9);
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(var(--paper-rgb), .12);
     flex-wrap: wrap;
@@ -90,12 +90,12 @@ const isFr = lang === 'fr';
   .operating-layer__grid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    gap: clamp(40px,6vw,80px);
+    gap: var(--space-10);
     align-items: start;
   }
   .operating-layer__h2 {
     font-family: var(--font-sans);
-    font-size: clamp(40px,8vw,128px);
+    font-size: var(--text-display);
     line-height: .94;
     letter-spacing: var(--tracking-display);
     font-weight: var(--fw-medium);
@@ -103,7 +103,7 @@ const isFr = lang === 'fr';
   }
   .operating-layer__lede {
     margin-top: 30px;
-    font-size: clamp(15px,1.5vw,18px);
+    font-size: var(--text-lede);
     line-height: 1.55;
     color: rgba(var(--paper-rgb), .68);
     max-width: 520px;
@@ -130,14 +130,14 @@ const isFr = lang === 'fr';
     font-size: var(--text-eyebrow);
   }
   .operating-layer__attrs {
-    margin-top: clamp(60px,7vw,96px);
+    margin-top: var(--space-11);
     display: grid;
     grid-template-columns: repeat(4,1fr);
     border-top: 1px solid rgba(var(--paper-rgb), .15);
     border-bottom: 1px solid rgba(var(--paper-rgb), .15);
   }
   .operating-layer__attrs > div {
-    padding: clamp(20px,2.5vw,32px) clamp(16px,2vw,28px);
+    padding: var(--space-6) var(--space-5);
     border-right: 1px solid rgba(var(--paper-rgb), .12);
   }
   .operating-layer__attrs > div:last-child { border-right: none; }
@@ -150,7 +150,7 @@ const isFr = lang === 'fr';
   }
   .operating-layer__attr-v {
     font-family: var(--font-display);
-    font-size: clamp(20px,2.4vw,30px);
+    font-size: var(--text-h3-row);
     margin-top: var(--space-2);
   }
   @media (max-width: 900px) {

@@ -74,7 +74,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
   .newsletter-band__inner {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: clamp(40px, 5vw, 80px);
+    gap: var(--space-10);
     align-items: center;
   }
   /* Kicker canonisé (R4) · typo portée par l'atome (tone="dim" = rgba(paper,.5)) */
@@ -83,7 +83,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
   }
   .newsletter-band__h2 {
     font-family: var(--font-sans);
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: var(--text-h1-display);
     line-height: 1.06;
     letter-spacing: -0.024em;
     font-weight: var(--fw-medium);

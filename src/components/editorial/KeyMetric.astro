@@ -51,13 +51,13 @@ const {
     letter-spacing: var(--tracking-display, -0.025em);
     color: var(--ink, #0C0B09);
     font-weight: var(--fw-regular);
-    font-size: clamp(48px, 5vw, 72px);
+    font-size: var(--text-stat);
     white-space: nowrap;
   }
-  .key-metric-sm .key-metric-value { font-size: clamp(32px, 3.4vw, 48px); }
-  .key-metric-lg .key-metric-value { font-size: clamp(64px, 7vw, 96px); }
+  .key-metric-sm .key-metric-value { font-size: var(--text-pull-quote); }
+  .key-metric-lg .key-metric-value { font-size: var(--text-h2-grand); }
   .key-metric-hero .key-metric-value {
-    font-size: clamp(96px, 12vw, 180px);
+    font-size: var(--text-mega);
     font-style: italic;
   }
   .key-metric-label {

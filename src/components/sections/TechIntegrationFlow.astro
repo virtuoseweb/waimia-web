@@ -48,13 +48,13 @@ const events = data.steps.map((s) => ({
   .tech-sec-hd {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(24px, 4vw, 80px);
-    margin-bottom: clamp(40px, 5vw, 64px);
+    gap: var(--space-10);
+    margin-bottom: var(--space-9);
     align-items: end;
   }
   .tech-sec-hd h2 {
     font-family: var(--font-sans);
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: var(--text-h1-display);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
@@ -62,7 +62,7 @@ const events = data.steps.map((s) => ({
   }
   .tech-aside {
     font-family: var(--font-display);
-    font-size: clamp(15px, 1.3vw, 17px);
+    font-size: var(--text-label);
     line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;
@@ -88,7 +88,7 @@ const events = data.steps.map((s) => ({
   .wrap {
     max-width: 1240px;
     margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 48px);
+    padding: 0 var(--space-8);
   }
 
   @media (max-width: 800px) {

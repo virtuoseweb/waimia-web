@@ -56,15 +56,15 @@ const isFr = lang === 'fr';
   .notes-index {
     list-style: none;
     padding: 0;
-    margin: clamp(20px, 2.5vw, 32px) 0 0;
+    margin: var(--space-6) 0 0;
     border-top: 1px solid var(--hairline-strong);
   }
 
   .notes-row {
     display: grid;
     grid-template-columns: 48px 80px 110px 1fr 32px;
-    gap: clamp(16px, 1.8vw, 28px);
-    padding: clamp(16px, 1.8vw, 24px) 0;
+    gap: var(--space-6);
+    padding: var(--space-5) 0;
     border-bottom: 1px solid var(--hairline);
     align-items: baseline;
     color: inherit;
@@ -130,7 +130,7 @@ const isFr = lang === 'fr';
   }
 
   .notes-foot {
-    margin-top: clamp(20px, 2.5vw, 36px);
+    margin-top: var(--space-6);
     text-align: right;
   }
 
@@ -154,7 +154,7 @@ const isFr = lang === 'fr';
     }
     .notes-row-text {
       grid-column: 1 / -1;
-      font-size: clamp(18px, 4.5vw, 22px);
+      font-size: var(--text-h3-card);
     }
     .notes-row-arr {
       display: none;

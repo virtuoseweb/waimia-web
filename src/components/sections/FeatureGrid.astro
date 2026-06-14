@@ -162,7 +162,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   .feature-grid__list[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
   .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
   .feature-grid__item {
-    padding: clamp(20px, 2.5vw, 40px);
+    padding: var(--space-7);
     border: 1px solid var(--hairline);
     margin: -1px -1px 0 0;
     display: flex;
@@ -172,7 +172,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   .feature-grid__icon { margin-bottom: var(--space-1); }
   .feature-grid__title {
     font-family: var(--font-sans);
-    font-size: clamp(16px, 1.4vw, 20px);
+    font-size: var(--text-h3-card);
     font-weight: var(--fw-medium);
     color: var(--ink);
     line-height: 1.2;
@@ -200,13 +200,13 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
 
   /* ───── problems-grid (preset) — CSS VERBATIM ProblemsGrid.astro, `.wrap-wide` scopé
      qualifié `.wrap-wide:where(.problems-grid)` (spécificité inchangée) ───── */
-  .wrap-wide:where(.problems-grid) { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 80px); }
+  .wrap-wide:where(.problems-grid) { max-width: 1200px; margin-inline: auto; padding-inline: var(--space-10); }
   .problems-grid { padding-block: var(--section-base); border-top: 1px solid rgba(var(--ink-rgb), .07); }
   .problems-grid__h2 {
     font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
     font-size: var(--text-h2-tight);
     letter-spacing: -.01em;
-    margin-bottom: clamp(32px, 4vw, 56px);
+    margin-bottom: var(--space-9);
     color: var(--ink);
   }
   .problems-grid__cards {
@@ -226,7 +226,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   }
   .problems-grid__card {
     background: var(--paper);
-    padding: clamp(24px, 3vw, 40px);
+    padding: var(--space-7);
   }
   .problems-grid__num {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
@@ -442,7 +442,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   }
   .commitments-grid__cell-title {
     font-family: var(--font-sans);
-    font-size: clamp(17px, 1.6vw, 22px);
+    font-size: var(--text-h3-card);
     line-height: 1.25;
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
@@ -500,7 +500,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   }
 
   .icon-trio__col {
-    padding: clamp(20px, 2.5vw, 40px);
+    padding: var(--space-7);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -518,7 +518,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(28px, 3vw, 40px);
+    font-size: var(--text-h2-tight);
     line-height: 1;
     color: var(--accent-text);
     font-family: var(--font-display);
@@ -526,7 +526,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
 
   .icon-trio__title {
     font-family: var(--font-sans);
-    font-size: clamp(16px, 1.4vw, 20px);
+    font-size: var(--text-h3-card);
     font-weight: var(--fw-medium);
     color: var(--ink);
     line-height: 1.2;

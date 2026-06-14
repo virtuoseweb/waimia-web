@@ -91,20 +91,20 @@ const gridClass = [
   }
   .tier-lede {
     font-family: var(--font-sans);
-    font-size: clamp(16px, 1.5vw, 18px);
+    font-size: var(--text-lede);
     color: var(--muted);
     line-height: var(--leading-prose);
-    margin: 0 0 clamp(36px, 5vw, 60px);
+    margin: 0 0 var(--space-9);
     max-width: 580px;
   }
   .tier-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(16px, 2.5vw, 28px);
+    gap: var(--space-6);
   }
   .tier-ii-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: clamp(20px, 3vw, 32px);
+    margin-top: var(--space-6);
   }
   .tier-iii-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -113,7 +113,7 @@ const gridClass = [
     display: flex;
     flex-direction: column;
     gap: 14px;
-    padding: clamp(24px, 3.5vw, 44px);
+    padding: var(--space-7);
     border: 1px solid var(--hairline);
     background: var(--paper-2);
     color: var(--ink);
@@ -165,7 +165,7 @@ const gridClass = [
     display: flex;
     flex-direction: column;
     gap: 18px;
-    padding: clamp(36px, 5vw, 64px);
+    padding: var(--space-9);
     background: var(--ink);
     color: var(--paper);
     --accent-text: var(--accent-sur-sombre);
@@ -202,7 +202,7 @@ const gridClass = [
   }
   .hero-card-lead {
     font-family: var(--font-sans);
-    font-size: clamp(15px, 1.6vw, 17px);
+    font-size: var(--text-h3-card);
     line-height: var(--leading-relaxed);
     color: rgba(var(--paper-rgb), 0.78);
     margin: 0;

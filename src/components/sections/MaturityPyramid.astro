@@ -110,7 +110,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
     padding: var(--section-base) 0;
   }
   .pyramid-svg {
-    margin: clamp(20px, 2.5vw, 36px) 0 clamp(28px, 3vw, 44px);
+    margin: var(--space-7) 0 var(--space-7);
     overflow: visible;
   }
   .pyramid-svg svg {
@@ -125,7 +125,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
 
   /* V6 densification · override editorial-cell pour cards plus compactes (Pyramid only) */
   .pyramid-asym .editorial-cell {
-    padding: clamp(16px, 1.8vw, 24px) clamp(14px, 1.4vw, 20px);
+    padding: var(--space-5) var(--space-4);
     gap: var(--space-2);
   }
   .pyramid-asym .editorial-cell .e-num {
@@ -247,7 +247,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
   .pyramid-timeline {
     list-style: none;
     padding: 0;
-    margin: 0 0 clamp(28px, 3vw, 44px);
+    margin: 0 0 var(--space-7);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
@@ -260,7 +260,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    padding: clamp(20px, 2.2vw, 28px) clamp(16px, 1.8vw, 24px);
+    padding: var(--space-6) var(--space-5);
     border-right: 1px solid var(--hairline);
     position: relative;
   }
@@ -270,7 +270,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
     content: '';
     position: absolute;
     top: -3px;
-    left: clamp(16px, 1.8vw, 24px);
+    left: var(--space-5);
     width: 6px;
     height: 6px;
     border-radius: var(--radius-full);
@@ -306,7 +306,7 @@ const showFull = !cardsOnly && Boolean(data.steps);
     display: block;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(14px, 1.2vw, 17px);
+    font-size: var(--text-label);
     color: var(--accent-text);
     margin-bottom: var(--space-1);
     letter-spacing: -0.01em;

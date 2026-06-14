@@ -53,7 +53,7 @@ const noItems = isFr ? data.no_items_fr : data.no_items_en;
   :global(.fit-sec-kicker) { display: block; margin-bottom: var(--space-6); }
   .fit-sec-h2 {
     font-family: var(--font-sans);
-    font-size: clamp(48px, 7vw, 112px);
+    font-size: var(--text-h2-grand);
     line-height: 0.94;
     letter-spacing: -0.028em;
     color: var(--paper);
@@ -63,7 +63,7 @@ const noItems = isFr ? data.no_items_fr : data.no_items_en;
   }
   .fit-sec-callout {
     max-width: 760px;
-    margin-bottom: clamp(36px, 5vw, 56px);
+    margin-bottom: var(--space-9);
   }
   .fit-sec-callout :global(.callout) {
     color: rgba(var(--paper-rgb), 0.72);

@@ -144,7 +144,7 @@ const isFr = lang === 'fr';
     display: grid;
     /* layout via --sec-grid (preset de grille layouts.css) ; défaut = parité stricte (58fr 42fr). */
     grid-template-columns: var(--sec-grid, 58fr 42fr);
-    gap: clamp(32px, 5vw, 80px);
+    gap: var(--space-10);
     align-items: center;
   }
   .hero-split__left {
@@ -254,9 +254,9 @@ const isFr = lang === 'fr';
     grid-template-columns: repeat(12, 1fr);
     column-gap: var(--gut, 32px);
     row-gap: var(--space-6, 32px);
-    padding-inline: clamp(20px, 4vw, 48px);
-    padding-top: clamp(92px, 12vw, 164px);
-    padding-bottom: clamp(28px, 5vw, 72px);
+    padding-inline: var(--space-8);
+    padding-top: var(--section-loose);
+    padding-bottom: var(--space-9);
     align-items: start;
     max-width: var(--wrap, 1440px);
     margin-inline: auto;
@@ -285,7 +285,7 @@ const isFr = lang === 'fr';
   }
   .hero-author__h1 {
     font-family: var(--font-display);
-    font-size: clamp(72px, 9vw, 148px);
+    font-size: var(--text-display);
     font-weight: var(--fw-regular);
     line-height: 0.92;
     letter-spacing: var(--tracking-display, -0.03em);
@@ -340,7 +340,7 @@ const isFr = lang === 'fr';
     .hero-author__portrait-frame { width: min(72vw, 320px); }
   }
   @media (max-width: 768px) {
-    .hero-author__h1 { font-size: clamp(64px, 18vw, 92px); }
+    .hero-author__h1 { font-size: var(--text-h1-hero); }
   }
 
   /* ── hero-author · fonds optionnels (defaut clair inchange) ───────────── */
@@ -359,18 +359,18 @@ const isFr = lang === 'fr';
 
   /* ── hero-lead-magnet ──────────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-lead-magnet` (collision max-width). */
-  .hero-lead-magnet { padding: 140px var(--space-6) clamp(40px, 5vw, 72px); border-bottom: 1px solid var(--hairline); }
+  .hero-lead-magnet { padding: 140px var(--space-6) var(--space-9); border-bottom: 1px solid var(--hairline); }
   .hero-lead-magnet .wrap-wide { max-width: 1200px; margin-inline: auto; }
   .hero-lead-magnet__grid {
     display: grid;
     grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr);
-    gap: clamp(32px, 5vw, 80px);
+    gap: var(--space-10);
     align-items: center;
   }
   :global(.hero-lead-magnet__kicker) { display: block; margin-bottom: 20px; }
   .hero-lead-magnet__h1 {
     font-family: var(--font-sans);
-    font-size: clamp(48px, 8vw, 120px);
+    font-size: var(--text-display);
     line-height: 0.94;
     letter-spacing: -0.03em;
     text-wrap: balance;

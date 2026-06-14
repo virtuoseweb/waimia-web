@@ -72,7 +72,7 @@ const head = isFr
     border-block: 1px solid var(--hairline);
   }
   .sol-sec-hd {
-    margin-bottom: clamp(28px, 4vw, 48px);
+    margin-bottom: var(--space-8);
   }
   /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
   .section-eyebrow :global(.eyebrow) {
@@ -81,7 +81,7 @@ const head = isFr
   }
   .sol-sec-hd h2 {
     font-family: var(--font-sans);
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: var(--text-h1-display);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
@@ -89,7 +89,7 @@ const head = isFr
   }
   .sol-aside {
     font-family: var(--font-sans);
-    font-size: clamp(15px, 1.3vw, 17px);
+    font-size: var(--text-label);
     line-height: var(--leading-body);
     color: var(--muted);
     font-style: italic;

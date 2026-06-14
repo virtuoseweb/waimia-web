@@ -37,7 +37,7 @@ const columns = [data.left, data.right];
   .hub-blog-lb-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(40px, 5vw, 80px);
+    gap: var(--space-10);
   }
   :global(.hub-blog-k),
   :global(.hub-lb-k) { display: block; margin-bottom: 14px; }
@@ -54,13 +54,13 @@ const columns = [data.left, data.right];
   .hub-blog-lead,
   .hub-lb-lead {
     font-family: var(--font-sans);
-    font-size: clamp(15px, 1.6vw, 18px);
+    font-size: var(--text-label);
     color: var(--muted);
     margin: 0 0 28px;
     line-height: 1.45;
   }
   .hub-blog-cta,
-  .hub-lb-cta { margin-top: clamp(20px, 2.5vw, 32px); }
+  .hub-lb-cta { margin-top: var(--space-6); }
   @media (max-width: 800px) {
     .hub-blog-lb-grid {
       grid-template-columns: 1fr;

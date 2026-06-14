@@ -51,7 +51,7 @@ const placements = [
 <style>
   /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */
   .sol-sec { padding: var(--section-base) 0; position: relative; }
-  .sol-proof { margin-top: clamp(48px, 5vw, 80px); }
+  .sol-proof { margin-top: var(--space-10); }
   .sol-sec-dark { background: var(--ink); color: var(--paper); }
   /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
   .section-eyebrow :global(.eyebrow) {
@@ -61,11 +61,11 @@ const placements = [
 
   /* ───── ROI Band Dark (BRIQUE SIGNATURE) — COPIE VERBATIM l.727-772 ───── */
   .sol-proof { padding: var(--section-base) 0; }
-  .sol-roi-hd { margin-bottom: clamp(28px, 4vw, 48px); }
+  .sol-roi-hd { margin-bottom: var(--space-8); }
   .sol-roi-hd .kicker { color: var(--accent-text); }
   .sol-roi-hd h2 {
     font-family: var(--font-sans);
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: var(--text-h1-display);
     line-height: var(--leading-h1);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
@@ -90,7 +90,7 @@ const placements = [
   }
   .sol-roi-grid :global(.roi-v) {
     font-family: var(--font-display);
-    font-size: clamp(56px, 7vw, 88px);
+    font-size: var(--text-stat);
     line-height: 0.9;
     color: var(--accent-text);
     font-weight: var(--fw-regular);
