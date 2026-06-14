@@ -184,7 +184,7 @@ const personas: PersonaItem[] = collectionEntries.length > 0
   .persona-tab.is-active{color:var(--accent);border-bottom-color:var(--accent)}
   .persona-tab .k{opacity:.5}
   .persona-stage{position:relative;min-height:300px}
-  .persona-panel{position:absolute;inset:0;opacity:0;transform:translateY(8px);transition:opacity 540ms var(--ease),transform 540ms var(--ease);pointer-events:none;clip-path:inset(0 0 100% 0)}
+  .persona-panel{position:absolute;inset:0;opacity:0;transform:translateY(8px);transition:opacity var(--dur-panel) var(--ease),transform var(--dur-panel) var(--ease);pointer-events:none;clip-path:inset(0 0 100% 0)}
   .persona-panel.is-active{opacity:1;transform:none;pointer-events:auto;clip-path:inset(0 0 0 0);transition:opacity 720ms var(--ease),transform 720ms var(--ease),clip-path 800ms var(--ease)}
   .persona-role{font-family:var(--font-mono);font-size:var(--text-eyebrow);color:var(--muted);letter-spacing:var(--tracking-mono);text-transform:uppercase;margin-bottom:var(--space-4)}
   /* Pitch = masse → Instrument Sans medium (contraste par la graisse, plus l'italique serif) */
