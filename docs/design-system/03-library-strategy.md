@@ -227,3 +227,10 @@ Chaque pas dérive base × ratio^n (via `pow()`, supporté 2026), avec un `clamp
 - **Anti-effondrement hiérarchie** (la crainte R4) : neutralisée par ratio systématique (chaque pas garde le ratio aux 2 bouts). Le dual ratio + mesure mobile = preuve à valider en P-A.
 - **A11y** : rem partout (pas px) → zoom navigateur respecté. Vérifier `prefers-reduced-motion` inchangé (durées fixes).
 - **Rule 60** : 0 valeur en dur post-migration ; tout dérive de `--fl-*`. Rule 59 : ce doc = source unique (09 pointe ici).
+
+### 10.6 — Addendum 2026-06-14 : échelle étendue + passe migration AGRESSIVE (autorisation Simon)
+Simon (verbatim) : « je t'autorise expressément à remplacer et uniformiser même si c'est pas pixel perfect [...] créer plus de valeurs xxs et xxxl et revoir les bases pour une mesure qui remplace/uniformise le plus ». Conséquence sur le phasage :
+- **P-C passe 1 (conservatrice, LIVRÉE)** : 103 substitutions clamp→token à ±15 % strict (flotte 6 worktrees mergés), build vert. A laissé ~104 fichiers avec clamps bruts (giants, stats, petit texte, spacing à courbe divergente).
+- **5 crans ajoutés à `tokens.css`** (calés sur l'histogramme réel des clamps, rule 60 vérif d'absence) : `--text-label` (13→15, XXS a11y floor 12), `--text-h1-display` (34→72, comble le gap 56→88), `--text-stat` (36→88, chiffres), `--text-display` (48→128, XXL), `--text-mega` (60→180, XXXL). Crans additifs : aucun token existant modifié (préserve la passe 1).
+- **P-C passe 2 (agressive)** : Workflow 13 agents Sonnet (`/workflows`), mapping = token le plus proche PAR MAX, sans seuil ±15 %. Texte → `--text-*` ; padding/margin/gap → `--space-*` (déjà fluide) ; padding vertical de section → `--section-*` ; bloc intra-section ~28-48 → `--spacing-block`.
+- **Re-dérivation ratio-pure de toute l'échelle** = option future P-B (knobs DS Studio), PAS exécutée à chaud (invaliderait la migration en cours, rule 30 §3). Décision tracée : `~/.claude/night-sessions/2026-06-14/decisions/0019-echelle-fluide-etendue-passe-agressive.md`.
