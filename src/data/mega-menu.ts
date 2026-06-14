@@ -154,8 +154,8 @@ const RESSOURCES: MegaMenuSection = {
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
-  parentHref: '/solutions',
-  matchPrefixes: ['/offres', '/secteurs'],
+  parentHref: '/acquerir',
+  matchPrefixes: ['/offres', '/acquerir', '/piloter', '/operer', '/services'],
   lead: {
     fr: 'Des systèmes IA rangés par besoin : trouver des clients, piloter, opérer sans friction.',
     en: 'AI systems organized by need: find customers, steer the business, run operations without friction.',
@@ -168,42 +168,40 @@ const SOLUTIONS: MegaMenuSection = {
         fr: '"Je veux plus de leads qualifiés, sans recruter une équipe marketing."',
         en: '"I want more qualified leads, without hiring a marketing team."',
       },
+      // SEO état final (§0ter) : pages /solutions/* supprimées. Liens repointés
+      // sur les pages service réelles (/services/*) + ancres du hub /acquerir.
       links: [
         {
-          label: { fr: 'Site web IA', en: 'Website AI' },
+          label: { fr: 'Site web intelligent', en: 'Smart website' },
           href: '/services/site-web-intelligent',
           description: { fr: 'Site Astro + IA · vitrine + acquisition.', en: 'Astro + AI site · showcase + acquisition.' },
         },
         {
-          label: { fr: 'SEO & GEO', en: 'SEO & GEO' },
-          href: '/solutions/contenu-seo-geo-ia',
-          description: { fr: 'Du contenu trouvé par Google ET les IA.', en: 'Content found by Google AND AI engines.' },
+          label: { fr: 'Content marketing intelligent', en: 'Smart content marketing' },
+          href: '/services/content-marketing-intelligent',
+          description: { fr: 'Ligne éditoriale + SEO/GEO trouvés par Google ET les IA.', en: 'Editorial line + SEO/GEO found by Google AND AI engines.' },
         },
         {
-          label: { fr: 'Content marketing', en: 'Content marketing' },
-          href: '/solutions/content-marketing-ia',
-          description: { fr: 'Une ligne éditoriale qui attire et convertit.', en: 'An editorial line that attracts and converts.' },
-        },
-        {
-          label: { fr: 'Publicité en ligne', en: 'Online advertising' },
-          href: '/solutions/publicite-en-ligne',
-          description: { fr: 'Campagnes pilotées au ROI, sans gaspillage.', en: 'ROI-driven campaigns, without waste.' },
-        },
-        {
-          label: { fr: 'Tunnel de vente', en: 'Sales funnel' },
-          href: '/solutions/tunnel-de-vente',
+          label: { fr: 'Tunnel de conversion', en: 'Conversion funnel' },
+          href: '/services/tunnel-conversion-intelligent',
           description: { fr: 'Du premier clic à la signature, sans friction.', en: 'From first click to signature, frictionless.' },
         },
         {
+          label: { fr: 'Publicité en ligne', en: 'Online advertising' },
+          href: '/acquerir#publicite',
+          description: { fr: 'Campagnes pilotées au ROI, sans gaspillage.', en: 'ROI-driven campaigns, without waste.' },
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
           label: { fr: 'Agent marketing & commercial', en: 'Marketing & sales agent' },
-          href: '/solutions/agent-marketing-commercial',
+          href: '/acquerir#agent-marketing',
           description: { fr: 'Un agent qui prospecte et relance en continu.', en: 'An agent that prospects and follows up continuously.' },
-          badge: { fr: 'Agent IA', en: 'AI agent' },
+          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       footer: {
-        label: { fr: 'Toutes les offres →', en: 'All services →' },
-        href: '/offres',
+        label: { fr: 'Le hub Acquérir →', en: 'The Acquire hub →' },
+        href: '/acquerir',
       },
     },
     {
@@ -213,13 +211,11 @@ const SOLUTIONS: MegaMenuSection = {
         fr: '"J\'ai des données partout, mais je ne sais pas ce qui marche vraiment."',
         en: '"I have data everywhere, but I don\'t know what\'s actually working."',
       },
-      // SEO état final : les 6 pages /solutions Piloter (data) sont supprimées (anti-dilution).
-      // Cible §0bis = pilier vitrine « Data & Analytics » à créer (/solutions/data-analytics,
-      // sections ancrées). En attendant le pilier, on renvoie au hub Solutions (route valide).
+      // SEO état final : pages /solutions Piloter supprimées → pilier à ancres /piloter.
       links: [
         {
-          label: { fr: 'Data & Analytics', en: 'Data & Analytics' },
-          href: '/solutions',
+          label: { fr: 'Business Intelligence', en: 'Business Intelligence' },
+          href: '/piloter',
           description: { fr: 'Tableaux de bord, reporting IA, données centralisées, prévisionnel.', en: 'Dashboards, AI reporting, centralized data, forecasting.' },
         },
       ],
@@ -231,19 +227,17 @@ const SOLUTIONS: MegaMenuSection = {
         fr: '"Mon équipe perd des heures sur des tâches répétitives qui pourraient être automatisées."',
         en: '"My team loses hours on repetitive tasks that could be automated."',
       },
-      // SEO état final : les 7 pages /solutions Opérer (CRM/RH/légal/support/agents) sont supprimées.
-      // Cible §0bis = pilier vitrine « Automatisation & Agents IA » à créer
-      // (/solutions/automatisation-agents-ia, sections ancrées). En attendant : hub Solutions.
+      // SEO état final : pages /solutions Opérer supprimées → pilier à ancres /operer.
       links: [
         {
-          label: { fr: 'Automatisation & Agents IA', en: 'Automation & AI Agents' },
-          href: '/solutions',
+          label: { fr: 'Operations IA', en: 'AI Operations' },
+          href: '/operer',
           description: { fr: 'CRM, automatisation, service client, admin/RH, légal, agents métiers.', en: 'CRM, automation, customer service, admin/HR, legal, business agents.' },
         },
       ],
       footer: {
-        label: { fr: 'Votre secteur →', en: 'Your industry →' },
-        href: '/secteurs',
+        label: { fr: 'Tous les cas clients →', en: 'All case studies →' },
+        href: '/cas',
       },
     },
   ],
@@ -274,7 +268,7 @@ const SOLUTIONS: MegaMenuSection = {
 const CAS: MegaMenuSection = {
   parent: 'cas',
   label: { fr: 'Cas clients', en: 'Case studies' },
-  parentHref: '/secteurs',
+  parentHref: '/cas',
   matchPrefixes: ['/cas'],
   lead: {
     fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesuré sur vos données, jamais inventé.',
@@ -285,26 +279,27 @@ const CAS: MegaMenuSection = {
       kicker: { fr: 'PAR SECTEUR', en: 'BY INDUSTRY' },
       title: { fr: 'Par secteur', en: 'By industry' },
       goal: { fr: 'La preuve par votre métier', en: 'Proof from your industry' },
+      // SEO état final : /secteurs supprimé (régénérable) → liens repointés sur /cas.
       links: [
         {
           label: { fr: 'Services B2B', en: 'B2B services' },
-          href: '/secteurs',
+          href: '/cas',
           description: { fr: 'Pipeline reconnecté, qualification et relances automatisées.', en: 'Pipeline reconnected, qualification and follow-ups automated.' },
         },
         {
           label: { fr: 'Industrie', en: 'Manufacturing' },
-          href: '/secteurs',
+          href: '/cas',
           description: { fr: 'Données réunies, goulots identifiés, plan d\'action.', en: 'Data unified, bottlenecks surfaced, action plan.' },
         },
         {
           label: { fr: 'Finance & Compta', en: 'Finance & accounting' },
-          href: '/secteurs',
+          href: '/cas',
           description: { fr: 'Réconciliation, reporting et clôture allégés.', en: 'Reconciliation, reporting and close streamlined.' },
         },
       ],
       footer: {
-        label: { fr: 'Tous les secteurs →', en: 'All industries →' },
-        href: '/secteurs',
+        label: { fr: 'Tous les cas clients →', en: 'All case studies →' },
+        href: '/cas',
       },
     },
   ],

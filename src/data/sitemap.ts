@@ -43,7 +43,7 @@ export type SimpleNav = { key: string; label: BiText; href: string; simple: true
 export const MM_SOLUTIONS_NEW: MegaMenu = {
   key: 'solutions',
   label: { en: 'Solutions', fr: 'Solutions' },
-  href: '/solutions',
+  href: '/acquerir',
   lead: {
     en: 'Five AI systems built around recurring SMB pain points: acquisition, customer relations, productivity, intelligence, operations.',
     fr: "Cinq systèmes IA qui adressent les douleurs récurrentes des PME : acquisition, relation client, productivité, pilotage, opérations.",
@@ -52,19 +52,21 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
     {
       kicker: { en: 'BY PROBLEM', fr: 'PAR PROBLÈME' },
       label: { en: 'Business use cases', fr: "Cas d'usage business" },
+      // SEO état final (§0ter) : pages /solutions/* supprimées → services réels + ancres /acquerir.
       items: [
-        { href: '/solutions/contenu-seo-geo-ia', label: { en: 'SEO/GEO content with AI', fr: 'Contenu SEO / GEO IA' }, lead: { en: 'Content found by Google AND AI engines.', fr: 'Du contenu trouvé par Google ET les IA.' } },
-        { href: '/solutions/content-marketing-ia', label: { en: 'AI content marketing', fr: 'Content marketing IA' }, lead: { en: 'An editorial line that attracts and converts.', fr: 'Une ligne éditoriale qui attire et convertit.' } },
-        { href: '/solutions/publicite-en-ligne', label: { en: 'Online advertising', fr: 'Publicité en ligne' }, lead: { en: 'ROI-driven campaigns, without waste.', fr: 'Campagnes pilotées au ROI, sans gaspillage.' } },
-        { href: '/solutions/tunnel-de-vente', label: { en: 'Sales funnel', fr: 'Tunnel de vente' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
-        { href: '/solutions/agent-marketing-commercial', label: { en: 'Marketing & sales agent', fr: 'Agent marketing & commercial' }, lead: { en: 'An agent that prospects and follows up continuously.', fr: 'Un agent qui prospecte et relance en continu.' } },
+        { href: '/services/content-marketing-intelligent', label: { en: 'Smart content marketing', fr: 'Content marketing intelligent' }, lead: { en: 'Editorial line + SEO/GEO found by Google AND AI engines.', fr: 'Ligne éditoriale + SEO/GEO trouvés par Google ET les IA.' } },
+        { href: '/services/site-web-intelligent', label: { en: 'Smart website', fr: 'Site web intelligent' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
+        { href: '/services/tunnel-conversion-intelligent', label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
+        { href: '/acquerir#publicite', label: { en: 'Online advertising', fr: 'Publicité en ligne' }, lead: { en: 'ROI-driven campaigns, without waste.', fr: 'Campagnes pilotées au ROI, sans gaspillage.' } },
+        { href: '/acquerir#agent-marketing', label: { en: 'Marketing & sales agent', fr: 'Agent marketing & commercial' }, lead: { en: 'An agent that prospects and follows up continuously.', fr: 'Un agent qui prospecte et relance en continu.' } },
       ],
     },
     {
-      kicker: { en: 'BY SECTOR', fr: 'PAR SECTEUR' },
-      label: { en: 'Adapted to your industry', fr: 'Adapté à votre métier' },
+      kicker: { en: 'BY NEED', fr: 'PAR BESOIN' },
+      label: { en: 'Steer & operate', fr: 'Piloter & opérer' },
       items: [
-        { href: '/secteurs', label: { en: 'All sectors →', fr: 'Tous les secteurs →' } },
+        { href: '/piloter', label: { en: 'Business Intelligence →', fr: 'Business Intelligence →' } },
+        { href: '/operer', label: { en: 'AI Operations →', fr: 'Operations IA →' } },
       ],
     },
   ],
@@ -295,31 +297,26 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/contact', label: { en: 'Contact', fr: 'Nous contacter' } },
     ],
   },
-  // Col 2 — Solutions
+  // Col 2 — Solutions (SEO état final : /solutions/* + /secteurs supprimés →
+  // pages service réelles + piliers à ancres /acquerir, /piloter, /operer)
   {
     heading: { en: 'Solutions', fr: 'Solutions' },
     items: [
       {
-        href: '/solutions/contenu-seo-geo-ia',
-        label: { en: 'SEO/GEO content with AI', fr: 'Contenu SEO/GEO IA' },
+        href: '/services/site-web-intelligent',
+        label: { en: 'Smart website', fr: 'Site web intelligent' },
       },
       {
-        href: '/solutions/content-marketing-ia',
-        label: { en: 'AI content marketing', fr: 'Content marketing IA' },
+        href: '/services/content-marketing-intelligent',
+        label: { en: 'Smart content marketing', fr: 'Content marketing intelligent' },
       },
       {
-        href: '/solutions/publicite-en-ligne',
-        label: { en: 'Online advertising', fr: 'Publicité en ligne' },
+        href: '/services/tunnel-conversion-intelligent',
+        label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' },
       },
-      {
-        href: '/solutions/tunnel-de-vente',
-        label: { en: 'Sales funnel', fr: 'Tunnel de vente' },
-      },
-      {
-        href: '/solutions/agent-marketing-commercial',
-        label: { en: 'Marketing & sales agent', fr: 'Agent marketing & commercial' },
-      },
-      { href: '/secteurs', label: { en: 'By sector →', fr: 'Par secteur →' } },
+      { href: '/acquerir', label: { en: 'Acquire →', fr: 'Acquérir →' } },
+      { href: '/piloter', label: { en: 'Steer →', fr: 'Piloter →' } },
+      { href: '/operer', label: { en: 'Operate →', fr: 'Opérer →' } },
     ],
   },
   // Col 3 — Offres

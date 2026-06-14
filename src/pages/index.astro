@@ -117,11 +117,15 @@ const SERVICE_METRIC_OVERRIDES: Record<string, { fr: string; en: string }> = {
   '02': { fr: `${ppValue('roi-leads-x2-4')} leads`, en: `${ppValue('roi-leads-x2-4').replace(',', '.')} leads` },
   '05': { fr: `${ppValue('time-30pct-taches-reduites')} tâches`, en: `${ppValue('time-30pct-taches-reduites')} tasks` },
 };
-// Mapping service → cas d'usage /solutions/* (les 3 mappings réels ; les 6 cas restent
-// atteignables via le pied de grille → /solutions, info UseCaseIndex préservée).
+// SEO état final : pages /solutions/* supprimées (anti-dilution). Les cas d'usage
+// Acquérir vivent désormais en ancres du hub /acquerir (publicité/agent « à venir »).
 const SERVICE_USECASES: Record<string, string> = {
   '02': 'publicite-en-ligne',
   '03': 'agent-marketing-commercial',
+};
+const USECASE_ANCHOR: Record<string, string> = {
+  'publicite-en-ligne': '/acquerir#publicite',
+  'agent-marketing-commercial': '/acquerir#agent-marketing',
 };
 const usecaseBySlug = (slug: string) => DEPARTMENTS_GRID.find((d) => d.slug === slug);
 const servicesGridData = {
@@ -152,14 +156,14 @@ const servicesGridData = {
         ? {
             usecase_label_fr: `Cas d'usage · ${uc.label.fr} →`,
             usecase_label_en: `Use case · ${uc.label.en} →`,
-            usecase_href: localizeHref(`/solutions/${ucSlug}`, 'fr'),
+            usecase_href: localizeHref(USECASE_ANCHOR[ucSlug] ?? '/acquerir', 'fr'),
           }
         : {}),
     };
   }),
   foot_links: [
-    { label_fr: "Six cas d'usage métier →", label_en: 'Six business use cases →', href: localizeHref('/solutions', 'fr') },
-    { label_fr: 'Adapté à votre secteur →', label_en: 'Adapted to your sector →', href: localizeHref('/secteurs', 'fr') },
+    { label_fr: "Le hub Acquérir →", label_en: 'The Acquire hub →', href: localizeHref('/acquerir', 'fr') },
+    { label_fr: 'Nos cas clients →', label_en: 'Our case studies →', href: localizeHref('/cas', 'fr') },
   ],
 } satisfies SectionByType<'services-grid'>;
 

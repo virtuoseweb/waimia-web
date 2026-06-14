@@ -58,10 +58,9 @@ const FR_ONLY_STATIC = new Set([
   // préfixes à slash final ci-dessous (`startsWith('/x/')` ne matche pas `/x`).
   '/ressources/outils', '/ressources/personas', '/ressources/veille-ia',
   '/technologies/virtuoseos',
-  // Thank-you pages post-conversion FR-only (audit/livre-blanc/newsletter SONT bilingues → exclus).
-  '/bienvenue/contact', '/bienvenue/commande', '/bienvenue/formation', '/bienvenue/abonnement',
-  '/secteurs', '/secteurs/finance-compta',
-  '/secteurs/industrie', '/secteurs/services-b2b',
+  // Thank-you pages post-conversion FR-only (livre-blanc/newsletter SONT bilingues → exclus).
+  // SEO état final : bienvenue/{commande,formation,abonnement,audit} + /secteurs/* supprimés.
+  '/bienvenue/contact',
   '/equipe', '/archive',
   // Pages légales FR-only (droit français, pas de miroir /en/) — même cas que trust-center.
   '/mentions-legales', '/cgv', '/politique-confidentialite',
@@ -69,7 +68,6 @@ const FR_ONLY_STATIC = new Set([
 
 // Préfixes de routes FR-only (contenu dynamique sans équivalent EN).
 const FR_ONLY_PREFIXES = [
-  '/secteurs/',
   '/ressources/cookbooks/', '/ressources/livres-blancs/', '/ressources/field-notes/',
   '/ressources/personas/', '/ressources/veille-ia/',
   '/ressources/categorie/', '/ressources/outils/', '/ressources/silo/', '/ressources/tag/',

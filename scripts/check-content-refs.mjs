@@ -37,9 +37,13 @@ function read(rel) {
 }
 
 // ── 0. Inventaire des slugs par collection (slug frontmatter, fallback nom de fichier) ──
+// Collections supprimées (SEO état final, §0ter) : collection retirée de content.config,
+// dossier supprimé. Dir absent = retour map vide, PAS un FATAL (la collection n'existe plus).
+const REMOVED_COLLECTIONS = new Set(['solutions']);
 function collectSlugs(collection) {
   const dir = join(ROOT, 'src/content', collection);
   if (!existsSync(dir)) {
+    if (REMOVED_COLLECTIONS.has(collection)) return new Map();
     console.error(`✗ FATAL : collection introuvable → src/content/${collection}`);
     process.exit(2);
   }
@@ -50,9 +54,9 @@ function collectSlugs(collection) {
     slugs.set(m ? m[1] : f.replace(/\.mdx$/, ''), f);
   }
   // Collections légitimement vidables (purge P0.2-H : cas/secteurs fictifs retirés,
-  // reconstruction réelle en P0.6). Un dossier vide n'est PAS une erreur de parse :
-  // les références vers ces slugs sont déjà nettoyées en amont (relatedCases: [] etc.).
-  const MAY_BE_EMPTY = new Set(['cases', 'secteurs']);
+  // reconstruction réelle en P0.6) + supprimées (SEO état final). Un dossier vide
+  // n'est PAS une erreur : les références vers ces slugs sont nettoyées en amont.
+  const MAY_BE_EMPTY = new Set(['cases', 'secteurs', 'solutions']);
   if (slugs.size === 0 && !MAY_BE_EMPTY.has(collection)) {
     console.error(`✗ FATAL : 0 entrée parsée dans src/content/${collection}`);
     process.exit(2);
@@ -70,7 +74,9 @@ const SLUGS = {
 // Collections migrées en référentiels TS (V-F1, docs/40 §1) : les MDX sont archivés
 // dans docs/archive/content/ : les `sources` qui les citent restent des traces de
 // provenance valides mais ne sont plus vérifiées sur disque.
-const ARCHIVED_COLLECTIONS = new Set(['pain-points', 'proof-points', 'guarantees']);
+// + solutions : collection supprimée (SEO état final) → mêmes traces de provenance
+//   tolérées dans pain-points.ts / proof-points.ts (contenu fusionné en sections piliers).
+const ARCHIVED_COLLECTIONS = new Set(['pain-points', 'proof-points', 'guarantees', 'solutions']);
 
 // ── 1. Référentiels src/data ──
 function parseReferential(rel) {

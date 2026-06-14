@@ -294,78 +294,9 @@ const offres = defineCollection({
   }),
 });
 
-// ─── Solutions (étendu V2) ───
-const solutions = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/solutions' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    kind: z.enum(['department', 'industry']),
-    // ── Refonte R7a (docs/37 §2.1) : couche BESOIN du hub Solutions.
-    //    Optionnel → 0 contenu cassé ; validé par scripts/check-content-refs.mjs.
-    need: z.enum(['acquerir', 'piloter', 'operer']).optional(),
-    icon: z.string().optional(),
-    metricsHero: z.array(bilingualMetric).default([]),
-    useCases_fr: z.array(z.string()),
-    useCases_en: z.array(z.string()),
-    constraints_fr: z.array(z.string()).optional(),
-    constraints_en: z.array(z.string()).optional(),
-    caseStudies: z.array(z.string()).default([]),
-    // V2
-    lead_fr: z.string().optional(),
-    lead_en: z.string().optional(),
-    pains: z
-      .array(
-        z.object({
-          title_fr: z.string(),
-          title_en: z.string(),
-          body_fr: z.string(),
-          body_en: z.string(),
-        }),
-      )
-      .default([]),
-    workflows: z.array(methodStep).default([]),
-    roi_metrics: z.array(bilingualMetric).default([]),
-    stack: z
-      .array(
-        z.object({
-          name: z.string(),
-          role_fr: z.string(),
-          role_en: z.string(),
-          category: z.string().optional(),
-        }),
-      )
-      .default([]),
-    livrables_fr: z.array(z.string()).default([]),
-    livrables_en: z.array(z.string()).default([]),
-    // ─── SolutionsDetailTemplate fields (V2+) ───
-    dept_badge: z.string().optional(),
-    dept_label: z.string().optional(),
-    dept_label_en: z.string().optional(),
-    hero_title_html_fr: z.string().optional(),
-    hero_title_html_en: z.string().optional(),
-    meta_hero: z.string().optional(),
-    tags_fr: z.array(z.string()).default([]),
-    tags_en: z.array(z.string()).default([]),
-    case_kicker: z.string().optional(),
-    case_body_fr: z.string().optional(),
-    case_body_en: z.string().optional(),
-    case_cta_label_fr: z.string().optional(),
-    case_cta_label_en: z.string().optional(),
-    case_results: z
-      .array(z.object({ value: z.string(), label_fr: z.string(), label_en: z.string() }))
-      .default([]),
-    cta_title_fr: z.string().optional(),
-    cta_title_en: z.string().optional(),
-    cta_body_fr: z.string().optional(),
-    cta_body_en: z.string().optional(),
-    cta_href: z.string().optional(),
-    cta_label_fr: z.string().optional(),
-    cta_label_en: z.string().optional(),
-    // Composable V2 (D.7 extension) : sections optionnelles · cf docs/19-DESIGN-SYSTEM-CLOSED.md
-    sections: sectionsArraySchema.optional(),
-  }),
-});
+// ─── Solutions : collection supprimée (SEO état final, §0ter / §2-C) :
+// aucune page /solutions/* séparée · contenu fusionné en sections ancrées des
+// piliers /acquerir, /piloter, /operer · régénérable à l'extension réelle d'un silo.
 
 // ─── Services (ADR-003) · pages de service composables ───
 const services = defineCollection({
@@ -737,48 +668,9 @@ const courses = defineCollection({
 // gouvernance de marque, pas du contenu de site → docs/archive/content/brand-voice/)
 
 // ═════════════════════════════════════════════════════════════════
-// Tier 4 · prompts (bibliothèque AI internal/public) — T4.3
+// Tier 4 · prompts : collection supprimée (SEO état final, fuite interne) :
+// page /agence/prompts retirée · MDX supprimés.
 // ═════════════════════════════════════════════════════════════════
-
-const prompts = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/prompts' }),
-  schema: z.object({
-    name_fr: z.string().min(1),
-    name_en: z.string().min(1),
-    slug: z.string().regex(/^[a-z0-9-]+$/),
-    purpose_fr: z.string().min(40).max(280),
-    purpose_en: z.string().min(40).max(280),
-    system_prompt_fr: z.string().min(20),
-    system_prompt_en: z.string().min(20),
-    variables: z
-      .array(
-        z.object({
-          name: z.string(),
-          label_fr: z.string(),
-          label_en: z.string(),
-          required: z.boolean().default(true),
-        }),
-      )
-      .default([]),
-    sample_output_fr: z.string().optional(),
-    sample_output_en: z.string().optional(),
-    category: z.enum([
-      'audit',
-      'copywriting',
-      'persona',
-      'brand',
-      'schema',
-      'diagnostic',
-      'autre',
-    ]),
-    visibility: z.enum(['internal', 'public']).default('internal'),
-    publishedAt: z.coerce.date(),
-    seo: z.object({
-      meta_description_fr: z.string().max(160),
-      meta_description_en: z.string().max(160),
-    }).optional(),
-  }),
-});
 
 // ═════════════════════════════════════════════════════════════════
 // Tier 4 · pain-points : collection migrée en référentiel TS (R7a/V-F1, docs/40 §1) :
@@ -806,7 +698,6 @@ export const collections = {
   // V1 existantes
   cases,
   offres,
-  solutions,
   technologies,
   blog,
   secteurs,
@@ -814,8 +705,6 @@ export const collections = {
   authors,
   // V2 nouvelles (2026-05-15)
   courses,
-  // Tier 4 AI-first (2026-05-16)
-  prompts,
   // ADR-003 (2026-06-13) : services + landings
   services,
   lp,
