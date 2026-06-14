@@ -29,7 +29,7 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
       </div>
     </div>
 
-    <aside class="about-story__aside">
+    <div class="about-story__aside">
       {asideTitle && <span class="about-story__aside-title">{asideTitle}</span>}
       <ol class="about-story__timeline">
         {milestones.map((m: (typeof milestones)[number]) => (
@@ -39,7 +39,7 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
           </li>
         ))}
       </ol>
-    </aside>
+    </div>
   </div>
 </section>
 

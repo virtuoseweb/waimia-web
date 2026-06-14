@@ -52,7 +52,7 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
       </div>
     </div>
 
-    <aside class="faq-cta__aside">
+    <div class="faq-cta__aside">
       <div class="faq-cta__card reveal reveal-fade">
         <h3 class="faq-cta__card-title" set:html={asideTitle} />
         {asideBody && <p class="faq-cta__card-body">{asideBody}</p>}
@@ -66,7 +66,7 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
         </Button>
         {asideNote && <p class="faq-cta__card-note">{asideNote}</p>}
       </div>
-    </aside>
+    </div>
   </div>
 </section>
 
