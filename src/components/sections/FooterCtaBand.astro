@@ -14,7 +14,7 @@ const isFr = lang === 'fr';
 const buttons = data.buttons ?? [];
 ---
 
-<section class="footer-cta" data-bg={data.background}>
+<section class={`footer-cta${data.rounded ? ' footer-cta--rounded' : ''}`} data-bg={data.background}>
   <div class="wrap-wide footer-cta__inner">
     <div class="footer-cta__copy">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -39,6 +39,9 @@ const buttons = data.buttons ?? [];
   .footer-cta {
     padding-block: var(--section-grand);
     border-block: 1px solid var(--hairline);
+  }
+  .footer-cta--rounded {
+    border-radius: var(--radius-band) var(--radius-band) 0 0;
   }
   .footer-cta__inner {
     display: grid;

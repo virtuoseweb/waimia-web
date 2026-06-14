@@ -3198,6 +3198,7 @@ export const footerCtaBandSchema = z.object({
   h2_en: z.string(),
   subtitle_fr: z.string().optional(),
   subtitle_en: z.string().optional(),
+  rounded: z.boolean().optional(),
   buttons: z.array(footerCtaButtonSchema).min(1).max(2),
 });
 
