@@ -125,10 +125,10 @@ function checkMetaDescription(files) {
     // Try name=... content=... order
     const match1 = metaDescRegex.exec(html);
     if (match1) {
-      const contentMatch = /content=["']([^"']*)["']/i.exec(match1[0]);
-      if (contentMatch) {
+      const extracted = extractContentAttr(match1[0]);
+      if (extracted !== null) {
         found = true;
-        descContent = contentMatch[1];
+        descContent = extracted;
       }
     }
 
@@ -136,10 +136,10 @@ function checkMetaDescription(files) {
     if (!found) {
       const match2 = altMetaDescRegex.exec(html);
       if (match2) {
-        const contentMatch = /content=["']([^"']*)["']/i.exec(match2[0]);
-        if (contentMatch) {
+        const extracted = extractContentAttr(match2[0]);
+        if (extracted !== null) {
           found = true;
-          descContent = contentMatch[1];
+          descContent = extracted;
         }
       }
     }
