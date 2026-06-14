@@ -222,18 +222,18 @@ const ctaData = {
     width: 100%;
     max-width: 840px;
     height: auto;
-    margin: 0 0 clamp(32px, 4vw, 56px);
+    margin: 0 0 var(--space-9);
     overflow: visible;
   }
 
-  .hub-layers { padding: clamp(80px, 10vw, 120px) var(--space-6); }
+  .hub-layers { padding: var(--section-base) var(--space-6); }
   :global(.hub-layers-k) { display: block; margin-bottom: 18px; }
   .hub-layers-h2 {
     font-family: var(--font-display);
-    font-size: clamp(40px, 6vw, 88px);
+    font-size: var(--text-stat);
     line-height: var(--leading-h1);
     letter-spacing: -0.024em;
-    margin: 0 0 clamp(48px, 5vw, 72px);
+    margin: 0 0 var(--space-9);
     text-wrap: balance;
     font-weight: var(--fw-regular);
   }
@@ -247,21 +247,21 @@ const ctaData = {
   .hub-stack-row {
     display: grid;
     grid-template-columns: 100px 1fr;
-    gap: clamp(20px, 3vw, 48px);
-    padding: clamp(36px, 4vw, 60px) 0;
+    gap: var(--space-8);
+    padding: var(--space-9) 0;
     border-bottom: 1px solid var(--hairline);
     align-items: start;
   }
   .hub-stack-num {
     font-family: var(--font-display);
-    font-size: clamp(48px, 6vw, 96px);
+    font-size: var(--text-h2-grand);
     line-height: 0.9;
     color: var(--muted);
     font-style: italic;
   }
   .hub-stack-title {
     font-family: var(--font-display);
-    font-size: clamp(28px, 3.5vw, 48px);
+    font-size: var(--text-h2-tight);
     line-height: 1.05;
     letter-spacing: -0.022em;
     font-weight: var(--fw-regular);
@@ -269,7 +269,7 @@ const ctaData = {
     text-wrap: balance;
   }
   .hub-stack-text {
-    font-size: clamp(15px, 1.5vw, 18px);
+    font-size: var(--text-label);
     line-height: 1.55;
     color: var(--muted);
     margin: 0 0 18px;
@@ -277,11 +277,11 @@ const ctaData = {
     text-wrap: pretty;
   }
 
-  .hub-flagship { padding: clamp(80px, 10vw, 120px) var(--space-6); }
+  .hub-flagship { padding: var(--section-base) var(--space-6); }
   :global(.hub-flagship-k) { display: block; margin-bottom: 18px; }
   .hub-flagship-h2 {
     font-family: var(--font-display);
-    font-size: clamp(40px, 6vw, 88px);
+    font-size: var(--text-stat);
     line-height: var(--leading-h1);
     letter-spacing: -0.024em;
     margin: 0 0 var(--space-5);
@@ -291,10 +291,10 @@ const ctaData = {
   .hub-flagship-h2 :global(i) { font-style: italic; color: var(--muted); }
   .hub-flagship-lead {
     font-family: var(--font-sans);
-    font-size: clamp(17px, 1.8vw, 22px);
+    font-size: var(--text-h3-card);
     color: var(--muted);
     max-width: 760px;
-    margin: 0 0 clamp(40px, 5vw, 64px);
+    margin: 0 0 var(--space-9);
     line-height: 1.55;
   }
   .hub-flagship-list {
@@ -307,8 +307,8 @@ const ctaData = {
   .hub-flagship-link {
     display: grid;
     grid-template-columns: 80px 1fr 60px;
-    gap: clamp(20px, 3vw, 40px);
-    padding: clamp(28px, 3vw, 44px) 0;
+    gap: var(--space-7);
+    padding: var(--space-7) 0;
     align-items: start;
     color: inherit;
     transition: background 240ms var(--ease);
@@ -316,7 +316,7 @@ const ctaData = {
   .hub-flagship-link:hover { background: rgba(var(--ink-rgb), 0.02); }
   .hub-flagship-num {
     font-family: var(--font-display);
-    font-size: clamp(40px, 5vw, 72px);
+    font-size: var(--text-h1-display);
     line-height: 0.9;
     color: var(--muted);
     font-style: italic;
@@ -330,7 +330,7 @@ const ctaData = {
   }
   .hub-flagship-title {
     font-family: var(--font-display);
-    font-size: clamp(24px, 3vw, 40px);
+    font-size: var(--text-h2-tight);
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: var(--fw-regular);
@@ -338,7 +338,7 @@ const ctaData = {
   }
   .hub-flagship-title :global(i) { font-style: italic; color: var(--muted); font-size: 0.7em; }
   .hub-flagship-text {
-    font-size: clamp(14px, 1.4vw, 16px);
+    font-size: var(--text-label);
     line-height: 1.55;
     color: var(--muted);
     max-width: var(--wrap-prose);
@@ -356,14 +356,14 @@ const ctaData = {
     .hub-flagship-arr { display: none; }
   }
 
-  .hub-frameworks { padding: clamp(80px, 10vw, 120px) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .hub-frameworks { padding: var(--section-base) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
   :global(.hub-frameworks-k) { display: block; margin-bottom: 18px; }
   .hub-frameworks-h2 {
     font-family: var(--font-display);
-    font-size: clamp(40px, 6vw, 88px);
+    font-size: var(--text-stat);
     line-height: var(--leading-h1);
     letter-spacing: -0.024em;
-    margin: 0 0 clamp(40px, 5vw, 72px);
+    margin: 0 0 var(--space-9);
     text-wrap: balance;
     font-weight: var(--fw-regular);
   }

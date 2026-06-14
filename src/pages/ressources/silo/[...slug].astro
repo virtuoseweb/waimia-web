@@ -142,17 +142,17 @@ const ctaData = {
 </Base>
 
 <style>
-  .silo-mast { padding: clamp(80px, 10vw, 140px) 0 clamp(40px, 5vw, 64px); }
+  .silo-mast { padding: var(--section-loose) 0 var(--space-9); }
   :global(.silo-kicker) { color: var(--accent-text); margin-bottom: var(--space-5); }
   .silo-h1 {
     font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 120px);
+    font-size: var(--text-display);
     line-height: .92;
     letter-spacing: -.028em;
     font-weight: var(--fw-regular);
     margin: 0;
   }
-  .silo-pillar-sec { padding: clamp(40px, 5vw, 80px) 0; background: var(--paper-2); }
+  .silo-pillar-sec { padding: var(--space-10) 0; background: var(--paper-2); }
   .silo-pillar-card {
     display: block;
     padding: var(--space-6);
@@ -167,7 +167,7 @@ const ctaData = {
   .silo-pillar-card:hover { border-color: var(--accent-text); }
   .silo-pillar-card h2 {
     font-family: var(--font-display);
-    font-size: clamp(28px, 3vw, 40px);
+    font-size: var(--text-h2-tight);
     line-height: 1.05;
     margin: 0 0 var(--space-3);
     font-weight: var(--fw-regular);
@@ -186,7 +186,7 @@ const ctaData = {
     color: var(--accent-text);
     letter-spacing: .08em;
   }
-  .silo-list-sec { padding: clamp(40px, 5vw, 80px) 0 clamp(80px, 10vw, 140px); }
+  .silo-list-sec { padding: var(--space-10) 0 var(--section-loose); }
   .silo-list { list-style: none; padding: 0; margin: var(--space-4) 0 0; border-top: 1px solid var(--hairline-strong); }
   .silo-list li { border-bottom: 1px solid var(--hairline); }
   .silo-list a {
@@ -216,7 +216,7 @@ const ctaData = {
     color: var(--muted);
   }
   .silo-empty { font-family: var(--font-display); font-style: italic; color: var(--muted); padding: var(--space-6) 0; }
-  .wrap-tight { max-width: 880px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+  .wrap-tight { max-width: 880px; margin: 0 auto; padding: 0 var(--space-8); }
 </style>
 
 <script>

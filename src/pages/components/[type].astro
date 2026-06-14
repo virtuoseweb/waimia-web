@@ -98,7 +98,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
 
 <style>
   .component-detail {
-    padding: clamp(72px, 9vw, 112px) 0 clamp(72px, 9vw, 120px);
+    padding: var(--section-base) 0 var(--section-base);
   }
   .component-detail .wrap-wide {
     padding-left: var(--space-6);
@@ -115,7 +115,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
   }
   .component-back:hover { color: var(--accent-text); }
   .component-head {
-    margin-bottom: clamp(40px, 5vw, 64px);
+    margin-bottom: var(--space-9);
   }
   .component-head-top {
     display: flex;
@@ -127,7 +127,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     margin: 0;
     color: var(--ink);
     font-family: var(--font-mono);
-    font-size: clamp(32px, 5vw, 56px);
+    font-size: var(--text-h2-section);
     font-weight: var(--fw-regular);
     letter-spacing: -0.01em;
     line-height: 1;
@@ -187,7 +187,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     max-width: 680px;
     margin: var(--space-4) 0 0;
     color: var(--ink-2);
-    font-size: clamp(15px, 1.4vw, 18px);
+    font-size: var(--text-lede);
     line-height: 1.55;
   }
   .component-tags {
@@ -209,7 +209,7 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     padding: 6px 7px;
   }
   .component-block {
-    margin-top: clamp(40px, 5vw, 64px);
+    margin-top: var(--space-9);
   }
   .component-block-title {
     margin: 0 0 18px;

@@ -57,12 +57,12 @@ const lang = langFromPath(Astro.url.pathname);
 </Base>
 
 <style>
-  .err { padding: 140px var(--space-6) clamp(60px, 8vw, 100px); min-height: 80vh; display: flex; align-items: center; }
+  .err { padding: 140px var(--space-6) var(--space-11); min-height: 80vh; display: flex; align-items: center; }
   .err-wrap { max-width: 1100px; }
   :global(.err-code) { display: block; margin-bottom: var(--space-5); }
   .err-h1 {
     font-family: var(--font-display);
-    font-size: clamp(64px, 13vw, 200px);
+    font-size: var(--text-mega);
     line-height: 0.88;
     letter-spacing: -0.035em;
     text-wrap: balance;
@@ -72,9 +72,9 @@ const lang = langFromPath(Astro.url.pathname);
   .err-h1 :global(i) { font-style: italic; color: var(--accent-text); }
   .err-lede {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2.2vw, 28px);
+    font-size: var(--text-h3-row);
     color: var(--ink-2);
-    margin: 0 0 clamp(48px, 5vw, 72px);
+    margin: 0 0 var(--space-9);
     max-width: 760px;
     line-height: var(--leading-lede);
     text-wrap: pretty;
@@ -82,14 +82,14 @@ const lang = langFromPath(Astro.url.pathname);
   .err-paths {
     list-style: none;
     padding: 0;
-    margin: 0 0 clamp(48px, 5vw, 72px);
+    margin: 0 0 var(--space-9);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--hairline-strong);
     border-bottom: 1px solid var(--hairline-strong);
   }
   .err-paths li {
-    padding: clamp(24px, 3vw, 36px) clamp(20px, 2.5vw, 32px);
+    padding: var(--space-7) var(--space-6);
     border-right: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;
@@ -101,7 +101,7 @@ const lang = langFromPath(Astro.url.pathname);
   :global(.err-path-k) { display: block; }
   .err-path-link {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2.2vw, 28px);
+    font-size: var(--text-h3-row);
     line-height: var(--leading-h3);
     letter-spacing: -0.02em;
     color: var(--ink);

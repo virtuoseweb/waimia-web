@@ -169,11 +169,14 @@ body {
      sens perceptible (3.3px vs 4px) et fragiliserait hairlines/petits gaps.
      Reste un literal simple (pas de clamp) → 0 dérive sur le plus petit cran. */
   --space-1: 0.25rem; /* 4px (fixe, micro · hors fluidité par choix) */
-  --space-2: clamp(calc(0.5rem * var(--fl-space-shrink)), calc((0.5rem * var(--fl-space-shrink)) + (0.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 0.5rem);       /* 8px desktop, ~6.6px @360 */
-  --space-3: clamp(calc(0.75rem * var(--fl-space-shrink)), calc((0.75rem * var(--fl-space-shrink)) + (0.75rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 0.75rem);    /* 12px desktop, ~9.8px @360 */
-  --space-4: clamp(calc(1rem * var(--fl-space-shrink)), calc((1rem * var(--fl-space-shrink)) + (1rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 1rem);                /* 16px desktop, ~13.1px @360 */
-  --space-5: clamp(calc(1.5rem * var(--fl-space-shrink)), calc((1.5rem * var(--fl-space-shrink)) + (1.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 1.5rem);        /* 24px desktop, ~19.7px @360 */
-  --space-6: clamp(calc(2rem * var(--fl-space-shrink)), calc((2rem * var(--fl-space-shrink)) + (2rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2rem);                /* 32px desktop, ~26.2px @360 */
+
+  /* ── Crans 1-6 FIXES (échelle composant : padding/gap/boutons/cards/icones)
+     ── Crans 7-15 FLUIDES (layout/section · clamp() parametre par --fl-*) */
+  --space-2: 0.5rem;   /* 8px (fixe : petit espacement interne, composant) */
+  --space-3: 0.75rem;  /* 12px (fixe) */
+  --space-4: 1rem;     /* 16px (fixe : padding de composant) */
+  --space-5: 1.5rem;   /* 24px (fixe : gap/padding card) */
+  --space-6: 2rem;     /* 32px (fixe : padding large composant) */
   --space-7: clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem);        /* 40px desktop, ~32.8px @360 */
   --space-8: clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem);                /* 48px desktop, ~39.4px @360 */
   --space-9: clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem);                /* 64px desktop, ~52.5px @360 */

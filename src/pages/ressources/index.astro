@@ -396,11 +396,11 @@ const ctaData = {
 </Base>
 
 <style>
-  .hub-cases-detail { padding: clamp(80px, 10vw, 120px) var(--space-6); background: var(--paper); }
+  .hub-cases-detail { padding: var(--space-12) var(--space-6); background: var(--paper); }
   :global(.hub-cd-k) { display: block; margin-bottom: 18px; }
   .hub-cd-h2 {
     font-family: var(--font-display);
-    font-size: clamp(40px, 6vw, 88px);
+    font-size: var(--text-stat);
     line-height: var(--leading-h1);
     letter-spacing: -0.024em;
     margin: 0 0 var(--space-5);
@@ -410,10 +410,10 @@ const ctaData = {
   .hub-cd-h2 :global(i) { font-style: italic; color: var(--accent-text); }
   .hub-cd-lead {
     font-family: var(--font-sans);
-    font-size: clamp(17px, 1.8vw, 22px);
+    font-size: var(--text-lede);
     color: var(--muted);
     max-width: 760px;
-    margin: 0 0 clamp(40px, 5vw, 64px);
+    margin: 0 0 var(--space-9);
     line-height: 1.45;
   }
   .hub-cd-list {
@@ -426,8 +426,8 @@ const ctaData = {
   .hub-cd-link {
     display: grid;
     grid-template-columns: 80px 1fr 60px;
-    gap: clamp(20px, 3vw, 40px);
-    padding: clamp(24px, 2.5vw, 36px) 0;
+    gap: var(--space-7);
+    padding: var(--spacing-block) 0;
     align-items: start;
     color: inherit;
     transition: background 240ms var(--ease);
@@ -435,7 +435,7 @@ const ctaData = {
   .hub-cd-link:hover { background: rgba(var(--ink-rgb), 0.02); }
   .hub-cd-num {
     font-family: var(--font-display);
-    font-size: clamp(36px, 4.5vw, 64px);
+    font-size: var(--text-h1-display);
     line-height: 0.9;
     color: var(--accent-text);
     font-style: italic;
@@ -449,7 +449,7 @@ const ctaData = {
   }
   .hub-cd-title {
     font-family: var(--font-display);
-    font-size: clamp(22px, 2.6vw, 36px);
+    font-size: var(--text-h2-tight);
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: var(--fw-regular);
@@ -457,7 +457,7 @@ const ctaData = {
   }
   .hub-cd-title :global(i) { font-style: italic; color: var(--muted); font-size: 0.7em; }
   .hub-cd-text {
-    font-size: clamp(13px, 1.3vw, 15px);
+    font-size: var(--text-label);
     line-height: 1.55;
     color: var(--muted);
     max-width: var(--wrap-prose);
@@ -475,12 +475,12 @@ const ctaData = {
     .hub-cd-arr { display: none; }
   }
 
-  .hub-nl { padding: clamp(80px, 10vw, 120px) var(--space-6); background: var(--ink); color: var(--paper); }
-  .hub-nl-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+  .hub-nl { padding: var(--space-12) var(--space-6); background: var(--ink); color: var(--paper); }
+  .hub-nl-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-10); align-items: center; }
   :global(.hub-nl-k) { display: block; margin-bottom: 18px; }
   .hub-nl-h2 {
     font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: var(--text-h1-display);
     line-height: 1;
     letter-spacing: -0.024em;
     color: var(--paper);

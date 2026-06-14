@@ -1054,13 +1054,13 @@ const sectionSchemaKnobs = {
   /* ─── HEADER PAGE ─── */
   .ds-hd {
     padding-top: calc(var(--section-base) + var(--header-height));
-    padding-bottom: clamp(40px, 5vw, 72px);
+    padding-bottom: var(--space-9);
     border-bottom: 1px solid var(--hairline);
   }
   :global(.ds-kicker) { display: block; margin-bottom: var(--space-5); }
   .ds-h1 {
     font-family: var(--font-display);
-    font-size: clamp(48px, 9vw, 156px);
+    font-size: var(--text-mega);
     line-height: 0.94;
     letter-spacing: -0.03em;
     font-weight: var(--fw-regular);
@@ -1071,7 +1071,7 @@ const sectionSchemaKnobs = {
   .ds-h1 i { font-style: italic; color: var(--accent-text); }
   .ds-lede {
     font-family: var(--font-sans);
-    font-size: clamp(18px, 1.8vw, 24px);
+    font-size: var(--text-lede);
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
     max-width: var(--wrap-prose);
@@ -1111,10 +1111,10 @@ const sectionSchemaKnobs = {
   .ds-layout {
     max-width: var(--wrap-wide);
     margin: 0 auto;
-    padding: clamp(48px, 6vw, 80px) var(--gut);
+    padding: var(--space-10) var(--gut);
     display: grid;
     grid-template-columns: 220px 1fr;
-    gap: clamp(40px, 5vw, 80px);
+    gap: var(--space-10);
   }
 
   .ds-toc {
@@ -1150,7 +1150,7 @@ const sectionSchemaKnobs = {
   /* ─── CONTENT SECTIONS ─── */
   .ds-content { min-width: 0; }
   .ds-section {
-    margin-bottom: clamp(80px, 8vw, 120px);
+    margin-bottom: var(--space-12);
     scroll-margin-top: calc(var(--header-height) + 32px);
   }
   .ds-section-lede {

@@ -378,7 +378,7 @@ const pageTransitionId = Astro.url.pathname
   /* Low-height desktop · 1280×720 / 1366×768 / 1440×800 avec cookie banner visible
      → on resserre les rythmes verticaux sans toucher à l'identité typographique */
   @media (max-height: 850px) and (min-width: 900px) {
-    .hero-a { padding-top: clamp(64px, 5vw, 80px); }
+    .hero-a { padding-top: var(--space-10); }
     .hero-sub { margin-top: var(--space-5); padding: var(--space-4) 0 var(--space-7); }
     .hero-headline { font-size: var(--text-h1-hero); }
   }

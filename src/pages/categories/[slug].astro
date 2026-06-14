@@ -61,7 +61,7 @@ const sections = listSections().filter((section) => section.categorySlug === cat
 
 <style>
   .category-mast {
-    padding: clamp(72px, 9vw, 112px) var(--space-6) var(--space-8);
+    padding: var(--space-12) var(--space-6) var(--space-8);
   }
   .category-back {
     display: inline-flex;
@@ -85,7 +85,7 @@ const sections = listSections().filter((section) => section.categorySlug === cat
     margin: 0;
     color: var(--ink);
     font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 128px);
+    font-size: var(--text-display);
     font-weight: var(--fw-regular);
     letter-spacing: -0.02em;
     line-height: 0.95;
@@ -95,12 +95,12 @@ const sections = listSections().filter((section) => section.categorySlug === cat
     max-width: 620px;
     margin: 28px 0 0;
     color: var(--muted);
-    font-size: clamp(15px, 1.4vw, 18px);
+    font-size: var(--text-label);
     line-height: 1.55;
   }
   .category-grid-outer {
     margin: 0 auto;
-    padding: 0 var(--space-6) clamp(72px, 9vw, 120px);
+    padding: 0 var(--space-6) var(--space-12);
   }
   .category-grid {
     display: grid;

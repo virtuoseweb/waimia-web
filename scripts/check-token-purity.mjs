@@ -458,8 +458,100 @@ console.log(`\n⛔ rgba de marque exacte (BLOQUANT V9-RGBA, repaintabilité) : $
 if (rgbaBrandHits.length) showRgba(rgbaBrandHits).forEach(h => console.log(fmtRgba(h)));
 if (!REPORT && rgbaBrandHits.length > 3) console.log(`    … +${rgbaBrandHits.length - 3} (voir --report)`);
 
+// ══════════════════════════════════════════════════════════════════════════════
+// V10 — Gate clamp brut typo/espacement (BLOQUANT, sync DS Studio)
+// Interdit tout clamp(<chiffre>...) DIRECT sur font-size ou propriétés d'espacement.
+// Un clamp brut casse la sync DS Studio : le token ne pilote plus la valeur.
+// Allow-list :
+//   1. Valeur de propriété qui commence par var( -> clamp est un fallback légitime -> skip.
+//   2. Le match contient "vh" dans ses arguments -> spacing structurel viewport -> skip.
+//   3. Lignes contenant @media -> px légitimes en @media -> skip.
+// Scan : src/**/*.astro (corps après frontmatter) + src/**/*.css (hors tokens.css)
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Propriétés ciblées = font-size + toutes les SPACING_PROPS_V9
+const CLAMP_BRUT_PROPS = ['font-size', ...SPACING_PROPS_V9];
+
+function escV10(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// Regex property-anchored : <prop>: <valeur>
+// On capture la valeur entière jusqu'à [;}\n] pour analyser si elle commence par var(
+// et si le clamp contient vh.
+function buildClampBrutRegex(prop) {
+  const ep = escV10(prop);
+  return new RegExp(
+    `(?:^|(?<=[{;\\s>]))(${ep})(\\s*:\\s*)` +
+    `((?:(?!;|}|\\n|!important).)*?)` +
+    `(\\s*!important)?(?=[;}\n])`,
+    'gm'
+  );
+}
+
+// Détecte si une valeur contient un clamp brut (premier arg commence par un chiffre)
+// et n'est pas un fallback de var().
+// Retourne tous les matches clamp bruts trouvés dans la valeur.
+function findRawClampInValue(value) {
+  // clamp( suivi (après espaces éventuels) d'un chiffre directement
+  const clampRe = /clamp\s*\(\s*\d/g;
+  const results = [];
+  let m;
+  while ((m = clampRe.exec(value)) !== null) {
+    results.push(m[0]);
+  }
+  return results;
+}
+
+const clampBrutHits = [];
+
+for (const fpath of allFilesV8) {
+  const raw  = readFileSync(fpath, 'utf8');
+  const text = extname(fpath) === '.astro' ? splitAstroBody(raw) : raw;
+  const rel  = relative(ROOT, fpath);
+  const lines = text.split('\n');
+
+  for (const prop of CLAMP_BRUT_PROPS) {
+    const rx = buildClampBrutRegex(prop);
+    for (const m of text.matchAll(rx)) {
+      const rawValue = (m[3] || '').trim();
+      const lineIdx  = text.slice(0, m.index).split('\n').length - 1;
+      const lineStr  = lines[lineIdx] || '';
+
+      // Skip : ligne @media
+      if (/@media/.test(lineStr)) continue;
+
+      // Skip : la valeur commence par var( -> clamp est un fallback légitime
+      if (/^var\s*\(/.test(rawValue)) continue;
+
+      // Cherche les clamp bruts dans la valeur
+      const rawClamps = findRawClampInValue(rawValue);
+      for (const hit of rawClamps) {
+        // Skip : le clamp contient vh -> spacing structurel viewport
+        // On extrait les arguments du clamp pour vérifier
+        const clampStart = rawValue.indexOf(hit);
+        // Extraire jusqu'à la parenthèse fermante
+        let depth = 0, i = rawValue.indexOf('clamp', clampStart), end = i;
+        for (; end < rawValue.length; end++) {
+          if (rawValue[end] === '(') depth++;
+          else if (rawValue[end] === ')') { depth--; if (depth === 0) { end++; break; } }
+        }
+        const clampFull = rawValue.slice(i, end);
+        if (/\bvh\b/.test(clampFull)) continue;
+
+        clampBrutHits.push({ file: rel, line: lineIdx + 1, prop, value: clampFull });
+      }
+    }
+  }
+}
+
+const showClamp = (arr) => (REPORT ? arr : arr.slice(0, 3));
+const fmtClamp  = (h) => `    ${h.file}:${h.line}  ${h.prop}: ${h.value}  -> doit être var(--text-*) ou var(--space-*)`;
+
+console.log(`\n⛔ clamp brut typo/espacement (BLOQUANT V10, sync DS Studio) : ${clampBrutHits.length}`);
+if (clampBrutHits.length) showClamp(clampBrutHits).forEach(h => console.log(fmtClamp(h)));
+if (!REPORT && clampBrutHits.length > 3) console.log(`    … +${clampBrutHits.length - 3} (voir --report)`);
+
 // ── Décision finale ────────────────────────────────────────────────────────────
-const totalBlocking = hexHits.length + literalHits.length + spacingHits.length + halfpxHits.length + svgHexHits.length + rgbaBrandHits.length;
+const totalBlocking = hexHits.length + literalHits.length + spacingHits.length + halfpxHits.length + svgHexHits.length + rgbaBrandHits.length + clampBrutHits.length;
 
 if (hexHits.length > 0) {
   console.log(`\n❌ FAIL — ${hexHits.length} hex brut(s). Migre vers var(--token) / color-mix.\n`);
@@ -479,8 +571,11 @@ if (svgHexHits.length > 0) {
 if (rgbaBrandHits.length > 0) {
   console.log(`\n❌ FAIL — ${rgbaBrandHits.length} rgba de marque exacte résiduel(s). Migre via tokenize-rgba-brand.mjs → rgba(var(--paper-rgb|--accent-rgb|--ink-rgb),X) (DS enforced V9-RGBA).\n`);
 }
+if (clampBrutHits.length > 0) {
+  console.log(`\n❌ FAIL — ${clampBrutHits.length} clamp(s) brut(s) typo/espacement. Migre vers var(--text-*) ou var(--space-*) (DS enforced V10).\n`);
+}
 if (totalBlocking > 0) {
   process.exit(1);
 }
-console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut, 0 demi-pixel font-size, 0 hex SVG de marque, 0 rgba de marque exacte. (${brandHits.length} rgba de marque dans sections/ = dette non-bloquante.)\n`);
+console.log(`\n✅ PASS — 0 hex brut, 0 littéral property-anchored, 0 espacement on-grid brut, 0 demi-pixel font-size, 0 hex SVG de marque, 0 rgba de marque exacte, 0 clamp brut typo/espacement. (${brandHits.length} rgba de marque dans sections/ = dette non-bloquante.)\n`);
 process.exit(0);

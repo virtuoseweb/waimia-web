@@ -153,7 +153,7 @@ pre {
 .act-num {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(28px, 3vw, 48px);
+  font-size: var(--text-h2-tight);
   line-height: 1;
   color: var(--accent-text);
   letter-spacing: -0.02em;
@@ -945,7 +945,7 @@ a:not([class]):hover,
 .m-sheet-acc-head .ttl {
   font-family: var(--font-sans);
   font-weight: var(--fw-medium);
-  font-size: clamp(30px, 6vw, 42px);
+  font-size: var(--text-h2-tight);
   letter-spacing: -0.018em;
   line-height: var(--leading-h2);
   flex: 1;
@@ -1053,7 +1053,7 @@ a:not([class]):hover,
   padding: 22px 0;
   font-family: var(--font-sans);
   font-weight: var(--fw-medium);
-  font-size: clamp(30px, 6vw, 42px);
+  font-size: var(--text-h2-tight);
   letter-spacing: -0.018em;
   border-bottom: 1px solid var(--hairline);
 }
@@ -1105,7 +1105,7 @@ a:not([class]):hover,
 }
 .marquee .item {
   font-family: var(--font-display);
-  font-size: clamp(22px, 2.4vw, 32px);
+  font-size: var(--text-h3-row);
   padding: 0 26px;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -1352,8 +1352,8 @@ a:not([class]):hover,
 .sec-hd {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
-  gap: clamp(28px, 4.5vw, 72px);
-  margin-bottom: clamp(56px, 7vw, 110px);
+  gap: var(--space-9);
+  margin-bottom: var(--space-12);
   align-items: end;
 }
 .sec-hd .n {
@@ -1370,7 +1370,7 @@ a:not([class]):hover,
 .sec-hd .roman {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(22px, 2.4vw, 36px);
+  font-size: var(--text-h2-tight);
   color: var(--accent-text);
   letter-spacing: -0.02em;
   line-height: 1;
@@ -1394,7 +1394,7 @@ a:not([class]):hover,
   color: var(--accent-text);
 }
 .sec-hd .aside {
-  font-size: clamp(13px, 1.3vw, 15px);
+  font-size: var(--text-label);
   line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: 420px;
@@ -1403,7 +1403,7 @@ a:not([class]):hover,
 
 /* ─── EDITORIAL CELL · composant unifié ─── */
 .editorial-cell {
-  padding: clamp(22px, 2.8vw, 38px) clamp(18px, 2.2vw, 32px);
+  padding: var(--space-7) var(--space-6);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1421,7 +1421,7 @@ a:not([class]):hover,
 .editorial-cell .e-num {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(48px, 6vw, 88px);
+  font-size: var(--text-stat);
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--accent-text);
@@ -1435,7 +1435,7 @@ a:not([class]):hover,
 }
 .editorial-cell .e-title {
   font-family: var(--font-sans);
-  font-size: clamp(20px, 2.2vw, 30px);
+  font-size: var(--text-h3-row);
   line-height: var(--leading-h3);
   letter-spacing: -0.012em;
   font-weight: var(--fw-medium);
@@ -1449,7 +1449,7 @@ a:not([class]):hover,
   color: var(--accent-text);
 }
 .editorial-cell .e-body {
-  font-size: clamp(12px, 1.1vw, 13.5px);
+  font-size: var(--text-label);
   color: var(--muted);
   line-height: var(--leading-relaxed);
   text-wrap: pretty;
@@ -1531,8 +1531,8 @@ a:not([class]):hover,
 .case-row {
   display: grid;
   grid-template-columns: 64px 1.4fr 1fr 80px 1fr auto;
-  gap: clamp(12px, 2vw, 28px);
-  padding: clamp(22px, 2.8vw, 36px) 0;
+  gap: var(--space-5);
+  padding: var(--space-6) 0;
   border-bottom: 1px solid var(--hairline);
   transition:
     padding var(--dur-base) var(--ease),
@@ -1541,8 +1541,8 @@ a:not([class]):hover,
   color: inherit;
 }
 .case-row:hover {
-  padding-left: clamp(12px, 2vw, 24px);
-  padding-right: clamp(12px, 2vw, 24px);
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
   background: var(--paper-2);
   border-radius: var(--radius-sm);
 }
@@ -1554,7 +1554,7 @@ a:not([class]):hover,
 }
 .case-row .client {
   font-family: var(--font-sans);
-  font-size: clamp(22px, 2.8vw, 38px);
+  font-size: var(--text-h2-tight);
   line-height: 1.04;
   letter-spacing: -0.018em;
   font-weight: var(--fw-medium);
@@ -1575,7 +1575,7 @@ a:not([class]):hover,
   letter-spacing: 0.04em;
 }
 .case-row .impact {
-  font-size: clamp(12px, 1.3vw, 14.5px);
+  font-size: var(--text-label);
   color: var(--ink-2);
   font-weight: var(--fw-medium);
 }
@@ -1603,8 +1603,8 @@ a:not([class]):hover,
 .how-row {
   display: grid;
   grid-template-columns: 100px 1.2fr 1fr;
-  gap: clamp(20px, 3vw, 48px);
-  padding: clamp(28px, 3.5vw, 44px) 0;
+  gap: var(--space-8);
+  padding: var(--space-7) 0;
   border-bottom: 1px solid var(--hairline);
   align-items: baseline;
 }
@@ -1614,14 +1614,14 @@ a:not([class]):hover,
 .how-row .num {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(56px, 7vw, 96px);
+  font-size: var(--text-h2-grand);
   line-height: 0.9;
   letter-spacing: -0.026em;
   color: var(--accent-text);
 }
 .how-row .ttl {
   font-family: var(--font-sans);
-  font-size: clamp(22px, 2.5vw, 38px);
+  font-size: var(--text-h2-tight);
   line-height: var(--leading-h3);
   letter-spacing: -0.015em;
   font-weight: var(--fw-medium);
@@ -1635,7 +1635,7 @@ a:not([class]):hover,
   color: var(--accent-text);
 }
 .how-row .desc {
-  font-size: clamp(12px, 1.2vw, 14.5px);
+  font-size: var(--text-label);
   color: var(--muted);
   line-height: var(--leading-relaxed);
   text-wrap: pretty;

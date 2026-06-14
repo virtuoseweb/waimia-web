@@ -124,7 +124,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   .about-grid {
     display: grid;
     grid-template-columns: 1.55fr 1fr;
-    gap: clamp(40px, 6vw, 80px);
+    gap: var(--space-10);
     max-width: 1200px;
   }
 
@@ -135,11 +135,11 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
     line-height: var(--leading-prose);
     color: var(--ink-2);
   }
-  :global(.about-kicker) { display: block; margin: clamp(48px, 5vw, 64px) 0 var(--space-3); }
+  :global(.about-kicker) { display: block; margin: var(--space-9) 0 var(--space-3); }
   :global(.about-prose > *:first-child) { margin-top: 0; }
   .about-prose h2 {
     font-family: var(--font-display);
-    font-size: clamp(26px, 3vw, 40px);
+    font-size: var(--text-h2-tight);
     line-height: var(--leading-h3);
     letter-spacing: -0.02em;
     font-weight: var(--fw-regular);
@@ -201,14 +201,14 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
     grid-row: span 2;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(28px, 3.4vw, 46px);
+    font-size: var(--text-pull-quote);
     line-height: 0.9;
     letter-spacing: var(--tracking-display);
     color: var(--accent-text);
   }
   .about-livrables-t {
     font-family: var(--font-sans);
-    font-size: clamp(18px, 1.8vw, 22px);
+    font-size: var(--text-h3-card);
     font-weight: var(--fw-medium);
     line-height: 1.2;
     color: var(--ink);
@@ -225,7 +225,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   /* ── Aside sticky ── */
   .about-aside {
     border-left: 1px solid var(--hairline);
-    padding-left: clamp(20px, 3vw, 40px);
+    padding-left: var(--space-7);
     align-self: start;
     position: sticky;
     top: 100px;
@@ -317,8 +317,8 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   /* ── CTA final ── */
   .about-cta {
     border-top: 1px solid var(--hairline);
-    padding-top: clamp(48px, 6vw, 80px);
-    margin-top: clamp(64px, 8vw, 100px);
+    padding-top: var(--space-10);
+    margin-top: var(--space-11);
   }
   .about-cta-eyebrow {
     display: block;
@@ -331,7 +331,7 @@ import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
   }
   .about-cta-h2 {
     font-family: var(--font-display);
-    font-size: clamp(32px, 4.5vw, 64px);
+    font-size: var(--text-h2-section);
     line-height: 1.05;
     letter-spacing: var(--tracking-display);
     font-weight: var(--fw-regular);

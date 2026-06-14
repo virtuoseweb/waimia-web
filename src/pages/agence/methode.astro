@@ -151,12 +151,12 @@ const impactData = {
   .meth-impact {
     margin-inline: calc(-1 * var(--space-6));
   }
-  .meth-cadence { margin-block: clamp(40px, 5vw, 64px) clamp(56px, 7vw, 88px); }
-  .meth-impact { margin-block: clamp(56px, 7vw, 88px); }
+  .meth-cadence { margin-block: var(--space-9) var(--space-10); }
+  .meth-impact { margin-block: var(--space-10); }
 
   /* ── Garanties ── */
   .meth-garanties {
-    margin: clamp(64px, 8vw, 100px) 0 clamp(48px, 6vw, 80px);
+    margin: var(--space-11) 0 var(--space-10);
   }
   :global(.meth-garanties-kicker) { display: block; margin-bottom: 28px; }
   .meth-garanties-grid {
@@ -166,13 +166,13 @@ const impactData = {
     border: 1px solid var(--hairline);
   }
   .meth-garantie {
-    padding: clamp(28px, 3.5vw, 48px);
+    padding: var(--space-8);
     border-right: 1px solid var(--hairline);
   }
   .meth-garantie:last-child { border-right: none; }
   .meth-garantie-title {
     font-family: var(--font-display);
-    font-size: clamp(17px, 1.8vw, 22px);
+    font-size: var(--text-h3-card);
     font-weight: var(--fw-regular);
     letter-spacing: -0.015em;
     margin: 0 0 var(--space-3);
@@ -196,14 +196,14 @@ const impactData = {
     background: var(--paper-2);
     border: 1px solid var(--hairline);
     border-left: 3px solid var(--accent);
-    padding: clamp(32px, 4vw, 56px);
-    margin-bottom: clamp(72px, 9vw, 120px);
+    padding: var(--space-8);
+    margin-bottom: var(--space-12);
     max-width: 800px;
   }
   :global(.meth-os-kicker) { display: block; margin-bottom: 20px; }
   .meth-os-h2 {
     font-family: var(--font-display);
-    font-size: clamp(24px, 2.8vw, 44px);
+    font-size: var(--text-pull-quote);
     font-weight: var(--fw-regular);
     letter-spacing: -0.022em;
     line-height: 1.05;
@@ -225,15 +225,15 @@ const impactData = {
   .meth-cta {
     text-align: left;
     border-top: 1px solid var(--hairline);
-    padding-top: clamp(48px, 6vw, 72px);
+    padding-top: var(--space-9);
     display: flex;
     align-items: center;
-    gap: clamp(28px, 4vw, 56px);
+    gap: var(--space-8);
     flex-wrap: wrap;
   }
   .meth-cta-h2 {
     font-family: var(--font-display);
-    font-size: clamp(28px, 3.5vw, 52px);
+    font-size: var(--text-h2-section);
     font-weight: var(--fw-regular);
     letter-spacing: -0.022em;
     line-height: var(--leading-h3);

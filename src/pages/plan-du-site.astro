@@ -91,26 +91,26 @@ const linkCountLabel = lang === 'fr'
   : `${totalLinks} pages listed`;
 ---
 <Base title={title} description={description}>
-  <section class="wrap" style="padding-top:clamp(96px,12vw,180px);padding-bottom:clamp(48px,6vw,80px)">
+  <section class="wrap" style="padding-top:var(--section-loose);padding-bottom:var(--space-10)">
     <p style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin:0 0 16px">
       {lang === 'fr' ? '§ Navigation' : '§ Navigation'}
     </p>
     <h1 style="font-size:var(--text-h1-hero);line-height:var(--leading-tight);color:var(--ink);margin:0;max-width:18ch">
       {lang === 'fr' ? 'Plan du site' : 'Site map'}
     </h1>
-    <p style="font-size:var(--text-body-md);color:var(--ink-2);max-width:56ch;margin-top:clamp(16px,2vw,28px);line-height:var(--leading-lede)">
+    <p style="font-size:var(--text-body-md);color:var(--ink-2);max-width:56ch;margin-top:var(--space-5);line-height:var(--leading-lede)">
       {lang === 'fr'
         ? 'Toutes les destinations du site, regroupées par univers. Une seule source de vérité, dérivée de la navigation.'
         : 'Every destination on the site, grouped by area. A single source of truth, derived from the navigation.'}
     </p>
-    <p style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:clamp(12px,1.5vw,20px)">
+    <p style="font-family:var(--font-mono);font-size:var(--text-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:var(--space-4)">
       {linkCountLabel}
     </p>
   </section>
 
-  <nav class="wrap planmap" aria-label={lang === 'fr' ? 'Plan du site' : 'Site map'} style="padding-bottom:clamp(80px,10vw,160px)">
+  <nav class="wrap planmap" aria-label={lang === 'fr' ? 'Plan du site' : 'Site map'} style="padding-bottom:var(--section-loose)">
     {navSections.map((section) => (
-      <section class="planmap-section hline" style="padding-top:clamp(32px,4vw,56px);padding-bottom:clamp(8px,1vw,16px)">
+      <section class="planmap-section hline" style="padding-top:var(--space-8);padding-bottom:var(--space-4)">
         <div class="planmap-head">
           <h2 style="font-size:var(--text-h2-section);color:var(--ink);margin:0">
             <a href={lh(section.href)} class="planmap-title-link">{t(section.title, lang)}</a>
@@ -140,7 +140,7 @@ const linkCountLabel = lang === 'fr'
       </section>
     ))}
 
-    <section class="planmap-section hline" style="padding-top:clamp(32px,4vw,56px)">
+    <section class="planmap-section hline" style="padding-top:var(--space-8)">
       <div class="planmap-head">
         <h2 style="font-size:var(--text-h2-section);color:var(--ink);margin:0">{footerHeading}</h2>
       </div>
@@ -168,7 +168,7 @@ const linkCountLabel = lang === 'fr'
   .planmap-section {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: clamp(20px, 3vw, 40px);
+    gap: var(--space-7);
   }
   .planmap-head {
     max-width: 60ch;
@@ -176,7 +176,7 @@ const linkCountLabel = lang === 'fr'
   .planmap-cols {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: clamp(24px, 3vw, 44px);
+    gap: var(--space-7);
   }
   .planmap-title-link {
     color: inherit;
