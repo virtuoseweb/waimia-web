@@ -237,32 +237,14 @@ const SOLUTIONS: MegaMenuSection = {
         fr: '"J\'ai des données partout, mais je ne sais pas ce qui marche vraiment."',
         en: '"I have data everywhere, but I don\'t know what\'s actually working."',
       },
+      // SEO état final : les 6 pages /solutions Piloter (data) sont supprimées (anti-dilution).
+      // Cible §0bis = pilier vitrine « Data & Analytics » à créer (/solutions/data-analytics,
+      // sections ancrées). En attendant le pilier, on renvoie au hub Solutions (route valide).
       links: [
         {
-          label: { fr: 'Tableaux de bord & analytics', en: 'Dashboards & analytics' },
-          href: '/solutions/tableaux-de-bord-analytics',
-          description: { fr: 'Vos chiffres clés, lisibles en un coup d\'œil.', en: 'Your key numbers, readable at a glance.' },
-        },
-        {
-          label: { fr: 'Reporting IA', en: 'AI reporting' },
-          href: '/solutions/reporting-ia',
-          description: { fr: 'Des rapports générés et commentés par l\'IA.', en: 'Reports generated and commented by AI.' },
-        },
-        {
-          label: { fr: 'Données centralisées', en: 'Centralized data' },
-          href: '/solutions/donnees-centralisees',
-          description: { fr: 'Une seule source de vérité, partout connectée.', en: 'One source of truth, connected everywhere.' },
-        },
-        {
-          label: { fr: 'Prévisionnel IA', en: 'AI forecasting' },
-          href: '/solutions/previsionnel-ia',
-          description: { fr: 'Anticipez le pipeline et la trésorerie.', en: 'Anticipate pipeline and cash flow.' },
-        },
-        {
-          label: { fr: 'Agent analytique', en: 'Analytics agent' },
-          href: '/solutions/agent-analytique',
-          description: { fr: 'Un agent qui répond à vos questions de pilotage.', en: 'An agent that answers your steering questions.' },
-          badge: { fr: 'Agent IA', en: 'AI agent' },
+          label: { fr: 'Data & Analytics', en: 'Data & Analytics' },
+          href: '/solutions',
+          description: { fr: 'Tableaux de bord, reporting IA, données centralisées, prévisionnel.', en: 'Dashboards, AI reporting, centralized data, forecasting.' },
         },
       ],
     },
@@ -273,37 +255,14 @@ const SOLUTIONS: MegaMenuSection = {
         fr: '"Mon équipe perd des heures sur des tâches répétitives qui pourraient être automatisées."',
         en: '"My team loses hours on repetitive tasks that could be automated."',
       },
+      // SEO état final : les 7 pages /solutions Opérer (CRM/RH/légal/support/agents) sont supprimées.
+      // Cible §0bis = pilier vitrine « Automatisation & Agents IA » à créer
+      // (/solutions/automatisation-agents-ia, sections ancrées). En attendant : hub Solutions.
       links: [
         {
-          label: { fr: 'CRM & relances', en: 'CRM & follow-ups' },
-          href: '/solutions/crm-relances-ia',
-          description: { fr: 'Pipeline commercial qui ne dort jamais.', en: 'A sales pipeline that never sleeps.' },
-        },
-        {
-          label: { fr: 'Automatisation de tâches & outils connectés', en: 'Task automation & connected tools' },
-          href: '/solutions/productivite-ia',
-          description: { fr: 'Vos outils reliés, vos tâches automatisées.', en: 'Your tools linked, your tasks automated.' },
-        },
-        {
-          label: { fr: 'Service client IA', en: 'AI customer service' },
-          href: '/solutions/support-client-ia',
-          description: { fr: 'Réponses 24/7, escalade humaine intelligente.', en: '24/7 answers, smart human escalation.' },
-        },
-        {
-          label: { fr: 'Administration & RH', en: 'Admin & HR' },
-          href: '/solutions/administration-rh-ia',
-          description: { fr: 'Paperasse, onboarding et suivi allégés.', en: 'Paperwork, onboarding and tracking lightened.' },
-        },
-        {
-          label: { fr: 'Légal IA', en: 'Legal AI' },
-          href: '/solutions/legal-ia',
-          description: { fr: 'Contrats relus et risques signalés en amont.', en: 'Contracts reviewed and risks flagged upfront.' },
-        },
-        {
-          label: { fr: 'Agents métiers', en: 'Business agents' },
-          href: '/solutions/agents-metiers',
-          description: { fr: 'Des agents taillés pour vos process internes.', en: 'Agents tailored to your internal processes.' },
-          badge: { fr: 'Agent IA', en: 'AI agent' },
+          label: { fr: 'Automatisation & Agents IA', en: 'Automation & AI Agents' },
+          href: '/solutions',
+          description: { fr: 'CRM, automatisation, service client, admin/RH, légal, agents métiers.', en: 'CRM, automation, customer service, admin/HR, legal, business agents.' },
         },
       ],
       footer: {

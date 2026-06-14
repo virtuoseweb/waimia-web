@@ -53,11 +53,11 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       kicker: { en: 'BY PROBLEM', fr: 'PAR PROBLÈME' },
       label: { en: 'Business use cases', fr: "Cas d'usage business" },
       items: [
-        { href: '/solutions/acquisition-ia', label: { en: 'AI Acquisition', fr: 'Acquisition IA' }, lead: { en: 'More qualified leads, without hiring.', fr: 'Plus de leads qualifiés, sans recruter.' } },
-        { href: '/solutions/crm-relances-ia', label: { en: 'CRM & AI follow-ups', fr: 'CRM & relances IA' }, lead: { en: 'A sales pipeline that never sleeps.', fr: 'Pipeline commercial qui ne dort jamais.' } },
         { href: '/solutions/contenu-seo-geo-ia', label: { en: 'SEO/GEO content with AI', fr: 'Contenu SEO / GEO IA' }, lead: { en: 'Content found by Google AND AI engines.', fr: 'Du contenu trouvé par Google ET les IA.' } },
-        { href: '/solutions/productivite-ia', label: { en: 'AI Productivity', fr: 'Productivité IA' }, lead: { en: 'Your Excel and Office teams, augmented.', fr: 'Vos équipes Excel et Office, augmentées.' } },
-        { href: '/solutions/support-client-ia', label: { en: 'AI Customer Support', fr: 'Support client IA' }, lead: { en: '24/7 answers, smart human escalation.', fr: 'Réponses 24/7, escalade humaine intelligente.' } },
+        { href: '/solutions/content-marketing-ia', label: { en: 'AI content marketing', fr: 'Content marketing IA' }, lead: { en: 'An editorial line that attracts and converts.', fr: 'Une ligne éditoriale qui attire et convertit.' } },
+        { href: '/solutions/publicite-en-ligne', label: { en: 'Online advertising', fr: 'Publicité en ligne' }, lead: { en: 'ROI-driven campaigns, without waste.', fr: 'Campagnes pilotées au ROI, sans gaspillage.' } },
+        { href: '/solutions/tunnel-de-vente', label: { en: 'Sales funnel', fr: 'Tunnel de vente' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
+        { href: '/solutions/agent-marketing-commercial', label: { en: 'Marketing & sales agent', fr: 'Agent marketing & commercial' }, lead: { en: 'An agent that prospects and follows up continuously.', fr: 'Un agent qui prospecte et relance en continu.' } },
       ],
     },
     {
@@ -323,24 +323,24 @@ export const FOOTER_COLS: FooterCol[] = [
     heading: { en: 'Solutions', fr: 'Solutions' },
     items: [
       {
-        href: '/solutions/acquisition-ia',
-        label: { en: 'AI Acquisition', fr: 'Acquisition IA' },
-      },
-      {
-        href: '/solutions/crm-relances-ia',
-        label: { en: 'CRM & AI follow-ups', fr: 'CRM & relances IA' },
-      },
-      {
         href: '/solutions/contenu-seo-geo-ia',
         label: { en: 'SEO/GEO content with AI', fr: 'Contenu SEO/GEO IA' },
       },
       {
-        href: '/solutions/productivite-ia',
-        label: { en: 'AI Productivity', fr: 'Productivité IA' },
+        href: '/solutions/content-marketing-ia',
+        label: { en: 'AI content marketing', fr: 'Content marketing IA' },
       },
       {
-        href: '/solutions/support-client-ia',
-        label: { en: 'AI Customer Support', fr: 'Support client IA' },
+        href: '/solutions/publicite-en-ligne',
+        label: { en: 'Online advertising', fr: 'Publicité en ligne' },
+      },
+      {
+        href: '/solutions/tunnel-de-vente',
+        label: { en: 'Sales funnel', fr: 'Tunnel de vente' },
+      },
+      {
+        href: '/solutions/agent-marketing-commercial',
+        label: { en: 'Marketing & sales agent', fr: 'Agent marketing & commercial' },
       },
       { href: '/secteurs', label: { en: 'By sector →', fr: 'Par secteur →' } },
     ],

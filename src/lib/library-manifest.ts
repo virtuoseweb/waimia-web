@@ -41,16 +41,13 @@ export interface LibraryOrganismEntry {
 
 // ── Usage par type-id (hand-authored — 67 entrées, consumers=[] si catalogue-only) ──
 
-// Wave 1.4 — les 8 pages de la collection solutions consomment les 6 types signatures.
+// SEO état final — les pages /solutions secondaires sont supprimées ; restent les 5 enfants Acquérir.
 const SOLUTIONS_CONSUMERS = [
-  'src/content/solutions/acquisition-ia.mdx',
   'src/content/solutions/contenu-seo-geo-ia.mdx',
-  'src/content/solutions/crm-relances-ia.mdx',
-  'src/content/solutions/finance.mdx',
-  'src/content/solutions/fintech.mdx',
-  'src/content/solutions/productivite-ia.mdx',
-  'src/content/solutions/site-web-ia-pme.mdx',
-  'src/content/solutions/support-client-ia.mdx',
+  'src/content/solutions/content-marketing-ia.mdx',
+  'src/content/solutions/publicite-en-ligne.mdx',
+  'src/content/solutions/tunnel-de-vente.mdx',
+  'src/content/solutions/agent-marketing-commercial.mdx',
 ];
 
 const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
