@@ -333,7 +333,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
           <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Friction</Kicker>
           <h2><i>Points</i><br/>de friction</h2>
         </header>
-        <aside class="sol-aside col-aside">
+        <div class="sol-aside col-aside">
           <Callout variant="note" size="sm">
             {painAsideHtml.trim() ? (
               <Fragment set:html={painAsideHtml} />
@@ -341,7 +341,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
               <>Avant d'automatiser, comprendre où le temps se perd. Les frictions récurrentes que nous voyons sur le terrain.</>
             )}
           </Callout>
-        </aside>
+        </div>
         <div class="sol-pain-grid col-12">
           {effectiveFriction.length > 0 ? (
             <Timeline events={effectiveFriction} numbered={true} />
@@ -359,7 +359,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
           <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Workflows</Kicker>
           <h2><i>Ce qu'on</i><br/>automatise</h2>
         </header>
-        <aside class="sol-aside col-aside">
+        <div class="sol-aside col-aside">
           <Callout variant="info" size="sm">
             {workflowsAsideHtml.trim() ? (
               <Fragment set:html={workflowsAsideHtml} />
@@ -367,7 +367,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
               <>Chaque workflow est nommé, mesuré, attribué à un modèle précis. Pas de boîte noire.</>
             )}
           </Callout>
-        </aside>
+        </div>
         <div class="sol-workflow-table col-12">
           <div class="sol-workflow-head reveal-stagger">
             <div class="sol-wf-col-n">№</div>
@@ -473,7 +473,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
           <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Stack outils</Kicker>
           <h2><i>Outils</i><br/>déployés</h2>
         </header>
-        <aside class="sol-aside col-aside">
+        <div class="sol-aside col-aside">
           <Callout variant="note" size="sm">
             {stackAsideHtml.trim() ? (
               <Fragment set:html={stackAsideHtml} />
@@ -481,7 +481,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
               <>Le triptyque Anthropic primary + intégrations métier secondary + open source pour l'orchestration.</>
             )}
           </Callout>
-        </aside>
+        </div>
         <div class="sol-stack-grid col-12">
           <EditorialTable
             caption={`Stack typique · ${deptLabel}`}

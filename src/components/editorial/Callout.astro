@@ -18,7 +18,7 @@ interface Props {
 const { variant = 'note', cite, align = 'left', size = 'md', animate = false } = Astro.props;
 ---
 
-<aside class:list={["callout", `callout-${variant}`, `callout-${size}`, `callout-${align}`, { "reveal-fade-up": animate }]}>
+<div class:list={["callout", `callout-${variant}`, `callout-${size}`, `callout-${align}`, { "reveal-fade-up": animate }]}>
   <div class="callout-body">
     <slot />
   </div>
@@ -28,7 +28,7 @@ const { variant = 'note', cite, align = 'left', size = 'md', animate = false } =
       <span class="callout-cite-text">{cite}</span>
     </footer>
   )}
-</aside>
+</div>
 
 <style>
   .callout {
