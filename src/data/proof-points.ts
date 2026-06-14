@@ -97,9 +97,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     description_fr: 'On instrumente l\'acquisition pour suivre le ROI à 12 mois sur vos données, baseline posée au départ.',
     description_en: 'We instrument acquisition to track 12-month ROI on your data, with a baseline set upfront.',
     sources: [
-      'solutions/acquisition-ia',
-      'solutions/site-web-ia-pme',
-      'solutions/finance',
+      'solutions/agent-marketing-commercial',
       'offres/growth-system-ia',
     ],
   },
@@ -111,7 +109,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     label_en: 'Pipeline reconnected',
     description_fr: 'Délai de câblage visé pour reconnecter un pipeline dormant : site, CRM et relances dans un même flux.',
     description_en: 'Targeted wiring time to reconnect a dormant pipeline: site, CRM and follow-ups in one flow.',
-    sources: ['offres/growth-system-ia', 'solutions/acquisition-ia'],
+    sources: ['offres/growth-system-ia', 'solutions/agent-marketing-commercial'],
   },
   {
     id: 'roi-leads-x2-4',
@@ -122,8 +120,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     description_fr: 'Multiplication des leads qualifiés que vise le système une fois câblé, mesurée sur votre pipeline.',
     description_en: 'Qualified-lead multiplier the system aims for once wired, measured on your own pipeline.',
     sources: [
-      'solutions/acquisition-ia',
-      'solutions/site-web-ia-pme',
+      'solutions/agent-marketing-commercial',
       'offres/growth-system-ia',
     ],
   },
@@ -156,7 +153,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     label_en: 'Complete AI maturity audit delivered in 5 days',
     description_fr: 'Engagement standard audit Waimia, inclus dans les offres de diagnostic.',
     description_en: 'Standard Waimia audit engagement, included in diagnostic offers.',
-    sources: ['proof-points/time-5-jours-audit', 'offres/activation-ia'],
+    sources: ['proof-points/time-5-jours-audit'],
   },
   {
     id: 'time-qualification-62pct',
@@ -166,7 +163,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     label_en: 'Sales qualification time · target',
     description_fr: 'Gain de temps de qualification que vise le scoring IA des leads entrants, mesuré sur votre volume.',
     description_en: 'Qualification-time gain that AI scoring of inbound leads aims for, measured on your own volume.',
-    sources: ['solutions/acquisition-ia', 'offres/growth-system-ia'],
+    sources: ['solutions/agent-marketing-commercial', 'offres/growth-system-ia'],
   },
   {
     id: 'time-cloture-72pct',
@@ -176,7 +173,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     label_en: 'Monthly close time · target',
     description_fr: 'Gain de temps de clôture que vise l\'automatisation de la réconciliation, mesuré sur vos écritures réelles.',
     description_en: 'Close-time gain that reconciliation automation aims for, measured on your real ledger.',
-    sources: ['solutions/finance', 'solutions/productivite-ia'],
+    sources: [],
   },
   {
     id: 'time-halcyon-120h',
@@ -216,7 +213,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     label_en: 'Targeted hours on invoice processing',
     description_fr: 'Capacité du pipeline : 30 s par facture en extraction, classification et pré-saisie automatisées, contre 8 min en manuel.',
     description_en: 'Pipeline capability: 30s per invoice for automated extraction, classification and pre-entry, versus 8 min by hand.',
-    sources: ['offres/productivite-operationnelle-ia'],
+    sources: [],
   },
   // ── Coût ──
   {
@@ -237,7 +234,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     label_en: 'AI activation at a fixed, transparent price',
     description_fr: 'Tarif fixe de l\'offre Activation 1 semaine, aucun surcoût caché.',
     description_en: 'Fixed rate for the 1-week Activation offer, no hidden costs.',
-    sources: ['proof-points/cost-prix-transparent', 'offres/activation-ia'],
+    sources: ['proof-points/cost-prix-transparent'],
   },
   // ── Qualité ──
   {
@@ -281,9 +278,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     description_en: 'Waimia contractual commitment, included in all offers.',
     sources: [
       'proof-points/adoption-100pct-equipe',
-      'offres/activation-ia',
-      'offres/infrastructure-ia',
-      'offres/application-ia-pme',
+      'offres/growth-system-ia',
     ],
   },
   {
@@ -315,7 +310,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     label_en: 'Support tickets · daily processing capacity',
     description_fr: 'Volume quotidien qu\'un agent de support bien câblé peut trier et résoudre, dimensionné sur votre flux.',
     description_en: 'Daily volume a well-wired support agent can triage and resolve, sized to your own flow.',
-    sources: ['proof-points/volume-1000-tickets-jour', 'solutions/support-client-ia'],
+    sources: ['proof-points/volume-1000-tickets-jour'],
   },
   {
     id: 'volume-10k-leads-traites',
@@ -336,8 +331,7 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     description_fr: 'Pipeline éditorial IA : 8 articles par semaine optimisés Google + citation IA.',
     description_en: 'AI editorial pipeline: 8 articles per week optimised for Google and AI citation.',
     sources: [
-      'solutions/acquisition-ia',
-      'solutions/site-web-ia-pme',
+      'solutions/agent-marketing-commercial',
       'offres/growth-system-ia',
     ],
   },

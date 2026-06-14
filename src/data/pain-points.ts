@@ -48,7 +48,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'Sales reps spend 40 to 60% of their time on lukewarm or off-ICP leads. Conversion rates stagnate despite acquisition investment.',
     sources: [
       'pain-points/leads-non-qualifies',
-      'solutions/acquisition-ia',
+      'solutions/agent-marketing-commercial',
       'offres/growth-system-ia',
     ],
   },
@@ -62,9 +62,8 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "Content stays buried on Google page 4, generative AIs do not cite the brand, and production capacity cannot match the required volume.",
     sources: [
       'pain-points/seo-stagnant-sans-volume',
-      'solutions/acquisition-ia',
       'solutions/contenu-seo-geo-ia',
-      'solutions/site-web-ia-pme',
+      'solutions/content-marketing-ia',
     ],
   },
   {
@@ -77,7 +76,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'The site generates traffic but converts below 2%: the page experience does not address real objections and acquisition cost skyrockets.',
     sources: [
       'pain-points/landing-pages-low-convert',
-      'solutions/site-web-ia-pme',
+      'solutions/tunnel-de-vente',
       'offres/growth-system-ia',
     ],
   },
@@ -91,7 +90,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'The pipeline is a black box: no way to know which opportunities progress, which stagnate, or what revenue is closeable within 90 days.',
     sources: [
       'pain-points/manque-visibilite-pipeline',
-      'solutions/crm-relances-ia',
+      'solutions/agent-marketing-commercial',
     ],
   },
   {
@@ -103,7 +102,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     description_en:
       'Leads exist but leak between the site, the CRM and inboxes: late or forgotten follow-ups, historical opportunities never reactivated.',
     sources: [
-      'solutions/crm-relances-ia',
+      'solutions/agent-marketing-commercial',
       'offres/growth-system-ia',
     ],
   },
@@ -115,7 +114,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "L'acquisition tient sur 1 ou 2 commerciaux : une absence et les leads s'évaporent. Recruter un SDR coûte cher, monte lentement en charge et repart.",
     description_en:
       'Acquisition relies on 1 or 2 salespeople: one absence and leads evaporate. Hiring an SDR is expensive, slow to ramp, and short-lived.',
-    sources: ['solutions/acquisition-ia'],
+    sources: ['solutions/agent-marketing-commercial'],
   },
   {
     id: 'reporting-manuel-excel',
@@ -127,9 +126,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'Every close, days are spent consolidating heterogeneous spreadsheets for a report already stale on presentation day.',
     sources: [
       'pain-points/reporting-manuel-excel',
-      'solutions/finance',
-      'solutions/productivite-ia',
-      'offres/growth-intelligence',
     ],
   },
   {
@@ -142,10 +138,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'Strategic decisions rely on intuition: indicators are missing, scattered, or arrive too late for the decisions that matter.',
     sources: [
       'pain-points/decisions-sans-data',
-      'solutions/finance',
-      'solutions/productivite-ia',
-      'solutions/site-web-ia-pme',
-      'offres/growth-intelligence',
     ],
   },
   {
@@ -168,9 +160,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'Teams lose 40% of their time to formulas, copy-paste, hand-made quotes and documents, at the expense of analysis and decision-making.',
     sources: [
       'pain-points/taches-repetitives-quotidiennes',
-      'solutions/productivite-ia',
-      'solutions/site-web-ia-pme',
-      'offres/productivite-operationnelle-ia',
     ],
   },
   {
@@ -191,7 +180,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "Les équipes ont accès à l'IA mais ne l'utilisent pas : sans scripts d'adoption, bibliothèque de prompts et connecteurs, l'usage ne décolle pas.",
     description_en:
       'Teams have access to AI but do not use it: without adoption scripts, a prompt library and connectors, usage never takes off.',
-    sources: ['offres/claude-cowork'],
+    sources: ['pain-points/adoption-ia-faible'],
   },
   {
     id: 'outils-generiques-inadaptes',
@@ -201,7 +190,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "Les outils IA généralistes ne connaissent ni le métier, ni les clients, ni les données : le process s'adapte à l'outil au lieu de l'inverse.",
     description_en:
       'Generic AI tools know neither the business, the clients, nor the data: the process adapts to the tool instead of the reverse.',
-    sources: ['offres/application-ia-pme'],
+    sources: ['pain-points/outils-generiques-inadaptes'],
   },
   {
     id: 'pilotes-ia-sans-production',
@@ -211,7 +200,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "Des pilotes IA partout, aucun en production : chaque équipe réinvente la roue, la donnée ne circule pas, et personne n'a le mandat pour un projet de 6 mois.",
     description_en:
       'AI pilots everywhere, none in production: every team reinvents the wheel, data does not flow, and nobody has the mandate for a 6-month project.',
-    sources: ['offres/infrastructure-ia', 'offres/activation-ia'],
+    sources: ['pain-points/pilotes-ia-sans-production'],
   },
   {
     id: 'support-premier-niveau-sature',
@@ -221,7 +210,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "Les tickets s'accumulent, le premier niveau répète les mêmes réponses et l'escalade vers l'humain est mal calibrée.",
     description_en:
       'Tickets pile up, first-line support repeats the same answers, and escalation to humans is poorly calibrated.',
-    sources: ['solutions/support-client-ia'],
+    sources: ['pain-points/support-premier-niveau-sature'],
   },
   {
     id: 'prompt-leak-confidential',
@@ -233,8 +222,6 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       'Staff paste contractual data, pricing and client information into free-tier AI tools: that data flows into third-party pipelines.',
     sources: [
       'pain-points/prompt-leak-confidential',
-      'offres/claude-cowork',
-      'offres/infrastructure-ia',
     ],
   },
   {
@@ -245,7 +232,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "Les agents IA accèdent aux données clients sans politique de rétention ni base légale documentée : un contrôle CNIL serait intenable sous 72 heures.",
     description_en:
       'AI agents access client data without retention policy or documented legal basis: a CNIL audit could not be answered within 72 hours.',
-    sources: ['pain-points/donnees-clients-rgpd-flou', 'solutions/fintech'],
+    sources: ['pain-points/donnees-clients-rgpd-flou'],
   },
   {
     id: 'agent-actions-non-auditables',
@@ -255,7 +242,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "Les agents IA agissent (emails, CRM, devis) sans journal d'audit traçable : impossible de reconstituer qui a fait quoi, quand et pourquoi.",
     description_en:
       'AI agents act (emails, CRM, quotes) with no traceable audit log: impossible to reconstruct who did what, when, and why.',
-    sources: ['pain-points/agent-actions-non-auditables', 'solutions/fintech'],
+    sources: ['pain-points/agent-actions-non-auditables'],
   },
   {
     id: 'conformite-reglementaire-chronophage',
@@ -265,7 +252,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "ACPR, AI Act, KYC, LCB-FT : la préparation des dossiers et le reporting régulateur consomment les équipes, et la stack rend la conformité difficile.",
     description_en:
       'ACPR, AI Act, KYC, AML: preparing files and regulator reporting drains teams, and the stack makes compliance difficult.',
-    sources: ['solutions/fintech'],
+    sources: ['pain-points/conformite-reglementaire-chronophage'],
   },
   {
     id: 'goulots-operationnels-non-identifies',
@@ -275,7 +262,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
       "ERP non connectés, flux inter-sites opaques, qualité détectée trop tard : les goulots qui coûtent le plus ne sont ni identifiés ni documentés.",
     description_en:
       'Disconnected ERPs, opaque inter-site flows, quality detected too late: the costliest bottlenecks are neither identified nor documented.',
-    sources: ['offres/conseil'],
+    sources: ['pain-points/goulots-operationnels-non-identifies'],
   },
 ] as const;
 
