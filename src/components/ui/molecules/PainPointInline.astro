@@ -70,7 +70,7 @@ const Tag   = slug ? 'a' : 'div';
     grid-template-columns: 48px 1fr;
     gap: 0;
     border-bottom: 1px solid var(--hairline);
-    padding-block: 20px;
+    padding-block: var(--space-5);
   }
   .pp-inline:first-child { border-top: 1px solid var(--hairline); }
 
@@ -140,7 +140,7 @@ const Tag   = slug ? 'a' : 'div';
   .pp-inline__solution {
     font-family: var(--font-sans);
     font-size: clamp(12.5px, 0.9vw + 11px, 13.5px);
-    line-height: 1.6;
+    line-height: var(--leading-relaxed);
     color: var(--muted);
     margin: 0;
   }
