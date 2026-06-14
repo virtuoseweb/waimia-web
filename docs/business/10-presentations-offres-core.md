@@ -71,7 +71,7 @@ Offre cœur, dès 2 000 € HT (Essentiel), 4 paliers + sur-mesure. 11 slides. O
 ### 1. Couverture
 - **Site Web IA Waimia** — Astro IA-native : perf max, éditable par IA, GEO-ready.
 - Sous-titre : « Plus rapide que 95 % de vos concurrents. Lisible par les IA. Vivant sans dépendre d'une agence. »
-- Dès **3 000 € HT** · 3 paliers · Waimia — Agence IA anthropic-first, Montpellier.
+- Dès **2 000 € HT** · 4 paliers + sur-mesure · Waimia, cabinet d'orchestration IA anthropic-first, Montpellier.
 - [Logo / nom prospect] · [date]
 
 ### 2. Le problème
@@ -130,7 +130,7 @@ Offre cœur, dès 2 000 € HT (Essentiel), 4 paliers + sur-mesure. 11 slides. O
 - L'audit payé s'impute sur le site si vous avez commencé par là.
 
 ### 10. Objections clés
-- « 3 000 €, c'est cher, j'ai vu des sites à 500 € » → Un site invisible qui ne convertit pas se paie en clients perdus. Ici, c'est un **actif**, pas une dépense.
+- « 2 000 €, c'est cher, j'ai vu des sites à 500 € » → Un site invisible qui ne convertit pas se paie en clients perdus. Ici, c'est un **actif**, pas une dépense (et le palier d'entrée existe justement pour démarrer accessible, puis monter en escalier).
 - « WordPress me suffit » → Lent, vulnérable, coûteux à maintenir, illisible par les IA. Comparons les scores côte à côte.
 - « L'IA va halluciner / publier n'importe quoi » → Elle édite **sous garde-fous** et ne publie jamais seule : **vous validez**.
 - « Pourrai-je vraiment l'éditer ? » → Oui — démo à l'appui. Et sinon, on s'en occupe à l'usage.

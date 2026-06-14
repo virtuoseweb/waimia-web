@@ -8,10 +8,10 @@
 
 ## 0. Le piège qu'on désamorce
 
-Tant qu'on n'a parlé à personne, chaque hypothèse de la stratégie a le même statut : une conviction non testée habillée en certitude. « Le site qui ne convertit pas est une douleur forte », « le GEO leur parle », « ils paieront 3 000 € » — on l'a écrit, donc on y croit. C'est exactement le biais que la discovery casse.
+Tant qu'on n'a parlé à personne, chaque hypothèse de la stratégie a le même statut : une conviction non testée habillée en certitude. « Le site qui ne convertit pas est une douleur forte », « le GEO leur parle », « ils paieront 2 000 € » (le ticket d'entrée Essentiel de la grille canonique) : on l'a écrit, donc on y croit. C'est exactement le biais que la discovery casse.
 
 Trois erreurs qu'on s'interdit ici :
-1. **Demander un avis sur l'idée.** « Tu penses qu'un audit IA à 3 000 €, c'est bien ? » → réponse polie inutile. On demande ce qu'ils ont **fait**, pas ce qu'ils **pensent**.
+1. **Demander un avis sur l'idée.** « Tu penses qu'un site IA à 2 000 €, c'est bien ? » → réponse polie inutile. On demande ce qu'ils ont **fait**, pas ce qu'ils **pensent**.
 2. **Pitcher pour valider.** Si on présente l'offre, l'interlocuteur devient gentil et ment par politesse. Tant qu'on cherche à apprendre, on garde Waimia dans sa poche.
 3. **Confondre compliment et signal.** « Super intéressant, envoie-moi ça » ≠ achat. Le seul signal qui compte : un comportement passé coûteux (temps, argent, énergie déjà dépensés sur le problème).
 
@@ -24,7 +24,7 @@ Notation : **Risque** = gravité si on a tort (1-5, 5 = ça casse le business). 
 | # | Hypothèse | Risque | Incert. | Prio | Comment on la teste | Signal qui l'INVALIDE |
 |---|---|---|---|---|---|---|
 | **H1 — Problème** | Le site qui ne convertit pas / n'amène pas de clients est une douleur **vécue et nommée** par l'ICP | 5 | 4 | **20** | Demander le dernier moment où ils ont regardé d'où viennent leurs clients, et ce que leur site y change. Écouter si la douleur sort **spontanément**. | Personne ne cite le site comme un problème sans qu'on le souffle ; « notre site va très bien », ou le sujet ne les touche pas. |
-| **H2 — WTP 3 000 €** | La douleur est assez forte pour justifier **3 000 € HT** d'un coup, par ce profil | 5 | 4 | **20** | Faire raconter le **dernier achat marketing/web comparable** : combien, qui a décidé, sur quel argument. Mesurer l'ordre de grandeur réel des budgets engagés. | Les dépenses passées plafonnent à quelques centaines d'€ ; « 3 000 € c'est un investissement, il faut le comité/le gérant/un dossier » systématique → cycle long, pas un achat d'entrée. |
+| **H2 — WTP 2 000 €** | La douleur est assez forte pour justifier le **ticket d'entrée 2 000 € HT** (palier Essentiel) d'un coup, par ce profil | 5 | 4 | **20** | Faire raconter le **dernier achat marketing/web comparable** : combien, qui a décidé, sur quel argument. Mesurer l'ordre de grandeur réel des budgets engagés. | Les dépenses passées plafonnent à quelques centaines d'€ ; « 2 000 € c'est un investissement, il faut le comité/le gérant/un dossier » systématique → cycle long, pas un achat d'entrée. |
 | **H3 — ICP** | Le **responsable marketing PME/ETI** (vs dirigeant TPE) est le bon point d'entrée | 4 | 4 | **16** | Mêmes questions aux deux profils. Comparer qui ressent la douleur, qui a le budget, qui décide **seul**. | Le resp. marketing PME a de l'audience mais zéro autonomie budgétaire / le site n'est pas son sujet (DSI, agence en place) ; le dirigeant TPE décide vite mais n'a ni budget ni douleur web. |
 | **H4 — GEO** | « Invisible des IA / la place est libre » est une douleur **comprise et crédible**, pas un gadget de geek | 4 | 5 | **20** | Sans expliquer le GEO : leur demander s'ils ont déjà tapé leur métier dans ChatGPT, ce qu'ils en pensent, si ça les inquiète pour leur visibilité. | Indifférence totale (« mes clients ne cherchent pas comme ça »), ou incompréhension qui demande 10 min de pédagogie → argument de vente trop en avance de phase. |
 | **H5 — Canal** | On peut **atteindre** ce profil sans budget (réseau chaud → outbound local → LinkedIn) et obtenir un RDV | 4 | 3 | **12** | Pour chaque entretien : noter **par quel chemin** on l'a obtenu et en combien de jours. Le recrutement des 5 entretiens est lui-même le test du canal. | Seul le réseau direct répond ; outbound froid et LinkedIn = 0 réponse sur N tentatives → le canal d'acquisition scalable n'existe pas encore. |
@@ -137,7 +137,7 @@ Sur 5 entretiens (échantillon volontairement petit — on cherche des **signaux
 | Hypothèse | ✅ Validé si | ⚠️ Ambigu si | ❌ Invalidé si |
 |---|---|---|---|
 | **H1 problème** | ≥ 3/5 citent la douleur « site/visibilité » **spontanément** et ont **déjà agi** dessus | 2/5 spontané, ou cité mais aucun n'a agi | ≤ 1/5 spontané ; il faut la leur souffler à chaque fois |
-| **H2 WTP 3 000 €** | ≥ 3/5 ont **déjà dépensé ≥ 1 500-3 000 €** sur un poste comparable | dépenses 500-1 500 €, ou OK mais via comité/dossier long | ≤ 1/5 a dépassé quelques centaines d'€ ; « 3 000 € impensable » |
+| **H2 WTP 2 000 €** | ≥ 3/5 ont **déjà dépensé ≥ 1 500-2 000 €** sur un poste comparable | dépenses 500-1 500 €, ou OK mais via comité/dossier long | ≤ 1/5 a dépassé quelques centaines d'€ ; « 2 000 € impensable » |
 | **H3 ICP** | Un des deux profils ressort **net** sur douleur + budget + décision seul | les deux moyens, aucun ne se détache | le profil ciblé (resp. mkg PME) n'a ni le sujet ni le budget |
 | **H4 GEO** | ≥ 2/5 montrent **inquiétude spontanée** sur leur visibilité dans les IA | curiosité polie sans inquiétude | indifférence / incompréhension générale |
 | **H5 canal** | RDV obtenus hors réseau direct (Babel/LinkedIn/local froid) en ≤ 1 sem | seuls réseau + 1 autre canal répondent | **seul** le réseau chaud répond ; froid = 0 |
@@ -158,7 +158,7 @@ On agit sur les **patterns**, pas sur un entretien isolé. Pour chaque hypothès
 ### H2 — Willingness to pay (ticket d'entrée 2 000 €)
 - ✅ **Validé** → 2 000 € HT (Essentiel) tient comme **ticket d'entrée**. On confirme l'offre site dès 2 000 € et on corrige le site qui affiche encore 7 900 € (`state/03 C6`).
 - ⚠️ **Ambigu (budgets 500-1 500 € / cycle long)** → on crée une **marche basse** payante (audit packagé 300-600 € imputable, ou « starter » < 1 500 €) comme porte d'entrée vers le 2 000 €. On allonge le cycle attendu et on adapte le pipeline.
-- ❌ **Invalidé** → le ticket d'entrée est trop haut pour ce profil. Deux options : **monter en gamme** (cibler des boîtes plus grosses, ICP H3 à revoir) **ou** descendre l'offre d'entrée nettement. On ne maintient pas 3 000 € en froid contre les faits.
+- ❌ **Invalidé** → le ticket d'entrée est trop haut pour ce profil. Deux options : **monter en gamme** (cibler des boîtes plus grosses, ICP H3 à revoir) **ou** descendre l'offre d'entrée nettement. On ne maintient pas 2 000 € en froid contre les faits.
 
 ### H3 — ICP
 - ✅ **Un profil ressort net** → on **concentre** tout le ciblage (`03-plan-prospection`) sur lui, on arrête de disperser sur l'autre.
