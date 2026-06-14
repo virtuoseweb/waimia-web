@@ -66,7 +66,7 @@ Produit d'appel. 8 slides. Objectif du deck : vendre l'audit (pas le site), dés
 
 # DECK 2 — Site Web IA
 ### Deck : « Un site qui vous fait trouver, qui convertit, et que vous éditez en parlant. »
-Offre cœur, dès 3 000 € HT, 3 paliers. 11 slides. Objectif : faire choisir un palier, justifier le prix par la valeur (actif vs dépense), prouver par l'usage. Ton : démonstratif, comparatif, rassurant sur l'autonomie.
+Offre cœur, dès 2 000 € HT (Essentiel), 4 paliers + sur-mesure. 11 slides. Objectif : faire choisir un palier, justifier le prix par la valeur (actif vs dépense), prouver par l'usage. Ton : démonstratif, comparatif, rassurant sur l'autonomie.
 
 ### 1. Couverture
 - **Site Web IA Waimia** — Astro IA-native : perf max, éditable par IA, GEO-ready.
@@ -107,7 +107,7 @@ Offre cœur, dès 3 000 € HT, 3 paliers. 11 slides. Objectif : faire choisir u
 
 ### 7. Preuve chiffrée + cas
 - **Perf** : Astro typiquement **Lighthouse 90-100** vs WordPress 30-60. Comparons vos scores en direct.
-- **Marché** : vitrine PME 1 500-8 000 € (moyenne agence ~5 500 €), Montpellier 3 000-6 000 €. Notre plancher 3 000 € HT se place en fourchette basse-médiane — prix d'agence régionale, valeur supérieure (IA + GEO + automation).
+- **Marché** : vitrine PME 1 500-8 000 € (moyenne agence ~5 500 €), Montpellier 3 000-6 000 €. Notre plancher **2 000 € HT (Essentiel)** ouvre sous l'entrée agence (accessible PME), et la grille monte à 4/7/10k — valeur supérieure (IA + GEO + automation).
 - **Prouvé par l'usage** : waimia.com et virtuoseweb.fr tournent sur cette méthode.
 - **Clients réels** : Carnets de Montpellier, Balzeo, Amploi, Inbound Value, Desangles, naturopathe, import-export.
 
@@ -115,15 +115,17 @@ Offre cœur, dès 3 000 € HT, 3 paliers. 11 slides. Objectif : faire choisir u
 - **J1** : brief + arborescence.
 - **Sous 1 semaine** : une **preview déployée** — du vrai site en ligne, pas une maquette.
 - Puis : itérations → contenu + connexion IA + skills → mise en ligne.
-- **Délais** : Essentiel ~2 semaines · Croissance / Premium 3-5 semaines.
+- **Délais** : Essentiel ~2 semaines · Croissance / Complet / Intelligence 3-5 semaines.
 - **Conditions** : acompte 40-50 %, solde à la livraison. Hébergement + domaine en sus. Maintenance éditable par vous, ou option forfait.
 
-### 9. Pricing — 3 paliers
+### 9. Pricing — 4 paliers + sur-mesure
 | Palier | Pour qui | Inclus | Prix |
 |---|---|---|---|
-| **Essentiel** | Exister, être trouvé | Landing / 1-3 pages, SEO+GEO, mise en ligne | **dès 3 000 € HT** |
-| **Croissance** | Un site qui acquiert | 3-5 pages, connexion IA + skills, automation contenu de base | **3 000-6 000 €** |
-| **Premium** | Base prête pour growth | Site complet, skills avancés, pipeline contenu automatisé | **~6 000-8 000 €** |
+| **Essentiel** | Exister, être trouvé | Landing / 1-3 pages, SEO+GEO, mise en ligne | **2 000 € HT** |
+| **Croissance** | Un site qui acquiert | 3-5 pages, connexion IA + skills, automation contenu de base | **4 000 €** |
+| **Complet** | Site + système de contenu | Site complet + CMS intelligent + système de contenu + intégrations | **7 000 €** |
+| **Intelligence** | Le système qui tourne seul | + dashboard + agents + automatisations → pont Growth System IA | **10 000 €** |
+| **Sur mesure** | ETI / besoins spécifiques | App dédiée, multi-sites, intégrations lourdes | **sur devis** |
 - Recommandation par défaut pour une PME qui veut acquérir : **Croissance** (meilleur rapport effort/impact).
 - L'audit payé s'impute sur le site si vous avez commencé par là.
 

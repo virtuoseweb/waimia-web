@@ -5,11 +5,11 @@
 > ⚠️ **Horizon de ce doc = mix CIBLE (≥3 clients récurrents), pas T1.** Au **trimestre 1**, le contenu se limite à **2 canaux : LinkedIn (3 posts/sem) + 1 article/sem in-silo** (`state/03 §C5`, `marketing/03 §3`). **YouTube, TikTok, X, Reddit, podcast et webinar mensuel sont DIFFÉRÉS jusqu'à ≥3 clients récurrents.** Les sections ci-dessous décrivent l'état cible : ne pas les exécuter au démarrage.
 
 ## 1. Marque & message
-**Positionnement.** Agence IA « anthropic-first », Montpellier. Pas « une agence web qui fait aussi de l'IA » : une agence qui **construit des systèmes de croissance et des agents IA en production**, avec le web et le SEO comme socle. Différenciateur : maîtrise bout-en-bout (dev + SEO/ads + contenu + agents Claude/GPT) par un opérateur unique → cohérence, vélocité, zéro déperdition.
+**Positionnement.** Cabinet d'orchestration IA « anthropic-first », Montpellier. Pas « une agence web qui fait aussi de l'IA » : un **cabinet de conseil en transformation IA** qui **construit des systèmes de croissance et des agents IA en production**, avec le **site web intelligent comme porte d'entrée** (preuve, pas produit). Différenciateur : maîtrise bout-en-bout (dev + SEO/ads + contenu + agents Claude/GPT) par un opérateur unique → cohérence, vélocité, zéro déperdition.
 
 **Messages-piliers (3) :**
 1. **Preuve, pas promesse** — tout démontré sur cas réels (waimia.com, virtuoseweb.fr, clients réels). On montre l'écran, le résultat, le système.
-2. **Du quick win au système** — audit + site IA dès 3 000 € HT → Growth System IA → agents à l'usage. Escalier de valeur, pas de big bang.
+2. **Du quick win au système** — diagnostic IA + site web intelligent dès 2 000 € HT (Essentiel) → Growth System IA → agents à l'usage. Escalier de valeur, pas de big bang.
 3. **L'IA qui travaille, pas l'IA gadget** — agents réellement en prod (contenu, qualif, prospection), chiffres et démos à l'appui.
 
 **Ton.** Praticien, direct, anti-bullshit, pédagogue. On explique le « comment », on partage coulisses et ratés. Crédibilité par la transparence technique, jamais par le jargon.

@@ -59,7 +59,17 @@ Mapping agents → artefact + phase :
 
 Le scaffolding (placeholders balisés) part sans toi. Mais ces données = **toi qui tranche** (sinon « cibles » non chiffrées) :
 
-- [ ] **D1 — Prix paliers** : §7 confirme 4 k€ / 9 k€ indicatif / 12 k€ ? **Uplift création** (ex-`site-web-ia` « dès 7 900 € » à confirmer) = combien ? (sinon : « chiffré au cadrage », sans nombre)
+- [x] **D1 — Prix paliers** : **TRANCHÉ — grille canonique recadrée Simon 2026-06-14, remplace la grille v6 « Activation 4k / Site web intelligent 9k / Site Intelligence 12k »** (source de vérité = `strategy/02 §0ter`). §7 affiche désormais les 4 paliers chiffrés + sur-mesure :
+
+  | Palier | Prix HT | Inclus |
+  |---|---|---|
+  | **Essentiel / landing** (porte d'entrée cash-first) | **2 000 €** | landing-site 1-3 pages + SEO/GEO + mise en ligne |
+  | **Croissance** | **4 000 €** | site 3-5 pages + connexion IA (Claude/GPT) + skills + automation contenu de base |
+  | **Complet** | **7 000 €** | site complet + CMS intelligent + système de contenu + intégrations |
+  | **Intelligence** (système) | **10 000 €** | + dashboard + agents + automatisations → pont vers Growth System IA |
+  | **Sur mesure** | **sur devis** | ETI / besoins spécifiques (app dédiée, multi-sites, intégrations lourdes) |
+
+  Plancher du modèle financier = **2 000 €** ; échelle low→high ticket accessible PME. Rendu sur `pricing-cards` (schéma `tiers` max 4 → 4 paliers chiffrés + « Sur mesure » en 5ᵉ carte/aside CTA, cf `strategy/02 §0ter`). *(L'ancien « dès 7 900 € » de `site-web-ia` est caduc.)*
 - [ ] **D2 — Chiffres d'impact** #9 (−40 % qualif · 8 articles/sem · 0 captivité) : réels (adossés à un cas) ou je les libelle « cibles » ? (brief P2 : « relibeller en cibles si non adossés »)
 - [ ] **D3 — Cas clients** #5 : 0 réel publiable dans le repo → je scaffolde **3 placeholders balisés** (noms fictifs « Atelier Norne » / « Groupe Caldéra », §5.1). Tu fournis les vrais avant publication (gate §10).
 - [ ] **D4 — Avis** #11 : quantifié sobre (`4,9/5 · 12 avis` mono) ou pull-quote seul sans note ? (brief : pas d'étoiles 5/5 par défaut, « choix = Simon »)

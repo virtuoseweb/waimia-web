@@ -33,12 +33,16 @@
 5. **TVA** : indépendante du régime BNC. Si recettes services < **37 500 €** → franchise (tu ne factures
    ni ne récupères la TVA). Au-delà ou sur option → TVA facturée **et récupérable** sur tes achats pro.
 
-**Point mort recalculé (ordre de grandeur, à affiner comptable) :** cotisations ~43 % du bénéfice → pour
+**Point mort recalculé (ordre de grandeur, à affiner comptable) — grille canonique 2/4/7/10k, panier moyen ~4 000 € :** cotisations ~43 % du bénéfice → pour
 un net en poche ≈ **3 500 €/mois** (avant IR), il faut un **bénéfice ≈ 6 000-6 500 €/mois**, soit, après
-déduction de tes coûts fixes (~quelques centaines €/mois), un **CA ≈ 6 500-7 000 €/mois ≈ ~2 sites à
-3 000 €/mois**. Légèrement au-dessus du « 1,7 site » du modèle micro (taux social plus élevé sur le
-bénéfice), **mais** partiellement compensé par la déductibilité de toute ta stack. **Reco runway/coussin
-inchangée : 6-9 mois**, + une réserve pour la **régularisation de cotisations N+1**.
+déduction de tes coûts fixes (~quelques centaines €/mois), un **CA ≈ 6 500-7 000 €/mois**. Avec un **panier
+moyen pondéré ≈ 4 000 € HT** (mix paliers Essentiel 2k / Croissance 4k / Complet 7k / Intelligence 10k, hyp.
+`business/08`) au lieu de 3 000 €, cela tombe à **~1,6-1,7 site/mois** (vs ~2 sites quand l'entrée était à
+3 000 €) : **le panier moyen plus élevé fait BAISSER le nombre de sites nécessaires au point mort**. Le
+plancher de la grille reste **2 000 €** (palier Essentiel) — c'est la porte d'entrée cash-first, pas le panier
+moyen. **Mais** le taux social plus élevé sur le bénéfice (vs micro) reste partiellement compensé par la
+déductibilité de toute ta stack. **Reco runway/coussin inchangée : 6-9 mois**, + une réserve pour la
+**régularisation de cotisations N+1**. *(Tout ceci `[HYP, à confirmer comptable/AGA]`.)*
 
 > Pour passer d'ordre de grandeur à chiffre : ton comptable/AGA te sortira le taux de cotisation exact
 > (CIPAV vs SSI selon code activité) et ta tranche IR. Variable n°1 du modèle reste **le temps de prod/site**.
@@ -130,11 +134,12 @@ On valorise le temps de Simon à son coût d'opportunité (ce qu'une heure « ra
 
 Hypothèse de travail : **2 à 5 jours** de production effective par site, selon le palier. **Non mesuré** — à chronométrer sur les 3 premiers sites (temps total porte-à-porte : découverte, contenu, build, allers-retours, mise en ligne).
 
-| Palier site | Jours `[HYP]` | Heures (7 h/j) | Coût @50 €/h |
+| Palier site (grille canonique) | Jours `[HYP]` | Heures (7 h/j) | Coût @50 €/h |
 |---|---|---|---|
-| Site 3 000 € (1 palier) | 2 – 3 j | 14 – 21 h | **700 – 1 050 €** |
-| Site 3 000-6 000 € | 3 – 4 j | 21 – 28 h | **1 050 – 1 400 €** |
-| Site 6 000-8 000 € | 4 – 6 j | 28 – 42 h | **1 400 – 2 100 €** |
+| Essentiel / landing — 2 000 € | 1,5 – 2,5 j | 10 – 18 h | **525 – 875 €** |
+| Croissance — 4 000 € | 3 – 4 j | 21 – 28 h | **1 050 – 1 400 €** |
+| Complet — 7 000 € | 4 – 6 j | 28 – 42 h | **1 400 – 2 100 €** |
+| Intelligence (système) — 10 000 € | 6 – 9 j | 42 – 63 h | **2 100 – 3 150 €** |
 
 ### 2c. Coûts directs par site
 
@@ -154,28 +159,31 @@ Hypothèse de travail : **2 à 5 jours** de production effective par site, selon
 
 Prix **HT** (en franchise TVA, le prix facturé = prix encaissé). Coût = §2 (centre de fourchette). Marge brute = prix − coût variable, **avant** cotisations et coûts fixes.
 
-| Offre | Prix HT | Coût variable `[HYP]` | Marge brute € | Marge % |
+| Offre (grille canonique) | Prix HT | Coût variable `[HYP]` | Marge brute € | Marge % |
 |---|---|---|---|---|
 | **Audit quick win — froid** | 0 € | 0,5 – 1 j → 175 – 350 € | **−175 à −350 €** | n/a (coût d'acquisition) |
 | **Audit quick win — payant léger** | 150 – 300 € `[HYP]` | 0,5 – 1 j → 175 – 350 € | **−50 à +125 €** | ~0-40 % |
-| **Site 3 000 €** | 3 000 € | ~875 € (2,5 j) + 30 € direct | **~2 095 €** | **~70 %** |
-| **Site 3 000-6 000 €** (moy. 4 500 €) | 4 500 € | ~1 225 € (3,5 j) + 30 € | **~3 245 €** | **~72 %** |
-| **Site 6 000-8 000 €** (moy. 7 000 €) | 7 000 € | ~1 750 € (5 j) + 40 € | **~5 210 €** | **~74 %** |
-| **Growth System IA** (moy. 8 000 €) | 6 000 – 10 000 € | 8 – 12 j → ~3 500 € `[HYP]` | **~4 500 €** | **~56 %** |
+| **Site Essentiel — 2 000 €** | 2 000 € | ~700 € (2 j) + 30 € direct | **~1 270 €** | **~64 %** |
+| **Site Croissance — 4 000 €** | 4 000 € | ~1 225 € (3,5 j) + 30 € | **~2 745 €** | **~69 %** |
+| **Site Complet — 7 000 €** | 7 000 € | ~1 750 € (5 j) + 40 € | **~5 210 €** | **~74 %** |
+| **Site Intelligence — 10 000 €** | 10 000 € | ~2 625 € (7,5 j) + 50 € | **~7 325 €** | **~73 %** |
+| **Growth System IA** (sur devis, moy. 8 000 €) | sur devis | 8 – 12 j → ~3 500 € `[HYP]` | **~4 500 €** | **~56 %** |
 | **Agent à l'usage** (moy. 500 €/mois) | 300 – 800 €/mois | infra+API ~30-120 €/mois + ~1 h support | **~330 €/mois** | **~66 %** |
 
 > **Lecture.** Les marges brutes affichées (~70 %) sont flatteuses **parce que** le temps est valorisé à 50 €/h, pas payé en cash. La vraie contrainte n'est pas la marge € mais le **débit** : combien de jours-homme Simon a dans le mois (§7). L'audit gratuit est un **coût d'acquisition** : à traiter comme du marketing, à plafonner en nombre/mois.
 
-### Effet « cotisations » sur le net réellement encaissé (micro-BNC, 25,6 %)
+### Effet « cotisations » sur le net réellement encaissé (comparaison micro-BNC, 25,6 % — RAPPEL : statut réel de Simon = EI au réel, cf §0bis)
 
-Sur un site à 3 000 € encaissés, après cotisations micro 25,6 % :
+> ⚠️ Ce tableau micro est **comparatif seulement** (le régime réel de Simon est en §0bis : cotisations ~40-45 % du **bénéfice net**, frais déductibles). Conservé pour l'ordre de grandeur. Exemple recalé sur le **panier moyen ~4 000 €** de la grille canonique.
 
-| | Micro-BNC | SASU (illustratif `[HYP]`) |
+Sur un site au panier moyen 4 000 € encaissés, après cotisations micro 25,6 % :
+
+| | Micro-BNC (comparatif) | SASU (illustratif `[HYP]`) |
 |---|---|---|
-| Encaissé | 3 000 € | 3 000 € |
-| Prélèvement social | −768 € (25,6 %) | dépend de la rémunération que Simon se verse (≈ 54-55 % du brut salarié) |
-| IR / versement libératoire | −66 € (2,2 % si option) | IS 15 % sur le bénéfice société |
-| **Net avant coûts fixes** | **≈ 2 166 €** | variable selon arbitrage salaire/dividende |
+| Encaissé | 4 000 € | 4 000 € |
+| Prélèvement social | −1 024 € (25,6 %) | dépend de la rémunération que Simon se verse (≈ 54-55 % du brut salarié) |
+| IR / versement libératoire | −88 € (2,2 % si option) | IS 15 % sur le bénéfice société |
+| **Net avant coûts fixes** | **≈ 2 888 €** | variable selon arbitrage salaire/dividende |
 
 ---
 
@@ -183,21 +191,21 @@ Sur un site à 3 000 € encaissés, après cotisations micro 25,6 % :
 
 Point mort = nombre de sites nécessaires pour couvrir **coûts fixes + cotisations** sur le CA. On raisonne sur une marge nette par site après prélèvements sociaux.
 
-**Hypothèses centrales** : site « entrée » à **3 000 €**, cotisations micro **25,6 %**, versement libératoire **2,2 %** (option), coûts fixes **micro = 180 €/mois**, **SASU = 300 €/mois**.
+**Hypothèses centrales (grille canonique)** : **plancher de grille = 2 000 €** (palier Essentiel), **panier moyen pondéré ≈ 4 000 €** `[HYP, mix `business/08`]`, cotisations micro **25,6 %**, versement libératoire **2,2 %** (option), coûts fixes **micro = 180 €/mois**, **SASU = 300 €/mois**.
 
-### Micro-BNC
+### Micro-BNC (comparatif — régime réel de Simon = EI au réel §0bis)
 
-- Net par site 3 000 € après social+IR libératoire = **~2 166 €** (cf §3).
-- Mais le point mort de **survie** dépend du revenu que Simon veut se verser. Trois cibles :
+- Net par site au panier moyen 4 000 € après social+IR libératoire = **~2 888 €** (cf §3).
+- Le point mort de **survie** dépend du revenu que Simon veut se verser. Trois cibles, calculées au **panier moyen 4 000 €** :
 
-| Cible de net mensuel pour Simon `[HYP]` | Besoin de marge nette/mois | + coûts fixes 180 € | Sites 3 000 €/mois nécessaires |
+| Cible de net mensuel pour Simon `[HYP]` | Besoin de marge nette/mois | + coûts fixes 180 € | Sites @ panier moyen 4 000 €/mois nécessaires |
 |---|---|---|---|
-| Break-even « activité » (couvrir SEULEMENT les coûts fixes) | 0 € | 180 € | **0,1 site** (≈ 1 site / 10 mois) |
-| Survie perso 2 000 €/mois | 2 000 € | 2 180 € | **~1,0 site/mois** |
-| Confort 3 500 €/mois | 3 500 € | 3 680 € | **~1,7 site/mois** |
-| Objectif 5 000 €/mois | 5 000 € | 5 180 € | **~2,4 sites/mois** |
+| Break-even « activité » (couvrir SEULEMENT les coûts fixes) | 0 € | 180 € | **0,06 site** (≈ 1 site / 16 mois) |
+| Survie perso 2 000 €/mois | 2 000 € | 2 180 € | **~0,75 site/mois** |
+| Confort 3 500 €/mois | 3 500 € | 3 680 € | **~1,3 site/mois** |
+| Objectif 5 000 €/mois | 5 000 € | 5 180 € | **~1,8 site/mois** |
 
-> **Lecture micro.** Le seuil « entreprise » (couvrir les outils) est trivial : **moins d'1 site couvre des mois de coûts fixes**. Le vrai point mort est **personnel** : pour vivre correctement (≈ 3 500 € net/mois), il faut **~1,7 site à 3 000 €/mois**, soit ~20 sites/an. Tout site vendu plus cher ou tout MRR (§6) abaisse ce nombre.
+> **Lecture.** Le seuil « entreprise » (couvrir les outils) est trivial : **moins d'1 site couvre des mois de coûts fixes**. Le vrai point mort est **personnel** : pour vivre correctement (≈ 3 500 € net/mois), il faut **~1,3 site au panier moyen 4 000 €/mois** (vs ~1,7 site quand l'entrée était à 3 000 €) — **le panier moyen plus élevé de la grille canonique abaisse le nombre de sites au point mort**. Si tu ne vendais QUE des Essentiel à 2 000 € (plancher), il faudrait ~2,6 sites/mois pour le confort : d'où l'intérêt de tirer le mix vers Croissance/Complet. Tout MRR (§6) abaisse encore ce nombre.
 
 ### SASU
 
@@ -273,14 +281,14 @@ Plafond physique : **~16-18 jours-homme facturables/mois** `[HYP]` (le reste = v
 | Sites livrés/mois | Jours-homme consommés (prod seule) | Signal | Décision |
 |---|---|---|---|
 | 0-1 | 3-5 j | rampe | Tout faire soi-même. Investir le temps libre en **prospection + templating** (baisser le coût/site). |
-| 2 | 5-10 j | rythme sain solo | Zone optimale. Commencer à **monter le prix d'entrée** (3 000 → 3 500-4 000 €) dès qu'il y a une file d'attente. |
+| 2 | 5-10 j | rythme sain solo | Zone optimale. Commencer à **tirer le mix vers le haut** (pousser Croissance 4k / Complet 7k plutôt que l'Essentiel 2k) dès qu'il y a une file d'attente. |
 | 3 | 8-15 j | proche du plafond | **Déclencheur sous-traitance** : externaliser le contenu/intégration répétitif, OU **monter les prix** pour réguler la demande. Plus de gratuit. |
 | 4+ | >15 j + vente + support | saturation | Soit **sous-traiter** (un intégrateur/rédacteur à la tâche, marge transférée), soit **arrêter de vendre des sites au prix d'entrée** et basculer la demande vers Growth/agents (plus de marge/jour). |
 
 > **Règles de seuil chiffrées :**
 > - **Monter le prix** dès qu'il y a **2 deals en file d'attente** non servis dans le mois (la demande dépasse la capacité → le prix est trop bas).
 > - **Sous-traiter** dès que le **3ᵉ site/mois** est récurrent : la marge d'un site (~2 000 €) finance largement 1 à 1,5 j d'intégrateur externe (~250-400 €/j) `[HYP]` tout en gardant ~1 500 € de marge nette.
-> - **Arbitrer le mix** : une journée passée sur un site à 3 000 € rapporte ~1 200 €/j de marge ; une journée sur un Growth à 8 000 € rapporte ~560 €/j **mais** débloque du MRR-agents derrière. À capacité saturée, prioriser ce qui maximise marge/jour **+ MRR généré**.
+> - **Arbitrer le mix** : une journée passée sur un site Croissance à 4 000 € rapporte ~780 €/j de marge (2 745 € / 3,5 j) ; un Essentiel à 2 000 € ~635 €/j (1 270 € / 2 j) ; un Complet à 7 000 € ~1 040 €/j (5 210 € / 5 j) ; un Growth à 8 000 € ~560 €/j **mais** débloque du MRR-agents derrière. À capacité saturée, prioriser ce qui maximise marge/jour **+ MRR généré** (→ pousser le haut de gamme et le récurrent).
 
 ---
 
@@ -313,7 +321,7 @@ Variables d'entrée à mesurer/arbitrer, par ordre d'impact sur le modèle :
 
 2. **Construire le MRR-agents, pas seulement la maintenance.** Un agent à ~500 €/mois pèse ~10× une maintenance et transforme un revenu de projets (volatil, dépendant de la prospection) en base récurrente qui **abaisse le point mort personnel** (§4, §6). En faire un objectif commercial dédié : un agent vendu vaut, en valeur actualisée, autant qu'un site. C'est le levier qui change la **nature** du business (freelance → agence-produit).
 
-3. **Monter le prix d'entrée et supprimer le gratuit dès que la demande sature (régulation par le prix).** À ~2 deals en file d'attente non servis (§7), le prix est trop bas : passer 3 000 → 3 500-4 000 € **ne change rien au coût** mais ajoute ~500-1 000 € de marge nette par site. Le gratuit (audit froid) est un coût d'acquisition à **plafonner en nombre/mois** et à couper dès que l'inbound suffit — sinon il consomme la capacité (jours-homme) qui devrait produire du CA.
+3. **Tirer le mix vers le haut et supprimer le gratuit dès que la demande sature (régulation par le prix).** À ~2 deals en file d'attente non servis (§7), basculer la demande de l'Essentiel 2k vers Croissance 4k / Complet 7k **ne change presque rien au coût/jour** mais ajoute ~1 500-3 000 € de marge nette par site (cf §3). Le panier moyen plus élevé est le levier direct sur le point mort (§4). Le gratuit (audit froid) est un coût d'acquisition à **plafonner en nombre/mois** et à couper dès que l'inbound suffit — sinon il consomme la capacité (jours-homme) qui devrait produire du CA.
 
 ---
 

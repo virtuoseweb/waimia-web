@@ -75,7 +75,7 @@ Signaux d'opportunité (matière Firecrawl) :
 | Signal | Poids | Détection | Lecture |
 |---|---|---|---|
 | Site lent / lourd | 18 | taille HTML élevée, nb scripts, (option PSI) | douleur perf vendable |
-| Site daté / WordPress générique | 16 | `generator` WP, thème ancien, design daté | refonte = offre site IA 3 000 € |
+| Site daté / WordPress générique | 16 | `generator` WP, thème ancien, design daté | refonte = site web intelligent dès 2 000 € |
 | Absence GEO / schema.org | 16 | pas de JSON-LD LocalBusiness/Org | accroche GEO/SEO directe |
 | Pas de HTTPS / certif KO | 12 | scheme http, mixed content | argument confiance immédiat |
 | Ads actives sans bon site | 12 | tracking gtag/fbq présent + site faible | dépense déjà, mal convertie |

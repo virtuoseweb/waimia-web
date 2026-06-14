@@ -156,7 +156,65 @@ page séparée — `strategy/02 §0bis`) :
 
 ---
 
+## 7. Stratégie de lancement V1 AFFINÉE — positionnement « cabinet IA » + SEO/GEO 2 couches (skill seo-audit, 2026-06-14)
+
+### Résumé exécutif (recherche réelle 2026-06-14)
+1. **« Cabinet / conseil IA » = tendance 2026 validée et différenciante** : « 2026 marque la revanche discrète des cabinets conseil IA ; les dirigeants redécouvrent l'expertise stratégique et l'accompagnement sur-mesure » (agence-ia.com). → ancrer Waimia en **cabinet d'orchestration IA**, **PAS** en agence web (catégorie commoditisée + menacée par les outils IA).
+2. **Local IA Montpellier SATURÉ** (OccitIA, Poller, NowBrains, Synapze, Reims Digital, Mankova, Foxpilot, ia2m, myaifactory) — « agence IA Montpellier » PLUS contesté que « agence web Montpellier ». Aucun ne mène avec le **site web intelligent** comme porte d'entrée → notre coin local.
+3. **Conversion + financement public** : « Osez l'IA » (≤ 50 % financé), Diagnostic Data IA (10 j expert, 40 % État), Académie IA gratuite. **ROI médian PME 159 % à 12 mois, 85 % succès, gains dès 3-4 mois.** Premier chantier utile **3 000-7 000 € HT** (valide la grille 2/4/7/10k). → audit d'entrée adossé aux aides = friction quasi nulle + posture conseil.
+
+### Le pivot (résout la tension SEO ↔ marque)
+**Le produit d'entrée ≠ le positionnement.** Le « site web intelligent » est la **porte d'entrée tangible** (low ticket) ; la **marque = cabinet d'orchestration IA / transformation IA** — on conçoit le système qui fait tourner acquisition→pilotage→opérations à l'IA, avec des ingénieurs qui construisent agents/automatisations/workflows ET le site/app. Le site = **preuve visible, pas produit**. C'est ce qui rend le positionnement **inattaquable par les outils IA** (Wix/Lovable/Framer) : on ORCHESTRE l'IA, au-dessus de la commodité. → Copy : mener par le **résultat/système** (« votre entreprise qui tourne à l'IA »), jamais par le livrable (« un site »).
+
+### Architecture keyword 2 couches (domaine neuf, autorité zéro)
+**COUCHE A — Capture / conversion** (demande commerciale + légitimité réelle ; ranking court terme) :
+| Mot-clé | Diff. | Opp. | Intention | Page |
+|---|---|---|---|---|
+| site web intelligent / création site web intelligent | faible-moy | **haute** | commercial | `/services/site-web-intelligent` (H1) |
+| site web IA / site internet IA | moy | moyenne | commercial | **keyword secondaire** dans le copy (pas le H1) |
+| site web intelligent Montpellier / création site IA Montpellier | faible | **haute** | transac. local | `/agence-web-montpellier` (intersection peu contestée) |
+| tunnel de conversion / page qui convertit | faible | moyenne | commercial | `/services/tunnel-conversion-intelligent` |
+
+**COUCHE B — Autorité / positionnement / GEO** (moat AI-proof + montée en ticket ; volume moindre, durable) :
+| Mot-clé | Diff. | Opp. | Intention | Page |
+|---|---|---|---|---|
+| transformation IA PME / accompagnement IA PME | moy | **haute** | commercial | home + `/agence` + hub `/acquerir` |
+| automatisation IA PME / automatiser avec l'IA | moy | **haute** | commercial | `/operer` + articles |
+| agents IA entreprise / agent IA vs automatisation | faible-moy | **haute** | info→comm | `/operer#agents-metiers` + article |
+| diagnostic / audit IA PME (+ « Osez l'IA », aides) | faible | **haute** | commercial | `/offres/audit-maturite-ia` (angle financement) |
+| cabinet conseil IA PME / orchestration IA | faible | moyenne | commercial | home + `/agence` (positionnement) |
+| content marketing IA / SEO GEO IA | faible-moy | haute | info→comm | `/services/content-marketing-intelligent` |
+| être cité par ChatGPT/Perplexity (GEO) | moy | haute | info | article in-silo |
+
+> Couche A **capte et convertit** (site, local) ; Couche B **installe l'autorité et le ticket** (cabinet, transformation, agents). Le hub `/acquerir` fait le pont : « système d'acquisition IA », pas « création de sites ».
+
+### H1 affinés (cabinet, pas agence web)
+- **Home** : « **Le cabinet qui fait tourner votre PME à l'IA** » (sous-titre : acquisition · pilotage · opérations, orchestrés par des ingénieurs IA, à partir d'un site web intelligent). **Pas** « agence web ».
+- **`/services/site-web-intelligent`** : « **Site web intelligent : la porte d'entrée d'un système qui acquiert, convertit et tourne seul** » (keyword « site web intelligent/IA » en H1+sous-titre).
+- **`/acquerir`** : « **Système d'acquisition IA — des clients en continu** ».
+- **`/agence-web-montpellier`** : « **Site web intelligent & IA à Montpellier** » (capte le local sans se réduire à « agence web »).
+- **`/offres/audit-maturite-ia`** : « **Diagnostic IA PME — 3 actions chiffrées (aides Osez l'IA mobilisables)** ».
+
+### Content gaps prioritaires
+1. **« Diagnostic IA PME 2026 : aides, financement (Osez l'IA), par où commencer »** — capte l'intention financement, posture conseil. *Quick win.*
+2. **« Agent IA vs automatisation : ce qui exécute vraiment »** — demande réelle, framing différenciant.
+3. **« Site web intelligent vs site IA Wix/Lovable : pourquoi la rigueur d'un cabinet change tout »** — désamorce la commoditisation (perf/SEO/RGPD réels).
+4. **« Combien coûte un projet IA en PME (3-7k€) et quel ROI (159 % à 12 mois) »** — capte le prix, place la grille.
+5. **« Se faire citer par ChatGPT/Perplexity quand on est une PME » (GEO)** — aligne l'écosystème Anthropic-first.
+
+### Échelle d'offres (low → high ticket, accessible PME)
+- **Low** : Diagnostic/audit IA (adossé aux aides) → site Essentiel 2 000 € / Croissance 4 000 €.
+- **Middle** : Complet 7 000 € (site + CMS intelligent + système contenu + intégrations).
+- **High** : Intelligence 10 000 € (+ dashboard + agents + automatisations) → Growth System IA / agents à l'usage (MRR) / **Sur mesure** (devis ETI).
+Montée par **révélation** (porte d'entrée tangible → audit horizontal des process → agents sur d'autres départements) — cohérent GTM 3-temps.
+
+### Ton & forme (cabinet IA, pas agence web)
+Praticien + ingénieur + conseil. **Mener par le système et le résultat, jamais par « un site ».** Preuve avant promesse (cas réels, chiffres honnêtes, « ROI mesuré, jamais estimé »). Vocabulaire : orchestration · système · agents en production · vos process · transformation. Bannir en accroche : « agence web », « création de sites », jargon vide. Signature manifeste maintenue (« X. Pas Y. », « vous » + douleur chiffrée, fragments secs).
+
+---
+
 ## Sources (recherche réelle, 2026-06)
 - Pricing : [La Fabrique du Net — agences Montpellier](https://www.lafabriquedunet.fr/agences/pages/agences-site-internet-occitanie-montpellier), [CelineDesign](https://www.celinedesign.com/), [Linkeo Montpellier](https://www.linkeo-montpellier.com/), [nocodefactory — tarifs 2026](https://www.nocodefactory.fr/blog/tarif-creation-site-internet-professionnel), [Seedweb prix](https://seedweb.fr/prix-site-internet/)
 - Concurrents IA : [ia.agency](https://ia.agency/agence-site-internet-ia/), [Juwa top agences IA](https://juwa.co/blog/partenaires-ecosysteme-ia/top-10-agence-ia-france/), [Site Internet IA vs Agence Web](https://blog.lueurexterne.com/fr/site-internet-ia-vs-agence-web/), [web-ia.com (WordPress)](https://www.web-ia.com/qui-sommes-nous/)
 - GEO : [Effinity — faire citer sa marque](https://www.effinity.fr/blog/faire-citer-marque-chatgpt-perplexity-gemini-geo/), [pretacloser — GEO B2B](https://www.pretacloser.com/etre-cite-par-chatgpt-et-perplexity-en-b2b-methode-geo-pas-a-pas), [newp — 10 actions GEO](https://www.newp.fr/actualites/ia-optimization/comment-optimiser-son-site-pour-le-geo-les-10-actions-concretes-a-mettre-en-place/)
+- Positionnement cabinet IA & marché 2026 (passe 2026-06-14) : [agence-ia.com — retour des cabinets conseil IA](https://www.agence-ia.com/blog/cabinet-conseil-ia-le-retour-en-force-discret-des-experts-face-a-la-vague-des-agences-ia-en-2026/), [DSIA Conseil](https://www.dsia-conseil.fr/), [francenum — Osez l'IA / aides PME](https://www.francenum.gouv.fr/guides-et-conseils/intelligence-artificielle/comprendre-et-adopter-lia/lintelligence-artificielle-3), [codeur — agences automatisation IA](https://www.codeur.com/blog/agences-automatisation-ia/), [koino — top agences IA tarifs](https://www.koino.fr/articles/top-10-des-agences-ia-en-france-2026-tarifs-clients-exemples) ; local Montpellier : [Sortlist IA Montpellier](https://www.sortlist.fr/s/intelligence-artificielle/montpellier-languedoc-roussillon-fr), [Mankova Consulting](https://mankova-consulting.com/ia-automatisation-agence-montpellier), [Poller Montpellier](https://www.poller.fr/agence-ia/montpellier)

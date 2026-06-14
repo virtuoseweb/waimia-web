@@ -20,7 +20,7 @@ Un seul verrou autorisé à bloquer A : les **prérequis S1** ci-dessous (le sit
 Trois chantiers courts. Tant qu'ils ne sont pas faits, **on n'envoie aucun email outbound** : démarcher depuis un site qui ment est le pire scénario pour une marque « preuve, pas promesse ».
 
 ### 1.1 Rendre le site honnête (code, en prod)
-- **Prix** : corriger `7 900 € → 3 000 € HT` partout où le tarif site apparaît (offre Essentiel). Le site en prod contredit aujourd'hui l'offre qu'on va vendre.
+- **Prix** : corriger le `7 900 €` du site live vers la grille canonique 2/4/7/10k (palier Essentiel à **2 000 € HT**) partout où le tarif site apparaît. Le site en prod contredit aujourd'hui l'offre qu'on va vendre.
 - **Trust-center fictif** : supprimer les fausses certifications ISO / SOC 2. On ne les a pas. Les afficher est un risque juridique et réputationnel direct en phase de démarchage.
 - **Cas clients fictifs** : supprimer tout cas inventé. On les remplace par **un vrai** (cf. §7).
 - **Légal** : publier `/mentions-legales` + politique RGPD. Prérequis légal absolu avant le 1er email.
@@ -28,7 +28,7 @@ Trois chantiers courts. Tant qu'ils ne sont pas faits, **on n'envoie aucun email
 - **Critère de sortie S1** : zéro tarif faux, zéro certif fictive, zéro cas fictif, `/mentions-legales` + RGPD en ligne. Tant que ce n'est pas vrai, l'outbound reste à l'arrêt.
 
 ### 1.2 Mesurer le temps de prod réel d'un site forké
-Tout l'édifice financier (2 sem / 3 000 €) repose sur un temps de prod **jamais mesuré**.
+Tout l'édifice financier (2 sem / palier d'entrée 2 000 €) repose sur un temps de prod **jamais mesuré**.
 - **Action** : forker `waimia-web` une fois pour de bon, livrer un site client-type complet, **chronométrer** de bout en bout (contenu, intégration, mise en ligne).
 - **Critère** : temps en heures/jours réels noté dans `docs/state/`. Si le fork dépasse **3 jours** de travail effectif → **monter le prix** ou **réduire le scope « Essentiel »** avant de promettre quoi que ce soit. On ne vend pas un délai qu'on n'a pas vérifié.
 
@@ -41,7 +41,7 @@ Sans accord écrit, pas de cas, pas de preuve, pas de logo.
 
 ## 2. Offre de lancement officielle, datée
 
-**« 3 sites web IA ce trimestre à 3 000 € HT + 1 mois d'agent IA offert. »**
+**« 3 sites web intelligents ce trimestre — dès 2 000 € HT (Essentiel) + 1 mois d'agent IA offert. »**
 
 - **Rareté vraie** : la limite à 3 n'est pas un artifice marketing, c'est la **capacité réelle d'un solo** ce trimestre. Honnête, donc crédible, donc accélérateur de décision. Coût zéro.
 - **Date** : annoncée S1 (dès que les prérequis §1 sont levés), close au 30/09 (fin T1 de démarrage).
@@ -62,7 +62,7 @@ Sans accord écrit, pas de cas, pas de preuve, pas de logo.
 **Playbook :**
 1. **Liste** (J1-J2) : tableau de tous les anciens clients et contacts VirtuoseWeb + clients Waimia réels. Colonnes : nom, dernier contact, relation (chaud/tiède), intro possible vers qui.
 2. **Script court** (message, pas pavé) :
-   > « Salut [Prénom], je lance Waimia — sites web IA + visibilité dans les réponses IA (ChatGPT, Google AI). Je prends **3 projets ce trimestre à 3 000 €, 1 mois d'agent offert**. Je t'offre un **audit quick win gratuit** de ta visibilité IA, que tu bosses avec moi ou pas. 20 min cette semaine ? »
+   > « Salut [Prénom], je lance Waimia — sites web intelligents + visibilité dans les réponses IA (ChatGPT, Google AI). Je prends **3 projets ce trimestre, site dès 2 000 € (Essentiel), 1 mois d'agent offert**. Je t'offre un **audit quick win gratuit** de ta visibilité IA, que tu bosses avec moi ou pas. 20 min cette semaine ? »
 3. **Objectif chiffré** : contacter **100 % de la liste en S1-S2**. Cible : **5 audits** issus du réseau d'ici fin S2.
 4. **Demande d'intro systématique** : clore chaque échange (signé ou non) par « tu connais quelqu'un à qui ça rendrait service ? ». Le réseau se ramifie ou il s'éteint.
 - **Critère** : liste complète J2, 100 % contactés fin S2, ≥ 5 audits réseau, ≥ 3 demandes d'intro formulées.
@@ -143,7 +143,7 @@ On ne « met pas plus de pression sur le tuyau » tant que le tuyau fuit. Ce tes
 ### Objectif chiffré — hypothèses explicites
 - **Capacité solo** : 3 sites livrables max sur le trimestre (offre de lancement §2).
 - **Hypothèse de conversion** : sur ~25 outbound + réseau, viser **8-12 audits réalisés** au T1 ; à un taux audit→signature prudent de **25-30 %**, on signe **2 à 3 sites**.
-- **Objectif cash prudent T1** : **6 000 à 9 000 € HT encaissés** (2 à 3 × 3 000 €), agent offert (0 € MRR ce trimestre, assumé).
+- **Objectif cash prudent T1** : **8 000 à 12 000 € HT encaissés** (2 à 3 deals au panier moyen pondéré ~4 000 € HT [HYP]), agent offert (0 € MRR ce trimestre, assumé). L'entrée se fait dès 2 000 € (Essentiel) ; le panier moyen monte avec le mix Croissance/Complet.
 - **Borne basse non négociable** : **1 site signé et encaissé** d'ici fin Mois 2. Si on n'y est pas → déclencher le pari falsifiable §8 et recaler le ciblage, pas le discours.
 - Ces chiffres sont des **bornes de pilotage**, pas une promesse. On les recale dès que le temps de prod réel (§1.2) et le premier taux contact→audit (§8) tombent.
 
@@ -160,7 +160,7 @@ On ne « met pas plus de pression sur le tuyau » tant que le tuyau fuit. Ce tes
 ## Checklist d'exécution
 
 ### Semaine 1 (prérequis bloquants)
-- [ ] Site honnête : prix 7 900→3 000 €, certifs ISO/SOC2 fictives supprimées, cas fictifs supprimés — capture prod à l'appui.
+- [ ] Site honnête : prix 7 900 € → grille canonique 2/4/7/10k (Essentiel 2 000 €), certifs ISO/SOC2 fictives supprimées, cas fictifs supprimés — capture prod à l'appui.
 - [ ] `/mentions-legales` + RGPD publiés et accessibles.
 - [ ] Fork de `waimia-web` chronométré, temps réel noté ; prix/scope recalés si > 3 j.
 - [ ] ≥ 2 accords écrits de clients réels (nom + logo + chiffre).
@@ -183,7 +183,7 @@ On ne « met pas plus de pression sur le tuyau » tant que le tuyau fuit. Ce tes
 - [ ] Cas client + offre réinjectés dans chaque relance.
 
 ### Mois 3
-- [ ] Objectif cash T1 : **2 à 3 sites encaissés** (6 000-9 000 € HT).
+- [ ] Objectif cash T1 : **2 à 3 sites encaissés** (8 000-12 000 € HT, panier moyen ~4 000 € [HYP]).
 - [ ] Procédure de fork documentée (temps mesuré, qualité constante) — amorce de la douve.
 - [ ] Bilan des 3 KPI sur le trimestre ; recalage de l'offre et du ciblage pour T2.
 - [ ] Tout asset différé (dashboard, CMS, multimédia, projections) **resté gelé** — vérifié.

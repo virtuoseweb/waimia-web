@@ -3,14 +3,22 @@
 > Plan d'attaque pour solo en démarrage, budget marketing ~0, runway à protéger. Tout repose sur des hypothèses **explicites** — les taux et paniers sont des fourchettes prudentes à recalibrer dès les 10 premiers appels. Aucune donnée historique inventée : si tu as déjà des chiffres réels, remplace les hypothèses.
 
 ## Offer ladder de référence (base des calculs)
+> Grille canonique (source `strategy/02 §0ter`). Waimia = **cabinet d'orchestration IA** ; le site web intelligent est la porte d'entrée tangible, déclinée en paliers low→high ticket.
+
 | Palier | Offre | Prix retenu (hyp.) | Rôle |
 |---|---|---|---|
-| 0 | Audit quick win | Gratuit en froid / payant léger imputable en chaud (`state/03 §C3`) | Qualif + confiance |
-| 1 | Site web IA | 3 000 € HT (plancher) | Cash rapide, volume |
-| 2 | Growth System IA | 6 000-10 000 € HT (hyp.) | Panier moyen ↑ |
+| 0 | Audit quick win | Gratuit en froid / payant léger imputable en chaud (`state/03 §C3`) ; audit d'entrée adossable aux aides « Osez l'IA » / Diagnostic Data IA (`strategy/03 §7`) | Qualif + confiance |
+| 1 | Site web intelligent — **Essentiel / landing** | **2 000 € HT** (plancher) | Cash rapide, volume |
+| 1 | Site web intelligent — **Croissance** | **4 000 € HT** | Cœur de gamme |
+| 1 | Site web intelligent — **Complet** | **7 000 € HT** | Montée en valeur |
+| 1 | Site web intelligent — **Intelligence** (système) | **10 000 € HT** | Pont vers Growth System |
+| 1 | Site web intelligent — **Sur mesure** | sur devis | ETI / besoins lourds |
+| 2 | Growth System IA | sur devis (typiquement 5 chiffres) | Panier moyen ↑ |
 | 3 | Agents à l'usage | 300-800 € HT/mois (hyp.) | Récurrent / MRR |
 
-Panier moyen pondéré court terme retenu : **3 500 € HT**. À recalibrer.
+**Hypothèse de mix (explicite, à recalibrer dès les 10 premiers deals)** : au lancement, l'entrée 2-4 k€ domine (Essentiel + Croissance ≈ 65-70 % des deals), quelques 7-10 k€ (Complet/Intelligence ≈ 30-35 %). Mix illustratif : **50 % à 3 000 € (moy. Essentiel/Croissance) · 35 % à 4 000 € · 15 % à 8 000 € (moy. Complet/Intelligence)** → panier moyen pondéré ≈ 0,50×3 000 + 0,35×4 000 + 0,15×8 000 ≈ **4 100 € HT**.
+
+Panier moyen pondéré court terme retenu (prudent) : **~4 000 € HT** `[HYP]` (vs 3 500 € sous l'ancienne grille). À recalibrer.
 
 ---
 
@@ -18,7 +26,7 @@ Panier moyen pondéré court terme retenu : **3 500 € HT**. À recalibrer.
 | # | Action | Effort | Impact | Délai |
 |---|---|---|---|---|
 | QW1 | **Google Business Profile** complet (catégorie « agence web/IA », zone Montpellier, 10 photos, description mots-clés, FAQ) + demander 3-5 avis aux clients réels | 1 j | Visibilité map pack local + preuve sociale, 24/7 gratuit | 48 h (avis 2 sem) |
-| QW2 | **Offre de lancement datée** : « 3 premiers sites IA ce trimestre à 3 000 € + 1 mois d'agent offert » (cadeau à valeur = amorce du MRR, pas remise molle) | 0,5 j | Lève l'objection prix, crée l'urgence, amorce la récurrence | Cette semaine |
+| QW2 | **Offre de lancement datée** : « 3 premiers sites web intelligents ce trimestre, palier Essentiel à 2 000 € (au lieu de 4 000 € Croissance) + 1 mois d'agent offert » (cadeau à valeur = amorce du MRR, pas remise molle ; le palier d'entrée bas est l'amorce, pas une casse de prix sur la gamme) | 0,5 j | Lève l'objection prix, crée l'urgence, amorce la récurrence | Cette semaine |
 | QW3 | **Lead magnet = l'audit** : landing « Audit IA gratuit 30 min, repartez avec 3 actions chiffrées », CTA unique partout (GBP, LinkedIn, signature) | 0,5 j | Convertit le tiède en appels, coût ~30 min | Cette semaine |
 | QW4 | **Activation 5-10 prospects locaux ultra-ciblés** (1-to-1, angle « j'ai regardé votre site, voici 1 quick win ») | 1 j | 5-10 conversations chaudes → 2-4 audits | 7-10 j |
 | QW5 | **Réactivation réseau + anciens clients** (virtuoseweb.fr) : 15-30 messages perso, demander des intros | 0,5 j | Meilleur taux de closing (confiance préexistante) → 1-2 deals | 7 j |
@@ -31,27 +39,27 @@ Séquencement S1 : QW1+QW2+QW3 (fondations du funnel) → QW4/QW5 (remplir le pi
 ---
 
 ## 2. Plan CA court terme — 90 jours (calcul explicite)
-**Hypothèses (à recalibrer) :** contact → audit 20 % prudent / 30 % médian ; audit → signature 25 % / 35 % ; panier 3 000 € / 3 500 € ; contacts qualifiés/mois ~40 (≈120 sur 90 j).
+**Hypothèses (à recalibrer) :** contact → audit 20 % prudent / 30 % médian ; audit → signature 25 % / 35 % ; panier **4 000 € prudent / 4 500 € médian** `[HYP, nouvelle grille]` (panier moyen pondéré ci-dessus ; le médian suppose un mix tiré vers le haut par l'upsell Complet/Intelligence) ; contacts qualifiés/mois ~40 (≈120 sur 90 j).
 
 | Étape | Prudent | Médian |
 |---|---|---|
 | Contacts qualifiés | 120 | 120 |
 | → Audits | 24 | 36 |
 | → Signatures | 6 | ~13 |
-| Panier | 3 000 € | 3 500 € |
-| **CA 90 j (HT)** | **18 000 €** | **~44 000 €** |
+| Panier | 4 000 € | 4 500 € |
+| **CA 90 j (HT)** | **24 000 €** | **~58 500 €** |
 
-**Lecture :** le prudent (6 ventes/trimestre, ~6 000 €/mois) = plancher de survie crédible solo. Le médian suppose réseau + 1-2 partenariats dès le mois 2. **Vise le médian, budgète sur le prudent.** L'écart vient des taux → d'où l'importance des 3 indicateurs hebdo (§6).
+**Lecture :** le prudent (6 ventes/trimestre, ~8 000 €/mois) = plancher de survie crédible solo, **relevé vs l'ancienne grille** (panier moyen ↑ de 3 000 → 4 000 € à volume égal). Le médian suppose réseau + 1-2 partenariats dès le mois 2. **Vise le médian, budgète sur le prudent.** L'écart vient des taux → d'où l'importance des 3 indicateurs hebdo (§6).
 > ⚠️ Le facteur limitant n'est pas la demande mais **le temps** : 36 audits = ~36 appels + prép + propales, en plus de la *production* des sites vendus. Au-delà de ~6-8 sites livrés/trimestre en solo, tu satures → signal d'upsell prix ou de sous-traitance.
 
 ---
 
 ## 3. Moyen terme — 6 mois
 - **Volume** : inbound prend le relais du cold (GBP mûr + SEO/GEO local indexés → 20-30 % des leads en inbound, moins chers en temps). Cible 8-10 ventes/trimestre.
-- **Panier** : pousser systématiquement le **Growth System** en upsell post-site → panier moyen 3 500 € → **5 000 € HT**.
+- **Panier** : faire monter le mix vers les paliers Complet/Intelligence + pousser systématiquement le **Growth System** en upsell post-site → panier moyen ~4 000 € → **5 500-6 000 € HT**.
 - **1ers récurrents** : convertir les sites en **agents à l'usage** / maintenance. 50 % des clients à 400 €/mois × 6 = **2 400 €/mois de MRR** fin S1.
 - **Process** : templatiser la production (repo waimia-web + DS) pour réduire le temps de livraison.
-**CA cumulé 6 mois (prudent → médian) :** ~50 000 € → ~110 000 € HT (services) + MRR naissant.
+**CA cumulé 6 mois (prudent → médian) :** ~65 000 € → ~140 000 € HT (services) + MRR naissant `[HYP, nouvelle grille — panier ↑ vs ancien ~50-110 k€]`.
 
 ---
 
@@ -79,12 +87,12 @@ Séquencement S1 : QW1+QW2+QW3 (fondations du funnel) → QW4/QW5 (remplir le pi
 ## 6. Tableau d'objectifs par horizon (prudent)
 | Horizon | Leads qualifiés | Audits | Signatures | CA services (HT) | MRR (fin) |
 |---|---|---|---|---|---|
-| 30 j | ~40 | ~8 | 2 | ~6 000 € | 0-400 € |
-| 90 j | ~120 | ~24 | 6 | ~18 000 € | ~800 € |
-| 6 mois | ~250 cumul | ~55 | 14-16 | ~50 000 € cumul | ~2 400 € |
-| 12 mois | — | — | ~30-35 cumul | ~110 000 € cumul | ~5 000 € |
+| 30 j | ~40 | ~8 | 2 | ~8 000 € | 0-400 € |
+| 90 j | ~120 | ~24 | 6 | ~24 000 € | ~800 € |
+| 6 mois | ~250 cumul | ~55 | 14-16 | ~65 000 € cumul | ~2 400 € |
+| 12 mois | — | — | ~30-35 cumul | ~140 000 € cumul | ~5 000 € |
 | 24 mois | — | — | — | scaling + collectif | 5 000-10 000 € |
-*Scénario prudent ; le médian ~2× sur le CA services. Recalibre dès J+30.*
+*Scénario prudent, panier ~4 000 € HT `[HYP, nouvelle grille canonique]` ; le médian ~2× sur le CA services. Recalibre dès J+30.*
 
 ### Les 3 indicateurs hebdo
 1. **Nb d'appels d'audit réalisés** (pas planifiés). Indicateur avancé n°1 : pas d'audit cette semaine = pas de vente dans 2-4 semaines. Cible : **3/sem minimum**.

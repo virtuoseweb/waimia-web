@@ -18,7 +18,7 @@
   message convertit (sinon on brûle du cash sur une hypothèse non validée — anti‑GF‑1).
 - **Cible = départements marketing PME/ETI.** Décideur = resp. marketing / dir. com / dirigeant
   de PME. Pas de DSI. Langage « résultat business », pas « stack technique ».
-- **Produit d'appel = audit quick‑win → site web IA dès 3 000 € HT** → escalade *Growth System
+- **Produit d'appel = audit quick‑win → site web intelligent dès 2 000 € HT** (Essentiel) → escalade *Growth System
   IA* → agents facturés à l'usage. Le canal doit amener vers **l'audit**, jamais vendre l'agent
   facturé à l'usage à froid.
 - **Preuves réelles à recycler partout** : `waimia.com` + `virtuoseweb.fr` (sites IA‑native),
@@ -63,7 +63,7 @@ pas cibles d'achat.
    absolu vs gourous IA.
 2. **Démystification anti‑hype** : casser un mythe IA (« non, ChatGPT ne va pas écrire votre
    SEO tout seul »). Posture praticien.
-3. **Coulisses chiffrées** : « un site IA‑native dès 3 000 €, voici ce que ça veut dire
+3. **Coulisses chiffrées** : « un site intelligent dès 2 000 € (Essentiel), voici ce que ça veut dire
    concrètement vs une agence à 8 000 € ». Transparence pricing = confiance.
 4. **Étude de cas client** (avec accord) : problème → ce qui a été livré → résultat. Recycle les
    vrais clients (Amploi, Balzeo, Carnets de Montpellier, Desangles…).
@@ -204,7 +204,7 @@ site) ; (b) outbound (prospect ciblé — cf §5). Séquences distinctes.
 2. **Séquence inbound (nurture, 4‑5 mails)** via `marketing:email-sequence` :
    - J0 — livraison du lead magnet + 1 quick win immédiat (donner avant de demander).
    - J2 — preuve : 1 cas client réel (Amploi/Balzeo/…), problème→livré→résultat.
-   - J5 — démystif/objection (« l'IA c'est cher/risqué pour une PME » → réfutation + 3 000 €).
+   - J5 — démystif/objection (« l'IA c'est cher/risqué pour une PME » → réfutation + entrée dès 2 000 €).
    - J8 — CTA fort : audit quick‑win gratuit 20 min (rareté douce : « j'en prends X/mois »).
    - J14 — relance soft + ressource bonus, sortie si pas de réponse.
    - *Exit* : RDV pris → sort de la séquence vers le flow commercial.

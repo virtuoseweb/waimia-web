@@ -1,6 +1,6 @@
 # Business plan — Waimia
 
-**Agence IA « anthropic-first » · Montpellier · fondateur solo (Simon Beros)**
+**Cabinet d'orchestration IA / conseil en transformation IA « anthropic-first » · Montpellier · fondateur solo (Simon Beros)**
 *Version de travail — 12 juin 2026. Document interne, honnête sur l'incertitude. Les chiffres marqués « hypothèse » ne sont pas sourcés : ce sont des paris explicites, à réviser dès les premières données réelles.*
 
 ---
@@ -11,7 +11,7 @@ Waimia conçoit des sites web et des systèmes marketing pilotés par IA pour le
 
 Le positionnement vise une **zone blanche** entre deux extrêmes du marché : les agents IA préfabriqués bas prix (type Limova, 70-120 €/mois, peu personnalisés) et le consulting IA premium grands comptes (type ClaudIn, ex-McKinsey, hors de portée d'une PME). Waimia propose du sur-mesure industrialisé à un prix PME.
 
-L'échelle d'offres va de l'audit quick win (appel, gratuit ou faible coût, en haut de funnel) au site web IA dès **3 000 € HT**, puis au Growth System IA (sur devis), jusqu'aux agents facturés à l'usage (« salarié virtuel »). La preuve commerciale existe déjà : waimia.com, virtuoseweb.fr et un portefeuille de clients réels (Inbound Value, Amploi, Balzeo, Carnets de Montpellier, Desangles Peinture, un naturopathe, un acteur import-export).
+Waimia se positionne en **cabinet d'orchestration IA / conseil en transformation IA** (pas une agence web, catégorie commoditisée) ; le **site web intelligent** est la porte d'entrée tangible. L'échelle d'offres va de l'audit quick win (appel, gratuit ou faible coût, en haut de funnel) au **site web intelligent** en paliers low→high ticket — **Essentiel 2 000 € / Croissance 4 000 € / Complet 7 000 € / Intelligence 10 000 € / sur mesure** (HT) — puis au Growth System IA (sur devis), jusqu'aux agents facturés à l'usage (« salarié virtuel »). La preuve commerciale existe déjà : waimia.com, virtuoseweb.fr et un portefeuille de clients réels (Inbound Value, Amploi, Balzeo, Carnets de Montpellier, Desangles Peinture, un naturopathe, un acteur import-export).
 
 **Contraintes structurantes :** fondateur seul, runway à gérer, budget marketing quasi nul. La stratégie de lancement repose donc sur l'acquisition à coût quasi nul (réseau, local Montpellier, GEO, contenu produit par les propres agents de Waimia) plutôt que sur de la publicité payante.
 
@@ -31,7 +31,7 @@ Les départements marketing de PME et ETI subissent trois pressions simultanées
 
 Un **socle marketing IA modulaire** livré comme un actif, pas comme un livrable jetable :
 
-- **Site web IA** (Astro, rapide, optimisé SEO et GEO) connecté aux données du client.
+- **Site web intelligent** (Astro IA-native, rapide, optimisé SEO et GEO) connecté aux données du client.
 - **Skills et automations** de production de contenu, branchés sur la marque et le ton du client.
 - **Agents** (sur base Claude Code / Cowork + configuration en repo) qui exécutent des tâches marketing récurrentes — facturés à l'usage, comme un « salarié virtuel ».
 
@@ -66,10 +66,16 @@ La différenciation n'est pas le prix, ni la sophistication brute : c'est le **r
 Trois sources de revenus empilées, du ponctuel vers le récurrent.
 
 ### a. L'offer ladder
+> Grille canonique (source `strategy/02 §0ter`). Plancher = 2 000 € (palier Essentiel).
+
 | Palier | Offre | Prix | Rôle économique |
 |---|---|---|---|
-| 0 | Audit quick win (appel) | Gratuit / faible | Top of funnel, qualification, preuve |
-| 1 | Site web IA (landing → 1-5 pages + connexion IA + skills + automation contenu) | **dès 3 000 € HT**, paliers | Cœur du CA au lancement, cash rapide |
+| 0 | Audit quick win (appel) | Gratuit / faible (audit d'entrée adossable aux aides « Osez l'IA », `strategy/03 §7`) | Top of funnel, qualification, preuve |
+| 1 | Site web intelligent — Essentiel / landing | **2 000 € HT** | Porte d'entrée cash-first |
+| 1 | Site web intelligent — Croissance (3-5 pages + connexion IA + skills + automation) | **4 000 € HT** | Cœur de gamme |
+| 1 | Site web intelligent — Complet (site + CMS intelligent + système de contenu + intégrations) | **7 000 € HT** | Montée en valeur |
+| 1 | Site web intelligent — Intelligence (+ dashboard + agents + automatisations) | **10 000 € HT** | Pont vers Growth System |
+| 1 | Site web intelligent — Sur mesure (ETI, app dédiée, multi-sites) | Sur devis | Besoins spécifiques |
 | 2 | Growth System IA | Sur devis (typiquement 5 chiffres) | Montée en valeur, récurrent partiel |
 | 3 | Agents « salarié virtuel » | Facturation à l'usage | Récurrent scalable, marge produit |
 
@@ -109,15 +115,20 @@ Le socle est conçu pour être **forké** par client (même cœur, connecteurs G
 
 ## 9. Finances (hypothèses prudentes)
 > Tout ce qui suit est **hypothétique**, dérivé de l'offer ladder + fourchettes marché. Aucune projection n'est une promesse. À recaler au 1er trimestre de données réelles.
-> 💶 **Modèle financier détaillé et recalculable : `business/13-modele-financier`** (coûts fixes
-> micro ~180 €/mois ou SASU ~300 € ; charges micro-BNC réelles **25,6 %** ; point mort ~**1,7 site/mois** ;
-> reco coussin **6-9 mois** ; unit economics + MRR par scénario). Le §9 ci-dessous = synthèse ; `13` = le modèle.
+> 💶 **Modèle financier détaillé et recalculable : `business/13-modele-financier`** (régime réel = **EI au réel,
+> BNC libéral, déclaration contrôlée 2035** — cotisations ~40-45 % du bénéfice NET, frais déductibles, PAS micro ;
+> coûts fixes ~180-300 €/mois ; grille canonique 2/4/7/10k, **panier moyen pondéré ~4 000 € HT** ; point mort
+> recalculé ~**1,3 site/mois** au panier moyen pour ≈ 3 500 € net/mois ; reco coussin **6-9 mois** ; unit economics
+> + MRR par scénario). **Les chiffres font foi dans `13`** ; le §9 ci-dessous n'est qu'une synthèse, ne pas créer
+> de divergence.
 
-**Hypothèses :** prix moyen projet site ~3,5-5 k€ HT ; volume soutenable solo 1-3 projets/mois ; récurrent négligeable au départ, significatif après 9-12 mois.
+**Hypothèses :** prix selon palier (Essentiel 2k → Intelligence 10k), **panier moyen pondéré ~4 000 € HT** `[HYP, mix `business/08`]` ; volume soutenable solo 1-3 projets/mois ; récurrent négligeable au départ, significatif après 9-12 mois.
+
+*CA projets ≈ projets/mois × panier moyen ~4 000 € HT × 12 (cohérent grille canonique ; détail `business/13`).*
 
 | Scénario | Projets/mois | CA projets 12 mois | + Récurrent fin | Lecture |
 |---|---|---|---|---|
-| Prudent | ~1 | ~40-50 k€ | faible | Survie, runway tendu |
+| Prudent | ~1 | ~45-50 k€ | faible | Survie, runway tendu |
 | Médian | ~1,5-2 | ~75-110 k€ | en amorçage | Trajectoire viable solo |
 | Haut | ~2,5-3 | ~130-180 k€ | récurrent réel | Sature la bande passante → déclenche délégation |
 

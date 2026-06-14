@@ -155,9 +155,9 @@ On agit sur les **patterns**, pas sur un entretien isolé. Pour chaque hypothès
 - ⚠️ **Ambigu** → la douleur existe mais n'est pas prioritaire. On **recadre le message** sur la douleur qui *est* sortie spontanément (souvent « j'ai pas le temps / pas de clients entrants »), même si ce n'est pas celle qu'on avait prévue.
 - ❌ **Invalidé** → **stop**. On ne vend pas un problème que personne ne ressent. On re-mène 5 entretiens en cherchant **quelle** douleur digitale est réellement vécue, et on rebâtit l'offre autour d'elle (pivot de problème).
 
-### H2 — Willingness to pay 3 000 €
-- ✅ **Validé** → 3 000 € HT tient comme **ticket d'entrée**. On confirme l'offre site dès 3 000 € et on corrige le site qui affiche encore 7 900 € (`state/03 C6`).
-- ⚠️ **Ambigu (budgets 500-1 500 € / cycle long)** → on crée une **marche basse** payante (audit packagé 300-600 € imputable, ou « starter » < 1 500 €) comme porte d'entrée vers le 3 000 €. On allonge le cycle attendu et on adapte le pipeline.
+### H2 — Willingness to pay (ticket d'entrée 2 000 €)
+- ✅ **Validé** → 2 000 € HT (Essentiel) tient comme **ticket d'entrée**. On confirme l'offre site dès 2 000 € et on corrige le site qui affiche encore 7 900 € (`state/03 C6`).
+- ⚠️ **Ambigu (budgets 500-1 500 € / cycle long)** → on crée une **marche basse** payante (audit packagé 300-600 € imputable, ou « starter » < 1 500 €) comme porte d'entrée vers le 2 000 €. On allonge le cycle attendu et on adapte le pipeline.
 - ❌ **Invalidé** → le ticket d'entrée est trop haut pour ce profil. Deux options : **monter en gamme** (cibler des boîtes plus grosses, ICP H3 à revoir) **ou** descendre l'offre d'entrée nettement. On ne maintient pas 3 000 € en froid contre les faits.
 
 ### H3 — ICP

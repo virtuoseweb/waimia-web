@@ -3,20 +3,41 @@
 > Anti-désync (DRY). Tout doc qui a besoin d'un de ces éléments **pointe ici** plutôt que de le
 > recopier. Flag brand-review `state/04 §4`. Mettre à jour ICI uniquement.
 
-## Positionnement (one-liner canonique)
-« L'IA opérationnelle pour les PME/ETI qui veulent du concret sans payer 50 k€ de cabinet — livrée
-et prouvée par un praticien, pas promise par un gourou. » Zone blanche entre **Limova** (agents
-préfab 70-120 €/mois) et **ClaudIn** (consulting premium ex-McKinsey, grands comptes). Détail :
-`marketing/01-positionnement-messaging §1`, `business/12-competitive-brief`.
+## Positionnement (one-liner canonique) — TRANCHÉ Simon 2026-06-14
+Waimia = **cabinet d'orchestration IA / conseil en transformation IA** — on conçoit et on opère le
+**système qui fait tourner une PME à l'IA** (acquisition → pilotage → opérations), avec des
+ingénieurs qui construisent agents IA, automatisations, workflows ET le site/app. **PAS une agence
+web** (catégorie commoditisée + menacée par les outils IA — à éviter explicitement en accroche).
+Le **site web intelligent = porte d'entrée tangible** (preuve visible, low ticket), **PAS le
+produit**. Positionnement **AI-proof** : on ORCHESTRE l'IA (au-dessus de la commodité), on n'est pas
+un créateur de sites menacé par Wix/Lovable/Framer. Accessible PME : échelle low → high ticket.
+> One-liner copy : « Le cabinet qui fait tourner votre PME à l'IA. » (mener par le **système /
+> résultat**, jamais par « un site »). Source : `strategy/03 §7`, `strategy/02 §0ter`. Détail :
+> `marketing/01-positionnement-messaging §1`, `business/12-competitive-brief`.
+>
+> Tendance marché qui valide (2026) : « la revanche discrète des cabinets conseil IA — les
+> dirigeants redécouvrent l'expertise stratégique » (agence-ia.com). Financement public : « Osez
+> l'IA » (≤ 50 % financé), Diagnostic Data IA (40 % État). **ROI médian PME 159 % à 12 mois** (cf
+> `strategy/03 §7` sources).
 
-## Offer ladder (canonique)
-| Palier | Offre | Prix | Rôle |
+## Keywords — 2 couches (canonique pour le messaging)
+- **Couche A — capture / conversion** : « site web intelligent » (H1 flagship) + local « site web
+  intelligent Montpellier ». ⚠️ « agence IA Montpellier » est **SATURÉ** → ne pas s'y enfermer.
+- **Couche B — autorité / GEO** (moat AI-proof + ticket) : « transformation IA PME »,
+  « automatisation IA PME », « agents IA entreprise », « diagnostic / audit IA PME », « cabinet
+  conseil IA », « orchestration IA ».
+> Détail tableau diff./opp./page : `strategy/03 §7`.
+
+## Offer ladder (canonique) — grille TRANCHÉE Simon 2026-06-14 (remplace 3k/9k/12k & le 7 900 € live)
+| Palier | Offre | Prix HT | Rôle |
 |---|---|---|---|
-| 0 | Audit quick win | **gratuit en froid / payant léger imputable en chaud** | porte d'entrée, qualif, preuve |
-| 1 | Site web IA | **dès 3 000 € HT** (paliers : Essentiel 3 000 / Croissance 3 000-6 000 / Premium ~6 000-8 000) | produit d'appel, cash |
-| 2 | Growth System IA | sur devis (~6 000-10 000 € HT, hyp.) | escalade acquisition/conversion |
-| 3 | Agents à l'usage | facturation à l'usage (~300-800 €/mois, hyp.) | récurrent / MRR |
-> Référence unique. `marketing/01 §5`, `business/06`, `business/08`, `business/11` citent ce tableau.
+| 0 | **Audit / Diagnostic IA** (adossé aux aides « Osez l'IA ») | **payant léger, imputable** (financement public mobilisable, ≤ 50 %) | porte d'entrée, qualif, posture conseil |
+| 1 | **Site web intelligent** (porte d'entrée tangible) | **Essentiel 2 000 / Croissance 4 000 / Complet 7 000 / Intelligence 10 000 / Sur mesure (devis)** | preuve visible, cash-first |
+| 2 | **Growth System IA** | sur devis | escalade acquisition/conversion bout en bout |
+| 3 | **Agents à l'usage** | facturation à l'usage (MRR) | horizontalisation / récurrent |
+> **Plancher du modèle financier = 2 000 €.** Paliers site (détail inclus) : `strategy/02 §0ter`.
+> Référence unique. `marketing/01 §5`, `marketing/02 §6`, `business/06`, `business/08`, `business/11`
+> citent ce tableau.
 
 ## Clients réels (référence E-E-A-T) — STATUT D'ACCORD À RENSEIGNER
 > ⚠️ Risque légal `state/04 §5 L1` : **ne citer publiquement (decks, one-pager, site) qu'avec accord écrit.**
@@ -71,6 +92,7 @@ un chiffre = une source ou un caveat. Si une phrase peut être coupée en deux p
 > Gabarit de bloc d'offre : *[douleur en « vous », chiffrée]* → *[X. Pas Y.]* → *[mécanisme concret]* → *[1 chiffre honnête]* → *[1 CTA sec]*.
 
 ## Identité (cohérence d'entité / GEO)
-Nom : **Waimia**. Zone : **Montpellier / Occitanie**. Expertise : **site web IA-native, anthropic-first**.
+Nom : **Waimia**. Zone : **Montpellier / Occitanie**. Catégorie : **cabinet d'orchestration IA /
+conseil en transformation IA, anthropic-first** (porte d'entrée = site web intelligent).
 Fondateur : **Simon Beros** (ex-VirtuoseWeb). À répéter à l'identique sur site + LinkedIn + Google
 Business Profile + annuaires (`strategy/03 §2` GEO).

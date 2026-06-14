@@ -8,12 +8,12 @@
 | Segment | Pourquoi eux | Déclencheur | Offre d'entrée |
 |---|---|---|---|
 | **Dépt. marketing PME/ETI** (20-250 sal.) | Budget existant, douleur volume/coût contenu + reporting | Sous-staffé, pression ROI, refonte en vue | Audit → Growth System |
-| **TPE services** (artisans premium, cabinets, conseil, santé, immo) | Cycle court, décideur = dirigeant, site obsolète | Site qui ne convertit pas | Site web IA dès 3 000 € HT |
+| **TPE services** (artisans premium, cabinets, conseil, santé, immo) | Cycle court, décideur = dirigeant, site obsolète | Site qui ne convertit pas | Site web intelligent dès 2 000 € HT (Essentiel) |
 | **Agences web partenaires** (saturées, sans IA) | Revente/sous-traitance, récurrent | Carnet plein, demandes IA non livrables | Partenariat marque blanche / agents |
 
 ### 1.2 Qualification (ICP + BANT) — seuil 3/4
 - **Fit** : verticale ciblée + taille 5-250 sal. + zone Occitanie d'abord + signal digital (site, posts LinkedIn, ads).
-- **Budget** : capacité 3 000 € HT. Proxy : effectif, ads payantes, recrutement marketing.
+- **Budget** : capacité ≥ 2 000 € HT (palier d'entrée), panier moyen visé ~4 000 € HT [HYP]. Proxy : effectif, ads payantes, recrutement marketing.
 - **Authority** : dirigeant (TPE) ou DirMkg/responsable digital (PME/ETI). Pas d'entrée par un stagiaire.
 - **Need/Timing** : déclencheur observable (refonte annoncée, offre d'emploi marketing, site daté, levée, nouveau dirigeant).
 

@@ -85,7 +85,7 @@ Pas de statistique publique officielle isolant « création de sites web » : le
 | Maintenance (toutes offres) | — | 50–500 €/mois | [ESTIMÉ] |
 | Hébergement + domaine | — | 100–300 €/an | [ESTIMÉ] |
 
-> Le **plancher Waimia à 3 000 € HT** se situe dans la **fourchette basse-médiane agence** et au-dessus du freelance d'entrée de gamme. Cohérent avec un positionnement « prix d'agence régionale, valeur supérieure (IA + GEO + données) ». Confirme l'analyse de `02-etude-de-marche.md` §5 — désormais adossée à des fourchettes sourcées plutôt qu'à un brief.
+> Le **plancher Waimia à 2 000 € HT** (palier Essentiel de la grille canonique 2/4/7/10k + sur-mesure) se situe dans la **fourchette basse agence** et au-dessus du freelance d'entrée de gamme ; le **panier moyen pondéré (~4 000 € HT [HYP])** tombe en fourchette basse-médiane agence. Cohérent avec un positionnement « prix d'agence régionale, valeur supérieure (IA + GEO + données) ». Confirme l'analyse de `02-etude-de-marche.md` §5 — désormais adossée à des fourchettes sourcées plutôt qu'à un brief.
 
 ---
 
@@ -145,10 +145,10 @@ Méthodo Bpifrance Le Lab : enquête 15 oct.–16 déc. 2024, **1 209 dirigeants
 
 ## 6. TAM / SAM / SOM recalculés (calcul montré)
 
-> Méthode : **comptes d'entreprises réels (INSEE 2023) × panier moyen**. On distingue le panier « projet site IA » (one-shot, palier 1 ≥ 3 000 € HT) et on ignore volontairement le récurrent agents (non chiffrable en panier moyen fiable à ce stade). Tous les résultats sont des **ordres de grandeur de cadrage [ESTIMÉ]**, bâtis sur des dénominateurs [RÉEL].
+> Méthode : **comptes d'entreprises réels (INSEE 2023) × panier moyen**. On distingue le panier « projet site IA » (one-shot, plancher de grille = palier Essentiel à 2 000 € HT) et on ignore volontairement le récurrent agents (non chiffrable en panier moyen fiable à ce stade). Tous les résultats sont des **ordres de grandeur de cadrage [ESTIMÉ]**, bâtis sur des dénominateurs [RÉEL].
 
 ### Hypothèses de panier
-- Panier moyen projet Waimia retenu : **5 000 € HT** (au-dessus du plancher 3 000 €, sous le haut de gamme agence 8 000 € — médiane prudente). [ESTIMÉ]
+- Panier moyen projet Waimia retenu **pour le cadrage TAM/SAM/SOM** : **5 000 € HT** (médiane de cadrage prudente, au-dessus du panier moyen pondéré commercial ~4 000 € [HYP] et bien au-dessus du plancher de grille 2 000 €, sous le haut de gamme agence 8 000 €). [ESTIMÉ]
 
 ### TAM — France (cible PME + ETI)
 - Dénominateur [RÉEL] : 174 600 PME + 7 442 ETI ≈ **182 000 entreprises**.
@@ -189,13 +189,13 @@ Méthodo Bpifrance Le Lab : enquête 15 oct.–16 déc. 2024, **1 209 dirigeants
 - **Frein n°1 = compétences internes (88 %)** : valide directement la proposition de valeur Waimia.
 - **Parc déjà équipé en web (~85 %)** : confirme un marché de refonte/surcouche, pas de premier site.
 - **Spécificité FR : AI Overview absent** : réoriente le GEO vers les assistants directs (ajustement de cap réel).
-- **Pricing** : fourchettes convergentes plaçant le plancher 3 000 € HT dans la zone basse-médiane agence.
+- **Pricing** : fourchettes convergentes plaçant le plancher de grille 2 000 € HT (Essentiel) en zone basse agence et le panier moyen pondéré ~4 000 € [HYP] en zone basse-médiane.
 
 ### À valider en primaire (entretiens / mesure interne)
 - **Décompte PME/ETI propre à Montpellier/Hérault** : nécessite une extraction SIRENE filtrée par effectifs. [À VALIDER]
 - **Demande chiffrée (Trends FR + Keyword Planner)** sur « création site internet », « agence IA », « GEO » : à capturer sur le compte Ads Waimia. [À VALIDER]
 - **Part réelle du trafic assistants IA dans l'acquisition PME locale** : à mesurer sur waimia.com + sites clients (dogfooding, GF-1). [À VALIDER]
-- **Disposition à payer réelle / élasticité au plancher 3 000 €** : à confronter en entretiens prospects (le pricing secondaire ≠ DTP terrain). [À VALIDER]
+- **Disposition à payer réelle / élasticité au plancher 2 000 € (Essentiel) et au panier moyen ~4 000 €** : à confronter en entretiens prospects (le pricing secondaire ≠ DTP terrain). [À VALIDER]
 - **Taille du marché web FR** : les ~1,5–2 Md€ viennent de sources secondaires non institutionnelles — à considérer comme ordre de grandeur, pas vérité. [À VALIDER]
 - **Stats GEO** : aucune n'est française ni PME — directionnellement robustes, non transposables au chiffre près.
 

@@ -40,9 +40,11 @@ Objectif : faire choisir un palier, lever les dernières objections, signer ou d
 3. **Les paliers (ancrage de prix)** —
    | Palier | Pour qui | Inclus | Prix |
    |---|---|---|---|
-   | Essentiel | Exister, être trouvé | 1-3 pages, SEO+GEO | dès 3 000 € HT |
-   | Croissance | Site qui acquiert | 3-5 pages, IA+skills+automation | 3 000-6 000 € |
-   | Premium | Base growth | site complet, pipeline contenu | ~6 000-8 000 € |
+   | Essentiel | Exister, être trouvé | 1-3 pages, SEO+GEO | 2 000 € HT |
+   | Croissance | Site qui acquiert | 3-5 pages, IA+skills+automation | 4 000 € HT |
+   | Complet | Base growth | site complet, pipeline contenu | 7 000 € HT |
+   | Intelligence | Système d'acquisition | site + agents + automation avancée | 10 000 € HT |
+   | Sur mesure | Besoin spécifique | périmètre dédié | devis |
 4. **Ce qui se passe ensuite** — « Acompte, puis sous une semaine une preview déployée — du vrai, pas une maquette. On itère ensemble, mise en ligne en 2-4 semaines. »
 5. **Garanties & cadre** — « Code standard hébergé chez vous, pas de prison propriétaire. Interlocuteur unique. Et l'audit payé s'impute. »
 6. **La décision** — « On part sur [palier] ? Je vous envoie le bon pour commande, acompte, et je lance la preview cette semaine. » Puis se taire.
@@ -55,7 +57,7 @@ Objectif : faire choisir un palier, lever les dernières objections, signer ou d
 >
 > **Le constat.** Vos clients vous cherchent désormais via les IA. Un site lent, daté ou invisible des IA = du CA qui fuit.
 >
-> **Ce qu'on fait (en escalier).** 1. **Audit Quick Win** — vos leviers chiffrés + ce que les IA disent de vous. Forfait léger, imputable. 2. **Site Web IA** — dès **3 000 € HT**. Astro ultra-rapide, SEO+GEO, éditable en parlant à une IA, automation contenu. 3 paliers. 3. **Growth System IA** — tunnel d'acquisition automatisé. Sur devis. 4. **Agents à l'usage** — salarié virtuel (sourcing, contenu, relances), facturé à l'usage.
+> **Ce qu'on fait (en escalier).** 1. **Audit Quick Win** — vos leviers chiffrés + ce que les IA disent de vous. Forfait léger, imputable. 2. **Site web intelligent** — dès **2 000 € HT** (Essentiel). Astro ultra-rapide, SEO+GEO, éditable en parlant à une IA, automation contenu. Grille 4 paliers + sur-mesure. 3. **Growth System IA** — tunnel d'acquisition automatisé. Sur devis. 4. **Agents à l'usage** — salarié virtuel (sourcing, contenu, relances), facturé à l'usage.
 >
 > **Pourquoi nous.** Prouvé par l'usage : waimia.com et virtuoseweb.fr tournent sur cette méthode. Clients réels : Carnets de Montpellier, Balzeo, Amploi, Inbound Value, Desangles. Un seul interlocuteur, qui conçoit et code.
 >

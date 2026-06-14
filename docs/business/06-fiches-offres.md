@@ -1,6 +1,6 @@
 # 06 — Fiches offres Waimia
 
-Quatre offres en escalier : audit (appel) → site web IA → growth system → agents à l'usage. Chaque palier qualifie le suivant. Preuve par l'usage : waimia.com et virtuoseweb.fr sont construits avec la méthode vendue ; clients réels en référence (Inbound Value, Amploi, Balzeo, Carnets de Montpellier, Desangles, naturopathe, import-export). Règle transverse : on ne vend jamais « de l'IA », on vend un résultat (trafic qualifié, conversions, heures récupérées). Ancrage marché : vitrine PME 1 500-8 000 €, Montpellier 3 000-6 000 €.
+Quatre offres en escalier : audit (appel) → site web intelligent → growth system → agents à l'usage. Chaque palier qualifie le suivant. Preuve par l'usage : waimia.com et virtuoseweb.fr sont construits avec la méthode vendue ; clients réels en référence (Inbound Value, Amploi, Balzeo, Carnets de Montpellier, Desangles, naturopathe, import-export). Règle transverse : on ne vend jamais « de l'IA », on vend un résultat (trafic qualifié, conversions, heures récupérées). Posture : Waimia est un **cabinet d'orchestration IA / conseil en transformation IA** (pas une agence web) ; le **site web intelligent** est la porte d'entrée tangible. Ancrage marché (sourcé `strategy/03 §7`) : premier chantier IA utile **3 000-7 000 € HT** (valide la grille) ; vitrine PME 1 500-8 000 €, Montpellier 3 000-6 000 €. **Plancher de la grille = 2 000 €.**
 
 ---
 
@@ -15,24 +15,29 @@ Quatre offres en escalier : audit (appel) → site web IA → growth system → 
 **Arguments clés :** « Vous ne payez pas un avis, vous repartez avec un plan. » · « On vous montre ce que les IA disent de vous aujourd'hui. » · Risque nul, valeur immédiate.
 **Objections :** *« Audit gratuit ailleurs »* → ici livrable chiffré + volet GEO que personne ne fait. *« C'est payant ? »* → gratuit pour démarrer ; en version approfondie (chaud), un forfait léger imputable sur le site garantit un vrai travail. *« Pas le temps »* → 20 min de brief, le reste de notre côté.
 **Qualification :** Votre site vous amène-t-il des clients ou il est juste « là » ? Combien d'heures/sem sur du répétitif ? Avez-vous testé ce que ChatGPT répond pour votre métier à Montpellier ? Budget pressenti si gros levier ?
-**Upsell → Site Web IA :** site lent/daté/invisible des IA ; quick win = refonte landing GEO-ready ; imputation de l'audit comme accélérateur.
+**Upsell → site web intelligent :** site lent/daté/invisible des IA ; quick win = refonte landing GEO-ready ; imputation de l'audit comme accélérateur. **Audit d'entrée adossable aux aides** (« Osez l'IA » ≤ 50 % financé, Diagnostic Data IA 40 % État, `strategy/03 §7`) → friction quasi nulle, posture conseil.
 
 ---
 
-## Fiche 1 — Site Web IA (offre cœur, à paliers)
-**Statut :** offre principale, à partir de **3 000 € HT**. Astro IA-native : perf max, éditable par IA, GEO-ready.
+## Fiche 1 — Site web intelligent (offre cœur, à paliers)
+**Statut :** offre principale (porte d'entrée tangible du cabinet), à partir de **2 000 € HT**. Astro IA-native : perf max, éditable par IA, GEO-ready. *(Keyword de support : « site web IA » / « IA-native » conservés dans le corps et le SEO ; la marque/titre mène par « intelligent ».)*
 **À qui :** PME, indépendants, professions libérales, commerces et services qui ont besoin d'un site qui travaille (trouvé Google + IA, convertit, reste vivant sans dépendre d'une agence).
 **Problème résolu :** WordPress lent, lourd à maintenir, invisible des IA, modif = devis. Le site IA-native inverse tout.
 **Inclus (selon palier) :** site Astro 1-5 pages, design sur-mesure, perf maximale (Core Web Vitals verts) ; SEO **et** GEO (structure citable Claude/GPT/Perplexity) ; connexion IA (Claude/GPT) pour édition/génération ; skills sur-mesure (FAQ, fiches, variations) ; automation de contenu marketing ; hébergement Vercel, mise en ligne, formation.
-**Paliers :**
-- **Essentiel — dès 3 000 € HT** : landing / 1-3 pages, SEO+GEO, mise en ligne. Exister et être trouvé.
-- **Croissance — 3 000-6 000 €** : 3-5 pages, connexion IA + skills, automation contenu de base. Alimente l'acquisition.
-- **Premium — ~6 000-8 000 €** : site complet, skills avancés, pipeline contenu automatisé, base prête pour growth system.
+**Paliers (grille canonique, source `strategy/02 §0ter`) :**
+
+| Palier | Prix HT | Inclus |
+|---|---|---|
+| **Essentiel / landing** (porte d'entrée cash-first) | **2 000 €** | landing-site 1-3 pages + SEO/GEO + mise en ligne. Exister et être trouvé. |
+| **Croissance** | **4 000 €** | site 3-5 pages + connexion IA (Claude/GPT) + skills + automation contenu de base. Alimente l'acquisition. |
+| **Complet** | **7 000 €** | site complet + CMS intelligent + système de contenu + intégrations. Base prête pour le growth system. |
+| **Intelligence** (système) | **10 000 €** | + dashboard + agents + automatisations → pont vers Growth System IA. |
+| **Sur mesure** | **sur devis** | ETI / besoins spécifiques (app dédiée, multi-sites, intégrations lourdes). |
 **Bénéfices (chiffrés, preuve) :** perf Astro typiquement Lighthouse 90-100 vs WordPress 30-60 ; GEO = canal d'acquisition que 99 % des concurrents ignorent ; coût de maintenance proche de zéro (éditable IA, pas de plugins) ; **preuve par l'usage** (waimia.com, virtuoseweb.fr, clients).
-**Déroulé :** brief + arborescence (J1) → preview déployée (sous 1 sem, du déployé pas du mockup) → itérations → contenu + IA + skills → mise en ligne. Essentiel ~2 sem, Croissance/Premium 3-5 sem.
-**Prix / conditions :** dès 3 000 € HT. Acompte 40-50 %, solde à la livraison. Hébergement + domaine en sus. Maintenance éditable client / option forfait.
+**Déroulé :** brief + arborescence (J1) → preview déployée (sous 1 sem, du déployé pas du mockup) → itérations → contenu + IA + skills → mise en ligne. Essentiel ~2 sem, Croissance/Complet 3-5 sem, Intelligence au-delà.
+**Prix / conditions :** dès 2 000 € HT (Essentiel). Acompte 40-50 %, solde à la livraison. Hébergement + domaine en sus. Maintenance éditable client / option forfait.
 **Arguments clés :** « Plus rapide que 95 % de vos concurrents, lisible par les IA. » · « Vous le modifiez en parlant à une IA, plus jamais de devis pour un horaire. » · « Construit avec exactement la méthode de notre propre site — voyez waimia.com. »
-**Objections :** *« 3 000 €, cher, j'ai vu des sites à 500 € »* → invisible et ne convertit pas, payé en clients perdus ; ici un actif. *« WordPress me suffit »* → lent, vulnérable, coûteux, illisible IA ; comparons les scores. *« L'IA va halluciner »* → édite sous garde-fous, ne publie pas seule, vous validez. *« Je pourrai l'éditer ? »* → oui, démo ; sinon on s'en occupe à l'usage. *« Et si je change d'agence ? »* → code standard, hébergé chez vous, pas de prison.
+**Objections :** *« 2 000 €, cher, j'ai vu des sites à 500 € »* → invisible et ne convertit pas, payé en clients perdus ; ici un actif (et le palier d'entrée existe justement pour démarrer accessible, puis monter en escalier). *« WordPress me suffit »* → lent, vulnérable, coûteux, illisible IA ; comparons les scores. *« L'IA va halluciner »* → édite sous garde-fous, ne publie pas seule, vous validez. *« Je pourrai l'éditer ? »* → oui, démo ; sinon on s'en occupe à l'usage. *« Et si je change d'agence ? »* → code standard, hébergé chez vous, pas de prison.
 **Qualification :** combien de pages / objectif (vitrine, leads, RDV, vente) ? contenu existant ou à produire ? qui édite aujourd'hui, à quelle fréquence ? être trouvé d'abord ou mieux convertir ? budget site seul ou vision acquisition ?
 **Upsell → Growth System :** « le site est là, maintenant remplissez mon agenda » ; besoin de flux régulier ; volume contenu/relances > manuel.
 
@@ -71,7 +76,7 @@ Quatre offres en escalier : audit (appel) → site web IA → growth system → 
 | Offre | Ticket | Format | Rôle |
 |---|---|---|---|
 | Audit Quick Win | Gratuit froid / payant léger imputable chaud | Forfait léger | Qualifier + prouver |
-| Site Web IA | Dès 3 000 € HT | Forfait à paliers | Actif d'acquisition |
+| Site web intelligent | Dès 2 000 € HT (Essentiel 2k / Croissance 4k / Complet 7k / Intelligence 10k / sur mesure) | Forfait à paliers | Actif d'acquisition |
 | Growth System IA | Sur devis | Setup + récurrent | Flux prévisible |
 | Agents à l'usage | À l'usage | Conso + socle | Capacité d'exécution |
 

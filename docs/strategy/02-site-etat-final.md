@@ -34,7 +34,12 @@
 
 ---
 
-## 0bis. ARCHITECTURE : 1 silo SEO + 3 piliers vitrine légers (2026-06-12 — FAIT FOI)
+## 0bis. ARCHITECTURE : 1 silo SEO + 3 piliers vitrine légers (2026-06-12 — ⚠️ AMENDÉ par ADR-003, cf §0ter)
+
+> ⚠️ **AMENDÉ le 2026-06-13 par `specs/03-ADR-003` + `strategy/06` (canoniques).** Ce §0bis décrit l'état
+> ADR-002 (« Acquérir = vitrine légère »). **ADR-003 a depuis OUVERT Acquérir en silo développé** (hub
+> `/acquerir` + pages `/services/*` + `/lp/*`). Lire **§0ter** (consolidation à jour). Piloter + Opérer
+> restent vitrine gelée comme décrit ici. En cas de divergence : ADR-003 + §0ter gouvernent.
 
 > Validée Simon + arbitrage expert. **Ce n'est PAS un revirement de l'anti-dilution** : on
 > tuait les ~19 pages séparées (Piloter/Opérer/Acquérir) ; on les **consolide** ici en 3 pages
@@ -84,6 +89,145 @@ indexés mais **sans cluster** (pas de mise SEO offensive : expertise partenaire
 **À construire (chantier Claude Code, cf `state/02-plan-execution`) :** créer les 3 pages piliers
 en **sections composables ancrées** (réutiliser les sections cataloguées — anti-orphelin), câbler
 le méga-menu sur les ancres, fusionner le contenu existant des solutions dans les sections.
+
+---
+
+## 0ter. ARCHITECTURE FINALE DE LANCEMENT — URLs + nav (site NEUF, 0 redirection) — TRANCHÉ 2026-06-14
+
+> **Site neuf = aucune autorité à préserver → AUCUN 301 / canonical / redirection.** On ne migre
+> pas, on **part propre** : on crée directement les bonnes URLs et on **ne crée jamais les
+> doublons** (la « cannibalisation site web IA » se règle en n'ayant qu'**UNE** page, pas en
+> redirigeant). Cette section **fige les slugs définitifs** et **supersede** les chemins cités en
+> §0bis/§1 (qui gardent la logique, pas l'URL exacte).
+>
+> **Validé par SERP réelle (2026-06-14)** : « agence IA France » = SERP 100 % classements/comparatifs
+> → **imprenable**, on n'y va pas. AI Overview Google **toujours inactif en FR** (droits voisins +
+> AI Act) → GEO = **assistants directs** (ChatGPT/Perplexity/Claude), mais on reste *AI-Overview-ready*
+> via schema. SERP « site web IA » = comparatifs « outils IA vs agence » + constat « sites pondus par
+> IA mal optimisés SEO/RGPD » → **coin de Waimia : IA-native AVEC la rigueur d'agence**.
+
+### Nom de catégorie : « site web intelligent » (TRANCHÉ — brand) vs « IA » (keyword secondaire)
+**La catégorie/marque = « site web intelligent »**, PAS « site web IA » (se démarque du flot d'outils
+« site IA » cheap, plus durable, moins buzzword). **Mais** « site web IA » / « site IA » / « IA-native »
+restent des **mots-clés de recherche secondaires** à garder dans le H1-sous-titre, le corps et les
+articles (capture SEO). Règle : **titre/marque/URL = « intelligent » ; copy de support = « IA » en
+appui.** *(Tradeoff assumé : « intelligent » a probablement moins de volume que « IA » ; on compense en
+gardant « IA » dans le contenu et en s'appuyant sur l'intention volumique « création site web » + le local.)*
+
+**Positionnement CADRE (TRANCHÉ 2026-06-14, détail + keywords `strategy/03 §7`)** : Waimia = **cabinet
+d'orchestration IA / conseil en transformation IA** qui fusionne conseil + technique d'agence + ingénieurs
+qui construisent agents/automatisations/workflows + dev site/app. **PAS une agence web** (catégorie
+commoditisée + menacée par l'IA). Le **site web intelligent = porte d'entrée tangible** (preuve, pas
+produit) ; la marque mène par le **système/résultat** (« votre PME qui tourne à l'IA »). SEO en **2 couches** :
+(A) **capture/conversion** = site web intelligent + local Montpellier ; (B) **autorité/GEO** = transformation
+IA PME, automatisation, agents, diagnostic IA (angle aides « Osez l'IA »), cabinet conseil IA. Échelle
+**low→high ticket** (audit/2k → 4k → 7k → 10k → sur-mesure). Ton = praticien + ingénieur + conseil, jamais « agence web ».
+
+### Architecture canonique (ADR-003) — le silo Acquérir est OUVERT, pas une vitrine
+> ⚠️ **Source canonique = `strategy/06` + `specs/02-ADR-002` + `specs/03-ADR-003` + `state/06`/`07`/`08`**
+> (validés Simon 2026-06-13). Cette section les **consolide** en map livrable ; en cas de divergence,
+> EUX font foi. Évolution clé : ADR-003 **ouvre le pilier Acquérir en silo SEO développé** (pas une
+> vitrine légère comme le disait §0bis sous ADR-002).
+
+**Nommage 3 couches** : nav = **verbe** · hub = **marque** (garde « IA ») · page service = **promesse** (« intelligent ») :
+- **Acquérir** → hub `/acquerir` (offre **Growth System IA**) = **LE silo SEO développé** : hub + vraies
+  pages `/services/*` + landings `/lp/*` + cluster d'articles. 100 % de l'effort SEO ici.
+- **Piloter** → `/piloter` (offre **Business Intelligence**) = **1 page pilier à ancres, gelée**, jamais offensif.
+- **Opérer** → `/operer` (offre **Operations IA**) = **1 page pilier à ancres** (+ 0-2 pages enfant tolérées), gelée.
+
+### Carte d'URL V1 (~26-28 indexées)
+**Silo Acquérir (où l'on mise) :**
+| URL | Rôle |
+|---|---|
+| `/` | Home (marque + preuve réelle) |
+| `/acquerir` | **HUB silo** Growth System IA (+ ancres `#seo-geo`, `#publicite` « à venir », `#agent-marketing` « à venir ») |
+| `/services/site-web-intelligent` | Page service SEO riche (flagship, porte d'entrée) |
+| `/lp/site-web-intelligent` | Landing conversion (CRO) |
+| `/services/content-marketing-intelligent` | Service — **fusionne content marketing + SEO/GEO** (pas de page SEO séparée, ADR-003 nuance #1) |
+| `/lp/content-marketing-intelligent` | Landing |
+| `/services/tunnel-conversion-intelligent` | Service tunnel de conversion |
+| `/lp/tunnel-conversion-intelligent` | Landing |
+| `/ressources/blog/*` (6 articles in-silo) | profondeur éditoriale du silo |
+
+> **Différés (ADR-003 #2)** : Publicité + Agent marketing/commercial = **pas de page** maintenant → ancres
+> « à venir » sur `/acquerir`. SEO & GEO = **pas de page séparée** (fusionné dans content-marketing-intelligent).
+
+**Piliers vitrine gelés (jamais SEO offensif — ADR-002 maintenu) :**
+| URL | Offre | Ancres (même page) |
+|---|---|---|
+| `/piloter` | Business Intelligence | `#revops` `#tableaux-de-bord` `#reporting-ia` `#donnees-centralisees` `#previsionnel-ia` `#agent-analytique` |
+| `/operer` | Operations IA | `#crm-relances` `#automatisation` `#service-client` `#admin-rh` `#legal` `#agents-metiers` |
+
+**Appel :** `/offres/audit-maturite-ia` (audit quick win — gardé tel quel, hors périmètre refonte, `state/06`).
+**Confiance/E-E-A-T :** `/agence` (studio solo, about+méthode), `/manifeste`, `/equipe/simon-beros`, `/realisations` (vrais cas), `/contact`.
+**Ressources :** `/ressources` (hub), `/ressources/outils/calculateur-roi-ia`, `/ressources/academy`, cluster blog.
+**Autorité :** `/expertise-claude` (ex-`/technologies/claude-models`).
+**Légal :** `/mentions-legales`, `/politique-de-confidentialite`, `/cgv`, `/plan-du-site`, `/404`.
+**Internes DS (noindex `robots disallow`) :** `/agence/{design-system,ds-studio,hero-lab}`, `/preview/*`, `/components/*`, `/categories/*`.
+
+> ✅ **2 décisions TRANCHÉES (Simon, 2026-06-14) :**
+> 1. **Page locale `/agence-web-montpellier` = OUI en V1.** Cible « agence web / création site internet
+>    Montpellier », cash local rapide (E-E-A-T + GBP authentique). Rattachée au silo Acquérir (même thème,
+>    maillage vertical, **zéro porosité**). Indexée. Reachable home (CTA local) + `/agence` + footer ; **hors
+>    top-nav** (nav épurée). Schema `LocalBusiness`. = front local du silo, en plus du national `/services/site-web-intelligent`.
+> 2. **Pricing = grille 4 paliers (TRANCHÉ Simon 2026-06-14 — remplace 3k/9k/12k ET le 7 900 € du site live)** :
+>    | Palier | Prix HT | Inclus |
+>    |---|---|---|
+>    | **Essentiel / landing** (porte d'entrée cash-first) | **2 000 €** | landing-site 1-3 pages + SEO/GEO + mise en ligne |
+>    | **Croissance** | **4 000 €** | site 3-5 pages + connexion IA (Claude/GPT) + skills + automation contenu de base |
+>    | **Complet** | **7 000 €** | site complet + CMS intelligent + système de contenu + intégrations |
+>    | **Intelligence** (système) | **10 000 €** | + dashboard + agents + automations → pont vers Growth System IA |
+>    | **Sur mesure** | **sur devis** | ETI / besoins spécifiques : app dédiée, multi-sites, intégrations lourdes → bascule Growth System IA |
+>    → rendu sur `pricing-cards` (`state/07` #11). ⚠️ schéma `tiers` = **max 4** : afficher les **4 paliers chiffrés** + « Sur mesure » en **5ᵉ carte/aside CTA** (ou bumper le schéma à 5 — décision d'exécution). **Plancher du modèle financier = 2 000 €.**
+>    **À PROPAGER** (réf canonique = cette grille) : `business/06` (fiches), `08` (quick wins/CA), `13` (modèle financier — **recalculer le point mort**, panier moyen ↑), `state/08` (brief v6), `marketing/01`, + corriger le **7 900 €** du site live (P0).
+
+### Méga-menu V1 — réorganisation (l'actuel `src/data/mega-menu.ts` = doublons + liens morts)
+L'actuel mappe depuis `sitemap.ts` et pointe vers des pages **supprimées** (`/solutions/acquisition-ia`,
+`/offres/growth-intelligence`, `/offres/revops`, `veille-ia`, `cookbooks`, `VirtuoseOS`…) + **mélange**
+« Site web IA » et `/services/site-web-intelligent`. **Cible = 3 colonnes verbes, 1 lien = 1 page réelle :**
+
+| Colonne (verbe) | Liens RÉELS (pages) | Ancres (même page) | À supprimer (doublon/mort) |
+|---|---|---|---|
+| **Acquérir** (`/acquerir`) | Site web intelligent `/services/site-web-intelligent` · Content marketing intelligent `/services/content-marketing-intelligent` · Tunnel de conversion `/services/tunnel-conversion-intelligent` | SEO & GEO `#seo-geo` · Publicité `#publicite` *(à venir)* · Agent marketing `#agent-marketing` *(à venir)* | acquisition-ia, contenu-seo-geo-ia (→ fusionnés), site-web-ia (ancien label) |
+| **Piloter** (`/piloter`) | *(aucune page enfant)* | RevOps `#revops` · Tableaux de bord `#tableaux-de-bord` · Reporting IA `#reporting-ia` · Données `#donnees-centralisees` · Prévisionnel `#previsionnel-ia` · Agent analytique `#agent-analytique` | growth-intelligence, productivite-ia (mal classé) |
+| **Opérer** (`/operer`) | *(0-2 pages enfant tolérées)* | CRM & relances `#crm-relances` · Automatisation `#automatisation` · Service client `#service-client` · Admin & RH `#admin-rh` · Légal `#legal` · Agents métiers `#agents-metiers` | productivite-operationnelle-ia, support-client-ia (doublon) |
+
+**Autres colonnes :** **Ressources** = Blog · Outils (calculateur ROI) · Academy *(supprimer livres-blancs,
+veille-ia, cookbooks, cas VirtuoseOS)*. **Agence** = À propos `/agence` · Méthode · Manifeste · Simon Beros
+`/equipe/simon-beros` *(supprimer docs, governance, trust-center, careers)*. **CTA** = Audit gratuit. **Footer**
+= + Agence web Montpellier (si validée) · légal · plan du site.
+
+> Règles méga-menu (ADR-003 nuance #4) : **zéro lien vers une page inexistante** (anti-orphelin nav) ; un
+> sous-sujet sans page réelle = **ancre** sur le pilier, jamais un lien mort ; « à venir » crédible pour
+> Publicité/Agents. Édition = `src/data/mega-menu.ts` (+ délier de `sitemap.ts` les entrées supprimées).
+
+### Mapping du sitemap RÉEL (206 URLs → ~26)
+| Dossier (live) | URLs | Décision |
+|---|---|---|
+| Racines / statiques | 13 | **GARDER** `/` (home), `/acquerir` · `/piloter` · `/operer` (3 piliers = verbes, gardés), `/contact`, `/manifeste`, légal ×2, `/plan-du-site`, `/cgv` · `/cas`→`/realisations` · **SUPPRIMER** `/commerce`, `/secteurs` |
+| `/agence` | 6 | GARDER `/agence` (+about+méthode fusionnés) · NOINDEX `ds-studio`, `hero-lab` · **SUPPRIMER** `/agence/prompts` (fuite interne) |
+| `/comparer` | 11 | **SUPPRIMER** (doorway) |
+| `/equipe` | 2 | GARDER `/equipe/simon-beros` |
+| `/glossaire` | 31 | **SUPPRIMER** (thin, off-silo) |
+| `/integrations` | 21 | **SUPPRIMER** (doorway ; garder le composant section sur sa demo) |
+| `/offres` | 34 | GARDER `audit-maturite-ia`, `growth-system-ia`→ devient hub `/acquerir` · **RECYCLER** `site-web-ia`(.astro)→`/services/site-web-intelligent` + `/lp/` · **SUPPRIMER** 6 offres secondaires + 20 tunnels |
+| `/ressources` | 62 | GARDER hub, `outils/calculateur-roi-ia`, `academy`, **6 articles in-silo** · **SUPPRIMER** categorie/tag/silo/cookbooks/livres-blancs/veille-ia/personas |
+| `/services` | 3 | **base des 3 pages service Acquérir** : fonder `site-web-intelligent`, `content-marketing-intelligent`, `tunnel-conversion-intelligent` (supprimer les stubs actuels) |
+| `/solutions` | 21 | **SUPPRIMER les 20 métiers** (contenu → ancres des piliers `/piloter`/`/operer` ou fusion Acquérir) ; **aucune** page `/solutions/*` séparée |
+| `/technologies` | 2 | GARDER `claude-models`→`/expertise-claude` |
+
+**Résultat : 206 → ~26 indexées.** Supprimé = **404 net** (0 redirection, domaine neuf), régénérable
+(collections gardées en infra). Sitemap + `/plan-du-site` = whitelist only.
+
+### Sections par page V1 (templates retenus)
+- **3 pages service Acquérir** (`/services/*`) : séquence **canonique 13 sections déjà spécifiée + template
+  buildé** → `state/07-template-page-service` (hero-conversion-funnel → proof-bar → problems-grid →
+  diagnostic-stages → method-timeline → workflow-table → feature-split-media → deliverables-grid →
+  stats-bento → comparison-duo → pricing-cards → faq-two-column → footer-cta-band). **Réutiliser tel quel**,
+  adapter le contenu par service. *(SEO/GEO = section dédiée dans content-marketing-intelligent.)*
+- **Landings `/lp/*`** : variante CRO allégée (hero + problème + preuve + offre + FAQ + CTA), Phase C (`state/08`, `specs/03 §Phase C` + quizz lead-magnet de scoring).
+- **Piliers `/piloter` `/operer`** : hero pilier + 1 bloc par sous-sujet ancré (`#…`) + preuve + CTA — **séquence à figer** (pas encore spécifiée comme les services). Sections cataloguées, anti-orphelin.
+- **Home, `/agence`, `/realisations`, `/manifeste`** : **audit des sections existantes** (garder/retirer/ajouter) à la passe assainissement — viser « suffisant », **0 section creuse**, 0 doublon.
 
 ---
 

@@ -36,7 +36,7 @@ Position Waimia : **site IA-native, prouvé par l'usage, à prix PME (1 500-8 00
 
 ## 4. Fond de marché
 Agences web Montpellier : vitrine PME **2 500-6 000 €** (~15-25 % sous Paris, ~70 % WordPress). Freelances 1 000-3 000 €. DIY quelques €/mois (zéro accompagnement/IA/GEO).
-**Implication pricing :** la fourchette Waimia (Montpellier 3 000-6 000 €) est **dans la norme agence locale** → Waimia n'est pas « cher », il a une **nature de produit supérieure** au même prix (IA-native vs WordPress). Argument : *même prix qu'un WordPress d'agence, mais un actif moderne, performant, GEO-ready, éditable par IA*.
+**Implication pricing :** la grille Waimia (Essentiel 2 000 € → Croissance 4 000 € → Complet 7 000 € → Intelligence 10 000 € + sur-mesure ; panier moyen ~4 000 € [HYP]) est **dans la norme agence locale** → Waimia n'est pas « cher », il a une **nature de produit supérieure** à prix comparable (IA-native vs WordPress). Argument : *prix d'un WordPress d'agence, mais un actif moderne, performant, GEO-ready, éditable par IA*.
 
 ## 5. Matrice de positionnement (zone blanche)
 **Prix × Sur-mesure :** Waimia occupe le quadrant **sur-mesure accessible** — plus personnalisé/qualitatif que les agences WordPress et les SaaS, radicalement plus accessible que ClaudIn/Juwa.

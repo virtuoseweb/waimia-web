@@ -34,7 +34,7 @@ Objectif : obtenir le droit de poser des questions, pas vendre.
 
 ### 1.5 Closing (clôtures honnêtes)
 - **Étape suivante :** « La suite logique, c'est un audit quick win : un appel où je regarde votre site et je vous repère 2-3 leviers concrets. Sans engagement, vous repartez avec quelque chose d'utile même si on ne bosse pas ensemble. On le cale quand ? »
-- **Alternative (sur le paquet) :** « Pour le site, deux façons d'entrer : le palier de départ à 3 000 € qui couvre [X], ou le cran au-dessus avec [Y]. Vu ce que vous m'avez dit, lequel colle le mieux ? »
+- **Alternative (sur le paquet) :** « Pour le site, deux façons d'entrer : le palier Essentiel à 2 000 € qui couvre [X], ou le cran au-dessus (Croissance, 4 000 €) avec [Y]. Vu ce que vous m'avez dit, lequel colle le mieux ? »
 - **Récapitulatif d'engagement :** « Vous m'avez dit que [douleurs] vous coûtaient [montant]. Ce que je propose règle les trois pour [prix], retour sous [délai]. Ça fait sens de démarrer ? »
 - **Sur le doute :** « J'ai l'impression qu'il reste une hésitation. Dites-moi laquelle, franchement — soit j'ai une réponse, soit ce n'est pas le moment et c'est OK. »
 > On ne force pas un closing sur une découverte bâclée. Le quick win EST le closing de premier niveau.
@@ -58,7 +58,7 @@ Méthode : **reconnaître la peur réelle → répondre → prouver → reposer 
 
 | Objection | Peur réelle | Réponse | Preuve | Relance |
 |---|---|---|---|---|
-| **Trop cher / pas le budget** | Payer pour un truc qui ne rapporte pas | « La vraie question, c'est le retour. À 3 000 €, un client de plus par trimestre et c'est remboursé. Et on commence par l'audit gratuit, vous décidez après avec des chiffres. » | Récap des implications chiffrées données en découverte | « Combien vous rapporte un client moyen ? Regardons combien de clients en plus rendent ça rentable. » |
+| **Trop cher / pas le budget** | Payer pour un truc qui ne rapporte pas | « La vraie question, c'est le retour. L'entrée est à 2 000 € (palier Essentiel) ; un client de plus par trimestre et c'est remboursé. Et on commence par l'audit gratuit, vous décidez après avec des chiffres. » | Récap des implications chiffrées données en découverte | « Combien vous rapporte un client moyen ? Regardons combien de clients en plus rendent ça rentable. » |
 | **Pourquoi pas WordPress/Wix/freelance** | Surpayer pour ce qu'il croit identique | « La différence n'est pas le look, c'est ce qu'il y a dessous : WordPress lourd, lent, chaque modif passe par quelqu'un. Mon site, vous le pilotez à l'IA et il est conçu pour être cité par ChatGPT. » | Démo côte à côte perf + édition IA | « Sur votre WordPress, modifier une page, ça prend combien et passe par qui ? » |
 | **L'IA c'est un gadget / risqué** | Effet de mode, perte de contrôle | « Je ne vends pas de l'IA pour l'IA : je vends un site rapide qui convertit, l'IA est l'outil qui le rend éditable et trouvable. Livrable concret, mesurable. » | Montrer le site fini, pas le concept | « Qu'est-ce qui vous inquiéterait précisément avec l'IA ? On regarde si c'est fondé. » |
 | **On a déjà une agence/un site** | Conflit, effort de changer, mauvais choix passé | « Vous savez donc ce qu'une agence apporte — et ce qui manque. Je ne refais pas tout demain : on commence par un audit, je vous dis franchement si votre setup tient. » | Audit quick win = preuve sans engagement | « Sur ce que votre agence fait, qu'est-ce qui vous manque le plus ? » |
@@ -90,7 +90,7 @@ Format : positionnement · on gagne quand · on perd quand · attaque · défens
 ## 5. Lever le doute & réduire le risque (frein n°1 du solo)
 - **Preuve par l'usage** (le plus fort) : tu vends ce que tu utilises. Démo live = preuve, pas argument (GF-1).
 - **Étape à faible enjeu d'abord** : audit quick win gratuit → tester la relation sans payer.
-- **Paliers, pas big bang** : site dès 3 000 € → Growth → agents. Jamais d'engagement total d'un coup.
+- **Paliers, pas big bang** : site intelligent dès 2 000 € (Essentiel) → Growth → agents. Jamais d'engagement total d'un coup.
 - **Interlocuteur unique** : transformer « solo = fragile » en « un seul responsable, joignable, pas de junior anonyme ».
 - **Social proof concret** : cas réels, métriques, captures GEO. Jamais de faux témoignages.
 - **Réversibilité** : code standard, le client possède son site et son contenu, pas de prison technique.

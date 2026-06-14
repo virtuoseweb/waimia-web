@@ -9,7 +9,7 @@
 
 ## 0. Cadre en une page
 Objectif business : générer des leads pour le produit d'appel (audit quick win + **site web
-IA dès 3 000 € HT**), nourrir l'escalade « Growth System IA », installer Waimia comme **entité
+intelligent dès 2 000 € HT**, Essentiel), nourrir l'escalade « Growth System IA », installer Waimia comme **entité
 citable par les IA** (GEO) sur « site web IA pour PME ». Trois leviers, un moteur : SEO classique
 + **GEO** (citations ChatGPT/Claude/Perplexity, 3-6 mois) + **autorité-praticien** (LinkedIn n°1).
 Avantage déloyal : Waimia **prouve par l'usage** (`waimia.com`, `virtuoseweb.fr` + vrais clients).
@@ -51,7 +51,7 @@ On dit : « site IA-native », « éditable par IA », « audit quick win », «
 **Mois 1 — fondations + quick wins local & GEO**
 | Sem | Article (mer.) | LinkedIn (mar./jeu.) | Pilier |
 |---|---|---|---|
-| S1 | Combien coûte un site internet IA en 2026 (place 3 000 €) | migration waimia.com chiffrée / devis 1-à-10 | 1·4 |
+| S1 | Combien coûte un site internet IA en 2026 (place dès 2 000 €) | migration waimia.com chiffrée / devis 1-à-10 | 1·4 |
 | S2 | Site IA-native vs WordPress : perf, maintenance, coût réel | carrousel Lighthouse / coût caché WordPress | 1 |
 | S3 | Agence web Montpellier : pourquoi passer au site IA | coulisses client local / check pré-refonte | 4 |
 | S4 | Se faire citer par ChatGPT/Claude/Perplexity (PME B2B) | GEO concret / cohérence d'entité | 2 |

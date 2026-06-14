@@ -12,7 +12,7 @@
 
 ## 1. Taille & dynamique du marché
 
-**Création de sites web (France).** Site vitrine PME : **1 500 – 8 000 €**, moyenne agence **~5 500 €**. Montpellier : **3 000 – 6 000 €**. Le plancher Waimia à 3 000 € HT se place **dans la fourchette basse-médiane** agence — accessible PME, sans casser les prix. Marché mature, abondant, concurrentiel : la différenciation ne vient pas du « site » seul mais de la **brique IA + données + GEO**.
+**Création de sites web (France).** Site vitrine PME : **1 500 – 8 000 €**, moyenne agence **~5 500 €**. Montpellier : **3 000 – 6 000 €**. Le plancher Waimia à 2 000 € HT (Essentiel) ouvre **sous l'entrée agence** — accessible PME, sans casser les prix — et la grille monte à 4/7/10k + sur-mesure. Marché mature, abondant, concurrentiel : la différenciation ne vient pas du « site » seul mais de la **brique IA + données + GEO**.
 
 **IA pour PME.** Forte pression d'adoption de l'IA générative, freinée par le manque de compétences internes et la défiance vis-à-vis du hype. Espace d'un intermédiaire crédible qui **opérationnalise** l'IA plutôt que de la vendre comme concept.
 
@@ -61,7 +61,7 @@
 | Freelance site vitrine | ~1 000-4 000 € | Variable |
 | Agence classique vitrine FR | 1 500-8 000 € (moy. ~5 500 €) | Maintenance |
 | Agence Montpellier | 3 000-6 000 € | Maintenance |
-| **Waimia — site IA (palier 1)** | **dès 3 000 € HT**, paliers | Automation contenu / maintenance |
+| **Waimia — site web intelligent (palier 1)** | **dès 2 000 € HT**, 4 paliers + sur-mesure | Automation contenu / maintenance |
 | **Waimia — Growth System** | Sur devis | Partiel |
 | **Waimia — agents** | À l'usage | Oui, récurrent scalable |
 | ClaudIn (premium) | Grands comptes, hors PME | Oui |
