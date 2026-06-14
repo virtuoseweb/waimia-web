@@ -110,7 +110,7 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
     font-family: var(--font-mono);
     font-size: var(--text-body-sm);
     color: var(--muted);
-    transition: transform 0.2s;
+    transition: transform var(--dur-fast);
     flex-shrink: 0;
   }
   details[open] .faq-cta__arrow { transform: rotate(180deg); }

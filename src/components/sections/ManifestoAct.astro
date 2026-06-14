@@ -50,7 +50,7 @@ const stats = data.stats ?? [];
     grid-template-columns: 1fr 2fr;
     gap: clamp(40px, 6vw, 80px);
   }
-  .manifesto-act__label { position: sticky; top: 120px; align-self: start; }
+  .manifesto-act__label { position: sticky; top: var(--space-12); align-self: start; }
   .manifesto-act__roman { color: var(--accent-text); }
   :global(.manifesto-act__sub) { margin-top: var(--space-1); }
   .manifesto-act[data-tone='ink'] :global(.manifesto-act__num) { color: rgba(var(--paper-rgb), .5) !important; }

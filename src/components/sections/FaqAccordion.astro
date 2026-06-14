@@ -130,7 +130,7 @@ if ('data' in Astro.props) {
     font-family: var(--font-mono);
     font-size: var(--text-body-sm);
     color: var(--muted);
-    transition: transform .2s;
+    transition: transform var(--dur-fast);
     flex-shrink: 0;
   }
   details[open] .faq-accordion__arrow { transform: rotate(180deg); }

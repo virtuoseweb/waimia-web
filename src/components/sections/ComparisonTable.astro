@@ -162,7 +162,7 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
   :where(.comparison-table) th:first-child { min-width: 200px; }
   :where(.comparison-table) tbody tr {
     border-bottom: 1px solid var(--hairline);
-    transition: background .15s;
+    transition: background var(--dur-fast);
   }
   :where(.comparison-table) tbody tr:hover { background: rgba(var(--accent-rgb), .025); }
   :where(.comparison-table) td {

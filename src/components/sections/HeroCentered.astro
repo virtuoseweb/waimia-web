@@ -465,7 +465,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-hub-listing {
     position: relative;
     overflow: hidden;
-    padding: calc(var(--header-height) + 40px) var(--space-6) clamp(40px, 5vw, 72px);
+    padding: calc(var(--header-height) + var(--space-7)) var(--space-6) clamp(40px, 5vw, 72px);
   }
   .hero-hub-listing--bordered { border-bottom: 1px solid var(--hairline); }
   .hero-hub-listing .wrap-wide { position: relative; z-index: 1; }
@@ -725,7 +725,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     color: var(--paper);
     text-decoration: none;
     border: 1px solid var(--ink);
-    transition: background 0.15s, border-color 0.15s;
+    transition: background var(--dur-fast), border-color var(--dur-fast);
   }
   .hero-course__btn-primary:hover { background: var(--accent); border-color: var(--accent-text); }
   .hero-course__btn-primary--disabled {
@@ -748,7 +748,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     text-underline-offset: 3px;
     border-bottom: 0;
     padding-bottom: 0;
-    transition: color 0.15s;
+    transition: color var(--dur-fast);
   }
   .hero-course__hd--legacy-ghost .hero-course__btn-ghost:hover { color: var(--accent-text); }
   .hero-course[data-bg='paper-2'] { background: var(--paper-2); }
@@ -941,7 +941,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-case-study[data-bg='ink'] .hero-case-study__spec { border-color: rgba(var(--paper-rgb), 0.14); }
 
   /* ── hero-service-detail ── */
-  .hero-service-detail { padding: calc(var(--header-height) + 24px) var(--space-6) 0; }
+  .hero-service-detail { padding: calc(var(--header-height) + var(--space-5)) var(--space-6) 0; }
   :global(.hero-service-detail__num) { display: block; margin-bottom: var(--space-5); }
   .hero-service-detail__h1 {
     font-family: var(--font-sans);
@@ -1074,7 +1074,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     padding: 14px 28px;
     border-radius: var(--radius-xs);
     text-decoration: none;
-    transition: opacity .2s;
+    transition: opacity var(--dur-fast);
   }
   .hero-landing__btn-primary:hover { opacity: .85; }
   .hero-landing__btn-secondary {
@@ -1085,7 +1085,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     padding: 14px 28px;
     border-radius: var(--radius-xs);
     text-decoration: none;
-    transition: border-color .2s;
+    transition: border-color var(--dur-fast);
   }
   .hero-landing__btn-secondary:hover { border-color: var(--ink); }
   .hero-landing__avail {

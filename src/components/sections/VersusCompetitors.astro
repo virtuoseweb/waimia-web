@@ -170,7 +170,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
   .versus__cell[data-featured='true'] { background: rgba(var(--accent-rgb), .06); }
   .versus[data-bg='ink'] .versus__cell[data-featured='true'] { background: rgba(var(--accent-rgb), .14); }
 
-  .versus__icon { font-size: 16px; line-height: 1; }
+  .versus__icon { font-size: var(--text-body-base); line-height: 1; }
   .versus__icon--yes { color: var(--accent-text); }
   .versus__icon--no { color: var(--muted); opacity: .55; }
   .versus[data-bg='ink'] .versus__icon--no { color: rgba(var(--paper-rgb), .4); }

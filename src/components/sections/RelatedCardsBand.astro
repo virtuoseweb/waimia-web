@@ -41,7 +41,7 @@ const cards = data.cards.map((c) => ({
   }
   :global(.related-cards-band__grid .related-card) {
     border-top: 1px solid var(--hairline-strong);
-    transition: background 240ms var(--ease), transform 320ms var(--ease);
+    transition: background var(--dur-trim) var(--ease), transform var(--dur-hover) var(--ease);
   }
   :global(.related-cards-band__grid .related-card:hover) {
     background: var(--paper-2);
