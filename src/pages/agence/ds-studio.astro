@@ -123,17 +123,17 @@ for (const list of Object.values(tokenSectionMap)) list.sort();
 // déplace accent + paper + ink de façon coordonnée (RGB miroir des hex inclus).
 const DEMO_PRESETS: Record<string, Record<string, string>> = {
   'Encre & ardoise': {
-    '--accent': '#3B6EA5', '--accent-2': '#2C5681', '--accent-rgb': '59, 110, 165',
+    '--accent': '#3B6EA5', '--accent-sur-clair': '#2C5681', '--accent-rgb': '59, 110, 165',
     '--paper': '#F2F3F5', '--paper-2': '#E8EAEE', '--paper-3': '#DDE0E6',
     '--ink': '#10151C', '--ink-2': '#1C242F', '--ink-rgb': '16, 21, 28',
   },
   'Forêt sobre': {
-    '--accent': '#2F7D5B', '--accent-2': '#246347', '--accent-rgb': '47, 125, 91',
+    '--accent': '#2F7D5B', '--accent-sur-clair': '#246347', '--accent-rgb': '47, 125, 91',
     '--paper': '#F4F2EC', '--paper-2': '#EBE8DF', '--paper-3': '#E1DDD1',
     '--ink': '#101410', '--ink-2': '#1B221B', '--ink-rgb': '16, 20, 16',
   },
   'Nuit prune': {
-    '--accent': '#B5547E', '--accent-2': '#933F64', '--accent-rgb': '181, 84, 126',
+    '--accent': '#B5547E', '--accent-sur-clair': '#933F64', '--accent-rgb': '181, 84, 126',
     '--paper': '#F4F1F3', '--paper-2': '#EBE6E9', '--paper-3': '#E1DADF',
     '--ink': '#161019', '--ink-2': '#241B28', '--ink-rgb': '22, 16, 25',
   },
@@ -1033,7 +1033,7 @@ const moleculesRendered = 12;
   }
   .studio-btn:hover { background: var(--paper-3); }
   .studio-btn--accent { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
-  .studio-btn--accent:hover { background: var(--accent-2); }
+  .studio-btn--accent:hover { background: var(--accent-sur-clair); }
 
   .studio-search { display: block; margin: var(--space-4) 0; }
   .studio-search input {
