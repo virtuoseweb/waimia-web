@@ -29,7 +29,7 @@
   --accent-sur-clair:   #A83D20;
   --accent-sur-sombre:  #D96A47;
   --accent-ink: #F6F1E8;
-  --accent-text: var(--accent); /* role : couleur de TEXTE accent ; remappee sous [data-bg=ink] pour AA */
+  --accent-text: var(--accent-sur-clair); /* role : TEXTE accent AA. Defaut accent-sur-clair (#A83D20, 5.57 sur paper) ; remappe accent-sur-sombre sous [data-bg=ink]. Surfaces accent restent var(--accent) vif. */
 
   /* RGB channels · pilotent les rgba() composables sans re-hardcoder la couleur
      Usage : rgba(var(--ink-rgb), 0.08) — un seul point de vérité par teinte */
