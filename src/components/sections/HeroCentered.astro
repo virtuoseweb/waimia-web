@@ -410,7 +410,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-centered p {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
-    line-height: 1.6;
+    line-height: var(--leading-relaxed);
     color: var(--ink);
     max-width: 54ch;
     margin: 0;
@@ -551,7 +551,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     margin: 22px 0 0;
     color: var(--muted);
     font-size: var(--text-body-lead);
-    line-height: 1.6;
+    line-height: var(--leading-relaxed);
   }
   .hero-problem-index__canonical :global(strong) { color: var(--ink); font-weight: var(--fw-medium); }
 
@@ -1051,7 +1051,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-family: var(--font-sans);
     font-size: clamp(40px, 7vw, 96px);
     line-height: 1.03;
-    letter-spacing: -.025em;
+    letter-spacing: var(--tracking-display);
     color: var(--ink);
     margin-bottom: clamp(24px, 4vw, 48px);
     max-width: 18ch;
@@ -1059,7 +1059,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-landing__lede {
     font-family: var(--font-sans);
     font-size: clamp(16px, 1.8vw, 20px);
-    line-height: 1.6;
+    line-height: var(--leading-relaxed);
     color: var(--ink);
     max-width: 62ch;
     margin-bottom: clamp(48px, 8vw, 96px);
