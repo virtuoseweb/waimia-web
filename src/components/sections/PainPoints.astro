@@ -50,7 +50,7 @@ const events = data.items.map((item, i) => ({
   .sol-sec { padding: var(--section-base) 0; position: relative; }
   .sol-friction { margin-top: var(--section-base); }
   .sol-sec-hd {
-    margin-bottom: clamp(28px, 4vw, 48px);
+    margin-bottom: var(--spacing-block);
   }
   /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
   .section-eyebrow :global(.eyebrow) {
@@ -104,7 +104,7 @@ const events = data.items.map((item, i) => ({
   }
   .sol-pain-grid :global(.pain-card h3) {
     font-family: var(--font-sans);
-    font-size: clamp(22px, 1.8vw, 26px);
+    font-size: var(--text-h3-row);
     line-height: 1.22;
     margin: 0 0 var(--space-3);
     font-weight: var(--fw-medium);
