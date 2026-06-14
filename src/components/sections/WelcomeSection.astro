@@ -103,7 +103,7 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   :global(.welcome-kicker) { display: inline-block; margin-bottom: var(--space-4); }
   .welcome-h1 {
     font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 96px);
+    font-size: var(--text-h2-grand);
     line-height: var(--leading-h1);
     letter-spacing: -0.028em;
     font-weight: var(--fw-regular);
@@ -113,7 +113,7 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   .welcome-lede {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(18px, 1.8vw, 22px);
+    font-size: var(--text-lede);
     color: var(--ink-2);
     margin: 0 auto 60px;
     max-width: 600px;
@@ -150,7 +150,7 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   }
   .welcome-step-title {
     font-family: var(--font-sans);
-    font-size: clamp(20px, 2.2vw, 26px);
+    font-size: var(--text-h3-row);
     line-height: var(--leading-h3);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
