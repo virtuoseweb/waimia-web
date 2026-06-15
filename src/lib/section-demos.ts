@@ -1192,7 +1192,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     h2_en: '<i>Frequent</i> questions',
     items: [
       { q_fr: 'Combien de temps prend un projet ?', q_en: 'How long does a project take?', a_fr: 'AI Activation · 1 semaine. Growth System · 6 à 10 semaines.', a_en: 'AI Activation · 1 week. Growth System · 6 to 10 weeks.' },
-      { q_fr: 'Quels sont vos tarifs ?', q_en: 'What are your rates?', a_fr: 'AI Activation à partir de 1 500€. Growth System à partir de 5 000€.', a_en: 'AI Activation starts at €1,500. Growth System starts at €5,000.' },
+      { q_fr: 'Quels sont vos tarifs ?', q_en: 'What are your rates?', a_fr: 'Diagnostic gratuit, puis grille de 2 000 à 10 000 € HT selon la maturité, sur-mesure au-delà.', a_en: 'Free diagnostic, then a grid from €2,000 to €10,000 ex VAT by maturity, custom beyond.' },
       { q_fr: 'Compatible avec notre stack actuelle ?', q_en: 'Compatible with our current stack?', a_fr: 'Oui : HubSpot, Salesforce, Notion, Excel, GA4, etc.', a_en: 'Yes: HubSpot, Salesforce, Notion, Excel, GA4, etc.' },
     ],
   },
@@ -1898,7 +1898,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       {
         name_fr: 'Activation',
         name_en: 'Activation',
-        price: '1 500 EUR',
+        price: '2 000 EUR',
         price_note_fr: 'paiement unique',
         price_note_en: 'one-time payment',
         cta: { label_fr: 'Demarrer', label_en: 'Get started', href: '/offres/activation', variant: 'ghost' },
@@ -1907,7 +1907,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       {
         name_fr: 'Growth System',
         name_en: 'Growth System',
-        price: '5 000 EUR',
+        price: '10 000 EUR',
         price_note_fr: 'ou 3x 1 800 EUR',
         price_note_en: 'or 3x 1 800 EUR',
         cta: { label_fr: 'Choisir', label_en: 'Choose plan', href: '/offres/growth', variant: 'primary' },
@@ -2722,13 +2722,13 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     lede_en: 'From pilot to a full agentic platform. No hidden commitment, flat-rate billing.',
     tiers: [
       {
-        name_fr: 'Activation', name_en: 'Activation', price: '1 500 €', period_fr: 'HT · forfait', period_en: 'excl. VAT · flat',
+        name_fr: 'Activation', name_en: 'Activation', price: '2 000 €', period_fr: 'HT · forfait', period_en: 'excl. VAT · flat',
         features_fr: ['1 workflow agentique', 'Audit cartographie 5 jours', 'Formation équipe 1 jour', 'Support 30 jours'],
         features_en: ['1 agentic workflow', '5-day mapping audit', '1-day team training', '30-day support'],
         cta: { label_fr: 'Démarrer', label_en: 'Start', href: '/contact?offer=activation', variant: 'ghost' }, featured: false,
       },
       {
-        name_fr: 'Growth', name_en: 'Growth', price: '5 000 €', period_fr: 'HT · forfait', period_en: 'excl. VAT · flat',
+        name_fr: 'Growth', name_en: 'Growth', price: '10 000 €', period_fr: 'HT · forfait', period_en: 'excl. VAT · flat',
         features_fr: ['5 à 8 workflows agentiques', 'Système complet 6 à 10 semaines', 'Agent éditeur GEO/AIO', 'Support 90 jours'],
         features_en: ['5 to 8 agentic workflows', 'Full system in 6 to 10 weeks', 'GEO/AIO editor agent', '90-day support'],
         cta: { label_fr: 'Choisir Growth', label_en: 'Choose Growth', href: '/contact?offer=growth', variant: 'primary' }, featured: true,
@@ -2791,7 +2791,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     desc_fr: 'Le forfait unique pour passer un premier workflow agentique en production en une semaine.',
     desc_en: 'The single package to ship a first agentic workflow to production in one week.',
     anchor_price: '2 400 €', anchor_label_fr: 'valeur catalogue', anchor_label_en: 'list value',
-    price: '1 500 €', period_fr: 'HT · paiement unique', period_en: 'excl. VAT · one-time',
+    price: '2 000 €', period_fr: 'HT · paiement unique', period_en: 'excl. VAT · one-time',
     benefits_fr: [
       'Cartographie complète de vos process en 5 jours',
       'Un workflow agentique livré et déployé',

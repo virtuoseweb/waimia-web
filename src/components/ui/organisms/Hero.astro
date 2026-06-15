@@ -52,13 +52,13 @@ const pageTransitionId = Astro.url.pathname
     <h1 id="hero-heading" class="hero-headline reveal-mask-up" transition:name={`hero-h1-${pageTransitionId}`}>
       {lang === 'fr' ? (
         <>
-          L'<i class="acc">IA</i> dans vos outils.<br />
-          <i>Des résultats</i> dans vos chiffres.
+          Le cabinet qui fait tourner<br />
+          votre <i class="acc">PME</i> à l'<i>IA</i>.
         </>
       ) : (
         <>
-          <i class="acc">AI</i> in your tools.<br />
-          <i>Results</i> in your numbers.
+          The firm that runs your<br />
+          <i class="acc">SMB</i> on <i>AI</i>.
         </>
       )}
     </h1>
@@ -69,9 +69,9 @@ const pageTransitionId = Astro.url.pathname
         <Kicker class="hero-fig">§ 01 · {lang === 'fr' ? 'Promesse' : 'Promise'}</Kicker>
         <p class="hero-lede reveal reveal-fade">
           {lang === 'fr' ? (
-            <>On câble l'<i>IA</i> dans vos outils marketing, sales, contenu et web : acquisition, CRM, site, analytics, marque, <i>sans changer</i> vos process.</>
+            <>On orchestre l'<i>IA</i> dans vos outils marketing, sales, contenu et web, puis on la met <i>en production</i> : site intelligent, acquisition, CRM, analytics, marque, <i>sans changer</i> vos process.</>
           ) : (
-            <>We wire <i>AI</i> into your marketing, sales, content and web stack : acquisition, CRM, site, analytics, brand, <i>without changing</i> your process.</>
+            <>We orchestrate <i>AI</i> across your marketing, sales, content and web stack, then ship it <i>to production</i> : smart site, acquisition, CRM, analytics, brand, <i>without changing</i> your process.</>
           )}
         </p>
 

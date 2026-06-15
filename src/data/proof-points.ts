@@ -184,11 +184,11 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
   {
     id: 'cost-prix-transparent',
     category: 'cost',
-    value: '1500€',
-    label_fr: 'Activation IA à prix fixe transparent',
-    label_en: 'AI activation at a fixed, transparent price',
-    description_fr: 'Tarif fixe de l\'offre Activation 1 semaine, aucun surcoût caché.',
-    description_en: 'Fixed rate for the 1-week Activation offer, no hidden costs.',
+    value: 'dès 2 000 €',
+    label_fr: 'Prix d’entrée fixe et transparent',
+    label_en: 'Fixed, transparent entry price',
+    description_fr: 'Grille publique 2 000 / 4 000 / 7 000 / 10 000 € HT, diagnostic gratuit, aucun surcoût caché.',
+    description_en: 'Public grid 2,000 / 4,000 / 7,000 / 10,000 € ex VAT, free diagnostic, no hidden costs.',
     sources: ['proof-points/cost-prix-transparent'],
   },
   // ── Qualité ──

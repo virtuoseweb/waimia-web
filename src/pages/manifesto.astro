@@ -24,12 +24,18 @@ import PillCTA from '../components/ui/atoms/PillCTA.astro';
 import EditorialWriteRow from '../components/ui/molecules/EditorialWriteRow.astro';
 import AsymmetricServiceRow from '../components/ui/molecules/AsymmetricServiceRow.astro';
 import EditorialCaseCard from '../components/ui/molecules/EditorialCaseCard.astro';
-import { CLIENT_LOGOS, SIX_SERVICES, CASE_FEED, FIELD_NOTES } from '../data/sitemap';
+import { getCollection } from 'astro:content';
+import { CLIENT_LOGOS, SIX_SERVICES, FIELD_NOTES } from '../data/sitemap';
 import { langFromPath, t as ft, localizeHref as flh } from '../lib/i18n';
 import Breadcrumb from '../components/ui/molecules/Breadcrumb.astro';
 import { buildArticle } from '../lib/seo/schema-builder';
 
 const lang = langFromPath(Astro.url.pathname);
+
+// Cas clients · source UNIQUE = collection `cases` (P0-5), featured d'abord.
+const manifestoCases = (await getCollection('cases', ({ data }) => !data.ndaProtected))
+  .sort((a, b) => Number(b.data.featured ?? false) - Number(a.data.featured ?? false))
+  .slice(0, 4);
 
 // V7 stats alignées doctrine Waimia · cohérent avec ProofBar home (HERO_METRICS)
 const STATS = [
@@ -223,19 +229,19 @@ const articleLd = buildArticle({
       </h2>
       <p class="reveal" style="font-family:var(--font-sans);font-size:var(--text-h3);line-height:var(--leading-body);color:var(--ink-2);max-width:820px;margin:0 0 var(--space-9);margin-top:-32px;text-wrap:pretty">
         {lang === 'fr'
-          ? <>Quatre cas, chiffres en clair. Pas de logos pour faire joli. Chaque ligne contient le secteur, la durée, la stack et l&rsquo;impact mesuré, celui qu&rsquo;on défend en comité de direction.</>
-          : <>Four cases, numbers in the clear. No vanity logos. Each row holds the sector, duration, stack and measured impact, the one we defend in steering committees.</>}
+          ? <>Des cas, chiffres en clair. Pas de logos pour faire joli. Chaque ligne contient le secteur, la durée, la stack et l&rsquo;impact mesuré, celui qu&rsquo;on défend en comité de direction.</>
+          : <>Cases, numbers in the clear. No vanity logos. Each row holds the sector, duration, stack and measured impact, the one we defend in steering committees.</>}
       </p>
       <div class="mf-grid mf-grid--split" style="display:grid;gap:32px">
-        {CASE_FEED.slice(0, 4).map((c, i) => (
+        {manifestoCases.map((c, i) => (
           <EditorialCaseCard
             idx={i + 1}
-            client={c.client}
-            sector={ft(c.sector, lang)}
-            stack={c.stack}
-            impact={ft(c.impact, lang)}
-            duration={c.duration}
-            href={flh(c.slug ? `/cas-clients/${c.slug}` : '/cas-clients', lang)}
+            client={c.data.client}
+            sector={lang === 'fr' ? c.data.sector_fr : c.data.sector_en}
+            stack={c.data.stack.join(' · ')}
+            impact={lang === 'fr' ? c.data.impact_fr : c.data.impact_en}
+            duration={c.data.duration}
+            href={flh(`/cas-clients/${c.data.slug ?? c.id}`, lang)}
             offset={i % 2 === 1 ? 60 : 0}
           />
         ))}

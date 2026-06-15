@@ -19,6 +19,7 @@ export const prerender = true;
  * Typo (directive 2026-06-11) : la masse passe en sans via la couche `.home-typo`
  * (global.css), le serif italique ne fait que relever les fragments <i>. Hero hors scope.
  */
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import BootSplash from '../components/motion/BootSplash.astro';
 import ScrollProgress from '../components/ui/atoms/ScrollProgress.astro';
@@ -41,6 +42,7 @@ import SectionTransition   from '../components/ui/atoms/SectionTransition.astro'
 
 import { CLIENT_LOGOS, HERO_METRICS, SIX_SERVICES, PYRAMID_TIERS, DEPARTMENTS_GRID } from '../data/sitemap';
 import { PROOF_POINTS } from '../data/proof-points';
+import { PRICING_GRID, tierPriceLabel, PRICE_FROM_LABEL } from '../data/pricing';
 import { localizeHref } from '../lib/i18n';
 import type { SectionByType } from '../schemas/sections';
 
@@ -170,31 +172,37 @@ const servicesGridData = {
 // ── Acte III · Pyramide cards-only (cas d'école « 1 info = 4 représentations ») ─
 // Timeline + SVG paliers supprimés : le stage (ex-timeline) entre en sur-titre de card,
 // la progression I→IV passe par la jauge, le verbe ne vit plus que dans le H2.
-// Prix d'entrée par palier · sources réelles, rien d'inventé :
-//   I  → FAQ Q.01 (« démarre à 1 500 € HT ») + offres/activation-ia.mdx (délai 1 sem)
-//   II → offres/productivite-operationnelle-ia.mdx:18 (« 6 à 25 k€ · délai 4 à 10 sem »)
-//   III→ FAQ Q.01 (« démarre à 5 000 € HT ») + offres/growth-system-ia.mdx (6 à 10 semaines)
-//   IV → offres/infrastructure-ia.mdx:18 (« sur devis · 12 sem + »)
+// Prix d'entrée par palier · source UNIQUE = src/data/pricing.ts (grille 2/4/7/10k + sur-mesure).
+// Audit/diagnostic d'entrée gratuit (décision 4). Délais indicatifs, cadrés au diagnostic.
 const ACTION_LABELS = [
   { fr: 'Cartographier', en: 'Map' },
-  { fr: 'Câbler', en: 'Wire' },
   { fr: 'Orchestrer', en: 'Orchestrate' },
+  { fr: 'Mettre en production', en: 'Ship to production' },
   { fr: 'Industrialiser', en: 'Industrialize' },
 ];
-const TIER_DETAILS = [
-  { stage: { fr: 'Audit', en: 'Audit' },                   price: { fr: 'Dès 1 500 € HT · 1 semaine', en: 'From €1,500 · 1 week' } },
-  { stage: { fr: 'Workflow', en: 'Workflow' },             price: { fr: '6 à 25 k€ · 4 à 10 sem', en: '€6K to €25K · 4 to 10 weeks' } },
-  { stage: { fr: 'Système', en: 'System' },                 price: { fr: 'Dès 5 000 € HT · 6 à 10 sem', en: 'From €5,000 · 6 to 10 weeks' } },
-  { stage: { fr: 'Infrastructure', en: 'Infrastructure' }, price: { fr: 'Sur devis · 12 sem +', en: 'On quote · 12+ weeks' } },
+// 4 paliers visibles dans la pyramide = essentiel / standard / avancé / système (grille canonique).
+// Le palier sur-mesure vit au pied de l'offre (FAQ + pages service).
+const TIER_DELAYS = [
+  { fr: '1 à 2 sem', en: '1 to 2 weeks' },
+  { fr: '3 à 5 sem', en: '3 to 5 weeks' },
+  { fr: '5 à 8 sem', en: '5 to 8 weeks' },
+  { fr: '8 à 12 sem', en: '8 to 12 weeks' },
 ];
+const TIER_DETAILS = ['essentiel', 'standard', 'avance', 'systeme'].map((id, idx) => ({
+  stage: { fr: PRICING_GRID[idx].label!.fr, en: PRICING_GRID[idx].label!.en },
+  price: {
+    fr: `${tierPriceLabel(id as any, 'fr')} HT · ${TIER_DELAYS[idx].fr}`,
+    en: `${tierPriceLabel(id as any, 'en')} excl. VAT · ${TIER_DELAYS[idx].en}`,
+  },
+}));
 const maturityPyramidData = {
   type: 'maturity-pyramid' as const,
   variant: 'cards-only' as const,
   roman: 'III',
   label_fr: "Acte III : La pyramide d'engagements",
   label_en: 'Act III: The engagement pyramid',
-  heading_fr: '<i>Cartographier.</i> Câbler.<br/>Orchestrer. <i>Industrialiser.</i>',
-  heading_en: '<i>Map.</i> Wire.<br/>Orchestrate. <i>Industrialize.</i>',
+  heading_fr: '<i>Cartographier.</i> Orchestrer.<br/>Mettre en production. <i>Industrialiser.</i>',
+  heading_en: '<i>Map.</i> Orchestrate.<br/>Ship to production. <i>Industrialize.</i>',
   aside_fr: "Du diagnostic process à l'infrastructure souveraine : chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
   aside_en: "From process diagnostic to sovereign infrastructure: each tier sets up the next. You climb when you're ready.",
   timeline_label_fr: 'Progression de maturité IA',
@@ -228,15 +236,15 @@ const ctaInlineData = {
 const faqItems = [
   {
     q: "Combien coûte un premier engagement avec Waimia ?",
-    a: "Activation IA · 1 semaine démarre à 1 500 € HT : audit, formation, premier workflow livré. Growth System IA démarre à 5 000 € HT. La plupart des PME commencent petit, mesurent en 5 jours, puis câblent le système complet.",
+    a: `Le diagnostic IA est gratuit. Ensuite, la grille démarre ${PRICE_FROM_LABEL.fr} (palier Essentiel : un premier système intelligent en ligne) et monte à 4 000, 7 000 puis 10 000 € HT selon votre maturité, avec un palier sur-mesure au-delà. La plupart des PME commencent petit, mesurent vite, puis montent en charge quand c'est rentable.`,
   },
   {
     q: "Pour qui c'est fait, et pour qui ce n'est pas fait.",
-    a: "PME et ETI françaises et suisses, 20 à 500 collaborateurs. Pas les grands groupes déjà bardés de prestataires. Pas les startups trop jeunes, qui changent de cap toutes les semaines. Nos meilleurs clients : services B2B, industrie, cabinets finance et compta.",
+    a: "PME françaises, 10 à 250 collaborateurs. Pas les grands groupes déjà bardés de prestataires. Pas les startups trop jeunes, qui changent de cap toutes les semaines. Nos meilleurs profils : services B2B, industrie, cabinets finance et compta, commerces qui veulent un site qui travaille.",
   },
   {
     q: "En combien de temps voit-on un retour sur investissement ?",
-    a: "Activation IA · 1 semaine : un workflow en production en 5 jours, mesure avant/après incluse. Growth System IA : système complet en 6 à 10 semaines. Le mardi on câble, le vendredi on mesure. On mesure le ROI de chaque chantier avant/après, sur votre périmètre : pas de chiffre moyen inventé.",
+    a: "Le palier Essentiel met un premier système en production en 1 à 2 semaines, mesure avant/après incluse. Un système complet se déploie en 5 à 12 semaines selon le périmètre. On orchestre, puis on mesure : le ROI de chaque chantier est relevé avant/après, sur vos données, pas un chiffre moyen inventé.",
   },
   {
     q: "Et si on veut reprendre la main en interne ?",
@@ -244,7 +252,7 @@ const faqItems = [
   },
   {
     q: "Comment garantissez-vous la conformité RGPD et AI Act ?",
-    a: "Chaque système inclut par défaut : journal des actions, export CSV/JSON, retour arrière possible, classification du risque AI Act. Pour les missions ETI, on mène un PIA avant le sprint.",
+    a: "Chaque système inclut par défaut : journal des actions, export CSV/JSON, retour arrière possible, classification du risque AI Act. Sur les périmètres sensibles, on mène une analyse d'impact (PIA) avant le sprint.",
   },
   {
     q: "Travaillez-vous avec notre stack actuelle (HubSpot, Salesforce, Excel, etc.) ?",
@@ -259,10 +267,14 @@ const faqItems = [
     a: "On part de votre design system (ou on le construit), on encode votre charte et votre ton dans des templates, et on déploie des agents de production alignés. Résultat : site, posts, decks PowerPoint, PDF, ads et supports sales restent visuellement et verbalement cohérents même quand l'IA produit en volume.",
   },
 ];
+
+// Acte IV · Cas clients · source UNIQUE = collection `cases` (P0-5). Plus de CASE_FEED générique.
+const allCases = await getCollection('cases', ({ data }) => !data.ndaProtected);
+const homeCases = caseCardGridData('fr', allCases);
 ---
 <Base
-  title="Waimia · Systèmes IA pour PME et ETI · Acquisition · CRM · Pilotage"
-  description="On câble l'IA dans les outils des PME : acquisition, CRM, relances, pilotage. Activation en 1 semaine. Studio IA solo à Montpellier."
+  title="Waimia · Cabinet d'orchestration IA pour PME · Site web intelligent · Montpellier"
+  description="Cabinet d'orchestration IA pour PME : on met l'IA en production dans vos outils (site web intelligent, acquisition, CRM, pilotage). Diagnostic gratuit, dès 2 000 € HT. Montpellier."
 >
   {/* Splash · respiration cinématique 1.1s · CSS-only depuis V2 2026-05-15 (zéro JS bundle) */}
   <BootSplash lang="fr" />
@@ -292,8 +304,8 @@ const faqItems = [
 
     <SectionTransition phrase="Promesse vérifiable, pas discours." />
 
-    {/* 07 — CaseCardGrid · 4 domaines d'intervention (CASE_FEED) · secteur · durée · stack · ce qu'on câble */}
-    <CaseCardGrid data={caseCardGridData('fr')} lang="fr" />
+    {/* 07 — CaseCardGrid · cas clients réels (collection `cases`) · secteur · durée · stack · livré */}
+    <CaseCardGrid data={homeCases} lang="fr" />
 
     {/* 08 — FaqAccordion · 8 questions PME-first · Q.01 (prix) ouverte par défaut */}
     <FaqAccordion

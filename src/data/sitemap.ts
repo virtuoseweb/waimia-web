@@ -109,8 +109,8 @@ export const MM_OFFRES_NEW: MegaMenu = {
     kicker: { en: 'FLAGSHIP SERVICE', fr: 'OFFRE PHARE' },
     label: { en: 'AI Growth System', fr: 'Growth System IA' },
     body: {
-      en: 'An automated acquisition and conversion system. Site, CRM, follow-ups, dashboards, connected and AI-driven. €5–20k.',
-      fr: "Un système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux, connectés et pilotés par l'IA. 5 à 20 k€.",
+      en: 'An automated acquisition and conversion system. Site, CRM, follow-ups, dashboards, connected and AI-driven. From €7,000.',
+      fr: "Un système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux, connectés et pilotés par l'IA. Dès 7 000 €.",
     },
     cta: { en: 'See the system →', fr: 'Découvrir le système →' },
     href: '/offres/growth-system-ia',
@@ -473,19 +473,9 @@ export const DEPARTMENTS_GRID = [
   { slug: 'tunnel-de-vente', label: { en: 'Sales Funnel', fr: 'Tunnel de vente' }, tag: { en: 'Landing · tunnel · conversion', fr: 'Landing · tunnel · conversion' } },
 ];
 
-// Honnêteté (vague 2) : studio solo, 0 client réel, 0 cas livré. Ce ne sont donc PAS
-// des dossiers/preuves de livraisons clientes mais les DOMAINES D'INTERVENTION où Waimia
-// câble des systèmes, avec le type d'engagement (durée de déploiement, stack). Aucun nom de
-// client, aucun résultat client chiffré. `impact` = ce que le chantier VISE à câbler, pas un
-// résultat mesuré existant. Les liens pointent vers /cas-clients (premiers cas en cours de rédaction).
-// Featured = le blueprint interne VirtuoseOS (réel, projet propre).
-export const CASE_FEED = [
-  { slug: '', client: 'Acquisition B2B', sector: { en: 'B2B SaaS', fr: 'SaaS B2B' }, duration: '10 sem', stack: 'Claude · HubSpot · dbt', impact: { en: 'Reconnect the pipeline, automate qualification', fr: 'Reconnecter le pipeline, automatiser la qualification' } },
-  { slug: '', client: 'Conseil & cabinets', sector: { en: 'Strategy consulting', fr: 'Conseil en stratégie' }, duration: '8 sem', stack: 'Claude · Notion MCP', impact: { en: 'Automate proposals and follow-ups', fr: 'Automatiser proposals et relances' } },
-  { slug: '', client: 'Gestion & finance', sector: { en: 'Asset management', fr: "Gestion d'actifs" }, duration: '5 j', stack: 'Claude · Notion MCP · Excel', impact: { en: 'Streamline the monthly close, wire reporting', fr: 'Alléger la clôture, câbler le reporting' } },
-  { slug: '', client: 'Industrie & PME', sector: { en: 'Manufacturing', fr: 'Industrie manufacturière' }, duration: '2 j', stack: 'Claude · revue documentaire · entretiens', impact: { en: 'Surface bottlenecks, deliver an action plan', fr: 'Identifier les goulots, livrer un plan d’action' } },
-  { slug: '', client: 'VirtuoseOS', sector: { en: 'Internal blueprint', fr: 'Blueprint interne' }, duration: 'ongoing', stack: 'Claude · open-source · multi-agent', impact: { en: 'The operating system under every delivery', fr: 'Le système opérationnel sous chaque livraison' }, featured: true },
-];
+// P0-5 : CASE_FEED (feed générique « domaines ») retiré. Source UNIQUE des cas = la collection
+// Astro `cases` (getCollection('cases')), consommée par la home, /cas-clients, les secteurs et
+// le manifeste via `src/lib/case-card-grid-data.ts`. Un seul récit de cas sur tout le site.
 
 export const FIELD_NOTES = [
   { date: '04.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'Consulting firms: where the 8-week proposal-automation lever sits.',              fr: 'Cabinets de conseil : où se trouve le levier d’automatisation des proposals.' } },

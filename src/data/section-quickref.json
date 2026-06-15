@@ -94,6 +94,205 @@
     }
   },
   {
+    "type": "agentic-terminal",
+    "category": "marketing",
+    "categorySlug": "terminal-sections",
+    "subcategory": "Terminal Sections",
+    "status": "stable",
+    "description_fr": "Mockup IDE agentique : fenêtre macOS, explorateur de fichiers, prompt utilisateur et bloc de code qui s'écrit en direct caractère par caractère, puis message de succès, footer stats et badges. Fond encre, accent terracotta.",
+    "requiredProps": [
+      {
+        "name": "badge_en",
+        "type": "string"
+      },
+      {
+        "name": "badge_fr",
+        "type": "string"
+      },
+      {
+        "name": "filename",
+        "type": "string"
+      },
+      {
+        "name": "footer_framework",
+        "type": "string"
+      },
+      {
+        "name": "footer_memory",
+        "type": "string"
+      },
+      {
+        "name": "footer_status_en",
+        "type": "string"
+      },
+      {
+        "name": "footer_status_fr",
+        "type": "string"
+      },
+      {
+        "name": "lines_en",
+        "type": "array",
+        "constraint": "min:1 max:20"
+      },
+      {
+        "name": "lines_fr",
+        "type": "array",
+        "constraint": "min:1 max:20"
+      },
+      {
+        "name": "prompt_label_en",
+        "type": "string"
+      },
+      {
+        "name": "prompt_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "prompt_text_en",
+        "type": "string"
+      },
+      {
+        "name": "prompt_text_fr",
+        "type": "string"
+      },
+      {
+        "name": "success_msg_en",
+        "type": "string"
+      },
+      {
+        "name": "success_msg_fr",
+        "type": "string"
+      },
+      {
+        "name": "title_highlight_en",
+        "type": "string"
+      },
+      {
+        "name": "title_highlight_fr",
+        "type": "string"
+      },
+      {
+        "name": "title_part1_en",
+        "type": "string"
+      },
+      {
+        "name": "title_part1_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "badges_en",
+        "type": "array",
+        "constraint": "max:6"
+      },
+      {
+        "name": "badges_fr",
+        "type": "array",
+        "constraint": "max:6"
+      },
+      {
+        "name": "description_en",
+        "type": "string"
+      },
+      {
+        "name": "description_fr",
+        "type": "string"
+      },
+      {
+        "name": "files",
+        "type": "array",
+        "constraint": "max:12"
+      },
+      {
+        "name": "folders",
+        "type": "array",
+        "constraint": "max:8"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "agentic-terminal",
+      "badge_fr": "MOTEUR DE CONTENU AGENTIQUE",
+      "badge_en": "AGENTIC CONTENT ENGINE",
+      "title_part1_fr": "Votre contenu,",
+      "title_part1_en": "Your content,",
+      "title_highlight_fr": "produit en continu",
+      "title_highlight_en": "shipped continuously",
+      "filename": "waimia-env · agent.ts",
+      "prompt_label_fr": "Votre objectif",
+      "prompt_label_en": "Your goal",
+      "prompt_text_fr": "Augmenter le trafic organique sur le cocon « SEO local » sans sacrifier la qualité éditoriale.",
+      "prompt_text_en": "Grow organic traffic on the « local SEO » cluster without sacrificing editorial quality.",
+      "lines_fr": [
+        {
+          "kind": "comment",
+          "text": "# session agent · waimia"
+        },
+        {
+          "kind": "cmd",
+          "text": "waimia run audit --scope=contenu"
+        },
+        {
+          "kind": "out",
+          "text": "analyse de 128 pages, lecture GSC et GA…"
+        },
+        {
+          "kind": "ok",
+          "text": "ok 12 leviers prioritaires identifiés"
+        },
+        {
+          "kind": "cmd",
+          "text": "waimia draft brief --topic=\"cocon SEO local\""
+        },
+        {
+          "kind": "out",
+          "text": "rédaction du plan, sources citées, relecture humaine en file."
+        },
+        {
+          "kind": "ok",
+          "text": "ok brief prêt · 1 relecteur assigné"
+        }
+      ],
+      "lines_en": [
+        {
+          "kind": "comment",
+          "text": "# agent session · waimia"
+        },
+        {
+          "kind": "cmd",
+          "text": "waimia run audit --scope=content"
+        },
+        {
+          "kind": "out",
+          "text": "scanning 128 pages, reading GSC and GA…"
+        },
+        {
+          "kind": "ok",
+          "text": "ok 12 priority levers identified"
+        },
+        {
+          "kind": "cmd",
+          "text": "waimia draft brief --topic=\"local SEO cluster\""
+        },
+        {
+          "kind": "out",
+          "text": "drafting the outline, sources cited, human review queued."
+        },
+        {
+          "kind": "ok",
+          "text": "ok brief ready · 1 reviewer assigned"
+        }
+      ],
+      "success_msg_fr": "Brief livré. Relecture humaine en cours…",
+      "success_msg_en": "Brief delivered. Human review in progress…",
+      "footer_status_fr": "Agent actif",
+      "footer_status_en": "Agent active",
+      "footer_framework": "Astro + IA",
+      "footer_memory": "live"
+    }
+  },
+  {
     "type": "announcement-banner",
     "category": "marketing",
     "categorySlug": "banner-sections",
@@ -727,7 +926,7 @@
       {
         "name": "cases",
         "type": "array",
-        "constraint": "min:2 max:6"
+        "constraint": "max:6"
       },
       {
         "name": "fig_num",
@@ -785,6 +984,22 @@
         "name": "case_label_fr",
         "type": "string",
         "default": "CASE"
+      },
+      {
+        "name": "empty_body_en",
+        "type": "string"
+      },
+      {
+        "name": "empty_body_fr",
+        "type": "string"
+      },
+      {
+        "name": "empty_kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "empty_kicker_fr",
+        "type": "string"
       },
       {
         "name": "impact_label_en",
@@ -1036,6 +1251,80 @@
       "type": "case-spotlight",
       "title_fr": "Un groupe de distribution divise sa <i>clôture</i> mensuelle par trois",
       "title_en": "A retail group <i>cuts</i> its monthly close by three"
+    }
+  },
+  {
+    "type": "challenges-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Grille 2x2 de défis ou pain-points : numéro en coin, icône, titre et texte par carte, border-left accent et élévation au survol. Pose le problème avant la solution sur une landing.",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:2 max:4"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "challenges-grid",
+      "h2_fr": "Pourquoi votre site <i class=\"acc\">stagne</i>",
+      "h2_en": "Why your site <i class=\"acc\">stalls</i>",
+      "items": [
+        {
+          "icon": "📉",
+          "title_fr": "Trafic en berne",
+          "title_en": "Stalling traffic",
+          "body_fr": "Les pages ne se positionnent plus et le trafic organique décroche, sans cause évidente.",
+          "body_en": "Pages no longer rank and organic traffic slips, with no obvious cause."
+        },
+        {
+          "icon": "🗂️",
+          "title_fr": "Contenu non maintenu",
+          "title_en": "Stale content",
+          "body_fr": "Les articles vieillissent, personne ne les met à jour, et le site perd sa fraîcheur.",
+          "body_en": "Articles age, nobody updates them, and the site loses its freshness."
+        },
+        {
+          "icon": "🤖",
+          "title_fr": "Invisible des IA",
+          "title_en": "Invisible to AI",
+          "body_fr": "Les moteurs génératifs ne citent pas votre marque faute de signaux GEO clairs.",
+          "body_en": "Generative engines never cite your brand for lack of clear GEO signals."
+        },
+        {
+          "icon": "📊",
+          "title_fr": "ROI éditorial flou",
+          "title_en": "Fuzzy editorial ROI",
+          "body_fr": "Vous produisez du contenu sans savoir ce qui convertit ni où réinvestir.",
+          "body_en": "You ship content without knowing what converts or where to reinvest."
+        }
+      ]
     }
   },
   {
@@ -2976,6 +3265,33 @@
     }
   },
   {
+    "type": "editorial-prose",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "status": "stable",
+    "description_fr": "Wrapper de prose éditoriale tokenisé : colonne de lecture (largeur prose ou wide), fond alterné, héberge un contenu long via slot (corps MDX). Préserve la typographie du DS sans réécrire le texte.",
+    "requiredProps": [],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "maxWidth",
+        "type": "enum",
+        "constraint": "prose | wide"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose"
+    }
+  },
+  {
     "type": "editorial-split-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -3354,8 +3670,8 @@
         {
           "q_fr": "Quels sont vos tarifs ?",
           "q_en": "What are your rates?",
-          "a_fr": "AI Activation à partir de 1 500€. Growth System à partir de 5 000€.",
-          "a_en": "AI Activation starts at €1,500. Growth System starts at €5,000."
+          "a_fr": "Diagnostic gratuit, puis grille de 2 000 à 10 000 € HT selon la maturité, sur-mesure au-delà.",
+          "a_en": "Free diagnostic, then a grid from €2,000 to €10,000 ex VAT by maturity, custom beyond."
         },
         {
           "q_fr": "Compatible avec notre stack actuelle ?",
@@ -6855,6 +7171,79 @@
     }
   },
   {
+    "type": "journey-steps",
+    "category": "marketing",
+    "categorySlug": "process-sections",
+    "subcategory": "Process Sections",
+    "status": "stable",
+    "description_fr": "Parcours en 3 temps : icône cercle avec badge numéro, titre, description et pill highlight par étape, connecteur accent entre étapes. Horizontal desktop, vertical mobile. Idéal funnel ou onboarding.",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "steps",
+        "type": "array",
+        "constraint": "min:2 max:4"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "journey-steps",
+      "h2_fr": "Du brief à la <i class=\"acc\">publication</i>",
+      "h2_en": "From brief to <i class=\"acc\">publish</i>",
+      "steps": [
+        {
+          "icon": "🔍",
+          "title_fr": "Audit",
+          "title_en": "Audit",
+          "body_fr": "On cartographie vos pages, vos mots-clés et vos signaux IA pour viser juste.",
+          "body_en": "We map your pages, keywords and AI signals to aim precisely.",
+          "highlight_fr": "Étape 1",
+          "highlight_en": "Step 1"
+        },
+        {
+          "icon": "✍️",
+          "title_fr": "Production assistée",
+          "title_en": "Assisted production",
+          "body_fr": "Les agents rédigent les premières versions, vous gardez la ligne éditoriale.",
+          "body_en": "Agents draft first versions, you keep the editorial line.",
+          "highlight_fr": "Étape 2",
+          "highlight_en": "Step 2"
+        },
+        {
+          "icon": "🚀",
+          "title_fr": "Relecture et publication",
+          "title_en": "Review and publish",
+          "body_fr": "Un humain valide, le contenu part en ligne et la mesure démarre aussitôt.",
+          "body_en": "A human validates, content goes live and measurement starts at once.",
+          "highlight_fr": "Étape 3",
+          "highlight_en": "Step 3"
+        }
+      ]
+    }
+  },
+  {
     "type": "learning-path-list",
     "category": "marketing",
     "categorySlug": "index-sections",
@@ -8480,7 +8869,7 @@
         {
           "name_fr": "Activation",
           "name_en": "Activation",
-          "price": "1 500 €",
+          "price": "2 000 €",
           "period_fr": "HT · forfait",
           "period_en": "excl. VAT · flat",
           "features_fr": [
@@ -8506,7 +8895,7 @@
         {
           "name_fr": "Growth",
           "name_en": "Growth",
-          "price": "5 000 €",
+          "price": "10 000 €",
           "period_fr": "HT · forfait",
           "period_en": "excl. VAT · flat",
           "features_fr": [
@@ -8617,7 +9006,7 @@
         {
           "name_fr": "Activation",
           "name_en": "Activation",
-          "price": "1 500 EUR",
+          "price": "2 000 EUR",
           "price_note_fr": "paiement unique",
           "price_note_en": "one-time payment",
           "cta": {
@@ -8631,7 +9020,7 @@
         {
           "name_fr": "Growth System",
           "name_en": "Growth System",
-          "price": "5 000 EUR",
+          "price": "10 000 EUR",
           "price_note_fr": "ou 3x 1 800 EUR",
           "price_note_en": "or 3x 1 800 EUR",
           "cta": {
@@ -8869,7 +9258,7 @@
       "h2_en": "One product, <i>everything</i> included",
       "name_fr": "Pilote IA Activation",
       "name_en": "AI Activation Pilot",
-      "price": "1 500 €",
+      "price": "2 000 €",
       "benefits_fr": [
         "Cartographie complète de vos process en 5 jours",
         "Un workflow agentique livré et déployé",
@@ -9363,6 +9752,20 @@
           "meta_en": "Ongoing"
         }
       ]
+    }
+  },
+  {
+    "type": "product-reel",
+    "category": "marketing",
+    "categorySlug": "terminal-sections",
+    "subcategory": "Terminal Sections",
+    "status": "stable",
+    "description_fr": "Reel produit scroll-driven : étapes à gauche pilotées au scroll, console terminal à droite dont le contenu change par écran. Viewport sticky.",
+    "requiredProps": [],
+    "optionalProps": [],
+    "hasDemo": true,
+    "demo": {
+      "type": "product-reel"
     }
   },
   {
