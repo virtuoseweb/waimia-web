@@ -1,0 +1,135 @@
+---
+// Section · off-proof (famille Offres · BRIQUE SIGNATURE)
+// « Signal terrain » : PullQuote client (5 col) + grille KeyMetric (7 col) avec
+// Dingbat rule inséré après le 4ᵉ chiffre. Variante dark `ink` via [data-bg='ink'].
+// Source recréée : OffresDetailTemplate.astro (legacy retiré commit e953287),
+// markup l.413-490 + placements l.247 + CSS scoped l.613/847-921.
+// - markup KeyMetric/PullQuote/Dingbat = atomes catalogués (≠ slot legacy `.metric-v`).
+// - CSS = tokens var(--*), 0 hex brut.
+import PullQuote from '../editorial/PullQuote.astro';
+import KeyMetric from '../editorial/KeyMetric.astro';
+import Dingbat from '../editorial/Dingbat.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+interface Props {
+  data: SectionByType<'off-proof'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const eyebrow = isFr ? data.eyebrow_fr : data.eyebrow_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const quote = isFr ? data.quote_fr : data.quote_en;
+const metricPlacements = [
+  { size: 'lg' as const, align: 'left' as const, variant: 'accent' as const },
+  { size: 'lg' as const, align: 'left' as const, variant: 'default' as const },
+  { size: 'md' as const, align: 'left' as const, variant: 'default' as const },
+  { size: 'md' as const, align: 'left' as const, variant: 'default' as const },
+];
+---
+<section
+  class="off-sec off-proof reveal-stagger"
+  data-screen-label="05 Proof"
+  data-bg={data.background === 'ink' ? 'ink' : undefined}
+>
+  <div class="wrap g12 g12--full">
+    <header class="off-sec-hd col-12 section-eyebrow">
+      <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
+      <h2 class="u-serif-accent" set:html={h2} />
+    </header>
+    <div class="off-proof-band col-12 g12">
+      <div class="off-proof-main col-5 start-1">
+        <PullQuote attribution={data.attribution} variant="inline">
+          <Fragment set:html={quote} />
+        </PullQuote>
+      </div>
+      <div class="off-proof-aside col-7 start-6">
+        <div class="off-proof-metrics">
+          {data.metrics.map((metric, index) => {
+            const placement = metricPlacements[index % metricPlacements.length];
+            return (
+              <>
+                {index === 4 && (
+                  <div class="off-proof-metrics-rule">
+                    <Dingbat variant="rule" size="lg" />
+                  </div>
+                )}
+                <div class="off-proof-metric-cell" style={`transition-delay:${index * 70}ms`}>
+                  <KeyMetric
+                    value={metric.value}
+                    label={(isFr ? metric.label_fr : metric.label_en).replace(/\n/g, ' ')}
+                    size={placement.size}
+                    align={placement.align}
+                    variant={placement.variant}
+                  />
+                </div>
+              </>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ───── Sec common ───── */
+  .off-sec { padding: var(--section-base) 0; position: relative; }
+  .off-proof { padding-block: var(--section-loose); }
+  .off-sec-hd { margin-bottom: var(--space-8); }
+  .section-eyebrow :global(.eyebrow) {
+    display: inline-block;
+    margin-bottom: var(--space-3);
+  }
+  .off-sec-hd h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-medium);
+    margin: var(--space-2) 0 0;
+    color: var(--ink);
+  }
+
+  /* ───── Proof band : asymétrie 5/7 ───── */
+  .off-proof-band { align-items: start; }
+  /* Place explicitement les 2 colonnes : la combinaison utilitaire `col-N start-N`
+     est cassée par le conflit de shorthand (`grid-column: span N` met `span N` en
+     start, puis `.start-N` écrase ce start → span perdu, colonne réduite à 1 piste). */
+  .off-proof-main { grid-column: 1 / span 5; }
+  .off-proof-aside { grid-column: 6 / -1; }
+  .off-proof-main :global(.pull-quote) { margin: 0; }
+
+  .off-proof-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(var(--space-5), 3vw, var(--space-8)) clamp(var(--space-4), 2vw, var(--space-6));
+    align-items: end;
+    margin-top: 0;
+  }
+  .off-proof-metric-cell { min-width: 0; }
+  .off-proof-metric-cell :global(.key-metric) { min-width: 0; }
+  .off-proof-metric-cell :global(.key-metric-value) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .off-proof-metrics-rule { grid-column: 1 / -1; }
+  .off-proof-metrics :global(.dingbat-rule) { margin-block: var(--space-5); }
+  @media (max-width: 640px) {
+    .off-proof-metrics { grid-template-columns: 1fr; }
+  }
+
+  /* ───── Variante dark ───── */
+  [data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  [data-bg='ink'] .off-sec-hd h2 { color: var(--paper); }
+  [data-bg='ink'] .off-proof-aside :global(.key-metric-value) { color: var(--paper); }
+  [data-bg='ink'] .off-proof-aside :global(.key-metric-accent .key-metric-value) {
+    color: var(--accent-text);
+  }
+  [data-bg='ink'] .off-proof-aside :global(.key-metric-label) {
+    color: rgba(var(--paper-rgb), 0.7);
+  }
+</style>

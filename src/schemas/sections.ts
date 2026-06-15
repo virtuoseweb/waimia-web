@@ -2238,6 +2238,29 @@ export const roiBandSchema = z.object({
     .max(6),
 });
 
+// §Offres · Off Proof · « Signal terrain » : PullQuote client + grille KeyMetric (asymétrie 5/7)
+export const offProofSchema = z.object({
+  type: z.literal('off-proof'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  eyebrow_fr: z.string().default('§ Avant / Après'),
+  eyebrow_en: z.string().default('§ Before / After'),
+  h2_fr: z.string().default('Signal<br/><i>terrain</i>'),
+  h2_en: z.string().default('Field<br/><i>signal</i>'),
+  quote_fr: z.string(),
+  quote_en: z.string(),
+  attribution: z.string(),
+  metrics: z
+    .array(
+      z.object({
+        value: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+      }),
+    )
+    .min(2)
+    .max(8),
+});
+
 // §Solutions · Case Split · split dark/light 50/50 (case dark + résultats light)
 export const caseSplitSchema = z.object({
   type: z.literal('case-split'),
@@ -3633,6 +3656,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   painPointsSchema,
   workflowTableSchema,
   roiBandSchema,
+  offProofSchema,
   caseSplitSchema,
   departmentStackSchema,
   courseCatalogTableSchema,

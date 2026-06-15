@@ -109,6 +109,7 @@ import TechIntegrationFlow from '../components/sections/TechIntegrationFlow.astr
 import PainPoints from '../components/sections/PainPoints.astro';
 import WorkflowTable from '../components/sections/WorkflowTable.astro';
 import RoiBand from '../components/sections/RoiBand.astro';
+import OffProof from '../components/sections/OffProof.astro';
 import CaseSplit from '../components/sections/CaseSplit.astro';
 // Mission catalogue-gap 2026-06-11 · patterns /console + /manifesto
 import TerminalTableSection from '../components/sections/TerminalTableSection.astro';
@@ -1418,6 +1419,16 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Bande ROI sur fond ink : en-tête eyebrow et titre display, chiffres KeyMetric placés en asymétrie 6/5.',
     description_en: 'ROI band on an ink background: an eyebrow and display heading header, with KeyMetric figures placed in a 6/5 asymmetry.',
+  },
+  'off-proof': {
+    component: OffProof,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['offres', 'proof', 'testimonial', 'metrics', 'quote'],
+    status: 'stable',
+    description_fr: 'Signal terrain : citation client (PullQuote) à gauche et grille de chiffres KeyMetric à droite, en asymétrie 5/7 avec séparateur Dingbat.',
+    description_en: 'Field signal: a client quote (PullQuote) on the left and a grid of KeyMetric figures on the right, in a 5/7 asymmetry with a Dingbat divider.',
   },
   'case-split': {
     component: CaseSplit,

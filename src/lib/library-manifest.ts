@@ -213,6 +213,9 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'pain-points',               consumers: SOLUTIONS_CONSUMERS },
   { id: 'workflow-table',            consumers: SOLUTIONS_CONSUMERS },
   { id: 'roi-band',                  consumers: SOLUTIONS_CONSUMERS },
+  // Recréée 2026-06-16 (perte au retrait OffresDetailTemplate, commit e953287) : catalogue-only
+  // jusqu'à recomposition en MDX offres composable (frontmatter sections[]).
+  { id: 'off-proof',                 consumers: [] },
   { id: 'case-split',                consumers: SOLUTIONS_CONSUMERS },
   { id: 'department-stack',          consumers: SOLUTIONS_CONSUMERS },
   { id: 'department-cta',            consumers: SOLUTIONS_CONSUMERS },
