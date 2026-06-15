@@ -12,7 +12,7 @@ import { z } from 'astro:content';
 /**
  * Mixin de présentation transverse (Phase B · système de variation, cf docs/46).
  * Axes orthogonaux partagés par les composants-familles paramétrables. On l'applique
- * via `.extend(presentationSchema.shape)` (les champs ajoutés sont tous optionnels →
+ * via `.extend(sectionBaseSchema.shape)` (les champs ajoutés sont tous optionnels →
  * 0 régression : un schema sans valeur garde son rendu par défaut).
  *  - background : déclinaison palette (idiome `data-bg`, déjà consolidé A1).
  *  - layout     : id d'un preset de grille (cf src/styles/layouts.css → var --sec-grid).
@@ -20,7 +20,7 @@ import { z } from 'astro:content';
  * `effects` viendra dans une phase ultérieure (NE PAS introduire avant que layout+density
  * soient prouvés sur la famille hero).
  */
-const presentationSchema = z.object({
+const sectionBaseSchema = z.object({
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   layout: z.string().optional(),
   density: z.enum(['compact', 'base', 'ample']).optional(),
@@ -111,8 +111,8 @@ const timelineEventSchema = z.object({
 // HERO variants
 export const heroSplitSchema = z.object({
   type: z.literal('hero-split'),
-  // background/layout/density mutualisés via le mixin presentationSchema (Phase B, docs/46).
-  ...presentationSchema.shape,
+  // background/layout/density mutualisés via le mixin sectionBaseSchema (Phase B, docs/46).
+  ...sectionBaseSchema.shape,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h1_fr: z.string(),
@@ -133,8 +133,8 @@ export const heroSplitSchema = z.object({
 
 export const heroCenteredSchema = z.object({
   type: z.literal('hero-centered'),
-  // background/layout/density mutualisés via le mixin presentationSchema (Phase B, docs/46).
-  ...presentationSchema.shape,
+  // background/layout/density mutualisés via le mixin sectionBaseSchema (Phase B, docs/46).
+  ...sectionBaseSchema.shape,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h1_fr: z.string(),
