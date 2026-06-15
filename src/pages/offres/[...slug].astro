@@ -13,7 +13,7 @@ import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../lib/i18n';
-import { buildService, buildOffer } from '../../lib/seo/schema-builder';
+import { buildService, buildOffer, buildFAQPage } from '../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('offres');
@@ -66,7 +66,10 @@ const serviceLd = buildService({
   ...(offerLd ? { offers: offerLd } : {}),
 });
 
-const offreLd = serviceLd;
+// FAQPage depuis faq_fr/faq_en (miroir de la section faq-two-column) · GEO/AIO.
+const faqLd = buildFAQPage(lang === 'fr' ? data.faq_fr : data.faq_en);
+
+const offreLd = faqLd ? [serviceLd, faqLd] : serviceLd;
 ---
 <Base
   title={lang === 'fr' ? data.title_fr : data.title_en}

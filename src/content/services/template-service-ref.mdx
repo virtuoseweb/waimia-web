@@ -10,6 +10,35 @@ tags: ["acquisition-ia", "crm", "contenu-seo-geo"]
 seo:
   noindex: true
 
+# faq_fr / faq_en : source canonique FAQPage (JSON-LD via schema-builder.ts).
+# Miroir verbatim de la section faq-two-column ci-dessous (toute modif d'une Q/A se répercute aux deux).
+faq_fr:
+  - q: "Combien de temps avant les premiers effets ?"
+    a: "Landing pages et suivi dès les premières semaines, puis montée du pipeline éditorial une fois les premiers articles indexés. Le SEO/GEO est un canal à effet différé : on cadre des attentes réalistes avant de signer."
+  - q: "Comment mesurez-vous le résultat ?"
+    a: "On instrumente dès le départ : pipeline généré rapporté à l'investissement, leads qualifiés par mois, temps de qualification commercial. Ces indicateurs sont câblés dans vos tableaux pour que vous mesuriez sur vos propres données."
+  - q: "Vous travaillez sur quels CRM ?"
+    a: "HubSpot, Salesforce et Pipedrive en priorité. Pour un autre CRM, on évalue la faisabilité au cadrage : certaines API sont limitées. La migration vers un nouveau CRM n'est pas incluse dans le forfait standard."
+  - q: "Et si on a déjà un site qui marche ?"
+    a: "Alors on ne le refond pas. On commence par un audit pour comprendre ce qui génère du pipeline et ce qui reste invisible, puis on optimise. On ne casse pas ce qui marche."
+  - q: "Combien de personnes en interne ?"
+    a: "Un interlocuteur disponible deux heures par semaine pour les validations. Le cadrage demande trois à quatre heures d'ateliers. Ensuite, la validation éditoriale prend trente minutes par semaine."
+  - q: "Quelle est la durée de l'engagement ?"
+    a: "Six à dix semaines selon le périmètre. Pas d'abonnement mensuel ni de reconduction automatique. À la fin, vous disposez d'un système autonome ; un accompagnement mensuel reste optionnel."
+faq_en:
+  - q: "How long before the first effects?"
+    a: "Landing pages and tracking from the first weeks, then the editorial pipeline ramps up once the first articles are indexed. SEO/GEO is a delayed-effect channel: we set realistic expectations before signing."
+  - q: "How do you measure the result?"
+    a: "We instrument from the start: pipeline generated against investment, qualified leads per month, sales qualification time. These metrics are wired into your dashboards so you measure on your own data."
+  - q: "Which CRMs do you work with?"
+    a: "HubSpot, Salesforce and Pipedrive first. For another CRM, we assess feasibility at scoping: some APIs are limited. Migrating to a new CRM is not included in the standard package."
+  - q: "What if we already have a site that works?"
+    a: "Then we don't rebuild it. We start with an audit to understand what generates pipeline and what stays invisible, then we optimize. We don't break what works."
+  - q: "How many people internally?"
+    a: "One contact available two hours a week for approvals. Scoping needs three to four hours of workshops. After that, editorial validation takes thirty minutes a week."
+  - q: "What's the length of the engagement?"
+    a: "Six to ten weeks depending on scope. No monthly subscription, no automatic renewal. At the end you have an autonomous system; monthly support stays optional."
+
 sections:
   - type: "hero-conversion-funnel"
     background: "ink"
@@ -78,6 +107,14 @@ sections:
       - value: "100 %"
         label_fr: "code et prompts transférables"
         label_en: "code and prompts transferable"
+
+  - type: "problem-statement"
+    background: "paper"
+    kicker_fr: "§ Définition"
+    kicker_en: "§ Definition"
+    statement_fr: "Qu'est-ce que ce <i>service</i> ? Bloc de définition canonique : une phrase d'ouverture qui pose le concept, puis ce qu'il embarque (capacités réelles, branchements, livrables), enfin ce qu'il change concrètement pour le client. Reste sobre et honnête : on décrit des capacités, jamais des résultats inventés. Ce bloc se place juste après le résumé en bref, en background paper avec dropcap, pour que le lecteur sache de quoi on parle avant d'entrer dans le détail."
+    statement_en: "What is this <i>service</i>? Canonical definition block: an opening sentence that frames the concept, then what it embeds (real capabilities, connections, deliverables), finally what it concretely changes for the client. Stay sober and honest: we describe capabilities, never invented results. This block sits right after the at-a-glance summary, on a paper background with a dropcap, so the reader knows what we're talking about before diving into detail."
+    dropcap: true
 
   - type: "problems-grid"
     background: "paper-2"
@@ -156,8 +193,8 @@ sections:
     background: "paper-2"
     kicker_fr: "§ Méthode"
     kicker_en: "§ Method"
-    h2_fr: "<i>Méthode</i><br/>Waimia"
-    h2_en: "<i>Method</i><br/>Waimia"
+    h2_fr: "<i>Méthode</i> Waimia"
+    h2_en: "<i>Method</i> Waimia"
     lede_fr: "Six à dix semaines pour câbler acquisition, conversion et pilotage. Vous savez avant de signer si le bon point d'entrée est le système complet ou une activation plus légère."
     lede_en: "Six to ten weeks to wire acquisition, conversion and management. You know before signing whether the right entry point is the full system or a lighter activation."
     steps:

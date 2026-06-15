@@ -8,6 +8,35 @@ publishedAt: 2026-06-13
 category: "acquisition"
 tags: ["tunnel-conversion-intelligent", "acquisition-ia", "crm"]
 
+# faq_fr / faq_en : source canonique FAQPage (JSON-LD via schema-builder.ts).
+# Miroir verbatim de la section faq-two-column ci-dessous (toute modif d'une Q/A se répercute aux deux).
+faq_fr:
+  - q: "Comment fonctionne le nurturing conditionnel ?"
+    a: "Chaque email de la séquence se déclenche et s'adapte selon deux signaux : les interactions du contact sur l'email précédent (ouverture, clic) et ses réponses au lead magnet de scoring. Un lead chaud accélère, un lead tiède reçoit un autre angle, un lead froid est mis en veille. Rien n'est envoyé en aveugle."
+  - q: "Le lead magnet de scoring est-il inclus ?"
+    a: "Oui, c'est un livrable du tunnel. C'est un parcours d'entrée qui qualifie le visiteur sur budget, timing et périmètre et alimente le scoring. Il est construit dans une phase suivante du projet, après la mise en place de la landing et de la mesure."
+  - q: "Le scoring remplace-t-il le jugement du commercial ?"
+    a: "Non. Le scoring prépare l'appel, il ne le passe pas. Le commercial garde la décision : il ouvre un lead avec budget, timing et périmètre déjà clarifiés, et vend au lieu de trier."
+  - q: "Faut-il refaire tout notre tunnel existant ?"
+    a: "Non. On instrumente le tunnel que vous avez, palier par palier, dans votre CRM. On ajoute la landing, le lead magnet, le scoring et les relances là où la valeur fuit, sans casser ce qui marche déjà."
+  - q: "Vous travaillez sur quels CRM ?"
+    a: "HubSpot, Salesforce et Pipedrive en priorité. Pour un autre CRM, on évalue la faisabilité au cadrage : certaines API sont limitées. La migration vers un nouveau CRM n'est pas incluse dans le forfait standard."
+  - q: "Et pour un cas avancé hors standard ?"
+    a: "On propose une variante sur-mesure : étapes additionnelles dans le tunnel, scoring spécifique à votre métier, intégrations particulières. On la cadre au diagnostic, une fois le palier qui fuit le plus identifié."
+faq_en:
+  - q: "How does conditional nurturing work?"
+    a: "Each email in the sequence triggers and adapts on two signals: the contact's interactions with the previous email (open, click) and their answers to the scoring lead magnet. A hot lead accelerates, a lukewarm lead gets a different angle, a cold lead is paused. Nothing is sent blind."
+  - q: "Is the scoring lead magnet included?"
+    a: "Yes, it's a funnel deliverable. It's an entry journey that qualifies the visitor on budget, timing and scope and feeds the scoring. It is built in a later phase of the project, after the landing and the measurement are in place."
+  - q: "Does scoring replace the salesperson's judgment?"
+    a: "No. Scoring prepares the call, it does not make it. The salesperson keeps the decision: they open a lead with budget, timing and scope already clarified, and sell instead of sorting."
+  - q: "Do we need to rebuild our whole existing funnel?"
+    a: "No. We instrument the funnel you have, stage by stage, inside your CRM. We add the landing, the lead magnet, the scoring and the follow-ups where value leaks, without breaking what already works."
+  - q: "Which CRMs do you work with?"
+    a: "HubSpot, Salesforce and Pipedrive first. For another CRM, we assess feasibility at scoping: some APIs are limited. Migrating to a new CRM is not included in the standard package."
+  - q: "What about an advanced, non-standard case?"
+    a: "We offer a custom variant: extra funnel steps, scoring specific to your business, particular integrations. We scope it at the diagnostic, once the leakiest stage is identified."
+
 sections:
   - type: "hero-conversion-funnel"
     background: "ink"
@@ -76,6 +105,14 @@ sections:
       - value: "100 %"
         label_fr: "leads scorés avant l'appel"
         label_en: "leads scored before the call"
+
+  - type: "problem-statement"
+    background: "paper"
+    kicker_fr: "§ Définition"
+    kicker_en: "§ Definition"
+    statement_fr: "Qu'est-ce qu'un tunnel de conversion <i>intelligent</i> ? Le parcours qui relie une visite à un contrat signé, instrumenté de bout en bout et piloté par l'IA. Une landing à paliers capte, un lead magnet de scoring qualifie chaque visiteur sur budget, timing et périmètre, puis un nurturing conditionnel s'adapte à chaque signal d'interaction. Au lieu d'une boîte noire entre la capture et le closing, chaque palier est mesuré et chaque lead arrive au commercial déjà qualifié. Pas une page isolée : un système qui transforme l'intention en pipeline."
+    statement_en: "What is an <i>intelligent</i> conversion funnel? The journey that links a visit to a signed contract, instrumented end to end and driven by AI. A tiered landing captures, a scoring lead magnet qualifies each visitor on budget, timing and scope, then conditional nurturing adapts to every interaction signal. Instead of a black box between capture and closing, each stage is measured and each lead reaches sales already qualified. Not an isolated page: a system that turns intent into pipeline."
+    dropcap: true
 
   - type: "problems-grid"
     background: "paper-2"
@@ -154,8 +191,8 @@ sections:
     background: "paper-2"
     kicker_fr: "§ Méthode"
     kicker_en: "§ Method"
-    h2_fr: "<i>Méthode</i><br/>Waimia"
-    h2_en: "<i>Method</i><br/>Waimia"
+    h2_fr: "<i>Méthode</i> Waimia"
+    h2_en: "<i>Method</i> Waimia"
     lede_fr: "Six à dix semaines pour câbler le tunnel de bout en bout : une landing à trois paliers avec lead magnet d'entrée, un parcours en trois à quatre étapes, un nurturing qui s'adapte à chaque contact. Vous savez avant de signer si le bon point d'entrée est le tunnel complet ou une activation plus légère."
     lede_en: "Six to ten weeks to wire the funnel end to end: a three-tier landing with an entry lead magnet, a three-to-four-step journey, nurturing that adapts to each contact. You know before signing whether the right entry point is the full funnel or a lighter activation."
     steps:
