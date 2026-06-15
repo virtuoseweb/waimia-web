@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `1faea42` - 39/84 tâches done (46%).
+État : HEAD `34b265c` - 39/84 tâches done (46%).
 
 ## Avancement par phase
 
@@ -27,7 +27,7 @@
 | P0.5 — Méga-menu & Footer resserrés (ancres + whitelist) | P0 | 0/3 | 0% | - |
 | P0.6 — Assainissement véridique (fin du décor d'agence) | P0 | 2/3 | 67% | c19a2b4 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) ; c19a2b4 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) |
 | P0.7 — Pages légales (conformité, BLOQUANT) | P0 | 2/2 | 100% | b2e9a7d feat(legal): pages mentions-legales, cgv, politique-confidentialite + liens footer ; b2e9a7d feat(legal): pages mentions-legales, cgv, politique-confidentialite + liens footer |
-| P0.8 — Pricing 3 000 € HT (offer ladder) | P0 | 1/1 | 100% | 8643949 Merge P0.8 — pricing money page 3000€ HT plancher (offer ladder) + métriques honnêtes |
+| P0.8 — Pricing (offer ladder) — SUPERSEDED par P0.A | P0 | 1/1 | 100% | 8643949 Merge P0.8 — pricing money page 3000€ HT plancher (offer ladder) + métriques honnêtes |
 | P0.9 — Fondations d'acquisition (hors-repo, cash-first) | P0 | 0/4 | 0% | - |
 | P1.1 — Recherche keyword gratuite → figer les H1 | P1 | 0/2 | 0% | - |
 | P1.2 — Cluster blog silo « Site web IA » | P1 | 0/1 | 0% | - |

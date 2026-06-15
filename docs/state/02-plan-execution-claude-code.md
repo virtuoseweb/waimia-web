@@ -125,6 +125,22 @@ _(vide)_
 
 ---
 
+## Chantier P0.A — Migration home + nav + footer (ADR-003, fusion audit-03 E4)
+
+> Source : `audits/03-audit-consolidé-2026-06-15.md` (P0-1..P0-5) + décisions `state/RECONCILIATION-REPORT.md` (addendum 2026-06-15). Racine commune = home/nav/footer alignés sur « cabinet d'orchestration IA » + grille 2/4/7/10k. Worker Opus, vérifié indépendamment (rule 09).
+
+### Tâches finies
+- [x] **P0.A-1 — Store pricing unique** : `src/data/pricing.ts` (grille 2 000/4 000/7 000/10 000 € + sur-mesure, plancher 2 000 € HT) consommé par home/audit/growth/proof-points/sitemap/demos ; 0 montant ancien user-facing. <!-- sb commit=34b265c gf1=y -->
+- [x] **P0.A-2 — Liens 404 footer/home** : 0 lien 404 live depuis pages indexables (footer route déjà /acquerir /piloter /operer ; refs /solutions/* dans bloc DEV). check-internal-links 0 bloquant. <!-- sb commit=34b265c gf1=y -->
+- [x] **P0.A-3 — Hero + positioning** : H1 « Le cabinet qui fait tourner votre PME à l'IA. », title « Cabinet d'orchestration IA pour PME · Site web intelligent · Montpellier », « câbler » banni → orchestrer/mettre en production (BookSession inclus). GF-1 : getComputedStyle H1/CTA opacity:1 visible desktop+mobile, 0 console error, screenshot. <!-- sb commit=34b265c gf1=y -->
+- [x] **P0.A-4 — Retrait suisse/ETI/8k home + recadrage audit** : audit-maturite-ia → Diagnostic IA PME gratuit, métriques fabriquées retirées, renvoi grille 2 000 €. <!-- sb commit=34b265c gf1=y -->
+- [x] **P0.A-5 — Source unique de cas** : home + manifesto consomment `getCollection('cases')` (Amploi/Balzeo/Les Carnets réels) ; CASE_FEED générique supprimé de sitemap.ts. <!-- sb commit=34b265c gf1=y -->
+
+### Tâches en attente
+- (aucune ; chantier livré 2026-06-15, build Complete! + tsc 0 + gates verts + GF-1 visuel)
+
+---
+
 ## Chantier P0.1 — Réparations de liens (pré-purge, anti-casse)
 
 > Source : `strategy/02 §4,§6.1`, `state/01 §d`. **À faire AVANT toute suppression** pour ne pas
@@ -431,9 +447,13 @@ _(vide)_
 
 ---
 
-## Chantier P0.8 — Pricing 3 000 € HT (offer ladder)
+## Chantier P0.8 — Pricing (offer ladder) — SUPERSEDED par P0.A
 
-> Source : `strategy/02 §6.8`, `business/08`. Plancher Site web IA = **3 000 € HT** → escalade Growth System IA.
+> ⚠️ **Périmé 2026-06-15** : le plancher « 3 000 € HT » (P0.8-a, commit `8643949`) est remplacé par la
+> **grille 2 000 / 4 000 / 7 000 / 10 000 € + sur-mesure** (plancher 2 000 € HT) pilotée par `src/data/pricing.ts`
+> (chantier **P0.A-1**, commit `34b265c`). Source décision : `state/RECONCILIATION-REPORT.md` §4. Ce chantier
+> reste tracé pour l'historique ; la source de vérité pricing est désormais P0.A.
+> Source d'origine : `strategy/02 §6.8`, `business/08`.
 
 ### Tâches finies
 _(vide)_
