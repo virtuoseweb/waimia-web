@@ -1,0 +1,287 @@
+---
+export const prerender = true;
+
+// Page static · /library · HUB de l'atelier Design System (U0, §11.2/§12.2.G docs/design-system/03).
+//
+// Forme : mini-hub qui présente l'atelier `/library/*` et renvoie vers ses surfaces :
+//   - /library/[category]  (catalogue par intention, liste des familles + compteur de sections)
+//   - /library/[type]      (fiche technique d'une section, atteinte depuis une catégorie)
+//   - /library/studio      (éditeur de tokens live)
+//   - /library/hero-lab    (variantes de hero comparées côté à côté)
+//
+// Réutilise les mécanismes existants (registry-driven) : listCategories() pour la grille de familles.
+// Ce hub ne recopie PAS le mono-page design-system.astro (1810 l) : le détail tokens/atomes/sections
+// vit dans les sous-routes. Esprit du header catalogue (design-system.astro:161-199), composé avec
+// les tokens/atomes existants. 0 nouveau token (rule 60), 0 valeur en dur, 0 U+2014 (rule 58).
+
+import Base from '../../layouts/Base.astro';
+import DsLocalNav from '../../components/library/DsLocalNav.astro';
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import { listCategories, listSections } from '../../lib/section-registry';
+
+const categories = listCategories();
+const sectionCount = listSections().length;
+const categoryCount = categories.length;
+---
+
+<Base
+  title="Atelier Design System · Library Waimia · Catalogue · Studio · Hero Lab"
+  description="Atelier du Design System Waimia : catalogue des sections par intention, éditeur de tokens live et comparateur de heros. Piloté par le registry."
+  noindex
+>
+  {/* ───────────── MASTHEAD ───────────── */}
+  <section class="lib-hd">
+    <div class="wrap-wide">
+      <DsLocalNav
+        active="catalogue"
+        scope="library"
+        note="Ici : l'atelier du Design System. Catalogue, Studio et Hero Lab, une seule source de vérité : le registry."
+      />
+      <Kicker class="lib-kicker">§ Atelier Design System · Library Waimia</Kicker>
+      <h1 class="lib-h1">L'atelier, <i>pas</i> le placard.</h1>
+      <p class="lib-lede">
+        {categoryCount} familles d'intention, {sectionCount} sections composables, un éditeur de tokens
+        en direct et un comparateur de heros. On pioche au lieu d'inventer : chaque surface lit le même
+        registry que le site.
+      </p>
+      <ul class="lib-stats" aria-label="Statistiques de l'atelier">
+        <li><strong>{categoryCount}</strong><span>familles</span></li>
+        <li><strong>{sectionCount}</strong><span>sections</span></li>
+        <li><strong>3</strong><span>surfaces outillées</span></li>
+      </ul>
+    </div>
+  </section>
+
+  {/* ───────────── SURFACES OUTILLÉES ───────────── */}
+  <section class="lib-surfaces wrap-wide" aria-label="Surfaces de l'atelier">
+    <nav class="lib-hub" aria-label="Surfaces outillées">
+      <a class="lib-hub-card lib-hub-card--featured" href="/library/studio">
+        <span class="lib-hub-card-label">DS Studio · éditeur live</span>
+        <span class="lib-hub-card-desc">
+          Modifie les variables et vois le rendu changer en direct. Galerie visuelle complète des atomes,
+          molécules et sections.
+        </span>
+      </a>
+      <a class="lib-hub-card" href="/library/hero-lab">
+        <span class="lib-hub-card-label">Hero Lab</span>
+        <span class="lib-hub-card-desc">Toutes les variantes de hero du catalogue, rendues côté à côté.</span>
+      </a>
+    </nav>
+  </section>
+
+  {/* ───────────── CATALOGUE PAR INTENTION ───────────── */}
+  <section class="lib-cats wrap-wide" id="catalogue" aria-label="Catalogue par intention">
+    <header class="lib-cats-head">
+      <Kicker class="lib-cats-kicker">§ Catalogue · {categoryCount} familles</Kicker>
+      <h2 class="lib-cats-title">Par intention.</h2>
+      <p class="lib-cats-lede">
+        Chaque famille regroupe les sections qui répondent à une même intention. Ouvre une famille pour
+        voir ses sections, puis une section pour sa fiche technique.
+      </p>
+    </header>
+    <ul class="lib-cat-grid">
+      {categories.map((category) => (
+        <li>
+          <a class="lib-cat-card" href={`/library/${category.slug}`}>
+            <span class="lib-cat-card-top">
+              <strong class="lib-cat-card-label">{category.label}</strong>
+              <span class="lib-cat-card-count">{category.count}</span>
+            </span>
+            <code class="lib-cat-card-slug">{category.slug}</code>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  /* ── Masthead ── */
+  .lib-hd {
+    padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .lib-kicker {
+    margin: 0 0 var(--space-4);
+  }
+  .lib-h1 {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .lib-h1 i {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-regular);
+    color: var(--accent-text);
+  }
+  .lib-lede {
+    max-width: 62ch;
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .lib-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-7);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .lib-stats li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .lib-stats strong {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1;
+  }
+  .lib-stats span {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── Surfaces outillées (hub) ── */
+  .lib-surfaces {
+    margin: 0 auto;
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+  .lib-hub {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+  .lib-hub-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper-2);
+    text-decoration: none;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .lib-hub-card:hover { border-color: var(--accent-text); }
+  .lib-hub-card--featured {
+    background: var(--ink);
+    border-color: var(--ink-3);
+  }
+  .lib-hub-card-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .lib-hub-card--featured .lib-hub-card-label { color: var(--paper); }
+  .lib-hub-card-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .lib-hub-card--featured .lib-hub-card-desc {
+    color: color-mix(in srgb, var(--paper) 72%, var(--ink));
+  }
+
+  /* ── Catalogue par intention ── */
+  .lib-cats {
+    margin: 0 auto;
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+  }
+  .lib-cats-head {
+    margin-bottom: var(--space-7);
+  }
+  .lib-cats-kicker {
+    margin: 0 0 var(--space-4);
+  }
+  .lib-cats-title {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+  }
+  .lib-cats-lede {
+    max-width: 60ch;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .lib-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .lib-cat-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-height: 120px;
+    padding: var(--space-5);
+    background: var(--paper);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .lib-cat-card:hover { background: var(--paper-2); }
+  .lib-cat-card-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+  .lib-cat-card-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .lib-cat-card-count {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+  }
+  .lib-cat-card-slug {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .lib-hd .wrap-wide,
+    .lib-surfaces,
+    .lib-cats {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>

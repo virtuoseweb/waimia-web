@@ -1,23 +1,56 @@
 ---
 // Barre de navigation locale des surfaces outillées du Design System.
-// Posée sur : /agence/ds-studio · /agence/design-system · /categories/[slug] · /components/[type].
-// Rend le parcours Studio <-> Catalogue bidirectionnel et explicite (mission ds-studio-nav).
+// Posée sur deux familles de surfaces, sans rupture pendant la transition :
+//   - Legacy `agence/*` (intact) : /agence/ds-studio · /agence/design-system · /categories/[slug] · /components/[type].
+//   - Atelier `/library/*` (nouveau, §11.2 docs/design-system/03) : /library · /library/[category] · /library/[type] · /library/studio · /library/hero-lab.
+// Rend le parcours Studio <-> Catalogue bidirectionnel et explicite (mission ds-studio-nav + U0 coquille /library).
 // DA : Inter Tight (--font-sans), contraste par le gras, fond ink contrasté, 0 nouveau token.
+
+type Surface = 'studio' | 'catalogue' | 'categories' | 'hero-lab';
+
+/** Jeux de cibles : on garde `agence` par défaut (surfaces legacy encore servies),
+ *  `library` pointe les nouvelles routes de l'atelier. Le hub `/library` les expose. */
+const TARGETS = {
+  agence: {
+    hub: '/agence/design-system',
+    studio: '/agence/ds-studio',
+    catalogue: '/agence/design-system',
+    categories: '/agence/design-system#sections',
+    'hero-lab': '/agence/hero-lab',
+  },
+  library: {
+    hub: '/library',
+    studio: '/library/studio',
+    catalogue: '/library',
+    categories: '/library',
+    'hero-lab': '/library/hero-lab',
+  },
+} as const;
 
 interface Props {
   /** Surface active : pilote aria-current + l'état visuel. */
-  active: 'studio' | 'catalogue' | 'categories';
+  active: Surface;
+  /** Jeu de cibles : `agence` (legacy, défaut) ou `library` (atelier). */
+  scope?: keyof typeof TARGETS;
   /** Rôle de la page courante, en une ligne (affiché à droite de la barre). */
   note?: string;
 }
 
-const { active, note } = Astro.props;
+const { active, scope = 'agence', note } = Astro.props;
+const t = TARGETS[scope];
 
-const items = [
-  { key: 'studio', label: 'DS Studio', href: '/agence/ds-studio', hint: 'personnaliser les tokens' },
-  { key: 'catalogue', label: 'Catalogue', href: '/agence/design-system', hint: 'bibliothèque des composants' },
-  { key: 'categories', label: 'Catégories', href: '/agence/design-system#sections', hint: 'sections par famille' },
-] as const;
+const items =
+  scope === 'library'
+    ? ([
+        { key: 'catalogue', label: 'Catalogue', href: t.catalogue, hint: 'bibliothèque des composants' },
+        { key: 'studio', label: 'DS Studio', href: t.studio, hint: 'personnaliser les tokens' },
+        { key: 'hero-lab', label: 'Hero Lab', href: t['hero-lab'], hint: 'variantes de hero comparées' },
+      ] as const)
+    : ([
+        { key: 'studio', label: 'DS Studio', href: t.studio, hint: 'personnaliser les tokens' },
+        { key: 'catalogue', label: 'Catalogue', href: t.catalogue, hint: 'bibliothèque des composants' },
+        { key: 'categories', label: 'Catégories', href: t.categories, hint: 'sections par famille' },
+      ] as const);
 ---
 
 <nav class="ds-local-nav" aria-label="Surfaces du Design System">

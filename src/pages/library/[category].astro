@@ -1,0 +1,227 @@
+---
+export const prerender = true;
+
+// Page static · /library/[category] · CLONE adapté de categories/[slug].astro (U0, §11.2 docs/design-system/03).
+//
+// Une famille du catalogue : cards iframe vers /preview/[type] (cible preview INCHANGÉE) +
+// lien vers la fiche technique /library/[type]. Même getStaticPaths sur listCategories(),
+// même mécanisme registry-driven. Seuls changements vs categories/[slug] :
+//   - DsLocalNav scope="library" (cibles /library/*)
+//   - liens internes pointent vers /library/* (retour hub, fiche technique) au lieu de /agence/*.
+// 0 nouveau token, 0 valeur en dur, 0 U+2014.
+
+import Base from '../../layouts/Base.astro';
+import DsLocalNav from '../../components/library/DsLocalNav.astro';
+import { listCategories, listSections, type CategoryGroup } from '../../lib/section-registry';
+
+export function getStaticPaths() {
+  return listCategories().map((category) => ({
+    params: { category: category.slug },
+    props: { category },
+  }));
+}
+
+interface Props {
+  category: CategoryGroup;
+}
+
+const { category } = Astro.props;
+const sections = listSections().filter((section) => section.categorySlug === category.slug);
+---
+
+<Base
+  title={`${category.label} · Catalogue sections Waimia`}
+  description={`Blocks de la catégorie ${category.label}, pilotés par le registry Waimia.`}
+  alternate={false}
+  noindex
+>
+  <section class="category-mast">
+    <div class="wrap-wide">
+      <DsLocalNav active="catalogue" scope="library" note="Ici : une famille du catalogue. Clique une card pour ouvrir sa fiche technique." />
+      <a class="category-back" href="/library#catalogue">← Retour atelier</a>
+      <p class="category-kicker">§ Catégorie marketplace · {category.count} sections</p>
+      <h1>{category.label}</h1>
+      <p class="category-lede">Blocks de la catégorie {category.label}, pilotés par le registry Waimia.</p>
+    </div>
+  </section>
+
+  <section class="category-grid-outer wrap-wide" aria-label={`Sections ${category.label}`}>
+    <div class="category-grid">
+      {sections.map((section) => (
+        <article class="category-card">
+          <div class="category-card-preview" data-preview-frame data-max-height="300" aria-hidden="true">
+            <iframe class="category-card-frame" src={`/preview/${section.type}`} title={`Aperçu ${section.type}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
+          </div>
+          <div class="category-card-top">
+            <a class="category-card-link" href={`/library/${section.type}`}><code>{section.type}</code></a>
+            <span class={`category-status category-status--${section.status}`}>{section.status}</span>
+          </div>
+          <p>{section.description_fr}</p>
+          <div class="category-tags" aria-label={`Tags ${section.type}`}>
+            {section.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <script>import '../../scripts/preview-frame.ts';</script>
+</Base>
+
+<style>
+  .category-mast {
+    padding: var(--space-12) var(--space-6) var(--space-8);
+  }
+  .category-back {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-decoration: none;
+  }
+  .category-back:hover { color: var(--accent-text); }
+  .category-kicker {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .category-mast h1 {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+  .category-lede {
+    max-width: 620px;
+    margin: 28px 0 0;
+    color: var(--muted);
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+  .category-grid-outer {
+    margin: 0 auto;
+    padding: 0 var(--space-6) var(--space-12);
+  }
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    min-height: 230px;
+    padding: 28px;
+    background: var(--paper);
+    position: relative;
+  }
+  .category-card-preview {
+    display: block;
+    position: relative;
+    min-height: 160px;
+    overflow: hidden;
+    margin: -28px -28px 0;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  .category-card:hover .category-card-preview {
+    background: var(--paper-2);
+  }
+  .category-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .category-card-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+  /* transform + height pilotés par src/scripts/preview-frame.ts (scale responsive) */
+  .category-card-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    border: 0;
+    transform-origin: top left;
+    pointer-events: none;
+  }
+  .category-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .category-card code {
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .category-card p {
+    flex: 1;
+    margin: 0;
+    color: var(--ink-2);
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+  .category-status,
+  .category-tags span {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    font-family: var(--font-mono);
+    line-height: 1;
+  }
+  .category-status {
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-size: var(--text-micro);
+    padding: 5px 7px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .category-status--stable {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  .category-status--wip {
+    border-color: var(--muted-2);
+    color: var(--muted);
+  }
+  .category-status--deprecated {
+    border-color: var(--hairline-strong);
+    color: var(--muted-2);
+  }
+  .category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .category-tags span {
+    background: var(--paper-2);
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-size: var(--text-small);
+    padding: 6px 7px;
+  }
+  @media (max-width: 720px) {
+    .category-mast,
+    .category-grid-outer {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>

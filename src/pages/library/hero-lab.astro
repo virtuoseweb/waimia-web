@@ -1,0 +1,334 @@
+---
+// Page static · /library/hero-lab · HERO LAB · galerie de comparaison des heros (déplacement de route U0).
+// Clone de /agence/hero-lab par DÉPLACEMENT (§11.2 docs/design-system/03) : 0 reconstruction.
+// Seuls ajustements : DsLocalNav scope="library" (active="hero-lab") · liens internes vers /library/*.
+// L'original /agence/hero-lab reste INTACT (transition douce).
+//
+// Restauré 2026-06-11 (perdu lors du nettoyage V-F1, commit db9fb25). Le lab d'origine
+// ne montrait qu'un composant (HeroOfferDetail × 3 variantes). Cette version le transforme
+// en VRAI lab : toutes les variantes de hero du catalogue (catégorie hero-header-sections)
+// rendues côté à côté, pour les comparer d'un coup d'œil.
+//
+// Mécanisme : même pattern que /preview/[type] et /categories/[slug] — on filtre le registry
+// (SECTION_REGISTRY) par categorySlug === 'hero-header-sections' et on rend chaque hero avec
+// sa donnée de démo (SECTION_DEMOS). Source de vérité unique = registry + demos, 0 markup hero
+// dupliqué, 0 nouveau token CSS.
+//
+// Typo docs/41 : la masse en var(--font-sans) ; le serif (--font-display via <i>) sert
+// d'emphase ponctuelle sur un mot.
+
+export const prerender = true;
+
+import Base from '../../layouts/Base.astro';
+import DsLocalNav from '../../components/library/DsLocalNav.astro';
+import { listSections, SECTION_REGISTRY } from '../../lib/section-registry';
+import { SECTION_DEMOS } from '../../lib/section-demos';
+
+const CATEGORY_SLUG = 'hero-header-sections';
+
+// Tous les heros du catalogue, dans l'ordre du registry. On ne garde que ceux qui ont une démo
+// (tous en pratique) pour pouvoir les rendre réellement.
+const heroes = listSections()
+  .filter((section) => section.categorySlug === CATEGORY_SLUG)
+  .filter((section) => Boolean(SECTION_DEMOS[section.type]));
+
+const total = heroes.length;
+const stableCount = heroes.filter((h) => h.status === 'stable').length;
+const deprecatedCount = heroes.filter((h) => h.status === 'deprecated').length;
+
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<Base
+  title="Hero Lab · Comparatif des heros du catalogue · Waimia"
+  description="Lab de comparaison : toutes les variantes de hero du Design System Waimia rendues côté à côté."
+  noindex
+>
+  {/* ───────────── MASTHEAD ───────────── */}
+  <section class="lab-mast">
+    <div class="wrap-wide">
+      <DsLocalNav active="hero-lab" scope="library" note="Ici : tous les heros du catalogue, rendus côté à côté pour les comparer." />
+      <p class="lab-kicker">§ Hero Lab · catégorie hero-header-sections</p>
+      <h1 class="lab-h1">Tous les heros, <i>côte à côte</i>.</h1>
+      <p class="lab-lede">
+        {total} variantes de hero du catalogue, rendues en vrai avec leurs données de démonstration.
+        Le lab pioche dans le même registry que le site : chaque bloc est le composant réel, pas une maquette.
+      </p>
+      <ul class="lab-stats" aria-label="Statistiques du lab">
+        <li><strong>{total}</strong><span>variantes</span></li>
+        <li><strong>{stableCount}</strong><span>stables</span></li>
+        <li><strong>{deprecatedCount}</strong><span>dépréciées</span></li>
+      </ul>
+      <p class="lab-help">
+        Chaque variante a son aperçu isolé <a href="/preview/hero-offer-detail"><code>/preview/&lt;type&gt;</code></a>
+        et sa fiche technique <code>/library/&lt;type&gt;</code>. Retour à
+        <a href="/library">l'atelier</a>.
+      </p>
+    </div>
+  </section>
+
+  {/* ───────────── INDEX RAPIDE ───────────── */}
+  <nav class="lab-index wrap-wide" aria-label="Index des variantes">
+    {heroes.map((hero, i) => (
+      <a class="lab-index-chip" href={`#lab-${hero.type}`}>
+        <span class="lab-index-num">{pad(i + 1)}</span>
+        <code>{hero.type}</code>
+      </a>
+    ))}
+  </nav>
+
+  {/* ───────────── GALERIE ───────────── */}
+  <div class="lab-gallery">
+    {heroes.map((hero, i) => {
+      const C = SECTION_REGISTRY[hero.type] as any;
+      const demo = SECTION_DEMOS[hero.type];
+      return (
+        <section class="lab-item" id={`lab-${hero.type}`} aria-labelledby={`lab-h-${hero.type}`}>
+          <header class="lab-item-head wrap-wide">
+            <div class="lab-item-meta">
+              <span class="lab-item-num">{pad(i + 1)} / {pad(total)}</span>
+              <h2 class="lab-item-title" id={`lab-h-${hero.type}`}><code>{hero.type}</code></h2>
+              <span class={`lab-status lab-status--${hero.status}`}>{hero.status}</span>
+            </div>
+            <p class="lab-item-desc">{hero.description_fr}</p>
+            <div class="lab-item-links">
+              <a href={`/preview/${hero.type}`}>aperçu isolé →</a>
+              <a href={`/components/${hero.type}`}>fiche technique →</a>
+            </div>
+          </header>
+          <div class="lab-stage" data-lab-stage>
+            {C && demo ? <C data={demo} lang="fr" /> : (
+              <p class="lab-missing">Variante non rendue : <code>{hero.type}</code></p>
+            )}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</Base>
+
+<style>
+  /* ── Masthead ── */
+  .lab-mast {
+    padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .lab-kicker {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  /* docs/41 : la masse du titre en sans ; le serif (<i>) relève un fragment. */
+  .lab-h1 {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .lab-h1 i {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-regular);
+    color: var(--accent-text);
+  }
+  .lab-lede {
+    max-width: 62ch;
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .lab-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-7);
+    margin: 0 0 var(--space-6);
+    padding: 0;
+    list-style: none;
+  }
+  .lab-stats li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .lab-stats strong {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1;
+  }
+  .lab-stats span {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .lab-help {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+  .lab-help a { color: var(--accent-text); }
+  .lab-mast code,
+  .lab-help code {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: inherit;
+  }
+
+  /* ── Index rapide ── */
+  .lab-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0 auto;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+  .lab-index-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-xs);
+    background: var(--paper-2);
+    text-decoration: none;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .lab-index-chip:hover { border-color: var(--accent-text); }
+  .lab-index-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+  }
+  .lab-index-chip code {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--ink-2);
+  }
+
+  /* ── Galerie ── */
+  .lab-item {
+    border-top: 1px solid var(--hairline);
+  }
+  .lab-item-head {
+    margin: 0 auto;
+    padding-top: var(--space-7);
+    padding-bottom: var(--space-6);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .lab-item-meta {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .lab-item-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-text);
+  }
+  .lab-item-title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: var(--fw-regular);
+  }
+  .lab-item-title code {
+    font-family: var(--font-mono);
+    font-size: var(--text-h3);
+    color: var(--ink);
+  }
+  .lab-status {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    line-height: 1;
+    padding: 5px 7px;
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .lab-status--stable { border-color: var(--accent-text); color: var(--accent-text); }
+  .lab-status--wip { border-color: var(--muted-2); color: var(--muted); }
+  .lab-status--deprecated { border-color: var(--hairline-strong); color: var(--muted-2); }
+  .lab-item-desc {
+    max-width: 70ch;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .lab-item-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+  }
+  .lab-item-links a {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    text-decoration: none;
+  }
+  .lab-item-links a:hover { text-decoration: underline; }
+
+  /* La scène isole le hero réel : fond paper, hairline, et on neutralise la marge négative
+     éventuelle. La hauteur s'adapte au contenu rendu. */
+  .lab-stage {
+    position: relative;
+    border-top: 1px solid var(--hairline);
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .lab-missing {
+    padding: var(--space-6) var(--gut);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+  .lab-missing code { color: var(--ink); }
+
+  /* Ces heros embarquent des classes scroll-reveal qui démarrent opacity:0 et ne se révèlent
+     qu'au scroll via IntersectionObserver. Dans le lab on veut les voir d'emblée pour comparer :
+     on force l'état révélé à l'intérieur de chaque scène (scopé .lab-stage). */
+  .lab-stage :global(.reveal),
+  .lab-stage :global(.reveal-up),
+  .lab-stage :global(.reveal-fade),
+  .lab-stage :global(.reveal-slide),
+  .lab-stage :global(.reveal-snap),
+  .lab-stage :global(.scale-in),
+  .lab-stage :global(.blur-in),
+  .lab-stage :global(.clip-up),
+  .lab-stage :global(.hair-draw),
+  .lab-stage :global(.row-lines),
+  .lab-stage :global(.reveal-mask-up),
+  .lab-stage :global(.reveal-zoom-in),
+  .lab-stage :global(.reveal-blur-clip),
+  .lab-stage :global(.reveal-curtain),
+  .lab-stage :global(.reveal-split-letter),
+  .lab-stage :global(.reveal-stagger) > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  @media (max-width: 880px) {
+    .lab-item-meta { gap: var(--space-3); }
+  }
+</style>
