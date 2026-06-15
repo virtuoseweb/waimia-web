@@ -398,6 +398,12 @@ export const FOOTER_COLS: FooterCol[] = [
         href: '/sitemap-index.xml',
         label: { en: 'Sitemap (XML)', fr: 'Sitemap (XML)' },
       },
+      // Cartographie d'audit interne (toutes les pages réelles + statut SEO) :
+      // outil de décision garder/supprimer · noindex (cf sitemap-noindex-exclude.ts).
+      {
+        href: '/agence/cartographie',
+        label: { en: 'Sitemap audit', fr: 'Cartographie (audit)' },
+      },
     ],
   },
 ];

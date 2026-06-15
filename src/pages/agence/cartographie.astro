@@ -1,0 +1,455 @@
+---
+// Page · /agence/cartographie · Cartographie d'audit interne (outil de décision)
+// ──────────────────────────────────────────────────────────────────────────────
+// Liste TOUTES les pages réelles du site (pas seulement les publiques indexables),
+// regroupées par STATUT (l'axe de décision garder/supprimer). Données 100 %
+// data-driven : getCollection (slugs réels), NOINDEX_SITEMAP_PATHS (source de
+// vérité de l'exclusion sitemap) et le registry du design-system (compte catalogue).
+// Outil interne → noindex,follow (prop noindex de Base, cf agence/ds-studio.astro).
+// Le sitemap.xml reste INCHANGÉ : cette page ne fait que le refléter + le compléter.
+export const prerender = true;
+
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { NOINDEX_SITEMAP_PATHS } from '../../data/sitemap-noindex-exclude';
+import { listSections, listCategories } from '../../lib/section-registry';
+import { allPresets } from '../../lib/section-presets';
+import { langFromPath, t, localizeHref, type Lang } from '../../lib/i18n';
+
+const lang: Lang = langFromPath(Astro.url.pathname);
+const lh = (href: string) => localizeHref(href, lang);
+
+type BiText = { fr: string; en: string };
+type Row = {
+  url: string;
+  collection: BiText; // source : collection MDX ou « page statique »
+  template: string; // composant de rendu réel
+  note?: BiText; // raison noindex / nature / mismatch
+};
+
+// ── Préfixes exclus du sitemap par le filter d'astro.config.mjs (113-137) ──
+// Source de vérité : on duplique ici la liste de préfixes pour calculer le statut
+// EXACT (même logique que le filter). Toute page matchant un préfixe est hors sitemap.
+const SITEMAP_EXCLUDED_PREFIXES = [
+  '/bienvenue/',
+  '/agence/design-system',
+  '/preview/',
+  '/components/',
+  '/ecole/formation/',
+  '/categories/',
+  '/compare/',
+  '/commerce/',
+  '/lp/',
+];
+
+const normalize = (p: string) => p.replace(/\/+$/, '') || '/';
+
+// Une page est HORS sitemap si : présente dans NOINDEX_SITEMAP_PATHS OU matchée par un préfixe.
+function inSitemapExclude(url: string): boolean {
+  const path = normalize(url);
+  if (NOINDEX_SITEMAP_PATHS.has(path)) return true;
+  return SITEMAP_EXCLUDED_PREFIXES.some((pre) => url === pre.replace(/\/$/, '') || url.includes(pre));
+}
+
+// ── Collections → routes + templates RÉELS (vérifiés fichier:ligne dans les routes) ──
+// cases → /cas-clients/<id> · CaseStudyTemplate (cas-clients/[...slug].astro:5,123)
+// secteurs → /secteurs/<slug ?? id> · SectionsRenderer (secteurs/[...slug].astro:13,231)
+// services → /services/<id> · SectionsRenderer (services/[...slug].astro:9,44)
+// offres → /offres/<id> · SectionsRenderer (offres/[...slug].astro:13,84 · template legacy éteint R6)
+// blog → /ressources/blog/<id> · EssayTemplate (ressources/blog/[...slug].astro:5,97)
+// outils → /ressources/outils/<id> · EssayTemplate (ressources/outils/[...slug].astro:5,26)
+// authors → /equipe/<id> · AuthorPageTemplate (equipe/[...slug].astro:13)
+const cases = await getCollection('cases');
+const secteurs = await getCollection('secteurs');
+const services = await getCollection('services');
+const offres = await getCollection('offres');
+const blog = await getCollection('blog');
+const outils = await getCollection('outils');
+const authors = await getCollection('authors');
+const lp = await getCollection('lp');
+
+const fmNoindex = (e: { data: { seo?: { noindex?: boolean } } }) => e.data.seo?.noindex === true;
+
+// Construit une Row pour une entrée de collection ; détecte le mismatch frontmatter↔sitemap.
+function collRow(
+  url: string,
+  collection: BiText,
+  template: string,
+  noindexFm: boolean,
+): Row {
+  const excluded = inSitemapExclude(url);
+  let note: BiText | undefined;
+  if (noindexFm && !excluded) {
+    note = {
+      fr: 'incohérence : seo.noindex dans le frontmatter MAIS toujours dans le sitemap',
+      en: 'mismatch: seo.noindex in frontmatter BUT still in sitemap',
+    };
+  } else if (!noindexFm && excluded) {
+    note = {
+      fr: 'incohérence : page indexable MAIS exclue du sitemap (liste figée)',
+      en: 'mismatch: indexable page BUT excluded from sitemap (frozen list)',
+    };
+  }
+  return { url, collection, template, note };
+}
+
+// ── Section 1 : publiques indexables (présentes dans le sitemap) ──
+// Pages statiques racine indexables (hors noindex). Statut dérivé : pas dans l'exclude
+// + frontmatter sans noindex. La liste des fichiers .astro est connue ; on ne garde
+// que les pages éditoriales publiques (catch-all/404/api exclus par nature).
+const staticPublic: Row[] = [
+  { url: '/', collection: { fr: 'page statique', en: 'static page' }, template: 'index.astro (organisms bespoke)' },
+  { url: '/acquerir', collection: { fr: 'page statique', en: 'static page' }, template: 'acquerir.astro' },
+  { url: '/piloter', collection: { fr: 'page statique', en: 'static page' }, template: 'piloter.astro' },
+  { url: '/operer', collection: { fr: 'page statique', en: 'static page' }, template: 'operer.astro' },
+  { url: '/offres', collection: { fr: 'page statique', en: 'static page' }, template: 'offres/index.astro' },
+  { url: '/offres/audit-maturite-ia', collection: { fr: 'page statique', en: 'static page' }, template: 'offres/audit-maturite-ia.astro' },
+  { url: '/cas-clients', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'cas-clients/index.astro' },
+  { url: '/expertise-claude', collection: { fr: 'page statique', en: 'static page' }, template: 'expertise-claude.astro' },
+  { url: '/ressources', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/index.astro' },
+  { url: '/ressources/blog', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/blog/index.astro' },
+  { url: '/ressources/blog/brain-circuit', collection: { fr: 'page statique', en: 'static page' }, template: 'ressources/blog/brain-circuit.astro' },
+  { url: '/ressources/outils', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/outils/index.astro' },
+  { url: '/ressources/academy', collection: { fr: 'page statique', en: 'static page' }, template: 'ressources/academy.astro' },
+  { url: '/secteurs', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'secteurs/index.astro' },
+  { url: '/agence', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'agence/index.astro' },
+  { url: '/agence/about', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/about.astro' },
+  { url: '/agence/methode', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/methode.astro' },
+  { url: '/equipe', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'equipe/index.astro' },
+  { url: '/contact', collection: { fr: 'page statique', en: 'static page' }, template: 'contact.astro' },
+  { url: '/manifesto', collection: { fr: 'page statique', en: 'static page' }, template: 'manifesto.astro' },
+  { url: '/sources-methodologie', collection: { fr: 'page statique', en: 'static page' }, template: 'sources-methodologie.astro' },
+  { url: '/cgv', collection: { fr: 'page statique (légal)', en: 'static page (legal)' }, template: 'cgv.astro' },
+  { url: '/mentions-legales', collection: { fr: 'page statique (légal)', en: 'static page (legal)' }, template: 'mentions-legales.astro' },
+  { url: '/politique-confidentialite', collection: { fr: 'page statique (légal)', en: 'static page (legal)' }, template: 'politique-confidentialite.astro' },
+  { url: '/plan-du-site', collection: { fr: 'page statique', en: 'static page' }, template: 'plan-du-site.astro' },
+];
+
+const caseRows = cases.map((e: CollectionEntry<'cases'>) =>
+  collRow(`/cas-clients/${e.id}`, { fr: 'cases', en: 'cases' }, 'CaseStudyTemplate', fmNoindex(e)),
+);
+const secteurRows = secteurs
+  .filter((e) => e.data.visible)
+  .map((e: CollectionEntry<'secteurs'>) =>
+    collRow(`/secteurs/${e.data.slug ?? e.id}`, { fr: 'secteurs', en: 'secteurs' }, 'SectionsRenderer', fmNoindex(e)),
+  );
+const serviceRows = services.map((e: CollectionEntry<'services'>) =>
+  collRow(`/services/${e.id}`, { fr: 'services', en: 'services' }, 'SectionsRenderer', fmNoindex(e)),
+);
+const offreRows = offres.map((e: CollectionEntry<'offres'>) =>
+  collRow(`/offres/${e.id}`, { fr: 'offres', en: 'offres' }, 'SectionsRenderer', fmNoindex(e)),
+);
+const blogRows = blog.map((e: CollectionEntry<'blog'>) =>
+  collRow(`/ressources/blog/${e.id}`, { fr: 'blog', en: 'blog' }, 'EssayTemplate', fmNoindex(e)),
+);
+const outilRows = outils.map((e: CollectionEntry<'outils'>) =>
+  collRow(`/ressources/outils/${e.id}`, { fr: 'outils', en: 'outils' }, 'EssayTemplate', fmNoindex(e)),
+);
+const authorRows = authors.map((e: CollectionEntry<'authors'>) =>
+  collRow(`/equipe/${e.id}`, { fr: 'authors', en: 'authors' }, 'AuthorPageTemplate', fmNoindex(e)),
+);
+
+// Tri : indexable (pas d'exclusion sitemap) vs noindex.
+const allCollAndStatic = [
+  ...staticPublic,
+  ...caseRows,
+  ...secteurRows,
+  ...serviceRows,
+  ...offreRows,
+  ...blogRows,
+  ...outilRows,
+  ...authorRows,
+];
+const indexableRows = allCollAndStatic
+  .filter((r) => !inSitemapExclude(r.url))
+  .sort((a, b) => a.url.localeCompare(b.url));
+
+// ── Section 2 : publiques noindex (hors sitemap) ──
+// Pages réellement servies mais exclues du sitemap (frontmatter noindex OU liste figée).
+const noindexPublic: Row[] = [
+  // Collections noindex (secteurs flaggés + service démo + template ref)
+  ...allCollAndStatic.filter((r) => inSitemapExclude(r.url)),
+  // Landing pages /lp/* (ADR-003 : noindex par défaut, hors sitemap)
+  ...lp.map((e: CollectionEntry<'lp'>) => ({
+    url: `/lp/${e.id}`,
+    collection: { fr: 'lp', en: 'lp' },
+    template: 'SectionsRenderer',
+    note: { fr: 'ADR-003 : landing noindex par défaut', en: 'ADR-003: landing noindex by default' },
+  })),
+  // Thank-you pages /bienvenue/* (post-conversion, hors sitemap)
+  { url: '/bienvenue/contact', collection: { fr: 'page statique', en: 'static page' }, template: 'bienvenue/contact.astro', note: { fr: 'thank-you post-conversion', en: 'post-conversion thank-you' } },
+  { url: '/bienvenue/livre-blanc', collection: { fr: 'page statique', en: 'static page' }, template: 'bienvenue/livre-blanc.astro', note: { fr: 'thank-you post-conversion', en: 'post-conversion thank-you' } },
+  { url: '/bienvenue/newsletter', collection: { fr: 'page statique', en: 'static page' }, template: 'bienvenue/newsletter.astro', note: { fr: 'thank-you post-conversion', en: 'post-conversion thank-you' } },
+].sort((a, b) => a.url.localeCompare(b.url));
+
+// ── Section 3 : outils internes ──
+const internalTools: Row[] = [
+  { url: '/agence/ds-studio', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/ds-studio.astro', note: { fr: 'outil interne · noindex + disallow robots.txt', en: 'internal tool · noindex + robots.txt disallow' } },
+  { url: '/agence/hero-lab', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/hero-lab.astro', note: { fr: 'outil interne · noindex + disallow robots.txt', en: 'internal tool · noindex + robots.txt disallow' } },
+  { url: '/agence/design-system', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/design-system.astro', note: { fr: 'catalogue DS · noindex + disallow robots.txt', en: 'DS catalog · noindex + robots.txt disallow' } },
+];
+
+// ── Section 4 : catalogue design-system (synthèse data-driven, pas page par page) ──
+const sectionTypesCount = listSections().length; // 1 page /preview/<type> + 1 /components/<type> par type
+const categoriesCount = listCategories().length; // 1 page /categories/<slug> par famille
+const presetsCount = allPresets().length; // 1 page /preview/<type>/<preset> par preset
+const catalogueTotal = sectionTypesCount * 2 + categoriesCount + presetsCount;
+
+const catalogueRows: Array<{ family: BiText; route: string; count: number; template: string }> = [
+  { family: { fr: 'Aperçus de sections', en: 'Section previews' }, route: '/preview/[type]', count: sectionTypesCount, template: 'preview/[type].astro (rendu isolé)' },
+  { family: { fr: 'Presets de sections', en: 'Section presets' }, route: '/preview/[type]/[preset]', count: presetsCount, template: 'preview/[type]/[preset].astro' },
+  { family: { fr: 'Fiches techniques', en: 'Technical sheets' }, route: '/components/[type]', count: sectionTypesCount, template: 'components/[type].astro' },
+  { family: { fr: 'Familles (catégories)', en: 'Families (categories)' }, route: '/categories/[slug]', count: categoriesCount, template: 'categories/[slug].astro' },
+];
+
+// ── Compteurs ──
+const editorialTotal =
+  indexableRows.length + noindexPublic.length + internalTools.length;
+const grandTotal = editorialTotal + catalogueTotal;
+
+const title = lang === 'fr' ? 'Cartographie (audit) · Waimia' : 'Sitemap audit · Waimia';
+const description =
+  lang === 'fr'
+    ? 'Audit interne : toutes les pages réelles du site avec collection source, template de rendu et statut SEO. Outil de décision garder / supprimer.'
+    : 'Internal audit: every real page of the site with source collection, render template and SEO status. A keep / remove decision tool.';
+
+const L = (fr: string, en: string) => (lang === 'fr' ? fr : en);
+---
+<Base title={title} description={description} noindex>
+  <section class="wrap" style="padding-top:var(--section-loose);padding-bottom:var(--space-8)">
+    <p style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin:0 0 16px">
+      {L('§ Audit interne', '§ Internal audit')}
+    </p>
+    <h1 style="font-size:var(--text-h1);line-height:var(--leading-tight);color:var(--ink);margin:0;max-width:20ch">
+      {L('Cartographie du site', 'Site cartography')}
+    </h1>
+    <p style="font-size:var(--text-body);color:var(--ink-2);max-width:62ch;margin-top:var(--space-5);line-height:var(--leading-lede)">
+      {L(
+        'Toutes les pages réelles du site, regroupées par statut SEO. Pour chacune : URL, collection source, template de rendu et statut. Outil de décision garder / supprimer. Le sitemap.xml public reste inchangé.',
+        'Every real page on the site, grouped by SEO status. For each: URL, source collection, render template and status. A keep / remove decision tool. The public sitemap.xml stays unchanged.',
+      )}
+    </p>
+    <p style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:var(--space-4)">
+      {L(
+        `${editorialTotal} pages éditoriales + ${catalogueTotal} pages catalogue = ${grandTotal} pages générées`,
+        `${editorialTotal} editorial pages + ${catalogueTotal} catalog pages = ${grandTotal} generated pages`,
+      )}
+    </p>
+  </section>
+
+  <div class="wrap cartomap" style="padding-bottom:var(--section-loose)">
+    {/* ── Section 1 : indexables ── */}
+    <section class="carto-section hline" style="padding-top:var(--space-8)">
+      <div class="carto-head">
+        <h2 style="font-size:var(--text-h2);color:var(--ink);margin:0">{L('Publiques indexables', 'Public & indexable')}</h2>
+        <p style="font-size:var(--text-small);color:var(--muted);margin:var(--space-2) 0 0;line-height:var(--leading-lede)">
+          {L(`Dans le sitemap.xml · ${indexableRows.length} pages`, `In sitemap.xml · ${indexableRows.length} pages`)}
+        </p>
+      </div>
+      <div class="carto-table" role="table">
+        <div class="carto-row carto-row--head" role="row">
+          <span role="columnheader">URL</span>
+          <span role="columnheader">{L('Collection', 'Collection')}</span>
+          <span role="columnheader">Template</span>
+          <span role="columnheader">{L('Statut', 'Status')}</span>
+        </div>
+        {indexableRows.map((r) => (
+          <div class="carto-row" role="row">
+            <a href={lh(r.url)} class="carto-url" role="cell">{r.url}</a>
+            <span class="carto-cell carto-mono" role="cell">{t(r.collection, lang)}</span>
+            <span class="carto-cell carto-mono" role="cell">{r.template}</span>
+            <span class="carto-cell" role="cell">
+              <span class="carto-badge carto-badge--ok">{L('indexable', 'indexable')}</span>
+              {r.note && <span class="carto-warn">{t(r.note, lang)}</span>}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* ── Section 2 : noindex hors sitemap ── */}
+    <section class="carto-section hline" style="padding-top:var(--space-8)">
+      <div class="carto-head">
+        <h2 style="font-size:var(--text-h2);color:var(--ink);margin:0">{L('Publiques noindex', 'Public but noindex')}</h2>
+        <p style="font-size:var(--text-small);color:var(--muted);margin:var(--space-2) 0 0;line-height:var(--leading-lede)">
+          {L(`Servies mais hors sitemap · ${noindexPublic.length} pages`, `Served but out of sitemap · ${noindexPublic.length} pages`)}
+        </p>
+      </div>
+      <div class="carto-table" role="table">
+        <div class="carto-row carto-row--head" role="row">
+          <span role="columnheader">URL</span>
+          <span role="columnheader">{L('Collection', 'Collection')}</span>
+          <span role="columnheader">Template</span>
+          <span role="columnheader">{L('Raison', 'Reason')}</span>
+        </div>
+        {noindexPublic.map((r) => (
+          <div class="carto-row" role="row">
+            <a href={lh(r.url)} class="carto-url" role="cell">{r.url}</a>
+            <span class="carto-cell carto-mono" role="cell">{t(r.collection, lang)}</span>
+            <span class="carto-cell carto-mono" role="cell">{r.template}</span>
+            <span class="carto-cell" role="cell">
+              <span class="carto-badge carto-badge--no">noindex</span>
+              {r.note && <span class="carto-reason">{t(r.note, lang)}</span>}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* ── Section 3 : outils internes ── */}
+    <section class="carto-section hline" style="padding-top:var(--space-8)">
+      <div class="carto-head">
+        <h2 style="font-size:var(--text-h2);color:var(--ink);margin:0">{L('Outils internes', 'Internal tools')}</h2>
+        <p style="font-size:var(--text-small);color:var(--muted);margin:var(--space-2) 0 0;line-height:var(--leading-lede)">
+          {L(`noindex + disallow robots.txt · ${internalTools.length} pages`, `noindex + robots.txt disallow · ${internalTools.length} pages`)}
+        </p>
+      </div>
+      <div class="carto-table" role="table">
+        <div class="carto-row carto-row--head" role="row">
+          <span role="columnheader">URL</span>
+          <span role="columnheader">{L('Collection', 'Collection')}</span>
+          <span role="columnheader">Template</span>
+          <span role="columnheader">{L('Nature', 'Nature')}</span>
+        </div>
+        {internalTools.map((r) => (
+          <div class="carto-row" role="row">
+            <a href={lh(r.url)} class="carto-url" role="cell">{r.url}</a>
+            <span class="carto-cell carto-mono" role="cell">{t(r.collection, lang)}</span>
+            <span class="carto-cell carto-mono" role="cell">{r.template}</span>
+            <span class="carto-cell" role="cell">
+              <span class="carto-badge carto-badge--int">{L('interne', 'internal')}</span>
+              {r.note && <span class="carto-reason">{t(r.note, lang)}</span>}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* ── Section 4 : catalogue design-system (synthèse) ── */}
+    <section class="carto-section hline" style="padding-top:var(--space-8)">
+      <div class="carto-head">
+        <h2 style="font-size:var(--text-h2);color:var(--ink);margin:0">{L('Catalogue design-system', 'Design-system catalog')}</h2>
+        <p style="font-size:var(--text-small);color:var(--muted);margin:var(--space-2) 0 0;line-height:var(--leading-lede)">
+          {L(
+            `Catalogue interne · noindex · ${catalogueTotal} pages générées (synthèse par famille, pas listées une à une)`,
+            `Internal catalog · noindex · ${catalogueTotal} generated pages (summarized by family, not listed one by one)`,
+          )}
+        </p>
+      </div>
+      <div class="carto-table" role="table">
+        <div class="carto-row carto-row--head" role="row">
+          <span role="columnheader">{L('Famille', 'Family')}</span>
+          <span role="columnheader">Route</span>
+          <span role="columnheader">{L('Pages', 'Pages')}</span>
+          <span role="columnheader">Template</span>
+        </div>
+        {catalogueRows.map((r) => (
+          <div class="carto-row" role="row">
+            <span class="carto-cell" role="cell">{t(r.family, lang)}</span>
+            <span class="carto-cell carto-mono" role="cell">{r.route}</span>
+            <span class="carto-cell carto-mono" role="cell">{r.count}</span>
+            <span class="carto-cell carto-mono" role="cell">{r.template}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .carto-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+    padding-bottom: var(--space-4);
+  }
+  .carto-head {
+    max-width: 60ch;
+  }
+  .carto-table {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--hairline);
+  }
+  .carto-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.7fr) minmax(0, 1.1fr) minmax(0, 1.2fr);
+    gap: var(--space-4);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
+    align-items: baseline;
+  }
+  .carto-row--head {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .carto-url {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--ink-2);
+    text-decoration: none;
+    word-break: break-word;
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .carto-url:hover,
+  .carto-url:focus-visible {
+    color: var(--accent-text);
+  }
+  .carto-cell {
+    font-size: var(--text-small);
+    color: var(--ink-2);
+    line-height: var(--leading-lede);
+  }
+  .carto-mono {
+    font-family: var(--font-mono);
+    color: var(--muted);
+    word-break: break-word;
+  }
+  .carto-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--hairline);
+  }
+  .carto-badge--ok {
+    color: var(--accent-text);
+  }
+  .carto-badge--no {
+    color: var(--muted);
+  }
+  .carto-badge--int {
+    color: var(--ink-2);
+  }
+  .carto-reason,
+  .carto-warn {
+    display: block;
+    font-size: var(--text-small);
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: var(--leading-lede);
+  }
+  .carto-warn {
+    color: var(--accent-text);
+  }
+  @media (min-width: 880px) {
+    .carto-section {
+      grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+      align-items: start;
+    }
+  }
+  @media (max-width: 720px) {
+    .carto-row {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 4px;
+    }
+    .carto-row--head {
+      display: none;
+    }
+  }
+</style>
