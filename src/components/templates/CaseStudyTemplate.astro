@@ -128,7 +128,7 @@ interface Props {
   relatedOffresLinks?: Array<{ title: string; href: string }>;
   /** Slug pour ViewTransition (ex: "cas-plateau") */
   transitionSlug?: string;
-  /** Provenance double-label (docs/strategy/03 §5). first-party = chip plein « Cas client · Waimia » ; second-party = chip outline « Analyse · sources tierces ». */
+  /** Provenance double-label (docs/strategy/03 §5). first-party = chip plein « Projet réalisé · Waimia » ; second-party = chip outline « Étude · sources tierces ». */
   provenance?: 'first-party' | 'second-party';
   /** Bloc(s) JSON-LD spécifiques (Article/CreativeWork…) injectés dans <Base>. */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
@@ -169,8 +169,8 @@ const {
 // famille B second-party = chip outline. Cliquable → /sources-methodologie.
 const isFirstParty = provenance !== 'second-party';
 const provenanceLabel = {
-  fr: isFirstParty ? 'Cas client · Waimia' : 'Analyse · sources tierces',
-  en: isFirstParty ? 'Client case · Waimia' : 'Analysis · third-party sources',
+  fr: isFirstParty ? 'Projet réalisé · Waimia' : 'Étude · sources tierces',
+  en: isFirstParty ? 'Completed project · Waimia' : 'Study · third-party sources',
 };
 const lang = langFromPath(Astro.url.pathname);
 const pageTransitionId = Astro.url.pathname

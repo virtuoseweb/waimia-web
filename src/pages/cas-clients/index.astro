@@ -42,9 +42,12 @@ const featuredCases = caseEntries.map((e) => ({
   firstParty: e.data.provenance !== 'second-party',
 }));
 
-// Double-label (docs/strategy/03 §5) : chip discret « Cas client · Waimia » sur les
-// cartes first-party. Réutilise le style kicker (font-mono / --text-small / --accent-text).
-const provenanceChipLabel = lang === 'fr' ? 'Cas client · Waimia' : 'Client case · Waimia';
+// Double-label (docs/strategy/03 §5) : chip discret sur les cartes, libellé selon la famille.
+// Réutilise le style kicker (font-mono / --text-small / --accent-text).
+const provenanceChipLabels = {
+  firstParty: { fr: 'Projet réalisé · Waimia', en: 'Completed project · Waimia' },
+  secondParty: { fr: 'Étude · sources tierces', en: 'Study · third-party sources' },
+};
 
 const [featured, ...rest] = featuredCases;
 
@@ -86,7 +89,11 @@ const mastheadData = {
       <div class="cas-grid reveal-stagger">
         <a href={`/cas-clients/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/cas-clients/${featured.slug}`)}`}>
           <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector} · {featured.duration}</div>
-          {featured.firstParty && <span class="cas-card-provenance">{provenanceChipLabel}</span>}
+          <span class="cas-card-provenance">
+            {featured.firstParty
+              ? provenanceChipLabels.firstParty[lang]
+              : provenanceChipLabels.secondParty[lang]}
+          </span>
           <h2 class="cas-card-title">{featured.title}</h2>
           <p class="cas-card-headline">{featured.headline}</p>
           {featured.cover && (
@@ -108,7 +115,11 @@ const mastheadData = {
               <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
               <div class="cas-card-body">
                 <div class="cas-card-kicker">§ {c.sector} · {c.duration}</div>
-                {c.firstParty && <span class="cas-card-provenance">{provenanceChipLabel}</span>}
+                <span class="cas-card-provenance">
+                  {c.firstParty
+                    ? provenanceChipLabels.firstParty[lang]
+                    : provenanceChipLabels.secondParty[lang]}
+                </span>
                 <h2 class="cas-card-title">{c.title}</h2>
                 <p class="cas-card-headline">{c.headline}</p>
                 <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
