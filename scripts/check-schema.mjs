@@ -152,6 +152,46 @@ const ASSERTIONS = [
     label: 'secteurs/e-commerce',
     required: ['Article', 'BreadcrumbList', 'FAQPage'],
   },
+  {
+    key: 'cgv',
+    label: 'cgv',
+    required: ['WebPage'],
+  },
+  {
+    key: 'mentions-legales',
+    label: 'mentions-legales',
+    required: ['WebPage'],
+  },
+  {
+    key: 'politique-confidentialite',
+    label: 'politique-confidentialite',
+    required: ['WebPage'],
+  },
+  {
+    key: 'sources-methodologie',
+    label: 'sources-methodologie',
+    required: ['WebPage'],
+  },
+  {
+    key: 'ressources/blog',
+    label: 'ressources/blog',
+    required: ['CollectionPage'],
+  },
+  {
+    key: 'ressources/outils',
+    label: 'ressources/outils',
+    required: ['CollectionPage'],
+  },
+  {
+    key: 'agence/methode',
+    label: 'agence/methode',
+    required: ['HowTo'],
+  },
+  {
+    key: 'agence/about',
+    label: 'agence/about',
+    required: ['AboutPage'],
+  },
 ]
 
 // ---------------------------------------------------------------------------
