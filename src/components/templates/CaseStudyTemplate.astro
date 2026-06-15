@@ -128,6 +128,8 @@ interface Props {
   relatedOffresLinks?: Array<{ title: string; href: string }>;
   /** Slug pour ViewTransition (ex: "cas-plateau") */
   transitionSlug?: string;
+  /** Provenance double-label (docs/strategy/03 §5). first-party = chip plein « Cas client · Waimia » ; second-party = chip outline « Analyse · sources tierces ». */
+  provenance?: 'first-party' | 'second-party';
   /** Bloc(s) JSON-LD spécifiques (Article/CreativeWork…) injectés dans <Base>. */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
   // ── Refonte éditoriale W2 (docs/25) : composition de sections cataloguées.
@@ -158,7 +160,15 @@ const {
   contextStatementFr, contextStatementEn, contextStats,
   bottlenecks, phases, deliverableCards, shifts,
   pullQuoteFr, pullQuoteEn, pullQuoteCiteFr, pullQuoteCiteEn,
+  provenance = 'first-party',
 } = Astro.props;
+// Double-label (docs/strategy/03 §5) : famille A first-party = chip plein,
+// famille B second-party = chip outline. Cliquable → /sources-methodologie.
+const isFirstParty = provenance !== 'second-party';
+const provenanceLabel = {
+  fr: isFirstParty ? 'Cas client · Waimia' : 'Analyse · sources tierces',
+  en: isFirstParty ? 'Client case · Waimia' : 'Analysis · third-party sources',
+};
 const lang = langFromPath(Astro.url.pathname);
 const pageTransitionId = Astro.url.pathname
   .replace(/^\/(?:en\/)?/, '')
@@ -302,6 +312,19 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     topPad="clamp(80px, 10vw, 120px)"
     h1Gap="48px"
   />
+
+  {/* DOUBLE-LABEL · famille A/B (docs/strategy/03 §5) : chip de provenance,
+      cliquable vers la page méthodologie. Plein si first-party, outline sinon. */}
+  <section class="case-provenance reveal">
+    <div class="wrap-wide">
+      <a
+        class:list={['case-provenance-chip', isFirstParty ? 'case-provenance-chip--solid' : 'case-provenance-chip--outline']}
+        href={localizeHref('/sources-methodologie', lang)}
+      >
+        {lang === 'en' ? provenanceLabel.en : provenanceLabel.fr}
+      </a>
+    </div>
+  </section>
 
   {Astro.slots.has('hero-image') && <div class="case-hero-image"><slot name="hero-image" /></div>}
 
@@ -447,6 +470,36 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
 </Base>
 
 <style>
+  /* Double-label · chip provenance (docs/strategy/03 §5). Tokens DS existants
+     uniquement : --font-mono, --text-small, --accent, --ink, --paper,
+     --accent-text, --radius-pill, --hairline-strong, --space-*, --dur-fast, --ease. */
+  .case-provenance { padding: var(--space-5) var(--space-6) 0; }
+  .case-provenance-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  }
+  .case-provenance-chip--solid {
+    background: var(--accent);
+    color: var(--paper);
+    border: 1px solid var(--accent);
+  }
+  .case-provenance-chip--solid:hover { opacity: 0.85; }
+  .case-provenance-chip--outline {
+    background: transparent;
+    color: var(--accent-text);
+    border: 1px solid var(--hairline-strong);
+  }
+  .case-provenance-chip--outline:hover { background: var(--paper-2); }
+
   .case-author-band { padding: var(--space-9) var(--space-6) 0; }
   .case-author-card-band {
     padding: var(--space-10) var(--space-6);

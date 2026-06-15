@@ -118,6 +118,7 @@ const cases = defineCollection({
     metrics: z.array(bilingualMetric).optional(),
     ndaProtected: z.boolean().default(false),
     featured: z.boolean().default(false),
+    provenance: z.enum(['first-party', 'second-party']).default('first-party'),
     heroImage: z.string().optional(),
     author: reference('authors').optional(),
     contributors: z.array(reference('authors')).default([]),

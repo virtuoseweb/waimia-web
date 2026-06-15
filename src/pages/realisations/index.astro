@@ -38,7 +38,12 @@ const featuredCases = caseEntries.map((e) => ({
   duration: lang === 'fr' ? e.data.card!.duration_fr : e.data.card!.duration_en,
   cover: e.data.heroImage,
   coverAlt: coverAlt(e.data.slug ?? e.id),
+  firstParty: e.data.provenance !== 'second-party',
 }));
+
+// Double-label (docs/strategy/03 §5) : chip discret « Cas client · Waimia » sur les
+// cartes first-party. Réutilise le style kicker (font-mono / --text-small / --accent-text).
+const provenanceChipLabel = lang === 'fr' ? 'Cas client · Waimia' : 'Client case · Waimia';
 
 const [featured, ...rest] = featuredCases;
 
@@ -67,6 +72,7 @@ const mastheadData = {
       <div class="cas-grid reveal-stagger">
         <a href={`/realisations/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/realisations/${featured.slug}`)}`}>
           <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector} · {featured.duration}</div>
+          {featured.firstParty && <span class="cas-card-provenance">{provenanceChipLabel}</span>}
           <h2 class="cas-card-title">{featured.title}</h2>
           <p class="cas-card-headline">{featured.headline}</p>
           {featured.cover && (
@@ -88,6 +94,7 @@ const mastheadData = {
               <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
               <div class="cas-card-body">
                 <div class="cas-card-kicker">§ {c.sector} · {c.duration}</div>
+                {c.firstParty && <span class="cas-card-provenance">{provenanceChipLabel}</span>}
                 <h2 class="cas-card-title">{c.title}</h2>
                 <p class="cas-card-headline">{c.headline}</p>
                 <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
@@ -231,6 +238,13 @@ const mastheadData = {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
+  }
+  .cas-card-provenance {
+    font-family: var(--font-mono, monospace);
+    font-size: var(--text-small);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-text);
   }
   .cas-card-title {
     font-family: var(--font-display);
