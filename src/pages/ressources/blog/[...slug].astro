@@ -68,7 +68,7 @@ const relatedCasesData = (d.relatedCases ?? [])
   .map((c) => ({
     id: c!.id,
     title: c!.data.title_fr,
-    href: `/realisations/${c!.id}`,
+    href: `/cas-clients/${c!.id}`,
   }));
 
 const relatedOffresData = (d.relatedOffres ?? [])

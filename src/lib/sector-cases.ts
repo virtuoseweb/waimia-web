@@ -38,7 +38,7 @@ export async function sectorCaseGridData(
       stack: Array.isArray(d.stack) ? d.stack.join(' · ') : String(d.stack ?? ''),
       impact_fr: d.impact_fr,
       impact_en: d.impact_en,
-      href: localizeHref(`/realisations/${slug}`, lang),
+      href: localizeHref(`/cas-clients/${slug}`, lang),
     };
   });
 
@@ -60,6 +60,6 @@ export async function sectorCaseGridData(
     cases,
     all_label_fr: 'Tous les cas clients →',
     all_label_en: 'All case studies →',
-    all_href: localizeHref('/realisations', lang),
+    all_href: localizeHref('/cas-clients', lang),
   };
 }

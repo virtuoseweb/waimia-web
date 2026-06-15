@@ -332,13 +332,13 @@ const SOLUTIONS: MegaMenuSection = {
 // ─── CAS CLIENTS · refonte 2026-06 (mandat Simon) : 1 colonne « Par secteur »
 // (la preuve par le métier, liens vers /secteurs/*) + featured = CAS CLIENT
 // VEDETTE Plateau (visuel libéré du menu Solutions). parentHref → /secteurs :
-// le listing /realisations n'est plus exposé dans le mega menu (reste accessible via
-// footer / plan du site) ; /realisations reste dans matchPrefixes pour l'état actif.
+// le listing /cas-clients n'est plus exposé dans le mega menu (reste accessible via
+// footer / plan du site) ; /cas-clients reste dans matchPrefixes pour l'état actif.
 const CAS: MegaMenuSection = {
   parent: 'cas',
   label: { fr: 'Cas clients', en: 'Case studies' },
-  parentHref: '/realisations',
-  matchPrefixes: ['/realisations', '/secteurs'],
+  parentHref: '/cas-clients',
+  matchPrefixes: ['/cas-clients', '/secteurs'],
   lead: {
     fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesuré sur vos données, jamais inventé.',
     en: 'Pipelines reconnected, qualification automated, operations streamlined. ROI measured on your data, never invented.',
@@ -381,7 +381,7 @@ const CAS: MegaMenuSection = {
       en: 'We publish a case once the result is measured and the client has agreed. No staged testimonials.',
     },
     cta: { fr: 'Parler de votre projet →', en: 'Discuss your project →' },
-    href: '/realisations',
+    href: '/cas-clients',
   },
 };
 

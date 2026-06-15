@@ -46,14 +46,14 @@ const byDate = (
 const sortedBlog = [...allBlog].sort(byDate);
 const sortedCases = [...allCases].sort(byDate);
 
-// hrefs corrigés : /realisations/{slug} (pas /ressources/cas/)
+// hrefs corrigés : /cas-clients/{slug} (pas /ressources/cas/)
 const caseCards = sortedCases.map((c, i) => ({
   num: String(i + 1).padStart(2, '0'),
   kicker: `CAS · ${c.data.sector_fr.toUpperCase()}`,
   title_fr: c.data.client,
   sub_fr: c.data.impact_fr,
   lead_fr: c.data.description_fr,
-  href: `/realisations/${c.id}`,
+  href: `/cas-clients/${c.id}`,
 }));
 
 const blogCards = sortedBlog.slice(0, 3).map((b, i) => ({

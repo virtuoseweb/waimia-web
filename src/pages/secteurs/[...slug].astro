@@ -25,7 +25,7 @@ const d = entry.data;
 const slug = d.slug ?? entry.id;
 
 // JSON-LD Article (GEO/AIO) : rend le hub citable par les crawlers LLM.
-// Mirroir du pattern /realisations + blog (réutilise buildArticle).
+// Mirroir du pattern /cas-clients + blog (réutilise buildArticle).
 const siteUrl = 'https://waimia.com';
 const sectorUrl = `${siteUrl}/secteurs/${slug}`;
 const sectorLd = buildArticle({

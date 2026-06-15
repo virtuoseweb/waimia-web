@@ -619,7 +619,7 @@ export function buildSchemaForPage(
           { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
           {
             name: lang === 'fr' ? 'Cas clients' : 'Case studies',
-            url: `${SITE_URL}/realisations`,
+            url: `${SITE_URL}/cas-clients`,
           },
           { name: d.title_fr },
         ]),

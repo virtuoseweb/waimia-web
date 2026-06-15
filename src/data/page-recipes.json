@@ -65,9 +65,9 @@
     },
     {
       "archetype": "case",
-      "description": "Etude de cas / realisation composable : hero case study -> contexte (pourquoi ca calait) -> media -> resultats chiffres (avant/apres) -> bloc cas detaille -> temoignage chiffre -> CTA. La collection `cases` accepte `sections:` (route /realisations/<slug> bascule en composable si present). Aucune case composable n'existe encore en prod : sequence assemblee a partir des types case-* du registry (hero-case-study, case-split, case-spotlight, metric-shift, testimonial-metrics) + ordre canonique contexte->preuve->cta. A valider GF-1 a la premiere case composable.",
+      "description": "Etude de cas / realisation composable : hero case study -> contexte (pourquoi ca calait) -> media -> resultats chiffres (avant/apres) -> bloc cas detaille -> temoignage chiffre -> CTA. La collection `cases` accepte `sections:` (route /cas-clients/<slug> bascule en composable si present). Aucune case composable n'existe encore en prod : sequence assemblee a partir des types case-* du registry (hero-case-study, case-split, case-spotlight, metric-shift, testimonial-metrics) + ordre canonique contexte->preuve->cta. A valider GF-1 a la premiere case composable.",
       "collection": "cases",
-      "route": "/realisations/<slug>",
+      "route": "/cas-clients/<slug>",
       "file": "src/content/cases/<slug>.mdx",
       "derivedFrom": "registry case-* types (pas encore de case composable live)",
       "sections": [

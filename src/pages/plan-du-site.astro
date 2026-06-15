@@ -26,7 +26,7 @@ type PlanGroup = { heading: BiText; links: PlanLink[] };
 type PlanSection = { title: BiText; href: string; lead?: BiText; groups: PlanGroup[] };
 
 // Ne garde que les liens internes « propres » : chemin absolu, pas d'ancre,
-// pas de query-string (les variantes filtrées type /realisations?secteur= renvoient à la
+// pas de query-string (les variantes filtrées type /cas-clients?secteur= renvoient à la
 // même page que le lien parent), dédupliqués par href final.
 function cleanLinks(items: PlanLink[]): PlanLink[] {
   const seen = new Set<string>();
@@ -35,7 +35,7 @@ function cleanLinks(items: PlanLink[]): PlanLink[] {
     const href = it.href;
     if (!href || !href.startsWith('/')) continue;
     if (href.includes('#') || href.includes('?')) continue;
-    // Exclut les anciennes URL /ressources/cas/* (canonicalisées vers /realisations/* ou /,
+    // Exclut les anciennes URL /ressources/cas/* (canonicalisées vers /cas-clients/* ou /,
     // cf astro.config redirects) : le plan ne liste que des destinations finales.
     if (href.startsWith('/ressources/cas/') || href === '/ressources/cas') continue;
     if (seen.has(href)) continue;

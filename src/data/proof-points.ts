@@ -1,5 +1,5 @@
 // src/data/proof-points.ts — Référentiel UNIQUE des repères chiffrés (refonte R7a, docs/37 §2.1).
-// HONNÊTETÉ (vague 2) : Waimia est un studio solo, 0 client réel, 0 cas mesuré (cf /realisations
+// HONNÊTETÉ (vague 2) : Waimia est un studio solo, 0 client réel, 0 cas mesuré (cf /cas-clients
 // « premiers cas en cours de rédaction »). Ces entrées décrivent donc des CAPACITÉS du système
 // et des ENGAGEMENTS d'offre (audit 5j, pilote 2 sem, prix fixe, formation incluse) ou des
 // objectifs mesurés SUR VOS données. Aucun résultat client moyen inventé : pas de « médiane sur

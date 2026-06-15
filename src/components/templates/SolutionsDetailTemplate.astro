@@ -426,7 +426,7 @@ const afterStack: RecompoKey[] = requestedOrder.filter((k) => afterStackKeys.has
                   ? (lang === 'en' ? (propsCaseBodyEn ?? propsCaseBodyFr) : propsCaseBodyFr)
                   : <slot name="case-body" />}
               </p>
-              <a class="sol-case-cta" href={lang === 'fr' ? '/realisations' : '/en/realisations'}>
+              <a class="sol-case-cta" href={lang === 'fr' ? '/cas-clients' : '/en/cas-clients'}>
                 <slot name="case-cta-label">{propsCaseCta ?? 'Voir le cas complet →'}</slot>
               </a>
             </div>

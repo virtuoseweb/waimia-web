@@ -1,5 +1,5 @@
 ---
-// Page · /realisations · Hub cas clients Waimia
+// Page · /cas-clients · Hub cas clients Waimia
 export const prerender = true;
 
 // Route principale de la nav — liste des 4 cas business.
@@ -48,7 +48,7 @@ const provenanceChipLabel = lang === 'fr' ? 'Cas client · Waimia' : 'Client cas
 
 const [featured, ...rest] = featuredCases;
 
-const caseItems = caseEntries.map((e) => `https://waimia.com/realisations/${e.data.slug ?? e.id}`);
+const caseItems = caseEntries.map((e) => `https://waimia.com/cas-clients/${e.data.slug ?? e.id}`);
 const collectionLd = buildCollectionPage(
   'Cas clients',
   "Pas de marketing. Des chiffres, des problèmes, ce qu'on a câblé. Ce qui a tenu.",
@@ -56,9 +56,9 @@ const collectionLd = buildCollectionPage(
 );
 const breadcrumbLd = buildBreadcrumbList([
   { name: 'Accueil', url: 'https://waimia.com/' },
-  { name: 'Réalisations', url: 'https://waimia.com/realisations' },
+  { name: 'Réalisations', url: 'https://waimia.com/cas-clients' },
 ]);
-const realisationsLd = [breadcrumbLd, collectionLd];
+const casClientsLd = [breadcrumbLd, collectionLd];
 
 const mastheadData = {
   type: 'hero-hub-masthead' as const,
@@ -77,14 +77,14 @@ const mastheadData = {
 <Base
   title={lang === 'fr' ? "Cas clients · pipelines reconnectés, opérations fluidifiées · Waimia" : "Case studies · pipelines reconnected, operations streamlined · Waimia"}
   description={lang === 'fr' ? "Pas de marketing. Des chiffres, des problèmes, ce qu'on a câblé. Ce qui a tenu." : "No marketing. Numbers, problems, what we shipped. What held."}
-  jsonLd={realisationsLd}
+  jsonLd={casClientsLd}
 >
   <HeroCentered data={mastheadData} lang={lang} />
 
   {featured ? (
     <section class="cas-grid-outer wrap-wide">
       <div class="cas-grid reveal-stagger">
-        <a href={`/realisations/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/realisations/${featured.slug}`)}`}>
+        <a href={`/cas-clients/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/cas-clients/${featured.slug}`)}`}>
           <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector} · {featured.duration}</div>
           {featured.firstParty && <span class="cas-card-provenance">{provenanceChipLabel}</span>}
           <h2 class="cas-card-title">{featured.title}</h2>
@@ -104,7 +104,7 @@ const mastheadData = {
         </a>
         <div class="cas-secondary">
           {rest.map((c) => (
-            <a href={`/realisations/${c.slug}`} class="cas-card cas-card--row" transition:name={`card-${transitionIdFromHref(`/realisations/${c.slug}`)}`}>
+            <a href={`/cas-clients/${c.slug}`} class="cas-card cas-card--row" transition:name={`card-${transitionIdFromHref(`/cas-clients/${c.slug}`)}`}>
               <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
               <div class="cas-card-body">
                 <div class="cas-card-kicker">§ {c.sector} · {c.duration}</div>
