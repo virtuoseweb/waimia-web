@@ -8,6 +8,11 @@ export const prerender = true;
 
 import DetailMenuTemplate from '../../components/templates/DetailMenuTemplate.astro';
 import AuditMaturityTimeline from '../../components/svg/geometric/AuditMaturityTimeline.astro';
+import { buildService } from '../../lib/seo/schema-builder';
+
+const title = 'Audit de maturité IA · 10 jours · Waimia';
+const description = 'Un diagnostic IA en 10 jours fixes. 47 critères évalués sur données, outillage, équipe, gouvernance. Une grille de score lisible par la direction.';
+const serviceLd = buildService({ name: title, description, serviceType: 'Audit de maturité IA' });
 
 const annotation = [
   { k: '10 j',  label_fr: 'durée fixe',                label_en: 'fixed duration' },
@@ -60,8 +65,9 @@ const relatedCards = [
 ];
 ---
 <DetailMenuTemplate
-  title="Audit de maturité IA · 10 jours · Waimia"
-  description="Un diagnostic IA en 10 jours fixes. 47 critères évalués sur données, outillage, équipe, gouvernance. Une grille de score lisible par la direction."
+  title={title}
+  description={description}
+  jsonLd={serviceLd}
   detailNum="02.1"
   parentKickerFr="Hub Conseil · Audit & Stratégie"
   parentKickerEn="Consulting Hub · Audit & Strategy"

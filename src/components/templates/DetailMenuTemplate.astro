@@ -34,6 +34,7 @@ interface RelatedCard { kicker: string; title_fr: string; title_en: string; lead
 interface Props {
   title: string;
   description: string;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
   /** Numéro éditorial (Detail 02.1, Tech 04.2…) */
   detailNum: string;
   /** Kicker sous-section (ex: "OFFRE · Conseil & audit") */
@@ -61,7 +62,7 @@ interface Props {
   relatedCards: RelatedCard[];
 }
 const {
-  title, description, detailNum, parentKickerFr, parentKickerEn,
+  title, description, jsonLd, detailNum, parentKickerFr, parentKickerEn,
   h1Fr, h1En, ledeFr, ledeEn, annotation, steps,
   proofQuoteFr, proofQuoteEn, proofAttrFr, proofAttrEn, proofMetrics,
   techPills, relatedCards,
@@ -116,7 +117,7 @@ const ctaData = {
   background: 'paper',
 } satisfies SectionByType<'cta-final'>;
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonLd={jsonLd}>
   {/* HERO · masthead · composant catalogué hero-detail-menu (contenu via props).
       topPad par défaut (140px) = rythme vertical d'origine du template.
       wrapMaxWidth=var(--wrap-wide) préserve la largeur live (1560px) ; le défaut
