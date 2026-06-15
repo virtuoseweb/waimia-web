@@ -292,10 +292,26 @@ export const acquerirSections: SectionData[] = [
 ];
 
 const lang = langFromPath(Astro.url.pathname);
+
+// Service JSON-LD · schema métier du hub (cf agence-web-montpellier.astro : objet inline,
+// buildService de schema-builder.ts n'est pas exporté). name/description = texte RÉEL de la
+// page (hero), aucune donnée inventée (pas de prix, pas de date). provider = #organization.
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: lang === 'fr' ? 'Acquérir · Growth System IA' : 'Acquire · Growth System IA',
+  description: lang === 'fr'
+    ? "Votre acquisition repose sur un site qui n'apprend pas, un CRM incomplet et des relances trop tardives. On câble un système marketing intelligent qui capte, qualifie, convertit et mesure, chaque étape connectée à la suivante. Plus une dépense par canal : un seul système qui fait grandir le pipeline."
+    : "Your acquisition rests on a site that doesn't learn, an incomplete CRM and late follow-ups. We wire an intelligent marketing system that captures, qualifies, converts and measures, each step connected to the next. No more spend per channel: one single system that grows the pipeline.",
+  provider: { '@id': 'https://waimia.com/#organization' },
+  areaServed: ['FR', 'CH', 'BE', 'LU'],
+  serviceType: lang === 'fr' ? 'Système marketing intelligent par IA' : 'Intelligent AI marketing system',
+};
 ---
 <Base
   title="Acquérir · Growth System IA · Waimia"
   description="Acquérir plus de clients : un système marketing intelligent qui capte, qualifie, convertit et mesure, dans un seul pipeline. Waimia, studio IA pour PME."
+  jsonLd={serviceLd}
 >
   <Breadcrumb lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },

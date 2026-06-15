@@ -232,10 +232,26 @@ export const piloterSections: SectionData[] = [
 ];
 
 const lang = langFromPath(Astro.url.pathname);
+
+// Service JSON-LD · schema métier du hub (cf agence-web-montpellier.astro : objet inline,
+// buildService de schema-builder.ts n'est pas exporté). name/description = texte RÉEL de la
+// page (hero), aucune donnée inventée (pas de prix, pas de date). provider = #organization.
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: lang === 'fr' ? 'Piloter · Business Intelligence' : 'Steer · Business Intelligence',
+  description: lang === 'fr'
+    ? "Vos chiffres vivent dans douze fichiers, trois outils et une boîte mail. On les réunit, on les rend lisibles en temps réel, et l'IA en tire la lecture qui sert la décision. Le pilotage cesse d'être un travail de fin de mois."
+    : 'Your figures live in twelve files, three tools and an inbox. We bring them together, make them legible in real time, and AI draws the reading that serves the decision. Steering stops being end-of-month work.',
+  provider: { '@id': 'https://waimia.com/#organization' },
+  areaServed: ['FR', 'CH', 'BE', 'LU'],
+  serviceType: lang === 'fr' ? 'Business Intelligence assistée par IA' : 'AI-assisted Business Intelligence',
+};
 ---
 <Base
   title="Piloter · Business Intelligence · Waimia"
   description="Piloter, voir et décider : tableaux de bord temps réel et prévisionnel IA. Waimia rend vos chiffres lisibles, sans attendre la clôture."
+  jsonLd={serviceLd}
 >
   <Breadcrumb lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },

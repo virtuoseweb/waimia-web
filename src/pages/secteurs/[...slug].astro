@@ -6,7 +6,7 @@ export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import SecteurHubTemplate from '../../components/templates/SecteurHubTemplate.astro';
-import { buildArticle } from '../../lib/seo/schema-builder';
+import { buildArticle, buildFAQPage } from '../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('secteurs');
@@ -41,7 +41,13 @@ const sectorLd = buildArticle({
   },
   mainEntityOfPage: sectorUrl,
 });
+
+// FAQPage conditionnel (GEO/AIO) : ajouté UNIQUEMENT si le secteur renseigne des
+// FAQ non vides (champ `faq_fr` du schéma baseFields). N'écrase pas l'Article :
+// on émet un tableau [Article, FAQPage] que <Base> aplatit après Organization/WebSite.
+const faqLd = buildFAQPage(d.faq_fr ?? []);
+const sectorJsonLd = faqLd ? [sectorLd, faqLd] : sectorLd;
 ---
-<SecteurHubTemplate entry={entry} lang="fr" jsonLd={sectorLd}>
+<SecteurHubTemplate entry={entry} lang="fr" jsonLd={sectorJsonLd}>
   <Content />
 </SecteurHubTemplate>

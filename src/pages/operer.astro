@@ -187,10 +187,26 @@ export const opererSections: SectionData[] = [
 ];
 
 const lang = langFromPath(Astro.url.pathname);
+
+// Service JSON-LD · schema métier du hub (cf agence-web-montpellier.astro : objet inline,
+// buildService de schema-builder.ts n'est pas exporté). name/description = texte RÉEL de la
+// page (hero), aucune donnée inventée (pas de prix, pas de date). provider = #organization.
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: lang === 'fr' ? 'Opérer · Operations IA' : 'Operate · AI Operations',
+  description: lang === 'fr'
+    ? "Le répétitif use vos équipes et grignote vos marges. Waimia câble des agents IA dans vos outils existants pour absorber les relances, les saisies, les tickets et les tâches administratives. L'humain garde la décision, l'agent fait le reste."
+    : 'Repetitive work wears your teams down and eats your margins. Waimia wires AI agents into your existing tools to absorb follow-ups, data entry, tickets and administrative tasks. The human keeps the decision, the agent does the rest.',
+  provider: { '@id': 'https://waimia.com/#organization' },
+  areaServed: ['FR', 'CH', 'BE', 'LU'],
+  serviceType: lang === 'fr' ? 'Automatisation des opérations par agents IA' : 'Operations automation with AI agents',
+};
 ---
 <Base
   title="Opérer · Operations IA · Waimia : gagner du temps avec l'IA"
   description="Pilier Opérer de Waimia : des agents IA câblés dans vos outils pour absorber le répétitif (CRM, relances, automatisation). L'humain garde la décision."
+  jsonLd={serviceLd}
 >
   <Breadcrumb lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },

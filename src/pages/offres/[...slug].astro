@@ -13,6 +13,7 @@ import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../lib/i18n';
+import { buildService, buildOffer, buildBreadcrumbList } from '../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('offres');
@@ -39,11 +40,45 @@ const tina = import.meta.env.DEV
   : undefined;
 const TinaIsland = tina?.[0].default;
 const tinaWrapper = tina?.[1].islands.offre.wrapper;
+
+// JSON-LD métier · BreadcrumbList + Service (+ Offer si un prix réel existe dans
+// le frontmatter). Base émet déjà Organization + WebSite ; ces blocs viennent en plus.
+const siteUrl = 'https://waimia.com';
+const offreUrl = `${siteUrl}/offres/${entry.id}`;
+const offreName = lang === 'fr' ? data.title_fr : data.title_en;
+const offreDesc = lang === 'fr' ? data.description_fr : data.description_en;
+
+// Offer conditionnel : uniquement si un prix réel est renseigné (0 prix inventé).
+const hasPrice = typeof data.price_from_eur === 'number';
+const offerLd = hasPrice
+  ? buildOffer({
+      name: offreName,
+      price: data.price_from_eur,
+      priceCurrency: 'EUR',
+      url: offreUrl,
+    })
+  : undefined;
+
+const serviceLd = buildService({
+  name: offreName,
+  description: offreDesc,
+  ...(data.category_fr ? { serviceType: data.category_fr } : {}),
+  ...(offerLd ? { offers: offerLd } : {}),
+});
+
+const breadcrumbLd = buildBreadcrumbList([
+  { name: lang === 'fr' ? 'Accueil' : 'Home', url: lang === 'fr' ? siteUrl : `${siteUrl}/en` },
+  { name: lang === 'fr' ? 'Offres' : 'Services', url: lang === 'fr' ? `${siteUrl}/offres` : `${siteUrl}/en/offres` },
+  { name: offreName, url: offreUrl },
+]);
+
+const offreLd = [breadcrumbLd, serviceLd];
 ---
 <Base
   title={lang === 'fr' ? data.title_fr : data.title_en}
   description={lang === 'fr' ? data.description_fr : data.description_en}
   noindex={data.seo?.noindex}
+  jsonLd={offreLd}
 >
   <Breadcrumb lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
