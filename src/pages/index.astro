@@ -41,7 +41,6 @@ import FooterMarquee       from '../components/ui/organisms/FooterMarquee.astro'
 import SectionTransition   from '../components/ui/atoms/SectionTransition.astro';
 
 import { CLIENT_LOGOS, HERO_METRICS, SIX_SERVICES, PYRAMID_TIERS, DEPARTMENTS_GRID } from '../data/sitemap';
-import { PROOF_POINTS } from '../data/proof-points';
 import { PRICING_GRID, tierPriceLabel, PRICE_FROM_LABEL } from '../data/pricing';
 import { localizeHref } from '../lib/i18n';
 import type { SectionByType } from '../schemas/sections';
@@ -78,6 +77,7 @@ const socialProofData = {
 // Exemples par canal dérivés du copy existant (hero mini-map + SIX_SERVICES) : 0 invention.
 const architectureDiagramData = {
   type: 'architecture-diagram' as const,
+  background: 'ink' as const,
   fig_num: 'FIG II · 2.0',
   fig_title_fr: 'Acte II : Le système', fig_title_en: 'Act II: The system',
   spec_fr: 'CANAUX · SYSTÈME · ACTIONS', spec_en: 'CHANNELS · SYSTEM · ACTIONS',
@@ -111,14 +111,9 @@ const architectureDiagramData = {
 } satisfies SectionByType<'architecture-diagram'>;
 
 // ── Acte II · FIG 2.5 L'offre (ServicesGrid fusionnée avec UseCaseIndex) ───────
-// Métriques dédupliquées (1 info = 1 représentation) → repères PROPRES au service,
-// tirés de src/data/proof-points.ts (roi-leads-x2-4 · time-30pct-taches-reduites).
-// Honnêteté : ce sont des objectifs/capacités visés, mesurés sur vos données, pas des résultats clients.
-const ppValue = (id: string) => PROOF_POINTS.find((p) => p.id === id)?.value ?? '';
-const SERVICE_METRIC_OVERRIDES: Record<string, { fr: string; en: string }> = {
-  '02': { fr: `${ppValue('roi-leads-x2-4')} leads`, en: `${ppValue('roi-leads-x2-4').replace(',', '.')} leads` },
-  '05': { fr: `${ppValue('time-30pct-taches-reduites')} tâches`, en: `${ppValue('time-30pct-taches-reduites')} tasks` },
-};
+// Métriques = capacités/engagements VÉRIFIABLES (source UNIQUE = SIX_SERVICES dans
+// sitemap.ts), registre du hero : audit 5j, pipeline connecté, CRM relié, temps réel,
+// workflows, souverain. Honnêteté (studio solo, 0 cas mesuré) : aucun chiffre de ROI inventé.
 // SEO état final : pages /solutions/* supprimées (anti-dilution). Les cas d'usage
 // Acquérir vivent désormais en ancres du hub /acquerir (publicité/agent « à venir »).
 const SERVICE_USECASES: Record<string, string> = {
@@ -146,8 +141,8 @@ const servicesGridData = {
     const uc = ucSlug ? usecaseBySlug(ucSlug) : undefined;
     return {
       fig: `2.5${Number(s.k)}`,
-      metric_fr: SERVICE_METRIC_OVERRIDES[s.k]?.fr ?? s.metric.fr,
-      metric_en: SERVICE_METRIC_OVERRIDES[s.k]?.en ?? s.metric.en,
+      metric_fr: s.metric.fr,
+      metric_en: s.metric.en,
       label_fr: s.label.fr,
       label_en: s.label.en,
       body_fr: s.body.fr,
@@ -163,8 +158,11 @@ const servicesGridData = {
         : {}),
     };
   }),
+  // 3 piliers à parité (Acquérir / Piloter / Opérer) + cas clients : la home ne sur-met plus Acquérir.
   foot_links: [
-    { label_fr: "Le hub Acquérir →", label_en: 'The Acquire hub →', href: localizeHref('/acquerir', 'fr') },
+    { label_fr: 'Acquérir →', label_en: 'Acquire →', href: localizeHref('/acquerir', 'fr') },
+    { label_fr: 'Piloter →', label_en: 'Steer →', href: localizeHref('/piloter', 'fr') },
+    { label_fr: 'Opérer →', label_en: 'Operate →', href: localizeHref('/operer', 'fr') },
     { label_fr: 'Nos cas clients →', label_en: 'Our case studies →', href: localizeHref('/cas-clients', 'fr') },
   ],
 } satisfies SectionByType<'services-grid'>;
@@ -229,7 +227,8 @@ const ctaInlineData = {
   text_fr: "Un doute sur le palier d'entrée ? 30 minutes au téléphone suffisent pour le situer.",
   text_en: 'Not sure which tier to start at? A 30-minute call is enough to place it.',
   cta: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: localizeHref('/contact', 'fr'), variant: 'primary' as const },
-  background: 'paper-2' as const,
+  // Touche accent au moment-prix (rythme paper → ink → paper → accent). Token DS existant.
+  background: 'accent' as const,
 } satisfies SectionByType<'cta-band'>;
 
 // FAQ PME-first · 8 questions scannables (V5 : + CMS · + brand consistency)
