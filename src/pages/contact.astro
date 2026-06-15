@@ -119,6 +119,10 @@ const contactLd = {
     gap: var(--space-10);
     max-width: 1100px;
     margin: 0 auto;
+    /* Conversion : remonte le formulaire dans le fold en reprenant une partie
+       du padding-top `--section-base` (96px) du `.util-body`, sans casser le
+       rythme des sections suivantes (Cal embed garde sa marge propre). */
+    margin-top: calc(-1 * var(--space-7));
   }
   .contact-form {
     display: flex;

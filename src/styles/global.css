@@ -587,6 +587,14 @@ a:not([class]):hover,
   .burger {
     display: flex;
   }
+  /* Les mega-panels desktop (`position:fixed`) sont pilotés par `.hdr-nav`,
+     masqué ici → ils deviennent inatteignables ET, restant dans le flux fixe,
+     leur contenu (`.mega-featured` 550px, grille `1fr 1fr`) débordait l'axe X
+     en < ~430px (overflow-X mobile `/agence`). Le menu mobile = `.m-sheet`. */
+  .mega,
+  .mega-scrim {
+    display: none;
+  }
 }
 
 /* ─── MEGA MENU ─── */

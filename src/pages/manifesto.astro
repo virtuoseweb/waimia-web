@@ -18,7 +18,7 @@ export const prerender = true;
 import Base from '../layouts/Base.astro';
 import LiquidHero from '../components/motion/LiquidHero.tsx';
 import ManifestoAccent from '../components/ui/organisms/ManifestoAccent.astro';
-import Button from '../components/ui/atoms/Button.astro';
+import CtaFinal from '../components/sections/CtaFinal.astro';
 import Kicker from '../components/ui/atoms/Kicker.astro';
 import PillCTA from '../components/ui/atoms/PillCTA.astro';
 import EditorialWriteRow from '../components/ui/molecules/EditorialWriteRow.astro';
@@ -52,6 +52,31 @@ const articleLd = buildArticle({
   datePublished: '2026-01-01',
   author: { '@type': 'Organization', name: 'Waimia' },
 });
+
+// Acte V · clôture canonique = composant `CtaFinal` (dédup CTA inline, W5).
+// `chapter_num/title` rejoue le rythme d'acte ; `availability` porte la ligne
+// mono « 45 minutes · diagnostic en clair ». Fond paper (cohérent Acte V).
+const acteVCta = {
+  type: 'cta-final' as const,
+  chapter_num: 'V',
+  chapter_title_fr: "Passer à l'action",
+  chapter_title_en: 'Act',
+  h2_fr: 'Arrêtez de <i class="accent">répéter</i>.<br />Livrez.',
+  h2_en: 'Stop <i class="accent">rehearsing</i>.<br />Ship.',
+  cta_primary: {
+    label_fr: 'Prendre 45 min →', label_en: 'Book 45 min →',
+    href: flh('/contact', lang), variant: 'accent' as const, mag: 0.22,
+  },
+  cta_secondary: {
+    label_fr: lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr',
+    label_en: lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr',
+    href: `mailto:${lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr'}`,
+    variant: 'ghost' as const,
+  },
+  availability_fr: '◉ 45 minutes · diagnostic en clair · aucune relance pénible',
+  availability_en: '◉ 45 minutes · clear diagnosis · no annoying follow-up',
+  background: 'paper' as const,
+} satisfies import('../schemas/sections').SectionByType<'cta-final'>;
 ---
 <Base
   title={lang === 'fr' ? "Waimia · Manifeste · Construire du revenu, pas des démos" : 'Waimia · Manifesto · Build revenue, not demos'}
@@ -121,7 +146,7 @@ const articleLd = buildArticle({
       {tripled.map((logo) => (
         <>
           <span style="font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:var(--text-h2);padding:0 30px;color:var(--paper)">{logo}</span>
-          <span style="padding:0 4px;color:var(--accent-text);font-size:24px;align-self:center">◦</span>
+          <span style="padding:0 4px;color:var(--accent-text);font-size:var(--text-h3);align-self:center">◦</span>
         </>
       ))}
     </div>
@@ -273,55 +298,10 @@ const articleLd = buildArticle({
     </div>
   </section>
 
-  {/* ACTE V · Stop rehearsing */}
-  <section style="padding:var(--section-base) var(--space-8);background:var(--paper);text-align:center">
-    <div style="max-width:1600px;margin:0 auto">
-      <Kicker class="manifesto-acte-v">
-        <span style="color:var(--accent-text)">V.</span> {lang === 'fr' ? "Passer à l'action" : 'Act'}
-      </Kicker>
-      <h2 class="reveal manifesto-quote-reveal manifesto-h1">
-        {lang === 'fr' ? (<>Arrêtez de <i class="accent">répéter</i>.<br />Livrez.</>) : (<>Stop <i class="accent">rehearsing</i>.<br />Ship.</>)}
-      </h2>
-      <div style="display:inline-flex;gap:14px;margin-top:60px;flex-wrap:wrap;justify-content:center">
-        <Button href={flh('/contact', lang)} variant="accent" size="lg" mag={0.22}>
-          {lang === 'fr' ? 'Prendre 45 min →' : 'Book 45 min →'}
-        </Button>
-        <Button href={`mailto:${lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr'}`} variant="ghost" size="lg">
-          {lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr'}
-        </Button>
-      </div>
-      <div style="margin-top:var(--space-9);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1">
-        {lang === 'fr'
-          ? '◉ 45 minutes · diagnostic en clair · aucune relance pénible'
-          : '◉ 45 minutes · clear diagnosis · no annoying follow-up'}
-      </div>
-    </div>
-  </section>
-  <script>
-    // Text reveal Acte V — fade + slide up a l'entree dans le viewport
-    // Utilise IntersectionObserver + CSS transitions composited (transform + opacity)
-    // Aucun innerHTML — animation CSS pure via style properties
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const el = document.querySelector('.manifesto-quote-reveal');
-      if (!(el instanceof HTMLElement)) return;
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 0.9s var(--ease), transform 0.9s var(--ease)';
-      el.style.transitionDelay = '0.2s';
-      const obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          obs.unobserve(entry.target);
-          var target = entry.target;
-          if (!(target instanceof HTMLElement)) return;
-          target.style.opacity = '1';
-          target.style.transform = 'translateY(0)';
-        });
-      }, { threshold: 0.2 });
-      obs.observe(el);
-    })();
-  </script>
+  {/* ACTE V · clôture canonique = composant `CtaFinal` (ex-CTA inline dupliqué).
+     `chapter_num='V'` rejoue le rythme d'acte ; le reveal est porté nativement
+     par les classes `reveal-mask-up`/`reveal` internes au composant. */}
+  <CtaFinal data={acteVCta} lang={lang} />
 </Base>
 
 <style>
@@ -438,7 +418,6 @@ const articleLd = buildArticle({
   /* Spacing/colors pour les Kicker atoms rendus par les sous-composants
      Note : :global est requis car le scoping Astro ne descend pas dans les composants enfants */
   :global(.manifesto-acte-iv){margin-bottom:var(--space-6)}
-  :global(.manifesto-acte-v){margin-bottom:var(--space-7)}
   :global(.b-hero-dim){color:rgba(var(--paper-rgb), .55) !important;line-height:1}
   :global(.b-hero-tag){color:rgba(var(--paper-rgb), .55) !important;margin-bottom:var(--space-5);line-height:1}
   :global(.b-acte-1){color:rgba(var(--paper-rgb), .5) !important}

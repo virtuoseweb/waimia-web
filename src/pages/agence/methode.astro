@@ -143,14 +143,8 @@ const howToLd = buildHowTo('Notre méthode · Process Intelligence', [
       </p>
     </div>
 
-    {/* ── CTA INLINE ── */}
-    <div class="meth-cta reveal">
-      <h2 class="meth-cta-h2">Cinq phases. Quarante-cinq minutes pour démarrer.</h2>
-      <div class="meth-cta-btns">
-        <a href="/contact" class="meth-cta-btn meth-cta-btn--primary">Démarrer →</a>
-        <a href="/offres" class="meth-cta-btn meth-cta-btn--ghost">Voir les offres</a>
-      </div>
-    </div>
+    {/* CTA final canonique = `CtaFinal` rendu par UtilityTemplate (showCta).
+       L'ancien bloc `.meth-cta` inline (CTA dupliqué) a été retiré (W5 dédup). */}
 
   </Fragment>
 </UtilityTemplate>
@@ -231,59 +225,7 @@ const howToLd = buildHowTo('Notre méthode · Process Intelligence', [
   }
   .meth-os-body:last-child { margin-bottom: 0; }
 
-  /* ── CTA final ── */
-  .meth-cta {
-    text-align: left;
-    border-top: 1px solid var(--hairline);
-    padding-top: var(--space-9);
-    display: flex;
-    align-items: center;
-    gap: var(--space-8);
-    flex-wrap: wrap;
-  }
-  .meth-cta-h2 {
-    font-family: var(--font-display);
-    font-size: var(--text-h2);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.022em;
-    line-height: var(--leading-h3);
-    margin: 0;
-    flex: 1 1 360px;
-    text-wrap: balance;
-  }
-  .meth-cta-btns {
-    display: flex;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .meth-cta-btn {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    padding: var(--space-4) 36px;
-    border: 1px solid var(--ink);
-    transition: background var(--dur-trim) var(--ease), border-color var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .meth-cta-btn--primary {
-    color: var(--paper);
-    background: var(--ink);
-  }
-  .meth-cta-btn--primary:hover { background: var(--accent); border-color: var(--accent-text); }
-  .meth-cta-btn--ghost {
-    color: var(--ink);
-    background: transparent;
-  }
-  .meth-cta-btn--ghost:hover { background: var(--ink); color: var(--paper); }
-
   @media (max-width: 700px) {
     .meth-os { padding-inline: var(--space-5); }
-    .meth-cta { flex-direction: column; align-items: flex-start; }
-    .meth-cta-btns { flex-direction: column; align-items: flex-start; }
   }
 </style>

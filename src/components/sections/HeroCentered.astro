@@ -563,6 +563,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     border-bottom: 1px solid var(--hairline);
   }
   .hero-utility--centered { text-align: center; }
+  /* Variante centrée = focus action/conversion (contact, academy) : on resserre
+     le padding vertical du masthead pour faire remonter le contenu actionnable
+     (formulaire RDV) dans le premier écran. L'échelle typo H1 éditoriale reste
+     conservée (décision design) ; seul l'espace vertical est repris. */
+  .hero-utility--centered { padding-block: var(--space-9) var(--space-7); }
   .hero-utility .wrap-wide { max-width: 1200px; margin-inline: auto; }
   :global(.hero-utility__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-utility--centered :global(.hero-utility__kicker) { display: inline-block; }
