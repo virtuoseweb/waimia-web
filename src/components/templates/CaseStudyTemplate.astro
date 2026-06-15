@@ -132,6 +132,8 @@ interface Props {
   provenance?: 'first-party' | 'second-party';
   /** Bloc(s) JSON-LD spécifiques (Article/CreativeWork…) injectés dans <Base>. */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  /** Type OG transmis à <Base>. Défaut 'article' pour les cas clients. */
+  ogType?: 'website' | 'article';
   // ── Refonte éditoriale W2 (docs/25) : composition de sections cataloguées.
   //    Tous optionnels → rendu conditionnel. Si absents, le template garde son
   //    comportement legacy (slot context = <Content/>, pas de section approach vide).
@@ -161,6 +163,7 @@ const {
   bottlenecks, phases, deliverableCards, shifts,
   pullQuoteFr, pullQuoteEn, pullQuoteCiteFr, pullQuoteCiteEn,
   provenance = 'first-party',
+  ogType = 'article',
 } = Astro.props;
 // Double-label (docs/strategy/03 §5) : famille A first-party = chip plein,
 // famille B second-party = chip outline. Cliquable → /sources-methodologie.
@@ -294,7 +297,7 @@ const pullQuoteData = hasPullQuote
 const hasLegacySteps = steps && steps.length > 0;
 const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('author-card');
 ---
-<Base title={title} description={description} jsonLd={jsonLd}>
+<Base title={title} description={description} jsonLd={jsonLd} ogType={ogType}>
   <Breadcrumb
     lang={lang}
     items={[

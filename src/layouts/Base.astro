@@ -38,6 +38,8 @@ interface Props {
   alternate?: string | false;
   /** Couleur thème navigateur */
   themeColor?: string;
+  /** Type OG (og:type). Défaut 'website' ; utiliser 'article' pour les pages de contenu éditorial. */
+  ogType?: 'website' | 'article';
 }
 
 const {
@@ -50,6 +52,7 @@ const {
   canonical,
   alternate,
   themeColor = '#F6F1E8',
+  ogType = 'website',
 } = Astro.props;
 
 const lang = langFromPath(Astro.url.pathname);
@@ -101,7 +104,7 @@ const additionalLd = additionalJsonLd
       openGraph={{
         basic: {
           title: title,
-          type: 'website',
+          type: ogType,
           image: finalOgImage,
           url: canonicalUrl,
         },

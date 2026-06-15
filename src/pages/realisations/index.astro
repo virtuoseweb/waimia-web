@@ -10,6 +10,7 @@ import { langFromPath } from '../../lib/i18n';
 import type { SectionByType } from '../../schemas/sections';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
 import imageManifest from '../../data/image-manifest.json';
+import { buildCollectionPage, buildBreadcrumbList } from '../../lib/seo/schema-builder';
 
 const lang = langFromPath(Astro.url.pathname);
 const transitionIdFromHref = (href: string) =>
@@ -47,6 +48,18 @@ const provenanceChipLabel = lang === 'fr' ? 'Cas client · Waimia' : 'Client cas
 
 const [featured, ...rest] = featuredCases;
 
+const caseItems = caseEntries.map((e) => `https://waimia.com/realisations/${e.data.slug ?? e.id}`);
+const collectionLd = buildCollectionPage(
+  'Cas clients',
+  "Pas de marketing. Des chiffres, des problèmes, ce qu'on a câblé. Ce qui a tenu.",
+  caseItems,
+);
+const breadcrumbLd = buildBreadcrumbList([
+  { name: 'Accueil', url: 'https://waimia.com/' },
+  { name: 'Réalisations', url: 'https://waimia.com/realisations' },
+]);
+const realisationsLd = [breadcrumbLd, collectionLd];
+
 const mastheadData = {
   type: 'hero-hub-masthead' as const,
   variant: 'hub' as const,
@@ -64,6 +77,7 @@ const mastheadData = {
 <Base
   title={lang === 'fr' ? "Cas clients · pipelines reconnectés, opérations fluidifiées · Waimia" : "Case studies · pipelines reconnected, operations streamlined · Waimia"}
   description={lang === 'fr' ? "Pas de marketing. Des chiffres, des problèmes, ce qu'on a câblé. Ce qui a tenu." : "No marketing. Numbers, problems, what we shipped. What held."}
+  jsonLd={realisationsLd}
 >
   <HeroCentered data={mastheadData} lang={lang} />
 

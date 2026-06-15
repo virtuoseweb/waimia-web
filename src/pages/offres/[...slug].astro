@@ -13,7 +13,7 @@ import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
 import { langFromPath } from '../../lib/i18n';
-import { buildService, buildOffer, buildBreadcrumbList } from '../../lib/seo/schema-builder';
+import { buildService, buildOffer } from '../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('offres');
@@ -66,13 +66,7 @@ const serviceLd = buildService({
   ...(offerLd ? { offers: offerLd } : {}),
 });
 
-const breadcrumbLd = buildBreadcrumbList([
-  { name: lang === 'fr' ? 'Accueil' : 'Home', url: lang === 'fr' ? siteUrl : `${siteUrl}/en` },
-  { name: lang === 'fr' ? 'Offres' : 'Services', url: lang === 'fr' ? `${siteUrl}/offres` : `${siteUrl}/en/offres` },
-  { name: offreName, url: offreUrl },
-]);
-
-const offreLd = [breadcrumbLd, serviceLd];
+const offreLd = serviceLd;
 ---
 <Base
   title={lang === 'fr' ? data.title_fr : data.title_en}
