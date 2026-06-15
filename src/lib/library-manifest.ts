@@ -98,6 +98,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'comparison-pricing-callout',   consumers: [] },
   // <<< [new-standard] end
   // >>> [sections-gap] start
+  { id: 'editorial-prose',              consumers: ['secteurs/[...slug]'] },
   { id: 'diagnostic-stages',            consumers: [] },
   { id: 'case-spotlight',               consumers: [] },
   { id: 'testimonial-metrics',          consumers: [] },

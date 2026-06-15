@@ -11,6 +11,19 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+
+// GAP-B · état vide honnête : < 2 cas (ou 0) → encart « premiers cas en cours de
+// rédaction » au lieu d'une table famélique. Porté DANS le composant catalogué pour
+// se propager partout (pas en inline dans la route).
+const isEmpty = data.cases.length < 2;
+const emptyKicker = isFr
+  ? data.empty_kicker_fr ?? 'Cas de ce secteur'
+  : data.empty_kicker_en ?? 'Cases for this industry';
+const emptyBody = isFr
+  ? data.empty_body_fr ??
+    "Nous publions un cas uniquement après mesure du résultat et accord du client. Les premiers cas de ce secteur arrivent. En attendant, parlons de votre projet : nous montrons concrètement comment nous travaillons."
+  : data.empty_body_en ??
+    'We only publish a case after the result is measured and the client has agreed. The first cases for this industry are coming. In the meantime, let us talk about your project: we show exactly how we work.';
 ---
 <section id="act-4" class="sec" data-bg={data.background} aria-labelledby="cases-h2">
   <div class="wrap-wide">
@@ -26,6 +39,12 @@ const isFr = lang === 'fr';
 
     <h2 id="cases-h2" class="cases-h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
 
+    {isEmpty ? (
+      <div class="cases-empty reveal">
+        <div class="cases-empty__kicker">§ {emptyKicker}</div>
+        <p class="cases-empty__body">{emptyBody}</p>
+      </div>
+    ) : (
     <div class="cases-tbl row-lines reveal-stagger">
       {data.cases.map((c, i) => (
         <a class="cases-row" href={c.href}>
@@ -47,6 +66,7 @@ const isFr = lang === 'fr';
         </a>
       ))}
     </div>
+    )}
 
     {data.all_href && (
       <div class="cases-foot">
@@ -83,6 +103,12 @@ const isFr = lang === 'fr';
 
   .cases-foot{margin-top:var(--space-9);text-align:right}
   .cases-foot a{font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);border-bottom:1px solid var(--accent);padding-bottom:2px}
+
+  /* GAP-B · état vide honnête (< 2 cas) · tokens DS uniquement (parité avec l'ancien
+     .sector-cases-empty de SecteurHubTemplate). */
+  .cases-empty{border-top:1px solid var(--hairline);padding-top:var(--space-7)}
+  .cases-empty__kicker{font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin-bottom:var(--space-3)}
+  .cases-empty__body{font-size:var(--text-h3);line-height:1.6;color:var(--muted);margin:0;max-width:820px;text-wrap:pretty}
 
   @media (max-width:1100px){
     .cases-row{grid-template-columns:1fr 1fr;row-gap:6px;padding:var(--space-5) 0}

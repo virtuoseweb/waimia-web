@@ -1270,11 +1270,17 @@ export const caseCardGridSchema = z.object({
         href: z.string(),
       }),
     )
-    .min(2)
     .max(6),
   all_label_fr: z.string().optional(),
   all_label_en: z.string().optional(),
   all_href: z.string().optional(),
+  // État vide honnête (GAP-B) : si < 2 cas (ou 0), la grille affiche un encart
+  // « premiers cas en cours de rédaction » au lieu d'une table famélique. Texte
+  // surchargeable par le consommateur, défauts honnêtes sinon.
+  empty_kicker_fr: z.string().optional(),
+  empty_kicker_en: z.string().optional(),
+  empty_body_fr: z.string().optional(),
+  empty_body_en: z.string().optional(),
 });
 
 // Pyramide SVG isocèle de l'offre · 3 tiers labellisés
@@ -3511,6 +3517,19 @@ export const testimonialMetricsSchema = z.object({
 });
 // <<< [sections-gap] end
 
+// >>> [editorial-prose] start
+// editorial-prose (content-sections) : wrapper tokenisé d'une colonne de prose
+// lisible (largeur --wrap-prose), destiné à héberger du contenu long rendu via
+// `<slot/>` (corps MDX `<Content />`), sans champ texte (préserve la parité GEO :
+// le contenu vit dans le MDX, pas dupliqué dans le frontmatter). Fond alterné via
+// l'enum background partagé (idiome data-bg, modèle BentoGrid).
+export const editorialProseSchema = z.object({
+  type: z.literal('editorial-prose'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  maxWidth: z.enum(['prose', 'wide']).optional(),
+});
+// <<< [editorial-prose] end
+
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroCenteredSchema,
@@ -3681,6 +3700,9 @@ export const sectionSchema = z.discriminatedUnion('type', [
   caseSpotlightSchema,
   testimonialMetricsSchema,
   // <<< [sections-gap] end
+  // >>> [editorial-prose] start
+  editorialProseSchema,
+  // <<< [editorial-prose] end
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

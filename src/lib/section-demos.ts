@@ -3079,6 +3079,15 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     ],
   },
   // <<< [sections-gap] end
+  // >>> [editorial-prose] start
+  'editorial-prose': {
+    type: 'editorial-prose',
+    background: 'paper',
+    maxWidth: 'prose',
+    // Le contenu vient d'un <slot/> (corps MDX `<Content />`) : la demo catalogue
+    // n'a pas de champ texte. Le preview rend un wrapper vide tokenisé.
+  },
+  // <<< [editorial-prose] end
 };
 
 export function getSectionDemo(type: SectionType): DemoData | undefined {

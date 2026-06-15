@@ -1,0 +1,92 @@
+---
+// Section W6 · editorial-prose
+// Wrapper tokenisé d'une colonne de prose éditoriale lisible. Le contenu vient d'un
+// <slot/> (corps MDX `<Content />`) : 0 champ texte → la prose vit dans le MDX, pas
+// dupliquée dans le frontmatter (préserve la parité GEO/AIO). Fond alterné via l'idiome
+// data-bg partagé (modèle BentoGrid). Typographie reprise du DS (mêmes tokens que
+// l'ancien .sector-body de SecteurHubTemplate → parité de rendu).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'editorial-prose'>;
+  lang: 'fr' | 'en';
+}
+const { data } = Astro.props;
+const width = data.maxWidth ?? 'prose';
+---
+<section class="editorial-prose" data-bg={data.background} data-width={width}>
+  <div class="editorial-prose__col">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .editorial-prose {
+    padding: var(--section-base) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .editorial-prose__col {
+    max-width: var(--wrap-prose);
+    margin: 0 auto;
+  }
+  .editorial-prose[data-width='wide'] .editorial-prose__col {
+    max-width: var(--wrap-wide);
+  }
+
+  /* Typographie de prose · tokens DS uniquement (parité avec l'ancien .sector-body) */
+  .editorial-prose__col :global(h2) {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-medium);
+    margin: var(--space-8) 0 var(--space-4);
+  }
+  .editorial-prose__col :global(h3) {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: 1.25;
+    font-weight: var(--fw-medium);
+    margin: var(--space-6) 0 var(--space-3);
+  }
+  .editorial-prose__col :global(p) {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--ink);
+    margin: 0 0 var(--space-4);
+  }
+  .editorial-prose__col :global(a) {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .editorial-prose__col :global(ul),
+  .editorial-prose__col :global(ol) {
+    margin: 0 0 var(--space-4);
+    padding-left: var(--space-5);
+    color: var(--ink);
+  }
+  .editorial-prose__col :global(li) {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    margin-bottom: var(--space-2);
+  }
+  .editorial-prose__col :global(blockquote) {
+    margin: var(--space-6) 0;
+    padding-left: var(--space-5);
+    border-left: 1px solid var(--hairline-strong);
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── Alternance des fonds · defaut (sans data-bg) = rendu clair inchange ── */
+  .editorial-prose[data-bg='paper-2'] { background: var(--paper-2); }
+  .editorial-prose[data-bg='paper-3'] { background: var(--paper-3); }
+  .editorial-prose[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .editorial-prose[data-bg='ink'] .editorial-prose__col :global(:is(h2, h3, p, li)) {
+    color: var(--paper);
+  }
+</style>

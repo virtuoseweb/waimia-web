@@ -379,6 +379,24 @@ const secteurs = defineCollection({
     visible: z.boolean().default(true),
     ctaPrimary_fr: z.string(),
     ctaPrimary_en: z.string(),
+    // Étapes de méthode (alignées sur la section catalogue `method-timeline`,
+    // shape `stepSchema`). Optionnel → 0 régression sur un MDX qui ne le renseigne pas
+    // (la route dérive alors une méthode par défaut partagée).
+    methodSteps: z
+      .array(
+        z.object({
+          num: z.string(),
+          label_fr: z.string(),
+          label_en: z.string(),
+          body_fr: z.string(),
+          body_en: z.string(),
+          meta_fr: z.string().optional(),
+          meta_en: z.string().optional(),
+        }),
+      )
+      .optional(),
+    // Override/extension composable (rendu data-driven, modèle services/offres).
+    sections: sectionsArraySchema.optional(),
   }),
 });
 

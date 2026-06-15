@@ -1,12 +1,21 @@
 ---
-// Route · /secteurs/<slug> · hub sectoriel Waimia
-// getStaticPaths sur la collection `secteurs` (filtre visible), rend via
-// SecteurHubTemplate. Phasage noindex : géré par seo.noindex (blueprint §2/§3).
+// Route · /secteurs/<slug> · hub sectoriel Waimia · rendu 100 % composable (registry).
+// Refonte data-driven (ADR composable, modèle services/offres) : la séquence de sections
+// est DÉRIVÉE du frontmatter sémantique (pains_fr, metricsHero, faq_fr, methodSteps,
+// ctaPrimary) + INJECTE la grille de cas (sectorCaseGridData). La prose MDX longue (cœur
+// GEO) est wrappée par la section catalogue `editorial-prose` (slot `<Content />`).
+// Le frontmatter `sections:` du MDX, s'il existe, prend le pas (override total).
 export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
-import SecteurHubTemplate from '../../components/templates/SecteurHubTemplate.astro';
-import { buildArticle, buildFAQPage } from '../../lib/seo/schema-builder';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import EditorialProse from '../../components/sections/EditorialProse.astro';
+import { localizeHref } from '../../lib/i18n';
+import { sectorCaseGridData } from '../../lib/sector-cases';
+import { buildArticle } from '../../lib/seo/schema-builder';
+import type { SectionData, SectionByType } from '../../schemas/sections';
 
 export async function getStaticPaths() {
   const entries = await getCollection('secteurs');
@@ -22,10 +31,10 @@ type Props = { entry: CollectionEntry<'secteurs'> };
 const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 const d = entry.data;
+const lang = 'fr' as const; // site FR-monolingue
 const slug = d.slug ?? entry.id;
 
-// JSON-LD Article (GEO/AIO) : rend le hub citable par les crawlers LLM.
-// Mirroir du pattern /cas-clients + blog (réutilise buildArticle).
+// ── JSON-LD · Article (GEO/AIO) + FAQPage conditionnel (PRÉSERVÉ À L'IDENTIQUE) ──
 const siteUrl = 'https://waimia.com';
 const sectorUrl = `${siteUrl}/secteurs/${slug}`;
 const sectorLd = buildArticle({
@@ -41,13 +50,192 @@ const sectorLd = buildArticle({
   },
   mainEntityOfPage: sectorUrl,
 });
+// FAQPage JSON-LD émis par la section `faq-accordion` (self-describing, GEO/AIO).
+// La route n'émet QUE l'Article pour éviter un doublon FAQPage (1 seule source).
+const sectorJsonLd = sectorLd;
 
-// FAQPage conditionnel (GEO/AIO) : ajouté UNIQUEMENT si le secteur renseigne des
-// FAQ non vides (champ `faq_fr` du schéma baseFields). N'écrase pas l'Article :
-// on émet un tableau [Article, FAQPage] que <Base> aplatit après Organization/WebSite.
-const faqLd = buildFAQPage(d.faq_fr ?? []);
-const sectorJsonLd = faqLd ? [sectorLd, faqLd] : sectorLd;
+// ── Grille de cas INJECTÉE (sector-cases.ts, inchangé). GAP-B (état vide < 2 cas)
+//    désormais porté DANS le composant catalogue CaseCardGrid → propage partout. ──
+const caseGridData = await sectorCaseGridData(slug, lang);
+
+// ── Étapes de méthode : frontmatter `methodSteps` si présent, sinon défaut partagé
+//    (préserve le TEXTE générique migré depuis l'ancien SecteurHubTemplate). ──
+const defaultMethodSteps = [
+  {
+    num: '01',
+    label_fr: 'Cadrage du terrain',
+    label_en: 'Field framing',
+    body_fr: "On part de vos workflows réels, pas d'un template. On identifie où le temps et les leads se perdent, chiffres à l'appui.",
+    body_en: 'We start from your real workflows, not a template. We pinpoint where time and leads are lost, with numbers to back it.',
+    meta_fr: 'Semaine 1',
+    meta_en: 'Week 1',
+  },
+  {
+    num: '02',
+    label_fr: 'Déploiement opérable',
+    label_en: 'Operable deployment',
+    body_fr: `On câble ce qui compte pour votre métier : ${d.workflowsCible.slice(0, 3).join(', ') || 'site, acquisition, pilotage'}.`,
+    body_en: `We wire what matters for your trade: ${d.workflowsCible.slice(0, 3).join(', ') || 'site, acquisition, steering'}.`,
+    meta_fr: 'Semaines 2 à 6',
+    meta_en: 'Weeks 2 to 6',
+  },
+  {
+    num: '03',
+    label_fr: 'Mesure et itération',
+    label_en: 'Measurement and iteration',
+    body_fr: d.kpis_fr.length > 0
+      ? `On suit les indicateurs qui comptent : ${d.kpis_fr.slice(0, 3).join(', ')}.`
+      : "On suit les indicateurs qui comptent et on ajuste sur la donnée, pas sur l'intuition.",
+    body_en: d.kpis_en.length > 0
+      ? `We track the indicators that matter: ${d.kpis_en.slice(0, 3).join(', ')}.`
+      : 'We track the indicators that matter and adjust on data, not intuition.',
+    meta_fr: 'En continu',
+    meta_en: 'Ongoing',
+  },
+];
+const methodSteps = d.methodSteps && d.methodSteps.length >= 2 ? d.methodSteps : defaultMethodSteps;
+
+// ── Provenance fusionnée dans le contexte du metric-callout-band (GAP-A) : plus de
+//    chip orphelin. Étiquette « Étude · sources tierces » (cohérence CaseStudyTemplate). ──
+const marketProvenance = 'Étude · sources tierces';
+const hasMarketData = d.metricsHero.length > 0;
+
+// ── Séquence dérivée · sections AVANT la prose (hero → pains → marché → cas → méthode → faq) ──
+const sectionsBeforeProse: SectionData[] = [];
+
+sectionsBeforeProse.push({
+  type: 'hero-sector',
+  background: 'paper',
+  dept_fr: d.icp_fr,
+  dept_en: d.icp_en,
+  h1_fr: d.title_fr,
+  h1_en: d.title_en,
+  lead_fr: d.description_fr,
+  lead_en: d.description_en,
+  cta: {
+    label_fr: d.ctaPrimary_fr,
+    label_en: d.ctaPrimary_en,
+    href: localizeHref('/contact', lang),
+    variant: 'primary',
+  },
+} satisfies SectionByType<'hero-sector'>);
+
+sectionsBeforeProse.push({
+  type: 'pain-points',
+  background: 'paper-2',
+  eyebrow_fr: '§ Friction',
+  eyebrow_en: '§ Friction',
+  h2_fr: 'Là où ça <i>bloque</i>.',
+  h2_en: 'Where it <i>stalls</i>.',
+  items: d.pains_fr.map((p, i) => ({
+    num: String(i + 1).padStart(2, '0'),
+    title_fr: p.title,
+    title_en: d.pains_en[i]?.title ?? p.title,
+    body_fr: p.body,
+    body_en: d.pains_en[i]?.body ?? p.body,
+  })),
+} satisfies SectionByType<'pain-points'>);
+
+if (hasMarketData) {
+  sectionsBeforeProse.push({
+    type: 'metric-callout-band',
+    background: 'ink',
+    context_fr: `${marketProvenance}. Chiffres de marché reportés (détail et sources nommées plus bas), pas nos résultats client.`,
+    context_en: 'Study · third-party sources. Reported market figures (details and named sources below), not our own client results.',
+    metrics: d.metricsHero.slice(0, 3).map((m) => ({
+      value: m.value,
+      label_fr: m.label_fr,
+      label_en: m.label_en,
+    })),
+  } satisfies SectionByType<'metric-callout-band'>);
+}
+
+sectionsBeforeProse.push({ ...caseGridData, background: 'paper' });
+
+sectionsBeforeProse.push({
+  type: 'method-timeline',
+  background: 'paper-2',
+  kicker_fr: '§ La méthode',
+  kicker_en: '§ The method',
+  h2_fr: 'Audit, déploiement, mesure.',
+  h2_en: 'Audit, deployment, measurement.',
+  steps: methodSteps,
+} satisfies SectionByType<'method-timeline'>);
+
+if ((d.faq_fr ?? []).length >= 2) {
+  sectionsBeforeProse.push({
+    type: 'faq-accordion',
+    background: 'paper',
+    kicker_fr: '§ Questions fréquentes',
+    kicker_en: '§ FAQ',
+    h2_fr: 'Ce qu\'on nous demande <i>souvent</i>.',
+    h2_en: 'What we\'re <i>often</i> asked.',
+    items: (d.faq_fr ?? []).map((f) => ({
+      q_fr: f.q,
+      q_en: f.q,
+      a_fr: f.a,
+      a_en: f.a,
+    })),
+  } satisfies SectionByType<'faq-accordion'>);
+}
+
+const proseSection: SectionByType<'editorial-prose'> = {
+  type: 'editorial-prose',
+  background: 'paper',
+  maxWidth: 'prose',
+};
+
+// ── CTA final ──
+const sectionsAfterProse: SectionData[] = [
+  {
+    type: 'cta-final',
+    background: 'ink',
+    h2_fr: 'Votre secteur, votre <i>terrain</i>.',
+    h2_en: 'Your industry, your <i>field</i>.',
+    body_fr: "On cadre votre contexte en 45 minutes et on vous dit vite si le terrain est opérable, sans promesse en l'air.",
+    body_en: 'We frame your context in 45 minutes and tell you quickly whether the field is operationally viable, with no empty promises.',
+    cta_primary: {
+      label_fr: d.ctaPrimary_fr,
+      label_en: d.ctaPrimary_en,
+      href: localizeHref('/contact', lang),
+      variant: 'primary',
+    },
+    cta_secondary: {
+      label_fr: 'Tous les cas clients →',
+      label_en: 'All case studies →',
+      href: localizeHref('/cas-clients', lang),
+      variant: 'ghost',
+    },
+  } satisfies SectionByType<'cta-final'>,
+];
+
+// Override total : un MDX qui renseigne `sections:` pilote lui-même tout le rendu.
+const override = Array.isArray(d.sections) && d.sections.length > 0 ? d.sections : null;
 ---
-<SecteurHubTemplate entry={entry} lang="fr" jsonLd={sectorJsonLd}>
-  <Content />
-</SecteurHubTemplate>
+<Base
+  title={`${d.title_fr} · Waimia`}
+  description={d.description_fr}
+  jsonLd={sectorJsonLd}
+  noindex={d.seo?.noindex}
+>
+  <Breadcrumb
+    lang={lang}
+    items={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Secteurs', href: localizeHref('/secteurs', lang) },
+      { label: d.title_fr },
+    ]}
+  />
+
+  {override ? (
+    <SectionsRenderer sections={override} lang={lang} />
+  ) : (
+    <>
+      <SectionsRenderer sections={sectionsBeforeProse} lang={lang} />
+      <EditorialProse data={proseSection} lang={lang}>
+        <Content />
+      </EditorialProse>
+      <SectionsRenderer sections={sectionsAfterProse} lang={lang} />
+    </>
+  )}
+</Base>
