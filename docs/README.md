@@ -26,7 +26,7 @@
 - **Offre cœur = « site web intelligent »** (nom/slug/H1) ; « site web IA » = keyword corps/FAQ.
 - **Pricing = grille 2 000 / 4 000 / 7 000 / 10 000 € + sur-mesure** (plancher 2 000 € HT, audit gratuit). Périme 3 000 € / 7 900 € / « dès 1 500 € ».
 - **Cas & certifs fictifs SUPPRIMÉS** ; cas réels : Balzeo, Amploi (sans métrique inventée), Desangles Peinture, Isabelle Diaz.
-- **Concurrent frontal = Vydera (by Digidop)** ; zone blanche Waimia = le **site-actif possédé par le client** + ancrage Montpellier/PME + prix accessible.
+- **Concurrents frontaux = groupe Digidop, sur deux couches** : **Digidop** (`digidop.com/fr`, agence Webflow premium primée) sur le terrain site / web-agency, et **Vydera** (sa marque sœur spin-off) sur le terrain GEO/AEO opéré. Zone blanche Waimia = le **site-actif possédé par le client** (vs Webflow verrouillé chez Digidop, vs GEO loué chez Vydera) + ancrage Montpellier/PME + prix accessible. Angle d'attaque : leur page `ai-automation` est superficielle (cf `strategy/07-benchmark-digidop.md`).
 
 ---
 

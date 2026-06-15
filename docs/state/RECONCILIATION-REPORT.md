@@ -93,7 +93,11 @@
 3. **Titre pilier `/services/site-web-intelligent`** : H1 conservé (`strategy/03 §7:193`) ; `<title>` = `Création de site web intelligent (IA) pour PME | Waimia` ; meta « dès 2 000 € HT, audit gratuit ». Le title reste une **hypothèse jusqu'à GSC** (boucle de validation 4 à 8 semaines).
 4. **Pricing = grille 2 000 / 4 000 / 7 000 / 10 000 € + sur-mesure** (plancher 2 000 € HT). Périme 3 000 € / 7 900 € / « dès 1 500 € » / 9k à 12k partout (en-tête `state/02:13` inclus, désormais corrigé).
 5. **Cas fictifs ET certifs fictives (ISO / SOC2) SUPPRIMÉS** (validé Simon). Cas réels gardés ou ajoutés : Balzeo, Amploi (sans métrique inventée), Desangles Peinture, Isabelle Diaz (naturopathe).
-6. **Concurrent frontal = Vydera (by Digidop)**, pas Limova / ClaudIn. Vydera occupe « anthropic-first + GEO opéré + agents Claude/MCP + dashboard ». Zone blanche Waimia = le **site-actif possédé par le client** (vs GEO loué chez Vydera, vs Webflow verrouillé chez Digidop) + ancrage Montpellier / PME + prix accessible. À propager : `business/12` + `strategy/07` (addendum daté).
+6. **Concurrents frontaux = groupe Digidop, sur DEUX couches** (pas Limova / ClaudIn), corrigé 2026-06-15 après clarif Simon (« on a aussi digidop.com/fr comme concurrent frontal ») :
+   - **Digidop** (`digidop.com/fr`) = frontal sur le terrain **site / web-agency** : agence Webflow premium primée (Webflow Partner of the Year 2023, Global Leader 2024, +150 clients), autorité forte, mais page `ai-automation` superficielle (IA = service annexe). C'est **notre attaque frontale** (profondeur IA/agents/MCP vs leur surface) — cf `strategy/07-benchmark-digidop.md` (benchmark dédié, tableau Waimia vs DigiDop §l.62-70, attaque §l.98).
+   - **Vydera** = marque sœur spin-off de Digidop, **dédiée GEO/AEO** : occupe « anthropic-first + GEO opéré + agents Claude/MCP + dashboard » (le 7ᵉ item nav Digidop « SEO & GEO » pointe hors-site vers `vydera.com`).
+   - Zone blanche Waimia = le **site-actif possédé par le client** (vs Webflow verrouillé chez Digidop, vs GEO loué chez Vydera) + ancrage Montpellier / PME + prix accessible.
+   - À propager : `business/12` (competitive brief : aujourd'hui 0 mention Digidop/Vydera, GAP à combler en P1) + `strategy/07` (déjà rédigé, untracked, à committer en P1).
 7. **Compteurs réels figés** (table ci-dessus) : stoppe la divergence 58/67/87/123/151/156.
 
 ### Hygiène repo exécutée
