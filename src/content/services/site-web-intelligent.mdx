@@ -8,7 +8,7 @@ publishedAt: 2026-06-13
 category: "acquisition"
 tags: ["site-web-intelligent", "acquisition-ia", "seo-geo"]
 seo:
-  noindex: true # [À CONFIRMER] page DÉMO (cas, avis, prix placeholder). Retirer quand les données réelles seront posées.
+  noindex: false # Indexable : placeholders visuels retirés, chiffres dé-fabriqués (données marché sourcées Semrush/Afnic), prix = paliers d'offre réels. Cohérent avec les autres services indexables.
 
 # faq_fr / faq_en : source canonique FAQPage (JSON-LD via schema-builder.ts, plan state/08 P1.1).
 # Miroir verbatim de la section faq-two-column ci-dessous (toute modif d'une Q/A se répercute aux deux).
@@ -303,10 +303,6 @@ sections:
         meta_fr: "Pilotage & livraison"
         meta_en: "Management & delivery"
 
-  # IMG-GEN · gpt-image-2 · À GÉNÉRER (Simon) · ne pas retirer tant que l'image réelle n'est pas posée
-  # ratio: 16:10 · da_tokens: crème #F6F1E8 · charcoal #0C0B09 · coral #C94F2E · gris #B8B3AD
-  # style: éditorial premium plat, AUCUN cliché IA (cerveau/circuits/néon/3D glossy/stock), palette stricte, libellés mono/serif
-  # prompt: "Maquette de tableau de bord analytique, éditorial plat et sobre, fond crème. Entonnoir de trafic qualifié à gauche, scoring de leads à droite, courbe d'attribution multi-touch en bas. Accents terracotta, texte/lignes charcoal, libellés petites capitales monospace. Données fictives plausibles, pas de logo. Studio B2B premium, aucune brillance 3D, aucun cliché IA. Ratio 16:10."
   - type: "feature-split-media"
     background: "paper-2"
     reversed: false
@@ -325,11 +321,6 @@ sections:
         label_en: "Real-time alerts on traffic and conversion anomalies"
       - label_fr: "Articles et landings générateurs de pipeline identifiés"
         label_en: "Pipeline-generating articles and landings identified"
-    media_src: "/img/placeholder-dashboard-site-web-intelligent.svg"
-    media_alt_fr: "Placeholder de tableau de bord de conversion, à remplacer par l'image générée"
-    media_alt_en: "Conversion dashboard placeholder, to be replaced by the generated image"
-    media_caption_fr: "Dashboard de conversion Waimia · vue trafic qualifié temps réel (placeholder)"
-    media_caption_en: "Waimia conversion dashboard · real-time qualified traffic view (placeholder)"
     cta_label_fr: "Réserver un diagnostic (45 min) →"
     cta_label_en: "Book a diagnostic (45 min) →"
     cta_href: "/contact?offer=site-web-intelligent&intent=discovery"
@@ -380,30 +371,29 @@ sections:
         format_fr: "NOTION + VIDÉO"
         format_en: "NOTION + VIDEO"
 
-  # PLACEHOLDER chiffres cibles : non adosses a un cas reel, substituer par du mesure avant publication.
   - type: "stats-bento"
     background: "ink"
-    kicker_fr: "§ Objectifs cibles"
-    kicker_en: "§ Target objectives"
-    h2_fr: "Les <i>objectifs</i> que vise le système"
-    h2_en: "The <i>objectives</i> the system targets"
+    kicker_fr: "§ Ce que dit le marché"
+    kicker_en: "§ What the market shows"
+    h2_fr: "Pourquoi un site <i>instrumenté</i> change l'équation"
+    h2_en: "Why an <i>instrumented</i> site changes the equation"
     stats:
-      - value: "−40 %"
-        delta: "scoring comportemental"
-        label_fr: "temps de qualification commerciale récupéré"
-        label_en: "inbound qualification time recovered"
-      - value: "8/sem."
-        delta: "pipeline éditorial"
-        label_fr: "articles indexables et cités par les IA"
-        label_en: "articles indexable and cited by AIs"
-      - value: "< 1 min"
-        delta: "capture connectée"
-        label_fr: "formulaires reliés au CRM"
-        label_en: "forms wired to the CRM"
+      - value: "×4,4"
+        delta: "Semrush 2025"
+        label_fr: "le trafic référé par les IA convertit mieux que l'organique classique"
+        label_en: "AI-referred traffic converts better than classic organic"
+      - value: "14,2 %"
+        delta: "Semrush 2025"
+        label_fr: "taux de conversion quand la marque est citée dans une réponse IA, contre 2,8 % en recherche classique"
+        label_en: "conversion rate when the brand is cited in an AI answer, versus 2.8 % in classic search"
+      - value: "61 %"
+        delta: "Afnic 2025"
+        label_fr: "des TPE/PME françaises ne suivent pas leurs performances d'acquisition en ligne"
+        label_en: "of French small businesses do not track their online acquisition performance"
       - value: "100 %"
         delta: "zéro captivité"
-        label_fr: "code, balisage et docs transférés"
-        label_en: "code, markup and docs handed over"
+        label_fr: "code, balisage et docs transférés à la livraison, vous gardez la stack"
+        label_en: "code, markup and docs handed over at delivery, you keep the stack"
 
   - type: "comparison-duo"
     background: "paper-2"
