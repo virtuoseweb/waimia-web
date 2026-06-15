@@ -25,6 +25,14 @@ const REVEAL_SELECTOR = [
   '.reveal-curtain',
   '.reveal-zoom-in',
   '.reveal-blur-clip',
+  // Variantes auparavant gerees par l'observer is:inline de Base.astro,
+  // absorbees ici pour n'avoir qu'un seul observer reveal par page.
+  '.reveal-up',
+  '.scale-in',
+  '.blur-in',
+  '.clip-up',
+  '.hair-draw',
+  '.row-lines',
 ].join(', ');
 
 // Plage inferieure du rootMargin (cf options ci-dessous) : -10 % du viewport.
@@ -42,7 +50,10 @@ let resizeBound = false;
 let resizeRaf = 0;
 
 function reveal(el: Element): void {
-  el.classList.add('is-visible');
+  // Ceinture + bretelles : on ajoute is-visible ET in. Le CSS expose les deux
+  // selecteurs pour chaque variante (.x.is-visible et .x.in), donc l'element
+  // se revele quelle que soit la classe attendue. Idem fallback reduced-motion.
+  el.classList.add('is-visible', 'in');
   revealed.add(el);
   tracked.delete(el);
 }
@@ -125,6 +136,26 @@ export function initScrollReveal(): void {
   document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
     if (!revealed.has(el) && !tracked.has(el)) observe(el);
   });
+  // Filet above-the-fold (ex-fallback de l'observer is:inline de Base.astro) :
+  // si un overlay (ex. BootSplash, z-index eleve) couvre le viewport au chargement,
+  // l'IntersectionObserver peut ne pas tirer pour les elements deja visibles. On
+  // revele apres 1300ms tout element encore masque dont le rect chevauche le viewport.
+  // Garde uniquement quand des observers existent : sous reduced-motion, le fallback
+  // immediat (plus haut) a deja tout revele.
+  if (hasObservers) {
+    window.setTimeout(() => {
+      const vh = window.innerHeight || 0;
+      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+        if (revealed.has(el)) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < vh * 0.95 && rect.bottom > 0) {
+          standardObserver?.unobserve(el);
+          tallObserver?.unobserve(el);
+          reveal(el);
+        }
+      });
+    }, 1300);
+  }
   if (!resizeBound) {
     resizeBound = true;
     window.addEventListener('resize', requestResizeReroute, { passive: true });
