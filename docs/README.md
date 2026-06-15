@@ -26,7 +26,10 @@
 - **Offre cœur = « site web intelligent »** (nom/slug/H1) ; « site web IA » = keyword corps/FAQ.
 - **Pricing = grille 2 000 / 4 000 / 7 000 / 10 000 € + sur-mesure** (plancher 2 000 € HT, audit gratuit). Périme 3 000 € / 7 900 € / « dès 1 500 € ».
 - **Cas & certifs fictifs SUPPRIMÉS** ; cas réels : Balzeo, Amploi (sans métrique inventée), Desangles Peinture, Isabelle Diaz.
-- **Concurrents frontaux = groupe Digidop, sur deux couches** : **Digidop** (`digidop.com/fr`, agence Webflow premium primée) sur le terrain site / web-agency, et **Vydera** (sa marque sœur spin-off) sur le terrain GEO/AEO opéré. Zone blanche Waimia = le **site-actif possédé par le client** (vs Webflow verrouillé chez Digidop, vs GEO loué chez Vydera) + ancrage Montpellier/PME + prix accessible. Angle d'attaque : leur page `ai-automation` est superficielle (cf `strategy/07-benchmark-digidop.md`).
+- **Cartographie concurrentielle sur 2 axes** (aucun concurrent écarté) :
+  - **Axe terrain (site / web-agency)**, cf `strategy/07-benchmark-digidop.md` : **Digidop** (`digidop.com/fr`, agence Webflow premium primée) + **Vydera** (sa marque sœur spin-off GEO/AEO). Concurrent frontal sur la création de site ; angle d'attaque = leur page `ai-automation` superficielle.
+  - **Axe positionnement-prix**, cf `business/12-competitive-brief.md` : **ClaudIn** (`claudin.tech`, « par le haut » : ex-McKinsey/Deloitte, intégrateur Claude Cowork grands comptes) + **Limova** (« par le bas » : SaaS agents préfab 70 à 120 €/mois) + **ia.agency, Juwa, e-declic, web-ia**.
+  - **Zone blanche Waimia** = sur-mesure **accessible**, anthropic-first **pour la PME**, le site = **actif possédé** par le client (vs location d'agents type Limova, vs Webflow verrouillé chez Digidop, vs facture de cabinet type ClaudIn) + ancrage Montpellier/PME.
 
 ---
 

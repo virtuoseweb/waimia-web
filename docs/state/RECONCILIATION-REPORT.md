@@ -93,11 +93,16 @@
 3. **Titre pilier `/services/site-web-intelligent`** : H1 conservé (`strategy/03 §7:193`) ; `<title>` = `Création de site web intelligent (IA) pour PME | Waimia` ; meta « dès 2 000 € HT, audit gratuit ». Le title reste une **hypothèse jusqu'à GSC** (boucle de validation 4 à 8 semaines).
 4. **Pricing = grille 2 000 / 4 000 / 7 000 / 10 000 € + sur-mesure** (plancher 2 000 € HT). Périme 3 000 € / 7 900 € / « dès 1 500 € » / 9k à 12k partout (en-tête `state/02:13` inclus, désormais corrigé).
 5. **Cas fictifs ET certifs fictives (ISO / SOC2) SUPPRIMÉS** (validé Simon). Cas réels gardés ou ajoutés : Balzeo, Amploi (sans métrique inventée), Desangles Peinture, Isabelle Diaz (naturopathe).
-6. **Concurrents frontaux = groupe Digidop, sur DEUX couches** (pas Limova / ClaudIn), corrigé 2026-06-15 après clarif Simon (« on a aussi digidop.com/fr comme concurrent frontal ») :
-   - **Digidop** (`digidop.com/fr`) = frontal sur le terrain **site / web-agency** : agence Webflow premium primée (Webflow Partner of the Year 2023, Global Leader 2024, +150 clients), autorité forte, mais page `ai-automation` superficielle (IA = service annexe). C'est **notre attaque frontale** (profondeur IA/agents/MCP vs leur surface) — cf `strategy/07-benchmark-digidop.md` (benchmark dédié, tableau Waimia vs DigiDop §l.62-70, attaque §l.98).
-   - **Vydera** = marque sœur spin-off de Digidop, **dédiée GEO/AEO** : occupe « anthropic-first + GEO opéré + agents Claude/MCP + dashboard » (le 7ᵉ item nav Digidop « SEO & GEO » pointe hors-site vers `vydera.com`).
-   - Zone blanche Waimia = le **site-actif possédé par le client** (vs Webflow verrouillé chez Digidop, vs GEO loué chez Vydera) + ancrage Montpellier / PME + prix accessible.
-   - À propager : `business/12` (competitive brief : aujourd'hui 0 mention Digidop/Vydera, GAP à combler en P1) + `strategy/07` (déjà rédigé, untracked, à committer en P1).
+6. **Cartographie concurrentielle sur DEUX axes** (corrigé 2026-06-15 après 2 clarifs Simon : « on a aussi digidop.com/fr » puis « on a aussi claudin.tech, et là où il est mentionné y'en avait d'autres »). La formulation initiale « concurrent frontal = Vydera, pas Limova/ClaudIn » était **fausse sur les deux bouts** : elle sous-formulait Digidop ET écartait à tort ClaudIn/Limova qui sont les ancres de `business/12`. Réalité :
+   - **Axe terrain (site / web-agency)** — cf `strategy/07-benchmark-digidop.md` (benchmark dédié, tableau Waimia vs DigiDop §l.62-70, attaque §l.98) :
+     - **Digidop** (`digidop.com/fr`) = frontal sur la création de site : agence Webflow premium primée (Webflow Partner of the Year 2023, Global Leader 2024, +150 clients), autorité forte, mais page `ai-automation` superficielle (IA = service annexe) = **notre attaque frontale** (profondeur IA/agents/MCP vs leur surface).
+     - **Vydera** = marque sœur spin-off de Digidop, dédiée GEO/AEO (le 7ᵉ item nav Digidop « SEO & GEO » pointe hors-site vers `vydera.com`).
+   - **Axe positionnement-prix** — cf `business/12-competitive-brief.md` (déjà rédigé, riche ; NON un gap comme indiqué par erreur d'abord) :
+     - **ClaudIn** (`claudin.tech`) = « par le haut » : « 1er intégrateur Claude Cowork en Europe », équipe ex-McKinsey/Deloitte, grands comptes (juridique/finance/asset management). Gap à prendre : « anthropic-first **mais pour la PME** » (ClaudIn a verrouillé l'angle grand compte → PME orpheline).
+     - **Limova** (`limova.ai`, le `.fr` redirige) = « par le bas » : SaaS d'agents IA préfab TPE/PME, 8 agents packagés, 70 à 120 €/mois, self-service.
+     - + **ia.agency, Juwa, e-declic, web-ia** (généralistes / locaux, dans le brief).
+   - **Zone blanche Waimia** = le quadrant **sur-mesure accessible × spécialisé anthropic-first × PME/local** (vide) : actif possédé (vs location d'agents Limova, vs Webflow verrouillé Digidop, vs facture cabinet ClaudIn), prix d'agence locale, référent Montpellier.
+   - À propager en P1 : croiser l'axe terrain (Digidop/Vydera, `strategy/07` untracked à committer) DANS `business/12` (qui ne couvre aujourd'hui que l'axe prix) → une carte concurrentielle unifiée 2 axes.
 7. **Compteurs réels figés** (table ci-dessus) : stoppe la divergence 58/67/87/123/151/156.
 
 ### Hygiène repo exécutée
