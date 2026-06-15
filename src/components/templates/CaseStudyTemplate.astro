@@ -25,6 +25,7 @@ import StatBlock from '../sections/StatBlock.astro';
 import PullQuoteBlock from '../sections/PullQuoteBlock.astro';
 import TechPillRow from '../ui/molecules/TechPillRow.astro';
 import CtaFinal from '../sections/CtaFinal.astro';
+import RelatedCardsBand from '../sections/RelatedCardsBand.astro';
 import KeyMetric from '../editorial/KeyMetric.astro';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 import type { SectionByType } from '../../schemas/sections';
@@ -293,6 +294,41 @@ const pullQuoteData = hasPullQuote
     } satisfies SectionByType<'pull-quote-block'>)
   : null;
 
+// RELATED → related-cards-band catalogué (remplace la grille inline .case-related-grid).
+// Le composant impose min 2 / max 3 cards ; on ne rend la bande que si ≥ 2 cas connexes.
+const relatedBandData = relatedCards && relatedCards.length >= 2
+  ? ({
+      type: 'related-cards-band',
+      kicker_fr: '§ Autres cas',
+      kicker_en: '§ Other cases',
+      cards: relatedCards.slice(0, 3).map((c) => ({
+        kicker_fr: c.kicker,
+        kicker_en: c.kicker,
+        title_fr: c.title_fr,
+        title_en: c.title_en,
+        lead_fr: c.lead_fr,
+        lead_en: c.lead_en,
+        href: c.href,
+      })),
+    } satisfies SectionByType<'related-cards-band'>)
+  : null;
+
+// Stack lead · dédup (W1) : le lead de la section stack reprenait `impact_fr`, déjà
+// affiché en pull-quote/témoignage juste au-dessus, d'où un doublon. On dérive un lead
+// propre et spécifique à la stack à partir des outils mobilisés. L'ancien slot
+// "stack-lead" (qui portait ce doublon) n'est plus consommé.
+const stackToolNames = techPills.map((p) => p.label);
+const stackLead = {
+  fr:
+    stackToolNames.length > 0
+      ? `Les briques mobilisées sur ce projet : ${stackToolNames.join(', ')}. Chaque choix sert un besoin précis du terrain, pas une mode technique.`
+      : '',
+  en:
+    stackToolNames.length > 0
+      ? `The building blocks used on this project: ${stackToolNames.join(', ')}. Each choice serves a precise field need, not a technical fashion.`
+      : '',
+};
+
 // Husk éliminé : on ne rend la timeline legacy QUE si des steps existent vraiment.
 const hasLegacySteps = steps && steps.length > 0;
 const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('author-card');
@@ -422,7 +458,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     <div class="wrap-wide">
       <Kicker tone="accent" class="case-stack-k">§ 04 · <Bi fr="La stack" en="The stack" /></Kicker>
       <p class="case-stack-lead">
-        <slot name="stack-lead" />
+        <Bi fr={stackLead.fr} en={stackLead.en} />
       </p>
       <TechPillRow pills={techPills} />
     </div>
@@ -451,22 +487,8 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     </section>
   )}
 
-  {/* RELATED */}
-  <section class="case-related reveal-stagger">
-    <div class="wrap-wide">
-      <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Autres cas</Kicker>
-      <div class="case-related-grid">
-        {relatedCards.map((c) => (
-          <a class="related-case-card" href={c.href}>
-            <span class="related-case-kicker">{c.kicker}</span>
-            <h3 class="related-case-title">{lang === 'en' ? c.title_en: c.title_fr}</h3>
-            <p class="related-case-lead">{lang === 'en' ? c.lead_en: c.lead_fr}</p>
-            <span class="related-case-go" aria-hidden>→</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  {/* RELATED → related-cards-band catalogué (source de vérité du markup/CSS) */}
+  {relatedBandData && <RelatedCardsBand data={relatedBandData} lang={lang} />}
 
   <CtaFinal data={ctaData} lang={lang} />
   <slot name="body-end" />
@@ -589,8 +611,6 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     margin: 0 0 var(--space-8);
   }
 
-  .case-related { padding: var(--space-10) var(--space-6); }
-  :global(.case-related-k) { display: block; margin-bottom: var(--space-6); }
   .case-related-offres {
     margin: var(--space-6, 2rem) 0;
     padding: var(--space-4, 1.5rem);
@@ -629,60 +649,9 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   /* Eyebrow · Kicker canonisé (R6) : typo + couleur portées par l'atome
      (tone="accent", letterSpacing 0.12em = ex var(--tracking-mono)) ; ici layout seul.
      :global() requis : le span rendu par l'atome ne porte pas le cid du template. */
-  .case-proof :global(.eyebrow),
-  .case-related :global(.eyebrow) {
+  .case-proof :global(.eyebrow) {
     display: block;
     margin-bottom: var(--space-4);
-  }
-
-  /* Related cases with GSAP target class */
-  .case-related-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--hairline-strong);
-    gap: 0;
-  }
-  .related-case-card {
-    padding: var(--space-7) var(--space-6);
-    border-right: 1px solid var(--hairline);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    color: inherit;
-    text-decoration: none;
-    transition: background 240ms var(--ease);
-  }
-  .related-case-card:last-child { border-right: none; }
-  .related-case-card:hover { background: var(--paper-2); }
-  .related-case-kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--accent-text);
-    letter-spacing: 0.14em;
-  }
-  .related-case-title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    font-weight: var(--fw-medium);
-    margin: var(--space-2) 0 var(--space-1);
-  }
-  .related-case-lead {
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    flex: 1;
-  }
-  .related-case-go {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--accent-text);
-  }
-  @media (max-width: 800px) {
-    .case-related-grid { grid-template-columns: 1fr; }
-    .related-case-card { border-right: none; border-bottom: 1px solid var(--hairline); }
-    .related-case-card:last-child { border-bottom: none; }
   }
 
   @keyframes mask-reveal {

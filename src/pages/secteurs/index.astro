@@ -9,9 +9,20 @@ import { getCollection } from 'astro:content';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 import type { SectionByType } from '../../schemas/sections';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
+import CtaFinal from '../../components/sections/CtaFinal.astro';
 
 const lang = langFromPath(Astro.url.pathname);
 const isFr = lang === 'fr';
+
+// Label de card court dérivé du title_fr/title_en long (qui reste la source SEO du
+// <title>/H1 de la page secteur). On retire le préfixe « Site web et IA pour » et la
+// clause descriptive après « : » → libellé de carte lisible, sans nouveau champ schéma.
+const shortSectorLabel = (full: string): string => {
+  let s = full.split(/\s*:\s*/)[0].trim();
+  s = s.replace(/^Site web et IA pour\s+(?:les?\s+|la\s+|l['’]|des\s+)?/i, '');
+  s = s.replace(/^Website and AI for\s+/i, '');
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
 
 const sectors = (await getCollection('secteurs'))
   .filter((e) => e.data.visible)
@@ -21,12 +32,28 @@ const sectors = (await getCollection('secteurs'))
     const firstPain = isFr ? d.pains_fr[0] : d.pains_en[0];
     return {
       slug: d.slug ?? e.id,
-      title: isFr ? d.title_fr : d.title_en,
+      title: shortSectorLabel(isFr ? d.title_fr : d.title_en),
       icp: isFr ? d.icp_fr : d.icp_en,
       pain: firstPain ? firstPain.title : '',
       href: localizeHref(`/secteurs/${d.slug ?? e.id}`, lang),
     };
   });
+
+const ctaData = {
+  type: 'cta-final' as const,
+  chapter_num: '§',
+  chapter_title_fr: 'Pas votre métier ?',
+  chapter_title_en: 'Not your trade?',
+  h2_fr: '<i>Vous ne voyez pas votre secteur ?</i> On opère sur tous les métiers.',
+  h2_en: "<i>Don't see your industry?</i> We operate across all trades.",
+  cta_primary: {
+    label_fr: 'Parler de votre projet →',
+    label_en: 'Discuss your project →',
+    href: localizeHref('/contact', lang),
+    variant: 'primary' as const,
+  },
+  background: 'ink' as const,
+} satisfies SectionByType<'cta-final'>;
 
 const mastheadData = {
   type: 'hero-hub-masthead' as const,
@@ -62,20 +89,7 @@ const mastheadData = {
     </div>
   </section>
 
-  <section class="sectors-cta reveal">
-    <div class="wrap-wide sectors-cta-inner">
-      <span class="eyebrow">§ {isFr ? 'Pas votre métier ?' : 'Not your trade?'}</span>
-      <h2 class="sectors-cta-h">
-        {isFr
-          ? <><em>Vous ne voyez pas votre secteur ?</em> On opère sur tous les métiers.</>
-          : <><em>Don't see your industry?</em> We operate across all trades.</>
-        }
-      </h2>
-      <a href={localizeHref('/contact', lang)} class="sectors-cta-btn">
-        {isFr ? 'Parler de votre projet →' : 'Discuss your project →'}
-      </a>
-    </div>
-  </section>
+  <CtaFinal data={ctaData} lang={lang} />
 </Base>
 
 <style>
@@ -141,45 +155,6 @@ const mastheadData = {
     transition: transform var(--dur-trim) var(--ease);
   }
   .sector-card:hover .sector-card-cta { transform: translateX(1px); }
-
-  .sectors-cta {
-    padding: var(--space-10) var(--space-6);
-    background: var(--ink);
-    border-top: 1px solid var(--hairline);
-  }
-  .sectors-cta-inner { max-width: 760px; }
-  .eyebrow {
-    display: block;
-    font-family: var(--font-mono, monospace);
-    font-size: var(--text-small);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-mono);
-    color: var(--accent-text);
-    margin-bottom: var(--space-5);
-  }
-  .sectors-cta-h {
-    font-family: var(--font-display);
-    font-size: var(--text-h1);
-    line-height: 1.0;
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
-    color: var(--paper);
-    text-wrap: balance;
-    margin: 0 0 var(--space-7);
-  }
-  .sectors-cta-h em { font-style: italic; color: var(--accent-text); }
-  .sectors-cta-btn {
-    display: inline-block;
-    font-family: var(--font-mono, monospace);
-    font-size: var(--text-small);
-    letter-spacing: 0.06em;
-    padding: 14px 28px;
-    background: var(--accent);
-    color: var(--paper);
-    text-decoration: none;
-    transition: opacity 0.15s;
-  }
-  .sectors-cta-btn:hover { opacity: 0.85; }
 
   @media (max-width: 900px) {
     .sectors-grid { grid-template-columns: 1fr; }
