@@ -329,7 +329,36 @@ Les deux SPA (§9.3) prennent leur forme dédiée. Décisions (Simon) :
 | Trust/Legal | `trust` | ~4 | +16 |
 | About/Team/Gallery/Contact | `about-team` | 8 | +12 |
 
-> **Universalité (à compléter)** : ces 16 catégories couvrent le catalogue actuel (orienté corporate/B2B). Pour un outil de conception UNIVERSEL (tous archétypes : SaaS, e-commerce, portfolio, éditorial/blog, landing, marketplace, vitrine locale, docs/dev-tools, événementiel, ONG, perso, éducation, fintech, média), il faut AJOUTER les catégories manquantes (product feature-tour, pricing tiers/comparison e-commerce, integrations, blog/article body, author bio, changelog/status, media gallery/lookbook, product card-grid, search/filter, map/locations, booking, course curriculum, docs sidebar/TOC…). Énumération universelle = complément `enum-taxonomie` à relancer.
+**Universalité — COMPLÉTÉE 2026-06-15** (énumération `enum-universal-archetypes` sur 24 archétypes web). Les 16 catégories portent un biais B2B (surreprésentation preuve rationnelle : `comparison`/`terminal`/`tables`/`trust`). Trois axes structurels manquants dominent le web grand public : **commerce/transaction**, **média immersif**, **conversion/communauté**. → **24 nouvelles catégories canoniques** (catalogue cible ~40) :
+
+| slug | intention | familles typiques | archétypes |
+|---|---|---|---|
+| `product-grid` | produits/articles achetables ou filtrables (prix, badge) | card-grid, masonry, list, carousel | e-commerce, marketplace, immo, resto, média |
+| `product-detail` | UN produit central : galerie + variantes + add-to-cart | duo (gallery+panel), tabs, accordion | e-commerce, marketplace, immo, SaaS |
+| `media-gallery` | corpus visuel immersif (photos, projets, lookbook) | gallery, masonry, lightbox-grid | portfolio, resto/hôtel, immo, e-commerce, événementiel |
+| `video-spotlight` | mise en avant vidéo (hero vidéo, démo, replay) | band (video-bg), duo, embed-grid | média/podcast, SaaS, événementiel, éducation |
+| `audio-player` | lecture audio inline (épisodes, samples) | list, card-grid, band (player) | média/podcast, éducation, association |
+| `newsletter-signup` | capter un email hors contact, valeur d'abonnement | band, duo, inline-strip | blog, média, e-commerce, SaaS, perso |
+| `lead-form` | formulaire riche (devis, réservation, candidature, démo) | duo (form+contexte), full-band, multi-step | local, immo, santé, recrutement, resto, B2B |
+| `booking-scheduler` | réserver un créneau/table/RDV/billet | duo (calendar+résumé), step-flow, slot-grid | santé, resto/hôtel, local, événementiel, éducation |
+| `map-location` | situer : carte, adresse, zone, points de vente | duo (map+infos), card-grid, full-map | local, resto, immo, événementiel, santé |
+| `category-nav` | parcourir/filtrer un grand inventaire (facettes, tags) | tile-grid, chip-row, sidebar-facets | e-commerce, marketplace, média, éducation, docs |
+| `editorial-feed` | flux d'articles datés (featured + liste + méta) | hero-featured, card-grid, list-rows | blog/news, média, association, perso |
+| `event-schedule` | agenda/sessions/line-up/horaires/dates | timeline-day, agenda-grid, tabbed-days | événementiel, éducation, communauté, resto |
+| `curriculum-syllabus` | parcours d'apprentissage (modules, leçons, durée) | accordion, list, step-track | éducation/LMS, docs, SaaS onboarding |
+| `instructor-profile` | personnes-expertes hors team corporate (profs, hôtes, speakers) | card-grid, duo (portrait+bio) | éducation, événementiel, podcast, communauté |
+| `community-social` | preuve sociale vivante + UGC (feed, compteurs, mur) | wall (masonry), embed-grid, ticker | communauté, SaaS, e-commerce, association |
+| `value-props-icons` | bénéfices courts émotion/usage (≠ `features` capacités) | icon-row, card-trio, band-split | local, e-commerce, association, santé, landing |
+| `gallery-before-after` | transformation avant/après, slider comparatif | slider-compare, duo, pair-grid | santé, local (artisan/beauté), immo, portfolio |
+| `menu-catalog` | offre lisible non-e-commerce (menu resto, carte services) | columns-list, tabbed-categories, price-list | resto/hôtel, local, santé, bien-être |
+| `donation-support` | soutien financier non-produit (don, paliers, crowdfunding) | tier-cards, progress-band, duo | association/ONG, créateur, communauté |
+| `download-app` | pousser une app (store badges, QR, mockup device) | duo (mockup+badges), band, device-frame | SaaS, fintech, santé, événementiel, média |
+| `partners-sponsors` | partenaires/sponsors avec tiers (≠ `logos` plat) | tier-rows, grouped-grid, band | événementiel, association, communauté, fintech |
+| `interactive-demo` | essayer : playground, configurateur, calculateur, quiz | duo (controls+preview), tabbed, embed-canvas | SaaS, dev-tools, fintech, éducation, e-commerce |
+| `lookbook-story` | narration scroll-driven (storytelling visuel) | full-bleed-band, pinned-scroll, alternating-media | portfolio, e-commerce mode/luxe, média |
+| `support-help` | orienter vers l'aide (centre d'aide, multi-canal, statut) | card-grid (channels), search-band, list | SaaS, dev-tools, fintech, e-commerce, santé |
+
+**Arbitrages de dédup à surveiller (notes `enum-universal`)** : (1) `product-grid` ↔ `index-listing` (frontière n°1 : distinct retenu car sémantique commerciale prix/stock/urgence ≠ navigation) ; (2) `partners-sponsors` ↔ `logos` (fusionner si pas de hiérarchie de tiers réelle) ; (3) `newsletter-signup`/`lead-form`/`booking-scheduler` partagent « form+valeur » mais mécaniques de saisie distinctes (1 champ / N champs / créneau) ; (4) `media-gallery`/`video-spotlight`/`lookbook-story` : `lookbook-story` est peut-être un **mode de composition** (template) plutôt qu'une catégorie atomique, à trancher selon le système de scroll-reveal ; (5) `map-location`/`audio-player`/`support-help`/`interactive-demo` à la frontière section/widget (garder comme sections avec famille « encart compact »).
 
 ### 12.4 Protocole de travail des agents (fan-out Phase 1)
 - **1 agent Opus/catégorie**, worktree isolé. Brief = harnais (squelettes + `sectionBaseSchema` + vocab layout + recette + préambule arsenal) + intention de la catégorie + cible (≥5 familles, ≥5 variantes/déclinaisons, ≥20 posables) + familles trans-catégorie à RÉUTILISER.
