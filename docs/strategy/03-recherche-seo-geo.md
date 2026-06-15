@@ -208,6 +208,15 @@ page séparée — `strategy/02 §0bis`) :
 - **High** : Intelligence 10 000 € (+ dashboard + agents + automatisations) → Growth System IA / agents à l'usage (MRR) / **Sur mesure** (devis ETI).
 Montée par **révélation** (porte d'entrée tangible → audit horizontal des process → agents sur d'autres départements) — cohérent GTM 3-temps.
 
+### GEO d'ENTITÉ — le levier n°1 à AUTORITÉ ZÉRO (benchmark DigiDop, `strategy/07`)
+Les citations LLM dépendent **moins** de l'autorité de domaine que de l'entité + les mentions — c'est notre fenêtre la plus rapide (AI Overview Google inactif FR → assistants directs). Par ROI/vitesse :
+1. **Page entité « À propos » non-ambiguë** + Schema `Organization` avec **`sameAs`** → LinkedIn société, LinkedIn Simon, Crunchbase, profils vérifiés (le `sameAs` fait **emprunter** leur autorité).
+2. **Saturer 4 profils d'entité** (LinkedIn société + dirigeant, X, Crunchbase) avec faits identiques → corrélé à **+3× de citations** ; cohérence NAP/naming parfaite partout.
+3. **Mentions tierces** = 1er prédicteur de citation ChatGPT (puise dans le top 10 Bing) ; **Reddit ≈ 46,7 % des citations Perplexity** → présence FR ciblée, valeur d'abord.
+4. **FAQ-AEO sur CHAQUE page** : 6-8 Q&A longues, chiffrées (prix/délais/objections), schema `FAQPage` — pattern le mieux fait par DigiDop, indépendant de l'autorité.
+5. **OG image + meta-description UNIQUES par page** (preuve + CTA) — easy win que DigiDop rate.
+> Détail + sources : `strategy/07-benchmark-digidop.md`.
+
 ### Ton & forme (cabinet IA, pas agence web)
 Praticien + ingénieur + conseil. **Mener par le système et le résultat, jamais par « un site ».** Preuve avant promesse (cas réels, chiffres honnêtes, « ROI mesuré, jamais estimé »). Vocabulaire : orchestration · système · agents en production · vos process · transformation. Bannir en accroche : « agence web », « création de sites », jargon vide. Signature manifeste maintenue (« X. Pas Y. », « vous » + douleur chiffrée, fragments secs).
 
