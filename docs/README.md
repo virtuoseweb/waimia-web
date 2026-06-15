@@ -22,8 +22,9 @@ Ordre de lecture :
 1. **`strategy/01-silo-site-web-ia.md`** — la stratégie (Cheval de Troie, pourquoi ce silo).
 2. **`strategy/02-site-etat-final.md`** — **spec d'état final** : whitelist des pages
    qui survivent + tout le reste supprimé + ordre des sections. **Doc maître d'exécution.**
-3. **`archive/50-SILO-RUNBOOK-EXECUTION.md`** — détail du maillage silo + batchs techniques.
-4. **`state/01-chantiers.md`** — état réel du projet, pending, pièges.
+3. **`strategy/03-case-study-sector-system.md`** : blueprint système case study + hubs sectoriels (taxonomie 6 secteurs, template `/cas` conversion/GEO, double-label, données marché sourcées). Chantier #18.
+4. **`archive/50-SILO-RUNBOOK-EXECUTION.md`** — détail du maillage silo + batchs techniques.
+5. **`state/01-chantiers.md`** — état réel du projet, pending, pièges.
 
 ### 🧱 Mission Design System (secondaire)
 1. `design-system/01-contrat.md` — le contrat figé.
