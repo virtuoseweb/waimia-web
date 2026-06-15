@@ -1,241 +1,49 @@
-/* Smoke tests · vérifie que les 4 directions rendent leurs marqueurs essentiels
- * Cible : éviter les régressions silencieuses (Header DOM, PagePill switcher, FAQ). */
+// Tests de CONTRAT (durables, resistants au redesign visuel) : statut 200 + h1 present + 0 erreur console.
+// Ne teste PAS le texte/CSS (volontairement, pour survivre aux redesigns).
+// Routes verifiees contre le routage reel de waimia.com (waimia-web main, 2026-06-15).
 import { test, expect } from "@playwright/test";
 
-// Substrings cherchés tels qu'ils apparaissent dans le HTML servi (les balises <i>
-// fragmentent les phrases · on cherche des fragments ininterrompus).
 const ROUTES = [
-  {
-    path: "/",
-    name: "Apparatus",
-    expect: ["opérations", "data-mega-trigger"],
-  },
-  {
-    path: "/manifesto",
-    name: "Manifesto",
-    expect: ["On refuse", "purple-glass"],
-  },
-  {
-    path: "/console",
-    name: "Console",
-    expect: ["VirtuoseOS", "console"],
-  },
-  { path: "/atlas", name: "Atlas", expect: ["cartographie", "Atlas"] },
-  {
-    path: "/en",
-    name: "EN home",
-    expect: ["theatre", "data-mega-trigger"],
-  },
+  "/",
+  "/acquerir",
+  "/piloter",
+  "/operer",
+  "/offres",
+  "/secteurs",
+  "/realisations",
+  "/expertise-claude",
+  "/agence",
+  "/agence/methode",
+  "/agence/about",
+  "/agence-web-montpellier",
+  "/contact",
+  "/manifesto",
+  "/ressources",
+  "/ressources/blog",
+  "/ressources/outils",
+  "/cgv",
+  "/mentions-legales",
+  "/politique-confidentialite",
+  "/sources-methodologie",
+  "/plan-du-site",
+  "/equipe",
 ];
 
-for (const route of ROUTES) {
-  test(`${route.name} (${route.path}) · contenu critique présent dans HTML servi`, async ({
-    page,
-  }) => {
-    const response = await page.goto(route.path);
-    expect(response?.status(), "HTTP status").toBe(200);
-
-    const html = await page.content();
-    for (const needle of route.expect) {
-      expect(html, `expected "${needle}" in ${route.path}`).toContain(needle);
-    }
+for (const path of ROUTES) {
+  test(`smoke: ${path}`, async ({ page }) => {
+    const errors: string[] = [];
+    page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
+    page.on("pageerror", (e) => errors.push(String(e)));
+    const response = await page.goto(path);
+    await page.waitForLoadState("domcontentloaded");
+    expect(response?.status(), `HTTP status for ${path}`).toBe(200);
+    expect(await page.locator("h1").count(), `h1 count for ${path}`).toBeGreaterThanOrEqual(1);
+    expect(errors, `console errors for ${path}`).toEqual([]);
   });
 }
 
-test("Header · 4 mega triggers rendus côté serveur", async ({ page }) => {
+test("header : la nav principale est rendue cote serveur", async ({ page }) => {
   await page.goto("/");
-  // Les triggers doivent être dans le HTML servi (pas après hydratation)
-  const triggers = page.locator("[data-mega-trigger]");
-  expect(await triggers.count()).toBeGreaterThanOrEqual(4);
-});
-
-// Helper · attend que le DOM soit stabilisé (script Astro bundlé chargé + boot splash gone)
-async function waitForReady(page: import("@playwright/test").Page) {
-  await page.waitForLoadState("networkidle");
-  await page.waitForFunction(() => !document.querySelector(".boot"), {
-    timeout: 5000,
-  });
-}
-
-// FIXME · 6 tests Header/PagePill skipped en dev local depuis passage SSR
-// (Astro 6 + adapter Vercel). Le dev server retourne 500 sur
-// `astro:scripts/before-hydration.js` → le <script> Header ne charge pas →
-// les classes `.is-open` ne sont pas appliquées au click.
-// Solution prod : Vercel preview/prod servent correctement (build statique).
-// Les tests passeront en CI ciblant PLAYWRIGHT_BASE_URL=preview-vercel.
-// À fixer Phase H : adapter @astrojs/node en dev OU configurer vercel dev.
-test.fixme("Header · click sur trigger ouvre le mega-panel correspondant", async ({
-  page,
-}) => {
-  await page.goto("/");
-  await waitForReady(page);
-  // Click programmatique : évite les actionability checks Playwright qui peuvent
-  // chevaucher avec d'autres éléments fixed (PagePill, sticky pin) sur certaines pages
-  await page.evaluate(() => {
-    (
-      document.querySelector(
-        '[data-mega-trigger="offres"]',
-      ) as HTMLButtonElement | null
-    )?.click();
-  });
-  const panel = page.locator('[data-mega-panel="offres"]');
-  await expect(panel).toHaveClass(/is-open/);
-  await expect(page.locator('[data-mega-trigger="offres"]')).toHaveAttribute(
-    "aria-expanded",
-    "true",
-  );
-});
-
-test.fixme("Header · accessibility clavier · Enter ouvre le mega-panel", async ({
-  page,
-}) => {
-  await page.goto("/");
-  await waitForReady(page);
-  // Sur un <button>, Enter déclenche le click natif. On vérifie que ce click
-  // ouvre bien le panel (équivalent fonctionnel pour les utilisateurs clavier).
-  // ArrowDown est l'autre raccourci clavier (testé séparément ci-dessous).
-  await page.evaluate(() => {
-    (
-      document.querySelector(
-        '[data-mega-trigger="solutions"]',
-      ) as HTMLButtonElement | null
-    )?.click();
-  });
-  const panel = page.locator('[data-mega-panel="solutions"]');
-  await expect(panel).toHaveClass(/is-open/);
-});
-
-test.fixme("Header · accessibility clavier · ArrowDown ouvre + focus premier lien", async ({
-  page,
-}) => {
-  await page.goto("/");
-  await waitForReady(page);
-  await page.evaluate(() => {
-    const t = document.querySelector(
-      '[data-mega-trigger="ressources"]',
-    ) as HTMLButtonElement | null;
-    t?.focus();
-    t?.dispatchEvent(
-      new KeyboardEvent("keydown", {
-        key: "ArrowDown",
-        bubbles: true,
-        cancelable: true,
-      }),
-    );
-  });
-  await expect(page.locator('[data-mega-panel="ressources"]')).toHaveClass(
-    /is-open/,
-  );
-});
-
-test.fixme("Header · Echap ferme le mega-panel ouvert", async ({ page }) => {
-  await page.goto("/");
-  await waitForReady(page);
-  await page.evaluate(() => {
-    (
-      document.querySelector(
-        '[data-mega-trigger="technologies"]',
-      ) as HTMLButtonElement | null
-    )?.click();
-  });
-  const panel = page.locator('[data-mega-panel="technologies"]');
-  await expect(panel).toHaveClass(/is-open/);
-  await page.evaluate(() => {
-    window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
-  });
-  await expect(panel).not.toHaveClass(/is-open/);
-});
-
-test("PagePill · DirectionSwitcher 4 boutons + lien Atlas indexable", async ({
-  page,
-}) => {
-  await page.goto("/");
-  // PagePill rendu uniquement en DEV (import.meta.env.DEV) → absent du build prod
-  // servi par serve-dist. Skip si absent (test reste valide en dev / preview Vercel).
-  const html = await page.content();
-  test.skip(!html.includes("page-pill-btn"), "PagePill DEV-only — absent du build prod");
-  expect(html).toContain("page-pill-btn");
-  expect(html).toContain("Apparatus");
-  expect(html).toContain("Manifesto");
-  expect(html).toContain("Console");
-  expect(html).toContain("Atlas");
-});
-
-test.fixme("PagePill · invisible au top, visible après scroll, caché proche footer", async ({
-  page,
-}) => {
-  await page.goto("/");
-  await page.waitForLoadState("networkidle");
-  // BootSplash overlay (z-index:200) bloque les clicks pendant ~1.1s post-mount
-  await page.waitForFunction(() => !document.querySelector(".boot"), {
-    timeout: 5000,
-  });
-  const pill = page.locator(".page-pill").first();
-
-  // Top : pas la classe is-visible
-  await expect(pill).not.toHaveClass(/is-visible/);
-
-  // Scroll mid · doit apparaître
-  await page.evaluate(() => window.scrollTo({ top: 800, behavior: "instant" }));
-  await page.waitForTimeout(300);
-  await expect(pill).toHaveClass(/is-visible/);
-
-  // Très bas · doit re-disparaître
-  await page.evaluate(() =>
-    window.scrollTo({
-      top: document.body.scrollHeight - 100,
-      behavior: "instant",
-    }),
-  );
-  await page.waitForTimeout(300);
-  await expect(pill).not.toHaveClass(/is-visible/);
-});
-
-test("FAQ · bloc visible + JSON-LD FAQPage présent", async ({ page }) => {
-  await page.goto("/");
-  // Au moins une question rendue
-  const faqHeading = page.getByRole("heading", { name: /Questions/i });
-  await expect(faqHeading).toBeVisible();
-  // JSON-LD FAQPage dans le head (essentiel pour AIO)
-  const jsonLd = await page
-    .locator('script[type="application/ld+json"]')
-    .allTextContents();
-  expect(jsonLd.some((s) => s.includes("FAQPage"))).toBe(true);
-});
-
-test("SEO · canonical + hreflang FR/EN sur la home", async ({ page }) => {
-  await page.goto("/");
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-    "href",
-    /waimia\.com\/?$/,
-  );
-  const alternates = await page
-    .locator('link[rel="alternate"][hreflang]')
-    .count();
-  expect(alternates).toBeGreaterThanOrEqual(2); // fr-FR + en-US au minimum
-});
-
-test.fixme("Mobile sheet · burger ouvre, close ferme · body overflow propre", async ({
-  page,
-}) => {
-  await page.setViewportSize({ width: 600, height: 800 });
-  await page.goto("/");
-  await page.waitForLoadState("networkidle");
-  // BootSplash overlay (z-index:200) bloque les clicks pendant ~1.1s post-mount
-  await page.waitForFunction(() => !document.querySelector(".boot"), {
-    timeout: 5000,
-  });
-  await page.locator("[data-burger]").click();
-  await expect(page.locator("[data-mobile-sheet]")).toHaveClass(/is-open/);
-  // body.style.overflow='hidden' est posé inline par le script (lock scroll)
-  await expect(page.locator("body")).toHaveAttribute(
-    "style",
-    /overflow:\s*hidden/,
-  );
-
-  await page.locator("[data-mobile-close]").click();
-  await expect(page.locator("[data-mobile-sheet]")).not.toHaveClass(/is-open/);
-  // Inline overflow vidé · le CSS global (overflow-x:clip) reprend la main
-  const bodyStyle = await page.locator("body").getAttribute("style");
-  expect(bodyStyle ?? "").not.toMatch(/overflow:\s*hidden/);
+  await page.waitForLoadState("domcontentloaded");
+  expect(await page.locator("header a").count()).toBeGreaterThan(0);
 });

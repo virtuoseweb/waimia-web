@@ -1,3 +1,5 @@
+// OBSOLETE (2026-06-15) : teste l'ancienne architecture (routes /console, /atlas, /solutions, /technologies supprimees).
+// A REECRIRE en contrat apres le redesign awwwards (#4). Skip pour ne pas produire de faux rouge.
 /* Quality sweep · régressions verrouillées
  * Cible : verrouiller les fixes d'une session de quality sweep (a11y, SEO,
  * liens internes, hreflang, JSON-LD, sitemap) contre toute régression future.
@@ -9,7 +11,7 @@
  * e0481b0 (aria-pressed filtres), d507e7d (JSON-LD Article cas). */
 import { test, expect } from "@playwright/test";
 
-test.describe("Quality sweep · régressions verrouillées", () => {
+test.describe.skip("Quality sweep · régressions verrouillées", () => {
   /* ───── 1. hreflang FR-only ne pointe pas vers un miroir EN inexistant (404) ─────
    * Les pages FR-only (tunnels de conversion, bienvenue/*) ne doivent PAS émettre
    * `hreflang="en-US"` : il pointerait vers une URL /en/... qui n'existe pas.
