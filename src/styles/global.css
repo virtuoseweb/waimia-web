@@ -476,7 +476,7 @@ a:not([class]):hover,
     color var(--dur-hover) var(--ease);
 }
 .hdr-nav-trigger .caret {
-  font-size: 8px;
+  font-size: var(--text-micro);
   transition: transform var(--dur-hover) var(--ease);
   display: inline-block;
   opacity: 0.55;
@@ -710,7 +710,7 @@ a:not([class]):hover,
   gap: var(--space-2);
 }
 .mega-col[data-need] .mega-col-hd .t {
-  font-size: 34px;
+  font-size: var(--text-title-lg);
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -780,7 +780,7 @@ a:not([class]):hover,
 }
 .mega-featured .ttl {
   font-family: var(--font-sans);
-  font-size: 38px;
+  font-size: var(--text-title-lg);
   line-height: 1;
   letter-spacing: -0.018em;
   color: var(--ink);
@@ -988,7 +988,7 @@ a:not([class]):hover,
 .m-sheet-acc-col .t {
   font-family: var(--font-sans);
   font-weight: var(--fw-medium);
-  font-size: 20px;
+  font-size: var(--text-h3);
   letter-spacing: -0.008em;
   margin-bottom: 10px;
 }
@@ -1007,7 +1007,7 @@ a:not([class]):hover,
 }
 /* Hiérarchie « par besoin » · dégradé mobile (titre + but + citation) */
 .m-sheet-acc-col[data-need] .t {
-  font-size: 26px;
+  font-size: var(--text-h3);
   margin-bottom: var(--space-1);
 }
 .m-sheet-acc-col .g {
@@ -1114,7 +1114,7 @@ a:not([class]):hover,
 .marquee .sep {
   color: var(--muted);
   padding: 0 var(--space-1);
-  font-size: 22px;
+  font-size: var(--text-glyph);
   font-style: normal;
 }
 @keyframes slide {
