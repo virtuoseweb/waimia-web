@@ -5,6 +5,7 @@
 // footer déjà définis. Le miroir EN vit sous /en/plan-du-site.astro.
 export const prerender = true;
 
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import {
   MM_SOLUTIONS,
@@ -17,6 +18,7 @@ import {
   type MegaMenu,
   type BiText,
 } from '../data/sitemap';
+import { isLegacyRoutedType } from '../lib/blog-routing';
 import { langFromPath, t, localizeHref } from '../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -72,8 +74,98 @@ const footerGroups: PlanGroup[] = FOOTER_COLS.map((col) => ({
   links: cleanLinks(col.items.map((i) => ({ href: i.href, label: i.label }))),
 }));
 
+// ─── Index exhaustif : pages individuelles générées par les collections ───
+// La navigation curée ne liste que les hubs (/cas-clients, /ressources/blog, …).
+// Ces groupes ajoutent CHAQUE page réelle des collections, dérivées avec la MÊME
+// route + le MÊME filtre que les getStaticPaths correspondants (single source of
+// truth : src/pages/<collection>/[...slug].astro). Aucun href inventé.
+const dedup = new Set<string>();
+for (const s of navSections) for (const g of s.groups) for (const l of g.links) dedup.add(l.href);
+for (const g of footerGroups) for (const l of g.links) dedup.add(l.href);
+dedup.add('/plan-du-site');
+
+// Retire de la liste les pages déjà présentes dans la nav/footer (anti-doublon global),
+// en plus du nettoyage standard (cleanLinks) appliqué en amont.
+function uniqueAgainstNav(links: PlanLink[]): PlanLink[] {
+  const out: PlanLink[] = [];
+  for (const l of cleanLinks(links)) {
+    if (dedup.has(l.href)) continue;
+    dedup.add(l.href);
+    out.push(l);
+  }
+  return out;
+}
+
+const sortFr = (a: PlanLink, b: PlanLink) => t(a.label, 'fr').localeCompare(t(b.label, 'fr'), 'fr');
+
+// cases → /cas-clients/<entry.id> · filtre !seo.noindex (cf cas-clients/[...slug].astro)
+const allCases = (await getCollection('cases'))
+  .filter((e) => !e.data.seo?.noindex)
+  .map((e) => ({ href: `/cas-clients/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
+
+// secteurs → /secteurs/<slug ?? id> · filtre visible (cf secteurs/[...slug].astro)
+const allSecteurs = (await getCollection('secteurs'))
+  .filter((e) => e.data.visible)
+  .map((e) => {
+    const slug = e.data.slug ?? e.id;
+    const name = slug.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+    return { href: `/secteurs/${slug}`, label: { fr: name, en: name } };
+  });
+
+// blog → /ressources/blog/<entry.id> · filtre !seo.noindex && !legacyRoutedType (cf blog/[...slug].astro)
+const allBlog = (await getCollection('blog'))
+  .filter((e) => !e.data.seo?.noindex && !isLegacyRoutedType(e))
+  .map((e) => ({ href: `/ressources/blog/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
+
+// outils → /ressources/outils/<entry.id> · filtre !seo.noindex (cf outils/[...slug].astro)
+const allOutils = (await getCollection('outils'))
+  .filter((e) => !e.data.seo?.noindex)
+  .map((e) => ({ href: `/ressources/outils/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
+
+// services → /services/<entry.id> · pas de filtre (cf services/[...slug].astro mappe tout)
+const allServices = (await getCollection('services'))
+  .map((e) => ({ href: `/services/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
+
+// offres → /offres/<entry.id> · pas de filtre (cf offres/[...slug].astro mappe tout)
+const allOffres = (await getCollection('offres'))
+  .map((e) => ({ href: `/offres/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
+
+// authors → /equipe/<entry.id> · filtre !seo.noindex (cf equipe/[...slug].astro)
+const allAuthors = (await getCollection('authors'))
+  .filter((e) => !e.data.seo?.noindex)
+  .map((e) => ({ href: `/equipe/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
+
+// Hubs/index publics indexables omis par les méga-menus, classés par univers.
+const homePage: PlanLink = { href: '/', label: { fr: 'Accueil', en: 'Home' } };
+const secteursIndex: PlanLink = { href: '/secteurs', label: { fr: 'Tous les secteurs', en: 'All sectors' } };
+const teamPages: PlanLink[] = [
+  { href: '/equipe', label: { fr: "L'équipe", en: 'The team' } },
+  { href: '/sources-methodologie', label: { fr: 'Sources & méthodologie', en: 'Sources & methodology' } },
+];
+
+const indexSection: PlanSection = {
+  title: { fr: 'Toutes les pages', en: 'All pages' },
+  href: '/plan-du-site',
+  lead: {
+    fr: 'Chaque page publique du site, au-delà des entrées de navigation : cas clients, secteurs, articles et outils.',
+    en: 'Every public page on the site, beyond the navigation entries: case studies, sectors, articles and tools.',
+  },
+  groups: [
+    { heading: { fr: 'Cas clients', en: 'Case studies' }, links: uniqueAgainstNav(allCases).sort(sortFr) },
+    { heading: { fr: 'Secteurs', en: 'Sectors' }, links: uniqueAgainstNav([secteursIndex, ...allSecteurs]).sort(sortFr) },
+    { heading: { fr: 'Articles & ressources', en: 'Articles & resources' }, links: uniqueAgainstNav(allBlog).sort(sortFr) },
+    { heading: { fr: 'Outils', en: 'Tools' }, links: uniqueAgainstNav(allOutils).sort(sortFr) },
+    { heading: { fr: 'Services & offres', en: 'Services & offers' }, links: uniqueAgainstNav([...allServices, ...allOffres]).sort(sortFr) },
+    { heading: { fr: 'Agence & équipe', en: 'Agency & team' }, links: uniqueAgainstNav([homePage, ...allAuthors, ...teamPages]).sort(sortFr) },
+  ].filter((g) => g.links.length > 0),
+};
+
+const allSections: PlanSection[] = indexSection.groups.length > 0
+  ? [...navSections, indexSection]
+  : navSections;
+
 const totalLinks =
-  navSections.reduce((n, s) => n + s.groups.reduce((m, g) => m + g.links.length, 0), 0) +
+  allSections.reduce((n, s) => n + s.groups.reduce((m, g) => m + g.links.length, 0), 0) +
   footerGroups.reduce((m, g) => m + g.links.length, 0);
 
 const title = lang === 'fr'
@@ -109,7 +201,7 @@ const linkCountLabel = lang === 'fr'
   </section>
 
   <nav class="wrap planmap" aria-label={lang === 'fr' ? 'Plan du site' : 'Site map'} style="padding-bottom:var(--section-loose)">
-    {navSections.map((section) => (
+    {allSections.map((section) => (
       <section class="planmap-section hline" style="padding-top:var(--space-8);padding-bottom:var(--space-4)">
         <div class="planmap-head">
           <h2 style="font-size:var(--text-h2);color:var(--ink);margin:0">
