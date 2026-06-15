@@ -1,0 +1,43 @@
+---
+// Section · agentic-terminal : IDE mockup avec écriture live du bloc de code.
+// Wrapper catalogue. L'island AgenticTerminal.tsx embarque DEFAULT_COPY ;
+// les champs du schema (déjà résolus dans la langue active) la surchargent via `copy`.
+import type { SectionByType } from '../../schemas/sections';
+import AgenticTerminal from '../motion/AgenticTerminal.tsx';
+
+interface Props { data: SectionByType<'agentic-terminal'>; lang: 'fr' | 'en'; }
+const { data, lang } = Astro.props;
+
+// Résout les champs bilingues vers la langue active → copy mono-langue pour l'island.
+const copy = {
+  badge: lang === 'en' ? data.badge_en : data.badge_fr,
+  titlePart1: lang === 'en' ? data.title_part1_en : data.title_part1_fr,
+  titleHighlight: lang === 'en' ? data.title_highlight_en : data.title_highlight_fr,
+  description: lang === 'en' ? data.description_en : data.description_fr,
+  filename: data.filename,
+  folders: data.folders,
+  files: data.files,
+  promptLabel: lang === 'en' ? data.prompt_label_en : data.prompt_label_fr,
+  promptText: lang === 'en' ? data.prompt_text_en : data.prompt_text_fr,
+  lines: (lang === 'en' ? data.lines_en : data.lines_fr).map((l) => ({ kind: l.kind, text: l.text })),
+  successMsg: lang === 'en' ? data.success_msg_en : data.success_msg_fr,
+  footer: {
+    status: lang === 'en' ? data.footer_status_en : data.footer_status_fr,
+    framework: data.footer_framework,
+    memory: data.footer_memory,
+  },
+  badges: (lang === 'en' ? data.badges_en : data.badges_fr).map((b) => ({ label: b })),
+};
+---
+<section class="agentic-terminal">
+  <AgenticTerminal client:visible lang={lang} copy={copy} />
+</section>
+
+<style>
+  .agentic-terminal {
+    position: relative;
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: var(--section-base);
+  }
+</style>

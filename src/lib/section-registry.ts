@@ -114,6 +114,7 @@ import CaseSplit from '../components/sections/CaseSplit.astro';
 import TerminalTableSection from '../components/sections/TerminalTableSection.astro';
 import EditorialWriteFeed from '../components/sections/EditorialWriteFeed.astro';
 import ProductReel from '../components/sections/ProductReel.astro';
+import AgenticTerminal from '../components/sections/AgenticTerminal.astro';
 import ManifestoStatement from '../components/sections/ManifestoStatement.astro';
 import ManifestoAct from '../components/sections/ManifestoAct.astro';
 // >>> [gen-hero-feature] start
@@ -1494,6 +1495,16 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Reel produit scroll-driven : étapes à gauche pilotées au scroll, console terminal à droite dont le contenu change par écran. Viewport sticky.',
     description_en: 'Scroll-driven product reel: steps on the left driven by scroll, terminal console on the right whose content changes per screen. Sticky viewport.',
+  },
+  'agentic-terminal': {
+    component: AgenticTerminal,
+    category: 'marketing',
+    subcategory: 'Terminal Sections',
+    categorySlug: 'terminal-sections',
+    tags: ['terminal', 'ide', 'agentic', 'typing', 'live', 'cli', 'code', 'animated'],
+    status: 'stable',
+    description_fr: "Mockup IDE agentique : fenêtre macOS, explorateur de fichiers, prompt utilisateur et bloc de code qui s'écrit en direct caractère par caractère, puis message de succès, footer stats et badges. Fond encre, accent terracotta.",
+    description_en: 'Agentic IDE mockup: macOS window, file explorer, user prompt and a code block typed live character by character, then a success message, footer stats and badges. Ink background, terracotta accent.',
   },
   'manifesto-statement': {
     component: ManifestoStatement,

@@ -2413,6 +2413,45 @@ export const productReelSchema = z.object({
   type: z.literal('product-reel'),
 });
 
+// §Terminal Sections · agentic-terminal : IDE mockup (fenêtre macOS + explorateur +
+// prompt + bloc de code tapé LIVE caractère par caractère + succès + footer + badges).
+// Source virtuoseOS retokenisée DS waimia. Animation gérée par AgenticTerminal.tsx.
+const agenticLineSchema = z.object({
+  kind: z.enum(['cmd', 'out', 'ok', 'comment']),
+  text: z.string(),
+});
+export const agenticTerminalSchema = z.object({
+  type: z.literal('agentic-terminal'),
+  badge_fr: z.string(),
+  badge_en: z.string(),
+  title_part1_fr: z.string(),
+  title_part1_en: z.string(),
+  title_highlight_fr: z.string(),
+  title_highlight_en: z.string(),
+  description_fr: z.string().optional(),
+  description_en: z.string().optional(),
+  filename: z.string(),
+  folders: z.array(z.string()).max(8).default([]),
+  files: z
+    .array(z.object({ name: z.string(), type: z.string() }))
+    .max(12)
+    .default([]),
+  prompt_label_fr: z.string(),
+  prompt_label_en: z.string(),
+  prompt_text_fr: z.string(),
+  prompt_text_en: z.string(),
+  lines_fr: z.array(agenticLineSchema).min(1).max(20),
+  lines_en: z.array(agenticLineSchema).min(1).max(20),
+  success_msg_fr: z.string(),
+  success_msg_en: z.string(),
+  footer_status_fr: z.string(),
+  footer_status_en: z.string(),
+  footer_framework: z.string(),
+  footer_memory: z.string(),
+  badges_fr: z.array(z.string()).max(6).default([]),
+  badges_en: z.array(z.string()).max(6).default([]),
+});
+
 export const manifestoStatementSchema = z.object({
   type: z.literal('manifesto-statement'),
   kicker_fr: z.string(),
@@ -3541,6 +3580,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   terminalTableSectionSchema,
   editorialWriteFeedSchema,
   productReelSchema,
+  agenticTerminalSchema,
   manifestoStatementSchema,
   manifestoActSchema,
   asymmetricServicesSchema,

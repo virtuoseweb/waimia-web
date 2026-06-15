@@ -223,6 +223,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'terminal-table',            consumers: [] },
   { id: 'editorial-write-feed',      consumers: [] },
   { id: 'product-reel',              consumers: [] }, // catalogue-only : ProductReel.tsx scroll-driven préservé
+  { id: 'agentic-terminal',          consumers: [] }, // catalogue-only : AgenticTerminal.tsx IDE live-typing
   { id: 'manifesto-statement',       consumers: [] },
   { id: 'manifesto-act',             consumers: [] },
   { id: 'asymmetric-services',       consumers: [] },
