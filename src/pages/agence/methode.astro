@@ -8,6 +8,7 @@ import Timeline from '../../components/editorial/Timeline.astro';
 import MetricCalloutBand from '../../components/sections/MetricCalloutBand.astro';
 import SpecBar from '../../components/sections/SpecBar.astro';
 import { getProofPoint } from '../../data/proof-points';
+import { buildHowTo } from '../../lib/seo/schema-builder';
 
 const phases = [
   {
@@ -74,10 +75,19 @@ const impactData = {
     { value: _equipe?.value ?? '100%', label_fr: 'des équipes formées et autonomes', label_en: 'of teams trained and autonomous' },
   ],
 } satisfies import('../../schemas/sections').SectionByType<'metric-callout-band'>;
+
+const howToLd = buildHowTo('Notre méthode · Process Intelligence', [
+  { name: 'Cartographie', text: "On regarde votre métier, pas vos présentations. Vos vrais workflows, vos vrais bouchons. Le mardi on observe, le vendredi on chiffre." },
+  { name: 'Priorisation', text: "On classe les workflows par ROI, pas par sophistication technique. Le gain rapide passe en premier." },
+  { name: 'Câblage', text: "On câble les agents IA dans vos outils existants : Excel, HubSpot, Outlook, votre ERP. Pas de migration. On connecte ce qui marche." },
+  { name: 'Mesure', text: "Chaque workflow a sa métrique avant/après. Si ça ne mesure rien, ça n'existe pas." },
+  { name: 'Passation', text: "Vous prenez la main. Documentation, mode opératoire, formation. Pas de boîte noire : vous pouvez nous virer." },
+]);
 ---
 <UtilityTemplate
   title="Notre méthode · Process Intelligence · Waimia"
   description="Cinq phases. Audit, priorisation, câblage, mesure, passation. Pas de diaporama. Le mardi on câble, le vendredi on mesure."
+  jsonLd={howToLd}
   kicker="§ Notre méthode · Process Intelligence"
   align="left"
   showCta={true}

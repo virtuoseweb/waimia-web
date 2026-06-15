@@ -44,6 +44,17 @@ interface Props {
 }
 const { title, description, kickerFr, kickerEn, revisedAt, version, sections } = Astro.props as Props;
 
+const webPageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: `https://waimia.com${Astro.url.pathname}`,
+  dateModified: revisedAt,
+  inLanguage: 'fr-FR',
+  isPartOf: { '@type': 'WebSite', '@id': 'https://waimia.com/#website' },
+};
+
 const lang = langFromPath(Astro.url.pathname);
 const isFr = lang === 'fr';
 
@@ -60,7 +71,7 @@ const ctaData = {
   background: 'paper-2',
 } satisfies SectionByType<'cta-band'>;
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonLd={webPageLd}>
   <Breadcrumb
     lang={lang}
     items={[

@@ -5,10 +5,25 @@ export const prerender = true;
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import PortraitSimon from '../../components/svg/sumie/PortraitSimon.astro';
+
+const aboutLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: "Le Studio · Pourquoi Waimia · Architecte de systèmes agentiques",
+  description: "Un studio IA solo, francophone, basé à Montpellier. On livre des agents qui exécutent, pas des présentations qui tournent en comité.",
+  url: `https://waimia.com${Astro.url.pathname}`,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Simon Beros',
+    jobTitle: 'Fondateur',
+    worksFor: { '@type': 'Organization', '@id': 'https://waimia.com/#organization' },
+  },
+};
 ---
 <UtilityTemplate
   title="Le Studio · Pourquoi Waimia · Architecte de systèmes agentiques"
   description="Un studio IA solo, francophone, basé à Montpellier. On livre des agents qui exécutent, pas des présentations qui tournent en comité."
+  jsonLd={aboutLd}
   kicker="§ Le Studio"
   align="left"
   headlineFr="Un studio IA solo. <i>Francophone</i>, par choix."

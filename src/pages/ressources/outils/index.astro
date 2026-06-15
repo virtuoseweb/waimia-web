@@ -7,6 +7,7 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
+import { buildCollectionPage } from '../../../lib/seo/schema-builder';
 
 const TYPE_LABELS: Record<string, string> = {
   calculator: 'Calculateur',
@@ -26,12 +27,20 @@ const presentTypes = [...new Set(entries.map((e) => e.data.type))];
 
 const count   = entries.length;
 const kicker  = `§ Outils · ${count} disponible${count > 1 ? 's' : ''}`;
+
+const outilsItems = entries.map((entry) => `https://waimia.com/ressources/outils/${entry.id}`);
+const collectionLd = buildCollectionPage(
+  'Outils · Calculateurs et templates actionnables · Waimia',
+  'Calculateurs ROI, checklists d\'audit et templates prêts à l\'emploi pour PME B2B. Gratuits, actionnables, sans inscription.',
+  outilsItems,
+);
 ---
 <UtilityTemplate
   variant="list"
   title="Outils · Calculateurs et templates actionnables · Waimia"
   description="Calculateurs ROI, checklists d'audit et templates prêts à l'emploi pour PME B2B. Gratuits, actionnables, sans inscription."
   kicker={kicker}
+  jsonLd={collectionLd}
 >
   <Fragment slot="headline">
     Des <i>outils</i>. Pas des gadgets.
