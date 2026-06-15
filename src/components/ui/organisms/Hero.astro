@@ -326,7 +326,8 @@ const pageTransitionId = Astro.url.pathname
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: var(--space-5);
     flex: 1;
     transition-delay: var(--dur-hover);
   }
@@ -335,14 +336,13 @@ const pageTransitionId = Astro.url.pathname
     grid-template-columns: minmax(110px, 0.4fr) 1fr;
     gap: var(--space-5);
     align-items: baseline;
-    padding: var(--space-4) 0;
+    padding-bottom: var(--space-5);
     border-bottom: 1px solid var(--hairline);
   }
-  .hero-proof:first-child { padding-top: 0; }
-  .hero-proof:last-child { border-bottom: 0; }
+  .hero-proof:last-child { border-bottom: 0; padding-bottom: 0; }
   .hero-proof-num {
     font-family: var(--font-display);
-    font-size: var(--text-h1);
+    font-size: var(--text-numeral-md);
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--accent-text);
@@ -375,9 +375,11 @@ const pageTransitionId = Astro.url.pathname
   @media (max-width: 560px) {
     .hero-proof { grid-template-columns: 1fr; gap: var(--space-1); padding: var(--space-3) 0; }
   }
-  /* Low-height desktop · 1280×720 / 1366×768 / 1440×800 avec cookie banner visible
-     → on resserre les rythmes verticaux sans toucher à l'identité typographique */
-  @media (max-height: 850px) and (min-width: 900px) {
+  /* Viewport-fit desktop · 1280×720 → 1440×920 avec cookie banner visible
+     → on resserre les rythmes verticaux pour faire tenir le hero above-the-fold
+     sans toucher à l'identité typographique (breakpoint élargi 850→920px pour
+     couvrir 1440×900 avec marge de sécurité) */
+  @media (max-height: 920px) and (min-width: 900px) {
     .hero-a { padding-top: var(--space-10); }
     .hero-sub { margin-top: var(--space-5); padding: var(--space-4) 0 var(--space-7); }
     .hero-headline { font-size: var(--text-h1); }
