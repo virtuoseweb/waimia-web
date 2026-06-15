@@ -115,6 +115,15 @@ body {
   --text-body:    clamp(15px, 1vw, 17px);    /* corps de texte */
   --text-small:   13px;                      /* UI / caption / eyebrow / mono / label */
 
+  /* Rôles FIXES hors échelle fluide (gaps prouvés P2.11 · gel « 0 token » levé) :
+     valeurs d'affichage intentionnelles que la fluidité dénaturerait. */
+  --text-title-lg:   38px;  /* titre d'emphase (mega-menu data-need, featured) · trou h3↔h2 (34–38px) */
+  --text-numeral:    96px;  /* grand numéral display · stat héro / point number */
+  --text-numeral-md: 52px;  /* numéral moyen · stat de section */
+  --text-numeral-sm: 32px;  /* numéral compact · workflow number / stat inline */
+  --text-glyph:      22px;  /* glyphe décoratif · flèches, séparateurs, +, badges */
+  --text-micro:      9px;   /* micro-label sous l'échelle · statut, eyebrow minuscule */
+
   /* Leading & tracking */
   --leading-body:    1.5;
   --leading-lede:    1.4;  /* lede hero / sous-titres display (18–32px) */
