@@ -1,0 +1,47 @@
+---
+// Route · /secteurs/<slug> · hub sectoriel Waimia
+// getStaticPaths sur la collection `secteurs` (filtre visible), rend via
+// SecteurHubTemplate. Phasage noindex : géré par seo.noindex (blueprint §2/§3).
+export const prerender = true;
+
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import SecteurHubTemplate from '../../components/templates/SecteurHubTemplate.astro';
+import { buildArticle } from '../../lib/seo/schema-builder';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('secteurs');
+  return entries
+    .filter((entry) => entry.data.visible)
+    .map((entry) => ({
+      params: { slug: entry.data.slug ?? entry.id },
+      props: { entry },
+    }));
+}
+
+type Props = { entry: CollectionEntry<'secteurs'> };
+const { entry } = Astro.props as Props;
+const { Content } = await render(entry);
+const d = entry.data;
+const slug = d.slug ?? entry.id;
+
+// JSON-LD Article (GEO/AIO) : rend le hub citable par les crawlers LLM.
+// Mirroir du pattern /realisations + blog (réutilise buildArticle).
+const siteUrl = 'https://waimia.com';
+const sectorUrl = `${siteUrl}/secteurs/${slug}`;
+const sectorLd = buildArticle({
+  headline: d.title_fr,
+  description: d.description_fr,
+  datePublished: new Date(d.publishedAt).toISOString().slice(0, 10),
+  dateModified: d.updatedAt ? new Date(d.updatedAt).toISOString().slice(0, 10) : undefined,
+  publisher: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Waimia',
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/og/logo.svg` },
+  },
+  mainEntityOfPage: sectorUrl,
+});
+---
+<SecteurHubTemplate entry={entry} lang="fr" jsonLd={sectorLd}>
+  <Content />
+</SecteurHubTemplate>

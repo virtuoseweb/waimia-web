@@ -338,7 +338,7 @@ const CAS: MegaMenuSection = {
   parent: 'cas',
   label: { fr: 'Cas clients', en: 'Case studies' },
   parentHref: '/realisations',
-  matchPrefixes: ['/realisations'],
+  matchPrefixes: ['/realisations', '/secteurs'],
   lead: {
     fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesuré sur vos données, jamais inventé.',
     en: 'Pipelines reconnected, qualification automated, operations streamlined. ROI measured on your data, never invented.',
@@ -348,27 +348,28 @@ const CAS: MegaMenuSection = {
       kicker: { fr: 'PAR SECTEUR', en: 'BY INDUSTRY' },
       title: { fr: 'Par secteur', en: 'By industry' },
       goal: { fr: 'La preuve par votre métier', en: 'Proof from your industry' },
-      // SEO état final : /secteurs supprimé (régénérable) → liens repointés sur /realisations.
+      // Hubs sectoriels régénérés (docs/strategy/03) : liens vers les 3 hubs
+      // indexables (cas réel + données marché sourcées). Footer → index /secteurs.
       links: [
         {
-          label: { fr: 'Services B2B', en: 'B2B services' },
-          href: '/realisations',
-          description: { fr: 'Pipeline reconnecté, qualification et relances automatisées.', en: 'Pipeline reconnected, qualification and follow-ups automated.' },
+          label: { fr: 'E-commerce', en: 'E-commerce' },
+          href: '/secteurs/e-commerce',
+          description: { fr: 'Site rapide, IA marchande, paniers récupérés.', en: 'Fast site, shopping AI, carts recovered.' },
         },
         {
-          label: { fr: 'Industrie', en: 'Manufacturing' },
-          href: '/realisations',
-          description: { fr: 'Données réunies, goulots identifiés, plan d\'action.', en: 'Data unified, bottlenecks surfaced, action plan.' },
+          label: { fr: 'Startup & logiciel', en: 'Startup & software' },
+          href: '/secteurs/startup-logiciel',
+          description: { fr: 'Visiteurs anonymes qualifiés, pipeline lisible.', en: 'Anonymous visitors qualified, readable pipeline.' },
         },
         {
-          label: { fr: 'Finance & Compta', en: 'Finance & accounting' },
-          href: '/realisations',
-          description: { fr: 'Réconciliation, reporting et clôture allégés.', en: 'Reconciliation, reporting and close streamlined.' },
+          label: { fr: 'Libéral & indépendant', en: 'Independents & professionals' },
+          href: '/secteurs/liberal-independant',
+          description: { fr: 'Site d\'autorité, trouvé et choisi avant le contact.', en: 'Authority site, found and chosen before contact.' },
         },
       ],
       footer: {
-        label: { fr: 'Tous les cas clients →', en: 'All case studies →' },
-        href: '/realisations',
+        label: { fr: 'Tous les secteurs →', en: 'All industries →' },
+        href: '/secteurs',
       },
     },
   ],

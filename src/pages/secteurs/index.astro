@@ -1,0 +1,195 @@
+---
+// Page · /secteurs · index des hubs sectoriels Waimia
+// Liste les secteurs visibles (card + douleur 1 phrase) + « Vous ne voyez pas
+// votre secteur ? » → /contact. Imite le style de realisations/index.astro.
+export const prerender = true;
+
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { langFromPath, localizeHref } from '../../lib/i18n';
+import type { SectionByType } from '../../schemas/sections';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
+
+const lang = langFromPath(Astro.url.pathname);
+const isFr = lang === 'fr';
+
+const sectors = (await getCollection('secteurs'))
+  .filter((e) => e.data.visible)
+  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
+  .map((e) => {
+    const d = e.data;
+    const firstPain = isFr ? d.pains_fr[0] : d.pains_en[0];
+    return {
+      slug: d.slug ?? e.id,
+      title: isFr ? d.title_fr : d.title_en,
+      icp: isFr ? d.icp_fr : d.icp_en,
+      pain: firstPain ? firstPain.title : '',
+      href: localizeHref(`/secteurs/${d.slug ?? e.id}`, lang),
+    };
+  });
+
+const mastheadData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'hub' as const,
+  decoration: false,
+  align: 'left' as const,
+  kicker_fr: '§ Secteurs · la preuve par votre métier',
+  kicker_en: '§ Industries · proof from your trade',
+  h1_fr: '<span>Votre <i>secteur</i>,</span><br/><span>votre terrain.</span>',
+  h1_en: '<span>Your <i>industry</i>,</span><br/><span>your field.</span>',
+  lede_fr: "Chaque métier a ses goulots et ses leviers. On part de votre terrain réel, données de marché à l'appui, jamais d'un template générique.",
+  lede_en: 'Every trade has its bottlenecks and its levers. We start from your real field, backed by market data, never from a generic template.',
+} satisfies SectionByType<'hero-hub-masthead'>;
+---
+<Base
+  title={isFr ? 'Secteurs · IA opérationnelle par métier · Waimia' : 'Industries · operational AI by trade · Waimia'}
+  description={isFr
+    ? 'Des systèmes IA rangés par métier : e-commerce, bâtiment, startup, services B2B, libéral, thérapeutes. Données de marché sourcées, terrain réel.'
+    : 'AI systems organized by trade: e-commerce, construction, startup, B2B services, independents, therapists. Sourced market data, real field.'}
+>
+  <HeroCentered data={mastheadData} lang={lang} />
+
+  <section class="sectors-grid-outer wrap-wide">
+    <div class="sectors-grid reveal-stagger">
+      {sectors.map((s) => (
+        <a href={s.href} class="sector-card">
+          <span class="sector-card-kicker">§ {s.icp}</span>
+          <h2 class="sector-card-title">{s.title}</h2>
+          <p class="sector-card-pain">{s.pain}</p>
+          <span class="sector-card-cta">{isFr ? 'Voir le secteur →' : 'See the industry →'}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="sectors-cta reveal">
+    <div class="wrap-wide sectors-cta-inner">
+      <span class="eyebrow">§ {isFr ? 'Pas votre métier ?' : 'Not your trade?'}</span>
+      <h2 class="sectors-cta-h">
+        {isFr
+          ? <><em>Vous ne voyez pas votre secteur ?</em> On opère sur tous les métiers.</>
+          : <><em>Don't see your industry?</em> We operate across all trades.</>
+        }
+      </h2>
+      <a href={localizeHref('/contact', lang)} class="sectors-cta-btn">
+        {isFr ? 'Parler de votre projet →' : 'Discuss your project →'}
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .sectors-grid-outer { margin: 0 auto; padding: 0 var(--space-6); }
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    margin: var(--space-7) 0 var(--space-10);
+  }
+  .sector-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 36px var(--space-6) var(--space-6);
+    background: var(--paper);
+    border-top: 1px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      background 180ms var(--ease),
+      border-top-color var(--dur-trim) var(--ease),
+      box-shadow var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease);
+  }
+  .sector-card:hover {
+    background: var(--paper-2);
+    border-top-color: var(--accent-text);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.06);
+  }
+  .sector-card-kicker {
+    font-family: var(--font-mono, monospace);
+    font-size: var(--text-small);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .sector-card-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    margin: var(--space-1) 0 0;
+    text-wrap: balance;
+  }
+  .sector-card-pain {
+    font-size: var(--text-small);
+    color: var(--muted);
+    margin: 0;
+    line-height: var(--leading-body);
+    flex: 1;
+  }
+  .sector-card-cta {
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    font-family: var(--font-mono, monospace);
+    letter-spacing: 0.04em;
+    margin-top: var(--space-4);
+    transition: transform var(--dur-trim) var(--ease);
+  }
+  .sector-card:hover .sector-card-cta { transform: translateX(1px); }
+
+  .sectors-cta {
+    padding: var(--space-10) var(--space-6);
+    background: var(--ink);
+    border-top: 1px solid var(--hairline);
+  }
+  .sectors-cta-inner { max-width: 760px; }
+  .eyebrow {
+    display: block;
+    font-family: var(--font-mono, monospace);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-text);
+    margin-bottom: var(--space-5);
+  }
+  .sectors-cta-h {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: 1.0;
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    text-wrap: balance;
+    margin: 0 0 var(--space-7);
+  }
+  .sectors-cta-h em { font-style: italic; color: var(--accent-text); }
+  .sectors-cta-btn {
+    display: inline-block;
+    font-family: var(--font-mono, monospace);
+    font-size: var(--text-small);
+    letter-spacing: 0.06em;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: var(--paper);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .sectors-cta-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 900px) {
+    .sectors-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sector-card,
+    .sector-card-cta {
+      transition: none !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+</style>

@@ -1,0 +1,319 @@
+---
+// Template · SecteurHubTemplate · hub sectoriel (/secteurs/<slug>)
+//
+// Blueprint : docs/strategy/03-case-study-sector-system.md §3 (ordre des sections)
+//   1. hero-centered  : H1 searcher-shaped « [solution] pour [secteur] » + 1 stat
+//                       marché phare front-loadée dans le lede (GEO).
+//   2. pain-points    : 3-6 douleurs sectorielles (depuis secteurs.pains_fr/_en).
+//   3. données marché : chip OUTLINE « Analyse · sources tierces » (famille B,
+//                       §5) + metric-callout-band (stats sourcées, max 3).
+//   4. 3 slots cas    : case-card-grid alimenté par sector-cases.ts (slots vides
+//                       honnêtes si pas de cas du secteur).
+//   5. méthode + CTA final (catalogue).
+//
+// Composé UNIQUEMENT de composants de section EXISTANTS du catalogue. 0 nouveau
+// token DS : le chip réutilise les tokens du chip de provenance de
+// CaseStudyTemplate (--font-mono, --text-small, --accent-text, --hairline-strong,
+// --radius-pill, --paper-2, --space-*, --dur-fast, --ease).
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+import HeroCentered from '../sections/HeroCentered.astro';
+import PainPoints from '../sections/PainPoints.astro';
+import MetricCalloutBand from '../sections/MetricCalloutBand.astro';
+import MethodTimeline from '../sections/MethodTimeline.astro';
+import CaseCardGrid from '../sections/CaseCardGrid.astro';
+import CtaFinal from '../sections/CtaFinal.astro';
+import { localizeHref } from '../../lib/i18n';
+import { sectorCaseGridData } from '../../lib/sector-cases';
+import type { SectionByType } from '../../schemas/sections';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'secteurs'>;
+  lang: 'fr' | 'en';
+  /** Bloc(s) JSON-LD (CollectionPage/Article) injectés dans <Base>. */
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+const { entry, lang, jsonLd } = Astro.props;
+const d = entry.data;
+const isFr = lang === 'fr';
+const sectorSlug = d.slug ?? entry.id;
+
+// ── HERO · searcher-shaped (GEO) ─────────────────────────────────────────
+// Le H1 (title_fr/_en) est rédigé « [solution] pour [secteur] » dans le MDX ;
+// le lede (description) front-loade le bénéfice. La stat marché phare est
+// rendue plus bas (metric-callout-band, famille B) + en tête du corps MDX.
+const heroData = {
+  type: 'hero-centered',
+  background: 'paper',
+  kicker_fr: isFr ? d.icp_fr : undefined,
+  kicker_en: !isFr ? d.icp_en : undefined,
+  h1_fr: d.title_fr,
+  h1_en: d.title_en,
+  lede_fr: d.description_fr,
+  lede_en: d.description_en,
+  cta_primary: {
+    label_fr: d.ctaPrimary_fr,
+    label_en: d.ctaPrimary_en,
+    href: localizeHref('/contact', lang),
+    variant: 'primary',
+  },
+  cta_secondary: {
+    label_fr: 'Voir les offres →',
+    label_en: 'See services →',
+    href: localizeHref('/offres', lang),
+    variant: 'ghost',
+  },
+} satisfies SectionByType<'hero-centered'>;
+
+// ── PAIN POINTS · douleurs sectorielles (secteurs.pains_fr/_en) ──────────
+const painData = {
+  type: 'pain-points',
+  background: 'paper-2',
+  eyebrow_fr: '§ Friction',
+  eyebrow_en: '§ Friction',
+  h2_fr: 'Là où ça <i>bloque</i>.',
+  h2_en: 'Where it <i>stalls</i>.',
+  items: d.pains_fr.map((p, i) => ({
+    num: String(i + 1).padStart(2, '0'),
+    title_fr: p.title,
+    title_en: d.pains_en[i]?.title ?? p.title,
+    body_fr: p.body,
+    body_en: d.pains_en[i]?.body ?? p.body,
+  })),
+} satisfies SectionByType<'pain-points'>;
+
+// ── DONNÉES MARCHÉ · famille B (chip outline) + metric-callout-band ──────
+// Stats sourcées : metricsHero du secteur (sources nommées dans le corps MDX).
+const hasMarketData = d.metricsHero.length > 0;
+const marketData = hasMarketData
+  ? ({
+      type: 'metric-callout-band',
+      background: 'ink',
+      kicker_fr: undefined,
+      kicker_en: undefined,
+      context_fr:
+        "Données de marché issues de sources tierces (détail et sources nommées plus bas). Chiffres reportés, pas nos résultats client.",
+      context_en:
+        'Market data from third-party sources (details and named sources below). Reported figures, not our own client results.',
+      metrics: d.metricsHero.slice(0, 3).map((m) => ({
+        value: m.value,
+        label_fr: m.label_fr,
+        label_en: m.label_en,
+      })),
+    } satisfies SectionByType<'metric-callout-band'>)
+  : null;
+const marketChipLabel = isFr ? 'Analyse · sources tierces' : 'Analysis · third-party sources';
+
+// ── 3 SLOTS CAS · sector-cases.ts (vides honnêtes si pas de cas du secteur) ─
+const caseGridData = await sectorCaseGridData(sectorSlug, lang);
+const hasCases = caseGridData.cases.length >= 2;
+
+// ── MÉTHODE · timeline catalogue (workflowsCible / kpis du secteur) ──────
+const hasWorkflows = d.workflowsCible.length > 0;
+const methodData = {
+  type: 'method-timeline',
+  background: 'paper',
+  kicker_fr: '§ La méthode',
+  kicker_en: '§ The method',
+  h2_fr: 'Audit, déploiement, mesure.',
+  h2_en: 'Audit, deployment, measurement.',
+  steps: [
+    {
+      num: '01',
+      label_fr: 'Cadrage du terrain',
+      label_en: 'Field framing',
+      body_fr: 'On part de vos workflows réels, pas d\'un template. On identifie où le temps et les leads se perdent, chiffres à l\'appui.',
+      body_en: 'We start from your real workflows, not a template. We pinpoint where time and leads are lost, with numbers to back it.',
+      meta_fr: 'Semaine 1',
+      meta_en: 'Week 1',
+    },
+    {
+      num: '02',
+      label_fr: 'Déploiement opérable',
+      label_en: 'Operable deployment',
+      body_fr: isFr
+        ? `On câble ce qui compte pour votre métier : ${d.workflowsCible.slice(0, 3).join(', ') || 'site, acquisition, pilotage'}.`
+        : `We wire what matters for your trade: ${d.workflowsCible.slice(0, 3).join(', ') || 'site, acquisition, steering'}.`,
+      body_en: `We wire what matters for your trade: ${d.workflowsCible.slice(0, 3).join(', ') || 'site, acquisition, steering'}.`,
+      meta_fr: 'Semaines 2 à 6',
+      meta_en: 'Weeks 2 to 6',
+    },
+    {
+      num: '03',
+      label_fr: 'Mesure et itération',
+      label_en: 'Measurement and iteration',
+      body_fr: isFr && d.kpis_fr.length > 0
+        ? `On suit les indicateurs qui comptent : ${d.kpis_fr.slice(0, 3).join(', ')}.`
+        : 'On suit les indicateurs qui comptent et on ajuste sur la donnée, pas sur l\'intuition.',
+      body_en: d.kpis_en.length > 0
+        ? `We track the indicators that matter: ${d.kpis_en.slice(0, 3).join(', ')}.`
+        : 'We track the indicators that matter and adjust on data, not intuition.',
+      meta_fr: 'En continu',
+      meta_en: 'Ongoing',
+    },
+  ],
+} satisfies SectionByType<'method-timeline'>;
+
+// ── CTA FINAL · catalogue ────────────────────────────────────────────────
+const sectorName = isFr ? d.title_fr : d.title_en;
+const ctaData = {
+  type: 'cta-final',
+  h2_fr: 'Votre secteur, votre <i>terrain</i>.',
+  h2_en: 'Your industry, your <i>field</i>.',
+  body_fr: 'On cadre votre contexte en 45 minutes et on vous dit vite si le terrain est opérable, sans promesse en l\'air.',
+  body_en: 'We frame your context in 45 minutes and tell you quickly whether the field is operationally viable, with no empty promises.',
+  cta_primary: {
+    label_fr: d.ctaPrimary_fr,
+    label_en: d.ctaPrimary_en,
+    href: localizeHref('/contact', lang),
+    variant: 'primary',
+  },
+  cta_secondary: {
+    label_fr: 'Tous les cas clients →',
+    label_en: 'All case studies →',
+    href: localizeHref('/realisations', lang),
+    variant: 'ghost',
+  },
+  background: 'ink',
+} satisfies SectionByType<'cta-final'>;
+---
+<Base
+  title={isFr ? `${d.title_fr} · Waimia` : `${d.title_en} · Waimia`}
+  description={isFr ? d.description_fr : d.description_en}
+  jsonLd={jsonLd}
+>
+  <Breadcrumb
+    lang={lang}
+    items={[
+      { label: isFr ? 'Accueil' : 'Home', href: isFr ? '/' : '/en' },
+      { label: isFr ? 'Secteurs' : 'Industries', href: localizeHref('/secteurs', lang) },
+      { label: sectorName },
+    ]}
+  />
+
+  <HeroCentered data={heroData} lang={lang} />
+
+  <PainPoints data={painData} lang={lang} />
+
+  {/* DONNÉES MARCHÉ · famille B (docs/strategy/03 §5) : chip OUTLINE +
+      metric-callout-band des stats sourcées (détail nommé dans le corps MDX). */}
+  {marketData && (
+    <section class="sector-market-label reveal">
+      <div class="wrap-wide">
+        <a class="sector-market-chip" href={localizeHref('/sources-methodologie', lang)}>
+          {marketChipLabel}
+        </a>
+      </div>
+    </section>
+  )}
+  {marketData && <MetricCalloutBand data={marketData} lang={lang} />}
+
+  {/* 3 SLOTS CAS · sector-cases.ts. Vides honnêtes (< 2 cas) → encart assumé. */}
+  {hasCases ? (
+    <CaseCardGrid data={caseGridData} lang={lang} />
+  ) : (
+    <section class="sector-cases-empty reveal">
+      <div class="wrap-wide">
+        <div class="sector-cases-empty__kicker">
+          § {isFr ? 'Cas de ce secteur' : 'Cases for this industry'}
+        </div>
+        <p class="sector-cases-empty__body">
+          {isFr
+            ? "Nous publions un cas uniquement après mesure du résultat et accord du client. Les premiers cas de ce secteur arrivent. En attendant, parlons de votre projet : nous montrons concrètement comment nous travaillons."
+            : 'We only publish a case after the result is measured and the client has agreed. The first cases for this industry are coming. In the meantime, let us talk about your project: we show exactly how we work.'}
+        </p>
+      </div>
+    </section>
+  )}
+
+  {hasWorkflows && <MethodTimeline data={methodData} lang={lang} />}
+
+  {/* CORPS MDX · données marché détaillées + sources nommées (famille B) */}
+  <section class="sector-body reveal">
+    <div class="wrap-prose">
+      <slot />
+    </div>
+  </section>
+
+  <CtaFinal data={ctaData} lang={lang} />
+</Base>
+
+<style>
+  /* Chip famille B (docs/strategy/03 §5) · OUTLINE. Tokens DS existants
+     uniquement (mêmes que .case-provenance-chip--outline de CaseStudyTemplate). */
+  .sector-market-label { padding: var(--space-9) var(--space-6) 0; }
+  .sector-market-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    background: transparent;
+    color: var(--accent-text);
+    border: 1px solid var(--hairline-strong);
+    transition: background var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
+  }
+  .sector-market-chip:hover { background: var(--paper-2); }
+
+  .sector-cases-empty { padding: var(--space-10) var(--space-6); }
+  .sector-cases-empty__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin-bottom: var(--space-3);
+  }
+  .sector-cases-empty__body {
+    font-size: var(--text-h3);
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+    max-width: 820px;
+    text-wrap: pretty;
+  }
+
+  .sector-body { padding: var(--space-10) var(--space-6); }
+  .sector-body :global(h2) {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-medium);
+    margin: var(--space-8) 0 var(--space-4);
+  }
+  .sector-body :global(h3) {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: 1.25;
+    font-weight: var(--fw-medium);
+    margin: var(--space-6) 0 var(--space-3);
+  }
+  .sector-body :global(p) {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--ink);
+    margin: 0 0 var(--space-4);
+  }
+  .sector-body :global(a) {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .sector-body :global(ul) {
+    margin: 0 0 var(--space-4);
+    padding-left: var(--space-5);
+    color: var(--ink);
+  }
+  .sector-body :global(li) {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    margin-bottom: var(--space-2);
+  }
+</style>
