@@ -73,10 +73,14 @@ export default defineConfig({
     // le 301 vers /agence/design-system est levé, la page répond 200 (noindex, outil interne).
     // A4 cleanup 2026-05-10 · /ressources/cas/* → /realisations/* (canonical) — doublon SEO supprimé
     '/ressources/cas': '/realisations',
-    '/ressources/cas/plateau': '/realisations/plateau',
-    '/ressources/cas/halcyon': '/realisations/halcyon',
-    '/ressources/cas/northbound': '/realisations/northbound',
-    '/ressources/cas/caserne': '/realisations/caserne',
+    // 2026-06-15 · plateau/halcyon/northbound/caserne etaient des slugs de cas
+    // FICTIFS, supprimes lors de la recreation des vrais cas (#18 : amploi, balzeo,
+    // les-carnets-de-montpellier). Ces 4 vieilles URLs indexees pointaient vers des
+    // /realisations/<slug> 404 → re-ciblees sur l'index vivant (evite un 301-vers-404).
+    '/ressources/cas/plateau': '/realisations',
+    '/ressources/cas/halcyon': '/realisations',
+    '/ressources/cas/northbound': '/realisations',
+    '/ressources/cas/caserne': '/realisations',
     // Renommage 2026-06-15 · /cas → /realisations (route hub cas clients)
     '/cas': '/realisations',
     // V-F1 2026-06-11 · pointait vers /archive (supprimé) : re-ciblé directement
