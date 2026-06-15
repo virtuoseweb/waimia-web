@@ -86,7 +86,7 @@
 |---|---|---|---|---|
 | `back_href` | string | oui |  |  |
 | `back_label` | string | oui |  |  |
-| `cta` | enum | non | primary | primary | accent | ghost |
+| `cta` | enum | oui |  | primary | accent | ghost |
 | `prev_href` | string | non |  |  |
 | `prev_label_en` | string | non | ← Previous step |  |
 | `prev_label_fr` | string | non | ← Étape précédente |  |
@@ -325,7 +325,7 @@
 | `caption_fr` | string | non |  |  |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
-| `models` | array | non |  | min:1 |
+| `models` | array | oui |  | min:1 |
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
@@ -524,7 +524,7 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `articles` | array | non |  | min:2 max:12 |
+| `articles` | array | oui |  | min:2 max:12 |
 | `background` | enum | non | paper | paper | paper-2 | paper-3 | ink |
 | `columns` | enum | non | 3 | 2 | 3 |
 | `h2_en` | string | non |  |  |
@@ -562,7 +562,7 @@
 | `intro_fr` | string | non |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `resources` | array | non | false | min:2 max:9 |
+| `resources` | array | oui |  | min:2 max:9 |
 
 **Tokens** : `--accent` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--radius-pill` `--section-base` `--shadow-lift` `--space-3` `--space-4` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
@@ -1030,7 +1030,7 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `cells` | array | non |  | min:5 max:5 |
+| `cells` | array | oui |  | min:5 max:5 |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
@@ -1143,7 +1143,7 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `items` | array | non |  | min:2 max:8 |
+| `items` | array | oui |  | min:2 max:8 |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 | `lead_en` | string | non |  |  |
@@ -1207,8 +1207,8 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `left` | literal | non | left | min:1 max:3 |
-| `right` | literal | non | right | min:1 max:3 |
+| `left` | literal | oui |  | min:1 max:3 |
+| `right` | literal | oui |  | min:1 max:3 |
 
 **Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-6` `--text-h2` `--text-small`
 
@@ -1233,7 +1233,7 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
-| `items` | array | non |  | min:2 max:8 |
+| `items` | array | oui |  | min:2 max:8 |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 | `lede_en` | string | non |  |  |
@@ -1261,7 +1261,7 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `columns` | array | non | false | min:1 max:10 |
+| `columns` | array | oui |  | min:1 max:10 |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
@@ -1362,7 +1362,7 @@
 | `intro_fr` | string | non |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `tabs` | array | non |  | min:2 max:6 |
+| `tabs` | array | oui |  | min:2 max:6 |
 
 **Tokens** : `--accent-rgb` `--accent-text` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
@@ -1391,7 +1391,7 @@
 | `kicker_fr` | string | non |  |  |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
-| `rows` | array | non |  | min:2 max:6 |
+| `rows` | array | oui |  | min:2 max:6 |
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-2` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
@@ -1592,7 +1592,7 @@
 | `eyebrow_fr` | string | non | § Friction |  |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
-| `items` | array | non |  | min:2 max:6 |
+| `items` | array | oui |  | min:2 max:6 |
 
 **Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--text-h3` `--text-small`
 
@@ -1671,7 +1671,7 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
-| `problems` | array | non |  | min:2 max:6 |
+| `problems` | array | oui |  | min:2 max:6 |
 
 **Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
@@ -1731,7 +1731,7 @@
 | `meta_en` | string | non |  |  |
 | `meta_fr` | string | non |  |  |
 | `roman` | string | oui |  |  |
-| `services` | array | non |  | min:2 max:8 |
+| `services` | array | oui |  | min:2 max:8 |
 
 **Tokens** : `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h2` `--text-small` `--tracking-mono-tight` `--wrap-prose`
 
@@ -1762,7 +1762,7 @@
 | `foot_links` | array | non |  | max:3 |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
-| `services` | array | non |  | min:3 max:6 |
+| `services` | array | oui |  | min:3 max:6 |
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
 
@@ -1789,7 +1789,7 @@
 | `aside_en` | string | non |  |  |
 | `aside_fr` | string | non |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `capabilities` | array | non | active | min:1 |
+| `capabilities` | array | oui |  | min:1 |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 | `title_en` | string | oui |  |  |
@@ -1851,7 +1851,7 @@
 | `kicker_fr` | string | oui |  |  |
 | `lead_en` | string | non |  |  |
 | `lead_fr` | string | non |  |  |
-| `pills` | array | non |  | min:2 max:16 |
+| `pills` | array | oui |  | min:2 max:16 |
 
 **Tokens** : `--accent-text` `--font-display` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-4` `--space-6` `--space-8` `--tech-stack-band-inline` `--tech-stack-band-pad` `--text-h2` `--text-h3`
 
@@ -2198,7 +2198,7 @@
 | `cta_secondary` | object | non |  |  |
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
-| `pills` | array | non | default | min:1 max:8 |
+| `pills` | array | oui |  | min:1 max:8 |
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 | `type_label_en` | string | oui |  |  |
@@ -2453,7 +2453,7 @@
 | `lede_fr` | string | oui |  |  |
 | `meta_kicker_en` | string | oui |  |  |
 | `meta_kicker_fr` | string | oui |  |  |
-| `stats` | array | non | false | min:2 max:4 |
+| `stats` | array | non |  | min:2 max:4 |
 
 **Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
@@ -2973,7 +2973,7 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `rows` | array | non |  | int min:1 max:20 |
+| `rows` | array | oui |  | int min:1 max:20 |
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
@@ -3069,7 +3069,7 @@
 | `layout` | enum | non | grid | wall | grid | marquee |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
-| `partners` | array | non |  | min:1 |
+| `partners` | array | oui |  | min:1 |
 
 **Tokens** : `--accent-text` `--font-display` `--fw-regular` `--ink` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--section-tight` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 
@@ -3203,7 +3203,7 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `logos` | array | non |  |  |
+| `logos` | array | oui |  |  |
 | `marquee` | boolean | non | true |  |
 
 **Tokens** : `--font-display` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--section-tight` `--space-5` `--space-6` `--text-small`
@@ -3595,7 +3595,7 @@
 | `intro_fr` | string | non |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `steps` | array | non |  | min:2 max:8 |
+| `steps` | array | oui |  | min:2 max:8 |
 
 **Tokens** : `--accent` `--accent-ink` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 
@@ -3653,7 +3653,7 @@
 | `kicker_fr` | string | non |  |  |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
-| `shifts` | array | non |  | min:2 max:6 |
+| `shifts` | array | oui |  | min:2 max:6 |
 
 **Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
@@ -3849,14 +3849,14 @@
 | `background` | enum | non | paper | paper | paper-2 | paper-3 | ink |
 | `caption_en` | string | non |  |  |
 | `caption_fr` | string | non |  |  |
-| `columns` | array | non | start | min:2 max:8 |
+| `columns` | array | oui |  | min:2 max:8 |
 | `h2_en` | string | non |  |  |
 | `h2_fr` | string | non |  |  |
 | `intro_en` | string | non |  |  |
 | `intro_fr` | string | non |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `rows` | array | non | false | min:2 max:8 |
+| `rows` | array | oui |  | min:2 max:8 |
 | `striped` | boolean | non | false |  |
 
 **Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--space-9` `--text-body` `--text-h2` `--text-small` `--tracking-caps`
@@ -3968,7 +3968,7 @@
 | `kicker_fr` | string | non |  |  |
 | `label` | string | non |  |  |
 | `lang_label` | string | non |  |  |
-| `lines` | array | non |  | min:1 max:24 |
+| `lines` | array | oui |  | min:1 max:24 |
 | `show_line_numbers` | boolean | non | true |  |
 | `tone` | enum | non | ink | ink | paper |
 
@@ -4210,7 +4210,7 @@
 | `count_singular_fr` | string | non | publication |  |
 | `cta_label_en` | string | non | View profile → |  |
 | `cta_label_fr` | string | non | Voir le profil → |  |
-| `members` | array | non | Portrait auteur Waimia | int min:0 max:6 |
+| `members` | array | oui |  | int min:0 max:6 |
 
 **Tokens** : `--accent-text` `--dur-base` `--dur-trim` `--ease` `--ease-out` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--ink-rgb` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-2` `--space-4` `--space-6` `--space-8` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
@@ -4393,7 +4393,7 @@
 | `steps` | array | non |  |  |
 | `tier_cta_en` | string | non | Open tier → |  |
 | `tier_cta_fr` | string | non | Voir le palier → |  |
-| `tiers` | array | non |  |  |
+| `tiers` | array | oui |  |  |
 | `timeline_label_en` | string | non | AI maturity path |  |
 | `timeline_label_fr` | string | non | Progression de maturité IA |  |
 | `variant` | enum | non | full | full | cards-only |
@@ -4529,7 +4529,7 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non | paper | paper | paper-2 | paper-3 | ink |
-| `events` | array | non | upcoming | min:2 max:10 |
+| `events` | array | oui |  | min:2 max:10 |
 | `h2_en` | string | non |  |  |
 | `h2_fr` | string | non |  |  |
 | `intro_en` | string | non |  |  |
@@ -4630,7 +4630,7 @@
 | `kicker_fr` | string | oui |  |  |
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
-| `next_steps` | array | non |  | min:1 max:3 |
+| `next_steps` | array | oui |  | min:1 max:3 |
 
 **Tokens** : `--accent` `--accent-sur-clair` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink-2` `--leading-body` `--leading-h1` `--leading-h3` `--muted` `--paper-2` `--radius-lg` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 

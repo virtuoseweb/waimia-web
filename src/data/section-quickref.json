@@ -314,13 +314,14 @@
     "subcategory": "Content Listing Sections",
     "status": "stable",
     "description_fr": "Grille de cartes d’articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.",
-    "requiredProps": [],
-    "optionalProps": [
+    "requiredProps": [
       {
         "name": "articles",
         "type": "array",
         "constraint": "min:2 max:12"
-      },
+      }
+    ],
+    "optionalProps": [
       {
         "name": "background",
         "type": "enum",
@@ -401,10 +402,7 @@
           "author": "Léa Marchand",
           "href": "/ressources/blog"
         }
-      ],
-      "background": "paper",
-      "columns": "3",
-      "h2_en": "What we learn, we <i class=\"acc\">write</i> down."
+      ]
     }
   },
   {
@@ -519,6 +517,11 @@
     "description_fr": "Mosaique bento asymetrique de 5 cellules (1 grande 2x2 + 4 petites) pour valoriser les capacites cles avec une mise en page moderne.",
     "requiredProps": [
       {
+        "name": "cells",
+        "type": "array",
+        "constraint": "min:5 max:5"
+      },
+      {
         "name": "h2_en",
         "type": "string"
       },
@@ -534,11 +537,6 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
-        "name": "cells",
-        "type": "array",
-        "constraint": "min:5 max:5"
-      },
-      {
         "name": "kicker_en",
         "type": "string"
       },
@@ -551,7 +549,44 @@
     "demo": {
       "type": "bento-grid",
       "h2_fr": "Cinq <i>atouts</i> en une mosaique",
-      "h2_en": "Five <i>strengths</i> in one mosaic"
+      "h2_en": "Five <i>strengths</i> in one mosaic",
+      "cells": [
+        {
+          "glyph": "◈",
+          "title_fr": "Orchestration multi-agents",
+          "title_en": "Multi-agent orchestration",
+          "body_fr": "Decomposez chaque mission en sous-taches hierarchiques routees vers le modele optimal. Une demande, une chaine heterogene de workers.",
+          "body_en": "Break each mission into hierarchical subtasks routed to the optimal model. One request, one heterogeneous chain of workers."
+        },
+        {
+          "glyph": "▸",
+          "title_fr": "Tokens canoniques",
+          "title_en": "Canonical tokens",
+          "body_fr": "118 variables CSS exposees. Pioche, n'invente pas.",
+          "body_en": "118 CSS variables exposed. Pick, never invent."
+        },
+        {
+          "glyph": "◎",
+          "title_fr": "Composants atomiques",
+          "title_en": "Atomic components",
+          "body_fr": "Catalogue complet en 7 couches Tier 1 composables.",
+          "body_en": "Full catalogue across 7 composable Tier 1 layers."
+        },
+        {
+          "glyph": "⊡",
+          "title_fr": "DS fige post-V1",
+          "title_en": "DS frozen post-V1",
+          "body_fr": "Composition uniquement : 0 nouveau token, 0 markup orphelin.",
+          "body_en": "Composition only: 0 new token, 0 orphan markup."
+        },
+        {
+          "glyph": "⟳",
+          "title_fr": "Deploy continu sur Vercel",
+          "title_en": "Continuous deploy on Vercel",
+          "body_fr": "Preview par branche, GF-1 sur prod avant tout merge sur main.",
+          "body_en": "Branch previews, GF-1 on prod before any merge to main."
+        }
+      ]
     }
   },
   {
@@ -1010,7 +1045,13 @@
     "subcategory": "Terminal Sections",
     "status": "stable",
     "description_fr": "Vitrine de code annoté pour devtools/SaaS technique : copy explicative, bloc code mono avec numéros de ligne et commentaires bilingues alignés, label fichier et langage, tone encre ou paper.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "lines",
+        "type": "array",
+        "constraint": "min:1 max:24"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
@@ -1053,11 +1094,6 @@
         "default": ""
       },
       {
-        "name": "lines",
-        "type": "array",
-        "constraint": "min:1 max:24"
-      },
-      {
         "name": "show_line_numbers",
         "type": "boolean",
         "default": "true"
@@ -1072,10 +1108,51 @@
     "hasDemo": true,
     "demo": {
       "type": "code-showcase",
-      "background": "paper",
-      "h2_en": "Wire an agent in <i class=\"acc\">twelve</i> lines.",
-      "h2_fr": "Câblez un agent en <i class=\"acc\">douze</i> lignes.",
-      "intro_en": "The SDK exposes a typed client. You describe the workflow, the platform handles rails and review."
+      "lines": [
+        {
+          "text": "import { Virtuose } from '@virtuose/sdk';"
+        },
+        {
+          "text": ""
+        },
+        {
+          "text": "const v = new Virtuose({ locale: \"fr-FR\" });",
+          "comment_fr": "locale pilote le ton des relances",
+          "comment_en": "locale drives follow-up tone"
+        },
+        {
+          "text": ""
+        },
+        {
+          "text": "const agent = v.agent({"
+        },
+        {
+          "text": "  source: 'hubspot',",
+          "comment_fr": "CRM connecté",
+          "comment_en": "connected CRM"
+        },
+        {
+          "text": "  rule: 'score > 70 → relance',",
+          "comment_fr": "règle métier",
+          "comment_en": "business rule"
+        },
+        {
+          "text": "  review: true,",
+          "comment_fr": "relecture humaine obligatoire",
+          "comment_en": "human review required"
+        },
+        {
+          "text": "});"
+        },
+        {
+          "text": ""
+        },
+        {
+          "text": "await agent.ship();",
+          "comment_fr": "audit trail signé à la sortie",
+          "comment_en": "signed audit trail on exit"
+        }
+      ]
     }
   },
   {
@@ -1650,6 +1727,11 @@
     "description_fr": "Tableau du catalogue formations : titre de section et lignes (#, titre, niveau en pill, durée, prix, flèche), une formation par ligne.",
     "requiredProps": [
       {
+        "name": "rows",
+        "type": "array",
+        "constraint": "int min:1 max:20"
+      },
+      {
         "name": "title_en",
         "type": "string"
       },
@@ -1663,18 +1745,42 @@
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "rows",
-        "type": "array",
-        "constraint": "int min:1 max:20"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "course-catalog-table",
       "title_fr": "Catalogue formations",
-      "title_en": "Course catalog"
+      "title_en": "Course catalog",
+      "rows": [
+        {
+          "num": "01",
+          "title_fr": "Intro à l IA pour PME B2B",
+          "title_en": "Intro to AI for SMB B2B",
+          "level": "debutant",
+          "duration_hours": 6,
+          "price_eur": 0,
+          "href": "#"
+        },
+        {
+          "num": "02",
+          "title_fr": "Prompter Claude pour le travail",
+          "title_en": "Prompting Claude for work",
+          "level": "intermediaire",
+          "duration_hours": 4,
+          "price_eur": 290,
+          "href": "#"
+        },
+        {
+          "num": "03",
+          "title_fr": "Automatiser ses workflows métier",
+          "title_en": "Automating business workflows",
+          "level": "avance",
+          "duration_hours": 8,
+          "price_eur": 590,
+          "href": "#"
+        }
+      ]
     }
   },
   {
@@ -2072,7 +2178,18 @@
     "subcategory": "Table Sections",
     "status": "stable",
     "description_fr": "Table de données neutre générique : en-tête optionnel, colonnes avec alignements, lignes et cellules typées (emphase), zébrures et légende. Distincte des tables habillées terminal ou éditoriale.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "columns",
+        "type": "array",
+        "constraint": "min:2 max:8"
+      },
+      {
+        "name": "rows",
+        "type": "array",
+        "constraint": "min:2 max:8"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
@@ -2087,12 +2204,6 @@
       {
         "name": "caption_fr",
         "type": "string"
-      },
-      {
-        "name": "columns",
-        "type": "array",
-        "constraint": "min:2 max:8",
-        "default": "start"
       },
       {
         "name": "h2_en",
@@ -2119,12 +2230,6 @@
         "type": "string"
       },
       {
-        "name": "rows",
-        "type": "array",
-        "constraint": "min:2 max:8",
-        "default": "false"
-      },
-      {
         "name": "striped",
         "type": "boolean",
         "default": "false"
@@ -2133,9 +2238,6 @@
     "hasDemo": true,
     "demo": {
       "type": "data-table",
-      "background": "paper",
-      "caption_en": "Prices excl. tax, France scope, updated April 2026.",
-      "caption_fr": "Tarifs hors taxes, périmètre France, mise à jour avril 2026.",
       "columns": [
         {
           "label_fr": "Formule",
@@ -2156,6 +2258,71 @@
           "label_fr": "Tarif",
           "label_en": "Price",
           "align": "end"
+        }
+      ],
+      "rows": [
+        {
+          "cells": [
+            {
+              "text_fr": "Amorçage",
+              "text_en": "Seed",
+              "emphasis": true
+            },
+            {
+              "text_fr": "8",
+              "text_en": "8"
+            },
+            {
+              "text_fr": "1 200",
+              "text_en": "1,200"
+            },
+            {
+              "text_fr": "1 900 € / mois",
+              "text_en": "€1,900 / mo"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Croissance",
+              "text_en": "Growth",
+              "emphasis": true
+            },
+            {
+              "text_fr": "23",
+              "text_en": "23"
+            },
+            {
+              "text_fr": "4 800",
+              "text_en": "4,800"
+            },
+            {
+              "text_fr": "4 200 € / mois",
+              "text_en": "€4,200 / mo"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Échelle",
+              "text_en": "Scale",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Illimité",
+              "text_en": "Unlimited"
+            },
+            {
+              "text_fr": "14 000",
+              "text_en": "14,000"
+            },
+            {
+              "text_fr": "Sur devis",
+              "text_en": "On request"
+            }
+          ]
         }
       ]
     }
@@ -2229,6 +2396,11 @@
     "description_fr": "Grille de livrables tangibles avec cards numérotées et tag format/durée, extraite des pages offre et détail.",
     "requiredProps": [
       {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:2 max:8"
+      },
+      {
         "name": "kicker_en",
         "type": "string"
       },
@@ -2252,11 +2424,6 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
-        "name": "items",
-        "type": "array",
-        "constraint": "min:2 max:8"
-      },
-      {
         "name": "lead_en",
         "type": "string"
       },
@@ -2271,7 +2438,39 @@
       "kicker_fr": "§ Livrables",
       "kicker_en": "§ Deliverables",
       "title_fr": "Ce qu'on<br/><i>dépose</i> chez vous",
-      "title_en": "What we<br/><i>leave</i> with you"
+      "title_en": "What we<br/><i>leave</i> with you",
+      "items": [
+        {
+          "title_fr": "Carte des workflows",
+          "title_en": "Workflow map",
+          "body_fr": "Tous les points de friction priorisés par impact, effort et risque opérationnel.",
+          "body_en": "Every friction point prioritised by impact, effort, and operational risk.",
+          "format_fr": "PDF",
+          "format_en": "PDF",
+          "duration_fr": "5 jours",
+          "duration_en": "5 days"
+        },
+        {
+          "title_fr": "Agent configuré",
+          "title_en": "Configured agent",
+          "body_fr": "Un agent Claude câblé à vos outils, avec consignes métier et garde-fous de reprise.",
+          "body_en": "A Claude agent wired to your tools, with business instructions and takeover guardrails.",
+          "format_fr": "Repo",
+          "format_en": "Repo",
+          "duration_fr": "2 sem.",
+          "duration_en": "2 wk"
+        },
+        {
+          "title_fr": "Runbook de maintenance",
+          "title_en": "Maintenance runbook",
+          "body_fr": "Procédures de contrôle, relance, évolution et audit pour ne pas dépendre de Waimia.",
+          "body_en": "Control, recovery, evolution, and audit procedures so you do not depend on Waimia.",
+          "format_fr": "Notion",
+          "format_en": "Notion",
+          "duration_fr": "Transfert",
+          "duration_en": "Handover"
+        }
+      ]
     }
   },
   {
@@ -2558,7 +2757,13 @@
     "subcategory": "Logo Sections",
     "status": "stable",
     "description_fr": "Logos partenaires technologiques unifiés (masque alpha + currentColor), groupés par catégorie, grille / mur / marquee, variante dark.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "partners",
+        "type": "array",
+        "constraint": "min:1"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
@@ -2594,20 +2799,52 @@
       {
         "name": "lede_fr",
         "type": "string"
-      },
-      {
-        "name": "partners",
-        "type": "array",
-        "constraint": "min:1"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "ecosystem-partners",
-      "h2_en": "A proven stack, certified partners",
-      "h2_fr": "Une stack éprouvée, des partenaires certifiés",
-      "kicker_en": "Partner ecosystem",
-      "kicker_fr": "Écosystème partenaires"
+      "partners": [
+        {
+          "name": "Claude (Anthropic)",
+          "asset": "/logos/partners/partner-claude.png",
+          "href": "/expertise-claude",
+          "category": "ai"
+        },
+        {
+          "name": "OpenAI",
+          "asset": "/logos/partners/partner-openai.png",
+          "href": "https://openai.com",
+          "external": true,
+          "category": "ai"
+        },
+        {
+          "name": "Amazon Web Services",
+          "asset": "/logos/partners/partner-aws.png",
+          "href": "https://aws.amazon.com",
+          "external": true,
+          "category": "cloud"
+        },
+        {
+          "name": "Microsoft",
+          "asset": "/logos/partners/partner-microsoft.png",
+          "category": "cloud"
+        },
+        {
+          "name": "Salesforce",
+          "asset": "/logos/partners/partner-salesforce.png",
+          "href": "https://www.salesforce.com",
+          "external": true,
+          "category": "crm"
+        },
+        {
+          "name": "HubSpot",
+          "asset": "/logos/partners/partner-hubspot.png",
+          "href": "https://www.hubspot.com",
+          "external": true,
+          "category": "crm"
+        }
+      ]
     }
   },
   {
@@ -2745,24 +2982,23 @@
     "subcategory": "Feature Sections",
     "status": "stable",
     "description_fr": "Split éditorial deux colonnes pour lister blog et livres blancs, chacun avec cartes connexes et CTA.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "left",
+        "type": "literal",
+        "constraint": "min:1 max:3"
+      },
+      {
+        "name": "right",
+        "type": "literal",
+        "constraint": "min:1 max:3"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "left",
-        "type": "literal",
-        "constraint": "min:1 max:3",
-        "default": "left"
-      },
-      {
-        "name": "right",
-        "type": "literal",
-        "constraint": "min:1 max:3",
-        "default": "right"
       }
     ],
     "hasDemo": true,
@@ -3331,6 +3567,11 @@
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:2 max:8"
       }
     ],
     "optionalProps": [
@@ -3338,11 +3579,6 @@
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "items",
-        "type": "array",
-        "constraint": "min:2 max:8"
       },
       {
         "name": "kicker_en",
@@ -3370,7 +3606,39 @@
     "demo": {
       "type": "feature-accordion",
       "h2_fr": "Quatre briques, <i>une</i> activation continue.",
-      "h2_en": "Four building blocks, <i>one</i> continuous activation."
+      "h2_en": "Four building blocks, <i>one</i> continuous activation.",
+      "items": [
+        {
+          "title_fr": "Cartographie du revenue",
+          "title_en": "Revenue mapping",
+          "body_fr": "On trace le parcours réel du lead au deal, on repère les ruptures et les gisements de pipeline dormant avant d'automatiser quoi que ce soit.",
+          "body_en": "We map the real lead-to-deal journey, spotting breaks and dormant pipeline before automating anything.",
+          "meta_fr": "Livré en semaine 1",
+          "meta_en": "Delivered in week 1"
+        },
+        {
+          "title_fr": "Agents câblés en production",
+          "title_en": "Production-wired agents",
+          "body_fr": "Des agents IA branchés sur votre stack (CRM, données, outils), routés vers le bon modèle selon la tâche, supervisés et mesurés en continu.",
+          "body_en": "AI agents wired into your stack (CRM, data, tools), routed to the right model per task, supervised and measured continuously.",
+          "meta_fr": "Mesuré sur le pipeline réel",
+          "meta_en": "Measured on real pipeline"
+        },
+        {
+          "title_fr": "Transfert de compétence",
+          "title_en": "Skill transfer",
+          "body_fr": "Vos équipes apprennent à opérer et faire évoluer le système. Vous possédez le code et les workflows, sans dépendance à un prestataire.",
+          "body_en": "Your teams learn to operate and evolve the system. You own the code and workflows, with no vendor lock-in.",
+          "meta_fr": "Documentation et runbooks inclus",
+          "meta_en": "Documentation and runbooks included"
+        },
+        {
+          "title_fr": "Boucle de mesure",
+          "title_en": "Measurement loop",
+          "body_fr": "Chaque itération se valide sur des chiffres : conversion, vélocité, pipeline ouvert. On garde ce qui performe, on coupe le reste.",
+          "body_en": "Every iteration is validated on numbers: conversion, velocity, open pipeline. We keep what performs, cut the rest."
+        }
+      ]
     }
   },
   {
@@ -3381,6 +3649,11 @@
     "status": "stable",
     "description_fr": "Différenciation légère « nous vs eux » en grille de cartes : 2 ou 3 colonnes, lignes cochées ou barrées, colonne mise en avant. Plus léger que la table comparative.",
     "requiredProps": [
+      {
+        "name": "columns",
+        "type": "array",
+        "constraint": "min:1 max:10"
+      },
       {
         "name": "h2_en",
         "type": "string"
@@ -3395,12 +3668,6 @@
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "columns",
-        "type": "array",
-        "constraint": "min:1 max:10",
-        "default": "false"
       },
       {
         "name": "kicker_en",
@@ -3423,7 +3690,63 @@
     "demo": {
       "type": "feature-comparison-grid",
       "h2_fr": "Une activation <i>opérée</i>, pas un PowerPoint.",
-      "h2_en": "An <i>operated</i> activation, not a slide deck."
+      "h2_en": "An <i>operated</i> activation, not a slide deck.",
+      "columns": [
+        {
+          "label_fr": "Avec Waimia",
+          "label_en": "With Waimia",
+          "highlighted": true,
+          "rows": [
+            {
+              "text_fr": "Première activation en production sous 5 jours",
+              "text_en": "First production activation within 5 days",
+              "included": true
+            },
+            {
+              "text_fr": "Mesuré sur le pipeline réel, pas sur des slides",
+              "text_en": "Measured on real pipeline, not slides",
+              "included": true
+            },
+            {
+              "text_fr": "Transfert de compétence à vos équipes",
+              "text_en": "Skill transfer to your teams",
+              "included": true
+            },
+            {
+              "text_fr": "Code et workflows livrés, vous les possédez",
+              "text_en": "Code and workflows delivered, you own them",
+              "included": true
+            }
+          ]
+        },
+        {
+          "label_fr": "Conseil classique",
+          "label_en": "Classic consulting",
+          "highlighted": false,
+          "rows": [
+            {
+              "text_fr": "Cadrage de plusieurs semaines avant tout livrable",
+              "text_en": "Weeks of framing before any deliverable",
+              "included": false
+            },
+            {
+              "text_fr": "Recommandations sur slides, exécution à votre charge",
+              "text_en": "Slide recommendations, execution on you",
+              "included": false
+            },
+            {
+              "text_fr": "Dépendance au cabinet pour chaque itération",
+              "text_en": "Vendor dependency on every iteration",
+              "included": false
+            },
+            {
+              "text_fr": "Veille et benchmarks génériques",
+              "text_en": "Generic watch and benchmarks",
+              "included": true
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -3602,6 +3925,11 @@
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "tabs",
+        "type": "array",
+        "constraint": "min:2 max:6"
       }
     ],
     "optionalProps": [
@@ -3625,18 +3953,48 @@
       {
         "name": "kicker_fr",
         "type": "string"
-      },
-      {
-        "name": "tabs",
-        "type": "array",
-        "constraint": "min:2 max:6"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "feature-tabs",
       "h2_fr": "Trois <i>capacites</i> qui changent tout",
-      "h2_en": "Three <i>capabilities</i> that change everything"
+      "h2_en": "Three <i>capabilities</i> that change everything",
+      "tabs": [
+        {
+          "icon": "⚡",
+          "label_fr": "Automatisation",
+          "label_en": "Automation",
+          "title_fr": "<i>Workflows</i> IA operationnels en 5 jours",
+          "title_en": "AI <i>workflows</i> live in 5 days",
+          "body_fr": "Audit, conception et deploiement d'un premier workflow operationnel en une semaine. Aucune infrastructure prealable requise.",
+          "body_en": "Audit, design and deployment of a first operational workflow in one week. No prior infrastructure required.",
+          "visual_label_fr": "Diagramme workflow",
+          "visual_label_en": "Workflow diagram"
+        },
+        {
+          "icon": "◎",
+          "label_fr": "Observabilite",
+          "label_en": "Observability",
+          "title_fr": "Mesures <i>temps reel</i> sur chaque action",
+          "title_en": "<i>Real-time</i> metrics on every action",
+          "body_fr": "Chaque execution est loguee, tracee et analysable. Vous savez ce qui fonctionne, ce qui bloque, et pourquoi.",
+          "body_en": "Every execution is logged, traced and analyzable. You know what works, what blocks, and why.",
+          "visual_label_fr": "Dashboard metriques",
+          "visual_label_en": "Metrics dashboard"
+        },
+        {
+          "icon": "↗",
+          "label_fr": "Scalabilite",
+          "label_en": "Scalability",
+          "title_fr": "De 1 a 20 <i>workflows</i> sans refonte",
+          "title_en": "From 1 to 20 <i>workflows</i> without rework",
+          "body_fr": "L'architecture modulaire permet d'etendre le systeme progressivement, au rythme de votre equipe.",
+          "body_en": "The modular architecture allows extending the system progressively, at your team's pace.",
+          "visual_label_fr": "Schema d'echelle",
+          "visual_label_en": "Scale diagram"
+        }
+      ]
     }
   },
   {
@@ -3654,6 +4012,11 @@
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "rows",
+        "type": "array",
+        "constraint": "min:2 max:6"
       }
     ],
     "optionalProps": [
@@ -3677,18 +4040,48 @@
       {
         "name": "lede_fr",
         "type": "string"
-      },
-      {
-        "name": "rows",
-        "type": "array",
-        "constraint": "min:2 max:6"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "feature-zigzag",
       "h2_fr": "Trois <i>dimensions</i> du systeme Waimia",
-      "h2_en": "Three <i>dimensions</i> of the Waimia system"
+      "h2_en": "Three <i>dimensions</i> of the Waimia system",
+      "rows": [
+        {
+          "kicker_fr": "Diagnostic",
+          "kicker_en": "Diagnostic",
+          "h3_fr": "Audit complet en 5 jours",
+          "h3_en": "Full audit in 5 days",
+          "body_fr": "On cartographie vos flux, vos outils et vos angles morts. Le resultat : un plan d'action priorise avec des gains rapides et des chantiers structurants.",
+          "body_en": "We map your flows, tools, and blind spots. The result: a prioritised action plan with quick wins and structural projects.",
+          "link_label_fr": "Voir le processus",
+          "link_label_en": "See the process",
+          "link_href": "/offres"
+        },
+        {
+          "kicker_fr": "Execution",
+          "kicker_en": "Execution",
+          "h3_fr": "Workflows IA cables et transferes",
+          "h3_en": "AI workflows built and handed over",
+          "body_fr": "On conçoit, deploie et documente chaque workflow avec votre equipe. Pas de boite noire : tout reste lisible, modifiable, extensible.",
+          "body_en": "We design, deploy, and document every workflow with your team. No black box: everything stays readable, editable, extensible.",
+          "link_label_fr": "Explorer les cas clients",
+          "link_label_en": "Explore client cases",
+          "link_href": "/realisations"
+        },
+        {
+          "kicker_fr": "Transfert",
+          "kicker_en": "Transfer",
+          "h3_fr": "Montee en competences de votre equipe",
+          "h3_en": "Building your team capabilities",
+          "body_fr": "Formations courtes, guides operationnels, revues hebdomadaires. Votre equipe gagne en autonomie a chaque iteration.",
+          "body_en": "Short training sessions, operational guides, weekly reviews. Your team gains autonomy with every iteration.",
+          "link_label_fr": "Decouvrir la formation",
+          "link_label_en": "Discover the training",
+          "link_href": "/formations"
+        }
+      ]
     }
   },
   {
@@ -4498,6 +4891,11 @@
         "type": "string"
       },
       {
+        "name": "pills",
+        "type": "array",
+        "constraint": "min:1 max:8"
+      },
+      {
         "name": "title_en",
         "type": "string"
       },
@@ -4523,12 +4921,6 @@
       {
         "name": "cta_secondary",
         "type": "object"
-      },
-      {
-        "name": "pills",
-        "type": "array",
-        "constraint": "min:1 max:8",
-        "default": "default"
       }
     ],
     "hasDemo": true,
@@ -4540,6 +4932,33 @@
       "title_en": "Wiring your CRM with Claude · 2 days",
       "lede_fr": "Deux jours pour livrer un workflow CRM Claude en production : audit pipeline, scoring, séquences automatisées.",
       "lede_en": "Two days to ship a Claude-powered CRM workflow to production: pipeline audit, scoring, automated sequences.",
+      "pills": [
+        {
+          "label_fr": "Intermédiaire",
+          "label_en": "Intermediate",
+          "variant": "default"
+        },
+        {
+          "label_fr": "14h",
+          "label_en": "14h",
+          "variant": "default"
+        },
+        {
+          "label_fr": "Présentiel",
+          "label_en": "In-person",
+          "variant": "default"
+        },
+        {
+          "label_fr": "Certifiant",
+          "label_en": "Certificate",
+          "variant": "accent"
+        },
+        {
+          "label_fr": "2 400 €",
+          "label_en": "€2,400",
+          "variant": "price"
+        }
+      ],
       "cta_primary": {
         "label_fr": "S'inscrire →",
         "label_en": "Enroll →",
@@ -5117,8 +5536,7 @@
       {
         "name": "stats",
         "type": "array",
-        "constraint": "min:2 max:4",
-        "default": "false"
+        "constraint": "min:2 max:4"
       }
     ],
     "hasDemo": true,
@@ -6953,6 +7371,10 @@
       {
         "name": "roman",
         "type": "string"
+      },
+      {
+        "name": "tiers",
+        "type": "array"
       }
     ],
     "optionalProps": [
@@ -6984,10 +7406,6 @@
         "default": "Voir le palier →"
       },
       {
-        "name": "tiers",
-        "type": "array"
-      },
-      {
         "name": "timeline_label_en",
         "type": "string",
         "default": "AI maturity path"
@@ -7011,7 +7429,99 @@
       "label_fr": "Acte II · La pyramide d'engagements",
       "label_en": "Act II · The engagement pyramid",
       "heading_fr": "<i>Cartographier.</i> Câbler.<br/>Orchestrer. <i>Industrialiser.</i>",
-      "heading_en": "<i>Map.</i> Wire.<br/>Orchestrate. <i>Industrialize.</i>"
+      "heading_en": "<i>Map.</i> Wire.<br/>Orchestrate. <i>Industrialize.</i>",
+      "tiers": [
+        {
+          "n": "I",
+          "tag_fr": "ACTIVATION",
+          "tag_en": "ACTIVATION",
+          "label_fr": "Activation rapide",
+          "label_en": "Fast activation",
+          "lead_fr": "Une semaine pour identifier le levier, former l'équipe et livrer un premier workflow en production.",
+          "lead_en": "One week to identify the lever, train the team, and ship the first workflow in production.",
+          "items_fr": [
+            "Audit process · 5j",
+            "Formation équipe · 1 sem",
+            "Gain rapide Excel"
+          ],
+          "items_en": [
+            "Process audit · 5d",
+            "Team training · 1 wk",
+            "Quick Excel win"
+          ],
+          "action_fr": "Cartographier",
+          "action_en": "Map",
+          "href": "/offres#tier-1"
+        },
+        {
+          "n": "II",
+          "tag_fr": "PRODUCTIVITÉ",
+          "tag_en": "PRODUCTIVITY",
+          "label_fr": "Productivité opérationnelle",
+          "label_en": "Operational productivity",
+          "lead_fr": "Supprimer les tâches récurrentes et fluidifier les workflows internes.",
+          "lead_en": "Remove recurring tasks and make internal workflows run without daily chasing.",
+          "items_fr": [
+            "Workflows métiers",
+            "Tâches répétitives",
+            "Support client"
+          ],
+          "items_en": [
+            "Business workflows",
+            "Repetitive tasks",
+            "Customer support"
+          ],
+          "action_fr": "Câbler",
+          "action_en": "Wire",
+          "href": "/offres#tier-2"
+        },
+        {
+          "n": "III",
+          "tag_fr": "ACQUISITION",
+          "tag_en": "GROWTH",
+          "label_fr": "Acquisition & pilotage",
+          "label_en": "Acquisition & intelligence",
+          "lead_fr": "Connecter site, CRM, relances, contenu et pilotage dans un même système.",
+          "lead_en": "Connect site, CRM, follow-ups, content, and business visibility into one growth system.",
+          "items_fr": [
+            "Système d'acquisition",
+            "Pipeline commercial",
+            "Tableaux de pilotage",
+            "Contenu SEO/GEO"
+          ],
+          "items_en": [
+            "Acquisition system",
+            "Sales pipeline",
+            "Decision dashboards",
+            "SEO/GEO content"
+          ],
+          "action_fr": "Orchestrer",
+          "action_en": "Orchestrate",
+          "href": "/offres#tier-3"
+        },
+        {
+          "n": "IV",
+          "tag_fr": "ETI",
+          "tag_en": "ENTERPRISE",
+          "label_fr": "Infrastructure ETI",
+          "label_en": "Enterprise infrastructure",
+          "lead_fr": "Systèmes connectés pour équipes élargies, gouvernance stricte et opérations multi-sites.",
+          "lead_en": "Connected systems for larger teams, stricter governance, and multi-site operations.",
+          "items_fr": [
+            "Architecture connectée",
+            "Sécurité & gouvernance",
+            "Multi-équipes & multi-sites"
+          ],
+          "items_en": [
+            "Connected architecture",
+            "Security & governance",
+            "Multi-team & multi-site"
+          ],
+          "action_fr": "Industrialiser",
+          "action_en": "Industrialize",
+          "href": "/offres#tier-4"
+        }
+      ]
     }
   },
   {
@@ -7226,7 +7736,13 @@
     "subcategory": "Stats Sections",
     "status": "stable",
     "description_fr": "Comparaison avant → après : valeur initiale et finale magnifiées, delta.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "shifts",
+        "type": "array",
+        "constraint": "min:2 max:6"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
@@ -7256,20 +7772,40 @@
       {
         "name": "lede_fr",
         "type": "string"
-      },
-      {
-        "name": "shifts",
-        "type": "array",
-        "constraint": "min:2 max:6"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "metric-shift",
-      "background": "paper",
-      "h2_en": "Before → <i>after</i>.",
-      "h2_fr": "Avant → <i>après</i>.",
-      "kicker_en": "§ Measured results"
+      "shifts": [
+        {
+          "label_fr": "Taux de récupération dunning",
+          "label_en": "Dunning recovery rate",
+          "before": "34 %",
+          "after": "61 %",
+          "delta_fr": "+27 pts",
+          "delta_en": "+27 pts",
+          "trend": "up"
+        },
+        {
+          "label_fr": "Délai 1er contact",
+          "label_en": "First-contact delay",
+          "before": "48 h",
+          "after": "< 2 min",
+          "delta_fr": "−99 %",
+          "delta_en": "−99 %",
+          "trend": "down"
+        },
+        {
+          "label_fr": "Erreur réconciliation",
+          "label_en": "Reconciliation error",
+          "before": "4 %",
+          "after": "0,3 %",
+          "delta_fr": "−93 %",
+          "delta_en": "−93 %",
+          "trend": "down"
+        }
+      ]
     }
   },
   {
@@ -7715,6 +8251,11 @@
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:2 max:6"
       }
     ],
     "optionalProps": [
@@ -7740,18 +8281,33 @@
         "name": "eyebrow_fr",
         "type": "string",
         "default": "§ Friction"
-      },
-      {
-        "name": "items",
-        "type": "array",
-        "constraint": "min:2 max:6"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "pain-points",
       "h2_fr": "<i>Points</i><br/>de friction",
-      "h2_en": "<i>Points</i><br/>of friction"
+      "h2_en": "<i>Points</i><br/>of friction",
+      "items": [
+        {
+          "title_fr": "La clôture mensuelle prend dix jours",
+          "title_en": "Monthly close takes ten days",
+          "body_fr": "Réconciliation manuelle entre banque, ERP et tableurs. L équipe finance reconstruit les mêmes chiffres chaque mois.",
+          "body_en": "Manual reconciliation between bank, ERP and spreadsheets. The finance team rebuilds the same figures every month."
+        },
+        {
+          "title_fr": "Les mémos partent sans relecture",
+          "title_en": "Memos ship without review",
+          "body_fr": "Faute de temps, les notes financières arrivent au COMEX avec des écarts non expliqués et des sources éparpillées.",
+          "body_en": "For lack of time, financial notes reach the board with unexplained gaps and scattered sources."
+        },
+        {
+          "title_fr": "Le reporting reste un copier-coller",
+          "title_en": "Reporting stays copy-paste",
+          "body_fr": "Chaque tableau de bord est reconstruit à la main, sans source de vérité, donc impossible à auditer rapidement.",
+          "body_en": "Every dashboard is rebuilt by hand, without a source of truth, so it cannot be audited quickly."
+        }
+      ]
     }
   },
   {
@@ -8674,13 +9230,6 @@
       {
         "name": "h2_fr",
         "type": "string"
-      }
-    ],
-    "optionalProps": [
-      {
-        "name": "background",
-        "type": "enum",
-        "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
         "name": "problems",
@@ -8688,11 +9237,47 @@
         "constraint": "min:2 max:6"
       }
     ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      }
+    ],
     "hasDemo": true,
     "demo": {
       "type": "problems-grid",
       "h2_fr": "Trois frictions qui tuent votre conversion",
-      "h2_en": "Three conversion killers"
+      "h2_en": "Three conversion killers",
+      "problems": [
+        {
+          "num": "01",
+          "kicker_fr": "Site trop lent",
+          "kicker_en": "Site too slow",
+          "title_fr": "FCP 4,2 s. Lighthouse 34.<br/>−7 % de conversion par seconde.",
+          "title_en": "FCP 4.2s. Lighthouse 34.<br/>−7% conversion per second.",
+          "body_fr": "WordPress avec 40 plugins : chaque visiteur attend. Chaque seconde perdue coûte 7 % de conversions. Sans IA, impossible d'automatiser les corrections.",
+          "body_en": "WordPress with 40 plugins: each visitor waits. Every second lost costs 7% in conversions. Without AI, automating fixes is impossible."
+        },
+        {
+          "num": "02",
+          "kicker_fr": "Contenu stale",
+          "kicker_en": "Stale content",
+          "title_fr": "1 article en 6 semaines.<br/>Vos concurrents en publient 8/sem avec IA.",
+          "title_en": "1 article in 6 weeks.<br/>Your AI competitors ship 8/wk.",
+          "body_fr": "Le brief, les relectures, le SEO, la mise en ligne : 6 semaines par article. Vos concurrents IA publient 8 articles/semaine optimisés Google et GEO.",
+          "body_en": "Brief, revisions, SEO, publishing: 6 weeks per article. Your AI competitors publish 8 articles/week, optimised for Google and GEO."
+        },
+        {
+          "num": "03",
+          "kicker_fr": "Leads sans relance",
+          "kicker_en": "Uncontacted leads",
+          "title_fr": "3 200 leads collectés.<br/>Jamais relancés dans l'heure.",
+          "title_en": "3,200 leads collected.<br/>Never followed up within the hour.",
+          "body_fr": "Les prospects remplissent les formulaires. Ils attendent. La conversion est 7× plus probable dans l'heure, mais personne ne rappelle. Le pipeline dort.",
+          "body_en": "Prospects fill in forms. They wait. Conversion is 7× more likely within the hour, but nobody calls back. The pipeline sleeps."
+        }
+      ]
     }
   },
   {
@@ -8702,7 +9287,13 @@
     "subcategory": "Process Sections",
     "status": "stable",
     "description_fr": "« Comment ça marche » en étapes numérotées verticales : numéro, titre, description et meta par étape, connecteurs visuels entre paliers, fonds paper à ink.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "steps",
+        "type": "array",
+        "constraint": "min:2 max:8"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
@@ -8733,20 +9324,45 @@
       {
         "name": "kicker_fr",
         "type": "string"
-      },
-      {
-        "name": "steps",
-        "type": "array",
-        "constraint": "min:2 max:8"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "process-steps",
-      "background": "paper",
-      "h2_en": "Four steps, <i class=\"acc\">zero</i> mystery.",
-      "h2_fr": "Quatre étapes, <i class=\"acc\">zéro</i> mystère.",
-      "intro_en": "From diagnosis to an industrialized system. Each step prepares the next, nothing is skipped."
+      "steps": [
+        {
+          "title_fr": "Cartographier",
+          "title_en": "Map",
+          "body_fr": "On audite vos flux acquisition, CRM et contenu pour repérer les goulots réels.",
+          "body_en": "We audit your acquisition, CRM and content flows to spot the real bottlenecks.",
+          "meta_fr": "Semaine 1",
+          "meta_en": "Week 1"
+        },
+        {
+          "title_fr": "Câbler",
+          "title_en": "Wire",
+          "body_fr": "On branche les agents et les règles dans votre pipeline existant, sans tout casser.",
+          "body_en": "We wire agents and rules into your existing pipeline, without breaking everything.",
+          "meta_fr": "Semaines 2-3",
+          "meta_en": "Weeks 2-3"
+        },
+        {
+          "title_fr": "Orchestrer",
+          "title_en": "Orchestrate",
+          "body_fr": "On séquence les workflows, on pose les handoffs humains et l’audit trail signé.",
+          "body_en": "We sequence workflows, set human handoffs and the signed audit trail.",
+          "meta_fr": "Semaine 4",
+          "meta_en": "Week 4"
+        },
+        {
+          "title_fr": "Industrialiser",
+          "title_en": "Industrialize",
+          "body_fr": "On mesure, on réalloue, on documente. Le système tourne, vous gardez la main.",
+          "body_en": "We measure, reallocate, document. The system runs, you keep control.",
+          "meta_fr": "En continu",
+          "meta_en": "Ongoing"
+        }
+      ]
     }
   },
   {
@@ -9000,7 +9616,13 @@
     "subcategory": "Content Listing Sections",
     "status": "stable",
     "description_fr": "Grille de ressources téléchargeables : type (livre blanc, cookbook, outil), titre, description, format, badge gated et CTA, en 2 ou 3 colonnes.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "resources",
+        "type": "array",
+        "constraint": "min:2 max:9"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
@@ -9037,21 +9659,52 @@
       {
         "name": "kicker_fr",
         "type": "string"
-      },
-      {
-        "name": "resources",
-        "type": "array",
-        "constraint": "min:2 max:9",
-        "default": "false"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "resource-card-grid",
-      "background": "paper-2",
-      "columns": "3",
-      "h2_en": "Tools, not <i class=\"acc\">brochures</i>.",
-      "h2_fr": "Des outils, pas des <i class=\"acc\">brochures</i>."
+      "resources": [
+        {
+          "kind_fr": "Livre blanc",
+          "kind_en": "White paper",
+          "title_fr": "IA-first revenue : le guide de câblage",
+          "title_en": "AI-first revenue: the wiring guide",
+          "desc_fr": "Le cadre complet pour relier acquisition, CRM et contenu.",
+          "desc_en": "The full framework to connect acquisition, CRM and content.",
+          "format": "PDF · 32 p",
+          "href": "/ressources",
+          "cta_label_fr": "Télécharger",
+          "cta_label_en": "Download",
+          "gated": true
+        },
+        {
+          "kind_fr": "Cookbook",
+          "kind_en": "Cookbook",
+          "title_fr": "12 workflows agents prêts à coller",
+          "title_en": "12 agent workflows ready to paste",
+          "desc_fr": "Recettes éprouvées pour relances, triage et reporting.",
+          "desc_en": "Battle-tested recipes for follow-ups, triage and reporting.",
+          "format": "Notion",
+          "href": "/ressources",
+          "cta_label_fr": "Ouvrir",
+          "cta_label_en": "Open",
+          "gated": false
+        },
+        {
+          "kind_fr": "Outil",
+          "kind_en": "Tool",
+          "title_fr": "Calculateur de ROI pipeline",
+          "title_en": "Pipeline ROI calculator",
+          "desc_fr": "Estimez le pipeline généré selon votre stack et maturité.",
+          "desc_en": "Estimate generated pipeline from your stack and maturity.",
+          "format": "Web",
+          "href": "/ressources",
+          "cta_label_fr": "Lancer",
+          "cta_label_en": "Launch",
+          "gated": false
+        }
+      ]
     }
   },
   {
@@ -9144,6 +9797,11 @@
       {
         "name": "roman",
         "type": "string"
+      },
+      {
+        "name": "services",
+        "type": "array",
+        "constraint": "min:2 max:8"
       }
     ],
     "optionalProps": [
@@ -9179,11 +9837,6 @@
       {
         "name": "meta_fr",
         "type": "string"
-      },
-      {
-        "name": "services",
-        "type": "array",
-        "constraint": "min:2 max:8"
       }
     ],
     "hasDemo": true,
@@ -9193,7 +9846,45 @@
       "label_fr": "§ 02 - Catalogue conseil",
       "label_en": "§ 02 - Advisory catalogue",
       "heading_fr": "Quatre <i>chantiers</i>. Un seul standard.",
-      "heading_en": "Four <i>engagements</i>. One standard."
+      "heading_en": "Four <i>engagements</i>. One standard.",
+      "services": [
+        {
+          "num": "02.1",
+          "title_fr": "Audit de maturité IA",
+          "title_en": "AI Maturity Audit",
+          "desc_fr": "Cartographie des cas d usage, des données et des risques avant tout chantier.",
+          "desc_en": "Mapping of use cases, data, and risks before any engagement.",
+          "meta": "10 j · 10 days",
+          "href": "/offres/audit-maturite-ia"
+        },
+        {
+          "num": "02.2",
+          "title_fr": "Roadmap & cadrage",
+          "title_en": "Roadmap & Scoping",
+          "desc_fr": "Priorisation des chantiers, séquencement et budget cadré sur 3-5 jalons.",
+          "desc_en": "Engagement prioritisation, sequencing, and budget framed across 3-5 milestones.",
+          "meta": "8 j · 8 days",
+          "href": "/offres"
+        },
+        {
+          "num": "02.3",
+          "title_fr": "Gouvernance des données",
+          "title_en": "Data Governance",
+          "desc_fr": "Mise en place des règles d accès, de qualité et de traçabilité réutilisables.",
+          "desc_en": "Reusable access, quality, and traceability rules put in place.",
+          "meta": "12 j · 12 days",
+          "href": "/offres"
+        },
+        {
+          "num": "02.4",
+          "title_fr": "Dette technique",
+          "title_en": "Technical Debt",
+          "desc_fr": "Diagnostic et plan de remédiation de la dette qui freine la mise en production.",
+          "desc_en": "Diagnosis and remediation plan for the debt slowing production.",
+          "meta": "15 j · 15 days",
+          "href": "/offres"
+        }
+      ]
     }
   },
   {
@@ -9225,6 +9916,11 @@
         "type": "string"
       },
       {
+        "name": "services",
+        "type": "array",
+        "constraint": "min:3 max:6"
+      },
+      {
         "name": "spec_en",
         "type": "string"
       },
@@ -9253,11 +9949,6 @@
         "name": "foot_links",
         "type": "array",
         "constraint": "max:3"
-      },
-      {
-        "name": "services",
-        "type": "array",
-        "constraint": "min:3 max:6"
       }
     ],
     "hasDemo": true,
@@ -9269,7 +9960,75 @@
       "spec_fr": "6 SERVICES · UNE COUCHE CONTINUE",
       "spec_en": "6 SERVICES · ONE CONTINUOUS LAYER",
       "h2_fr": "Six services, appris en <i>livrant</i>, pas en PowerPoint.",
-      "h2_en": "Six services, taught by <i>doing</i>, not by slides."
+      "h2_en": "Six services, taught by <i>doing</i>, not by slides.",
+      "services": [
+        {
+          "fig": "2.01",
+          "metric_fr": "30 min",
+          "metric_en": "30 min",
+          "label_fr": "Diagnostic 30 min",
+          "label_en": "30-min diagnostic",
+          "body_fr": "On identifie le levier métier avant la techno.",
+          "body_en": "We identify the business lever before the technology.",
+          "connectors_fr": "Audit · Cartographie · Stack mapping",
+          "connectors_en": "Audit · Cartography · Stack mapping"
+        },
+        {
+          "fig": "2.02",
+          "metric_fr": "+840 K€ pipe",
+          "metric_en": "+€840K pipe",
+          "label_fr": "Système d'acquisition",
+          "label_en": "Acquisition system",
+          "body_fr": "Pipeline reconnecté, qualification automatisée.",
+          "body_en": "Pipeline reconnected, qualification automated.",
+          "connectors_fr": "Google Ads · Meta · LinkedIn · GA4 · Landing",
+          "connectors_en": "Google Ads · Meta · LinkedIn · GA4 · Landing"
+        },
+        {
+          "fig": "2.03",
+          "metric_fr": "−35% manuel",
+          "metric_en": "−35% manual",
+          "label_fr": "CRM augmenté",
+          "label_en": "Augmented CRM",
+          "body_fr": "Le CRM qui relance, qualifie et alerte, sans que vous touchiez rien.",
+          "body_en": "The CRM that follows up, qualifies and alerts, without you touching it.",
+          "connectors_fr": "HubSpot · Salesforce · Pipedrive · Outlook",
+          "connectors_en": "HubSpot · Salesforce · Pipedrive · Outlook"
+        },
+        {
+          "fig": "2.04",
+          "metric_fr": "Décide en 2 min",
+          "metric_en": "2 min decision",
+          "label_fr": "Lisibilité des données",
+          "label_en": "Data clarity",
+          "body_fr": "Tableaux de bord temps réel : décidez en 2 minutes, pas en réunion.",
+          "body_en": "Real-time dashboards: decide in 2 minutes, not a meeting.",
+          "connectors_fr": "GA4 · Search Console · SEO tools · Dashboards",
+          "connectors_en": "GA4 · Search Console · SEO tools · Dashboards"
+        },
+        {
+          "fig": "2.05",
+          "metric_fr": "+12h / sem",
+          "metric_en": "+12h / week",
+          "label_fr": "Tâches répétitives éliminées",
+          "label_en": "Repetitive tasks removed",
+          "body_fr": "Workflows qui tournent sans vous.",
+          "body_en": "Workflows that run without you.",
+          "connectors_fr": "Workflows · Agents IA · Excel · Office",
+          "connectors_en": "Workflows · AI agents · Excel · Office"
+        },
+        {
+          "fig": "2.06",
+          "metric_fr": "Souverain",
+          "metric_en": "Sovereign",
+          "label_fr": "Sur-mesure ETI",
+          "label_en": "Enterprise custom build",
+          "body_fr": "Architecture souveraine, quand les outils du marché butent sur votre périmètre.",
+          "body_en": "Sovereign architecture, when the market stack hits your perimeter limits.",
+          "connectors_fr": "Trust Center · Design System · Governance · VirtuoseOS",
+          "connectors_en": "Trust Center · Design System · Governance · VirtuoseOS"
+        }
+      ]
     }
   },
   {
@@ -9279,7 +10038,12 @@
     "subcategory": "Logo Sections",
     "status": "stable",
     "description_fr": "Section de logos clients ou partenaires pour installer une preuve sociale immédiate.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "logos",
+        "type": "array"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
@@ -9295,10 +10059,6 @@
         "type": "string"
       },
       {
-        "name": "logos",
-        "type": "array"
-      },
-      {
         "name": "marquee",
         "type": "boolean",
         "default": "true"
@@ -9307,8 +10067,6 @@
     "hasDemo": true,
     "demo": {
       "type": "social-proof",
-      "kicker_en": "They wired AI with Waimia",
-      "kicker_fr": "Ils ont câblé l'IA avec Waimia",
       "logos": [
         {
           "name": "PME Services"
@@ -9328,8 +10086,7 @@
         {
           "name": "Cabinet Compta"
         }
-      ],
-      "marquee": true
+      ]
     }
   },
   {
@@ -9805,7 +10562,13 @@
     "subcategory": "Testimonial Sections",
     "status": "stable",
     "description_fr": "Grille auto-fill de cartes auteurs avec photo, rôle, description, compteur de publications et CTA profil.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "members",
+        "type": "array",
+        "constraint": "int min:0 max:6"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
@@ -9841,21 +10604,40 @@
         "name": "cta_label_fr",
         "type": "string",
         "default": "Voir le profil →"
-      },
-      {
-        "name": "members",
-        "type": "array",
-        "constraint": "int min:0 max:6",
-        "default": "Portrait auteur Waimia"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "team-card-grid",
-      "count_plural_en": "publications",
-      "count_plural_fr": "publications",
-      "count_singular_en": "publication",
-      "count_singular_fr": "publication"
+      "members": [
+        {
+          "name": "Simon Beros",
+          "role_fr": "Fondateur · Architecte IA",
+          "role_en": "Founder · AI Architect",
+          "description_fr": "Construit les systèmes, écrit les notes longues et signe les arbitrages techniques.",
+          "description_en": "Builds the systems, writes long-form notes, and signs off technical decisions.",
+          "href": "/equipe/simon-beros",
+          "count": 14
+        },
+        {
+          "name": "Claire Martin",
+          "role_fr": "Ops · Documentation",
+          "role_en": "Ops · Documentation",
+          "description_fr": "Transforme les missions clients en SOP, checklists et livrables transmissibles.",
+          "description_en": "Turns client work into SOPs, checklists, and transferable deliverables.",
+          "href": "/equipe",
+          "count": 6
+        },
+        {
+          "name": "Nadia Leroy",
+          "role_fr": "Growth · Contenu",
+          "role_en": "Growth · Content",
+          "description_fr": "Relie acquisition, CRM et contenus pour rendre les systèmes mesurables.",
+          "description_en": "Connects acquisition, CRM, and content so systems can be measured.",
+          "href": "/equipe",
+          "count": 3
+        }
+      ]
     }
   },
   {
@@ -9866,6 +10648,11 @@
     "status": "stable",
     "description_fr": "Inventaire technique en table spec (capacité, description, statut) avec en-tête kicker et aside.",
     "requiredProps": [
+      {
+        "name": "capabilities",
+        "type": "array",
+        "constraint": "min:1"
+      },
       {
         "name": "kicker_en",
         "type": "string"
@@ -9896,12 +10683,6 @@
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "capabilities",
-        "type": "array",
-        "constraint": "min:1",
-        "default": "active"
       }
     ],
     "hasDemo": true,
@@ -9910,7 +10691,30 @@
       "kicker_fr": "Capacités",
       "kicker_en": "Capabilities",
       "title_fr": "<i>Inventaire</i><br/>technique",
-      "title_en": "Technical<br/><i>inventory</i>"
+      "title_en": "Technical<br/><i>inventory</i>",
+      "capabilities": [
+        {
+          "name_fr": "Raisonnement long et complexe",
+          "name_en": "Long and complex reasoning",
+          "description_fr": "Chaînes de pensée structurées sur problèmes multi-étapes.",
+          "description_en": "Structured reasoning chains on multi-step problems.",
+          "status": "active"
+        },
+        {
+          "name_fr": "Suivi d instructions précis",
+          "name_en": "Precise instruction following",
+          "description_fr": "Respect strict des contraintes formelles et règles métier.",
+          "description_en": "Strict compliance with formal constraints and business rules.",
+          "status": "active"
+        },
+        {
+          "name_fr": "Constitutional AI natif",
+          "name_en": "Native Constitutional AI",
+          "description_fr": "Alignement par principes intégrés au training, traçabilité.",
+          "description_en": "Principle-based alignment built into training, traceability.",
+          "status": "active"
+        }
+      ]
     }
   },
   {
@@ -10007,6 +10811,11 @@
         "type": "string"
       },
       {
+        "name": "models",
+        "type": "array",
+        "constraint": "min:1"
+      },
+      {
         "name": "title_en",
         "type": "string"
       },
@@ -10036,11 +10845,6 @@
       {
         "name": "caption_fr",
         "type": "string"
-      },
-      {
-        "name": "models",
-        "type": "array",
-        "constraint": "min:1"
       }
     ],
     "hasDemo": true,
@@ -10049,7 +10853,33 @@
       "kicker_fr": "Choisir le bon modèle",
       "kicker_en": "Choose the right model",
       "title_fr": "<i>Modèles</i><br/>disponibles",
-      "title_en": "Available<br/><i>models</i>"
+      "title_en": "Available<br/><i>models</i>",
+      "models": [
+        {
+          "name": "Claude Haiku 4.5",
+          "version": "4.5",
+          "cost": "€",
+          "context": "200K tokens",
+          "use_case_fr": "Triage, classification, scoring, tâches répétitives à fort volume",
+          "use_case_en": "Triage, classification, scoring, high-volume repetitive tasks"
+        },
+        {
+          "name": "Claude Sonnet 4.6",
+          "version": "4.6",
+          "cost": "€€",
+          "context": "1M tokens",
+          "use_case_fr": "Rédaction, analyse, agents, la plupart des workflows enterprise",
+          "use_case_en": "Writing, analysis, agents, most enterprise workflows"
+        },
+        {
+          "name": "Claude Opus 4.8",
+          "version": "4.8",
+          "cost": "€€€",
+          "context": "1M tokens",
+          "use_case_fr": "Raisonnement complexe, stratégie, audit critique, cas exigeants",
+          "use_case_en": "Complex reasoning, strategy, critical audit, demanding cases"
+        }
+      ]
     }
   },
   {
@@ -10131,6 +10961,11 @@
       {
         "name": "kicker_fr",
         "type": "string"
+      },
+      {
+        "name": "pills",
+        "type": "array",
+        "constraint": "min:2 max:16"
       }
     ],
     "optionalProps": [
@@ -10146,18 +10981,45 @@
       {
         "name": "lead_fr",
         "type": "string"
-      },
-      {
-        "name": "pills",
-        "type": "array",
-        "constraint": "min:2 max:16"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "tech-stack-band",
       "kicker_fr": "§ 04 · La stack",
-      "kicker_en": "§ 04 · The stack"
+      "kicker_en": "§ 04 · The stack",
+      "pills": [
+        {
+          "label_fr": "Claude Opus",
+          "label_en": "Claude Opus",
+          "kind": "primary"
+        },
+        {
+          "label_fr": "Claude Sonnet",
+          "label_en": "Claude Sonnet",
+          "kind": "primary"
+        },
+        {
+          "label_fr": "HubSpot",
+          "label_en": "HubSpot",
+          "kind": "neutral"
+        },
+        {
+          "label_fr": "PostgreSQL",
+          "label_en": "PostgreSQL",
+          "kind": "open"
+        },
+        {
+          "label_fr": "Vercel",
+          "label_en": "Vercel",
+          "kind": "neutral"
+        },
+        {
+          "label_fr": "Audit trail",
+          "label_en": "Audit trail",
+          "kind": "open"
+        }
+      ]
     }
   },
   {
@@ -10766,19 +11628,19 @@
     "subcategory": "Timelines",
     "status": "stable",
     "description_fr": "Frise chronologique horizontale datée (roadmap) : événements à statut (done/active/upcoming), date, label et body, scroll-snap horizontal, empilement vertical sur mobile.",
-    "requiredProps": [],
+    "requiredProps": [
+      {
+        "name": "events",
+        "type": "array",
+        "constraint": "min:2 max:10"
+      }
+    ],
     "optionalProps": [
       {
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink",
         "default": "paper"
-      },
-      {
-        "name": "events",
-        "type": "array",
-        "constraint": "min:2 max:10",
-        "default": "upcoming"
       },
       {
         "name": "h2_en",
@@ -10808,7 +11670,6 @@
     "hasDemo": true,
     "demo": {
       "type": "timeline-horizontal",
-      "background": "paper",
       "events": [
         {
           "date_fr": "T1 2026",
@@ -10846,9 +11707,7 @@
           "body_en": "Board-ready export generated every Friday.",
           "status": "upcoming"
         }
-      ],
-      "h2_en": "The product trajectory, <i class=\"acc\">dated</i>.",
-      "h2_fr": "La trajectoire produit, <i class=\"acc\">datée</i>."
+      ]
     }
   },
   {
@@ -11075,15 +11934,14 @@
       {
         "name": "back_label",
         "type": "string"
-      }
-    ],
-    "optionalProps": [
+      },
       {
         "name": "cta",
         "type": "enum",
-        "constraint": "primary | accent | ghost",
-        "default": "primary"
-      },
+        "constraint": "primary | accent | ghost"
+      }
+    ],
+    "optionalProps": [
       {
         "name": "prev_href",
         "type": "string"
@@ -11112,6 +11970,12 @@
     "hasDemo": true,
     "demo": {
       "type": "tunnel-step-nav",
+      "cta": {
+        "label_fr": "Continuer →",
+        "label_en": "Continue →",
+        "href": "/solutions/tunnel-de-vente",
+        "variant": "primary"
+      },
       "back_href": "/solutions/tunnel-de-vente",
       "back_label": "← Activation IA"
     }
@@ -11382,6 +12246,11 @@
       {
         "name": "lede_fr",
         "type": "string"
+      },
+      {
+        "name": "next_steps",
+        "type": "array",
+        "constraint": "min:1 max:3"
       }
     ],
     "optionalProps": [
@@ -11396,11 +12265,6 @@
       {
         "name": "back_label_fr",
         "type": "string"
-      },
-      {
-        "name": "next_steps",
-        "type": "array",
-        "constraint": "min:1 max:3"
       }
     ],
     "hasDemo": true,
@@ -11411,7 +12275,32 @@
       "h1_fr": "Votre demande est <i>bien reçue</i>.",
       "h1_en": "Your request is <i>confirmed</i>.",
       "lede_fr": "On revient avec une première lecture opérationnelle et les trois actions à préparer avant l’échange.",
-      "lede_en": "We come back with a first operational read and the three actions to prepare before the call."
+      "lede_en": "We come back with a first operational read and the three actions to prepare before the call.",
+      "next_steps": [
+        {
+          "num": "1",
+          "title_fr": "Vérifier le contexte",
+          "title_en": "Confirm context",
+          "body_fr": "Regroupez les liens utiles : site, CRM, tunnel, documents internes ou exemples de livrables.",
+          "body_en": "Collect useful links: website, CRM, funnel, internal docs, or sample deliverables."
+        },
+        {
+          "num": "2",
+          "title_fr": "Identifier le point bloquant",
+          "title_en": "Name the bottleneck",
+          "body_fr": "Choisissez un problème concret : qualification, contenu, relance, reporting ou support.",
+          "body_en": "Pick one concrete problem: qualification, content, follow-up, reporting, or support."
+        },
+        {
+          "num": "3",
+          "title_fr": "Préparer la décision",
+          "title_en": "Prepare the decision",
+          "body_fr": "Listez qui doit valider le premier système et quels critères prouvent que ça marche.",
+          "body_en": "List who validates the first system and which criteria prove it works.",
+          "ctaLabel": "Voir la méthode",
+          "ctaHref": "/agence/methode"
+        }
+      ]
     }
   },
   {

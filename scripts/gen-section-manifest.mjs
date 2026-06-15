@@ -278,6 +278,38 @@ function extractDefault(chain) {
 }
 
 /**
+ * Flatten a zod chain to its TOP-LEVEL tokens only : every balanced inner group
+ * ( () / {} / [] ) is replaced by a single placeholder so that modifiers nested
+ * inside an inner object/array (e.g. `num: z.string().optional()` inside
+ * `z.array(z.object({ ... }))`) cannot leak into the outer field's required-ness
+ * detection. `.optional()`/`.default()` that apply to the field itself always sit
+ * at the top level (after the last closing bracket of any nested group), so they
+ * survive the flattening.
+ *
+ * Example :
+ *   z.array(z.object({ num: z.string().optional(), title_fr: z.string() })).min(2)
+ *   -> z.array().min(2)
+ *   (the inner `.optional()` is gone ; a real outer `.optional()` would remain.)
+ */
+function outerChain(chain) {
+  let out = '';
+  let depth = 0;
+  for (let i = 0; i < chain.length; i++) {
+    const c = chain[i];
+    if (c === '(' || c === '{' || c === '[') {
+      if (depth === 0) out += c; // keep the opening bracket as a marker
+      depth++;
+    } else if (c === ')' || c === '}' || c === ']') {
+      depth--;
+      if (depth === 0) out += c; // keep the closing bracket as a marker
+    } else if (depth === 0) {
+      out += c;
+    }
+  }
+  return out;
+}
+
+/**
  * Given the source of sections.ts and a type id, find the corresponding z.object
  * export and return array of { name, type, required, default?, constraint? }.
  *
@@ -355,9 +387,14 @@ function parseSchemaFields(source, typeId) {
     if (fieldName === 'type' && /z\.literal\(/.test(chain)) continue;
 
     const zodType = inferZodType(chain);
-    const isOptional = /\.optional\(\)/.test(chain);
-    const hasDefault = /\.default\(/.test(chain);
-    const defaultVal = extractDefault(chain);
+    // Detect optional/default ONLY on the top-level chain : a `.optional()` or
+    // `.default()` nested inside an inner z.object()/z.array() (e.g. an optional
+    // sub-field) must NOT make the OUTER field optional. A required array with a
+    // `.min(n)` and an inner `.optional()` sub-field stays required (rule fix).
+    const outer = outerChain(chain);
+    const isOptional = /\.optional\(\)/.test(outer);
+    const hasDefault = /\.default\(/.test(outer);
+    const defaultVal = hasDefault ? extractDefault(chain) : undefined;
     const constraint = extractConstraint(chain) ?? extractEnumValues(chain);
 
     if (zodType === 'unknown' && fieldName === 'type') continue;

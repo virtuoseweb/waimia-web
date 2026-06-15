@@ -683,7 +683,7 @@
       {
         "name": "articles",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:12"
       },
       {
@@ -1104,7 +1104,7 @@
       {
         "name": "cells",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:5 max:5"
       },
       {
@@ -2450,7 +2450,7 @@
       {
         "name": "lines",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:1 max:24"
       },
       {
@@ -4027,7 +4027,7 @@
       {
         "name": "rows",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "int min:1 max:20"
       },
       {
@@ -5340,8 +5340,7 @@
       {
         "name": "columns",
         "type": "array",
-        "required": false,
-        "default": "start",
+        "required": true,
         "constraint": "min:2 max:8"
       },
       {
@@ -5377,8 +5376,7 @@
       {
         "name": "rows",
         "type": "array",
-        "required": false,
-        "default": "false",
+        "required": true,
         "constraint": "min:2 max:8"
       },
       {
@@ -5697,7 +5695,7 @@
       {
         "name": "items",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:8"
       },
       {
@@ -6776,7 +6774,7 @@
       {
         "name": "partners",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:1"
       }
     ],
@@ -7153,15 +7151,13 @@
       {
         "name": "left",
         "type": "literal",
-        "required": false,
-        "default": "left",
+        "required": true,
         "constraint": "min:1 max:3"
       },
       {
         "name": "right",
         "type": "literal",
-        "required": false,
-        "default": "right",
+        "required": true,
         "constraint": "min:1 max:3"
       }
     ],
@@ -8226,7 +8222,7 @@
       {
         "name": "items",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:8"
       },
       {
@@ -8408,8 +8404,7 @@
       {
         "name": "columns",
         "type": "array",
-        "required": false,
-        "default": "false",
+        "required": true,
         "constraint": "min:1 max:10"
       },
       {
@@ -9179,7 +9174,7 @@
       {
         "name": "tabs",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:6"
       }
     ],
@@ -9401,7 +9396,7 @@
       {
         "name": "rows",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:6"
       }
     ],
@@ -12373,8 +12368,7 @@
       {
         "name": "pills",
         "type": "array",
-        "required": false,
-        "default": "default",
+        "required": true,
         "constraint": "min:1 max:8"
       },
       {
@@ -15132,7 +15126,6 @@
         "name": "stats",
         "type": "array",
         "required": false,
-        "default": "false",
         "constraint": "min:2 max:4"
       }
     ],
@@ -21818,7 +21811,7 @@
       {
         "name": "tiers",
         "type": "array",
-        "required": false
+        "required": true
       },
       {
         "name": "timeline_label_en",
@@ -22567,7 +22560,7 @@
       {
         "name": "shifts",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:6"
       }
     ],
@@ -23818,7 +23811,7 @@
       {
         "name": "items",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:6"
       }
     ],
@@ -25566,7 +25559,7 @@
       {
         "name": "problems",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:6"
       }
     ],
@@ -25878,7 +25871,7 @@
       {
         "name": "steps",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:8"
       }
     ],
@@ -26736,8 +26729,7 @@
       {
         "name": "resources",
         "type": "array",
-        "required": false,
-        "default": "false",
+        "required": true,
         "constraint": "min:2 max:9"
       }
     ],
@@ -27171,7 +27163,7 @@
       {
         "name": "services",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:8"
       }
     ],
@@ -27393,7 +27385,7 @@
       {
         "name": "services",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:3 max:6"
       },
       {
@@ -27635,7 +27627,7 @@
       {
         "name": "logos",
         "type": "array",
-        "required": false
+        "required": true
       },
       {
         "name": "marquee",
@@ -28868,8 +28860,7 @@
       {
         "name": "members",
         "type": "array",
-        "required": false,
-        "default": "Portrait auteur Waimia",
+        "required": true,
         "constraint": "int min:0 max:6"
       }
     ],
@@ -29060,8 +29051,7 @@
       {
         "name": "capabilities",
         "type": "array",
-        "required": false,
-        "default": "active",
+        "required": true,
         "constraint": "min:1"
       },
       {
@@ -29469,7 +29459,7 @@
       {
         "name": "models",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:1"
       },
       {
@@ -29911,7 +29901,7 @@
       {
         "name": "pills",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:2 max:16"
       }
     ],
@@ -31701,8 +31691,7 @@
       {
         "name": "events",
         "type": "array",
-        "required": false,
-        "default": "upcoming",
+        "required": true,
         "constraint": "min:2 max:10"
       },
       {
@@ -32545,8 +32534,7 @@
       {
         "name": "cta",
         "type": "enum",
-        "required": false,
-        "default": "primary",
+        "required": true,
         "constraint": "primary | accent | ghost"
       },
       {
@@ -33194,7 +33182,7 @@
       {
         "name": "next_steps",
         "type": "array",
-        "required": false,
+        "required": true,
         "constraint": "min:1 max:3"
       }
     ],
