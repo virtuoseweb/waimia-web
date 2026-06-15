@@ -283,7 +283,7 @@ Les deux SPA (§9.3) prennent leur forme dédiée. Décisions (Simon) :
 7. **Gate = qualité par construction** : `check-touchpoints`/`check-presets`/`check-token-purity`/`check-media-query-var` rendent l'output conforme ou rouge.
 
 ### 12.2 Le harnais (Phase 0, spec — prérequis au fan-out)
-**A. `sectionBaseSchema` (mixin Zod partagé)** — ⚠️ CORRECTION 2026-06-15 (GF-4, j'avais grepé le mauvais nom) : il EXISTE déjà sous le nom `presentationSchema` (`src/schemas/sections.ts:23-27`, axes `background`/`layout`/`density`, appliqué via `.extend(presentationSchema.shape)`). MAIS appliqué **3 / 156** types seulement ; `background` redéfini **inline 135 fois** au lieu d'étendre le mixin. Travail réel = **consolider (appliquer partout) + élargir les axes**, pas créer. Axes à porter (injecté dans toutes les familles) :
+**A. `sectionBaseSchema` (mixin Zod partagé)** — ⚠️ CORRECTION 2026-06-16 (GF-4, re-vérifié code à la source) : le nom RÉEL dans le code est **`sectionBaseSchema`** (`src/schemas/sections.ts:23-27`, axes `background`/`layout`/`density`, appliqué via `.extend(sectionBaseSchema.shape)`). La note du 2026-06-15 disait `presentationSchema` = nom erroné, corrigé ici. Appliqué **3 / 156** types seulement ; `background` redéfini **inline ~135 fois** au lieu d'étendre le mixin. Travail réel = **consolider (appliquer partout) + élargir les axes**, pas créer. Axes à porter (injecté dans toutes les familles) :
 - Présentation/variante : `layout` (enum `KNOWN_LAYOUTS` étendu), `density` (compact/base/ample/grand), `align` (start/center/end/justify), `width` (bleed/grand/wide/normal/read/narrow), `gap` (none/tight/base/loose), `frame` (band/card), `areas` (media-left/right/top/bottom/z/f), `order-media` (swap), `stack` (reflow/keep-2/swap-order/scroll-x), `reveal` (sélectionnable, axe nouveau).
 - Déclinaison/peau : `background` (paper/paper-2/paper-3/ink, déjà 110 sections), `hover` (surface/tint/lift, tokens existants).
 - **Contenu (les 2 modes, §2/§9.2)** : `content: { mode: 'global'|'instance', ref?: reference(<collection>) }`. `instance` (défaut) = props inline ; `global` = source partagée (content-collection) propagée. Généralise le pattern `reference('authors')` déjà en place aux sections.
@@ -384,7 +384,7 @@ Le modèle actuel synchronise **à la main** 5-6 projections de la même section
 | Projection | Fichier | État sync (mesuré) |
 |---|---|---|
 | Validation Astro (Zod) | `src/schemas/sections.ts` | 160 schemas, 156 demos, 156 registry : **synchronisés** (discipline 4-touchpoints tient) |
-| Mixin présentation | `presentationSchema` `:23-27` | appliqué **3/156** (135 `background` inline) : **divergent** |
+| Mixin présentation | `sectionBaseSchema` `:23-27` | appliqué **3/156** (~135 `background` inline) : **divergent** |
 | **Champs CMS (Tina)** | `tina/config.ts` `sectionTemplates` `:139` | **8/156** templates, écrits à la main, FR/EN re-déclarés : **divergence massive** |
 | Catalogue/manifest/quickref | `gen-*.mjs` | **générés** (codegen déjà l'idiome maison) |
 

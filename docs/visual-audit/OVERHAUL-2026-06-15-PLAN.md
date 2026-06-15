@@ -4,6 +4,14 @@
 > source `fichier:ligne`). Screenshots : `/tmp/waimia-audit/{home,piliers,services,hubs,editorial}/`.
 > Branche de travail : `feat/design-overhaul` (part de `feat/hero-viewport-fit`). main/prod intouchés.
 
+## État d'avancement (MAJ 2026-06-16)
+- **W1 · Hubs & cards**, **W2 · Piliers**, **W3 · Home** : livrées (sessions antérieures).
+- **W4 · Services & schema** : ✅ livrée — `main` `8dae6a6`. FAQPage JSON-LD câblé (1 FAQPage + 1 BreadcrumbList/page, 0 doublon), § Définition + faq généralisés (3 services), `audit-maturite-ia` migré legacy→MDX composable (238 l hardcode supprimées), WorkflowTable H2 79→51.84px, br MéthodeWaimia décollé. GF-1 chromium OK, 0 erreur console.
+- **W5 · Global responsive & dette** : ✅ livrée — `main` `d1d0e48`. Mega-menu mobile masqué < 1180px, contact form ramené dans le fold, manifesto inline 24px→`var(--text-h3)`, CtaFinal dédupliqué (manifesto Acte V + methode `.meth-cta`). GF-1 OK.
+- **Fix dérivé** : overflow-X mobile 23px sur les hubs (`HeroHubStats.astro`) → `minmax(0,1fr)` + `min-width:0` — `main` `e561b4c`. GF-1 @390 : /agence·/acquerir·/secteurs = 0px, desktop 4 col préservées.
+- **Findings remontés non-bloquants** : (1) kicker eyebrow `11px` hardcodé (atome) → relève de P2.11 (hardcode→token) ; (2) CaseStudyTemplate FOUT `ui-serif` = fallback légitime `--font-display`, fix global à arbitrer séparément.
+- **Reste gaté Simon** : push prod des 3 commits (`main` = `waimia.com` live).
+
 ## 7 thèmes transversaux (mesurés sur ≥2 zones)
 
 1. **Médias vides / assets dormants** — 10 blocs `feature-split-media` avec placeholder hachuré (piliers+services), featured card cas conçue pour image mais 0 `heroImage`, hub secteurs 100% texte. PENDANT que dorment : `besoin-{acquerir,piloter,operer}.webp`, 9 SVG `sumie/*`, 6 `theme-*.webp`, 3 textures, `ConseilAuditDiagram`/`RevOpsFunnel`. → réinjecter.
