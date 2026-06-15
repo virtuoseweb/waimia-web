@@ -39,7 +39,19 @@ export const acquerirSections: SectionData[] = [
     ],
   },
 
-  // 2 · PREUVE / CADRAGE (ink) : ordres de grandeur cadrés, pas de promesse garantie
+  // 2 · DÉFINITION (paper) : ce qu'est « Acquérir » concrètement, pattern problem-statement
+  // dropcap (cf services/site-web-intelligent.mdx). Cadre le pilier avant la preuve.
+  {
+    type: 'problem-statement',
+    background: 'paper',
+    kicker_fr: '§ Définition',
+    kicker_en: '§ Definition',
+    statement_fr: "Acquérir, concrètement : <i>un système marketing intelligent</i> qui transforme la demande en pipeline. Pas un canal de plus, mais une chaîne reliée. Un site intelligent capte la demande, le contenu nourrit la confiance, le tunnel qualifie et convertit, le pilotage mesure ce qui rapporte. L'IA fait le travail répétitif à chaque maillon, le CRM ne perd plus aucun lead, et chaque euro dépensé se rattache à un revenu. La pierre angulaire de votre acquisition, pas une dépense par canal.",
+    statement_en: "Acquiring, concretely: <i>an intelligent marketing system</i> that turns demand into pipeline. Not one more channel, but a connected chain. An intelligent site captures demand, content builds trust, the funnel qualifies and converts, steering measures what pays. AI does the repetitive work at each link, the CRM no longer loses a single lead, and every euro spent ties to a revenue figure. The cornerstone of your acquisition, not a spend per channel.",
+    dropcap: true,
+  },
+
+  // 3 · PREUVE / CADRAGE (ink) : ordres de grandeur cadrés, pas de promesse garantie
   {
     type: 'metric-callout-band',
     background: 'ink',
@@ -70,6 +82,9 @@ export const acquerirSections: SectionData[] = [
       { label_fr: "L'IA en appui sur le répétitif, l'humain sur la décision", label_en: 'AI supports the repetitive, the human decides' },
       { label_fr: 'Un seul système instrumenté, pas cinq outils isolés', label_en: 'One instrumented system, not five isolated tools' },
     ],
+    media_src: '/images/besoins/besoin-acquerir.webp',
+    media_alt_fr: 'Système marketing intelligent : capter, qualifier, convertir, mesurer reliés en une chaîne',
+    media_alt_en: 'Intelligent marketing system: capture, qualify, convert, measure linked into one chain',
   },
 
   // 4 · LES 3 SERVICES (paper-2) : maillage interne vers les pages de service fondées.
@@ -238,43 +253,75 @@ export const acquerirSections: SectionData[] = [
     pills_en: ['SEO and GEO', 'Online advertising', 'Marketing and sales agent', 'Lead magnets and scoring', 'CRO landing pages'],
   },
 
-  // 8 · PUBLICITÉ EN LIGNE (paper-2, reversed) · anchor #publicite : différé, pas une page.
+  // 8 · PUBLICITÉ EN LIGNE (paper-2) · anchor #publicite : différé, pas une page.
+  // branded-callout (texte plein, sans média) : honnête pour un chapitre « à venir »
+  // sans asset visuel dédié, et casse la répétition des splits.
   {
-    type: 'feature-split-media',
+    type: 'branded-callout',
     background: 'paper-2',
-    reversed: true,
     anchor: 'publicite',
     kicker_fr: 'Publicité en ligne · à venir',
     kicker_en: 'Online advertising · coming',
     h2_fr: 'La publicité, branchée sur le <i>même système</i>',
     h2_en: 'Advertising, plugged into the <i>same system</i>',
-    body_fr: "La publicité paie cher quand elle envoie du trafic vers un site qui ne capte rien. On l'aborde une fois le système en place : les campagnes nourrissent le même pipeline mesuré, chaque euro est rattaché à un lead et à un revenu. On ouvre ce chapitre quand l'acquisition organique tient déjà debout, pour ne pas masquer un système qui fuit.",
-    body_en: 'Advertising pays dearly when it sends traffic to a site that captures nothing. We approach it once the system is in place: campaigns feed the same measured pipeline, every euro tied to a lead and a revenue figure. We open this chapter once organic acquisition already stands, so as not to mask a leaking system.',
-    points: [
-      { label_fr: 'Campagnes reliées au pipeline mesuré, pas isolées', label_en: 'Campaigns tied to the measured pipeline, not isolated' },
-      { label_fr: 'Chaque euro rattaché à un lead et à un revenu', label_en: 'Every euro tied to a lead and a revenue figure' },
-    ],
+    body1_fr: "La publicité paie cher quand elle envoie du trafic vers un site qui ne capte rien. On l'aborde une fois le système en place : les campagnes nourrissent le même pipeline mesuré, chaque euro est rattaché à un lead et à un revenu.",
+    body1_en: 'Advertising pays dearly when it sends traffic to a site that captures nothing. We approach it once the system is in place: campaigns feed the same measured pipeline, every euro tied to a lead and a revenue figure.',
+    body2_fr: "On ouvre ce chapitre quand l'acquisition organique tient déjà debout, pour ne pas masquer un système qui fuit. Campagnes reliées au pipeline, jamais isolées.",
+    body2_en: 'We open this chapter once organic acquisition already stands, so as not to mask a leaking system. Campaigns tied to the pipeline, never isolated.',
   },
 
   // 9 · AGENT MARKETING ET COMMERCIAL (paper) · anchor #agent-marketing : différé.
   {
-    type: 'feature-split-media',
+    type: 'branded-callout',
     background: 'paper',
-    reversed: false,
     anchor: 'agent-marketing',
     kicker_fr: 'Agent marketing et commercial · à venir',
     kicker_en: 'Marketing and sales agent · coming',
     h2_fr: "Un agent qui <i>qualifie</i> et relance, sans relâche",
     h2_en: 'An agent that <i>qualifies</i> and follows up, tirelessly',
-    body_fr: "Une fois le système instrumenté, un agent branché sur vos données peut qualifier les nouveaux leads, rédiger les relances, prioriser les contacts chauds et nourrir les dormants. Le commercial garde la conversation et la signature ; l'agent absorbe le suivi qui s'oubliait. On le câble quand le pipeline est assez propre pour qu'un agent agisse juste.",
-    body_en: 'Once the system is instrumented, an agent plugged into your data can qualify new leads, draft follow-ups, prioritise hot contacts and nurture dormant ones. Sales keeps the conversation and the signature; the agent absorbs the follow-up that used to slip. We wire it once the pipeline is clean enough for an agent to act rightly.',
-    points: [
-      { label_fr: 'Qualification et relances automatisées, supervisées', label_en: 'Automated qualification and follow-ups, supervised' },
-      { label_fr: 'Le commercial garde la conversation et la signature', label_en: 'Sales keeps the conversation and the signature' },
+    body1_fr: "Une fois le système instrumenté, un agent branché sur vos données peut qualifier les nouveaux leads, rédiger les relances, prioriser les contacts chauds et nourrir les dormants.",
+    body1_en: 'Once the system is instrumented, an agent plugged into your data can qualify new leads, draft follow-ups, prioritise hot contacts and nurture dormant ones.',
+    body2_fr: "Le commercial garde la conversation et la signature ; l'agent absorbe le suivi qui s'oubliait. On le câble quand le pipeline est assez propre pour qu'un agent agisse juste.",
+    body2_en: 'Sales keeps the conversation and the signature; the agent absorbs the follow-up that used to slip. We wire it once the pipeline is clean enough for an agent to act rightly.',
+  },
+
+  // 10 · FAQ (paper-2) · faq-two-column : questions B2B PME honnêtes sur le système d'acquisition.
+  {
+    type: 'faq-two-column',
+    background: 'paper-2',
+    kicker_fr: '§ Questions fréquentes',
+    kicker_en: '§ Frequently asked',
+    h2_fr: 'Ce qu\'on nous demande <i>avant de signer</i>',
+    h2_en: 'What we get asked <i>before signing</i>',
+    items: [
+      {
+        q_fr: 'Faut-il tout refaire pour démarrer ?',
+        q_en: 'Do we have to rebuild everything to start?',
+        a_fr: "Non. On part de vos outils existants (site, CRM, contenu) et on câble le premier maillon qui fuit. Le système se construit par étapes mesurées, pas en big bang.",
+        a_en: 'No. We start from your existing tools (site, CRM, content) and wire the first leaking link. The system is built in measured steps, not a big bang.',
+      },
+      {
+        q_fr: 'Combien de temps avant les premiers résultats ?',
+        q_en: 'How long before the first results?',
+        a_fr: "Le cadrage du pipeline prend cinq jours. Le premier maillon (site, contenu ou CRM) est en production en six à dix semaines. On mesure l'avant / après dès la première activation.",
+        a_en: 'Pipeline scoping takes five days. The first link (site, content or CRM) is in production within six to ten weeks. We measure before / after from the first activation.',
+      },
+      {
+        q_fr: 'Vous garantissez un nombre de leads ?',
+        q_en: 'Do you guarantee a number of leads?',
+        a_fr: "On ne vend pas de promesse chiffrée garantie. On instrumente le pipeline pour que chaque lead soit suivi et chaque euro rattaché à un revenu. Les ordres de grandeur sont cadrés en mission, selon votre périmètre.",
+        a_en: 'We do not sell a guaranteed headline figure. We instrument the pipeline so every lead is tracked and every euro tied to a revenue figure. Orders of magnitude are framed per engagement, based on your scope.',
+      },
+      {
+        q_fr: 'Que se passe-t-il quand la mission s\'arrête ?',
+        q_en: 'What happens when the engagement ends?',
+        a_fr: "Vous gardez la stack : site, CRM, pipeline éditorial, tableaux de bord, documentation. Pas de captivité, l'équipe est autonome à la livraison.",
+        a_en: 'You keep the stack: site, CRM, editorial pipeline, dashboards, documentation. No lock-in, the team is autonomous at delivery.',
+      },
     ],
   },
 
-  // 10 · CTA FINAL (ink)
+  // 11 · CTA FINAL (ink)
   {
     type: 'footer-cta-band',
     background: 'ink',

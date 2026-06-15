@@ -40,7 +40,19 @@ export const opererSections: SectionData[] = [
     ],
   },
 
-  // 2 · PROOF légère (ink) · l'ordre de grandeur du gain de temps, cadré en mission
+  // 2 · DÉFINITION (paper) : ce qu'est « Opérer » concrètement, pattern problem-statement
+  // dropcap (cf services/site-web-intelligent.mdx). Cadre le pilier avant la preuve.
+  {
+    type: 'problem-statement',
+    background: 'paper',
+    kicker_fr: '§ Définition',
+    kicker_en: '§ Definition',
+    statement_fr: "Opérer, concrètement : <i>des agents IA câblés dans vos outils existants</i> pour absorber le travail qui revient. Relances, saisies, tickets, documents administratifs, revue de contrats : l'agent fait le répétitif, l'humain garde la décision. Pas de migration, pas d'interface à apprendre. On câble un répétitif à la fois, on le mesure avant / après, on passe au suivant. Le but n'est pas de remplacer vos équipes, mais de les réorienter vers le travail à valeur pendant que la charge mécanique disparaît.",
+    statement_en: "Operating, concretely: <i>AI agents wired into your existing tools</i> to absorb the work that keeps coming back. Follow-ups, data entry, tickets, administrative documents, contract review: the agent handles the repetitive, the human keeps the decision. No migration, no interface to learn. We wire one repetitive task at a time, measure before / after, move to the next. The goal is not to replace your teams, but to redirect them toward high-value work while the mechanical load disappears.",
+    dropcap: true,
+  },
+
+  // 3 · PROOF légère (ink) · l'ordre de grandeur du gain de temps, cadré en mission
   {
     type: 'metric-callout-band',
     background: 'ink',
@@ -72,12 +84,16 @@ export const opererSections: SectionData[] = [
       { label_fr: 'Relances commerciales contextuelles, jamais génériques', label_en: 'Contextual sales follow-ups, never generic' },
       { label_fr: 'Forecast pipeline en temps réel, pas en comité', label_en: 'Real-time pipeline forecast, not in committee' },
     ],
+    media_src: '/images/besoins/besoin-operer.webp',
+    media_alt_fr: 'Agents IA câblés dans le CRM : relances contextuelles et pipeline tenu à jour',
+    media_alt_en: 'AI agents wired into the CRM: contextual follow-ups and pipeline kept up to date',
   },
 
   // 4 · CAPACITÉ · Automatisation & workflows (paper-2, ancre #automatisation)
   // workflow-table : chaque workflow nommé, mesuré, attribué à un modèle. Pas de boîte noire.
   {
     type: 'workflow-table',
+    background: 'paper-2',
     anchor: 'automatisation',
     eyebrow_fr: '§ 02 · Automatisation & workflows',
     eyebrow_en: '§ 02 · Automation & workflows',
@@ -92,23 +108,21 @@ export const opererSections: SectionData[] = [
     ],
   },
 
-  // 5 · CAPACITÉ · Service client IA (paper, ancre #service-client, reversed)
+  // 5 · CAPACITÉ · Service client IA (paper, ancre #service-client)
+  // branded-callout (texte plein, sans média) : casse la répétition des splits et évite
+  // le placeholder vide faute d'asset dédié.
   {
-    type: 'feature-split-media',
+    type: 'branded-callout',
     anchor: 'service-client',
     background: 'paper',
-    reversed: true,
     kicker_fr: '§ 03 · Service client IA',
     kicker_en: '§ 03 · AI customer service',
     h2_fr: 'Le premier niveau de support, <i>sans la file d’attente</i>',
     h2_en: 'First-line support, <i>without the queue</i>',
-    body_fr: "Les demandes récurrentes traitées à la source, le contexte client reconstitué avant chaque réponse, les cas sensibles passés à un humain au bon moment. Vos agents répondent plus vite parce qu’ils répondent moins souvent au même.",
-    body_en: 'Recurring requests handled at the source, client context rebuilt before each reply, sensitive cases handed to a human at the right time. Your agents respond faster because they answer the same question less often.',
-    points: [
-      { label_fr: 'Tri et qualification des tickets dès l’arrivée', label_en: 'Ticket triage and qualification on arrival' },
-      { label_fr: 'Réponses contextuelles, branchées sur votre historique', label_en: 'Contextual replies, wired to your history' },
-      { label_fr: 'Escalade humaine sur les cas sensibles, jamais en aveugle', label_en: 'Human escalation on sensitive cases, never blind' },
-    ],
+    body1_fr: "Les demandes récurrentes traitées à la source, le contexte client reconstitué avant chaque réponse, les cas sensibles passés à un humain au bon moment. Vos agents répondent plus vite parce qu’ils répondent moins souvent au même.",
+    body1_en: 'Recurring requests handled at the source, client context rebuilt before each reply, sensitive cases handed to a human at the right time. Your agents respond faster because they answer the same question less often.',
+    body2_fr: "Tri et qualification des tickets dès l’arrivée, réponses branchées sur votre historique, escalade humaine sur les cas sensibles : jamais en aveugle.",
+    body2_en: 'Ticket triage and qualification on arrival, replies wired to your history, human escalation on sensitive cases: never blind.',
   },
 
   // 6 · CAPACITÉ · Administration & RH (paper-2, ancre #admin-rh) · bento 5 cells
@@ -130,46 +144,86 @@ export const opererSections: SectionData[] = [
     ],
   },
 
-  // 7 · CAPACITÉ · Légal IA (paper, ancre #legal, reversed)
+  // 7 · CAPACITÉ · Légal IA (paper, ancre #legal)
   // Source : src/content/solutions/legal-ia.mdx
+  // terminal-mockup : la revue de contrats (clauses à risque repérées, comparaison standards)
+  // se montre mieux en console qu'en placeholder vide, et varie le rythme.
   {
-    type: 'feature-split-media',
+    type: 'terminal-mockup',
     anchor: 'legal',
     background: 'paper',
-    reversed: true,
+    layout: 'split',
+    tone: 'ink',
+    label: 'legal-ia',
+    status: 'revue',
     kicker_fr: '§ 05 · Légal IA',
     kicker_en: '§ 05 · AI legal',
     h2_fr: 'Les contrats lus <i>avant</i> qu’ils ne coûtent',
     h2_en: 'Contracts read <i>before</i> they cost you',
-    body_fr: "Revue de contrats, repérage des clauses à risque, comparaison à vos standards, première synthèse pour le juriste. L’IA dégrossit le volume, l’humain tranche. Une assistance, jamais un avis juridique automatique.",
-    body_en: 'Contract review, risky-clause spotting, comparison to your standards, a first synthesis for the legal team. AI clears the volume, the human decides. Assistance, never an automated legal opinion.',
-    points: [
-      { label_fr: 'Revue de contrats et repérage des clauses à risque', label_en: 'Contract review and risky-clause spotting' },
-      { label_fr: 'Comparaison aux standards et modèles de votre entreprise', label_en: 'Comparison to your company standards and templates' },
-      { label_fr: 'Synthèse pour le juriste, décision toujours humaine', label_en: 'Synthesis for the legal team, decision always human' },
+    intro_fr: "Revue de contrats, repérage des clauses à risque, comparaison à vos standards, première synthèse pour le juriste. L’IA dégrossit le volume, l’humain tranche. Une assistance, jamais un avis juridique automatique.",
+    intro_en: 'Contract review, risky-clause spotting, comparison to your standards, a first synthesis for the legal team. AI clears the volume, the human decides. Assistance, never an automated legal opinion.',
+    lines: [
+      { kind: 'cmd', text_fr: 'analyser bail-commercial-v3.pdf', text_en: 'analyse commercial-lease-v3.pdf' },
+      { kind: 'out', text_fr: '14 clauses lues · 2 hors standard interne', text_en: '14 clauses read · 2 off internal standard' },
+      { kind: 'comment', text_fr: 'indexation loyer + clause résiliation à 12 mois', text_en: 'rent indexation + 12-month termination clause' },
+      { kind: 'ok', text_fr: 'Synthèse prête pour le juriste · décision humaine', text_en: 'Synthesis ready for the legal team · human decision' },
     ],
   },
 
   // 8 · CAPACITÉ · Agents métiers (paper-2, ancre #agents-metiers)
   // Source : src/content/solutions/agents-metiers.mdx
+  // branded-callout (texte plein, sans média) : clôt la série de capacités sans placeholder vide.
   {
-    type: 'feature-split-media',
+    type: 'branded-callout',
     anchor: 'agents-metiers',
     background: 'paper-2',
     kicker_fr: '§ 06 · Agents métiers',
     kicker_en: '§ 06 · Functional agents',
     h2_fr: 'Un agent par fonction, <i>dans vos outils</i>',
     h2_en: 'One agent per function, <i>inside your tools</i>',
-    body_fr: "La compta, le support, les ops gagnent chacun un coéquipier spécialisé, branché sur le logiciel qu’ils utilisent déjà. Pas un outil de plus, pas un assistant générique qui ne sait rien de votre métier. L’humain garde la main, partout.",
-    body_en: 'Accounting, support and ops each gain a specialised teammate, plugged into the software they already use. Not one more tool, not a generic assistant that knows nothing of your function. The human keeps control, everywhere.',
-    points: [
-      { label_fr: 'Un agent spécialisé par fonction, pas un généraliste flou', label_en: 'A specialised agent per function, not a vague generalist' },
-      { label_fr: 'Branché sur vos outils existants, sans nouvelle interface', label_en: 'Plugged into your existing tools, no new interface' },
-      { label_fr: 'Garde-fous clairs : l’humain valide chaque décision', label_en: 'Clear guardrails: the human validates every decision' },
+    body1_fr: "La compta, le support, les ops gagnent chacun un coéquipier spécialisé, branché sur le logiciel qu’ils utilisent déjà. Pas un outil de plus, pas un assistant générique qui ne sait rien de votre métier. L’humain garde la main, partout.",
+    body1_en: 'Accounting, support and ops each gain a specialised teammate, plugged into the software they already use. Not one more tool, not a generic assistant that knows nothing of your function. The human keeps control, everywhere.',
+    body2_fr: "Un agent spécialisé par fonction, branché sur vos outils existants sans nouvelle interface, avec des garde-fous clairs : l’humain valide chaque décision.",
+    body2_en: 'A specialised agent per function, plugged into your existing tools with no new interface, with clear guardrails: the human validates every decision.',
+  },
+
+  // 9 · FAQ (paper-2) · faq-two-column : questions B2B PME honnêtes sur les agents d'opérations.
+  {
+    type: 'faq-two-column',
+    background: 'paper-2',
+    kicker_fr: '§ Questions fréquentes',
+    kicker_en: '§ Frequently asked',
+    h2_fr: 'Ce qu\'on nous demande <i>avant de signer</i>',
+    h2_en: 'What we get asked <i>before signing</i>',
+    items: [
+      {
+        q_fr: 'Les agents vont-ils remplacer mes équipes ?',
+        q_en: 'Will the agents replace my teams?',
+        a_fr: "Non. Les agents absorbent le répétitif (saisies, relances, tickets) pour réorienter vos équipes vers le travail à valeur. L'humain garde la décision sur chaque cas, partout.",
+        a_en: 'No. Agents absorb the repetitive load (data entry, follow-ups, tickets) to redirect your teams toward high-value work. The human keeps the decision on every case, everywhere.',
+      },
+      {
+        q_fr: 'Faut-il changer de logiciels ?',
+        q_en: 'Do we have to change software?',
+        a_fr: "Non. Les agents travaillent dans vos outils existants (CRM, ERP, messagerie). Pas d'interface à apprendre, pas de migration : on câble, on ne remplace pas.",
+        a_en: 'No. Agents work inside your existing tools (CRM, ERP, inbox). No interface to learn, no migration: we wire, we do not replace.',
+      },
+      {
+        q_fr: 'Comment on commence, et en combien de temps ?',
+        q_en: 'How do we start, and how long?',
+        a_fr: "On choisit ensemble le répétitif qui vous coûte le plus, et on le câble en pilote. Le premier agent est en production en quatre semaines environ, livré et mesuré avant / après.",
+        a_en: 'We pick together the repetitive task that costs you the most, and wire it as a pilot. The first agent is in production in about four weeks, delivered and measured before / after.',
+      },
+      {
+        q_fr: 'Les décisions des agents sont-elles traçables ?',
+        q_en: 'Are the agents\' decisions traceable?',
+        a_fr: "Oui. Chaque workflow est nommé, attribué à un modèle précis, avec un journal de décisions traçable et une reprise humaine en un clic. Pas de boîte noire.",
+        a_en: 'Yes. Each workflow is named, assigned to a specific model, with a traceable decision log and one-click human takeover. No black box.',
+      },
     ],
   },
 
-  // 9 · CTA FINAL (ink)
+  // 10 · CTA FINAL (ink)
   {
     type: 'footer-cta-band',
     background: 'ink',
@@ -180,7 +234,7 @@ export const opererSections: SectionData[] = [
     subtitle_fr: 'Un pilote cadré sur le workflow qui vous coûte le plus, livré et mesuré en quelques semaines. Sans migration, sans engagement long.',
     subtitle_en: 'A scoped pilot on the workflow that costs you the most, delivered and measured in a few weeks. No migration, no long commitment.',
     buttons: [
-      { label_fr: 'Démarrer un diagnostic →', label_en: 'Start a diagnostic →', href: '/contact', variant: 'accent' },
+      { label_fr: 'Démarrer un diagnostic →', label_en: 'Start a diagnostic →', href: '/contact?offer=operations-ia&intent=discovery', variant: 'accent' },
       { label_fr: 'Voir les offres', label_en: 'See pricing', href: '/offres', variant: 'ghost' },
     ],
   },
