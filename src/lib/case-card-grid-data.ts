@@ -30,11 +30,11 @@ export function caseCardGridData(lang: 'fr' | 'en'): SectionByType<'case-card-gr
       stack: c.stack,
       impact_fr: c.impact.fr,
       impact_en: c.impact.en,
-      href: localizeHref(c.slug ? `/cas/${c.slug}` : '/cas', lang),
+      href: localizeHref(c.slug ? `/realisations/${c.slug}` : '/realisations', lang),
     })),
     all_label_fr: 'Parler de votre projet →',
     all_label_en: 'Discuss your project →',
-    // Canonique /cas (l'ancien /ressources/cas n'est plus qu'un 301, cf astro.config.mjs:66)
-    all_href: localizeHref('/cas', lang),
+    // Canonique /realisations (l'ancien /ressources/cas n'est plus qu'un 301, cf astro.config.mjs:66)
+    all_href: localizeHref('/realisations', lang),
   };
 }

@@ -78,7 +78,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       fr: 'Pipeline reconnecté, qualification automatisée, visibilité temps réel. On publie un cas une fois le résultat mesuré.',
     },
     cta: { en: 'Discuss your project →', fr: 'Parler de votre projet →' },
-    href: '/cas',
+    href: '/realisations',
   },
 };
 
@@ -123,7 +123,7 @@ export const MM_OFFRES: MegaMenu = MM_OFFRES_NEW;
 export const MM_CASES_NEW: MegaMenu = {
   key: 'cas',
   label: { en: 'Case studies', fr: 'Cas clients' },
-  href: '/cas',
+  href: '/realisations',
   lead: {
     en: 'Pipelines reconnected, qualification automated, operations streamlined. ROI measured on your data, never invented.',
     fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesuré sur vos données, jamais inventé.',
@@ -133,20 +133,20 @@ export const MM_CASES_NEW: MegaMenu = {
       kicker: { en: 'BY PAIN POINT', fr: 'PAR DOULEUR' },
       label: { en: 'Case studies', fr: 'Études de cas' },
       items: [
-        { href: '/cas', label: { en: 'B2B acquisition', fr: 'Acquisition B2B' }, lead: { en: 'Pipeline reconnected · automated qualification & follow-ups.', fr: 'Pipeline reconnecté · qualification et relances automatisées.' }, featured: true },
-        { href: '/cas', label: { en: 'Consulting & firms', fr: 'Conseil & cabinets' }, lead: { en: 'Proposals and follow-ups automated.', fr: 'Proposals et relances automatisés.' } },
-        { href: '/cas', label: { en: 'Finance & management', fr: 'Finance & gestion' }, lead: { en: 'Monthly close streamlined, reporting wired.', fr: 'Clôture allégée, reporting câblé.' } },
-        { href: '/cas', label: { en: 'Industry & SMEs', fr: 'Industrie & PME' }, lead: { en: 'Bottlenecks surfaced, action plan delivered.', fr: 'Goulots identifiés, plan d’action livré.' } },
+        { href: '/realisations', label: { en: 'B2B acquisition', fr: 'Acquisition B2B' }, lead: { en: 'Pipeline reconnected · automated qualification & follow-ups.', fr: 'Pipeline reconnecté · qualification et relances automatisées.' }, featured: true },
+        { href: '/realisations', label: { en: 'Consulting & firms', fr: 'Conseil & cabinets' }, lead: { en: 'Proposals and follow-ups automated.', fr: 'Proposals et relances automatisés.' } },
+        { href: '/realisations', label: { en: 'Finance & management', fr: 'Finance & gestion' }, lead: { en: 'Monthly close streamlined, reporting wired.', fr: 'Clôture allégée, reporting câblé.' } },
+        { href: '/realisations', label: { en: 'Industry & SMEs', fr: 'Industrie & PME' }, lead: { en: 'Bottlenecks surfaced, action plan delivered.', fr: 'Goulots identifiés, plan d’action livré.' } },
       ],
     },
     {
       kicker: { en: 'BY SECTOR', fr: 'PAR SECTEUR' },
       label: { en: 'Similar profiles', fr: 'Profils similaires' },
       items: [
-        { href: '/cas?secteur=services-b2b', label: { en: 'B2B Services', fr: 'Services B2B' } },
-        { href: '/cas?secteur=industrie', label: { en: 'Industry', fr: 'Industrie' } },
-        { href: '/cas?secteur=finance', label: { en: 'Finance & accounting', fr: 'Finance & compta' } },
-        { href: '/cas', label: { en: 'See all cases →', fr: 'Voir tous les cas →' } },
+        { href: '/realisations?secteur=services-b2b', label: { en: 'B2B Services', fr: 'Services B2B' } },
+        { href: '/realisations?secteur=industrie', label: { en: 'Industry', fr: 'Industrie' } },
+        { href: '/realisations?secteur=finance', label: { en: 'Finance & accounting', fr: 'Finance & compta' } },
+        { href: '/realisations', label: { en: 'See all cases →', fr: 'Voir tous les cas →' } },
       ],
     },
   ],
@@ -155,7 +155,7 @@ export const MM_CASES_NEW: MegaMenu = {
     label: { en: 'First cases in preparation', fr: 'Premiers cas en préparation' },
     body: { en: 'We publish a case once the result is measured and the client has agreed. No staged testimonials.', fr: 'On publie un cas une fois le résultat mesuré et l’accord du client obtenu. Pas de témoignage mis en scène.' },
     cta: { en: 'Discuss your project →', fr: 'Parler de votre projet →' },
-    href: '/cas',
+    href: '/realisations',
   },
 };
 
@@ -194,7 +194,7 @@ export const MM_RESOURCES: MegaMenu = {
       kicker: { en: 'PROOF', fr: 'PREUVES' },
       label: { en: 'Cases & proof', fr: 'Cas & preuve' },
       items: [
-        { href: '/cas', label: { en: 'Case studies · in preparation', fr: 'Études de cas · en préparation' } },
+        { href: '/realisations', label: { en: 'Case studies · in preparation', fr: 'Études de cas · en préparation' } },
       ],
     },
     {
@@ -477,7 +477,7 @@ export const DEPARTMENTS_GRID = [
 // des dossiers/preuves de livraisons clientes mais les DOMAINES D'INTERVENTION où Waimia
 // câble des systèmes, avec le type d'engagement (durée de déploiement, stack). Aucun nom de
 // client, aucun résultat client chiffré. `impact` = ce que le chantier VISE à câbler, pas un
-// résultat mesuré existant. Les liens pointent vers /cas (premiers cas en cours de rédaction).
+// résultat mesuré existant. Les liens pointent vers /realisations (premiers cas en cours de rédaction).
 // Featured = le blueprint interne VirtuoseOS (réel, projet propre).
 export const CASE_FEED = [
   { slug: '', client: 'Acquisition B2B', sector: { en: 'B2B SaaS', fr: 'SaaS B2B' }, duration: '10 sem', stack: 'Claude · HubSpot · dbt', impact: { en: 'Reconnect the pipeline, automate qualification', fr: 'Reconnecter le pipeline, automatiser la qualification' } },

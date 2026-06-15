@@ -289,7 +289,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     lang={lang}
     items={[
       { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
-      { label: lang === 'fr' ? 'Cas clients' : 'Case studies', href: lang === 'fr' ? '/cas' : '/en/cas' },
+      { label: lang === 'fr' ? 'Cas clients' : 'Case studies', href: lang === 'fr' ? '/realisations' : '/en/realisations' },
       { label: caseTitle ?? title },
     ]}
   />

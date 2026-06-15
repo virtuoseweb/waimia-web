@@ -71,12 +71,14 @@ export default defineConfig({
     '/archive': '/',
     // /agence/hero-lab restauré 2026-06-11 (lab de comparaison des heros du catalogue) :
     // le 301 vers /agence/design-system est levé, la page répond 200 (noindex, outil interne).
-    // A4 cleanup 2026-05-10 · /ressources/cas/* → /cas/* (canonical) — doublon SEO supprimé
-    '/ressources/cas': '/cas',
-    '/ressources/cas/plateau': '/cas/plateau',
-    '/ressources/cas/halcyon': '/cas/halcyon',
-    '/ressources/cas/northbound': '/cas/northbound',
-    '/ressources/cas/caserne': '/cas/caserne',
+    // A4 cleanup 2026-05-10 · /ressources/cas/* → /realisations/* (canonical) — doublon SEO supprimé
+    '/ressources/cas': '/realisations',
+    '/ressources/cas/plateau': '/realisations/plateau',
+    '/ressources/cas/halcyon': '/realisations/halcyon',
+    '/ressources/cas/northbound': '/realisations/northbound',
+    '/ressources/cas/caserne': '/realisations/caserne',
+    // Renommage 2026-06-15 · /cas → /realisations (route hub cas clients)
+    '/cas': '/realisations',
     // V-F1 2026-06-11 · pointait vers /archive (supprimé) : re-ciblé directement
     // vers la destination finale pour éviter une chaîne de 301.
     '/ressources/cas/virtuoseos': { status: 301, destination: '/' },

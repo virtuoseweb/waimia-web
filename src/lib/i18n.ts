@@ -78,7 +78,7 @@ const FR_ONLY_PREFIXES = [
 ];
 
 // Routes EN-only : pages servies uniquement sous /en/* sans miroir FR
-// (le FR a été redirigé ailleurs — cf astro.config redirects /ressources/cas → /cas).
+// (le FR a été redirigé ailleurs — cf astro.config redirects /ressources/cas → /realisations).
 // Empêche l'émission d'un hreflang="fr-FR" pointant vers une 404.
 const EN_ONLY_PREFIXES = [
   '/en/ressources/cas', // /en/ressources/cas + /en/ressources/cas/{plateau,halcyon,caserne,northbound,virtuoseos}

@@ -334,7 +334,7 @@ export const heroAcademyHubSchema = z.object({
   stats_label_en: z.string().optional(),
 });
 
-// Hero · masthead mutualisé pour pages d'index hub (offres/cas/secteurs/technologies)
+// Hero · masthead mutualisé pour pages d'index hub (offres/realisations/secteurs/technologies)
 // variant 'hub' (défaut) = style hub masthead original
 // variant 'listing' = style hero-hub-listing (deco SVG optionnelle)
 // variant 'detail' = style hero-utility (kicker optionnel, align gauche|centré)
@@ -2243,7 +2243,7 @@ export const caseSplitSchema = z.object({
   body_en: z.string(),
   cta_label_fr: z.string().default('Voir le cas complet →'),
   cta_label_en: z.string().default('See full case →'),
-  cta_href: z.string().default('/cas'),
+  cta_href: z.string().default('/realisations'),
   results: z
     .array(
       z.object({

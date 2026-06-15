@@ -1,5 +1,5 @@
 ---
-// Page · /cas · Hub cas clients Waimia
+// Page · /realisations · Hub cas clients Waimia
 export const prerender = true;
 
 // Route principale de la nav — liste des 4 cas business.
@@ -65,7 +65,7 @@ const mastheadData = {
   {featured ? (
     <section class="cas-grid-outer wrap-wide">
       <div class="cas-grid reveal-stagger">
-        <a href={`/cas/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/cas/${featured.slug}`)}`}>
+        <a href={`/realisations/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/realisations/${featured.slug}`)}`}>
           <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector} · {featured.duration}</div>
           <h2 class="cas-card-title">{featured.title}</h2>
           <p class="cas-card-headline">{featured.headline}</p>
@@ -84,7 +84,7 @@ const mastheadData = {
         </a>
         <div class="cas-secondary">
           {rest.map((c) => (
-            <a href={`/cas/${c.slug}`} class="cas-card cas-card--row" transition:name={`card-${transitionIdFromHref(`/cas/${c.slug}`)}`}>
+            <a href={`/realisations/${c.slug}`} class="cas-card cas-card--row" transition:name={`card-${transitionIdFromHref(`/realisations/${c.slug}`)}`}>
               <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
               <div class="cas-card-body">
                 <div class="cas-card-kicker">§ {c.sector} · {c.duration}</div>

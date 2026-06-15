@@ -1922,7 +1922,7 @@
         "name": "cta_href",
         "type": "string",
         "required": false,
-        "default": "/cas"
+        "default": "/realisations"
       },
       {
         "name": "cta_label_en",
@@ -3003,10 +3003,6 @@
         "value": "0.25rem"
       },
       {
-        "name": "--space-10",
-        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
-      },
-      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -3089,7 +3085,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "comparison-duo",
@@ -4101,6 +4097,10 @@
         "value": "400"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -4167,6 +4167,10 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--wrap-wide",
+        "value": "1560px"
       }
     ],
     "tailwindUtils": [
@@ -4458,6 +4462,10 @@
         "value": "500"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -4520,10 +4528,6 @@
       {
         "name": "--space-6",
         "value": "2rem"
-      },
-      {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -5888,10 +5892,6 @@
         "value": "0.25rem"
       },
       {
-        "name": "--space-10",
-        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
-      },
-      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -5974,7 +5974,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "department-cta",
@@ -6110,6 +6110,10 @@
         "value": "500"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -6172,10 +6176,6 @@
       {
         "name": "--space-6",
         "value": "2rem"
-      },
-      {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -6365,6 +6365,10 @@
       {
         "name": "--fw-regular",
         "value": "400"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
       },
       {
         "name": "--hairline",
@@ -7401,6 +7405,10 @@
       {
         "name": "--fw-regular",
         "value": "400"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
       },
       {
         "name": "--hairline",
@@ -8780,10 +8788,6 @@
         "value": "0.25rem"
       },
       {
-        "name": "--space-10",
-        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
-      },
-      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -8866,7 +8870,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "feature-split-media",
@@ -9780,6 +9784,11 @@
         "required": false
       },
       {
+        "name": "rounded",
+        "type": "boolean",
+        "required": false
+      },
+      {
         "name": "subtitle_en",
         "type": "string",
         "required": false
@@ -9795,7 +9804,8 @@
       "footer-cta__actions",
       "footer-cta__copy",
       "footer-cta__inner",
-      "footer-cta__subtitle"
+      "footer-cta__subtitle",
+      "footer-cta--rounded"
     ],
     "tokensUsed": [
       {
@@ -9841,6 +9851,10 @@
       {
         "name": "--paper-rgb",
         "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-band",
+        "value": "32px"
       },
       {
         "name": "--section-grand",
@@ -10386,6 +10400,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -10532,10 +10550,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -11401,6 +11415,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -11547,10 +11565,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -11813,6 +11827,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -11959,10 +11977,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -12258,6 +12272,10 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
@@ -12288,7 +12306,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 22,
+      "count": 23,
       "samples": [
         "-0.035em",
         "0.1em",
@@ -12300,7 +12318,7 @@
         "18px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
   },
   {
     "id": "hero-course",
@@ -12515,6 +12533,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -12661,10 +12683,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -12931,6 +12949,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -13077,10 +13099,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -13377,6 +13395,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -13523,10 +13545,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -14377,6 +14395,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -14523,10 +14545,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -14829,6 +14847,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -14975,10 +14997,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -15252,6 +15270,10 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
@@ -15282,7 +15304,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 22,
+      "count": 23,
       "samples": [
         "-0.035em",
         "0.1em",
@@ -15294,7 +15316,7 @@
         "18px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
   },
   {
     "id": "hero-landing",
@@ -15509,6 +15531,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -15655,10 +15681,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -16398,6 +16420,10 @@
         "value": "400"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -16496,10 +16522,6 @@
       {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
-      },
-      {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -16753,6 +16775,10 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
@@ -16783,7 +16809,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 22,
+      "count": 23,
       "samples": [
         "-0.035em",
         "0.1em",
@@ -16795,7 +16821,7 @@
         "18px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em)."
   },
   {
     "id": "hero-problem-index",
@@ -17000,6 +17026,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -17146,10 +17176,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -17366,6 +17392,10 @@
         "value": "400"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -17464,10 +17494,6 @@
       {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
-      },
-      {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -17712,6 +17738,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -17858,10 +17888,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -18116,6 +18142,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -18262,10 +18292,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -19001,6 +19027,10 @@
         "value": "400"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -19099,10 +19129,6 @@
       {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
-      },
-      {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -19332,7 +19358,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 10,
+      "count": 9,
       "samples": [
         "-.02em",
         ".06em",
@@ -19344,7 +19370,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
   },
   {
     "id": "hero-utility-masthead",
@@ -19548,6 +19574,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hahub-top-pad",
         "value": ""
       },
@@ -19694,10 +19724,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--space-page-x",
-        "value": ""
       },
       {
         "name": "--spacing-block",
@@ -20140,10 +20166,6 @@
         "value": "0.25rem"
       },
       {
-        "name": "--space-10",
-        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
-      },
-      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -20226,7 +20248,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "inclusions-list",
@@ -20650,6 +20672,10 @@
         "value": "600"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -20696,6 +20722,10 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--wrap-wide",
+        "value": "1560px"
       }
     ],
     "tailwindUtils": [],
@@ -21423,10 +21453,6 @@
         "value": "1.5rem"
       },
       {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
-      },
-      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       }
@@ -21440,7 +21466,7 @@
         "1300px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-5 --space-8. Couleur : --accent-text --ink --paper. Typographie : --font-display --fw-regular. Dette : 3 litteral(s) hardcode(s) (-0.02em, 1200px, 1300px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-5. Couleur : --accent-text --ink --paper. Typographie : --font-display --fw-regular. Dette : 3 litteral(s) hardcode(s) (-0.02em, 1200px, 1300px)."
   },
   {
     "id": "manifesto-statement",
@@ -23392,6 +23418,10 @@
         "value": "400"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -23992,6 +24022,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -24054,6 +24088,10 @@
       {
         "name": "--text-small",
         "value": "13px"
+      },
+      {
+        "name": "--wrap-wide",
+        "value": "1560px"
       }
     ],
     "tailwindUtils": [],
@@ -24287,6 +24325,10 @@
         "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
         "name": "--text-small",
         "value": "13px"
       },
@@ -24297,7 +24339,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 13,
       "samples": [
         "-12px",
         "-3px",
@@ -24309,7 +24351,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-12px, -3px, 0.04em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-12px, -3px, 0.04em)."
   },
   {
     "id": "pricing-comparison-matrix",
@@ -25420,10 +25462,6 @@
         "value": ""
       },
       {
-        "name": "--problem-statement-inline",
-        "value": ""
-      },
-      {
         "name": "--problem-statement-pad",
         "value": ""
       },
@@ -25693,10 +25731,6 @@
         "value": "0.25rem"
       },
       {
-        "name": "--space-10",
-        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
-      },
-      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -25779,7 +25813,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "process-steps",
@@ -26308,10 +26342,6 @@
       {
         "name": "--section-tight",
         "value": "var(--space-8)"
-      },
-      {
-        "name": "--space-6",
-        "value": "2rem"
       }
     ],
     "tailwindUtils": [],
@@ -26321,7 +26351,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-6. Couleur : --ink --paper --paper-2. Dette : 1 litteral(s) hardcode(s) (1px)."
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Couleur : --ink --paper --paper-2. Dette : 1 litteral(s) hardcode(s) (1px)."
   },
   {
     "id": "quote-spotlight",
@@ -28891,6 +28921,10 @@
         "value": "500"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -29097,6 +29131,10 @@
         "value": "400"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -29151,10 +29189,6 @@
       {
         "name": "--space-5",
         "value": "1.5rem"
-      },
-      {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -29296,6 +29330,10 @@
         "value": "500"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -29340,10 +29378,6 @@
         "value": "0.5rem"
       },
       {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
-      },
-      {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
@@ -29370,7 +29404,7 @@
         "820px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-8. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-9. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
   },
   {
     "id": "tech-models-table",
@@ -29497,6 +29531,10 @@
       {
         "name": "--fw-regular",
         "value": "400"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
       },
       {
         "name": "--hairline",
@@ -29721,6 +29759,10 @@
       {
         "name": "--fw-regular",
         "value": "400"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
       },
       {
         "name": "--hairline",
@@ -30104,6 +30146,10 @@
         "value": "500"
       },
       {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -30152,10 +30198,6 @@
         "value": "0.5rem"
       },
       {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
-      },
-      {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
@@ -30186,7 +30228,7 @@
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-8. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-9. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
   },
   {
     "id": "terminal-metrics-strip",
@@ -32452,7 +32494,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 10,
+      "count": 9,
       "samples": [
         "-.02em",
         ".06em",
@@ -32464,7 +32506,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
   },
   {
     "id": "tunnel-step-nav",

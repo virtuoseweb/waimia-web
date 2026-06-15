@@ -199,7 +199,7 @@ const cases = defineCollection({
       .optional(),
     // Composable V2 (D.7 extension) : sections optionnelles
     sections: sectionsArraySchema.optional(),
-    // Card de listing pour le hub /cas (copy spécifique au listing, ≠ title détail)
+    // Card de listing pour le hub /realisations (copy spécifique au listing, ≠ title détail)
     card: z
       .object({
         order: z.number(),

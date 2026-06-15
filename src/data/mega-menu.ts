@@ -332,13 +332,13 @@ const SOLUTIONS: MegaMenuSection = {
 // ─── CAS CLIENTS · refonte 2026-06 (mandat Simon) : 1 colonne « Par secteur »
 // (la preuve par le métier, liens vers /secteurs/*) + featured = CAS CLIENT
 // VEDETTE Plateau (visuel libéré du menu Solutions). parentHref → /secteurs :
-// le listing /cas n'est plus exposé dans le mega menu (reste accessible via
-// footer / plan du site) ; /cas reste dans matchPrefixes pour l'état actif.
+// le listing /realisations n'est plus exposé dans le mega menu (reste accessible via
+// footer / plan du site) ; /realisations reste dans matchPrefixes pour l'état actif.
 const CAS: MegaMenuSection = {
   parent: 'cas',
   label: { fr: 'Cas clients', en: 'Case studies' },
-  parentHref: '/cas',
-  matchPrefixes: ['/cas'],
+  parentHref: '/realisations',
+  matchPrefixes: ['/realisations'],
   lead: {
     fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesuré sur vos données, jamais inventé.',
     en: 'Pipelines reconnected, qualification automated, operations streamlined. ROI measured on your data, never invented.',
@@ -348,27 +348,27 @@ const CAS: MegaMenuSection = {
       kicker: { fr: 'PAR SECTEUR', en: 'BY INDUSTRY' },
       title: { fr: 'Par secteur', en: 'By industry' },
       goal: { fr: 'La preuve par votre métier', en: 'Proof from your industry' },
-      // SEO état final : /secteurs supprimé (régénérable) → liens repointés sur /cas.
+      // SEO état final : /secteurs supprimé (régénérable) → liens repointés sur /realisations.
       links: [
         {
           label: { fr: 'Services B2B', en: 'B2B services' },
-          href: '/cas',
+          href: '/realisations',
           description: { fr: 'Pipeline reconnecté, qualification et relances automatisées.', en: 'Pipeline reconnected, qualification and follow-ups automated.' },
         },
         {
           label: { fr: 'Industrie', en: 'Manufacturing' },
-          href: '/cas',
+          href: '/realisations',
           description: { fr: 'Données réunies, goulots identifiés, plan d\'action.', en: 'Data unified, bottlenecks surfaced, action plan.' },
         },
         {
           label: { fr: 'Finance & Compta', en: 'Finance & accounting' },
-          href: '/cas',
+          href: '/realisations',
           description: { fr: 'Réconciliation, reporting et clôture allégés.', en: 'Reconciliation, reporting and close streamlined.' },
         },
       ],
       footer: {
         label: { fr: 'Tous les cas clients →', en: 'All case studies →' },
-        href: '/cas',
+        href: '/realisations',
       },
     },
   ],
@@ -380,7 +380,7 @@ const CAS: MegaMenuSection = {
       en: 'We publish a case once the result is measured and the client has agreed. No staged testimonials.',
     },
     cta: { fr: 'Parler de votre projet →', en: 'Discuss your project →' },
-    href: '/cas',
+    href: '/realisations',
   },
 };
 

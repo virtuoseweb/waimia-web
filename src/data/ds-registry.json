@@ -355,6 +355,12 @@
       "comment": ""
     },
     {
+      "name": "--radius-band",
+      "value": "32px",
+      "group": "radius",
+      "comment": "band · grandes bandes CTA section (footer, book-session)"
+    },
+    {
       "name": "--radius-base",
       "value": "6px",
       "group": "radius",
@@ -760,9 +766,9 @@
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/compare/organisms.astro",
         "src/pages/contact.astro",
+        "src/pages/realisations/index.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css",
         "src/styles/tokens.css"
@@ -984,7 +990,6 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
@@ -993,6 +998,7 @@
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/plan-du-site.astro",
         "src/pages/preview/[type].astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
@@ -1248,9 +1254,9 @@
         "src/components/ui/molecules/TagPills.astro",
         "src/pages/agence/about.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/styles/global.css"
       ]
     },
@@ -1328,11 +1334,11 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
@@ -1502,13 +1508,13 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/index.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
@@ -1656,7 +1662,6 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
@@ -1666,6 +1671,7 @@
         "src/pages/plan-du-site.astro",
         "src/pages/preview/[type].astro",
         "src/pages/preview/[type]/[preset].astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
@@ -2000,13 +2006,13 @@
         "src/pages/agence/design-system.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/components/[type].astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/index.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
         "src/styles/fonts.css",
@@ -2059,12 +2065,25 @@
     },
     {
       "token": "--gut",
-      "count": 14,
+      "count": 27,
       "files": [
+        "src/components/sections/CourseCatalogTable.astro",
+        "src/components/sections/CtaFinal.astro",
+        "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/HeroAtlas.astro",
+        "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroHome.astro",
+        "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/HeroTunnelStep.astro",
+        "src/components/sections/LearningPathList.astro",
+        "src/components/sections/OfferTierGrid.astro",
+        "src/components/sections/PersonaAttributesGrid.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/TechCapabilitiesSpecs.astro",
+        "src/components/sections/TechIntegrationFlow.astro",
+        "src/components/sections/TechPositioningSplit.astro",
+        "src/components/sections/TechWhenDual.astro",
         "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
@@ -2226,13 +2245,13 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/components/[type].astro",
         "src/pages/contact.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/preview/[type].astro",
         "src/pages/preview/[type]/[preset].astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
@@ -2495,7 +2514,6 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
@@ -2503,6 +2521,7 @@
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css",
@@ -2623,7 +2642,7 @@
         "src/components/ui/molecules/TagPills.astro",
         "src/components/ui/molecules/TerminalMockup.astro",
         "src/components/ui/molecules/TunnelNav.astro",
-        "src/pages/cas/index.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css",
         "src/styles/tokens.css"
@@ -2708,9 +2727,9 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
-        "src/pages/cas/index.astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css"
@@ -3084,7 +3103,6 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/components/[type].astro",
         "src/pages/contact.astro",
@@ -3092,6 +3110,7 @@
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/index.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
@@ -3266,7 +3285,6 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
@@ -3274,6 +3292,7 @@
         "src/pages/manifesto.astro",
         "src/pages/preview/[type].astro",
         "src/pages/preview/[type]/[preset].astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css",
@@ -3423,12 +3442,12 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/index.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/outils/index.astro",
         "src/styles/global.css"
       ]
@@ -3650,6 +3669,13 @@
         "src/pages/manifesto.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css"
+      ]
+    },
+    {
+      "token": "--radius-band",
+      "count": 1,
+      "files": [
+        "src/components/sections/FooterCtaBand.astro"
       ]
     },
     {
@@ -4053,17 +4079,17 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
-        "src/pages/cas/index.astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/styles/global.css"
       ]
     },
     {
       "token": "--space-10",
-      "count": 53,
+      "count": 52,
       "files": [
         "src/components/editorial/Dingbat.astro",
         "src/components/footer/Footer.astro",
@@ -4078,7 +4104,6 @@
         "src/components/sections/EditorialSplitGrid.astro",
         "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/FaqCtaAside.astro",
-        "src/components/sections/FeatureGrid.astro",
         "src/components/sections/FeatureZigzag.astro",
         "src/components/sections/FooterCtaBand.astro",
         "src/components/sections/HeroAtlas.astro",
@@ -4112,11 +4137,11 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/design-system.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/index.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/index.astro"
       ]
     },
@@ -4281,11 +4306,11 @@
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
-        "src/pages/cas/index.astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
         "src/pages/contact.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/styles/global.css"
       ]
@@ -4390,10 +4415,10 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/compare/organisms.astro",
         "src/pages/contact.astro",
         "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css"
@@ -4521,12 +4546,12 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/styles/global.css"
       ]
     },
@@ -4656,10 +4681,10 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css",
@@ -4668,7 +4693,7 @@
     },
     {
       "token": "--space-6",
-      "count": 117,
+      "count": 116,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -4724,7 +4749,6 @@
         "src/components/sections/PricingToggle.astro",
         "src/components/sections/ProblemStatement.astro",
         "src/components/sections/ProcessSteps.astro",
-        "src/components/sections/PullQuoteBlock.astro",
         "src/components/sections/RelatedCardsBand.astro",
         "src/components/sections/ResourceCardGrid.astro",
         "src/components/sections/RoiBand.astro",
@@ -4777,13 +4801,13 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css",
         "src/styles/grid.css"
@@ -4868,13 +4892,13 @@
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
-        "src/pages/cas/index.astro",
         "src/pages/compare/organisms.astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/index.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/blog/index.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css"
@@ -4882,7 +4906,7 @@
     },
     {
       "token": "--space-8",
-      "count": 68,
+      "count": 62,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -4892,7 +4916,6 @@
         "src/components/sections/BookingEmbed.astro",
         "src/components/sections/ContactForm.astro",
         "src/components/sections/CourseCatalogTable.astro",
-        "src/components/sections/CtaFinal.astro",
         "src/components/sections/CtaSplitVisual.astro",
         "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/FaqCtaAside.astro",
@@ -4902,12 +4925,10 @@
         "src/components/sections/FeatureTabs.astro",
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroLiquid.astro",
-        "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/HowWeShip.astro",
         "src/components/sections/IntegrationsGrid.astro",
         "src/components/sections/ManifestoAct.astro",
-        "src/components/sections/ManifestoBlock.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PersonaAttributesGrid.astro",
@@ -4917,11 +4938,8 @@
         "src/components/sections/ServicesGrid.astro",
         "src/components/sections/StatCounter.astro",
         "src/components/sections/TeamCardGrid.astro",
-        "src/components/sections/TechCapabilitiesSpecs.astro",
-        "src/components/sections/TechIntegrationFlow.astro",
         "src/components/sections/TechPositioningSplit.astro",
         "src/components/sections/TechStackBand.astro",
-        "src/components/sections/TechWhenDual.astro",
         "src/components/sections/TerminalTableSection.astro",
         "src/components/sections/TestimonialLogoMetric.astro",
         "src/components/sections/TestimonialMetrics.astro",
@@ -4944,12 +4962,12 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/equipe/index.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/styles/global.css",
         "src/styles/tokens.css"
       ]
@@ -5079,7 +5097,7 @@
     },
     {
       "token": "--text-body",
-      "count": 83,
+      "count": 84,
       "files": [
         "src/components/sections/AboutStorySplit.astro",
         "src/components/sections/AnnouncementBanner.astro",
@@ -5110,6 +5128,7 @@
         "src/components/sections/GuaranteeBlock.astro",
         "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroFormInline.astro",
+        "src/components/sections/HeroHubStats.astro",
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/InclusionsList.astro",
         "src/components/sections/IntegrationsGrid.astro",
@@ -5252,9 +5271,9 @@
         "src/pages/agence/design-system.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
-        "src/pages/cas/index.astro",
         "src/pages/manifesto.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css"
       ]
@@ -5332,13 +5351,13 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/components/[type].astro",
         "src/pages/contact.astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
         "src/pages/offres/index.astro",
         "src/pages/plan-du-site.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
         "src/styles/global.css"
@@ -5346,7 +5365,7 @@
     },
     {
       "token": "--text-h3",
-      "count": 98,
+      "count": 99,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Timeline.astro",
@@ -5394,6 +5413,7 @@
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainPoints.astro",
         "src/components/sections/PersonaAttributesGrid.astro",
+        "src/components/sections/PricingCards.astro",
         "src/components/sections/ProcessSteps.astro",
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/ResourceCardGrid.astro",
@@ -5439,10 +5459,10 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/components/[type].astro",
         "src/pages/manifesto.astro",
         "src/pages/offres/audit-maturite-ia.astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/styles/global.css"
@@ -5606,7 +5626,6 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
         "src/pages/categories/[slug].astro",
         "src/pages/compare/organisms.astro",
         "src/pages/components/[type].astro",
@@ -5616,6 +5635,7 @@
         "src/pages/plan-du-site.astro",
         "src/pages/preview/[type].astro",
         "src/pages/preview/[type]/[preset].astro",
+        "src/pages/realisations/index.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/index.astro",
         "src/pages/ressources/outils/index.astro",
@@ -5673,8 +5693,8 @@
         "src/pages/agence/about.astro",
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
-        "src/pages/cas/index.astro",
         "src/pages/manifesto.astro",
+        "src/pages/realisations/index.astro",
         "src/styles/global.css"
       ]
     },
@@ -5744,7 +5764,7 @@
         "src/pages/agence/ds-studio.astro",
         "src/pages/agence/hero-lab.astro",
         "src/pages/agence/methode.astro",
-        "src/pages/cas/index.astro",
+        "src/pages/realisations/index.astro",
         "src/styles/global.css"
       ]
     },
@@ -5857,11 +5877,14 @@
     },
     {
       "token": "--wrap-wide",
-      "count": 12,
+      "count": 15,
       "files": [
+        "src/components/sections/CourseCatalogTable.astro",
         "src/components/sections/HeroHome.astro",
         "src/components/sections/HeroHubStats.astro",
         "src/components/sections/HeroLiquid.astro",
+        "src/components/sections/LearningPathList.astro",
+        "src/components/sections/PersonaAttributesGrid.astro",
         "src/components/templates/ConversionFunnelTemplate.astro",
         "src/components/templates/DetailMenuTemplate.astro",
         "src/components/templates/UtilityTemplate.astro",
@@ -9205,21 +9228,6 @@
       ]
     },
     {
-      "signature": "margin:0 auto;max-width:1240px;padding:0 var(--space-8)",
-      "count": 9,
-      "files": [
-        "src/components/sections/CtaFinal.astro",
-        "src/components/sections/EditorialTableBlock.astro",
-        "src/components/sections/TeamCardGrid.astro",
-        "src/components/sections/TechCapabilitiesSpecs.astro",
-        "src/components/sections/TechIntegrationFlow.astro",
-        "src/components/sections/TechPositioningSplit.astro",
-        "src/components/sections/TechWhenDual.astro",
-        "src/components/templates/SolutionsDetailTemplate.astro",
-        "src/components/templates/TechnologiesDetailTemplate.astro"
-      ]
-    },
-    {
       "signature": "display:block;height:100%;object-fit:cover;width:100%",
       "count": 8,
       "files": [
@@ -9273,6 +9281,20 @@
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/SolutionsDetailTemplate.astro",
         "src/components/templates/TechnologiesDetailTemplate.astro"
+      ]
+    },
+    {
+      "signature": "margin-inline:auto;max-width:1200px",
+      "count": 8,
+      "files": [
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroHubStats.astro",
+        "src/components/sections/HeroSplit.astro",
+        "src/components/sections/HeroTunnelStep.astro",
+        "src/components/sections/HowWeShip.astro",
+        "src/components/sections/ManifestoBlock.astro",
+        "src/components/sections/OperatingLayer.astro",
+        "src/components/sections/WhyStalls.astro"
       ]
     },
     {
@@ -9377,6 +9399,19 @@
         "src/components/sections/FaqCtaAside.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/WhyStalls.astro"
+      ]
+    },
+    {
+      "signature": "margin:0 auto;max-width:1240px;padding:0 var(--gut)",
+      "count": 7,
+      "files": [
+        "src/components/sections/CtaFinal.astro",
+        "src/components/sections/EditorialTableBlock.astro",
+        "src/components/sections/TeamCardGrid.astro",
+        "src/components/sections/TechCapabilitiesSpecs.astro",
+        "src/components/sections/TechIntegrationFlow.astro",
+        "src/components/sections/TechPositioningSplit.astro",
+        "src/components/sections/TechWhenDual.astro"
       ]
     },
     {
@@ -9767,16 +9802,6 @@
       ]
     },
     {
-      "signature": "margin-inline:auto;max-width:1200px;padding-inline:var(--space-8)",
-      "count": 4,
-      "files": [
-        "src/components/sections/HowWeShip.astro",
-        "src/components/sections/ManifestoBlock.astro",
-        "src/components/sections/OperatingLayer.astro",
-        "src/components/sections/WhyStalls.astro"
-      ]
-    },
-    {
       "signature": "--ink-2:rgba(var(--paper-rgb), 0.82);background:var(--ink);color:var(--paper)",
       "count": 3,
       "files": [
@@ -10161,15 +10186,6 @@
         "src/components/sections/StatCounter.astro",
         "src/components/sections/TestimonialLogoMetric.astro",
         "src/components/sections/VersusCompetitors.astro"
-      ]
-    },
-    {
-      "signature": "margin-inline:auto;max-width:1200px",
-      "count": 3,
-      "files": [
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroHubStats.astro",
-        "src/components/sections/HeroSplit.astro"
       ]
     },
     {
@@ -11519,14 +11535,6 @@
       ]
     },
     {
-      "signature": "margin-inline:auto;max-width:1200px;padding-inline:var(--space-10)",
-      "count": 2,
-      "files": [
-        "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/HeroCentered.astro"
-      ]
-    },
-    {
       "signature": "margin-inline:auto;max-width:var(--wrap-wide)",
       "count": 2,
       "files": [
@@ -11540,6 +11548,14 @@
       "files": [
         "src/components/sections/HeroHome.astro",
         "src/components/ui/organisms/Hero.astro"
+      ]
+    },
+    {
+      "signature": "margin:0 auto;max-width:1240px;padding:0 var(--space-8)",
+      "count": 2,
+      "files": [
+        "src/components/templates/SolutionsDetailTemplate.astro",
+        "src/components/templates/TechnologiesDetailTemplate.astro"
       ]
     },
     {
@@ -11632,10 +11648,10 @@
     }
   ],
   "stats": {
-    "tokenCount": 111,
+    "tokenCount": 112,
     "classCount": 196,
     "duplicateGroupCount": 144,
-    "scopedDuplicateGroupCount": 285,
+    "scopedDuplicateGroupCount": 284,
     "unusedTokens": [
       "--color-accent",
       "--color-accent-sur-clair",
