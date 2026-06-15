@@ -4078,7 +4078,7 @@
 |---|---|---|---|---|
 | `body_en` | string | oui |  |  |
 | `body_fr` | string | oui |  |  |
-| `cta_href` | string | non | /realisations |  |
+| `cta_href` | string | non | /cas-clients |  |
 | `cta_label_en` | string | non | See full case → |  |
 | `cta_label_fr` | string | non | Voir le cas complet → |  |
 | `kicker_en` | string | non | Client case |  |

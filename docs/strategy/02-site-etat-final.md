@@ -159,7 +159,7 @@ IA PME, automatisation, agents, diagnostic IA (angle aides « Osez l'IA »), cab
 | `/operer` | Operations IA | `#crm-relances` `#automatisation` `#service-client` `#admin-rh` `#legal` `#agents-metiers` |
 
 **Appel :** `/offres/audit-maturite-ia` (audit quick win — gardé tel quel, hors périmètre refonte, `state/06`).
-**Confiance/E-E-A-T :** `/agence` (studio solo, about+méthode), `/manifeste`, `/equipe/simon-beros`, `/realisations` (vrais cas), `/contact`.
+**Confiance/E-E-A-T :** `/agence` (studio solo, about+méthode), `/manifeste`, `/equipe/simon-beros`, `/cas-clients` (vrais cas), `/contact`.
 **Ressources :** `/ressources` (hub), `/ressources/outils/calculateur-roi-ia`, `/ressources/academy`, cluster blog.
 **Autorité :** `/expertise-claude` (ex-`/technologies/claude-models`).
 **Légal :** `/mentions-legales`, `/politique-de-confidentialite`, `/cgv`, `/plan-du-site`, `/404`.
@@ -204,7 +204,7 @@ veille-ia, cookbooks, cas VirtuoseOS)*. **Agence** = À propos `/agence` · Mét
 ### Mapping du sitemap RÉEL (206 URLs → ~26)
 | Dossier (live) | URLs | Décision |
 |---|---|---|
-| Racines / statiques | 13 | **GARDER** `/` (home), `/acquerir` · `/piloter` · `/operer` (3 piliers = verbes, gardés), `/contact`, `/manifeste`, légal ×2, `/plan-du-site`, `/cgv` · `/cas`→`/realisations` · **SUPPRIMER** `/commerce`, `/secteurs` |
+| Racines / statiques | 13 | **GARDER** `/` (home), `/acquerir` · `/piloter` · `/operer` (3 piliers = verbes, gardés), `/contact`, `/manifeste`, légal ×2, `/plan-du-site`, `/cgv` · `/cas`→`/cas-clients` · **SUPPRIMER** `/commerce` (GARDER `/secteurs` : hub peuplé data-driven) |
 | `/agence` | 6 | GARDER `/agence` (+about+méthode fusionnés) · NOINDEX `ds-studio`, `hero-lab` · **SUPPRIMER** `/agence/prompts` (fuite interne) |
 | `/comparer` | 11 | **SUPPRIMER** (doorway) |
 | `/equipe` | 2 | GARDER `/equipe/simon-beros` |
@@ -227,7 +227,7 @@ veille-ia, cookbooks, cas VirtuoseOS)*. **Agence** = À propos `/agence` · Mét
   adapter le contenu par service. *(SEO/GEO = section dédiée dans content-marketing-intelligent.)*
 - **Landings `/lp/*`** : variante CRO allégée (hero + problème + preuve + offre + FAQ + CTA), Phase C (`state/08`, `specs/03 §Phase C` + quizz lead-magnet de scoring).
 - **Piliers `/piloter` `/operer`** : hero pilier + 1 bloc par sous-sujet ancré (`#…`) + preuve + CTA — **séquence à figer** (pas encore spécifiée comme les services). Sections cataloguées, anti-orphelin.
-- **Home, `/agence`, `/realisations`, `/manifeste`** : **audit des sections existantes** (garder/retirer/ajouter) à la passe assainissement — viser « suffisant », **0 section creuse**, 0 doublon.
+- **Home, `/agence`, `/cas-clients`, `/manifeste`** : **audit des sections existantes** (garder/retirer/ajouter) à la passe assainissement — viser « suffisant », **0 section creuse**, 0 doublon.
 
 ---
 
