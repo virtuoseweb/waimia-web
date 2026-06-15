@@ -222,6 +222,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // usage library (0 consommateur : les pages live console.astro/manifesto.astro restent bespoke)
   { id: 'terminal-table',            consumers: [] },
   { id: 'editorial-write-feed',      consumers: [] },
+  { id: 'product-reel',              consumers: [] }, // catalogue-only : ProductReel.tsx scroll-driven préservé
   { id: 'manifesto-statement',       consumers: [] },
   { id: 'manifesto-act',             consumers: [] },
   { id: 'asymmetric-services',       consumers: [] },

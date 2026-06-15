@@ -113,6 +113,7 @@ import CaseSplit from '../components/sections/CaseSplit.astro';
 // Mission catalogue-gap 2026-06-11 · patterns /console + /manifesto
 import TerminalTableSection from '../components/sections/TerminalTableSection.astro';
 import EditorialWriteFeed from '../components/sections/EditorialWriteFeed.astro';
+import ProductReel from '../components/sections/ProductReel.astro';
 import ManifestoStatement from '../components/sections/ManifestoStatement.astro';
 import ManifestoAct from '../components/sections/ManifestoAct.astro';
 // >>> [gen-hero-feature] start
@@ -1483,6 +1484,16 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Feed éditorial en lignes cliquables (EditorialWriteRow) : date, tag, texte et flèche par ligne, tone paper ou ink, lien meta type /feed.xml.',
     description_en: 'Editorial feed as clickable rows (EditorialWriteRow): date, tag, text and arrow per row, paper or ink tone, /feed.xml style meta link.',
+  },
+  'product-reel': {
+    component: ProductReel,
+    category: 'marketing',
+    subcategory: 'Terminal Sections',
+    categorySlug: 'terminal-sections',
+    tags: ['scrollytelling', 'scroll-driven', 'terminal', 'product', 'showcase', 'sticky', 'interactive'],
+    status: 'stable',
+    description_fr: 'Reel produit scroll-driven : étapes à gauche pilotées au scroll, console terminal à droite dont le contenu change par écran. Viewport sticky.',
+    description_en: 'Scroll-driven product reel: steps on the left driven by scroll, terminal console on the right whose content changes per screen. Sticky viewport.',
   },
   'manifesto-statement': {
     component: ManifestoStatement,

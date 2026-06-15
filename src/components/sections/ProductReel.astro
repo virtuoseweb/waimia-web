@@ -1,0 +1,16 @@
+---
+// Section W6 · product-reel : wrapper catalogue du reel produit scroll-driven.
+// Composant auto-porteur : ProductReel.tsx embarque DEFAULT_SCREENS/DEFAULT_COPY.
+import type { SectionByType } from '../../schemas/sections';
+import ProductReel from '../motion/ProductReel.tsx';
+
+interface Props { data: SectionByType<'product-reel'>; lang: 'fr' | 'en'; }
+const { lang } = Astro.props;
+---
+<section class="product-reel">
+  <ProductReel client:visible lang={lang} />
+</section>
+
+<style>
+  .product-reel { position: relative; background: var(--ink); color: var(--paper); }
+</style>

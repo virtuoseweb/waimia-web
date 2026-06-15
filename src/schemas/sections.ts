@@ -2407,6 +2407,12 @@ export const editorialWriteFeedSchema = z.object({
 
 // §Manifesto Sections · Déclaration plein écran fond contrasté.
 // tone ink = bloc [manifesto] de /console · tone accent = pattern ManifestoAccent (terracotta + grille).
+// §Terminal Sections · product-reel : reel produit scroll-driven (ProductReel.tsx).
+// Composant auto-porteur (DEFAULT_SCREENS/DEFAULT_COPY intégrés) → schéma minimal type-only.
+export const productReelSchema = z.object({
+  type: z.literal('product-reel'),
+});
+
 export const manifestoStatementSchema = z.object({
   type: z.literal('manifesto-statement'),
   kicker_fr: z.string(),
@@ -3534,6 +3540,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   departmentCtaSchema,
   terminalTableSectionSchema,
   editorialWriteFeedSchema,
+  productReelSchema,
   manifestoStatementSchema,
   manifestoActSchema,
   asymmetricServicesSchema,

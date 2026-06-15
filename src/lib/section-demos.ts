@@ -2549,6 +2549,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       { date: '2026-03-04', tag_fr: 'Essai', tag_en: 'Essay', text_fr: 'Pourquoi le goulot n est jamais le modèle : rails, règles, relecture.', text_en: 'Why the bottleneck is never the model: rails, rules, review.', href: '/ressources/blog' },
     ],
   },
+  'product-reel': {
+    type: 'product-reel',
+  },
   'manifesto-statement': {
     type: 'manifesto-statement',
     kicker_fr: '§ Manifeste · Interlude',
