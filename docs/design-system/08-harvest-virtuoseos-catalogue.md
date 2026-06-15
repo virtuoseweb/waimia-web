@@ -36,7 +36,9 @@
 ## Statut
 
 - ✅ **Déjà récoltés** : `product-reel` (terminal scroll-driven 2 colonnes) · `agentic-terminal`
-  (IDE mockup à écriture live) — catégorie « Terminal Sections ».
+  (IDE mockup à écriture live) catégorie « Terminal Sections » · `challenges-grid` (pain-points 2×2,
+  item B9, catégorie Feature Sections) · `journey-steps` (parcours 3 temps, item B10, catégorie
+  Process Sections) récoltés le 2026-06-15, tokens DS exclusifs, GF-1 vérifié.
 - ⏳ **Backlog ci-dessous** : par valeur de récolte décroissante.
 
 ---

@@ -1,0 +1,204 @@
+---
+// journey-steps (process-sections) · parcours en 3 temps : icône cercle + badge numéro,
+// titre, description, pill highlight, ligne connectrice entre étapes. Horizontal desktop,
+// vertical mobile. Layout récolté de virtuoseOS PersonaJourney, retokenisé DS waimia. Dark natif.
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'journey-steps'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const steps = data.steps ?? [];
+---
+
+<section class="journey sec-base" data-bg={data.background}>
+  <div class="wrap-tight journey__inner">
+    <header class="journey__head">
+      {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+    </header>
+
+    <ol class="journey__steps">
+      {steps.map((step: (typeof steps)[number], i: number) => (
+        <li class="journey__step">
+          <span class="journey__connector" aria-hidden="true"></span>
+          <span class="journey__icon">
+            {step.icon && <span class="journey__glyph" aria-hidden="true">{step.icon}</span>}
+            <span class="journey__num">{String(i + 1).padStart(2, '0')}</span>
+          </span>
+          <div class="journey__content">
+            <h3 class="journey__title">{isFr ? step.title_fr : step.title_en}</h3>
+            <p class="journey__body">{isFr ? step.body_fr : step.body_en}</p>
+            {(isFr ? step.highlight_fr : step.highlight_en) && (
+              <span class="journey__pill">{isFr ? step.highlight_fr : step.highlight_en}</span>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .journey__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-9);
+  }
+  .journey__head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 60ch;
+  }
+  .journey__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  @media (min-width: 768px) {
+    .journey__steps {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--space-5);
+    }
+  }
+  .journey__step {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  @media (min-width: 768px) {
+    .journey__step {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  /* Connecteur horizontal desktop */
+  .journey__connector { display: none; }
+  @media (min-width: 768px) {
+    .journey__connector {
+      display: block;
+      position: absolute;
+      top: var(--space-7);
+      left: calc(50% + var(--space-7));
+      width: calc(100% - var(--space-8));
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        rgba(var(--accent-rgb), 0.35),
+        rgba(var(--accent-rgb), 0)
+      );
+    }
+    .journey__step:last-child .journey__connector { display: none; }
+  }
+  /* Connecteur vertical mobile */
+  @media (max-width: 767px) {
+    .journey__step::before {
+      content: '';
+      position: absolute;
+      left: var(--space-5);
+      top: var(--space-10);
+      width: 1px;
+      height: calc(100% + var(--space-8) - var(--space-9));
+      background: linear-gradient(
+        180deg,
+        rgba(var(--accent-rgb), 0.3),
+        rgba(var(--accent-rgb), 0)
+      );
+    }
+    .journey__step:last-child::before { display: none; }
+  }
+  .journey__icon {
+    position: relative;
+    width: var(--space-10);
+    height: var(--space-10);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-h3);
+    background: var(--paper);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-card-rest);
+    z-index: 1;
+  }
+  .journey__num {
+    position: absolute;
+    bottom: calc(-1 * var(--space-1));
+    right: calc(-1 * var(--space-1));
+    min-width: var(--space-6);
+    height: var(--space-6);
+    padding: 0 var(--space-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-radius: var(--radius-pill);
+  }
+  .journey__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) {
+    .journey__content { align-items: center; }
+  }
+  .journey__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    color: var(--ink);
+    line-height: var(--leading-h3);
+    margin: 0;
+  }
+  .journey__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--muted);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    max-width: 36ch;
+  }
+  .journey__pill {
+    margin-top: var(--space-1);
+    padding: var(--space-1) var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--accent-text);
+    background: rgba(var(--accent-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    border-radius: var(--radius-pill);
+  }
+  /* ── Dark natif (docs/43) · remap scopé aux enfants ── */
+  .journey[data-bg='paper-2'] { background: var(--paper-2); }
+  .journey[data-bg='paper-3'] { background: var(--paper-3); }
+  .journey[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .journey[data-bg='ink'] :is(h2) { color: var(--paper); }
+  .journey[data-bg='ink'] .journey__icon {
+    background: var(--ink-2);
+    border-color: var(--accent-sur-sombre);
+  }
+  .journey[data-bg='ink'] .journey__title { color: var(--paper); }
+  .journey[data-bg='ink'] .journey__body { color: rgba(var(--paper-rgb), 0.78); }
+  .journey[data-bg='ink'] .journey__pill { color: var(--accent-sur-sombre); }
+</style>

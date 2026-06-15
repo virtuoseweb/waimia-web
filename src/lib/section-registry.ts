@@ -115,6 +115,8 @@ import TerminalTableSection from '../components/sections/TerminalTableSection.as
 import EditorialWriteFeed from '../components/sections/EditorialWriteFeed.astro';
 import ProductReel from '../components/sections/ProductReel.astro';
 import AgenticTerminal from '../components/sections/AgenticTerminal.astro';
+import ChallengesGrid from '../components/sections/ChallengesGrid.astro';
+import JourneySteps from '../components/sections/JourneySteps.astro';
 import ManifestoStatement from '../components/sections/ManifestoStatement.astro';
 import ManifestoAct from '../components/sections/ManifestoAct.astro';
 // >>> [gen-hero-feature] start
@@ -1505,6 +1507,26 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Mockup IDE agentique : fenêtre macOS, explorateur de fichiers, prompt utilisateur et bloc de code qui s'écrit en direct caractère par caractère, puis message de succès, footer stats et badges. Fond encre, accent terracotta.",
     description_en: 'Agentic IDE mockup: macOS window, file explorer, user prompt and a code block typed live character by character, then a success message, footer stats and badges. Ink background, terracotta accent.',
+  },
+  'challenges-grid': {
+    component: ChallengesGrid,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    tags: ['challenges', 'problems', 'painpoint', 'grid', 'frictions', 'numbered'],
+    status: 'stable',
+    description_fr: 'Grille 2x2 de défis ou pain-points : numéro en coin, icône, titre et texte par carte, border-left accent et élévation au survol. Pose le problème avant la solution sur une landing.',
+    description_en: 'A 2x2 grid of challenges or pain-points: corner number, icon, title and copy per card, accent border-left and hover elevation. Frames the problem before the solution on a landing page.',
+  },
+  'journey-steps': {
+    component: JourneySteps,
+    category: 'marketing',
+    subcategory: 'Process Sections',
+    categorySlug: 'process-sections',
+    tags: ['journey', 'steps', 'process', 'funnel', 'parcours', 'onboarding'],
+    status: 'stable',
+    description_fr: 'Parcours en 3 temps : icône cercle avec badge numéro, titre, description et pill highlight par étape, connecteur accent entre étapes. Horizontal desktop, vertical mobile. Idéal funnel ou onboarding.',
+    description_en: 'A three-step journey: circle icon with number badge, title, description and a highlight pill per step, accent connector between steps. Horizontal on desktop, vertical on mobile. Ideal for a funnel or onboarding.',
   },
   'manifesto-statement': {
     component: ManifestoStatement,

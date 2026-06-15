@@ -2600,6 +2600,33 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     badges_fr: ['Audit', 'Rédaction', 'Relecture'],
     badges_en: ['Audit', 'Writing', 'Review'],
   },
+  'challenges-grid': {
+    type: 'challenges-grid',
+    background: 'paper-2',
+    kicker_fr: 'Le problème',
+    kicker_en: 'The problem',
+    h2_fr: 'Pourquoi votre site <i class="acc">stagne</i>',
+    h2_en: 'Why your site <i class="acc">stalls</i>',
+    items: [
+      { icon: '📉', title_fr: 'Trafic en berne', title_en: 'Stalling traffic', body_fr: 'Les pages ne se positionnent plus et le trafic organique décroche, sans cause évidente.', body_en: 'Pages no longer rank and organic traffic slips, with no obvious cause.' },
+      { icon: '🗂️', title_fr: 'Contenu non maintenu', title_en: 'Stale content', body_fr: 'Les articles vieillissent, personne ne les met à jour, et le site perd sa fraîcheur.', body_en: 'Articles age, nobody updates them, and the site loses its freshness.' },
+      { icon: '🤖', title_fr: 'Invisible des IA', title_en: 'Invisible to AI', body_fr: 'Les moteurs génératifs ne citent pas votre marque faute de signaux GEO clairs.', body_en: 'Generative engines never cite your brand for lack of clear GEO signals.' },
+      { icon: '📊', title_fr: 'ROI éditorial flou', title_en: 'Fuzzy editorial ROI', body_fr: 'Vous produisez du contenu sans savoir ce qui convertit ni où réinvestir.', body_en: 'You ship content without knowing what converts or where to reinvest.' },
+    ],
+  },
+  'journey-steps': {
+    type: 'journey-steps',
+    background: 'paper',
+    kicker_fr: 'Le parcours',
+    kicker_en: 'The journey',
+    h2_fr: 'Du brief à la <i class="acc">publication</i>',
+    h2_en: 'From brief to <i class="acc">publish</i>',
+    steps: [
+      { icon: '🔍', title_fr: 'Audit', title_en: 'Audit', body_fr: 'On cartographie vos pages, vos mots-clés et vos signaux IA pour viser juste.', body_en: 'We map your pages, keywords and AI signals to aim precisely.', highlight_fr: 'Étape 1', highlight_en: 'Step 1' },
+      { icon: '✍️', title_fr: 'Production assistée', title_en: 'Assisted production', body_fr: 'Les agents rédigent les premières versions, vous gardez la ligne éditoriale.', body_en: 'Agents draft first versions, you keep the editorial line.', highlight_fr: 'Étape 2', highlight_en: 'Step 2' },
+      { icon: '🚀', title_fr: 'Relecture et publication', title_en: 'Review and publish', body_fr: 'Un humain valide, le contenu part en ligne et la mesure démarre aussitôt.', body_en: 'A human validates, content goes live and measurement starts at once.', highlight_fr: 'Étape 3', highlight_en: 'Step 3' },
+    ],
+  },
   'manifesto-statement': {
     type: 'manifesto-statement',
     kicker_fr: '§ Manifeste · Interlude',

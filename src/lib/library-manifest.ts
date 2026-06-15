@@ -224,6 +224,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'editorial-write-feed',      consumers: [] },
   { id: 'product-reel',              consumers: [] }, // catalogue-only : ProductReel.tsx scroll-driven préservé
   { id: 'agentic-terminal',          consumers: [] }, // catalogue-only : AgenticTerminal.tsx IDE live-typing
+  { id: 'challenges-grid',           consumers: [] }, // catalogue-only : récolte virtuoseOS PersonaChallenges
+  { id: 'journey-steps',             consumers: [] }, // catalogue-only : récolte virtuoseOS PersonaJourney
   { id: 'manifesto-statement',       consumers: [] },
   { id: 'manifesto-act',             consumers: [] },
   { id: 'asymmetric-services',       consumers: [] },

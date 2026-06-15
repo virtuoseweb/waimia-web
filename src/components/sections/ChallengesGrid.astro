@@ -1,0 +1,127 @@
+---
+// challenges-grid (feature-sections) · grille 2x2 de pain-points : numéro en coin,
+// icône, titre, texte, border-left accent, hover élévation. Layout récolté de
+// virtuoseOS PersonaChallenges, retokenisé sur le DS waimia. Dark natif (data-bg).
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'challenges-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const items = data.items ?? [];
+---
+
+<section class="challenges sec-base" data-bg={data.background}>
+  <div class="wrap-tight challenges__inner">
+    <header class="challenges__head">
+      {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+    </header>
+
+    <div class="challenges__grid">
+      {items.map((item: (typeof items)[number], i: number) => (
+        <article class="challenges__card">
+          <span class="challenges__num">{String(i + 1).padStart(2, '0')}</span>
+          {item.icon && <span class="challenges__icon" aria-hidden="true">{item.icon}</span>}
+          <h3 class="challenges__title">{isFr ? item.title_fr : item.title_en}</h3>
+          <p class="challenges__body">{isFr ? item.body_fr : item.body_en}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .challenges__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .challenges__head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 60ch;
+  }
+  .challenges__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 640px) {
+    .challenges__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .challenges__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-rest);
+    transition:
+      transform var(--dur-hover) var(--ease-out),
+      box-shadow var(--dur-hover) var(--ease-out),
+      border-color var(--dur-hover) var(--ease-out);
+  }
+  .challenges__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+    border-color: var(--accent);
+  }
+  .challenges__num {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-text);
+    opacity: 0.55;
+  }
+  .challenges__icon {
+    font-size: var(--text-h3);
+    line-height: 1;
+  }
+  .challenges__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    color: var(--ink);
+    line-height: var(--leading-h3);
+    margin: 0;
+    max-width: 26ch;
+  }
+  .challenges__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--muted);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    max-width: 46ch;
+  }
+  /* ── Dark natif (docs/43) · remap scopé aux enfants ── */
+  .challenges[data-bg='paper-2'] { background: var(--paper-2); }
+  .challenges[data-bg='paper-3'] { background: var(--paper-3); }
+  .challenges[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .challenges[data-bg='ink'] :is(h2) { color: var(--paper); }
+  .challenges[data-bg='ink'] .challenges__card {
+    background: var(--ink-2);
+    border-color: var(--hairline-strong);
+    border-left-color: var(--accent);
+  }
+  .challenges[data-bg='ink'] .challenges__title { color: var(--paper); }
+  .challenges[data-bg='ink'] .challenges__body { color: rgba(var(--paper-rgb), 0.78); }
+  .challenges[data-bg='ink'] .challenges__num { color: var(--accent-sur-sombre); }
+</style>

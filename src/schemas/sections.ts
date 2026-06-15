@@ -2452,6 +2452,48 @@ export const agenticTerminalSchema = z.object({
   badges_en: z.array(z.string()).max(6).default([]),
 });
 
+// §Feature Sections · challenges-grid : grille 2x2 de pain-points (numéro en coin,
+// icône, titre, body, border-left accent, hover élévation). Layout récolté de
+// virtuoseOS PersonaChallenges, retokenisé DS waimia.
+const challengeItemSchema = z.object({
+  icon: z.string().optional(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+});
+export const challengesGridSchema = z.object({
+  type: z.literal('challenges-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  items: z.array(challengeItemSchema).min(2).max(4),
+});
+
+// §Process Sections · journey-steps : parcours en 3 temps (icône cercle + badge numéro,
+// titre, description, pill highlight, connecteur entre étapes). Horizontal desktop,
+// vertical mobile. Layout récolté de virtuoseOS PersonaJourney, retokenisé DS waimia.
+const journeyStepSchema = z.object({
+  icon: z.string().optional(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+  highlight_fr: z.string().optional(),
+  highlight_en: z.string().optional(),
+});
+export const journeyStepsSchema = z.object({
+  type: z.literal('journey-steps'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  steps: z.array(journeyStepSchema).min(2).max(4),
+});
+
 export const manifestoStatementSchema = z.object({
   type: z.literal('manifesto-statement'),
   kicker_fr: z.string(),
@@ -3581,6 +3623,8 @@ export const sectionSchema = z.discriminatedUnion('type', [
   editorialWriteFeedSchema,
   productReelSchema,
   agenticTerminalSchema,
+  challengesGridSchema,
+  journeyStepsSchema,
   manifestoStatementSchema,
   manifestoActSchema,
   asymmetricServicesSchema,
