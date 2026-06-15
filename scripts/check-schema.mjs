@@ -56,6 +56,8 @@ function extractTypes (html) {
   return types
 }
 
+// Note : ne descend PAS dans les proprietes imbriquees (publisher, author, mainEntity, offers).
+// Seuls les @type de top-level sont comptes. Les schemas references via @id ne sont pas des doublons.
 function collectTypes (node, acc) {
   if (Array.isArray(node)) {
     node.forEach(n => collectTypes(n, acc))
@@ -262,6 +264,30 @@ for (const assertion of ASSERTIONS) {
   } else {
     console.log(`✓ ${assertion.label}  [${assertion.required.join(', ')}]`)
   }
+}
+
+// --- Passe 3 : pattern universel secteurs (Article + BreadcrumbList requis sur toutes les pages secteurs/*) ---
+
+let secteur_pages_checked = 0
+
+for (const [key, types] of pageTypesMap) {
+  // Cible : pages sous secteurs/ mais pas l'index secteurs lui-meme
+  if (!key.startsWith('secteurs/')) continue
+
+  secteur_pages_checked++
+  const typeSet = new Set(types)
+  const missing = ['Article', 'BreadcrumbList'].filter(t => !typeSet.has(t))
+
+  if (missing.length > 0) {
+    console.error(`✗ PATTERN SECTEUR  ${key}  manque: ${missing.join(', ')}`)
+    assertion_violations++
+  } else {
+    console.log(`✓ pattern secteur  ${key}  [Article, BreadcrumbList]`)
+  }
+}
+
+if (secteur_pages_checked > 0) {
+  console.log(`   (${secteur_pages_checked} page(s) secteurs verifiees)`)
 }
 
 console.log(LINE)
