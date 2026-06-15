@@ -22,7 +22,8 @@
 *(L'ancien `docs/00-MASTER-PLAN.md` (147 types) est **archivé** → `docs/archive/00-MASTER-PLAN.md`. Ne pas s'y fier.)*
 
 ### 🏷️ Positionnement de marque (tranché 2026-06-15 ; voir `state/RECONCILIATION-REPORT.md`)
-- **Marque = « cabinet d'orchestration IA »** (oral : « cabinet IA »). « agence IA » = **keyword SEO de support uniquement** (title/longue traîne), jamais H1 de marque.
+- **Marque = « studio IA »** (build-forward : on conseille **+** intègre **+** connecte **+** développe **+** opère, pas conseil-only). **Révisé 2026-06-15** (cf `state/RECONCILIATION-REPORT.md` §1) : « cabinet (d'orchestration) IA » écarté car le marché 2026 lit « cabinet » comme **conseil pur** (les LLM ne citent pas un cabinet sur l'intent « intégrer/connecter/développer l'IA » → coût GEO) et la voix `agence/methode` dit déjà « on ne vend pas un cabinet ». H1 = « Le studio qui fait tourner votre PME à l'IA. ». « orchestration IA » reste l'umbrella du full-chain dans la copy.
+- **SEO/GEO en couches** : keywords support (title, longue traîne) = « agence IA », « intégrateur IA », « intégration IA PME », « studio IA » ; « cabinet conseil IA » / « audit maturité IA » réservés à la **page diagnostic** (intent advisory). Jamais un seul de ces termes en H1 de marque unique.
 - **Offre cœur = « site web intelligent »** (nom/slug/H1) ; « site web IA » = keyword corps/FAQ.
 - **Pricing = grille 2 000 / 4 000 / 7 000 / 10 000 € + sur-mesure** (plancher 2 000 € HT, audit gratuit). Périme 3 000 € / 7 900 € / « dès 1 500 € ».
 - **Cas & certifs fictifs SUPPRIMÉS** ; cas réels : Balzeo, Amploi (sans métrique inventée), Desangles Peinture, Isabelle Diaz.
