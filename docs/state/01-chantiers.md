@@ -37,6 +37,12 @@ tâche #7 backlog, partiellement faite.
   plugins/hooks, `/evolve`, migration tooling.
 - **[~] Silo SEO** (nouveau, ce chantier) — `docs/strategy/01-silo-site-web-ia` + `docs/archive/50-SILO-RUNBOOK-EXECUTION` posés ; exécution
   code à faire par Claude Code.
+- **[~] Récolte virtuoseOS → catalogue** (Simon 2026-06-15) — inventaire sourcé des blocks
+  distinctifs du site VirtuoseWeb (`~/Developer/sitewebastro`) à récupérer pour enrichir le
+  catalogue, adaptés EXCLUSIVEMENT aux tokens DS Studio (rule 60). Manifest durable :
+  `docs/design-system/08-harvest-virtuoseos-catalogue.md` (14 atomes + 13 sections inventoriés).
+  ✅ déjà récoltés : `product-reel`, `agentic-terminal`. Reste : cataloguer le sous-ensemble HAUTE
+  valeur par vagues (cf §D du manifest). Rattaché au méga-chantier bibliothèque (`design-system/03`).
 
 ---
 

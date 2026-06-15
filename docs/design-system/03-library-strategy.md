@@ -2,6 +2,10 @@
 
 > Vision Simon (2026-06-11, 5 directives convergentes). Source de vérité du méga-chantier.
 > Fondé sur 3 cartographies : catalogue/variantes, DS Studio/persistance, audit chiffré du socle DS.
+>
+> **Récolte de blocks externes** : l'inventaire sourcé des composants/sections distinctifs à
+> récupérer depuis le site VirtuoseWeb (virtuoseOS) pour alimenter cette bibliothèque vit dans
+> [08-harvest-virtuoseos-catalogue.md](08-harvest-virtuoseos-catalogue.md) (à adapter aux tokens DS, rule 60).
 
 ## 1. La vision (ce que Simon veut)
 
