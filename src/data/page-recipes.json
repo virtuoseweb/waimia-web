@@ -1,0 +1,122 @@
+{
+  "_meta": {
+    "purpose": "Recettes d'archetypes de page composable Waimia. Chaque recette = sequence ordonnee de section.type a poser dans le frontmatter MDX `sections:` (ou inline .astro pour les hubs sans collection). Source : pages composables REELLES du repo (cf `derivedFrom`), pas inventee. Lookup props exactes par type -> src/data/section-quickref.json. Gate de validite -> build (throw si sections vide) + check:touchpoints + check-internal-links.",
+    "collectionsComposable": ["services", "lp", "cases", "offres"],
+    "note": "secteur-hub n'a PAS de collection (le champ `sections:` n'existe pas sur `secteurs`) : les hubs sont des pages .astro autonomes (acquerir/operer/piloter) avec un tableau `sections` inline passe a SectionsRenderer. home est bespoke (organisms hors catalogue), non couverte par une recette composable."
+  },
+  "recipes": [
+    {
+      "archetype": "service",
+      "description": "Page service detaillee, parcours conversion complet : hero funnel -> preuve sociale -> probleme -> diagnostic -> methode -> livrables -> resultats -> comparaison -> prix -> FAQ -> CTA final. C'est la recette la plus riche.",
+      "collection": "services",
+      "route": "/services/<slug>",
+      "file": "src/content/services/<slug>.mdx",
+      "derivedFrom": "src/content/services/site-web-intelligent.mdx",
+      "sections": [
+        "hero-conversion-funnel",
+        "logo-marquee",
+        "problem-statement",
+        "problems-grid",
+        "case-card-grid",
+        "diagnostic-stages",
+        "method-timeline",
+        "feature-split-media",
+        "deliverables-grid",
+        "stats-bento",
+        "comparison-duo",
+        "pricing-cards",
+        "faq-two-column",
+        "footer-cta-band"
+      ]
+    },
+    {
+      "archetype": "landing",
+      "description": "Landing page courte, focalisee conversion : hero funnel -> probleme -> grille de frictions -> barre de preuve -> prix -> FAQ -> CTA. Variante condensee de la page service.",
+      "collection": "lp",
+      "route": "/lp/<slug>",
+      "file": "src/content/lp/<slug>.mdx",
+      "derivedFrom": "src/content/lp/site-web-intelligent.mdx",
+      "sections": [
+        "hero-conversion-funnel",
+        "problem-statement",
+        "problems-grid",
+        "proof-bar",
+        "pricing-cards",
+        "faq-two-column",
+        "footer-cta-band"
+      ]
+    },
+    {
+      "archetype": "offer",
+      "description": "Page offre/produit : hero offre detail -> media -> probleme -> methode -> livrables -> reassurance -> CTA. Plus produit que la page service (centree sur une offre nommee).",
+      "collection": "offres",
+      "route": "/offres/<slug>",
+      "file": "src/content/offres/<slug>.mdx",
+      "derivedFrom": "src/content/offres/growth-system-ia.mdx",
+      "sections": [
+        "hero-offer-detail",
+        "media-block",
+        "problem-statement",
+        "method-timeline",
+        "deliverables-grid",
+        "trust-badges-band",
+        "cta-final"
+      ]
+    },
+    {
+      "archetype": "case",
+      "description": "Etude de cas / realisation composable : hero case study -> contexte (pourquoi ca calait) -> media -> resultats chiffres (avant/apres) -> bloc cas detaille -> temoignage chiffre -> CTA. La collection `cases` accepte `sections:` (route /realisations/<slug> bascule en composable si present). Aucune case composable n'existe encore en prod : sequence assemblee a partir des types case-* du registry (hero-case-study, case-split, case-spotlight, metric-shift, testimonial-metrics) + ordre canonique contexte->preuve->cta. A valider GF-1 a la premiere case composable.",
+      "collection": "cases",
+      "route": "/realisations/<slug>",
+      "file": "src/content/cases/<slug>.mdx",
+      "derivedFrom": "registry case-* types (pas encore de case composable live)",
+      "sections": [
+        "hero-case-study",
+        "why-stalls",
+        "media-block",
+        "metric-shift",
+        "case-split",
+        "testimonial-metrics",
+        "cta-final"
+      ]
+    },
+    {
+      "archetype": "secteur-hub",
+      "description": "Page hub de territoire/secteur (acquerir, operer, piloter) : hero hub stats -> bande de metrique -> features media -> cartes liees -> methode -> livrables -> a venir -> CTA. ATTENTION : la collection `secteurs` n'a PAS de champ `sections:`. Ces hubs sont des pages .astro autonomes qui passent un tableau `sections` INLINE a <SectionsRenderer>. Pour creer un nouveau hub : nouvelle page src/pages/<slug>.astro sur le modele d'acquerir.astro, pas un fichier MDX.",
+      "collection": null,
+      "route": "/<hub-slug>",
+      "file": "src/pages/<hub-slug>.astro (inline sections, modele acquerir.astro)",
+      "derivedFrom": "src/pages/acquerir.astro",
+      "sections": [
+        "hero-hub-stats",
+        "metric-callout-band",
+        "feature-split-media",
+        "related-cards-band",
+        "method-timeline",
+        "deliverables-grid",
+        "coming-soon-pills",
+        "feature-split-media",
+        "footer-cta-band"
+      ]
+    },
+    {
+      "archetype": "home",
+      "description": "Page d'accueil. NON composable aujourd'hui : src/pages/index.astro compose des organisms bespoke (Hero, ServicesGrid, MaturityPyramid, CaseCardGrid, ArchitectureDiagram, SocialProof, StatBlock, EditorialPreview, FaqAccordion, CtaBandSection) hors catalogue. Pour une home composable equivalente, la sequence ci-dessous mappe ces organisms vers les types catalogues les plus proches. A traiter comme une CIBLE de migration, pas comme un etat existant : valider chaque section GF-1.",
+      "collection": null,
+      "route": "/",
+      "file": "src/pages/index.astro (bespoke organisms, cible de migration)",
+      "derivedFrom": "src/pages/index.astro (mapping organisms -> types catalogues)",
+      "sections": [
+        "hero-home",
+        "services-grid",
+        "maturity-pyramid",
+        "case-card-grid",
+        "architecture-diagram",
+        "social-proof",
+        "stat-block",
+        "faq-accordion",
+        "cta-band"
+      ]
+    }
+  ]
+}
