@@ -20,22 +20,17 @@ export type ProofPointId =
   | 'roi-payback-90-jours'
   | 'roi-revenu-supp-25pct'
   | 'roi-4-1x-12-mois'
-  | 'roi-pipeline-plateau-2-4m'
   | 'roi-leads-x2-4'
   | 'time-2-semaines-pilote'
   | 'time-30pct-taches-reduites'
   | 'time-5-jours-audit'
   | 'time-qualification-62pct'
   | 'time-cloture-72pct'
-  | 'time-halcyon-120h'
-  | 'time-northbound-2j'
-  | 'time-plateau-22h-sem'
   | 'time-factures-1200h-an'
   | 'cost-baisse-40pct'
   | 'cost-prix-transparent'
   | 'quality-precision-92pct'
   | 'quality-zero-hallucination'
-  | 'quality-caserne-4-goulots'
   | 'adoption-100pct-equipe'
   | 'adoption-30-jours-onboard'
   | 'adoption-95pct-nps'
@@ -102,16 +97,6 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     ],
   },
   {
-    id: 'roi-pipeline-plateau-2-4m',
-    category: 'roi',
-    value: '8 à 10 sem',
-    label_fr: 'Pipeline reconnecté',
-    label_en: 'Pipeline reconnected',
-    description_fr: 'Délai de câblage visé pour reconnecter un pipeline dormant : site, CRM et relances dans un même flux.',
-    description_en: 'Targeted wiring time to reconnect a dormant pipeline: site, CRM and follow-ups in one flow.',
-    sources: ['offres/growth-system-ia', 'solutions/agent-marketing-commercial'],
-  },
-  {
     id: 'roi-leads-x2-4',
     category: 'roi',
     value: '×2,4',
@@ -176,36 +161,6 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     sources: [],
   },
   {
-    id: 'time-halcyon-120h',
-    category: 'time',
-    value: '120 h',
-    label_fr: 'Heures consultant · objectif libéré par trimestre',
-    label_en: 'Consultant hours · targeted recovery per quarter',
-    description_fr: 'Volume d\'heures qu\'un cabinet vise à récupérer par trimestre en automatisant proposals et relances, mesuré chez vous.',
-    description_en: 'Quarterly hours a firm aims to recover by automating proposals and follow-ups, measured at your side.',
-    sources: [],
-  },
-  {
-    id: 'time-northbound-2j',
-    category: 'time',
-    value: '−2 j',
-    label_fr: 'Jours de clôture · objectif récupéré par mois',
-    label_en: 'Closing days · targeted recovery per month',
-    description_fr: 'Jours de charge mensuelle qu\'une clôture automatisée vise à récupérer, mesurés sur votre cycle réel.',
-    description_en: 'Monthly workload days an automated close aims to recover, measured on your real cycle.',
-    sources: [],
-  },
-  {
-    id: 'time-plateau-22h-sem',
-    category: 'time',
-    value: '22 h',
-    label_fr: 'Heures par semaine · objectif économisé',
-    label_en: 'Hours per week · targeted savings',
-    description_fr: 'Heures hebdomadaires qu\'un système de qualification et de relances vise à libérer, mesurées chez vous.',
-    description_en: 'Weekly hours a qualification-and-follow-up system aims to free, measured at your side.',
-    sources: [],
-  },
-  {
     id: 'time-factures-1200h-an',
     category: 'time',
     value: '1 200 h/an',
@@ -256,16 +211,6 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     description_fr: 'Objectif de fiabilité d\'un pipeline RAG correctement câblé avec garde-fous Anthropic Claude, vérifié sur vos contenus.',
     description_en: 'Reliability target of a properly wired RAG pipeline with Anthropic Claude guardrails, verified on your own content.',
     sources: ['proof-points/quality-zero-hallucination'],
-  },
-  {
-    id: 'quality-caserne-4-goulots',
-    category: 'quality',
-    value: '48 h',
-    label_fr: 'Goulots identifiés et documentés · cadence audit',
-    label_en: 'Bottlenecks identified and documented · audit cadence',
-    description_fr: 'Cadence d\'un audit de cadrage : goulots documentés sous 48 h, plan d\'action livré sous 24 h.',
-    description_en: 'Scoping-audit cadence: bottlenecks documented within 48h, action plan delivered within 24h.',
-    sources: [],
   },
   // ── Adoption ──
   {
