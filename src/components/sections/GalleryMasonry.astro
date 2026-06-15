@@ -10,13 +10,13 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="gallery-masonry sec-base" data-bg={data.background}>
+<section class="gallery-masonry sec-base" data-bg={data.background} aria-labelledby="gallery-masonry-h2">
   <div class="wrap-wide">
     <div class="gallery-masonry__header reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 id="gallery-masonry-h2" class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.intro_fr : data.intro_en) && (
         <p class="gallery-masonry__intro">{isFr ? data.intro_fr : data.intro_en}</p>
       )}
@@ -26,6 +26,7 @@ const isFr = lang === 'fr';
       {data.items.map((item: (typeof data.items)[number], i: number) => (
         <figure class="gallery-masonry__item" data-ratio={item.ratio ?? 'landscape'}>
           <div class="gallery-masonry__media">
+            {/* alt fourni par l'editeur = image de contenu ; vide = decorative assumee (WCAG 1.1.1). */}
             {item.src ? (
               <img
                 src={item.src}

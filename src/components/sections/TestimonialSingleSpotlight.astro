@@ -29,6 +29,8 @@ const initials = data.author
     </div>
 
     <figure class="testimonial-spotlight__author">
+      {/* Portrait decoratif assume : wrapper aria-hidden et l'auteur (data.author) est presente
+          en texte dans la figcaption juste apres, donc alt="" evite une annonce redondante (WCAG 1.1.1). */}
       <span class="testimonial-spotlight__portrait" aria-hidden="true">
         {data.portrait_src ? (
           <img src={data.portrait_src} alt="" loading="lazy" />

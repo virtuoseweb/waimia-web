@@ -92,7 +92,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
 ---
 {data.type === 'hero-hub-masthead' ? (
   data.variant === 'listing' ? (
-    <section class:list={['hero-hub-listing', mastScale === 'standard' && 'hero-hub-listing--standard']} data-bg={data.background}>
+    <section class:list={['hero-hub-listing', mastScale === 'standard' && 'hero-hub-listing--standard']} data-bg={data.background} aria-label="Présentation">
       {data.decoration && (
         <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
           <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
@@ -106,7 +106,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
       </div>
     </section>
   ) : data.variant === 'detail' ? (
-    <section class:list={['hero-utility', `hero-utility--${data.align ?? 'left'}`, mastScale === 'standard' && 'hero-utility--standard']} data-bg={data.background}>
+    <section class:list={['hero-utility', `hero-utility--${data.align ?? 'left'}`, mastScale === 'standard' && 'hero-utility--standard']} data-bg={data.background} aria-label="Présentation">
       <div class="wrap-wide" style={wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined}>
         {data.kicker_fr && (
           <Kicker class={`hero-utility__kicker${rv}`}>{isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)}</Kicker>
@@ -117,7 +117,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
       </div>
     </section>
   ) : (
-    <section class:list={['hero-hub-masthead', mastScale === 'standard' && 'hero-hub-masthead--standard']} data-bg={data.background}>
+    <section class:list={['hero-hub-masthead', mastScale === 'standard' && 'hero-hub-masthead--standard']} data-bg={data.background} aria-label="Présentation">
       <div class="wrap-wide">
         <Kicker class="hero-hub-masthead__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         <h1 class="hero-hub-masthead__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} transition:name={data.transition_id ? `hero-h1-${data.transition_id}` : undefined} />
@@ -126,7 +126,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </section>
   )
 ) : data.type === 'hero-hub-listing' ? (
-  <section class:list={['hero-hub-listing', listBorder && 'hero-hub-listing--bordered']} style={listStyle} data-bg={data.background}>
+  <section class:list={['hero-hub-listing', listBorder && 'hero-hub-listing--bordered']} style={listStyle} data-bg={data.background} aria-label="Présentation">
     {data.decoration && (
       <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
         <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
@@ -271,6 +271,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </header>
     {data.hero_image && (
       <div class="hero-essay__image">
+        {/* hero_image_alt fourni = image de contenu ; vide = decorative assumee (WCAG 1.1.1). */}
         <img src={data.hero_image} alt={(isFr ? data.hero_image_alt_fr : data.hero_image_alt_en) ?? ''} loading="lazy" />
       </div>
     )}

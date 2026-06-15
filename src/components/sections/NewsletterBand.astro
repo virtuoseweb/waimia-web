@@ -52,13 +52,14 @@ const hint = isFr ? data.hint_fr : data.hint_en;
             placeholder={placeholder}
             required
             autocomplete="email"
+            aria-describedby={hint ? 'nl-band-hint' : undefined}
           />
           <button type="submit" class="newsletter-band__btn">
             {ctaLabel}
           </button>
         </div>
         {hint && (
-          <p class="newsletter-band__hint">{hint}</p>
+          <p id="nl-band-hint" class="newsletter-band__hint" aria-live="polite">{hint}</p>
         )}
       </form>
     </div>
@@ -70,6 +71,12 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     background: var(--ink);
     color: var(--paper);
     padding: var(--section-loose) 0;
+  }
+  /* Bande sombre (defaut absent + ink) : remappe le role --muted sur la valeur
+     dark de l'idiome global ([data-bg=ink] global.css). Les variantes paper
+     gardent le --muted clair herite de :root. Cf WCAG 1.4.3 (texte AA). */
+  .newsletter-band:not([data-bg='paper']):not([data-bg='paper-2']):not([data-bg='paper-3']) {
+    --muted: rgba(var(--paper-rgb), 0.64);
   }
   .newsletter-band__inner {
     display: grid;
@@ -99,7 +106,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: 1.55;
-    color: rgba(var(--paper-rgb), 0.55);
+    color: var(--muted);
     margin: 0;
     max-width: 400px;
   }
@@ -120,10 +127,14 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     outline: none;
   }
   .newsletter-band__input::placeholder {
-    color: rgba(var(--paper-rgb), 0.35);
+    color: var(--muted);
   }
   .newsletter-band__input:focus {
     background: rgba(var(--paper-rgb), 0.12);
+  }
+  .newsletter-band__input:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 2px;
   }
   .newsletter-band__btn {
     background: var(--accent);
@@ -145,7 +156,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono-tight);
-    color: rgba(var(--paper-rgb), 0.35);
+    color: var(--muted);
     margin: 10px 0 0;
   }
   /* ── data-bg R4 · defaut (absent) ET 'ink' = bande sombre inchangee.

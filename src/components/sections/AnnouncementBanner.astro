@@ -18,7 +18,7 @@ const badge = isFr ? data.badge_fr : data.badge_en;
 const linkLabel = isFr ? data.link_label_fr : data.link_label_en;
 const closeLabel = isFr ? 'Fermer' : 'Dismiss';
 ---
-<section class="announce" data-tone={data.tone} data-bg={background}>
+<section class="announce" data-tone={data.tone} data-bg={background} aria-label="Annonce">
   <div class="wrap-wide announce__inner">
     <p class="announce__text">
       {badge && <span class="announce__badge">{badge}</span>}

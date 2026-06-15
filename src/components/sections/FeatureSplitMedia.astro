@@ -40,6 +40,7 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
 
     <figure class="feature-split__media">
       <div class="feature-split__frame">
+        {/* media_alt fourni = image de contenu ; vide = decorative assumee (WCAG 1.1.1). */}
         {data.media_src ? (
           <img src={data.media_src} alt={(isFr ? data.media_alt_fr : data.media_alt_en) ?? ''} loading="lazy" />
         ) : (

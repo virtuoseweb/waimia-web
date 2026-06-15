@@ -10,10 +10,10 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="hero-fb" data-bg={data.background_kind}>
+<section class="hero-fb" data-bg={data.background_kind} aria-labelledby="hero-fb-h1">
   <div class="wrap-wide">
   <div class="hero-fb__inner">
-    <h1 class="reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+    <h1 id="hero-fb-h1" class="reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
     {(isFr ? data.lede_fr : data.lede_en) && (
       <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
     )}

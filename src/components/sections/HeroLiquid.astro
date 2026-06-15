@@ -15,11 +15,11 @@ const lede = isFr ? data.lede_fr : data.lede_en;
 const ctaPrimary = isFr ? data.cta_primary_label_fr : data.cta_primary_label_en;
 const ctaSecondary = isFr ? data.cta_secondary_label_fr : data.cta_secondary_label_en;
 ---
-<section class="hero-liquid">
+<section class="hero-liquid" aria-labelledby="hero-liquid-h1">
   <LiquidHero client:visible />
   <div class="hero-liquid__inner">
     {eyebrow && <Kicker class="hero-liquid__eyebrow">{eyebrow}</Kicker>}
-    <h1 class="hero-liquid__h1 reveal-mask-up" set:html={h1} />
+    <h1 id="hero-liquid-h1" class="hero-liquid__h1 reveal-mask-up" set:html={h1} />
     {lede && <p class="hero-liquid__lede reveal reveal-fade">{lede}</p>}
     {(ctaPrimary || ctaSecondary) && (
       <div class="hero-liquid__cta">

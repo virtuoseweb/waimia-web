@@ -34,6 +34,8 @@ const initials = (name: string) =>
     <ul class="team-bio-grid__list" data-cols={data.columns}>
       {members.map((m: (typeof members)[number]) => (
         <li class="team-bio-grid__card">
+          {/* Portrait decoratif assume : wrapper aria-hidden et le nom (m.name) est presente
+              en texte juste apres, donc alt="" evite une annonce redondante (WCAG 1.1.1). */}
           <span class="team-bio-grid__avatar" aria-hidden="true">
             {m.photo_src ? (
               <img src={m.photo_src} alt="" loading="lazy" />

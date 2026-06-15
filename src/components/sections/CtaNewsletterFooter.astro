@@ -104,7 +104,8 @@ const consent = isFr ? data.consent_fr : data.consent_en;
   }
   .cta-newsletter__input::placeholder { color: var(--muted); }
   .cta-newsletter__input:focus-visible {
-    outline: none;
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
     border-color: var(--accent-text);
   }
   .cta-newsletter__consent {

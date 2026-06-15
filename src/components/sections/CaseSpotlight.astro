@@ -30,6 +30,7 @@ const variant = data.variant ?? 'media-left';
     <div class="cspot__card reveal">
       {data.media_src && (
         <figure class="cspot__media">
+          {/* media_alt fourni = image de contenu ; vide = decorative assumee (WCAG 1.1.1). */}
           <img src={data.media_src} alt={data.media_alt ?? ''} loading="lazy" decoding="async" />
           {data.media_caption && <figcaption>{isFr ? data.media_caption : data.media_caption}</figcaption>}
         </figure>

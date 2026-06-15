@@ -13,13 +13,13 @@ const isFr = lang === 'fr';
 const items = data.items ?? [];
 ---
 
-<section class="faq-two-col sec-base" data-bg={data.background}>
+<section class="faq-two-col sec-base" data-bg={data.background} aria-labelledby="faq-two-col-h2">
   <div class="wrap-wide">
     <div class="faq-two-col__header">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 id="faq-two-col-h2" class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
     <dl class="faq-two-col__grid">

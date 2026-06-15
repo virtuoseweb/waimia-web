@@ -13,6 +13,7 @@ const alt = isFr ? data.alt_fr : data.alt_en;
 
 <figure class="media-block" data-bg={data.background} data-kind={data.media_kind} data-display={data.display}>
   <div class="wrap-wide">
+  {/* alt fourni par l'editeur = image de contenu ; vide = decorative assumee (WCAG 1.1.1). */}
   {data.media_kind === 'image' && (
     <img
       src={data.src}
