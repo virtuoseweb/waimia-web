@@ -245,3 +245,196 @@ Simon (verbatim) : « je t'autorise expressément à remplacer et uniformiser m�
 - **FIXE** : `--space-1..6` (4/8/12/16/24/32px = padding composant, gaps internes, boutons, champs, cards, icônes) · radius (`--radius-*`) · petit texte (`--text-body-*`/ui/caption/label). Plus prévisible, plus cohérent, évite les micro-variations inutiles (`gap: clamp(8px,1vw,12px)` = anti-pattern).
 - **Cutoff = 32px** : ≤32 interne composant (fixe), ≥40 layout/section (fluide). Ajustable via DS Studio. Tous les tokens (fixes inclus) restent visibles/éditables dans le DS Studio.
 - **Objectif Simon** : peu de tokens, très standardisés, 0 variance (pas 2 valeurs proches-mais-différentes dans le catalogue) → DS↔catalogue 100 % alignés, la personnalisation du DS affecte direct le catalogue. Reste P-E : standardiser icônes + chasser les variances résiduelles. Décision tracée : `decisions/0020-split-fluide-fixe-tokens.md`.
+
+## 11. Addendum 2026-06-15 — clarification 3-audits + atelier `/library` + plan de vagues (ce doc = source unique, rule 59)
+
+> Déclencheur : Simon constate sur la prod que roi-band et « plusieurs sections ressemblent mais ne sont pas vraiment ce qu'on avait » + animations « plates » en preview + catalogue trop concentré dans `/agence/design-system#sections`. 3 agents Opus lancés (comparaison `origin/feat/contenu` ↔ HEAD, lecture seule). Branche de travail : `feat/design-overhaul`.
+
+### 11.1 Verdict empirique (3 audits croisés)
+1. **Animations PAS perdues** : `src/pages/preview/[type].astro:63-72` neutralise volontairement tous les reveals (`opacity:1!important; transition:none!important`) → « plat en preview » est par design. Reveal réel prouvé sur `/acquerir` : `opacity 0→1` au scroll. Effets section-par-section 100 % conservés (HEAD en AJOUTE : `motion-signature.ts` count-up, `StatCounterValue.tsx`). Seule nuance : quelques instances ont permuté de variant reveal (zoom-in 18→8, mask-up 46→36), pas une perte de capacité.
+2. **Réassemblage (hypothèse Simon « décomposé mais pas réassemblé ») VRAIE à ~90 %** : sections orphelines fidèles à recomposer = `roi-band`, `fit-columns` (la section FIT « Pour la DSI… / VOUS ÊTES FAIT POUR NOUS SI / ON REFUSERA SI » existe via `FitColumnsSection.astro`, rendue par HubTemplate), `department-stack`, `department-cta`, `case-split` (composée seulement sur `agence/index.astro`). **1 seule vraie perte de design** : la section **Proof d'OffresDetail** (`off-proof` : band PullQuote + grille KeyMetric 7-col + Dingbat rule) → à recréer. **Perte i18n** : `src/pages/en/` des index cas/offre absent. **Aplaties à ré-enrichir** : Pain Points (sous-ligne meta), FAQ éditoriale → générique, Offres Problem/Method/Tools.
+3. **Typo fluide = régression RÉELLE et systématique** (~78 fichiers) : les `clamp()` numéraux/héros géants (180-200px) routés vers `--text-display` (cap 116) ou `--text-h1` (cap 80) → numéraux −36 à −60 %. **Cause-racine identifiée** : les crans fluides décidés en §10.6 (`--text-mega`→180, `--text-stat`→88, `--text-display`→128) **n'ont jamais été mergés sur cette branche** (vérifié 2026-06-15 : ABSENTS de `tokens.css`, display toujours 116). § 10.6 = doc en avance sur le code → **divergence à résorber** (W1 ci-dessous).
+4. **Complétude catalogue** : catalogue strictement mono-démo (156 types ↔ 156 démos, 0 suffixe de déclinaison). `KeyMetric` (36 combinaisons) + 8 atomes éditoriaux = 0 % catalogués. Dark exposé 10/135 sections ink-capables. 2 reveals définis-mais-morts (`reveal-curtain`, `reveal-split-letter`). Layout cas index featured-grid orphelin inliné (`cas-clients/index.astro:104-142`, jamais catalogué).
+5. **Infra Phase B partiellement LIVRÉE** (vérifié HEAD) : `src/lib/section-presets.ts` ✅, `src/styles/layouts.css` (`data-layout` split-3-1/even-2-3-4/center-1-2-1/editorial-6-1-1 + `data-density`) ✅, route `/preview/[type]/[preset]` ✅ → le build-out s'appuie dessus.
+
+### 11.2 Décision architecture atelier `/library` (sign-off Simon 2026-06-15)
+Les deux SPA (§9.3) prennent leur forme dédiée. Décisions (Simon) :
+- **Namespace** : atelier `/library/*` (Catalogue + Studio + Hero Lab). Public OK mais **non référencé** : retiré du mega-menu, **lien footer** (nav interne), `noindex` (déjà présent), **redirects** depuis `/agence/design-system` + `/agence/ds-studio`.
+- **Forme** : vraies apps **multi-routes Astro + islands React** pour le stateful (éditeur tokens, switch de variantes, lecture d'animation). `/library` (hub) · `/library/[category]` (intentions) · `/library/[type]` (section + variantes + toggle « voir l'animation ») · `/library/studio` · `/library/hero-lab`. Décompose le mono-page `design-system.astro` (1810 l). « SPA » au sens app-like, pas bundle-unique (Astro MPA-first, routes `noindex` partageables).
+- **Finalité** : outillage d'industrialisation pour 3 acteurs (Simon, designers, Claude browser-control). Chaque variante pilotée `var(--token)` = harnais de preuve de la sync DS-Studio.
+- **Cible profondeur** (Simon 2026-06-15) : **≥20 sections exploitables/catégorie, ≥5 familles/section, ≥5 variantes/déclinaisons** chacune — atteint par familles × variantes × déclinaisons + **presets** (couche 4, §4), création de nouvelles familles/sections **uniquement** où le squelette manque (PAS de duplication de types Zod, §4/§9.4).
+
+### 11.3 Plan de vagues (socle avant volume, conforme §5)
+- **W1 — Réparer la typo numérale géante** [EN COURS, worker Opus worktree] : lander les crans fluides §10.6 dans `tokens.css` + re-router KeyMetric/héros/numéraux régressés (mapping audit 3) vers `var(--token)` de rôle. GF-1 : numéral roi-band/hero-stat mesuré > 116px desktop. Répare la plainte initiale Simon (chiffres roi-band trop petits).
+- **W2 — Recomposer les orphelines** : `roi-band`/`fit-columns`/`case-split`/`department-*` sur les pages Solutions/Offres ; recréer `off-proof` ; restaurer `src/pages/en/` index cas/offre ; ré-enrichir les sections aplaties (Pain Points meta, FAQ éditoriale, Offres Problem/Method/Tools).
+- **W3 — Atelier `/library` + étoffer le catalogue** : construire les 2 SPA multi-routes (footer/noindex/redirects) ; cataloguer KeyMetric + 8 atomes éditoriaux + le featured-grid cas ; exposer déclinaisons dark + reveals sélectionnables ; produire familles/variantes/presets jusqu'à ≥20/catégorie via Phase B/D. Mode Workflow (fan-out par catégorie, worktrees isolés), GF-1 par preset.
+
+## 12. Méthode exhaustive d'industrialisation du catalogue (2026-06-15, assemblée de 2 énumérations + recherche injection/modes)
+
+> Source : agents `enum-layouts` (vocabulaire layout) + `enum-taxonomie` (16 catégories canoniques) + recherche orchestrateur (injection `SectionsRenderer` + `reference()` content-collections). Détail brut des énumérations = transcript de session 2026-06-15. CE §12 = la méthode actionnable.
+
+### 12.1 Principes d'efficacité (invariants qui rendent le fan-out rapide ET sûr)
+1. **Harnais d'abord, volume ensuite** (socle avant volume, §5) : 0 fan-out tant que `sectionBaseSchema` + vocabulaire layout + squelettes de famille + recette + gates + coquille `/library` ne sont pas prêts. Fan-out prématuré = 28 agents qui réinventent = dette × 28.
+2. **Volume par PRESETS, pas types Zod dupliqués** (§4/§9.4) : ~40 nouveaux types max (cases vides `Catégorie ∩ Famille`) + ~1 600-2 500 presets sur ~150 composants paramétrés.
+3. **Familles trans-catégorie réutilisées** (§9.6) : 1 squelette `card-grid` sert 6 catégories. L'effort de création se concentre sur les FAMILLES, pas les variantes.
+4. **0 hardcode → `var(--token)`** : tout axe de layout = alias de composition (`--sec-grid`, `--sec-width`…) pointant des tokens existants. 0 nouveau token DS.
+5. **GF-1 par preset** : preuve (screenshot + getComputedStyle), pas assertion.
+6. **Worktree isolé par agent** (1 catégorie/agent) : 0 collision.
+7. **Gate = qualité par construction** : `check-touchpoints`/`check-presets`/`check-token-purity`/`check-media-query-var` rendent l'output conforme ou rouge.
+
+### 12.2 Le harnais (Phase 0, spec — prérequis au fan-out)
+**A. `sectionBaseSchema` (mixin Zod partagé)** — ⚠️ CORRECTION 2026-06-15 (GF-4, j'avais grepé le mauvais nom) : il EXISTE déjà sous le nom `presentationSchema` (`src/schemas/sections.ts:23-27`, axes `background`/`layout`/`density`, appliqué via `.extend(presentationSchema.shape)`). MAIS appliqué **3 / 156** types seulement ; `background` redéfini **inline 135 fois** au lieu d'étendre le mixin. Travail réel = **consolider (appliquer partout) + élargir les axes**, pas créer. Axes à porter (injecté dans toutes les familles) :
+- Présentation/variante : `layout` (enum `KNOWN_LAYOUTS` étendu), `density` (compact/base/ample/grand), `align` (start/center/end/justify), `width` (bleed/grand/wide/normal/read/narrow), `gap` (none/tight/base/loose), `frame` (band/card), `areas` (media-left/right/top/bottom/z/f), `order-media` (swap), `stack` (reflow/keep-2/swap-order/scroll-x), `reveal` (sélectionnable, axe nouveau).
+- Déclinaison/peau : `background` (paper/paper-2/paper-3/ink, déjà 110 sections), `hover` (surface/tint/lift, tokens existants).
+- **Contenu (les 2 modes, §2/§9.2)** : `content: { mode: 'global'|'instance', ref?: reference(<collection>) }`. `instance` (défaut) = props inline ; `global` = source partagée (content-collection) propagée. Généralise le pattern `reference('authors')` déjà en place aux sections.
+
+**B. Vocabulaire de layouts** (← `enum-layouts`, token-pur, gate-aware) — étendre `layouts.css` + `KNOWN_LAYOUTS`. Priorité :
+- P1 splits manquants : `split-3-2`/`split-2-3` (ratio 55/45 conversion 2026 ★), `split-2-1`/`split-1-2`, `even-5`/`even-6`, `lead-2-1-1`/`lead-1-1-2`, `golden-ab`/`golden-ba`.
+- P2 axes transverses orthogonaux (multiplicatifs) : `data-align-text` ★ (centrage Simon), `data-width`→`--sec-width` (mappe `--wrap-*`), `data-gap`, `data-density=grand`, `data-order-media=swap`.
+- P3 areas & bento : `data-areas` (media positionné), `bento-4/6/hero-lead`, `z-pattern`/`f-pattern`.
+- P4 responsive & frame : `data-stack` (reflow anti-gate, breakpoints littéraux 768/900/1100 — `var()` interdit en condition `@media`, autorisé dans le corps), `data-frame` band/card, `masonry-3/4`.
+- Mapping `era` 2010→2026 fourni (couverture historique des styles).
+
+**C. Squelettes de Famille (base n°2, §9.6)** — n'existent pas (sections dupliquent ; `family` posé sur 2 entrées seulement). Priorité de formalisation (levier = nb catégories × duplication prouvée) : **1. card-grid (6 cat.) · 2. band (4) · 3. duo/split-media (5) · 4. table (4) · 5. stat-grid (3) · 6. timeline (2)**, puis list/accordion/tabs/marquee/masthead/terminal-shell/form-panel/prose à la demande. Chaque squelette = 1 set de classes de base + mapping rôle→token FIXE (invariant : une déclinaison change la VALEUR, jamais le token référencé).
+
+**D. Injection + modes global/instance + CMS** — ⚠️ CORRECTION 2026-06-15 (GF-4) : TinaCMS n'est PAS futur, il est **déjà câblé** (`tina/config.ts` 484 l, `@tinacms/astro@0.5.0`, `tinacms@3.9.1`, `tina/__generated__/`, scripts `dev:tina`/`build:tina`). `SectionsRenderer.astro` (map `sections:[...]`→composant) est enveloppé par `TinaIsland` en DEV sur la collection `offres` (`src/pages/offres/[...slug].astro:82-87`) → édition visuelle git-based déjà fonctionnelle. Modèle = exactement « fichiers MDX = BDD, build/push = serveur ». STYLE toujours global (le `.astro`). Mode global = champ Tina `reference` (l'éditeur pointe une entrée de collection partagée, propagée) ; mode instance = champs inline. Généralise le `reference('authors')` déjà en place. **Le vrai blocage CMS = §13** (voir ci-dessous).
+
+**E. Recette d'authoring** (le « bon pattern » remis à chaque agent) : 1 doc + 1 `.astro` squelette + le préambule worker = axes `sectionBaseSchema`, `var(--token)` only, réutilisation du squelette de famille, GF-1 par preset, sync 6 touchpoints (registry/demos/schema/composant/presets/layouts).
+
+**F. Gates étendus** : `check-touchpoints` au 6e touchpoint presets ; `check-presets` (KNOWN_LAYOUTS↔layouts.css) ; `check-token-purity` (0 hardcode) ; `check-media-query-var` (0 var en condition media) ; nouveau gate « ≥20 presets/catégorie » = tableau de bord d'industrialisation.
+
+**G. Coquille `/library`** (SPA multi-routes) : `/library` (hub) · `/library/[category]` (par intention) · `/library/[type]` (section + variantes + toggle « voir l'animation ») · `/library/studio` · `/library/hero-lab`. Footer, noindex, redirects depuis `/agence/*`. Islands React pour le stateful.
+
+**H. Pilote** : prouver le pattern de bout en bout sur 1 catégorie non-hero (Stats ou Testimonials) AVANT le fan-out des 28.
+
+### 12.3 Taxonomie canonique (16 catégories, ← `enum-taxonomie`) + universalité
+28 sous-catégories incohérentes → 16 canoniques. Cible : ≥20 sections exploitables/catégorie, ≥5 familles/CATÉGORIE, ≥5 variantes/déclinaisons par section (lecture corrigée du libellé, cf 12.6).
+
+| Catégorie | slug | actuel | gap →20 |
+|---|---|---|---|
+| Hero/Header | `hero` | 31 | 0 (consolider) |
+| Features | `features` | ~28 | 0 (dégorger) |
+| Testimonials/Cases | `proof-testimonials` | 10 | +10 |
+| Comparison | `comparison` | 10 | +10 |
+| CTA/Conversion | `cta` | 12 | +8 |
+| Stats/Metrics | `stats` | 8 | +12 |
+| Logos/Trust-bar | `logos` | 6 | +14 |
+| Terminal/Code | `terminal` | 5 | +15 |
+| Pricing | `pricing` | 5 | +15 |
+| Timeline/Process | `timeline-process` | 10 | +10 |
+| FAQ/Objections | `faq` | 4 | +16 |
+| Tables/Data | `tables` | 3 | +17 |
+| Manifesto/Editorial | `editorial` | 6 | +14 |
+| Index/Listing | `index-listing` | 3 | +17 |
+| Trust/Legal | `trust` | ~4 | +16 |
+| About/Team/Gallery/Contact | `about-team` | 8 | +12 |
+
+> **Universalité (à compléter)** : ces 16 catégories couvrent le catalogue actuel (orienté corporate/B2B). Pour un outil de conception UNIVERSEL (tous archétypes : SaaS, e-commerce, portfolio, éditorial/blog, landing, marketplace, vitrine locale, docs/dev-tools, événementiel, ONG, perso, éducation, fintech, média), il faut AJOUTER les catégories manquantes (product feature-tour, pricing tiers/comparison e-commerce, integrations, blog/article body, author bio, changelog/status, media gallery/lookbook, product card-grid, search/filter, map/locations, booking, course curriculum, docs sidebar/TOC…). Énumération universelle = complément `enum-taxonomie` à relancer.
+
+### 12.4 Protocole de travail des agents (fan-out Phase 1)
+- **1 agent Opus/catégorie**, worktree isolé. Brief = harnais (squelettes + `sectionBaseSchema` + vocab layout + recette + préambule arsenal) + intention de la catégorie + cible (≥5 familles, ≥5 variantes/déclinaisons, ≥20 posables) + familles trans-catégorie à RÉUTILISER.
+- **Mode `Workflow`** (fan-out ≥10), pipeline/catégorie : `author → self-GF-1 (chromium, screenshots desktop+mobile/preset) → review adversarial (visual-proof-reviewer) → gate (touchpoints + 0 hardcode + ≥20)`.
+- **Completeness critic** final : chaque catégorie ≥20 ? familles réutilisées (pas dupliquées) ? déclinaisons dark exposées ? responsive propre ? a11y baseline (agent `a11y-architect`) ?
+
+### 12.5 Chiffres d'industrialisation
+~40 nouveaux types Zod (familles/sections où le squelette manque réellement : recréer `off-proof`, cataloguer KeyMetric + 8 atomes éditoriaux + featured-grid cas, `value-stack` pricing, `faq-grid`…) + **~1 600-2 500 presets** (320 sections exploitables × ≥5 variantes) sur ~150 composants paramétrés. PAS 186 types Zod (= dette × 186, interdit §4/§9.4).
+
+### 12.6 Clarification du libellé cible (flag GF-4)
+« ≥5 familles **par section** » est structurellement impossible (1 Section = 1 cellule `Catégorie ∩ Famille` = 1 famille, §9.6). Lecture retenue : **≥5 familles par CATÉGORIE + ≥5 variantes/déclinaisons par section**. À confirmer Simon.
+
+### 12.7 Dépendances (ordre)
+W1 (typo crans fluides §10.6, EN COURS) + W2 (orphelines `roi-band`/`fit-columns`/`off-proof`/featured-grid cas) AVANT le fan-out W3 : sinon on industrialise sur une base régressée.
+
+## 13. Harnais CMS-natif : descripteur unique → projections générées (le pattern optimal, 2026-06-15)
+
+> Trigger Simon 2026-06-15 (verbatim) : « on peut si besoin améliorer les mécanismes [...] il faut pas partir du principe que se qu'on a = le mieux si y'a mieux on refacto et on met dans la strat. Sachant qu'ensuite les sections pourront être injecté via TinaCMS [...] git based headless avec des fichiers qui font office de bdd ». Décision de conception validée à l'oral. Remplace l'hypothèse implicite « les 5-6 touchpoints manuels = le bon modèle ».
+
+### 13.1 Le constat (mesuré, GF-4)
+Le modèle actuel synchronise **à la main** 5-6 projections de la même section, qui divergent dès qu'on scale :
+
+| Projection | Fichier | État sync (mesuré) |
+|---|---|---|
+| Validation Astro (Zod) | `src/schemas/sections.ts` | 160 schemas, 156 demos, 156 registry : **synchronisés** (discipline 4-touchpoints tient) |
+| Mixin présentation | `presentationSchema` `:23-27` | appliqué **3/156** (135 `background` inline) : **divergent** |
+| **Champs CMS (Tina)** | `tina/config.ts` `sectionTemplates` `:139` | **8/156** templates, écrits à la main, FR/EN re-déclarés : **divergence massive** |
+| Catalogue/manifest/quickref | `gen-*.mjs` | **générés** (codegen déjà l'idiome maison) |
+
+Conséquence directe sur l'objectif « composer des pages depuis le CMS » : **94 % du catalogue n'est PAS éditable dans Tina**. Ajouter une section = écrire une 3ᵉ copie de ses champs (après Zod + le composant) dans `tina/config.ts`. À 320+ sections, intenable.
+
+### 13.2 La cible (1 source → codegen, extension de l'idiome `gen-*.mjs`)
+Un **descripteur unique par type de section** (1 objet TS), source de vérité, d'où un `scripts/gen-sections.mjs` (frère de `gen-token-lock`/`gen-ds-registry`) génère **toutes** les projections :
+
+```
+descripteur de section  (fields[] + meta + presentation + content-mode)
+   │  gen-sections.mjs
+   ├─ z.object()                 → validation Astro (build)         [src/schemas/sections.ts généré]
+   ├─ Template Tina (TinaField[])→ champs CMS + defaultItem + labels FR/EN  [tina/config.ts généré]
+   ├─ registry + demo + manifest + quickref + catalogue            [déjà gen-*]
+   └─ presets (volume, layer 4)
+```
+
+- **Faisable sans inventer de mécanisme (GF-6)** : un `Template` Tina est un simple objet `{name,label,fields:TinaField[],ui:{defaultItem}}` (types importés `tina/config.ts:1`). Les helpers `stringField`/`objectList`/`ctaFields` y sont déjà. Générer ces objets depuis un descripteur = exactement ce que `gen-ds-registry.mjs` fait déjà pour le registry.
+- **Bilingue** : le descripteur déclare un champ `title` bilingue → génère `title_fr`+`title_en` côté Zod ET côté Tina (supprime la double déclaration FR/EN manuelle).
+- **Migration douce, pas big-bang** : on garde `sections.ts`/`tina/config.ts` comme **sortie générée** ; on migre type par type vers le descripteur (le pilote 12.2.H sert aussi de pilote codegen). 0 régression tant qu'un type non migré garde sa déclaration manuelle.
+
+### 13.3 Les 2 modes global/instance, nativement CMS
+Le descripteur déclare, par champ de contenu, son **mode d'édition** :
+- `instance` (défaut) : champ inline → généré en `TinaField` simple. Chaque usage `sections:[...]` = props propres (modèle actuel).
+- `global` : champ `reference` → généré en `{type:'reference', collections:[<col>]}` Tina. L'éditeur pointe une entrée de collection partagée ; le build la résout et propage (édite une fois, propage partout). Extension directe de `reference('authors')` (`content.config.ts`).
+- **STYLE toujours global** : le `.astro` reste la seule source du markup/CSS (règle anti-orphelin, `CLAUDE.md`). Le descripteur ne porte JAMAIS de style, seulement structure de données + axes de présentation (qui pointent des `var(--token)`).
+
+Un composant catalogue-ready se conçoit donc avec les **2 états** (réf optionnelle + override inline), comme déjà prescrit `CLAUDE.md §contenu GLOBAL vs INSTANCE`.
+
+### 13.4 Compatibilité « Tina OU solution maison »
+Le descripteur est **agnostique du moteur CMS** : il décrit des champs + modes, pas l'API Tina. Tina est une **cible de génération** parmi d'autres. Si la solution maison (même modèle : git-based, fichiers = BDD, build/push = serveur) remplace Tina, on change le générateur `→ tina/config.ts` en `→ maison/schema.json` sans toucher aux 320 descripteurs ni aux composants. Le couplage est isolé dans 1 script.
+
+### 13.5 Conséquence sur le plan de vagues
+Le descripteur unique devient le **livrable n°1 de Phase 0** (avant le fan-out 12.4) : chaque catégorie industrialisée par les agents produit des **descripteurs**, pas 5-6 fichiers à synchroniser. Le codegen garantit Tina + Zod + catalogue cohérents par construction → un éditeur compose ses pages/collections/templates dans le CMS sans dette. Gate ajouté : `check:sections-generated` (les fichiers générés == sortie du descripteur, sinon rouge).
+
+### 13.6 Décisions à acter (Simon)
+1. **Adopter le descripteur unique + `gen-sections.mjs`** comme socle Phase 0 (vs garder les 5-6 touchpoints manuels). → recommandé.
+2. **Migration progressive** (type par type, sortie générée) vs big-bang. → recommandé : progressive.
+3. **Cible CMS** : Tina (déjà là) comme première sortie, descripteur agnostique pour basculer maison plus tard. → recommandé.
+
+## 14. Éditeur visuel de composition (DS Studio v2) : créer/décliner/composer depuis l'UI, sauver au catalogue (2026-06-15)
+
+> Trigger Simon 2026-06-15 (verbatim) : « un outil comme le ds studio qui nous permet de composer et créer de nouvelle section / modifier une directement depuis l'ui/ux front qui se save correctement et qui créer une copie bien servi dans le catalogue [...] grace aux atomes molécules organisme on pourra donc créer nos propres organisme ou décliner une version d'un organisme en choissant ce qu'on veut ajouter/composer/modifier [...] créer des templates et des pages dans lequelle seront injecté le contenu via les props ». Décision de conception validée à l'oral.
+
+### 14.1 Constat (mesuré, GF-4) : l'outil existe déjà à ~70 %
+`src/pages/agence/ds-studio.astro` contient déjà :
+- **Introspecteur de schéma** `WorkshopFieldMap` (`:152-231`) : auto-découvre les axes éditables d'une section (`background`, tout enum `*variant*`, les textes). Le builder n'a donc PAS à connaître les champs à l'avance.
+- **CRUD de presets** (`:409-420`) : créer/nommer/« sauver l'état courant »/export-import `.json`/seed des thèmes démo.
+- Un `Preset` (`section-presets.ts`) = `{id,type,label,family,era,props}` = **donnée pure** → « créer une variante depuis l'UI » = écrire un objet preset.
+- Inventaire primitives réel : **12 atomes, 28 molécules, 8 organismes** (`src/components/ui/{atoms,molecules,organisms}`).
+
+**Le chaînon manquant** : la persistance va en **localStorage + export `.json`**, PAS en commit catalogue. Le `POST /api/ds/save (commit+push)` est référencé en commentaire (`ds-studio.astro:380`) mais l'endpoint **n'existe pas** (`src/pages/api/` n'a pas de `ds/`). Construire ce git-write-back = le vrai travail.
+
+### 14.2 Principe directeur (ce qui rend l'outil viable, pas une dette)
+**L'UI écrit de la DONNÉE** (presets / descripteurs / descripteurs de composition) commitée en git ; le **codegen §13** la transforme en entrées catalogue (Zod + Tina + registry). **L'UI n'émet JAMAIS de markup `.astro` arbitraire.** C'est la frontière qui sépare un outil DS-locked d'un page-builder à dette. Le STYLE reste dans le `.astro` (anti-orphelin) ; l'UI ne fait que choisir/composer des axes + slots qui pointent des `var(--token)`.
+
+### 14.3 Trois niveaux de création (par coût croissant)
+| Niveau | Création | Mécanisme | État |
+|---|---|---|---|
+| **1 · Page/template** | sections empilées, contenu injecté via props | Tina `blocks` (déjà live `offres`) | ✅ existe |
+| **2 · Variante/déclinaison** | d'une section (layout/densité/fond/contenu) | écrire un `Preset` (donnée) → commit → catalogue | ~70 % (manque git-write) |
+| **3a · Nouvel organisme** | par slots d'atomes/molécules choisis | descripteur de **composition** (slots + arrangement via axes `sectionBaseSchema`) → renderer générique | à construire, borné |
+| **3b · Code libre** | `.astro` émis depuis l'UI | codegen de composant | ⚠️ déconseillé par défaut, « eject » gated plus tard |
+
+- **Niveau 2 = le sweet spot** : volume du catalogue via presets (donnée), 0 nouveau type Zod, 0 code. C'est ce qui fait étendre le catalogue vite (cf §4 volume par presets).
+- **Niveau 3a = la réponse à « créer nos propres organismes »** : un organisme = **coquille à slots** ; l'UI remplit les slots avec des primitives **déjà au registre** (12+28) + choisit l'agencement → sauve un descripteur de composition (donnée), rendu par un renderer générique. Borné par le registre + la grammaire de slots → token-pur, DS-locked, git-based, sans génération de code. Une « déclinaison d'organisme » = un descripteur qui réfère l'organisme de base + override des slots choisis.
+- **Niveau 3b = hors défaut** : émettre un `.astro` pour les cas que la grammaire de slots ne couvre pas. Risque orphelin/token → réservé à un « eject » rare et gated, jamais le chemin nominal.
+
+### 14.4 Contrainte runtime (GF-4) et cohérence avec le CMS git-based
+La prod est statique (`output:'static'`) → **pas d'écriture fichier au runtime**. Le git-write-back fonctionne en **DEV / edit-mode** (local, ou petit endpoint d'édition), exactement le modèle de Tina (dev server + commit git, `dev:tina`/`build:tina`). L'éditeur visuel et Tina partagent donc la même contrainte et la même solution : **édition en mode authoring, fichiers = source, build/push = serveur**. Les deux surfaces (DS Studio v2 pour créer/décliner des sections ; Tina/maison pour composer des pages) écrivent dans le **même catalogue de descripteurs** (§13) et restent cohérentes par construction.
+
+### 14.5 Composants de l'interface DS Studio v2 (à concevoir)
+1. **Sélecteur de section/organisme** + introspecteur (déjà là) → panneau d'axes (layout/densité/fond/align/gap/areas/order + slots).
+2. **Canvas de composition** (niveau 3a) : drag/place d'atomes/molécules dans les slots, preview live token-pur.
+3. **Aperçu multi-déclinaison** : light/dark, densités, responsive (réutilise `/preview/[type]`).
+4. **Save-to-catalogue** : `POST /api/ds/save` (DEV/edit-mode) → écrit un `Preset` (niveau 2) ou un descripteur de composition (niveau 3a) → commit git → `gen-sections.mjs` régénère les projections → la « copie bien servie dans le catalogue » apparaît.
+5. **Garde-fous intégrés** : token-purity (pas de valeur libre, que des `var(--token)`), DS-lock, gate `check:sections-generated`.
+
+### 14.6 Décisions à acter (Simon)
+1. **DS Studio v2 = évolution de l'existant** (introspecteur + preset CRUD déjà là), pas un outil net-neuf. → recommandé.
+2. **Construire le git-write-back** `POST /api/ds/save` (DEV/edit-mode) comme prochain livrable structurant de l'atelier. → recommandé.
+3. **Niveau 3a (slots) comme modèle de création d'organismes** ; 3b (code libre) hors scope nominal. → recommandé.
