@@ -10,10 +10,13 @@
 > (journal horodaté) > git. Spec d'état cible = `strategy/02-site-etat-final.md` (FAIT FOI,
 > §0bis architecture en piliers). Stratégie = `strategy/01`. État réel = `state/01-chantiers.md`.
 >
-> **Contexte business** : agence IA anthropic-first, Montpellier, fondateur SOLO, phase
-> démarrage. Priorité = **quick wins + cash court terme** ; long terme FIGÉ mais non urgent.
-> Offer ladder : audit quick win (0 €) → Site web IA dès **3 000 € HT** → Growth System IA →
-> agents à l'usage (cf `business/08`). Domaine neuf : on supprime le fictif/thin, pas de
+> **Contexte business** (réconcilié 2026-06-15, cf `state/RECONCILIATION-REPORT.md`) :
+> **cabinet d'orchestration IA** anthropic-first, Montpellier, fondateur SOLO, phase démarrage.
+> « agence IA » = keyword SEO de support seulement, jamais H1 de marque. Priorité = **quick wins
+> + cash court terme** ; long terme FIGÉ mais non urgent.
+> Offer ladder : audit gratuit (0 €) → **site web intelligent** dès **2 000 € HT** (grille
+> **2 000 / 4 000 / 7 000 / 10 000 €** + sur-mesure) → Growth System IA →
+> agents à l'usage (cf `business/08`). Domaine neuf : on supprime le fictif/thin (cas ET certifs), pas de
 > redirections, lancement **FR monolingue**.
 
 ---

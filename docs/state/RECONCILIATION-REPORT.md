@@ -70,3 +70,49 @@
 - **0 re-délégation.**
 - Édité **uniquement** `docs/state/02-plan-execution-claude-code.md` ; créé **uniquement** ce fichier. README/ORCH-STATE/src/scripts/.claude non touchés.
 - Format `<!-- sb commit=<sha7> gf1=<y|n> [note=...] -->` conforme à l'invariant déclaré dans `CLAUDE.md` (board-sync) ; commentaire HTML en fin de ligne, n'altère pas le rendu Markdown.
+
+---
+
+## ADDENDUM 2026-06-15 — réconciliation P0.0 (consolidation + décisions tranchées)
+
+> Registre des décisions de la session de consolidation. Source de vérité unique (rule 59) : ces
+> verdicts priment sur toute valeur croisée ailleurs dans les docs. Propagés dans `README.md`
+> (compteurs + positionnement) et `state/02` (en-tête business).
+
+### Compteurs canoniques figés (mesurés, GF-4)
+| Métrique | Valeur | Mesure | Périme |
+|---|---|---|---|
+| Types registry catalogués | **156** (45 site, 111 library) | `node scripts/gen-section-manifest.mjs` | 58 / 67 / 87 / 123 / 147 / 151 |
+| `src/components/sections/*.astro` | **128** | `ls sections/*.astro \| wc -l` | « ~68 » / « 123 » (CLAUDE.md daté) |
+| Templates `src/components/templates/*.astro` | **13** | `ls templates/*.astro \| wc -l` | « 17 » / « 18 » |
+| `src/styles/tokens.css` | **278 lignes** | `wc -l` | « 110 » / « 115 » / « 121 » |
+
+### 7 décisions tranchées (graver, propager)
+1. **Marque = « cabinet d'orchestration IA »** (oral « cabinet IA »). « agence IA » = keyword SEO de support uniquement (title, longue traîne `/services/*` `/lp/*`), jamais H1 de marque. Grounded marché 2026 (« revanche des cabinets conseil IA » vs « agence IA » saturée, 1 528 acteurs).
+2. **Offre cœur = « site web intelligent »** (nom, slug, H1) ; « site web IA » = keyword corps / parenthèse / FAQ.
+3. **Titre pilier `/services/site-web-intelligent`** : H1 conservé (`strategy/03 §7:193`) ; `<title>` = `Création de site web intelligent (IA) pour PME | Waimia` ; meta « dès 2 000 € HT, audit gratuit ». Le title reste une **hypothèse jusqu'à GSC** (boucle de validation 4 à 8 semaines).
+4. **Pricing = grille 2 000 / 4 000 / 7 000 / 10 000 € + sur-mesure** (plancher 2 000 € HT). Périme 3 000 € / 7 900 € / « dès 1 500 € » / 9k à 12k partout (en-tête `state/02:13` inclus, désormais corrigé).
+5. **Cas fictifs ET certifs fictives (ISO / SOC2) SUPPRIMÉS** (validé Simon). Cas réels gardés ou ajoutés : Balzeo, Amploi (sans métrique inventée), Desangles Peinture, Isabelle Diaz (naturopathe).
+6. **Concurrent frontal = Vydera (by Digidop)**, pas Limova / ClaudIn. Vydera occupe « anthropic-first + GEO opéré + agents Claude/MCP + dashboard ». Zone blanche Waimia = le **site-actif possédé par le client** (vs GEO loué chez Vydera, vs Webflow verrouillé chez Digidop) + ancrage Montpellier / PME + prix accessible. À propager : `business/12` + `strategy/07` (addendum daté).
+7. **Compteurs réels figés** (table ci-dessus) : stoppe la divergence 58/67/87/123/151/156.
+
+### Hygiène repo exécutée
+- `git mv docs/cartography/*` (23 fichiers) → `docs/archive/cartography/` (périmé 2026-06-04 : 123 tokens, 162 composants ; le README le déclarait déjà « vidé → archive », désormais vrai).
+- `git mv docs/audit-refonte/*` (5 fichiers) → `docs/archive/audit-refonte/` (read-only 2026-06-10, supersédés par `audits/03-audit-consolidé-2026-06-15`).
+- `node scripts/gen-section-manifest.mjs` régénéré : `src/data/ds-section-manifest.json` + `docs/DS-SECTION-CATALOG.md` re-synchronisés sur les sections fraîchement cataloguées (`agentic-terminal`, `product-reel`, `challenges-grid`, `journey-steps`).
+- `README.md` réconcilié : compteurs canoniques, positionnement de marque, carte des dossiers (cartography / audit-refonte marqués archivés), pricing P0.
+
+### Travail committé depuis le 2026-06-13 (à tracer ; non encore coché ligne par ligne dans `state/02`)
+> Vérifié présent dans l'historique de `feat/seo-etat-final` (`git log`). Le tagging `[x] + sb commit`
+> par id de tâche reste à faire après preuve GF-1 build de chaque chantier (rule 09 : pas de coche sans preuve).
+
+| commit | objet | id `state/02` probable |
+|---|---|---|
+| `4b9a134` → `dcfc9f1` | récolte DS (product-reel, agentic-terminal, challenges-grid, journey-steps) depuis virtuoseOS | anomalie (récolte catalogue, hors lot P2.x figé) |
+| `90b4f9a`, `1faea42` | variantes reveal répondent à `.in`/`.is-visible` + fusion des 2 observers | P1-2 (audit 03) probable |
+| `59b6c46` | rename `/realisations` → `/cas-clients` (align URL↔label) | hygiène nav |
+| `7a21f8f` | 2 étiquettes provenance relabelées (réutilise champ `provenance`) | cas-clients |
+| `96ab645` | refonte hub secteur en page data-driven composable | hub secteur |
+| `0243ffd` | hygiène refs `/realisations` → `/cas-clients` | hygiène |
+| `64ea51a` | conformité WCAG 2.2 AA (formulaires, contraste ink, landmarks) | P1-3 (audit 03) partiel/complet |
+| `08125b0` | rapport audit consolidé 2026-06-15 (5 axes, P0→P3) | `audits/03` |

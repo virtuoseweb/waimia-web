@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 151
+> Sections : 156
 
 ---
 
@@ -574,6 +574,31 @@
 
 ---
 
+## Content Sections
+
+### `editorial-prose`
+
+> Wrapper de prose éditoriale tokenisé : colonne de lecture (largeur prose ou wide), fond alterné, héberge un contenu long via slot (corps MDX). Préserve la typographie du DS sans réécrire le texte.
+> EditorialProse · src/components/sections/EditorialProse.astro · marketing/content-sections
+> status : stable · tags : content, editorial, geo, long-form, mdx, prose
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `maxWidth` | enum | non |  | prose | wide |
+
+**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--gut` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h2` `--text-h3` `--wrap-prose` `--wrap-wide`
+
+**Classes scoped** : .editorial-prose .editorial-prose__col .sector-body
+
+**Dette hardcode** : 3 valeur(s) — -0.018em, 1px, 2px
+
+**Agent** : Layout : `background`, `maxWidth` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 3 litteral(s) hardcode(s) (-0.018em, 1px, 2px).
+
+---
+
 ## CTA Sections
 
 ### `branded-callout`
@@ -847,13 +872,13 @@
 
 **Tokens** : `--accent` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-4` `--text-body` `--text-h1` `--text-small` `--tracking-mono-tight`
 
-**Classes scoped** : .newsletter-band .newsletter-band__btn .newsletter-band__field .newsletter-band__h2 .newsletter-band__hint .newsletter-band__inner .newsletter-band__input .newsletter-band__kicker .newsletter-band__lead
+**Classes scoped** : .css .newsletter-band .newsletter-band__btn .newsletter-band__field .newsletter-band__h2 .newsletter-band__hint .newsletter-band__inner .newsletter-band__input .newsletter-band__kicker .newsletter-band__lead
 
 **Tailwind** : sr-only
 
-**Dette hardcode** : 10 valeur(s) — -0.024em, 0.06em, 10px, 14px, 18px, 1px, 22px, 400px
+**Dette hardcode** : 11 valeur(s) — -0.024em, 0.06em, 10px, 14px, 18px, 1px, 22px, 2px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-0.024em, 0.06em, 10px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.024em, 0.06em, 10px).
 
 ---
 
@@ -1043,6 +1068,33 @@
 **Dette hardcode** : 5 valeur(s) — -2px, 1023px, 1px, 760px, 761px
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-2px, 1023px, 1px).
+
+---
+
+### `challenges-grid`
+
+> Grille 2x2 de défis ou pain-points : numéro en coin, icône, titre et texte par carte, border-left accent et élévation au survol. Pose le problème avant la solution sur une landing.
+> ChallengesGrid · src/components/sections/ChallengesGrid.astro · marketing/feature-sections
+> status : stable · tags : challenges, frictions, grid, numbered, painpoint, problems
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `items` | array | oui |  | min:2 max:4 |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+
+**Tokens** : `--accent` `--accent-sur-sombre` `--accent-text` `--dur-hover` `--ease-out` `--font-display` `--font-mono` `--font-sans` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--shadow-card-rest` `--shadow-lift` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
+
+**Classes scoped** : .challenges .challenges__body .challenges__card .challenges__grid .challenges__head .challenges__icon .challenges__inner .challenges__num .challenges__title
+
+**Dette hardcode** : 4 valeur(s) — -4px, 1px, 3px, 640px
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-4px, 1px, 3px).
 
 ---
 
@@ -3343,9 +3395,9 @@
 
 **Tailwind** : sr-only
 
-**Dette hardcode** : 5 valeur(s) — -1px, 1px, 240px, 760px, clamp(var(--space-6)
+**Dette hardcode** : 6 valeur(s) — -1px, 1px, 240px, 2px, 760px, clamp(var(--space-6)
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (-1px, 1px, 240px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-1px, 1px, 240px).
 
 ---
 
@@ -3578,6 +3630,33 @@
 
 ---
 
+### `journey-steps`
+
+> Parcours en 3 temps : icône cercle avec badge numéro, titre, description et pill highlight par étape, connecteur accent entre étapes. Horizontal desktop, vertical mobile. Idéal funnel ou onboarding.
+> JourneySteps · src/components/sections/JourneySteps.astro · marketing/process-sections
+> status : stable · tags : funnel, journey, onboarding, parcours, process, steps
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `steps` | array | oui |  | min:2 max:4 |
+
+**Tokens** : `--accent` `--accent-ink` `--accent-rgb` `--accent-sur-sombre` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--ink` `--ink-2` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--radius-pill` `--shadow-card-rest` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-h3` `--text-small` `--tracking-mono-tight`
+
+**Classes scoped** : .journey .journey__body .journey__connector .journey__content .journey__head .journey__icon .journey__inner .journey__num .journey__pill .journey__step .journey__steps .journey__title
+
+**Dette hardcode** : 5 valeur(s) — 100%, 1px, 50%, 767px, 768px
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent --accent-ink --accent-rgb. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 50%).
+
+---
+
 ### `process-steps`
 
 > « Comment ça marche » en étapes numérotées verticales : numéro, titre, description et meta par étape, connecteurs visuels entre paliers, fonds paper à ink.
@@ -3797,7 +3876,7 @@
 | `kicker_fr` | string | non |  |  |
 | `stats` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--sc-cols` `--section-base` `--space-3` `--space-5` `--space-6` `--space-8` `--text-h1` `--text-h3` `--text-small` `--wrap-prose`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--sc-cols` `--section-base` `--space-3` `--space-5` `--space-6` `--space-8` `--text-h1` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .stat-counter .stat-counter__cell .stat-counter__grid .stat-counter__h2 .stat-counter__head .stat-counter__kicker .stat-counter__label .stat-counter__num
 
@@ -3949,6 +4028,50 @@
 
 ## Terminal Sections
 
+### `agentic-terminal`
+
+> Mockup IDE agentique : fenêtre macOS, explorateur de fichiers, prompt utilisateur et bloc de code qui s'écrit en direct caractère par caractère, puis message de succès, footer stats et badges. Fond encre, accent terracotta.
+> AgenticTerminal · src/components/sections/AgenticTerminal.astro · marketing/terminal-sections
+> status : stable · tags : agentic, animated, cli, code, ide, live, terminal, typing
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `badge_en` | string | oui |  |  |
+| `badge_fr` | string | oui |  |  |
+| `badges_en` | array | non |  | max:6 |
+| `badges_fr` | array | non |  | max:6 |
+| `description_en` | string | non |  |  |
+| `description_fr` | string | non |  |  |
+| `filename` | string | oui |  |  |
+| `files` | array | non |  | max:12 |
+| `folders` | array | non |  | max:8 |
+| `footer_framework` | string | oui |  |  |
+| `footer_memory` | string | oui |  |  |
+| `footer_status_en` | string | oui |  |  |
+| `footer_status_fr` | string | oui |  |  |
+| `lines_en` | array | oui |  | min:1 max:20 |
+| `lines_fr` | array | oui |  | min:1 max:20 |
+| `prompt_label_en` | string | oui |  |  |
+| `prompt_label_fr` | string | oui |  |  |
+| `prompt_text_en` | string | oui |  |  |
+| `prompt_text_fr` | string | oui |  |  |
+| `success_msg_en` | string | oui |  |  |
+| `success_msg_fr` | string | oui |  |  |
+| `title_highlight_en` | string | oui |  |  |
+| `title_highlight_fr` | string | oui |  |  |
+| `title_part1_en` | string | oui |  |  |
+| `title_part1_fr` | string | oui |  |  |
+
+**Tokens** : `--ink` `--paper` `--section-base`
+
+**Classes scoped** : .agentic-terminal
+
+**Agent** : Couleur : --ink --paper.
+
+---
+
 ### `code-showcase`
 
 > Vitrine de code annoté pour devtools/SaaS technique : copy explicative, bloc code mono avec numéros de ligne et commentaires bilingues alignés, label fichier et langage, tone encre ou paper.
@@ -3979,6 +4102,20 @@
 **Dette hardcode** : 5 valeur(s) — -0.02em, 10px, 1px, 44px, 880px
 
 **Agent** : Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-0.02em, 10px, 1px).
+
+---
+
+### `product-reel`
+
+> Reel produit scroll-driven : étapes à gauche pilotées au scroll, console terminal à droite dont le contenu change par écran. Viewport sticky.
+> ProductReel · src/components/sections/ProductReel.astro · marketing/terminal-sections
+> status : stable · tags : interactive, product, scroll-driven, scrollytelling, showcase, sticky, terminal
+
+**Tokens** : `--ink` `--paper`
+
+**Classes scoped** : .product-reel
+
+**Agent** : Couleur : --ink --paper.
 
 ---
 
@@ -4041,7 +4178,11 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `case_label_en` | string | non | CASE |  |
 | `case_label_fr` | string | non | CASE |  |
-| `cases` | array | oui |  | min:2 max:6 |
+| `cases` | array | oui |  | max:6 |
+| `empty_body_en` | string | non |  |  |
+| `empty_body_fr` | string | non |  |  |
+| `empty_kicker_en` | string | non |  |  |
+| `empty_kicker_fr` | string | non |  |  |
 | `fig_num` | string | oui |  |  |
 | `fig_title_en` | string | oui |  |  |
 | `fig_title_fr` | string | oui |  |  |
@@ -4054,15 +4195,15 @@
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-3` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .cases-arr .cases-client .cases-col .cases-col-k .cases-col-v .cases-foot .cases-h2 .cases-hd .cases-idx .cases-impact .cases-row .cases-spec .cases-tbl
+**Classes scoped** : .cases-arr .cases-client .cases-col .cases-col-k .cases-col-v .cases-empty .cases-empty__body .cases-empty__kicker .cases-foot .cases-h2 .cases-hd .cases-idx .cases-impact .cases-row .cases-spec .cases-tbl .sector-cases-empty
 
 **Tailwind** : row-lines
 
-**Dette hardcode** : 18 valeur(s) — -0.015em, -2px, .14em, .16em, .1em, 1080px, 10px, 1100px
+**Dette hardcode** : 19 valeur(s) — -0.015em, -2px, .14em, .16em, .1em, 1080px, 10px, 1100px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-5 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.015em, -2px, .14em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-0.015em, -2px, .14em).
 
 ---
 

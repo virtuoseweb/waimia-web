@@ -8,9 +8,25 @@
 > 3. **`docs/state/00-BOARD.md`** = board de progression **généré** (Phase / chantier / done-total / % / reste) — vue d'un coup d'œil, sync auto sur git. NE PAS éditer à la main.
 > 4. **`docs/state/02-plan-execution-claude-code.md`** = source de vérité des **tâches** (cases `[x]` + tag `<!-- sb commit=… -->`). Le board en dérive.
 > 5. **git** (log + branches) = vérité d'exécution. *(`tasks/ORCH-STATE.md` = journal narratif d'orchestration, désormais secondaire.)*
->
-> ⚠️ `docs/00-MASTER-PLAN.md` est **périmé** (147 types / vieux commit). Ne pas s'y fier
-> pour le compteur/état courant — il sera mis à jour ou archivé (cf `REORG-MANIFEST.md`).
+
+### 📐 Compteurs canoniques (figés 2026-06-15, mesurés ; GF-4)
+> Source unique. Périme toute autre valeur croisée ailleurs (58/67/87/123/147/151). Re-mesurer via `node scripts/gen-section-manifest.mjs`.
+
+| Métrique | Valeur | Mesure |
+|---|---|---|
+| **Types registry catalogués** | **156** (45 site · 111 library) | `scripts/gen-section-manifest.mjs` |
+| `src/components/sections/*.astro` | **128** | `ls sections/*.astro \| wc -l` |
+| Templates (`src/components/templates/*.astro`) | **13** | `ls templates/*.astro` |
+| `src/styles/tokens.css` | **278 lignes** | `wc -l` |
+
+*(L'ancien `docs/00-MASTER-PLAN.md` (147 types) est **archivé** → `docs/archive/00-MASTER-PLAN.md`. Ne pas s'y fier.)*
+
+### 🏷️ Positionnement de marque (tranché 2026-06-15 ; voir `state/RECONCILIATION-REPORT.md`)
+- **Marque = « cabinet d'orchestration IA »** (oral : « cabinet IA »). « agence IA » = **keyword SEO de support uniquement** (title/longue traîne), jamais H1 de marque.
+- **Offre cœur = « site web intelligent »** (nom/slug/H1) ; « site web IA » = keyword corps/FAQ.
+- **Pricing = grille 2 000 / 4 000 / 7 000 / 10 000 € + sur-mesure** (plancher 2 000 € HT, audit gratuit). Périme 3 000 € / 7 900 € / « dès 1 500 € ».
+- **Cas & certifs fictifs SUPPRIMÉS** ; cas réels : Balzeo, Amploi (sans métrique inventée), Desangles Peinture, Isabelle Diaz.
+- **Concurrent frontal = Vydera (by Digidop)** ; zone blanche Waimia = le **site-actif possédé par le client** + ancrage Montpellier/PME + prix accessible.
 
 ---
 
@@ -48,7 +64,7 @@ Ordre de lecture :
 
 | Phase / chantier | Statut | Doc |
 |---|---|---|
-| **P0 — Cash & base propre** : site honnête (pricing 3 000 €, suppr. fictif/thin, légal) + 3 piliers + silo | 🟢 specé, **prioritaire** | `state/02` P0 · `strategy/01,02` |
+| **P0 — Cash & base propre** : site honnête (grille pricing 2/4/7/10k, suppr. fictif/thin, légal) + 3 piliers + silo | 🟢 specé, **prioritaire** | `state/02` P0 · `strategy/01,02` |
 | **P1 — SEO/GEO** : recherche KW **gratuite** → H1, cluster blog silo, GEO (schema/llms.txt/GBP) | 🟢 non bloqué | `state/02` P1 · `strategy/03` |
 | **P2 — DESIGN / refonte DS** (ACTIF, multi-passes) : captures, socle DS, @theme, V-TYPO, awwwards, #14 presets, passe Claude Design | 🟢 actif | `state/02` P2 · `state/05-design-refonte` |
 | **P3 — Outils** : lead sourcing + scoring (Firecrawl) | ⚪ à venir | `state/02` P3 · `business/09` |
@@ -88,9 +104,9 @@ docs/
 ├── state/       (9)       01 chantiers · 02 plan-execution-claude-code (BACKLOG MAÎTRE, phases P0→P4) · 03 critique · 04 brand-review · 05 design-refonte (détail PHASE P2) · 08 plan-refonte-site-web-intelligent-v6 · 09 plan-harmonisation-ds-page (LIVE, chantier DS+page courant) · RESUME-CLAUDE-CODE · prochain-chantier (LIVE volatile)
 ├── audits/      (3)       01 template-registry-migration · 02 token-coherence (RÉFÉRENCE) · 03 audit-consolidé-2026-06-15 (5 axes, P0→P3, RÉFÉRENCE état avant cutover)
 ├── specs/       (4)       01 ecosystem-partners · 02 adr-architecture-site (ADR-002) · 03 adr-ouverture-silo-acquerir (ADR-003, ouvre Acquérir en silo) · 04 copy minée ex-tunnel site-web-ia (préservée Phase C)
-├── archive/               périmé / superseded (32 docs archivés : cartography, audits consommés, DS périmés…)
+├── archive/               périmé / superseded (~60 docs : cartography/ (23), audit-refonte/ (5), audits consommés, DS périmés…)
 ├── session-reports/       journaux de session horodatés (SR-*)
-├── cartography/           (vidé → archive) · audit-refonte/ · visual-audit/ (mémoire visuelle, cf son README)
+├── visual-audit/          (mémoire visuelle, preuves GF-1, cf son README) · cartography/ + audit-refonte/ → archivés 2026-06-15
 ```
 > ~25 docs **vivants** clairement répartis ; le reste en `archive/` (consultable, hors chemin par défaut).
 > **Reste de la finalisation** (`FINALISATION-MANIFEST.md`) : fusions de contenu (06+07, 46/47→03, DS-COHERENCE→01),
