@@ -206,15 +206,15 @@ const pageTransitionId = Astro.url.pathname
   .hero-headline i { font-style: italic; }
   .hero-headline i.acc { color: var(--accent-text); }
 
-  /* V7 Swiss grid · espace symétrique masthead/H1/sub-block (40/40/40) */
-  .hero-masthead { margin-bottom: var(--space-7); }
+  /* V7 Swiss grid · espace symétrique masthead/H1/sub-block (resserré 32/32/32 pour above-fold) */
+  .hero-masthead { margin-bottom: var(--space-6); }
 
   .hero-sub {
     display: grid;
     grid-template-columns: 1.05fr 1fr;
     gap: var(--space-10);
-    margin-top: var(--space-7);
-    padding: var(--space-7) 0 var(--space-7);
+    margin-top: var(--space-6);
+    padding: var(--space-6) 0 var(--space-6);
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
     align-items: stretch;
@@ -245,7 +245,7 @@ const pageTransitionId = Astro.url.pathname
   .hero-minimap {
     list-style: none;
     padding: 0;
-    margin: var(--space-5) 0 0;
+    margin: var(--space-4) 0 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
@@ -299,7 +299,7 @@ const pageTransitionId = Astro.url.pathname
     display: flex;
     gap: var(--space-3);
     flex-wrap: wrap;
-    margin-top: var(--space-6);
+    margin-top: var(--space-5);
     transition-delay: var(--dur-base);
   }
 
