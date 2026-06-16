@@ -1,0 +1,238 @@
+---
+// Section W6 · case-featured-grid
+// Grille de cas clients « featured » : 1 cas mis en avant (colonne 7fr, cover optionnelle)
+// + N cas en lignes empilées (colonne 5fr). Markup + CSS = extraction VERBATIM du layout
+// orphelin inliné dans `src/pages/cas-clients/index.astro` (.cas-grid 7fr/5fr, .cas-card--featured,
+// .cas-card--row), catalogué ici comme source de vérité. Double-label provenance (docs/strategy/03 §5).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'case-featured-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const provenanceLabel = (firstParty: boolean) =>
+  firstParty
+    ? (isFr ? data.first_party_label_fr ?? 'Projet réalisé · Waimia' : data.first_party_label_en ?? 'Completed project · Waimia')
+    : (isFr ? data.second_party_label_fr ?? 'Étude · sources tierces' : data.second_party_label_en ?? 'Study · third-party sources');
+
+const readLabel = isFr ? data.read_label_fr ?? 'Lire le cas →' : data.read_label_en ?? 'Read case →';
+
+const items = data.cases.map((c, i) => ({
+  slug: c.slug,
+  href: c.href ?? `/cas-clients/${c.slug}`,
+  caseNum: c.case_num ?? String(i + 1).padStart(2, '0'),
+  sector: isFr ? c.sector_fr : c.sector_en,
+  title: isFr ? c.title_fr : c.title_en,
+  headline: isFr ? c.headline_fr : c.headline_en,
+  duration: isFr ? c.duration_fr : c.duration_en,
+  cover: c.cover,
+  coverAlt: isFr ? c.cover_alt_fr ?? '' : c.cover_alt_en ?? '',
+  firstParty: c.provenance !== 'second-party',
+}));
+
+const [featured, ...rest] = items;
+---
+{featured && (
+  <section class="cas-grid-outer wrap-wide" data-bg={data.background}>
+    <div class="cas-grid reveal-stagger">
+      <a href={featured.href} class="cas-card cas-card--featured">
+        <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector}{featured.duration ? ` · ${featured.duration}` : ''}</div>
+        <span class="cas-card-provenance">{provenanceLabel(featured.firstParty)}</span>
+        <h2 class="cas-card-title">{featured.title}</h2>
+        <p class="cas-card-headline">{featured.headline}</p>
+        {featured.cover && (
+          <img
+            class="cas-card-img"
+            src={featured.cover}
+            alt={featured.coverAlt}
+            width="1536"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <span class="cas-card-cta">{readLabel}</span>
+      </a>
+      <div class="cas-secondary">
+        {rest.map((c) => (
+          <a href={c.href} class="cas-card cas-card--row">
+            <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
+            <div class="cas-card-body">
+              <div class="cas-card-kicker">§ {c.sector}{c.duration ? ` · ${c.duration}` : ''}</div>
+              <span class="cas-card-provenance">{provenanceLabel(c.firstParty)}</span>
+              <h2 class="cas-card-title">{c.title}</h2>
+              <p class="cas-card-headline">{c.headline}</p>
+              <span class="cas-card-cta">{readLabel}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .cas-grid-outer { margin: 0 auto; padding: 0 var(--space-6); }
+  .cas-grid {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    margin: var(--space-7) 0 var(--space-10);
+  }
+  .cas-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--hairline);
+  }
+  .cas-card {
+    display: flex;
+    flex-direction: column;
+    padding: 36px var(--space-6) var(--space-6);
+    background: var(--paper);
+    border-top: 1px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      background 180ms var(--ease),
+      border-top-color var(--dur-trim) var(--ease),
+      box-shadow var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease);
+    gap: 10px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .cas-card:hover {
+    background: var(--paper-2);
+    border-top-color: var(--accent-text);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.06);
+  }
+  .cas-card--featured {
+    /* Cookie-aware : quand le bandeau cookies (fixed bottom) est visible, on ajoute
+       sa hauteur au padding bas pour que le CTA de la card ne passe pas dessous
+       (token DS existant, 0 hauteur quand consent acquis). */
+    padding: 56px var(--space-8) calc(var(--space-8) + var(--cookie-banner-height, 0px));
+  }
+  .cas-card--featured .cas-card-title {
+    font-size: var(--text-h2);
+    margin-top: var(--space-3);
+  }
+  .cas-card--featured .cas-card-headline {
+    font-size: var(--text-small);
+    max-width: 480px;
+    margin-top: var(--space-2);
+  }
+  .cas-card--row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+  .cas-card-index {
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    font-size: var(--text-h1);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--muted);
+    flex: none;
+    font-feature-settings: 'lnum' 1, 'tnum' 1;
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .cas-card:hover .cas-card-index { color: var(--accent-text); }
+  .cas-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+    border-left: 1px solid var(--hairline);
+    padding-left: var(--space-5);
+  }
+  .cas-card-body .cas-card-headline { flex: 0 1 auto; }
+  .cas-card-kicker {
+    font-family: var(--font-mono, monospace);
+    font-size: var(--text-small);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .cas-card-provenance {
+    font-family: var(--font-mono, monospace);
+    font-size: var(--text-small);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .cas-card-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    margin: var(--space-1) 0 0;
+    text-wrap: balance;
+    transition: transform var(--dur-trim) var(--ease);
+  }
+  .cas-card-headline {
+    font-size: var(--text-small);
+    color: var(--muted);
+    margin: 0;
+    line-height: var(--leading-body);
+    flex: 1;
+    transition: transform var(--dur-trim) var(--ease);
+  }
+  .cas-card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--hairline);
+    margin-top: var(--space-4);
+  }
+  .cas-card-cta {
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    font-family: var(--font-mono, monospace);
+    letter-spacing: 0.04em;
+    margin-top: var(--space-4);
+    transition: transform var(--dur-trim) var(--ease);
+  }
+  .cas-card:hover .cas-card-title,
+  .cas-card:hover .cas-card-headline,
+  .cas-card:hover .cas-card-cta {
+    transform: translateX(1px);
+  }
+
+  @media (max-width: 800px) {
+    .cas-grid { grid-template-columns: 1fr; }
+    .cas-card--featured { padding: 36px 28px 28px; }
+    .cas-card--row { gap: var(--space-4); }
+    .cas-card-body { padding-left: var(--space-4); }
+  }
+
+  /* ── Variante dark `ink` (directive 02-dark-variantes) ── */
+  .cas-grid-outer[data-bg='ink'] {
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    --muted: rgba(var(--paper-rgb), 0.64);
+  }
+  .cas-grid-outer[data-bg='ink'] .cas-card { background: var(--ink); color: var(--paper); }
+  .cas-grid-outer[data-bg='ink'] .cas-card:hover { background: rgba(var(--paper-rgb), 0.05); }
+  .cas-grid-outer[data-bg='ink'] .cas-card-title { color: var(--paper); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cas-card,
+    .cas-card-title,
+    .cas-card-headline,
+    .cas-card-cta,
+    .cas-card-index {
+      transition: none !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+</style>

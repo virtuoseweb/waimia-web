@@ -1283,6 +1283,40 @@ export const caseCardGridSchema = z.object({
   empty_body_en: z.string().optional(),
 });
 
+// Grille de cas clients « featured » · 1 cas mis en avant (7fr, cover) + N lignes (5fr)
+export const caseFeaturedGridSchema = z.object({
+  type: z.literal('case-featured-grid'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Libellés surchargeables (défauts honnêtes côté composant).
+  read_label_fr: z.string().optional(),
+  read_label_en: z.string().optional(),
+  first_party_label_fr: z.string().optional(),
+  first_party_label_en: z.string().optional(),
+  second_party_label_fr: z.string().optional(),
+  second_party_label_en: z.string().optional(),
+  cases: z
+    .array(
+      z.object({
+        slug: z.string(),
+        href: z.string().optional(),
+        case_num: z.string().optional(),
+        sector_fr: z.string(),
+        sector_en: z.string(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        headline_fr: z.string(),
+        headline_en: z.string(),
+        duration_fr: z.string().optional(),
+        duration_en: z.string().optional(),
+        cover: z.string().optional(),
+        cover_alt_fr: z.string().optional(),
+        cover_alt_en: z.string().optional(),
+        provenance: z.enum(['first-party', 'second-party']).optional(),
+      }),
+    )
+    .min(1),
+});
+
 // Pyramide SVG isocèle de l'offre · 3 tiers labellisés
 export const tierPyramidSvgSchema = z.object({
   type: z.literal('tier-pyramid-svg'),
@@ -3706,6 +3740,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   maturityPyramidSchema,
   useCaseIndexSchema,
   caseCardGridSchema,
+  caseFeaturedGridSchema,
   tierPyramidSvgSchema,
   offerTierGridSchema,
   teamCardGridSchema,

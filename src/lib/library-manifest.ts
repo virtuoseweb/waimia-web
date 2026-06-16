@@ -181,6 +181,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'maturity-pyramid',      consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'use-case-index',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'case-card-grid',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/pages/solutions/index.astro', 'src/pages/en/solutions/index.astro'] },
+  { id: 'case-featured-grid',    consumers: [] }, // U3 : extraction du layout featured-grid orphelin du hub /cas-clients → catalogue-only (câblage page = phase 2)
   { id: 'commitments-grid',      consumers: [] },
   { id: 'branded-callout',       consumers: [] },
   { id: 'editorial-preview',     consumers: ['src/pages/index.astro', 'src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // MERGE← FieldNotes (organism supprimé, pages data-driven verbatim)

@@ -70,6 +70,7 @@ import ServicesGrid from '../components/sections/ServicesGrid.astro';
 import MaturityPyramid from '../components/sections/MaturityPyramid.astro';
 import UseCaseIndex from '../components/sections/UseCaseIndex.astro';
 import CaseCardGrid from '../components/sections/CaseCardGrid.astro';
+import CaseFeaturedGrid from '../components/sections/CaseFeaturedGrid.astro';
 import TierPyramidSvg from '../components/sections/TierPyramidSvg.astro';
 import OfferTierGrid from '../components/sections/OfferTierGrid.astro';
 import TeamCardGrid from '../components/sections/TeamCardGrid.astro';
@@ -1006,6 +1007,16 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Table éditoriale de cas clients en six colonnes (index, client, secteur, stack, impact, flèche) façon compte rendu d'audit.",
     description_en: 'Editorial six-column case-study table (index, client, sector, stack, impact, arrow) styled like an audit report.',
+  },
+  'case-featured-grid': {
+    component: CaseFeaturedGrid,
+    category: 'marketing',
+    subcategory: 'Testimonial Sections',
+    categorySlug: 'testimonial-sections',
+    tags: ['case-study', 'featured', 'grid', 'listing', 'proof'],
+    status: 'stable',
+    description_fr: "Grille de cas clients « featured » : un cas mis en avant (colonne large, cover optionnelle) plus des cas secondaires en lignes numérotées, avec chip de provenance.",
+    description_en: 'Featured case-study grid: one highlighted case (wide column, optional cover) plus secondary cases as numbered rows, with provenance chip.',
   },
   'tier-pyramid-svg': {
     component: TierPyramidSvg,
