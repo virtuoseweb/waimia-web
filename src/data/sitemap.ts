@@ -404,6 +404,12 @@ export const FOOTER_COLS: FooterCol[] = [
         href: '/agence/cartographie',
         label: { en: 'Sitemap audit', fr: 'Cartographie (audit)' },
       },
+      // Atelier DS (catalogue + Studio + Hero Lab) sous /library : nav interne, public
+      // mais non référencé (noindex + footer only · décision docs/design-system/03 §11.2).
+      {
+        href: '/library',
+        label: { en: 'Design library', fr: 'Atelier design' },
+      },
     ],
   },
 ];

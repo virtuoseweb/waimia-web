@@ -438,10 +438,9 @@ const AGENCE: MegaMenuSection = {
           featured: true,
         },
       ],
-      footer: {
-        label: { fr: 'Ouvrir le design system →', en: 'Open the design system →' },
-        href: '/agence/design-system',
-      },
+      // Footer « Ouvrir le design system → /agence/design-system » retiré 2026-06-16 :
+      // l'atelier DS migre sous /library (public mais non référencé → retiré du mega-menu,
+      // footer site only). Décision docs/design-system/03 §11.2 (sign-off Simon 2026-06-15).
     },
     {
       kicker: { fr: 'ÉCOSYSTÈME', en: 'ECOSYSTEM' },

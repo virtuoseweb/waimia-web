@@ -30,6 +30,14 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // → hors sitemap pour cohérence noindex↔crawl (2026-06-14).
   "/agence/ds-studio",
   "/agence/hero-lab",
+  // Atelier DS sous /library/* (hub + Studio + Hero Lab + catalogue) : public mais non
+  // référencé (noindex + footer only ET disallow robots.txt, décision docs/design-system/03
+  // §11.2, sign-off Simon 2026-06-15) → hors sitemap pour cohérence noindex↔crawl. Les
+  // sous-routes /library/[category] et /library/[type] sont déjà filtrées par le préfixe
+  // `/library/` dans astro.config.mjs ; cette entrée couvre le hub exact (2026-06-16).
+  "/library",
+  "/library/studio",
+  "/library/hero-lab",
   // Cartographie d'audit interne (toutes les pages réelles + statut SEO, outil de
   // décision garder/supprimer) : noindex (prop Base) → hors sitemap pour cohérence.
   "/agence/cartographie",

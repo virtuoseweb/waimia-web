@@ -90,6 +90,16 @@ export default defineConfig({
     // (seo.noindex) → redirigés vers l'URL canonique pour résorber le duplicate content.
     '/ressources/blog/migrated-veille-gpt-4o-vision-update': '/ressources/veille-ia/gpt-4o-vision-update',
     '/ressources/blog/migrated-fieldnote-composable-adoption': '/ressources/field-notes/composable-adoption',
+    // 2026-06-16 · Cutover atelier DS → /library/* (décision docs/design-system/03 §11.2,
+    // sign-off Simon 2026-06-15). Le catalogue/Studio/Hero Lab vivent désormais sous
+    // /library/* (public mais non référencé : footer + noindex + redirects). Les pages
+    // /agence/{design-system,ds-studio,hero-lab}.astro sont supprimées → ces 301 préservent
+    // les URLs internes/indexées. Cibles existantes (pas de 301-vers-404). Avec l'adapter
+    // static Vercel, Astro émet une 301 (GET) dans .vercel/output/config.json (doc Astro
+    // « redirects » : status 301 par défaut, supporté en static adapter).
+    '/agence/design-system': '/library',
+    '/agence/ds-studio': '/library/studio',
+    '/agence/hero-lab': '/library/hero-lab',
   },
   integrations: [
     react(),
@@ -131,13 +141,18 @@ export default defineConfig({
           // réel n'est pas branché. Hors sitemap pour cohérence noindex↔crawl.
           !page.includes('/commerce/') &&
           // Landing pages (/lp/*) : noindex par défaut (ADR-003) → hors sitemap.
-          !page.includes('/lp/')
+          !page.includes('/lp/') &&
+          // Atelier DS interne (/library/* : hub + Studio + Hero Lab + catalogue) : public
+          // mais non référencé (noindex + footer only, décision docs/design-system/03 §11.2)
+          // → hors sitemap pour cohérence noindex↔crawl, comme /preview/ et /components/.
+          !page.includes('/library/') &&
+          !page.endsWith('/library')
         );
       },
     }),
     robotsTxt({
       policy: [
-        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/ds-studio', '/agence/hero-lab', '/preview/', '/components/', '/categories/', '/lp/'] },
+        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/ds-studio', '/agence/hero-lab', '/library/', '/preview/', '/components/', '/categories/', '/lp/'] },
         { userAgent: 'GPTBot', allow: '/' },
         { userAgent: 'ClaudeBot', allow: '/' },
         { userAgent: 'anthropic-ai', allow: '/' },
@@ -185,7 +200,7 @@ export default defineConfig({
     }),
     llmsMdPages({
       siteUrl: 'https://waimia.com',
-      exclude: ['404', 'api/**', 'bienvenue/**', 'agence/design-system'],
+      exclude: ['404', 'api/**', 'bienvenue/**', 'agence/design-system', 'library/**'],
     }),
     // DEV-ONLY : persistance git-based du DS Studio (bouton "Enregistrer").
     // Le hook astro:server:setup n'est actif que sous `astro dev` -> 0 impact
