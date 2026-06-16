@@ -43,11 +43,14 @@ const FR_ONLY_STATIC = new Set([
   // existe (200) — l'entrée FR-only était périmée (faussait hreflang + localisation nav).
   '/offres/revops',
   '/offres/audit-maturite-ia',
-  // DS Studio / Hero Lab : outils internes FR-only (pas de miroir /en/agence/ds-studio
-  // ni /en/agence/hero-lab → sinon le switcher de langue du Header pointait vers un 404,
-  // SR-42 §3). Déclarés FR-only → le toggle s'affiche désactivé (comme les autres pages
-  // sans miroir EN), aucun /en/* 404 émis.
+  // DS Studio / Hero Lab (anciens chemins /agence/*) et leur nouvelle destination /library/* :
+  // outils internes FR-only (pas de miroir /en/agence/ds-studio ni /en/library/studio etc.
+  // → sinon le switcher de langue du Header pointait vers un 404, SR-42 §3).
+  // /agence/* conservés défensivement (redirects 301 depuis cutover 2026-06-16).
+  // Déclarés FR-only → le toggle s'affiche désactivé (comme les autres pages sans miroir EN),
+  // aucun /en/* 404 émis.
   '/agence/ds-studio', '/agence/hero-lab',
+  '/library', '/library/studio', '/library/hero-lab',
   '/ressources/blog', '/ressources/blog/brain-circuit', '/ressources/academy',
   '/ressources/changelog',
   '/ressources/cookbooks', '/ressources/cookbooks/claude-cowork-rollout',

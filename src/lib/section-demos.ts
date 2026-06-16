@@ -460,7 +460,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     h1_en: 'The AI agent <i>picks</i>, never reinvents.',
     lede_fr: 'Le composable W6 expose 19 sections cataloguées. Chaque section atomique, testée, validée.',
     lede_en: 'W6 composable exposes 19 catalogued sections. Each atomic, tested, validated.',
-    cta_primary: { label_fr: 'Voir le catalogue →', label_en: 'View catalogue →', href: '/agence/design-system', variant: 'primary' },
+    cta_primary: { label_fr: 'Voir le catalogue →', label_en: 'View catalogue →', href: '/library', variant: 'primary' },
     cta_secondary: { label_fr: 'Lire la doc', label_en: 'Read the docs', href: '/expertise-claude', variant: 'ghost' },
     right_block: { kind: 'workflow-svg' },
   },

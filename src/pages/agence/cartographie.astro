@@ -32,7 +32,7 @@ type Row = {
 // EXACT (même logique que le filter). Toute page matchant un préfixe est hors sitemap.
 const SITEMAP_EXCLUDED_PREFIXES = [
   '/bienvenue/',
-  '/agence/design-system',
+  '/library',
   '/preview/',
   '/components/',
   '/ecole/formation/',
@@ -184,9 +184,9 @@ const noindexPublic: Row[] = [
 
 // ── Section 3 : outils internes ──
 const internalTools: Row[] = [
-  { url: '/agence/ds-studio', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/ds-studio.astro', note: { fr: 'outil interne · noindex + disallow robots.txt', en: 'internal tool · noindex + robots.txt disallow' } },
-  { url: '/agence/hero-lab', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/hero-lab.astro', note: { fr: 'outil interne · noindex + disallow robots.txt', en: 'internal tool · noindex + robots.txt disallow' } },
-  { url: '/agence/design-system', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/design-system.astro', note: { fr: 'catalogue DS · noindex + disallow robots.txt', en: 'DS catalog · noindex + robots.txt disallow' } },
+  { url: '/library/studio', collection: { fr: 'page statique', en: 'static page' }, template: 'library/studio.astro', note: { fr: 'outil interne · noindex + disallow robots.txt', en: 'internal tool · noindex + robots.txt disallow' } },
+  { url: '/library/hero-lab', collection: { fr: 'page statique', en: 'static page' }, template: 'library/hero-lab.astro', note: { fr: 'outil interne · noindex + disallow robots.txt', en: 'internal tool · noindex + robots.txt disallow' } },
+  { url: '/library', collection: { fr: 'page statique', en: 'static page' }, template: 'library/index.astro', note: { fr: 'catalogue DS · noindex + disallow robots.txt', en: 'DS catalog · noindex + robots.txt disallow' } },
 ];
 
 // ── Section 4 : catalogue design-system (synthèse data-driven, pas page par page) ──
