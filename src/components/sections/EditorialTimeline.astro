@@ -1,0 +1,75 @@
+---
+// Section W6 · editorial-timeline
+// Frise chronologique éditoriale (axe gauche, points, dates) : COMPOSE l'atome
+// editorial/Timeline (n'en recrée pas le markup). Les événements viennent des props
+// bilingues (le renderer catalogue ne passe pas de slot). Mixin de présentation partagé.
+import type { SectionByType } from '../../schemas/sections';
+import Timeline from '../editorial/Timeline.astro';
+
+interface Props {
+  data: SectionByType<'editorial-timeline'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+
+const events = data.events.map((e) => ({
+  num: e.num,
+  title: lang === 'fr' ? e.title_fr : e.title_en,
+  meta: lang === 'fr' ? e.meta_fr : e.meta_en,
+  body: lang === 'fr' ? e.body_fr : e.body_en,
+  variant: e.variant,
+}));
+---
+<section class="editorial-timeline" data-bg={data.background} data-density={data.density}>
+  <div class="editorial-timeline__col">
+    {(data.eyebrow_fr || data.eyebrow_en) && (
+      <p class="editorial-timeline__eyebrow">{lang === 'fr' ? data.eyebrow_fr : data.eyebrow_en}</p>
+    )}
+    {(data.title_fr || data.title_en) && (
+      <h2 class="editorial-timeline__title">{lang === 'fr' ? data.title_fr : data.title_en}</h2>
+    )}
+    <Timeline
+      events={events}
+      orientation={data.orientation}
+      numbered={data.numbered}
+    />
+  </div>
+</section>
+
+<style>
+  .editorial-timeline {
+    padding: var(--section-base) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .editorial-timeline__col {
+    max-width: var(--wrap-prose);
+    margin: 0 auto;
+  }
+  .editorial-timeline__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--muted);
+    margin: 0 0 var(--space-3);
+  }
+  .editorial-timeline__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    margin: 0;
+  }
+  .editorial-timeline[data-bg='paper-2'] { background: var(--paper-2); }
+  .editorial-timeline[data-bg='paper-3'] { background: var(--paper-3); }
+  .editorial-timeline[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .editorial-timeline[data-bg='ink'] .editorial-timeline__title { color: var(--paper); }
+  .editorial-timeline[data-bg='ink'] .editorial-timeline__eyebrow { color: rgba(var(--paper-rgb), 0.6); }
+  .editorial-timeline[data-density='compact'] { padding-block: var(--section-compact, var(--space-9)); }
+  .editorial-timeline[data-density='ample'] { padding-block: var(--section-ample, var(--space-12)); }
+</style>

@@ -1,0 +1,53 @@
+---
+// Section W6 · editorial-dingbat-rule
+// Séparateur ornemental éditorial (fleuron / pied-de-mouche) : COMPOSE l'atome
+// editorial/Dingbat (n'en recrée pas le markup). Optionnellement encadré d'une ligne
+// de transition haute et/ou basse (props bilingues). Mixin de présentation partagé.
+import type { SectionByType } from '../../schemas/sections';
+import Dingbat from '../editorial/Dingbat.astro';
+
+interface Props {
+  data: SectionByType<'editorial-dingbat-rule'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const above = lang === 'fr' ? data.above_fr : data.above_en;
+const below = lang === 'fr' ? data.below_fr : data.below_en;
+---
+<section class="editorial-dingbat" data-bg={data.background} data-density={data.density}>
+  <div class="editorial-dingbat__col">
+    {above && <p class="editorial-dingbat__caption">{above}</p>}
+    <Dingbat variant={data.variant} size={data.size} />
+    {below && <p class="editorial-dingbat__caption editorial-dingbat__caption--below">{below}</p>}
+  </div>
+</section>
+
+<style>
+  .editorial-dingbat {
+    padding: var(--section-base) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .editorial-dingbat__col {
+    max-width: var(--wrap-prose);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .editorial-dingbat__caption {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--muted);
+    margin: 0;
+  }
+  .editorial-dingbat__caption--below { margin-top: var(--space-2); }
+  .editorial-dingbat[data-bg='paper-2'] { background: var(--paper-2); }
+  .editorial-dingbat[data-bg='paper-3'] { background: var(--paper-3); }
+  .editorial-dingbat[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .editorial-dingbat[data-bg='ink'] .editorial-dingbat__caption { color: rgba(var(--paper-rgb), 0.6); }
+  .editorial-dingbat[data-density='compact'] { padding-block: var(--section-compact, var(--space-9)); }
+  .editorial-dingbat[data-density='ample'] { padding-block: var(--section-ample, var(--space-12)); }
+</style>

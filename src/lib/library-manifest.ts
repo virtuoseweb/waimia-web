@@ -99,6 +99,12 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // <<< [new-standard] end
   // >>> [sections-gap] start
   { id: 'editorial-prose',              consumers: ['secteurs/[...slug]'] },
+  // Mission U2 (W3) — KeyMetric + atomes éditoriaux catalogués (catalogue-only).
+  { id: 'key-metric-grid',              consumers: [] },
+  { id: 'editorial-callout',            consumers: [] },
+  { id: 'editorial-dropcap-prose',      consumers: [] },
+  { id: 'editorial-dingbat-rule',       consumers: [] },
+  { id: 'editorial-timeline',           consumers: [] },
   { id: 'diagnostic-stages',            consumers: [] },
   { id: 'case-spotlight',               consumers: [] },
   { id: 'testimonial-metrics',          consumers: [] },

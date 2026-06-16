@@ -3553,6 +3553,98 @@ export const editorialProseSchema = z.object({
 });
 // <<< [editorial-prose] end
 
+// >>> [editorial-atoms] start
+// Mission U2 (W3) — cataloguer KeyMetric + atomes éditoriaux non encore catalogués.
+// Chaque type COMPOSE l'atome editorial/* dédié (markup non dupliqué) et applique le
+// mixin de présentation partagé (...sectionBaseSchema.shape : background/layout/density).
+
+// key-metric-grid (stats-sections) : grille de métriques magnifiées (atome KeyMetric).
+export const keyMetricGridSchema = z.object({
+  type: z.literal('key-metric-grid'),
+  eyebrow_fr: z.string().optional(),
+  eyebrow_en: z.string().optional(),
+  title_fr: z.string().optional(),
+  title_en: z.string().optional(),
+  columns: z.number().int().min(2).max(4).optional(),
+  size: z.enum(['sm', 'md', 'lg', 'hero']).optional(),
+  align: z.enum(['left', 'center', 'right']).optional(),
+  variant: z.enum(['default', 'inverted', 'accent']).optional(),
+  metrics: z
+    .array(
+      z.object({
+        value: z.string(),
+        label_fr: z.string(),
+        label_en: z.string(),
+        delta: z.string().optional(),
+        trend: z.enum(['up', 'down', 'flat']).optional(),
+      }),
+    )
+    .min(2),
+  ...sectionBaseSchema.shape,
+});
+
+// editorial-callout (content-sections) : encadré éditorial (atome Callout).
+export const editorialCalloutSchema = z.object({
+  type: z.literal('editorial-callout'),
+  variant: z.enum(['info', 'quote', 'note', 'warn', 'manifesto']).optional(),
+  size: z.enum(['sm', 'md', 'lg']).optional(),
+  align: z.enum(['left', 'center']).optional(),
+  cite: z.string().optional(),
+  body_fr: z.string(),
+  body_en: z.string(),
+  ...sectionBaseSchema.shape,
+});
+
+// editorial-dropcap-prose (content-sections) : ouverture d'article avec initiale (atome DropCap).
+export const editorialDropcapProseSchema = z.object({
+  type: z.literal('editorial-dropcap-prose'),
+  variant: z.enum(['serif', 'mono', 'accent']).optional(),
+  lead_fr: z.string(),
+  lead_en: z.string(),
+  paragraphs_fr: z.array(z.string()).optional(),
+  paragraphs_en: z.array(z.string()).optional(),
+  ...sectionBaseSchema.shape,
+});
+
+// editorial-dingbat-rule (content-sections) : séparateur ornemental (atome Dingbat).
+export const editorialDingbatRuleSchema = z.object({
+  type: z.literal('editorial-dingbat-rule'),
+  variant: z.enum(['default', 'section', 'end', 'rule', 'asterism']).optional(),
+  size: z.enum(['sm', 'md', 'lg']).optional(),
+  above_fr: z.string().optional(),
+  above_en: z.string().optional(),
+  below_fr: z.string().optional(),
+  below_en: z.string().optional(),
+  ...sectionBaseSchema.shape,
+});
+
+// editorial-timeline (timelines) : frise chronologique éditoriale (atome Timeline).
+export const editorialTimelineSchema = z.object({
+  type: z.literal('editorial-timeline'),
+  eyebrow_fr: z.string().optional(),
+  eyebrow_en: z.string().optional(),
+  title_fr: z.string().optional(),
+  title_en: z.string().optional(),
+  orientation: z.enum(['vertical', 'horizontal']).optional(),
+  numbered: z.boolean().optional(),
+  events: z
+    .array(
+      z.object({
+        num: z.string().optional(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        meta_fr: z.string().optional(),
+        meta_en: z.string().optional(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        variant: z.enum(['default', 'highlight']).optional(),
+      }),
+    )
+    .min(2),
+  ...sectionBaseSchema.shape,
+});
+// <<< [editorial-atoms] end
+
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroCenteredSchema,
@@ -3727,6 +3819,13 @@ export const sectionSchema = z.discriminatedUnion('type', [
   // >>> [editorial-prose] start
   editorialProseSchema,
   // <<< [editorial-prose] end
+  // >>> [editorial-atoms] start
+  keyMetricGridSchema,
+  editorialCalloutSchema,
+  editorialDropcapProseSchema,
+  editorialDingbatRuleSchema,
+  editorialTimelineSchema,
+  // <<< [editorial-atoms] end
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

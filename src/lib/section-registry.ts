@@ -175,6 +175,13 @@ import TestimonialMetrics from '../components/sections/TestimonialMetrics.astro'
 // >>> [editorial-prose] start
 import EditorialProse from '../components/sections/EditorialProse.astro';
 // <<< [editorial-prose] end
+// >>> [editorial-atoms] start
+import KeyMetricGrid from '../components/sections/KeyMetricGrid.astro';
+import EditorialCallout from '../components/sections/EditorialCallout.astro';
+import EditorialDropcapProse from '../components/sections/EditorialDropcapProse.astro';
+import EditorialDingbatRule from '../components/sections/EditorialDingbatRule.astro';
+import EditorialTimeline from '../components/sections/EditorialTimeline.astro';
+// <<< [editorial-atoms] end
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -1770,6 +1777,58 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Tokenized editorial prose wrapper: a reading column (prose or wide width), alternating background, hosting long-form content via slot (MDX body). Preserves the DS typography without rewriting the text.',
   },
   // <<< [editorial-prose] end
+  // >>> [editorial-atoms] start
+  'key-metric-grid': {
+    component: KeyMetricGrid,
+    category: 'marketing',
+    subcategory: 'Stats Sections',
+    categorySlug: 'stats-sections',
+    tags: ['stats', 'metrics', 'kpi', 'grid', 'editorial', 'key-metric'],
+    status: 'stable',
+    description_fr: 'Grille de métriques chiffrées magnifiées (style FT/Bloomberg) composant l\'atome KeyMetric : chiffre dominant, label mono, delta optionnel. Axes size/align/variant et 2 à 4 colonnes, fond alterné.',
+    description_en: 'Grid of magnified key figures (FT/Bloomberg style) composing the KeyMetric atom: dominant value, mono label, optional delta. size/align/variant axes and 2 to 4 columns, alternating background.',
+  },
+  'editorial-callout': {
+    component: EditorialCallout,
+    category: 'marketing',
+    subcategory: 'Content Sections',
+    categorySlug: 'content-sections',
+    tags: ['editorial', 'callout', 'quote', 'note', 'aside', 'content'],
+    status: 'stable',
+    description_fr: 'Encadré éditorial composant l\'atome Callout (info, citation, note, avertissement, manifeste) : hairline accent, citation source optionnelle, tailles et alignements. Pour ponctuer une prose.',
+    description_en: 'Editorial aside composing the Callout atom (info, quote, note, warning, manifesto): accent hairline, optional cited source, sizes and alignments. To punctuate prose.',
+  },
+  'editorial-dropcap-prose': {
+    component: EditorialDropcapProse,
+    category: 'marketing',
+    subcategory: 'Content Sections',
+    categorySlug: 'content-sections',
+    tags: ['editorial', 'dropcap', 'prose', 'opening', 'article', 'content'],
+    status: 'stable',
+    description_fr: 'Ouverture d\'article éditoriale composant l\'atome DropCap : initiale magnifiée (serif, mono ou accent) sur un paragraphe d\'accroche, suivie de paragraphes de prose. Pour entrer dans un long-form.',
+    description_en: 'Editorial article opening composing the DropCap atom: a magnified initial (serif, mono or accent) on a lead paragraph, followed by prose paragraphs. To enter a long-form piece.',
+  },
+  'editorial-dingbat-rule': {
+    component: EditorialDingbatRule,
+    category: 'marketing',
+    subcategory: 'Content Sections',
+    categorySlug: 'content-sections',
+    tags: ['editorial', 'dingbat', 'separator', 'ornament', 'rule', 'content'],
+    status: 'stable',
+    description_fr: 'Séparateur ornemental éditorial composant l\'atome Dingbat (fleuron, asterisme, fin d\'article, règle) : transition entre chapitres avec légendes optionnelles au-dessus et en dessous.',
+    description_en: 'Editorial ornamental separator composing the Dingbat atom (fleuron, asterism, end-of-article, rule): a between-chapters transition with optional captions above and below.',
+  },
+  'editorial-timeline': {
+    component: EditorialTimeline,
+    category: 'marketing',
+    subcategory: 'Timeline Sections',
+    categorySlug: 'timelines',
+    tags: ['editorial', 'timeline', 'method', 'phases', 'steps', 'dated'],
+    status: 'stable',
+    description_fr: 'Frise chronologique éditoriale composant l\'atome Timeline : axe gauche, points, numéros, dates, titres et descriptions, vertical ou horizontal. Pour une méthode ou un parcours en N phases.',
+    description_en: 'Editorial timeline composing the Timeline atom: left axis, dots, numbers, dates, titles and descriptions, vertical or horizontal. For a method or journey in N phases.',
+  },
+  // <<< [editorial-atoms] end
 };
 
 export const SECTION_REGISTRY: Record<SectionType, AstroComponent> = Object.fromEntries(

@@ -1,0 +1,46 @@
+---
+// Section W6 · editorial-callout
+// Encadré éditorial (info/quote/note/warn/manifesto) catalogué : COMPOSE l'atome
+// editorial/Callout (n'en recrée pas le markup). Le corps vient des props bilingues
+// (le renderer catalogue ne passe pas de slot). Mixin de présentation partagé.
+import type { SectionByType } from '../../schemas/sections';
+import Callout from '../editorial/Callout.astro';
+
+interface Props {
+  data: SectionByType<'editorial-callout'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const body = lang === 'fr' ? data.body_fr : data.body_en;
+---
+<section class="editorial-callout" data-bg={data.background} data-density={data.density}>
+  <div class="editorial-callout__col">
+    <Callout
+      variant={data.variant}
+      cite={data.cite}
+      align={data.align}
+      size={data.size}
+    >
+      <Fragment set:html={body} />
+    </Callout>
+  </div>
+</section>
+
+<style>
+  .editorial-callout {
+    padding: var(--section-base) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .editorial-callout__col {
+    max-width: var(--wrap-prose);
+    margin: 0 auto;
+  }
+  .editorial-callout[data-bg='paper-2'] { background: var(--paper-2); }
+  .editorial-callout[data-bg='paper-3'] { background: var(--paper-3); }
+  .editorial-callout[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .editorial-callout[data-density='compact'] { padding-block: var(--section-compact, var(--space-9)); }
+  .editorial-callout[data-density='ample'] { padding-block: var(--section-ample, var(--space-12)); }
+</style>

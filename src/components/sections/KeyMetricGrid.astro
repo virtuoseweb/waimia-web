@@ -1,0 +1,89 @@
+---
+// Section W6 · key-metric-grid
+// Grille de métriques chiffrées magnifiées (style FT/Bloomberg) qui COMPOSE l'atome
+// editorial/KeyMetric (n'en recrée pas le markup). Expose les axes de l'atome
+// (size/align/variant) par item + le mixin de présentation partagé (background/layout/
+// density via sectionBaseSchema). Catégorie stats-sections.
+import type { SectionByType } from '../../schemas/sections';
+import KeyMetric from '../editorial/KeyMetric.astro';
+
+interface Props {
+  data: SectionByType<'key-metric-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+
+const size = data.size ?? 'lg';
+const align = data.align ?? 'left';
+const variant = data.variant ?? 'default';
+const cols = data.columns ?? 4;
+---
+<section class="key-metric-grid" data-bg={data.background} data-density={data.density}>
+  <div class="wrap-wide">
+    {(data.eyebrow_fr || data.eyebrow_en) && (
+      <p class="key-metric-grid__eyebrow">{lang === 'fr' ? data.eyebrow_fr : data.eyebrow_en}</p>
+    )}
+    {(data.title_fr || data.title_en) && (
+      <h2 class="key-metric-grid__title">{lang === 'fr' ? data.title_fr : data.title_en}</h2>
+    )}
+    <div class="key-metric-grid__grid" style={`--kmg-cols:${cols}`}>
+      {data.metrics.map((m) => (
+        <KeyMetric
+          value={m.value}
+          label={lang === 'fr' ? m.label_fr : m.label_en}
+          delta={m.delta}
+          trend={m.trend}
+          size={size}
+          align={align}
+          variant={variant}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .key-metric-grid {
+    padding: var(--section-base) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .key-metric-grid__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--muted);
+    margin: 0 0 var(--space-3);
+  }
+  .key-metric-grid__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    margin: 0 0 var(--space-7);
+    max-width: var(--wrap-prose);
+  }
+  .key-metric-grid__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--kmg-cols, 4), minmax(0, 1fr));
+    gap: var(--space-7) var(--space-6);
+  }
+  @media (max-width: 900px) {
+    .key-metric-grid__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 520px) {
+    .key-metric-grid__grid { grid-template-columns: 1fr; }
+  }
+  .key-metric-grid[data-bg='paper-2'] { background: var(--paper-2); }
+  .key-metric-grid[data-bg='paper-3'] { background: var(--paper-3); }
+  .key-metric-grid[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .key-metric-grid[data-bg='ink'] .key-metric-grid__title { color: var(--paper); }
+  .key-metric-grid[data-bg='ink'] .key-metric-grid__eyebrow { color: rgba(var(--paper-rgb), 0.6); }
+  .key-metric-grid[data-density='compact'] { padding-block: var(--section-compact, var(--space-9)); }
+  .key-metric-grid[data-density='ample'] { padding-block: var(--section-ample, var(--space-12)); }
+</style>

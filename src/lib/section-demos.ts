@@ -3105,6 +3105,77 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     // n'a pas de champ texte. Le preview rend un wrapper vide tokenisé.
   },
   // <<< [editorial-prose] end
+  // >>> [editorial-atoms] start
+  'key-metric-grid': {
+    type: 'key-metric-grid',
+    background: 'paper',
+    eyebrow_fr: 'Résultats mesurés',
+    eyebrow_en: 'Measured results',
+    title_fr: 'Ce que le pipeline produit sur 12 mois',
+    title_en: 'What the pipeline delivers over 12 months',
+    columns: 4,
+    size: 'lg',
+    align: 'left',
+    variant: 'default',
+    metrics: [
+      { value: '×2,4', label_fr: 'leads qualifiés', label_en: 'qualified leads', delta: '+62 %', trend: 'up' },
+      { value: '€840K', label_fr: 'pipeline généré', label_en: 'pipeline generated', delta: '+38 %', trend: 'up' },
+      { value: '11 j', label_fr: 'cycle de vente moyen', label_en: 'average sales cycle', delta: '-9 j', trend: 'down' },
+      { value: '94 %', label_fr: 'données à jour', label_en: 'data kept current', trend: 'flat' },
+    ],
+  },
+  'editorial-callout': {
+    type: 'editorial-callout',
+    background: 'paper',
+    variant: 'quote',
+    size: 'md',
+    align: 'left',
+    cite: 'McKinsey, State of AI 2025',
+    body_fr: 'Les équipes qui industrialisent leur prospection ferment deux fois plus de rendez-vous sans recruter un seul commercial de plus.',
+    body_en: 'Teams that industrialize their prospecting book twice as many meetings without hiring a single extra rep.',
+  },
+  'editorial-dropcap-prose': {
+    type: 'editorial-dropcap-prose',
+    background: 'paper',
+    variant: 'serif',
+    lead_fr: 'Le marché de la prospection B2B a basculé en 2026. Ce qui demandait dix personnes se pilote désormais depuis une seule console, et la qualité des données ne dépend plus de la discipline de chacun.',
+    lead_en: 'The B2B prospecting market shifted in 2026. What used to take ten people now runs from a single console, and data quality no longer depends on anyone’s discipline.',
+    paragraphs_fr: [
+      'Cette bascule tient à une idée simple : séparer la décision de l’exécution. On garde le jugement humain là où il compte, on automatise le reste.',
+      'Le reste, justement, représente près de quatre-vingts pour cent du temps d’un commercial. C’est là que la valeur se libère.',
+    ],
+    paragraphs_en: [
+      'The shift rests on a simple idea: separate the decision from the execution. Keep human judgment where it matters, automate the rest.',
+      'And the rest is nearly eighty percent of a rep’s time. That is where the value is unlocked.',
+    ],
+  },
+  'editorial-dingbat-rule': {
+    type: 'editorial-dingbat-rule',
+    background: 'paper',
+    variant: 'section',
+    size: 'md',
+    above_fr: 'Fin du chapitre I',
+    above_en: 'End of chapter I',
+    below_fr: 'La méthode, étape par étape',
+    below_en: 'The method, step by step',
+  },
+  'editorial-timeline': {
+    type: 'editorial-timeline',
+    background: 'paper',
+    eyebrow_fr: 'Notre méthode',
+    eyebrow_en: 'Our method',
+    title_fr: 'Quatre phases, du diagnostic au pilotage',
+    title_en: 'Four phases, from diagnosis to steering',
+    orientation: 'vertical',
+    numbered: true,
+    events: [
+      { num: '01', title_fr: 'Cartographie', title_en: 'Mapping', meta_fr: '5 jours', meta_en: '5 days', body_fr: 'On lit le CRM existant, les sources de leads et les points de friction.', body_en: 'We read the existing CRM, the lead sources and the friction points.' },
+      { num: '02', title_fr: 'Priorisation', title_en: 'Prioritization', meta_fr: '2 semaines', meta_en: '2 weeks', body_fr: 'On classe les segments par ROI et on choisit les premiers flux à automatiser.', body_en: 'We rank segments by ROI and pick the first flows to automate.' },
+      { num: '03', title_fr: 'Mise en route', title_en: 'Rollout', meta_fr: '4 semaines', meta_en: '4 weeks', body_fr: 'On câble les agents, on connecte les outils et on valide chaque séquence.', body_en: 'We wire the agents, connect the tools and validate every sequence.', variant: 'highlight' },
+      { num: '04', title_fr: 'Pilotage', title_en: 'Steering', meta_fr: 'En continu', meta_en: 'Ongoing', body_fr: 'Le pipeline tourne, on suit le ROI réel et on ajuste mois après mois.', body_en: 'The pipeline runs, we track real ROI and adjust month after month.' },
+    ],
+  },
+  // <<< [editorial-atoms] end
 };
 
 export function getSectionDemo(type: SectionType): DemoData | undefined {

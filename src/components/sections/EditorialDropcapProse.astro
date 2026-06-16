@@ -1,0 +1,63 @@
+---
+// Section W6 · editorial-dropcap-prose
+// Ouverture d'article éditoriale : initiale magnifiée (COMPOSE l'atome editorial/DropCap,
+// n'en recrée pas le markup) sur un paragraphe d'accroche, plus N paragraphes de prose.
+// Contenu via props bilingues (le renderer catalogue ne passe pas de slot). La 1re lettre
+// du paragraphe d'ouverture alimente la DropCap, le reste suit en wrap.
+import type { SectionByType } from '../../schemas/sections';
+import DropCap from '../editorial/DropCap.astro';
+
+interface Props {
+  data: SectionByType<'editorial-dropcap-prose'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const lead = lang === 'fr' ? data.lead_fr : data.lead_en;
+const initial = lead.slice(0, 1);
+const rest = lead.slice(1);
+const paragraphs = (lang === 'fr' ? data.paragraphs_fr : data.paragraphs_en) ?? [];
+---
+<section class="editorial-dropcap" data-bg={data.background} data-density={data.density}>
+  <div class="editorial-dropcap__col">
+    <p class="editorial-dropcap__lead">
+      <DropCap variant={data.variant}>{initial}</DropCap>{rest}
+    </p>
+    {paragraphs.map((p) => <p class="editorial-dropcap__p">{p}</p>)}
+  </div>
+</section>
+
+<style>
+  .editorial-dropcap {
+    padding: var(--section-base) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .editorial-dropcap__col {
+    max-width: var(--wrap-prose);
+    margin: 0 auto;
+  }
+  .editorial-dropcap__lead {
+    font-family: var(--font-display);
+    font-size: var(--text-body-md, 17px);
+    line-height: var(--leading-body, 1.5);
+    color: var(--ink);
+    margin: 0 0 var(--space-4);
+  }
+  .editorial-dropcap__lead::after { content: ''; display: table; clear: both; }
+  .editorial-dropcap__p {
+    font-family: var(--font-display);
+    font-size: var(--text-body-md, 17px);
+    line-height: var(--leading-body, 1.5);
+    color: var(--ink-2);
+    margin: 0 0 var(--space-4);
+  }
+  .editorial-dropcap[data-bg='paper-2'] { background: var(--paper-2); }
+  .editorial-dropcap[data-bg='paper-3'] { background: var(--paper-3); }
+  .editorial-dropcap[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .editorial-dropcap[data-bg='ink'] .editorial-dropcap__lead,
+  .editorial-dropcap[data-bg='ink'] .editorial-dropcap__p { color: var(--paper); }
+  .editorial-dropcap[data-density='compact'] { padding-block: var(--section-compact, var(--space-9)); }
+  .editorial-dropcap[data-density='ample'] { padding-block: var(--section-ample, var(--space-12)); }
+</style>
