@@ -269,6 +269,15 @@ Les deux SPA (§9.3) prennent leur forme dédiée. Décisions (Simon) :
 - **W2 — Recomposer les orphelines** : `roi-band`/`fit-columns`/`case-split`/`department-*` sur les pages Solutions/Offres ; recréer `off-proof` ; restaurer `src/pages/en/` index cas/offre ; ré-enrichir les sections aplaties (Pain Points meta, FAQ éditoriale, Offres Problem/Method/Tools).
 - **W3 — Atelier `/library` + étoffer le catalogue** : construire les 2 SPA multi-routes (footer/noindex/redirects) ; cataloguer KeyMetric + 8 atomes éditoriaux + le featured-grid cas ; exposer déclinaisons dark + reveals sélectionnables ; produire familles/variantes/presets jusqu'à ≥20/catégorie via Phase B/D. Mode Workflow (fan-out par catégorie, worktrees isolés), GF-1 par preset.
 
+  **STATUT 2026-06-16 — Phase 1 (outillage + catalogue) LIVRÉE** (arbitrage Simon A→B). 6 unités exécutées en worktrees isolés, fusionnées sur `main`, GF-1 indépendant par unité :
+  - U0 : 5 routes `/library/*` (hub neuf data-driven + clones registry-driven `[category]`/`[type]`/`studio`/`hero-lab`) ; `DsLocalNav` prop `scope`.
+  - U1 : cutover redirects 301 `agence/{design-system,ds-studio,hero-lab}` → `/library*` (3 pages agence supprimées), footer→`/library`, sitemap exclut `/library`, robots disallow, noindex.
+  - U2 : 5 sections éditoriales cataloguées (`key-metric-grid` + `editorial-{callout,dropcap-prose,dingbat-rule,timeline}`), composition des atomes `editorial/*` (rule 60-A : `pull-quote-block`/`editorial-table-block`/`editorial-prose` NON dupliqués).
+  - U3 : `case-featured-grid` catalogué (extraction de l'orphelin `cas-clients/index.astro:104-338`, parité 7fr/5fr). Câblage de la page = reporté.
+  - U4 : sur `/library/[type]`, toggle « voir l'animation » (route `/preview/[type]/animated` sans neutralisation) + switch light/dark (`data-bg='ink'`), île `VariantToggle.tsx`.
+  - U5 : nettoyage des résiduels `/agence` (0 hop interne, MAJ cartographie + i18n + JSON générés).
+  - **RESTE — Phase 1b** : produire familles/variantes/**presets ≥20/catégorie** (Workflow fan-out par catégorie, GF-1 par preset) + exposer dark sur plus de sections (10/135 aujourd'hui) + consolider `sectionBaseSchema` (appliqué 3/156, ~135 `background` inline). **Phase 2** : git-write-back `POST /api/ds/preset` + `POST /api/ds/compose` + composition UI (niveau 3a, organisme par slots) — cf §14.
+
 ## 12. Méthode exhaustive d'industrialisation du catalogue (2026-06-15, assemblée de 2 énumérations + recherche injection/modes)
 
 > Source : agents `enum-layouts` (vocabulaire layout) + `enum-taxonomie` (16 catégories canoniques) + recherche orchestrateur (injection `SectionsRenderer` + `reference()` content-collections). Détail brut des énumérations = transcript de session 2026-06-15. CE §12 = la méthode actionnable.
