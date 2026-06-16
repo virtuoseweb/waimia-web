@@ -21,6 +21,51 @@
 
 ---
 
+## ⏸️ STATUT SÉQUENCE (2026-06-16) : chantier inséré HORS-SÉQUENCE + backlog ci-dessous EN PAUSE
+
+> **À lire avant de piocher un chantier.** Le backlog P0→P4 de ce document est la séquence
+> *initialement prévue* (fondations honnêtes → SEO/GEO → design → acquisition → produit). Elle
+> **n'a pas démarré** : aucun chantier P0.x ci-dessous n'est ouvert. Ce qui a tourné ces dernières
+> sessions est un **chantier inséré hors-séquence**, devenu un besoin pendant le re-cataloguage.
+
+**▶️ Ce qui a été fait HORS de ce backlog (inséré par besoin, pas dans l'ordre prévu) :**
+- **OVERHAUL visuel W1→W5** (clos, déployé+GF-1 prod sur `main` `639065f`) : typo numérale fluide,
+  recomposition des orphelines, services & schema (FAQPage JSON-LD), responsive & dette globale.
+- **W3 « atelier `/library` »** : **PHASE 1 LIVRÉE** (`639065f`). L'embryon `/agence/design-system`
+  est devenu l'atelier `/library/*` (hub + `[category]`/`[type]`/`studio`/`hero-lab`, redirects 301,
+  footer/noindex) + 5 sections éditoriales cataloguées + `case-featured-grid` + toggles animation/dark.
+  Détail + reste : `docs/design-system/03-library-strategy.md §11.3`.
+  - **RESTE W3 (arbitrage Simon A→B, non démarré)** : *phase 1b* (presets ≥20/catégorie via `Workflow`
+    + consolider le mixin `sectionBaseSchema`, appliqué 3/156 types) puis *phase 2* (git-write-back
+    `POST /api/ds/preset` + `/api/ds/compose` + composition UI par slots, cf `design-system/03 §14`).
+  - **Findings ouverts** : 2 erreurs prefetch démo `/library/case-featured-grid` (slugs fictifs) ;
+    DsLocalNav garde des hrefs legacy `/agence/*` ; **arbitrage Simon en attente** = 3 secteurs
+    (batiment / services-b2b / therapeutes) `noindex`↔`sitemap` : les indexer OU les masquer.
+
+**⏸️ Ce qui était PRÉVU AVANT et reste EN PAUSE (ce backlog, à reprendre une fois W3 stabilisé) :**
+- **P0 · Quick wins & site honnête (BLOQUANT prospection)** : `P0.0` réconciliation repo (archiver
+  le périmé, figer les compteurs réels, cocher le déjà-committé avec SHA) ; `P0.A` migration home +
+  nav + footer (store `pricing.ts` unique 2/4/7/10k, purge liens 404, hero « cabinet d'orchestration
+  IA ») ; `P0.B` home -33 % scroll ; `P0.2/0.6/0.7` assainissement véridique + **pages légales**.
+- **P1 · SEO/GEO & contenu** : figer H1 + `<title>`/meta + schema `Service`/`Breadcrumb`/FAQ-AEO ;
+  **cas réels** (Balzeo, Amploi, Desangles, Isabelle Diaz) ; concurrent frontal **Vydera**.
+- **P2 · Design / refonte DS (11 chantiers)** dont `P2.11` hardcode → `var(--token)` (~73 littéraux),
+  budget perf (JS ≤ 30 KB/route, LCP < 2,0 s mobile), awwwards.
+- **P3 · Acquisition** (Firecrawl + scoring) · **P4 · Produit** (boilerplate forkable, CMS Tina,
+  dashboard agents). FIGÉ, non urgent.
+
+**▶️ ORDRE DE REPRISE recommandé** (à confirmer par Simon à la reprise) :
+1. **Stabiliser W3** : trancher les 3 findings (prefetch, hrefs DsLocalNav, arbitrage 3 secteurs),
+   un petit lot qui referme proprement la phase 1.
+2. **Décider W3 1b/2 vs backlog** : soit pousser W3 jusqu'à la phase 2 (git-write-back, gros chantier
+   produit), soit le geler à la phase 1 et **revenir au socle prévu en commençant par `P0.0`**
+   (réconciliation) puis `P0.A` (le seul vrai BLOQUANT prospection : site honnête + prix unique + légal).
+3. Le reste du backlog (`state/05-design-refonte` pour P2) se déroule ensuite dans l'ordre ci-dessus.
+>
+> Rappel séquençage : `P0.A` et `P0.B` touchent tous deux `index.astro` → **séquencer**, pas paralléliser.
+
+---
+
 ## Comment Claude Code utilise ce document
 
 1. **Au boot** : lire `CLAUDE.md` → `docs/README.md` → **ce fichier**. Identifier le premier
