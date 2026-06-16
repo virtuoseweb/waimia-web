@@ -18,6 +18,7 @@ export const prerender = true;
 import Base from '../../layouts/Base.astro';
 import DsLocalNav from '../../components/library/DsLocalNav.astro';
 import CopyCode from '../../components/library/CopyCode.tsx';
+import VariantToggle from '../../components/library/VariantToggle.tsx';
 import {
   listSections,
   listCategories,
@@ -83,13 +84,11 @@ const sectionEntry = JSON.stringify(demo, null, 2);
 
       <section class="component-block" aria-label="Aperçu live">
         <h2 class="component-block-title">Aperçu</h2>
-        <div class="component-preview" data-preview-frame data-max-height="620">
-          <iframe
-            src={`/preview/${section.type}`}
-            title={`Aperçu ${section.type}`}
-            loading="lazy"
-          ></iframe>
-        </div>
+        <VariantToggle
+          client:visible
+          type={section.type}
+          title={`Aperçu ${section.type}`}
+        />
       </section>
 
       <section class="component-block" aria-label="Code de la section">
@@ -230,24 +229,9 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-  .component-preview {
-    position: relative;
-    min-height: 280px;
-    overflow: hidden;
-    border: 1px solid var(--hairline);
-    background: var(--paper);
-  }
-  /* iframe rendue à largeur desktop 1280 puis mise à l'échelle responsive
-     (scale = largeurConteneur / 1280) par src/scripts/preview-frame.ts ; la
-     hauteur du conteneur suit la hauteur naturelle scalée du contenu (capée). */
-  .component-preview iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1280px;
-    border: 0;
-    transform-origin: top left;
-  }
+  /* L'aperçu (iframe + toggles animation/dark) est rendu par l'island
+     VariantToggle.tsx ; il porte son propre conteneur .vt-preview[data-preview-frame]
+     mis à l'échelle par src/scripts/preview-frame.ts. */
   @media (max-width: 720px) {
     .component-detail .wrap-wide {
       padding-left: 20px;

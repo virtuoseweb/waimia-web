@@ -1,0 +1,80 @@
+---
+// Waimia · Route preview chrome-less ANIMÉE d'une section (U4, §11.3 / §12.2.A docs/design-system/03).
+//
+// Variante de /preview/[type].astro qui REJOUE les reveals réels au lieu de les neutraliser.
+// /preview/[type].astro force opacity:1/transition:none (iframe statique non scrollée) ; ici on
+// monte l'IntersectionObserver scroll-reveal (src/lib/animations/scroll-reveal.ts) pour que les
+// classes .reveal[*] démarrent opacity:0 puis se révèlent au scroll, comme sur le site.
+//
+// Consommée en iframe par /library/[type] via le toggle « voir l'animation » (VariantToggle).
+// Même chrome-less : pas de header/footer/nav, noindex, hors sitemap.
+//
+// N'utilise PAS Base.astro. Reprend les imports CSS réels de Base : global.css, grid.css,
+// scroll-reveal.css, mais SANS le bloc de neutralisation des reveals.
+
+import '../../../styles/global.css';
+import '../../../styles/grid.css';
+import '../../../styles/scroll-reveal.css';
+import { listSections, SECTION_REGISTRY } from '../../../lib/section-registry';
+import { SECTION_DEMOS } from '../../../lib/section-demos';
+import { getUsage, getConsumers } from '../../../lib/library-manifest';
+
+export function getStaticPaths() {
+  return listSections().map((section) => ({ params: { type: section.type } }));
+}
+
+const { type } = Astro.params as { type: string };
+const C = SECTION_REGISTRY[type as keyof typeof SECTION_REGISTRY] as any;
+const demo = SECTION_DEMOS[type as keyof typeof SECTION_DEMOS];
+
+// Étiquetage catalogue (docs/40 §3) : badge usage en overlay (lisible light + ink).
+const usage = getUsage(type);
+const consumerCount = getConsumers(type).length;
+---
+<!doctype html>
+<html lang="fr" data-lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{`Aperçu animé · ${type}`}</title>
+    {/* Variante ANIMÉE : on NE neutralise PAS les reveals. Le seul style inline est le
+        reset margin + le badge usage (identiques à /preview/[type].astro). */}
+    <style is:inline>
+      html, body { margin: 0; padding: 0; background: var(--paper, #fff); }
+      /* Badge usage (docs/40 §3) · overlay fixe, fond opaque + bordure pour
+         rester lisible sur toute section, light comme [data-bg='ink']. */
+      .ds-preview-usage {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        z-index: 9999;
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 9px;
+        background: var(--paper);
+        border: 1px solid var(--hairline);
+        color: var(--ink-2);
+        font-family: var(--font-mono);
+        font-size: var(--text-small);
+        line-height: 1;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .ds-preview-usage--site { border-color: var(--accent-text); color: var(--accent-sur-clair); }
+    </style>
+  </head>
+  <body>
+    {usage === 'site' ? (
+      <span class="ds-preview-usage ds-preview-usage--site">Sur waimia · {consumerCount}</span>
+    ) : (
+      <span class="ds-preview-usage ds-preview-usage--library">Bibliothèque</span>
+    )}
+    {C && demo ? <C data={demo} lang="fr" /> : <p style="font-family:monospace;padding:24px">Section inconnue : {type}</p>}
+
+    {/* Monte l'observer scroll-reveal réel : les .reveal[*] démarrent opacity:0 puis
+        passent .is-visible/.in au scroll (même module que Base.astro). */}
+    <script>import '../../../lib/animations/scroll-reveal';</script>
+  </body>
+</html>
