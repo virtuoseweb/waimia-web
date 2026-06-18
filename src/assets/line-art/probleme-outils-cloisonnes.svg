@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Probleme : outils cloisonnes / desynchronises -> 3 silos non relies, liens coupes -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8" y="14" width="16" height="16" rx="3"/>
+    <rect x="40" y="14" width="16" height="16" rx="3"/>
+    <rect x="24" y="40" width="16" height="16" rx="3"/>
+    <!-- glyphes internes distincts -->
+    <path d="M13 22 L19 22" stroke-width="1.5" opacity="0.6"/>
+    <path d="M45 22 L51 22" stroke-width="1.5" opacity="0.6"/>
+    <path d="M29 48 L35 48" stroke-width="1.5" opacity="0.6"/>
+    <!-- liens coupes entre silos -->
+    <path d="M24 22 L40 22" stroke-width="1.5" stroke-dasharray="2 5" opacity="0.55"/>
+    <path d="M20 30 L28 40" stroke-width="1.5" stroke-dasharray="2 5" opacity="0.55"/>
+    <path d="M44 30 L36 40" stroke-width="1.5" stroke-dasharray="2 5" opacity="0.55"/>
+  </g>
+  <!-- accent : la rupture (croix terracotta sur le lien central) -->
+  <g stroke="var(--accent, #C94F2E)" stroke-width="2.2" stroke-linecap="round">
+    <path d="M29 19 L35 25"/>
+    <path d="M35 19 L29 25"/>
+  </g>
+</svg>

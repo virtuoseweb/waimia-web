@@ -10,6 +10,23 @@
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 
+// Line-art DS (Registre A) inliné au build : le SVG vit dans le DOM de la page →
+// `stroke="currentColor"` suit la couleur de texte du contexte (encre sur paper,
+// crème sur ink) et `var(--accent)` résout le vrai token DS (un <img> n'hérite
+// ni de currentColor ni des custom properties). Source = src/assets/line-art/*.svg
+// (copie importable des fichiers public/images/line-art/*.svg). Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
+
 interface Props {
   data:
     | SectionByType<'feature-grid'>
@@ -32,14 +49,21 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
   <section class="problems-grid wrap-wide reveal-blur-clip" data-bg={data.background}>
     <h2 class="problems-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
     <div class="problems-grid__cards">
-      {data.problems.map((p, i) => (
+      {data.problems.map((p, i) => {
+        const art = inlineLineArt(p.illustration_src);
+        const alt = isFr ? p.illustration_alt_fr : p.illustration_alt_en;
+        return (
         <div class="problems-grid__card">
+          {art && (
+            <div class="problems-grid__art" set:html={art} role={alt ? 'img' : undefined} aria-label={alt || undefined} aria-hidden={alt ? undefined : 'true'} />
+          )}
           <div class="problems-grid__num">{p.num ?? String(i + 1).padStart(2, '0')}</div>
           <Kicker tone="accent" letterSpacing=".08em" class="problems-grid__kicker">{isFr ? p.kicker_fr : p.kicker_en}</Kicker>
           <h3 set:html={isFr ? p.title_fr : p.title_en} />
           <p>{isFr ? p.body_fr : p.body_en}</p>
         </div>
-      ))}
+        );
+      })}
     </div>
   </section>
 ) : data.type === 'deliverables-grid' ? (
@@ -58,9 +82,14 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
           const format = isFr ? item.format_fr : item.format_en;
           const duration = isFr ? item.duration_fr : item.duration_en;
           const tag = [format, duration].filter(Boolean).join(' · ');
+          const art = inlineLineArt(item.illustration_src);
+          const alt = isFr ? item.illustration_alt_fr : item.illustration_alt_en;
 
           return (
             <article class="deliverables-grid__card reveal-zoom-in">
+              {art && (
+                <div class="deliverables-grid__art" set:html={art} role={alt ? 'img' : undefined} aria-label={alt || undefined} aria-hidden={alt ? undefined : 'true'} />
+              )}
               {tag && <span class="deliverables-grid__tag">{tag}</span>}
               <h3 set:html={isFr ? item.title_fr : item.title_en} />
               <p set:html={isFr ? item.body_fr : item.body_en} />
@@ -251,6 +280,20 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
     background: var(--paper);
     padding: var(--space-7);
   }
+  /* Line-art DS en tête de carte. Trait = currentColor (encre du contexte),
+     accent terracotta porté par var(--accent) du SVG inliné. Taille bornée. */
+  .problems-grid__art {
+    color: var(--ink);
+    margin-bottom: var(--space-5);
+    line-height: 0;
+  }
+  .problems-grid__art :global(svg) {
+    width: var(--space-9);
+    height: var(--space-9);
+    max-width: 100%;
+    display: block;
+  }
+  .problems-grid[data-bg='ink'] .problems-grid__art { color: var(--paper); }
   .problems-grid__num {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
     font-size: var(--text-small);
@@ -376,6 +419,19 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
   .deliverables-grid__card:hover::before {
     color: var(--accent-text);
   }
+  /* Line-art DS en tête de carte livrable. Trait = currentColor, accent = var(--accent). */
+  .deliverables-grid__art {
+    color: var(--ink);
+    margin-bottom: var(--space-4);
+    line-height: 0;
+  }
+  .deliverables-grid__art :global(svg) {
+    width: var(--space-9);
+    height: var(--space-9);
+    max-width: 100%;
+    display: block;
+  }
+  .deliverables-grid[data-bg='ink'] .deliverables-grid__art { color: var(--paper); }
   .deliverables-grid__tag {
     display: block;
     font-family: var(--font-mono);

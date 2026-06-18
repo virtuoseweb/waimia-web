@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Probleme : l'humain qui fait le pont a la main entre deux systemes (copier-coller manuel) -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- systeme gauche -->
+    <rect x="6" y="22" width="16" height="20" rx="3"/>
+    <path d="M10 29 L18 29" stroke-width="1.4" opacity="0.55"/>
+    <!-- systeme droite -->
+    <rect x="42" y="22" width="16" height="20" rx="3"/>
+    <path d="M46 29 L54 29" stroke-width="1.4" opacity="0.55"/>
+    <!-- silhouette humaine au centre (le pont manuel) -->
+    <circle cx="32" cy="22" r="5"/>
+    <path d="M32 27 L32 38"/>
+    <!-- bras qui relient les deux systemes a la main -->
+    <path d="M32 31 L23 34"/>
+    <path d="M32 31 L41 34"/>
+    <!-- jambes -->
+    <path d="M32 38 L28 46"/>
+    <path d="M32 38 L36 46"/>
+  </g>
+  <!-- accent : la charge repetitive (fleche cyclique terracotta = il recommence sans cesse) -->
+  <g stroke="var(--accent, #C94F2E)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M26 54 A8 8 0 1 1 38 54"/>
+    <path d="M38 50 L38 55 L33 55"/>
+  </g>
+</svg>

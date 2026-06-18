@@ -703,6 +703,11 @@ export const problemsGridSchema = z.object({
         title_en: z.string(),
         body_fr: z.string(),
         body_en: z.string(),
+        // Line-art DS optionnel (Registre A) : chemin `/images/line-art/*.svg`. Inliné
+        // par FeatureGrid (currentColor + var(--accent)). alt porteur de sens → role=img.
+        illustration_src: z.string().optional(),
+        illustration_alt_fr: z.string().optional(),
+        illustration_alt_en: z.string().optional(),
       }),
     )
     .min(2)
@@ -1659,6 +1664,11 @@ export const deliverablesGridSchema = z.object({
         format_en: z.string().optional(),
         duration_fr: z.string().optional(),
         duration_en: z.string().optional(),
+        // Line-art DS optionnel (Registre A) : chemin `/images/line-art/*.svg`. Inliné
+        // par FeatureGrid (currentColor + var(--accent)). alt porteur de sens → role=img.
+        illustration_src: z.string().optional(),
+        illustration_alt_fr: z.string().optional(),
+        illustration_alt_en: z.string().optional(),
       }),
     )
     .min(2)

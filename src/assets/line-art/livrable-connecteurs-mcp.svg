@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Livrable : serveurs MCP / connecteurs -> un hub central relie a plusieurs services -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- liens hub -> services -->
+    <path d="M32 32 L14 16"/>
+    <path d="M32 32 L50 16"/>
+    <path d="M32 32 L12 44"/>
+    <path d="M32 32 L52 44"/>
+    <!-- services peripheriques (prises de connecteurs) -->
+    <rect x="6" y="10" width="14" height="12" rx="3"/>
+    <rect x="44" y="10" width="14" height="12" rx="3"/>
+    <rect x="5" y="40" width="14" height="12" rx="3"/>
+    <rect x="45" y="40" width="14" height="12" rx="3"/>
+    <!-- broches de connecteur stylisees -->
+    <path d="M11 22 L11 25" stroke-width="1.5" opacity="0.6"/>
+    <path d="M15 22 L15 25" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <!-- accent : le hub central (serveur MCP) -->
+  <circle cx="32" cy="32" r="6" fill="var(--accent, #C94F2E)"/>
+</svg>

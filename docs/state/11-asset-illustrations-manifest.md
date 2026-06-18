@@ -144,8 +144,29 @@ Tout le **cluster tomate/piment/culinaire** (8 images : `burning-boat` aussi pou
 
 ---
 
+## §5 : Statut de câblage des assets (addendum 2026-06-19)
+
+> Audit empirique : `rg -o "/images/..." src` croisé avec `public/images/`. Le but « les recycle / utilise au mieux » (Simon) vise le CÂBLAGE, pas l'import. Import ≠ service.
+
+### 5.1 État réel
+- **public/images contient 53 fichiers** (28 illustrations + 11 line-art DS + 6 themes + 3 besoins + 4 cas + 1 cases/svg). Les ~14 illustrations ÉCARTÉES du §4.2 (cluster tomate, pirate-money, spider-boss, screenshot UI, style-9 branding tiers, people-ice-cream) ont été **élaguées après import** : il reste **28** illustrations (= les GARDER + PEUT-ÊTRE), pas 42. Le §VÉRIF ci-dessous corrige le compte d'origine.
+- **Seuls 6 assets sur 53 sont réellement servis** dans une page (`rg` sur tout `src`) : `besoins/besoin-acquerir.webp`, `besoins/besoin-piloter.webp`, `besoins/besoin-operer.webp`, `themes/theme-productivite.webp`, `line-art/dispositif-flow.svg`, `cases/finance-close.svg`. → **47 orphelins.**
+
+### 5.2 Logos : ne pas importer le dossier Downloads (redondant)
+Le dossier `~/Downloads/logo a renommer…` (13 logos) est **redondant** avec `public/logos/partners/` déjà en place (`partner-claude/aws/microsoft/openai/sap/salesforce/google/github/hubspot/meta-business` + `partner-france-num`). Les Downloads sont des **variantes blanches sur transparent** → invisibles sur le marquee `paper` (clair) actuel = downgrade. Le badge **ACTIVATEUR France Num** (Downloads `marques-filles-Activateur`) existe déjà en variante sombre lisible (`partner-france-num.png`). **Décision : aucun import logo.**
+
+### 5.3 Plan de recyclage des orphelins (destinations assignées)
+- **line-art `probleme-*` (×4) + `livrable-*` (×6)** : câblés dans les slots `problems-grid` + `deliverables-grid` du flagship `integrateur-claude` (worker `lineart-wiring`, 2026-06-19). Match livrables 1:1 (6/6). 1 `probleme-*` reste en réserve.
+- **28 illustrations Registre B** : destinations par slot déjà prescrites en §4.1 + §4.3 (top 8). Servir au fil de la composition des slots éditoriaux du flagship + des autres templates (D6 / V2), PAS en dump. Priorité de câblage = le top 8 du §4.3. **Ne pas mélanger Reg. A et Reg. B sur une même page** (§4.5).
+- **themes/cas restants (9)** : à servir sur les hubs secteurs + headers d'études de cas (V2), 1:1 par sujet (table §3).
+
+### 5.4 Critère « recyclé au mieux » (validation)
+Objectif de fin de refonte : **0 asset GARDER orphelin** dans `public/images`. Mesure = `rg -o "/images/" src | sort -u | wc -l` doit couvrir tous les GARDER du §2/§3. Suivi à chaque vague.
+
+---
+
 ## §VÉRIF
-- `ls public/images/illustrations/ | wc -l` → **42** ✅ (confirmé à l'import).
-- 42 fichiers copiés + renommés web-safe, table de correspondance dans §2 (colonne `nouveau-nom`).
+- ~~`ls public/images/illustrations/ | wc -l` → 42~~ → **corrigé 2026-06-19 : 28** (les ~14 ÉCARTÉES du §4.2 ont été élaguées après import ; cf §5.1).
+- Fichiers copiés + renommés web-safe à l'import, table de correspondance dans §2 (colonne `nouveau-nom`).
 - **0 commande git**, **0 re-délégation** (tout fait par l'agent lui-même).
-- Écritures limitées à : `public/images/illustrations/*` (42 copies) + ce manifeste.
+- Écritures (import D1) limitées à : `public/images/illustrations/*` + ce manifeste. Addendum §5 (2026-06-19) = orchestrateur Opus.

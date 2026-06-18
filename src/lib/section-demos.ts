@@ -905,6 +905,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         title_en: 'FCP 4.2s. Lighthouse 34.<br/>−7% conversion per second.',
         body_fr: "WordPress avec 40 plugins : chaque visiteur attend. Chaque seconde perdue coûte 7 % de conversions. Sans IA, impossible d'automatiser les corrections.",
         body_en: 'WordPress with 40 plugins: each visitor waits. Every second lost costs 7% in conversions. Without AI, automating fixes is impossible.',
+        illustration_src: '/images/line-art/probleme-poc-qui-dort.svg',
+        illustration_alt_fr: 'Un prototype en sommeil à l\'écran',
+        illustration_alt_en: 'A prototype asleep on screen',
       },
       {
         num: '02',
@@ -1743,6 +1746,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         format_en: 'PDF',
         duration_fr: '5 jours',
         duration_en: '5 days',
+        illustration_src: '/images/line-art/livrable-tableau-mesure.svg',
+        illustration_alt_fr: 'Un tableau de bord avec une courbe de tendance',
+        illustration_alt_en: 'A dashboard with a trend curve',
       },
       {
         title_fr: 'Agent configuré',

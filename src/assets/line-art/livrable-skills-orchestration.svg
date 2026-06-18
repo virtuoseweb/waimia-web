@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Livrable : skills / orchestration -> blocs de competences assembles en chaine orchestree -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- pieces de puzzle / modules empiles (skills) -->
+    <rect x="10" y="12" width="20" height="16" rx="3"/>
+    <rect x="34" y="12" width="20" height="16" rx="3"/>
+    <rect x="10" y="36" width="20" height="16" rx="3"/>
+    <rect x="34" y="36" width="20" height="16" rx="3"/>
+    <!-- connexion d'orchestration entre modules -->
+    <path d="M30 20 L34 20"/>
+    <path d="M20 28 L20 36"/>
+    <path d="M44 28 L44 36"/>
+    <path d="M30 44 L34 44"/>
+    <!-- glyphes internes -->
+    <path d="M15 20 L25 20" stroke-width="1.4" opacity="0.5"/>
+    <path d="M39 44 L49 44" stroke-width="1.4" opacity="0.5"/>
+  </g>
+  <!-- accent : le module chef d'orchestre (skill pivot) -->
+  <rect x="34" y="12" width="20" height="16" rx="3" fill="var(--accent, #C94F2E)" stroke="none"/>
+</svg>
