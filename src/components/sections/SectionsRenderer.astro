@@ -29,8 +29,16 @@ const { sections, lang } = Astro.props;
   // section, hors-flux visuel (height:0/width:0/overflow:hidden) -> 0 impact mise en page.
   // scroll-margin-top compense le header fixe (.hdr, global scroll-padding-top: 80px).
   const anchor = (section as any).anchor;
+  const expand = (section as any).expand === true;
   // Pattern W6 : sections attendent `{ data, lang }` (pas spread props)
-  const rendered = <Component data={section as any} lang={lang} />;
+  const base = <Component data={section as any} lang={lang} />;
+  // Opt-in Container Expansion (cf sectionWithAnchorSchema.expand) : enveloppe le composant
+  // dans `.container-expand` qui recoit `--expand` 0->1 au scroll (JS container-expand.ts,
+  // CSS scroll-reveal.css:248). Neutralise mobile <=768px + reduced-motion cote CSS, donc
+  // 0 effet hors desktop. Absent/false -> rendu identique a aujourd'hui.
+  const rendered = expand ? (
+    <div class="container-expand" data-expand>{base}</div>
+  ) : base;
   if (!anchor) return rendered;
   return (
     <>

@@ -3951,6 +3951,11 @@ const sectionWithAnchorSchema = z.intersection(
       .string()
       .regex(/^[a-z0-9-]+$/, 'anchor doit etre un slug kebab-case (a-z, 0-9, tirets)')
       .optional(),
+    // Opt-in Container Expansion : enveloppe le composant rendu dans `.container-expand`
+    // (cf SectionsRenderer + scroll-reveal.css:248). Effet purement visuel pilote au scroll
+    // (JS container-expand.ts), neutralise mobile <=768px + reduced-motion. Opt-in par
+    // instance dans le `sections[]`, 0 churn composant, 0 impact si absent/false.
+    expand: z.boolean().optional(),
   }),
 );
 
