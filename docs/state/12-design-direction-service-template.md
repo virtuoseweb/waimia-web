@@ -1,0 +1,66 @@
+# 12 : Direction design consolidée — Template service §16 (doc de pilotage D4)
+
+> Issu du brainstorm multi-agents (4 lentilles : choré scroll/bridges · layouts anti-hauteur · DA/visuel · rétention UX → synthèse). Daté 2026-06-18.
+> Décisions Simon : **Registre A line-art DS partout** (générer le manquant en line-art, recolorer 2-3 illustrations B fortes pour l'éditorial) · **prune des ~15 illustrations inutilisables**.
+> Grounding : template §16 figé (16 slots), 6 primitives compositionnelles (`docs/state` audit), manifeste assets `11-asset-illustrations-manifest.md`.
+
+## 1. Direction en 5 lignes
+
+Le scroll devient un **récit de ~6 chapitres**, pas un empilement de 16 sections. On tue la hauteur sur deux fronts : (1) **compositionnel** : chaque slot se densifie/horizontalise via 6 primitives CSS pures (auto-grid, asym-split, quantity-grid `:has()`, bento span-driven, `@container`, alternating-flow), recomposant sans trous selon le nombre d'enfants ; (2) **chorégraphique** : 5 bridges (`data-expand`/`data-morph`/sticky/overlap-parallax) cousent les frontières inter-sections, rythme de reveal à 3 intensités (calme/moyen/PIC), effets coûteux réservés à 5 climax espacés. **Visuel** = line-art `currentColor` (Sumie) qui se dessine au scroll (`view()`), s'inverse gratuitement aux sections ink, 1 seul point terracotta par image. **Rétention** : mini-nav sticky chapitrée + CTA persistant unique + progressive disclosure + `[data-density='compact']`. **0 nouveau token DS, 0 nouveau module JS.**
+
+## 2. Spec par slot (5-10 + hero/architecture/études)
+
+- **Slot 1 Hero (ink)** : split-1-3 ou centré (variation A) · `reveal-split-letter` H1 (1×/page) + count-up 4 stats + grille fantôme · motif Sumie lg draw-on-scroll · sort via B1 container-expand.
+- **Slot 5 Ce qu'on met en place (paper-2, IMAGE)** : P2 asym-split média sticky / liste + P6 alternating si N≥4 · B1 container-expand OU média sticky · schéma dispositif line-art lg (à générer) · −50 % hauteur.
+- **Slot 6 Livrables (paper)** : P1 auto-grid + P3 quantity-grid anti-orphelin (remplace `pgCols` JS de `FeatureGrid.astro:30`) · reveal-stagger + disclosure hover · pictos sm · −66 % sur 6 items, 0 cellule orpheline.
+- **Slot 7 Architecture (ink)** : P4 feature-tile span-driven + `grid-auto-flow:dense` (remplace `BentoGrid.astro:75-92` figé) · B3 sticky-scrub (diagramme pin + entrées reveal-stagger) · diagramme line-art crème/noir draw-on-scroll · −50 %.
+- **Slot 8 Process (paper-2)** : P6 alternating-flow + P5 `@container` (premier usage repo) · draw-on-scroll du fil + disclosure · −40 %.
+- **Slot 9 Mesure (paper, IMAGE)** : P2 asym-split 2-1 + P4 mini-mosaïque KPI · count-up + draw courbe · B4 overlap+parallax vers 10 · promouvoir `placeholder-dashboard-site-web-intelligent.svg` · −43 %.
+- **Slot 10 Stack (ink, LOGOS)** : P1 auto-grid + P3 quantity-clamp `--logo-min` · logos masqués currentColor, 0 faux logo · −33 %.
+- **Slot 13 Études (ink, IMAGE)** : header line-art lg crème/noir · B4 overlap depuis 12 · reveal-curtain · réutiliser `cas/*.webp` Registre A.
+
+## 3. Système de bridges retenu
+
+| Bridge | Frontière | Mécanisme | Priorité |
+|---|---|---|---|
+| B1 container-expand | 1→2 (primaire) ; 5 card | `[data-expand]` + `.container-expand` | P1 (effet « waouh » réclamé) |
+| B2 scroll-morph | 3→4 | `[data-morph]` + from/to | P2 — **risque mobile, arbitrage Simon (variation D)** |
+| B3 sticky-scrub | 7↔8 | `.sticky-editorial data-sticky-track=2` | P1 (supprime 1 frontière) |
+| B4 overlap+parallax | 9→10 ; 12→13 | `margin-top` négatif + `[data-par]` | P2 |
+
+Cadence anti-fatigue : Hero split-letter → calme reveal-fade → stagger + sticky 7↔8 → count-up + overlap → stagger/fade → FAQ minimal → CTA zoom-in clôture. **Jamais 2 PICS consécutifs.**
+
+⚠️ B2 morph 3→4 cache le contenu A sur mobile (`scroll-morph.css:312`). Reco = garder 3→4 en 2 blocs empilés + reveal-fade (variation D, à confirmer Simon).
+
+## 4. Build list D4 (5 phases)
+
+**Phase 1 — Primitives CSS** (socle, 0 dépendance) : `layouts.css` `[data-layout=split-1-2/2-1]` · `grid.css` `.section-cq{container-type}` + `.qgrid:has(...)` + `@supports not selector(:has)` · `.bento-fluid` + `.span-lg/wide/sm` · utilitaire `.draw-on-scroll` (`animation-timeline:view()` + fallback reveal-blur-clip + reduced-motion).
+**Phase 2 — Refondre les figés** : `FeatureGrid.astro:30` (retirer pgCols JS→P3) · `BentoGrid.astro:75-92` (→ bento-fluid P4) · `StatsBento` (P4 + count-up) · `FeatureSplitMedia` (P2 asym + sticky) · `LogoWall.astro:79` (P3 clamp).
+**Phase 3 — Câbler bridges** : B1 hero+slot5 · B3 architecture slot7 · B4 9→10 & 12→13 · B2 après arbitrage.
+**Phase 4 — Rétention** : mini-nav sticky chapitrée + CTA persistant · `[data-density=compact]` slots secondaires · kickers numérotés + hairline terracotta · progressive disclosure.
+**Phase 5 — GF-1** : Playwright prod, revealedCount===total, `--expand` 0→1, sticky effectif, 0 erreur console, mobile états finaux.
+
+## 5. Points de VARIATION à présenter à Simon
+
+- **A Hero** : (1) motif Sumie line-art plein cadre draw-on-scroll [reco] · (2) split média+texte illustration latérale · (3) centré minimal stats, visuel discret.
+- **B Architecture** : (1) bento mosaïque dense P4 [reco] · (2) diagramme sticky-scrub narratif (+2×100vh) · (3) les deux combinés.
+- **C Bridge signature** : (1) container-expand [reco, réclamé] · (2) sticky-scrub · (3) overlap+parallax sobre.
+- **D Morph 3→4** : (1) 2 blocs empilés + reveal-fade [reco sûr] · (2) scroll-morph (cache A mobile) · (3) morph additif.
+
+## 6. Visuels à générer (SVG line-art DS prioritaire, Sumie viewBox 480×320, currentColor + 1 accent terracotta ; GPT Image 2 réservé scènes figuratives palette DS imposée)
+
+| Prio | Asset | Slot |
+|---|---|---|
+| P1 | Schéma « dispositif / comment on travaille » (avant→pendant→après) | 5 |
+| P1 | Set 3-4 pictos « problème » | 3 |
+| P1 | Set 4-6 pictos « livrables » | 6 |
+| P2 | Frise de process + pictos d'étape | 8 |
+| P2 | Diagramme architecture crème/noir (étendre `ArchitectureDiagram`) | 7 |
+| P2 | Glyphes ✓/✕ + pictos cas d'usage | 4, 11 |
+| — | Promouvoir `placeholder-dashboard-site-web-intelligent.svg` (animer) | 9 |
+| — | Réutiliser motifs secteur Sumie, `cas/*.webp`, logos masqués | 10/12/13 |
+
++ capacités transverses à créer : utilitaire `draw-on-scroll` + helper séparateur SVG paper→ink.
+
+## Garde-fous tenus
+0 nouveau token DS · 0 nouveau module JS (effets câblés `Base.astro:176-217`) · reflow-safe (transform/opacity/shadow/stroke hors-flux) · reduced-motion + mobile neutralisés CSS · ordre DOM = ordre lecteur (WCAG 1.3.2) · visuels honnêtes E-E-A-T (0 faux logo/screenshot, Registre A privilégié).

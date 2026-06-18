@@ -54,6 +54,8 @@ Ordre de lecture :
 2. `design-system/02-catalogue.md` — catalogue des sections (gros).
 3. `archive/08-component-library.md` — bibliothèque atomique.
 4. `design-system/03-library-strategy.md` — stratégie 1000+ presets (#14). **Exécution = `state/02` PHASE P2 + `state/05-design-refonte`.**
+5. `state/11-asset-illustrations-manifest.md` : catalogue des visuels par la vision (42 illustrations importées + assets DS existants), verdict garder/écarter, recommandation cohérence Registre A (line-art DS) vs Registre B (rétro importé).
+6. `state/12-design-direction-service-template.md` : direction design consolidée du template service (brainstorm multi-agents), doc pilote D4 (primitives compositionnelles, 5 bridges, visuels SVG line-art à générer).
 
 ### 🔧 Mission technique (archi / standards)
 `architecture/01-standards-patterns.md`, `archive/07-component-patterns.md`,
