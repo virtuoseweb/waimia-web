@@ -319,6 +319,79 @@ const lp = defineCollection({
   }),
 });
 
+// ─── Collections v7 (refonte SEO/GEO) ───
+const casUsages = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/cas-usages' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
+const demonstrations = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/demonstrations' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
+const implantations = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/implantations' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
+const guides = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/guides' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
+const diagnostics = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/diagnostics' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
+const comparatifs = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/comparatifs' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
+const audits = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/audits' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
+const pagesLocales = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/pages-locales' }),
+  schema: z.object({
+    ...baseFields,
+    ...taxonomyFields,
+    sections: sectionsArraySchema.optional(),
+  }),
+});
+
 // ─── Technologies : collection RETIRÉE (SEO état final §0ter) ───
 // Le contenu claude-models a migré vers la page d'autorité composable
 // src/pages/expertise-claude.astro. Plus aucun MDX, plus aucun consommateur.
@@ -674,4 +747,13 @@ export const collections = {
   // ADR-003 (2026-06-13) : services + landings
   services,
   lp,
+  // V7 (refonte SEO/GEO)
+  'cas-usages': casUsages,
+  demonstrations,
+  implantations,
+  guides,
+  diagnostics,
+  comparatifs,
+  audits,
+  'pages-locales': pagesLocales,
 };
