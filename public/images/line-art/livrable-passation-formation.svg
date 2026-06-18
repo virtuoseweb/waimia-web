@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Livrable : passation / formation -> transmission de savoir d'une personne a une autre -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- personne 1 (qui transmet) -->
+    <circle cx="16" cy="18" r="6"/>
+    <path d="M16 24 C9 24 6 30 6 38 L26 38 C26 32 24 27 19 25" stroke-width="2"/>
+    <!-- personne 2 (qui recoit) -->
+    <circle cx="48" cy="18" r="6"/>
+    <path d="M48 24 C41 24 38 30 38 38 L58 38 C58 32 56 27 51 25" stroke-width="2"/>
+    <!-- document / savoir transmis -->
+    <path d="M27 48 L37 48"/>
+    <path d="M27 48 L27 56 L37 56 L37 48" />
+    <path d="M30 52 L34 52" stroke-width="1.4" opacity="0.55"/>
+  </g>
+  <!-- accent : la fleche de transmission (le savoir passe de l'un a l'autre) -->
+  <g stroke="var(--accent, #C94F2E)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M26 16 L40 16"/>
+    <path d="M35 11 L40 16 L35 21"/>
+  </g>
+</svg>

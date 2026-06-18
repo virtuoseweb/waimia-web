@@ -301,6 +301,60 @@ a.link-hairline:focus-visible {
 .sticky-editorial[data-sticky-track='3'] { --sticky-track: 3; }
 .sticky-editorial[data-sticky-track='4'] { --sticky-track: 4; }
 
+/* ── P5 container-section · expose la LARGEUR de la section comme contexte de
+   requête (@container), pour que ses enfants réagissent à l'espace réel dont
+   ils disposent — pas au viewport. Premier usage @container du repo.
+   Usage côté composant : poser .section-cq sur le wrapper, puis interroger
+   sa largeur dans le composant :
+     .section-cq { container-type: inline-size; }   (déclaré ici)
+     @container (min-width: 60rem) { .mon-bloc { … } } (dans le composant/section)
+   inline-size = ne contraint que l'axe horizontal (pas la hauteur) → 0 effet de
+   bord sur le flux vertical. */
+.section-cq { container-type: inline-size; }
+
+/* ── draw-on-scroll · tracé SVG line-art qui se dessine au scroll. À poser sur
+   le <path>/<svg> ou un élément avec un stroke. Le trait part masqué
+   (dashoffset = longueur) et se révèle (offset → 0) au fil de la progression de
+   vue de l'élément (animation-timeline: view()). Scroll-driven pur, 0 JS.
+   --draw-len = longueur du tracé (défaut généreux ; un SVG peut surcharger
+   inline via style="--draw-len: 1200" si sa vraie longueur diffère).
+   Durées reprises du scale --dur-* (ici cosmétique : view() pilote la
+   progression, la durée sert de base au moteur). */
+@supports (animation-timeline: view()) {
+  .draw-on-scroll {
+    stroke-dasharray: var(--draw-len, 1000);
+    stroke-dashoffset: var(--draw-len, 1000);
+    animation: draw-stroke var(--dur-reveal) linear both;
+    /* Démarre quand l'élément entre par le bas, finit avant qu'il sorte par le
+       haut → tracé complété pendant la lecture (pas à la toute fin du scroll). */
+    animation-timeline: view();
+    animation-range: entry 10% cover 60%;
+  }
+  @keyframes draw-stroke {
+    to { stroke-dashoffset: 0; }
+  }
+}
+
+/* Fallback · moteur sans scroll-driven animations → on réutilise un reveal
+   existant (blur + lift), basculé par l'IntersectionObserver (.is-visible/.in)
+   comme tout le système reveal. Le tracé n'est pas « dessiné » mais l'élément
+   apparaît proprement (jamais un SVG vide/coupé). */
+@supports not (animation-timeline: view()) {
+  .draw-on-scroll {
+    opacity: 0;
+    filter: blur(8px);
+    transition:
+      opacity var(--dur-reveal) var(--ease-out, var(--ease-out)),
+      filter var(--dur-reveal) var(--ease-out, var(--ease-out));
+    will-change: opacity, filter;
+  }
+  .draw-on-scroll.is-visible,
+  .draw-on-scroll.in {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
 @media (max-width: 768px) {
   /* Mobile : aucun effet scroll-driven — etat final, flux normal. */
   .container-expand {
@@ -313,6 +367,13 @@ a.link-hairline:focus-visible {
   .scroll-morph__to { opacity: 1; transform: none; }
   .sticky-editorial[data-sticky-track] { height: auto; }
   .sticky-editorial__pin { position: static; min-height: 0; }
+  /* draw-on-scroll mobile · tracé final dessiné, pas d'animation au scroll. */
+  .draw-on-scroll {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    filter: none;
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -326,4 +387,12 @@ a.link-hairline:focus-visible {
   .scroll-morph__to { opacity: 1; transform: none; }
   .sticky-editorial[data-sticky-track] { height: auto; }
   .sticky-editorial__pin { position: static; min-height: 0; }
+  /* draw-on-scroll reduced-motion · tracé final dessiné d'emblée (offset 0),
+     aucune animation. */
+  .draw-on-scroll {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    filter: none;
+    animation: none;
+  }
 }

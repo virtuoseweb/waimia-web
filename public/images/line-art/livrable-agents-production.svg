@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Livrable : agents en production -> un agent actif, en marche, avec statut OK -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- "tete" d'agent (cartouche logiciel) -->
+    <rect x="16" y="12" width="32" height="26" rx="6"/>
+    <!-- antenne -->
+    <path d="M32 12 L32 7"/>
+    <circle cx="32" cy="5" r="2" fill="currentColor" stroke="none"/>
+    <!-- yeux / capteurs -->
+    <circle cx="25" cy="25" r="2.4"/>
+    <circle cx="39" cy="25" r="2.4"/>
+    <!-- socle / processus en cours -->
+    <path d="M22 44 L42 44"/>
+    <path d="M26 44 L26 50"/>
+    <path d="M38 44 L38 50"/>
+    <path d="M22 56 L42 56" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  <!-- accent : pastille de statut "en production / live" -->
+  <circle cx="46" cy="14" r="4" fill="var(--accent, #C94F2E)"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Probleme : donnees eparpillees -> documents / fragments disperses sans structure -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- fragments de documents disperses, angles varies -->
+    <rect x="10" y="12" width="16" height="20" rx="2"/>
+    <rect x="38" y="10" width="16" height="20" rx="2" transform="rotate(10 46 20)"/>
+    <rect x="8" y="38" width="16" height="20" rx="2" transform="rotate(-8 16 48)"/>
+    <rect x="36" y="38" width="16" height="20" rx="2" transform="rotate(6 44 48)"/>
+    <!-- lignes de texte dans chaque fragment -->
+    <path d="M14 19 L22 19" stroke-width="1.4" opacity="0.5"/>
+    <path d="M14 24 L20 24" stroke-width="1.4" opacity="0.5"/>
+    <path d="M42 18 L50 18" stroke-width="1.4" opacity="0.5"/>
+    <path d="M13 45 L21 45" stroke-width="1.4" opacity="0.5"/>
+    <path d="M41 46 L49 46" stroke-width="1.4" opacity="0.5"/>
+  </g>
+  <!-- accent : point isole (la donnee perdue qu'on ne retrouve pas) -->
+  <circle cx="32" cy="33" r="3.4" fill="var(--accent, #C94F2E)"/>
+</svg>
