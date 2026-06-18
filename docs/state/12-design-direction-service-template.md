@@ -76,5 +76,34 @@ Décision de câblage (catalogue-pur, opt-in déclaratif, 0 markup orphelin) :
 
 ⚠️ Séquence : le point 1 touche `sections.ts` donc s'exécute APRÈS réconciliation du lot 2b (qui édite `sections.ts` en parallèle). Re-lire le `sectionWithAnchorSchema` réconcilié avant d'ajouter `expand`.
 
+## D6 : blueprint de composition flagship (§16, 16 slots), 2026-06-18
+
+Recomposition de `src/content/services/integrateur-claude.mdx` sur l'ordre §16, avec alternance Paper↔Ink (ink ancre les slots 1/7/10/13/16), bridges expand, images line-art déjà générées, sections content-driven de la Phase 2. Le contenu existant (validé) est réutilisé, réordonné et complété (slots manquants 4/5/7/11/12/14).
+
+| # | Slot §16 | Type de section | Fond | Effet/bridge | Image line-art | Source contenu |
+|---|---|---|---|---|---|---|
+| 1 | Hero | hero-conversion-funnel `variant:split` | ink | exit container-expand vers 2 | media latéral (worker D6-Hero) | existant (slot 1) |
+| 2 | Définition courte (LLM) | direct-answer | paper | reveal calme | · | existant |
+| 3 | Problèmes | problems-grid (content-driven) | paper-2 | reveal-stagger | 4 `probleme-*.svg` en pictos | existant |
+| 4 | Pour qui / pas pour qui | commitments-grid OU versus 2-col | paper | reveal | glyphes ✓/✕ | à rédiger (court) |
+| 5 | Ce qu'on met en place | feature-split-media `layout:split-1-2` | paper-2 | `expand:true` + média sticky | `dispositif-flow.svg` lg | existant (tech-positioning) |
+| 6 | Livrables | deliverables-grid (content-driven) | paper | reveal-stagger + disclosure | 6 `livrable-*.svg` pictos | existant |
+| 7 | Architecture | bento-grid dense (span) | ink | reveal-stagger | (diagramme P2, futur) | existant (tech-positioning) |
+| 8 | Process | method-timeline | paper-2 | draw-on-scroll du fil | (frise P2, futur) | existant |
+| 9 | Mesure & analytics | stats-bento (vedette span-wide) | paper | count-up + overlap vers 10 | `placeholder-dashboard-*.svg` | existant |
+| 10 | Stack | logo-marquee/logo-wall (clamp) | ink | · | logos masqués currentColor | existant |
+| 11 | Cas d'usage liés | case-card-grid OU maillage cards | paper-2 | reveal | · | maillage (cas-usages) |
+| 12 | Secteurs liés | maillage cards | paper | reveal | · | maillage (secteurs) |
+| 13 | Études de cas | case-card-grid | ink | overlap depuis 12 | header line-art | existant |
+| 14 | Ressources liées | maillage cards | paper-2 | reveal | · | maillage (guides/outils) |
+| 15 | FAQ | faq-two-column | paper | reveal minimal | · | existant |
+| 16 | CTA | footer-cta-band | ink | reveal-zoom-in clôture | · | existant |
+
+Extras à replacer (hors séquence §16 stricte, conservés pour E-E-A-T/conversion) : `author-byline` + `about-story-split` (bloc auteur/cabinet, avant FAQ), `pricing-cards` (paliers, après livrables ou avant CTA), `versus-competitors` (peut servir le slot 4 « pas pour qui » ou un comparatif court). Maillage interne §16 obligatoire = slots 11/12/13/14 pointent vers les collections cas-usages/secteurs/etudes-de-cas/ressources.
+
+Règle d'alternance : jamais 2 ink consécutifs ; ink = climax (hero, architecture, stack, études, CTA). Expand réservé au slot 5 (B1) ; pas d'expand en cascade (1 effet « waouh » par chapitre, doc §3 cadence).
+
+⚠️ Séquence D6 : ce fichier MDX est en cours d'édition par le worker D6-Hero (slot 1). Composer les slots 2-16 APRÈS retour du worker (collision même fichier). Re-lire le frontmatter réconcilié avant d'éditer.
+
 ## Garde-fous tenus
 0 nouveau token DS · 0 nouveau module JS (effets câblés `Base.astro:176-217`) · reflow-safe (transform/opacity/shadow/stroke hors-flux) · reduced-motion + mobile neutralisés CSS · ordre DOM = ordre lecteur (WCAG 1.3.2) · visuels honnêtes E-E-A-T (0 faux logo/screenshot, Registre A privilégié).
