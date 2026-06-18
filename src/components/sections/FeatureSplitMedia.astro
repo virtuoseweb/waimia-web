@@ -16,7 +16,12 @@ const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
 const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
 ---
 
-<section class="feature-split sec-base" data-bg={data.background} data-reversed={data.reversed ? 'true' : 'false'}>
+<section
+  class:list={['feature-split sec-base', { 'feature-split--sticky-media': data.media_sticky }]}
+  data-bg={data.background}
+  data-reversed={data.reversed ? 'true' : 'false'}
+  data-layout={data.layout}
+>
   <div class="wrap-wide feature-split__grid">
     <div class="feature-split__copy">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -53,12 +58,16 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
 </section>
 
 <style>
+  /* Grille : consomme --sec-grid posé par data-layout (layouts.css, presets
+     split-1-2 / split-2-1). Absent → ratio symétrique 1fr 1fr (défaut historique). */
   .feature-split__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: var(--sec-grid, 1fr 1fr);
     gap: clamp(var(--space-8), 6vw, var(--space-12));
     align-items: center;
   }
+  /* Inversion visuelle locale (cas sans data-layout / ratio symétrique). Pour les
+     paires asym, layouts.css gère aussi [data-reversed] sur les enfants directs. */
   .feature-split[data-reversed='true'] .feature-split__copy { order: 2; }
   .feature-split[data-reversed='true'] .feature-split__media { order: 1; }
   .feature-split__copy {
@@ -116,6 +125,18 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+  }
+  /* Variante sticky (opt-in) : le média colle en haut pendant le scroll du texte
+     plus long. Bascule l'alignement de la grille sur start pour que sticky ait
+     un effet, et fige le média à top var(--space-7). Défaut (absent) = inchangé. */
+  .feature-split--sticky-media .feature-split__grid { align-items: start; }
+  .feature-split--sticky-media .feature-split__media {
+    position: sticky;
+    top: var(--space-7);
+  }
+  @media (max-width: 860px) {
+    /* Empilé : pas de sticky (le média précède/suit le texte, plus de colonne). */
+    .feature-split--sticky-media .feature-split__media { position: static; }
   }
   .feature-split__frame {
     border: 1px solid var(--hairline);

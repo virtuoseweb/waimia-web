@@ -76,7 +76,10 @@ const logos = data.logos ?? [];
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    /* Content-driven sûr : `min(100%, 140px)` borne la piste à la largeur du conteneur
+       → 0 débordement horizontal quand le conteneur est plus étroit que 140px, et
+       jamais de logo étiré full-width à 1-2 enfants. 140px = borne STRUCTURELLE de piste. */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
     gap: 0;
   }
 
@@ -129,7 +132,7 @@ const logos = data.logos ?? [];
 
   @media (max-width: 768px) {
     .logo-wall__grid {
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 110px), 1fr));
     }
   }
 

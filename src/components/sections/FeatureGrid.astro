@@ -22,16 +22,14 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
-const dgCols = data.type === 'deliverables-grid' ? Math.min(data.items.length, 4) : 3;
-// problems-grid : nombre de colonnes piloté par le nombre de cartes pour éviter
-// les cellules orphelines (4 cartes en 3 colonnes laissaient une demi-rangée vide,
-// remplie par le fond de grille → grand rectangle gris). 4 → 2×2, 3/6 → 3, sinon 2.
-const pgCount = data.type === 'problems-grid' ? data.problems.length : 0;
-const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
+// deliverables-grid et problems-grid : la recomposition selon le nombre de cartes
+// (anti-orpheline) est désormais portée par du CSS structurel scopé (`:has(> :nth-child)`)
+// au lieu d'un calcul JS couplé à `data.*.length`. Voir les blocs `.problems-grid__cards`
+// et `.deliverables-grid__grid` ci-dessous. Aucune custom property de colonnes injectée.
 ---
 
 {data.type === 'problems-grid' ? (
-  <section class="problems-grid wrap-wide reveal-blur-clip" data-bg={data.background} style={`--problems-grid-cols: ${pgCols}`}>
+  <section class="problems-grid wrap-wide reveal-blur-clip" data-bg={data.background}>
     <h2 class="problems-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
     <div class="problems-grid__cards">
       {data.problems.map((p, i) => (
@@ -45,7 +43,7 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
     </div>
   </section>
 ) : data.type === 'deliverables-grid' ? (
-  <section class="deliverables-grid" data-bg={data.background} style={`--deliverables-grid-cols: ${dgCols}`}>
+  <section class="deliverables-grid" data-bg={data.background}>
     <div class="wrap-wide">
       <header class="deliverables-grid__hd">
         <Kicker as="span" tone="accent" class="deliverables-grid__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -211,18 +209,43 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   }
   .problems-grid__cards {
     display: grid;
-    grid-template-columns: repeat(var(--problems-grid-cols, 3), 1fr);
+    /* Content-driven : 3 colonnes par défaut, recomposé par compte exact via :has()
+       ci-dessous pour éviter la cellule orpheline (le fond gris de la grille comblait
+       la demi-rangée vide). Le look hairline (gap 1px + fond + bordure) est préservé :
+       seule la répartition des colonnes change selon le nombre de cartes. */
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: rgba(var(--ink-rgb), .08);
     border: 1px solid var(--hairline);
     border-radius: var(--radius-xs);
     overflow: hidden;
   }
+  @supports selector(:has(*)) {
+    /* Exactement 4 cartes → 2×2 net (au lieu de 3 + 1 orpheline). */
+    .problems-grid__cards:has(> :nth-child(4):last-child) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    /* Exactement 5 cartes → 6 sous-colonnes ; chaque carte occupe 2 (3 en haut),
+       les 2 dernières sont centrées (2 en bas) pour combler la rangée sans orpheline. */
+    .problems-grid__cards:has(> :nth-child(5):last-child) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .problems-grid__cards:has(> :nth-child(5):last-child) > * { grid-column: span 2; }
+    .problems-grid__cards:has(> :nth-child(5):last-child) > :nth-child(4) { grid-column: 2 / span 2; }
+    .problems-grid__cards:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: 4 / span 2; }
+  }
   @media (max-width: 900px) {
-    .problems-grid__cards { grid-template-columns: repeat(2, 1fr); }
+    .problems-grid__cards,
+    .problems-grid__cards:has(> :nth-child(4):last-child),
+    .problems-grid__cards:has(> :nth-child(5):last-child) { grid-template-columns: repeat(2, 1fr); }
+    .problems-grid__cards:has(> :nth-child(5):last-child) > *,
+    .problems-grid__cards:has(> :nth-child(5):last-child) > :nth-child(4),
+    .problems-grid__cards:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: auto; }
   }
   @media (max-width: 560px) {
-    .problems-grid__cards { grid-template-columns: 1fr; }
+    .problems-grid__cards,
+    .problems-grid__cards:has(> :nth-child(4):last-child),
+    .problems-grid__cards:has(> :nth-child(5):last-child) { grid-template-columns: 1fr; }
   }
   .problems-grid__card {
     background: var(--paper);
@@ -306,8 +329,24 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
   .deliverables-grid__grid {
     counter-reset: deliverable-counter;
     display: grid;
-    grid-template-columns: repeat(var(--deliverables-grid-cols, 3), 1fr);
+    /* Content-driven : 3 colonnes par défaut, recomposé par compte exact via :has()
+       ci-dessous pour éviter la cellule orpheline. Le rythme éditorial (gap 0 + border-top
+       par carte) est préservé : seule la répartition des colonnes change selon le nombre. */
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
+  }
+  @supports selector(:has(*)) {
+    /* Exactement 4 cartes → 2×2 (au lieu de 3 + 1 orpheline). */
+    .deliverables-grid__grid:has(> :nth-child(4):last-child) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    /* Exactement 5 cartes → 6 sous-colonnes : 3 en haut (span 2), 2 centrées en bas. */
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) > * { grid-column: span 2; }
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) > :nth-child(4) { grid-column: 2 / span 2; }
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: 4 / span 2; }
   }
   .deliverables-grid__card {
     position: relative;
@@ -374,12 +413,19 @@ const pgCols = pgCount % 3 === 0 ? 3 : pgCount % 2 === 0 ? 2 : 2;
     transform: translateX(1px);
   }
   @media (max-width: 900px) {
-    .deliverables-grid__grid {
+    .deliverables-grid__grid,
+    .deliverables-grid__grid:has(> :nth-child(4):last-child),
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) {
       grid-template-columns: repeat(2, 1fr);
     }
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) > *,
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) > :nth-child(4),
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: auto; }
   }
   @media (max-width: 640px) {
-    .deliverables-grid__grid {
+    .deliverables-grid__grid,
+    .deliverables-grid__grid:has(> :nth-child(4):last-child),
+    .deliverables-grid__grid:has(> :nth-child(5):last-child) {
       grid-template-columns: 1fr;
     }
     .deliverables-grid__card {

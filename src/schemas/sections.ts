@@ -1743,7 +1743,10 @@ export const problemStatementSchema = z.object({
 
 /* ─── Sections catalogue · variations (12 nouveaux types) ─── */
 
-// Mosaïque bento asymétrique de 5 cellules (1 grande 2x2 + 4 petites)
+// Mosaïque bento content-driven (N tuiles 3..8) : chaque tuile peut occuper
+// plusieurs cellules via `span` (primitive .bento-fluid + .span-*). Défaut côté
+// composant : 1ʳᵉ tuile = `lg` (vedette 2×2), les autres = `sm` → reproduit
+// l'intention « cellule 1 vedette » tout en s'adaptant à tout nombre de tuiles.
 export const bentoGridSchema = z.object({
   type: z.literal('bento-grid'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
@@ -1757,7 +1760,8 @@ export const bentoGridSchema = z.object({
     title_en: z.string(),
     body_fr: z.string(),
     body_en: z.string(),
-  })).min(5).max(5),
+    span: z.enum(['lg', 'wide', 'sm']).optional(),
+  })).min(3).max(8),
 });
 
 // Lignes alternées visuel/texte (gauche-droite, droite-gauche)
@@ -1966,7 +1970,9 @@ export const statsBentoSchema = z.object({
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
-  stats: z.array(statsBentoItemSchema).min(4).max(4),
+  // Nombre de stats variable (2..6) : la grille bento est désormais content-driven
+  // (1ʳᵉ stat = tuile vedette span-lg, les autres span-sm) → 0 trou à tout compte.
+  stats: z.array(statsBentoItemSchema).min(2).max(6),
 });
 
 // Deux cartes côte à côte (Sans / Avec) — contraste avant/après
@@ -3384,6 +3390,14 @@ export const featureSplitMediaSchema = z.object({
   type: z.literal('feature-split-media'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   reversed: z.boolean().default(false),
+  // Paire asymétrique optionnelle (primitive layouts.css) : split-1-2 = texte
+  // étroit + média large, split-2-1 = l'inverse. Absent → ratio symétrique 1fr 1fr
+  // (défaut historique préservé). `reversed` mappe sur data-reversed (inversion
+  // visuelle seule, ordre DOM = ordre de lecture, WCAG 1.3.2).
+  layout: z.enum(['split-1-2', 'split-2-1']).optional(),
+  // Média sticky (effet éditorial quand le texte est plus long que le média).
+  // Absent/false → alignement centré historique préservé.
+  media_sticky: z.boolean().optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),

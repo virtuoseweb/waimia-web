@@ -10,7 +10,9 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 
 const stats = data.stats ?? [];
-// La cellule 0 est toujours la grande cellule (bento--hero)
+// Span content-driven : 1ʳᵉ stat = tuile vedette (lg, chiffre géant invert),
+// les autres = unité (sm). S'adapte à 2..6 stats via .bento-fluid sans trou.
+const spanClass = (i: number): string => (i === 0 ? 'span-lg' : 'span-sm');
 ---
 
 <section class="stats-bento sec-base" data-bg={data.background}>
@@ -22,9 +24,9 @@ const stats = data.stats ?? [];
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
-    <ul class="stats-bento__grid reveal-stagger" aria-label={isFr ? 'Indicateurs clés' : 'Key metrics'}>
+    <ul class="stats-bento__grid bento-fluid reveal-stagger" aria-label={isFr ? 'Indicateurs clés' : 'Key metrics'}>
       {stats.map((stat: (typeof stats)[number], i: number) => (
-        <li class={`stats-bento__cell stats-bento__cell--${i + 1}`}>
+        <li class={`stats-bento__cell ${spanClass(i)}`}>
           <span class="stats-bento__number" aria-label={isFr ? stat.label_fr : stat.label_en}>
             {stat.value}
           </span>
@@ -69,20 +71,16 @@ const stats = data.stats ?? [];
     margin-bottom: var(--spacing-block);
   }
 
-  /* ─── Grille bento 4 KPI ───────────────────────────────────────
-     Cellule 1 (hero) : grande, col 1-2 / row 1-2, chiffre geant
-     Cellule 2 : col 3 / row 1
-     Cellule 3 : col 3 / row 2
-     Cellule 4 : col 1-3 / row 3, bandeau bas pleine largeur
+  /* ─── Grille bento content-driven (2..6 KPI) ───────────────────
+     .bento-fluid (grid.css) place les tuiles via auto-fill + auto-flow:dense ;
+     la 1ʳᵉ stat reçoit span-lg (vedette, chiffre géant invert), les autres
+     span-sm. Aucune position figée → 0 trou quel que soit le nombre de stats.
   ─────────────────────────────────────────────────────────────── */
   .stats-bento__grid {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto auto;
-    gap: var(--space-4);
+    --tile-min: 14rem;
   }
 
   .stats-bento__cell {
@@ -103,53 +101,28 @@ const stats = data.stats ?? [];
     box-shadow: var(--shadow-card-hover);
   }
 
-  /* Cellule hero : grande, col 1-2, row 1-2 */
-  .stats-bento__cell--1 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
+  /* Tuile vedette (span-lg) : fond ink, chiffre géant invert, ancrée en bas. */
+  .stats-bento__cell.span-lg {
     padding: var(--space-9);
     gap: var(--space-3);
     justify-content: flex-end;
     background: var(--ink);
   }
 
-  /* Cellule hero : chiffre geant invert */
-  .stats-bento__cell--1 .stats-bento__number {
+  .stats-bento__cell.span-lg .stats-bento__number {
     font-size: var(--text-h1);
     color: var(--paper);
     line-height: var(--leading-h2);
   }
 
-  .stats-bento__cell--1 .stats-bento__delta {
+  .stats-bento__cell.span-lg .stats-bento__delta {
     color: var(--accent-text);
   }
 
-  .stats-bento__cell--1 .stats-bento__label {
+  .stats-bento__cell.span-lg .stats-bento__label {
     color: var(--paper);
     opacity: 0.65;
     font-size: var(--text-body);
-  }
-
-  /* Cellules secondaires col 3 */
-  .stats-bento__cell--2 { grid-column: 3; grid-row: 1; }
-  .stats-bento__cell--3 { grid-column: 3; grid-row: 2; }
-
-  /* Cellule bandeau bas, pleine largeur */
-  .stats-bento__cell--4 {
-    grid-column: 1 / 4;
-    grid-row: 3;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-5);
-  }
-
-  .stats-bento__cell--4 .stats-bento__number {
-    font-size: var(--text-h2);
-    flex-shrink: 0;
-  }
-
-  .stats-bento__cell--4 .stats-bento__label {
-    flex: 1;
   }
 
   /* ─── Typo commune ─── */
@@ -179,50 +152,11 @@ const stats = data.stats ?? [];
     margin: 0;
   }
 
-  /* ─── Responsive ─── */
+  /* ─── Responsive ───
+     Géré par .bento-fluid (grid.css) : auto-fill descend les pistes selon la
+     largeur, et < 768px tout s'empile en 1 colonne (spans neutralisés). Aucune
+     media query par cran à maintenir ici. */
 
-  /* Tablette : 2 colonnes */
-  @media (min-width: 640px) and (max-width: 1023px) {
-    .stats-bento__grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-    }
-
-    .stats-bento__cell--1 {
-      grid-column: 1 / 3;
-      grid-row: 1;
-    }
-
-    .stats-bento__cell--2 { grid-column: 1; grid-row: 2; }
-    .stats-bento__cell--3 { grid-column: 2; grid-row: 2; }
-
-    .stats-bento__cell--4 {
-      grid-column: 1 / 3;
-      grid-row: 3;
-    }
-  }
-
-  /* Mobile : 1 colonne empilee */
-  @media (max-width: 639px) {
-    .stats-bento__grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-      gap: var(--space-3);
-    }
-
-    .stats-bento__cell--1,
-    .stats-bento__cell--2,
-    .stats-bento__cell--3,
-    .stats-bento__cell--4 {
-      grid-column: 1;
-      grid-row: auto;
-    }
-
-    .stats-bento__cell--4 {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .stats-bento[data-bg='paper-2'] { background: var(--paper-2); }
   .stats-bento[data-bg='paper-3'] { background: var(--paper-3); }
@@ -245,8 +179,8 @@ const stats = data.stats ?? [];
   .stats-bento[data-bg='ink'] .stats-bento__cell .stats-bento__number {
     color: var(--paper);
   }
-  /* Cellule hero : la plus sombre, distincte des secondaires --ink-2 */
-  .stats-bento[data-bg='ink'] .stats-bento__cell--1 {
+  /* Tuile vedette : la plus sombre, distincte des secondaires --ink-2 */
+  .stats-bento[data-bg='ink'] .stats-bento__cell.span-lg {
     background: var(--ink);
   }
 </style>
