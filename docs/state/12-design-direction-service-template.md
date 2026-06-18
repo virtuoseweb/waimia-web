@@ -62,5 +62,19 @@ Cadence anti-fatigue : Hero split-letter → calme reveal-fade → stagger + sti
 
 + capacités transverses à créer : utilitaire `draw-on-scroll` + helper séparateur SVG paper→ink.
 
+## Phase 3 : câblage des effets morts (spec exécutable, 2026-06-18)
+
+Constat vérifié (GF-4, `rg`) : `[data-expand]` et `[data-morph]` ont **0 consumer dans le markup**. CSS (`.container-expand`, `.scroll-morph__from/__to` dans `scroll-reveal.css:248-278`) + JS (`container-expand.ts`, `scroll-morph.ts`) + init (`Base.astro:176-186`) sont prêts. Seul le câblage markup manque, d'où « je vois pas les effets ».
+
+Contrats minimaux :
+- Container Expansion : `class="container-expand" data-expand` sur l'élément (reçoit `--expand` 0→1, interpole marge/radius/scale). Neutralisé mobile <=768px + reduced-motion.
+- Scroll Morph : parent `class="scroll-morph" data-morph` + 2 enfants superposés `.scroll-morph__from` (A) / `.scroll-morph__to` (B).
+
+Décision de câblage (catalogue-pur, opt-in déclaratif, 0 markup orphelin) :
+1. **Container Expansion = opt-in générique par frontmatter.** Ajouter `expand: z.boolean().optional()` dans `sectionWithAnchorSchema` (`sections.ts:3937`, le wrapper d'intersection qui porte déjà `anchor` sans toucher les 151 variantes). `SectionsRenderer` enveloppe le `<Component>` dans `<div class="container-expand" data-expand>` si `section.expand === true`. 1 point de câblage, 0 churn composant, opt-in par instance dans le `sections[]` du flagship.
+2. **Scroll Morph = section-bridge dédiée** (2 enfants from/to = contenu spécifique) à composer en D6 sur le flagship (ex. transition « avant / après » entre 2 slots du §16), pas un opt-in générique.
+
+⚠️ Séquence : le point 1 touche `sections.ts` donc s'exécute APRÈS réconciliation du lot 2b (qui édite `sections.ts` en parallèle). Re-lire le `sectionWithAnchorSchema` réconcilié avant d'ajouter `expand`.
+
 ## Garde-fous tenus
 0 nouveau token DS · 0 nouveau module JS (effets câblés `Base.astro:176-217`) · reflow-safe (transform/opacity/shadow/stroke hors-flux) · reduced-motion + mobile neutralisés CSS · ordre DOM = ordre lecteur (WCAG 1.3.2) · visuels honnêtes E-E-A-T (0 faux logo/screenshot, Registre A privilégié).
