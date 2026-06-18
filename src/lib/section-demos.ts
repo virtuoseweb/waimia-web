@@ -735,6 +735,10 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   },
   'hero-conversion-funnel': {
     type: 'hero-conversion-funnel',
+    variant: 'split',
+    media_src: '/images/line-art/dispositif-flow.svg',
+    media_alt_fr: 'Schéma : outils dispersés, orchestration centrale, résultat mesuré',
+    media_alt_en: 'Diagram: scattered tools, central orchestration, measured result',
     funnel_num: '01',
     h1_fr: 'Site web <i>IA-first</i>.<br/>Leads automatisés.',
     h1_en: 'AI-first <i>website</i>.<br/>Automated leads.',

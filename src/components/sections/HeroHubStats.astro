@@ -43,8 +43,124 @@ const isFr = lang === 'fr';
 const isPillar = data.type === 'hero-pillar-hub';
 const cfWrapStyle = wrapMaxWidth ? `max-width:${wrapMaxWidth}` : undefined;
 const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-conversion-funnel__num';
+// Variant de traitement (split | sumie | minimal). `undefined` = rendu catalogue
+// d'origine (branche par défaut ci-dessous, byte-identique à avant).
+const cfVariant = data.type === 'hero-conversion-funnel' ? data.variant : undefined;
+const cfMediaAlt =
+  data.type === 'hero-conversion-funnel'
+    ? (isFr ? (data.media_alt_fr ?? '') : (data.media_alt_en ?? data.media_alt_fr ?? ''))
+    : '';
 ---
-{data.type === 'hero-conversion-funnel' ? (
+{data.type === 'hero-conversion-funnel' && cfVariant ? (
+<section class:list={['hero-conversion-funnel', `hero-conversion-funnel--${cfVariant}`]} data-bg={data.background} data-variant={cfVariant}>
+  <div class="wrap-wide" style={cfWrapStyle}>
+    {cfVariant === 'split' ? (
+      <div class="hero-cf-split" data-layout="split-2-1">
+        <div class="hero-cf-split__text">
+          <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
+          <h1 class="hero-conversion-funnel__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
+          <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
+          {data.meta_pills && data.meta_pills.length > 0 && (
+            <div class="hero-conversion-funnel__meta reveal-stagger" aria-label={isFr ? "Repères de l'offre" : 'Offer markers'}>
+              {data.meta_pills.map((pill) => (
+                <span>{isFr ? pill.label_fr : pill.label_en}</span>
+              ))}
+            </div>
+          )}
+          <div class="hero-conversion-funnel__cta">
+            <Button href={data.cta_primary.href} variant="primary" size="lg" mag={0.18}>
+              {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+            </Button>
+            {data.cta_secondary && (
+              <Button href={data.cta_secondary.href} variant="ghost" size="lg">
+                {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+              </Button>
+            )}
+          </div>
+        </div>
+        {data.media_src && (
+          <div class="hero-cf-split__media reveal-fade reveal">
+            <img src={data.media_src} alt={cfMediaAlt} loading="eager" decoding="async" width="480" height="320" />
+          </div>
+        )}
+      </div>
+    ) : cfVariant === 'minimal' ? (
+      <div class="hero-cf-minimal">
+        <Kicker tone="accent" class={`${cfNumClass} hero-cf-minimal__num`}>§ Flagship {data.funnel_num}</Kicker>
+        <h1 class="hero-conversion-funnel__h1 reveal-mask-up u-serif-accent hero-cf-minimal__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
+        <p class="hero-conversion-funnel__lede reveal hero-cf-minimal__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
+        {data.stats && data.stats.length > 0 && (
+          <div class="hero-cf-minimal__stats reveal-stagger">
+            {data.stats.map((s) => (
+              <div class="hero-cf-minimal__stat">
+                <span class="hero-cf-minimal__stat-value">{s.value}</span>
+                <span class="hero-cf-minimal__stat-label">{isFr ? s.label_fr : s.label_en}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        <div class="hero-conversion-funnel__cta hero-cf-minimal__cta">
+          <Button href={data.cta_primary.href} variant="primary" size="lg" mag={0.18}>
+            {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+          </Button>
+          {data.cta_secondary && (
+            <Button href={data.cta_secondary.href} variant="ghost" size="lg">
+              {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+            </Button>
+          )}
+        </div>
+      </div>
+    ) : (
+      <div class="hero-cf-sumie">
+        <div class="hero-cf-sumie__bg" aria-hidden="true">
+          <svg class="hero-cf-sumie__art draw-on-scroll" viewBox="0 0 480 320" fill="none" style="--draw-len:1400" preserveAspectRatio="xMidYMid meet">
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="240" cy="160" r="52" />
+              <circle cx="240" cy="96" r="9" />
+              <circle cx="296" cy="138" r="9" />
+              <circle cx="296" cy="190" r="9" />
+              <circle cx="240" cy="224" r="9" />
+              <circle cx="184" cy="190" r="9" />
+              <circle cx="184" cy="138" r="9" />
+              <path d="M240 105 L240 134" />
+              <path d="M289 143 L258 155" />
+              <path d="M289 185 L258 168" />
+              <path d="M240 215 L240 186" />
+              <path d="M191 185 L222 168" />
+              <path d="M191 143 L222 155" />
+            </g>
+          </svg>
+        </div>
+        <div class="hero-cf-sumie__inner">
+          <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
+          <h1 class="hero-conversion-funnel__h1 reveal-split-letter u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
+          <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
+          <div class="hero-conversion-funnel__cta">
+            <Button href={data.cta_primary.href} variant="primary" size="lg" mag={0.18}>
+              {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
+            </Button>
+            {data.cta_secondary && (
+              <Button href={data.cta_secondary.href} variant="ghost" size="lg">
+                {isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}
+              </Button>
+            )}
+          </div>
+          {data.stats && data.stats.length > 0 && (
+            <div class="hero-conversion-funnel__stats reveal-stagger">
+              {data.stats.map((s, idx) => (
+                <div class:list={['hero-conversion-funnel__stat', idx === 0 && 'hero-conversion-funnel__stat--lead']}>
+                  <div class="hero-conversion-funnel__stat-value">{s.value}</div>
+                  <div class="hero-conversion-funnel__stat-label">{isFr ? s.label_fr : s.label_en}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+) : data.type === 'hero-conversion-funnel' ? (
 <section class="hero-conversion-funnel" data-bg={data.background}>
   <div class="wrap-wide" style={cfWrapStyle}>
     <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
@@ -473,4 +589,103 @@ const cfNumClass = kickerReveal ? 'hero-conversion-funnel__num reveal' : 'hero-c
   }
   .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__stat-value { color: var(--paper); }
   .hero-conversion-funnel[data-bg='ink'] .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-value { color: var(--accent-text); }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     VARIANTS hero-conversion-funnel (opt-in via data.variant). N'affectent
+     QUE `.hero-conversion-funnel--{split|sumie|minimal}` → 0 régression sur le
+     rendu d'origine (variant absent) et sur hero-hub-stats/hero-pillar-hub.
+     ════════════════════════════════════════════════════════════════════════ */
+
+  /* ── variant SPLIT · 2 colonnes asym texte | illustration ─────────────── */
+  .hero-cf-split {
+    display: grid;
+    grid-template-columns: var(--sec-grid, 1fr 1fr);
+    gap: var(--space-9);
+    align-items: center;
+  }
+  .hero-cf-split__text { min-width: 0; }
+  /* H1 un cran sous le monumental : la colonne texte est large mais bornée →
+     un H1 long (flagship) ne doit pas exploser en hauteur. Token existant. */
+  .hero-conversion-funnel--split .hero-conversion-funnel__h1 { font-size: var(--text-h2); }
+  .hero-conversion-funnel--split .hero-conversion-funnel__cta { margin-bottom: 0; }
+  .hero-cf-split__media {
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-cf-split__media img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    color: var(--ink);
+  }
+  .hero-conversion-funnel--split[data-bg='ink'] .hero-cf-split__media img { color: var(--paper); }
+  @media (max-width: 768px) {
+    .hero-cf-split { grid-template-columns: 1fr; gap: var(--space-6); }
+    .hero-cf-split__media { order: -1; }
+    .hero-cf-split__media img { max-width: 360px; }
+  }
+
+  /* ── variant MINIMAL · h1 centré, stats en ligne, hauteur réduite ─────── */
+  .hero-conversion-funnel--minimal { min-height: 0; justify-content: center; }
+  .hero-cf-minimal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 880px;
+    margin-inline: auto;
+    padding-block: var(--space-10);
+  }
+  .hero-cf-minimal__h1 { margin: 0 0 var(--space-5); }
+  .hero-cf-minimal__lede { margin: 0 0 var(--space-6); max-width: 680px; }
+  .hero-cf-minimal__stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-6) var(--space-9);
+    margin-bottom: var(--space-7);
+  }
+  .hero-cf-minimal__stat { display: flex; flex-direction: column; gap: var(--space-1); }
+  .hero-cf-minimal__stat-value {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: 1;
+    color: var(--ink);
+  }
+  .hero-cf-minimal__stat:first-child .hero-cf-minimal__stat-value { color: var(--accent-text); }
+  .hero-cf-minimal__stat-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-cf-minimal__cta { justify-content: center; margin-bottom: 0; }
+  .hero-conversion-funnel--minimal[data-bg='ink'] .hero-cf-minimal__stat-value { color: var(--paper); }
+  .hero-conversion-funnel--minimal[data-bg='ink'] .hero-cf-minimal__stat:first-child .hero-cf-minimal__stat-value { color: var(--accent-text); }
+
+  /* ── variant SUMIE · fond ink, motif line-art dessiné au scroll ───────── */
+  .hero-cf-sumie { position: relative; }
+  .hero-cf-sumie__bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-cf-sumie__art {
+    width: min(52%, 560px);
+    height: auto;
+    color: var(--ink);
+    opacity: 0.16;
+  }
+  .hero-conversion-funnel--sumie[data-bg='ink'] .hero-cf-sumie__art { color: var(--paper); opacity: 0.22; }
+  .hero-cf-sumie__inner { position: relative; z-index: 1; }
+  @media (max-width: 768px) {
+    .hero-cf-sumie__art { width: 70%; opacity: 0.1; }
+  }
 </style>

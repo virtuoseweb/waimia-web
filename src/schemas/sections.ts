@@ -475,6 +475,16 @@ export const heroConversionFunnelSchema = z.object({
   type: z.literal('hero-conversion-funnel'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   funnel_num: z.string(),
+  // Traitement visuel du hero. Absent = rendu catalogue d'origine (1 colonne),
+  // inchangé : protège hero-hub-stats/hero-pillar-hub et tout usage existant.
+  //  · split   = 2 colonnes asym (texte | illustration line-art, via media_src)
+  //  · sumie    = fond ink pleine largeur, motif line-art dessiné au scroll, h1 split-letter
+  //  · minimal  = h1 centré, stats en ligne, visuel discret, hauteur réduite
+  variant: z.enum(['split', 'sumie', 'minimal']).optional(),
+  // Illustration latérale (variant split) : line-art DS sous /images/line-art/.
+  media_src: z.string().optional(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
   h1_fr: z.string(),
   h1_en: z.string(),
   lede_fr: z.string(),
