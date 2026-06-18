@@ -1,5 +1,12 @@
 # Plan d'exécution — refonte `/services/site-web-intelligent` (brief v6)
 
+> 🔁 **ADDENDUM 2026-06-18.** L'**architecture/redirection** de ce doc (« pas de redirects,
+> suppression nette ») est **SUPERSEDED** par `strategy/10-architecture-finale-v7.md` (301 ciblés,
+> site live). **CE QUI RESTE UTILE** : la séquence de sections du template page service (§4) et le
+> contenu/copy de `/services/site-web-intelligent` qui devient la **DA de référence** des futures
+> pages (rythme Paper↔Ink + langage d'interaction, cf `strategy/10 §6`). Lire `strategy/10` pour
+> l'architecture cible et la composition des templates.
+
 > Source : `~/Downloads/brief-site-web-intelligent-v6.md` (lu en entier). Ordre des 13 sections §4 FIGÉ.
 > Fusion ACTÉE. **Override Simon 2026-06-13 : pas de redirects (site neuf sans traffic) → suppression nette**
 > (cohérent doctrine `strategy/02` « on supprime net »). Plan à checkpoints, rule 16 (les `[x]` suivent les commits + preuve GF-1).

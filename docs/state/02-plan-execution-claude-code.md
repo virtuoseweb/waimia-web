@@ -7,8 +7,9 @@
 >
 > Hiérarchie des sources de vérité (rappel) : `CLAUDE.md` (GF-1..GF-6, non négociable) >
 > `docs/README.md` (carte) > **ce fichier** (backlog ordonné) > `tasks/ORCH-STATE.md`
-> (journal horodaté) > git. Spec d'état cible = `strategy/02-site-etat-final.md` (FAIT FOI,
-> §0bis architecture en piliers). Stratégie = `strategy/01`. État réel = `state/01-chantiers.md`.
+> (journal horodaté) > git. Architecture cible = ⭐ `strategy/10-architecture-finale-v7.md` (FAIT FOI 2026-06-18,
+> supersede l'archi 3-piliers). Spec véridicité/suppressions = `strategy/02-site-etat-final.md`.
+> Stratégie = `strategy/01`. État réel = `state/01-chantiers.md`.
 >
 > **Contexte business** (réconcilié 2026-06-15, cf `state/RECONCILIATION-REPORT.md`) :
 > **cabinet d'orchestration IA** anthropic-first, Montpellier, fondateur SOLO, phase démarrage.

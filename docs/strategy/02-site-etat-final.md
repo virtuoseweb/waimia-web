@@ -1,5 +1,16 @@
 # 52 — État final du site (spec définitive : whitelist + suppressions)
 
+> 🔁 **ADDENDUM 2026-06-18 — ARCHITECTURE COURANTE = `strategy/10-architecture-finale-v7.md`.**
+> Les §0bis / §0ter de ce doc (architecture **3 piliers** Acquérir / Piloter / Opérer) sont
+> **SUPERSEDED** par l'architecture v7 (2 offres : Site Web Intelligent + Intégration Claude ;
+> nav 4 méga-menus ; collections élargies). La doctrine **« domaine neuf = 0 redirection,
+> supprimer net »** (§0) est remplacée par des **301 ciblés** (le site est désormais **live** :
+> des URLs réelles existent). **CE QUI RESTE VALIDE** : la **doctrine anti-dilution** (§0, §0bis,
+> §7) — elle devient le *rationale* de la **politique d'indexation index-on-quality** de
+> `strategy/10 §3` (on n'indexe que de l'excellent ; l'arbo large reste majoritairement
+> non-indexée). Lire `strategy/10` pour l'architecture ; ce doc reste utile pour la whitelist
+> véridicité E-E-A-T, les suppressions de fictif/thin, et l'ordre de sections conversion.
+
 > **Pour Claude Code. Doc maître de l'état cible du site.** Remplace l'approche
 > « noindex massif » par une **base minimale saine** : on garde une whitelist de pages
 > excellentes, **on supprime tout le reste** (fictif / thin / vide / interne sans valeur),

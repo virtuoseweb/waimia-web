@@ -1,5 +1,12 @@
 # Mapping de migration · refonte 3 piliers waimia-web
 
+> ⛔ **SUPERSEDED 2026-06-18 — doc d'architecture PÉRIMÉ.** L'architecture « 3 piliers
+> Acquérir / Piloter / Opérer » + « URLs supprimées = 404 net, pas de 301 » est abandonnée au
+> profit de `strategy/10-architecture-finale-v7.md` (2 offres, nav 4 méga-menus, 301 ciblés,
+> indexation index-on-quality). Conservé pour mémoire de l'audit fichier-par-fichier des 9 offres
+> + 20 solutions (utile pour savoir quel contenu existe). **NE PAS l'utiliser comme cible
+> d'architecture.** Candidat à `docs/archive/`.
+
 > Doc de travail produit en lecture seule (aucune édition `src/`). Source : audit fichier-par-fichier des 9 offres + 20 solutions + nav + templates, le 2026-06-13.
 > Architecture cible (décidée par Simon, non rediscutée ici) : 3 piliers **Acquérir** (Growth System IA, seul silo développé maintenant), **Piloter** (Business Intelligence, pilier à ancres, silo non développé), **Opérer** (Opérations IA, pilier à ancres + quelques pages enfant, silo non développé). Acquérir Phase B = 3 pages de service : Site web intelligent, Content marketing intelligent, Tunnel de conversion + landing. Chaque service = 2 surfaces : `/services/<slug>` (SEO/GEO riche) + `/lp/<slug>` (landing conversion). URLs supprimées = **404 net, pas de 301**.
 

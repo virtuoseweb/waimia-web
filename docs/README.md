@@ -39,9 +39,12 @@
 ### 🎯 Mission ACTUELLE prioritaire — Refonte SEO/GEO + base propre
 Le chantier n°1. Domaine neuf → silo unique « Site web IA » + suppression du fictif/thin.
 Ordre de lecture :
+0. ⭐ **`strategy/10-architecture-finale-v7.md`** — **ARCHITECTURE COURANTE (2026-06-18)** : 2 offres,
+   nav 4 méga-menus, collections élargies, **politique d'indexation index-on-quality**. SUPERSEDE
+   l'archi 3-piliers de `02`/`06`. **Lire EN PREMIER pour toute question d'architecture/URL.**
 1. **`strategy/01-silo-site-web-ia.md`** — la stratégie (Cheval de Troie, pourquoi ce silo).
-2. **`strategy/02-site-etat-final.md`** — **spec d'état final** : whitelist des pages
-   qui survivent + tout le reste supprimé + ordre des sections. **Doc maître d'exécution.**
+2. **`strategy/02-site-etat-final.md`** — spec d'état final : whitelist E-E-A-T + suppressions
+   fictif/thin + ordre sections conversion. *(Archi 3-piliers SUPERSEDED par `10`.)*
 3. **`strategy/03-case-study-sector-system.md`** : blueprint système case study + hubs sectoriels (taxonomie 6 secteurs, template `/cas` conversion/GEO, double-label, données marché sourcées). Chantier #18.
 4. **`archive/50-SILO-RUNBOOK-EXECUTION.md`** — détail du maillage silo + batchs techniques.
 5. **`state/01-chantiers.md`** — état réel du projet, pending, pièges.
@@ -99,7 +102,7 @@ EN archivé (lancement FR monolingue).
 ```
 docs/
 ├── README.md              ← CE FICHIER (index, seul .md « libre » à la racine docs/)
-├── strategy/   (10)       SEO / site / GEO (LIVE) — 00 synthèse lancement · 01 silo · 02 état final site · 03 recherche SEO/GEO · 04 GEO-AIO · 05 stack · 06 doctrine positionnement/archi/SEO (SOURCE CANONIQUE positionnement) · 07 benchmark Digidop (concurrent terrain) · 08 IA templates pages V1 · 09 blueprint contenu V1
+├── strategy/   (11)       SEO / site / GEO (LIVE) — 00 synthèse lancement · 01 silo · 02 état final site (archi 3-piliers SUPERSEDED par 10) · 03 recherche SEO/GEO · 04 GEO-AIO · 05 stack · 06 doctrine positionnement/archi/SEO (positionnement LIVE ; archi 3-piliers SUPERSEDED par 10) · 07 benchmark Digidop (concurrent terrain) · 08 IA templates pages V1 · 09 blueprint contenu V1 · **10 ARCHITECTURE FINALE v7 (SOURCE CANONIQUE d'architecture + politique d'indexation index-on-quality, 2026-06-18)**
 ├── marketing/  (6)        01 positionnement · 02 GTM · 03 contenu · 04 canaux · 05 boilerplate produit (LIVE)
 ├── business/  (16)        00 références canoniques (voix manifeste, offer ladder, clients) · 01 business plan · 02 étude marché · 03 prospection · 04 comm · 05 sales enablement · 06 fiches offres · 07 pitch RDV · 08 quick wins · 09 leadsourcing+scoring (Firecrawl) · 10 présentations offres · 11 cash-first 90j · 12 competitive brief · 13 modèle financier · 14 marché données réelles · 15 validation client (LIVE)
 ├── architecture/ (9)      standards, content-models, intégrations, déploiement, redirects, tina-astro, images, archi, cms (RÉFÉRENCE)

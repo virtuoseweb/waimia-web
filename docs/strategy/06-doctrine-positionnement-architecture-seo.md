@@ -1,5 +1,12 @@
 # Doctrine de positionnement, architecture & SEO — Waimia (source canonique)
 
+> 🔁 **ADDENDUM 2026-06-18.** La partie **POSITIONNEMENT** de ce doc (cabinet d'orchestration IA,
+> pas une agence web ; marque « intelligent » + KW « IA » en appui) reste **LIVE et canonique**.
+> La partie **ARCHITECTURE** (3 piliers Acquérir / Piloter / Opérer, silo Acquérir ouvert) est
+> **SUPERSEDED** par `strategy/10-architecture-finale-v7.md` (architecture v7 : 2 offres, nav
+> 4 méga-menus, collections élargies, indexation index-on-quality). En cas de divergence sur
+> l'architecture/les URLs, `strategy/10` fait foi ; sur le positionnement, CE doc fait foi.
+
 > **Statut** : LIVE · source de vérité du positionnement. Énoncée par Simon le 2026-06-13.
 > Les docs `strategy/01-02-03`, `specs/02-ADR-002`, `specs/03-ADR-003`, `state/06` en dérivent
 > et ont été vérifiés cohérents (cf §Cohérence). En cas de divergence, CE doc + les ADR font foi.
