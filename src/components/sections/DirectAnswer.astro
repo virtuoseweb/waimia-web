@@ -1,0 +1,97 @@
+---
+// Section DS primitives v7 · direct-answer
+// Bloc GEO « réponse directe » en tête de page : reformule une question implicite
+// (eyebrow mono + question), définit éventuellement une entité (term), puis délivre
+// une réponse directe de 2 à 4 phrases en colonne de lecture. Markup sobre/éditorial
+// inspiré de problem-statement. Le JSON-LD (DefinedTerm/FAQ) se posera côté page.
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'direct-answer'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const question = isFr ? data.question_fr : data.question_en;
+const term = isFr ? data.term_fr : data.term_en;
+const answer = isFr ? data.answer_fr : data.answer_en;
+---
+
+<section class="direct-answer" data-bg={data.background} data-density={data.density}>
+  <div class="wrap-wide">
+    <p class="direct-answer__eyebrow">{isFr ? 'Réponse directe' : 'Direct answer'}</p>
+    <h2 class="direct-answer__question">{question}</h2>
+    <div class:list={['direct-answer__answer reveal', data.dropcap && 'direct-answer__answer--dropcap']}>
+      {term && <span class="direct-answer__term">{term}</span>}
+      <p class="direct-answer__text">{answer}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .direct-answer {
+    padding: var(--section-base) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .direct-answer__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--muted);
+    margin: 0 0 var(--space-4);
+  }
+  .direct-answer__question {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    text-wrap: balance;
+    max-width: var(--wrap-prose);
+    margin: 0 0 var(--space-6);
+  }
+  .direct-answer__answer {
+    max-width: var(--wrap-prose);
+  }
+  .direct-answer__term {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.01em;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-3);
+  }
+  .direct-answer__text {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, var(--text-h3));
+    line-height: var(--leading-lede);
+    color: var(--ink-2, var(--ink));
+    margin: 0;
+  }
+  .direct-answer__answer--dropcap .direct-answer__text::first-letter {
+    font-family: var(--font-display);
+    font-size: 2.8em;
+    line-height: 0.8;
+    float: left;
+    margin: 0.06em 0.12em 0 0;
+    color: var(--accent-text);
+    font-weight: var(--fw-regular);
+  }
+
+  /* ── Alternance des fonds · defaut paper = rendu inchange ── */
+  .direct-answer[data-bg='paper-2'] { background: var(--paper-2); }
+  .direct-answer[data-bg='paper-3'] { background: var(--paper-3); }
+  .direct-answer[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .direct-answer[data-bg='ink'] .direct-answer__question { color: var(--paper); }
+  .direct-answer[data-bg='ink'] .direct-answer__text { color: rgba(var(--paper-rgb), 0.86); }
+  .direct-answer[data-bg='ink'] .direct-answer__eyebrow { color: rgba(var(--paper-rgb), 0.6); }
+  .direct-answer[data-density='compact'] { padding-block: var(--section-compact, var(--space-9)); }
+  .direct-answer[data-density='ample'] { padding-block: var(--section-ample, var(--space-12)); }
+</style>

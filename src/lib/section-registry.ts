@@ -183,6 +183,10 @@ import EditorialDropcapProse from '../components/sections/EditorialDropcapProse.
 import EditorialDingbatRule from '../components/sections/EditorialDingbatRule.astro';
 import EditorialTimeline from '../components/sections/EditorialTimeline.astro';
 // <<< [editorial-atoms] end
+// >>> [ds-primitives-v7] start
+import DirectAnswer from '../components/sections/DirectAnswer.astro';
+import AuthorByline from '../components/sections/AuthorByline.astro';
+// <<< [ds-primitives-v7] end
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -1840,6 +1844,28 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Editorial timeline composing the Timeline atom: left axis, dots, numbers, dates, titles and descriptions, vertical or horizontal. For a method or journey in N phases.',
   },
   // <<< [editorial-atoms] end
+  // >>> [ds-primitives-v7] start
+  'direct-answer': {
+    component: DirectAnswer,
+    category: 'marketing',
+    subcategory: 'Content Sections',
+    categorySlug: 'content-sections',
+    tags: ['geo', 'definition', 'direct-answer', 'answer', 'content'],
+    status: 'stable',
+    description_fr: 'Bloc GEO « réponse directe » en tête de page : reformule une question implicite, définit éventuellement une entité, puis délivre une réponse directe de 2 à 4 phrases en colonne de lecture. Sobre, éditorial, fond alterné.',
+    description_en: 'GEO direct-answer block at the top of a page: restates an implicit question, optionally defines an entity, then delivers a 2 to 4 sentence direct answer in a reading column. Sober, editorial, alternating background.',
+  },
+  'author-byline': {
+    component: AuthorByline,
+    category: 'marketing',
+    subcategory: 'Team Sections',
+    categorySlug: 'team-sections',
+    tags: ['eeat', 'author', 'byline', 'article', 'team'],
+    status: 'stable',
+    description_fr: 'Ligne auteur compacte E-E-A-T sous un h1 d\'article : avatar optionnel, nom, rôle, dates de publication et mise à jour, lien vers la page profil. Beaucoup plus léger qu\'un hero auteur.',
+    description_en: 'Compact E-E-A-T author byline under an article h1: optional avatar, name, role, published and updated dates, link to the profile page. Far lighter than an author hero.',
+  },
+  // <<< [ds-primitives-v7] end
 };
 
 export const SECTION_REGISTRY: Record<SectionType, AstroComponent> = Object.fromEntries(

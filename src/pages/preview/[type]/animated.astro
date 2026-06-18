@@ -75,6 +75,10 @@ const consumerCount = getConsumers(type).length;
 
     {/* Monte l'observer scroll-reveal réel : les .reveal[*] démarrent opacity:0 puis
         passent .is-visible/.in au scroll (même module que Base.astro). */}
-    <script>import '../../../lib/animations/scroll-reveal';</script>
+    <script>
+      import '../../../lib/animations/scroll-reveal';
+      import '../../../lib/animations/container-expand';
+      import '../../../lib/animations/scroll-morph';
+    </script>
   </body>
 </html>

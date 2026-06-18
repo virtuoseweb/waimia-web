@@ -235,3 +235,95 @@ a.link-hairline:focus-visible {
   outline-offset: 3px;
   border-radius: 1px;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DS primitives v7 · effets scroll-driven reutilisables (modules ES associes :
+   container-expand.ts, scroll-morph.ts ; Sticky Editorial = CSS pur ci-dessous).
+   Tous interpolent sur des tokens existants ; etat final visible sous
+   reduced-motion / mobile (le JS neutralise --expand/--morph a 1, le CSS suit).
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Container Expansion · [data-expand], pilote `--expand` 0..1 ──
+   Contenu (margin laterale + radius + leger scale-down) -> plein cadre. */
+.container-expand {
+  --expand: 0;
+  margin-inline: calc((1 - var(--expand, 0)) * var(--gut));
+  border-radius: calc((1 - var(--expand, 0)) * var(--radius-card));
+  transform: scale(calc(0.94 + 0.06 * var(--expand, 0)));
+  transform-origin: center top;
+  overflow: hidden;
+  will-change: transform, margin, border-radius;
+}
+
+/* ── Scroll Morph · [data-morph] parent, pilote `--morph` 0..1 ──
+   A (from) opacity 1->0 + leger lift ; B (to) opacity 0->1 + leger settle. */
+.scroll-morph {
+  --morph: 0;
+  position: relative;
+  display: grid;
+}
+.scroll-morph__from,
+.scroll-morph__to {
+  grid-area: 1 / 1;
+  will-change: opacity, transform;
+}
+.scroll-morph__from {
+  opacity: calc(1 - var(--morph, 0));
+  transform: translate3d(0, calc(var(--morph, 0) * -12px), 0)
+    scale(calc(1 - var(--morph, 0) * 0.02));
+}
+.scroll-morph__to {
+  opacity: var(--morph, 0);
+  transform: translate3d(0, calc((1 - var(--morph, 0)) * 12px), 0)
+    scale(calc(0.98 + var(--morph, 0) * 0.02));
+}
+
+/* ── Sticky Editorial · generalisation du pattern commun (HowWeShip /
+   ManifestoStatement) en utilitaires reutilisables. CSS pur : le wrapper donne
+   la plage de scroll (data-sticky-track ou hauteur intrinseque), l'enfant __pin
+   se colle plein viewport. NE TOUCHE PAS aux composants existants. ── */
+.sticky-editorial {
+  position: relative;
+}
+.sticky-editorial__pin {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Hauteur de track opt-in (multiplie le viewport) : ex. data-sticky-track="3". */
+.sticky-editorial[data-sticky-track] {
+  height: calc(var(--sticky-track, 3) * 100vh);
+}
+.sticky-editorial[data-sticky-track='2'] { --sticky-track: 2; }
+.sticky-editorial[data-sticky-track='3'] { --sticky-track: 3; }
+.sticky-editorial[data-sticky-track='4'] { --sticky-track: 4; }
+
+@media (max-width: 768px) {
+  /* Mobile : aucun effet scroll-driven — etat final, flux normal. */
+  .container-expand {
+    margin-inline: 0;
+    border-radius: var(--radius-card);
+    transform: none;
+  }
+  .scroll-morph { display: block; }
+  .scroll-morph__from { display: none; }
+  .scroll-morph__to { opacity: 1; transform: none; }
+  .sticky-editorial[data-sticky-track] { height: auto; }
+  .sticky-editorial__pin { position: static; min-height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Bypass total · etat final visible immediatement. */
+  .container-expand {
+    margin-inline: 0;
+    border-radius: var(--radius-card);
+    transform: none;
+  }
+  .scroll-morph__from { opacity: 0; transform: none; }
+  .scroll-morph__to { opacity: 1; transform: none; }
+  .sticky-editorial[data-sticky-track] { height: auto; }
+  .sticky-editorial__pin { position: static; min-height: 0; }
+}

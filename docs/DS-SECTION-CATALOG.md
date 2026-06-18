@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 156
+> Sections : 165
 
 ---
 
@@ -367,7 +367,7 @@
 | `use_title_en` | string | oui |  |  |
 | `use_title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-9` `--text-h1` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-9` `--text-glyph` `--text-h1` `--text-h3` `--text-small`
 
 **Classes scoped** : .astro .tech-aside .tech-sec .tech-sec-hd .tech-when-col--avoid .tech-when-col--use .tech-when-dual .tech-when-kicker .tech-when-list .tech-when-list--avoid .tech-when-list--use .wrap
 
@@ -424,15 +424,15 @@
 | `h2_fr` | string | oui |  |  |
 | `workflows` | array | oui |  | min:1 max:8 |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-h2` `--text-h3` `--text-numeral-sm` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .callout .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-workflow-body .sol-workflow-head .sol-workflow-table .sol-workflows .wf-gain .wf-how .wf-k .wf-model .wf-n .wf-name .wf-row
 
 **Tailwind** : col-12 col-aside col-prose
 
-**Dette hardcode** : 12 valeur(s) — -0.018em, 1000px, 16px, 1px, 20px, 24px, 32px, 480px
+**Dette hardcode** : 11 valeur(s) — -0.018em, 1000px, 16px, 1px, 20px, 24px, 480px, 48px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.018em, 1000px, 16px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.018em, 1000px, 16px).
 
 ---
 
@@ -575,6 +575,114 @@
 ---
 
 ## Content Sections
+
+### `direct-answer`
+
+> Bloc GEO « réponse directe » en tête de page : reformule une question implicite, définit éventuellement une entité, puis délivre une réponse directe de 2 à 4 phrases en colonne de lecture. Sobre, éditorial, fond alterné.
+> DirectAnswer · src/components/sections/DirectAnswer.astro · marketing/content-sections
+> status : stable · tags : answer, content, definition, direct-answer, geo
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `answer_en` | string | oui |  |  |
+| `answer_fr` | string | oui |  |  |
+| `dropcap` | boolean | non |  |  |
+| `question_en` | string | oui |  |  |
+| `question_fr` | string | oui |  |  |
+| `term_en` | string | non |  |  |
+| `term_fr` | string | non |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-3` `--space-4` `--space-6` `--space-9` `--text-h2` `--text-h3` `--text-lede` `--text-small` `--tracking-mono` `--wrap-prose`
+
+**Classes scoped** : .direct-answer .direct-answer__answer .direct-answer__answer--dropcap .direct-answer__eyebrow .direct-answer__question .direct-answer__term .direct-answer__text
+
+**Dette hardcode** : 6 valeur(s) — -0.018em, -0.01em, 0.06em, 0.12em, 1px, 2.8em
+
+**Agent** : Espacement : --space-12 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.018em, -0.01em, 0.06em).
+
+---
+
+### `editorial-callout`
+
+> Encadré éditorial composant l'atome Callout (info, citation, note, avertissement, manifeste) : hairline accent, citation source optionnelle, tailles et alignements. Pour ponctuer une prose.
+> EditorialCallout · src/components/sections/EditorialCallout.astro · marketing/content-sections
+> status : stable · tags : aside, callout, content, editorial, note, quote
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `align` | enum | non |  | left | center |
+| `body_en` | string | oui |  |  |
+| `body_fr` | string | oui |  |  |
+| `cite` | string | non |  |  |
+| `size` | enum | non |  | sm | md | lg |
+| `variant` | enum | non |  | info | quote | note | warn | manifesto |
+
+**Tokens** : `--gut` `--hairline` `--ink` `--paper` `--paper-2` `--paper-3` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-9` `--wrap-prose`
+
+**Classes scoped** : .editorial-callout .editorial-callout__col
+
+**Dette hardcode** : 1 valeur(s) — 1px
+
+**Agent** : Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-9. Couleur : --ink --paper --paper-2. Dette : 1 litteral(s) hardcode(s) (1px).
+
+---
+
+### `editorial-dingbat-rule`
+
+> Séparateur ornemental éditorial composant l'atome Dingbat (fleuron, asterisme, fin d'article, règle) : transition entre chapitres avec légendes optionnelles au-dessus et en dessous.
+> EditorialDingbatRule · src/components/sections/EditorialDingbatRule.astro · marketing/content-sections
+> status : stable · tags : content, dingbat, editorial, ornament, rule, separator
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `above_en` | string | non |  |  |
+| `above_fr` | string | non |  |  |
+| `below_en` | string | non |  |  |
+| `below_fr` | string | non |  |  |
+| `size` | enum | non |  | sm | md | lg |
+| `variant` | enum | non |  | default | section | end | rule | asterism |
+
+**Tokens** : `--font-mono` `--gut` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-2` `--space-9` `--text-small` `--tracking-mono` `--wrap-prose`
+
+**Classes scoped** : .editorial-dingbat .editorial-dingbat__caption .editorial-dingbat__caption--below .editorial-dingbat__col
+
+**Dette hardcode** : 2 valeur(s) — 0.12em, 1px
+
+**Agent** : Layout : `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --text-small. Dette : 2 litteral(s) hardcode(s) (0.12em, 1px).
+
+---
+
+### `editorial-dropcap-prose`
+
+> Ouverture d'article éditoriale composant l'atome DropCap : initiale magnifiée (serif, mono ou accent) sur un paragraphe d'accroche, suivie de paragraphes de prose. Pour entrer dans un long-form.
+> EditorialDropcapProse · src/components/sections/EditorialDropcapProse.astro · marketing/content-sections
+> status : stable · tags : article, content, dropcap, editorial, opening, prose
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `lead_en` | string | oui |  |  |
+| `lead_fr` | string | oui |  |  |
+| `paragraphs_en` | array | non |  |  |
+| `paragraphs_fr` | array | non |  |  |
+| `variant` | enum | non |  | serif | mono | accent |
+
+**Tokens** : `--font-display` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--paper` `--paper-2` `--paper-3` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-4` `--space-9` `--text-body-md` `--wrap-prose`
+
+**Classes scoped** : .editorial-dropcap .editorial-dropcap__col .editorial-dropcap__lead .editorial-dropcap__p
+
+**Dette hardcode** : 2 valeur(s) — 17px, 1px
+
+**Agent** : Layout : `variant` (schema, 0 CSS). Espacement : --space-12 --space-4 --space-9. Couleur : --ink --ink-2 --paper. Typographie : --font-display --leading-body. Dette : 2 litteral(s) hardcode(s) (17px, 1px).
+
+---
 
 ### `editorial-prose`
 
@@ -1646,15 +1754,15 @@
 | `h2_fr` | string | oui |  |  |
 | `items` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--text-h3` `--text-numeral` `--text-small`
 
 **Classes scoped** : .callout .eyebrow .pain-card .pk .pn .section-eyebrow .sol-aside .sol-friction .sol-pain-grid .sol-sec .sol-sec-hd .timeline- .timeline-body .timeline-meta .timeline-num .timeline-title .timeline-vertical
 
 **Tailwind** : col-12 col-aside col-prose
 
-**Dette hardcode** : 5 valeur(s) — -0.018em, 0.1em, 1px, 480px, 96px
+**Dette hardcode** : 4 valeur(s) — -0.018em, 0.1em, 1px, 480px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-0.018em, 0.1em, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.018em, 0.1em, 1px).
 
 ---
 
@@ -1785,13 +1893,13 @@
 | `roman` | string | oui |  |  |
 | `services` | array | oui |  | min:2 max:8 |
 
-**Tokens** : `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h2` `--text-small` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-5` `--space-6` `--space-7` `--text-body` `--text-glyph` `--text-h2` `--text-small` `--tracking-mono-tight` `--wrap-prose`
 
 **Classes scoped** : .aside .astro .dept-sector .sec .sec-hd .svc-arr .svc-cat-footer .svc-cat-list .svc-cat-sec .svc-desc .svc-meta .svc-num .svc-row .svc-title
 
-**Dette hardcode** : 17 valeur(s) — -0.022em, -2px, .14em, 0.1em, 100%, 10px, 110px, 12px
+**Dette hardcode** : 16 valeur(s) — -0.022em, -2px, .14em, 0.1em, 100%, 10px, 110px, 12px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 17 litteral(s) hardcode(s) (-0.022em, -2px, .14em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 16 litteral(s) hardcode(s) (-0.022em, -2px, .14em).
 
 ---
 
@@ -1818,7 +1926,7 @@
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .services-grid .services-grid__cell .services-grid__cell-arr .services-grid__cell-body .services-grid__cell-fig .services-grid__cell-foot .services-grid__cell-foot-key .services-grid__cell-foot-val .services-grid__cell-head .services-grid__cell-metric .services-grid__cell-rule .services-grid__cell-title .services-grid__cell-uc .services-grid__chapter .services-grid__dot .services-grid__foot .services-grid__foot-link .services-grid__grid .services-grid__h2 .services-grid__hd .services-grid__num .services-grid__sep .services-grid__spec
 
@@ -3688,6 +3796,36 @@
 
 ## Stats Sections
 
+### `key-metric-grid`
+
+> Grille de métriques chiffrées magnifiées (style FT/Bloomberg) composant l'atome KeyMetric : chiffre dominant, label mono, delta optionnel. Axes size/align/variant et 2 à 4 colonnes, fond alterné.
+> KeyMetricGrid · src/components/sections/KeyMetricGrid.astro · marketing/stats-sections
+> status : stable · tags : editorial, grid, key-metric, kpi, metrics, stats
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `align` | enum | non |  | left | center | right |
+| `columns` | number | non |  | int min:2 max:4 |
+| `eyebrow_en` | string | non |  |  |
+| `eyebrow_fr` | string | non |  |  |
+| `metrics` | array | oui |  | min:2 |
+| `size` | enum | non |  | sm | md | lg | hero |
+| `title_en` | string | non |  |  |
+| `title_fr` | string | non |  |  |
+| `variant` | enum | non |  | default | inverted | accent |
+
+**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--kmg-cols` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-3` `--space-6` `--space-7` `--space-9` `--text-h2` `--text-small` `--tracking-mono` `--wrap-prose`
+
+**Classes scoped** : .key-metric-grid .key-metric-grid__eyebrow .key-metric-grid__grid .key-metric-grid__title
+
+**Dette hardcode** : 5 valeur(s) — -0.018em, 0.12em, 1px, 520px, 900px
+
+**Agent** : Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.018em, 0.12em, 1px).
+
+---
+
 ### `metric-callout-band`
 
 > Bande d’une à trois métriques héro surdimensionnées accompagnées d’une phrase de contexte. Frappe fort sur un résultat chiffré, sombre par défaut pour la mise en avant.
@@ -3996,6 +4134,37 @@
 
 ## Team Sections
 
+### `author-byline`
+
+> Ligne auteur compacte E-E-A-T sous un h1 d'article : avatar optionnel, nom, rôle, dates de publication et mise à jour, lien vers la page profil. Beaucoup plus léger qu'un hero auteur.
+> AuthorByline · src/components/sections/AuthorByline.astro · marketing/team-sections
+> status : stable · tags : article, author, byline, eeat, team
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `authorId` | string | non |  |  |
+| `name` | string | oui |  |  |
+| `photo` | string | non |  |  |
+| `photoAlt_en` | string | non |  |  |
+| `photoAlt_fr` | string | non |  |  |
+| `profileHref` | string | non |  |  |
+| `publishedDate` | string | non |  |  |
+| `role_en` | string | oui |  |  |
+| `role_fr` | string | oui |  |  |
+| `updatedDate` | string | non |  |  |
+
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--space-4` `--space-5` `--space-7` `--space-9` `--text-small` `--tracking-mono`
+
+**Classes scoped** : .author-byline .author-byline__date .author-byline__dates .author-byline__id .author-byline__link .author-byline__name .author-byline__photo .author-byline__role .author-byline__row
+
+**Dette hardcode** : 5 valeur(s) — 0.12em, 100%, 1px, 2px, 640px
+
+**Agent** : Espacement : --space-4 --space-5 --space-7. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (0.12em, 100%, 1px).
+
+---
+
 ### `team-bio-grid`
 
 > Grille d’équipe : photo, nom, rôle et bio courte par membre, en 2 à 4 colonnes alignées. Idéale pour une page À propos ou Équipe qui humanise la marque.
@@ -4195,15 +4364,44 @@
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-3` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-3` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-glyph` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .cases-arr .cases-client .cases-col .cases-col-k .cases-col-v .cases-empty .cases-empty__body .cases-empty__kicker .cases-foot .cases-h2 .cases-hd .cases-idx .cases-impact .cases-row .cases-spec .cases-tbl .sector-cases-empty
 
 **Tailwind** : row-lines
 
-**Dette hardcode** : 19 valeur(s) — -0.015em, -2px, .14em, .16em, .1em, 1080px, 10px, 1100px
+**Dette hardcode** : 18 valeur(s) — -0.015em, -2px, .14em, .16em, .1em, 1080px, 10px, 1100px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-0.015em, -2px, .14em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.015em, -2px, .14em).
+
+---
+
+### `case-featured-grid`
+
+> Grille de cas clients « featured » : un cas mis en avant (colonne large, cover optionnelle) plus des cas secondaires en lignes numérotées, avec chip de provenance.
+> CaseFeaturedGrid · src/components/sections/CaseFeaturedGrid.astro · marketing/testimonial-sections
+> status : stable · tags : case-study, featured, grid, listing, proof
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `cases` | array | oui |  | min:1 |
+| `first_party_label_en` | string | non |  |  |
+| `first_party_label_fr` | string | non |  |  |
+| `read_label_en` | string | non |  |  |
+| `read_label_fr` | string | non |  |  |
+| `second_party_label_en` | string | non |  |  |
+| `second_party_label_fr` | string | non |  |  |
+
+**Tokens** : `--accent-text` `--cookie-banner-height` `--dur-trim` `--ease` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-rgb` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-h2` `--text-h3` `--text-small`
+
+**Classes scoped** : .cas-card .cas-card--featured .cas-card--row .cas-card-body .cas-card-cta .cas-card-headline .cas-card-img .cas-card-index .cas-card-kicker .cas-card-provenance .cas-card-title .cas-grid .cas-grid-outer .cas-secondary
+
+**Dette hardcode** : 15 valeur(s) — -0.015em, -0.02em, -2px, 0.04em, 0.08em, 0px, 100%, 10px
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px).
 
 ---
 
@@ -4274,6 +4472,38 @@
 **Dette hardcode** : 10 valeur(s) — -0.02em, -0.03em, .1em, 100%, 1px, 2px, 3px, 480px
 
 **Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-0.02em, -0.03em, .1em).
+
+---
+
+### `off-proof`
+
+> Signal terrain : citation client (PullQuote) à gauche et grille de chiffres KeyMetric à droite, en asymétrie 5/7 avec séparateur Dingbat.
+> OffProof · src/components/sections/OffProof.astro · marketing/testimonial-sections
+> status : stable · tags : metrics, offres, proof, quote, testimonial
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `attribution` | string | oui |  |  |
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `eyebrow_en` | string | non | § Before / After |  |
+| `eyebrow_fr` | string | non | § Avant / Après |  |
+| `h2_en` | string | non | Field<br/><i>signal</i> |  |
+| `h2_fr` | string | non | Signal<br/><i>terrain</i> |  |
+| `metrics` | array | oui |  | min:2 max:8 |
+| `quote_en` | string | oui |  |  |
+| `quote_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--ink` `--leading-h1` `--paper` `--paper-rgb` `--section-base` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-h1`
+
+**Classes scoped** : .dingbat-rule .eyebrow .key-metric .key-metric-accent .key-metric-label .key-metric-value .off-proof .off-proof-aside .off-proof-band .off-proof-main .off-proof-metric-cell .off-proof-metrics .off-proof-metrics-rule .off-sec .off-sec-hd .pull-quote .section-eyebrow .start-N
+
+**Tailwind** : col-12 col-5 col-7
+
+**Dette hardcode** : 5 valeur(s) — -0.018em, 100%, 640px, clamp(var(--space-4), clamp(var(--space-5)
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (-0.018em, 100%, 640px).
 
 ---
 
@@ -4484,6 +4714,34 @@
 
 ## Timeline Sections
 
+### `editorial-timeline`
+
+> Frise chronologique éditoriale composant l'atome Timeline : axe gauche, points, numéros, dates, titres et descriptions, vertical ou horizontal. Pour une méthode ou un parcours en N phases.
+> EditorialTimeline · src/components/sections/EditorialTimeline.astro · marketing/timelines
+> status : stable · tags : dated, editorial, method, phases, steps, timeline
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `events` | array | oui |  | min:2 |
+| `eyebrow_en` | string | non |  |  |
+| `eyebrow_fr` | string | non |  |  |
+| `numbered` | boolean | non |  |  |
+| `orientation` | enum | non |  | vertical | horizontal |
+| `title_en` | string | non |  |  |
+| `title_fr` | string | non |  |  |
+
+**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-3` `--space-9` `--text-h2` `--text-small` `--tracking-mono` `--wrap-prose`
+
+**Classes scoped** : .editorial-timeline .editorial-timeline__col .editorial-timeline__eyebrow .editorial-timeline__title
+
+**Dette hardcode** : 3 valeur(s) — -0.018em, 0.12em, 1px
+
+**Agent** : Layout : `orientation` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (-0.018em, 0.12em, 1px).
+
+---
+
 ### `how-we-ship`
 
 > Section "comment on livre", sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).
@@ -4539,7 +4797,7 @@
 | `timeline_label_fr` | string | non | Progression de maturité IA |  |
 | `variant` | enum | non | full | full | cards-only |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .e-action .e-body .e-gauge .e-gauge-fill .e-list .e-num .e-price .e-stage .e-tag .e-title .editorial-cell .in .is-visible .pyramid-asym .pyramid-cards-only .pyramid-step .pyramid-step-roman .pyramid-step-stage .pyramid-step-verb .pyramid-svg .pyramid-timeline .reveal-stagger .sec .sec-paper
 
@@ -4708,13 +4966,13 @@
 | `kicker_fr` | string | non |  |  |
 | `variant` | enum | non | cells | cells | strip |
 
-**Tokens** : `--accent` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-tight` `--space-2` `--space-3` `--space-5` `--space-6` `--tb-cols` `--text-body` `--text-h3` `--text-small` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-tight` `--space-2` `--space-3` `--space-5` `--space-6` `--tb-cols` `--text-body` `--text-glyph` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .trust-badges .trust-badges__cell .trust-badges__glyph .trust-badges__grid .trust-badges__h2 .trust-badges__head .trust-badges__item .trust-badges__item-glyph .trust-badges__item-label .trust-badges__kicker .trust-badges__label .trust-badges__strip .trust-badges__value
 
-**Dette hardcode** : 8 valeur(s) — -0.01em, .04em, .1em, 1px, 20px, 4px, 560px, 900px
+**Dette hardcode** : 7 valeur(s) — -0.01em, .04em, .1em, 1px, 4px, 560px, 900px
 
-**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.01em, .04em, .1em).
+**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.01em, .04em, .1em).
 
 ---
 

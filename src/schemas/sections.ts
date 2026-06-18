@@ -3679,6 +3679,46 @@ export const editorialTimelineSchema = z.object({
 });
 // <<< [editorial-atoms] end
 
+// >>> [ds-primitives-v7] start
+// Mission DS primitives v7 (W3) — 2 sections GEO/E-E-A-T sobres + éditoriales.
+// Mêmes invariants que les atomes ci-dessus : mixin de présentation partagé
+// (...sectionBaseSchema.shape → background/layout/density), 0 nouveau token DS.
+
+// direct-answer (content-sections) : bloc GEO « réponse directe » en tête de page.
+// Répond à une question implicite (eyebrow/question), définit éventuellement une
+// entité (term) et délivre une réponse directe de 2 à 4 phrases. Markup sobre,
+// colonne de lecture. Le JSON-LD (DefinedTerm/FAQ) se posera côté page, pas ici.
+export const directAnswerSchema = z.object({
+  type: z.literal('direct-answer'),
+  question_fr: z.string(),
+  question_en: z.string(),
+  term_fr: z.string().optional(),
+  term_en: z.string().optional(),
+  answer_fr: z.string(),
+  answer_en: z.string(),
+  dropcap: z.boolean().optional(),
+  ...sectionBaseSchema.shape,
+});
+
+// author-byline (team-sections) : ligne auteur compacte E-E-A-T sous un h1 d'article.
+// Champs inline (pas de reference('authors') ici : sections.ts est un module de schéma
+// plain, pas content.config) + authorId optionnel résolu côté page ultérieurement.
+export const authorBylineSchema = z.object({
+  type: z.literal('author-byline'),
+  authorId: z.string().optional(),
+  name: z.string(),
+  role_fr: z.string(),
+  role_en: z.string(),
+  photo: z.string().optional(),
+  photoAlt_fr: z.string().optional(),
+  photoAlt_en: z.string().optional(),
+  profileHref: z.string().optional(),
+  publishedDate: z.string().optional(),
+  updatedDate: z.string().optional(),
+  ...sectionBaseSchema.shape,
+});
+// <<< [ds-primitives-v7] end
+
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroCenteredSchema,
@@ -3861,6 +3901,10 @@ export const sectionSchema = z.discriminatedUnion('type', [
   editorialDingbatRuleSchema,
   editorialTimelineSchema,
   // <<< [editorial-atoms] end
+  // >>> [ds-primitives-v7] start
+  directAnswerSchema,
+  authorBylineSchema,
+  // <<< [ds-primitives-v7] end
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

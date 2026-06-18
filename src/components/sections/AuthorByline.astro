@@ -1,0 +1,121 @@
+---
+// Section DS primitives v7 · author-byline
+// Ligne auteur compacte E-E-A-T sous un h1 d'article : avatar optionnel + nom + rôle
+// + dates (publication / mise à jour) + lien « Voir le profil ». Beaucoup plus léger
+// qu'un hero auteur. Champs inline (authorId résolu côté page ultérieurement).
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'author-byline'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const role = isFr ? data.role_fr : data.role_en;
+const photoAlt = (isFr ? data.photoAlt_fr : data.photoAlt_en) ?? data.name;
+const profileLabel = isFr ? 'Voir le profil' : 'View profile';
+const publishedLabel = isFr ? 'Publié le' : 'Published';
+const updatedLabel = isFr ? 'Mis à jour le' : 'Updated';
+---
+
+<section class="author-byline" data-bg={data.background} data-density={data.density}>
+  <div class="wrap-wide">
+    <div class="author-byline__row reveal">
+      {data.photo && (
+        <img class="author-byline__photo" src={data.photo} alt={photoAlt} width="40" height="40" loading="lazy" />
+      )}
+      <div class="author-byline__id">
+        <span class="author-byline__name">{data.name}</span>
+        <span class="author-byline__role">{role}</span>
+      </div>
+      {(data.publishedDate || data.updatedDate) && (
+        <div class="author-byline__dates">
+          {data.publishedDate && (
+            <span class="author-byline__date">{publishedLabel} {data.publishedDate}</span>
+          )}
+          {data.updatedDate && (
+            <span class="author-byline__date">{updatedLabel} {data.updatedDate}</span>
+          )}
+        </div>
+      )}
+      {data.profileHref && (
+        <a class="author-byline__link link-hairline" href={data.profileHref}>{profileLabel}</a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .author-byline {
+    padding: var(--space-5) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .author-byline__row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .author-byline__photo {
+    width: var(--space-9);
+    height: var(--space-9);
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .author-byline__id {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .author-byline__name {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: var(--leading-body);
+  }
+  .author-byline__role {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+  }
+  .author-byline__dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-left: auto;
+  }
+  .author-byline__date {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+  }
+  .author-byline__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--accent-text);
+  }
+
+  @media (max-width: 640px) {
+    .author-byline__dates { margin-left: 0; width: 100%; }
+  }
+
+  /* ── Alternance des fonds · defaut paper = rendu inchange ── */
+  .author-byline[data-bg='paper-2'] { background: var(--paper-2); }
+  .author-byline[data-bg='paper-3'] { background: var(--paper-3); }
+  .author-byline[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .author-byline[data-bg='ink'] .author-byline__name { color: var(--paper); }
+  .author-byline[data-bg='ink'] .author-byline__role,
+  .author-byline[data-bg='ink'] .author-byline__date { color: rgba(var(--paper-rgb), 0.6); }
+  .author-byline[data-density='compact'] { padding-block: var(--space-4); }
+  .author-byline[data-density='ample'] { padding-block: var(--space-7); }
+</style>

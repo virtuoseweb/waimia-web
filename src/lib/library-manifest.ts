@@ -105,6 +105,9 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'editorial-dropcap-prose',      consumers: [] },
   { id: 'editorial-dingbat-rule',       consumers: [] },
   { id: 'editorial-timeline',           consumers: [] },
+  // Mission DS primitives v7 — sections GEO/E-E-A-T (catalogue-only).
+  { id: 'direct-answer',                consumers: [] },
+  { id: 'author-byline',                consumers: [] },
   { id: 'diagnostic-stages',            consumers: [] },
   { id: 'case-spotlight',               consumers: [] },
   { id: 'testimonial-metrics',          consumers: [] },

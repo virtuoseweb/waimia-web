@@ -708,6 +708,65 @@
     }
   },
   {
+    "type": "author-byline",
+    "category": "marketing",
+    "categorySlug": "team-sections",
+    "subcategory": "Team Sections",
+    "status": "stable",
+    "description_fr": "Ligne auteur compacte E-E-A-T sous un h1 d'article : avatar optionnel, nom, rôle, dates de publication et mise à jour, lien vers la page profil. Beaucoup plus léger qu'un hero auteur.",
+    "requiredProps": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "role_en",
+        "type": "string"
+      },
+      {
+        "name": "role_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "authorId",
+        "type": "string"
+      },
+      {
+        "name": "photo",
+        "type": "string"
+      },
+      {
+        "name": "photoAlt_en",
+        "type": "string"
+      },
+      {
+        "name": "photoAlt_fr",
+        "type": "string"
+      },
+      {
+        "name": "profileHref",
+        "type": "string"
+      },
+      {
+        "name": "publishedDate",
+        "type": "string"
+      },
+      {
+        "name": "updatedDate",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "author-byline",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur · Intégrateur Claude Code",
+      "role_en": "Founder · Claude Code integrator"
+    }
+  },
+  {
     "type": "bento-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -1072,6 +1131,110 @@
           "impact_fr": "Heures récupérées · opérations déchargées",
           "impact_en": "Hours recovered · streamlined back office",
           "href": "/cas-clients"
+        }
+      ]
+    }
+  },
+  {
+    "type": "case-featured-grid",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "status": "stable",
+    "description_fr": "Grille de cas clients « featured » : un cas mis en avant (colonne large, cover optionnelle) plus des cas secondaires en lignes numérotées, avec chip de provenance.",
+    "requiredProps": [
+      {
+        "name": "cases",
+        "type": "array",
+        "constraint": "min:1"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "first_party_label_en",
+        "type": "string"
+      },
+      {
+        "name": "first_party_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "read_label_en",
+        "type": "string"
+      },
+      {
+        "name": "read_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "second_party_label_en",
+        "type": "string"
+      },
+      {
+        "name": "second_party_label_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "case-featured-grid",
+      "cases": [
+        {
+          "slug": "acquisition-b2b",
+          "case_num": "01",
+          "sector_fr": "SaaS B2B",
+          "sector_en": "B2B SaaS",
+          "title_fr": "Pipeline reconnecté, qualification automatisée",
+          "title_en": "Pipeline reconnected, qualification automated",
+          "headline_fr": "Leads dispersés sur cinq outils, qualifiés à la main. On a recâblé le flux et automatisé le scoring.",
+          "headline_en": "Leads scattered across five tools, qualified by hand. We rewired the flow and automated scoring.",
+          "duration_fr": "10 sem",
+          "duration_en": "10 wk",
+          "provenance": "first-party"
+        },
+        {
+          "slug": "sante-tech",
+          "case_num": "02",
+          "sector_fr": "Santé-tech",
+          "sector_en": "Healthtech",
+          "title_fr": "Triage allégé, réponse 24/7",
+          "title_en": "Triage streamlined, 24/7 response",
+          "headline_fr": "Le support croulait sous les demandes de premier niveau. Un agent les absorbe, l'équipe garde le complexe.",
+          "headline_en": "Support drowned in first-line requests. An agent absorbs them, the team keeps the complex ones.",
+          "duration_fr": "6 sem",
+          "duration_en": "6 wk",
+          "provenance": "first-party"
+        },
+        {
+          "slug": "fintech-ue",
+          "case_num": "03",
+          "sector_fr": "Fintech · UE",
+          "sector_en": "Fintech · EU",
+          "title_fr": "Scoring automatisé, conversion suivie",
+          "title_en": "Automated scoring, conversion tracked",
+          "headline_fr": "Onboarding manuel, conversion opaque. On a câblé un scoring fiable et un suivi bout en bout.",
+          "headline_en": "Manual onboarding, opaque conversion. We wired reliable scoring and end-to-end tracking.",
+          "duration_fr": "14 sem",
+          "duration_en": "14 wk",
+          "provenance": "second-party"
+        },
+        {
+          "slug": "industrie-fr",
+          "case_num": "04",
+          "sector_fr": "Industrie · FR",
+          "sector_en": "Industry · FR",
+          "title_fr": "Heures récupérées, back-office déchargé",
+          "title_en": "Hours recovered, back office streamlined",
+          "headline_fr": "Ressaisies entre l'ERP et les e-mails fournisseurs. Un RAG sur mesure relie les deux mondes.",
+          "headline_en": "Re-keying between the ERP and supplier emails. A custom RAG bridges both worlds.",
+          "duration_fr": "8 sem",
+          "duration_en": "8 wk",
+          "provenance": "second-party"
         }
       ]
     }
@@ -3040,6 +3203,54 @@
     }
   },
   {
+    "type": "direct-answer",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "status": "stable",
+    "description_fr": "Bloc GEO « réponse directe » en tête de page : reformule une question implicite, définit éventuellement une entité, puis délivre une réponse directe de 2 à 4 phrases en colonne de lecture. Sobre, éditorial, fond alterné.",
+    "requiredProps": [
+      {
+        "name": "answer_en",
+        "type": "string"
+      },
+      {
+        "name": "answer_fr",
+        "type": "string"
+      },
+      {
+        "name": "question_en",
+        "type": "string"
+      },
+      {
+        "name": "question_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "dropcap",
+        "type": "boolean"
+      },
+      {
+        "name": "term_en",
+        "type": "string"
+      },
+      {
+        "name": "term_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "direct-answer",
+      "question_fr": "Qu'est-ce qu'un intégrateur Claude Code ?",
+      "question_en": "What is a Claude Code integrator?",
+      "answer_fr": "Un intégrateur Claude Code conçoit, déploie et maintient des agents IA branchés sur vos outils métier. Il transforme un assistant générique en un système autonome qui exécute des workflows réels : prospection, support, rédaction, ops. Le rôle couvre l'architecture des agents, leur connexion aux données et leur supervision dans la durée.",
+      "answer_en": "A Claude Code integrator designs, deploys and maintains AI agents wired into your business tools. They turn a generic assistant into an autonomous system that runs real workflows : prospecting, support, writing, ops. The role spans agent architecture, data connection and long-term supervision."
+    }
+  },
+  {
     "type": "ecosystem-partners",
     "category": "marketing",
     "categorySlug": "logo-sections",
@@ -3134,6 +3345,135 @@
           "category": "crm"
         }
       ]
+    }
+  },
+  {
+    "type": "editorial-callout",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "status": "stable",
+    "description_fr": "Encadré éditorial composant l'atome Callout (info, citation, note, avertissement, manifeste) : hairline accent, citation source optionnelle, tailles et alignements. Pour ponctuer une prose.",
+    "requiredProps": [
+      {
+        "name": "body_en",
+        "type": "string"
+      },
+      {
+        "name": "body_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "align",
+        "type": "enum",
+        "constraint": "left | center"
+      },
+      {
+        "name": "cite",
+        "type": "string"
+      },
+      {
+        "name": "size",
+        "type": "enum",
+        "constraint": "sm | md | lg"
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "info | quote | note | warn | manifesto"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "editorial-callout",
+      "body_fr": "Les équipes qui industrialisent leur prospection ferment deux fois plus de rendez-vous sans recruter un seul commercial de plus.",
+      "body_en": "Teams that industrialize their prospecting book twice as many meetings without hiring a single extra rep."
+    }
+  },
+  {
+    "type": "editorial-dingbat-rule",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "status": "stable",
+    "description_fr": "Séparateur ornemental éditorial composant l'atome Dingbat (fleuron, asterisme, fin d'article, règle) : transition entre chapitres avec légendes optionnelles au-dessus et en dessous.",
+    "requiredProps": [],
+    "optionalProps": [
+      {
+        "name": "above_en",
+        "type": "string"
+      },
+      {
+        "name": "above_fr",
+        "type": "string"
+      },
+      {
+        "name": "below_en",
+        "type": "string"
+      },
+      {
+        "name": "below_fr",
+        "type": "string"
+      },
+      {
+        "name": "size",
+        "type": "enum",
+        "constraint": "sm | md | lg"
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "default | section | end | rule | asterism"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "editorial-dingbat-rule",
+      "above_en": "End of chapter I",
+      "above_fr": "Fin du chapitre I",
+      "below_en": "The method, step by step",
+      "below_fr": "La méthode, étape par étape"
+    }
+  },
+  {
+    "type": "editorial-dropcap-prose",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "status": "stable",
+    "description_fr": "Ouverture d'article éditoriale composant l'atome DropCap : initiale magnifiée (serif, mono ou accent) sur un paragraphe d'accroche, suivie de paragraphes de prose. Pour entrer dans un long-form.",
+    "requiredProps": [
+      {
+        "name": "lead_en",
+        "type": "string"
+      },
+      {
+        "name": "lead_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "paragraphs_en",
+        "type": "array"
+      },
+      {
+        "name": "paragraphs_fr",
+        "type": "array"
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "serif | mono | accent"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "editorial-dropcap-prose",
+      "lead_fr": "Le marché de la prospection B2B a basculé en 2026. Ce qui demandait dix personnes se pilote désormais depuis une seule console, et la qualité des données ne dépend plus de la discipline de chacun.",
+      "lead_en": "The B2B prospecting market shifted in 2026. What used to take ten people now runs from a single console, and data quality no longer depends on anyone’s discipline."
     }
   },
   {
@@ -3520,6 +3860,91 @@
           "Data Governance & Quality",
           "Sources of truth, ownership, controls and anomalies"
         ]
+      ]
+    }
+  },
+  {
+    "type": "editorial-timeline",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timeline Sections",
+    "status": "stable",
+    "description_fr": "Frise chronologique éditoriale composant l'atome Timeline : axe gauche, points, numéros, dates, titres et descriptions, vertical ou horizontal. Pour une méthode ou un parcours en N phases.",
+    "requiredProps": [
+      {
+        "name": "events",
+        "type": "array",
+        "constraint": "min:2"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "eyebrow_en",
+        "type": "string"
+      },
+      {
+        "name": "eyebrow_fr",
+        "type": "string"
+      },
+      {
+        "name": "numbered",
+        "type": "boolean"
+      },
+      {
+        "name": "orientation",
+        "type": "enum",
+        "constraint": "vertical | horizontal"
+      },
+      {
+        "name": "title_en",
+        "type": "string"
+      },
+      {
+        "name": "title_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "editorial-timeline",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "Cartographie",
+          "title_en": "Mapping",
+          "meta_fr": "5 jours",
+          "meta_en": "5 days",
+          "body_fr": "On lit le CRM existant, les sources de leads et les points de friction.",
+          "body_en": "We read the existing CRM, the lead sources and the friction points."
+        },
+        {
+          "num": "02",
+          "title_fr": "Priorisation",
+          "title_en": "Prioritization",
+          "meta_fr": "2 semaines",
+          "meta_en": "2 weeks",
+          "body_fr": "On classe les segments par ROI et on choisit les premiers flux à automatiser.",
+          "body_en": "We rank segments by ROI and pick the first flows to automate."
+        },
+        {
+          "num": "03",
+          "title_fr": "Mise en route",
+          "title_en": "Rollout",
+          "meta_fr": "4 semaines",
+          "meta_en": "4 weeks",
+          "body_fr": "On câble les agents, on connecte les outils et on valide chaque séquence.",
+          "body_en": "We wire the agents, connect the tools and validate every sequence.",
+          "variant": "highlight"
+        },
+        {
+          "num": "04",
+          "title_fr": "Pilotage",
+          "title_en": "Steering",
+          "meta_fr": "En continu",
+          "meta_en": "Ongoing",
+          "body_fr": "Le pipeline tourne, on suit le ROI réel et on ajuste mois après mois.",
+          "body_en": "The pipeline runs, we track real ROI and adjust month after month."
+        }
       ]
     }
   },
@@ -7244,6 +7669,92 @@
     }
   },
   {
+    "type": "key-metric-grid",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "status": "stable",
+    "description_fr": "Grille de métriques chiffrées magnifiées (style FT/Bloomberg) composant l'atome KeyMetric : chiffre dominant, label mono, delta optionnel. Axes size/align/variant et 2 à 4 colonnes, fond alterné.",
+    "requiredProps": [
+      {
+        "name": "metrics",
+        "type": "array",
+        "constraint": "min:2"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "align",
+        "type": "enum",
+        "constraint": "left | center | right"
+      },
+      {
+        "name": "columns",
+        "type": "number",
+        "constraint": "int min:2 max:4"
+      },
+      {
+        "name": "eyebrow_en",
+        "type": "string"
+      },
+      {
+        "name": "eyebrow_fr",
+        "type": "string"
+      },
+      {
+        "name": "size",
+        "type": "enum",
+        "constraint": "sm | md | lg | hero"
+      },
+      {
+        "name": "title_en",
+        "type": "string"
+      },
+      {
+        "name": "title_fr",
+        "type": "string"
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "default | inverted | accent"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "key-metric-grid",
+      "metrics": [
+        {
+          "value": "×2,4",
+          "label_fr": "leads qualifiés",
+          "label_en": "qualified leads",
+          "delta": "+62 %",
+          "trend": "up"
+        },
+        {
+          "value": "€840K",
+          "label_fr": "pipeline généré",
+          "label_en": "pipeline generated",
+          "delta": "+38 %",
+          "trend": "up"
+        },
+        {
+          "value": "11 j",
+          "label_fr": "cycle de vente moyen",
+          "label_en": "average sales cycle",
+          "delta": "-9 j",
+          "trend": "down"
+        },
+        {
+          "value": "94 %",
+          "label_fr": "données à jour",
+          "label_en": "data kept current",
+          "trend": "flat"
+        }
+      ]
+    }
+  },
+  {
     "type": "learning-path-list",
     "category": "marketing",
     "categorySlug": "index-sections",
@@ -8378,6 +8889,94 @@
           "objection_en": "We already tried unsuccessfully.",
           "response_fr": "On commence par cartographier ce qui a échoué pour éviter de répéter.",
           "response_en": "We start by mapping past failures to avoid repeating."
+        }
+      ]
+    }
+  },
+  {
+    "type": "off-proof",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "status": "stable",
+    "description_fr": "Signal terrain : citation client (PullQuote) à gauche et grille de chiffres KeyMetric à droite, en asymétrie 5/7 avec séparateur Dingbat.",
+    "requiredProps": [
+      {
+        "name": "attribution",
+        "type": "string"
+      },
+      {
+        "name": "metrics",
+        "type": "array",
+        "constraint": "min:2 max:8"
+      },
+      {
+        "name": "quote_en",
+        "type": "string"
+      },
+      {
+        "name": "quote_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "eyebrow_en",
+        "type": "string",
+        "default": "§ Before / After"
+      },
+      {
+        "name": "eyebrow_fr",
+        "type": "string",
+        "default": "§ Avant / Après"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "default": "Field<br/><i>signal</i>"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "default": "Signal<br/><i>terrain</i>"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "off-proof",
+      "quote_fr": "Le pipeline tourne maintenant tout seul. On a récupéré nos fins de mois.",
+      "quote_en": "The pipeline now runs on its own. We got our month-ends back.",
+      "attribution": "DAF · ETI industrielle 600 personnes",
+      "metrics": [
+        {
+          "value": "−80 %",
+          "label_fr": "Temps de réconciliation",
+          "label_en": "Reconciliation time"
+        },
+        {
+          "value": "×4",
+          "label_fr": "Vitesse de production des mémos",
+          "label_en": "Memo production speed"
+        },
+        {
+          "value": "−6 j",
+          "label_fr": "Délai de clôture mensuelle",
+          "label_en": "Monthly close lead time"
+        },
+        {
+          "value": "99,4 %",
+          "label_fr": "Écritures rapprochées sans intervention",
+          "label_en": "Entries matched without intervention"
+        },
+        {
+          "value": "3 mois",
+          "label_fr": "Retour sur investissement",
+          "label_en": "Return on investment"
         }
       ]
     }
