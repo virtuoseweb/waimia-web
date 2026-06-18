@@ -163,6 +163,15 @@ Le dossier `~/Downloads/logo a renommer…` (13 logos) est **redondant** avec `p
 ### 5.4 Critère « recyclé au mieux » (validation)
 Objectif de fin de refonte : **0 asset GARDER orphelin** dans `public/images`. Mesure = `rg -o "/images/" src | sort -u | wc -l` doit couvrir tous les GARDER du §2/§3. Suivi à chaque vague.
 
+### 5.5 Recolor DS des 28 illustrations Registre B (D5, 2026-06-19)
+Décision Simon : recolorer **toutes** les 28 illustrations vers la palette DS (les unifier pour les exploiter au maximum, y compris sur pages Registre A) et les **ajouter dans le content**. Deux traitements générés (Simon « les deux »), via ImageMagick (recette prouvée sur planche, orchestrateur direct = génération d'assets) :
+- **R1 « ink » (`*-ink.webp`)** : tritone `encre #0C0B09 → terracotta #C94F2E → crème #F6F1E8` via CLUT sur niveaux de gris auto-level. Contrasté, look sérigraphie. **Pour fonds `ink`** + éditorial.
+- **R5 « paper » (`*-paper.webp`)** : duotone `terracotta(ombres) → crème(clairs)` (`+level-colors '#C94F2E','#F6F1E8'`). Doux, aéré. **Pour fonds `paper`** (imagerie discrète).
+- Sortie : `public/images/illustrations/ds/` (56 fichiers = 28 × 2). Originaux Reg B conservés.
+- QC visuel (GF-1) : 2 planches-contact inspectées, set cohérent, 0 image cassée. ⚠️ `no-no-yes` (texte incrusté) + `fruits` (hors-sujet métier) à éviter sur le flagship.
+- **Plafond technique acté** : le recolor raster donne une palette DS uniforme mais PAS le look « line-art fond crème » (fond mid-tone dominant non détourable) → ces illustrations restent une imagerie « pleine » DS, distincte des line-art SVG (Reg A). Cohérence par PAGE maintenue (ne pas mélanger pleine-image-DS et line-art sur la même section sans intention).
+- Câblage dans le content (« ajouter ») = phase suivante, piloté par slot avec Simon (top 8 du §4.3 prioritaire).
+
 ---
 
 ## §VÉRIF
