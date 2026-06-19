@@ -25,7 +25,7 @@ const isFr = lang === 'fr';
 
     <h2 id="services-grid-h2" class="services-grid__h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
 
-    <div class="services-grid__grid reveal-stagger">
+    <div class="services-grid__grid qgrid reveal-stagger">
       {data.services.map((s) => (
         <article class="services-grid__cell">
           <header class="services-grid__cell-head">
@@ -110,16 +110,23 @@ const isFr = lang === 'fr';
     text-wrap: balance;
     color: var(--ink);
   }
+  /* Primitive adaptative .qgrid (grid.css) : colonnes pilotées par le NOMBRE/LARGEUR
+     des cells (--card-min borne ~3 colonnes au large). On neutralise le gap pour
+     garder le look hairline collé ; le filet entre cells est porté par border-right +
+     border-bottom sur CHAQUE cell, le conteneur masquant les bords externes via
+     overflow + marges négatives (-1px), schéma indépendant du nombre de colonnes :
+     plus de `:nth-child(3n)` figé sur 3 colonnes. */
   .services-grid__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    --card-min: 17rem;
     gap: 0;
     border-top: 1px solid var(--hairline-strong);
+    overflow: hidden;
   }
   .services-grid__cell {
     padding: var(--spacing-block) var(--space-6) var(--space-8);
     border-right: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
+    margin: 0 -1px -1px 0;
     min-height: 300px;
     position: relative;
     display: flex;
@@ -131,8 +138,6 @@ const isFr = lang === 'fr';
     border-color: var(--accent-text);
     translate: 0 -1px;
   }
-  .services-grid__cell:nth-child(3n) { border-right: none; }
-  .services-grid__cell:nth-child(n+4) { border-bottom: none; }
   .services-grid__cell-head {
     display: flex;
     justify-content: space-between;
@@ -249,16 +254,10 @@ const isFr = lang === 'fr';
     transition: transform var(--dur-hover) var(--ease);
   }
   .services-grid__cell:hover .services-grid__cell-arr { transform: translateX(4px); }
-  @media (max-width: 900px) {
-    .services-grid__grid { grid-template-columns: repeat(2, 1fr); }
-    .services-grid__cell { border-right: none; border-bottom: 1px solid var(--hairline); }
-    .services-grid__cell:nth-child(2n) { border-right: none; }
-    .services-grid__cell:nth-child(odd) { border-right: 1px solid var(--hairline); }
-  }
-  @media (max-width: 600px) {
-    .services-grid__grid { grid-template-columns: 1fr; }
-    .services-grid__cell { border-right: none !important; }
-  }
+  /* Le responsive colonnes est porté par .qgrid (grid.css : recompositions :has()
+     puis 1 colonne sous 768px). Le filet hairline (border-right/bottom par cell +
+     overflow conteneur) reste correct quelle que soit la disposition, donc plus de
+     media-queries de colonnes/bordures locales (elles entraient en conflit). */
   /* ── Alternance des fonds R4 · defaut paper-2 (clair) = rendu inchange ── */
   .services-grid[data-bg='paper'] { background: var(--paper); }
   .services-grid[data-bg='paper-3'] { background: var(--paper-3); }

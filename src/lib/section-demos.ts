@@ -1904,6 +1904,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     h2_en: 'Three <i>dimensions</i> of the Waimia system',
     lede_fr: "Chaque couche du systeme est concue pour fonctionner seule ou en composition avec les autres.",
     lede_en: 'Each layer of the system is designed to work alone or in composition with the others.',
+    // Damier opt-in : 1 bloc sur 2 (le 2e ici) rend en contraste ink. Son media
+    // pointe donc une variante -ink.webp (manifeste §5.5 « 1 registre par bloc »).
+    alternate_blocks: true,
     rows: [
       {
         kicker_fr: 'Diagnostic',
@@ -1915,6 +1918,10 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         link_label_fr: 'Voir le processus',
         link_label_en: 'See the process',
         link_href: '/offres',
+        // Media line-art inline (.svg) : trait currentColor + accent DS.
+        media_src: '/images/line-art/livrable-tableau-mesure.svg',
+        media_alt_fr: 'Schema line-art : tableau de mesure',
+        media_alt_en: 'Line-art diagram: measurement dashboard',
       },
       {
         kicker_fr: 'Execution',
@@ -1926,6 +1933,10 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         link_label_fr: 'Explorer les cas clients',
         link_label_en: 'Explore client cases',
         link_href: '/cas-clients',
+        // Bloc even (rendu ink par le damier) : variante -ink.webp.
+        media_src: '/images/illustrations/ds/chess-ink.webp',
+        media_alt_fr: 'Illustration : pieces d echecs',
+        media_alt_en: 'Illustration: chess pieces',
       },
       {
         kicker_fr: 'Transfert',
@@ -1937,6 +1948,10 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         link_label_fr: 'Decouvrir la formation',
         link_label_en: 'Discover the training',
         link_href: '/formations',
+        // Bloc odd (paper) : variante -paper.webp.
+        media_src: '/images/illustrations/ds/men-on-hand-paper.webp',
+        media_alt_fr: 'Illustration : transmission de savoir',
+        media_alt_en: 'Illustration: knowledge handover',
       },
     ],
   },

@@ -1,9 +1,29 @@
 ---
 // Section catalogue · feature-zigzag
 // Lignes alternées visuel/texte (gauche-droite / droite-gauche / gauche-droite).
-// Chaque ligne = bloc visuel SVG placeholder + colonne texte (kicker + titre + body + lien).
+// Chaque ligne = bloc média (line-art inline, image webp, ou SVG placeholder) +
+// colonne texte (kicker + titre + body + lien). Adaptativité par bloc via
+// container-query ; entrée directionnelle au scroll (CSS pur, observer existant) ;
+// damier paper/ink opt-in.
 import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
+
+// Line-art DS (Registre A) inliné au build via ?raw : le SVG vit dans le DOM →
+// `stroke="currentColor"` suit la couleur de texte du contexte et `var(--accent)`
+// résout le vrai token DS (un <img> n'hériterait ni de currentColor ni des custom
+// properties). Pattern identique à FeatureGrid.astro. Source = assets/line-art/*.svg.
+// Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
 
 interface Props {
   data: SectionByType<'feature-zigzag'>;
@@ -12,9 +32,10 @@ interface Props {
 
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+const alternate = data.alternate_blocks === true;
 ---
 
-<section class="fz sec-base" data-bg={data.background}>
+<section class="fz sec-base" data-bg={data.background} data-alternate={alternate ? 'true' : 'false'}>
   <div class="wrap-wide">
     <div class="fz__header reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -27,42 +48,56 @@ const isFr = lang === 'fr';
     </div>
 
     <ol class="fz__rows" aria-label={isFr ? 'Fonctionnalités' : 'Features'}>
-      {data.rows.map((row, i) => (
-        <li class="fz__row reveal" data-reverse={i % 2 === 1 ? 'true' : 'false'}>
-          <div class="fz__visual" aria-hidden="true">
-            <svg class="fz__svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="presentation">
-              <rect x="40" y="36" width="180" height="11" rx="3" fill="var(--accent)" opacity="0.55" />
-              <rect x="40" y="62" width="120" height="8" rx="2" fill="var(--hairline)" />
-              <rect x="40" y="108" width="560" height="176" rx="8" fill="var(--paper)" stroke="var(--hairline)" stroke-width="1" />
-              <rect x="62" y="130" width="84" height="10" rx="2" fill="var(--accent)" opacity="0.45" />
-              <rect x="62" y="152" width="210" height="8" rx="2" fill="var(--hairline)" />
-              <rect x="62" y="170" width="168" height="8" rx="2" fill="var(--hairline)" />
-              <rect x="62" y="188" width="190" height="8" rx="2" fill="var(--hairline)" />
-              <rect x="62" y="214" width="120" height="8" rx="2" fill="var(--hairline)" />
-              <rect x="384" y="130" width="194" height="132" rx="6" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1" />
-              <circle cx="481" cy="184" r="30" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.5" />
-              <path d="M481 162 L481 184 L498 196" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.5" stroke-linecap="round" />
-              <rect x="438" y="230" width="86" height="8" rx="2" fill="var(--hairline)" />
-              <rect x="40" y="306" width="104" height="30" rx="15" fill="var(--accent)" opacity="0.18" />
-              <rect x="40" y="306" width="104" height="30" rx="15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.4" />
-              <rect x="156" y="306" width="104" height="30" rx="15" fill="none" stroke="var(--hairline)" stroke-width="1" />
-            </svg>
-          </div>
-          <div class="fz__text">
-            {(isFr ? row.kicker_fr : row.kicker_en) && (
-              <Kicker tone="accent">{isFr ? row.kicker_fr : row.kicker_en}</Kicker>
-            )}
-            <h3 class="u-serif-accent u-serif-accent-em">{isFr ? row.h3_fr : row.h3_en}</h3>
-            <p>{isFr ? row.body_fr : row.body_en}</p>
-            {(isFr ? row.link_label_fr : row.link_label_en) && row.link_href && (
-              <a class="fz__link" href={row.link_href}>
-                {isFr ? row.link_label_fr : row.link_label_en}
-                <span aria-hidden="true">&#x2192;</span>
-              </a>
-            )}
-          </div>
-        </li>
-      ))}
+      {data.rows.map((row, i) => {
+        const reverse = i % 2 === 1;
+        const isSvg = row.media_src?.endsWith('.svg');
+        const art = isSvg ? inlineLineArt(row.media_src) : undefined;
+        const alt = (isFr ? row.media_alt_fr : row.media_alt_en) ?? '';
+        return (
+          <li class="fz__row reveal" data-reverse={reverse ? 'true' : 'false'}>
+            <div class="fz__cell">
+              <div class="fz__visual">
+                {art ? (
+                  <div class="fz__art" set:html={art} role={alt ? 'img' : undefined} aria-label={alt || undefined} aria-hidden={alt ? undefined : 'true'} />
+                ) : row.media_src ? (
+                  <img class="fz__img" src={row.media_src} alt={alt} loading="lazy" decoding="async" width="640" height="360" />
+                ) : (
+                  <svg class="fz__svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true">
+                    <rect x="40" y="36" width="180" height="11" rx="3" fill="var(--accent)" opacity="0.55" />
+                    <rect x="40" y="62" width="120" height="8" rx="2" fill="var(--hairline)" />
+                    <rect x="40" y="108" width="560" height="176" rx="8" fill="var(--paper)" stroke="var(--hairline)" stroke-width="1" />
+                    <rect x="62" y="130" width="84" height="10" rx="2" fill="var(--accent)" opacity="0.45" />
+                    <rect x="62" y="152" width="210" height="8" rx="2" fill="var(--hairline)" />
+                    <rect x="62" y="170" width="168" height="8" rx="2" fill="var(--hairline)" />
+                    <rect x="62" y="188" width="190" height="8" rx="2" fill="var(--hairline)" />
+                    <rect x="62" y="214" width="120" height="8" rx="2" fill="var(--hairline)" />
+                    <rect x="384" y="130" width="194" height="132" rx="6" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1" />
+                    <circle cx="481" cy="184" r="30" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.5" />
+                    <path d="M481 162 L481 184 L498 196" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.5" stroke-linecap="round" />
+                    <rect x="438" y="230" width="86" height="8" rx="2" fill="var(--hairline)" />
+                    <rect x="40" y="306" width="104" height="30" rx="15" fill="var(--accent)" opacity="0.18" />
+                    <rect x="40" y="306" width="104" height="30" rx="15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.4" />
+                    <rect x="156" y="306" width="104" height="30" rx="15" fill="none" stroke="var(--hairline)" stroke-width="1" />
+                  </svg>
+                )}
+              </div>
+              <div class="fz__text">
+                {(isFr ? row.kicker_fr : row.kicker_en) && (
+                  <Kicker tone="accent">{isFr ? row.kicker_fr : row.kicker_en}</Kicker>
+                )}
+                <h3 class="u-serif-accent u-serif-accent-em">{isFr ? row.h3_fr : row.h3_en}</h3>
+                <p>{isFr ? row.body_fr : row.body_en}</p>
+                {(isFr ? row.link_label_fr : row.link_label_en) && row.link_href && (
+                  <a class="fz__link" href={row.link_href}>
+                    {isFr ? row.link_label_fr : row.link_label_en}
+                    <span aria-hidden="true">&#x2192;</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </li>
+        );
+      })}
     </ol>
   </div>
 </section>
@@ -98,20 +133,49 @@ const isFr = lang === 'fr';
     gap: var(--space-10);
   }
 
+  /* La row porte le container-type ; sa grille interne (.fz__cell) se requête
+     elle-même (un élément ne peut pas se requêter, donc on style un descendant). */
   .fz__row {
+    container-type: inline-size;
+  }
+
+  .fz__cell {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-9);
+    /* Mobile-first : 1 colonne. La bascule 2 colonnes se fait par container-query
+       sur la LARGEUR DE LA ROW (chaque bloc s'adapte à SA largeur, pas au viewport). */
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
     align-items: center;
   }
 
-  /* Impair (0, 2, ...) : visuel gauche, texte droite */
-  .fz__row[data-reverse='false'] .fz__visual { order: 0; }
-  .fz__row[data-reverse='false'] .fz__text   { order: 1; }
+  /* Adaptativité par bloc : 2 colonnes asymétriques quand la row est assez large.
+     split média/texte via fractions STRUCTURELLES (pas de token couleur). */
+  @container (min-width: 48rem) {
+    .fz__cell {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-9);
+    }
+    /* Impair (0, 2, ...) : visuel gauche, texte droite */
+    .fz__row[data-reverse='false'] .fz__visual { order: 0; }
+    .fz__row[data-reverse='false'] .fz__text   { order: 1; }
+    /* Pair (1, 3, ...) : texte gauche, visuel droite */
+    .fz__row[data-reverse='true'] .fz__visual { order: 1; }
+    .fz__row[data-reverse='true'] .fz__text   { order: 0; }
+  }
 
-  /* Pair (1, 3, ...) : texte gauche, visuel droite */
-  .fz__row[data-reverse='true'] .fz__visual { order: 1; }
-  .fz__row[data-reverse='true'] .fz__text   { order: 0; }
+  /* Fallback navigateurs sans container-query : bascule sur media-query viewport. */
+  @supports not (container-type: inline-size) {
+    @media (min-width: 64rem) {
+      .fz__cell {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-9);
+      }
+      .fz__row[data-reverse='false'] .fz__visual { order: 0; }
+      .fz__row[data-reverse='false'] .fz__text   { order: 1; }
+      .fz__row[data-reverse='true'] .fz__visual { order: 1; }
+      .fz__row[data-reverse='true'] .fz__text   { order: 0; }
+    }
+  }
 
   .fz__visual {
     position: relative;
@@ -147,6 +211,32 @@ const isFr = lang === 'fr';
     padding: clamp(var(--space-4), 3vw, var(--space-7));
   }
 
+  /* Line-art inline : trait = currentColor du contexte, accent = var(--accent). */
+  .fz__art {
+    position: relative;
+    z-index: 1;
+    color: var(--ink);
+    line-height: 0;
+    padding: clamp(var(--space-4), 3vw, var(--space-7));
+  }
+  .fz__art :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Image réelle (webp) : dimensions posées (width/height attrs) → 0 CLS. */
+  .fz__img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
   .fz__text {
     display: flex;
     flex-direction: column;
@@ -168,6 +258,8 @@ const isFr = lang === 'fr';
     color: var(--muted);
     line-height: var(--leading-body);
     margin: 0;
+    /* Discipline typo : largeur de colonne confortable pour la lecture. */
+    max-width: 52ch;
   }
 
   .fz__link {
@@ -186,22 +278,72 @@ const isFr = lang === 'fr';
     text-underline-offset: 3px;
   }
 
-  /* Responsive : stack < 760px, toujours visuel puis texte */
-  @media (max-width: 759px) {
-    .fz__row {
+  /* ── Entrée directionnelle au scroll (CSS pur, observer existant scroll-reveal) ──
+     État initial : opacity 0 + translateX directionnel (le visuel et le texte
+     entrent depuis le côté où ils se posent). Neutralisé quand .is-visible/.in est
+     ajouté par l'IntersectionObserver. Reflow-safe : transform/opacity uniquement. */
+  .fz__row .fz__visual,
+  .fz__row .fz__text {
+    opacity: 0;
+    transition:
+      opacity var(--dur-reveal) var(--ease),
+      transform var(--dur-reveal) var(--ease);
+    will-change: opacity, transform;
+  }
+  .fz__row[data-reverse='false'] .fz__visual { transform: translateX(-24px); }
+  .fz__row[data-reverse='false'] .fz__text   { transform: translateX(24px); }
+  .fz__row[data-reverse='true']  .fz__visual { transform: translateX(24px); }
+  .fz__row[data-reverse='true']  .fz__text   { transform: translateX(-24px); }
+
+  .fz__row.is-visible .fz__visual,
+  .fz__row.in .fz__visual,
+  .fz__row.is-visible .fz__text,
+  .fz__row.in .fz__text {
+    opacity: 1;
+    transform: none;
+  }
+  /* Micro-stagger : le texte suit le média de peu. */
+  .fz__row.is-visible .fz__text,
+  .fz__row.in .fz__text {
+    transition-delay: 90ms;
+  }
+
+  /* ── Mobile + bornage motion (768px) ──
+     Sous 768px : ordre de lecture garanti titre→desc→média (le DOM est média-puis-
+     texte pour le visuel-first desktop, donc on réordonne le texte AVANT le média à
+     l'empilement). On neutralise aussi l'entrée directionnelle (pas de translateX). */
+  @media (max-width: 768px) {
+    .fz__cell {
       grid-template-columns: 1fr;
     }
+    .fz__row .fz__visual,
+    .fz__row[data-reverse='true'] .fz__visual,
+    .fz__row[data-reverse='false'] .fz__visual { order: 1; }
+    .fz__row .fz__text,
+    .fz__row[data-reverse='true'] .fz__text,
+    .fz__row[data-reverse='false'] .fz__text { order: 0; }
 
     .fz__row[data-reverse='false'] .fz__visual,
-    .fz__row[data-reverse='true'] .fz__visual {
-      order: 0;
-    }
-
+    .fz__row[data-reverse='true']  .fz__visual,
     .fz__row[data-reverse='false'] .fz__text,
-    .fz__row[data-reverse='true'] .fz__text {
-      order: 1;
+    .fz__row[data-reverse='true']  .fz__text {
+      transform: none;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fz__row .fz__visual,
+    .fz__row .fz__text,
+    .fz__row[data-reverse='false'] .fz__visual,
+    .fz__row[data-reverse='false'] .fz__text,
+    .fz__row[data-reverse='true']  .fz__visual,
+    .fz__row[data-reverse='true']  .fz__text {
+      transform: none;
+      transition: none;
+      opacity: 1;
+    }
+  }
+
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .fz[data-bg='paper-2'] { background: var(--paper-2); }
   .fz[data-bg='paper-3'] { background: var(--paper-3); }
@@ -210,6 +352,7 @@ const isFr = lang === 'fr';
     color: var(--paper);
   }
   .fz[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .fz[data-bg='ink'] .fz__art { color: var(--paper); }
   .fz[data-bg='ink'] .fz__visual {
     border-color: rgba(var(--paper-rgb), 0.16);
     background:
@@ -217,6 +360,38 @@ const isFr = lang === 'fr';
       rgba(var(--paper-rgb), 0.04);
   }
   .fz[data-bg='ink'] .fz__visual::before {
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(var(--paper-rgb), 0.1) 0,
+      rgba(var(--paper-rgb), 0.1) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+  }
+
+  /* ── Damier paper/ink par bloc (opt-in via data-alternate) ──
+     1 bloc sur 2 (nth-child even) rend en contraste inverse. On remap les rôles
+     locaux (--muted / --hairline) vers leurs équivalents sur ink, modèle du bloc
+     [data-bg='ink'] ci-dessus. Le média de ce bloc doit être la variante -ink.webp
+     (choix porté par le contenu, manifeste §5.5). Absent/false = rendu inchangé. */
+  .fz[data-alternate='true'] .fz__row:nth-child(even) {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.64);
+    --hairline: rgba(var(--paper-rgb), 0.14);
+    border-radius: var(--radius-lg, var(--radius-md, 8px));
+    padding: clamp(var(--space-6), 4cqi, var(--space-9));
+  }
+  .fz[data-alternate='true'] .fz__row:nth-child(even) :is(h3) { color: var(--paper); }
+  .fz[data-alternate='true'] .fz__row:nth-child(even) .fz__text p { color: var(--muted); }
+  .fz[data-alternate='true'] .fz__row:nth-child(even) .fz__art { color: var(--paper); }
+  .fz[data-alternate='true'] .fz__row:nth-child(even) .fz__visual {
+    border-color: rgba(var(--paper-rgb), 0.16);
+    background:
+      radial-gradient(120% 90% at 80% 16%, rgba(var(--accent-rgb), 0.14), transparent 60%),
+      rgba(var(--paper-rgb), 0.04);
+  }
+  .fz[data-alternate='true'] .fz__row:nth-child(even) .fz__visual::before {
     background: repeating-linear-gradient(
       135deg,
       rgba(var(--paper-rgb), 0.1) 0,

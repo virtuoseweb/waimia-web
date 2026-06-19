@@ -2,6 +2,7 @@
 // Section W6 · case-card-grid
 // Table éditoriale 6 colonnes : index · client · secteur · stack · impact · arrow.
 // Markup + style = copie VERBATIM de `Cases.astro` (Acte IV — Les preuves, 4 dossiers).
+import { getCollection } from 'astro:content';
 import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
 import type { SectionByType } from '../../schemas/sections';
 
@@ -12,10 +13,33 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 
+// Résolution GLOBAL : si caseRefs présent → résout la collection `cases` filtrée par
+// slug (ordre du caseRefs préservé, slugs inconnus ignorés = anti-404) et mappe vers
+// la forme `cases` attendue par le markup (stack[] → 'a · b · c') ; sinon fallback
+// aux cases inline (rétrocompat, 0 régression).
+let resolvedCases = data.cases;
+if (data.caseRefs && data.caseRefs.length > 0) {
+  const all = await getCollection('cases');
+  const bySlug = new Map(all.map((c) => [c.id, c]));
+  resolvedCases = data.caseRefs
+    .map((slug) => bySlug.get(slug))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c))
+    .map((c) => ({
+      client: c.data.client,
+      sector_fr: c.data.sector_fr,
+      sector_en: c.data.sector_en,
+      duration: c.data.duration,
+      stack: c.data.stack.join(' · '),
+      impact_fr: c.data.impact_fr,
+      impact_en: c.data.impact_en,
+      href: `/cas-clients/${c.id}`,
+    }));
+}
+
 // GAP-B · état vide honnête : < 2 cas (ou 0) → encart « premiers cas en cours de
 // rédaction » au lieu d'une table famélique. Porté DANS le composant catalogué pour
 // se propager partout (pas en inline dans la route).
-const isEmpty = data.cases.length < 2;
+const isEmpty = resolvedCases.length < 2;
 const emptyKicker = isFr
   ? data.empty_kicker_fr ?? 'Cas de ce secteur'
   : data.empty_kicker_en ?? 'Cases for this industry';
@@ -46,7 +70,7 @@ const emptyBody = isFr
       </div>
     ) : (
     <div class="cases-tbl row-lines reveal-stagger">
-      {data.cases.map((c, i) => (
+      {resolvedCases.map((c, i) => (
         <a class="cases-row" href={c.href}>
           <span class="cases-idx">{isFr ? data.case_label_fr : data.case_label_en} 0{i + 1}</span>
           <span class="cases-client">{c.client}</span>

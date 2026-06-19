@@ -1272,6 +1272,10 @@ export const caseCardGridSchema = z.object({
   sector_label_en: z.string().default('Sector'),
   impact_label_fr: z.string().default('Impact'),
   impact_label_en: z.string().default('Impact'),
+  // caseRefs : résolution GLOBAL via la collection `cases` (slugs). Optionnel → si
+  // présent, le composant fait getCollection('cases') filtré par slug et mappe les
+  // champs ; sinon il retombe sur `cases` inline (rétrocompat, 0 régression).
+  caseRefs: z.array(z.string()).optional(),
   cases: z
     .array(
       z.object({
@@ -1285,7 +1289,8 @@ export const caseCardGridSchema = z.object({
         href: z.string(),
       }),
     )
-    .max(6),
+    .max(6)
+    .default([]),
   all_label_fr: z.string().optional(),
   all_label_en: z.string().optional(),
   all_href: z.string().optional(),
@@ -1788,6 +1793,11 @@ export const bentoGridSchema = z.object({
 export const featureZigzagSchema = z.object({
   type: z.literal('feature-zigzag'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Damier paper/ink opt-in : quand true, 1 bloc sur 2 (nth-child even) rend en
+  // contraste inverse (fond ink / texte paper). Absent ou false = rendu inchangé
+  // (rétrocompat). Cf manifeste §5.5 « 1 registre par bloc » : un bloc rendu en
+  // ink doit pointer son média sur la variante -ink.webp (choix au contenu).
+  alternate_blocks: z.boolean().optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -1805,6 +1815,12 @@ export const featureZigzagSchema = z.object({
       link_label_fr: z.string().optional(),
       link_label_en: z.string().optional(),
       link_href: z.string().optional(),
+      // Média réel par bloc (corrige le placeholder vide). Optionnels → rétrocompat
+      // (un row sans media_src garde le SVG placeholder). .svg = inline line-art via
+      // ?raw (currentColor/var(--accent) résolvent) ; .webp = <img> avec dimensions.
+      media_src: z.string().optional(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
     })
   ).min(2).max(6),
 });
@@ -3305,7 +3321,11 @@ export const logoMarqueeSchema = z.object({
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
-  logos: z.array(logoMarqueeItemSchema).min(4).max(24),
+  // logoIds : résolution GLOBAL via le store src/data/logos.ts (anti-duplication
+  // des src/name inline répétés dans les MDX). Optionnel → si présent, le composant
+  // résout chaque id via LOGOS[id] ; sinon il retombe sur `logos` inline (rétrocompat).
+  logoIds: z.array(z.string()).optional(),
+  logos: z.array(logoMarqueeItemSchema).min(4).max(24).optional(),
   speed: z.enum(['slow', 'base']).default('base'),
   grayscale: z.boolean().default(true),
 });
