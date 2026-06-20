@@ -136,4 +136,12 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
     color: var(--paper);
   }
   .bento-grid[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  /* Tuiles en contexte ink : fond sombre élevé (et non paper clair) + hairline
+     clair, sinon texte clair sur fond clair = contraste ~1.0 (invisible). */
+  .bento-grid[data-bg='ink'] .bento-grid__cell {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .bento-grid[data-bg='ink'] .bento-grid__title { color: var(--paper); }
+  .bento-grid[data-bg='ink'] .bento-grid__body { color: rgba(var(--paper-rgb), 0.72); }
 </style>

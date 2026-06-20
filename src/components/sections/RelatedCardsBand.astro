@@ -32,7 +32,11 @@ const cards = data.cards.map((c) => ({
 
 <style>
   .related-cards-band {
-    padding: var(--related-cards-band-pad, var(--section-loose)) var(--related-cards-band-inline, var(--space-6));
+    /* Inset horizontal porté par le seul .wrap-wide interne (max-width + --gut),
+       comme les sections voisines (problems-grid/deliverables-grid) : pas de
+       padding-inline sur la section, sinon double inset → grille plus étroite et
+       décalée que le reste du flux. Padding vertical conservé. */
+    padding-block: var(--related-cards-band-pad, var(--section-loose));
   }
   /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
   :global(.related-cards-band__kicker) {
