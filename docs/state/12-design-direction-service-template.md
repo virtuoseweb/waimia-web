@@ -107,3 +107,34 @@ Règle d'alternance : jamais 2 ink consécutifs ; ink = climax (hero, architectu
 
 ## Garde-fous tenus
 0 nouveau token DS · 0 nouveau module JS (effets câblés `Base.astro:176-217`) · reflow-safe (transform/opacity/shadow/stroke hors-flux) · reduced-motion + mobile neutralisés CSS · ordre DOM = ordre lecteur (WCAG 1.3.2) · visuels honnêtes E-E-A-T (0 faux logo/screenshot, Registre A privilégié).
+
+## Reprise post-crash 2026-06-19 (flotte d'agents OOM RAM)
+
+> Snapshot de reprise. La flotte de la nuit du 2026-06-19 (~11 workers Opus parallèles, chacun avec build + chromium GF-1) a demandé plus de 50 Go RAM sur 24 Go physiques. La session a crashé. Bilan : ce qui a survécu (committé) vs ce qui reste.
+
+### État de référence
+- Branche à garder : `feat/v7-service-template` (HEAD `34062ac`). Sur-ensemble STRICT de `feat/v7-fondations` (fondations + le seul commit Phase A). `git log fondations..service-template` = 1 commit, l'inverse = vide. `feat/v7-fondations` est donc redondante, supprimable après vérif.
+- Build d'intégrité : `npx -y pnpm@9.15.0 build` => `Complete!` (exit 0, ~784 pages). Les 4 touchpoints DS sont synchrones, Zod valide, gate no-emdash OK.
+- Working tree propre : tout le travail committé a survécu.
+
+### Missions committées (récupérées)
+| Mission (agent) | Commit | Livrable |
+|---|---|---|
+| M1 import + curation assets (asset-curator) | `6db134b` + `3def870` | 28 illustrations gardées (14 écartées, manifeste 11 §4.2) + `ds/` (56 recolorées ink/paper) + manifeste `docs/state/11` |
+| M4 primitives CSS + M5 line-art (css-primitives) | `a0777d0` | `.auto-grid/.qgrid/.bento-fluid/.span-*` (grid.css), `[data-layout=split-*]` (layouts.css), 11 SVG `public/images/line-art/` |
+| M6+M7 sections content-driven (phase2a/2b) | `d6df495` | FeatureGrid, LogoWall, BentoGrid, StatsBento, FeatureSplitMedia recomposés |
+| M8/M9 Container Expansion (phase3-bridge-expand) | `20b4541` (+ spec `aff0701`) | opt-in `expand:true` dans SectionsRenderer + schéma |
+| M10 3 heros (d6-hero-variants) | `8ed4325` | `variant: split\|sumie\|minimal` ; `split` LIVE flagship slot 1 |
+| M11 câblage line-art (lineart-wiring) | `14ee255` | 9 `illustration_src` câblés (3 problems + 6 deliverables), inline via `src/assets/line-art/` |
+| M13 Phase A (phaseA-components) | `34062ac` | FeatureZigzag enrichi + `src/data/logos.ts` + primitives adaptatives |
+
+M2 (audit compo read-only) et M3 (brainstorming design) etaient sans ecriture : leur sortie a nourri ce doc 12 (`ededa0b`, `aff0701`). Pas de livrable fichier propre.
+
+### RESTE A FAIRE (perdu au crash, jamais committé)
+1. **Recomposition flagship §16 (D6, ex-M12 + M14)** : `integrateur-claude.mdx` est TOUJOURS dans l'ordre d'origine (15 sections, dernier commit `14ee255`). La table §16 (D6 ci-dessus) n'a PAS été appliquée. Reste : réordonner selon §16 + ajouter les 5 slots manquants (4 pour-qui, 7 architecture `bento-grid` ink, 11/12/14 maillage). Le plan est la table D6 ; les briefs `/tmp/v7-service-template/*` sont perdus mais reconstituables depuis cette table. UNE seule approche à retenir (M12 et M14 etaient redondants sur le meme fichier).
+2. **GF-1 visuel complet** : les PNG des workers (`/tmp/*.png`) ont été nettoyés. Re-prouver sur preview : 3 heros, sections content-driven (0 orpheline 3..8 enfants), line-art visibles, `getComputedStyle` H1/CTA opacity != 0.
+3. **Câblage des 28 illustrations recolorées** (`ds/`) : manifeste 11 §5.5 le réserve à une phase pilotée par slot avec Simon (top 8 prioritaire).
+4. **Décision Simon** : merger `feat/v7-service-template` (apres GF-1 preview) puis supprimer `feat/v7-fondations`.
+
+### GARDE-FOU ANTI-CRASH (prochaine flotte)
+24 Go RAM physiques. Un worker Opus + chromium headless + build node consomme ~4-5 Go au pic. **Plafond sûr : 3 workers parallèles MAX** (2 si build+chromium simultanés). Échelonner par vagues, surveiller `memory_pressure` entre vagues, JAMAIS plusieurs `pnpm build` en parallèle (OOM Node connu). Pour plus de 6 sous-tâches, préférer le tool `Workflow` (slots cappés) à N `Agent` lancés d'un coup. Committer chaque mission finie (rien perdu si la RAM lâche).
