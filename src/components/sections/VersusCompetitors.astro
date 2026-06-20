@@ -72,7 +72,12 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
                     const v = row.values[ci];
                     const kind = v === undefined ? 'no' : cellKind(v);
                     return (
-                      <td class="versus__cell" data-featured={c.featured ? 'true' : 'false'} data-kind={kind}>
+                      <td
+                        class="versus__cell"
+                        data-featured={c.featured ? 'true' : 'false'}
+                        data-kind={kind}
+                        data-collabel={isFr ? c.name_fr : c.name_en}
+                      >
                         {kind === 'yes' && <span class="versus__icon versus__icon--yes" aria-label={isFr ? 'Oui' : 'Yes'}>✓</span>}
                         {kind === 'no' && <span class="versus__icon versus__icon--no" aria-label={isFr ? 'Non' : 'No'}>✗</span>}
                         {kind === 'text' && <span class="versus__text">{v as string}</span>}
@@ -183,5 +188,78 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
 
   .versus__row:last-child .versus__cell[data-featured='true'] {
     border-radius: 0 0 var(--radius-card) var(--radius-card);
+  }
+
+  /* ── Mobile (<768px) · reflow card-per-ligne ──────────────────────────────
+     Le calque tabulaire (min-width:640px) déborde un viewport 390px : seule la
+     1ʳᵉ colonne de valeurs est visible au repos, le SENS du comparatif est perdu.
+     Sous 768px on casse la table : chaque ligne de critère devient une carte, et
+     chaque valeur s'empile sous son label de colonne (data-collabel) → toutes les
+     colonnes (dont les colonnes de contraste) tiennent sans scroll horizontal.
+     Desktop INCHANGÉ (≥768px). */
+  @media (max-width: 768px) {
+    .versus__scroll { overflow-x: visible; }
+    .versus__table { display: block; min-width: 0; width: 100%; }
+    .versus__table thead { display: none; }
+    .versus__table tbody { display: block; }
+
+    .versus__grouprow,
+    .versus__group { display: block; }
+    .versus__group {
+      padding: var(--space-3) 0 var(--space-2);
+      border-bottom: 0;
+      background: transparent;
+    }
+
+    .versus__row {
+      display: block;
+      margin-bottom: var(--space-5);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .versus[data-bg='ink'] .versus__row { border-color: rgba(var(--paper-rgb), .12); }
+
+    .versus__feature {
+      display: block;
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--hairline);
+      background: rgba(var(--ink-rgb), .02);
+      font-size: var(--text-body);
+    }
+    .versus[data-bg='ink'] .versus__feature {
+      border-bottom-color: rgba(var(--paper-rgb), .12);
+      background: rgba(var(--paper-rgb), .04);
+    }
+
+    .versus__cell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      text-align: right;
+      padding: var(--space-3) var(--space-5);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .versus__cell:last-child { border-bottom: 0; }
+    .versus[data-bg='ink'] .versus__cell { border-bottom-color: rgba(var(--paper-rgb), .08); }
+    .versus__cell[data-featured='true'] {
+      background: rgba(var(--accent-rgb), .06);
+      border-radius: 0;
+    }
+    .versus__row:last-child .versus__cell[data-featured='true'] { border-radius: 0; }
+
+    /* Label de colonne, injecté avant la valeur */
+    .versus__cell::before {
+      content: attr(data-collabel);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-mono-tight);
+      color: var(--muted);
+      text-align: left;
+    }
+    .versus[data-bg='ink'] .versus__cell::before { color: rgba(var(--paper-rgb), .6); }
+    .versus__cell[data-featured='true']::before { color: var(--accent-text); }
   }
 </style>

@@ -58,6 +58,13 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
     margin: 0;
     padding: 0;
     --tile-min: 15rem;
+    /* Lignes pilotées par le contenu (pas étirées sur la hauteur de piste) :
+       sans ça, .span-lg (grid-row: span 2, grid.css) s'étire sur 2 pistes
+       dimensionnées par la plus grande tuile → vide vertical massif (~673px).
+       grid-auto-rows: min-content + align-content: start collent les tuiles à
+       leur contenu et compactent la mosaïque vers le haut. */
+    grid-auto-rows: min-content;
+    align-content: start;
   }
 
   .bento-grid__cell {
@@ -68,6 +75,8 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
     flex-direction: column;
     gap: var(--space-3);
     background: var(--paper);
+    /* La tuile épouse son contenu : ne pas remplir la hauteur de la piste/rangée. */
+    align-self: start;
     transition:
       transform var(--dur-hover) var(--ease),
       box-shadow var(--dur-hover) var(--ease);
