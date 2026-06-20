@@ -131,6 +131,29 @@ export const heroSplitSchema = z.object({
     .optional(),
 });
 
+// Héro « Split média » full-viewport (pilote X2) : 2 colonnes texte | carte média
+// line-art, badges pills, paper+ink. Props-driven, distinct de hero-split.
+export const heroSplitMediaSchema = z.object({
+  type: z.literal('hero-split-media'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  badges: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+    .max(4)
+    .optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  media_src: z.string().optional(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
+});
+
 export const heroCenteredSchema = z.object({
   type: z.literal('hero-centered'),
   // background/layout/density mutualisés via le mixin sectionBaseSchema (Phase B, docs/46).
@@ -3791,6 +3814,7 @@ export const authorBylineSchema = z.object({
 
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
+  heroSplitMediaSchema,
   heroCenteredSchema,
   heroFullBleedSchema,
   heroHubListingSchema,

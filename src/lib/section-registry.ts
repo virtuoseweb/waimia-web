@@ -33,6 +33,7 @@ export interface SectionDescriptor {
 
 // Imports section components (sera étendu Wave T2.2 par worker Sonnet)
 import HeroSplit from '../components/sections/HeroSplit.astro';
+import HeroSplitMedia from '../components/sections/HeroSplitMedia.astro';
 import HeroCentered from '../components/sections/HeroCentered.astro';
 import HeroFullBleed from '../components/sections/HeroFullBleed.astro';
 import HeroHome from '../components/sections/HeroHome.astro';
@@ -441,6 +442,17 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Hero en deux colonnes pour présenter une offre avec visuel et appel à l'action principal.",
     description_en: 'Two-column hero section for presenting an offer with a visual and primary call to action.',
+  },
+  'hero-split-media': {
+    component: HeroSplitMedia,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'split', 'media', 'cta'],
+    status: 'stable',
+    description_fr: 'Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte média line-art à droite. Variante paper et ink, responsive (1 colonne sur mobile).',
+    description_en: 'Full-viewport two-column hero: text (kicker, serif title, lede, badge pills, 2 CTAs) on the left, line-art media card on the right. Paper and ink variants, responsive (single column on mobile).',
   },
   'hero-centered': {
     component: HeroCentered,

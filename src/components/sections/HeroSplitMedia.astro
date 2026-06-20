@@ -1,0 +1,185 @@
+---
+/**
+ * hero-split-media · « Split média » (pilote X2, famille éditoriale)
+ * Héro FULL-VIEWPORT en grille 2-col (texte 1fr / média 1.1fr), align center.
+ * GAUCHE → kicker mono, titre serif accent, lede court, badges pills mono, 2 CTA.
+ * DROITE → carte média line-art (currentColor, lisible paper ET ink). Pas de KPI.
+ * Props-driven (data), variante paper/ink via `background`, responsive 1-col ≤768.
+ * Source visuelle : src/components/library/hero-explore/HeroX2.astro.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-split-media'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr);
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const badges = data.badges ?? [];
+const mediaAlt = isFr ? data.media_alt_fr : (data.media_alt_en ?? data.media_alt_fr);
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+---
+<section class="hsm" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide">
+    <div class="hsm-grid">
+      {/* Texte */}
+      <div class="hsm-text">
+        {kicker && <p class="hsm-kicker">{kicker}</p>}
+        <h1 class="hsm-title" set:html={h1} />
+        <p class="hsm-lede">{lede}</p>
+
+        {badges.length > 0 && (
+          <ul class="hsm-badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
+            {badges.map((b) => <li class="hsm-badge">{isFr ? b.label_fr : b.label_en}</li>)}
+          </ul>
+        )}
+
+        <div class="hsm-ctas">
+          <Button href={ctaPrimary.href} variant="primary" size="lg">
+            {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+          </Button>
+          {ctaSecondary && (
+            <Button href={ctaSecondary.href} variant="ghost" size="lg">
+              {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+            </Button>
+          )}
+        </div>
+      </div>
+
+      {/* Média line-art */}
+      {data.media_src && (
+        <figure class="hsm-media">
+          <img src={data.media_src} alt={mediaAlt ?? ''} loading="eager" decoding="async" />
+        </figure>
+      )}
+    </div>
+  </div>
+
+  <style>
+    .hsm {
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--hairline);
+      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
+      min-height: 100vh;
+      min-height: var(--viewport-h);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+    }
+    .hsm[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    .hsm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+
+    .hsm-kicker {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin: 0 0 var(--space-5);
+    }
+    .hsm-title {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      max-width: 14ch;
+      margin: 0 0 var(--space-5);
+    }
+    .hsm-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+    .hsm-lede {
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
+      color: var(--muted);
+      max-width: 50ch;
+      margin: 0 0 var(--space-6);
+      text-wrap: pretty;
+    }
+
+    /* Badges · pills mono uppercase, border hairline */
+    .hsm-badges {
+      list-style: none;
+      margin: 0 0 var(--space-7);
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .hsm-badge {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-pill);
+      padding: var(--space-2) var(--space-4);
+      transition: border-color var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease);
+    }
+    .hsm-badge:hover { border-color: var(--accent-text); color: var(--accent-text); }
+
+    .hsm-ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+    /* Carte média · line-art currentColor (inversion gratuite ink/paper) */
+    .hsm-media {
+      margin: 0;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--paper-2);
+      padding: clamp(var(--space-6), 4vw, var(--space-10));
+      aspect-ratio: 9 / 7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Halo accent très léger derrière le schéma */
+    .hsm-media::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(60% 60% at 50% 45%, rgba(var(--accent-rgb), 0.07), transparent 70%);
+      pointer-events: none;
+    }
+    .hsm[data-bg='ink'] .hsm-media { background: var(--ink-2); }
+    .hsm-media img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      color: var(--ink);
+    }
+    .hsm[data-bg='ink'] .hsm-media img { color: var(--paper); }
+
+    @media (max-width: 768px) {
+      .hsm {
+        /* Mobile : laisse respirer, le contenu peut dépasser le viewport sans rogner */
+        min-height: var(--viewport-h);
+        padding-top: calc(var(--header-height) + var(--space-6));
+        padding-bottom: var(--space-6);
+      }
+      .hsm-grid { grid-template-columns: 1fr; gap: var(--space-7); }
+      .hsm-media { order: -1; aspect-ratio: 16 / 10; }
+      .hsm-ctas { gap: var(--space-2); }
+      .hsm-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+    }
+  </style>
+</section>

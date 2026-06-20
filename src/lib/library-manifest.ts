@@ -127,6 +127,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-course',           consumers: ['src/components/templates/CourseDetailTemplate.astro'] },
   { id: 'hero-essay',            consumers: ['src/components/templates/EssayTemplate.astro'] },
   { id: 'hero-split',            consumers: [] },
+  { id: 'hero-split-media',      consumers: [] },
   { id: 'proof-bar',             consumers: ['src/components/templates/DetailMenuTemplate.astro', 'src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'method-timeline',       consumers: ['src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/DetailMenuTemplate.astro'] },
   { id: 'feature-grid',          consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
