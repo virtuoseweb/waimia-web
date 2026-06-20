@@ -26,6 +26,7 @@ import {
 } from '../../lib/section-registry';
 import { SECTION_DEMOS } from '../../lib/section-demos';
 import { getUsage, getConsumers } from '../../lib/library-manifest';
+import { listPresets } from '../../lib/section-presets';
 
 export function getStaticPaths() {
   return listSections().map((section) => ({
@@ -50,6 +51,10 @@ const consumerCount = getConsumers(section.type).length;
 // Code copiable : l'entrée telle qu'on la placerait dans le sections[] d'une page W6.
 const demo = SECTION_DEMOS[section.type];
 const sectionEntry = JSON.stringify(demo, null, 2);
+
+// Déclinaisons (presets) de cette variante : combinaisons nommées « layout × palette × densité »
+// (taxonomie docs/45 niveau 4). Prévisualisées via /preview/[type]/[preset].
+const presets = listPresets(section.type);
 ---
 
 <Base
@@ -77,6 +82,11 @@ const sectionEntry = JSON.stringify(demo, null, 2);
         </div>
         <p class="component-subcat">{section.subcategory}</p>
         <p class="component-lede">{section.description_fr}</p>
+        {section.family && (
+          <p class="component-family">
+            Famille : <a href={`/library/family/${section.family}`}>{section.family}</a>
+          </p>
+        )}
         <div class="component-tags" aria-label={`Tags ${section.type}`}>
           {section.tags.map((tag) => <span>{tag}</span>)}
         </div>
@@ -90,6 +100,26 @@ const sectionEntry = JSON.stringify(demo, null, 2);
           title={`Aperçu ${section.type}`}
         />
       </section>
+
+      {presets.length > 0 && (
+        <section class="component-block" aria-label="Déclinaisons de la section">
+          <h2 class="component-block-title">Déclinaisons · {presets.length}</h2>
+          <p class="component-presets-lede">
+            Combinaisons nommées « variante × palette × densité » appliquées à ce composant, prévisualisées en rendu isolé.
+          </p>
+          <ul class="component-presets">
+            {presets.map((preset) => (
+              <li class="component-preset">
+                <div class="component-preset-preview" data-preview-frame data-max-height="260" aria-hidden="true">
+                  <iframe class="component-preset-frame" src={`/preview/${section.type}/${preset.id}`} title={`Aperçu ${preset.label}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
+                </div>
+                <p class="component-preset-label">{preset.label}</p>
+                <code class="component-preset-id">{preset.id}</code>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section class="component-block" aria-label="Code de la section">
         <h2 class="component-block-title">Code</h2>
@@ -229,9 +259,75 @@ const sectionEntry = JSON.stringify(demo, null, 2);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+  .component-family {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+  .component-family a {
+    color: var(--accent-text);
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  .component-family a:hover { text-decoration: underline; }
+
   /* L'aperçu (iframe + toggles animation/dark) est rendu par l'island
      VariantToggle.tsx ; il porte son propre conteneur .vt-preview[data-preview-frame]
      mis à l'échelle par src/scripts/preview-frame.ts. */
+
+  /* ── Déclinaisons (presets) ── */
+  .component-presets-lede {
+    margin: 0 0 var(--space-5);
+    max-width: 60ch;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+  .component-presets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .component-preset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .component-preset-preview {
+    display: block;
+    position: relative;
+    min-height: 140px;
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  .component-preset-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    border: 0;
+    transform-origin: top left;
+    pointer-events: none;
+  }
+  .component-preset-label {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.4;
+  }
+  .component-preset-id {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+  }
+
   @media (max-width: 720px) {
     .component-detail .wrap-wide {
       padding-left: 20px;
