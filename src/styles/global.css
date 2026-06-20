@@ -398,6 +398,44 @@ a:not([class]):hover,
   outline-offset: 2px;
 }
 
+/* ─── BREADCRUMB BAR · neutralisation du double-espacement ───
+   La .breadcrumb-bar (composant Breadcrumb.astro) réserve déjà
+   calc(--header-height + --space-5) pour dégager le header fixe. La 1re SECTION
+   qui suit applique elle aussi calc(--header-height + …) en padding-top (heros).
+   Sans neutralisation → le header est dégagé DEUX fois (grand trou vide).
+   Fix : pour la section/article qui suit IMMÉDIATEMENT la barre, on remet
+   --header-height à 0 → son calc() ne dégage plus le header une 2e fois,
+   tout en conservant son padding de section (--section-* / --space-*).
+   Sélecteur défensif : la barre peut être enfant direct de main OU imbriquée
+   dans un wrapper de template (Essay/Utility) → on couvre les deux cas. */
+.breadcrumb-bar + section,
+.breadcrumb-bar + article {
+  --header-height: 0px;
+}
+
+/* Cas UtilityTemplate · le template enveloppe <Breadcrumb> dans
+   .util-crumbs.wrap-wide. La .breadcrumb-bar porte désormais l'alignement
+   largeur (.wrap-wide intrinsèque) → le .wrap-wide du wrapper fait double
+   emploi (indentation --gut en trop). On neutralise la largeur du wrapper ;
+   le hero qui suit ne doit pas re-dégager le header (neutralisation). */
+.util-crumbs:has(> .breadcrumb-bar) {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* Le wrapper .util-crumbs compense DÉJÀ le header (padding-top scopé du
+   template, non surchargeable depuis global) → la barre ne doit PAS dégager
+   une 2e fois. On annule son padding-top de dégagement, ne gardant qu'un
+   filet d'air. Sélecteur :has() pour élever la spécificité au-dessus du
+   .breadcrumb-bar scopé du composant. */
+.util-crumbs:has(> .breadcrumb-bar) > .breadcrumb-bar {
+  padding-top: var(--space-2);
+}
+.util-crumbs:has(> .breadcrumb-bar) + section,
+.util-crumbs:has(> .breadcrumb-bar) + article {
+  --header-height: 0px;
+}
+
 /* ─── HEADER ─── (unifié : un seul Header paper translucide pour tout le site) */
 /* Le bg paper translucide est appliqué DÈS le top pour rester lisible sur les
    hero dark (manifesto/console) sans logique on-dark adaptive. Cf docs/06-coding-standards.md */

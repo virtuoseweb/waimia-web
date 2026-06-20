@@ -11,19 +11,21 @@ interface Props {
 }
 const { items, lang = 'fr', noJsonLd = false } = Astro.props;
 ---
-<nav class="breadcrumb" aria-label={lang === 'fr' ? "Fil d'Ariane" : 'Breadcrumb'}>
-  <ol>
-    {items.map((c, i) => {
-      const isCurrent = i === items.length - 1;
-      return (
-      <li>
-        {isCurrent ? <span aria-current="page">{c.label}</span> : c.href ? <a href={c.href}>{c.label}</a> : <span>{c.label}</span>}
-        {i < items.length - 1 && <span class="sep" aria-hidden>/</span>}
-      </li>
-      );
-    })}
-  </ol>
-</nav>
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb wrap-wide" aria-label={lang === 'fr' ? "Fil d'Ariane" : 'Breadcrumb'}>
+    <ol>
+      {items.map((c, i) => {
+        const isCurrent = i === items.length - 1;
+        return (
+        <li>
+          {isCurrent ? <span aria-current="page">{c.label}</span> : c.href ? <a href={c.href}>{c.label}</a> : <span>{c.label}</span>}
+          {i < items.length - 1 && <span class="sep" aria-hidden>/</span>}
+        </li>
+        );
+      })}
+    </ol>
+  </nav>
+</div>
 
 {!noJsonLd && <script type="application/ld+json" set:html={JSON.stringify({
   '@context': 'https://schema.org',
@@ -37,13 +39,22 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
 })} />}
 
 <style>
+  /* Barre de fil d'Ariane dédiée · dégage le header fixe (.hdr position:fixed,
+     hauteur réelle ~79px > token 72px) en réservant calc(--header-height + --space-5)
+     de padding-top. Reste DANS LE FLUX : la 1re section qui suit (hero) voit alors
+     --header-height neutralisé (cf global.css) pour éviter le double-espacement.
+     Robuste à tous les contextes d'insertion (enfant direct de main, ou dans
+     <article>/<section> de template). */
+  .breadcrumb-bar {
+    padding-top: calc(var(--header-height) + var(--space-5));
+    padding-bottom: var(--space-4);
+  }
   .breadcrumb {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: var(--space-4);
   }
   .breadcrumb ol {
     list-style: none;
