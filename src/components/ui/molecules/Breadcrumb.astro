@@ -25,18 +25,17 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
       })}
     </ol>
   </nav>
+  {!noJsonLd && <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.label,
+      ...(c.href ? { item: `https://waimia.com${c.href}` } : {}),
+    })),
+  })} />}
 </div>
-
-{!noJsonLd && <script type="application/ld+json" set:html={JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((c, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: c.label,
-    ...(c.href ? { item: `https://waimia.com${c.href}` } : {}),
-  })),
-})} />}
 
 <style>
   /* Barre de fil d'Ariane dédiée · dégage le header fixe (.hdr position:fixed,

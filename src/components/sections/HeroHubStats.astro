@@ -274,7 +274,7 @@ const cfMediaRegister =
   /* ── hero-hub-stats ─────────────────────────────────────────────────────── */
   .hero-hub-stats {
     min-height: 100vh;
-    min-height: var(--viewport-h);
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -357,7 +357,7 @@ const cfMediaRegister =
   /* ── hero-pillar-hub (copie byte-identique depuis HeroPillarHub.astro) ─── */
   .hero-pillar-hub {
     min-height: 100vh;
-    min-height: var(--viewport-h);
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -431,7 +431,7 @@ const cfMediaRegister =
      `.wrap-wide` qualifié par `.hero-conversion-funnel` (collision max-width). */
   .hero-conversion-funnel {
     min-height: 100vh;
-    min-height: var(--viewport-h);
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
     display: flex;
     flex-direction: column;
     justify-content: center;

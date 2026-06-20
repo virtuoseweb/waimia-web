@@ -411,6 +411,7 @@ a:not([class]):hover,
 .breadcrumb-bar + section,
 .breadcrumb-bar + article {
   --header-height: 0px;
+  --hero-chrome-above: var(--breadcrumb-bar-h);
 }
 
 /* Cas UtilityTemplate · le template enveloppe <Breadcrumb> dans
@@ -434,6 +435,12 @@ a:not([class]):hover,
 .util-crumbs:has(> .breadcrumb-bar) + section,
 .util-crumbs:has(> .breadcrumb-bar) + article {
   --header-height: 0px;
+  --hero-chrome-above: var(--breadcrumb-bar-h);
+}
+/* Mobile : le fil d'Ariane passe sur 2 lignes → barre plus haute (≈160px).
+   On relève --breadcrumb-bar-h pour que le hero suivant reste exact au 1er écran. */
+@media (max-width: 768px) {
+  :root { --breadcrumb-bar-h: 10rem; }
 }
 
 /* ─── HEADER ─── (unifié : un seul Header paper translucide pour tout le site) */

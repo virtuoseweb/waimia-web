@@ -63,6 +63,14 @@
      PAS avec la barre nav iOS/Android, contrairement à dvh/vh). Source unique pour les
      sections plein écran. */
   --viewport-h: 100svh;
+  /* Espace vertical réservé au-dessus du 1er hero par le chrome de page (fil
+     d'Ariane, bandeau…). Configurable DS Studio. 0 = le hero remplit 100svh
+     plein (site sans breadcrumb). Mis à --breadcrumb-bar-h par global.css sur
+     la section qui suit une .breadcrumb-bar → 1er écran exact par construction. */
+  --hero-chrome-above: 0px;
+  /* Hauteur de la barre fil d'Ariane (header-clearance fixe + ligne mono).
+     Alimente --hero-chrome-above. Mesuré 132px desktop / ~160px mobile (2 lignes). */
+  --breadcrumb-bar-h: 8.25rem;
 
   /* ─── FLUID SCALE · knobs globaux paramétriques (P-A) ───
      Knobs pilotables en LIVE par le DS Studio (setProperty sur :root).

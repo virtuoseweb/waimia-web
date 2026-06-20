@@ -68,7 +68,7 @@ const ctaSecondary = data.cta_secondary;
       border-bottom: 1px solid var(--hairline);
       /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
       min-height: 100vh;
-      min-height: var(--viewport-h);
+      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -172,7 +172,7 @@ const ctaSecondary = data.cta_secondary;
     @media (max-width: 768px) {
       .hsm {
         /* Mobile : laisse respirer, le contenu peut dépasser le viewport sans rogner */
-        min-height: var(--viewport-h);
+        min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
         padding-top: calc(var(--header-height) + var(--space-6));
         padding-bottom: var(--space-6);
       }
