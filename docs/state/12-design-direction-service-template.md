@@ -131,10 +131,17 @@ Règle d'alternance : jamais 2 ink consécutifs ; ink = climax (hero, architectu
 M2 (audit compo read-only) et M3 (brainstorming design) etaient sans ecriture : leur sortie a nourri ce doc 12 (`ededa0b`, `aff0701`). Pas de livrable fichier propre.
 
 ### RESTE A FAIRE (perdu au crash, jamais committé)
-1. **Recomposition flagship §16 (D6, ex-M12 + M14)** : `integrateur-claude.mdx` est TOUJOURS dans l'ordre d'origine (15 sections, dernier commit `14ee255`). La table §16 (D6 ci-dessus) n'a PAS été appliquée. Reste : réordonner selon §16 + ajouter les 5 slots manquants (4 pour-qui, 7 architecture `bento-grid` ink, 11/12/14 maillage). Le plan est la table D6 ; les briefs `/tmp/v7-service-template/*` sont perdus mais reconstituables depuis cette table. UNE seule approche à retenir (M12 et M14 etaient redondants sur le meme fichier).
-2. **GF-1 visuel complet** : les PNG des workers (`/tmp/*.png`) ont été nettoyés. Re-prouver sur preview : 3 heros, sections content-driven (0 orpheline 3..8 enfants), line-art visibles, `getComputedStyle` H1/CTA opacity != 0.
-3. **Câblage des 28 illustrations recolorées** (`ds/`) : manifeste 11 §5.5 le réserve à une phase pilotée par slot avec Simon (top 8 prioritaire).
-4. **Décision Simon** : merger `feat/v7-service-template` (apres GF-1 preview) puis supprimer `feat/v7-fondations`.
+1. ✅ **FAIT (session 2026-06-20, commit `5624d06`)** — **Recomposition flagship §16 (D6)** : `integrateur-claude.mdx` réordonné sur l'ordre §16, 15 sections + slots ajoutés (4 pour-qui `versus-competitors`, 5 dispositif `feature-split-media` `expand`, 7 architecture `bento-grid` ink, 12/14 maillage secteurs/ressources). Slot 11 cas-usages OMIS (collection vide, anti-404). Invariant ink vérifié (5 climax, jamais 2 consécutifs).
+2. ✅ **FAIT (session 2026-06-20)** — **GF-1 visuel complet** : flagship (H1/CTA opacity 1 transform neutre, 19 sections, 16 line-art chargés, 0 orphelin, expand `--expand=1.0`, 0 console) + GF-1 non-régression socle v7 partagé (home/offres/previews bento/stats/hero-hub, 0 régression). Build `Complete!`.
+3. **Câblage des 28 illustrations recolorées** (`ds/`) : manifeste 11 §5.5 le réserve à une phase pilotée par slot avec Simon (top 8 prioritaire). **Inclut le diagramme line-art du slot 7 bento (prévu §16, encore absent).** TOUJOURS À FAIRE (pilotage Simon).
+4. **Décision Simon** : merger `feat/v7-service-template` → `main` (apres GF-1 preview ✅ fait) puis supprimer `feat/v7-fondations`. EN ATTENTE go Simon.
+
+### Lot qualité pré-merge livré (session 2026-06-20, audit 3 angles design/SEO-GEO/copy)
+Audit multi-agents → verdict GO-avec-réserves (0 P0). Réserves P1+P2 traitées :
+- ✅ P1 copy (`c72d58e`) : `cabinet`→`studio` (10 occ Waimia ; ligne 437 « Cabinets »=cible client préservée) + maillage secteurs → `/secteurs` (anciens slugs noindex retirés).
+- ✅ P1 design (`5274f1c`) : bento slot 7 clamp hauteur (tuile 673→299px) + `versus-competitors` reflow card-per-ligne mobile (0 overflow, colonnes contraste visibles). 0 nouveau token.
+- ✅ P2 SEO/GEO : `astro.config.mjs` llms-txt `promote` corrigé (`solutions/**` PÉRIMÉ → silos réels acquerir/operer/piloter/services/secteurs ; description « agence »→« studio IA ») + JSON-LD `Service` `serviceType`/`priceRange`/`priceSpecification` (override par page via frontmatter `seo:`, non-régression autres pages OK) + meta desc flagship différenciée + maillage « site web intelligent ».
+- ⚠️ Résidus signalés (non bloquants) : contenu EN systémique (30 fichiers + `src/data` → chantier transverse séparé, ne pas amorcer sur le seul flagship) · `priceRange` hors-domaine schema.org sur `Service` (toléré Google, `priceSpecification` valide ajouté en parallèle) · 16 liens `/solutions` résiduels dans le CORPS d'autres pages (hors flagship, à nettoyer un autre jour).
 
 ### GARDE-FOU ANTI-CRASH (prochaine flotte)
 24 Go RAM physiques. Un worker Opus + chromium headless + build node consomme ~4-5 Go au pic. **Plafond sûr : 3 workers parallèles MAX** (2 si build+chromium simultanés). Échelonner par vagues, surveiller `memory_pressure` entre vagues, JAMAIS plusieurs `pnpm build` en parallèle (OOM Node connu). Pour plus de 6 sous-tâches, préférer le tool `Workflow` (slots cappés) à N `Agent` lancés d'un coup. Committer chaque mission finie (rien perdu si la RAM lâche).
