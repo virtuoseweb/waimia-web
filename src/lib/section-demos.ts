@@ -736,6 +736,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'hero-conversion-funnel': {
     type: 'hero-conversion-funnel',
     variant: 'split',
+    media_register: 'lineart',
     media_src: '/images/line-art/dispositif-flow.svg',
     media_alt_fr: 'Schéma : outils dispersés, orchestration centrale, résultat mesuré',
     media_alt_en: 'Diagram: scattered tools, central orchestration, measured result',
@@ -1918,6 +1919,11 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         link_label_fr: 'Voir le processus',
         link_label_en: 'See the process',
         link_href: '/offres',
+        points: [
+          { label_fr: 'Cartographie des flux et des outils', label_en: 'Flow and tooling mapping' },
+          { label_fr: 'Identification des angles morts', label_en: 'Blind-spot identification' },
+          { label_fr: "Plan d'action priorisé", label_en: 'Prioritised action plan' },
+        ],
         // Media line-art inline (.svg) : trait currentColor + accent DS.
         media_src: '/images/line-art/livrable-tableau-mesure.svg',
         media_alt_fr: 'Schema line-art : tableau de mesure',
@@ -1933,6 +1939,10 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         link_label_fr: 'Explorer les cas clients',
         link_label_en: 'Explore client cases',
         link_href: '/cas-clients',
+        points: [
+          { label_fr: 'Conception et déploiement', label_en: 'Design and deployment' },
+          { label_fr: 'Documentation lisible et modifiable', label_en: 'Readable, editable documentation' },
+        ],
         // Bloc even (rendu ink par le damier) : variante -ink.webp.
         media_src: '/images/illustrations/ds/chess-ink.webp',
         media_alt_fr: 'Illustration : pieces d echecs',

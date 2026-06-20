@@ -485,6 +485,11 @@ export const heroConversionFunnelSchema = z.object({
   media_src: z.string().optional(),
   media_alt_fr: z.string().optional(),
   media_alt_en: z.string().optional(),
+  // Registre du média (variant split) — axe Variante orthogonal au squelette 2-col :
+  //  · lineart   = grammaire DS (diagramme/trait posé dans un cadre paper-2, currentColor)
+  //  · editorial = illustration recolorée ink/paper qui couvre la coque
+  // Absent → `lineart` (défaut comportemental), rétrocompat des usages existants.
+  media_register: z.enum(['lineart', 'editorial']).optional(),
   h1_fr: z.string(),
   h1_en: z.string(),
   lede_fr: z.string(),
@@ -1815,6 +1820,17 @@ export const featureZigzagSchema = z.object({
       link_label_fr: z.string().optional(),
       link_label_en: z.string().optional(),
       link_href: z.string().optional(),
+      // Points/touchpoints du bloc (liste à puces discrète sous le body). Optionnel
+      // → rétrocompat (un row sans points ne rend rien de plus). Max 4 par bloc.
+      points: z
+        .array(
+          z.object({
+            label_fr: z.string(),
+            label_en: z.string(),
+          }),
+        )
+        .max(4)
+        .optional(),
       // Média réel par bloc (corrige le placeholder vide). Optionnels → rétrocompat
       // (un row sans media_src garde le SVG placeholder). .svg = inline line-art via
       // ?raw (currentColor/var(--accent) résolvent) ; .webp = <img> avec dimensions.

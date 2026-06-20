@@ -50,22 +50,27 @@ const cfMediaAlt =
   data.type === 'hero-conversion-funnel'
     ? (isFr ? (data.media_alt_fr ?? '') : (data.media_alt_en ?? data.media_alt_fr ?? ''))
     : '';
+// Registre média (variant split) : `lineart` = grammaire DS (trait/diagramme posé
+// sur fond paper-2, hairline) ; `editorial` = illustration recolorée pleine colonne.
+// Absent → `lineart` (défaut comportemental), rétrocompat des usages existants.
+const cfMediaRegister =
+  data.type === 'hero-conversion-funnel' ? (data.media_register ?? 'lineart') : 'lineart';
 ---
 {data.type === 'hero-conversion-funnel' && cfVariant ? (
 <section class:list={['hero-conversion-funnel', `hero-conversion-funnel--${cfVariant}`]} data-bg={data.background} data-variant={cfVariant}>
   <div class="wrap-wide" style={cfWrapStyle}>
     {cfVariant === 'split' ? (
-      <div class="hero-cf-split" data-layout="split-2-1">
+      <div class="hero-cf-split" data-layout="split-text-media" data-media-register={cfMediaRegister}>
         <div class="hero-cf-split__text">
           <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
           <h1 class="hero-conversion-funnel__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
           <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
           {data.meta_pills && data.meta_pills.length > 0 && (
-            <div class="hero-conversion-funnel__meta reveal-stagger" aria-label={isFr ? "Repères de l'offre" : 'Offer markers'}>
-              {data.meta_pills.map((pill) => (
-                <span>{isFr ? pill.label_fr : pill.label_en}</span>
+            <ul class="hero-cf-split__meta reveal" aria-label={isFr ? "Repères de l'offre" : 'Offer markers'}>
+              {data.meta_pills.slice(0, 3).map((pill) => (
+                <li>{isFr ? pill.label_fr : pill.label_en}</li>
               ))}
-            </div>
+            </ul>
           )}
           <div class="hero-conversion-funnel__cta">
             <Button href={data.cta_primary.href} variant="primary" size="lg" mag={0.18}>
@@ -79,9 +84,9 @@ const cfMediaAlt =
           </div>
         </div>
         {data.media_src && (
-          <div class="hero-cf-split__media reveal-fade reveal">
-            <img src={data.media_src} alt={cfMediaAlt} loading="eager" decoding="async" width="480" height="320" />
-          </div>
+          <figure class="hero-cf-split__media reveal-fade reveal">
+            <img src={data.media_src} alt={cfMediaAlt} loading="eager" decoding="async" width="720" height="560" />
+          </figure>
         )}
       </div>
     ) : cfVariant === 'minimal' ? (
@@ -596,35 +601,112 @@ const cfMediaAlt =
      rendu d'origine (variant absent) et sur hero-hub-stats/hero-pillar-hub.
      ════════════════════════════════════════════════════════════════════════ */
 
-  /* ── variant SPLIT · 2 colonnes asym texte | illustration ─────────────── */
+  /* ── variant SPLIT · 2 colonnes texte | média (média dominant) ─────────────
+     Redesign : hiérarchie nette (h1 dominant > lede > meta discrètes > CTA) et
+     média GRAND intégré. Le hero passe en alignement haut maîtrisé (le calc
+     header dégage le sticky) au lieu du centrage qui creusait un vide en tête. */
+  .hero-conversion-funnel--split { justify-content: flex-start; }
   .hero-cf-split {
     display: grid;
-    grid-template-columns: var(--sec-grid, 1fr 1fr);
-    gap: var(--space-9);
+    /* Média dominant : colonne média ~1.2× la colonne texte (asymétrie en faveur
+       du visuel, qui doit « respirer » au lieu d'être un vignette). */
+    grid-template-columns: var(--sec-grid, 1fr 1.18fr);
+    gap: var(--space-10);
     align-items: center;
   }
-  .hero-cf-split__text { min-width: 0; }
-  /* H1 un cran sous le monumental : la colonne texte est large mais bornée →
-     un H1 long (flagship) ne doit pas exploser en hauteur. Token existant. */
-  .hero-conversion-funnel--split .hero-conversion-funnel__h1 { font-size: var(--text-h2); }
+  .hero-cf-split__text {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  /* H1 dominant : on remonte vers le monumental tout en bornant le bas pour qu'un
+     H1 flagship long tienne au pli sans déborder. Clamp sur tokens existants. */
+  .hero-conversion-funnel--split .hero-conversion-funnel__h1 {
+    font-size: clamp(var(--text-h2), 4.6vw, var(--text-h1));
+    margin: 0 0 var(--space-5);
+  }
+  .hero-conversion-funnel--split .hero-conversion-funnel__lede { margin: 0 0 var(--space-5); }
   .hero-conversion-funnel--split .hero-conversion-funnel__cta { margin-bottom: 0; }
+  /* Meta DISCRÈTES : ligne mono fine séparée par hairlines, nettement sous le
+     lede dans la hiérarchie (plus de pills encadrées qui rivalisent avec lui). */
+  .hero-cf-split__meta {
+    list-style: none;
+    margin: 0 0 var(--space-6);
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-cf-split__meta li { position: relative; padding-inline-start: var(--space-4); }
+  .hero-cf-split__meta li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 0.9em;
+    transform: translateY(-50%);
+    background: var(--hairline-strong);
+  }
+  .hero-cf-split__meta li:first-child { padding-inline-start: 0; }
+  .hero-cf-split__meta li:first-child::before { content: none; }
+  /* Média GRAND : remplit sa colonne, intégré par une coque hairline + fond DS.
+     Le registre `lineart` pose le diagramme dans un cadre éditorial ; `editorial`
+     laisse l'illustration occuper toute la coque (cover). */
   .hero-cf-split__media {
     min-width: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg, var(--radius-md, 8px));
+    overflow: hidden;
+    aspect-ratio: 9 / 7;
   }
   .hero-cf-split__media img {
     width: 100%;
-    max-width: 480px;
-    height: auto;
+    height: 100%;
     color: var(--ink);
   }
+  /* Registre LINEART : diagramme posé, respire dans un fond paper-2 + padding. */
+  .hero-cf-split[data-media-register='lineart'] .hero-cf-split__media {
+    background:
+      radial-gradient(120% 90% at 78% 18%, rgba(var(--accent-rgb), 0.07), transparent 60%),
+      var(--paper-2, var(--paper));
+  }
+  .hero-cf-split[data-media-register='lineart'] .hero-cf-split__media img {
+    object-fit: contain;
+    padding: clamp(var(--space-6), 4vw, var(--space-10));
+  }
+  /* Registre EDITORIAL : illustration recolorée ink/paper qui couvre la coque. */
+  .hero-cf-split[data-media-register='editorial'] .hero-cf-split__media {
+    background: var(--paper-2, var(--paper));
+  }
+  .hero-cf-split[data-media-register='editorial'] .hero-cf-split__media img {
+    object-fit: cover;
+  }
+  .hero-conversion-funnel--split[data-bg='ink'] .hero-cf-split__media {
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+  .hero-conversion-funnel--split[data-bg='ink'] .hero-cf-split[data-media-register='lineart'] .hero-cf-split__media {
+    background:
+      radial-gradient(120% 90% at 78% 18%, rgba(var(--accent-rgb), 0.14), transparent 60%),
+      rgba(var(--paper-rgb), 0.04);
+  }
   .hero-conversion-funnel--split[data-bg='ink'] .hero-cf-split__media img { color: var(--paper); }
+  .hero-conversion-funnel--split[data-bg='ink'] .hero-cf-split__meta li::before {
+    background: rgba(var(--paper-rgb), 0.28);
+  }
   @media (max-width: 768px) {
     .hero-cf-split { grid-template-columns: 1fr; gap: var(--space-6); }
-    .hero-cf-split__media { order: -1; }
-    .hero-cf-split__media img { max-width: 360px; }
+    .hero-cf-split__media { order: -1; aspect-ratio: 16 / 10; }
   }
 
   /* ── variant MINIMAL · h1 centré, stats en ligne, hauteur réduite ─────── */

@@ -43,15 +43,17 @@ const isFr = lang === 'fr';
     display: block;
     margin-bottom: var(--space-6);
   }
+  /* Énoncé = PARAGRAPHE de définition, pas un titre : échelle ramenée à une taille
+     de lede/paragraphe (était clamp h2→h1, une taille de titre). Tokens existants. */
   .problem-statement__text {
     font-family: var(--font-sans);
-    font-size: clamp(var(--text-h2), 4vw, var(--text-h1));
+    font-size: clamp(var(--text-h3), 2.2vw, var(--text-h2));
     line-height: var(--leading-h2);
-    letter-spacing: -0.015em;
+    letter-spacing: -0.01em;
     font-weight: var(--fw-medium);
     color: var(--ink);
     text-wrap: balance;
-    max-width: 1100px;
+    max-width: 980px;
     margin: 0 0 clamp(var(--space-8), 5vw, var(--space-12));
   }
   .problem-statement__statement--dropcap {

@@ -19,6 +19,14 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
   background?: 'paper' | 'paper-2' | 'paper-3' | 'ink';
   layout?: string;
   density?: 'compact' | 'base' | 'ample';
+  /** Axe Variante du hero-conversion-funnel (squelette de rendu). */
+  variant?: 'split' | 'sumie' | 'minimal';
+  /** Axe Variante « registre média » du hero split (lineart vs editorial). */
+  media_register?: 'lineart' | 'editorial';
+  /** Média associé au registre (surcharge la demo pour exposer le preset). */
+  media_src?: string;
+  media_alt_fr?: string;
+  media_alt_en?: string;
 };
 
 export type Preset = {
@@ -94,6 +102,36 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
       family: 'hero',
       era: '2016',
       props: { layout: 'even-2', background: 'paper-3', density: 'compact' },
+    },
+  ],
+  'hero-conversion-funnel': [
+    {
+      id: 'hero-conversion-funnel--split-lineart-paper',
+      type: 'hero-conversion-funnel',
+      label: 'Hero entonnoir · split · registre line-art · papier',
+      family: 'hero',
+      era: '2024',
+      props: {
+        variant: 'split',
+        media_register: 'lineart',
+        media_src: '/images/line-art/dispositif-flow.svg',
+        background: 'paper',
+      },
+    },
+    {
+      id: 'hero-conversion-funnel--split-editorial-paper-2',
+      type: 'hero-conversion-funnel',
+      label: 'Hero entonnoir · split · registre éditorial · papier 2',
+      family: 'hero',
+      era: '2026',
+      props: {
+        variant: 'split',
+        media_register: 'editorial',
+        media_src: '/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp',
+        media_alt_fr: 'Illustration éditoriale : artisan au travail',
+        media_alt_en: 'Editorial illustration: craftsman at work',
+        background: 'paper-2',
+      },
     },
   ],
   'hero-centered': [

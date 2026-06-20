@@ -87,6 +87,13 @@ const alternate = data.alternate_blocks === true;
                 )}
                 <h3 class="u-serif-accent u-serif-accent-em">{isFr ? row.h3_fr : row.h3_en}</h3>
                 <p>{isFr ? row.body_fr : row.body_en}</p>
+                {row.points && row.points.length > 0 && (
+                  <ul class="fz__points">
+                    {row.points.map((point) => (
+                      <li>{isFr ? point.label_fr : point.label_en}</li>
+                    ))}
+                  </ul>
+                )}
                 {(isFr ? row.link_label_fr : row.link_label_en) && row.link_href && (
                   <a class="fz__link" href={row.link_href}>
                     {isFr ? row.link_label_fr : row.link_label_en}
@@ -262,6 +269,36 @@ const alternate = data.alternate_blocks === true;
     max-width: 52ch;
   }
 
+  /* Touchpoints du bloc : liste à puces discrète (chevron hairline), tokens DS. */
+  .fz__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 52ch;
+  }
+  .fz__points li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink);
+  }
+  .fz__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
+    transform: rotate(45deg);
+  }
+
   .fz__link {
     display: inline-flex;
     align-items: center;
@@ -352,6 +389,7 @@ const alternate = data.alternate_blocks === true;
     color: var(--paper);
   }
   .fz[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .fz[data-bg='ink'] .fz__points li { color: var(--paper); }
   .fz[data-bg='ink'] .fz__art { color: var(--paper); }
   .fz[data-bg='ink'] .fz__visual {
     border-color: rgba(var(--paper-rgb), 0.16);
@@ -384,6 +422,7 @@ const alternate = data.alternate_blocks === true;
   }
   .fz[data-alternate='true'] .fz__row:nth-child(even) :is(h3) { color: var(--paper); }
   .fz[data-alternate='true'] .fz__row:nth-child(even) .fz__text p { color: var(--muted); }
+  .fz[data-alternate='true'] .fz__row:nth-child(even) .fz__points li { color: var(--paper); }
   .fz[data-alternate='true'] .fz__row:nth-child(even) .fz__art { color: var(--paper); }
   .fz[data-alternate='true'] .fz__row:nth-child(even) .fz__visual {
     border-color: rgba(var(--paper-rgb), 0.16);
