@@ -19,6 +19,14 @@ interface BuildServiceInput {
   areaServed?: Array<string | JsonLdObject>;
   serviceType?: string;
   offers?: JsonLdObject | JsonLdObject[];
+  /**
+   * Fourchette de prix lisible (ex. "2000-10000€"). schema.org rattache `priceRange`
+   * à LocalBusiness, pas à Service ; on l'expose en texte (toléré par les moteurs)
+   * ET, si min/max sont déduits, via un Offer.priceSpecification valide sur Service.
+   */
+  priceRange?: string;
+  priceMin?: number;
+  priceMax?: number;
 }
 
 interface BuildOfferInput {
@@ -146,6 +154,20 @@ function buildService(
       ? { name: inputOrName, description: description ?? '', provider, areaServed }
       : inputOrName;
 
+  const derivedOffers =
+    !input.offers && (input.priceMin != null || input.priceMax != null)
+      ? {
+          '@type': 'Offer',
+          priceCurrency: 'EUR',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'EUR',
+            ...(input.priceMin != null ? { minPrice: input.priceMin } : {}),
+            ...(input.priceMax != null ? { maxPrice: input.priceMax } : {}),
+          },
+        }
+      : undefined;
+
   return withContext({
     '@type': 'Service',
     name: input.name,
@@ -153,7 +175,8 @@ function buildService(
     provider: input.provider ?? { '@id': `${SITE_URL}/#organization` },
     areaServed: input.areaServed ?? ['FR', 'CH', 'BE', 'LU'],
     ...(input.serviceType ? { serviceType: input.serviceType } : {}),
-    ...(input.offers ? { offers: input.offers } : {}),
+    ...(input.priceRange ? { priceRange: input.priceRange } : {}),
+    ...(input.offers ? { offers: input.offers } : derivedOffers ? { offers: derivedOffers } : {}),
   });
 }
 

@@ -169,7 +169,7 @@ export default defineConfig({
     llmsTxt({
       title: 'Waimia',
       description:
-        "Waimia est une agence qui aide les PME B2B (20 à 500 personnes) à adopter l'IA de façon concrète : automatisation des workflows, acquisition, productivité opérationnelle et gouvernance.",
+        "Waimia est un studio IA qui aide les PME B2B (20 à 500 personnes) à adopter l'IA de façon concrète : automatisation des workflows, acquisition, productivité opérationnelle et gouvernance.",
       details: [
         "Waimia accompagne les dirigeants (DG, DAF, COO) de PME B2B dans l'intégration de l'intelligence artificielle au cœur de leurs opérations.",
         "Approche IA-first : chaque solution combine stratégie, mise en œuvre et montée en compétence des équipes.",
@@ -186,7 +186,16 @@ export default defineConfig({
           description: 'Toutes les pages Waimia avec contenu intégral',
           url: '/llms-full.txt',
           include: ['!{preview/**,404}'],
-          promote: ['solutions/**', 'offres/**', 'agence/**', 'contact/**'],
+          promote: [
+            'services/**',
+            'acquerir/**',
+            'operer/**',
+            'piloter/**',
+            'secteurs/**',
+            'offres/**',
+            'agence/**',
+            'contact/**',
+          ],
         },
         {
           title: 'Structure du site',
@@ -194,7 +203,15 @@ export default defineConfig({
           url: '/llms-small.txt',
           include: ['!{preview/**,404}'],
           onlyStructure: true,
-          promote: ['solutions/**', 'offres/**', 'agence/**'],
+          promote: [
+            'services/**',
+            'acquerir/**',
+            'operer/**',
+            'piloter/**',
+            'secteurs/**',
+            'offres/**',
+            'agence/**',
+          ],
         },
       ],
     }),

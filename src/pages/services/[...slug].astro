@@ -31,7 +31,14 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
 
 // JSON-LD métier · Service (+ FAQPage depuis faq_fr/faq_en, miroir de la section
 // faq-two-column · GEO/AIO). BreadcrumbList émis par le composant <Breadcrumb>.
-const serviceLd = buildService({ name: title, description });
+const serviceLd = buildService({
+  name: title,
+  description,
+  serviceType: data.seo?.serviceType,
+  priceRange: data.seo?.priceRange,
+  priceMin: data.seo?.priceMin,
+  priceMax: data.seo?.priceMax,
+});
 const faqLd = buildFAQPage(lang === 'en' ? data.faq_en : data.faq_fr);
 const pageLd = faqLd ? [serviceLd, faqLd] : [serviceLd];
 ---

@@ -11,6 +11,10 @@ const seoBlock = z
   .object({
     ogImage: z.string().optional(),
     noindex: z.boolean().default(false),
+    serviceType: z.string().optional(),
+    priceRange: z.string().optional(),
+    priceMin: z.number().optional(),
+    priceMax: z.number().optional(),
   })
   .optional();
 
