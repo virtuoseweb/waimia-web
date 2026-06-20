@@ -62,7 +62,7 @@ const cfMediaRegister =
     {cfVariant === 'split' ? (
       <div class="hero-cf-split" data-layout="split-text-media" data-media-register={cfMediaRegister}>
         <div class="hero-cf-split__text">
-          <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
+          <Kicker tone="accent" class={cfNumClass}>{data.funnel_num}</Kicker>
           <h1 class="hero-conversion-funnel__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
           <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
           {data.meta_pills && data.meta_pills.length > 0 && (
@@ -91,7 +91,7 @@ const cfMediaRegister =
       </div>
     ) : cfVariant === 'minimal' ? (
       <div class="hero-cf-minimal">
-        <Kicker tone="accent" class={`${cfNumClass} hero-cf-minimal__num`}>§ Flagship {data.funnel_num}</Kicker>
+        <Kicker tone="accent" class={`${cfNumClass} hero-cf-minimal__num`}>{data.funnel_num}</Kicker>
         <h1 class="hero-conversion-funnel__h1 reveal-mask-up u-serif-accent hero-cf-minimal__h1" set:html={isFr ? data.h1_fr : data.h1_en} />
         <p class="hero-conversion-funnel__lede reveal hero-cf-minimal__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
         {data.stats && data.stats.length > 0 && (
@@ -137,7 +137,7 @@ const cfMediaRegister =
           </svg>
         </div>
         <div class="hero-cf-sumie__inner">
-          <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
+          <Kicker tone="accent" class={cfNumClass}>{data.funnel_num}</Kicker>
           <h1 class="hero-conversion-funnel__h1 reveal-split-letter u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
           <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
           <div class="hero-conversion-funnel__cta">
@@ -168,7 +168,7 @@ const cfMediaRegister =
 ) : data.type === 'hero-conversion-funnel' ? (
 <section class="hero-conversion-funnel" data-bg={data.background}>
   <div class="wrap-wide" style={cfWrapStyle}>
-    <Kicker tone="accent" class={cfNumClass}>§ Flagship {data.funnel_num}</Kicker>
+    <Kicker tone="accent" class={cfNumClass}>{data.funnel_num}</Kicker>
     <h1 class="hero-conversion-funnel__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
     <p class="hero-conversion-funnel__lede reveal" set:html={isFr ? data.lede_fr : data.lede_en} />
     {data.meta_pills && data.meta_pills.length > 0 && (
