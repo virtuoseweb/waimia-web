@@ -1,0 +1,169 @@
+---
+/**
+ * hero-explore · X7 : « Grille 12 colonnes, composition libre » (paper/ink)
+ * R1 kicker (col 1-6) + sig mark « V · 9 » (col 10-12). R2 titre serif (col 1-9).
+ * R3 lede (col 1-5) | 4 bullets (col 6-9) | 2 CTA empilés (col 10-12). Hairlines entre rangées.
+ * Standalone · 0 hardcode · paper+ink via tokens de rôle (remap global [data-bg='ink']).
+ */
+interface Props { bg?: 'paper' | 'ink'; }
+const { bg = 'paper' } = Astro.props;
+
+const bullets = [
+  "Web app connectée à un LLM via skills et routines précises",
+  "Search Console + Analytics : KPI lus, SEO optimisé en continu",
+  "Alertes temps réel, qualification de chaque visiteur jusqu'au CRM",
+  "Lead magnet et quiz qui routent vers la page qui convertit le mieux",
+];
+---
+<section class="hx hx7" data-bg={bg === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide hx7-grid">
+    <!-- Rangée 1 : kicker + sig mark -->
+    <p class="hx7-kicker">§ Site web intelligent</p>
+    <div class="hx7-sig" aria-hidden="true">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5" />
+        <text x="60" y="67" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="currentColor" letter-spacing="0.14em">V · 9</text>
+      </svg>
+    </div>
+
+    <!-- Rangée 2 : titre -->
+    <h1 class="hx7-title">Votre site, enfin <i class="acc">intelligent</i>.</h1>
+
+    <!-- Rangée 3 : lede | bullets | CTA -->
+    <p class="hx7-lede">Pas une vitrine. Une web app pilotée par l'IA, branchée à vos données, qui transforme chaque visite en client.</p>
+    <ul class="hx7-bullets">
+      {bullets.map((b) => <li class="hx7-bullet">{b}</li>)}
+    </ul>
+    <div class="hx7-ctas">
+      <a href="#" class="btn btn-primary btn-lg">Réserver un diagnostic (45 min) →</a>
+      <a href="#" class="btn btn-ghost btn-lg">Voir la méthode</a>
+    </div>
+  </div>
+
+  <style>
+    .hx7 {
+      background: var(--paper);
+      color: var(--ink);
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-9);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hx7[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    .hx7-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-5);
+      align-items: start;
+    }
+
+    /* ── Rangée 1 ── */
+    .hx7-kicker {
+      grid-column: 1 / 7;
+      align-self: center;
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0;
+      padding-bottom: var(--space-5);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hx7-sig {
+      grid-column: 10 / 13;
+      justify-self: end;
+      width: var(--text-numeral-md);
+      height: var(--text-numeral-md);
+      color: var(--accent-text);
+      padding-bottom: var(--space-5);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hx7-sig svg { width: 100%; height: auto; display: block; }
+
+    /* ── Rangée 2 : titre col 1-9 ── */
+    .hx7-title {
+      grid-column: 1 / 10;
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      margin: 0;
+      padding: var(--space-6) 0;
+    }
+    .hx7-title i { font-style: italic; }
+    .hx7-title i.acc { color: var(--accent-text); }
+
+    /* ── Rangée 3 : 3 blocs irréguliers, hairline au-dessus ── */
+    .hx7-lede {
+      grid-column: 1 / 6;
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
+      color: var(--muted);
+      max-width: 42ch;
+      text-wrap: pretty;
+      margin: 0;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .hx7-bullets {
+      grid-column: 6 / 10;
+      list-style: none;
+      margin: 0;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .hx7-bullet {
+      position: relative;
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      line-height: var(--leading-lede);
+      color: var(--ink);
+      padding: var(--space-3) 0 var(--space-3) var(--space-5);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hx7[data-bg='ink'] .hx7-bullet { color: var(--paper); }
+    .hx7-bullet:first-child { padding-top: 0; }
+    .hx7-bullet:last-child { border-bottom: none; padding-bottom: 0; }
+    .hx7-bullet::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      top: var(--space-3);
+      color: var(--accent-text);
+      font-family: var(--font-mono);
+    }
+    .hx7-bullet:first-child::before { top: 0; }
+
+    .hx7-ctas {
+      grid-column: 10 / 13;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      align-items: stretch;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .hx7-ctas .btn { justify-content: center; }
+
+    @media (max-width: 900px) {
+      .hx7-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .hx7-kicker,
+      .hx7-sig,
+      .hx7-title,
+      .hx7-lede,
+      .hx7-bullets,
+      .hx7-ctas { grid-column: 1 / -1; }
+      .hx7-sig { justify-self: start; border-bottom: none; padding-bottom: 0; }
+      .hx7-kicker { border-bottom: none; padding-bottom: 0; }
+      .hx7-title { padding: var(--space-4) 0; }
+      .hx7-ctas { align-items: flex-start; }
+      .hx7-ctas .btn { width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .hx7-ctas .btn { width: auto; }
+    }
+  </style>
+</section>

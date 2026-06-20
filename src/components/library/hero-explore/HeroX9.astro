@@ -1,0 +1,209 @@
+---
+// HeroX9 · famille CARTE/COVER · « Stack vertical rythmé »
+// Layout : UNE seule colonne alignée gauche, conteneur max-width wrap-tight centré, sans image.
+// Ordre vertical à rythme GÉNÉREUX (space-7/space-9) : fil d'Ariane mono → kicker → titre serif accent
+// → lede court → 4 badges inline séparés par hairlines verticales → 2 CTA → bande de 4 KPI pleine largeur.
+// Démontre « mieux exploiter l'espacement » (correction Simon). Distinct des autres familles.
+// Styles scopés, préfixés hx9. 0 hardcode → var(--token). 0 tiret cadratin U+2014.
+interface Props { bg?: 'paper' | 'ink'; }
+const { bg = 'paper' } = Astro.props;
+
+const crumbs = ['Accueil', 'Services', 'Site web intelligent'];
+const badges = [
+  'Connectée à l’IA (Claude, GPT)',
+  'Branchée à vos données',
+  'Alertes temps réel',
+  'Quiz qui route vers ce qui convertit',
+];
+const kpis = [
+  { num: '2–10 k€', cap: 'budget HT indicatif' },
+  { num: '4–8 sem.', cap: 'site exploitable livré' },
+  { num: 'Temps réel', cap: 'KPI lus, SEO, alertes' },
+  { num: '100/100', cap: 'PageSpeed SSG, base GEO' },
+];
+---
+<section class={`hx hx9`} data-bg={bg === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide">
+    <div class="hx9-stack">
+      <nav class="hx9-crumbs" aria-label="Fil d’Ariane">
+        {crumbs.map((c, i) => (
+          <span class="hx9-crumb">
+            {i < crumbs.length - 1 ? <a href="#">{c}</a> : <span aria-current="page">{c}</span>}
+            {i < crumbs.length - 1 && <span class="hx9-sep" aria-hidden="true"> / </span>}
+          </span>
+        ))}
+      </nav>
+
+      <p class="hx9-kicker">§ Site web intelligent</p>
+
+      <h1 class="hx9-title">Votre site, enfin <i class="acc">intelligent</i>.</h1>
+
+      <p class="hx9-lede">
+        Pas une vitrine. Une web app pilotée par l’IA, branchée à vos données, qui transforme
+        chaque visite en client.
+      </p>
+
+      <ul class="hx9-badges" aria-label="Capacités">
+        {badges.map((b) => <li class="hx9-badge">{b}</li>)}
+      </ul>
+
+      <div class="hx9-ctas">
+        <a class="btn btn-primary btn-lg" href="#">Réserver un diagnostic (45 min) →</a>
+        <a class="btn btn-ghost btn-lg" href="#">Voir la méthode</a>
+      </div>
+
+      <ul class="hx9-kpis" aria-label="Repères clés">
+        {kpis.map((k) => (
+          <li class="hx9-kpi">
+            <span class="hx9-kpi-num">{k.num}</span>
+            <span class="hx9-kpi-cap">{k.cap}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <style>
+    .hx9 {
+      background: var(--paper);
+      color: var(--ink);
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-9);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hx9[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    /* Une colonne, alignée gauche, dans un conteneur resserré centré. Rythme vertical généreux. */
+    .hx9-stack {
+      max-width: var(--wrap-tight);
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .hx9-crumbs {
+      width: 100%;
+      padding-bottom: var(--space-4);
+      margin-bottom: var(--space-9);
+      border-bottom: 1px solid var(--hairline);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hx9-crumbs a { color: var(--muted); text-decoration: none; }
+    .hx9-crumbs a:hover { color: var(--accent-text); }
+    .hx9-sep { color: var(--hairline-strong); }
+
+    .hx9-kicker {
+      margin: 0 0 var(--space-5);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--accent-text);
+    }
+    .hx9-title {
+      margin: 0 0 var(--space-7);
+      max-width: 18ch;
+      font-family: var(--font-display);
+      font-size: var(--text-display);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      text-wrap: balance;
+    }
+    .hx9-title i.acc { font-style: italic; color: var(--accent-text); }
+    .hx9-lede {
+      margin: 0 0 var(--space-9);
+      max-width: 52ch;
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
+      color: var(--muted);
+    }
+
+    /* Badges inline séparés par hairlines verticales via ::before (pas le 1er). */
+    .hx9-badges {
+      list-style: none;
+      margin: 0 0 var(--space-9);
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    .hx9-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding-left: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hx9-badge::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 1em;
+      background: var(--hairline-strong);
+    }
+    .hx9-badge:first-child { padding-left: 0; }
+    .hx9-badge:first-child::before { display: none; }
+
+    .hx9-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-9);
+    }
+
+    /* Bande de 4 KPI pleine largeur, hairline top. */
+    .hx9-kpis {
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding-top: var(--space-7);
+      border-top: 1px solid var(--hairline);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+    .hx9-kpi {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .hx9-kpi-num {
+      font-family: var(--font-display);
+      font-size: var(--text-numeral-sm);
+      line-height: 1;
+      color: var(--accent-text);
+      font-weight: var(--fw-regular);
+    }
+    .hx9-kpi-cap {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hx9-title { font-size: var(--text-h1); }
+      .hx9-kpis { grid-template-columns: repeat(2, 1fr); gap: var(--space-7); }
+    }
+    @media (max-width: 480px) {
+      .hx9-kpis { grid-template-columns: 1fr; }
+    }
+  </style>
+</section>

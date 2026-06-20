@@ -1,0 +1,123 @@
+---
+// HeroX10 · famille CARTE/COVER · « Couverture magazine »
+// Layout : pleine page « cover » minimal fort. Bande masthead mono 4-col en haut (fil d'Ariane +
+// lieu + édition + statut). Centre : titre serif GÉANT (text-display) centré dominant, mot accent.
+// Sous le titre : fine règle accent, puis une ligne de tagline (lede raccourci ~1 ligne), puis UN
+// seul CTA primaire centré. Impact maximal, esprit couverture. Distinct des autres familles.
+// Styles scopés, préfixés hx10. 0 hardcode → var(--token). 0 tiret cadratin U+2014.
+interface Props { bg?: 'paper' | 'ink'; }
+const { bg = 'paper' } = Astro.props;
+
+const masthead = [
+  'Accueil / Services / Site web intelligent',
+  'Montpellier · FR',
+  'Édition française',
+  '◉ T3 2026',
+];
+---
+<section class={`hx hx10`} data-bg={bg === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide hx10-inner">
+    <div class="hx10-masthead">
+      {masthead.map((m) => <span class="hx10-mast-cell">{m}</span>)}
+    </div>
+
+    <div class="hx10-cover">
+      <p class="hx10-kicker">§ Site web intelligent</p>
+      <h1 class="hx10-title">Un site web enfin <i class="acc">intelligent</i>.</h1>
+      <span class="hx10-rule" aria-hidden="true"></span>
+      <p class="hx10-tagline">Une web app pilotée par l’IA, qui transforme chaque visite en client.</p>
+      <div class="hx10-cta">
+        <a class="btn btn-primary btn-lg" href="#">Réserver un diagnostic (45 min) →</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .hx10 {
+      background: var(--paper);
+      color: var(--ink);
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-9);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hx10[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    .hx10-inner { display: flex; flex-direction: column; gap: var(--space-11); }
+
+    /* Bande masthead mono 4 colonnes, hairline top + bottom. */
+    .hx10-masthead {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-5);
+      padding: var(--space-4) 0;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hx10-mast-cell { min-width: 0; }
+    .hx10-mast-cell:not(:first-child) { text-align: right; }
+
+    /* Centre : cover dominant, tout centré. */
+    .hx10-cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hx10-kicker {
+      margin: 0 0 var(--space-6);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-caps);
+      text-transform: uppercase;
+      color: var(--accent-text);
+    }
+    .hx10-title {
+      margin: 0;
+      max-width: 16ch;
+      margin-inline: auto;
+      font-family: var(--font-display);
+      font-size: var(--text-display);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      text-wrap: balance;
+    }
+    .hx10-title i.acc { font-style: italic; color: var(--accent-text); }
+
+    /* Fine règle accent sous le titre. */
+    .hx10-rule {
+      display: block;
+      width: var(--space-10);
+      height: 2px;
+      margin: var(--space-6) auto;
+      background: var(--accent);
+      border-radius: var(--radius-pill);
+    }
+
+    .hx10-tagline {
+      margin: 0 0 var(--space-7);
+      max-width: 56ch;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--text-h3);
+      line-height: var(--leading-lede);
+      color: var(--muted);
+    }
+    .hx10-cta { display: flex; justify-content: center; }
+
+    @media (max-width: 900px) {
+      .hx10-inner { gap: var(--space-9); }
+      .hx10-title { font-size: var(--text-h1); }
+    }
+    @media (max-width: 640px) {
+      .hx10-masthead { grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+      .hx10-mast-cell:not(:first-child) { text-align: left; }
+      .hx10-mast-cell:first-child { grid-column: 1 / -1; }
+    }
+  </style>
+</section>
