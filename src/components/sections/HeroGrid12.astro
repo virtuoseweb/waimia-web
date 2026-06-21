@@ -1,0 +1,199 @@
+---
+/**
+ * hero-grid-12 · « Grille 12 colonnes, composition libre » (catalogue X7, famille hero)
+ * Héro FULL-VIEWPORT en vraie grille 12-col éditoriale.
+ * R1 : kicker (col 1-6) + sigle dans un rond SVG (col 10-12).
+ * R2 : titre serif (col 1-9). R3 : lede (col 1-5) | bullets (col 6-9) | CTA empilés (col 10-12).
+ * Hairlines entre rangées. Aucun autre hero n'expose une grille 12-col libre.
+ * Props-driven (data), variante paper/ink via `background`, responsive 1-col ≤900.
+ * Source visuelle : src/components/library/hero-explore/HeroX7.astro.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-grid-12'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr);
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const bullets = data.bullets ?? [];
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+---
+<section class="hg12" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide hg12-grid">
+    {/* Rangée 1 : kicker + sigle */}
+    {kicker && <p class="hg12-kicker">{kicker}</p>}
+    {data.sigil && (
+      <div class="hg12-sig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5" />
+          <text x="60" y="67" text-anchor="middle" font-size="13" fill="currentColor" letter-spacing="0.14em">{data.sigil}</text>
+        </svg>
+      </div>
+    )}
+
+    {/* Rangée 2 : titre */}
+    <h1 class="hg12-title" set:html={h1} />
+
+    {/* Rangée 3 : lede | bullets | CTA */}
+    <p class="hg12-lede">{lede}</p>
+    {bullets.length > 0 && (
+      <ul class="hg12-bullets">
+        {bullets.map((b) => <li class="hg12-bullet">{isFr ? b.text_fr : b.text_en}</li>)}
+      </ul>
+    )}
+    <div class="hg12-ctas">
+      <Button href={ctaPrimary.href} variant="primary" size="lg">
+        {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+      </Button>
+      {ctaSecondary && (
+        <Button href={ctaSecondary.href} variant="ghost" size="lg">
+          {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+        </Button>
+      )}
+    </div>
+  </div>
+
+  <style>
+    .hg12 {
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--hairline);
+      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
+      min-height: 100vh;
+      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+    }
+    .hg12[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    .hg12-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-5);
+      align-items: start;
+    }
+
+    /* ── Rangée 1 ── */
+    .hg12-kicker {
+      grid-column: 1 / 7;
+      align-self: center;
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin: 0;
+      padding-bottom: var(--space-5);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hg12-sig {
+      grid-column: 10 / 13;
+      justify-self: end;
+      width: var(--text-numeral-md);
+      height: var(--text-numeral-md);
+      color: var(--accent-text);
+      padding-bottom: var(--space-5);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hg12-sig svg { width: 100%; height: auto; display: block; font-family: var(--font-mono); }
+
+    /* ── Rangée 2 : titre col 1-9 ── */
+    .hg12-title {
+      grid-column: 1 / 10;
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      margin: 0;
+      padding: var(--space-6) 0;
+    }
+    .hg12-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+
+    /* ── Rangée 3 : 3 blocs irréguliers, hairline au-dessus ── */
+    .hg12-lede {
+      grid-column: 1 / 6;
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
+      color: var(--muted);
+      max-width: 42ch;
+      text-wrap: pretty;
+      margin: 0;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .hg12-bullets {
+      grid-column: 6 / 10;
+      list-style: none;
+      margin: 0;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .hg12-bullet {
+      position: relative;
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      line-height: var(--leading-lede);
+      color: var(--ink);
+      padding: var(--space-3) 0 var(--space-3) var(--space-5);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hg12[data-bg='ink'] .hg12-bullet { color: var(--paper); }
+    .hg12-bullet:first-child { padding-top: 0; }
+    .hg12-bullet:last-child { border-bottom: none; padding-bottom: 0; }
+    .hg12-bullet::before {
+      content: '\203A';
+      position: absolute;
+      left: 0;
+      top: var(--space-3);
+      color: var(--accent-text);
+      font-family: var(--font-mono);
+    }
+    .hg12-bullet:first-child::before { top: 0; }
+
+    .hg12-ctas {
+      grid-column: 10 / 13;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      align-items: stretch;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .hg12-ctas :global(.btn) { justify-content: center; }
+
+    @media (max-width: 900px) {
+      .hg12-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .hg12-kicker,
+      .hg12-sig,
+      .hg12-title,
+      .hg12-lede,
+      .hg12-bullets,
+      .hg12-ctas { grid-column: 1 / -1; }
+      .hg12-sig { justify-self: start; border-bottom: none; padding-bottom: 0; }
+      .hg12-kicker { border-bottom: none; padding-bottom: 0; }
+      .hg12-title { padding: var(--space-4) 0; }
+      .hg12-ctas { align-items: flex-start; }
+      .hg12-ctas :global(.btn) { width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .hg12 {
+        padding-top: calc(var(--header-height) + var(--space-5));
+        padding-bottom: var(--space-5);
+      }
+      .hg12-ctas :global(.btn) { width: auto; flex: 1 1 auto; }
+    }
+  </style>
+</section>

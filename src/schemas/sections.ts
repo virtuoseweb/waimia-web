@@ -154,6 +154,212 @@ export const heroSplitMediaSchema = z.object({
   media_alt_en: z.string().optional(),
 });
 
+// Héro « Masthead + KPI 2×2 » full-viewport (X1) : bande masthead 4-col (fil d'Ariane +
+// meta mono) + titre serif accent + rangée 2-col (lede/CTA | KPI 2×2). Pas de média. paper+ink.
+export const heroEditorialMastheadSchema = z.object({
+  type: z.literal('hero-editorial-masthead'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  breadcrumb: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string(), href: z.string().optional() }))
+    .max(4),
+  meta: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+    .max(3)
+    .optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .length(4),
+});
+
+// Héro « Grille multi-lignes asymétrique » full-viewport (X3) : titre pleine largeur,
+// rangée 2-col (label+lede+CTA | label+bullets ›), bande 4-KPI dont la dernière cellule
+// est inversée ink (relève dans les 2 modes). paper+ink.
+export const heroAsymmetricGridSchema = z.object({
+  type: z.literal('hero-asymmetric-grid'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  label_left_fr: z.string().optional(),
+  label_left_en: z.string().optional(),
+  label_right_fr: z.string().optional(),
+  label_right_en: z.string().optional(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  bullets: z
+    .array(z.object({ text_fr: z.string(), text_en: z.string() }))
+    .max(6),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .length(4),
+});
+
+// Héro « Centré + bande capacités ink » full-viewport (X4) : bloc centré (kicker, titre
+// serif accent, lede, 2 CTA) + bande ink pleine largeur de 4 cellules capacités (label
+// mono accent + desc), sombre dans les 2 modes. paper+ink.
+export const heroCenteredBandSchema = z.object({
+  type: z.literal('hero-centered-band'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  caps: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string(), desc_fr: z.string(), desc_en: z.string() }))
+    .max(4),
+});
+
+// Héro « Médaillon média + KPI verticaux » full-viewport (X5) : 2 colonnes texte | médaillon
+// line-art surmontant des KPI hairline. paper+ink.
+export const heroMediaMedallionSchema = z.object({
+  type: z.literal('hero-media-medallion'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  media_src: z.string().optional(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .max(4)
+    .optional(),
+});
+
+// Héro « Baseline stats » full-viewport (X6) : titre serif géant + lede, rangée 4-KPI en
+// baseline (hairline forte). CTA optionnel, pas de média. paper+ink.
+export const heroBaselineStatsSchema = z.object({
+  type: z.literal('hero-baseline-stats'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .length(4),
+  cta_primary: ctaSchema.optional(),
+  cta_secondary: ctaSchema.optional(),
+});
+
+// Héro « Grille 12 colonnes éditoriale » full-viewport (X7) : kicker+sigle, titre serif 9-col,
+// lede/puces/CTA répartis sur la dernière rangée (hairlines). paper+ink.
+export const heroGrid12Schema = z.object({
+  type: z.literal('hero-grid-12'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  sigil: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  bullets: z
+    .array(z.object({ text_fr: z.string(), text_en: z.string() }))
+    .max(4)
+    .optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+});
+
+// Héro « Carte cover ink » full-viewport (X8) : 2 colonnes texte | carte ink sombre (média
+// line-art + mini-KPI), carte sombre même en mode paper. paper+ink.
+export const heroCardCoverSchema = z.object({
+  type: z.literal('hero-card-cover'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  badges: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+    .max(4)
+    .optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  media_src: z.string().optional(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .max(2)
+    .optional(),
+});
+
+// Héro « Stack rhythm » full-viewport (X9) : colonne unique resserrée au rythme vertical
+// généreux (fil d'Ariane, kicker, titre, lede, badges inline, 2 CTA, bande 4-KPI). paper+ink.
+export const heroStackRhythmSchema = z.object({
+  type: z.literal('hero-stack-rhythm'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  breadcrumb: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string(), href: z.string().optional() }))
+    .max(4)
+    .optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  badges: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+    .max(5)
+    .optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .length(4)
+    .optional(),
+});
+
+// Héro « Couverture magazine » full-viewport (X10) : bande masthead mono 4-col, titre serif
+// géant centré, règle accent, tagline display italic, 1 seul CTA centré. paper+ink.
+export const heroMagazineCoverSchema = z.object({
+  type: z.literal('hero-magazine-cover'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  masthead: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+    .max(4)
+    .optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  tagline_fr: z.string(),
+  tagline_en: z.string(),
+  cta_primary: ctaSchema,
+});
+
 export const heroCenteredSchema = z.object({
   type: z.literal('hero-centered'),
   // background/layout/density mutualisés via le mixin sectionBaseSchema (Phase B, docs/46).
@@ -3815,6 +4021,15 @@ export const authorBylineSchema = z.object({
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroSplitMediaSchema,
+  heroEditorialMastheadSchema,
+  heroAsymmetricGridSchema,
+  heroCenteredBandSchema,
+  heroMediaMedallionSchema,
+  heroBaselineStatsSchema,
+  heroGrid12Schema,
+  heroCardCoverSchema,
+  heroStackRhythmSchema,
+  heroMagazineCoverSchema,
   heroCenteredSchema,
   heroFullBleedSchema,
   heroHubListingSchema,

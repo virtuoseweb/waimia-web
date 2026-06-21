@@ -1,0 +1,148 @@
+---
+/**
+ * hero-magazine-cover · « Couverture magazine » (pilote X10, famille carte/cover)
+ * Héro FULL-VIEWPORT « cover » minimal fort : bande masthead mono 4-col (fil d'Ariane + lieu +
+ * édition + statut), puis titre serif GÉANT (text-display) centré dominant accent, fine règle
+ * accent, tagline display italic ~1 ligne, UN seul CTA primaire centré. Impact « couverture ».
+ * Props-driven (data), variante paper/ink via `background`, responsive (masthead 2-col ≤640).
+ * Source visuelle : src/components/library/hero-explore/HeroX10.astro.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-magazine-cover'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const masthead = data.masthead ?? [];
+const kicker = isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr);
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const tagline = isFr ? data.tagline_fr : data.tagline_en;
+const ctaPrimary = data.cta_primary;
+---
+<section class="hmc" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide hmc-inner">
+    {masthead.length > 0 && (
+      <div class="hmc-masthead">
+        {masthead.map((m) => <span class="hmc-mast-cell">{isFr ? m.label_fr : m.label_en}</span>)}
+      </div>
+    )}
+
+    <div class="hmc-cover">
+      {kicker && <p class="hmc-kicker">{kicker}</p>}
+      <h1 class="hmc-title" set:html={h1} />
+      <span class="hmc-rule" aria-hidden="true"></span>
+      {tagline && <p class="hmc-tagline">{tagline}</p>}
+      <div class="hmc-cta">
+        <Button href={ctaPrimary.href} variant="primary" size="lg">
+          {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+        </Button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .hmc {
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--hairline);
+      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
+      min-height: 100vh;
+      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+    }
+    .hmc[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    .hmc-inner { display: flex; flex-direction: column; gap: var(--space-11); }
+
+    /* Bande masthead mono 4 colonnes, hairline top + bottom. */
+    .hmc-masthead {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-5);
+      padding: var(--space-4) 0;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hmc-mast-cell { min-width: 0; }
+    .hmc-mast-cell:not(:first-child) { text-align: right; }
+
+    /* Centre : cover dominant, tout centré. */
+    .hmc-cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hmc-kicker {
+      margin: 0 0 var(--space-6);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-caps);
+      text-transform: uppercase;
+      color: var(--accent-text);
+    }
+    .hmc-title {
+      margin: 0;
+      max-width: 16ch;
+      margin-inline: auto;
+      font-family: var(--font-display);
+      font-size: var(--text-display);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      text-wrap: balance;
+    }
+    .hmc-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+
+    /* Fine règle accent sous le titre. */
+    .hmc-rule {
+      display: block;
+      width: var(--space-10);
+      height: 2px;
+      margin: var(--space-6) auto;
+      background: var(--accent);
+      border-radius: var(--radius-pill);
+    }
+
+    .hmc-tagline {
+      margin: 0 0 var(--space-7);
+      max-width: 56ch;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--text-h3);
+      line-height: var(--leading-lede);
+      color: var(--muted);
+      text-wrap: pretty;
+    }
+    .hmc-cta { display: flex; justify-content: center; }
+
+    @media (max-width: 900px) {
+      .hmc {
+        padding-top: calc(var(--header-height) + var(--space-5));
+        padding-bottom: var(--space-5);
+      }
+      .hmc-inner { gap: var(--space-9); }
+      .hmc-title { font-size: var(--text-h1); }
+    }
+    @media (max-width: 640px) {
+      .hmc-masthead { grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+      .hmc-mast-cell:not(:first-child) { text-align: left; }
+      .hmc-mast-cell:first-child { grid-column: 1 / -1; }
+      .hmc-cta :global(.btn) { width: 100%; justify-content: center; }
+    }
+  </style>
+</section>

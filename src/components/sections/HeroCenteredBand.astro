@@ -1,0 +1,171 @@
+---
+/**
+ * hero-centered-band · « Centré + bande capacités ink » (X4, famille éditoriale/journal)
+ * Héro FULL-VIEWPORT. Bloc héro CENTRÉ (kicker mono, grand titre serif accent, lede,
+ * 2 CTA), puis DESSOUS une bande de capacités INK pleine largeur (carte data-bg='ink' →
+ * sombre dans les DEUX modes) : 4 cellules (label mono accent + desc) séparées par hairlines.
+ * Props-driven (data), variante paper/ink via `background`, responsive 2-col ≤768.
+ * Source visuelle : src/components/library/hero-explore/HeroX4.astro.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-centered-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr);
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const caps = data.caps ?? [];
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+---
+<section class="hcb" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide">
+    {/* Bloc héro centré */}
+    <div class="hcb-hero">
+      {kicker && <p class="hcb-kicker">{kicker}</p>}
+      <h1 class="hcb-title" set:html={h1} />
+      <p class="hcb-lede">{lede}</p>
+      <div class="hcb-ctas">
+        <Button href={ctaPrimary.href} variant="primary" size="lg">
+          {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+        </Button>
+        {ctaSecondary && (
+          <Button href={ctaSecondary.href} variant="ghost" size="lg">
+            {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+          </Button>
+        )}
+      </div>
+    </div>
+
+    {/* Bande capacités INK · pleine largeur du wrap (sombre dans les 2 modes) */}
+    {caps.length > 0 && (
+      <div class="hcb-band" data-bg="ink">
+        <ul class="hcb-caps" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
+          {caps.map((c) => (
+            <li class="hcb-cap">
+              <span class="hcb-cap-label">{isFr ? c.label_fr : c.label_en}</span>
+              <span class="hcb-cap-desc">{isFr ? c.desc_fr : c.desc_en}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+
+  <style>
+    .hcb {
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--hairline);
+      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
+      min-height: 100vh;
+      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+    }
+    .hcb[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    /* Bloc héro centré */
+    .hcb-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: var(--space-9);
+    }
+    .hcb-kicker {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin: 0 0 var(--space-5);
+    }
+    .hcb-title {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      max-width: 18ch;
+      margin: 0 auto var(--space-5);
+    }
+    .hcb-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+    .hcb-lede {
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
+      color: var(--muted);
+      max-width: 52ch;
+      margin: 0 auto var(--space-6);
+      text-wrap: pretty;
+    }
+    .hcb-ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+
+    /* Bande capacités ink · remap tokens auto via data-bg='ink' */
+    .hcb-band {
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: var(--radius-lg);
+      padding: var(--space-7);
+    }
+    .hcb-caps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .hcb-cap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: 0 var(--space-5);
+      border-right: 1px solid var(--hairline);
+    }
+    .hcb-cap:first-child { padding-left: 0; }
+    .hcb-cap:last-child { border-right: none; padding-right: 0; }
+    .hcb-cap-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--accent-text);
+    }
+    .hcb-cap-desc {
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: var(--leading-lede);
+      color: var(--paper);
+    }
+
+    @media (max-width: 768px) {
+      .hcb {
+        padding-top: calc(var(--header-height) + var(--space-5));
+        padding-bottom: var(--space-5);
+      }
+      .hcb-hero { margin-bottom: var(--space-7); }
+      .hcb-caps { grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+      .hcb-cap {
+        padding: 0 var(--space-4);
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
+        padding-bottom: var(--space-4);
+      }
+      .hcb-cap:first-child { padding-left: var(--space-4); }
+      .hcb-cap:nth-child(2n) { padding-right: 0; }
+      .hcb-cap:nth-child(2n+1) { padding-left: 0; }
+      .hcb-cap:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+    }
+  </style>
+</section>

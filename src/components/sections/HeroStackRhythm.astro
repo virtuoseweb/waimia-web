@@ -1,0 +1,241 @@
+---
+/**
+ * hero-stack-rhythm · « Stack mono-colonne rythmé » (pilote X9, famille carte/cover)
+ * Héro FULL-VIEWPORT en UNE colonne (conteneur wrap-tight centré), align gauche, sans image.
+ * Ordre vertical à rythme généreux (space-7/space-9) : fil d'Ariane mono → kicker → titre serif
+ * accent → lede court → badges inline séparés par hairlines verticales → 2 CTA → bande 4-KPI.
+ * Props-driven (data), variante paper/ink via `background`, responsive (KPI 2-col puis 1-col).
+ * Source visuelle : src/components/library/hero-explore/HeroX9.astro.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-stack-rhythm'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const crumbs = data.breadcrumb ?? [];
+const kicker = isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr);
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const badges = data.badges ?? [];
+const kpis = data.kpis ?? [];
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+---
+<section class="hsr" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide">
+    <div class="hsr-stack">
+      {crumbs.length > 0 && (
+        <nav class="hsr-crumbs" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
+          {crumbs.map((c, i) => (
+            <span class="hsr-crumb">
+              {c.href && i < crumbs.length - 1
+                ? <a href={c.href}>{isFr ? c.label_fr : c.label_en}</a>
+                : <span aria-current={i === crumbs.length - 1 ? 'page' : undefined}>{isFr ? c.label_fr : c.label_en}</span>}
+              {i < crumbs.length - 1 && <span class="hsr-sep" aria-hidden="true"> / </span>}
+            </span>
+          ))}
+        </nav>
+      )}
+
+      {kicker && <p class="hsr-kicker">{kicker}</p>}
+
+      <h1 class="hsr-title" set:html={h1} />
+
+      <p class="hsr-lede">{lede}</p>
+
+      {badges.length > 0 && (
+        <ul class="hsr-badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
+          {badges.map((b) => <li class="hsr-badge">{isFr ? b.label_fr : b.label_en}</li>)}
+        </ul>
+      )}
+
+      <div class="hsr-ctas">
+        <Button href={ctaPrimary.href} variant="primary" size="lg">
+          {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+        </Button>
+        {ctaSecondary && (
+          <Button href={ctaSecondary.href} variant="ghost" size="lg">
+            {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+          </Button>
+        )}
+      </div>
+
+      {kpis.length > 0 && (
+        <ul class="hsr-kpis" aria-label={isFr ? 'Repères clés' : 'Key figures'}>
+          {kpis.map((k) => (
+            <li class="hsr-kpi">
+              <span class="hsr-kpi-num">{k.num}</span>
+              <span class="hsr-kpi-cap">{isFr ? k.cap_fr : k.cap_en}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </div>
+
+  <style>
+    .hsr {
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--hairline);
+      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
+      min-height: 100vh;
+      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+    }
+    .hsr[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    /* Une colonne, alignée gauche, dans un conteneur resserré centré. Rythme vertical généreux. */
+    .hsr-stack {
+      max-width: var(--wrap-tight);
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .hsr-crumbs {
+      width: 100%;
+      padding-bottom: var(--space-4);
+      margin-bottom: var(--space-9);
+      border-bottom: 1px solid var(--hairline);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hsr-crumbs a { color: var(--muted); text-decoration: none; }
+    .hsr-crumbs a:hover { color: var(--accent-text); }
+    .hsr-sep { color: var(--hairline-strong); }
+
+    .hsr-kicker {
+      margin: 0 0 var(--space-5);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--accent-text);
+    }
+    .hsr-title {
+      margin: 0 0 var(--space-7);
+      max-width: 18ch;
+      font-family: var(--font-display);
+      font-size: var(--text-display);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      text-wrap: balance;
+    }
+    .hsr-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+    .hsr-lede {
+      margin: 0 0 var(--space-9);
+      max-width: 52ch;
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
+      color: var(--muted);
+      text-wrap: pretty;
+    }
+
+    /* Badges inline séparés par hairlines verticales via ::before (pas le 1er). */
+    .hsr-badges {
+      list-style: none;
+      margin: 0 0 var(--space-9);
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    .hsr-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding-left: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hsr-badge::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 1em;
+      background: var(--hairline-strong);
+    }
+    .hsr-badge:first-child { padding-left: 0; }
+    .hsr-badge:first-child::before { display: none; }
+
+    .hsr-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-9);
+    }
+
+    /* Bande de 4 KPI pleine largeur, hairline top. */
+    .hsr-kpis {
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding-top: var(--space-7);
+      border-top: 1px solid var(--hairline);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+    .hsr-kpi {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .hsr-kpi-num {
+      font-family: var(--font-display);
+      font-size: var(--text-numeral-sm);
+      line-height: 1;
+      color: var(--accent-text);
+      font-weight: var(--fw-regular);
+    }
+    .hsr-kpi-cap {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hsr {
+        padding-top: calc(var(--header-height) + var(--space-5));
+        padding-bottom: var(--space-5);
+      }
+      .hsr-crumbs { margin-bottom: var(--space-7); }
+      .hsr-title { font-size: var(--text-h1); margin-bottom: var(--space-6); }
+      .hsr-lede { margin-bottom: var(--space-7); }
+      .hsr-badges { margin-bottom: var(--space-7); }
+      .hsr-ctas { margin-bottom: var(--space-7); }
+      .hsr-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+      .hsr-kpis { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+    }
+    @media (max-width: 480px) {
+      .hsr-kpis { grid-template-columns: 1fr; }
+    }
+  </style>
+</section>

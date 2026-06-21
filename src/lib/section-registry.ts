@@ -34,6 +34,15 @@ export interface SectionDescriptor {
 // Imports section components (sera étendu Wave T2.2 par worker Sonnet)
 import HeroSplit from '../components/sections/HeroSplit.astro';
 import HeroSplitMedia from '../components/sections/HeroSplitMedia.astro';
+import HeroEditorialMasthead from '../components/sections/HeroEditorialMasthead.astro';
+import HeroAsymmetricGrid from '../components/sections/HeroAsymmetricGrid.astro';
+import HeroCenteredBand from '../components/sections/HeroCenteredBand.astro';
+import HeroMediaMedallion from '../components/sections/HeroMediaMedallion.astro';
+import HeroBaselineStats from '../components/sections/HeroBaselineStats.astro';
+import HeroGrid12 from '../components/sections/HeroGrid12.astro';
+import HeroCardCover from '../components/sections/HeroCardCover.astro';
+import HeroStackRhythm from '../components/sections/HeroStackRhythm.astro';
+import HeroMagazineCover from '../components/sections/HeroMagazineCover.astro';
 import HeroCentered from '../components/sections/HeroCentered.astro';
 import HeroFullBleed from '../components/sections/HeroFullBleed.astro';
 import HeroHome from '../components/sections/HeroHome.astro';
@@ -453,6 +462,105 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte média line-art à droite. Variante paper et ink, responsive (1 colonne sur mobile).',
     description_en: 'Full-viewport two-column hero: text (kicker, serif title, lede, badge pills, 2 CTAs) on the left, line-art media card on the right. Paper and ink variants, responsive (single column on mobile).',
+  },
+  'hero-editorial-masthead': {
+    component: HeroEditorialMasthead,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'masthead', 'editorial', 'kpi', 'breadcrumb'],
+    status: 'stable',
+    description_fr: "Héro plein écran éditorial : bande masthead mono 4 colonnes (fil d'Ariane + méta) sous le titre serif, puis rangée 2 colonnes (lede + 2 CTA à gauche, 4 KPI en micro-grille 2×2 à droite). Pas de média. Variante paper et ink, responsive.",
+    description_en: 'Full-viewport editorial hero: a 4-column monospace masthead band (breadcrumb + meta) under the serif title, then a 2-column row (lede + 2 CTAs on the left, 4 KPIs in a 2×2 micro-grid on the right). No media. Paper and ink variants, responsive.',
+  },
+  'hero-asymmetric-grid': {
+    component: HeroAsymmetricGrid,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'asymmetric', 'grid', 'editorial', 'kpi'],
+    status: 'stable',
+    description_fr: "Héro plein écran en grille multi-lignes asymétrique : titre serif pleine largeur, rangée 2 colonnes (label + lede + 2 CTA à gauche, label + puces fléchées à droite), puis bande de 4 KPI dont la dernière cellule est inversée en ink. Variante paper et ink, responsive.",
+    description_en: 'Full-viewport asymmetric multi-row hero: full-width serif title, a 2-column row (label + lede + 2 CTAs on the left, label + arrow bullets on the right), then a 4-KPI band whose last cell is inverted in ink. Paper and ink variants, responsive.',
+  },
+  'hero-centered-band': {
+    component: HeroCenteredBand,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'centered', 'band', 'capabilities', 'ink'],
+    status: 'stable',
+    description_fr: "Héro plein écran centré (kicker, titre serif, lede, 2 CTA) suivi d'une bande de capacités ink pleine largeur : 4 cellules (label mono accent + description), sombre dans les deux modes. Variante paper et ink, responsive.",
+    description_en: 'Full-viewport centered hero (kicker, serif title, lede, 2 CTAs) followed by a full-width ink capabilities band: 4 cells (mono accent label + description), dark in both modes. Paper and ink variants, responsive.',
+  },
+  'hero-media-medallion': {
+    component: HeroMediaMedallion,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'media', 'medallion', 'kpi', 'cta'],
+    status: 'stable',
+    description_fr: 'Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, 2 CTA) à gauche, médaillon média line-art surmontant des KPI verticaux hairline à droite. Variante paper et ink, responsive (1 colonne sur mobile).',
+    description_en: 'Full-viewport two-column hero: text (kicker, serif title, lede, 2 CTAs) on the left, line-art media medallion above stacked hairline KPIs on the right. Paper and ink variants, responsive (single column on mobile).',
+  },
+  'hero-baseline-stats': {
+    component: HeroBaselineStats,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'stats', 'kpi', 'baseline', 'display'],
+    status: 'stable',
+    description_fr: 'Héro plein écran à impact typographique : kicker, titre serif géant et lede court en tête, rangée de 4 KPI poussée en baseline (séparée par une hairline forte). CTA optionnel, pas de média. Variante paper et ink, responsive (KPI 2 colonnes sur mobile).',
+    description_en: 'Full-viewport typographic hero: kicker, oversized serif title and short lede at the top, a row of 4 KPIs pushed to the baseline (split by a strong hairline). Optional CTA, no media. Paper and ink variants, responsive (KPIs in 2 columns on mobile).',
+  },
+  'hero-grid-12': {
+    component: HeroGrid12,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'grid', 'editorial', 'bullets', 'cta'],
+    status: 'stable',
+    description_fr: 'Héro plein écran en vraie grille 12 colonnes éditoriale : kicker et sigle en rangée 1, titre serif sur 9 colonnes, puis lede, puces et CTA empilés répartis librement sur la dernière rangée (hairlines entre les rangées). Variante paper et ink, responsive (1 colonne sur mobile).',
+    description_en: 'Full-viewport editorial hero built on a true 12-column grid: kicker and sigil in row 1, serif title across 9 columns, then lede, bullets and stacked CTAs freely placed on the last row (hairlines between rows). Paper and ink variants, responsive (single column on mobile).',
+  },
+  'hero-card-cover': {
+    component: HeroCardCover,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'card', 'cover', 'media', 'kpi', 'ink'],
+    status: 'stable',
+    description_fr: 'Héro plein écran en deux colonnes : discours éditorial (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte ink sombre (média line-art + mini-KPI) à droite. La carte reste sombre en mode paper. Variante paper et ink, responsive (1 colonne sur mobile).',
+    description_en: 'Full-viewport two-column hero: editorial discourse (kicker, serif title, lede, badge pills, 2 CTAs) on the left, dark ink card (line-art media + mini KPIs) on the right. The card stays dark in paper mode. Paper and ink variants, responsive (single column on mobile).',
+  },
+  'hero-stack-rhythm': {
+    component: HeroStackRhythm,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'stack', 'rhythm', 'breadcrumb', 'kpi'],
+    status: 'stable',
+    description_fr: 'Héro plein écran en une seule colonne resserrée, au rythme vertical généreux : fil d\'Ariane, kicker, titre serif, lede, badges inline séparés par hairlines, 2 CTA, bande de 4 KPI. Variante paper et ink, responsive.',
+    description_en: 'Full-viewport single narrow column with a generous vertical rhythm: breadcrumb, kicker, serif title, lede, inline badges split by hairlines, 2 CTAs, a 4-KPI band. Paper and ink variants, responsive.',
+  },
+  'hero-magazine-cover': {
+    component: HeroMagazineCover,
+    category: 'marketing',
+    subcategory: 'Hero Header Sections',
+    categorySlug: 'hero-header-sections',
+    family: 'hero',
+    tags: ['hero', 'magazine', 'cover', 'masthead', 'editorial'],
+    status: 'stable',
+    description_fr: 'Héro plein écran « couverture magazine » : bande masthead mono 4 colonnes en haut, titre serif géant centré dominant, fine règle accent, tagline display italic, un seul CTA centré. Variante paper et ink, responsive (masthead 2 colonnes sur mobile).',
+    description_en: 'Full-viewport "magazine cover" hero: 4-column mono masthead band at the top, dominant centered giant serif title, thin accent rule, italic display tagline, a single centered CTA. Paper and ink variants, responsive (2-column masthead on mobile).',
   },
   'hero-centered': {
     component: HeroCentered,
