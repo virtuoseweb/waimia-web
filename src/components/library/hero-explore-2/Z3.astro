@@ -1,0 +1,212 @@
+---
+/**
+ * hero-explore-2 · Z3 · « Asymétrie 72/28 · rail média MINCE »
+ * Héro service FULL-VIEWPORT très asymétrique (~72/28, grille 2.6fr 1fr).
+ * GAUCHE dominante : masthead + §01 + h1 serif accent + lede + badges pills + CTA dual.
+ * DROITE : un rail média VERTICAL MINCE (line-art currentColor, aspect-ratio 3/5 étroit,
+ * bord hairline, fond --paper-2 / --ink-2). Répond direct à « la colonne droite prend
+ * trop de place » : le média devient une bande verticale fine.
+ * Réutilise : MastheadRow, .signature-grid (+ .on-dark ink), sigil V·9, headline serif accent,
+ * badges pills mono (motif HeroSplitMedia). Props-driven paper/ink, responsive ≤768.
+ */
+import MastheadRow from '../../ui/molecules/MastheadRow.astro';
+import Button from '../../ui/atoms/Button.astro';
+
+interface Props {
+  bg?: 'paper' | 'ink';
+}
+const { bg = 'paper' } = Astro.props;
+const isInk = bg === 'ink';
+
+const badges = ['Claude Code', 'MCP', 'RAG', 'Automations'];
+---
+<section class="z3" data-bg={isInk ? 'ink' : undefined}>
+  <div class={`signature-grid${isInk ? ' on-dark' : ''}`}></div>
+
+  <div class="hero-sig-mark" aria-hidden="true">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5"/>
+      <text x="60" y="67" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="currentColor" letter-spacing="0.14em">V · 9</text>
+    </svg>
+  </div>
+
+  <div class="wrap-wide z3__inner">
+    <MastheadRow tone={isInk ? 'ink' : 'paper'} />
+
+    <div class="z3__grid">
+      <div class="z3__main">
+        <p class="z3__fig">§ 01 · Service</p>
+        <h1 class="z3__title" set:html={`L'IA <i class="acc">intégrée</i> à vos<br />opérations, <i>sans friction</i>.`} />
+        <p class="z3__lede">On installe Claude Code dans vos outils, vos données et vos flux. Vos équipes gardent la main, <i>l'IA fait le reste</i>.</p>
+
+        <ul class="z3__badges" aria-label="Capacités">
+          {badges.map((b) => <li class="z3__badge">{b}</li>)}
+        </ul>
+
+        <div class="z3__ctas">
+          <Button href="/contact" variant="primary" size="lg">Démarrer un diagnostic</Button>
+          <Button href="#methode" variant="ghost" size="lg">Voir la méthode</Button>
+        </div>
+      </div>
+
+      <figure class="z3__media">
+        <img src="/images/line-art/dispositif-flow.svg" alt="Schéma du dispositif d'intégration" loading="eager" decoding="async" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .z3 {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-7));
+    padding-bottom: var(--space-7);
+  }
+  .z3[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .z3 > *:not(.signature-grid):not(.hero-sig-mark) { position: relative; z-index: 1; }
+  .z3 .signature-grid { z-index: 0; }
+
+  .hero-sig-mark {
+    position: absolute;
+    right: calc(var(--gut) * 2);
+    top: calc(var(--header-height) + var(--space-7));
+    width: 88px;
+    height: 88px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    color: var(--ink);
+    opacity: 0.18;
+  }
+  .z3[data-bg='ink'] .hero-sig-mark { color: var(--paper); opacity: 0.22; }
+  .hero-sig-mark svg { width: 100%; height: 100%; display: block; }
+
+  .z3__inner { width: 100%; }
+
+  .z3__fig {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-4);
+  }
+
+  .z3__grid {
+    display: grid;
+    grid-template-columns: 2.6fr 1fr;
+    gap: var(--space-10);
+    margin-top: var(--space-7);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--hairline);
+    align-items: center;
+  }
+  .z3__main { display: flex; flex-direction: column; }
+
+  .z3__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    max-width: 18ch;
+    margin: 0 0 var(--space-5);
+  }
+  .z3__title :global(i) { font-style: italic; }
+  .z3__title :global(i.acc) { font-style: italic; color: var(--accent-text); }
+
+  .z3__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    max-width: 56ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .z3[data-bg='ink'] .z3__lede { color: var(--paper-2); }
+  .z3__lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+  /* Badges · pills mono uppercase, border hairline (motif HeroSplitMedia) */
+  .z3__badges {
+    list-style: none;
+    margin: 0 0 var(--space-7);
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .z3__badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--ink-2);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill);
+    padding: var(--space-2) var(--space-4);
+  }
+  .z3[data-bg='ink'] .z3__badge { color: var(--paper-2); }
+
+  .z3__ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+  /* Rail média vertical MINCE · line-art currentColor, bande étroite */
+  .z3__media {
+    margin: 0;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--paper-2);
+    padding: var(--space-5);
+    aspect-ratio: 3 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .z3__media::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 50% at 50% 45%, rgba(var(--accent-rgb), 0.07), transparent 70%);
+    pointer-events: none;
+  }
+  .z3[data-bg='ink'] .z3__media { background: var(--ink-2); }
+  .z3__media img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    color: var(--ink);
+  }
+  .z3[data-bg='ink'] .z3__media img { color: var(--paper); }
+
+  @media (max-width: 768px) {
+    .z3 {
+      padding-top: calc(var(--header-height) + var(--space-5));
+      padding-bottom: var(--space-5);
+    }
+    .hero-sig-mark { display: none; }
+    .z3__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-5);
+      padding-top: var(--space-5);
+    }
+    /* Média en bandeau court : il ne mange plus le 1er écran */
+    .z3__media { order: -1; aspect-ratio: 2 / 1; max-height: 26svh; padding: var(--space-4); }
+    .z3__badges { margin-bottom: var(--space-5); }
+    .z3__ctas { gap: var(--space-2); }
+    .z3__ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+  }
+</style>

@@ -1,0 +1,220 @@
+---
+/**
+ * hero-explore-2 · Z2 · « Promesse 60/40 · mini-map capacités »
+ * Héro service FULL-VIEWPORT asymétrique (~60/40, grille 1.5fr 1fr).
+ * GAUCHE : masthead + §01 + h1 serif accent + lede + CTA dual + cta-sub.
+ * DROITE (rail léger) : §02 + mini-map 6 capacités en 2 colonnes verticales (hairlines).
+ * Le rail montre le PÉRIMÈTRE opérationnel, pas un média.
+ * Réutilise : MastheadRow, .signature-grid (+ .on-dark ink), sigil V·9, headline serif accent,
+ * motif .minimap (label mono accent + items, hairlines). Props-driven paper/ink, responsive ≤768.
+ */
+import MastheadRow from '../../ui/molecules/MastheadRow.astro';
+import Button from '../../ui/atoms/Button.astro';
+
+interface Props {
+  bg?: 'paper' | 'ink';
+}
+const { bg = 'paper' } = Astro.props;
+const isInk = bg === 'ink';
+
+const minimap = [
+  { label: 'Acquisition', items: 'SEA · SEO · Ads' },
+  { label: 'Contenu', items: 'Brief · Rédaction · SEO' },
+  { label: 'Web', items: 'Sites · Apps · CMS' },
+  { label: 'Sales', items: 'CRM · Séquences · Scoring' },
+  { label: 'Data', items: 'Tracking · Dashboards' },
+  { label: 'Marque', items: 'DA · Charte · Design system' },
+];
+---
+<section class="z2" data-bg={isInk ? 'ink' : undefined}>
+  <div class={`signature-grid${isInk ? ' on-dark' : ''}`}></div>
+
+  <div class="hero-sig-mark" aria-hidden="true">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5"/>
+      <text x="60" y="67" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="currentColor" letter-spacing="0.14em">V · 9</text>
+    </svg>
+  </div>
+
+  <div class="wrap-wide z2__inner">
+    <MastheadRow tone={isInk ? 'ink' : 'paper'} />
+
+    <div class="z2__grid">
+      <div class="z2__main">
+        <p class="z2__fig">§ 01 · Service</p>
+        <h1 class="z2__title" set:html={`L'IA <i class="acc">intégrée</i> à vos opérations,<br /><i>sans friction</i>.`} />
+        <p class="z2__lede">On installe Claude Code dans vos outils, vos données et vos flux. Vos équipes gardent la main, <i>l'IA fait le reste</i>.</p>
+
+        <div class="z2__ctas">
+          <Button href="/contact" variant="primary" size="lg">Démarrer un diagnostic</Button>
+          <Button href="#methode" variant="ghost" size="lg">Voir la méthode</Button>
+        </div>
+        <p class="z2__cta-sub">Réponse sous 48 h. <i>Sans engagement.</i></p>
+      </div>
+
+      <div class="z2__rail">
+        <p class="z2__fig">§ 02 · Périmètre</p>
+        <ul class="z2__minimap" aria-label="Périmètre opérationnel · 6 territoires">
+          {minimap.map((t) => (
+            <li class="z2__mm-item">
+              <span class="z2__mm-label">{t.label}</span>
+              <span class="z2__mm-items">{t.items}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .z2 {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-7));
+    padding-bottom: var(--space-7);
+  }
+  .z2[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .z2 > *:not(.signature-grid):not(.hero-sig-mark) { position: relative; z-index: 1; }
+  .z2 .signature-grid { z-index: 0; }
+
+  .hero-sig-mark {
+    position: absolute;
+    right: calc(var(--gut) * 2);
+    top: calc(var(--header-height) + var(--space-7));
+    width: 88px;
+    height: 88px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    color: var(--ink);
+    opacity: 0.18;
+  }
+  .z2[data-bg='ink'] .hero-sig-mark { color: var(--paper); opacity: 0.22; }
+  .hero-sig-mark svg { width: 100%; height: 100%; display: block; }
+
+  .z2__inner { width: 100%; }
+
+  .z2__fig {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-4);
+  }
+
+  .z2__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-10);
+    margin-top: var(--space-7);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--hairline);
+    align-items: stretch;
+  }
+  .z2__main, .z2__rail { display: flex; flex-direction: column; }
+
+  .z2__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    max-width: 16ch;
+    margin: 0 0 var(--space-5);
+  }
+  .z2__title :global(i) { font-style: italic; }
+  .z2__title :global(i.acc) { font-style: italic; color: var(--accent-text); }
+
+  .z2__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    max-width: 48ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .z2[data-bg='ink'] .z2__lede { color: var(--paper-2); }
+  .z2__lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z2__ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .z2__cta-sub {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .z2[data-bg='ink'] .z2__cta-sub { color: var(--paper-2); }
+  .z2__cta-sub :global(i) { font-style: italic; color: var(--accent-text); }
+
+  /* Rail mini-map · 2 colonnes verticales, hairlines (motif .minimap home) */
+  .z2__minimap {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .z2__mm-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-3) var(--space-3) 0;
+    border-bottom: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+  }
+  .z2__mm-item:nth-child(2n) { border-right: none; }
+  .z2__mm-item:nth-last-child(-n+2) { border-bottom: none; }
+  .z2__mm-item:not(:nth-child(2n+1)) { padding-left: var(--space-3); }
+  .z2__mm-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .z2__mm-items {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+  }
+  .z2[data-bg='ink'] .z2__mm-items { color: var(--paper-2); }
+
+  @media (max-width: 768px) {
+    .z2 {
+      padding-top: calc(var(--header-height) + var(--space-5));
+      padding-bottom: var(--space-5);
+    }
+    .hero-sig-mark { display: none; }
+    .z2__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-7);
+      margin-top: var(--space-5);
+      padding-top: var(--space-5);
+    }
+    .z2__ctas { gap: var(--space-2); }
+    .z2__ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+  }
+  @media (max-width: 440px) {
+    .z2__minimap { grid-template-columns: 1fr; }
+    .z2__mm-item, .z2__mm-item:nth-child(n) { border-right: none; padding-left: 0; }
+    .z2__mm-item:not(:last-child) { border-bottom: 1px solid var(--hairline); }
+    .z2__mm-item:last-child { border-bottom: none; }
+  }
+</style>
