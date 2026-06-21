@@ -27,7 +27,7 @@ import TechPillRow from '../ui/molecules/TechPillRow.astro';
 import CtaFinal from '../sections/CtaFinal.astro';
 import RelatedCardsBand from '../sections/RelatedCardsBand.astro';
 import KeyMetric from '../editorial/KeyMetric.astro';
-import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../sections/MastheadBar.astro';
 import type { SectionByType } from '../../schemas/sections';
 
 interface SpecItem {
@@ -334,7 +334,7 @@ const hasLegacySteps = steps && steps.length > 0;
 const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('author-card');
 ---
 <Base title={title} description={description} jsonLd={jsonLd} ogType={ogType}>
-  <Breadcrumb
+  <MastheadBar
     lang={lang}
     items={[
       { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },

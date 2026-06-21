@@ -16,7 +16,7 @@
 // passées en prop). Si un autre template a besoin d'un TOC sticky, on extrait alors.
 
 import Base from '../../layouts/Base.astro';
-import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../sections/MastheadBar.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
 import TrustLegalSection from '../sections/TrustLegalSection.astro';
 import type { SectionByType } from '../../schemas/sections';
@@ -72,7 +72,7 @@ const ctaData = {
 } satisfies SectionByType<'cta-band'>;
 ---
 <Base title={title} description={description} jsonLd={webPageLd}>
-  <Breadcrumb
+  <MastheadBar
     lang={lang}
     items={[
       { label: isFr ? 'Accueil' : 'Home', href: isFr ? '/' : '/en' },

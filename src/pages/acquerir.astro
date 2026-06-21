@@ -14,7 +14,7 @@ export const prerender = true;
 
 import Base from '../layouts/Base.astro';
 import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
-import Breadcrumb from '../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
 import { langFromPath } from '../lib/i18n';
 import type { SectionData } from '../schemas/sections';
 
@@ -360,7 +360,7 @@ const serviceLd = {
   description="Acquérir plus de clients : un système marketing intelligent qui capte, qualifie, convertit et mesure, dans un seul pipeline. Waimia, studio IA pour PME."
   jsonLd={serviceLd}
 >
-  <Breadcrumb lang={lang} items={[
+  <MastheadBar lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
     { label: lang === 'fr' ? 'Acquérir' : 'Acquire' },
   ]} />

@@ -8,7 +8,7 @@ import AuthorCard from '../../components/ui/molecules/AuthorCard.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
-import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('cases');
@@ -108,7 +108,7 @@ const caseLd = buildArticle({
 {/* D.7 · Adoption composable — si frontmatter contient `sections`, utiliser SectionsRenderer */}
 {(() => { const useComposable = Array.isArray(d.sections) && d.sections.length > 0; return useComposable ? (
   <Base title={`${d.title_fr} · Waimia`} description={d.description_fr} jsonLd={caseLd}>
-    <Breadcrumb lang="fr" items={[
+    <MastheadBar lang="fr" items={[
       { label: 'Accueil', href: '/' },
       { label: 'Cas clients', href: '/cas-clients' },
       { label: d.title_fr },

@@ -11,7 +11,7 @@ export const prerender = true;
 
 import Base from '../layouts/Base.astro';
 import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
-import Breadcrumb from '../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
 import { langFromPath } from '../lib/i18n';
 import type { SectionData } from '../schemas/sections';
 
@@ -253,7 +253,7 @@ const lang = langFromPath(Astro.url.pathname);
   title="Expertise Claude (Anthropic) · Waimia"
   description="Expertise Claude anthropic-first pour l'enterprise : modèle par profil de tâche, sécurité comme contrainte de design, gouvernance des données."
 >
-  <Breadcrumb lang={lang} items={[
+  <MastheadBar lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
     { label: lang === 'fr' ? 'Expertise Claude' : 'Claude expertise' },
   ]} />

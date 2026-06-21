@@ -19,7 +19,7 @@ import AuthorCard from '../ui/molecules/AuthorCard.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
 import HeroCentered from '../sections/HeroCentered.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
-import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../sections/MastheadBar.astro';
 import TableOfContents from '../ui/molecules/TableOfContents.astro';
 import ShareButtons from '../ui/molecules/ShareButtons.astro';
 import RelatedByCluster from '../ui/molecules/RelatedByCluster.astro';
@@ -186,7 +186,7 @@ const articleLd = buildArticle({
 ---
 <Base title={title} description={description} jsonLd={articleLd}>
   {breadcrumbItems && breadcrumbItems.length > 0 && (
-    <Breadcrumb lang={lang ?? 'fr'} items={breadcrumbItems} />
+    <MastheadBar lang={lang ?? 'fr'} items={breadcrumbItems} />
   )}
   <article class="essay">
     {/* MASTHEAD */}

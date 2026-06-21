@@ -10,7 +10,7 @@ export const prerender = true;
 
 import Base from '../layouts/Base.astro';
 import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
-import Breadcrumb from '../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
 import { langFromPath } from '../lib/i18n';
 import type { SectionData } from '../schemas/sections';
 
@@ -308,7 +308,7 @@ const serviceLd = {
   description="Piloter, voir et décider : tableaux de bord temps réel et prévisionnel IA. Waimia rend vos chiffres lisibles, sans attendre la clôture."
   jsonLd={serviceLd}
 >
-  <Breadcrumb lang={lang} items={[
+  <MastheadBar lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
     { label: lang === 'fr' ? 'Piloter' : 'Steer' },
   ]} />

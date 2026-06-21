@@ -9,7 +9,7 @@ import HeroCentered from '../../components/sections/HeroCentered.astro';
 import OfferTierGrid from '../../components/sections/OfferTierGrid.astro';
 import RelatedCardsBand from '../../components/sections/RelatedCardsBand.astro';
 import TierPyramidSvg from '../../components/sections/TierPyramidSvg.astro';
-import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
 
 const offresJsonLd = {
   '@context': 'https://schema.org',
@@ -165,7 +165,7 @@ const tierTransformationData = {
 >
 
   <div class="wrap-wide" style="padding-top: 24px;">
-    <Breadcrumb items={[{label:'Accueil', href:'/'}, {label:'Offres'}]} />
+    <MastheadBar items={[{label:'Accueil', href:'/'}, {label:'Offres'}]} />
   </div>
 
   <!-- 1. HERO éditorial -->

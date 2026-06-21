@@ -27,7 +27,7 @@ import EditorialCaseCard from '../components/ui/molecules/EditorialCaseCard.astr
 import { getCollection } from 'astro:content';
 import { CLIENT_LOGOS, SIX_SERVICES, FIELD_NOTES } from '../data/sitemap';
 import { langFromPath, t as ft, localizeHref as flh } from '../lib/i18n';
-import Breadcrumb from '../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
 import { buildArticle } from '../lib/seo/schema-builder';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -85,7 +85,7 @@ const acteVCta = {
     : 'Waimia Manifesto: Build revenue, not demos. AI systems shipped, measured, documented.'}
   jsonLd={articleLd}
 >
-  <Breadcrumb items={[{label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en'}, {label: lang === 'fr' ? 'Manifeste' : 'Manifesto'}]} lang={lang} />
+  <MastheadBar items={[{label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en'}, {label: lang === 'fr' ? 'Manifeste' : 'Manifesto'}]} lang={lang} />
 
   {/* HERO · LiquidHero canvas · plein viewport · GrainOverlay supprimé (flicker) */}
   <section class="manifesto-hero">

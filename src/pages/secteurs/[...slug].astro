@@ -9,7 +9,7 @@ export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import EditorialProse from '../../components/sections/EditorialProse.astro';
 import { localizeHref } from '../../lib/i18n';
@@ -218,7 +218,7 @@ const override = Array.isArray(d.sections) && d.sections.length > 0 ? d.sections
   jsonLd={sectorJsonLd}
   noindex={d.seo?.noindex}
 >
-  <Breadcrumb
+  <MastheadBar
     lang={lang}
     items={[
       { label: 'Accueil', href: '/' },

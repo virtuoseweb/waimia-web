@@ -13,7 +13,7 @@
 // Composé de · HeroCentered (section cataloguée) · CtaFinal / CtaBandSection
 
 import Base from '../../layouts/Base.astro';
-import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../sections/MastheadBar.astro';
 import HeroCentered from '../sections/HeroCentered.astro';
 import CtaFinal from '../sections/CtaFinal.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
@@ -189,7 +189,7 @@ const autoCrumbs: Crumb[] = isList ? [] : breadcrumb ?? (() => {
   <Base title={title} description={description} jsonLd={jsonLd}>
     {autoCrumbs.length > 0 && (
       <div class="util-crumbs wrap-wide">
-        <Breadcrumb lang={lang} items={autoCrumbs} />
+        <MastheadBar lang={lang} items={autoCrumbs} />
       </div>
     )}
     {/* MASTHEAD · composant catalogué hero-utility-masthead (contenu via props).

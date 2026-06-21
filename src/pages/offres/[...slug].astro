@@ -11,7 +11,7 @@ export const prerender = true;
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
-import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { langFromPath } from '../../lib/i18n';
 import { buildService, buildOffer, buildFAQPage } from '../../lib/seo/schema-builder';
 
@@ -77,7 +77,7 @@ const offreLd = faqLd ? [serviceLd, faqLd] : serviceLd;
   noindex={data.seo?.noindex}
   jsonLd={offreLd}
 >
-  <Breadcrumb lang={lang} items={[
+  <MastheadBar lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
     { label: lang === 'fr' ? 'Offres' : 'Services', href: lang === 'fr' ? '/offres' : '/en/offres' },
     { label: (lang === 'fr' ? data.title_fr : data.title_en).split(' · ')[0] },

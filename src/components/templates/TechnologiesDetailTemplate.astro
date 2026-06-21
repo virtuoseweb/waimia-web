@@ -37,7 +37,7 @@ import KeyMetric from '../editorial/KeyMetric.astro';
 import Timeline from '../editorial/Timeline.astro';
 import EditorialTable from '../editorial/EditorialTable.astro';
 import Dingbat from '../editorial/Dingbat.astro';
-import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../sections/MastheadBar.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import { langFromPath } from '../../lib/i18n';
 import { buildService } from '../../lib/seo/schema-builder';
@@ -223,7 +223,7 @@ const timelineEvents =
 const serviceLd = buildService({ name: title, description });
 ---
 <Base {title} {description} {noindex} jsonLd={[serviceLd]}>
-    <Breadcrumb
+    <MastheadBar
       lang={lang}
       items={[
         { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
