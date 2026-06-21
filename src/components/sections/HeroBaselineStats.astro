@@ -63,12 +63,10 @@ const ctaSecondary = data.cta_secondary;
       background: var(--paper);
       color: var(--ink);
       border-bottom: 1px solid var(--hairline);
-      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
-      min-height: 100vh;
-      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+      /* Hauteur naturelle (plancher 70vh via .hbs-stack) : le titre display + les KPI
+         baseline ne sont jamais rognes sous le fold, meme quand le contenu depasse 100vh. */
       display: flex;
       flex-direction: column;
-      justify-content: center;
       box-sizing: border-box;
       padding-top: calc(var(--header-height) + var(--space-7));
       padding-bottom: var(--space-7);
@@ -79,9 +77,9 @@ const ctaSecondary = data.cta_secondary;
     .hbs-stack {
       display: flex;
       flex-direction: column;
-      flex: 1;
+      min-height: 70vh;
     }
-    .hbs-head { max-width: 22ch; }
+    .hbs-head { max-width: none; }
 
     :global(.hbs-kicker) {
       margin: 0 0 var(--space-5);
@@ -92,7 +90,7 @@ const ctaSecondary = data.cta_secondary;
       line-height: var(--leading-h1);
       letter-spacing: var(--tracking-display);
       font-weight: var(--fw-regular);
-      max-width: 14ch;
+      max-width: 20ch;
       margin: 0 0 var(--space-5);
     }
     .hbs-title :global(.acc) { font-style: italic; color: var(--accent-text); }
