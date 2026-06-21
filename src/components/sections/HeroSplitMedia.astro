@@ -20,6 +20,8 @@ const isFr = lang === 'fr';
 
 const kicker = isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr);
 const h1 = isFr ? data.h1_fr : data.h1_en;
+const subtitle = isFr ? data.subtitle_fr : (data.subtitle_en ?? data.subtitle_fr);
+const definitionKicker = isFr ? data.definition_kicker_fr : (data.definition_kicker_en ?? data.definition_kicker_fr);
 const lede = isFr ? data.lede_fr : data.lede_en;
 const badges = data.badges ?? [];
 const mediaAlt = isFr ? data.media_alt_fr : (data.media_alt_en ?? data.media_alt_fr);
@@ -33,6 +35,8 @@ const ctaSecondary = data.cta_secondary;
       <div class="hsm-text">
         {kicker && <Kicker as="p" tone="accent" class="hsm-kicker">{kicker}</Kicker>}
         <h1 class="hsm-title" set:html={h1} />
+        {subtitle && <p class="hsm-subtitle">{subtitle}</p>}
+        {definitionKicker && <Kicker as="p" tone="muted" textTransform="none" letterSpacing=".02em" class="hsm-def-kicker">{definitionKicker}</Kicker>}
         <p class="hsm-lede">{lede}</p>
 
         {badges.length > 0 && (
@@ -99,6 +103,25 @@ const ctaSecondary = data.cta_secondary;
       margin: 0 0 var(--space-5);
     }
     .hsm-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+
+    /* Tagline · registre intermédiaire entre h1 et lede (rôle h3 = sous-titre/lede, poids medium). */
+    .hsm-subtitle {
+      font-family: var(--font-sans);
+      font-size: var(--text-h3);
+      line-height: var(--leading-lede);
+      font-weight: var(--fw-medium);
+      color: var(--ink);
+      max-width: 46ch;
+      margin: 0 0 var(--space-6);
+      text-wrap: pretty;
+    }
+    .hsm[data-bg='ink'] .hsm-subtitle { color: var(--paper); }
+
+    /* Kicker secondaire « définition » · réutilise l'atome Kicker en registre muted +
+       casse de phrase (≠ top-kicker terracotta uppercase) → annonce la définition (lede)
+       sans entrer en compétition avec l'eyebrow d'acte. On ne pilote ici que l'espacement. */
+    .hsm-def-kicker { margin: 0 0 var(--space-3); }
+
     .hsm-lede {
       font-family: var(--font-sans);
       font-size: var(--text-body);
@@ -180,6 +203,8 @@ const ctaSecondary = data.cta_secondary;
          l'espace dispo au lieu de rester serré sur 2 lignes étroites. */
       .hsm-kicker { margin-bottom: var(--space-2); }
       .hsm-title { max-width: none; font-size: var(--text-display); margin-bottom: var(--space-2); }
+      .hsm-subtitle { max-width: none; margin-bottom: var(--space-3); }
+      .hsm-def-kicker { margin-bottom: var(--space-2); }
       .hsm-lede { margin-bottom: var(--space-3); }
       /* Badges : typo micro + padding resserré → empilent moins haut. */
       .hsm-badges { gap: var(--space-1); margin-bottom: var(--space-3); }

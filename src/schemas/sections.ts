@@ -141,6 +141,13 @@ export const heroSplitMediaSchema = z.object({
   kicker_en: z.string().optional(),
   h1_fr: z.string(),
   h1_en: z.string(),
+  // Tagline optionnelle sous le titre (registre intermédiaire h1/lede).
+  subtitle_fr: z.string().optional(),
+  subtitle_en: z.string().optional(),
+  // Kicker secondaire optionnel (mono uppercase) annonçant la définition,
+  // placé sous le subtitle et au-dessus du lede (= paragraphe de définition).
+  definition_kicker_fr: z.string().optional(),
+  definition_kicker_en: z.string().optional(),
   lede_fr: z.string(),
   lede_en: z.string(),
   badges: z
