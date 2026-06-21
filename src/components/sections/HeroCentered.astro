@@ -286,7 +286,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
       </svg>
       <div class="wrap-wide">
         <span class="hero-case-study__eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</span>
-        <Kicker class="hero-case-study__num">§ Case {data.case_num}</Kicker>
+        <Kicker class="hero-case-study__num">§ {isFr ? 'Cas' : 'Case'} {data.case_num}</Kicker>
         <h1 class="hero-case-study__h1 reveal-mask-up u-serif-accent" style={h1Gap ? `--hcs-h1-gap: ${h1Gap}` : undefined} transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
       </div>
     </div>

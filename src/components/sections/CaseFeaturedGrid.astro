@@ -40,7 +40,7 @@ const [featured, ...rest] = items;
   <section class="cas-grid-outer wrap-wide" data-bg={data.background}>
     <div class="cas-grid reveal-stagger">
       <a href={featured.href} class="cas-card cas-card--featured">
-        <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector}{featured.duration ? ` · ${featured.duration}` : ''}</Kicker>
+        <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">§ {isFr ? 'Cas' : 'Case'} {featured.caseNum} · {featured.sector}{featured.duration ? ` · ${featured.duration}` : ''}</Kicker>
         <span class="cas-card-provenance">{provenanceLabel(featured.firstParty)}</span>
         <h2 class="cas-card-title">{featured.title}</h2>
         <p class="cas-card-headline">{featured.headline}</p>

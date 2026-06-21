@@ -105,7 +105,7 @@ const mastheadData = {
     <section class="cas-grid-outer wrap-wide">
       <div class="cas-grid reveal-stagger">
         <a href={`/cas-clients/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/cas-clients/${featured.slug}`)}`}>
-          <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector} · {featured.duration}</div>
+          <div class="cas-card-kicker">§ {lang === 'fr' ? 'Cas' : 'Case'} {featured.caseNum} · {featured.sector} · {featured.duration}</div>
           <span class="cas-card-provenance">
             {featured.firstParty
               ? provenanceChipLabels.firstParty[lang]
