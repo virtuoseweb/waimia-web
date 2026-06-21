@@ -93,7 +93,7 @@ const cards = data.cards;
     box-shadow: var(--shadow-card-rest);
     text-decoration: none;
     color: inherit;
-    transition: box-shadow .25s ease, transform .25s ease;
+    transition: box-shadow var(--dur-trim) var(--ease), transform var(--dur-trim) var(--ease);
   }
   a.tlm__inner:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
   .tlm[data-bg='ink'] .tlm__inner {
