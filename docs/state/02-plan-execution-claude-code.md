@@ -640,6 +640,10 @@ _(vide)_
 - [ ] **P2.1-a — Établir la couverture réelle** (`docs/visual-audit/`). Le dossier est probablement
   **incomplet** (sections/templates oubliés). Te poser : quels templates × sections ont une capture
   above-fold À JOUR ? lesquels MANQUENT ? Construis l'inventaire templates × sections et compare.
+  - ▸ *Avancement (commit `52e2c79`, gf1=y)* : couverture **preview-level** établie — sweep auto des
+    186 `/preview/<type>` (desktop+mobile), triage défauts (9 liens morts 404 du catalogue corrigés,
+    16 « no-heading » = sans-titre by design confirmés). Rapport : `docs/visual-audit/coverage-report.md`.
+    **Reste** : inventaire templates × sections + captures versionnées (→ P2.1-b) + sweep des **45 pages site réelles**.
 - [ ] **P2.1-b — Compléter : 1 capture above-fold par section de chaque template** (l'agent itère dessus).
 - [ ] **P2.1-c — Corriger gitignore/pipeline** : rediriger le sweep (`scripts/gf1-cloud-sweep.mjs`,
   `visual-check.mjs`) de `/tmp` → `docs/visual-audit/{previews,sections}/...` (versionné) ; dé-ignorer
