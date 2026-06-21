@@ -80,7 +80,7 @@ const offreLd = faqLd ? [serviceLd, faqLd] : serviceLd;
   <MastheadBar lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
     { label: lang === 'fr' ? 'Offres' : 'Services', href: lang === 'fr' ? '/offres' : '/en/offres' },
-    { label: (lang === 'fr' ? data.title_fr : data.title_en).split(' · ')[0] },
+    { label: (lang === 'fr' ? data.title_fr : data.title_en).split(' · ').filter((s) => s !== 'Offres' && s !== 'Offers')[0] },
   ]} />
   {TinaIsland && tinaWrapper ? (
     <TinaIsland name="offre" wrapper={tinaWrapper} params={{ slug: entry.id }} primary>
