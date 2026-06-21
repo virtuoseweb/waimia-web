@@ -36,8 +36,8 @@ const ctaSecondary = data.cta_secondary;
         {kicker && <Kicker as="p" tone="accent" class="hsm-kicker">{kicker}</Kicker>}
         <h1 class="hsm-title" set:html={h1} />
         {subtitle && <p class="hsm-subtitle">{subtitle}</p>}
-        {definitionKicker && <Kicker as="p" tone="muted" textTransform="none" letterSpacing=".02em" class="hsm-def-kicker">{definitionKicker}</Kicker>}
-        <p class="hsm-lede">{lede}</p>
+        {definitionKicker && <p class="hsm-def-kicker">{definitionKicker}</p>}
+        <p class="hsm-lede" set:html={lede} />
 
         {badges.length > 0 && (
           <ul class="hsm-badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
@@ -117,19 +117,41 @@ const ctaSecondary = data.cta_secondary;
     }
     .hsm[data-bg='ink'] .hsm-subtitle { color: var(--paper); }
 
-    /* Kicker secondaire « définition » · réutilise l'atome Kicker en registre muted +
-       casse de phrase (≠ top-kicker terracotta uppercase) → annonce la définition (lede)
-       sans entrer en compétition avec l'eyebrow d'acte. On ne pilote ici que l'espacement. */
-    .hsm-def-kicker { margin: 0 0 var(--space-3); }
+    /* Question « définition » · sous-titre-question mono muted, PLUS GROS que le lede
+       (hiérarchie voulue : la question domine, la réponse est en appui plus discret).
+       Casse de phrase, ≠ top-kicker terracotta uppercase. 100 % tokens (0 hardcode). */
+    .hsm-def-kicker {
+      font-family: var(--font-mono);
+      font-size: var(--text-h3);
+      line-height: var(--leading-h3);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: none;
+      color: var(--muted);
+      margin: 0 0 var(--space-4);
+      text-wrap: balance;
+    }
 
+    /* Lede fin · style de .problem-statement__text (sans + emphase <i> serif italique
+       terracotta) mais en registre plus petit/léger adapté à un lede (var(--text-fine),
+       couleur muted). La question (def-kicker) domine, le lede est l'appui discret. */
     .hsm-lede {
       font-family: var(--font-sans);
-      font-size: var(--text-body);
-      line-height: var(--leading-body);
+      font-size: var(--text-fine);
+      line-height: var(--leading-relaxed);
+      letter-spacing: var(--tracking-body);
+      font-weight: var(--fw-regular);
       color: var(--muted);
       max-width: 50ch;
       margin: 0 0 var(--space-6);
       text-wrap: pretty;
+    }
+    .hsm-lede :global(i),
+    .hsm-lede :global(em) {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: var(--fw-regular);
+      letter-spacing: var(--tracking-display);
+      color: var(--accent-text);
     }
 
     /* Badges · pills mono uppercase, border hairline */
