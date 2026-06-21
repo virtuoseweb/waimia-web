@@ -1,6 +1,14 @@
 # ADR-003 — Ouverture du silo Acquérir (Growth System IA) : pages de service réelles + landings conversion
 
-- **Statut** : Accepté (décisions de fond tranchées par Simon le 2026-06-13 ; quelques choix d'URL à confirmer, cf §7)
+> ⛔ **SUPERSEDED 2026-06-18 — ADR d'architecture PÉRIMÉ.** L'architecture « silo Acquérir ouvert
+> + 3 piliers Acquérir / Piloter / Opérer » de cet ADR est abandonnée de la nav publique au profit
+> de **`docs/strategy/10-architecture-finale-v7.md`** (ARCHITECTURE COURANTE : 2 offres Site Web
+> Intelligent + Intégration Claude, nav 4 méga-menus, indexation index-on-quality, 301 ciblés).
+> **PRÉSERVÉ (rule 59)** : le positionnement (cabinet d'orchestration IA, pas agence web) et la
+> doctrine anti-dilution restent valides et sont repris par v7 (cf `strategy/10 §0-§1`). Doc
+> conservé pour l'historique de décision (E-E-A-T du raisonnement). Candidat à `docs/archive/`.
+
+- **Statut** : Superseded 2026-06-18 (cf bannière ci-dessus) — historiquement Accepté (décisions de fond tranchées par Simon le 2026-06-13 ; quelques choix d'URL à confirmer, cf §7)
 - **Date** : 2026-06-13
 - **Décideur** : Simon (Waimia, solo) + arbitrage expert
 - **Portée** : architecture d'information, arborescence, templates de page service, stratégie SEO/GEO + CRO
