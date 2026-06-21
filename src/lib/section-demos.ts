@@ -167,6 +167,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     h2_en: 'Tell us what you want to <i>wire</i>',
     body_fr: 'Décrivez votre contexte en deux lignes. On revient vers vous sous 24h avec une première lecture, pas un argumentaire.',
     body_en: 'Describe your context in two lines. We reply within 24h with a first read, not a sales pitch.',
+    name_label_fr: 'Nom', name_label_en: 'Name',
+    email_label_fr: 'Email', email_label_en: 'Email',
+    message_label_fr: 'Votre projet en deux lignes', message_label_en: 'Your project in two lines',
     submit_label_fr: 'Envoyer le message →',
     submit_label_en: 'Send message →',
     form_action: '/api/contact',
@@ -202,8 +205,8 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     h2_en: 'Stay ahead on applied <i>AI</i>',
     body_fr: 'Une analyse longue par mois, sur ce qui change vraiment la donne en IA d\'entreprise. Sans hype, sans jargon.',
     body_en: 'One long-form analysis per month, on what genuinely moves the needle in enterprise AI. No hype, no jargon.',
-    hint_fr: 'Rejoint par 2 400 dirigeants · désinscription en 1 clic',
-    hint_en: 'Joined by 2,400 leaders · unsubscribe in 1 click',
+    hint_fr: 'Rejoint par 2 400 dirigeants',
+    hint_en: 'Joined by 2,400 leaders',
   },
   // <<< [gen-conversion] end
   // >>> [gen-structure] start
@@ -1666,7 +1669,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'guarantee-block': {
     type: 'guarantee-block',
     guarantees: [
-      { title_fr: 'Tu peux ramener le système en interne', title_en: 'Bring the system in-house', body_fr: 'Tout est documenté, ouvert, transférable. Pas de boîte noire, pas de lock-in.', body_en: 'Everything documented, open, transferable. No black box, no lock-in.' },
+      { title_fr: 'Vous pouvez ramener le système en interne', title_en: 'Bring the system in-house', body_fr: 'Tout est documenté, ouvert, transférable. Pas de boîte noire, pas de lock-in.', body_en: 'Everything documented, open, transferable. No black box, no lock-in.' },
       { title_fr: 'ROI mesuré avant après', title_en: 'Measured before/after ROI', body_fr: 'Baseline observée. Métriques cibles définies. Mesure post-déploiement.', body_en: 'Baseline observed. Target metrics defined. Post-deployment measurement.' },
       { title_fr: 'Sortie sous 4 semaines si non-fit', title_en: 'Exit within 4 weeks if no-fit', body_fr: "Si l'audit révèle un non-match, on sort propre, pas de tunnel de plusieurs mois.", body_en: "If audit reveals no-match, we exit clean, no months-long tunnel." },
     ],

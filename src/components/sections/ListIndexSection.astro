@@ -92,5 +92,27 @@ const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
   }
 
   .list-body { padding: var(--section-loose) var(--space-6); }
+  .list-body :global(.demo-list-row) {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .list-body :global(.demo-list-row span) {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+    flex: 0 0 auto;
+  }
+  .list-body :global(.demo-list-row strong) {
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+  .list-body :global(.demo-list-row em) {
+    margin-left: auto;
+    font-style: italic;
+    color: var(--ink-2);
+  }
   .list-footer { border-top: 1px solid var(--hairline); }
 </style>

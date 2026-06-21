@@ -132,7 +132,7 @@ export default function ProductReel({ lang, screens = DEFAULT_SCREENS, copy }: P
   return (
     <div ref={wrapRef} style={{ height: '320vh', position: 'relative' }}>
       <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', padding: '0 var(--space-8)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 'var(--space-9)', alignItems: 'center', width: '100%', maxWidth: 1500, margin: '0 auto' }}>
+        <div className="product-reel-grid" style={{ display: 'grid', gap: 'var(--space-9)', alignItems: 'center', width: '100%', maxWidth: 1500, margin: '0 auto' }}>
           {/* Steps left */}
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>

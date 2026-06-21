@@ -118,6 +118,10 @@ const metricPlacements = [
   @media (max-width: 640px) {
     .off-proof-metrics { grid-template-columns: 1fr; }
   }
+  @media (max-width: 768px) {
+    .off-proof-main { grid-column: 1 / -1; }
+    .off-proof-aside { grid-column: 1 / -1; }
+  }
 
   /* ───── Variante dark ───── */
   [data-bg='ink'] {

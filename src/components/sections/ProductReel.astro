@@ -13,4 +13,8 @@ const { lang } = Astro.props;
 
 <style>
   .product-reel { position: relative; background: var(--ink); color: var(--paper); }
+  .product-reel :global(.product-reel-grid) { grid-template-columns: 1fr 1.3fr; }
+  @media (max-width: 768px) {
+    .product-reel :global(.product-reel-grid) { grid-template-columns: 1fr; }
+  }
 </style>
