@@ -11,6 +11,12 @@ export function organization() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    legalName: 'VirtuoseWeb',
+    email: 'bonjour@waimia.fr',
+    telephone: '+33 6 20 61 56 93',
+    foundingDate: '2020-10-15',
+    vatID: 'FR07890426307',
     name: ORG_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/og/logo.svg`,
@@ -25,6 +31,7 @@ export function organization() {
       'https://www.linkedin.com/company/waimia',
       'https://x.com/waimia_ai',
       'https://github.com/virtuoseweb/waimia',
+      'https://www.youtube.com/@waimia',
     ],
     knowsAbout: [
       'Claude AI', 'Anthropic', 'agentic systems', 'MCP connectors',
@@ -42,7 +49,7 @@ export function website(lang: Lang) {
     url: SITE_URL,
     name: ORG_NAME,
     inLanguage: lang === 'en' ? 'en-US' : 'fr-FR',
-    publisher: { '@type': 'Organization', name: ORG_NAME },
+    publisher: { '@id': `${SITE_URL}/#organization` },
   };
 }
 
