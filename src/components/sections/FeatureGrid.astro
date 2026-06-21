@@ -107,9 +107,7 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
           {isFr ? data.kicker_fr : data.kicker_en}
         </Kicker>
       )}
-      <h2 id="commitments-grid-h2" class="commitments-grid__h2 reveal">
-        {isFr ? data.h2_fr : data.h2_en}
-      </h2>
+      <h2 id="commitments-grid-h2" class="commitments-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(data.body_fr || data.body_en) && (
         <p class="commitments-grid__body">
           {isFr ? data.body_fr : data.body_en}
@@ -119,7 +117,7 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
       <div class="commitments-grid__grid reveal-stagger">
         {data.commitments.map((c) => (
           <div class="commitments-grid__cell">
-            <h3 class="commitments-grid__cell-title">{isFr ? c.title_fr : c.title_en}</h3>
+            <h3 class="commitments-grid__cell-title" set:html={isFr ? c.title_fr : c.title_en} />
             <p class="commitments-grid__cell-body">{isFr ? c.body_fr : c.body_en}</p>
           </div>
         ))}
@@ -230,7 +228,7 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
   .problems-grid__cards { max-width: 1200px; }
   .problems-grid { padding-block: var(--section-base); border-top: 1px solid rgba(var(--ink-rgb), .07); }
   .problems-grid__h2 {
-    font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+    font-family: var(--font-display);
     font-size: var(--text-h2);
     letter-spacing: -.01em;
     margin-bottom: var(--space-9);
@@ -306,7 +304,7 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
     margin-bottom: var(--space-3);
   }
   .problems-grid__card h3 {
-    font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+    font-family: var(--font-display);
     font-size: var(--text-h3);
     line-height: 1.25;
     margin-bottom: var(--space-4);

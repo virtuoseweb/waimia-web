@@ -2357,7 +2357,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         ],
         // Bloc even (rendu ink par le damier) : variante -ink.webp.
         media_src: '/images/illustrations/ds/chess-ink.webp',
-        media_alt_fr: 'Illustration : pieces d echecs',
+        media_alt_fr: 'Illustration : pièces d\'échecs',
         media_alt_en: 'Illustration: chess pieces',
       },
       {
@@ -2700,9 +2700,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     aside_fr: 'Du diagnostic à la dette technique : chaque chantier produit une couche que vos équipes reprennent et exploitent.',
     aside_en: 'From diagnosis to technical debt: each engagement produces a layer your teams own and operate.',
     services: [
-      { num: '02.1', title_fr: 'Audit de maturité IA', title_en: 'AI Maturity Audit', desc_fr: 'Cartographie des cas d usage, des données et des risques avant tout chantier.', desc_en: 'Mapping of use cases, data, and risks before any engagement.', meta: '10 j · 10 days', href: '/offres/audit-maturite-ia' },
+      { num: '02.1', title_fr: 'Audit de maturité IA', title_en: 'AI Maturity Audit', desc_fr: 'Cartographie des cas d\'usage, des données et des risques avant tout chantier.', desc_en: 'Mapping of use cases, data, and risks before any engagement.', meta: '10 j · 10 days', href: '/offres/audit-maturite-ia' },
       { num: '02.2', title_fr: 'Roadmap & cadrage', title_en: 'Roadmap & Scoping', desc_fr: 'Priorisation des chantiers, séquencement et budget cadré sur 3-5 jalons.', desc_en: 'Engagement prioritisation, sequencing, and budget framed across 3-5 milestones.', meta: '8 j · 8 days', href: '/offres' },
-      { num: '02.3', title_fr: 'Gouvernance des données', title_en: 'Data Governance', desc_fr: 'Mise en place des règles d accès, de qualité et de traçabilité réutilisables.', desc_en: 'Reusable access, quality, and traceability rules put in place.', meta: '12 j · 12 days', href: '/offres' },
+      { num: '02.3', title_fr: 'Gouvernance des données', title_en: 'Data Governance', desc_fr: 'Mise en place des règles d\'accès, de qualité et de traçabilité réutilisables.', desc_en: 'Reusable access, quality, and traceability rules put in place.', meta: '12 j · 12 days', href: '/offres' },
       { num: '02.4', title_fr: 'Dette technique', title_en: 'Technical Debt', desc_fr: 'Diagnostic et plan de remédiation de la dette qui freine la mise en production.', desc_en: 'Diagnosis and remediation plan for the debt slowing production.', meta: '15 j · 15 days', href: '/offres' },
     ],
     footer_label_fr: 'Voir toutes les offres →',
@@ -2715,12 +2715,12 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     kicker_en: '§ 03.F · Fit',
     heading_fr: 'On ne prend pas <i>tous</i> les projets.',
     heading_en: 'We do not take <i>every</i> project.',
-    intro_fr: 'Le bon engagement tient en deux colonnes : ce que l on peut rendre opérable, et ce que l on doit refuser avant de diluer la mission.',
+    intro_fr: 'Le bon engagement tient en deux colonnes : ce que l\'on peut rendre opérable, et ce que l\'on doit refuser avant de diluer la mission.',
     intro_en: 'A good engagement fits in two columns: what can become operational, and what must be refused before the mission gets diluted.',
     yes_title_fr: 'Vous êtes fait pour nous si',
     yes_title_en: 'You are a fit if',
     yes_items_fr: [
-      'Vous avez un cas d usage clair et des données accessibles',
+      'Vous avez un cas d\'usage clair et des données accessibles',
       'Vous voulez une couche réutilisable, pas un POC jetable',
       'Une équipe interne peut reprendre et exploiter le livrable',
       'Le budget cadre un premier chantier de 3-5 jalons',
@@ -2734,8 +2734,8 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     no_title_fr: 'On refusera si',
     no_title_en: 'We will say no if',
     no_items_fr: [
-      'Le besoin est un effet d annonce sans cas d usage réel',
-      'Les données sont inaccessibles ou interdites d usage',
+      'Le besoin est un effet d\'annonce sans cas d\'usage réel',
+      'Les données sont inaccessibles ou interdites d\'usage',
       'Aucune équipe ne peut reprendre le livrable côté client',
     ],
     no_items_en: [
@@ -2804,7 +2804,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     aside_en: 'The capabilities used in production, not the marketing list.',
     capabilities: [
       { name_fr: 'Raisonnement long et complexe', name_en: 'Long and complex reasoning', description_fr: 'Chaînes de pensée structurées sur problèmes multi-étapes.', description_en: 'Structured reasoning chains on multi-step problems.', status: 'active' },
-      { name_fr: 'Suivi d instructions précis', name_en: 'Precise instruction following', description_fr: 'Respect strict des contraintes formelles et règles métier.', description_en: 'Strict compliance with formal constraints and business rules.', status: 'active' },
+      { name_fr: 'Suivi d\'instructions précis', name_en: 'Precise instruction following', description_fr: 'Respect strict des contraintes formelles et règles métier.', description_en: 'Strict compliance with formal constraints and business rules.', status: 'active' },
       { name_fr: 'Constitutional AI natif', name_en: 'Native Constitutional AI', description_fr: 'Alignement par principes intégrés au training, traçabilité.', description_en: 'Principle-based alignment built into training, traceability.', status: 'active' },
     ],
   },
@@ -2828,7 +2828,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     type: 'tech-when-dual',
     kicker_fr: 'Aide décision',
     kicker_en: 'Decision aid',
-    title_fr: '<i>Quand</i><br/>l utiliser ?',
+    title_fr: '<i>Quand</i><br/>l\'utiliser ?',
     title_en: 'When<br/>to <i>use</i> it?',
     aside_fr: 'Deux colonnes pour trancher, sans dogme.',
     aside_en: 'Two columns to decide, without dogma.',
@@ -2861,12 +2861,12 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     kicker_en: 'Position in the stack',
     title_fr: '<i>Intégration</i>',
     title_en: '<i>Integration</i>',
-    aside_fr: 'De la donnée à l observation, la place du modèle dans la chaîne.',
+    aside_fr: 'De la donnée à l\'observation, la place du modèle dans la chaîne.',
     aside_en: 'From data to observation, the model place in the chain.',
     steps: [
       { num: '01', label_fr: 'Données', label_en: 'Data', body_fr: 'Sources métier branchées via Model Context Protocol, accès gouverné.', body_en: 'Business sources connected via Model Context Protocol, governed access.' },
       { num: '02', label_fr: 'Modèles', label_en: 'Models', body_fr: 'Claude Haiku · Sonnet · Opus · Code, sélection à la tâche.', body_en: 'Claude Haiku · Sonnet · Opus · Code, task-level selection.' },
-      { num: '03', label_fr: 'Orchestration', label_en: 'Orchestration', body_fr: 'Graphes d agents, état durable, human-in-the-loop natifs.', body_en: 'Agent graphs, durable state, native human-in-the-loop.' },
+      { num: '03', label_fr: 'Orchestration', label_en: 'Orchestration', body_fr: 'Graphes d\'agents, état durable, human-in-the-loop natifs.', body_en: 'Agent graphs, durable state, native human-in-the-loop.' },
     ],
   },
   'pain-points': {
@@ -2875,10 +2875,10 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     eyebrow_en: '§ Friction',
     h2_fr: '<i>Points</i><br/>de friction',
     h2_en: '<i>Points</i><br/>of friction',
-    aside_fr: 'Avant d automatiser, comprendre où le temps se perd. Trois frictions récurrentes que nous voyons sur le terrain.',
+    aside_fr: 'Avant d\'automatiser, comprendre où le temps se perd. Trois frictions récurrentes que nous voyons sur le terrain.',
     aside_en: 'Before automating, understand where time is lost. Three recurring frictions we see in the field.',
     items: [
-      { title_fr: 'La clôture mensuelle prend dix jours', title_en: 'Monthly close takes ten days', body_fr: 'Réconciliation manuelle entre banque, ERP et tableurs. L équipe finance reconstruit les mêmes chiffres chaque mois.', body_en: 'Manual reconciliation between bank, ERP and spreadsheets. The finance team rebuilds the same figures every month.' },
+      { title_fr: 'La clôture mensuelle prend dix jours', title_en: 'Monthly close takes ten days', body_fr: 'Réconciliation manuelle entre banque, ERP et tableurs. L\'équipe finance reconstruit les mêmes chiffres chaque mois.', body_en: 'Manual reconciliation between bank, ERP and spreadsheets. The finance team rebuilds the same figures every month.' },
       { title_fr: 'Les mémos partent sans relecture', title_en: 'Memos ship without review', body_fr: 'Faute de temps, les notes financières arrivent au COMEX avec des écarts non expliqués et des sources éparpillées.', body_en: 'For lack of time, financial notes reach the board with unexplained gaps and scattered sources.' },
       { title_fr: 'Le reporting reste un copier-coller', title_en: 'Reporting stays copy-paste', body_fr: 'Chaque tableau de bord est reconstruit à la main, sans source de vérité, donc impossible à auditer rapidement.', body_en: 'Every dashboard is rebuilt by hand, without a source of truth, so it cannot be audited quickly.' },
     ],
@@ -2892,9 +2892,9 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     aside_fr: 'Chaque workflow est nommé, mesuré, attribué à un modèle précis. Pas de boîte noire.',
     aside_en: 'Each workflow is named, measured, assigned to a specific model. No black box.',
     workflows: [
-      { num: '01', kicker_fr: 'Réconciliation', kicker_en: 'Reconciliation', title_fr: 'Rapprochement bancaire continu', title_en: 'Continuous bank reconciliation', model_fr: 'Claude Haiku 4.5', model_en: 'Claude Haiku 4.5', gain: '−80 %', how_fr: 'Matching automatique des écritures, exceptions remontées à l humain.', how_en: 'Automatic entry matching, exceptions escalated to a human.' },
+      { num: '01', kicker_fr: 'Réconciliation', kicker_en: 'Reconciliation', title_fr: 'Rapprochement bancaire continu', title_en: 'Continuous bank reconciliation', model_fr: 'Claude Haiku 4.5', model_en: 'Claude Haiku 4.5', gain: '−80 %', how_fr: 'Matching automatique des écritures, exceptions remontées à l\'humain.', how_en: 'Automatic entry matching, exceptions escalated to a human.' },
       { num: '02', kicker_fr: 'Synthèse', kicker_en: 'Synthesis', title_fr: 'Mémo financier mensuel', title_en: 'Monthly financial memo', model_fr: 'Claude Sonnet 4.6', model_en: 'Claude Sonnet 4.6', gain: '×4', how_fr: 'Génération de la note à partir des chiffres validés, sources citées.', how_en: 'Memo generated from validated figures, sources cited.' },
-      { num: '03', kicker_fr: 'Reporting', kicker_en: 'Reporting', title_fr: 'Tableau de bord auditable', title_en: 'Auditable dashboard', model_fr: 'Claude Sonnet 4.6', model_en: 'Claude Sonnet 4.6', gain: '−6 j', how_fr: 'Une source de vérité, contrôles d anomalies, export prêt COMEX.', how_en: 'One source of truth, anomaly checks, board-ready export.' },
+      { num: '03', kicker_fr: 'Reporting', kicker_en: 'Reporting', title_fr: 'Tableau de bord auditable', title_en: 'Auditable dashboard', model_fr: 'Claude Sonnet 4.6', model_en: 'Claude Sonnet 4.6', gain: '−6 j', how_fr: 'Une source de vérité, contrôles d\'anomalies, export prêt COMEX.', how_en: 'One source of truth, anomaly checks, board-ready export.' },
     ],
   },
   'roi-band': {
@@ -2950,7 +2950,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     eyebrow_en: '§ Tool stack',
     h2_fr: '<i>Outils</i><br/>déployés',
     h2_en: 'Tools<br/><i>deployed</i>',
-    aside_fr: 'Le triptyque Anthropic primary + intégrations métier secondary + open source pour l orchestration.',
+    aside_fr: 'Le triptyque Anthropic primary + intégrations métier secondary + open source pour l\'orchestration.',
     aside_en: 'The triptych: Anthropic primary + business integrations secondary + open source for orchestration.',
     caption_fr: 'Stack typique · Finance & Comptabilité',
     caption_en: 'Typical stack · Finance & Accounting',
@@ -2968,7 +2968,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     title_fr: 'Catalogue formations',
     title_en: 'Course catalog',
     rows: [
-      { num: '01', title_fr: 'Intro à l IA pour PME B2B', title_en: 'Intro to AI for SMB B2B', level: 'debutant', duration_hours: 6, price_eur: 0, href: '#' },
+      { num: '01', title_fr: 'Intro à l\'IA pour PME B2B', title_en: 'Intro to AI for SMB B2B', level: 'debutant', duration_hours: 6, price_eur: 0, href: '#' },
       { num: '02', title_fr: 'Prompter Claude pour le travail', title_en: 'Prompting Claude for work', level: 'intermediaire', duration_hours: 4, price_eur: 290, href: '#' },
       { num: '03', title_fr: 'Automatiser ses workflows métier', title_en: 'Automating business workflows', level: 'avance', duration_hours: 8, price_eur: 590, href: '#' },
     ],
@@ -2978,7 +2978,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     title_fr: 'Parcours',
     title_en: 'Learning paths',
     items: [
-      { title_fr: 'Dirigeant augmenté', title_en: 'Augmented leader', desc_fr: 'Trois formations pour piloter l IA dans votre PME, du cadrage stratégique au déploiement mesuré.', desc_en: 'Three courses to steer AI in your SMB, from strategic framing to measured deployment.' },
+      { title_fr: 'Dirigeant augmenté', title_en: 'Augmented leader', desc_fr: 'Trois formations pour piloter l\'IA dans votre PME, du cadrage stratégique au déploiement mesuré.', desc_en: 'Three courses to steer AI in your SMB, from strategic framing to measured deployment.' },
       { title_fr: 'Équipe opérationnelle', title_en: 'Operational team', desc_fr: 'Parcours pratique orienté workflows pour les équipes qui veulent des résultats dès le premier mois.', desc_en: 'A hands-on, workflow-oriented program for teams that want results from the first month.' },
     ],
   },
@@ -3068,7 +3068,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       { date: '2026-04-18', tag_fr: 'Note terrain', tag_en: 'Field note', text_fr: 'Le pipeline a livré 18 % de plus avant le café.', text_en: 'The pipeline shipped 18% more before coffee.', href: '/ressources/blog' },
       { date: '2026-04-02', tag_fr: 'Changelog', tag_en: 'Changelog', text_fr: 'VirtuoseOS 2.4 : audit trail signé sur chaque action agent.', text_en: 'VirtuoseOS 2.4: signed audit trail on every agent action.', href: '/ressources/blog' },
       { date: '2026-03-21', tag_fr: 'Note terrain', tag_en: 'Field note', text_fr: 'Un scoring honnête vaut mieux que trois dashboards flatteurs.', text_en: 'One honest scoring beats three flattering dashboards.', href: '/ressources/blog' },
-      { date: '2026-03-04', tag_fr: 'Essai', tag_en: 'Essay', text_fr: 'Pourquoi le goulot n est jamais le modèle : rails, règles, relecture.', text_en: 'Why the bottleneck is never the model: rails, rules, review.', href: '/ressources/blog' },
+      { date: '2026-03-04', tag_fr: 'Essai', tag_en: 'Essay', text_fr: 'Pourquoi le goulot n\'est jamais le modèle : rails, règles, relecture.', text_en: 'Why the bottleneck is never the model: rails, rules, review.', href: '/ressources/blog' },
     ],
   },
   'product-reel': {
