@@ -375,14 +375,14 @@ const L = (fr: string, en: string) => (lang === 'fr' ? fr : en);
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.7fr) minmax(0, 1.1fr) minmax(0, 1.2fr);
     gap: var(--space-4);
-    padding: 12px 0;
+    padding: var(--space-3) 0;
     border-bottom: 1px solid var(--hairline);
     align-items: baseline;
   }
   .carto-row--head {
     font-family: var(--font-mono);
     font-size: var(--text-small);
-    letter-spacing: 0.12em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--accent-text);
   }
@@ -413,7 +413,7 @@ const L = (fr: string, en: string) => (lang === 'fr' ? fr : en);
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: 0.06em;
-    padding: 2px 8px;
+    padding: 2px var(--space-2);
     border-radius: var(--radius-pill);
     border: 1px solid var(--hairline);
   }
@@ -446,7 +446,7 @@ const L = (fr: string, en: string) => (lang === 'fr' ? fr : en);
   @media (max-width: 720px) {
     .carto-row {
       grid-template-columns: minmax(0, 1fr);
-      gap: 4px;
+      gap: var(--space-1);
     }
     .carto-row--head {
       display: none;
