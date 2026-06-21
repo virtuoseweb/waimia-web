@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 165
+> Sections : 186
 
 ---
 
@@ -69,6 +69,44 @@
 **Dette hardcode** : 4 valeur(s) — 1px, 2px, 3px, 640px
 
 **Agent** : Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 2px, 3px).
+
+---
+
+## Breadcrumb Sections
+
+### `breadcrumb-bar`
+
+> Fil d'Ariane « classic » : barre de navigation standard (ol mono uppercase, séparateurs /), posée sous le header fixe. Modèle sobre de la catégorie breadcrumb, à côté du modèle éditorial masthead-bar. 100% DS-driven.
+> BreadcrumbBar · src/components/sections/BreadcrumbBar.astro · marketing/breadcrumb-sections
+> status : stable · tags : breadcrumb, chrome, classic, navigation
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `breadcrumb` | array | oui |  | min:1 max:5 |
+
+**Agent** : Personnaliser via les props schema (1 requis, 0 optionnels).
+
+---
+
+### `masthead-bar`
+
+> Bande de chrome haut : fil d'Ariane intégré au masthead éditorial (méta lieu, édition, statut), posée sous le header fixe et au-dessus du hero. Composant autonome, universel (home incluse). Variante paper et ink.
+> MastheadBar · src/components/sections/MastheadBar.astro · marketing/breadcrumb-sections
+> status : stable · tags : breadcrumb, chrome, editorial, masthead
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `breadcrumb` | array | oui |  | min:1 max:5 |
+| `locations_en` | string | non |  |  |
+| `locations_fr` | string | non |  |  |
+| `status_en` | string | non |  |  |
+| `status_fr` | string | non |  |  |
+
+**Agent** : Personnaliser via les props schema (1 requis, 4 optionnels).
 
 ---
 
@@ -395,13 +433,13 @@
 | `kicker_fr` | string | non |  |  |
 | `rows` | array | oui |  | min:3 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-rgb` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body` `--text-h1` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-rgb` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body` `--text-h1` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
-**Classes scoped** : .versus .versus__cell .versus__colhead .versus__corner .versus__feature .versus__group .versus__h2 .versus__head .versus__icon .versus__icon--no .versus__icon--yes .versus__kicker .versus__row .versus__scroll .versus__table .versus__text
+**Classes scoped** : .versus .versus__cell .versus__colhead .versus__corner .versus__feature .versus__group .versus__grouprow .versus__h2 .versus__head .versus__icon .versus__icon--no .versus__icon--yes .versus__kicker .versus__row .versus__scroll .versus__table .versus__text
 
-**Dette hardcode** : 5 valeur(s) — -0.02em, 100%, 1px, 34%, 640px
+**Dette hardcode** : 7 valeur(s) — -0.02em, 100%, 1px, 34%, 390px, 640px, 768px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.02em, 100%, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.02em, 100%, 1px).
 
 ---
 
@@ -1163,19 +1201,19 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `cells` | array | oui |  | min:5 max:5 |
+| `cells` | array | oui |  | min:3 max:8 |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-1` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--shadow-card-hover` `--space-1` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
-**Classes scoped** : .bento-grid .bento-grid__body .bento-grid__cell .bento-grid__cell--1 .bento-grid__cell--2 .bento-grid__cell--3 .bento-grid__cell--4 .bento-grid__cell--5 .bento-grid__glyph .bento-grid__header .bento-grid__mosaic .bento-grid__title
+**Classes scoped** : .bento-fluid .bento-grid .bento-grid__body .bento-grid__cell .bento-grid__glyph .bento-grid__header .bento-grid__mosaic .bento-grid__title .css .span-lg .span-sm .span-wide
 
-**Dette hardcode** : 5 valeur(s) — -2px, 1023px, 1px, 760px, 761px
+**Dette hardcode** : 6 valeur(s) — -2px, 15rem, 1px, 673px, 768px, 880px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-2px, 1023px, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-2px, 15rem, 1px).
 
 ---
 
@@ -1255,13 +1293,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 18 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1311,13 +1349,13 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 18 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1457,13 +1495,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 18 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
 
-**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1487,21 +1525,23 @@
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | enum | non |  | split-1-2 | split-2-1 |
 | `media_alt_en` | string | non |  |  |
 | `media_alt_fr` | string | non |  |  |
 | `media_caption_en` | string | non |  |  |
 | `media_caption_fr` | string | non |  |  |
 | `media_src` | string | non |  |  |
+| `media_sticky` | boolean | non |  |  |
 | `points` | array | non |  | max:6 |
 | `reversed` | boolean | non | false |  |
 
-**Tokens** : `--accent` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--radius-sm` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
+**Tokens** : `--accent` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--radius-sm` `--sec-grid` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .feature-split .feature-split__body .feature-split__copy .feature-split__cta .feature-split__frame .feature-split__grid .feature-split__media .feature-split__placeholder .feature-split__points
+**Classes scoped** : .css .feature-split .feature-split__body .feature-split__copy .feature-split__cta .feature-split__frame .feature-split__grid .feature-split__media .feature-split__placeholder .feature-split__points .feature-split--sticky-media
 
 **Dette hardcode** : 7 valeur(s) — 0.55em, 100%, 14px, 1px, 860px, 8px, clamp(var(--space-8)
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (0.55em, 100%, 14px).
+**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (0.55em, 100%, 14px).
 
 ---
 
@@ -1544,22 +1584,24 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `alternate_blocks` | boolean | non |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
+| `in` | unknown | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
-| `rows` | array | oui |  | min:2 max:6 |
+| `rows` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-2` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
-**Classes scoped** : .fz .fz__header .fz__lede .fz__link .fz__row .fz__rows .fz__svg .fz__text .fz__visual
+**Classes scoped** : .fz .fz__art .fz__cell .fz__header .fz__img .fz__lede .fz__link .fz__points .fz__row .fz__rows .fz__svg .fz__text .fz__visual .in .is-visible .webp
 
-**Dette hardcode** : 14 valeur(s) — 100%, 120%, 14px, 16%, 1px, 3px, 60%, 640px
+**Dette hardcode** : 20 valeur(s) — -24px, 0.55em, 100%, 120%, 14px, 16%, 1px, 24px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 14 litteral(s) hardcode(s) (100%, 120%, 14px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%).
 
 ---
 
@@ -1603,13 +1645,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 18 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1692,11 +1734,11 @@
 
 **Tokens** : `--accent` `--accent-sur-sombre` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--leading-h1` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .card-cta .card-lead .card-price .card-title .hero-card .hero-card-cta .hero-card-eyebrow .hero-card-lead .hero-card-sub .hero-card-title .offer-card .offer-card--transparent .tier-eyebrow .tier-grid .tier-h2 .tier-ii .tier-ii-grid .tier-iii-grid .tier-lede .tier-section .wrap-wide
+**Classes scoped** : .auto-grid .card-cta .card-lead .card-price .card-title .css .hero-card .hero-card-cta .hero-card-eyebrow .hero-card-lead .hero-card-sub .hero-card-title .offer-card .offer-card--transparent .tier-eyebrow .tier-grid .tier-h2 .tier-ii .tier-ii-grid .tier-iii-grid .tier-lede .tier-section .wrap-wide
 
-**Dette hardcode** : 15 valeur(s) — -0.024em, -0.02em, -0.03em, -2px, -3px, 0.14em, 0.1em, 14px
+**Dette hardcode** : 18 valeur(s) — -0.024em, -0.02em, -0.03em, -2px, -3px, 0.14em, 0.1em, 100%
 
-**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-6 --space-7 --space-9. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.024em, -0.02em, -0.03em).
+**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-6 --space-7 --space-9. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.024em, -0.02em, -0.03em).
 
 ---
 
@@ -1808,13 +1850,13 @@
 | `statement_fr` | string | oui |  |  |
 | `stats` | array | non |  | max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--problem-statement-cols` `--problem-statement-pad` `--section-loose` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-h1` `--text-h2` `--text-small` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--problem-statement-cols` `--problem-statement-pad` `--section-loose` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .drop-cap .problem-statement .problem-statement__kicker .problem-statement__label .problem-statement__stat .problem-statement__statement--dropcap .problem-statement__stats .problem-statement__text .problem-statement__value
 
-**Dette hardcode** : 7 valeur(s) — -0.015em, 0.16em, 1100px, 1px, 800px, clamp(var(--space-8), clamp(var(--text-h2)
+**Dette hardcode** : 8 valeur(s) — -0.01em, 0.16em, 1px, 800px, 980px, clamp(var(--space-8), clamp(var(--text-h2), clamp(var(--text-h3)
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-0.015em, 0.16em, 1100px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, 0.16em, 1px).
 
 ---
 
@@ -1833,13 +1875,13 @@
 | `h2_fr` | string | oui |  |  |
 | `problems` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--deliverables-grid-cols` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--problems-grid-cols` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
 
-**Dette hardcode** : 18 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 10px, 1200px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1858,9 +1900,9 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--related-cards-band-inline` `--related-cards-band-pad` `--section-loose` `--space-6`
+**Tokens** : `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--related-cards-band-pad` `--section-loose` `--space-6`
 
-**Classes scoped** : .related-card .related-cards-band .related-cards-band__grid .related-cards-band__kicker .related-go .related-k .related-lead .related-title
+**Classes scoped** : .related-card .related-cards-band .related-cards-band__grid .related-cards-band__kicker .related-go .related-k .related-lead .related-title .wrap-wide
 
 **Dette hardcode** : 2 valeur(s) — -2px, 1px
 
@@ -1928,7 +1970,7 @@
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .services-grid .services-grid__cell .services-grid__cell-arr .services-grid__cell-body .services-grid__cell-fig .services-grid__cell-foot .services-grid__cell-foot-key .services-grid__cell-foot-val .services-grid__cell-head .services-grid__cell-metric .services-grid__cell-rule .services-grid__cell-title .services-grid__cell-uc .services-grid__chapter .services-grid__dot .services-grid__foot .services-grid__foot-link .services-grid__grid .services-grid__h2 .services-grid__hd .services-grid__num .services-grid__sep .services-grid__spec
+**Classes scoped** : .css .qgrid .services-grid .services-grid__cell .services-grid__cell-arr .services-grid__cell-body .services-grid__cell-fig .services-grid__cell-foot .services-grid__cell-foot-key .services-grid__cell-foot-val .services-grid__cell-head .services-grid__cell-metric .services-grid__cell-rule .services-grid__cell-title .services-grid__cell-uc .services-grid__chapter .services-grid__dot .services-grid__foot .services-grid__foot-link .services-grid__grid .services-grid__h2 .services-grid__hd .services-grid__num .services-grid__sep .services-grid__spec
 
 **Dette hardcode** : 22 valeur(s) — -0.02em, -1px, -2px, 0.04em, 0.14em, 0.1em, 10px, 14px
 
@@ -2183,6 +2225,39 @@
 
 ---
 
+### `hero-asymmetric-grid`
+
+> Héro plein écran en grille multi-lignes asymétrique : titre serif pleine largeur, rangée 2 colonnes (label + lede + 2 CTA à gauche, label + puces fléchées à droite), puis bande de 4 KPI dont la dernière cellule est inversée en ink. Variante paper et ink, responsive.
+> HeroAsymmetricGrid · src/components/sections/HeroAsymmetricGrid.astro · marketing/hero-header-sections
+> status : stable · tags : asymmetric, editorial, grid, hero, kpi
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `bullets` | array | oui |  | max:6 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kpis` | array | oui |  |  |
+| `label_left_en` | string | non |  |  |
+| `label_left_fr` | string | non |  |  |
+| `label_right_en` | string | non |  |  |
+| `label_right_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-md` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+
+**Classes scoped** : .acc .hag .hag-arrow .hag-bullet .hag-bullets .hag-ctas .hag-kpi .hag-kpi-cap .hag-kpi-num .hag-kpis .hag-label .hag-lede .hag-left .hag-row2 .hag-title
+
+**Dette hardcode** : 2 valeur(s) — 1px, 768px
+
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px).
+
+---
+
 ### `hero-atlas`
 
 > Hero Atlas en deux colonnes avec signature grid, copy éditoriale, CTAs et mini-map des quatre piliers.
@@ -2252,6 +2327,101 @@
 
 ---
 
+### `hero-baseline-stats`
+
+> Héro plein écran à impact typographique : kicker, titre serif géant et lede court en tête, rangée de 4 KPI poussée en baseline (séparée par une hairline forte). CTA optionnel, pas de média. Variante paper et ink, responsive (KPI 2 colonnes sur mobile).
+> HeroBaselineStats · src/components/sections/HeroBaselineStats.astro · marketing/hero-header-sections
+> status : stable · tags : baseline, display, hero, kpi, stats
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | non |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpis` | array | oui |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-display` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+
+**Classes scoped** : .acc .hbs .hbs-ctas .hbs-head .hbs-kicker .hbs-kpi .hbs-kpi-cap .hbs-kpi-num .hbs-kpis .hbs-lede .hbs-stack .hbs-title
+
+**Dette hardcode** : 3 valeur(s) — 100%, 1px, 768px
+
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 3 litteral(s) hardcode(s) (100%, 1px, 768px).
+
+---
+
+### `hero-capability-band`
+
+> Héro plein écran : titre serif accent et lede alignés à gauche (~70 % de large), puis une bande de capacités asymétrique pleine largeur de 5 cellules dont la 3e (large, accent) porte un KPI serif, les 4 autres des capacités mono. Variante paper et ink, responsive.
+> HeroCapabilityBand · src/components/sections/HeroCapabilityBand.astro · marketing/hero-header-sections
+> status : stable · tags : band, capabilities, hero, kpi
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `capabilities` | array | oui |  |  |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpi` | object | oui |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hcb .hcb__band .hcb__cell .hcb__cell--kpi .hcb__cell-cap .hcb__cell-items .hcb__cell-label .hcb__cell-num .hcb__ctas .hcb__fig .hcb__head .hcb__lede .hcb__title .signature-grid
+
+**Dette hardcode** : 6 valeur(s) — -0.02em, 100%, 1px, 70%, 768px, clamp(20px, 1.7vw, 24px)
+
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, 100%, 1px).
+
+---
+
+### `hero-card-cover`
+
+> Héro plein écran en deux colonnes : discours éditorial (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte ink sombre (média line-art + mini-KPI) à droite. La carte reste sombre en mode paper. Variante paper et ink, responsive (1 colonne sur mobile).
+> HeroCardCover · src/components/sections/HeroCardCover.astro · marketing/hero-header-sections
+> status : stable · tags : card, cover, hero, ink, kpi, media
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `badges` | array | non |  | max:4 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpis` | array | non |  | max:2 |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `media_alt_en` | string | non |  |  |
+| `media_alt_fr` | string | non |  |  |
+| `media_src` | string | non |  |  |
+
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--shadow-lift` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-display` `--text-h1` `--text-numeral-sm` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hcc .hcc-badge .hcc-badges .hcc-card .hcc-card-kpis .hcc-card-media .hcc-col .hcc-ctas .hcc-grid .hcc-kicker .hcc-kpi .hcc-kpi-cap .hcc-kpi-num .hcc-lede .hcc-title
+
+**Dette hardcode** : 6 valeur(s) — 100%, 1px, 320px, 480px, 900px, clamp(var(--space-6)
+
+**Agent** : Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (100%, 1px, 320px).
+
+---
+
 ### `hero-case-study`
 
 > Hero d'étude de cas avec décor géométrique, titre et barre de spécifications (client, secteur, durée).
@@ -2309,6 +2479,36 @@
 
 ---
 
+### `hero-centered-band`
+
+> Héro plein écran centré (kicker, titre serif, lede, 2 CTA) suivi d'une bande de capacités ink pleine largeur : 4 cellules (label mono accent + description), sombre dans les deux modes. Variante paper et ink, responsive.
+> HeroCenteredBand · src/components/sections/HeroCenteredBand.astro · marketing/hero-header-sections
+> status : stable · tags : band, capabilities, centered, hero, ink
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `caps` | array | oui |  | max:4 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-lg` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+
+**Classes scoped** : .acc .hcb .hcb-band .hcb-cap .hcb-cap-desc .hcb-cap-label .hcb-caps .hcb-ctas .hcb-hero .hcb-kicker .hcb-lede .hcb-title
+
+**Dette hardcode** : 2 valeur(s) — 1px, 768px
+
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px).
+
+---
+
 ### `hero-conversion-funnel`
 
 > Hero magnétique flagship : kicker num + h1 monumental, lede, meta pills, benefits checklist, ligne preuve mono, double CTA et grille stats 4-col.
@@ -2321,6 +2521,7 @@
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `benefits` | array | non |  | max:8 |
+| `col` | unknown | oui |  |  |
 | `cta_primary` | object | oui |  |  |
 | `cta_secondary` | object | non |  |  |
 | `funnel_num` | string | oui |  |  |
@@ -2328,18 +2529,23 @@
 | `h1_fr` | string | oui |  |  |
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
+| `media_alt_en` | string | non |  |  |
+| `media_alt_fr` | string | non |  |  |
+| `media_register` | enum | non |  | lineart | editorial |
+| `media_src` | string | non |  |  |
 | `meta_pills` | array | non |  | max:6 |
 | `proof_en` | string | non |  |  |
 | `proof_fr` | string | non |  |  |
 | `stats` | array | non |  | max:4 |
+| `variant` | enum | non |  | split | sumie | minimal |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
-**Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .wrap-wide
+**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
-**Dette hardcode** : 23 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 18px
+**Dette hardcode** : 39 valeur(s) — -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 10px, 11px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
+**Agent** : Layout : `background`, `media_register`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, -50%, 0.1em).
 
 ---
 
@@ -2400,6 +2606,68 @@
 **Dette hardcode** : 41 valeur(s) — -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .1em, 0.06em, 0.1em
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 41 litteral(s) hardcode(s) (-0.01em, -0.026em, -0.028em).
+
+---
+
+### `hero-editorial-kpi`
+
+> Héro plein écran éditorial asymétrique (~65/35) : colonne dominante (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail léger à droite avec 3 KPI serif verticaux séparés par hairlines. Variante paper et ink, responsive.
+> HeroEditorialKpi · src/components/sections/HeroEditorialKpi.astro · marketing/hero-header-sections
+> status : stable · tags : asymmetric, editorial, hero, kpi
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `cta_sub_en` | string | non |  |  |
+| `cta_sub_fr` | string | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpis` | array | oui |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hero-sig-mark .proof .signature-grid .z1 .z1__cta-sub .z1__ctas .z1__fig .z1__grid .z1__inner .z1__lede .z1__main .z1__proof .z1__proof-label .z1__proof-num .z1__proofs .z1__rail .z1__title
+
+**Dette hardcode** : 6 valeur(s) — -0.02em, 100%, 1px, 768px, 88px, clamp(20px, 1.7vw, 24px)
+
+**Agent** : Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, 100%, 1px).
+
+---
+
+### `hero-editorial-masthead`
+
+> Héro plein écran éditorial : bande masthead mono 4 colonnes (fil d'Ariane + méta) sous le titre serif, puis rangée 2 colonnes (lede + 2 CTA à gauche, 4 KPI en micro-grille 2×2 à droite). Pas de média. Variante paper et ink, responsive.
+> HeroEditorialMasthead · src/components/sections/HeroEditorialMasthead.astro · marketing/hero-header-sections
+> status : stable · tags : breadcrumb, editorial, hero, kpi, masthead
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `breadcrumb` | array | oui |  | max:4 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kpis` | array | oui |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `meta` | array | non |  | max:3 |
+
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--space-1` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+
+**Classes scoped** : .acc .hem .hem-crumb .hem-ctas .hem-here .hem-kpi .hem-kpi-cap .hem-kpi-num .hem-kpis .hem-lede .hem-lede-col .hem-masthead .hem-meta--end .hem-row .hem-sep .hem-title
+
+**Dette hardcode** : 2 valeur(s) — 1px, 768px
+
+**Agent** : Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px).
 
 ---
 
@@ -2493,6 +2761,37 @@
 **Dette hardcode** : 1 valeur(s) — 1px
 
 **Agent** : Layout : `background_kind` (schema, 0 CSS). Espacement : --spacing-block. Couleur : --ink --paper --paper-rgb. Typographie : --font-display --font-sans. Dette : 1 litteral(s) hardcode(s) (1px).
+
+---
+
+### `hero-grid-12`
+
+> Héro plein écran en vraie grille 12 colonnes éditoriale : kicker et sigle en rangée 1, titre serif sur 9 colonnes, puis lede, puces et CTA empilés répartis librement sur la dernière rangée (hairlines entre les rangées). Variante paper et ink, responsive (1 colonne sur mobile).
+> HeroGrid12 · src/components/sections/HeroGrid12.astro · marketing/hero-header-sections
+> status : stable · tags : bullets, cta, editorial, grid, hero
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `bullets` | array | non |  | max:4 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `sigil` | string | non |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hg12 .hg12-bullet .hg12-bullets .hg12-ctas .hg12-grid .hg12-kicker .hg12-lede .hg12-sig .hg12-title
+
+**Dette hardcode** : 4 valeur(s) — 100%, 1px, 768px, 900px
+
+**Agent** : Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (100%, 1px, 768px).
 
 ---
 
@@ -2615,13 +2914,13 @@
 | `meta_kicker_fr` | string | oui |  |  |
 | `stats` | array | non |  | min:2 max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
-**Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .wrap-wide
+**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
-**Dette hardcode** : 23 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 18px
+**Dette hardcode** : 39 valeur(s) — -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 10px, 11px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, -50%, 0.1em).
 
 ---
 
@@ -2727,6 +3026,140 @@
 
 ---
 
+### `hero-magazine-cover`
+
+> Héro plein écran « couverture magazine » : bande masthead mono 4 colonnes en haut, titre serif géant centré dominant, fine règle accent, tagline display italic, un seul CTA centré. Variante paper et ink, responsive (masthead 2 colonnes sur mobile).
+> HeroMagazineCover · src/components/sections/HeroMagazineCover.astro · marketing/hero-header-sections
+> status : stable · tags : cover, editorial, hero, magazine, masthead
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | oui |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `masthead` | array | non |  | max:4 |
+| `tagline_en` | string | oui |  |  |
+| `tagline_fr` | string | oui |  |  |
+
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-pill` `--space-10` `--space-11` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-caps` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hmc .hmc-cover .hmc-cta .hmc-inner .hmc-kicker .hmc-mast-cell .hmc-masthead .hmc-rule .hmc-tagline .hmc-title
+
+**Dette hardcode** : 5 valeur(s) — 100%, 1px, 2px, 640px, 900px
+
+**Agent** : Espacement : --space-10 --space-11 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 2px).
+
+---
+
+### `hero-masthead-card`
+
+> Héro plein écran asymétrique (~64/36) : colonne principale (kicker, titre serif accent, lede, badges pills mono, 2 CTA, sous-CTA), rail droit avec une carte média line-art ink réduite + 2 micro-KPI mono. Variante paper et ink, responsive.
+> HeroMastheadCard · src/components/sections/HeroMastheadCard.astro · marketing/hero-header-sections
+> status : stable · tags : hero, kpi, masthead, media
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `badges` | array | non |  | max:4 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `cta_sub_en` | string | non |  |  |
+| `cta_sub_fr` | string | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpis` | array | non |  | max:2 |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `media_alt_en` | string | non |  |  |
+| `media_alt_fr` | string | non |  |  |
+| `media_src` | string | oui |  |  |
+
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hmc .hmc__badge .hmc__badges .hmc__cta-sub .hmc__ctas .hmc__fig .hmc__grid .hmc__kpi .hmc__kpi-label .hmc__kpi-num .hmc__kpis .hmc__lede .hmc__main .hmc__media .hmc__rail .hmc__title .signature-grid
+
+**Dette hardcode** : 10 valeur(s) — -0.02em, 100%, 1px, 45%, 50%, 60%, 70%, 768px
+
+**Agent** : Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-0.02em, 100%, 1px).
+
+---
+
+### `hero-media-medallion`
+
+> Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, 2 CTA) à gauche, médaillon média line-art surmontant des KPI verticaux hairline à droite. Variante paper et ink, responsive (1 colonne sur mobile).
+> HeroMediaMedallion · src/components/sections/HeroMediaMedallion.astro · marketing/hero-header-sections
+> status : stable · tags : cta, hero, kpi, medallion, media
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpis` | array | non |  | max:4 |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `media_alt_en` | string | non |  |  |
+| `media_alt_fr` | string | non |  |  |
+| `media_src` | string | non |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--radius-lg` `--shadow-card-rest` `--space-10` `--space-15` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hmm .hmm-aside .hmm-ctas .hmm-grid .hmm-kicker .hmm-kpi .hmm-kpi-cap .hmm-kpi-num .hmm-kpis .hmm-lead .hmm-lede .hmm-medallion .hmm-title
+
+**Dette hardcode** : 6 valeur(s) — 100%, 1px, 768px, 80px, 900px, 90px
+
+**Agent** : Espacement : --space-10 --space-15 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (100%, 1px, 768px).
+
+---
+
+### `hero-numeral-cover`
+
+> Héro plein écran asymétrique (~60/40) : colonne principale (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec un grand numéral serif éditorial (caption + sous-stat mono) encadré de hairlines. Stat de couverture, pas un média. Variante paper et ink, responsive.
+> HeroNumeralCover · src/components/sections/HeroNumeralCover.astro · marketing/hero-header-sections
+> status : stable · tags : asymmetric, cover, hero, numeral
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `cta_sub_en` | string | non |  |  |
+| `cta_sub_fr` | string | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `numeral_cap_en` | string | oui |  |  |
+| `numeral_cap_fr` | string | oui |  |  |
+| `numeral_sub_en` | string | non |  |  |
+| `numeral_sub_fr` | string | non |  |  |
+| `numeral_value` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--paper-rgb` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+
+**Classes scoped** : .acc .btn .signature-grid .z6 .z6-caption .z6-cover .z6-cta-sub .z6-ctas .z6-fig .z6-fig--rail .z6-grid .z6-lede .z6-main .z6-numeral .z6-rail .z6-substat .z6-title
+
+**Dette hardcode** : 6 valeur(s) — -0.03em, 140px, 1px, 768px, clamp(20px, 1.7vw, 24px), clamp(var(--text-h1)
+
+**Agent** : Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.03em, 140px, 1px).
+
+---
+
 ### `hero-offer-detail`
 
 > Hero de page offre détail : SVG cercles concentriques signature, breadcrumb, tier kicker, h1 + lead italique, CTA et meta.
@@ -2783,13 +3216,13 @@
 | `meta_kicker_fr` | string | oui |  |  |
 | `stats` | array | non |  | min:2 max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
-**Classes scoped** : .astro .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .wrap-wide
+**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
-**Dette hardcode** : 23 valeur(s) — -0.035em, 0.1em, 0.7em, 100%, 10px, 11px, 1200px, 18px
+**Dette hardcode** : 39 valeur(s) — -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 10px, 11px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.035em, 0.1em, 0.7em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 39 litteral(s) hardcode(s) (-0.035em, -50%, 0.1em).
 
 ---
 
@@ -2820,6 +3253,38 @@
 **Dette hardcode** : 41 valeur(s) — -0.01em, -0.026em, -0.028em, -0.02em, -0.03em, .1em, 0.06em, 0.1em
 
 **Agent** : Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 41 litteral(s) hardcode(s) (-0.01em, -0.026em, -0.028em).
+
+---
+
+### `hero-scope-minimap`
+
+> Héro plein écran asymétrique (~60/40) : colonne dominante (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec une mini-map de 6 capacités en 2 colonnes (label mono accent + items), hairlines. Montre le périmètre, pas un média. Variante paper et ink, responsive.
+> HeroScopeMinimap · src/components/sections/HeroScopeMinimap.astro · marketing/hero-header-sections
+> status : stable · tags : asymmetric, hero, minimap, scope
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `cta_sub_en` | string | non |  |  |
+| `cta_sub_fr` | string | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `minimap` | array | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hero-sig-mark .minimap .signature-grid .z2 .z2__cta-sub .z2__ctas .z2__fig .z2__grid .z2__inner .z2__lede .z2__main .z2__minimap .z2__mm-item .z2__mm-items .z2__mm-label .z2__rail .z2__title
+
+**Dette hardcode** : 7 valeur(s) — 0.14em, 100%, 1px, 440px, 768px, 88px, clamp(20px, 1.7vw, 24px)
+
+**Agent** : Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (0.14em, 100%, 1px).
 
 ---
 
@@ -2976,6 +3441,103 @@
 
 ---
 
+### `hero-split-media`
+
+> Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte média line-art à droite. Variante paper et ink, responsive (1 colonne sur mobile).
+> HeroSplitMedia · src/components/sections/HeroSplitMedia.astro · marketing/hero-header-sections
+> status : stable · tags : cta, hero, media, split
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `badges` | array | non |  | max:4 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `media_alt_en` | string | non |  |  |
+| `media_alt_fr` | string | non |  |  |
+| `media_src` | string | non |  |  |
+
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-display` `--text-h1` `--text-micro` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hsm .hsm-badge .hsm-badges .hsm-ctas .hsm-grid .hsm-kicker .hsm-lede .hsm-media .hsm-title
+
+**Dette hardcode** : 8 valeur(s) — 100%, 1px, 45%, 50%, 60%, 70%, 768px, clamp(var(--space-6)
+
+**Agent** : Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (100%, 1px, 45%).
+
+---
+
+### `hero-stack-rhythm`
+
+> Héro plein écran en une seule colonne resserrée, au rythme vertical généreux : fil d'Ariane, kicker, titre serif, lede, badges inline séparés par hairlines, 2 CTA, bande de 4 KPI. Variante paper et ink, responsive.
+> HeroStackRhythm · src/components/sections/HeroStackRhythm.astro · marketing/hero-header-sections
+> status : stable · tags : breadcrumb, hero, kpi, rhythm, stack
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `badges` | array | non |  | max:5 |
+| `breadcrumb` | array | non |  | max:4 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpis` | array | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-display` `--text-h1` `--text-numeral-sm` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h` `--wrap-tight`
+
+**Classes scoped** : .acc .btn .hsr .hsr-badge .hsr-badges .hsr-crumbs .hsr-ctas .hsr-kicker .hsr-kpi .hsr-kpi-cap .hsr-kpi-num .hsr-kpis .hsr-lede .hsr-sep .hsr-stack .hsr-title
+
+**Dette hardcode** : 7 valeur(s) — -50%, 100%, 1em, 1px, 480px, 50%, 900px
+
+**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-50%, 100%, 1em).
+
+---
+
+### `hero-summary-rail`
+
+> Héro plein écran asymétrique (~70/30) façon revue : colonne principale (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec un sommaire typographique de 3 entrées (label mono accent + titre serif court + sous-ligne). Zéro média. Variante paper et ink, responsive.
+> HeroSummaryRail · src/components/sections/HeroSummaryRail.astro · marketing/hero-header-sections
+> status : stable · tags : asymmetric, hero, magazine, summary
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `cta_sub_en` | string | non |  |  |
+| `cta_sub_fr` | string | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `summary` | array | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hsr .hsr__cta-sub .hsr__ctas .hsr__fig .hsr__grid .hsr__lede .hsr__main .hsr__rail .hsr__sig-mark .hsr__title .hsr__toc .hsr__toc-item .hsr__toc-sub .hsr__toc-tag .hsr__toc-title .signature-grid
+
+**Dette hardcode** : 5 valeur(s) — 100%, 1px, 768px, 88px, clamp(20px, 1.7vw, 24px)
+
+**Agent** : Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 768px).
+
+---
+
 ### `hero-tech-layer`
 
 > Hero de couche technologique : triangles SVG signature, layer badge (claude/os/orch), h1 + lead italique, CTA et meta.
@@ -3005,6 +3567,104 @@
 **Dette hardcode** : 20 valeur(s) — -50%, 100%, 1100px, 118%, 1320px, 138%, 1px, 280px
 
 **Agent** : Layout : `background`, `layer_type` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-50%, 100%, 1100px).
+
+---
+
+### `hero-tech-signature`
+
+> Héro plein écran asymétrique (~68/32) à signature dominante (trame éditoriale + sigil) : colonne principale (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec 2 grands numéraux serif. Variante paper et ink, responsive.
+> HeroTechSignature · src/components/sections/HeroTechSignature.astro · marketing/hero-header-sections
+> status : stable · tags : asymmetric, hero, kpi, signature
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `cta_sub_en` | string | non |  |  |
+| `cta_sub_fr` | string | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpis` | array | oui |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--paper-rgb` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h1` `--text-lede` `--text-numeral-md` `--text-small` `--tracking-display` `--viewport-h`
+
+**Classes scoped** : .acc .btn .signature-grid .z4 .z4-cta-sub .z4-ctas .z4-fig .z4-grid .z4-lede .z4-main .z4-proof .z4-proof-label .z4-proof-num .z4-proofs .z4-rail .z4-sig .z4-title
+
+**Dette hardcode** : 6 valeur(s) — -0.02em, 100%, 120px, 1px, 768px, clamp(20px, 1.7vw, 24px)
+
+**Agent** : Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, 100%, 120px).
+
+---
+
+### `hero-thin-media`
+
+> Héro plein écran très asymétrique (~72/28) : colonne dominante (kicker, titre serif accent, lede, badges pills mono, 2 CTA), rail droit avec une bande média line-art verticale mince (currentColor, lisible paper et ink). Variante paper et ink, responsive.
+> HeroThinMedia · src/components/sections/HeroThinMedia.astro · marketing/hero-header-sections
+> status : stable · tags : asymmetric, hero, media, thin
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `badges` | array | non |  | max:4 |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `media_alt_en` | string | non |  |  |
+| `media_alt_fr` | string | non |  |  |
+| `media_src` | string | oui |  |  |
+
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+
+**Classes scoped** : .acc .btn .hero-sig-mark .signature-grid .z3 .z3__badge .z3__badges .z3__ctas .z3__fig .z3__grid .z3__inner .z3__lede .z3__main .z3__media .z3__title
+
+**Dette hardcode** : 9 valeur(s) — 100%, 1px, 45%, 50%, 60%, 70%, 768px, 88px
+
+**Agent** : Espacement : --space-10 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 1px, 45%).
+
+---
+
+### `hero-trizone`
+
+> Héro plein écran multi-zones : titre serif accent pleine largeur, puis une rangée de 3 zones asymétriques séparées par hairlines (lede + 2 CTA · mini-map 6 capacités · 2 KPI serif). Variante paper et ink, responsive.
+> HeroTrizone · src/components/sections/HeroTrizone.astro · marketing/hero-header-sections
+> status : stable · tags : hero, kpi, minimap, trizone
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `cta_sub_en` | string | non |  |  |
+| `cta_sub_fr` | string | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `kpis` | array | oui |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `minimap` | array | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--paper-rgb` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-lede` `--text-numeral-md` `--text-small` `--tracking-display` `--viewport-h`
+
+**Classes scoped** : .acc .btn .signature-grid .z5 .z5-cta-sub .z5-ctas .z5-fig .z5-fig--rail .z5-lede .z5-minimap .z5-mm-item .z5-mm-items .z5-mm-label .z5-proof .z5-proof-label .z5-proof-num .z5-proofs .z5-title .z5-zone .z5-zone--b .z5-zone--c .z5-zones
+
+**Dette hardcode** : 6 valeur(s) — -0.02em, 0.14em, 1px, 440px, 768px, clamp(20px, 1.7vw, 24px)
+
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, 0.14em, 1px).
 
 ---
 
@@ -3284,7 +3944,9 @@
 | `grayscale` | boolean | non | true |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `logos` | array | oui |  | min:4 max:24 |
+| `logoIds` | unknown | oui |  |  |
+| `logoIds` | array | non |  |  |
+| `logos` | array | non |  | min:4 max:24 |
 | `speed` | enum | non | base | slow | base |
 
 **Tokens** : `--dur-hover` `--ink` `--paper` `--paper-2` `--paper-3` `--section-tight` `--space-4` `--space-5` `--space-7`
@@ -4039,15 +4701,15 @@
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `stats` | array | oui |  | min:4 max:4 |
+| `stats` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--spacing-block` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-2` `--space-3` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .stats-bento .stats-bento__cell .stats-bento__cell--1 .stats-bento__cell--2 .stats-bento__cell--3 .stats-bento__cell--4 .stats-bento__delta .stats-bento__grid .stats-bento__header .stats-bento__label .stats-bento__number
+**Classes scoped** : .bento-fluid .css .span-lg .stats-bento .stats-bento__cell .stats-bento__delta .stats-bento__grid .stats-bento__header .stats-bento__label .stats-bento__number
 
-**Dette hardcode** : 5 valeur(s) — -2px, 1023px, 1px, 639px, 640px
+**Dette hardcode** : 4 valeur(s) — -2px, 14rem, 1px, 768px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-2px, 1023px, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-2px, 14rem, 1px).
 
 ---
 
@@ -4347,7 +5009,9 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `case_label_en` | string | non | CASE |  |
 | `case_label_fr` | string | non | CASE |  |
-| `cases` | array | oui |  | max:6 |
+| `caseRefs` | unknown | oui |  |  |
+| `caseRefs` | array | non |  |  |
+| `cases` | array | non |  | max:6 |
 | `empty_body_en` | string | non |  |  |
 | `empty_body_fr` | string | non |  |  |
 | `empty_kicker_en` | string | non |  |  |

@@ -384,7 +384,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         metric_value: '-72%',
         metric_label_fr: 'temps de traitement',
         metric_label_en: 'processing time',
-        href: '/cas-clients/lumen-retail',
+        href: '#',
       },
       {
         company: 'Atlas Finance',
@@ -396,7 +396,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         metric_value: '14j',
         metric_label_fr: 'jusqu’à la mise en production',
         metric_label_en: 'to production',
-        href: '/cas-clients/atlas-finance',
+        href: '#',
       },
     ],
   },
@@ -443,7 +443,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     speed: 'base',
     grayscale: true,
     logos: [
-      { src: '/logos/client-lumen.svg', name_fr: 'Lumen Retail', name_en: 'Lumen Retail', href: '/cas-clients/lumen-retail' },
+      { src: '/logos/client-lumen.svg', name_fr: 'Lumen Retail', name_en: 'Lumen Retail', href: '#' },
       { src: '/logos/client-atlas.svg', name_fr: 'Atlas Finance', name_en: 'Atlas Finance' },
       { src: '/logos/client-orio.svg', name_fr: 'Orio Santé', name_en: 'Orio Health' },
       { src: '/logos/client-nordis.svg', name_fr: 'Nordis Industrie', name_en: 'Nordis Industries' },
@@ -1280,18 +1280,18 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   },
   'tunnel-step-nav': {
     type: 'tunnel-step-nav',
-    prev_href: '/solutions/tunnel-de-vente',
+    prev_href: '#',
     prev_label_fr: '← Étape précédente',
     prev_label_en: '← Previous step',
     cta: {
       label_fr: 'Continuer →',
       label_en: 'Continue →',
-      href: '/solutions/tunnel-de-vente',
+      href: '#',
       variant: 'primary',
     },
     reading_fr: 'Temps de lecture : 2 min',
     reading_en: '2 min read',
-    back_href: '/solutions/tunnel-de-vente',
+    back_href: '#',
     back_label: '← Activation IA',
   },
   'marquee-band': {
@@ -1751,11 +1751,11 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     num_prefix_fr: 'USE CASE',
     num_prefix_en: 'USE CASE',
     items: [
-      { label_fr: 'Contenu SEO/GEO',   label_en: 'SEO/GEO Content',   tag_fr: 'Articles · landing · indexation IA',    tag_en: 'Articles · landings · AI indexing',     href: '/solutions/contenu-seo-geo-ia' },
-      { label_fr: 'Content marketing', label_en: 'Content marketing', tag_fr: 'Éditorial · calendrier · repurposing',  tag_en: 'Editorial · calendar · repurposing',    href: '/solutions/content-marketing-ia' },
-      { label_fr: 'Publicité',         label_en: 'Advertising',       tag_fr: 'Google · Meta · ROI',                   tag_en: 'Google · Meta · ROI',                   href: '/solutions/publicite-en-ligne' },
-      { label_fr: 'Tunnel de vente',   label_en: 'Sales funnel',      tag_fr: 'Landing · étapes · conversion',         tag_en: 'Landing · steps · conversion',          href: '/solutions/tunnel-de-vente' },
-      { label_fr: 'Agent marketing',   label_en: 'Marketing agent',   tag_fr: 'Prospection · relances · nurturing',    tag_en: 'Prospecting · follow-ups · nurturing',  href: '/solutions/agent-marketing-commercial' },
+      { label_fr: 'Contenu SEO/GEO',   label_en: 'SEO/GEO Content',   tag_fr: 'Articles · landing · indexation IA',    tag_en: 'Articles · landings · AI indexing',     href: '#' },
+      { label_fr: 'Content marketing', label_en: 'Content marketing', tag_fr: 'Éditorial · calendrier · repurposing',  tag_en: 'Editorial · calendar · repurposing',    href: '#' },
+      { label_fr: 'Publicité',         label_en: 'Advertising',       tag_fr: 'Google · Meta · ROI',                   tag_en: 'Google · Meta · ROI',                   href: '#' },
+      { label_fr: 'Tunnel de vente',   label_en: 'Sales funnel',      tag_fr: 'Landing · étapes · conversion',         tag_en: 'Landing · steps · conversion',          href: '#' },
+      { label_fr: 'Agent marketing',   label_en: 'Marketing agent',   tag_fr: 'Prospection · relances · nurturing',    tag_en: 'Prospecting · follow-ups · nurturing',  href: '#' },
     ],
     footer_label_fr: 'Adapté à votre secteur →',
     footer_label_en: 'Adapted to your sector →',
@@ -1791,6 +1791,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     cases: [
       {
         slug: 'acquisition-b2b',
+        href: '#',
         case_num: '01',
         sector_fr: 'SaaS B2B',
         sector_en: 'B2B SaaS',
@@ -1804,6 +1805,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       },
       {
         slug: 'sante-tech',
+        href: '#',
         case_num: '02',
         sector_fr: 'Santé-tech',
         sector_en: 'Healthtech',
@@ -1817,6 +1819,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       },
       {
         slug: 'fintech-ue',
+        href: '#',
         case_num: '03',
         sector_fr: 'Fintech · UE',
         sector_en: 'Fintech · EU',
@@ -1830,6 +1833,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       },
       {
         slug: 'industrie-fr',
+        href: '#',
         case_num: '04',
         sector_fr: 'Industrie · FR',
         sector_en: 'Industry · FR',
@@ -2226,7 +2230,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         title_en: '10-day AI audit',
         lead_fr: 'Le protocole pour décider quoi automatiser sans théâtre.',
         lead_en: 'The protocol for deciding what to automate without theatre.',
-        href: '/ressources/guides/audit-ia-10-jours',
+        href: '#',
       },
     ],
   },
@@ -2402,7 +2406,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         price: '2 000 EUR',
         price_note_fr: 'paiement unique',
         price_note_en: 'one-time payment',
-        cta: { label_fr: 'Demarrer', label_en: 'Get started', href: '/offres/activation', variant: 'ghost' },
+        cta: { label_fr: 'Demarrer', label_en: 'Get started', href: '#', variant: 'ghost' },
         featured: false,
       },
       {
@@ -2411,7 +2415,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         price: '10 000 EUR',
         price_note_fr: 'ou 3x 1 800 EUR',
         price_note_en: 'or 3x 1 800 EUR',
-        cta: { label_fr: 'Choisir', label_en: 'Choose plan', href: '/offres/growth', variant: 'primary' },
+        cta: { label_fr: 'Choisir', label_en: 'Choose plan', href: '#', variant: 'primary' },
         featured: true,
       },
       {
@@ -2420,7 +2424,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         price: 'Devis',
         price_note_fr: 'selon perimetre',
         price_note_en: 'scope-based',
-        cta: { label_fr: 'Discuter', label_en: 'Talk to us', href: '/offres/sur-mesure', variant: 'ghost' },
+        cta: { label_fr: 'Discuter', label_en: 'Talk to us', href: '#', variant: 'ghost' },
         featured: false,
       },
     ],
@@ -2989,7 +2993,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     primary_href: '/contact',
     secondary_label_fr: 'Toutes les solutions',
     secondary_label_en: 'All solutions',
-    secondary_href: '/solutions',
+    secondary_href: '#',
   },
 
   // ── Mission catalogue-gap 2026-06-11 · patterns /console + /manifesto ──
