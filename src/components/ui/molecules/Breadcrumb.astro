@@ -87,4 +87,20 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
   .breadcrumb .sep {
     color: var(--hairline-strong);
   }
+  /* Mobile : 1 seule ligne, jamais de wrap ; le crumb courant tronque en ellipsis */
+  @media (max-width: 768px) {
+    .breadcrumb { overflow: hidden; }
+    .breadcrumb ol { flex-wrap: nowrap; min-width: 0; }
+    .breadcrumb li { flex: 0 0 auto; white-space: nowrap; }
+    .breadcrumb li:last-child { flex: 0 1 auto; min-width: 0; overflow: hidden; }
+    .breadcrumb li:last-child [aria-current="page"] {
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: bottom;
+    }
+    .breadcrumb .sep { flex: none; }
+  }
 </style>

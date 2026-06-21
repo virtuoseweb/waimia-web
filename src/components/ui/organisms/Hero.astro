@@ -45,7 +45,7 @@ const pageTransitionId = Astro.url.pathname
   <div class="wrap-wide">
     {/* Masthead newspaper · atome MastheadRow · margin compactée V6 (24px vs 48px) */}
     <div class="par hero-masthead" data-par="-0.04">
-      <MastheadRow />
+      <MastheadRow breadcrumb={[{ label: lang === 'fr' ? 'Accueil' : 'Home' }]} />
     </div>
 
     {/* Headline · mask-up reveal · Instrument Serif · 2 lignes orienté résultat */}
