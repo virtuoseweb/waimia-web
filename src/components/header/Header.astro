@@ -64,7 +64,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
             id={`mega-trigger-${item.parent}`}
             type="button"
             aria-expanded="false"
-            aria-haspopup="dialog"
+            aria-haspopup="true"
             aria-controls={`mega-${item.parent}`}
             aria-current={isCurrentSection(item.parentHref, item.matchPrefixes) ? 'page' : undefined}
           >

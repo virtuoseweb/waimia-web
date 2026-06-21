@@ -247,6 +247,7 @@ pre {
 }
 .btn-primary:hover {
   background: var(--accent);
+  color: #fff; /* AA : #fff = 4.57:1 sur accent, paper = 4.02:1 (cf .btn-accent l.263) */
   box-shadow: var(--shadow-cta-hover);
 }
 .btn-ghost {
@@ -301,7 +302,7 @@ pre {
 .on-dark .btn-primary:hover,
 [data-bg='ink'] .btn-primary:hover {
   background: var(--accent);
-  color: var(--paper);
+  color: #fff;
 }
 .btn-spinner {
   width: 16px;
@@ -613,6 +614,7 @@ a:not([class]):hover,
 }
 .hdr .cta:hover {
   background: var(--accent);
+  color: #fff;
   transform: translateY(-1px);
   box-shadow: var(--shadow-cta-hover);
 }
