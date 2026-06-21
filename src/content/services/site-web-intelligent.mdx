@@ -83,6 +83,16 @@ sections:
       href: "#methode"
       variant: "ghost"
 
+  - type: "direct-answer"
+    background: "paper"
+    question_fr: "Qu'est-ce qu'un site web intelligent ?"
+    question_en: "What is an intelligent website?"
+    term_fr: "Site web intelligent"
+    term_en: "Intelligent website"
+    answer_fr: "Un site web intelligent est une application web pilotée par l'IA (Claude, GPT), branchée à votre Search Console et à votre Analytics. Elle lit ses propres KPI, optimise son SEO et son contenu en continu, et qualifie chaque visiteur via un quiz de routing relié au CRM. À la différence d'une vitrine statique, il mesure son acquisition de bout en bout et alimente votre stack sans saisie manuelle."
+    answer_en: "An intelligent website is a web application driven by AI (Claude, GPT), wired to your Search Console and your Analytics. It reads its own KPIs, optimises its SEO and content continuously, and qualifies every visitor through a routing quiz connected to the CRM. Unlike a static brochure, it measures its acquisition end to end and feeds your stack without manual entry."
+    dropcap: false
+
   - type: "proof-bar"
     background: "paper"
     kicker_fr: "§ En bref"
@@ -158,6 +168,40 @@ sections:
         title_en: "A site blind to its own data"
         body_fr: "Le site tourne sans jamais lire ses propres KPI. Aucune IA branchée à la Search Console pour optimiser le SEO, aucune alerte, et personne n'est qualifié avant le premier contact. Le commercial qualifie à la main et perd quarante pour cent de son temps."
         body_en: "The site runs without ever reading its own KPIs. No AI wired to Search Console to optimise SEO, no alerts, and no one is qualified before the first contact. Sales qualify by hand and lose forty percent of their time."
+
+  - type: "versus-competitors"
+    background: "paper"
+    kicker_fr: "§ Pour qui, pas pour qui"
+    kicker_en: "§ Who it's for, who it isn't"
+    h2_fr: "On travaille <i>bien</i> ensemble si"
+    h2_en: "We work <i>well</i> together if"
+    columns:
+      - name_fr: "Pour vous"
+        name_en: "For you"
+        featured: true
+      - name_fr: "Pas pour vous"
+        name_en: "Not for you"
+        featured: false
+    rows:
+      - group_fr: "Votre situation"
+        group_en: "Your situation"
+        feature_fr: "Vous voulez mesurer votre acquisition, pas la deviner"
+        feature_en: "You want to measure your acquisition, not guess it"
+        values: [true, false]
+      - feature_fr: "Vous cherchez un actif transférable et instrumenté, que vous gardez"
+        feature_en: "You want a transferable, instrumented asset you keep"
+        values: [true, false]
+      - feature_fr: "Vous voulez juste la vitrine la moins chère possible, sans donnée à brancher"
+        feature_en: "You only want the cheapest possible brochure, with no data to wire in"
+        values: [false, true]
+      - group_fr: "Votre posture"
+        group_en: "Your stance"
+        feature_fr: "Vous avez des données (CRM, e-commerce) à brancher et à lire"
+        feature_en: "You have data (CRM, e-commerce) to wire in and read"
+        values: [true, false]
+      - feature_fr: "Vous attendez un SaaS clé en main sans implication ni cadrage"
+        feature_en: "You expect a turnkey SaaS with no involvement or scoping"
+        values: [false, true]
 
   - type: "case-card-grid"
     background: "ink"
@@ -362,6 +406,30 @@ sections:
           - label_fr: "Maquette validée avant build"
             label_en: "Mockup validated before build"
 
+  - type: "architecture-diagram"
+    background: "paper-3"
+    fig_num: "Fig. 07"
+    fig_title_fr: "L'architecture du site intelligent"
+    fig_title_en: "The intelligent site architecture"
+    spec_fr: "VISITEUR · WEB APP · IA · DONNÉES · CRM"
+    spec_en: "VISITOR · WEB APP · AI · DATA · CRM"
+    h2_fr: "Comment le site est <i>câblé</i>"
+    h2_en: "How the site is <i>wired</i>"
+    inputs_fr: ["Visiteur", "Recherche", "Search Console", "Analytics"]
+    inputs_en: ["Visitor", "Search", "Search Console", "Analytics"]
+    input_examples_fr: ["Trafic organique, ads, direct", "Requêtes longue-traîne et marque", "Positions, clics, impressions lus en continu", "Parcours, sources, conversions"]
+    input_examples_en: ["Organic, ads, direct traffic", "Long-tail and brand queries", "Positions, clicks, impressions read continuously", "Journeys, sources, conversions"]
+    outputs_fr: ["SEO optimisé", "Visiteur scoré et routé", "Lead qualifié au CRM", "Tableau de pilotage et alertes"]
+    outputs_en: ["Optimised SEO", "Scored and routed visitor", "Qualified lead to CRM", "Dashboard and alerts"]
+    system_label: "Web app"
+    system_kicker: "SITE INTELLIGENT"
+    system_subtitle: "Astro SSG · LLM (Claude, GPT)"
+    show_loop: true
+    loop_label_fr: "BOUCLE D'OPTIMISATION CONTINUE"
+    loop_label_en: "CONTINUOUS OPTIMISATION LOOP"
+    caption_fr: "Le visiteur arrive sur une web app branchée à l'IA et à vos données. Le LLM lit la Search Console et l'Analytics, optimise le SEO, score et route chaque visite, puis pousse le lead qualifié vers votre CRM. Le tableau de pilotage et les alertes ferment la boucle, sans relance <i>manuelle</i>."
+    caption_en: "The visitor lands on a web app wired to AI and your data. The LLM reads Search Console and Analytics, optimises SEO, scores and routes each visit, then pushes the qualified lead to your CRM. The dashboard and alerts close the loop, with no <i>manual</i> chasing."
+
   - type: "feature-split-media"
     background: "paper-2"
     reversed: false
@@ -434,6 +502,34 @@ sections:
         body_en: "Complete documentation and training: your team is autonomous at delivery."
         format_fr: "NOTION + VIDÉO"
         format_en: "NOTION + VIDEO"
+
+  - type: "logo-wall"
+    background: "paper-3"
+    kicker_fr: "§ La stack activable"
+    kicker_en: "§ The activable stack"
+    h2_fr: "Les briques <i>techniques</i> qu'on branche"
+    h2_en: "The <i>technical</i> blocks we plug in"
+    logos:
+      - src: "/logos/partners/partner-claude.png"
+        name_fr: "Claude (Anthropic) · LLM"
+        name_en: "Claude (Anthropic) · LLM"
+        width: 120
+        height: 40
+      - src: "/logos/partners/partner-openai.png"
+        name_fr: "GPT (OpenAI) · LLM"
+        name_en: "GPT (OpenAI) · LLM"
+        width: 120
+        height: 40
+      - src: "/logos/partners/partner-github.svg"
+        name_fr: "Git · build SSG et CMS versionné"
+        name_en: "Git · SSG build and versioned CMS"
+        width: 120
+        height: 40
+      - src: "/logos/partners/partner-google.png"
+        name_fr: "Search Console et Analytics · données"
+        name_en: "Search Console and Analytics · data"
+        width: 120
+        height: 40
 
   - type: "stats-bento"
     background: "ink"
@@ -582,6 +678,33 @@ sections:
           variant: "ghost"
     footnote_fr: "Besoin spécifique (ETI, app dédiée, multi-sites, intégrations lourdes) ? Palier Sur mesure sur devis, qui bascule vers le Growth System IA. Pas encore de site, ou site à reprendre ? Le chantier est intégré au palier, chiffré au cadrage. Sans engagement de durée, sans abonnement caché : à la fin, vous disposez d'un site autonome et transférable."
     footnote_en: "Specific need (mid-cap, dedicated app, multi-site, heavy integrations)? Bespoke tier on quote, bridging to the AI Growth System. No site yet, or a site to take over? The work is integrated into the tier, priced at scoping. No duration commitment, no hidden subscription: at the end, you have an autonomous, transferable site."
+
+  - type: "related-cards-band"
+    background: "paper"
+    kicker_fr: "§ Pour aller plus loin"
+    kicker_en: "§ Go further"
+    cards:
+      - kicker_fr: "Outil"
+        kicker_en: "Tool"
+        title_fr: "Calculateur de ROI IA"
+        title_en: "AI ROI calculator"
+        lead_fr: "Estimez le retour d'un site instrumenté sur votre acquisition, à partir de vos propres chiffres."
+        lead_en: "Estimate the return of an instrumented site on your acquisition, from your own figures."
+        href: "/ressources/outils/calculateur-roi-ia"
+      - kicker_fr: "Article"
+        kicker_en: "Article"
+        title_fr: "SEO et GEO : être cité par les IA génératives"
+        title_en: "SEO and GEO: getting cited by generative AIs"
+        lead_fr: "Comment baliser un site pour que Google et les moteurs génératifs citent votre marque."
+        lead_en: "How to tag a site so Google and generative engines cite your brand."
+        href: "/ressources/blog/seo-geo-etre-cite-par-les-ia-generatives"
+      - kicker_fr: "Article"
+        kicker_en: "Article"
+        title_fr: "Câbler son CRM en 10 jours"
+        title_en: "Wire your CRM in 10 days"
+        lead_fr: "La méthode pour brancher capture, scoring et qualification sur un CRM existant."
+        lead_en: "The method to wire capture, scoring and qualification onto an existing CRM."
+        href: "/ressources/blog/cabler-son-crm-en-10-jours"
 
   - type: "faq-two-column"
     background: "paper-2"
