@@ -48,4 +48,8 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // (placeholder balisé) → hors sitemap pour cohérence noindex↔crawl. Retirer cette entrée
   // ET le noindex de la page quand les vraies coordonnées Montpellier seront fournies (2026-06-14).
   "/agence-web-montpellier",
+  // Secteurs noindex (seo.noindex:true frontmatter) → hors sitemap pour cohérence noindex↔crawl.
+  "/secteurs/batiment",
+  "/secteurs/services-b2b",
+  "/secteurs/therapeutes",
 ]);
