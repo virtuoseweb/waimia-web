@@ -147,166 +147,90 @@ const RESSOURCES: MegaMenuSection = {
   featured: MM_RESOURCES.featured ? mapLegacyFeatured(MM_RESOURCES.featured) : undefined,
 };
 
-// ─── SOLUTIONS · fusion Solutions + Offres par besoin prospect (R3 §4)
-// 3 colonnes orientées besoin (Acquérir / Piloter / Opérer), liens 100% existants.
-// Refonte hiérarchie 2026-06 (maquette Simon) : titre court serif grand + goal
-// mono caps accent + quote prospect (FR verbatim Simon). Offres phares relevées
-// par un badge inline sur l'item (Site web IA, Growth System IA) — pas de badge
-// colonne (désalignait les 3 titres, correction Simon).
-// Absorbe le top-level « Offres » (disparu) : matchPrefixes garde l'état actif
-// sur les pages /offres/*. Featured = cas Plateau (pont vers Cas clients).
+// ─── SOLUTIONS · reframe v7 par OFFRE (strategy/10 §4) : on abandonne le cadrage
+// piliers Acquérir/Piloter/Opérer dans la nav publique (strategy/10 l.17). 3 colonnes :
+// Site Web Intelligent (offre + services qui la composent) · Intégration Claude (flagship
+// SEO #1) · Audits & offres (par où commencer). Liens 100% réels + indexables (4 services
+// noindex:false + 2 offres réelles). Featured = Growth System IA. matchPrefixes conserve
+// l'état actif sur /services, /offres et les piliers (encore vivants jusqu'à V0.3).
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
-  parentHref: '/acquerir',
-  matchPrefixes: ['/offres', '/acquerir', '/piloter', '/operer', '/services'],
+  parentHref: '/offres',
+  matchPrefixes: ['/services', '/offres', '/acquerir', '/piloter', '/operer'],
   lead: {
-    fr: 'Des systèmes IA rangés par besoin : trouver des clients, piloter, opérer sans friction.',
-    en: 'AI systems organized by need: find customers, steer the business, run operations without friction.',
+    fr: 'Deux offres porteuses, les services qui les composent, et l\'audit pour savoir par où commencer.',
+    en: 'Two flagship offers, the services that compose them, and the audit to know where to start.',
   },
   columns: [
     {
-      title: { fr: 'Acquérir', en: 'Acquire' },
-      goal: { fr: 'Trouver des clients', en: 'Find customers' },
-      quote: {
-        fr: '"Je veux plus de leads qualifiés, sans recruter une équipe marketing."',
-        en: '"I want more qualified leads, without hiring a marketing team."',
-      },
-      // SEO état final (§0ter, méga-menu V1) : pages /solutions/* supprimées.
-      // Liens RÉELS sur les 3 pages service (/services/*) + ancres du pilier
-      // /acquerir pour les sous-sujets sans page (SEO & GEO réel, Publicité et
-      // Agent marketing « à venir »). Zéro lien mort (ADR-003 nuance #4).
+      kicker: { fr: 'SITE WEB INTELLIGENT', en: 'SMART WEBSITE' },
+      title: { fr: 'Site web intelligent', en: 'Smart website' },
+      goal: { fr: 'Être trouvé et convertir', en: 'Get found and convert' },
       links: [
         {
           label: { fr: 'Site web intelligent', en: 'Smart website' },
           href: '/services/site-web-intelligent',
-          description: { fr: 'Site Astro + IA · vitrine + acquisition.', en: 'Astro + AI site · showcase + acquisition.' },
+          description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
+          badge: { fr: 'Offre phare', en: 'Flagship' },
         },
         {
           label: { fr: 'Content marketing intelligent', en: 'Smart content marketing' },
           href: '/services/content-marketing-intelligent',
-          description: { fr: 'Ligne éditoriale + SEO/GEO trouvés par Google ET les IA.', en: 'Editorial line + SEO/GEO found by Google AND AI engines.' },
+          description: { fr: 'Une machine éditoriale trouvée par Google ET les IA.', en: 'An editorial machine found by Google AND AI.' },
         },
         {
-          label: { fr: 'Tunnel de conversion', en: 'Conversion funnel' },
+          label: { fr: 'Tunnel de conversion intelligent', en: 'Smart conversion funnel' },
           href: '/services/tunnel-conversion-intelligent',
-          description: { fr: 'Du premier clic à la signature, sans friction.', en: 'From first click to signature, frictionless.' },
-        },
-        {
-          label: { fr: 'SEO & GEO', en: 'SEO & GEO' },
-          href: '/acquerir#seo-geo',
-          description: { fr: 'Trouvé par Google ET les moteurs IA.', en: 'Found by Google AND AI engines.' },
-        },
-        {
-          label: { fr: 'Publicité en ligne', en: 'Online advertising' },
-          href: '/acquerir#publicite',
-          description: { fr: 'Campagnes pilotées au ROI, sans gaspillage.', en: 'ROI-driven campaigns, without waste.' },
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'Agent marketing', en: 'Marketing agent' },
-          href: '/acquerir#agent-marketing',
-          description: { fr: 'Un agent qui prospecte et relance en continu.', en: 'An agent that prospects and follows up continuously.' },
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'De la visite au contrat signé, chaque palier mesuré.', en: 'From visit to signed contract, every stage measured.' },
         },
       ],
       footer: {
-        label: { fr: 'Le hub Acquérir →', en: 'The Acquire hub →' },
-        href: '/acquerir',
+        label: { fr: 'Découvrir l\'offre →', en: 'Explore the offer →' },
+        href: '/services/site-web-intelligent',
       },
     },
     {
-      title: { fr: 'Piloter', en: 'Steer' },
-      goal: { fr: 'Voir & décider', en: 'See & decide' },
+      kicker: { fr: 'INTÉGRATION CLAUDE', en: 'CLAUDE INTEGRATION' },
+      title: { fr: 'Intégration Claude', en: 'Claude integration' },
+      goal: { fr: 'Des agents IA sur vos outils', en: 'AI agents on your tools' },
       quote: {
-        fr: '"J\'ai des données partout, mais je ne sais pas ce qui marche vraiment."',
-        en: '"I have data everywhere, but I don\'t know what\'s actually working."',
+        fr: '"Je veux automatiser mes workflows métier, sans POC qui dort."',
+        en: '"I want to automate my business workflows, no POC left to rot."',
       },
-      // SEO état final (méga-menu V1) : 0 page enfant Piloter → uniquement des
-      // ancres du pilier /piloter (zéro lien mort, ADR-003 nuance #4).
       links: [
         {
-          label: { fr: 'RevOps', en: 'RevOps' },
-          href: '/piloter#revops',
-          description: { fr: 'Process de revenu reconnectés.', en: 'Revenue processes reconnected.' },
-        },
-        {
-          label: { fr: 'Tableaux de bord', en: 'Dashboards' },
-          href: '/piloter#tableaux-de-bord',
-          description: { fr: 'Décider en 2 min, pas en réunion.', en: 'Decide in 2 min, not a meeting.' },
-        },
-        {
-          label: { fr: 'Reporting IA', en: 'AI reporting' },
-          href: '/piloter#reporting-ia',
-          description: { fr: 'Rapports générés et commentés par l\'IA.', en: 'Reports generated and explained by AI.' },
-        },
-        {
-          label: { fr: 'Données centralisées', en: 'Centralized data' },
-          href: '/piloter#donnees-centralisees',
-          description: { fr: 'Une seule source de vérité.', en: 'A single source of truth.' },
-        },
-        {
-          label: { fr: 'Prévisionnel IA', en: 'AI forecasting' },
-          href: '/piloter#previsionnel-ia',
-          description: { fr: 'Anticiper, pas subir.', en: 'Anticipate, don\'t react.' },
-        },
-        {
-          label: { fr: 'Agent analytique', en: 'Analytics agent' },
-          href: '/piloter#agent-analytique',
-          description: { fr: 'Vos questions data, en langage naturel.', en: 'Your data questions, in plain language.' },
-          badge: { fr: 'À venir', en: 'Soon' },
+          label: { fr: 'Intégrateur Claude Code', en: 'Claude Code integrator' },
+          href: '/services/integrateur-claude',
+          description: { fr: 'Agents IA branchés sur vos outils via MCP, conçus et supervisés.', en: 'AI agents wired to your tools via MCP, built and supervised.' },
+          badge: { fr: 'Offre phare', en: 'Flagship' },
+          featured: true,
         },
       ],
       footer: {
-        label: { fr: 'Le hub Piloter →', en: 'The Steer hub →' },
-        href: '/piloter',
+        label: { fr: 'Voir le service →', en: 'See the service →' },
+        href: '/services/integrateur-claude',
       },
     },
     {
-      title: { fr: 'Opérer', en: 'Operate' },
-      goal: { fr: 'Gagner du temps', en: 'Save time' },
-      quote: {
-        fr: '"Mon équipe perd des heures sur des tâches répétitives qui pourraient être automatisées."',
-        en: '"My team loses hours on repetitive tasks that could be automated."',
-      },
-      // SEO état final (méga-menu V1) : pages /solutions Opérer supprimées →
-      // uniquement des ancres du pilier /operer (zéro lien mort).
+      kicker: { fr: 'PAR OÙ COMMENCER', en: 'WHERE TO START' },
+      title: { fr: 'Audits & offres', en: 'Audits & offers' },
+      goal: { fr: 'Cadrer avant d\'investir', en: 'Scope before investing' },
       links: [
         {
-          label: { fr: 'CRM & relances', en: 'CRM & follow-ups' },
-          href: '/operer#crm-relances',
-          description: { fr: 'Le CRM qui relance et qualifie tout seul.', en: 'A CRM that follows up and qualifies on its own.' },
+          label: { fr: 'Audit de maturité IA', en: 'AI maturity audit' },
+          href: '/offres/audit-maturite-ia',
+          description: { fr: 'Où l\'IA crée de la valeur chez vous, en un diagnostic.', en: 'Where AI creates value for you, in one diagnostic.' },
         },
         {
-          label: { fr: 'Automatisation', en: 'Automation' },
-          href: '/operer#automatisation',
-          description: { fr: 'Les tâches répétitives tournent sans vous.', en: 'Repetitive tasks run without you.' },
-        },
-        {
-          label: { fr: 'Service client', en: 'Customer service' },
-          href: '/operer#service-client',
-          description: { fr: 'Réponses rapides, ton maîtrisé.', en: 'Fast answers, controlled tone.' },
-        },
-        {
-          label: { fr: 'Admin & RH', en: 'Admin & HR' },
-          href: '/operer#admin-rh',
-          description: { fr: 'Onboarding, paie, documents allégés.', en: 'Onboarding, payroll, documents streamlined.' },
-        },
-        {
-          label: { fr: 'Légal', en: 'Legal' },
-          href: '/operer#legal',
-          description: { fr: 'Contrats et conformité assistés.', en: 'Contracts and compliance assisted.' },
-        },
-        {
-          label: { fr: 'Agents métiers', en: 'Business agents' },
-          href: '/operer#agents-metiers',
-          description: { fr: 'Un agent dédié par fonction clé.', en: 'A dedicated agent per key function.' },
-          badge: { fr: 'À venir', en: 'Soon' },
+          label: { fr: 'Toutes les offres', en: 'All offers' },
+          href: '/offres',
+          description: { fr: 'Le catalogue des systèmes packagés.', en: 'The catalog of packaged systems.' },
         },
       ],
       footer: {
-        label: { fr: 'Le hub Opérer →', en: 'The Operate hub →' },
-        href: '/operer',
+        label: { fr: 'Toutes les offres →', en: 'All offers →' },
+        href: '/offres',
       },
     },
   ],
@@ -319,69 +243,50 @@ const SOLUTIONS: MegaMenuSection = {
     },
     cta: { fr: 'Découvrir l\'offre →', en: 'Explore the offer →' },
     href: '/offres/growth-system-ia',
-    // Illustration éditoriale « acquisition / inbound growth » (flux convergeant
-    // vers un point terracotta) : sert directement le propos de l'offre vedette,
-    // distincte du visuel du cas Plateau (désormais featured de Cas clients).
     image: '/images/besoins/besoin-acquerir.webp',
   },
 };
 
-// ─── CAS CLIENTS · simplifié (R3 §5) : 1 colonne « Résultats mesurés » (4 cas
-// vedettes, métriques en label) + featured = livre blanc AI Act (ne pas tripler
-// Plateau, déjà featured de Solutions). Format 1 col + featured = data-cols=2.
-// ─── CAS CLIENTS · refonte 2026-06 (mandat Simon) : 1 colonne « Par secteur »
-// (la preuve par le métier, liens vers /secteurs/*) + featured = CAS CLIENT
-// VEDETTE Plateau (visuel libéré du menu Solutions). parentHref → /secteurs :
-// le listing /cas-clients n'est plus exposé dans le mega menu (reste accessible via
-// footer / plan du site) ; /cas-clients reste dans matchPrefixes pour l'état actif.
+// ─── CAS CLIENTS · v7 (strategy/10 §4) : les /secteurs/* (noindex placeholders) QUITTENT
+// le menu (directive v7) → 1 colonne « Études de cas » vers les 5 cas RÉELS indexables.
+// Featured corrigé : l'ancien « premiers cas en préparation » était FAUX (5 cas existent,
+// E-E-A-T) → cas vedette Amploi (impact sourcé de son frontmatter). matchPrefixes = /cas-clients.
 const CAS: MegaMenuSection = {
   parent: 'cas',
   label: { fr: 'Cas clients', en: 'Case studies' },
   parentHref: '/cas-clients',
-  matchPrefixes: ['/cas-clients', '/secteurs'],
+  matchPrefixes: ['/cas-clients'],
   lead: {
-    fr: 'Pipelines reconnectés, qualifications automatisées, opérations fluidifiées. ROI mesuré sur vos données, jamais inventé.',
-    en: 'Pipelines reconnected, qualification automated, operations streamlined. ROI measured on your data, never invented.',
+    fr: 'Cinq cas réels, résultats mesurés sur les données du client. Jamais de témoignage mis en scène.',
+    en: 'Five real cases, results measured on the client\'s data. Never a staged testimonial.',
   },
   columns: [
     {
-      kicker: { fr: 'PAR SECTEUR', en: 'BY INDUSTRY' },
-      title: { fr: 'Par secteur', en: 'By industry' },
-      goal: { fr: 'La preuve par votre métier', en: 'Proof from your industry' },
-      // Hubs sectoriels régénérés (docs/strategy/03) : liens vers les 3 hubs
-      // indexables (cas réel + données marché sourcées). Footer → index /secteurs.
+      kicker: { fr: 'ÉTUDES DE CAS', en: 'CASE STUDIES' },
+      title: { fr: 'Études de cas', en: 'Case studies' },
+      goal: { fr: 'La preuve par les résultats', en: 'Proof by results' },
       links: [
-        {
-          label: { fr: 'E-commerce', en: 'E-commerce' },
-          href: '/secteurs/e-commerce',
-          description: { fr: 'Site rapide, IA marchande, paniers récupérés.', en: 'Fast site, shopping AI, carts recovered.' },
-        },
-        {
-          label: { fr: 'Startup & logiciel', en: 'Startup & software' },
-          href: '/secteurs/startup-logiciel',
-          description: { fr: 'Visiteurs anonymes qualifiés, pipeline lisible.', en: 'Anonymous visitors qualified, readable pipeline.' },
-        },
-        {
-          label: { fr: 'Libéral & indépendant', en: 'Independents & professionals' },
-          href: '/secteurs/liberal-independant',
-          description: { fr: 'Site d\'autorité, trouvé et choisi avant le contact.', en: 'Authority site, found and chosen before contact.' },
-        },
+        { label: { fr: 'Amploi · site marketing IA-ready', en: 'Amploi · AI-ready marketing site' }, href: '/cas-clients/amploi', description: { fr: 'Design system sur mesure, CRM HubSpot, couche GEO/AIO.', en: 'Custom design system, HubSpot CRM, GEO/AIO layer.' } },
+        { label: { fr: 'Balzeo · migration WordPress', en: 'Balzeo · WordPress migration' }, href: '/cas-clients/balzeo', description: { fr: 'Un site deux fois plus rapide.', en: 'A site twice as fast.' } },
+        { label: { fr: 'Desangles Peinture · SEO local', en: 'Desangles Peinture · local SEO' }, href: '/cas-clients/desangles-peinture', description: { fr: 'De la page 6 à la page 1 de Google.', en: 'From page 6 to page 1 on Google.' } },
+        { label: { fr: 'Isabelle Diaz · prise de RDV', en: 'Isabelle Diaz · bookings' }, href: '/cas-clients/isabelle-diaz-naturopathe', description: { fr: 'Une présence pensée pour le rendez-vous.', en: 'A presence designed for bookings.' } },
+        { label: { fr: 'Les Carnets de Montpellier · communauté', en: 'Les Carnets de Montpellier · community' }, href: '/cas-clients/les-carnets-de-montpellier', description: { fr: 'De zéro présence à une communauté payante.', en: 'From zero presence to a paying community.' } },
       ],
       footer: {
-        label: { fr: 'Tous les secteurs →', en: 'All industries →' },
-        href: '/secteurs',
+        label: { fr: 'Tous les cas clients →', en: 'All case studies →' },
+        href: '/cas-clients',
       },
     },
   ],
   featured: {
-    kicker: { fr: 'ÉTUDES DE CAS', en: 'CASE STUDIES' },
-    label: { fr: 'Premiers cas en préparation', en: 'First cases in preparation' },
+    kicker: { fr: 'CAS VEDETTE', en: 'FEATURED CASE' },
+    label: { fr: 'Amploi', en: 'Amploi' },
     body: {
-      fr: 'On publie un cas une fois le résultat mesuré et l\'accord du client obtenu. Pas de témoignage mis en scène.',
-      en: 'We publish a case once the result is measured and the client has agreed. No staged testimonials.',
+      fr: 'Site marketing IA-ready livré en 6 semaines : CRM HubSpot intégré et couche GEO/AIO en production.',
+      en: 'AI-ready marketing site delivered in 6 weeks: HubSpot CRM integrated and a GEO/AIO layer in production.',
     },
-    cta: { fr: 'Parler de votre projet →', en: 'Discuss your project →' },
-    href: '/cas-clients',
+    cta: { fr: 'Lire le cas →', en: 'Read the case →' },
+    href: '/cas-clients/amploi',
   },
 };
 
