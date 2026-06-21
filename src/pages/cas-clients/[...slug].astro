@@ -55,7 +55,12 @@ if (authorSlug) {
   }
 }
 
-const allCases = await getCollection('cases');
+// Trié par card.order (numérotation curée de l'index) pour que « § Cas 0N » sur la page
+// détail soit cohérent avec l'ordre affiché sur /cas-clients (sinon = ordre alphabétique
+// de getCollection, arbitraire et divergent). Cf décision nuit 0001.
+const allCases = (await getCollection('cases')).sort(
+  (a, b) => (a.data.card?.order ?? 99) - (b.data.card?.order ?? 99),
+);
 const idx = allCases.findIndex((c) => c.id === entry.id);
 
 const specs = [
