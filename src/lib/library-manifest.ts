@@ -129,6 +129,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-split',            consumers: [] },
   { id: 'hero-split-media',      consumers: [] },
   { id: 'masthead-bar',          consumers: [] },
+  { id: 'breadcrumb-bar',        consumers: [] },
   { id: 'hero-editorial-kpi',    consumers: [] },
   { id: 'hero-scope-minimap',    consumers: [] },
   { id: 'hero-thin-media',       consumers: [] },

@@ -35,6 +35,7 @@ export interface SectionDescriptor {
 import HeroSplit from '../components/sections/HeroSplit.astro';
 import HeroSplitMedia from '../components/sections/HeroSplitMedia.astro';
 import MastheadBar from '../components/sections/MastheadBar.astro';
+import BreadcrumbBar from '../components/sections/BreadcrumbBar.astro';
 import HeroEditorialKpi from '../components/sections/HeroEditorialKpi.astro';
 import HeroScopeMinimap from '../components/sections/HeroScopeMinimap.astro';
 import HeroThinMedia from '../components/sections/HeroThinMedia.astro';
@@ -476,13 +477,24 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'masthead-bar': {
     component: MastheadBar,
     category: 'marketing',
-    subcategory: 'Hero Header Sections',
-    categorySlug: 'hero-header-sections',
-    family: 'hero',
+    subcategory: 'Breadcrumb Sections',
+    categorySlug: 'breadcrumb-sections',
+    family: 'breadcrumb',
     tags: ['masthead', 'breadcrumb', 'chrome', 'editorial'],
     status: 'stable',
     description_fr: "Bande de chrome haut : fil d'Ariane intégré au masthead éditorial (méta lieu, édition, statut), posée sous le header fixe et au-dessus du hero. Composant autonome, universel (home incluse). Variante paper et ink.",
     description_en: 'Top chrome band: breadcrumb integrated into the editorial masthead (location, edition, status meta), sitting under the fixed header and above the hero. Standalone, universal component (home included). Paper and ink variants.',
+  },
+  'breadcrumb-bar': {
+    component: BreadcrumbBar,
+    category: 'marketing',
+    subcategory: 'Breadcrumb Sections',
+    categorySlug: 'breadcrumb-sections',
+    family: 'breadcrumb',
+    tags: ['breadcrumb', 'navigation', 'classic', 'chrome'],
+    status: 'stable',
+    description_fr: "Fil d'Ariane « classic » : barre de navigation standard (ol mono uppercase, séparateurs /), posée sous le header fixe. Modèle sobre de la catégorie breadcrumb, à côté du modèle éditorial masthead-bar. 100% DS-driven.",
+    description_en: 'Classic breadcrumb: standard navigation bar (uppercase monospace ol, / separators) under the fixed header. Plain model of the breadcrumb category, alongside the editorial masthead-bar model. Fully DS-driven.',
   },
   'hero-editorial-kpi': {
     component: HeroEditorialKpi,

@@ -1,0 +1,23 @@
+---
+/**
+ * breadcrumb-bar · « Fil d'Ariane classic » (chrome, catégorie breadcrumb)
+ * Barre de fil d'Ariane standard (ol mono uppercase, sous le header fixe). Modèle
+ * « classic » de la catégorie breadcrumb, à côté du modèle éditorial `masthead-bar`.
+ * Compose la molécule Breadcrumb (déjà 100% DS-driven). Dual-prop : section (data) OU template (items/lang).
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
+
+interface Crumb { label: string; href?: string; }
+interface Props {
+  data?: SectionByType<'breadcrumb-bar'>;
+  items?: Crumb[];
+  lang: 'fr' | 'en';
+}
+const { data, items, lang } = Astro.props;
+const isFr = lang === 'fr';
+const crumbs = data
+  ? data.breadcrumb.map((c) => ({ label: isFr ? c.label_fr : c.label_en, href: c.href }))
+  : (items ?? []);
+---
+<Breadcrumb lang={lang} items={crumbs} />

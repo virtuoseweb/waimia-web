@@ -1,16 +1,13 @@
 ---
-// Molécule · MastheadRow · « Vol. 03 · № 01 · Montpellier · Bilingue · ◉ Booking »
-// Pattern « couverture de revue » · présent sur Hero (/), /manifesto, /atlas
-// 4 colonnes mono uppercase séparées par des hairlines fins
-//
-// Composition rigoureuse Atomic Design : 4× Kicker atom dans une grille
-// (déplacé d'atoms/ vers molecules/ car compose plusieurs atomes).
+// Molécule · MastheadRow · « couverture de revue » · 100% DS-driven (0 style inline)
+// 4 cellules mono uppercase tokenisées, séparées par un hairline · paper/ink via data-tone.
+// Cellule 1 = volume OU fil d'Ariane (prop breadcrumb). Tout le style vit dans <style> (tokens DS).
 //
 // Usage :
-//   <MastheadRow tone="paper" />              (defaults)
+//   <MastheadRow tone="paper" />
 //   <MastheadRow tone="ink" volume="02" status="Q3 2026" />
+//   <MastheadRow breadcrumb={[{label:'Accueil',href:'/'},{label:'Services'}]} />
 
-import Kicker from '../atoms/Kicker.astro';
 import { langFromPath } from '../../../lib/i18n';
 
 interface Crumb {
@@ -24,7 +21,7 @@ interface Props {
   volume?: string;
   /** Fil d'Ariane · si présent non vide, remplace `volume` en cellule 1 */
   breadcrumb?: Crumb[];
-  /** Lieux · ex: "Montpellier · FR" */
+  /** Lieux · ex: "FR" */
   locations?: string;
   /** Status booking · texte après le ◉ */
   status?: string;
@@ -37,25 +34,17 @@ const lang = langFromPath(Astro.url.pathname);
 const {
   volume = 'Vol. 03 · № 01',
   breadcrumb,
-  locations = 'Montpellier · FR',
+  locations = 'FR',
   status = lang === 'fr' ? 'Disponible · T3 2026' : 'Available · Q3 2026',
   tone = 'paper',
 } = Astro.props;
 
 const hasCrumbs = Array.isArray(breadcrumb) && breadcrumb.length > 0;
-
-const isInk = tone === 'ink';
-const borderColor = isInk ? 'rgba(var(--paper-rgb),.12)' : 'var(--hairline)';
-// P0.2-I · lancement FR monolingue : claim bilingue retiré de la meta-bar.
 const lang_label = lang === 'fr' ? 'Édition française' : 'French edition';
-const kickerTone = isInk ? 'dim' : 'muted';
 ---
-<div
-  class="u-masthead-row"
-  style={`display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);border-bottom:1px solid ${borderColor};padding:14px 0 9px;line-height:1`}
->
+<div class="u-masthead-row" data-tone={tone === 'ink' ? 'ink' : undefined}>
   {hasCrumbs ? (
-    <Kicker as="span" tone={kickerTone} class="u-masthead-crumbs">
+    <span class="u-masthead-cell u-masthead-crumbs">
       {breadcrumb!.map((c, i) => {
         const isCurrent = i === breadcrumb!.length - 1;
         return (
@@ -69,15 +58,13 @@ const kickerTone = isInk ? 'dim' : 'muted';
           </>
         );
       })}
-    </Kicker>
+    </span>
   ) : (
-    <Kicker as="span" tone={kickerTone}>{volume}</Kicker>
+    <span class="u-masthead-cell">{volume}</span>
   )}
-  <Kicker as="span" tone={kickerTone}>{locations}</Kicker>
-  <Kicker as="span" tone={kickerTone}>{lang_label}</Kicker>
-  <Kicker as="span" tone={kickerTone} class="u-masthead-status">
-    <span style="color:var(--accent-text)">◉</span> {status}
-  </Kicker>
+  <span class="u-masthead-cell u-masthead-loc">{locations}</span>
+  <span class="u-masthead-cell u-masthead-edition">{lang_label}</span>
+  <span class="u-masthead-cell u-masthead-status"><span class="u-masthead-dot">◉</span> {status}</span>
 </div>
 {hasCrumbs && (
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -93,39 +80,61 @@ const kickerTone = isInk ? 'dim' : 'muted';
 )}
 
 <style>
-  /* Fil d'Ariane en cellule 1 · même grammaire mono que les Kicker, wrap propre */
-  :global(.u-masthead-crumbs){
+  .u-masthead-row{
+    display:grid;
+    grid-template-columns:repeat(4,auto);
+    justify-content:space-between;
+    align-items:center;
+    gap:var(--space-6);
+    border-bottom:1px solid var(--hairline);
+    padding:var(--space-3) 0 var(--space-2);
+    line-height:1;
+  }
+  .u-masthead-row[data-tone="ink"]{ border-bottom-color:rgba(var(--paper-rgb),.12); }
+
+  .u-masthead-cell{
+    font-family:var(--font-mono);
+    font-size:var(--text-micro);
+    letter-spacing:var(--tracking-mono-tight);
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .u-masthead-row[data-tone="ink"] .u-masthead-cell{ color:rgba(var(--paper-rgb),.5); }
+
+  /* Fil d'Ariane · 1 seule ligne, jamais de wrap */
+  .u-masthead-crumbs{
     display:inline-flex;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     align-items:center;
     gap:var(--space-2);
     line-height:1;
+    white-space:nowrap;
+    min-width:0;
   }
-  :global(.u-masthead-crumbs a){
+  .u-masthead-crumbs a{
     color:inherit;
     text-decoration:none;
     border-bottom:1px solid transparent;
     transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
-  :global(.u-masthead-crumbs a:hover){
-    color:var(--accent-text);
-    border-bottom-color:var(--accent-text);
-  }
-  :global(.u-masthead-crumbs a:focus-visible){
-    outline:2px solid var(--accent);
-    outline-offset:3px;
-    border-radius:var(--radius-xs);
-  }
-  :global(.u-masthead-crumbs [aria-current="page"]){color:var(--accent-text)}
-  :global(.u-masthead-crumbs .sep){color:var(--hairline-strong)}
+  .u-masthead-crumbs a:hover{ color:var(--accent-text); border-bottom-color:var(--accent-text); }
+  .u-masthead-crumbs a:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:var(--radius-xs); }
+  /* le crumb courant tronque en « … » plutôt que wrapper (titres d'articles longs) */
+  .u-masthead-crumbs [aria-current="page"]{ color:var(--accent-text); min-width:0; overflow:hidden; text-overflow:ellipsis; }
+  .u-masthead-crumbs .sep{ color:var(--hairline-strong); flex:none; }
 
-  /* Status aligné à droite + Mobile · stack en 2 col pour rester lisible */
-  :global(.u-masthead-status){text-align:right}
-  @media (max-width: 900px) {
-    .u-masthead-row {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 14px !important;
+  .u-masthead-dot{ color:var(--accent-text); }
+  .u-masthead-status{ text-align:right; }
+
+  /* Mobile · garder le fil d'Ariane (1 ligne, typo réduite tokenisée) + « FR » à droite */
+  @media (max-width:768px){
+    .u-masthead-row{
+      grid-template-columns:minmax(0,1fr) auto;
+      justify-content:stretch;
+      gap:var(--space-6);
     }
-    :global(.u-masthead-status){text-align:left}
+    .u-masthead-edition, .u-masthead-status{ display:none; }
+    .u-masthead-loc{ text-align:right; white-space:nowrap; }
+    .u-masthead-cell{ font-size:var(--text-micro); letter-spacing:var(--tracking-mono); }
   }
 </style>

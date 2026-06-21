@@ -10,28 +10,35 @@
 import type { SectionByType } from '../../schemas/sections';
 import MastheadRow from '../ui/molecules/MastheadRow.astro';
 
+interface Crumb { label: string; href?: string; }
 interface Props {
-  data: SectionByType<'masthead-bar'>;
+  data?: SectionByType<'masthead-bar'>;
+  items?: Crumb[];
   lang: 'fr' | 'en';
+  background?: 'paper' | 'ink';
+  locations?: string;
+  status?: string;
 }
-const { data, lang } = Astro.props;
+const { data, items, lang, background, locations, status } = Astro.props;
 const isFr = lang === 'fr';
 
-const tone = data.background === 'ink' ? 'ink' : 'paper';
-const crumbs = data.breadcrumb.map((c) => ({
-  label: isFr ? c.label_fr : c.label_en,
-  href: c.href,
-}));
-const locations = isFr ? data.locations_fr : data.locations_en;
-const status = isFr ? data.status_fr : data.status_en;
+const bg = data?.background ?? background;
+const tone = bg === 'ink' ? 'ink' : 'paper';
+
+const crumbs = data
+  ? data.breadcrumb.map((c) => ({ label: isFr ? c.label_fr : c.label_en, href: c.href }))
+  : (items ?? []);
+
+const loc = data ? (isFr ? data.locations_fr : data.locations_en) : locations;
+const st = data ? (isFr ? data.status_fr : data.status_en) : status;
 ---
-<div class="masthead-bar" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+<div class="masthead-bar" data-bg={tone === 'ink' ? 'ink' : undefined}>
   <div class="wrap-wide">
     <MastheadRow
       tone={tone}
       breadcrumb={crumbs}
-      locations={locations ?? undefined}
-      status={status ?? undefined}
+      locations={loc ?? undefined}
+      status={st ?? undefined}
     />
   </div>
 </div>

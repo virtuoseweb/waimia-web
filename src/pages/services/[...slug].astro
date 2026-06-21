@@ -7,7 +7,7 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
-import Breadcrumb from '../../components/ui/molecules/Breadcrumb.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildService, buildFAQPage } from '../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
@@ -44,7 +44,7 @@ const pageLd = faqLd ? [serviceLd, faqLd] : [serviceLd];
 ---
 
 <Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
-  <Breadcrumb
+  <MastheadBar
     lang={lang}
     items={[
       { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },

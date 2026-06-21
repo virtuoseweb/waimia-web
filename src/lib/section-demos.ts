@@ -491,10 +491,18 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       { label_fr: 'Services', label_en: 'Services', href: '/services' },
       { label_fr: 'Intégrateur Claude Code', label_en: 'Claude Code integrator' },
     ],
-    locations_fr: 'Montpellier · FR',
-    locations_en: 'Montpellier · FR',
+    locations_fr: 'FR',
+    locations_en: 'FR',
     status_fr: 'Disponible · T3 2026',
     status_en: 'Available · Q3 2026',
+  },
+  'breadcrumb-bar': {
+    type: 'breadcrumb-bar',
+    breadcrumb: [
+      { label_fr: 'Accueil', label_en: 'Home', href: '/' },
+      { label_fr: 'Services', label_en: 'Services', href: '/services' },
+      { label_fr: 'Intégrateur Claude Code', label_en: 'Claude Code integrator' },
+    ],
   },
   'hero-editorial-kpi': {
     type: 'hero-editorial-kpi',

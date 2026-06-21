@@ -220,6 +220,18 @@ export const mastheadBarSchema = z.object({
   status_en: z.string().optional(),
 });
 
+// === Fil d'Ariane classic (chrome) — modèle « classic » de la catégorie breadcrumb ===
+// Barre de fil d'Ariane standard (ol mono uppercase), posée sous le header fixe.
+// Compose la molécule Breadcrumb. Modèle sobre à côté de l'éditorial `masthead-bar`.
+export const breadcrumbBarSchema = z.object({
+  type: z.literal('breadcrumb-bar'),
+  ...sectionBaseSchema.shape,
+  breadcrumb: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string(), href: z.string().optional() }))
+    .min(1)
+    .max(5),
+});
+
 // === Famille héros explore-2 (Z1–Z9) : contenu pur, SANS MastheadRow embarqué ===
 // Le breadcrumb/chrome vit désormais dans `masthead-bar` (composant autonome au-dessus).
 
@@ -4236,6 +4248,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroSplitMediaSchema,
   mastheadBarSchema,
+  breadcrumbBarSchema,
   heroEditorialKpiSchema,
   heroScopeMinimapSchema,
   heroThinMediaSchema,
