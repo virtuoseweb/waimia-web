@@ -47,6 +47,25 @@ sans page, `/offres/{activation,growth,sur-mesure}`, `/ressources/guides/audit-i
 Vérifié : toutes rendent un contenu non vide (texte + hauteur). Le check `heading-required` est
 inadapté à ces familles → raffiner par whitelist headingless plutôt que les compter comme défauts.
 
+## Sweep des 59 pages site réelles (production FR)
+
+Sweep séparé des **59 routes FR live** (avec `Base.astro` : header/footer/cookie/reveal) —
+checks h1 opacity/transform, overflow, console (404/JS), reveals bloqués above-fold.
+Rapport brut : `site-sweep.json`.
+
+| Mesure | Valeur |
+| --- | --- |
+| Pages balayées | **59** (× 2 viewports) |
+| Clean | **53** |
+| Flaggées `h1-transform` | 6 — **faux positifs confirmés** |
+
+Les 6 (`/agence/about`, `/agence/methode`, `/cgv`, `/politique-confidentialite`,
+`/ressources/academy`, `/sources-methodologie`) ont à l'état stabilisé : `transform:
+matrix(1,0,0,1,0,0)` (**identité**), `opacity: 1`, on-screen, pleine largeur → h1 sain.
+Le flag venait d'une anim d'entrée mi-course (snapshot 600 ms) + d'un regex transform
+trop large. **0 vrai défaut** : les 59 pages live passent le GF-1 (preuve « base propre », gate P0.10).
+→ raffiner le check transform (attendre stabilisation + ignorer l'identité).
+
 ## Reste (P2.1-b/c/d)
 
 - **P2.1-b** : versionner 1 capture above-fold par section/template sous `_current/<zone>/`.
