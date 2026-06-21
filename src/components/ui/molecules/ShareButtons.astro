@@ -10,7 +10,7 @@ const twitterHref = `https://x.com/intent/tweet?url=${encodeURIComponent(url)}&t
 const linkedinHref = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
 const copyLabel = lang === 'en' ? 'Copy link' : 'Copier le lien';
 const shareLabel = lang === 'en' ? 'Share' : 'Partager';
-const twitterLabel = lang === 'en' ? 'Share on Twitter' : 'Partager sur Twitter';
+const twitterLabel = lang === 'en' ? 'Share on X' : 'Partager sur X';
 const linkedinLabel = lang === 'en' ? 'Share on LinkedIn' : 'Partager sur LinkedIn';
 ---
 
@@ -22,7 +22,7 @@ const linkedinLabel = lang === 'en' ? 'Share on LinkedIn' : 'Partager sur Linked
     target="_blank"
     rel="noopener noreferrer"
     aria-label={twitterLabel}
-  >Twitter</a>
+  >X</a>
   <a
     href={linkedinHref}
     class="share-link"

@@ -22,6 +22,8 @@ interface Props {
   revisedAt?: string;
   version?: string;
   sections?: TrustSection[];
+  legalFooterFr?: string;
+  legalFooterEn?: string;
 }
 
 const {
@@ -34,6 +36,8 @@ const {
   revisedAt,
   version,
   sections,
+  legalFooterFr,
+  legalFooterEn,
 } = Astro.props as Props;
 
 const isFr = lang === 'fr';
@@ -44,8 +48,8 @@ const finalKickerEn = kickerEn ?? data?.kicker_en ?? finalKickerFr;
 const finalRevisedAt = revisedAt ?? data?.revised_at ?? '';
 const finalVersion = version ?? data?.version;
 const tocSections = sections ?? data?.sections ?? [];
-const legalFooterFr = data?.legal_footer_fr ?? 'Document interne';
-const legalFooterEn = data?.legal_footer_en ?? 'Internal document';
+const finalLegalFooterFr = legalFooterFr ?? data?.legal_footer_fr ?? 'Document interne';
+const finalLegalFooterEn = legalFooterEn ?? data?.legal_footer_en ?? 'Internal document';
 
 const revisedLabel = finalRevisedAt
   ? new Date(finalRevisedAt).toLocaleDateString(isFr ? 'fr-FR' : 'en-GB', { month: 'long', year: 'numeric' })
@@ -70,8 +74,8 @@ const revisedLabel = finalRevisedAt
     )}
     <footer class="trust-legal-footer">
       {finalVersion
-        ? <><Bi fr={legalFooterFr} en={legalFooterEn} /> <span class="trust-footer-version">{finalVersion}</span></>
-        : <><slot name="footer-legal"><Bi fr={legalFooterFr} en={legalFooterEn} /></slot></>
+        ? <><Bi fr={finalLegalFooterFr} en={finalLegalFooterEn} /> <span class="trust-footer-version">{finalVersion}</span></>
+        : <><slot name="footer-legal"><Bi fr={finalLegalFooterFr} en={finalLegalFooterEn} /></slot></>
       }
     </footer>
   </div>

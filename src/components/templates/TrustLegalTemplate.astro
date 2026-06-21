@@ -41,8 +41,11 @@ interface Props {
   version?: string;
   /** Sections affichées dans le TOC sticky */
   sections: Section[];
+  /** Override du footer légal (sinon fallback 'Document interne') */
+  legalFooterFr?: string;
+  legalFooterEn?: string;
 }
-const { title, description, kickerFr, kickerEn, revisedAt, version, sections } = Astro.props as Props;
+const { title, description, kickerFr, kickerEn, revisedAt, version, sections, legalFooterFr, legalFooterEn } = Astro.props as Props;
 
 const webPageLd = {
   '@context': 'https://schema.org',
@@ -88,6 +91,8 @@ const ctaData = {
     revisedAt={revisedAt}
     version={version}
     sections={sections}
+    legalFooterFr={legalFooterFr}
+    legalFooterEn={legalFooterEn}
   >
     <slot name="headline" slot="headline" />
     <slot name="lede" slot="lede" />
