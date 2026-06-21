@@ -643,7 +643,11 @@ _(vide)_
   - ▸ *Avancement (commit `52e2c79`, gf1=y)* : couverture **preview-level** établie — sweep auto des
     186 `/preview/<type>` (desktop+mobile), triage défauts (9 liens morts 404 du catalogue corrigés,
     16 « no-heading » = sans-titre by design confirmés). Rapport : `docs/visual-audit/coverage-report.md`.
-    **Reste** : inventaire templates × sections + captures versionnées (→ P2.1-b) + sweep des **45 pages site réelles**.
+    Re-vérifié sur build courant (`verify-fix.mjs`) : 9/9 ex-404 à 0 erreur console, 16 sans-titre rendent du contenu.
+  - ▸ *Avancement (commit `a1d54de`, gf1=y)* : sweep des **59 pages site FR live** (Base.astro complet)
+    ajouté — 53 clean, 6 « h1-transform » = faux positifs confirmés (identité `matrix(1,0,0,1,0,0)`, opacity 1).
+    Rapport : `docs/visual-audit/site-sweep.json` + section dédiée du `coverage-report.md`.
+    **Reste** : inventaire templates × sections + captures versionnées (→ P2.1-b/c).
 - [ ] **P2.1-b — Compléter : 1 capture above-fold par section de chaque template** (l'agent itère dessus).
 - [ ] **P2.1-c — Corriger gitignore/pipeline** : rediriger le sweep (`scripts/gf1-cloud-sweep.mjs`,
   `visual-check.mjs`) de `/tmp` → `docs/visual-audit/{previews,sections}/...` (versionné) ; dé-ignorer
