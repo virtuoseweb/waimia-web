@@ -1,0 +1,203 @@
+---
+/**
+ * hero-capability-band · « Bandeau capacités asymétrique » (modèle Z8)
+ * Héro FULL-VIEWPORT : masthead éditorial + h1 + lede left-aligné (~70 % largeur),
+ * puis EN BAS pleine largeur une bande capacités asymétrique = 5 cellules
+ * (grid 1fr 1fr 1.4fr 1fr 1fr) dont la 3e (large, accent) porte un KPI serif,
+ * les 4 autres = capacités mono. Hairlines verticales. Casse de rythme éditoriale.
+ * Props-driven (data), variante paper/ink via `background`, responsive 1-col ≤768.
+ * signature-grid décorative conservée. SANS MastheadRow (chrome porté par masthead-bar autonome).
+ * Source visuelle : src/components/library/hero-explore-2/Z8.astro.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-capability-band'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const isInk = data.background === 'ink';
+
+const kicker = data.kicker_fr ? (isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)) : undefined;
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+const caps = data.capabilities;
+const kpi = data.kpi;
+
+// 5 cellules : la 3e (index 2) = cellule large accent (KPI serif), insérée entre 2 capacités.
+const cells = [
+  { kind: 'cap' as const, label_fr: caps[0].label_fr, label_en: caps[0].label_en, items_fr: caps[0].items_fr, items_en: caps[0].items_en },
+  { kind: 'cap' as const, label_fr: caps[1].label_fr, label_en: caps[1].label_en, items_fr: caps[1].items_fr, items_en: caps[1].items_en },
+  { kind: 'kpi' as const, num: kpi.num, items_fr: kpi.cap_fr, items_en: kpi.cap_en },
+  { kind: 'cap' as const, label_fr: caps[2].label_fr, label_en: caps[2].label_en, items_fr: caps[2].items_fr, items_en: caps[2].items_en },
+  { kind: 'cap' as const, label_fr: caps[3].label_fr, label_en: caps[3].label_en, items_fr: caps[3].items_fr, items_en: caps[3].items_en },
+];
+---
+<section class="hcb" data-bg={isInk ? 'ink' : undefined}>
+  <div class:list={['signature-grid', { 'on-dark': isInk }]}></div>
+
+  <div class="wrap-wide hcb__inner">
+    <div class="hcb__head">
+      {kicker && <Kicker tone="accent" class="hcb__fig">{kicker}</Kicker>}
+      <h1 class="hcb__title" set:html={h1} />
+      <p class="hcb__lede" set:html={lede} />
+      <div class="hcb__ctas">
+        <Button href={ctaPrimary.href} variant="primary" size="lg">
+          {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+        </Button>
+        {ctaSecondary && (
+          <Button href={ctaSecondary.href} variant="ghost" size="lg">
+            {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+          </Button>
+        )}
+      </div>
+    </div>
+
+    <ul class="hcb__band" aria-label={isFr ? 'Capacités et résultat' : 'Capabilities and result'}>
+      {cells.map((c) => (
+        <li class:list={['hcb__cell', { 'hcb__cell--kpi': c.kind === 'kpi' }]}>
+          {c.kind === 'kpi' ? (
+            <>
+              <span class="hcb__cell-num">{c.num}</span>
+              <span class="hcb__cell-cap">{isFr ? c.items_fr : c.items_en}</span>
+            </>
+          ) : (
+            <>
+              <span class="hcb__cell-label">{isFr ? c.label_fr : c.label_en}</span>
+              <span class="hcb__cell-items">{isFr ? c.items_fr : c.items_en}</span>
+            </>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <style>
+    .hcb {
+      position: relative;
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--hairline);
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+    }
+    .hcb[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+    .hcb > *:not(.signature-grid) { position: relative; z-index: 1; }
+    .hcb .signature-grid { z-index: 0; }
+
+    .hcb__head { max-width: 70%; }
+    :global(.hcb__fig) { margin-bottom: var(--space-4); }
+
+    .hcb__title {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      max-width: 22ch;
+      margin: 0 0 var(--space-5);
+    }
+    .hcb__title :global(i) { font-style: italic; }
+    .hcb__title :global(i.acc), .hcb__title :global(.acc) { color: var(--accent-text); }
+
+    .hcb__lede {
+      font-family: var(--font-sans);
+      font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+      line-height: var(--leading-lede);
+      color: var(--ink-2);
+      max-width: 56ch;
+      margin: 0 0 var(--space-6);
+      text-wrap: pretty;
+    }
+    .hcb[data-bg='ink'] .hcb__lede { color: var(--paper-2); }
+    .hcb__lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+    .hcb__ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+    /* Bande capacités asymétrique : 5 cellules, la 3e (large) en accent */
+    .hcb__band {
+      list-style: none;
+      margin: var(--space-8) 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.4fr 1fr 1fr;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hcb__cell {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-5) var(--space-4);
+      border-right: 1px solid var(--hairline);
+    }
+    .hcb__cell:last-child { border-right: none; }
+    .hcb__cell--kpi {
+      background: rgba(var(--accent-rgb), 0.06);
+      justify-content: center;
+    }
+
+    .hcb__cell-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--accent-text);
+    }
+    .hcb__cell-items {
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      line-height: var(--leading-lede);
+      color: var(--ink-2);
+    }
+    .hcb[data-bg='ink'] .hcb__cell-items { color: var(--paper-2); }
+
+    .hcb__cell-num {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--accent-text);
+      font-weight: var(--fw-regular);
+    }
+    .hcb__cell-cap {
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      line-height: var(--leading-lede);
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    .hcb[data-bg='ink'] .hcb__cell-cap { color: var(--paper); }
+
+    @media (max-width: 768px) {
+      .hcb {
+        padding-top: calc(var(--header-height) + var(--space-5));
+        padding-bottom: var(--space-5);
+      }
+      .hcb__head { max-width: 100%; }
+      .hcb__title { margin-bottom: var(--space-4); }
+      .hcb__lede { margin-bottom: var(--space-5); }
+      .hcb__ctas { gap: var(--space-2); }
+      .hcb__ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+      /* La bande passe en grille 1-col : la cellule accent garde son fond mais s'empile */
+      .hcb__band { grid-template-columns: 1fr; }
+      .hcb__cell {
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .hcb__cell:last-child { border-bottom: none; }
+    }
+  </style>
+</section>

@@ -1,0 +1,205 @@
+---
+/**
+ * hero-tech-signature · « Tech-grid 68/32 · signature dominante » (source LAB Z4)
+ * Héro FULL-VIEWPORT en grille asymétrique 2.1fr / 1fr (~68/32), align center.
+ * ADN éditorial : signature-grid (vedette) + sigil V·9 visible haut-droite +
+ * titre serif accent italique + 2 KPI serif dans le rail droit.
+ * Props-driven (data), variante paper/ink via `background`, responsive 1-col ≤768.
+ * SANS masthead (le chrome breadcrumb est porté par le composant autonome masthead-bar).
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-tech-signature'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const isInk = data.background === 'ink';
+
+const kicker = isFr ? (data.kicker_fr ?? '') : (data.kicker_en ?? data.kicker_fr ?? '');
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const ctaSub = isFr ? (data.cta_sub_fr ?? '') : (data.cta_sub_en ?? data.cta_sub_fr ?? '');
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+const kpis = data.kpis.map((k) => ({ num: k.num, cap: isFr ? k.cap_fr : k.cap_en }));
+const resultsLabel = isFr ? '§ 02 · Résultats' : '§ 02 · Results';
+---
+<section class="z4" data-bg={isInk ? 'ink' : undefined}>
+  <div class:list={['signature-grid', { 'on-dark': isInk }]}></div>
+
+  <div class="z4-sig" aria-hidden="true">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5" />
+      <text x="60" y="67" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="currentColor" letter-spacing="0.14em">V · 9</text>
+    </svg>
+  </div>
+
+  <div class="wrap-wide">
+    <div class="z4-grid">
+      <div class="z4-main">
+        {kicker && <Kicker class="z4-fig">{kicker}</Kicker>}
+        <h1 class="z4-title" set:html={h1} />
+        <p class="z4-lede" set:html={lede} />
+        <div class="z4-ctas">
+          <Button href={ctaPrimary.href} variant="primary" size="lg">
+            {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+          </Button>
+          {ctaSecondary && (
+            <Button href={ctaSecondary.href} variant="ghost" size="lg">
+              {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+            </Button>
+          )}
+        </div>
+        {ctaSub && <p class="z4-cta-sub" set:html={ctaSub} />}
+      </div>
+
+      <aside class="z4-rail" aria-label={isFr ? 'Résultats' : 'Results'}>
+        <Kicker class="z4-fig">{resultsLabel}</Kicker>
+        <ul class="z4-proofs">
+          {kpis.map((p) => (
+            <li class="z4-proof">
+              <span class="z4-proof-num">{p.num}</span>
+              <span class="z4-proof-label">{p.cap}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .z4 {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-7));
+    padding-bottom: var(--space-7);
+  }
+  .z4[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .z4 > *:not(.signature-grid):not(.z4-sig) { position: relative; z-index: 1; }
+  .z4 .signature-grid { z-index: 0; }
+
+  .z4-sig {
+    position: absolute;
+    right: calc(var(--gut) * 2);
+    top: calc(var(--header-height) + var(--space-9));
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    color: currentColor;
+    opacity: 0.22;
+  }
+  .z4-sig svg { width: 100%; height: 100%; display: block; }
+
+  .z4-grid {
+    display: grid;
+    grid-template-columns: 2.1fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+    margin-top: var(--space-9);
+  }
+  .z4-main { display: flex; flex-direction: column; }
+  :global(.z4-fig) { margin-bottom: var(--space-4); }
+
+  .z4-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    max-width: 16ch;
+    margin: 0 0 var(--space-5);
+  }
+  .z4-title :global(i) { font-style: italic; }
+  .z4-title :global(i.acc) { color: var(--accent-text); }
+
+  .z4-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    max-width: 52ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .z4[data-bg='ink'] .z4-lede { color: var(--paper-2); }
+  .z4-lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z4-ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+  .z4-cta-sub {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .z4[data-bg='ink'] .z4-cta-sub { color: var(--paper-2); }
+  .z4-cta-sub :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z4-rail { display: flex; flex-direction: column; }
+  .z4-proofs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--hairline);
+  }
+  .z4[data-bg='ink'] .z4-proofs { border-top-color: rgba(var(--paper-rgb), 0.12); }
+  .z4-proof {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .z4[data-bg='ink'] .z4-proof { border-bottom-color: rgba(var(--paper-rgb), 0.12); }
+  .z4-proof:last-child { border-bottom: 0; }
+  .z4-proof-num {
+    font-family: var(--font-display);
+    font-size: var(--text-numeral-md);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--accent-text);
+    font-weight: var(--fw-regular);
+  }
+  .z4-proof-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .z4[data-bg='ink'] .z4-proof-label { color: var(--paper); }
+
+  @media (max-width: 768px) {
+    .z4 {
+      padding-top: calc(var(--header-height) + var(--space-5));
+      padding-bottom: var(--space-5);
+    }
+    .z4-grid { grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-6); }
+    .z4-sig { display: none; }
+    .z4-title { max-width: none; margin-bottom: var(--space-4); }
+    .z4-lede { margin-bottom: var(--space-5); }
+    .z4-ctas { gap: var(--space-2); }
+    .z4-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+    .z4-proof { padding: var(--space-4) 0; }
+  }
+</style>
+</section>

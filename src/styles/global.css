@@ -443,6 +443,22 @@ a:not([class]):hover,
   :root { --breadcrumb-bar-h: 10rem; }
 }
 
+/* ─── MASTHEAD BAR · même chrome que .breadcrumb-bar (composant MastheadBar.astro) ───
+   Bande masthead-breadcrumb autonome posée sous le header fixe, au-dessus du hero.
+   Calque .breadcrumb-bar : réserve calc(--header-height + --space-5) pour dégager
+   le header fixe, puis la section/article qui suit IMMÉDIATEMENT neutralise
+   --header-height (pas de double-espacement) et hérite --hero-chrome-above pour
+   rester exacte au 1er écran. Réutilise les tokens existants (0 nouveau token). */
+.masthead-bar {
+  padding-top: calc(var(--header-height) + var(--space-5));
+  padding-bottom: var(--space-4);
+}
+.masthead-bar + section,
+.masthead-bar + article {
+  --header-height: 0px;
+  --hero-chrome-above: var(--breadcrumb-bar-h);
+}
+
 /* ─── HEADER ─── (unifié : un seul Header paper translucide pour tout le site) */
 /* Le bg paper translucide est appliqué DÈS le top pour rester lisible sur les
    hero dark (manifesto/console) sans logique on-dark adaptive. Cf docs/06-coding-standards.md */

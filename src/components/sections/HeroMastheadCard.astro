@@ -1,0 +1,243 @@
+---
+/**
+ * hero-masthead-card · « Masthead 64/36 · carte média ink réduite » (modèle Z7, template service)
+ * Héro FULL-VIEWPORT en grille 1.8fr 1fr (~64/36).
+ * GAUCHE → §-label + h1 serif accent + lede + badges mono + CTA dual + cta-sub.
+ * DROITE (rail) → carte média line-art réduite (aspect 4/5, fond ink dans les deux modes)
+ * + 2 micro-KPI mono optionnels sous la carte.
+ * Props-driven (data), variante paper/ink via `background`, responsive 1-col ≤768.
+ * signature-grid décorative conservée. SANS MastheadRow (chrome porté par masthead-bar autonome).
+ * Source visuelle : src/components/library/hero-explore-2/Z7.astro.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-masthead-card'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const isInk = data.background === 'ink';
+
+const kicker = data.kicker_fr ? (isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)) : undefined;
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const badges = data.badges ?? [];
+const kpis = data.kpis ?? [];
+const mediaAlt = isFr ? data.media_alt_fr : (data.media_alt_en ?? data.media_alt_fr);
+const ctaSub = data.cta_sub_fr ? (isFr ? data.cta_sub_fr : (data.cta_sub_en ?? data.cta_sub_fr)) : undefined;
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+---
+<section class="hmc" data-bg={isInk ? 'ink' : undefined}>
+  <div class:list={['signature-grid', { 'on-dark': isInk }]}></div>
+
+  <div class="wrap-wide hmc__inner">
+    <div class="hmc__grid">
+      <div class="hmc__main">
+        {kicker && <Kicker tone="accent" class="hmc__fig">{kicker}</Kicker>}
+        <h1 class="hmc__title" set:html={h1} />
+        <p class="hmc__lede" set:html={lede} />
+
+        {badges.length > 0 && (
+          <ul class="hmc__badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
+            {badges.map((b) => <li class="hmc__badge">{isFr ? b.label_fr : b.label_en}</li>)}
+          </ul>
+        )}
+
+        <div class="hmc__ctas">
+          <Button href={ctaPrimary.href} variant="primary" size="lg">
+            {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+          </Button>
+          {ctaSecondary && (
+            <Button href={ctaSecondary.href} variant="ghost" size="lg">
+              {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+            </Button>
+          )}
+        </div>
+        {ctaSub && <p class="hmc__cta-sub" set:html={ctaSub} />}
+      </div>
+
+      <aside class="hmc__rail">
+        {data.media_src && (
+          <figure class="hmc__media">
+            <img src={data.media_src} alt={mediaAlt ?? ''} loading="eager" decoding="async" />
+          </figure>
+        )}
+        {kpis.length > 0 && (
+          <ul class="hmc__kpis" aria-label={isFr ? 'Résultats' : 'Results'}>
+            {kpis.map((k) => (
+              <li class="hmc__kpi">
+                <span class="hmc__kpi-num">{k.num}</span>
+                <span class="hmc__kpi-label">{isFr ? k.cap_fr : k.cap_en}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </aside>
+    </div>
+  </div>
+
+  <style>
+    .hmc {
+      position: relative;
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--hairline);
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+    }
+    .hmc[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+    .hmc > *:not(.signature-grid) { position: relative; z-index: 1; }
+    .hmc .signature-grid { z-index: 0; }
+
+    .hmc__grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+    .hmc__main { display: flex; flex-direction: column; }
+
+    :global(.hmc__fig) { margin-bottom: var(--space-4); }
+
+    .hmc__title {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      max-width: 16ch;
+      margin: 0 0 var(--space-5);
+    }
+    .hmc__title :global(i) { font-style: italic; }
+    .hmc__title :global(i.acc), .hmc__title :global(.acc) { color: var(--accent-text); }
+
+    .hmc__lede {
+      font-family: var(--font-sans);
+      font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+      line-height: var(--leading-lede);
+      color: var(--ink-2);
+      max-width: 52ch;
+      margin: 0 0 var(--space-6);
+      text-wrap: pretty;
+    }
+    .hmc[data-bg='ink'] .hmc__lede { color: var(--paper-2); }
+    .hmc__lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+    .hmc__badges {
+      list-style: none;
+      margin: 0 0 var(--space-6);
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .hmc__badge {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--ink-2);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-pill);
+      padding: var(--space-2) var(--space-4);
+      transition: border-color var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease);
+    }
+    .hmc__badge:hover { border-color: var(--accent-text); color: var(--accent-text); }
+    .hmc[data-bg='ink'] .hmc__badge { color: var(--paper-2); }
+
+    .hmc__ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+    .hmc__cta-sub {
+      margin: var(--space-5) 0 0;
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      line-height: var(--leading-body);
+      color: var(--ink-2);
+    }
+    .hmc[data-bg='ink'] .hmc__cta-sub { color: var(--paper-2); }
+    .hmc__cta-sub :global(i) { font-style: italic; color: var(--accent-text); }
+
+    /* Rail droit léger : carte média ink réduite (aspect 4/5) + 2 micro-KPI */
+    .hmc__rail { display: flex; flex-direction: column; }
+    .hmc__media {
+      margin: 0;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      background: var(--ink-2);
+      padding: clamp(var(--space-5), 2.5vw, var(--space-7));
+      aspect-ratio: 4 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hmc__media::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(60% 60% at 50% 45%, rgba(var(--accent-rgb), 0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .hmc__media img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      color: var(--paper);
+    }
+
+    .hmc__kpis {
+      list-style: none;
+      margin: var(--space-5) 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      border-top: 1px solid var(--hairline);
+      padding-top: var(--space-4);
+    }
+    .hmc__kpi { display: flex; flex-direction: column; gap: var(--space-1); }
+    .hmc__kpi-num {
+      font-family: var(--font-display);
+      font-size: var(--text-numeral-md);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--accent-text);
+      font-weight: var(--fw-regular);
+    }
+    .hmc__kpi-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--ink-2);
+    }
+    .hmc[data-bg='ink'] .hmc__kpi-label { color: var(--paper-2); }
+
+    @media (max-width: 768px) {
+      .hmc {
+        padding-top: calc(var(--header-height) + var(--space-5));
+        padding-bottom: var(--space-5);
+      }
+      .hmc__grid { grid-template-columns: 1fr; gap: var(--space-5); }
+      .hmc__rail { order: 1; }
+      .hmc__media { aspect-ratio: 2 / 1; max-height: 26svh; }
+      .hmc__title { margin-bottom: var(--space-4); }
+      .hmc__lede { margin-bottom: var(--space-5); }
+      .hmc__badges { margin-bottom: var(--space-5); }
+      .hmc__ctas { gap: var(--space-2); }
+      .hmc__ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+    }
+  </style>
+</section>

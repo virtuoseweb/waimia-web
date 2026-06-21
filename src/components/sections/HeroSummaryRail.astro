@@ -1,0 +1,208 @@
+---
+/**
+ * hero-summary-rail · « Magazine 70/30 · colonne sommaire » (modèle Z9)
+ * Héro FULL-VIEWPORT : sigil V·9 (haut-droite) + grille 2.3fr 1fr (~70/30).
+ * GAUCHE → §-label + h1 serif accent + lede + CTA dual + cta-sub.
+ * DROITE (rail) → sommaire typographique vertical = 3 entrées (label mono accent +
+ * titre serif court + sous-ligne), séparées par hairlines. Pur typographique, zéro média.
+ * Props-driven (data), variante paper/ink via `background`, responsive 1-col ≤768.
+ * signature-grid décorative conservée. SANS MastheadRow (chrome porté par masthead-bar autonome).
+ * Source visuelle : src/components/library/hero-explore-2/Z9.astro.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-summary-rail'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const isInk = data.background === 'ink';
+
+const kicker = data.kicker_fr ? (isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)) : undefined;
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const ctaSub = data.cta_sub_fr ? (isFr ? data.cta_sub_fr : (data.cta_sub_en ?? data.cta_sub_fr)) : undefined;
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+const summary = data.summary;
+---
+<section class="hsr" data-bg={isInk ? 'ink' : undefined}>
+  <div class:list={['signature-grid', { 'on-dark': isInk }]}></div>
+
+  <div class="hsr__sig-mark" aria-hidden="true">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5"/>
+      <text x="60" y="67" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="currentColor" letter-spacing="0.14em">V · 9</text>
+    </svg>
+  </div>
+
+  <div class="wrap-wide hsr__inner">
+    <div class="hsr__grid">
+      <div class="hsr__main">
+        {kicker && <Kicker tone="accent" class="hsr__fig">{kicker}</Kicker>}
+        <h1 class="hsr__title" set:html={h1} />
+        <p class="hsr__lede" set:html={lede} />
+        <div class="hsr__ctas">
+          <Button href={ctaPrimary.href} variant="primary" size="lg">
+            {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+          </Button>
+          {ctaSecondary && (
+            <Button href={ctaSecondary.href} variant="ghost" size="lg">
+              {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+            </Button>
+          )}
+        </div>
+        {ctaSub && <p class="hsr__cta-sub" set:html={ctaSub} />}
+      </div>
+
+      <aside class="hsr__rail">
+        <ol class="hsr__toc" aria-label={isFr ? 'Sommaire' : 'Summary'}>
+          {summary.map((s) => (
+            <li class="hsr__toc-item">
+              <span class="hsr__toc-tag">{isFr ? s.tag_fr : s.tag_en}</span>
+              <span class="hsr__toc-title">{isFr ? s.title_fr : s.title_en}</span>
+              <span class="hsr__toc-sub">{isFr ? s.sub_fr : s.sub_en}</span>
+            </li>
+          ))}
+        </ol>
+      </aside>
+    </div>
+  </div>
+
+  <style>
+    .hsr {
+      position: relative;
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--hairline);
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: calc(var(--header-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+    }
+    .hsr[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+    .hsr > *:not(.signature-grid):not(.hsr__sig-mark) { position: relative; z-index: 1; }
+    .hsr .signature-grid { z-index: 0; }
+
+    .hsr__sig-mark {
+      position: absolute;
+      right: calc(var(--gut) * 2);
+      top: calc(var(--header-height) + var(--space-7));
+      width: 88px;
+      height: 88px;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      color: var(--ink);
+      opacity: 0.18;
+    }
+    .hsr[data-bg='ink'] .hsr__sig-mark { color: var(--paper); }
+    .hsr__sig-mark svg { width: 100%; height: 100%; display: block; }
+
+    .hsr__grid {
+      display: grid;
+      grid-template-columns: 2.3fr 1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+    .hsr__main { display: flex; flex-direction: column; }
+    :global(.hsr__fig) { margin-bottom: var(--space-4); }
+
+    .hsr__title {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      max-width: 16ch;
+      margin: 0 0 var(--space-5);
+    }
+    .hsr__title :global(i) { font-style: italic; }
+    .hsr__title :global(i.acc), .hsr__title :global(.acc) { color: var(--accent-text); }
+
+    .hsr__lede {
+      font-family: var(--font-sans);
+      font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+      line-height: var(--leading-lede);
+      color: var(--ink-2);
+      max-width: 52ch;
+      margin: 0 0 var(--space-6);
+      text-wrap: pretty;
+    }
+    .hsr[data-bg='ink'] .hsr__lede { color: var(--paper-2); }
+    .hsr__lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+    .hsr__ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+    .hsr__cta-sub {
+      margin: var(--space-5) 0 0;
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      line-height: var(--leading-body);
+      color: var(--ink-2);
+    }
+    .hsr[data-bg='ink'] .hsr__cta-sub { color: var(--paper-2); }
+    .hsr__cta-sub :global(i) { font-style: italic; color: var(--accent-text); }
+
+    /* Rail droit léger : sommaire typographique, zéro média */
+    .hsr__rail { display: flex; flex-direction: column; }
+    .hsr__toc {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .hsr__toc-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hsr__toc-item:last-child { border-bottom: none; }
+    .hsr__toc-tag {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--accent-text);
+    }
+    .hsr__toc-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+      line-height: var(--leading-lede);
+      font-weight: var(--fw-regular);
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    .hsr[data-bg='ink'] .hsr__toc-title { color: var(--paper); }
+    .hsr__toc-sub {
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      line-height: var(--leading-body);
+      color: var(--ink-2);
+    }
+    .hsr[data-bg='ink'] .hsr__toc-sub { color: var(--paper-2); }
+
+    @media (max-width: 768px) {
+      .hsr {
+        padding-top: calc(var(--header-height) + var(--space-5));
+        padding-bottom: var(--space-5);
+      }
+      .hsr__sig-mark { display: none; }
+      .hsr__grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .hsr__rail { order: 1; }
+      .hsr__title { margin-bottom: var(--space-4); }
+      .hsr__lede { margin-bottom: var(--space-5); }
+      .hsr__ctas { gap: var(--space-2); }
+      .hsr__ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+    }
+  </style>
+</section>

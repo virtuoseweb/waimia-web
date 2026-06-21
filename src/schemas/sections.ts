@@ -203,6 +203,220 @@ export const heroAsymmetricGridSchema = z.object({
     .length(4),
 });
 
+// === Bande masthead autonome (chrome) ===
+// Bande de chrome haut = fil d'Ariane intégré au masthead éditorial, posée sous le header
+// fixe, au-dessus du hero. Compose MastheadRow (molécule) avec la prop `breadcrumb`.
+export const mastheadBarSchema = z.object({
+  type: z.literal('masthead-bar'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  breadcrumb: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string(), href: z.string().optional() }))
+    .min(1)
+    .max(5),
+  locations_fr: z.string().optional(),
+  locations_en: z.string().optional(),
+  status_fr: z.string().optional(),
+  status_en: z.string().optional(),
+});
+
+// === Famille héros explore-2 (Z1–Z9) : contenu pur, SANS MastheadRow embarqué ===
+// Le breadcrumb/chrome vit désormais dans `masthead-bar` (composant autonome au-dessus).
+
+// Z1 · « Édition 65/35 · rail KPI serif » : grille asymétrique ~63/37, rail droit = 3 KPI serif.
+export const heroEditorialKpiSchema = z.object({
+  type: z.literal('hero-editorial-kpi'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_sub_fr: z.string().optional(),
+  cta_sub_en: z.string().optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .length(3),
+});
+
+// Z2 · « Promesse 60/40 · mini-map capacités » : rail droit = mini-map 6 territoires (2 col).
+export const heroScopeMinimapSchema = z.object({
+  type: z.literal('hero-scope-minimap'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_sub_fr: z.string().optional(),
+  cta_sub_en: z.string().optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  minimap: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string(), items_fr: z.string(), items_en: z.string() }))
+    .length(6),
+});
+
+// Z3 · « Asymétrie 72/28 · rail média mince » : rail droit = média line-art vertical mince.
+export const heroThinMediaSchema = z.object({
+  type: z.literal('hero-thin-media'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  badges: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+    .max(4)
+    .optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  media_src: z.string(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
+});
+
+// Z4 · « Tech-grid 68/32 · signature dominante » : rail droit = 2 grands numéraux serif.
+export const heroTechSignatureSchema = z.object({
+  type: z.literal('hero-tech-signature'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_sub_fr: z.string().optional(),
+  cta_sub_en: z.string().optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .length(2),
+});
+
+// Z5 · « Tri-zone asymétrique » : titre pleine largeur + 3 zones (lede/CTA · mini-map · 2 KPI).
+export const heroTrizoneSchema = z.object({
+  type: z.literal('hero-trizone'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_sub_fr: z.string().optional(),
+  cta_sub_en: z.string().optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  minimap: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string(), items_fr: z.string(), items_en: z.string() }))
+    .length(6),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .length(2),
+});
+
+// Z6 · « Cover 60/40 · grand numéral » : rail droit = un grand numéral éditorial + caption + sous-stat.
+export const heroNumeralCoverSchema = z.object({
+  type: z.literal('hero-numeral-cover'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_sub_fr: z.string().optional(),
+  cta_sub_en: z.string().optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  numeral_value: z.string(),
+  numeral_cap_fr: z.string(),
+  numeral_cap_en: z.string(),
+  numeral_sub_fr: z.string().optional(),
+  numeral_sub_en: z.string().optional(),
+});
+
+// Z7 · « Masthead 64/36 · carte média ink réduite » : rail droit = carte média ink + 2 micro-KPI.
+export const heroMastheadCardSchema = z.object({
+  type: z.literal('hero-masthead-card'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  badges: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+    .max(4)
+    .optional(),
+  cta_sub_fr: z.string().optional(),
+  cta_sub_en: z.string().optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  media_src: z.string(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
+  kpis: z
+    .array(z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }))
+    .max(2)
+    .optional(),
+});
+
+// Z8 · « Bandeau capacités asymétrique » : titre + lede left, puis bande 4 capacités + 1 KPI accent.
+export const heroCapabilityBandSchema = z.object({
+  type: z.literal('hero-capability-band'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  capabilities: z
+    .array(z.object({ label_fr: z.string(), label_en: z.string(), items_fr: z.string(), items_en: z.string() }))
+    .length(4),
+  kpi: z.object({ num: z.string(), cap_fr: z.string(), cap_en: z.string() }),
+});
+
+// Z9 · « Magazine 70/30 · colonne sommaire » : rail droit = sommaire typographique de 3 entrées.
+export const heroSummaryRailSchema = z.object({
+  type: z.literal('hero-summary-rail'),
+  // background/layout/density mutualisés via le mixin sectionBaseSchema.
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h1_fr: z.string(),
+  h1_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta_sub_fr: z.string().optional(),
+  cta_sub_en: z.string().optional(),
+  cta_primary: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
+  summary: z
+    .array(z.object({ tag_fr: z.string(), tag_en: z.string(), title_fr: z.string(), title_en: z.string(), sub_fr: z.string(), sub_en: z.string() }))
+    .length(3),
+});
+
 // Héro « Centré + bande capacités ink » full-viewport (X4) : bloc centré (kicker, titre
 // serif accent, lede, 2 CTA) + bande ink pleine largeur de 4 cellules capacités (label
 // mono accent + desc), sombre dans les 2 modes. paper+ink.
@@ -4021,6 +4235,16 @@ export const authorBylineSchema = z.object({
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroSplitMediaSchema,
+  mastheadBarSchema,
+  heroEditorialKpiSchema,
+  heroScopeMinimapSchema,
+  heroThinMediaSchema,
+  heroTechSignatureSchema,
+  heroTrizoneSchema,
+  heroNumeralCoverSchema,
+  heroMastheadCardSchema,
+  heroCapabilityBandSchema,
+  heroSummaryRailSchema,
   heroEditorialMastheadSchema,
   heroAsymmetricGridSchema,
   heroCenteredBandSchema,

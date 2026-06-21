@@ -13,9 +13,17 @@
 import Kicker from '../atoms/Kicker.astro';
 import { langFromPath } from '../../../lib/i18n';
 
+interface Crumb {
+  /** Libellé déjà résolu par langue */
+  label: string;
+  /** Lien optionnel ; le dernier crumb (current) est sans lien */
+  href?: string;
+}
 interface Props {
-  /** Volume éditorial · ex: "Vol. 03 · № 01" */
+  /** Volume éditorial · ex: "Vol. 03 · № 01" (cellule 1 par défaut) */
   volume?: string;
+  /** Fil d'Ariane · si présent non vide, remplace `volume` en cellule 1 */
+  breadcrumb?: Crumb[];
   /** Lieux · ex: "Montpellier · FR" */
   locations?: string;
   /** Status booking · texte après le ◉ */
@@ -28,10 +36,13 @@ const lang = langFromPath(Astro.url.pathname);
 
 const {
   volume = 'Vol. 03 · № 01',
+  breadcrumb,
   locations = 'Montpellier · FR',
   status = lang === 'fr' ? 'Disponible · T3 2026' : 'Available · Q3 2026',
   tone = 'paper',
 } = Astro.props;
+
+const hasCrumbs = Array.isArray(breadcrumb) && breadcrumb.length > 0;
 
 const isInk = tone === 'ink';
 const borderColor = isInk ? 'rgba(var(--paper-rgb),.12)' : 'var(--hairline)';
@@ -43,15 +54,71 @@ const kickerTone = isInk ? 'dim' : 'muted';
   class="u-masthead-row"
   style={`display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);border-bottom:1px solid ${borderColor};padding:14px 0 9px;line-height:1`}
 >
-  <Kicker as="span" tone={kickerTone}>{volume}</Kicker>
+  {hasCrumbs ? (
+    <Kicker as="span" tone={kickerTone} class="u-masthead-crumbs">
+      {breadcrumb!.map((c, i) => {
+        const isCurrent = i === breadcrumb!.length - 1;
+        return (
+          <>
+            {isCurrent
+              ? <span aria-current="page">{c.label}</span>
+              : c.href
+                ? <a href={c.href}>{c.label}</a>
+                : <span>{c.label}</span>}
+            {!isCurrent && <span class="sep" aria-hidden="true">/</span>}
+          </>
+        );
+      })}
+    </Kicker>
+  ) : (
+    <Kicker as="span" tone={kickerTone}>{volume}</Kicker>
+  )}
   <Kicker as="span" tone={kickerTone}>{locations}</Kicker>
   <Kicker as="span" tone={kickerTone}>{lang_label}</Kicker>
   <Kicker as="span" tone={kickerTone} class="u-masthead-status">
     <span style="color:var(--accent-text)">◉</span> {status}
   </Kicker>
 </div>
+{hasCrumbs && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumb!.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.label,
+      ...(c.href ? { item: `https://waimia.com${c.href}` } : {}),
+    })),
+  })} />
+)}
 
 <style>
+  /* Fil d'Ariane en cellule 1 · même grammaire mono que les Kicker, wrap propre */
+  :global(.u-masthead-crumbs){
+    display:inline-flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:var(--space-2);
+    line-height:1;
+  }
+  :global(.u-masthead-crumbs a){
+    color:inherit;
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  :global(.u-masthead-crumbs a:hover){
+    color:var(--accent-text);
+    border-bottom-color:var(--accent-text);
+  }
+  :global(.u-masthead-crumbs a:focus-visible){
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:var(--radius-xs);
+  }
+  :global(.u-masthead-crumbs [aria-current="page"]){color:var(--accent-text)}
+  :global(.u-masthead-crumbs .sep){color:var(--hairline-strong)}
+
   /* Status aligné à droite + Mobile · stack en 2 col pour rester lisible */
   :global(.u-masthead-status){text-align:right}
   @media (max-width: 900px) {

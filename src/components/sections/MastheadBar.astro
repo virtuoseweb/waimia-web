@@ -1,0 +1,37 @@
+---
+/**
+ * masthead-bar · « Bande masthead-breadcrumb » (chrome, famille hero)
+ * Bande de chrome haut autonome : fil d'Ariane intégré dans le masthead éditorial,
+ * posée sous le header fixe, AU-DESSUS du hero. Remplace .breadcrumb-bar par le
+ * pattern « couverture de revue » (4 colonnes mono uppercase).
+ * Compose MastheadRow (molécule) avec la prop `breadcrumb` (cellule 1 = trail).
+ * Props-driven (data), variante paper/ink via `background`. CSS chrome : global.css.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import MastheadRow from '../ui/molecules/MastheadRow.astro';
+
+interface Props {
+  data: SectionByType<'masthead-bar'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const tone = data.background === 'ink' ? 'ink' : 'paper';
+const crumbs = data.breadcrumb.map((c) => ({
+  label: isFr ? c.label_fr : c.label_en,
+  href: c.href,
+}));
+const locations = isFr ? data.locations_fr : data.locations_en;
+const status = isFr ? data.status_fr : data.status_en;
+---
+<div class="masthead-bar" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+  <div class="wrap-wide">
+    <MastheadRow
+      tone={tone}
+      breadcrumb={crumbs}
+      locations={locations ?? undefined}
+      status={status ?? undefined}
+    />
+  </div>
+</div>

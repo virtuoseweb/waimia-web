@@ -1,0 +1,214 @@
+---
+/**
+ * hero-editorial-kpi · « Édition 65/35 · rail KPI serif » (source LAB Z1)
+ * Héro service FULL-VIEWPORT asymétrique (~63/37, grille 1.7fr 1fr), SANS masthead
+ * (la bande part dans le composant autonome masthead-bar, posé au-dessus).
+ * GAUCHE (dominante) : §01 + h1 serif accent + lede + CTA dual + cta-sub.
+ * DROITE (rail léger) : §02 + 3 KPI serif verticaux (numéral --text-h1 accent, hairline entre).
+ * Réutilise : .signature-grid (+ .on-dark ink), sigil V·9, headline serif accent,
+ * motif .proof (numéral serif + label, hairlines). Props-driven paper/ink, responsive ≤768.
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-editorial-kpi'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const isInk = data.background === 'ink';
+
+const kicker = isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr);
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const ctaSub = isFr ? data.cta_sub_fr : (data.cta_sub_en ?? data.cta_sub_fr);
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+const kpis = data.kpis;
+---
+<section class="z1" data-bg={isInk ? 'ink' : undefined}>
+  <div class={`signature-grid${isInk ? ' on-dark' : ''}`}></div>
+
+  <div class="hero-sig-mark" aria-hidden="true">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5"/>
+      <text x="60" y="67" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="currentColor" letter-spacing="0.14em">V · 9</text>
+    </svg>
+  </div>
+
+  <div class="wrap-wide z1__inner">
+    <div class="z1__grid">
+      <div class="z1__main">
+        {kicker && <p class="z1__fig">{kicker}</p>}
+        <h1 class="z1__title" set:html={h1} />
+        <p class="z1__lede" set:html={lede} />
+
+        <div class="z1__ctas">
+          <Button href={ctaPrimary.href} variant="primary" size="lg">
+            {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+          </Button>
+          {ctaSecondary && (
+            <Button href={ctaSecondary.href} variant="ghost" size="lg">
+              {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+            </Button>
+          )}
+        </div>
+        {ctaSub && <p class="z1__cta-sub" set:html={ctaSub} />}
+      </div>
+
+      <div class="z1__rail">
+        <ul class="z1__proofs" aria-label={isFr ? 'Preuves de résultats' : 'Results'}>
+          {kpis.map((p) => (
+            <li class="z1__proof">
+              <span class="z1__proof-num">{p.num}</span>
+              <span class="z1__proof-label">{isFr ? p.cap_fr : p.cap_en}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .z1 {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-7));
+    padding-bottom: var(--space-7);
+  }
+  .z1[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .z1 > *:not(.signature-grid):not(.hero-sig-mark) { position: relative; z-index: 1; }
+  .z1 .signature-grid { z-index: 0; }
+
+  .hero-sig-mark {
+    position: absolute;
+    right: calc(var(--gut) * 2);
+    top: calc(var(--header-height) + var(--space-7));
+    width: 88px;
+    height: 88px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    color: var(--ink);
+    opacity: 0.18;
+  }
+  .z1[data-bg='ink'] .hero-sig-mark { color: var(--paper); opacity: 0.22; }
+  .hero-sig-mark svg { width: 100%; height: 100%; display: block; }
+
+  .z1__inner { width: 100%; }
+
+  .z1__fig {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-4);
+  }
+
+  .z1__grid {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: var(--space-10);
+    align-items: stretch;
+  }
+  .z1__main, .z1__rail { display: flex; flex-direction: column; }
+  .z1__rail { justify-content: center; }
+
+  .z1__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    max-width: 18ch;
+    margin: 0 0 var(--space-5);
+  }
+  .z1__title :global(i) { font-style: italic; }
+  .z1__title :global(i.acc) { font-style: italic; color: var(--accent-text); }
+
+  .z1__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    max-width: 52ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .z1[data-bg='ink'] .z1__lede { color: var(--paper-2); }
+  .z1__lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z1__ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .z1__cta-sub {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .z1[data-bg='ink'] .z1__cta-sub { color: var(--paper-2); }
+  .z1__cta-sub :global(i) { font-style: italic; color: var(--accent-text); }
+
+  /* Rail KPI serif · numéral accent + label, hairline entre (motif .proof home) */
+  .z1__proofs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+  .z1__proof {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .z1__proof:first-child { padding-top: 0; }
+  .z1__proof:last-child { border-bottom: 0; padding-bottom: 0; }
+  .z1__proof-num {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--accent-text);
+    font-weight: var(--fw-regular);
+  }
+  .z1__proof-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .z1[data-bg='ink'] .z1__proof-label { color: var(--paper); }
+
+  @media (max-width: 768px) {
+    .z1 {
+      padding-top: calc(var(--header-height) + var(--space-5));
+      padding-bottom: var(--space-5);
+    }
+    .hero-sig-mark { display: none; }
+    .z1__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-7);
+    }
+    .z1__ctas { gap: var(--space-2); }
+    .z1__ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+    .z1__proof:last-child { padding-bottom: 0; }
+  }
+</style>

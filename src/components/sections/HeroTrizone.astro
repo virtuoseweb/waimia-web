@@ -1,0 +1,262 @@
+---
+/**
+ * hero-trizone · « Tri-zone asymétrique » (multi-zone, source LAB Z5)
+ * Héro FULL-VIEWPORT : titre serif accent italique PLEINE LARGEUR, puis une rangée
+ * de 3 zones asymétriques (1.6fr / 1.1fr / 0.9fr) séparées par hairlines verticales :
+ *   A = lede + CTA dual · B = mini-map capacités (6) · C = 2 KPI serif.
+ * ADN éditorial : signature-grid + titre serif. Props-driven (data), paper/ink via
+ * `background`, responsive 1-col ≤768. SANS masthead (chrome porté par masthead-bar).
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'hero-trizone'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const isInk = data.background === 'ink';
+
+const kicker = isFr ? (data.kicker_fr ?? '') : (data.kicker_en ?? data.kicker_fr ?? '');
+const h1 = isFr ? data.h1_fr : data.h1_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const ctaSub = isFr ? (data.cta_sub_fr ?? '') : (data.cta_sub_en ?? data.cta_sub_fr ?? '');
+const ctaPrimary = data.cta_primary;
+const ctaSecondary = data.cta_secondary;
+const capacities = data.minimap.map((c) => ({
+  label: isFr ? c.label_fr : c.label_en,
+  items: isFr ? c.items_fr : c.items_en,
+}));
+const kpis = data.kpis.map((k) => ({ num: k.num, cap: isFr ? k.cap_fr : k.cap_en }));
+const serviceLabel = kicker || (isFr ? '§ 01 · Service' : '§ 01 · Service');
+const scopeLabel = isFr ? '§ 02 · Périmètre' : '§ 02 · Scope';
+const resultsLabel = isFr ? '§ 03 · Résultats' : '§ 03 · Results';
+const scopeAria = isFr ? 'Périmètre opérationnel · 6 territoires' : 'Operational scope · 6 territories';
+---
+<section class="z5" data-bg={isInk ? 'ink' : undefined}>
+  <div class:list={['signature-grid', { 'on-dark': isInk }]}></div>
+
+  <div class="wrap-wide">
+    <Kicker class="z5-fig">{serviceLabel}</Kicker>
+    <h1 class="z5-title" set:html={h1} />
+
+    <div class="z5-zones">
+      <div class="z5-zone z5-zone--a">
+        <p class="z5-lede" set:html={lede} />
+        <div class="z5-ctas">
+          <Button href={ctaPrimary.href} variant="primary" size="lg">
+            {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+          </Button>
+          {ctaSecondary && (
+            <Button href={ctaSecondary.href} variant="ghost" size="lg">
+              {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+            </Button>
+          )}
+        </div>
+        {ctaSub && <p class="z5-cta-sub" set:html={ctaSub} />}
+      </div>
+
+      <div class="z5-zone z5-zone--b">
+        <Kicker class="z5-fig z5-fig--rail">{scopeLabel}</Kicker>
+        <ul class="z5-minimap" aria-label={scopeAria}>
+          {capacities.map((c) => (
+            <li class="z5-mm-item">
+              <span class="z5-mm-label">{c.label}</span>
+              <span class="z5-mm-items">{c.items}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="z5-zone z5-zone--c">
+        <Kicker class="z5-fig z5-fig--rail">{resultsLabel}</Kicker>
+        <ul class="z5-proofs">
+          {kpis.map((p) => (
+            <li class="z5-proof">
+              <span class="z5-proof-num">{p.num}</span>
+              <span class="z5-proof-label">{p.cap}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .z5 {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-7));
+    padding-bottom: var(--space-7);
+  }
+  .z5[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .z5 > *:not(.signature-grid) { position: relative; z-index: 1; }
+  .z5 .signature-grid { z-index: 0; }
+
+  :global(.z5-fig) { margin-bottom: var(--space-4); }
+  .z5 :global(.z5-fig) { margin-top: var(--space-8); }
+  .z5 :global(.z5-fig--rail) { margin-top: 0; }
+
+  .z5-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    max-width: 22ch;
+    margin: 0 0 var(--space-7);
+  }
+  .z5-title :global(i) { font-style: italic; }
+  .z5-title :global(i.acc) { color: var(--accent-text); }
+
+  .z5-zones {
+    display: grid;
+    grid-template-columns: 1.6fr 1.1fr 0.9fr;
+    gap: var(--space-8);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-zones { border-top-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-zone { display: flex; flex-direction: column; }
+  .z5-zone--b, .z5-zone--c {
+    padding-left: var(--space-8);
+    border-left: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-zone--b,
+  .z5[data-bg='ink'] .z5-zone--c { border-left-color: rgba(var(--paper-rgb), 0.12); }
+
+  .z5-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    max-width: 42ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .z5[data-bg='ink'] .z5-lede { color: var(--paper-2); }
+  .z5-lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z5-ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .z5-cta-sub {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .z5[data-bg='ink'] .z5-cta-sub { color: var(--paper-2); }
+  .z5-cta-sub :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z5-minimap {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-minimap { border-top-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-mm-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-3) var(--space-3) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-mm-item { border-bottom-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-mm-item:nth-child(odd) { border-right: 1px solid var(--hairline); }
+  .z5[data-bg='ink'] .z5-mm-item:nth-child(odd) { border-right-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-mm-item:nth-child(even) { padding-left: var(--space-3); }
+  .z5-mm-item:nth-last-child(-n+2) { border-bottom: none; }
+  .z5-mm-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .z5-mm-items {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+  }
+  .z5[data-bg='ink'] .z5-mm-items { color: var(--paper-2); }
+
+  .z5-proofs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-proofs { border-top-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-proof {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-proof { border-bottom-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-proof:last-child { border-bottom: 0; }
+  .z5-proof-num {
+    font-family: var(--font-display);
+    font-size: var(--text-numeral-md);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--accent-text);
+    font-weight: var(--fw-regular);
+  }
+  .z5-proof-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .z5[data-bg='ink'] .z5-proof-label { color: var(--paper); }
+
+  @media (max-width: 768px) {
+    .z5 {
+      padding-top: calc(var(--header-height) + var(--space-5));
+      padding-bottom: var(--space-5);
+    }
+    .z5-title { max-width: none; margin-bottom: var(--space-5); }
+    .z5-zones { grid-template-columns: 1fr; gap: var(--space-6); padding-top: var(--space-6); }
+    .z5 :global(.z5-fig) { margin-top: var(--space-5); }
+    .z5-zone--b, .z5-zone--c {
+      padding-left: 0;
+      border-left: none;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .z5[data-bg='ink'] .z5-zone--b,
+    .z5[data-bg='ink'] .z5-zone--c { border-top-color: rgba(var(--paper-rgb), 0.12); }
+    .z5-ctas { gap: var(--space-2); }
+    .z5-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+  }
+  @media (max-width: 440px) {
+    .z5-minimap { grid-template-columns: 1fr; }
+    .z5-mm-item:nth-child(odd) { border-right: none; }
+    .z5-mm-item:nth-child(even) { padding-left: 0; }
+    .z5-mm-item:not(:last-child) { border-bottom: 1px solid var(--hairline); }
+    .z5-mm-item:last-child { border-bottom: none; }
+  }
+</style>
+</section>
