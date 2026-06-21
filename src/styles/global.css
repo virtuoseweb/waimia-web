@@ -645,6 +645,12 @@ a:not([class]):hover,
   .hdr-end .cta {
     display: none;
   }
+  /* nav masqué → grille 2 pistes : logo étiré à gauche, hdr-end (burger) collé
+     au bord droit (flush, symétrique au logo). Sans ça hdr-end glissait dans
+     l'ancienne piste 1fr et le burger se calait à gauche. */
+  .hdr-inner {
+    grid-template-columns: 1fr auto;
+  }
   .burger {
     display: flex;
   }

@@ -171,22 +171,27 @@ const ctaSecondary = data.cta_secondary;
 
     @media (max-width: 768px) {
       .hsm {
-        /* Mobile : resserré pour rapprocher les CTA de la ligne de flottaison
-           (média plus court + espacements réduits) ; le contenu riche peut
-           encore dépasser le viewport sans rogner. */
+        /* Mobile : contenu ancré en haut (CTA above-the-fold malgré la barre
+           cookie), média décoratif renvoyé SOUS le bloc texte (ordre naturel),
+           espacements resserrés. */
         min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
-        padding-top: calc(var(--header-height) + var(--space-5));
+        justify-content: flex-start;
+        padding-top: calc(var(--header-height) + var(--space-3));
         padding-bottom: var(--space-5);
       }
       .hsm-grid { grid-template-columns: 1fr; gap: var(--space-5); }
-      /* Média en bandeau large et court (≤30svh) : il ne mange plus le 1er écran. */
-      .hsm-media { order: -1; aspect-ratio: 2 / 1; max-height: 30svh; }
-      .hsm-kicker { margin-bottom: var(--space-3); }
-      .hsm-title { margin-bottom: var(--space-4); }
-      .hsm-lede { margin-bottom: var(--space-5); }
-      .hsm-badges { margin-bottom: var(--space-5); }
+      /* Titre : pleine largeur (plus de cap 14ch) + échelle display → il occupe
+         l'espace dispo au lieu de rester serré sur 2 lignes étroites. */
+      .hsm-kicker { margin-bottom: var(--space-2); }
+      .hsm-title { max-width: none; font-size: var(--text-display); margin-bottom: var(--space-2); }
+      .hsm-lede { margin-bottom: var(--space-3); }
+      /* Badges : typo micro + padding resserré → empilent moins haut. */
+      .hsm-badges { gap: var(--space-1); margin-bottom: var(--space-3); }
+      .hsm-badge { font-size: var(--text-micro); padding: var(--space-1) var(--space-3); }
       .hsm-ctas { gap: var(--space-2); }
       .hsm-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+      /* Média : ordre naturel (sous le texte), bandeau court décoratif. */
+      .hsm-media { aspect-ratio: 16 / 9; max-height: 24svh; }
     }
   </style>
 </section>
