@@ -188,7 +188,7 @@ const autoCrumbs: Crumb[] = isList ? [] : breadcrumb ?? (() => {
 ) : (
   <Base title={title} description={description} jsonLd={jsonLd}>
     {autoCrumbs.length > 0 && (
-      <div class="util-crumbs wrap-wide">
+      <div class="util-crumbs">
         <MastheadBar lang={lang} items={autoCrumbs} />
       </div>
     )}
@@ -215,8 +215,8 @@ const autoCrumbs: Crumb[] = isList ? [] : breadcrumb ?? (() => {
   /* Masthead migré vers le composant catalogué `HeroUtilityMasthead` (sections/).
      Règles `.util-hd/.util-hd-centered/.util-kicker/.util-h1/.util-lede` supprimées
      (structure + CSS désormais portés par le composant — source unique). */
-  /* Breadcrumb : dégage le header fixe (sinon clip derrière la navbar sticky). */
-  .util-crumbs { padding-top: calc(var(--header-height) + var(--space-5)); }
+  /* .util-crumbs = simple wrapper : MastheadBar possède sa largeur (wrap-wide interne)
+     et compense le header (.masthead-bar padding-top dans global.css). Pas de double. */
   .util-body { padding: var(--section-base) var(--space-6); }
   /* Branche list (ex-ListIndexTemplate) */
   .list-body { padding: var(--section-base) var(--space-6); }

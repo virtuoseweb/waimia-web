@@ -459,6 +459,15 @@ a:not([class]):hover,
   --hero-chrome-above: var(--breadcrumb-bar-h);
 }
 
+/* UtilityTemplate enveloppe MastheadBar dans .util-crumbs (plain div). La barre
+   compense déjà le header (.masthead-bar padding-top) -> le hero qui suit ne doit
+   pas re-dégager le header une 2e fois. Reutilise les tokens existants. */
+.util-crumbs + section,
+.util-crumbs + article {
+  --header-height: 0px;
+  --hero-chrome-above: var(--breadcrumb-bar-h);
+}
+
 /* ─── HEADER ─── (unifié : un seul Header paper translucide pour tout le site) */
 /* Le bg paper translucide est appliqué DÈS le top pour rester lisible sur les
    hero dark (manifesto/console) sans logique on-dark adaptive. Cf docs/06-coding-standards.md */
