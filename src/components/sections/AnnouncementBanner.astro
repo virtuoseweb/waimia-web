@@ -106,28 +106,28 @@ const closeLabel = isFr ? 'Fermer' : 'Dismiss';
   .announce__close:hover { opacity: 1; }
 
   /* Variantes de tone */
-  .announce[data-tone='accent'] { background: var(--accent); color: var(--paper); }
+  .announce[data-tone='accent'] { background: var(--accent); color: #fff; }
   .announce[data-tone='accent'] .announce__badge { background: rgba(var(--paper-rgb), 0.2); }
-  .announce[data-tone='accent'] .announce__link { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
+  .announce[data-tone='accent'] .announce__link { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
   .announce[data-tone='ink'] { background: var(--ink); color: var(--paper); }
-  .announce[data-tone='ink'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-tone='ink'] .announce__badge { background: var(--accent); color: #fff; }
   .announce[data-tone='ink'] .announce__link { color: var(--accent-text); }
 
   .announce[data-tone='paper-2'] { background: var(--paper-2); color: var(--ink); border-block: 1px solid var(--hairline); }
-  .announce[data-tone='paper-2'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-tone='paper-2'] .announce__badge { background: var(--accent); color: #fff; }
   .announce[data-tone='paper-2'] .announce__link { color: var(--accent-text); }
 
   /* Support data-bg cohérent (R4) · n'écrase le tone que si background explicite est posé.
      'ink' reprend le traitement sombre soigné du tone ink ; paper-2/paper-3 fonds clairs. */
   .announce[data-bg='paper-2'] { background: var(--paper-2); color: var(--ink); border-block: 1px solid var(--hairline); }
-  .announce[data-bg='paper-2'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-bg='paper-2'] .announce__badge { background: var(--accent); color: #fff; }
   .announce[data-bg='paper-2'] .announce__link { color: var(--accent-text); }
   .announce[data-bg='paper-3'] { background: var(--paper-3); color: var(--ink); border-block: 1px solid var(--hairline); }
-  .announce[data-bg='paper-3'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-bg='paper-3'] .announce__badge { background: var(--accent); color: #fff; }
   .announce[data-bg='paper-3'] .announce__link { color: var(--accent-text); }
   .announce[data-bg='ink'] { background: var(--ink); color: var(--paper); }
-  .announce[data-bg='ink'] .announce__badge { background: var(--accent); color: var(--paper); }
+  .announce[data-bg='ink'] .announce__badge { background: var(--accent); color: #fff; }
   .announce[data-bg='ink'] .announce__link { color: var(--accent-text); }
 
   @media (max-width: 640px) {
