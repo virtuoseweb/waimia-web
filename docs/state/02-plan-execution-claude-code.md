@@ -663,6 +663,17 @@ _(vide)_
   groupes de classes scoped dupliqués (cible 280→<50, scan scoped `gen-ds-registry`) ? A2 (serif global)/
   A3 (`.sec`/`.sec-hd`)/A4 (purge tokens)/A6 (`var(--spacing-section)`) faits ou non (MESURE) ?
   Preuve : gates verts + GF-1 = 0 changement de rendu.
+  - ▸ *MESURE faite 2026-06-21 (agent Explore + vérif GF-4 orchestrateur)* : **122 tokens** (cible ~92, +30).
+    **A2 serif ✅**, **A3 `.sec*` ✅** (13 classes centralisées global.css:1417-1530), **A6 ✅** (0 `spacing-section`).
+    Classes scoped dupliquées = **380 groupes** (`gen-ds-registry.mjs`, cible <50) → gros effort cross-composant séparé.
+    ⚠️ **2 sur-claims de l'agent corrigés (NE PAS purger en aveugle)** : (1) les ~11 « orphelins » `--color-*`
+    sont dans le bloc **`@theme` Tailwind 4** = **faux orphelins** (sémantique utility/var à vérifier par la
+    **doc officielle Tailwind**, GF-6, avant toute suppression) ; (2) `global.css:1795 --accent-text` n'est PAS
+    un doublon mais un **override scopé légitime** de `.page-pill-btn.is-active` (le retirer casse la pill active).
+    Idem les « doublons » `--font-display/sans/mono/ease-out` (`:root` + `@theme`) tiennent à la sémantique `@theme`.
+    **Verdict** : aucune purge sûre en aveugle → **consolider = chantier dédié sur sa propre branche**, décision
+    stratégie `@theme` (garder/minimaliser) informée doc Tailwind + GF-1 par retrait. A4 reste OUVERT (mesure faite,
+    purge en attente d'arbitrage `@theme`).
 
 ## Chantier P2.3 — Fondation `@theme inline` (prérequis builder)
 ### Tâches finies
