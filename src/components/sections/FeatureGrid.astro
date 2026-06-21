@@ -336,7 +336,9 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
 
   /* ───── deliverables-grid (preset) — CSS VERBATIM DeliverablesGrid.astro ───── */
   .deliverables-grid {
-    padding: var(--deliverables-grid-pad, var(--section-loose)) var(--deliverables-grid-inline, var(--space-6));
+    /* Gutter porté par le `.wrap-wide` interne (markup) → padding-inline = 0 ici,
+       sinon double gutter (contenu à 2×--gut, désaligné des autres sections). */
+    padding: var(--deliverables-grid-pad, var(--section-loose)) var(--deliverables-grid-inline, 0);
     border-bottom: 1px solid var(--hairline);
   }
   .deliverables-grid__hd {

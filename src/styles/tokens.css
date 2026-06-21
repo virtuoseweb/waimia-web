@@ -219,6 +219,13 @@ body {
   --spacing-block: clamp(28px, 3vw, 48px);
 }
 
+@media (max-width: 768px) {
+  :root {
+    --section-loose: var(--space-10); /* 160→80px : ouverture resserrée en mobile */
+    --section-base: var(--space-9);   /* 96→64px : section de contenu resserrée en mobile */
+  }
+}
+
 /* ─── FONT-WEIGHT SCALE · poids restreints ─── */
 :root {
   --fw-regular:  400;
