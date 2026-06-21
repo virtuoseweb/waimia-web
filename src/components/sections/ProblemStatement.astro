@@ -47,13 +47,13 @@ const isFr = lang === 'fr';
      de lede/paragraphe (était clamp h2→h1, une taille de titre). Tokens existants. */
   .problem-statement__text {
     font-family: var(--font-sans);
-    font-size: clamp(var(--text-h3), 2.2vw, var(--text-h2));
-    line-height: var(--leading-h2);
-    letter-spacing: -0.01em;
-    font-weight: var(--fw-medium);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-body);
+    font-weight: var(--fw-regular);
     color: var(--ink);
-    text-wrap: balance;
-    max-width: 980px;
+    text-wrap: pretty;
+    max-width: 64ch;
     margin: 0 0 clamp(var(--space-8), 5vw, var(--space-12));
   }
   .problem-statement__statement--dropcap {

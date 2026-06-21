@@ -42,7 +42,9 @@ const color = tone === 'accent' ? 'var(--accent)'
             : 'var(--muted)';
 
 // Le style inline est minimal et stable · pas de scope Astro pour simplifier la composition
-const style = `font-family:var(--font-mono);font-size:${size}px;letter-spacing:${letterSpacing};text-transform:${textTransform};color:${color}`;
+const sizeCSS = size === 11 ? 'var(--text-kicker)' : `${size}px`;
+const lsCSS = letterSpacing === '.14em' ? 'var(--tracking-kicker)' : letterSpacing;
+const style = `font-family:var(--font-mono);font-size:${sizeCSS};letter-spacing:${lsCSS};text-transform:${textTransform};color:${color}`;
 ---
 <Tag class={`u-kicker ${extraClass}`.trim()} style={style}>
   <slot />

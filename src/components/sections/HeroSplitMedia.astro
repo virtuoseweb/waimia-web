@@ -9,6 +9,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-split-media'>;
@@ -30,7 +31,7 @@ const ctaSecondary = data.cta_secondary;
     <div class="hsm-grid">
       {/* Texte */}
       <div class="hsm-text">
-        {kicker && <p class="hsm-kicker">{kicker}</p>}
+        {kicker && <Kicker as="p" tone="accent" class="hsm-kicker">{kicker}</Kicker>}
         <h1 class="hsm-title" set:html={h1} />
         <p class="hsm-lede">{lede}</p>
 
@@ -86,11 +87,6 @@ const ctaSecondary = data.cta_secondary;
     }
 
     .hsm-kicker {
-      font-family: var(--font-mono);
-      font-size: var(--text-small);
-      letter-spacing: var(--tracking-mono);
-      text-transform: uppercase;
-      color: var(--accent-text);
       margin: 0 0 var(--space-5);
     }
     .hsm-title {

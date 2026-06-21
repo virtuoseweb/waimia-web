@@ -33,7 +33,7 @@ const isFr = lang === 'fr';
         <span class="method-timeline__sn">{step.num}</span>
         <div class="method-timeline__content">
           <strong class="method-timeline__label u-serif-accent u-serif-accent-em">{isFr ? step.label_fr : step.label_en}</strong>
-          <p>{isFr ? step.body_fr : step.body_en}</p>
+          <p set:html={isFr ? step.body_fr : step.body_en} />
           {step.duration_fr && isFr && (
             <Kicker tone="muted" size={10}>↓ {step.duration_fr}</Kicker>
           )}
