@@ -126,12 +126,21 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
             <ul>
               {col.links.map((sub) => (
                 <li>
-                  <a class="mega-link" href={lh(sub.href)}>
-                    {isNeed && <span class="arr" aria-hidden="true">→</span>}
-                    <span class="t">{t(sub.label, lang)}</span>
-                    {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                    {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
-                  </a>
+                  {sub.soon ? (
+                    <span class="mega-link is-soon">
+                      {isNeed && <span class="arr" aria-hidden="true">→</span>}
+                      <span class="t">{t(sub.label, lang)}</span>
+                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                      {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+                    </span>
+                  ) : (
+                    <a class="mega-link" href={lh(sub.href)}>
+                      {isNeed && <span class="arr" aria-hidden="true">→</span>}
+                      <span class="t">{t(sub.label, lang)}</span>
+                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                      {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -203,10 +212,17 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                 {col.goal && <div class="k g">{t(col.goal, lang)}</div>}
                 {col.quote && <p class="q">{t(col.quote, lang)}</p>}
                 {col.links.map((sub) => (
-                  <a href={lh(sub.href)}>
-                    {t(sub.label, lang)}
-                    {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                  </a>
+                  sub.soon ? (
+                    <span class="is-soon">
+                      {t(sub.label, lang)}
+                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                    </span>
+                  ) : (
+                    <a href={lh(sub.href)}>
+                      {t(sub.label, lang)}
+                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                    </a>
+                  )
                 ))}
                 {col.footer && <a href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>}
               </div>
@@ -545,4 +561,9 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   }
 
   .lang-toggle-disabled { opacity: .5; cursor: default; pointer-events: none; }
+
+  /* Liens « à venir » (soon) : rendus en <span> non-cliquable (pas de href),
+     grisés. 0 lien mort / 0 crawl vers 404 (strategy/11 §8). */
+  .mega-link.is-soon, .m-sheet-acc-col .is-soon { cursor: default; opacity: 0.55; }
+  .mega-link.is-soon:hover, .m-sheet-acc-col .is-soon:hover { opacity: 0.55; }
 </style>

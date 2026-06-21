@@ -21,6 +21,12 @@ export interface MegaMenuLink {
    */
   badge?: BiText;
   featured?: boolean;
+  /**
+   * Lien « à venir » : la page cible n'existe pas encore (architecture v7 exposée
+   * avant construction, strategy/11 §8). Rendu NON-cliquable (span, pas <a>) pour
+   * 0 lien mort / 0 lien crawlable vers 404. Affiché grisé + badge « À venir ».
+   */
+  soon?: boolean;
 }
 
 export interface MegaMenuColumn {
@@ -85,50 +91,77 @@ const RESSOURCES: MegaMenuSection = {
   parent: 'ressources',
   label: MM_RESOURCES.label,
   parentHref: MM_RESOURCES.href,
-  lead: MM_RESOURCES.lead,
-  // Méga-menu V1 (§0ter) : Blog · Outils (calculateur ROI) · Academy.
-  // Retirés : Newsletter, Cas clients (hors périmètre Ressources V1),
-  // livres-blancs, veille-ia, cookbooks, VirtuoseOS (pages supprimées).
+  matchPrefixes: ['/ressources', '/blog'],
+  lead: {
+    fr: 'Éduquer, qualifier, capter. Des contenus pour décideurs PME B2B.',
+    en: 'Educate, qualify, capture. Content for B2B SME decision-makers.',
+  },
   columns: [
     {
-      kicker: { fr: 'LECTURES', en: 'READING' },
-      title: { fr: 'Lectures', en: 'Reading' },
+      kicker: { fr: 'LIRE', en: 'READING' },
+      title: { fr: 'Lire', en: 'Reading' },
       links: [
         {
           label: { fr: 'Blog', en: 'Blog' },
           href: '/ressources/blog',
           description: {
             fr: 'Insights business pour PME B2B.',
-            en: 'Business insights for B2B SMBs.',
+            en: 'Business insights for B2B SMEs.',
           },
           featured: true,
         },
         {
-          label: { fr: 'Academy', en: 'Academy' },
-          href: '/ressources/academy',
-          description: {
-            fr: 'Diagnostic maturité IA en 6 questions.',
-            en: 'AI maturity diagnostic in 6 questions.',
-          },
+          label: { fr: 'Guides', en: 'Guides' },
+          href: '/ressources/guides',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Comparatifs', en: 'Comparisons' },
+          href: '/ressources/comparatifs',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       footer: {
-        label: { fr: 'Tous les contenus →', en: 'All content →' },
+        label: { fr: 'Toutes les ressources →', en: 'All resources →' },
         href: '/ressources',
       },
     },
     {
-      kicker: { fr: 'PRATIQUE', en: 'PRACTICE' },
-      title: { fr: 'Pratique', en: 'Practice' },
+      kicker: { fr: 'DIAGNOSTICS', en: 'DIAGNOSTICS' },
+      title: { fr: 'Diagnostics', en: 'Diagnostics' },
       links: [
         {
-          label: { fr: 'Outils', en: 'Tools' },
-          href: '/ressources/outils',
-          description: {
-            fr: 'Calculateurs, checklists, templates.',
-            en: 'Calculators, checklists, templates.',
-          },
+          label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' },
+          href: '/ressources/diagnostics/maturite-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
         },
+        {
+          label: { fr: 'Diagnostic Site Web Intelligent', en: 'Smart website diagnostic' },
+          href: '/ressources/diagnostics/site-web-intelligent',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Diagnostic Claude PME', en: 'Claude SME diagnostic' },
+          href: '/ressources/diagnostics/claude-pme',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Diagnostic Référent IA', en: 'AI lead diagnostic' },
+          href: '/ressources/diagnostics/referent-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+      ],
+    },
+    {
+      kicker: { fr: 'OUTILS', en: 'TOOLS' },
+      title: { fr: 'Outils', en: 'Tools' },
+      links: [
         {
           label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' },
           href: '/ressources/outils/calculateur-roi-ia',
@@ -137,11 +170,53 @@ const RESSOURCES: MegaMenuSection = {
             en: 'Estimate the return of your AI projects.',
           },
         },
+        {
+          label: { fr: 'Score maturité IA', en: 'AI maturity score' },
+          href: '/ressources/outils/score-maturite-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Checklist déploiement Claude', en: 'Claude deployment checklist' },
+          href: '/ressources/guides/checklist-deploiement-claude',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
       ],
       footer: {
         label: { fr: 'Catalogue outils →', en: 'Tools catalog →' },
         href: '/ressources/outils',
       },
+    },
+    {
+      kicker: { fr: 'LES PLUS CONSULTÉS', en: 'MOST READ' },
+      title: { fr: 'Les plus consultés', en: 'Most read' },
+      links: [
+        {
+          label: { fr: 'Claude vs ChatGPT PME', en: 'Claude vs ChatGPT for SMEs' },
+          href: '/ressources/comparatifs/claude-vs-chatgpt-pme',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'GEO vs SEO', en: 'GEO vs SEO' },
+          href: '/ressources/comparatifs/geo-vs-seo',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Site Web Intelligent vs WordPress', en: 'Smart website vs WordPress' },
+          href: '/ressources/comparatifs/site-web-intelligent-vs-wordpress',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Claude Code vs Cursor', en: 'Claude Code vs Cursor' },
+          href: '/ressources/comparatifs/claude-code-vs-cursor',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+      ],
     },
   ],
   featured: MM_RESOURCES.featured ? mapLegacyFeatured(MM_RESOURCES.featured) : undefined,
@@ -166,7 +241,7 @@ const SOLUTIONS: MegaMenuSection = {
     {
       kicker: { fr: 'SITE WEB INTELLIGENT', en: 'SMART WEBSITE' },
       title: { fr: 'Site web intelligent', en: 'Smart website' },
-      goal: { fr: 'Être trouvé et convertir', en: 'Get found and convert' },
+      goal: { fr: 'Générer plus de leads, alléger le marketing', en: 'Generate more leads, lighten marketing' },
       links: [
         {
           label: { fr: 'Site web intelligent', en: 'Smart website' },
@@ -180,9 +255,28 @@ const SOLUTIONS: MegaMenuSection = {
           description: { fr: 'Une machine éditoriale trouvée par Google ET les IA.', en: 'An editorial machine found by Google AND AI.' },
         },
         {
-          label: { fr: 'Tunnel de conversion intelligent', en: 'Smart conversion funnel' },
-          href: '/services/tunnel-conversion-intelligent',
-          description: { fr: 'De la visite au contrat signé, chaque palier mesuré.', en: 'From visit to signed contract, every stage measured.' },
+          label: { fr: 'GEO', en: 'GEO' },
+          href: '/services/geo',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'SEO IA', en: 'AI SEO' },
+          href: '/services/seo-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'CRM intelligent', en: 'Smart CRM' },
+          href: '/services/crm-intelligent',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Lead scoring IA', en: 'AI lead scoring' },
+          href: '/services/lead-scoring-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       footer: {
@@ -193,18 +287,43 @@ const SOLUTIONS: MegaMenuSection = {
     {
       kicker: { fr: 'INTÉGRATION CLAUDE', en: 'CLAUDE INTEGRATION' },
       title: { fr: 'Intégration Claude', en: 'Claude integration' },
-      goal: { fr: 'Des agents IA sur vos outils', en: 'AI agents on your tools' },
-      quote: {
-        fr: '"Je veux automatiser mes workflows métier, sans POC qui dort."',
-        en: '"I want to automate my business workflows, no POC left to rot."',
-      },
+      goal: { fr: 'Standardiser, gagner du temps, exploiter le savoir', en: 'Standardize, save time, leverage knowledge' },
       links: [
         {
           label: { fr: 'Intégrateur Claude Code', en: 'Claude Code integrator' },
           href: '/services/integrateur-claude',
           description: { fr: 'Agents IA branchés sur vos outils via MCP, conçus et supervisés.', en: 'AI agents wired to your tools via MCP, built and supervised.' },
           badge: { fr: 'Offre phare', en: 'Flagship' },
-          featured: true,
+        },
+        {
+          label: { fr: 'Intégrateur Claude Code', en: 'Claude Code integrator' },
+          href: '/services/integrateur-claude-code',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Consultant Claude', en: 'Claude consultant' },
+          href: '/services/consultant-claude',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Référent IA', en: 'AI lead' },
+          href: '/services/referent-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Agents IA', en: 'AI agents' },
+          href: '/services/agents-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Gouvernance IA', en: 'AI governance' },
+          href: '/services/gouvernance-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       footer: {
@@ -213,24 +332,75 @@ const SOLUTIONS: MegaMenuSection = {
       },
     },
     {
-      kicker: { fr: 'PAR OÙ COMMENCER', en: 'WHERE TO START' },
-      title: { fr: 'Audits & offres', en: 'Audits & offers' },
-      goal: { fr: 'Cadrer avant d\'investir', en: 'Scope before investing' },
+      kicker: { fr: 'RÉSOUDRE UN PROBLÈME', en: 'SOLVE A PROBLEM' },
+      title: { fr: 'Résoudre un problème', en: 'Solve a problem' },
+      goal: { fr: 'Vous ne savez pas quel service choisir ?', en: 'Not sure which service to pick?' },
       links: [
         {
-          label: { fr: 'Audit de maturité IA', en: 'AI maturity audit' },
-          href: '/offres/audit-maturite-ia',
-          description: { fr: 'Où l\'IA crée de la valeur chez vous, en un diagnostic.', en: 'Where AI creates value for you, in one diagnostic.' },
+          label: { fr: 'Générer plus de leads', en: 'Generate more leads' },
+          href: '/cas-usages/generer-plus-de-leads',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
-          label: { fr: 'Toutes les offres', en: 'All offers' },
-          href: '/offres',
-          description: { fr: 'Le catalogue des systèmes packagés.', en: 'The catalog of packaged systems.' },
+          label: { fr: 'Réduire le temps dans le CMS', en: 'Cut time in the CMS' },
+          href: '/cas-usages/reduire-temps-cms',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Centraliser les données', en: 'Centralize data' },
+          href: '/cas-usages/centraliser-donnees',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Réduire le reporting', en: 'Reduce reporting' },
+          href: '/cas-usages/reduire-reporting',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Standardiser les processus', en: 'Standardize processes' },
+          href: '/cas-usages/standardiser-processus',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+      ],
+    },
+    {
+      kicker: { fr: 'PAR OÙ COMMENCER', en: 'WHERE TO START' },
+      title: { fr: 'Audits', en: 'Audits' },
+      goal: { fr: 'Une entrée plus simple qu\'un projet complet', en: 'An easier entry than a full project' },
+      links: [
+        {
+          label: { fr: 'Audit IA PME', en: 'SME AI audit' },
+          href: '/audit-ia-pme',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Audit Site Web Intelligent', en: 'Smart website audit' },
+          href: '/audit-site-web-intelligent',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' },
+          href: '/ressources/diagnostics/maturite-ia',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Diagnostic Site Web Intelligent', en: 'Smart website diagnostic' },
+          href: '/ressources/diagnostics/site-web-intelligent',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       footer: {
-        label: { fr: 'Toutes les offres →', en: 'All offers →' },
-        href: '/offres',
+        label: { fr: 'Réserver un audit →', en: 'Book an audit →' },
+        href: '/contact',
       },
     },
   ],
@@ -255,27 +425,60 @@ const CAS: MegaMenuSection = {
   parent: 'cas',
   label: { fr: 'Cas clients', en: 'Case studies' },
   parentHref: '/cas-clients',
-  matchPrefixes: ['/cas-clients'],
+  matchPrefixes: ['/cas-clients', '/secteurs', '/etudes-de-cas'],
   lead: {
-    fr: 'Cinq cas réels, résultats mesurés sur les données du client. Jamais de témoignage mis en scène.',
-    en: 'Five real cases, results measured on the client\'s data. Never a staged testimonial.',
+    fr: 'Rassurer par secteur, par résultat et par la preuve. ROI mesuré sur vos données, jamais inventé.',
+    en: 'Reassurance by industry, by result and by proof. ROI measured on your data, never invented.',
   },
   columns: [
     {
-      kicker: { fr: 'ÉTUDES DE CAS', en: 'CASE STUDIES' },
-      title: { fr: 'Études de cas', en: 'Case studies' },
-      goal: { fr: 'La preuve par les résultats', en: 'Proof by results' },
+      kicker: { fr: 'PAR SECTEUR', en: 'BY INDUSTRY' },
+      title: { fr: 'Par secteur', en: 'By industry' },
+      goal: { fr: 'La preuve par votre métier', en: 'Proof from your industry' },
       links: [
-        { label: { fr: 'Amploi · site marketing IA-ready', en: 'Amploi · AI-ready marketing site' }, href: '/cas-clients/amploi', description: { fr: 'Design system sur mesure, CRM HubSpot, couche GEO/AIO.', en: 'Custom design system, HubSpot CRM, GEO/AIO layer.' } },
-        { label: { fr: 'Balzeo · migration WordPress', en: 'Balzeo · WordPress migration' }, href: '/cas-clients/balzeo', description: { fr: 'Un site deux fois plus rapide.', en: 'A site twice as fast.' } },
-        { label: { fr: 'Desangles Peinture · SEO local', en: 'Desangles Peinture · local SEO' }, href: '/cas-clients/desangles-peinture', description: { fr: 'De la page 6 à la page 1 de Google.', en: 'From page 6 to page 1 on Google.' } },
-        { label: { fr: 'Isabelle Diaz · prise de RDV', en: 'Isabelle Diaz · bookings' }, href: '/cas-clients/isabelle-diaz-naturopathe', description: { fr: 'Une présence pensée pour le rendez-vous.', en: 'A presence designed for bookings.' } },
-        { label: { fr: 'Les Carnets de Montpellier · communauté', en: 'Les Carnets de Montpellier · community' }, href: '/cas-clients/les-carnets-de-montpellier', description: { fr: 'De zéro présence à une communauté payante.', en: 'From zero presence to a paying community.' } },
+        { label: { fr: 'Conseil', en: 'Consulting' }, href: '/secteurs/conseil', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Comptabilité', en: 'Accounting' }, href: '/secteurs/comptabilite', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Agence', en: 'Agency' }, href: '/secteurs/agence', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Industrie', en: 'Industry' }, href: '/secteurs/industrie', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Formation', en: 'Training' }, href: '/secteurs/formation', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'ESN', en: 'IT services firm' }, href: '/secteurs/esn', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
       ],
       footer: {
-        label: { fr: 'Tous les cas clients →', en: 'All case studies →' },
-        href: '/cas-clients',
+        label: { fr: 'Tous les secteurs →', en: 'All industries →' },
+        href: '/secteurs',
       },
+    },
+    {
+      kicker: { fr: 'ÉTUDES DE CAS', en: 'CASE STUDIES' },
+      title: { fr: 'Études de cas', en: 'Case studies' },
+      goal: { fr: 'Cinq cas réels, résultats mesurés', en: 'Five real cases, measured results' },
+      links: [
+        { label: { fr: 'Toutes les études de cas', en: 'All case studies' }, href: '/cas-clients', description: { fr: 'Cinq cas réels, ROI mesuré sur les données du client.', en: 'Five real cases, ROI measured on client data.' } },
+        { label: { fr: 'Site Web Intelligent', en: 'Smart website' }, href: '/etudes-de-cas/site-web-intelligent', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Intégration Claude', en: 'Claude integration' }, href: '/etudes-de-cas/integration-claude', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+      ],
+    },
+    {
+      kicker: { fr: 'RÉSULTATS OBTENUS', en: 'RESULTS' },
+      title: { fr: 'Résultats obtenus', en: 'Results achieved' },
+      goal: { fr: 'Trier par ce que vous cherchez', en: 'Sort by what you need' },
+      links: [
+        { label: { fr: 'Plus de leads', en: 'More leads' }, href: '/etudes-de-cas/resultats/plus-de-leads', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Réduction du temps marketing', en: 'Less marketing time' }, href: '/etudes-de-cas/resultats/reduction-temps-marketing', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Centralisation des données', en: 'Data centralization' }, href: '/etudes-de-cas/resultats/centralisation-donnees', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Automatisation des processus', en: 'Process automation' }, href: '/etudes-de-cas/resultats/automatisation-processus', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Meilleure qualification commerciale', en: 'Better sales qualification' }, href: '/etudes-de-cas/resultats/qualification-commerciale', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+      ],
+    },
+    {
+      kicker: { fr: 'PREUVES & DÉMOS', en: 'PROOF & DEMOS' },
+      title: { fr: 'Preuves & démonstrations', en: 'Proof & demos' },
+      goal: { fr: 'Voir le système en action', en: 'See the system in action' },
+      links: [
+        { label: { fr: 'Démo Site Web Intelligent', en: 'Smart website demo' }, href: '/demonstrations/site-web-intelligent', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Démo Intégration Claude', en: 'Claude integration demo' }, href: '/demonstrations/integration-claude', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Avant / Après', en: 'Before / After' }, href: '/demonstrations/avant-apres', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+      ],
     },
   ],
   featured: {
@@ -320,7 +523,7 @@ const AGENCE: MegaMenuSection = {
           featured: true,
         },
         {
-          label: { fr: 'Simon Beros · CV Founder', en: 'Simon Beros · Founder CV' },
+          label: { fr: 'Simon Beros · Fondateur', en: 'Simon Beros · Founder' },
           href: '/equipe/simon-beros',
           description: {
             fr: 'Architecture systèmes agentiques.',
@@ -330,38 +533,83 @@ const AGENCE: MegaMenuSection = {
       ],
     },
     {
-      kicker: { fr: 'MANIFESTE', en: 'MANIFESTO' },
-      title: { fr: 'Notre vision en action', en: 'Our vision in action' },
+      kicker: { fr: 'VISION', en: 'VISION' },
+      title: { fr: 'Notre vision', en: 'Our vision' },
       links: [
         {
           label: { fr: 'Manifesto', en: 'Manifesto' },
           href: '/manifesto',
           description: {
-            fr: 'Notre conviction : une IA opérationnelle, pas du théâtre.',
-            en: 'Our conviction: operational AI, not theatre.',
+            fr: 'Une IA opérationnelle, pas du théâtre.',
+            en: 'Operational AI, not theatre.',
           },
           featured: true,
         },
+        {
+          label: { fr: 'Process Intelligence', en: 'Process Intelligence' },
+          href: '/methode/process-intelligence',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Notre approche', en: 'Our approach' },
+          href: '/agence/methode',
+        },
       ],
-      // Footer « Ouvrir le design system → /agence/design-system » retiré 2026-06-16 :
-      // l'atelier DS migre sous /library (public mais non référencé → retiré du mega-menu,
-      // footer site only). Décision docs/design-system/03 §11.2 (sign-off Simon 2026-06-15).
     },
     {
       kicker: { fr: 'ÉCOSYSTÈME', en: 'ECOSYSTEM' },
-      title: { fr: 'Partenaires technologiques', en: 'Technology partners' },
-      goal: { fr: 'Stack éprouvée, partenaires certifiés', en: 'Proven stack, certified partners' },
+      title: { fr: 'Écosystème', en: 'Ecosystem' },
       links: [
         {
+          label: { fr: 'Partenaires technologiques', en: 'Technology partners' },
+          href: '/partenaires',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Stack & technologies', en: 'Stack & technologies' },
+          href: '/technologies',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
           label: { fr: 'Expertise Claude', en: 'Claude expertise' },
-          href: '/expertise-claude',
+          href: '/services/integrateur-claude',
           description: {
-            fr: 'Anthropic-first : Haiku, Sonnet, Opus, Code, un modèle par tâche.',
-            en: 'Anthropic-first: Haiku, Sonnet, Opus, Code, one model per task.',
+            fr: 'Anthropic-first : un modèle par tâche.',
+            en: 'Anthropic-first: one model per task.',
           },
-          featured: true,
         },
       ],
+    },
+    {
+      kicker: { fr: 'PRÉSENCE', en: 'PRESENCE' },
+      title: { fr: 'Présence', en: 'Presence' },
+      links: [
+        {
+          label: { fr: 'Montpellier', en: 'Montpellier' },
+          href: '/implantations/montpellier',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'France entière', en: 'All of France' },
+          href: '/implantations',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+        {
+          label: { fr: 'Bordeaux', en: 'Bordeaux' },
+          href: '/implantations/bordeaux',
+          soon: true,
+          badge: { fr: 'À venir', en: 'Soon' },
+        },
+      ],
+      footer: {
+        label: { fr: 'Réserver un audit →', en: 'Book an audit →' },
+        href: '/contact',
+      },
     },
   ],
   featured: {
