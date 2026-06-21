@@ -28,7 +28,7 @@ const isFr = lang === 'fr';
         </blockquote>
         <footer class="testimonial-block__footer">
           <Kicker tone="muted" size={10} class="testimonial-block__author">{t.author}</Kicker>
-          <Kicker tone="dim" size={10}>{isFr ? t.role_fr : t.role_en}{t.company ? ` · ${t.company}` : ''}</Kicker>
+          <Kicker tone="muted" size={10}>{isFr ? t.role_fr : t.role_en}{t.company ? ` · ${t.company}` : ''}</Kicker>
         </footer>
       </li>
     ))}

@@ -81,5 +81,12 @@ const consumerCount = getConsumers(type).length;
       <span class="ds-preview-usage ds-preview-usage--library">Bibliothèque</span>
     )}
     {C && demo ? <C data={demo} lang="fr" /> : <p style="font-family:monospace;padding:24px">Section inconnue : {type}</p>}
+    <script>
+      // Câble l'IntersectionObserver scroll-reveal (idem Base.astro l.176-182).
+      // Sans lui, toute section enrobée de .reveal (ex. FeatureZigzag) reste
+      // opacity:0 quand la preview est consultée directement (hors iframe forcée).
+      import { initScrollReveal } from '../../lib/animations/scroll-reveal';
+      initScrollReveal();
+    </script>
   </body>
 </html>

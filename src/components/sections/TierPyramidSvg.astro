@@ -24,14 +24,20 @@ const tiers = [
     role="img"
     aria-label={isFr ? data.aria_label_fr : data.aria_label_en}
   >
+    {/* Paliers remplis bas→haut : gradation paper neutre, sommet mis en avant en accent */}
+    <polygon class="tier-fill tier-fill--base" points="173,295 627,295 720,400 80,400" fill="var(--paper-2)" />
+    <polygon class="tier-fill tier-fill--mid" points="280,175 520,175 627,295 173,295" fill="var(--paper-3)" />
+    <polygon class="tier-fill tier-fill--top" points="400,40 280,175 520,175" fill="rgba(var(--accent-rgb), 0.12)" />
+
+    {/* Contour + arêtes de séparation (lisibles : stroke-width 1.5) */}
     <polygon
       points="400,40 80,400 720,400"
       fill="none"
       stroke="var(--ink)"
-      stroke-width="0.5"
+      stroke-width="1.5"
     />
-    <line x1="280" y1="175" x2="520" y2="175" stroke="var(--ink)" stroke-width="0.5" />
-    <line x1="173" y1="295" x2="627" y2="295" stroke="var(--ink)" stroke-width="0.5" />
+    <line x1="280" y1="175" x2="520" y2="175" stroke="var(--ink)" stroke-width="1.5" />
+    <line x1="173" y1="295" x2="627" y2="295" stroke="var(--ink)" stroke-width="1.5" />
 
     {tiers.map((tier) => (
       <>
@@ -50,7 +56,7 @@ const tiers = [
   }
   .pyramid-wrap svg {
     width: 100%;
-    max-width: 800px;
+    max-width: 640px;
     height: auto;
   }
 
@@ -67,4 +73,8 @@ const tiers = [
   .pyramid-wrap[data-bg='ink'] svg line[stroke='var(--ink)'] { stroke: rgba(var(--paper-rgb), 0.5); }
   .pyramid-wrap[data-bg='ink'] svg text[fill='var(--muted)'] { fill: rgba(var(--paper-rgb), 0.78); }
   .pyramid-wrap[data-bg='ink'] svg text[fill='var(--ink)'] { fill: var(--paper); }
+  /* Paliers sur fond ink : paper translucide gradue bas→haut, sommet accent conserve */
+  .pyramid-wrap[data-bg='ink'] svg .tier-fill--base { fill: rgba(var(--paper-rgb), 0.06); }
+  .pyramid-wrap[data-bg='ink'] svg .tier-fill--mid { fill: rgba(var(--paper-rgb), 0.12); }
+  .pyramid-wrap[data-bg='ink'] svg .tier-fill--top { fill: rgba(var(--accent-rgb), 0.22); }
 </style>
