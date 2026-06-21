@@ -10,6 +10,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-media-medallion'>;
@@ -30,7 +31,7 @@ const ctaSecondary = data.cta_secondary;
   <div class="wrap-wide hmm-grid">
     {/* Texte */}
     <div class="hmm-lead">
-      {kicker && <p class="hmm-kicker">{kicker}</p>}
+      {kicker && <Kicker as="p" tone="accent" class="hmm-kicker">{kicker}</Kicker>}
       <h1 class="hmm-title" set:html={h1} />
       <p class="hmm-lede">{lede}</p>
       <div class="hmm-ctas">
@@ -91,12 +92,7 @@ const ctaSecondary = data.cta_secondary;
 
     /* ── Colonne gauche ── */
     .hmm-lead { display: flex; flex-direction: column; }
-    .hmm-kicker {
-      font-family: var(--font-mono);
-      font-size: var(--text-small);
-      letter-spacing: var(--tracking-mono);
-      text-transform: uppercase;
-      color: var(--accent-text);
+    :global(.hmm-kicker) {
       margin: 0 0 var(--space-5);
     }
     .hmm-title {
@@ -182,7 +178,7 @@ const ctaSecondary = data.cta_secondary;
       /* Médaillon en bandeau court : il ne mange plus le 1er écran. */
       .hmm-medallion { padding: var(--space-6); }
       .hmm-medallion img { max-height: 30svh; }
-      .hmm-kicker { margin-bottom: var(--space-3); }
+      :global(.hmm-kicker) { margin-bottom: var(--space-3); }
       .hmm-title { margin-bottom: var(--space-4); }
       .hmm-lede { margin-bottom: var(--space-5); }
       .hmm-kpi { grid-template-columns: minmax(80px, 0.45fr) 1fr; gap: var(--space-4); }

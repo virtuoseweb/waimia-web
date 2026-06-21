@@ -9,6 +9,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-magazine-cover'>;
@@ -32,7 +33,7 @@ const ctaPrimary = data.cta_primary;
     )}
 
     <div class="hmc-cover">
-      {kicker && <p class="hmc-kicker">{kicker}</p>}
+      {kicker && <Kicker as="p" tone="accent" class="hmc-kicker">{kicker}</Kicker>}
       <h1 class="hmc-title" set:html={h1} />
       <span class="hmc-rule" aria-hidden="true"></span>
       {tagline && <p class="hmc-tagline">{tagline}</p>}
@@ -87,13 +88,8 @@ const ctaPrimary = data.cta_primary;
       align-items: center;
       text-align: center;
     }
-    .hmc-kicker {
+    :global(.hmc-kicker) {
       margin: 0 0 var(--space-6);
-      font-family: var(--font-mono);
-      font-size: var(--text-small);
-      letter-spacing: var(--tracking-caps);
-      text-transform: uppercase;
-      color: var(--accent-text);
     }
     .hmc-title {
       margin: 0;

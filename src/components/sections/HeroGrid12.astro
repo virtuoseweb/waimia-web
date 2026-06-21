@@ -10,6 +10,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-grid-12'>;
@@ -28,7 +29,7 @@ const ctaSecondary = data.cta_secondary;
 <section class="hg12" data-bg={data.background === 'ink' ? 'ink' : undefined}>
   <div class="wrap-wide hg12-grid">
     {/* Rangée 1 : kicker + sigle */}
-    {kicker && <p class="hg12-kicker">{kicker}</p>}
+    {kicker && <Kicker as="p" tone="accent" class="hg12-kicker">{kicker}</Kicker>}
     {data.sigil && (
       <div class="hg12-sig" aria-hidden="true">
         <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,14 +86,9 @@ const ctaSecondary = data.cta_secondary;
     }
 
     /* ── Rangée 1 ── */
-    .hg12-kicker {
+    :global(.hg12-kicker) {
       grid-column: 1 / 7;
       align-self: center;
-      font-family: var(--font-mono);
-      font-size: var(--text-small);
-      letter-spacing: var(--tracking-mono);
-      text-transform: uppercase;
-      color: var(--accent-text);
       margin: 0;
       padding-bottom: var(--space-5);
       border-bottom: 1px solid var(--hairline);
@@ -176,14 +172,14 @@ const ctaSecondary = data.cta_secondary;
 
     @media (max-width: 900px) {
       .hg12-grid { grid-template-columns: 1fr; gap: var(--space-6); }
-      .hg12-kicker,
+      :global(.hg12-kicker),
       .hg12-sig,
       .hg12-title,
       .hg12-lede,
       .hg12-bullets,
       .hg12-ctas { grid-column: 1 / -1; }
       .hg12-sig { justify-self: start; border-bottom: none; padding-bottom: 0; }
-      .hg12-kicker { border-bottom: none; padding-bottom: 0; }
+      :global(.hg12-kicker) { border-bottom: none; padding-bottom: 0; }
       .hg12-title { padding: var(--space-4) 0; }
       .hg12-ctas { align-items: flex-start; }
       .hg12-ctas :global(.btn) { width: 100%; }

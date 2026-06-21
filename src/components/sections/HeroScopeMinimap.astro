@@ -11,6 +11,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-scope-minimap'>;
@@ -41,7 +42,7 @@ const minimap = data.minimap;
   <div class="wrap-wide z2__inner">
     <div class="z2__grid">
       <div class="z2__main">
-        {kicker && <p class="z2__fig">{kicker}</p>}
+        {kicker && <Kicker as="p" tone="accent" class="z2__fig">{kicker}</Kicker>}
         <h1 class="z2__title" set:html={h1} />
         <p class="z2__lede" set:html={lede} />
 
@@ -109,12 +110,7 @@ const minimap = data.minimap;
 
   .z2__inner { width: 100%; }
 
-  .z2__fig {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent-text);
+  :global(.z2__fig) {
     margin: 0 0 var(--space-4);
   }
 

@@ -28,7 +28,7 @@ const tshKicker =
 ---
 {data.type === 'tunnel-step-hero' ? (
 <section class="tunnel-step-hero wrap-wide">
-  <p class="tunnel-step-hero__kicker">{tshKicker}</p>
+  <Kicker as="p" tone="accent" letterSpacing=".10em" class="tunnel-step-hero__kicker">{tshKicker}</Kicker>
   <div
     class="tunnel-step-hero__progress"
     aria-label={isFr
@@ -144,14 +144,9 @@ const tshKicker =
     padding-inline: var(--gut);
   }
 
-  /* ── Kicker ── */
-  .tunnel-step-hero__kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
+  /* ── Kicker · typo portée par l'atome Kicker (R4) ── */
+  :global(.tunnel-step-hero__kicker) {
     line-height: 1;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--accent-text);
     margin-bottom: var(--space-6);
     padding-top: var(--space-11);
   }

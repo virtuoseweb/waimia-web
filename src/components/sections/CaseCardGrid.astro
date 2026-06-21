@@ -4,6 +4,7 @@
 // Markup + style = copie VERBATIM de `Cases.astro` (Acte IV — Les preuves, 4 dossiers).
 import { getCollection } from 'astro:content';
 import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
@@ -65,7 +66,7 @@ const emptyBody = isFr
 
     {isEmpty ? (
       <div class="cases-empty reveal">
-        <div class="cases-empty__kicker">§ {emptyKicker}</div>
+        <Kicker tone="accent" class="cases-empty__kicker">§ {emptyKicker}</Kicker>
         <p class="cases-empty__body">{emptyBody}</p>
       </div>
     ) : (
@@ -131,7 +132,7 @@ const emptyBody = isFr
   /* GAP-B · état vide honnête (< 2 cas) · tokens DS uniquement (parité avec l'ancien
      .sector-cases-empty de SecteurHubTemplate). */
   .cases-empty{border-top:1px solid var(--hairline);padding-top:var(--space-7)}
-  .cases-empty__kicker{font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin-bottom:var(--space-3)}
+  :global(.cases-empty__kicker){margin-bottom:var(--space-3)}
   .cases-empty__body{font-size:var(--text-h3);line-height:1.6;color:var(--muted);margin:0;max-width:820px;text-wrap:pretty}
 
   @media (max-width:1100px){

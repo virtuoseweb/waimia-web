@@ -10,6 +10,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-editorial-kpi'>;
@@ -40,7 +41,7 @@ const kpis = data.kpis;
   <div class="wrap-wide z1__inner">
     <div class="z1__grid">
       <div class="z1__main">
-        {kicker && <p class="z1__fig">{kicker}</p>}
+        {kicker && <Kicker as="p" tone="accent" class="z1__fig">{kicker}</Kicker>}
         <h1 class="z1__title" set:html={h1} />
         <p class="z1__lede" set:html={lede} />
 
@@ -108,12 +109,7 @@ const kpis = data.kpis;
 
   .z1__inner { width: 100%; }
 
-  .z1__fig {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent-text);
+  :global(.z1__fig) {
     margin: 0 0 var(--space-4);
   }
 

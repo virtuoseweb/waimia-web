@@ -11,6 +11,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-thin-media'>;
@@ -41,7 +42,7 @@ const ctaSecondary = data.cta_secondary;
   <div class="wrap-wide z3__inner">
     <div class="z3__grid">
       <div class="z3__main">
-        {kicker && <p class="z3__fig">{kicker}</p>}
+        {kicker && <Kicker as="p" tone="accent" class="z3__fig">{kicker}</Kicker>}
         <h1 class="z3__title" set:html={h1} />
         <p class="z3__lede" set:html={lede} />
 
@@ -109,12 +110,7 @@ const ctaSecondary = data.cta_secondary;
 
   .z3__inner { width: 100%; }
 
-  .z3__fig {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent-text);
+  :global(.z3__fig) {
     margin: 0 0 var(--space-4);
   }
 

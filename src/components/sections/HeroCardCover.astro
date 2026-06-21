@@ -10,6 +10,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-card-cover'>;
@@ -32,7 +33,7 @@ const ctaSecondary = data.cta_secondary;
     <div class="hcc-grid">
       {/* Discours éditorial */}
       <div class="hcc-discourse">
-        {kicker && <p class="hcc-kicker">{kicker}</p>}
+        {kicker && <Kicker as="p" tone="accent" class="hcc-kicker">{kicker}</Kicker>}
         <h1 class="hcc-title" set:html={h1} />
         <p class="hcc-lede">{lede}</p>
 
@@ -102,13 +103,8 @@ const ctaSecondary = data.cta_secondary;
     }
     .hcc-col { min-width: 0; }
 
-    .hcc-kicker {
+    :global(.hcc-kicker) {
       margin: 0 0 var(--space-5);
-      font-family: var(--font-mono);
-      font-size: var(--text-small);
-      letter-spacing: var(--tracking-mono);
-      text-transform: uppercase;
-      color: var(--accent-text);
     }
     .hcc-title {
       margin: 0 0 var(--space-5);
@@ -221,7 +217,7 @@ const ctaSecondary = data.cta_secondary;
       .hcc-card { padding: var(--space-6); gap: var(--space-5); }
       .hcc-card-media img { max-height: 30svh; }
       .hcc-title { font-size: var(--text-h1); margin-bottom: var(--space-4); }
-      .hcc-kicker { margin-bottom: var(--space-3); }
+      :global(.hcc-kicker) { margin-bottom: var(--space-3); }
       .hcc-lede { margin-bottom: var(--space-5); }
       .hcc-badges { margin-bottom: var(--space-5); }
       .hcc-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }

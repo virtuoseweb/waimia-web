@@ -9,6 +9,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-stack-rhythm'>;
@@ -42,7 +43,7 @@ const ctaSecondary = data.cta_secondary;
         </nav>
       )}
 
-      {kicker && <p class="hsr-kicker">{kicker}</p>}
+      {kicker && <Kicker as="p" tone="accent" class="hsr-kicker">{kicker}</Kicker>}
 
       <h1 class="hsr-title" set:html={h1} />
 
@@ -120,13 +121,8 @@ const ctaSecondary = data.cta_secondary;
     .hsr-crumbs a:hover { color: var(--accent-text); }
     .hsr-sep { color: var(--hairline-strong); }
 
-    .hsr-kicker {
+    :global(.hsr-kicker) {
       margin: 0 0 var(--space-5);
-      font-family: var(--font-mono);
-      font-size: var(--text-small);
-      letter-spacing: var(--tracking-mono);
-      text-transform: uppercase;
-      color: var(--accent-text);
     }
     .hsr-title {
       margin: 0 0 var(--space-7);

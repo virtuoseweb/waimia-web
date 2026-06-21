@@ -9,6 +9,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-centered-band'>;
@@ -28,7 +29,7 @@ const ctaSecondary = data.cta_secondary;
   <div class="wrap-wide">
     {/* Bloc héro centré */}
     <div class="hcb-hero">
-      {kicker && <p class="hcb-kicker">{kicker}</p>}
+      {kicker && <Kicker as="p" tone="accent" class="hcb-kicker">{kicker}</Kicker>}
       <h1 class="hcb-title" set:html={h1} />
       <p class="hcb-lede">{lede}</p>
       <div class="hcb-ctas">
@@ -83,12 +84,7 @@ const ctaSecondary = data.cta_secondary;
       text-align: center;
       margin-bottom: var(--space-9);
     }
-    .hcb-kicker {
-      font-family: var(--font-mono);
-      font-size: var(--text-small);
-      letter-spacing: var(--tracking-mono);
-      text-transform: uppercase;
-      color: var(--accent-text);
+    :global(.hcb-kicker) {
       margin: 0 0 var(--space-5);
     }
     .hcb-title {

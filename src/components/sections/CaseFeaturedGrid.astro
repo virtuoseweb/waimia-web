@@ -5,6 +5,7 @@
 // orphelin inliné dans `src/pages/cas-clients/index.astro` (.cas-grid 7fr/5fr, .cas-card--featured,
 // .cas-card--row), catalogué ici comme source de vérité. Double-label provenance (docs/strategy/03 §5).
 import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'case-featured-grid'>;
@@ -39,7 +40,7 @@ const [featured, ...rest] = items;
   <section class="cas-grid-outer wrap-wide" data-bg={data.background}>
     <div class="cas-grid reveal-stagger">
       <a href={featured.href} class="cas-card cas-card--featured">
-        <div class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector}{featured.duration ? ` · ${featured.duration}` : ''}</div>
+        <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">§ Case {featured.caseNum} · {featured.sector}{featured.duration ? ` · ${featured.duration}` : ''}</Kicker>
         <span class="cas-card-provenance">{provenanceLabel(featured.firstParty)}</span>
         <h2 class="cas-card-title">{featured.title}</h2>
         <p class="cas-card-headline">{featured.headline}</p>
@@ -61,7 +62,7 @@ const [featured, ...rest] = items;
           <a href={c.href} class="cas-card cas-card--row">
             <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
             <div class="cas-card-body">
-              <div class="cas-card-kicker">§ {c.sector}{c.duration ? ` · ${c.duration}` : ''}</div>
+              <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">§ {c.sector}{c.duration ? ` · ${c.duration}` : ''}</Kicker>
               <span class="cas-card-provenance">{provenanceLabel(c.firstParty)}</span>
               <h2 class="cas-card-title">{c.title}</h2>
               <p class="cas-card-headline">{c.headline}</p>
@@ -155,13 +156,7 @@ const [featured, ...rest] = items;
     padding-left: var(--space-5);
   }
   .cas-card-body .cas-card-headline { flex: 0 1 auto; }
-  .cas-card-kicker {
-    font-family: var(--font-mono, monospace);
-    font-size: var(--text-small);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
+  .cas-card-kicker { }
   .cas-card-provenance {
     font-family: var(--font-mono, monospace);
     font-size: var(--text-small);

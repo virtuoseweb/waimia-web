@@ -10,6 +10,7 @@
  */
 import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
+import Kicker from '../ui/atoms/Kicker.astro';
 
 interface Props {
   data: SectionByType<'hero-baseline-stats'>;
@@ -28,7 +29,7 @@ const ctaSecondary = data.cta_secondary;
 <section class="hbs" data-bg={data.background === 'ink' ? 'ink' : undefined}>
   <div class="wrap-wide hbs-stack">
     <div class="hbs-head">
-      {kicker && <p class="hbs-kicker">{kicker}</p>}
+      {kicker && <Kicker as="p" tone="accent" class="hbs-kicker">{kicker}</Kicker>}
       <h1 class="hbs-title" set:html={h1} />
       <p class="hbs-lede">{lede}</p>
       {ctaPrimary && (
@@ -82,12 +83,7 @@ const ctaSecondary = data.cta_secondary;
     }
     .hbs-head { max-width: 22ch; }
 
-    .hbs-kicker {
-      font-family: var(--font-mono);
-      font-size: var(--text-small);
-      letter-spacing: var(--tracking-mono);
-      text-transform: uppercase;
-      color: var(--accent-text);
+    :global(.hbs-kicker) {
       margin: 0 0 var(--space-5);
     }
     .hbs-title {
