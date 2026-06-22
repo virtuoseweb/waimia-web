@@ -290,7 +290,7 @@ const SOLUTIONS: MegaMenuSection = {
       goal: { fr: 'Standardiser, gagner du temps, exploiter le savoir', en: 'Standardize, save time, leverage knowledge' },
       links: [
         {
-          label: { fr: 'Intégrateur Claude Code', en: 'Claude Code integrator' },
+          label: { fr: 'Intégrateur Claude', en: 'Claude integrator' },
           href: '/services/integrateur-claude',
           description: { fr: 'Agents IA branchés sur vos outils via MCP, conçus et supervisés.', en: 'AI agents wired to your tools via MCP, built and supervised.' },
           badge: { fr: 'Offre phare', en: 'Flagship' },
@@ -298,8 +298,7 @@ const SOLUTIONS: MegaMenuSection = {
         {
           label: { fr: 'Intégrateur Claude Code', en: 'Claude Code integrator' },
           href: '/services/integrateur-claude-code',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'Claude Code dans vos dépôts : hooks, guardrails et revue assistée.', en: 'Claude Code in your repos: hooks, guardrails and assisted review.' },
         },
         {
           label: { fr: 'Consultant Claude', en: 'Claude consultant' },
@@ -308,14 +307,12 @@ const SOLUTIONS: MegaMenuSection = {
         {
           label: { fr: 'Référent IA', en: 'AI lead' },
           href: '/services/referent-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'Formez la personne qui pilote l\'IA en interne et rend vos équipes autonomes.', en: 'Train the person who drives AI in-house and makes your teams autonomous.' },
         },
         {
           label: { fr: 'Agents IA', en: 'AI agents' },
           href: '/services/agents-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'Des agents autonomes qui exécutent vos tâches répétitives, sous supervision.', en: 'Autonomous agents that carry out your repetitive tasks, under supervision.' },
         },
         {
           label: { fr: 'Gouvernance IA', en: 'AI governance' },
