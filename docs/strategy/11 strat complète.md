@@ -1,5 +1,12 @@
 Strat complète Waimia
 
+> ADDENDUM 2026-06-22 (V7-FOLD, pivot Simon) — SUPERSEDE l'architecture « services satellites » (§ Niveau 2, « 9 services Phase 1 ») partout où elle apparaît ci-dessous. Décision : RÉDUIRE le nombre de pages service. Les sous-capacités ne sont plus des pages autonomes mais des SECTIONS `feature-zigzag` dans leur page parente (briques avec ancres `#capacites`/`#capacites-2`). Architecture cible = 6 pages service (nav Solutions cols 1-2) :
+> - Col 1 (acquisition) : `site-web-intelligent` · `landing-page-scoring` (← tunnel-conversion-intelligent + 301, absorbe le scoring) · `maintenance-growth`.
+> - Col 2 (productivité) : `integrateur-claude` (absorbe Claude Code + référent IA + gouvernance) · `consultant-ia-claude` (← consultant-claude) · `agents-ia`.
+> - `content-marketing-intelligent` reste une page dédiée indexée (liée depuis la brique « Content Marketing » de site-web-intelligent, hors nav).
+> Supprimés (repliés en briques, jamais indexés donc 0 301) : integrateur-claude-code, referent-ia, gouvernance-ia, crm-intelligent, lead-scoring-ia, geo, seo-ia.
+> Cols 3-4 nav (Résoudre un problème = cas-usages ; Audits) restent `soon` jusqu'aux Phases B/C. Livré sur `feat/v7-foundations` (commit 7a3bace), GATE preview Vercel avant merge main. Détail exécution : `~/.claude/plans/flickering-squishing-eagle.md`.
+
 Waimia — Architecture SEO/GEO 
 Objectif stratégique
 Construire un site B2B capable de :
@@ -65,27 +72,29 @@ Ces termes sont utiles en interne, mais trop abstraits pour une PME.
 
 3. Mega menu — Solutions
 Objectif : montrer ce que Waimia vend et orienter par offre ou par problème.
-Colonne 1 — Site Web Intelligent
+Colonne 1 — 
+* Site Web Intelligent
 Sous-texte :
 Générer plus de leads et réduire le temps passé par l’équipe marketing.
-Liens :
-* Site Web Intelligent /services/site-web-intelligent
-* Content Marketing Intelligent /services/content-marketing-intelligent
-* GEO /services/geo
-* SEO IA /services/seo-ia
-* CRM Intelligent /services/crm-intelligent
-* Lead Scoring IA /services/lead-scoring-ia
+
+section spéciale (design (logotype, branding, direction artistique, web design, product design, landing page), puis intégration (crm,migration, outils sur mesure, chatbot IA) section spéciale content marketing intelligent, réduction temps crm, puis tunnel de qualification intelligent puis maintenance et growth (tracking,seo,geo,reporting et maintenance avec forfait horaire) 
+* Maintenance & growth : Faire évoluer son site web après
+  -SEO/GEO /services/maintenance/seo-geo
+
+* Tunnel de qualification intelligent  /services/landing-page-scoring
+        section : lead magnet, tracking,scoring, A/B test, copywriting, landing page, séquence email. Nous travaillons avec une agence partenaire pour la publicité afin de rester concentrer sur la partie technique et notre domaine d'expertise.
 
 Colonne 2 — Intégration Claude
 Sous-texte :
 Standardiser les processus, gagner du temps et mieux exploiter la connaissance interne.
 Liens :
-* Intégrateur Claude /services/integrateur-claude
-* Intégrateur Claude Code /services/integrateur-claude-code
-* Consultant Claude /services/consultant-claude
-* Référent IA /services/referent-ia
+* Intégrateur Claude /services/integrateur-claude (avec section cowork, claude code, claude agents managed, notre méthode devenir un referent ia pour votre orga, et faire monter en compétence un membre de votre équipe.
+* Consultant Claude /services/consultant-ia-claude
 * Agents IA /services/agents-ia
-* Gouvernance IA /services/gouvernance-ia
+        section spéciale : intégration chat bot IA
+        section spéciale : intégration MCP
+        section spéciale : workflow
+        section spéciale : Agent métier 
 
 Colonne 3 — Résoudre un problème
 Objectif : orienter les visiteurs qui ne savent pas quel service choisir.
@@ -107,7 +116,6 @@ Liens :
 * Diagnostic Site Web Intelligent /ressources/diagnostics/site-web-intelligent
 CTA :
 * Réserver un audit /contact
-
 4. Mega menu — Cas clients
 Objectif : rassurer par secteur, preuve et résultat.
 Colonne 1 — Par secteur
