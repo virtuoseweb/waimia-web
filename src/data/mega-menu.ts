@@ -267,14 +267,12 @@ const SOLUTIONS: MegaMenuSection = {
         {
           label: { fr: 'CRM intelligent', en: 'Smart CRM' },
           href: '/services/crm-intelligent',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'Une base client qui s\'enrichit et se met à jour seule.', en: 'A client base that enriches and updates itself.' },
         },
         {
           label: { fr: 'Lead scoring IA', en: 'AI lead scoring' },
           href: '/services/lead-scoring-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'Notez et priorisez vos leads : rappelez les bons d\'abord.', en: 'Score and prioritise your leads: call the right ones first.' },
         },
       ],
       footer: {
