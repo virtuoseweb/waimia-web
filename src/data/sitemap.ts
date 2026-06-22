@@ -56,7 +56,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       items: [
         { href: '/services/content-marketing-intelligent', label: { en: 'Smart content marketing', fr: 'Content marketing intelligent' }, lead: { en: 'Editorial line + SEO/GEO found by Google AND AI engines.', fr: 'Ligne éditoriale + SEO/GEO trouvés par Google ET les IA.' } },
         { href: '/services/site-web-intelligent', label: { en: 'Smart website', fr: 'Site web intelligent' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
-        { href: '/services/tunnel-conversion-intelligent', label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
+        { href: '/services/landing-page-scoring', label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
         { href: '/acquerir#publicite', label: { en: 'Online advertising', fr: 'Publicité en ligne' }, lead: { en: 'ROI-driven campaigns, without waste.', fr: 'Campagnes pilotées au ROI, sans gaspillage.' } },
         { href: '/acquerir#agent-marketing', label: { en: 'Marketing & sales agent', fr: 'Agent marketing & commercial' }, lead: { en: 'An agent that prospects and follows up continuously.', fr: 'Un agent qui prospecte et relance en continu.' } },
       ],
@@ -316,7 +316,7 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Smart content marketing', fr: 'Content marketing intelligent' },
       },
       {
-        href: '/services/tunnel-conversion-intelligent',
+        href: '/services/landing-page-scoring',
         label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' },
       },
       { href: '/acquerir', label: { en: 'Acquire →', fr: 'Acquérir →' } },

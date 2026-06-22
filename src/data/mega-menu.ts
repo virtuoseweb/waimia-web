@@ -222,12 +222,16 @@ const RESSOURCES: MegaMenuSection = {
   featured: MM_RESOURCES.featured ? mapLegacyFeatured(MM_RESOURCES.featured) : undefined,
 };
 
-// ─── SOLUTIONS · reframe v7 par OFFRE (strategy/10 §4) : on abandonne le cadrage
-// piliers Acquérir/Piloter/Opérer dans la nav publique (strategy/10 l.17). 3 colonnes :
-// Site Web Intelligent (offre + services qui la composent) · Intégration Claude (flagship
-// SEO #1) · Audits & offres (par où commencer). Liens 100% réels + indexables (4 services
-// noindex:false + 2 offres réelles). Featured = Growth System IA. matchPrefixes conserve
-// l'état actif sur /services, /offres et les piliers (encore vivants jusqu'à V0.3).
+// ─── SOLUTIONS · refonte Phase 1 V7-FOLD 2026-06-22 : on REDUIT le nombre de pages
+// service. Les sous-capacités ne sont plus des pages satellites mais des sections
+// `feature-zigzag` DANS leur page parente. 4 colonnes : Site web intelligent (3 pages :
+// site-web-intelligent, landing-page-scoring, maintenance-growth) · Intégration Claude
+// (3 pages : integrateur-claude, consultant-ia-claude, agents-ia) · Résoudre un problème
+// (cas-usages, soon) · Audits (soon). Les ex-satellites (geo, seo-ia, crm-intelligent,
+// lead-scoring-ia, integrateur-claude-code, referent-ia, gouvernance-ia) sont repliés en
+// sections et retirés de la nav. content-marketing-intelligent reste une page indexée,
+// atteinte depuis la brique « Content Marketing » de site-web-intelligent (hors nav).
+// Liens cols 1-2 = 100% réels + indexables. Featured = Growth System IA.
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
@@ -250,29 +254,14 @@ const SOLUTIONS: MegaMenuSection = {
           badge: { fr: 'Offre phare', en: 'Flagship' },
         },
         {
-          label: { fr: 'Content marketing intelligent', en: 'Smart content marketing' },
-          href: '/services/content-marketing-intelligent',
-          description: { fr: 'Une machine éditoriale trouvée par Google ET les IA.', en: 'An editorial machine found by Google AND AI.' },
+          label: { fr: 'Tunnel de qualification intelligent', en: 'Smart qualification funnel' },
+          href: '/services/landing-page-scoring',
+          description: { fr: 'Landing pages qui convertissent et scoring qui priorise vos leads.', en: 'Landing pages that convert and scoring that prioritises your leads.' },
         },
         {
-          label: { fr: 'GEO', en: 'GEO' },
-          href: '/services/geo',
-          description: { fr: 'Être cité par ChatGPT, Perplexity et les réponses IA.', en: 'Get cited by ChatGPT, Perplexity and AI answers.' },
-        },
-        {
-          label: { fr: 'SEO IA', en: 'AI SEO' },
-          href: '/services/seo-ia',
-          description: { fr: 'Référencement Google classique, accéléré et piloté par l\'IA.', en: 'Classic Google SEO, accelerated and AI-driven.' },
-        },
-        {
-          label: { fr: 'CRM intelligent', en: 'Smart CRM' },
-          href: '/services/crm-intelligent',
-          description: { fr: 'Une base client qui s\'enrichit et se met à jour seule.', en: 'A client base that enriches and updates itself.' },
-        },
-        {
-          label: { fr: 'Lead scoring IA', en: 'AI lead scoring' },
-          href: '/services/lead-scoring-ia',
-          description: { fr: 'Notez et priorisez vos leads : rappelez les bons d\'abord.', en: 'Score and prioritise your leads: call the right ones first.' },
+          label: { fr: 'Maintenance & growth', en: 'Maintenance & growth' },
+          href: '/services/maintenance-growth',
+          description: { fr: 'Faire vivre et croître le site après la mise en ligne, au forfait.', en: 'Keep the site alive and growing after launch, on a retainer.' },
         },
       ],
       footer: {
@@ -288,32 +277,18 @@ const SOLUTIONS: MegaMenuSection = {
         {
           label: { fr: 'Intégrateur Claude', en: 'Claude integrator' },
           href: '/services/integrateur-claude',
-          description: { fr: 'Agents IA branchés sur vos outils via MCP, conçus et supervisés.', en: 'AI agents wired to your tools via MCP, built and supervised.' },
+          description: { fr: 'Claude en entreprise, Claude Code, gouvernance et formation, en production.', en: 'Claude in the enterprise, Claude Code, governance and training, in production.' },
           badge: { fr: 'Offre phare', en: 'Flagship' },
         },
         {
-          label: { fr: 'Intégrateur Claude Code', en: 'Claude Code integrator' },
-          href: '/services/integrateur-claude-code',
-          description: { fr: 'Claude Code dans vos dépôts : hooks, guardrails et revue assistée.', en: 'Claude Code in your repos: hooks, guardrails and assisted review.' },
-        },
-        {
-          label: { fr: 'Consultant Claude', en: 'Claude consultant' },
-          href: '/services/consultant-claude',
-        },
-        {
-          label: { fr: 'Référent IA', en: 'AI lead' },
-          href: '/services/referent-ia',
-          description: { fr: 'Formez la personne qui pilote l\'IA en interne et rend vos équipes autonomes.', en: 'Train the person who drives AI in-house and makes your teams autonomous.' },
+          label: { fr: 'Consultant IA Claude', en: 'Claude AI consultant' },
+          href: '/services/consultant-ia-claude',
+          description: { fr: 'Auditer, cadrer et prioriser vos cas d\'usage IA, puis les faire adopter.', en: 'Audit, frame and prioritise your AI use cases, then drive adoption.' },
         },
         {
           label: { fr: 'Agents IA', en: 'AI agents' },
           href: '/services/agents-ia',
-          description: { fr: 'Des agents autonomes qui exécutent vos tâches répétitives, sous supervision.', en: 'Autonomous agents that carry out your repetitive tasks, under supervision.' },
-        },
-        {
-          label: { fr: 'Gouvernance IA', en: 'AI governance' },
-          href: '/services/gouvernance-ia',
-          description: { fr: 'Politique d\'usage, sécurité des données et conformité de l\'IA.', en: 'Usage policy, data security and AI compliance.' },
+          description: { fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision.', en: 'Autonomous agents wired to your tools via MCP, under supervision.' },
         },
       ],
       footer: {

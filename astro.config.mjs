@@ -100,6 +100,10 @@ export default defineConfig({
     '/agence/design-system': '/library',
     '/agence/ds-studio': '/library/studio',
     '/agence/hero-lab': '/library/hero-lab',
+    // V7-FOLD 2026-06-22 · refonte Phase 1 : la page service /tunnel-conversion-intelligent
+    // (prod-live, indexée) est renommée /landing-page-scoring et absorbe le scoring.
+    // 301 obligatoire pour préserver le ranking de l'ancienne URL.
+    '/services/tunnel-conversion-intelligent': '/services/landing-page-scoring',
   },
   integrations: [
     react(),
