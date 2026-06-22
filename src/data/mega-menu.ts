@@ -257,14 +257,12 @@ const SOLUTIONS: MegaMenuSection = {
         {
           label: { fr: 'GEO', en: 'GEO' },
           href: '/services/geo',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'Être cité par ChatGPT, Perplexity et les réponses IA.', en: 'Get cited by ChatGPT, Perplexity and AI answers.' },
         },
         {
           label: { fr: 'SEO IA', en: 'AI SEO' },
           href: '/services/seo-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'Référencement Google classique, accéléré et piloté par l\'IA.', en: 'Classic Google SEO, accelerated and AI-driven.' },
         },
         {
           label: { fr: 'CRM intelligent', en: 'Smart CRM' },
@@ -317,8 +315,7 @@ const SOLUTIONS: MegaMenuSection = {
         {
           label: { fr: 'Gouvernance IA', en: 'AI governance' },
           href: '/services/gouvernance-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: { fr: 'Politique d\'usage, sécurité des données et conformité de l\'IA.', en: 'Usage policy, data security and AI compliance.' },
         },
       ],
       footer: {
