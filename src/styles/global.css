@@ -900,12 +900,11 @@ a:not([class]):hover,
   height: 100%;
   object-fit: cover;
 }
+/* V7-FOLD 2026-06-22 : CTA du panneau featured (audit) mis en avant = bouton DS
+   (.btn .btn-primary portés en HTML). Ici, positionnement seul (le visuel vient du DS). */
 .mega-featured .cta {
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-  letter-spacing: var(--tracking-mono);
-  color: var(--accent-text);
-  margin-top: 6px;
+  align-self: flex-start;
+  margin-top: var(--space-1);
 }
 
 .mega-bottom {

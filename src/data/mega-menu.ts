@@ -227,7 +227,8 @@ const RESSOURCES: MegaMenuSection = {
 // `feature-zigzag` DANS leur page parente. 4 colonnes : Site web intelligent (3 pages :
 // site-web-intelligent, landing-page-scoring, maintenance-growth) · Intégration Claude
 // (3 pages : integrateur-claude, consultant-ia-claude, agents-ia) · Résoudre un problème
-// (cas-usages, soon) · Audits (soon). Les ex-satellites (geo, seo-ia, crm-intelligent,
+// (cas-usages, soon). La colonne Audits est supprimée → le panneau featured devient le
+// PANNEAU AUDIT (image stylée + CTA bouton vers /contact). Les ex-satellites (geo, seo-ia, crm-intelligent,
 // lead-scoring-ia, integrateur-claude-code, referent-ia, gouvernance-ia) sont repliés en
 // sections et retirés de la nav. content-marketing-intelligent reste une page indexée,
 // atteinte depuis la brique « Content Marketing » de site-web-intelligent (hors nav).
@@ -333,51 +334,19 @@ const SOLUTIONS: MegaMenuSection = {
         },
       ],
     },
-    {
-      kicker: { fr: 'PAR OÙ COMMENCER', en: 'WHERE TO START' },
-      title: { fr: 'Audits', en: 'Audits' },
-      goal: { fr: 'Une entrée plus simple qu\'un projet complet', en: 'An easier entry than a full project' },
-      links: [
-        {
-          label: { fr: 'Audit IA PME', en: 'SME AI audit' },
-          href: '/audit-ia-pme',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'Audit Site Web Intelligent', en: 'Smart website audit' },
-          href: '/audit-site-web-intelligent',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' },
-          href: '/ressources/diagnostics/maturite-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'Diagnostic Site Web Intelligent', en: 'Smart website diagnostic' },
-          href: '/ressources/diagnostics/site-web-intelligent',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-      ],
-      footer: {
-        label: { fr: 'Réserver un audit →', en: 'Book an audit →' },
-        href: '/contact',
-      },
-    },
   ],
+  // V7-FOLD 2026-06-22 (Simon) : colonne « Audits » supprimée. Le panneau featured
+  // n'est plus l'offre Growth System IA mais le PANNEAU AUDIT, avec le visuel stylé
+  // conservé et un CTA mis en avant (bouton) vers la prise de rendez-vous (/contact).
   featured: {
-    kicker: { fr: 'OFFRE VEDETTE', en: 'FLAGSHIP OFFER' },
-    label: { fr: 'Growth System IA', en: 'AI Growth System' },
+    kicker: { fr: 'PAR OÙ COMMENCER', en: 'WHERE TO START' },
+    label: { fr: 'Audit système marketing et process interne', en: 'Marketing system and internal process audit' },
     body: {
-      fr: 'Le système complet d\'acquisition et de conversion, automatisé de bout en bout.',
-      en: 'The complete acquisition and conversion system, automated end to end.',
+      fr: 'Un état des lieux de votre acquisition, de votre conversion et de vos process internes. L\'entrée la plus simple pour savoir par où commencer.',
+      en: 'A review of your acquisition, your conversion and your internal processes. The simplest way to know where to start.',
     },
-    cta: { fr: 'Découvrir l\'offre →', en: 'Explore the offer →' },
-    href: '/offres/growth-system-ia',
+    cta: { fr: 'Prendre rendez-vous →', en: 'Book a call →' },
+    href: '/contact',
     image: '/images/besoins/besoin-acquerir.webp',
   },
 };
