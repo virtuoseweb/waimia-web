@@ -315,24 +315,20 @@ const SOLUTIONS: MegaMenuSection = {
           badge: { fr: 'À venir', en: 'Soon' },
         },
         {
-          label: { fr: 'Centraliser les données', en: 'Centralize data' },
-          href: '/cas-usages/centraliser-donnees',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'Réduire le reporting', en: 'Reduce reporting' },
-          href: '/cas-usages/reduire-reporting',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
           label: { fr: 'Standardiser les processus', en: 'Standardize processes' },
           href: '/cas-usages/standardiser-processus',
           soon: true,
           badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
+      // V7-FOLD 2026-06-22 : 3 problèmes pour équilibrer avec les colonnes 1-2
+      // (3 liens + footer). Footer « Voir tous les problèmes » en soon (le hub
+      // /cas-usages n'existe pas encore, Phase B) → non-cliquable, 0 lien mort.
+      footer: {
+        label: { fr: 'Voir tous les problèmes →', en: 'See all problems →' },
+        href: '/cas-usages',
+        soon: true,
+      },
     },
   ],
   // V7-FOLD 2026-06-22 (Simon) : colonne « Audits » supprimée. Le panneau featured
@@ -340,10 +336,10 @@ const SOLUTIONS: MegaMenuSection = {
   // conservé et un CTA mis en avant (bouton) vers la prise de rendez-vous (/contact).
   featured: {
     kicker: { fr: 'PAR OÙ COMMENCER', en: 'WHERE TO START' },
-    label: { fr: 'Audit système marketing et process interne', en: 'Marketing system and internal process audit' },
+    label: { fr: 'Audit gratuit', en: 'Free audit' },
     body: {
-      fr: 'Un état des lieux de votre acquisition, de votre conversion et de vos process internes. L\'entrée la plus simple pour savoir par où commencer.',
-      en: 'A review of your acquisition, your conversion and your internal processes. The simplest way to know where to start.',
+      fr: '45 min, gratuit. Vous repartez avec la réponse à votre question sur votre site web et votre système d\'acquisition en ligne, un plan d\'action pour votre objectif, et au moins 2 process à automatiser.',
+      en: '45 min, free. You leave with the answer to your question about your website and your online acquisition system, an action plan for your goal, and at least 2 processes to automate.',
     },
     cta: { fr: 'Prendre rendez-vous →', en: 'Book a call →' },
     href: '/contact',

@@ -145,7 +145,11 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
               ))}
             </ul>
             {col.footer && (
-              <a class="mega-col-footer" href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>
+              col.footer.soon ? (
+                <span class="mega-col-footer is-soon">{t(col.footer.label, lang)}</span>
+              ) : (
+                <a class="mega-col-footer" href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>
+              )
             )}
           </div>
           );
@@ -566,4 +570,6 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
      grisés. 0 lien mort / 0 crawl vers 404 (strategy/11 §8). */
   .mega-link.is-soon, .m-sheet-acc-col .is-soon { cursor: default; opacity: 0.55; }
   .mega-link.is-soon:hover, .m-sheet-acc-col .is-soon:hover { opacity: 0.55; }
+  /* V7-FOLD : footer de colonne « à venir » (ex. Voir tous les problèmes) non-cliquable. */
+  .mega-col-footer.is-soon { cursor: default; opacity: 0.55; border-bottom-color: transparent; }
 </style>
