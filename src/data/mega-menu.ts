@@ -304,8 +304,6 @@ const SOLUTIONS: MegaMenuSection = {
         {
           label: { fr: 'Consultant Claude', en: 'Claude consultant' },
           href: '/services/consultant-claude',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Référent IA', en: 'AI lead' },
