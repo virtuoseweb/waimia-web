@@ -1,0 +1,57 @@
+---
+export const prerender = true;
+
+// Page SSG · /cas-usages/[slug] · rendu 100 % composable (registry) · mirror de
+// services/[...slug].astro. MDX sans `sections:` = erreur de build volontaire (anti-orphelin).
+
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
+import { buildArticle, buildFAQPage } from '../../lib/seo/schema-builder';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('cas-usages');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const description = lang === 'en' ? data.description_en : data.description_fr;
+
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error(`cas-usages/${entry.id} : frontmatter \`sections:\` requis (page cas-usage composable, anti-orphelin)`);
+}
+
+// JSON-LD métier · Article (GEO/AIO, cas d'usage = contenu éditorial orienté
+// intention) + FAQPage depuis faq_fr/faq_en (miroir de la section faq-two-column).
+// BreadcrumbList émis par le composant <MastheadBar>/<Breadcrumb>.
+const canonicalUrl = `https://waimia.com/cas-usages/${entry.id}`;
+const articleLd = buildArticle({
+  headline: title,
+  description,
+  datePublished: new Date(data.publishedAt).toISOString().slice(0, 10),
+  dateModified: data.updatedAt ? new Date(data.updatedAt).toISOString().slice(0, 10) : undefined,
+  mainEntityOfPage: canonicalUrl,
+});
+const faqLd = buildFAQPage(lang === 'en' ? data.faq_en : data.faq_fr);
+const pageLd = faqLd ? [articleLd, faqLd] : [articleLd];
+---
+
+<Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
+  <MastheadBar
+    lang={lang}
+    items={[
+      { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+      { label: lang === 'fr' ? "Cas d'usage" : 'Use cases', href: lang === 'fr' ? '/cas-usages' : '/en/cas-usages' },
+      { label: title.split(' · ')[0] },
+    ]}
+  />
+  <SectionsRenderer sections={data.sections!} lang={lang} />
+</Base>

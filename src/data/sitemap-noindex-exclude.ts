@@ -52,4 +52,8 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   "/secteurs/batiment",
   "/secteurs/services-b2b",
   "/secteurs/therapeutes",
+  // Hub diagnostics (V7-FOLD Phase C) : noindex tant que < 3-5 enfants réels (2 pour l'instant :
+  // maturite-ia, site-web-intelligent) → hors sitemap pour cohérence. Retirer quand le hub
+  // listera ≥ 3-5 diagnostics complets (politique index-on-quality, strategy/10 §3).
+  "/ressources/diagnostics",
 ]);

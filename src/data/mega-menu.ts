@@ -135,14 +135,10 @@ const RESSOURCES: MegaMenuSection = {
         {
           label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' },
           href: '/ressources/diagnostics/maturite-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Diagnostic Site Web Intelligent', en: 'Smart website diagnostic' },
           href: '/ressources/diagnostics/site-web-intelligent',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Diagnostic Claude PME', en: 'Claude SME diagnostic' },
@@ -305,20 +301,14 @@ const SOLUTIONS: MegaMenuSection = {
         {
           label: { fr: 'Générer plus de leads', en: 'Generate more leads' },
           href: '/cas-usages/generer-plus-de-leads',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Réduire le temps dans le CMS', en: 'Cut time in the CMS' },
           href: '/cas-usages/reduire-temps-cms',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Standardiser les processus', en: 'Standardize processes' },
           href: '/cas-usages/standardiser-processus',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       // V7-FOLD 2026-06-22 : 3 problèmes pour équilibrer avec les colonnes 1-2
@@ -327,7 +317,6 @@ const SOLUTIONS: MegaMenuSection = {
       footer: {
         label: { fr: 'Voir tous les problèmes →', en: 'See all problems →' },
         href: '/cas-usages',
-        soon: true,
       },
     },
   ],

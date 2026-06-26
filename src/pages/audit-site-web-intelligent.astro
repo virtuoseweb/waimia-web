@@ -1,0 +1,57 @@
+---
+export const prerender = true;
+
+// Page SSG · /audit-site-web-intelligent · route EXPLICITE (pas de [slug]) · 100 % composable.
+// Money page conversion (politique index-on-quality strategy/10 §3) → indexée.
+// Source = entrée unique getEntry('audits','audit-site-web-intelligent'). MDX sans `sections:` = throw.
+
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
+import { buildService, buildOffer, buildFAQPage } from '../lib/seo/schema-builder';
+
+const entry = await getEntry('audits', 'audit-site-web-intelligent');
+if (!entry) {
+  throw new Error("audit-site-web-intelligent : entrée `audits/audit-site-web-intelligent` introuvable (contenu requis, créé en parallèle).");
+}
+const data = entry.data;
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const description = lang === 'en' ? data.description_en : data.description_fr;
+
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error("audit-site-web-intelligent : frontmatter `sections:` requis (page composable, anti-orphelin).");
+}
+
+// JSON-LD métier · Service + Offer (audit positionné comme prestation gratuite, levier
+// conversion) + FAQPage depuis faq_fr/faq_en (miroir de la section faq-two-column).
+const serviceLd = buildService({
+  name: title,
+  description,
+  serviceType: data.seo?.serviceType ?? 'Audit site web / SEO',
+  priceRange: data.seo?.priceRange,
+  priceMin: data.seo?.priceMin,
+  priceMax: data.seo?.priceMax,
+});
+const offerLd = buildOffer({
+  name: title,
+  price: data.seo?.priceMin ?? 0,
+  priceCurrency: 'EUR',
+  url: 'https://waimia.com/contact',
+});
+const faqLd = buildFAQPage(lang === 'en' ? data.faq_en : data.faq_fr);
+const pageLd = [serviceLd, offerLd, ...(faqLd ? [faqLd] : [])];
+---
+
+<Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
+  <MastheadBar
+    lang={lang}
+    items={[
+      { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+      { label: lang === 'fr' ? 'Audit site web intelligent' : 'Intelligent website audit' },
+    ]}
+  />
+  <SectionsRenderer sections={data.sections!} lang={lang} />
+</Base>
