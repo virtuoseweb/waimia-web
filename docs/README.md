@@ -1,5 +1,7 @@
 # 📒 docs/ — Index maître Waimia (START HERE)
 
+> ⭐ **TRAVAIL EN COURS (2026-06-26) = V7-FOLD.** Plan d'exécution : `~/.claude/plans/flickering-squishing-eagle.md` · reprise : `tasks/RESUME-NEXT.md` · archi cible : `docs/strategy/10` + `11`. Branche `feat/v7-foundations` (GATE, NON mergé `main`). **Le board `state/00-BOARD` + le backlog `state/02` (P0-P4) sont GELÉS sous V7** (cadre 3-piliers superseded) : valides sur le fond, à réinterpréter sous V7, pas à reprendre tels quels. Donc le point 4 ci-dessous (« source de vérité des tâches ») est gelé : le quoi-faire courant vit dans le plan V7.
+
 > **Point d'entrée unique pour tout agent IA.** Lis ce fichier en premier.
 > Il dit quoi lire selon la mission, l'état des chantiers, et où vit chaque chose.
 > Hiérarchie des sources de vérité :

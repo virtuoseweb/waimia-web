@@ -1,5 +1,7 @@
 # Prochain chantier — Consolidation documentaire + nettoyage repo
 
+> ⛔ **PÉRIMÉ (2026-06-26).** Ce chantier « consolidation documentaire » est largement réalisé et dépassé par le pivot **V7-FOLD** (2026-06-22). Reprise courante : `tasks/RESUME-NEXT.md` + plan `~/.claude/plans/flickering-squishing-eagle.md`. Conservé pour historique.
+
 > Instruction copy-paste pour Claude Code. Chantier sûr, borné, sans risque produit :
 > on termine la mise au propre de la base avant la chirurgie SEO du site.
 

@@ -1,5 +1,7 @@
 # 02 — Plan d'exécution maître (Claude Code) — backlog persistant
 
+> 🔁 **GELÉ / SUPERSEDED par V7-FOLD (2026-06-26).** Le backlog P0→P4 ci-dessous et son cadre architecture (3 piliers) sont **gelés** : le travail courant est piloté par le plan `/goal` `~/.claude/plans/flickering-squishing-eagle.md` (V7) + `tasks/RESUME-NEXT.md`. Les tâches P1 (SEO/GEO), P2 (DS), légal/véridicité restent valides **sur le fond** mais à réinterpréter sous l'archi V7 (`docs/strategy/10`), pas à reprendre telles quelles. Ce doc n'est plus « source unique » du quoi-faire.
+
 > **Pour Claude Code. Backlog d'exécution maître, lu au boot.** Source de vérité du
 > *quoi faire et dans quel ordre* pour le repo `waimia-web`. Chaque chantier a deux
 > sections : **Tâches finies** (vide au départ) et **Tâches en attente** (`[ ] EN ATTENTE`
@@ -99,7 +101,7 @@ Chaque tâche ci-dessous est un **point de départ, pas une recette**. Pour chac
 5. **Prouve (GF-1)** dans le même tour, puis **capitalise** (coche `[x]` + commit + note le constat dans le doc).
 > Un chantier ne se ferme **que quand sa question de couverture est répondue par la preuve**, pas quand « quelques » cas sont traités.
 
-### Index des phases (SOURCE UNIQUE — rien ne fait foi ailleurs pour le « quoi faire »)
+### Index des phases (backlog fondation GELÉ sous V7 ; cf addendum en tête ; le quoi-faire courant = plan V7)
 - **P0** — Quick wins & cash court terme (11 chantiers, BLOQUANT prospection : site honnête)
 - **P1** — SEO/GEO & contenu (3)
 - **P2** — **DESIGN / refonte DS** (11 chantiers, ACTIF multi-passes ; détail `state/05-design-refonte`)
