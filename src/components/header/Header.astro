@@ -228,7 +228,9 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                     </a>
                   )
                 ))}
-                {col.footer && <a href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>}
+                {col.footer && (col.footer.soon
+                  ? <span class="is-soon">{t(col.footer.label, lang)}</span>
+                  : <a href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>)}
               </div>
             ))}
           </div>

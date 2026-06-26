@@ -53,6 +53,7 @@ const INTERNAL_SOURCE_PREFIXES = [
   '/preview/',
   '/components/',
   '/categories/',
+  '/library', // cutover 2026-06-16 : atelier DS interne /library/* (noindex + robots disallow + hors sitemap)
   '/compare/',
   '/commerce/',
   '/lp/',
