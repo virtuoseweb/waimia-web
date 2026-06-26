@@ -389,16 +389,6 @@ const CAS: MegaMenuSection = {
         { label: { fr: 'Meilleure qualification commerciale', en: 'Better sales qualification' }, href: '/etudes-de-cas/resultats/qualification-commerciale', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
       ],
     },
-    {
-      kicker: { fr: 'PREUVES & DÉMOS', en: 'PROOF & DEMOS' },
-      title: { fr: 'Preuves & démonstrations', en: 'Proof & demos' },
-      goal: { fr: 'Voir le système en action', en: 'See the system in action' },
-      links: [
-        { label: { fr: 'Démo Site Web Intelligent', en: 'Smart website demo' }, href: '/demonstrations/site-web-intelligent', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Démo Intégration Claude', en: 'Claude integration demo' }, href: '/demonstrations/integration-claude', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Avant / Après', en: 'Before / After' }, href: '/demonstrations/avant-apres', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-      ],
-    },
   ],
   featured: {
     kicker: { fr: 'CAS VEDETTE', en: 'FEATURED CASE' },
