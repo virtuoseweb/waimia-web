@@ -7,6 +7,14 @@ Strat complète Waimia
 > Supprimés (repliés en briques, jamais indexés donc 0 301) : integrateur-claude-code, referent-ia, gouvernance-ia, crm-intelligent, lead-scoring-ia, geo, seo-ia.
 > Cols 3-4 nav (Résoudre un problème = cas-usages ; Audits) restent `soon` jusqu'aux Phases B/C. Livré sur `feat/v7-foundations` (commit 7a3bace), GATE preview Vercel avant merge main. Détail exécution : `~/.claude/plans/flickering-squishing-eagle.md`.
 
+> ADDENDUM 2026-06-26 (V7-FOLD Phases B+C LIVRÉES, commit 1200d1a) : les cols 3-4 de la nav ne sont plus intégralement « soon ».
+> - Phase B : collection `cas-usages` peuplée (5 pages : generer-plus-de-leads, reduire-temps-cms, centraliser-donnees, reduire-reporting, standardiser-processus) + hub `/cas-usages` (indexable, 5 enfants). Routes composables créées (mirror de la route services). Nav Solutions col 3 « Résoudre un problème » ACTIVE (3 liens visibles + footer hub).
+> - Phase C : audits transactionnels `/audit-ia-pme` + `/audit-site-web-intelligent` (indexés, CTA `/contact` gratuit 45 min) ; diagnostics `/ressources/diagnostics/{maturite-ia, site-web-intelligent}` (indexés ; hub `/ressources/diagnostics` noindex + hors sitemap tant que < 3-5 enfants). Nav Ressources col « Diagnostics » ACTIVE (2 liens).
+> - Restent `soon` (cibles non créées) : `secteurs/*`, `etudes-de-cas/*`, `demonstrations/*`, diagnostics `claude-pme` + `referent-ia`.
+> - Gate Phase A (nav 4 méga-menus + 6 pages service) : régressions corrigées (footer méga-menu `soon` non honoré sur le sheet mobile, 3 meta-descriptions > 160), commit 32c8ddc.
+> - Preuve GF-1 (build statique parité prod) : build `Complete!`, 11 routes neuves = 200, `getComputedStyle` H1/CTA opacity=1/transform=none sur cas-usage/audit/diagnostic/hub, reveal au scroll vérifié, 0 erreur console, gates `internal-links` (0 bloquant, 911 pages) / `seo` (exit 0) / `no-emdash` / `schema` verts.
+> - Statut : branche `worktree-1782505856-86810`, NON mergée `main`. GATE Simon (design + copy) avant prod.
+
 Waimia — Architecture SEO/GEO 
 Objectif stratégique
 Construire un site B2B capable de :
