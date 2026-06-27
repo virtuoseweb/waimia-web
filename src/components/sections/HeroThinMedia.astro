@@ -13,6 +13,21 @@ import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 
+// Line-art DS inliné au build via ?raw : le SVG vit dans le DOM →
+// `stroke="currentColor"` suit la couleur de texte du rail média.
+// Pattern identique à FeatureZigzag.astro. Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
+
 interface Props {
   data: SectionByType<'hero-thin-media'>;
   lang: 'fr' | 'en';
@@ -66,7 +81,13 @@ const ctaSecondary = data.cta_secondary;
 
       {data.media_src && (
         <figure class="z3__media">
-          <img src={data.media_src} alt={mediaAlt ?? ''} loading="eager" decoding="async" />
+          {(() => {
+            const isSvg = data.media_src?.endsWith('.svg');
+            const art = isSvg ? inlineLineArt(data.media_src) : undefined;
+            return art
+              ? <div class="z3__media-art" set:html={art} role={mediaAlt ? 'img' : undefined} aria-label={mediaAlt || undefined} aria-hidden={mediaAlt ? undefined : 'true'} />
+              : <img src={data.media_src} alt={mediaAlt ?? ''} loading="eager" decoding="async" />;
+          })()}
         </figure>
       )}
     </div>
@@ -199,6 +220,24 @@ const ctaSecondary = data.cta_secondary;
     color: var(--ink);
   }
   .z3[data-bg='ink'] .z3__media img { color: var(--paper); }
+  /* Line-art inliné : traits sombres sur rail paper-2, clairs sur rail ink-2. */
+  .z3__media-art {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: var(--ink);
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .z3[data-bg='ink'] .z3__media-art { color: var(--paper); }
+  .z3__media-art :global(svg) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
 
   @media (max-width: 768px) {
     .z3 {

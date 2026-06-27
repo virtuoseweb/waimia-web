@@ -12,6 +12,22 @@ import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
 
+// Line-art DS inliné au build via ?raw : le SVG vit dans le DOM →
+// `stroke="currentColor"` suit la couleur de texte du contexte (clair sur ink).
+// Un <img> n'hériterait ni de currentColor ni des custom properties.
+// Pattern identique à FeatureZigzag.astro. Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
+
 interface Props {
   data: SectionByType<'statement-orbit'>;
   lang: 'fr' | 'en';
@@ -42,7 +58,13 @@ const cta = data.cta;
       </div>
 
       <figure class="so-media">
-        <img src={data.media_src} alt={mediaAlt ?? ''} loading="lazy" decoding="async" />
+        {(() => {
+          const isSvg = data.media_src?.endsWith('.svg');
+          const art = isSvg ? inlineLineArt(data.media_src) : undefined;
+          return art
+            ? <div class="so-media__art" set:html={art} role={mediaAlt ? 'img' : undefined} aria-label={mediaAlt || undefined} aria-hidden={mediaAlt ? undefined : 'true'} />
+            : <img src={data.media_src} alt={mediaAlt ?? ''} loading="lazy" decoding="async" />;
+        })()}
       </figure>
     </div>
   </div>
@@ -117,6 +139,17 @@ const cta = data.cta;
       width: 100%;
       height: auto;
       color: var(--paper); /* SVG currentColor → lignes claires sur ink */
+    }
+    /* Line-art inliné : carte toujours ink → traits clairs (currentColor = paper). */
+    .so-media__art {
+      width: 100%;
+      color: var(--paper);
+      line-height: 0;
+    }
+    .so-media__art :global(svg) {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     @media (max-width: 768px) {

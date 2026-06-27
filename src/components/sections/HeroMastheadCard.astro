@@ -9,11 +9,25 @@
  * signature-grid décorative conservée. SANS MastheadRow (chrome porté par masthead-bar autonome).
  * Source visuelle : src/components/library/hero-explore-2/Z7.astro.
  */
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
+
+// Line-art DS inliné au build via ?raw : le SVG vit dans le DOM →
+// `stroke="currentColor"` suit le `color` du conteneur (clair sur la carte ink).
+// Idiome commun du catalogue (FeatureZigzag) ; remplace l'ancien readFileSync.
+// Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
 
 interface Props {
   data: SectionByType<'hero-masthead-card'>;
@@ -33,18 +47,12 @@ const ctaSub = data.cta_sub_fr ? (isFr ? data.cta_sub_fr : (data.cta_sub_en ?? d
 const ctaPrimary = data.cta_primary;
 const ctaSecondary = data.cta_secondary;
 
-// Média SVG inliné au build (SSG = Node) pour que `currentColor` des traits
-// hérite du `color` du conteneur (clair sur la carte ink). Un SVG en <img>
-// est isolé : son currentColor vaut noir et le CSS de la page ne le touche pas.
+// Média SVG inliné au build pour que `currentColor` des traits hérite du `color`
+// du conteneur (clair sur la carte ink). Un SVG en <img> est isolé : son
+// currentColor vaut noir et le CSS de la page ne le touche pas. Résolution via
+// l'idiome catalogue `inlineLineArt` (basename → glob assets/line-art).
 const isSvgMedia = !!data.media_src && data.media_src.toLowerCase().endsWith('.svg');
-let svgInline: string | undefined;
-if (isSvgMedia && data.media_src) {
-  try {
-    svgInline = readFileSync(join(process.cwd(), 'public', data.media_src), 'utf-8');
-  } catch {
-    svgInline = undefined; // fallback <img> si lecture échoue
-  }
-}
+const svgInline = isSvgMedia ? inlineLineArt(data.media_src) : undefined;
 ---
 <section class="hmc" data-bg={isInk ? 'ink' : undefined}>
   <div class:list={['signature-grid', { 'on-dark': isInk }]}></div>

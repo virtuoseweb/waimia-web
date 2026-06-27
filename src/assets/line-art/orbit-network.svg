@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" aria-hidden="true" role="presentation">
+  <!-- Grammaire line-art DS Waimia : trait currentColor (inversion gratuite ink/paper) ;
+       1 seul registre accent terracotta = les arcs d'orbite et leurs noeuds.
+       Globe filaire (sphere + meridiens + paralleles) entoure de noeuds-visiteurs disperses. -->
+
+  <!-- ===== SPHERE FILAIRE ===== -->
+  <!-- Trait clair explicite (var avec fallback hex) : un SVG charge via <img> n'herite PAS
+       du color de la page, donc currentColor y resoudrait en noir = invisible sur la carte ink.
+       La carte statement-orbit est TOUJOURS ink -> trait paper. Meme idiome que les arcs accent. -->
+  <g stroke="var(--paper, #F6F1E8)" fill="none" stroke-linecap="round">
+    <!-- contour de la sphere -->
+    <circle cx="200" cy="200" r="118" stroke-width="2"/>
+
+    <!-- paralleles (ellipses horizontales aplaties) -->
+    <ellipse cx="200" cy="200" rx="118" ry="40" stroke-width="1" opacity="0.4"/>
+    <ellipse cx="200" cy="200" rx="110" ry="78" stroke-width="1" opacity="0.3"/>
+    <path d="M88 158 A 118 26 0 0 0 312 158" stroke-width="1" opacity="0.28"/>
+    <path d="M88 242 A 118 26 0 0 1 312 242" stroke-width="1" opacity="0.28"/>
+
+    <!-- meridiens (ellipses verticales d'aplatissements varies) -->
+    <ellipse cx="200" cy="200" rx="40" ry="118" stroke-width="1" opacity="0.4"/>
+    <ellipse cx="200" cy="200" rx="82" ry="118" stroke-width="1" opacity="0.3"/>
+    <line x1="200" y1="82" x2="200" y2="318" stroke-width="1" opacity="0.35"/>
+  </g>
+
+  <!-- ===== NOEUDS-VISITEURS disperses (etoiles / visites anonymes) ===== -->
+  <g fill="var(--paper, #F6F1E8)" stroke="none">
+    <circle cx="64" cy="92" r="1.6" opacity="0.6"/>
+    <circle cx="338" cy="120" r="1.4" opacity="0.5"/>
+    <circle cx="96" cy="318" r="1.6" opacity="0.55"/>
+    <circle cx="312" cy="312" r="1.4" opacity="0.5"/>
+    <circle cx="44" cy="220" r="1.5" opacity="0.45"/>
+    <circle cx="360" cy="232" r="1.6" opacity="0.5"/>
+    <circle cx="150" cy="58" r="1.4" opacity="0.5"/>
+    <circle cx="262" cy="346" r="1.5" opacity="0.45"/>
+    <circle cx="78" cy="150" r="1.3" opacity="0.4"/>
+    <circle cx="330" cy="300" r="1.3" opacity="0.4"/>
+  </g>
+
+  <!-- ===== ARCS D'ORBITE (registre accent terracotta) reliant des noeuds qualifies ===== -->
+  <g stroke="var(--accent, #C94F2E)" fill="none" stroke-linecap="round">
+    <path d="M70 96 C 150 30, 300 70, 344 158" stroke-width="2"/>
+    <path d="M52 252 C 130 360, 290 350, 350 246" stroke-width="2" opacity="0.85"/>
+    <path d="M64 168 C 40 250, 120 332, 214 330" stroke-width="2" opacity="0.7"/>
+  </g>
+
+  <!-- noeuds aux extremites des arcs (accent terracotta, plus gros) -->
+  <g fill="var(--accent, #C94F2E)" stroke="none">
+    <circle cx="70" cy="96" r="5"/>
+    <circle cx="344" cy="158" r="5"/>
+    <circle cx="52" cy="252" r="4.5"/>
+    <circle cx="350" cy="246" r="4.5"/>
+    <circle cx="214" cy="330" r="5"/>
+  </g>
+
+  <!-- noeud central d'orchestration sur la sphere : trait clair (cf note couleur ci-dessus) -->
+  <circle cx="200" cy="200" r="6" fill="var(--paper, #F6F1E8)"/>
+</svg>
