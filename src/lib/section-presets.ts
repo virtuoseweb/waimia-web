@@ -314,6 +314,16 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'bento-grid--2col-ink', type: 'bento-grid', label: 'Bento · 2 colonnes · encre', family: 'bento', era: '2026', props: { background: 'ink', columns: '2' } },
     { id: 'bento-grid--ink-ample', type: 'bento-grid', label: 'Bento · encre · aéré', family: 'bento', era: '2026', props: { background: 'ink', density: 'ample' } },
     { id: 'bento-grid--paper-compact', type: 'bento-grid', label: 'Bento · papier · dense', family: 'bento', era: '2024', props: { background: 'paper', density: 'compact' } },
+    // ── Batch 3 · VOCABULAIRE DE LAYOUT (recettes nommées) + itemHeight + atomique. ──
+    { id: 'bento-grid--bento-feature', type: 'bento-grid', label: 'Bento · tuile vedette 2×2', family: 'bento', era: '2026', props: { background: 'paper', layout: 'bento-feature' } },
+    { id: 'bento-grid--mosaic', type: 'bento-grid', label: 'Bento · mosaïque éditoriale', family: 'bento', era: '2026', props: { background: 'paper-2', layout: 'mosaic' } },
+    { id: 'bento-grid--matrix-2x2', type: 'bento-grid', label: 'Bento · matrice 2×2 carrée', family: 'bento', era: '2026', props: { background: 'paper', layout: 'matrix-2x2' } },
+    { id: 'bento-grid--matrix-3x3', type: 'bento-grid', label: 'Bento · matrice 3×3 carrée', family: 'bento', era: '2026', props: { background: 'paper', layout: 'matrix-3x3' } },
+    { id: 'bento-grid--grid-uniform-3', type: 'bento-grid', label: 'Bento · grille uniforme 3 colonnes', family: 'bento', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3' } },
+    { id: 'bento-grid--grid-uniform-square', type: 'bento-grid', label: 'Bento · grille uniforme · cellules carrées', family: 'bento', era: '2026', props: { background: 'paper-3', layout: 'grid-uniform', columns: '3', itemHeight: 'square' } },
+    { id: 'bento-grid--mosaic-ink', type: 'bento-grid', label: 'Bento · mosaïque · encre', family: 'bento', era: '2026', props: { background: 'ink', layout: 'mosaic' } },
+    { id: 'bento-grid--atomic-header-center', type: 'bento-grid', label: 'Bento · en-tête centré (atomique)', family: 'bento', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3', placement: { header: { align: 'center' } } } },
+    { id: 'bento-grid--atomic-body-first', type: 'bento-grid', label: 'Bento · mosaïque avant l\'en-tête (atomique)', family: 'bento', era: '2026', props: { background: 'paper', layout: 'mosaic', placement: { header: { order: 1 }, body: { order: 0 } } } },
   ],
 
   // method-timeline (famille timeline) :axe sûr = background.
@@ -337,6 +347,14 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'stats-bento--2col-ample', type: 'stats-bento', label: 'Stats bento · 2 colonnes · aéré', family: 'bento', era: '2026', props: { background: 'paper-3', columns: '2', density: 'ample' } },
     { id: 'stats-bento--ink-compact', type: 'stats-bento', label: 'Stats bento · encre · dense', family: 'bento', era: '2026', props: { background: 'ink', density: 'compact' } },
     { id: 'stats-bento--ink-ample', type: 'stats-bento', label: 'Stats bento · encre · aéré', family: 'bento', era: '2026', props: { background: 'ink', density: 'ample' } },
+    // ── Batch 3 · VOCABULAIRE DE LAYOUT (recettes nommées) + itemHeight + atomique. ──
+    { id: 'stats-bento--grid-uniform-3', type: 'stats-bento', label: 'Stats · grille uniforme 3 colonnes', family: 'bento', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3' } },
+    { id: 'stats-bento--grid-uniform-4', type: 'stats-bento', label: 'Stats · grille uniforme 4 colonnes', family: 'bento', era: '2026', props: { background: 'paper-2', layout: 'grid-uniform', columns: '4' } },
+    { id: 'stats-bento--matrix-2x2', type: 'stats-bento', label: 'Stats · matrice 2×2 carrée', family: 'bento', era: '2026', props: { background: 'paper', layout: 'matrix-2x2' } },
+    { id: 'stats-bento--list', type: 'stats-bento', label: 'Stats · liste éditoriale (1 par ligne)', family: 'bento', era: '2026', props: { background: 'paper', layout: 'list' } },
+    { id: 'stats-bento--list-ink', type: 'stats-bento', label: 'Stats · liste éditoriale · encre', family: 'bento', era: '2026', props: { background: 'ink', layout: 'list' } },
+    { id: 'stats-bento--grid-uniform-square', type: 'stats-bento', label: 'Stats · grille uniforme · cellules carrées', family: 'bento', era: '2026', props: { background: 'paper-3', layout: 'grid-uniform', columns: '3', itemHeight: 'square' } },
+    { id: 'stats-bento--atomic-header-center', type: 'stats-bento', label: 'Stats · en-tête centré (atomique)', family: 'bento', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3', placement: { header: { align: 'center' } } } },
   ],
 
   // logo-marquee (famille marquee) :background + speed (slow|base) lu par data-speed.
@@ -559,6 +577,15 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'media-bento--paper-2-mosaic', type: 'media-bento', label: 'Bento média · papier 2 · mosaïque', family: 'scroll-interactive', era: '2025', props: { background: 'paper-2', layout: 'mosaic' } },
     { id: 'media-bento--ink-feature-2', type: 'media-bento', label: 'Bento média · encre · une vedette', family: 'scroll-interactive', era: '2026', props: { background: 'ink', layout: 'feature-2' } },
     { id: 'media-bento--ink-mosaic', type: 'media-bento', label: 'Bento média · encre · mosaïque', family: 'scroll-interactive', era: '2026', props: { background: 'ink', layout: 'mosaic' } },
+    // ── Batch 3 · VOCABULAIRE DE LAYOUT (recettes ajoutées) + itemHeight + density + atomique. ──
+    { id: 'media-bento--bento-feature', type: 'media-bento', label: 'Bento média · tuile vedette 2×2', family: 'scroll-interactive', era: '2026', props: { background: 'paper', layout: 'bento-feature' } },
+    { id: 'media-bento--matrix-2x2', type: 'media-bento', label: 'Bento média · matrice 2×2 carrée', family: 'scroll-interactive', era: '2026', props: { background: 'paper', layout: 'matrix-2x2' } },
+    { id: 'media-bento--matrix-3x3', type: 'media-bento', label: 'Bento média · matrice 3×3 carrée', family: 'scroll-interactive', era: '2026', props: { background: 'paper', layout: 'matrix-3x3' } },
+    { id: 'media-bento--grid-uniform-3', type: 'media-bento', label: 'Bento média · grille uniforme 3 colonnes', family: 'scroll-interactive', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3' } },
+    { id: 'media-bento--grid-uniform-video', type: 'media-bento', label: 'Bento média · grille uniforme · format 16/9', family: 'scroll-interactive', era: '2026', props: { background: 'paper-2', layout: 'grid-uniform', columns: '3', itemHeight: 'video' } },
+    { id: 'media-bento--quad-square', type: 'media-bento', label: 'Bento média · quadrillage · vignettes carrées', family: 'scroll-interactive', era: '2026', props: { background: 'paper', layout: 'quad', itemHeight: 'square' } },
+    { id: 'media-bento--mosaic-ample', type: 'media-bento', label: 'Bento média · mosaïque · aérée', family: 'scroll-interactive', era: '2026', props: { background: 'paper', layout: 'mosaic', density: 'ample' } },
+    { id: 'media-bento--atomic-header-center', type: 'media-bento', label: 'Bento média · en-tête centré (atomique)', family: 'scroll-interactive', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3', placement: { header: { align: 'center' } } } },
   ],
 
   // photo-cluster :background + layout (lead-cluster|scatter|duo) lu par le composant.

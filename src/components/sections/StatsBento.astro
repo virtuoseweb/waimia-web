@@ -13,22 +13,49 @@ const stats = data.stats ?? [];
 // Span content-driven : 1ʳᵉ stat = tuile vedette (lg, chiffre géant invert),
 // les autres = unité (sm). S'adapte à 2..6 stats via .bento-fluid sans trou.
 const spanClass = (i: number): string => (i === 0 ? 'span-lg' : 'span-sm');
+
+// ── Batch 3 · VOCABULAIRE DE LAYOUT + couche atomique. Défaut (layout absent) = recette
+// « bento » historique (vedette span-lg sur .bento-fluid). grid-uniform/matrix-2x2/list
+// neutralisent la vedette pour une grille régulière / une liste.
+const layout = data.layout;
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerOrder = pl?.header?.order;
+const headerHide = pl?.header?.hideOn;
+const bodyOrder = pl?.body?.order;
+const bodyHide = pl?.body?.hideOn;
+const bodyJustify = pl?.body?.justify;
 ---
 
 <section
   class="stats-bento sec-base"
   data-bg={data.background}
   data-density={data.density}
+  data-layout={layout}
+  data-content-align={data.contentAlign}
 >
   <div class="wrap-wide">
-    <div class="stats-bento__header reveal">
+    <div
+      class="stats-bento__header reveal"
+      data-header-align={headerAlign}
+      data-header-order={headerOrder}
+      data-header-hide={headerHide}
+    >
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
-    <ul class="stats-bento__grid bento-fluid reveal-stagger" data-columns={data.columns} aria-label={isFr ? 'Indicateurs clés' : 'Key metrics'}>
+    <ul
+      class="stats-bento__grid bento-fluid reveal-stagger"
+      data-columns={data.columns}
+      data-item-height={data.itemHeight}
+      data-body-order={bodyOrder}
+      data-body-hide={bodyHide}
+      data-body-justify={bodyJustify}
+      aria-label={isFr ? 'Indicateurs clés' : 'Key metrics'}
+    >
       {stats.map((stat: (typeof stats)[number], i: number) => (
         <li class={`stats-bento__cell ${spanClass(i)}`}>
           <span class="stats-bento__number" aria-label={isFr ? stat.label_fr : stat.label_en}>
@@ -180,6 +207,105 @@ const spanClass = (i: number): string => (i === 0 ? 'span-lg' : 'span-sm');
     margin: 0;
   }
 
+  /* ══ Batch 3 · VOCABULAIRE DE LAYOUT (data-layout) ══════════════════════════
+     Défaut (absent) = recette « bento » (vedette span-lg, .bento-fluid dense). Les recettes
+     nommées surchargent la grille. grid-uniform/matrix-2x2/list neutralisent la vedette pour
+     une structure régulière. 100% tokens DS ; structurel = 768px, aspect-ratio, minmax rem. ── */
+
+  /* bento (explicite) : identique au défaut .bento-fluid (vedette + dense). */
+  .stats-bento[data-layout='bento'] .stats-bento__grid {
+    grid-template-columns: repeat(auto-fill, minmax(var(--tile-min, 14rem), 1fr));
+    grid-auto-flow: dense;
+  }
+
+  /* grid-uniform : N colonnes ÉGALES, hauteurs stretch, 0 vedette (toutes les cellules égales). */
+  .stats-bento[data-layout='grid-uniform'] .stats-bento__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: row;
+    align-items: stretch;
+  }
+  .stats-bento[data-layout='grid-uniform'] .stats-bento__grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats-bento[data-layout='grid-uniform'] .stats-bento__grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stats-bento[data-layout='grid-uniform'] .stats-bento__grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  /* matrix-2x2 : matrice 2 colonnes, cellules carrées (aspect-ratio:1). auto-flow:row →
+     dernière ligne réduite proprement si items impairs. Vedette neutralisée. */
+  .stats-bento[data-layout='matrix-2x2'] .stats-bento__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: row;
+  }
+  .stats-bento[data-layout='matrix-2x2'] .stats-bento__cell {
+    aspect-ratio: 1;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  /* list : 1 KPI par ligne (table éditoriale) : chiffre + label en cluster horizontal pleine
+     largeur. Vedette neutralisée, hairline entre lignes. */
+  .stats-bento[data-layout='list'] .stats-bento__grid {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .stats-bento[data-layout='list'] .stats-bento__cell {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-5);
+    border: none;
+    border-bottom: 1px solid var(--hairline);
+    border-radius: 0;
+  }
+  .stats-bento[data-layout='list'] .stats-bento__cell:hover { transform: none; box-shadow: none; }
+
+  /* Vedette neutralisée par les recettes régulières (grid-uniform/matrix/list) : on annule
+     le fond ink + chiffre géant de la 1ʳᵉ cellule pour une structure homogène. */
+  .stats-bento[data-layout='grid-uniform'] .stats-bento__cell.span-lg,
+  .stats-bento[data-layout='matrix-2x2'] .stats-bento__cell.span-lg,
+  .stats-bento[data-layout='list'] .stats-bento__cell.span-lg {
+    grid-column: auto;
+    grid-row: auto;
+    background: var(--paper);
+    justify-content: flex-start;
+  }
+  .stats-bento[data-layout='grid-uniform'] .stats-bento__cell.span-lg .stats-bento__number,
+  .stats-bento[data-layout='matrix-2x2'] .stats-bento__cell.span-lg .stats-bento__number,
+  .stats-bento[data-layout='list'] .stats-bento__cell.span-lg .stats-bento__number {
+    font-size: var(--text-h2);
+    color: var(--ink);
+  }
+  .stats-bento[data-layout='grid-uniform'] .stats-bento__cell.span-lg .stats-bento__label,
+  .stats-bento[data-layout='matrix-2x2'] .stats-bento__cell.span-lg .stats-bento__label,
+  .stats-bento[data-layout='list'] .stats-bento__cell.span-lg .stats-bento__label {
+    color: var(--muted);
+    opacity: 1;
+    font-size: var(--text-small);
+  }
+
+  /* ── Batch 3 · itemHeight (data-item-height) : even (stretch) | square (1:1) | video (16/9). ── */
+  .stats-bento__grid[data-item-height='even'] { align-items: stretch; }
+  .stats-bento__grid[data-item-height='even'] .stats-bento__cell { align-self: stretch; }
+  .stats-bento__grid[data-item-height='square'] .stats-bento__cell { aspect-ratio: 1; overflow: hidden; justify-content: center; }
+  .stats-bento__grid[data-item-height='video'] .stats-bento__cell { aspect-ratio: 16 / 9; overflow: hidden; justify-content: center; }
+
+  /* ── Batch 3 · CONTENT-ALIGN + couche atomique HEADER (data-header-align). Défaut = start. ── */
+  .stats-bento__header[data-header-align='center'] { text-align: center; align-items: center; }
+  .stats-bento__header[data-header-align='end'] { text-align: end; align-items: flex-end; }
+
+  /* ── Batch 3 · couche atomique BODY (justify cluster d'items, structurel). ── */
+  .stats-bento__grid[data-body-justify='center'] { justify-content: center; }
+  .stats-bento__grid[data-body-justify='end'] { justify-content: end; }
+  .stats-bento__grid[data-body-justify='between'] { justify-content: space-between; }
+
+  /* ── Batch 3 · couche atomique ORDER + HIDE-ON (header/body). order structurel. ── */
+  .stats-bento .wrap-wide { display: flex; flex-direction: column; }
+  .stats-bento__header[data-header-order='0'] { order: 0; }
+  .stats-bento__header[data-header-order='1'] { order: 1; }
+  .stats-bento__grid[data-body-order='0'] { order: 0; }
+  .stats-bento__grid[data-body-order='1'] { order: 1; }
+  .stats-bento__header[data-header-hide='desktop'],
+  .stats-bento__grid[data-body-hide='desktop'] { display: none; }
+
   /* ─── Responsive ───
      Géré par .bento-fluid (grid.css) : auto-fill descend les pistes selon la
      largeur, et < 768px tout s'empile en 1 colonne (spans neutralisés). On
@@ -190,6 +316,22 @@ const spanClass = (i: number): string => (i === 0 ? 'span-lg' : 'span-sm');
     .stats-bento__grid[data-columns='2'],
     .stats-bento__grid[data-columns='3'],
     .stats-bento__grid[data-columns='4'] { grid-template-columns: 1fr; }
+    /* Toute recette en grille converge en 1 colonne ; aspect-ratio relâché. */
+    .stats-bento[data-layout='bento'] .stats-bento__grid,
+    .stats-bento[data-layout='grid-uniform'] .stats-bento__grid,
+    .stats-bento[data-layout='grid-uniform'] .stats-bento__grid[data-columns='2'],
+    .stats-bento[data-layout='grid-uniform'] .stats-bento__grid[data-columns='3'],
+    .stats-bento[data-layout='grid-uniform'] .stats-bento__grid[data-columns='4'],
+    .stats-bento[data-layout='matrix-2x2'] .stats-bento__grid { grid-template-columns: 1fr; }
+    .stats-bento[data-layout='matrix-2x2'] .stats-bento__cell,
+    .stats-bento__grid[data-item-height='square'] .stats-bento__cell,
+    .stats-bento__grid[data-item-height='video'] .stats-bento__cell { aspect-ratio: auto; }
+    /* list : repasse en colonne (chiffre au-dessus du label) sur mobile. */
+    .stats-bento[data-layout='list'] .stats-bento__cell { flex-direction: column; align-items: flex-start; }
+    .stats-bento__header[data-header-hide='mobile'],
+    .stats-bento__grid[data-body-hide='mobile'] { display: none; }
+    .stats-bento__header[data-header-hide='desktop'] { display: flex; }
+    .stats-bento__grid[data-body-hide='desktop'] { display: grid; }
   }
 
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */

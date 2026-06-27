@@ -2360,6 +2360,24 @@ export const bentoGridSchema = z.object({
   //    (--tile-min) ; '2'|'3'|'4' = nombre fixe (--bento-cols) ; les spans lg/wide restent
   //    bornés à la largeur de la grille par CSS (pas de débordement).
   columns: z.enum(['auto', '2', '3', '4']).optional(),
+  //  - layout (Batch 3) : VOCABULAIRE DE LAYOUT curé pour l'archétype bento/média.
+  //      bento          : spans content-driven + auto-flow dense (DÉFAUT, rendu actuel).
+  //      bento-feature  : 1ʳᵉ tuile vedette span 2×2 imposé, le reste en unités.
+  //      mosaic         : spans ET hauteurs variés, dense obligatoire (éditorial).
+  //      matrix-2x2     : matrice 2 colonnes, cellules carrées (aspect-ratio:1).
+  //      matrix-3x3     : matrice 3 colonnes, cellules carrées (aspect-ratio:1).
+  //      grid-uniform   : N colonnes ÉGALES, hauteurs égalisées (stretch), 0 span.
+  //    Spans toujours clampés au nb de colonnes ; matrix réduit proprement la dernière ligne.
+  layout: z
+    .enum(['bento', 'bento-feature', 'mosaic', 'matrix-2x2', 'matrix-3x3', 'grid-uniform'])
+    .optional(),
+  //  - itemHeight (Batch 3) : hauteur des cellules. auto (contenu) | even (égalisées) |
+  //    square (aspect-ratio:1) | video (16/9). Relâché en mobile (contenu prime).
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
+  //  - contentAlign (Batch 3) : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique (Batch 3) : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -2550,13 +2568,36 @@ export const horizontalShowcaseSchema = z.object({
 export const mediaBentoSchema = z.object({
   type: z.literal('media-bento'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Batch 3) — bento média. Tous optionnels, défauts = rendu actuel.
+  //  - density : gap de la grille (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - contentAlign : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique (Batch 3) : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
   lede_fr: z.string().optional(),
   lede_en: z.string().optional(),
-  layout: z.enum(['feature-2', 'quad', 'mosaic']).optional(),
+  //  - layout (Batch 3) : VOCABULAIRE DE LAYOUT curé pour le bento média.
+  //      feature-2      : 1 grande tuile (2 col / 2 rangs) + tuiles à droite (DÉFAUT, rendu actuel).
+  //      quad           : grille 2×2 régulière (legacy, conservé).
+  //      mosaic         : flux dense, tile span='2' occupe 2 colonnes (legacy, conservé).
+  //      bento-feature  : 1ʳᵉ tuile vedette span 2×2 imposé, le reste en unités.
+  //      matrix-2x2     : matrice 2 colonnes, tuiles carrées (aspect-ratio:1).
+  //      matrix-3x3     : matrice 3 colonnes, tuiles carrées (aspect-ratio:1).
+  //      grid-uniform   : N colonnes ÉGALES, tuiles 4/3 régulières.
+  //    Spans clampés au nb de colonnes ; matrix réduit proprement la dernière ligne.
+  layout: z
+    .enum(['feature-2', 'quad', 'mosaic', 'bento-feature', 'matrix-2x2', 'matrix-3x3', 'grid-uniform'])
+    .optional(),
+  //  - columns : nb de colonnes pour grid-uniform (auto|2|3|4). Ignoré par les recettes
+  //    qui imposent leur grille (feature-2/matrix/bento-feature).
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  //  - itemHeight : hauteur des tuiles. auto | even | square (1:1) | video (16/9).
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
   tiles: z.array(
     z.object({
       title_fr: z.string(),
@@ -2813,6 +2854,18 @@ export const statsBentoSchema = z.object({
   //  - columns : 'auto' (défaut) = auto-fill content-driven (--tile-min) ; '2'|'3'|'4' = nombre
   //    fixe (--bento-cols), spans bornés à la largeur de grille par CSS.
   columns: z.enum(['auto', '2', '3', '4']).optional(),
+  //  - layout (Batch 3) : VOCABULAIRE DE LAYOUT curé pour l'archétype stats/bento.
+  //      bento          : 1ʳᵉ stat vedette span-lg + dense (DÉFAUT, rendu actuel).
+  //      grid-uniform   : N colonnes ÉGALES, hauteurs égalisées (stretch), 0 vedette.
+  //      matrix-2x2     : matrice 2 colonnes, cellules carrées (aspect-ratio:1).
+  //      list           : 1 KPI par ligne, chiffre + label en cluster (table éditoriale).
+  layout: z.enum(['bento', 'grid-uniform', 'matrix-2x2', 'list']).optional(),
+  //  - itemHeight (Batch 3) : hauteur des cellules. auto | even | square (1:1) | video (16/9).
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
+  //  - contentAlign (Batch 3) : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique (Batch 3) : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
