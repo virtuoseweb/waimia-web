@@ -4324,6 +4324,23 @@ export const systemFlowSchema = z.object({
   loop_label_fr: z.string().optional(),
   loop_label_en: z.string().optional(),
 });
+
+export const methodSteplineSchema = z.object({
+  type: z.literal('method-stepline'),
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  duration_fr: z.string().optional(),
+  duration_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  steps: z.array(z.object({
+    title_fr: z.string(), title_en: z.string(),
+    sub_fr: z.string(), sub_en: z.string(),
+  })).min(2).max(6),
+});
 // <<< [ds-primitives-v7] end
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -4536,6 +4553,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   painSeverityListSchema,
   definitionExtractSchema,
   systemFlowSchema,
+  methodSteplineSchema,
   // <<< [ds-primitives-v7] end
 ]);
 

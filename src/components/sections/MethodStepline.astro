@@ -1,0 +1,216 @@
+---
+/**
+ * method-stepline · « Méthode · timeline HORIZONTALE sur fond clair »
+ * Une ligne hairline continue traverse la rangée à hauteur des nœuds ; 5 nœuds = disques
+ * accent répartis régulièrement. Sous chaque nœud : numéro mono accent DÉRIVÉ de l'index
+ * (00, 01…), titre serif, sous-label mono majuscule muted.
+ * EN-TÊTE → kicker mono à puce accent (idiome ChapterLabel/SystemFlow) à gauche, durée mono
+ * discrète à droite, filet hairline sous le bandeau.
+ * Modèles : SystemFlow.astro (header, rail, reveal-stagger, responsive) + ChapterLabel (kicker).
+ * Responsive : ≤780px empilage en colonne, la ligne devient verticale (aucun débordement page).
+ */
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'method-stepline'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr);
+const duration = isFr ? data.duration_fr : (data.duration_en ?? data.duration_fr);
+const h2 = isFr ? data.h2_fr : (data.h2_en ?? data.h2_fr);
+const lede = isFr ? data.lede_fr : (data.lede_en ?? data.lede_fr);
+const steps = data.steps.map((s) => ({
+  title: isFr ? s.title_fr : s.title_en,
+  sub: isFr ? s.sub_fr : s.sub_en,
+}));
+// Numéro DÉRIVÉ de l'index (00, 01…), jamais stocké.
+const num = (i: number) => String(i).padStart(2, '0');
+---
+<section class="ms" data-bg={data.background ?? 'paper'} aria-label={kicker}>
+  <div class="wrap-wide ms__inner reveal-stagger">
+    <header class="ms-hd">
+      {kicker && (
+        <span class="ms-kicker">
+          <span class="ms-kicker__dot" aria-hidden="true"></span>
+          {kicker}
+        </span>
+      )}
+      {duration && <span class="ms-duration">{duration}</span>}
+    </header>
+
+    {h2 && <h2 class="ms-title" set:html={h2} />}
+    {lede && <p class="ms-lede">{lede}</p>}
+
+    <ol class="ms-line">
+      {steps.map((step, i) => (
+        <li class="ms-node">
+          <span class="ms-node__dot" aria-hidden="true"></span>
+          <span class="ms-node__num">{num(i)}</span>
+          <h3 class="ms-node__title">{step.title}</h3>
+          <span class="ms-node__sub">{step.sub}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .ms {
+    padding-block: var(--section-base);
+  }
+
+  .ms-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-7);
+  }
+  /* Kicker mono à puce accent (idiome ChapterLabel/SystemFlow). */
+  .ms-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+  }
+  .ms-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ms-duration {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ms-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    max-width: 22ch;
+    margin: 0 0 var(--space-5);
+    text-wrap: balance;
+  }
+  .ms-title :global(i) { font-style: italic; }
+  .ms-title :global(i.acc),
+  .ms-title :global(.acc) { font-style: italic; color: var(--accent); }
+
+  .ms-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    color: var(--muted);
+    max-width: 56ch;
+    margin: 0 0 var(--space-9);
+    text-wrap: pretty;
+  }
+
+  /* Rangée horizontale : ligne hairline continue derrière les nœuds. */
+  .ms-line {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    position: relative;
+  }
+  /* La ligne traverse la rangée à hauteur du centre des nœuds (les nœuds font var(--space-3)). */
+  .ms-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--space-3) / 2);
+    height: 1px;
+    background: var(--hairline);
+  }
+
+  .ms-node {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    position: relative;
+  }
+  .ms-node__dot {
+    width: var(--space-3);
+    height: var(--space-3);
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    /* anneau paper pour masquer la ligne sous le disque, comme une perle sur un fil */
+    box-shadow: 0 0 0 var(--space-1) var(--paper);
+    margin-bottom: var(--space-3);
+  }
+  .ms-node__num {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-text);
+  }
+  .ms-node__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .ms-node__sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ≤780px : empilage en colonne, la ligne devient verticale le long du rail des nœuds. */
+  @media (max-width: 780px) {
+    .ms-line {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-6);
+    }
+    .ms-line::before {
+      top: 0;
+      bottom: 0;
+      left: calc(var(--space-3) / 2);
+      right: auto;
+      width: 1px;
+      height: auto;
+    }
+    .ms-node { flex: 1 1 auto; padding-left: var(--space-6); }
+    .ms-node__dot {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+  }
+</style>

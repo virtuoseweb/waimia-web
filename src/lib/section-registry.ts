@@ -211,6 +211,7 @@ import AuthorByline from '../components/sections/AuthorByline.astro';
 import PainSeverityList from '../components/sections/PainSeverityList.astro';
 import DefinitionExtract from '../components/sections/DefinitionExtract.astro';
 import SystemFlow from '../components/sections/SystemFlow.astro';
+import MethodStepline from '../components/sections/MethodStepline.astro';
 // <<< [ds-primitives-v7] end
 
 /**
@@ -2327,6 +2328,17 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Rangée horizontale de cartes d\'étapes sur fond ink, reliées par des flèches accent, qui raconte le flux du système (site → lead → scoring → CRM → apprentissage). En-tête « Fig. N » + méta mono, grand titre serif avec dernier mot en accent, lede courte, puis une ligne « ↺ boucle d\'amélioration continue ». Reveal-stagger, responsive (scroll horizontal / colonne empilée en mobile).',
     description_en: 'Horizontal row of step cards on an ink background, linked by accent arrows, telling the system flow (site → lead → scoring → CRM → learning). « Fig. N » header + mono meta, large serif title with the last word accented, short lede, then a « ↺ continuous improvement loop » line. Reveal-stagger, responsive (horizontal scroll / stacked column on mobile).',
+  },
+  'method-stepline': {
+    component: MethodStepline,
+    category: 'marketing',
+    subcategory: 'Timeline Sections',
+    categorySlug: 'timelines',
+    family: 'timeline',
+    tags: ['method', 'timeline', 'process', 'steps', 'horizontal'],
+    status: 'stable',
+    description_fr: 'Timeline de méthode horizontale sur fond clair : ligne hairline traversée de nœuds accent, chaque nœud surmonté d\'un numéro mono, d\'un titre serif et d\'un sous-label mono. En-tête kicker à gauche, durée à droite. Reveal-stagger, empilage en colonne en mobile.',
+    description_en: 'Horizontal method timeline on a light background: a hairline rail crossed by accent nodes, each node topped with a mono number, a serif title and a mono sub-label. Header kicker on the left, duration on the right. Reveal-stagger, stacks into a column on mobile.',
   },
   // <<< [ds-primitives-v7] end
 };
