@@ -118,6 +118,8 @@ import StackCards from '../components/sections/StackCards.astro';
 import HoverRevealList from '../components/sections/HoverRevealList.astro';
 import HorizontalShowcase from '../components/sections/HorizontalShowcase.astro';
 import MediaBento from '../components/sections/MediaBento.astro';
+import PhotoCluster from '../components/sections/PhotoCluster.astro';
+import MediaSwapBand from '../components/sections/MediaSwapBand.astro';
 import LogoWall from '../components/sections/LogoWall.astro';
 import GalleryMasonry from '../components/sections/GalleryMasonry.astro';
 import FeatureTabs from '../components/sections/FeatureTabs.astro';
@@ -1652,6 +1654,28 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).',
     description_en: 'Asymmetric media bento: image tiles with a large overlaid title and hover zoom (feature-2, quad, mosaic layouts).',
+  },
+  'photo-cluster': {
+    component: PhotoCluster,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'scroll-interactive',
+    tags: ['photo', 'cluster', 'editorial', 'team', 'gallery'],
+    status: 'stable',
+    description_fr: 'Composition editoriale : photo lead + grappe de photos decalees (layouts lead-cluster, scatter, duo).',
+    description_en: 'Editorial composition: lead photo plus a cluster of offset photos (lead-cluster, scatter, duo layouts).',
+  },
+  'media-swap-band': {
+    component: MediaSwapBand,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'scroll-interactive',
+    tags: ['media', 'swap', 'band', 'crossfade', 'interactive'],
+    status: 'stable',
+    description_fr: 'Bande 2 ou 3 colonnes dont les images changent en fondu (auto ou au survol), avec CTA.',
+    description_en: 'Band of 2 or 3 columns whose images crossfade (auto or on hover), with a CTA.',
   },
   'logo-wall': {
     component: LogoWall,

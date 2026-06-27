@@ -2470,6 +2470,64 @@ export const mediaBentoSchema = z.object({
   ).min(2).max(6),
 });
 
+export const photoClusterSchema = z.object({
+  type: z.literal('photo-cluster'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  note_fr: z.string().optional(),
+  note_en: z.string().optional(),
+  layout: z.enum(['lead-cluster', 'scatter', 'duo']).optional(),
+  lead: z.object({
+    media_src: z.string(),
+    media_alt_fr: z.string().optional(),
+    media_alt_en: z.string().optional(),
+  }),
+  photos: z.array(
+    z.object({
+      media_src: z.string(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
+      caption_fr: z.string().optional(),
+      caption_en: z.string().optional(),
+    }),
+  ).min(1).max(5),
+});
+
+export const mediaSwapBandSchema = z.object({
+  type: z.literal('media-swap-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  swap_mode: z.enum(['auto', 'hover']).optional(),
+  columns: z.array(
+    z.object({
+      label_fr: z.string(),
+      label_en: z.string(),
+      sublabel_fr: z.string().optional(),
+      sublabel_en: z.string().optional(),
+      media: z.array(
+        z.object({
+          media_src: z.string(),
+          media_alt_fr: z.string().optional(),
+          media_alt_en: z.string().optional(),
+        }),
+      ).min(1).max(4),
+    }),
+  ).min(1).max(3),
+  cta_label_fr: z.string().optional(),
+  cta_label_en: z.string().optional(),
+  cta_href: z.string().optional(),
+});
+
 // Grille statique de logos partenaires (grayscale → couleur au hover)
 const logoWallItemSchema = z.object({
   src: z.string(),
@@ -4617,6 +4675,8 @@ export const sectionSchema = z.discriminatedUnion('type', [
   hoverRevealListSchema,
   horizontalShowcaseSchema,
   mediaBentoSchema,
+  photoClusterSchema,
+  mediaSwapBandSchema,
   logoWallSchema,
   pricingComparisonMatrixSchema,
   galleryMasonrySchema,
