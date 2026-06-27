@@ -52,6 +52,24 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
   proportion?: '1-1' | '1-2' | '2-1' | '2-3' | '3-2';
   /** feature-split-media : côté du média en desktop. */
   mediaSide?: 'left' | 'right';
+  /** Couche atomique (Vague C) : placement par région, forme identique à placementSchema (Zod).
+   *  Lu par data-* dans les composants câblés (FooterCtaBand, FeatureSplitMedia au pilote).
+   *  Merge shallow dans la demo → fournir l'objet `placement` complet par preset. */
+  placement?: {
+    header?: AtomRegionPlacement;
+    media?: AtomRegionPlacement;
+    body?: AtomRegionPlacement;
+    actions?: AtomRegionPlacement;
+    aside?: AtomRegionPlacement;
+  };
+};
+
+/** Sous-ensemble d'atomes placeables par région (miroir de regionPlacement, schemas/sections.ts). */
+type AtomRegionPlacement = {
+  align?: 'start' | 'center' | 'end';
+  justify?: 'start' | 'center' | 'end' | 'between';
+  order?: number;
+  hideOn?: 'none' | 'mobile' | 'desktop';
 };
 
 export type Preset = {
@@ -370,6 +388,15 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'footer-cta-band--paper-2-rounded', type: 'footer-cta-band', label: 'Bande CTA finale · papier 2 · arrondie', family: 'band', era: '2025', props: { background: 'paper-2', rounded: true } },
     { id: 'footer-cta-band--paper-stacked-compact', type: 'footer-cta-band', label: 'Bande CTA finale · papier · empilée · compact', family: 'band', era: '2024', props: { background: 'paper', layout: 'stacked', density: 'compact' } },
     { id: 'footer-cta-band--paper-3-actions-end-ample', type: 'footer-cta-band', label: 'Bande CTA finale · papier 3 · boutons à droite · ample', family: 'band', era: '2026', props: { background: 'paper-3', actionsAlign: 'end', density: 'ample' } },
+    // ── Couche ATOMIQUE (Vague C pilote) · placement par région. Régions câblées : header + actions.
+    // Preuve d'INDÉPENDANCE : header à gauche (start) MAIS bouton centré (center) sans décaler le titre.
+    { id: 'footer-cta-band--atomic-cta-centre', type: 'footer-cta-band', label: 'Bande CTA finale · atomique · titre à gauche · bouton au centre', family: 'band', era: '2026', props: { background: 'ink', placement: { header: { align: 'start' }, actions: { justify: 'center' } } } },
+    // Header centré, actions à droite : deux régions alignées différemment, indépendamment.
+    { id: 'footer-cta-band--atomic-header-centre-actions-end', type: 'footer-cta-band', label: 'Bande CTA finale · atomique · titre centré · boutons à droite', family: 'band', era: '2026', props: { background: 'paper-2', placement: { header: { align: 'center' }, actions: { justify: 'end' } } } },
+    // Actions écartées (between) sans toucher l'alignement du titre.
+    { id: 'footer-cta-band--atomic-spread', type: 'footer-cta-band', label: 'Bande CTA finale · atomique · boutons écartés (between)', family: 'band', era: '2026', props: { background: 'ink', placement: { actions: { justify: 'between' } } } },
+    // Ordre : bloc CTA AU-DESSUS du titre (actions order 0, header order 1) en desktop.
+    { id: 'footer-cta-band--atomic-cta-first', type: 'footer-cta-band', label: 'Bande CTA finale · atomique · CTA avant le titre', family: 'band', era: '2026', props: { background: 'paper', layout: 'stacked', placement: { header: { order: 1 }, actions: { order: 0, justify: 'start' } } } },
   ],
 
   // feature-split-media (famille split-media) : axes câblés (Vague C pilote) = background +
@@ -384,6 +411,15 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'feature-split-media--1-2-sticky-paper-2', type: 'feature-split-media', label: 'Feature split média · média large collant · papier 2', family: 'split-media', era: '2025', props: { background: 'paper-2', proportion: '1-2', media_sticky: true } },
     { id: 'feature-split-media--1-1-centered-ink', type: 'feature-split-media', label: 'Feature split média · symétrique · texte centré · encre', family: 'split-media', era: '2026', props: { background: 'ink', proportion: '1-1', contentAlign: 'center', actionsAlign: 'center' } },
     { id: 'feature-split-media--2-1-ample-ink', type: 'feature-split-media', label: 'Feature split média · texte large · ample · encre', family: 'split-media', era: '2026', props: { background: 'ink', proportion: '2-1', density: 'ample' } },
+    // ── Couche ATOMIQUE (Vague C pilote) · placement par région. Régions câblées : header + media + actions + body.
+    // Média en premier (order 0) : prime sur mediaSide, média avant le texte en desktop.
+    { id: 'feature-split-media--atomic-media-first', type: 'feature-split-media', label: 'Feature split média · atomique · média avant le texte', family: 'split-media', era: '2026', props: { background: 'paper', proportion: '1-1', placement: { media: { order: 0 } } } },
+    // INDÉPENDANCE : titre/lede à gauche (start) MAIS CTA centré (center) sous le texte.
+    { id: 'feature-split-media--atomic-cta-centre', type: 'feature-split-media', label: 'Feature split média · atomique · texte à gauche · CTA au centre', family: 'split-media', era: '2026', props: { background: 'paper-2', proportion: '1-2', placement: { header: { align: 'start' }, actions: { justify: 'center' } } } },
+    // Header centré + CTA à droite + média en second : trois régions, trois placements distincts.
+    { id: 'feature-split-media--atomic-header-centre', type: 'feature-split-media', label: 'Feature split média · atomique · titre centré · CTA à droite', family: 'split-media', era: '2026', props: { background: 'ink', proportion: '1-1', placement: { header: { align: 'center' }, actions: { justify: 'end' }, media: { order: 1 } } } },
+    // Body aligné à droite (end) indépendamment du header (qui reste à gauche par défaut).
+    { id: 'feature-split-media--atomic-body-end', type: 'feature-split-media', label: 'Feature split média · atomique · corps de texte aligné à droite', family: 'split-media', era: '2026', props: { background: 'paper-3', proportion: '2-1', placement: { body: { align: 'end' } } } },
   ],
 
   // diagnostic-stages (famille process-steps) :stades horizontaux ; axe sûr = background.

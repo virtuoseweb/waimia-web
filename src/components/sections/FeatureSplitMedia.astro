@@ -14,6 +14,22 @@ const isFr = lang === 'fr';
 const points = data.points ?? [];
 const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
 const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
+
+// ── Couche atomique (Vague C) : placement par région (header + media + actions + body).
+// Résolution raccourci↔placement (0 double source) : valeur effective calculée UNE fois,
+// UN seul data-attr posé par région. `placement.header.align` surcharge `contentAlign` ;
+// `placement.actions.justify` surcharge `actionsAlign` (spread → between) ;
+// `placement.media.order` complète/prime sur mediaSide. Défaut absent = rendu actuel.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const bodyAlign = pl?.body?.align;
+const actionsJustify =
+  pl?.actions?.justify ?? (data.actionsAlign === 'spread' ? 'between' : data.actionsAlign);
+const mediaOrder = pl?.media?.order;
+const headerHide = pl?.header?.hideOn;
+const mediaHide = pl?.media?.hideOn;
+const actionsHide = pl?.actions?.hideOn;
+const bodyHide = pl?.body?.hideOn;
 ---
 
 <section
@@ -23,17 +39,21 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
   data-layout={data.layout}
   data-proportion={data.proportion}
   data-media-side={data.mediaSide}
-  data-content-align={data.contentAlign}
-  data-actions-align={data.actionsAlign}
   data-density={data.density}
+  data-actions-placed={actionsJustify ? 'true' : undefined}
+  data-media-placed={mediaOrder !== undefined ? 'true' : undefined}
 >
   <div class="wrap-wide feature-split__grid">
-    <div class="feature-split__copy">
+    <div
+      class="feature-split__copy"
+      data-header-align={headerAlign}
+      data-header-hide={headerHide}
+    >
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
-      <p class="feature-split__body">{isFr ? data.body_fr : data.body_en}</p>
+      <p class="feature-split__body" data-body-align={bodyAlign} data-body-hide={bodyHide}>{isFr ? data.body_fr : data.body_en}</p>
       {points.length > 0 && (
         <ul class="feature-split__points">
           {points.map((p: (typeof points)[number]) => (
@@ -42,13 +62,13 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
         </ul>
       )}
       {ctaLabel && data.cta_href && (
-        <div class="feature-split__cta">
+        <div class="feature-split__cta" data-actions-justify={actionsJustify} data-actions-hide={actionsHide}>
           <Button href={data.cta_href} variant="ghost" size="md">{ctaLabel}</Button>
         </div>
       )}
     </div>
 
-    <figure class="feature-split__media">
+    <figure class="feature-split__media" data-media-order={mediaOrder} data-media-hide={mediaHide}>
       <div class="feature-split__frame">
         {/* media_alt fourni = image de contenu ; vide = decorative assumee (WCAG 1.1.1). */}
         {data.media_src ? (
@@ -99,18 +119,52 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
   .feature-split[data-density='ample'] .feature-split__grid { gap: var(--space-12); }
   .feature-split[data-density='ample'] .feature-split__copy { gap: var(--space-5); }
 
-  /* ── Axe CONTENT-ALIGN (data-content-align) : alignement du bloc texte. Défaut = start. ── */
-  .feature-split[data-content-align='center'] .feature-split__copy { align-items: center; text-align: center; }
-  .feature-split[data-content-align='center'] .feature-split__copy :is(h2, .feature-split__body) { max-width: none; }
-  .feature-split[data-content-align='end'] .feature-split__copy { align-items: flex-end; text-align: end; }
+  /* ── COUCHE ATOMIQUE (Vague C) · placement par région (header + media + actions + body).
+     UN SEUL data-attr par région. `data-header-align` résout `placement.header.align ?? contentAlign`.
+     `data-actions-justify` résout `placement.actions.justify ?? actionsAlign`, INDÉPENDANT du header.
+     `data-media-order` résout `placement.media.order` (prime sur mediaSide). `data-body-align`
+     aligne le paragraphe body seul. Défaut absent = rendu actuel. ── */
 
-  /* ── Axe ACTIONS-ALIGN (data-actions-align) : position du CTA, INDÉPENDANTE du contenu.
-     Le rang CTA est un flex container dédié. Défaut (absent) = suit content-align. ── */
-  .feature-split[data-actions-align] .feature-split__cta { display: flex; }
-  .feature-split[data-actions-align='start'] .feature-split__cta { justify-content: flex-start; }
-  .feature-split[data-actions-align='center'] .feature-split__cta { justify-content: center; }
-  .feature-split[data-actions-align='end'] .feature-split__cta { justify-content: flex-end; }
-  .feature-split[data-actions-align='spread'] .feature-split__cta { justify-content: space-between; }
+  /* Région HEADER : alignement du bloc texte (align-self + text-align). Défaut = start. */
+  .feature-split__copy[data-header-align='center'] { align-items: center; text-align: center; }
+  .feature-split__copy[data-header-align='center'] :is(h2, .feature-split__body) { max-width: none; margin-inline: auto; }
+  .feature-split__copy[data-header-align='end'] { align-items: flex-end; text-align: end; }
+
+  /* Région BODY : alignement du paragraphe body seul (text-align), indépendant du header. */
+  .feature-split__body[data-body-align='center'] { text-align: center; max-width: none; margin-inline: auto; }
+  .feature-split__body[data-body-align='end'] { text-align: end; margin-inline-start: auto; }
+
+  /* Région ACTIONS : justify-content du cluster CTA, INDÉPENDANT du contenu (cas d'école
+     « bouton au centre sans décaler le titre »). between = space-between. */
+  .feature-split__cta[data-actions-justify] { display: flex; }
+  .feature-split__cta[data-actions-justify='start'] { justify-content: flex-start; }
+  .feature-split__cta[data-actions-justify='center'] { justify-content: center; }
+  .feature-split__cta[data-actions-justify='end'] { justify-content: flex-end; }
+  .feature-split__cta[data-actions-justify='between'] { justify-content: space-between; }
+
+  /* Région MEDIA · ORDER : réordonne média↔texte. Prime sur mediaSide (le sélecteur est
+     scopé sous [data-media-placed] → spécificité supérieure aux règles data-media-side, qui
+     sont ainsi écrasées). 0 = média avant le texte ; 1 = média après. order = structurel. */
+  .feature-split[data-media-placed] .feature-split__media[data-media-order='0'] { order: 0; }
+  .feature-split[data-media-placed] .feature-split__copy:has(~ .feature-split__media[data-media-order='0']) { order: 1; }
+  .feature-split[data-media-placed] .feature-split__media[data-media-order='1'] { order: 1; }
+  .feature-split[data-media-placed] .feature-split__copy:has(~ .feature-split__media[data-media-order='1']) { order: 0; }
+
+  /* Région · HIDE-ON (visibilité responsive). 768px = breakpoint structurel. */
+  .feature-split__copy[data-header-hide='desktop'],
+  .feature-split__media[data-media-hide='desktop'],
+  .feature-split__cta[data-actions-hide='desktop'],
+  .feature-split__body[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .feature-split__copy[data-header-hide='mobile'],
+    .feature-split__media[data-media-hide='mobile'],
+    .feature-split__cta[data-actions-hide='mobile'],
+    .feature-split__body[data-body-hide='mobile'] { display: none; }
+    .feature-split__copy[data-header-hide='desktop'] { display: flex; }
+    .feature-split__media[data-media-hide='desktop'] { display: flex; }
+    .feature-split__cta[data-actions-hide='desktop'] { display: flex; }
+    .feature-split__body[data-body-hide='desktop'] { display: block; }
+  }
   .feature-split__copy {
     display: flex;
     flex-direction: column;
@@ -222,11 +276,15 @@ const mediaCaption = isFr ? data.media_caption_fr : data.media_caption_en;
     .feature-split[data-proportion='2-1'] .feature-split__grid,
     .feature-split[data-proportion='2-3'] .feature-split__grid,
     .feature-split[data-proportion='3-2'] .feature-split__grid { grid-template-columns: 1fr; gap: var(--space-7); }
-    /* Ordre de lecture (copy puis média) restauré : on annule reversed ET media-side. */
+    /* Ordre de lecture (copy puis média) restauré : on annule reversed, media-side ET
+       l'order atomique de la couche placement (le texte ne doit jamais passer sous l'image
+       de façon absurde sur mobile). */
     .feature-split[data-reversed='true'] .feature-split__copy,
     .feature-split[data-reversed='true'] .feature-split__media,
     .feature-split[data-media-side] .feature-split__copy,
-    .feature-split[data-media-side] .feature-split__media { order: 0; }
+    .feature-split[data-media-side] .feature-split__media,
+    .feature-split__media[data-media-order],
+    .feature-split__copy:has(~ .feature-split__media[data-media-order]) { order: 0; }
   }
   /* ── Dark natif (docs/43) · remap scopé aux enfants ── */
   .feature-split[data-bg='paper-2'] { background: var(--paper-2); }

@@ -12,18 +12,37 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const buttons = data.buttons ?? [];
+
+// ── Couche atomique (Vague C) : placement par région. Résolution raccourci↔placement
+// (0 double source) : la valeur effective est calculée UNE fois, le composant pose UN
+// seul data-attr par région. `placement.header.align` surcharge `contentAlign` ;
+// `placement.actions.justify` surcharge `actionsAlign`. Défaut absent = rendu actuel.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign; // start (défaut CSS) si absent
+// actionsAlign (raccourci) utilise 'spread' ; placement.actions.justify utilise 'between' :
+// on normalise vers le vocabulaire `justify` (between) posé en data-actions-justify.
+const actionsJustify =
+  pl?.actions?.justify ?? (data.actionsAlign === 'spread' ? 'between' : data.actionsAlign);
+const headerOrder = pl?.header?.order;
+const actionsOrder = pl?.actions?.order;
+const headerHide = pl?.header?.hideOn;
+const actionsHide = pl?.actions?.hideOn;
 ---
 
 <section
   class={`footer-cta${data.rounded ? ' footer-cta--rounded' : ''}`}
   data-bg={data.background}
   data-layout={data.layout}
-  data-content-align={data.contentAlign}
-  data-actions-align={data.actionsAlign}
   data-density={data.density}
+  data-actions-placed={actionsJustify ? 'true' : undefined}
 >
   <div class="wrap-wide footer-cta__inner">
-    <div class="footer-cta__copy">
+    <div
+      class="footer-cta__copy"
+      data-header-align={headerAlign}
+      data-header-order={headerOrder}
+      data-header-hide={headerHide}
+    >
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -32,7 +51,12 @@ const buttons = data.buttons ?? [];
         <p class="footer-cta__subtitle">{isFr ? data.subtitle_fr : data.subtitle_en}</p>
       )}
     </div>
-    <div class="footer-cta__actions">
+    <div
+      class="footer-cta__actions"
+      data-actions-justify={actionsJustify}
+      data-actions-order={actionsOrder}
+      data-actions-hide={actionsHide}
+    >
       {buttons.map((b: (typeof buttons)[number]) => (
         <Button href={b.href} variant={b.variant} size="lg">
           {isFr ? b.label_fr : b.label_en}
@@ -92,21 +116,42 @@ const buttons = data.buttons ?? [];
     align-items: start;
   }
 
-  /* ── Axe CONTENT-ALIGN (data-content-align) : alignement du bloc copy. Défaut = start. ── */
-  .footer-cta[data-content-align='center'] .footer-cta__copy { align-items: center; text-align: center; }
-  .footer-cta[data-content-align='center'] .footer-cta__copy :is(h2, .footer-cta__subtitle) { max-width: none; }
-  .footer-cta[data-content-align='end'] .footer-cta__copy { align-items: flex-end; text-align: end; }
+  /* ── COUCHE ATOMIQUE (Vague C) · placement par région · UN SEUL data-attr par région.
+     `data-header-align` (région header/copy) résout `placement.header.align ?? contentAlign`.
+     `data-actions-justify` (région actions) résout `placement.actions.justify ?? actionsAlign`,
+     INDÉPENDANT du header (le cas d'école « bouton au centre sans décaler le titre »). ── */
 
-  /* ── Axe ACTIONS-ALIGN (data-actions-align) : position du/des bouton(s), INDÉPENDANTE
-     du contenu (le cas d'école « bouton au centre sans décaler le titre »). On élargit la
+  /* Région HEADER : alignement du bloc copy (align-self + text-align). Défaut = start. */
+  .footer-cta__copy[data-header-align='center'] { align-items: center; text-align: center; }
+  .footer-cta__copy[data-header-align='center'] :is(h2, .footer-cta__subtitle) { max-width: none; margin-inline: auto; }
+  .footer-cta__copy[data-header-align='end'] { align-items: flex-end; text-align: end; }
+
+  /* Région ACTIONS : justify-content du cluster CTA (between = space-between). On élargit la
      cellule actions à 1fr UNIQUEMENT quand l'axe est posé (sinon `auto` = rendu actuel),
-     pour que justify-content ait de l'espace. ── */
-  .footer-cta[data-actions-align] .footer-cta__inner { grid-template-columns: 1.5fr 1fr; }
-  .footer-cta[data-layout='stacked'][data-actions-align] .footer-cta__inner { grid-template-columns: 1fr; }
-  .footer-cta[data-actions-align='start'] .footer-cta__actions { justify-content: flex-start; }
-  .footer-cta[data-actions-align='center'] .footer-cta__actions { justify-content: center; }
-  .footer-cta[data-actions-align='end'] .footer-cta__actions { justify-content: flex-end; }
-  .footer-cta[data-actions-align='spread'] .footer-cta__actions { justify-content: space-between; }
+     pour que justify-content ait de l'espace. */
+  .footer-cta[data-actions-placed] .footer-cta__inner { grid-template-columns: 1.5fr 1fr; }
+  .footer-cta[data-layout='stacked'][data-actions-placed] .footer-cta__inner { grid-template-columns: 1fr; }
+  .footer-cta__actions[data-actions-justify='start'] { justify-content: flex-start; }
+  .footer-cta__actions[data-actions-justify='center'] { justify-content: center; }
+  .footer-cta__actions[data-actions-justify='end'] { justify-content: flex-end; }
+  .footer-cta__actions[data-actions-justify='between'] { justify-content: space-between; }
+
+  /* Région HEADER/ACTIONS · ORDER (réordonner copy↔actions dans la grille). order = structurel.
+     2 régions dans cette section → 0 (en tête) ou 1 (en pied) suffisent pour inverser. */
+  .footer-cta__copy[data-header-order='0'] { order: 0; }
+  .footer-cta__copy[data-header-order='1'] { order: 1; }
+  .footer-cta__actions[data-actions-order='0'] { order: 0; }
+  .footer-cta__actions[data-actions-order='1'] { order: 1; }
+
+  /* Région HEADER/ACTIONS · HIDE-ON (visibilité responsive). 768px = breakpoint structurel. */
+  .footer-cta__copy[data-header-hide='desktop'],
+  .footer-cta__actions[data-actions-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .footer-cta__copy[data-header-hide='mobile'],
+    .footer-cta__actions[data-actions-hide='mobile'] { display: none; }
+    .footer-cta__copy[data-header-hide='desktop'] { display: flex; }
+    .footer-cta__actions[data-actions-hide='desktop'] { display: flex; }
+  }
 
   /* ── Axe DENSITY (data-density) : rythme padding-block + gap. Tokens --space-* seulement. ── */
   .footer-cta[data-density='compact'] { padding-block: var(--space-8); }
@@ -117,12 +162,15 @@ const buttons = data.buttons ?? [];
 
   @media (max-width: 860px) {
     .footer-cta__inner,
-    .footer-cta[data-actions-align] .footer-cta__inner { grid-template-columns: 1fr; gap: var(--space-7); }
+    .footer-cta[data-actions-placed] .footer-cta__inner { grid-template-columns: 1fr; gap: var(--space-7); }
     .footer-cta__actions { justify-content: flex-start; }
-    /* actions-align reste honoré en mobile (1 colonne pleine largeur). */
-    .footer-cta[data-actions-align='center'] .footer-cta__actions { justify-content: center; }
-    .footer-cta[data-actions-align='end'] .footer-cta__actions { justify-content: flex-end; }
-    .footer-cta[data-actions-align='spread'] .footer-cta__actions { justify-content: space-between; }
+    /* actions-justify reste honoré en mobile (1 colonne pleine largeur). */
+    .footer-cta__actions[data-actions-justify='center'] { justify-content: center; }
+    .footer-cta__actions[data-actions-justify='end'] { justify-content: flex-end; }
+    .footer-cta__actions[data-actions-justify='between'] { justify-content: space-between; }
+    /* Ordre de lecture logique : copy puis actions (on annule un order custom desktop). */
+    .footer-cta__copy[data-header-order='1'],
+    .footer-cta__actions[data-actions-order='0'] { order: 0; }
   }
   /* ── Dark natif (docs/43) · ink par défaut · remap scopé aux enfants ── */
   .footer-cta[data-bg='paper-2'] { background: var(--paper-2); }

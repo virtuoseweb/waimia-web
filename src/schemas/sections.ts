@@ -20,6 +20,37 @@ import { z } from 'astro:content';
  * `effects` viendra dans une phase ultérieure (NE PAS introduire avant que layout+density
  * soient prouvés sur la famille hero).
  */
+/**
+ * COUCHE ATOMIQUE : placement par élément (Vague C, décision Simon 2026-06-28).
+ * UN SEUL objet `placement` OPTIONNEL, region-clé, ajouté au mixin de base → forme
+ * IDENTIQUE sur toutes les sections (contrat prévisible pour le builder + MCP). Chaque
+ * région porte le sous-ensemble pertinent d'atomes (align/justify/order/hideOn). Tous
+ * optionnels : sans valeur, le composant rend exactement comme aujourd'hui (rétro-compat).
+ * Résolution raccourci↔placement (0 double source) : le composant calcule la valeur
+ * effective une fois (`placement?.header?.align ?? contentAlign ?? défaut`) et pose UN
+ * seul data-attr par région. `contentAlign`/`actionsAlign` = sucre qui alimente `placement`.
+ */
+const placementAlign = z.enum(['start', 'center', 'end']);
+const placementJustify = z.enum(['start', 'center', 'end', 'between']);
+const placementHide = z.enum(['none', 'mobile', 'desktop']);
+const regionPlacement = z
+  .object({
+    align: placementAlign.optional(), // align-self + text-align de la région
+    justify: placementJustify.optional(), // justify-content d'un cluster (ex. groupe CTA)
+    order: z.number().int().min(0).max(9).optional(), // réordonnancement dans le flux (CSS order)
+    hideOn: placementHide.optional(), // visibilité responsive (display:none au breakpoint)
+  })
+  .optional();
+const placementSchema = z
+  .object({
+    header: regionPlacement, // kicker + titre + lede
+    media: regionPlacement, // image/visuel/card
+    body: regionPlacement, // items/contenu principal
+    actions: regionPlacement, // groupe CTA
+    aside: regionPlacement, // colonne/encart secondaire
+  })
+  .optional();
+
 const sectionBaseSchema = z.object({
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   layout: z.string().optional(),
@@ -28,6 +59,8 @@ const sectionBaseSchema = z.object({
   contentAlign: z.enum(['start', 'center', 'end']).optional(),
   // Position du rang de CTA, INDÉPENDANTE du contenu (data-actions-align). Absent → suit contentAlign.
   actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
+  // Couche atomique : placement par région (Vague C). Optionnel, forme identique partout.
+  placement: placementSchema,
 });
 
 const bilingualString = z.object({
