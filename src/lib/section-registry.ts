@@ -43,6 +43,7 @@ import HeroTechSignature from '../components/sections/HeroTechSignature.astro';
 import HeroTrizone from '../components/sections/HeroTrizone.astro';
 import HeroNumeralCover from '../components/sections/HeroNumeralCover.astro';
 import HeroMastheadCard from '../components/sections/HeroMastheadCard.astro';
+import StatementOrbit from '../components/sections/StatementOrbit.astro';
 import HeroCapabilityBand from '../components/sections/HeroCapabilityBand.astro';
 import HeroSummaryRail from '../components/sections/HeroSummaryRail.astro';
 import HeroEditorialMasthead from '../components/sections/HeroEditorialMasthead.astro';
@@ -572,6 +573,17 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Héro plein écran asymétrique (~64/36) : colonne principale (kicker, titre serif accent, lede, badges pills mono, 2 CTA, sous-CTA), rail droit avec une carte média line-art ink réduite + 2 micro-KPI mono. Variante paper et ink, responsive.",
     description_en: 'Full-viewport asymmetric hero (~64/36): main column (kicker, accented serif title, lede, mono badge pills, 2 CTAs, sub-CTA), right rail with a reduced ink line-art media card + 2 mono micro-KPIs. Paper and ink variants, responsive.',
+  },
+  'statement-orbit': {
+    component: StatementOrbit,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'manifesto',
+    tags: ['statement', 'orbit', 'network', 'scroll-expand', 'ink', 'editorial'],
+    status: 'stable',
+    description_fr: "Statement éditorial pleine largeur : carte ink qui s'étend de 80 % à 100 % au scroll, titre serif accent, lede, CTA, et un média globe filaire (réseau en orbite). Pose un concept sous un hero.",
+    description_en: 'Full-width editorial statement: an ink card expanding from 80% to 100% on scroll, accented serif title, lede, CTA, and a wireframe globe media (orbiting network). Sets a concept under a hero.',
   },
   'hero-capability-band': {
     component: HeroCapabilityBand,

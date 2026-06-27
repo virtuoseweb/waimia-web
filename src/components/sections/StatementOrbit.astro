@@ -1,0 +1,148 @@
+---
+/**
+ * statement-orbit · « Statement éditorial · carte ink scroll-expand · média globe filaire »
+ * Carte ink contenue (80%) qui s'étend à pleine largeur (100%) au scroll (CSS scroll-driven,
+ * graceful degradation : reste à 80% sans support / reduced-motion). Pose un concept ou une
+ * définition sous un hero. Grille 2 colonnes (texte ~52 % / média globe ~48 %), 1-col ≤768.
+ * GAUCHE → kicker mono accent + h2 serif accent + lede + CTA ghost optionnel.
+ * DROITE → figure média line-art (currentColor → lignes claires sur ink).
+ * Modèle : HeroMastheadCard (paper/ink, atomes Kicker/Button, lede) + ManifestoStatement (reveal).
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+import Button from '../ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'statement-orbit'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = data.kicker_fr ? (isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)) : undefined;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const mediaAlt = isFr ? data.media_alt_fr : (data.media_alt_en ?? data.media_alt_fr);
+const cta = data.cta;
+---
+<section class="so">
+  <div class="so-card" data-bg="ink">
+    <div class="wrap-wide so-card__inner reveal-stagger">
+      <div class="so-main">
+        {kicker && <Kicker tone="accent" class="so-kicker">{kicker}</Kicker>}
+        <h2 class="so-title" set:html={h2} />
+        <p class="so-lede" set:html={lede} />
+        {cta && (
+          <div class="so-cta">
+            <Button href={cta.href} variant="ghost" size="lg">
+              {isFr ? cta.label_fr : cta.label_en}
+            </Button>
+          </div>
+        )}
+      </div>
+
+      <figure class="so-media">
+        <img src={data.media_src} alt={mediaAlt ?? ''} loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </div>
+
+  <style>
+    .so {
+      background: var(--paper);
+      color: var(--ink);
+      padding-block: var(--section-base);
+    }
+
+    /* Carte ink contenue : 80% par défaut, s'étend à 100% au scroll (cf bloc scroll-driven). */
+    .so-card {
+      width: 80%;
+      margin-inline: auto;
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .so-card__inner {
+      display: grid;
+      grid-template-columns: 52fr 48fr;
+      gap: var(--space-10);
+      align-items: center;
+      padding-block: var(--space-11);
+    }
+
+    .so-main { display: flex; flex-direction: column; }
+
+    :global(.so-kicker) { margin-bottom: var(--space-4); }
+
+    .so-title {
+      font-family: var(--font-display);
+      font-size: var(--text-h2);
+      line-height: var(--leading-h2);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      color: var(--paper);
+      max-width: 18ch;
+      margin: 0 0 var(--space-5);
+      text-wrap: balance;
+    }
+    .so-title :global(i) { font-style: italic; }
+    .so-title :global(i.acc), .so-title :global(.acc) {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--accent-text);
+    }
+
+    .so-lede {
+      font-family: var(--font-sans);
+      font-size: var(--text-h3);
+      line-height: var(--leading-lede);
+      color: var(--paper-2);
+      max-width: 48ch;
+      margin: 0;
+      text-wrap: pretty;
+    }
+    .so-lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+    .so-cta { margin-top: var(--space-6); }
+
+    .so-media {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .so-media img {
+      width: 100%;
+      height: auto;
+      color: var(--paper); /* SVG currentColor → lignes claires sur ink */
+    }
+
+    @media (max-width: 768px) {
+      .so-card__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+        padding-block: var(--space-9);
+      }
+      .so-media { order: 1; max-width: 22rem; margin-inline: auto; }
+    }
+
+    /* ── MOMENT motion signature : la carte ink passe de contenue (80%) à pleine largeur (100%)
+       au scroll. CSS scroll-driven (animation-timeline: view()) → 0 JS, 0 CLS (width seule).
+       Graceful degradation : sans support OU reduced-motion, la carte reste contenue (80%). ── */
+    @media (prefers-reduced-motion: no-preference) {
+      @supports (animation-timeline: view()) {
+        .so-card {
+          animation: so-expand linear both;
+          animation-timeline: view();
+          animation-range: entry 8% cover 38%;
+        }
+        @keyframes so-expand {
+          from { width: 80%; border-radius: var(--radius-lg); }
+          to   { width: 100%; border-radius: 0; }
+        }
+      }
+    }
+  </style>
+</section>

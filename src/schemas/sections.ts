@@ -397,6 +397,22 @@ export const heroMastheadCardSchema = z.object({
     .optional(),
 });
 
+// Statement éditorial pleine largeur : carte ink qui s'étend de 80% à 100% au scroll, média globe filaire. Concept/définition posé sous un hero.
+export const statementOrbitSchema = z.object({
+  type: z.literal('statement-orbit'),
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string(),
+  lede_en: z.string(),
+  cta: ctaSchema.optional(),
+  media_src: z.string(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
+});
+
 // Z8 · « Bandeau capacités asymétrique » : titre + lede left, puis bande 4 capacités + 1 KPI accent.
 export const heroCapabilityBandSchema = z.object({
   type: z.literal('hero-capability-band'),
@@ -4263,6 +4279,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroTrizoneSchema,
   heroNumeralCoverSchema,
   heroMastheadCardSchema,
+  statementOrbitSchema,
   heroCapabilityBandSchema,
   heroSummaryRailSchema,
   heroEditorialMastheadSchema,
