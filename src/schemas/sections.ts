@@ -4265,6 +4265,39 @@ export const authorBylineSchema = z.object({
   updatedDate: z.string().optional(),
   ...sectionBaseSchema.shape,
 });
+
+// pain-severity-list (feature-sections) : liste editoriale de pain-points sur fond ink,
+// chaque item porte un label severity vertical (mono) + un glyphe (◆▲●○), un titre serif,
+// une description muted et une ligne mono « → {fix} ». Miroir de statementOrbitSchema pour
+// le couple kicker/h2 ; convention severity reprise de la molecule PainPointInline.
+export const painSeverityListSchema = z.object({
+  type: z.literal('pain-severity-list'),
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  items: z.array(z.object({
+    severity: z.enum(['critical', 'high', 'medium', 'low']),
+    title_fr: z.string(), title_en: z.string(),
+    desc_fr: z.string(), desc_en: z.string(),
+    fix_fr: z.string().optional(), fix_en: z.string().optional(),
+  })).min(2).max(6),
+});
+
+// definition-extract (content-sections) : bloc GEO « format extractible ». Kicker mono,
+// gros statement serif (terme defini en accent via set:html), rangee de pills, bandeau
+// de specs mono en bas. Sobre, fond paper, reveal-stagger.
+export const definitionExtractSchema = z.object({
+  type: z.literal('definition-extract'),
+  ...sectionBaseSchema.shape,
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  statement_fr: z.string(),
+  statement_en: z.string(),
+  pills: z.array(z.object({ label_fr: z.string(), label_en: z.string() })).max(6).optional(),
+  specs: z.array(z.object({ label_fr: z.string(), label_en: z.string() })).max(8).optional(),
+});
 // <<< [ds-primitives-v7] end
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -4474,6 +4507,8 @@ export const sectionSchema = z.discriminatedUnion('type', [
   // >>> [ds-primitives-v7] start
   directAnswerSchema,
   authorBylineSchema,
+  painSeverityListSchema,
+  definitionExtractSchema,
   // <<< [ds-primitives-v7] end
 ]);
 

@@ -1,0 +1,145 @@
+---
+/**
+ * definition-extract · « Définition · format extractible » · bloc GEO sur fond paper.
+ * Kicker mono. Gros statement serif (terme defini en accent via set:html). Rangee de pills
+ * (idiome badge mono pill de HeroMastheadCard). Bandeau de specs mono en bas, items separes
+ * par un « · ». Tres sobre, pense pour la citation par les moteurs generatifs.
+ * Modeles : DirectAnswer (bloc GEO), HeroMastheadCard (pills), HeroSplitMedia (halo ::before).
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'definition-extract'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = data.kicker_fr ? (isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)) : undefined;
+const statement = isFr ? data.statement_fr : data.statement_en;
+const pills = (data.pills ?? []).map((p) => (isFr ? p.label_fr : p.label_en));
+const specs = (data.specs ?? []).map((s) => (isFr ? s.label_fr : s.label_en));
+---
+<section class="dx" data-bg={data.background ?? 'paper'}>
+  <div class="wrap-tight dx__inner reveal-stagger">
+    {kicker && <Kicker tone="accent" class="dx__kicker">{kicker}</Kicker>}
+    <p class="dx__statement" set:html={statement} />
+
+    {pills.length > 0 && (
+      <ul class="dx__pills" aria-label={isFr ? 'Caractéristiques' : 'Characteristics'}>
+        {pills.map((p) => <li class="dx__pill">{p}</li>)}
+      </ul>
+    )}
+
+    {specs.length > 0 && (
+      <p class="dx__specs">
+        {specs.map((s, i) => (
+          <>
+            {i > 0 && <span class="dx__sep" aria-hidden="true">·</span>}
+            <span class="dx__spec">{s}</span>
+          </>
+        ))}
+      </p>
+    )}
+  </div>
+
+  <style>
+    .dx {
+      position: relative;
+      background: var(--paper);
+      color: var(--ink);
+      padding: var(--section-base) var(--gut);
+      overflow: hidden;
+    }
+    .dx[data-bg='paper-2'] { background: var(--paper-2); }
+    .dx[data-bg='paper-3'] { background: var(--paper-3); }
+    .dx[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+    /* Halo accent tres leger, centre haut (tokens only) */
+    .dx::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(50% 45% at 50% 30%, rgba(var(--accent-rgb), 0.06), transparent 70%);
+      pointer-events: none;
+    }
+
+    .dx__inner {
+      position: relative;
+      max-width: var(--wrap-read);
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    :global(.dx__kicker) { margin-bottom: var(--space-5); }
+
+    .dx__statement {
+      font-family: var(--font-display);
+      font-size: var(--text-h2);
+      line-height: var(--leading-h2);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      color: var(--ink);
+      margin: 0;
+      text-wrap: pretty;
+    }
+    .dx[data-bg='ink'] .dx__statement { color: var(--paper); }
+    .dx__statement :global(i) { font-style: italic; }
+    .dx__statement :global(i.acc), .dx__statement :global(.acc) {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--accent-text);
+    }
+
+    /* Pills · idiome badge mono pill (HeroMastheadCard) */
+    .dx__pills {
+      list-style: none;
+      margin: var(--space-7) 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .dx__pill {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      text-transform: uppercase;
+      color: var(--ink-2);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-pill);
+      padding: var(--space-2) var(--space-4);
+      transition: border-color var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease);
+    }
+    .dx__pill:hover { border-color: var(--accent-text); color: var(--accent-text); }
+    .dx[data-bg='ink'] .dx__pill { color: var(--paper-2); }
+
+    /* Bandeau specs · mono fin, items separes par un · */
+    .dx__specs {
+      margin: var(--space-7) 0 0;
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--hairline);
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      line-height: var(--leading-relaxed);
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--space-3);
+    }
+    .dx[data-bg='ink'] .dx__specs {
+      border-top-color: rgba(var(--paper-rgb), 0.14);
+      color: rgba(var(--paper-rgb), 0.6);
+    }
+    .dx__sep { color: var(--accent-text); }
+
+    @media (max-width: 768px) {
+      .dx__statement { font-size: var(--text-h3); }
+    }
+  </style>
+</section>

@@ -93,22 +93,6 @@ sections:
         cap_fr: "PageSpeed en SSG"
         cap_en: "PageSpeed in SSG"
 
-  - type: "statement-orbit"
-    kicker_fr: "FIG 1.5 · Réseau d'acquisition"
-    kicker_en: "FIG 1.5 · Acquisition network"
-    h2_fr: "Chaque visite rejoint un <i class=\"acc\">réseau</i> qui qualifie, route et apprend."
-    h2_en: "Every visit joins a <i class=\"acc\">network</i> that qualifies, routes and learns."
-    lede_fr: "D'une audience anonyme à un pipeline lisible, votre site devient le centre d'un système, pas une page isolée."
-    lede_en: "From an anonymous audience to a readable pipeline, your site becomes the center of a system, not an isolated page."
-    cta:
-      label_fr: "Explorer le système →"
-      label_en: "Explore the system →"
-      href: "#methode"
-      variant: "ghost"
-    media_src: "/images/line-art/orbit-network.svg"
-    media_alt_fr: "Globe filaire avec des nœuds reliés par des arcs en orbite : chaque visite rejoint un réseau qui qualifie et route."
-    media_alt_en: "Wireframe globe with nodes linked by orbiting arcs: each visit joins a network that qualifies and routes."
-
   - type: "proof-bar"
     background: "paper"
     kicker_fr: "§ En bref"
@@ -127,6 +111,71 @@ sections:
       - value: "100/100"
         label_fr: "PageSpeed en SSG, base GEO"
         label_en: "PageSpeed in SSG, GEO base"
+
+  - type: "definition-extract"
+    background: "paper"
+    kicker_fr: "§ Définition · format extractible"
+    kicker_en: "§ Definition · extractable format"
+    statement_fr: "Un <i class=\"acc\">site web intelligent</i> est un site rapide et structuré qui mesure chaque visite, qualifie les contacts, les route vers vos outils et s'améliore en continu : un actif d'acquisition, pas une vitrine."
+    statement_en: "An <i class=\"acc\">intelligent website</i> is a fast, structured site that measures every visit, qualifies contacts, routes them to your tools and keeps improving : an acquisition asset, not a brochure."
+    pills:
+      - { label_fr: "Rapide", label_en: "Fast" }
+      - { label_fr: "SEO + GEO", label_en: "SEO + GEO" }
+      - { label_fr: "Connecté au CRM", label_en: "CRM-connected" }
+      - { label_fr: "Mesurable", label_en: "Measurable" }
+      - { label_fr: "Amélioration continue", label_en: "Continuous improvement" }
+    specs:
+      - { label_fr: "Claude-first", label_en: "Claude-first" }
+      - { label_fr: "100/100 Lighthouse", label_en: "100/100 Lighthouse" }
+      - { label_fr: "RGPD propre", label_en: "Clean GDPR" }
+      - { label_fr: "Tracking server-side", label_en: "Server-side tracking" }
+      - { label_fr: "Données structurées", label_en: "Structured data" }
+      - { label_fr: "Pipeline", label_en: "Pipeline" }
+
+  - type: "statement-orbit"
+    kicker_fr: "FIG 1.5 · Réseau d'acquisition"
+    kicker_en: "FIG 1.5 · Acquisition network"
+    h2_fr: "Chaque visite rejoint un <i class=\"acc\">réseau</i> qui qualifie, route et apprend."
+    h2_en: "Every visit joins a <i class=\"acc\">network</i> that qualifies, routes and learns."
+    lede_fr: "D'une audience anonyme à un pipeline lisible, votre site devient le centre d'un système, pas une page isolée."
+    lede_en: "From an anonymous audience to a readable pipeline, your site becomes the center of a system, not an isolated page."
+    cta:
+      label_fr: "Explorer le système →"
+      label_en: "Explore the system →"
+      href: "#methode"
+      variant: "ghost"
+    media_src: "/images/line-art/orbit-network.svg"
+    media_alt_fr: "Globe filaire avec des nœuds reliés par des arcs en orbite : chaque visite rejoint un réseau qui qualifie et route."
+    media_alt_en: "Wireframe globe with nodes linked by orbiting arcs: each visit joins a network that qualifies and routes."
+
+  - type: "pain-severity-list"
+    background: "ink"
+    kicker_fr: "Pain points · par sévérité"
+    kicker_en: "Pain points · by severity"
+    h2_fr: "Là où le site <i class=\"acc\">fuit</i>."
+    h2_en: "Where the site <i class=\"acc\">leaks</i>."
+    items:
+      - severity: "critical"
+        title_fr: "Aucune présence à convertir"
+        title_en: "No presence to convert"
+        desc_fr: "Vous existez en ligne, mais rien n'amène le visiteur vers une conversation commerciale."
+        desc_en: "You exist online, but nothing leads the visitor toward a sales conversation."
+        fix_fr: "Tunnel repensé, orienté preuve."
+        fix_en: "Redesigned funnel, proof-first."
+      - severity: "high"
+        title_fr: "Une vitrine qui ne capte rien"
+        title_en: "A brochure that captures nothing"
+        desc_fr: "De jolies pages, mais aucun mécanisme de capture : ni quiz, ni scoring, ni routage."
+        desc_en: "Nice pages, but no capture mechanism : no quiz, no scoring, no routing."
+        fix_fr: "Capture + scoring + routage CRM."
+        fix_en: "Capture + scoring + CRM routing."
+      - severity: "medium"
+        title_fr: "Un site qui ne lit pas ses données"
+        title_en: "A site that doesn't read its data"
+        desc_fr: "Aucune lecture du comportement : vous ne savez ni qui vient, ni pourquoi il repart."
+        desc_en: "No behavioural reading : you know neither who comes nor why they leave."
+        fix_fr: "Tracking first-party + reporting."
+        fix_en: "First-party tracking + reporting."
 
   - type: "logo-marquee"
     background: "ink"
@@ -149,33 +198,6 @@ sections:
         name_fr: "Notion"
         name_en: "Notion"
     grayscale: true
-
-  - type: "problems-grid"
-    background: "paper-2"
-    h2_fr: "Là où le site <i>fuit</i>"
-    h2_en: "Where the site <i>leaks</i>"
-    problems:
-      - num: "01"
-        kicker_fr: "Pas de site"
-        kicker_en: "No site"
-        title_fr: "Aucune présence à convertir"
-        title_en: "No presence to convert"
-        body_fr: "Vous n'avez pas de site, ou une page figée qui ne dit rien de ce que vous faites vraiment. Chaque prospect qui vous cherche tombe sur du vide et part chez un concurrent visible."
-        body_en: "You have no site, or a frozen page that says nothing about what you actually do. Every prospect who searches for you hits a void and leaves for a visible competitor."
-      - num: "02"
-        kicker_fr: "Site obsolète"
-        kicker_en: "Dated site"
-        title_fr: "Une vitrine qui ne capte rien"
-        title_en: "A brochure that captures nothing"
-        body_fr: "Votre site existe depuis cinq ans. Vous ne savez pas combien il génère de leads, ni quel persona convertit. Le budget web est dépensé mais aucune ligne du pipeline ne lui est attribuable."
-        body_en: "Your site has existed for five years. You don't know how many leads it generates, or which persona converts. The web budget is spent but no pipeline line can be attributed to it."
-      - num: "03"
-        kicker_fr: "Site passif"
-        kicker_en: "Passive site"
-        title_fr: "Un site qui ne lit pas ses données"
-        title_en: "A site blind to its own data"
-        body_fr: "Le site tourne sans jamais lire ses propres KPI. Aucune IA branchée à la Search Console pour optimiser le SEO, aucune alerte, et personne n'est qualifié avant le premier contact. Le commercial qualifie à la main et perd quarante pour cent de son temps."
-        body_en: "The site runs without ever reading its own KPIs. No AI wired to Search Console to optimise SEO, no alerts, and no one is qualified before the first contact. Sales qualify by hand and lose forty percent of their time."
 
   - type: "versus-competitors"
     background: "paper"

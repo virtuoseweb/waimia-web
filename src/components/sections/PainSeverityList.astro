@@ -1,0 +1,193 @@
+---
+/**
+ * pain-severity-list · « Là où le site fuit » · liste editoriale de pain-points sur fond ink.
+ * Section pleine largeur ink. Kicker mono + titre serif accent. Puis une liste verticale
+ * d'items separes par des hairlines : colonne gauche etroite = label severity VERTICAL (mono)
+ * + glyphe severity ; corps = titre serif + description muted + ligne mono « → fix ».
+ * Convention severity (glyphes ◆▲●○, labels Critique/Eleve/Modere/Faible) reprise de la
+ * molecule PainPointInline. Modeles de style/tokens : StatementOrbit (carte ink, reveal-stagger).
+ */
+import type { SectionByType } from '../../schemas/sections';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'pain-severity-list'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+type Severity = 'critical' | 'high' | 'medium' | 'low';
+
+const SEVERITY_ICON: Record<Severity, string> = {
+  critical: '◆',
+  high: '▲',
+  medium: '●',
+  low: '○',
+};
+const SEVERITY_LABEL_FR: Record<Severity, string> = {
+  critical: 'Critique',
+  high: 'Élevé',
+  medium: 'Modéré',
+  low: 'Faible',
+};
+const SEVERITY_LABEL_EN: Record<Severity, string> = {
+  critical: 'Critical',
+  high: 'High',
+  medium: 'Medium',
+  low: 'Low',
+};
+
+const kicker = data.kicker_fr ? (isFr ? data.kicker_fr : (data.kicker_en ?? data.kicker_fr)) : undefined;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+
+const items = data.items.map((it) => ({
+  severity: it.severity as Severity,
+  icon: SEVERITY_ICON[it.severity as Severity],
+  label: (isFr ? SEVERITY_LABEL_FR : SEVERITY_LABEL_EN)[it.severity as Severity],
+  title: isFr ? it.title_fr : it.title_en,
+  desc: isFr ? it.desc_fr : it.desc_en,
+  fix: it.fix_fr ? (isFr ? it.fix_fr : (it.fix_en ?? it.fix_fr)) : undefined,
+}));
+---
+<section class="psl" data-bg="ink">
+  <div class="wrap-tight psl__inner reveal-stagger">
+    <header class="psl__head">
+      {kicker && <Kicker tone="accent" class="psl__kicker">{kicker}</Kicker>}
+      <h2 class="psl__title" set:html={h2} />
+    </header>
+
+    <ul class="psl__list">
+      {items.map((it) => (
+        <li class={`psl__item psl__item--${it.severity}`}>
+          <div class="psl__sev" aria-hidden="true">
+            <span class="psl__glyph">{it.icon}</span>
+            <span class="psl__sev-label">{it.label}</span>
+          </div>
+          <div class="psl__body">
+            <h3 class="psl__item-title">{it.title}</h3>
+            <p class="psl__desc">{it.desc}</p>
+            {it.fix && <p class="psl__fix">→ {it.fix}</p>}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <style>
+    .psl {
+      background: var(--ink);
+      color: var(--paper);
+      padding-block: var(--section-base);
+    }
+
+    .psl__inner { display: flex; flex-direction: column; gap: var(--space-9); }
+
+    .psl__head { display: flex; flex-direction: column; }
+    :global(.psl__kicker) { margin-bottom: var(--space-4); }
+
+    .psl__title {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
+      letter-spacing: var(--tracking-display);
+      font-weight: var(--fw-regular);
+      color: var(--paper);
+      max-width: 16ch;
+      margin: 0;
+      text-wrap: balance;
+    }
+    .psl__title :global(i) { font-style: italic; }
+    .psl__title :global(i.acc), .psl__title :global(.acc) {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--accent-text);
+    }
+
+    .psl__list { list-style: none; margin: 0; padding: 0; }
+
+    .psl__item {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0;
+      padding-block: var(--space-6);
+      border-bottom: 1px solid rgba(var(--paper-rgb), 0.14);
+    }
+    .psl__item:first-child { border-top: 1px solid rgba(var(--paper-rgb), 0.14); }
+
+    /* ── Colonne severity verticale ── */
+    .psl__sev {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      padding-top: var(--space-1);
+    }
+    .psl__glyph {
+      font-size: var(--text-glyph);
+      line-height: 1;
+      color: var(--paper-2);
+    }
+    .psl__item--critical .psl__glyph { color: var(--accent-text); }
+    .psl__item--high     .psl__glyph { color: var(--paper-2); }
+    .psl__item--medium   .psl__glyph { color: rgba(var(--paper-rgb), 0.6); }
+    .psl__item--low      .psl__glyph { color: rgba(var(--paper-rgb), 0.42); }
+
+    .psl__sev-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      writing-mode: vertical-lr;
+      rotate: 180deg;
+      color: rgba(var(--paper-rgb), 0.55);
+      user-select: none;
+    }
+
+    /* ── Corps ── */
+    .psl__body {
+      padding-left: var(--space-6);
+      border-left: 1px solid rgba(var(--paper-rgb), 0.14);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .psl__item-title {
+      font-family: var(--font-display);
+      font-size: var(--text-h3);
+      line-height: var(--leading-h3);
+      letter-spacing: var(--tracking-body);
+      font-weight: var(--fw-regular);
+      color: var(--paper);
+      margin: 0;
+      text-wrap: balance;
+    }
+    .psl__desc {
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: var(--leading-relaxed);
+      color: var(--paper-2);
+      max-width: 56ch;
+      margin: 0;
+      text-wrap: pretty;
+    }
+    .psl__fix {
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      line-height: var(--leading-body);
+      color: rgba(var(--paper-rgb), 0.6);
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .psl__item { grid-template-columns: 44px 1fr; padding-block: var(--space-5); }
+      .psl__body { padding-left: var(--space-4); }
+      .psl__title { font-size: var(--text-h2); }
+    }
+    @media (max-width: 480px) {
+      .psl__sev-label { display: none; }
+      .psl__item { grid-template-columns: 32px 1fr; }
+    }
+  </style>
+</section>

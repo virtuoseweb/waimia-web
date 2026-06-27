@@ -208,6 +208,8 @@ import EditorialTimeline from '../components/sections/EditorialTimeline.astro';
 // >>> [ds-primitives-v7] start
 import DirectAnswer from '../components/sections/DirectAnswer.astro';
 import AuthorByline from '../components/sections/AuthorByline.astro';
+import PainSeverityList from '../components/sections/PainSeverityList.astro';
+import DefinitionExtract from '../components/sections/DefinitionExtract.astro';
 // <<< [ds-primitives-v7] end
 
 /**
@@ -2291,6 +2293,28 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Ligne auteur compacte E-E-A-T sous un h1 d\'article : avatar optionnel, nom, rôle, dates de publication et mise à jour, lien vers la page profil. Beaucoup plus léger qu\'un hero auteur.',
     description_en: 'Compact E-E-A-T author byline under an article h1: optional avatar, name, role, published and updated dates, link to the profile page. Far lighter than an author hero.',
+  },
+  'pain-severity-list': {
+    component: PainSeverityList,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'pain',
+    tags: ['pain-points', 'severity', 'problems', 'ink', 'editorial'],
+    status: 'stable',
+    description_fr: 'Liste éditoriale de pain-points sur fond ink, classés par sévérité : chaque item porte un label severity vertical (mono) et un glyphe (◆▲●○), un titre serif, une description, et une ligne mono « → correctif ». Séparateurs hairline, reveal-stagger.',
+    description_en: 'Editorial list of pain-points on an ink background, ordered by severity: each item carries a vertical severity label (mono) and a glyph (◆▲●○), a serif title, a description, and a mono « → fix » line. Hairline separators, reveal-stagger.',
+  },
+  'definition-extract': {
+    component: DefinitionExtract,
+    category: 'marketing',
+    subcategory: 'Content Sections',
+    categorySlug: 'content-sections',
+    family: 'prose',
+    tags: ['geo', 'definition', 'extractible', 'answer', 'eeat'],
+    status: 'stable',
+    description_fr: 'Bloc GEO « format extractible » : kicker mono, gros statement serif avec le terme défini en accent, rangée de pills, puis un bandeau de specs mono. Sobre, fond paper, pensé pour la citation par les moteurs génératifs.',
+    description_en: 'GEO « extractable format » block: mono kicker, large serif statement with the defined term accented, a row of pills, then a mono specs strip. Sober, paper background, designed to be cited by generative engines.',
   },
   // <<< [ds-primitives-v7] end
 };
