@@ -46,8 +46,13 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
   /** Axes de variation universels (Vague C pilote) — lus par data-* dans les composants câblés. */
   contentAlign?: 'start' | 'center' | 'end';
   actionsAlign?: 'start' | 'center' | 'end' | 'spread';
-  /** deliverables-grid (FeatureGrid) : nombre de colonnes ('auto' = count-adaptive). */
-  columns?: 'auto' | '2' | '3' | '4';
+  /** card-collections (deliverables-grid, pricing-cards, case-card-grid) : nombre de colonnes
+   *  ('auto' = count-adaptive). 5/6 ajoutés au scale Batch 2 pour grid-uniform/grid-auto. */
+  columns?: 'auto' | '2' | '3' | '4' | '5' | '6';
+  /** card-collections (Batch 2) : largeurs de colonnes pour layout='grid-asym' UNIQUEMENT. */
+  colRatio?: 'equal' | '1-2' | '2-1' | '1-1-2' | '2-3';
+  /** card-collections (Batch 2) : hauteur des cellules en mode grille (auto|even|square|video). */
+  itemHeight?: 'auto' | 'even' | 'square' | 'video';
   /** feature-split-media : ratio des colonnes texte|média (préféré à layout). */
   proportion?: '1-1' | '1-2' | '2-1' | '2-3' | '3-2';
   /** feature-split-media : côté du média en desktop. */
@@ -273,6 +278,18 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'deliverables-grid--3col-compact-paper-2', type: 'deliverables-grid', label: 'Livrables · 3 colonnes · compact · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2', columns: '3', density: 'compact' } },
     { id: 'deliverables-grid--4col-ink', type: 'deliverables-grid', label: 'Livrables · 4 colonnes · encre', family: 'card-grid', era: '2026', props: { background: 'ink', columns: '4' } },
     { id: 'deliverables-grid--2col-centered-ink-ample', type: 'deliverables-grid', label: 'Livrables · 2 colonnes · centré · encre · ample', family: 'card-grid', era: '2026', props: { background: 'ink', columns: '2', contentAlign: 'center', density: 'ample' } },
+    // ── Vague C scale (Batch 2) · recettes de layout + refiners + placement atomique ──
+    { id: 'deliverables-grid--grid-uniform-3', type: 'deliverables-grid', label: 'Livrables · grille uniforme · 3 colonnes', family: 'card-grid', era: '2025', props: { layout: 'grid-uniform', columns: '3', background: 'paper' } },
+    { id: 'deliverables-grid--grid-uniform-4-even', type: 'deliverables-grid', label: 'Livrables · grille uniforme · 4 colonnes · hauteurs égales', family: 'card-grid', era: '2026', props: { layout: 'grid-uniform', columns: '4', itemHeight: 'even', background: 'paper-2' } },
+    { id: 'deliverables-grid--grid-auto', type: 'deliverables-grid', label: 'Livrables · grille fluide adaptative', family: 'card-grid', era: '2025', props: { layout: 'grid-auto', background: 'paper' } },
+    { id: 'deliverables-grid--grid-asym-2-1', type: 'deliverables-grid', label: 'Livrables · grille asymétrique · large + étroite', family: 'card-grid', era: '2026', props: { layout: 'grid-asym', colRatio: '2-1', background: 'paper' } },
+    { id: 'deliverables-grid--grid-asym-1-2-ink', type: 'deliverables-grid', label: 'Livrables · grille asymétrique · étroite + large · encre', family: 'card-grid', era: '2026', props: { layout: 'grid-asym', colRatio: '1-2', background: 'ink' } },
+    { id: 'deliverables-grid--list', type: 'deliverables-grid', label: 'Livrables · liste horizontale', family: 'card-grid', era: '2024', props: { layout: 'list', background: 'paper' } },
+    { id: 'deliverables-grid--rows-divided', type: 'deliverables-grid', label: 'Livrables · lignes séparées (table éditoriale)', family: 'card-grid', era: '2023', props: { layout: 'rows-divided', background: 'paper' } },
+    { id: 'deliverables-grid--bento-feature', type: 'deliverables-grid', label: 'Livrables · bento vedette (1ʳᵉ carte large)', family: 'card-grid', era: '2026', props: { layout: 'bento-feature', background: 'paper-2' } },
+    { id: 'deliverables-grid--featured-split-ink', type: 'deliverables-grid', label: 'Livrables · bloc vedette + colonne · encre', family: 'card-grid', era: '2026', props: { layout: 'featured-split', background: 'ink' } },
+    { id: 'deliverables-grid--atomic-header-center', type: 'deliverables-grid', label: 'Livrables · grille fluide · en-tête centré (placement)', family: 'card-grid', era: '2025', props: { layout: 'grid-auto', background: 'paper', placement: { header: { align: 'center' } } } },
+    { id: 'deliverables-grid--atomic-body-first', type: 'deliverables-grid', label: 'Livrables · grille avant en-tête (placement order)', family: 'card-grid', era: '2026', props: { layout: 'grid-uniform', columns: '3', background: 'paper', placement: { header: { order: 1 }, body: { order: 0 } } } },
   ],
 
   // feature-zigzag (famille split-media) :background + toggle alternate_blocks (damier paper/ink lu par le composant).
@@ -343,6 +360,17 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'pricing-cards--2col-centre', type: 'pricing-cards', label: 'Tarifs · 2 colonnes · titre centré', family: 'card-grid', era: '2024', props: { background: 'paper', columns: '2', contentAlign: 'center' } },
     { id: 'pricing-cards--ink-centre', type: 'pricing-cards', label: 'Tarifs · encre · titre centré', family: 'card-grid', era: '2026', props: { background: 'ink', contentAlign: 'center', columns: 'auto' } },
     { id: 'pricing-cards--compact', type: 'pricing-cards', label: 'Tarifs · cartes · dense', family: 'card-grid', era: '2024', props: { background: 'paper', density: 'compact', columns: 'auto' } },
+    // ── Vague C scale (Batch 2) · recettes de layout + refiners + placement atomique ──
+    { id: 'pricing-cards--grid-uniform-4-even', type: 'pricing-cards', label: 'Tarifs · grille uniforme · 4 colonnes · hauteurs égales', family: 'card-grid', era: '2026', props: { layout: 'grid-uniform', columns: '4', itemHeight: 'even', background: 'paper' } },
+    { id: 'pricing-cards--grid-auto', type: 'pricing-cards', label: 'Tarifs · grille fluide adaptative', family: 'card-grid', era: '2025', props: { layout: 'grid-auto', background: 'paper-2' } },
+    { id: 'pricing-cards--grid-asym-2-1', type: 'pricing-cards', label: 'Tarifs · grille asymétrique · offre large + étroite', family: 'card-grid', era: '2026', props: { layout: 'grid-asym', colRatio: '2-1', background: 'paper' } },
+    { id: 'pricing-cards--grid-asym-1-1-2-ink', type: 'pricing-cards', label: 'Tarifs · grille asymétrique · 3 colonnes (vedette large) · encre', family: 'card-grid', era: '2026', props: { layout: 'grid-asym', colRatio: '1-1-2', background: 'ink' } },
+    { id: 'pricing-cards--list', type: 'pricing-cards', label: 'Tarifs · liste (formules en lignes)', family: 'card-grid', era: '2024', props: { layout: 'list', background: 'paper' } },
+    { id: 'pricing-cards--rows-divided', type: 'pricing-cards', label: 'Tarifs · lignes séparées (table tarifaire)', family: 'card-grid', era: '2023', props: { layout: 'rows-divided', background: 'paper' } },
+    { id: 'pricing-cards--bento-feature', type: 'pricing-cards', label: 'Tarifs · bento vedette (offre phare large)', family: 'card-grid', era: '2026', props: { layout: 'bento-feature', background: 'paper-2' } },
+    { id: 'pricing-cards--featured-split-ink', type: 'pricing-cards', label: 'Tarifs · offre phare + colonne · encre', family: 'card-grid', era: '2026', props: { layout: 'featured-split', background: 'ink' } },
+    { id: 'pricing-cards--atomic-actions-center', type: 'pricing-cards', label: 'Tarifs · grille fluide · CTA centrés (placement)', family: 'card-grid', era: '2025', props: { layout: 'grid-auto', background: 'paper', placement: { actions: { justify: 'center' } } } },
+    { id: 'pricing-cards--atomic-header-center', type: 'pricing-cards', label: 'Tarifs · grille uniforme · en-tête centré (placement)', family: 'card-grid', era: '2025', props: { layout: 'grid-uniform', columns: '3', background: 'paper', placement: { header: { align: 'center' } } } },
   ],
 
   // case-card-grid (famille card-grid) :table éditoriale en lignes (pas de colonnes) ;
@@ -358,6 +386,16 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'case-card-grid--ink-ample', type: 'case-card-grid', label: 'Cas clients · encre · aérée', family: 'card-grid', era: '2026', props: { background: 'ink', density: 'ample' } },
     { id: 'case-card-grid--ink-centre', type: 'case-card-grid', label: 'Cas clients · encre · en-tête centré', family: 'card-grid', era: '2026', props: { background: 'ink', contentAlign: 'center' } },
     { id: 'case-card-grid--paper-2-compact', type: 'case-card-grid', label: 'Cas clients · papier 2 · dense', family: 'card-grid', era: '2023', props: { background: 'paper-2', density: 'compact' } },
+    // ── Vague C scale (Batch 2) · recettes de layout (table → honnête : pas de bento) + placement ──
+    { id: 'case-card-grid--rows-divided', type: 'case-card-grid', label: 'Cas clients · lignes séparées (table éditoriale)', family: 'card-grid', era: '2023', props: { layout: 'rows-divided', background: 'paper' } },
+    { id: 'case-card-grid--list', type: 'case-card-grid', label: 'Cas clients · liste (sans filets)', family: 'card-grid', era: '2024', props: { layout: 'list', background: 'paper' } },
+    { id: 'case-card-grid--grid-uniform-3', type: 'case-card-grid', label: 'Cas clients · cartes en grille · 3 colonnes', family: 'card-grid', era: '2025', props: { layout: 'grid-uniform', columns: '3', background: 'paper' } },
+    { id: 'case-card-grid--grid-uniform-2-even', type: 'case-card-grid', label: 'Cas clients · cartes · 2 colonnes · hauteurs égales', family: 'card-grid', era: '2026', props: { layout: 'grid-uniform', columns: '2', itemHeight: 'even', background: 'paper-2' } },
+    { id: 'case-card-grid--grid-uniform-auto-ink', type: 'case-card-grid', label: 'Cas clients · cartes en grille fluide · encre', family: 'card-grid', era: '2026', props: { layout: 'grid-uniform', columns: 'auto', background: 'ink' } },
+    { id: 'case-card-grid--grid-asym-2-1', type: 'case-card-grid', label: 'Cas clients · cartes asymétriques · large + étroite', family: 'card-grid', era: '2026', props: { layout: 'grid-asym', colRatio: '2-1', background: 'paper' } },
+    { id: 'case-card-grid--grid-asym-1-1-2', type: 'case-card-grid', label: 'Cas clients · cartes asymétriques · 3 colonnes (large à droite)', family: 'card-grid', era: '2026', props: { layout: 'grid-asym', colRatio: '1-1-2', background: 'paper-2' } },
+    { id: 'case-card-grid--atomic-header-center', type: 'case-card-grid', label: 'Cas clients · cartes en grille · en-tête centré (placement)', family: 'card-grid', era: '2025', props: { layout: 'grid-uniform', columns: '3', background: 'paper', placement: { header: { align: 'center' } } } },
+    { id: 'case-card-grid--atomic-actions-end', type: 'case-card-grid', label: 'Cas clients · table · lien « tous » aligné à droite (placement)', family: 'card-grid', era: '2025', props: { background: 'paper', placement: { actions: { justify: 'end' } } } },
   ],
 
   // eeat-panel (famille eeat) :variant (media|columns|light|hero) + background (ink|paper SEULEMENT).

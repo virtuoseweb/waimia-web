@@ -14,6 +14,20 @@ const isFr = lang === 'fr';
 const kicker = isFr ? data.kicker_fr : data.kicker_en;
 const lede = isFr ? data.lede_fr : data.lede_en;
 const footnote = isFr ? data.footnote_fr : data.footnote_en;
+
+// ── Couche atomique (Batch 2) · placement par région (header + body + actions).
+// Résolution raccourci↔placement : valeur effective UNE fois, UN seul data-attr par région.
+// placement.header.align surcharge contentAlign ; placement.actions.justify surcharge
+// actionsAlign (spread → between). Défaut absent = rendu actuel.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerOrder = pl?.header?.order;
+const headerHide = pl?.header?.hideOn;
+const bodyOrder = pl?.body?.order;
+const bodyHide = pl?.body?.hideOn;
+const actionsJustify =
+  pl?.actions?.justify ?? (data.actionsAlign === 'spread' ? 'between' : data.actionsAlign);
+const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : undefined;
 ---
 
 <section
@@ -21,16 +35,30 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
   data-bg={data.background}
   data-density={data.density}
   data-content-align={data.contentAlign}
+  data-layout={data.layout}
 >
   <div class="wrap-wide">
-    <div class="pricing-cards__header">
+    <div
+      class="pricing-cards__header"
+      data-header-align={headerAlign}
+      data-header-order={headerOrder}
+      data-header-hide={headerHide}
+    >
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {lede && <p class="pricing-cards__lede">{lede}</p>}
     </div>
-    <div class="pricing-cards__grid" data-columns={data.columns} style={`--col-count: ${data.tiers.length}`}>
+    <div
+      class="pricing-cards__grid"
+      data-columns={data.columns}
+      data-col-ratio={colRatio}
+      data-item-height={data.itemHeight}
+      data-body-order={bodyOrder}
+      data-body-hide={bodyHide}
+      style={`--col-count: ${data.tiers.length}`}
+    >
       {data.tiers.map((tier: (typeof data.tiers)[number], i: number) => (
-        <article class:list={['pricing-cards__card', tier.featured && 'is-featured']}>
+        <article class:list={['pricing-cards__card', tier.featured && 'is-featured']} data-actions-justify={actionsJustify}>
           {tier.featured && (
             <span class="pricing-cards__badge">{isFr ? 'Recommandé' : 'Recommended'}</span>
           )}
@@ -218,6 +246,128 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
   /* ── Axe CONTENT-ALIGN (data-content-align) : alignement du header. Défaut = start (gauche). ── */
   .pricing-cards[data-content-align='center'] .pricing-cards__header { text-align: center; margin-inline: auto; }
   .pricing-cards[data-content-align='end'] .pricing-cards__header { text-align: end; margin-inline-start: auto; }
+
+  /* ── COUCHE ATOMIQUE (Batch 2) · placement par région (header + body + actions).
+     data-header-align résout placement.header.align ?? contentAlign ; data-actions-justify
+     (par carte) résout placement.actions.justify ?? actionsAlign, INDÉPENDANT du header.
+     order/hideOn structurels. ── */
+  .pricing-cards__header[data-header-align='center'] { text-align: center; margin-inline: auto; }
+  .pricing-cards__header[data-header-align='end'] { text-align: end; margin-inline-start: auto; }
+  /* wrap-wide en flux pour réordonner header ↔ grille. */
+  .pricing-cards .wrap-wide { display: flex; flex-direction: column; }
+  .pricing-cards__header[data-header-order='0'] { order: 0; }
+  .pricing-cards__header[data-header-order='1'] { order: 1; }
+  .pricing-cards__grid[data-body-order='0'] { order: 0; }
+  .pricing-cards__grid[data-body-order='1'] { order: 1; }
+  .pricing-cards__header[data-header-hide='desktop'],
+  .pricing-cards__grid[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .pricing-cards__header[data-header-hide='mobile'],
+    .pricing-cards__grid[data-body-hide='mobile'] { display: none; }
+    .pricing-cards__header[data-header-hide='desktop'] { display: flex; }
+    .pricing-cards__grid[data-body-hide='desktop'] { display: grid; }
+  }
+  /* Région ACTIONS : justify du CTA dans la carte. Quand posé, le bouton n'est plus
+     full-width (sinon justify n'a pas d'effet) → largeur intrinsèque alignée. */
+  .pricing-cards__card[data-actions-justify] { align-items: stretch; }
+  .pricing-cards__card[data-actions-justify] .pricing-cards__btn { width: auto; }
+  .pricing-cards__card[data-actions-justify='start'] .pricing-cards__btn { align-self: flex-start; }
+  .pricing-cards__card[data-actions-justify='center'] .pricing-cards__btn { align-self: center; justify-content: center; text-align: center; }
+  .pricing-cards__card[data-actions-justify='end'] .pricing-cards__btn { align-self: flex-end; }
+  .pricing-cards__card[data-actions-justify='between'] .pricing-cards__btn { align-self: stretch; width: 100%; }
+
+  /* ── VOCABULAIRE DE LAYOUT (Batch 2) · recettes nommées sur data-layout. Défaut (absent)
+     = grille --col-count (rendu actuel). 100% tokens DS ; structurel = 768px/900px,
+     aspect-ratio, minmax en rem, order. ── */
+
+  /* grid-uniform : N colonnes égales, cartes étirées (hauteurs alignées). */
+  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+  }
+  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='5'] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='6'] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+  /* grid-auto : auto-fit count-adaptive. Dernière ligne centrée. */
+  .pricing-cards[data-layout='grid-auto'] .pricing-cards__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--pricing-col-min, 16rem), 100%), 1fr));
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  /* grid-asym : colonnes de largeurs différentes via colRatio. */
+  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid { grid-template-columns: 1fr 1fr; align-items: stretch; }
+  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='equal'] { grid-template-columns: 1fr 1fr; }
+  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='1-2'] { grid-template-columns: 1fr 2fr; }
+  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='2-1'] { grid-template-columns: 2fr 1fr; }
+  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='1-1-2'] { grid-template-columns: 1fr 1fr 2fr; }
+  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='2-3'] { grid-template-columns: 2fr 3fr; }
+
+  /* list : 1 tier par ligne, carte horizontale (header+price ↔ features ↔ CTA). */
+  .pricing-cards[data-layout='list'] .pricing-cards__grid { grid-template-columns: 1fr; }
+  .pricing-cards[data-layout='list'] .pricing-cards__card,
+  .pricing-cards[data-layout='rows-divided'] .pricing-cards__card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto;
+    column-gap: var(--space-6);
+    align-items: center;
+  }
+  .pricing-cards[data-layout='list'] .pricing-cards__price,
+  .pricing-cards[data-layout='rows-divided'] .pricing-cards__price { border: none; padding-block: 0; }
+
+  /* rows-divided : list + hairline entre lignes (table tarifaire). */
+  .pricing-cards[data-layout='rows-divided'] .pricing-cards__grid { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--hairline); }
+  .pricing-cards[data-layout='rows-divided'] .pricing-cards__card { border: none; border-bottom: 1px solid var(--hairline); border-radius: 0; }
+
+  /* bento-feature : 1ʳᵉ carte vedette span 2×2 + tiers simples (dense). */
+  .pricing-cards[data-layout='bento-feature'] .pricing-cards__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    align-items: stretch;
+  }
+  .pricing-cards[data-layout='bento-feature'] .pricing-cards__card:first-child { grid-column: span 2; grid-row: span 2; }
+
+  /* featured-split : 1 gros tier (1fr) + colonne de tiers secondaires (1fr). */
+  .pricing-cards[data-layout='featured-split'] .pricing-cards__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+    align-items: start;
+  }
+  .pricing-cards[data-layout='featured-split'] .pricing-cards__card:first-child { grid-row: 1 / -1; }
+
+  /* itemHeight : hauteur des cartes en mode grille. Défaut historique = align-items:start. */
+  .pricing-cards[data-layout] .pricing-cards__grid[data-item-height='even'] { align-items: stretch; }
+  .pricing-cards[data-layout] .pricing-cards__grid[data-item-height='auto'] { align-items: start; }
+  .pricing-cards[data-layout] .pricing-cards__grid[data-item-height='square'] .pricing-cards__card { aspect-ratio: 1; overflow: hidden; }
+  .pricing-cards[data-layout] .pricing-cards__grid[data-item-height='video'] .pricing-cards__card { aspect-ratio: 16 / 9; overflow: hidden; }
+
+  /* Responsive : toute recette grille converge en 1 colonne ≤768px ; list/rows en 1 col empilée. */
+  @media (max-width: 768px) {
+    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid,
+    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='2'],
+    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='3'],
+    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='4'],
+    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='5'],
+    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='6'],
+    .pricing-cards[data-layout='grid-auto'] .pricing-cards__grid,
+    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid,
+    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='1-2'],
+    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='2-1'],
+    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='1-1-2'],
+    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='2-3'],
+    .pricing-cards[data-layout='bento-feature'] .pricing-cards__grid,
+    .pricing-cards[data-layout='featured-split'] .pricing-cards__grid { grid-template-columns: 1fr; }
+    .pricing-cards[data-layout='bento-feature'] .pricing-cards__card:first-child,
+    .pricing-cards[data-layout='featured-split'] .pricing-cards__card:first-child { grid-column: auto; grid-row: auto; }
+    /* list/rows : carte repasse en pile verticale (prix sous header, CTA sous features). */
+    .pricing-cards[data-layout='list'] .pricing-cards__card,
+    .pricing-cards[data-layout='rows-divided'] .pricing-cards__card { grid-template-columns: 1fr; row-gap: var(--space-4); }
+    .pricing-cards[data-layout] .pricing-cards__grid[data-item-height='square'] .pricing-cards__card,
+    .pricing-cards[data-layout] .pricing-cards__grid[data-item-height='video'] .pricing-cards__card { aspect-ratio: auto; }
+  }
 
   @media (max-width: 900px) {
     /* Empilé : 1 colonne quel que soit l'axe (les data-columns ont une spécificité

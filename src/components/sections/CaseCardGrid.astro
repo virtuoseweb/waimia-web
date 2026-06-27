@@ -49,10 +49,30 @@ const emptyBody = isFr
     "Nous publions un cas uniquement après mesure du résultat et accord du client. Les premiers cas de ce secteur arrivent. En attendant, parlons de votre projet : nous montrons concrètement comment nous travaillons."
   : data.empty_body_en ??
     'We only publish a case after the result is measured and the client has agreed. The first cases for this industry are coming. In the meantime, let us talk about your project: we show exactly how we work.';
+
+// ── Couche atomique (Batch 2) · placement par région (header + body + actions=lien « tous »).
+// Résolution raccourci↔placement : valeur effective UNE fois, UN seul data-attr par région.
+// placement.header.align surcharge contentAlign. Défaut absent = rendu actuel.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerOrder = pl?.header?.order;
+const headerHide = pl?.header?.hideOn;
+const bodyHide = pl?.body?.hideOn;
+const actionsJustify =
+  pl?.actions?.justify ?? (data.actionsAlign === 'spread' ? 'between' : data.actionsAlign);
+const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : undefined;
 ---
-<section id="act-4" class="sec" data-bg={data.background} data-density={data.density} data-content-align={data.contentAlign} aria-labelledby="cases-h2">
+<section
+  id="act-4"
+  class="sec"
+  data-bg={data.background}
+  data-density={data.density}
+  data-content-align={data.contentAlign}
+  data-layout={data.layout}
+  aria-labelledby="cases-h2"
+>
   <div class="wrap-wide">
-    <header class="cases-hd">
+    <header class="cases-hd" data-header-align={headerAlign} data-header-order={headerOrder} data-header-hide={headerHide}>
       <ChapterLabel
         num={data.fig_num}
         title={isFr ? data.fig_title_fr : data.fig_title_en}
@@ -70,7 +90,7 @@ const emptyBody = isFr
         <p class="cases-empty__body">{emptyBody}</p>
       </div>
     ) : (
-    <div class="cases-tbl row-lines reveal-stagger">
+    <div class="cases-tbl row-lines reveal-stagger" data-columns={data.columns} data-col-ratio={colRatio} data-item-height={data.itemHeight} data-body-hide={bodyHide}>
       {resolvedCases.map((c, i) => (
         <a class="cases-row" href={c.href}>
           <span class="cases-idx">{isFr ? data.case_label_fr : data.case_label_en} 0{i + 1}</span>
@@ -94,7 +114,7 @@ const emptyBody = isFr
     )}
 
     {data.all_href && (
-      <div class="cases-foot">
+      <div class="cases-foot" data-actions-justify={actionsJustify}>
         <a href={data.all_href}>
           {isFr ? data.all_label_fr : data.all_label_en}
         </a>
@@ -163,6 +183,93 @@ const emptyBody = isFr
   #act-4[data-content-align='center'] .cases-h2{margin-inline:auto}
   #act-4[data-content-align='end'] .cases-hd{justify-content:flex-end;text-align:end}
   #act-4[data-content-align='end'] .cases-h2{margin-inline-start:auto}
+
+  /* ── COUCHE ATOMIQUE (Batch 2) · placement par région (header + body + actions=lien « tous »).
+     data-header-align résout placement.header.align ?? contentAlign. data-actions-justify
+     (pied) résout placement.actions.justify ?? actionsAlign, indépendant du header.
+     order/hideOn structurels. ── */
+  .cases-hd[data-header-align='center']{justify-content:center;text-align:center}
+  .cases-hd[data-header-align='end']{justify-content:flex-end;text-align:end}
+  /* wrap-wide en flux pour réordonner header ↔ table. */
+  #act-4 .wrap-wide{display:flex;flex-direction:column}
+  .cases-hd[data-header-order='0']{order:0}
+  .cases-hd[data-header-order='1']{order:1}
+  .cases-hd[data-header-hide='desktop'],
+  .cases-tbl[data-body-hide='desktop']{display:none}
+  @media (max-width:768px){
+    .cases-hd[data-header-hide='mobile'],
+    .cases-tbl[data-body-hide='mobile']{display:none}
+    .cases-hd[data-header-hide='desktop']{display:flex}
+    .cases-tbl[data-body-hide='desktop']{display:block}
+  }
+  .cases-foot[data-actions-justify]{display:flex}
+  .cases-foot[data-actions-justify='start']{justify-content:flex-start}
+  .cases-foot[data-actions-justify='center']{justify-content:center}
+  .cases-foot[data-actions-justify='end']{justify-content:flex-end}
+  .cases-foot[data-actions-justify='between']{justify-content:space-between}
+
+  /* ── VOCABULAIRE DE LAYOUT (Batch 2) · TABLE de lignes → on NE ment PAS avec bento.
+     Défaut (absent) = rendu actuel (rows). list = sans border-top. grid-uniform/grid-asym
+     = projettent les cas en CARTES empilées (la grille 6-col interne de chaque ligne se
+     replie en stack vertical). 100% tokens DS ; structurel = 768px, aspect-ratio, order. ── */
+
+  /* list : lignes empilées sans la hairline supérieure (rythme par l'espacement seul). */
+  #act-4[data-layout='list'] .cases-row{border-top:none}
+
+  /* grid-uniform : cartes en grille N colonnes égales. Chaque ligne devient une carte
+     bordée, son contenu se replie en pile verticale lisible. */
+  #act-4[data-layout='grid-uniform'] .cases-tbl,
+  #act-4[data-layout='grid-asym'] .cases-tbl{
+    display:grid;
+    gap:var(--space-5);
+    align-items:stretch;
+  }
+  #act-4[data-layout='grid-uniform'] .cases-tbl{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #act-4[data-layout='grid-uniform'] .cases-tbl[data-columns='auto']{grid-template-columns:repeat(auto-fit,minmax(min(18rem,100%),1fr));justify-content:center}
+  #act-4[data-layout='grid-uniform'] .cases-tbl[data-columns='2']{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #act-4[data-layout='grid-uniform'] .cases-tbl[data-columns='3']{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #act-4[data-layout='grid-uniform'] .cases-tbl[data-columns='4']{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+  /* grid-asym : cartes en grille de largeurs différentes via colRatio. */
+  #act-4[data-layout='grid-asym'] .cases-tbl{grid-template-columns:1fr 1fr}
+  #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='equal']{grid-template-columns:1fr 1fr}
+  #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='1-2']{grid-template-columns:1fr 2fr}
+  #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='2-1']{grid-template-columns:2fr 1fr}
+  #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='1-1-2']{grid-template-columns:1fr 1fr 2fr}
+  #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='2-3']{grid-template-columns:2fr 3fr}
+
+  /* Carte (mode grille) : la ligne 6-col se replie en pile ; bordure + padding de carte. */
+  #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-row{
+    grid-template-columns:1fr;
+    gap:var(--space-3);
+    padding:var(--space-6);
+    border:1px solid var(--hairline);
+    border-radius:var(--radius-xs);
+    align-content:start;
+  }
+  #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-row:hover{translate:0 -2px}
+  #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-arr{display:inline;text-align:left}
+
+  /* itemHeight (mode grille seulement) : harmonisées/contrastées. */
+  #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-tbl[data-item-height='even']{align-items:stretch}
+  #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-tbl[data-item-height='auto']{align-items:start}
+  #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-tbl[data-item-height='square'] .cases-row{aspect-ratio:1;overflow:hidden}
+  #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-tbl[data-item-height='video'] .cases-row{aspect-ratio:16/9;overflow:hidden}
+
+  /* Responsive : les recettes grille convergent en 1 colonne ≤768px ; rows/list restent. */
+  @media (max-width:768px){
+    #act-4[data-layout='grid-uniform'] .cases-tbl,
+    #act-4[data-layout='grid-uniform'] .cases-tbl[data-columns='2'],
+    #act-4[data-layout='grid-uniform'] .cases-tbl[data-columns='3'],
+    #act-4[data-layout='grid-uniform'] .cases-tbl[data-columns='4'],
+    #act-4[data-layout='grid-asym'] .cases-tbl,
+    #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='1-2'],
+    #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='2-1'],
+    #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='1-1-2'],
+    #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='2-3']{grid-template-columns:1fr}
+    #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-tbl[data-item-height='square'] .cases-row,
+    #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-tbl[data-item-height='video'] .cases-row{aspect-ratio:auto}
+  }
 
   /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair inchange ── */
   #act-4[data-bg='paper-2']{background:var(--paper-2)}
