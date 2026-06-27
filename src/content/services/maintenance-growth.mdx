@@ -89,22 +89,6 @@ sections:
       href: "#capacites"
       variant: "ghost"
 
-  - type: "statement-orbit"
-    kicker_fr: "FIG 1.5 · Boucle de croissance"
-    kicker_en: "FIG 1.5 · Growth loop"
-    h2_fr: "Chaque mois, votre site <i class=\"acc\">monte de version</i> au lieu de se figer."
-    h2_en: "Every month, your site <i class=\"acc\">moves up a version</i> instead of freezing."
-    lede_fr: "D'un site livré une fois à un actif qui progresse, vos données alimentent une boucle d'optimisation continue, mois après mois."
-    lede_en: "From a site delivered once to an asset that grows, your data feeds a continuous optimisation loop, month after month."
-    cta:
-      label_fr: "Voir les capacités →"
-      label_en: "See the capabilities →"
-      href: "#capacites"
-      variant: "ghost"
-    media_src: "/images/line-art/orbit-network.svg"
-    media_alt_fr: "Globe filaire avec des nœuds reliés par des arcs : un site qui progresse dans une boucle continue."
-    media_alt_en: "Wireframe globe with nodes linked by arcs: a site progressing in a continuous loop."
-
   # ─── Slot 2 · Proof-bar (paper, en bref) ───
   - type: "proof-bar"
     background: "paper"
@@ -125,33 +109,70 @@ sections:
         label_fr: "engagement de durée, vous gardez la stack"
         label_en: "duration commitment, you keep the stack"
 
+  - type: "definition-extract"
+    background: "paper"
+    kicker_fr: "§ Définition · format extractible"
+    kicker_en: "§ Definition · extractable format"
+    statement_fr: "Une <i class=\"acc\">maintenance growth</i> exploite votre site dans la durée : SEO optimisé en continu, correctifs en SLA et améliorations sur vos données, pour qu'il monte de version au lieu de se figer."
+    statement_en: "<i class=\"acc\">Growth maintenance</i> operates your site over time: SEO optimised continuously, fixes under SLA and improvements on your data, so it moves up versions instead of freezing."
+    pills:
+      - { label_fr: "Forfait mensuel", label_en: "Monthly retainer" }
+      - { label_fr: "SEO/GEO en continu", label_en: "Continuous SEO/GEO" }
+      - { label_fr: "Correctifs en SLA", label_en: "SLA fixes" }
+      - { label_fr: "Reporting business", label_en: "Business reporting" }
+      - { label_fr: "Sans engagement", label_en: "No commitment" }
+    specs:
+      - { label_fr: "SEO/GEO continu", label_en: "Continuous SEO/GEO" }
+      - { label_fr: "SLA", label_en: "SLA" }
+      - { label_fr: "Reporting business", label_en: "Business reporting" }
+      - { label_fr: "Améliorations data", label_en: "Data-driven improvements" }
+      - { label_fr: "Montée de version", label_en: "Version uplift" }
+
+  - type: "statement-orbit"
+    kicker_fr: "FIG 1.5 · Boucle de croissance"
+    kicker_en: "FIG 1.5 · Growth loop"
+    h2_fr: "Chaque mois, votre site <i class=\"acc\">monte de version</i> au lieu de se figer."
+    h2_en: "Every month, your site <i class=\"acc\">moves up a version</i> instead of freezing."
+    lede_fr: "D'un site livré une fois à un actif qui progresse, vos données alimentent une boucle d'optimisation continue, mois après mois."
+    lede_en: "From a site delivered once to an asset that grows, your data feeds a continuous optimisation loop, month after month."
+    cta:
+      label_fr: "Voir les capacités →"
+      label_en: "See the capabilities →"
+      href: "#capacites"
+      variant: "ghost"
+    media_src: "/images/line-art/orbit-network.svg"
+    media_alt_fr: "Globe filaire avec des nœuds reliés par des arcs : un site qui progresse dans une boucle continue."
+    media_alt_en: "Wireframe globe with nodes linked by arcs: a site progressing in a continuous loop."
+
   # ─── Slot 3 · Problèmes (paper-2) ───
-  - type: "problems-grid"
-    background: "paper-2"
-    h2_fr: "Là où un site <i>meurt</i> après la livraison"
-    h2_en: "Where a site <i>dies</i> after delivery"
-    problems:
-      - num: "01"
-        kicker_fr: "Site abandonné"
-        kicker_en: "Abandoned site"
+  - type: "pain-severity-list"
+    background: "ink"
+    kicker_fr: "Pain points · par sévérité"
+    kicker_en: "Pain points · by severity"
+    h2_fr: "Là où un site <i class=\"acc\">meurt</i> après la livraison."
+    h2_en: "Where a site <i class=\"acc\">dies</i> after delivery."
+    items:
+      - severity: "critical"
         title_fr: "Livré une fois, jamais entretenu"
         title_en: "Shipped once, never tended"
-        body_fr: "Le site a été créé, mis en ligne, puis plus personne ne s'en occupe. Les dépendances vieillissent, le contenu reste figé, les positions SEO se dégradent sans que vous le voyiez. L'actif construit perd de la valeur chaque mois faute d'exploitation."
-        body_en: "The site was built, deployed, then no one looks after it. Dependencies age, content freezes, SEO rankings decline without you noticing. The asset you built loses value every month for lack of operation."
-      - num: "02"
-        kicker_fr: "Pilotage à l'aveugle"
-        kicker_en: "Flying blind"
+        desc_fr: "Le site est mis en ligne puis abandonné : les dépendances vieillissent, le contenu se fige, les positions SEO se dégradent et l'actif perd de la valeur chaque mois."
+        desc_en: "The site is deployed then abandoned: dependencies age, content freezes, SEO rankings decline and the asset loses value every month."
+        fix_fr: "Exploitation continue + SEO entretenu."
+        fix_en: "Continuous operation + maintained SEO."
+      - severity: "high"
         title_fr: "Aucune lecture des chiffres"
         title_en: "No read of the figures"
-        body_fr: "Le site tourne, mais personne ne lit ses KPI. Vous ne savez pas si le trafic monte, quel contenu convertit, où ça décroche. Sans reporting régulier ni lecture business, impossible de décider quoi améliorer en premier. On pilote au ressenti."
-        body_en: "The site runs, but no one reads its KPIs. You don't know if traffic is rising, which content converts, where it slips. With no regular reporting or business read, it's impossible to decide what to improve first. Management runs on gut feel."
-      - num: "03"
-        kicker_fr: "Bugs en attente"
-        kicker_en: "Bugs in limbo"
+        desc_fr: "Le site tourne mais personne ne lit ses KPI : impossible de savoir ce qui convertit ni où ça décroche, on pilote au ressenti."
+        desc_en: "The site runs but no one reads its KPIs: impossible to know what converts or where it slips, management runs on gut feel."
+        fix_fr: "Reporting business régulier."
+        fix_en: "Regular business reporting."
+      - severity: "medium"
         title_fr: "Un incident attend votre relance"
         title_en: "An incident waits on your chase"
-        body_fr: "Une régression apparaît, un formulaire casse, une page tombe. Sans contrat de suivi ni délais d'intervention définis, le correctif attend que vous le remarquiez, que vous trouviez un prestataire et que vous obteniez un devis. Pendant ce temps, le site perd des leads."
-        body_en: "A regression appears, a form breaks, a page goes down. With no follow-up contract or defined intervention times, the fix waits for you to notice, find a provider and get a quote. Meanwhile, the site loses leads."
+        desc_fr: "Sans contrat de suivi ni délais définis, un formulaire cassé attend que vous le remarquiez, trouviez un prestataire et obteniez un devis, pendant que le site perd des leads."
+        desc_en: "With no follow-up contract or defined times, a broken form waits for you to notice, find a provider and get a quote, while the site loses leads."
+        fix_fr: "Correctifs en SLA."
+        fix_en: "Fixes under SLA."
 
   # ─── Slot 4 · Pour qui, pas pour qui (paper) ───
   - type: "versus-competitors"

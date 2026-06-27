@@ -85,22 +85,6 @@ sections:
       href: "#capacites"
       variant: "ghost"
 
-  - type: "statement-orbit"
-    kicker_fr: "FIG 1.5 · Pipeline de qualification"
-    kicker_en: "FIG 1.5 · Qualification pipeline"
-    h2_fr: "Chaque visite rejoint un <i class=\"acc\">pipeline</i> qui capte, score et priorise."
-    h2_en: "Every visit joins a <i class=\"acc\">pipeline</i> that captures, scores and prioritises."
-    lede_fr: "D'un trafic anonyme à des leads classés, chaque visiteur devient un lead qualifié que votre commercial rappelle dans le bon ordre."
-    lede_en: "From anonymous traffic to ranked leads, each visitor becomes a qualified lead your sales rep calls back in the right order."
-    cta:
-      label_fr: "Voir les capacités →"
-      label_en: "See the capabilities →"
-      href: "#capacites"
-      variant: "ghost"
-    media_src: "/images/line-art/orbit-network.svg"
-    media_alt_fr: "Globe filaire avec des nœuds reliés par des arcs : un trafic anonyme se classe en leads priorisés."
-    media_alt_en: "Wireframe globe with nodes linked by arcs: anonymous traffic ranks into prioritised leads."
-
   # ─── Slot 2 · En bref (paper, proof-bar) ───
   - type: "proof-bar"
     background: "paper"
@@ -121,33 +105,70 @@ sections:
         label_fr: "leads triés, chauds rappelés d'abord"
         label_en: "leads sorted, hot ones called first"
 
+  - type: "definition-extract"
+    background: "paper"
+    kicker_fr: "§ Définition · format extractible"
+    kicker_en: "§ Definition · extractable format"
+    statement_fr: "Une <i class=\"acc\">landing page à scoring</i> transforme votre trafic en leads qualifiés et priorisés : des paliers par persona qui captent, une note prédictive qui dit qui rappeler en premier, branchés à votre CRM."
+    statement_en: "A <i class=\"acc\">scoring landing page</i> turns your traffic into qualified, prioritised leads: tiers per persona that capture, a predictive score that says who to call first, wired to your CRM."
+    pills:
+      - { label_fr: "Paliers par persona", label_en: "Tiers per persona" }
+      - { label_fr: "Capture d'intention", label_en: "Intent capture" }
+      - { label_fr: "Note prédictive", label_en: "Predictive score" }
+      - { label_fr: "Branché au CRM", label_en: "CRM-connected" }
+      - { label_fr: "Mis à jour en continu", label_en: "Continuously updated" }
+    specs:
+      - { label_fr: "Landing à paliers", label_en: "Tiered landing" }
+      - { label_fr: "Lead magnets", label_en: "Lead magnets" }
+      - { label_fr: "Scoring prédictif", label_en: "Predictive scoring" }
+      - { label_fr: "Priorisation", label_en: "Prioritisation" }
+      - { label_fr: "CRM en continu", label_en: "Continuous CRM" }
+
+  - type: "statement-orbit"
+    kicker_fr: "FIG 1.5 · Pipeline de qualification"
+    kicker_en: "FIG 1.5 · Qualification pipeline"
+    h2_fr: "Chaque visite rejoint un <i class=\"acc\">pipeline</i> qui capte, score et priorise."
+    h2_en: "Every visit joins a <i class=\"acc\">pipeline</i> that captures, scores and prioritises."
+    lede_fr: "D'un trafic anonyme à des leads classés, chaque visiteur devient un lead qualifié que votre commercial rappelle dans le bon ordre."
+    lede_en: "From anonymous traffic to ranked leads, each visitor becomes a qualified lead your sales rep calls back in the right order."
+    cta:
+      label_fr: "Voir les capacités →"
+      label_en: "See the capabilities →"
+      href: "#capacites"
+      variant: "ghost"
+    media_src: "/images/line-art/orbit-network.svg"
+    media_alt_fr: "Globe filaire avec des nœuds reliés par des arcs : un trafic anonyme se classe en leads priorisés."
+    media_alt_en: "Wireframe globe with nodes linked by arcs: anonymous traffic ranks into prioritised leads."
+
   # ─── Slot 3 · Problèmes (paper-2, où la conversion fuit) ───
-  - type: "problems-grid"
-    background: "paper-2"
-    h2_fr: "Là où le trafic <i>se perd</i>"
-    h2_en: "Where the traffic <i>gets lost</i>"
-    problems:
-      - num: "01"
-        kicker_fr: "Page qui présente"
-        kicker_en: "A page that presents"
+  - type: "pain-severity-list"
+    background: "ink"
+    kicker_fr: "Pain points · par sévérité"
+    kicker_en: "Pain points · by severity"
+    h2_fr: "Là où le trafic <i class=\"acc\">se perd</i>."
+    h2_en: "Where the traffic <i class=\"acc\">gets lost</i>."
+    items:
+      - severity: "critical"
         title_fr: "Un trafic qui repart sans convertir"
         title_en: "Traffic that leaves without converting"
-        body_fr: "Vous attirez des visiteurs, mais la page leur parle à tous de la même façon. Aucun palier par persona, aucun lead magnet qui capte l'intention. Le trafic arrive, regarde, et repart sans laisser d'adresse ni de signal exploitable. Le budget d'acquisition se dépense sans qu'une seule conversion lui soit attribuable."
-        body_en: "You attract visitors, but the page speaks to all of them the same way. No tier per persona, no lead magnet that captures intent. Traffic arrives, looks, and leaves without an address or a usable signal. The acquisition budget is spent without a single conversion attributable to it."
-      - num: "02"
-        kicker_fr: "Leads en vrac"
-        kicker_en: "Leads in bulk"
+        desc_fr: "La page parle à tous de la même façon : aucun palier par persona, aucun lead magnet. Le trafic regarde et repart sans laisser de signal, le budget d'acquisition se dépense sans conversion."
+        desc_en: "The page speaks to everyone the same way: no tier per persona, no lead magnet. Traffic looks and leaves without a signal, the acquisition budget spent with no conversion."
+        fix_fr: "Landing à paliers + capture d'intention."
+        fix_en: "Tiered landing + intent capture."
+      - severity: "high"
         title_fr: "Tous les leads dans le même sac"
         title_en: "Every lead in the same bag"
-        body_fr: "Les contacts arrivent et sont traités dans l'ordre d'arrivée, sans distinction. Le commercial passe autant d'énergie sur un curieux que sur un acheteur prêt à signer. Faute de priorité, les leads chauds attendent leur tour derrière les froids, et certains refroidissent avant même d'être rappelés."
-        body_en: "Contacts arrive and are worked in order of arrival, with no distinction. The salesperson spends as much energy on a browser as on a buyer ready to sign. With no priority, hot leads wait behind cold ones, and some go cold before they're even called back."
-      - num: "03"
-        kicker_fr: "Signaux ignorés"
-        kicker_en: "Signals ignored"
+        desc_fr: "Les contacts sont traités dans l'ordre d'arrivée : le commercial dépense autant d'énergie sur un curieux que sur un acheteur, et les leads chauds attendent derrière les froids."
+        desc_en: "Contacts are worked in order of arrival: the salesperson spends as much on a browser as on a buyer, and hot leads wait behind cold ones."
+        fix_fr: "Scoring prédictif + priorisation."
+        fix_en: "Predictive scoring + prioritisation."
+      - severity: "medium"
         title_fr: "Les bons signaux d'achat passent inaperçus"
         title_en: "The real buying signals go unnoticed"
-        body_fr: "Un lead revient trois fois sur la page tarifs, télécharge une étude, demande un devis : autant de signes qu'il est mûr. Mais ces signaux comportementaux ne remontent nulle part, personne ne les lit, et le commercial ne sait pas que ce contact mérite un appel maintenant. L'information existe, elle n'est juste pas exploitée."
-        body_en: "A lead comes back three times to the pricing page, downloads a study, asks for a quote: all signs of readiness. But these behavioural signals surface nowhere, no one reads them, and the salesperson doesn't know this contact deserves a call now. The information exists, it's just not used."
+        desc_fr: "Un lead revient sur la page tarifs, télécharge, demande un devis : autant de signes mûrs qui ne remontent nulle part et que personne ne lit."
+        desc_en: "A lead returns to the pricing page, downloads, asks for a quote: ready signs that surface nowhere and no one reads."
+        fix_fr: "Signaux comportementaux remontés au CRM."
+        fix_en: "Behavioural signals surfaced to the CRM."
 
   # ─── Slot 4 · Pour qui / pas pour qui (paper, versus honnête E-E-A-T) ───
   - type: "versus-competitors"

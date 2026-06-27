@@ -85,6 +85,25 @@ sections:
       href: "#capacites"
       variant: "ghost"
 
+  - type: "definition-extract"
+    background: "paper"
+    kicker_fr: "§ Définition · format extractible"
+    kicker_en: "§ Definition · extractable format"
+    statement_fr: "Un <i class=\"acc\">intégrateur Claude</i> déploie Claude et ses agents dans votre entreprise et les branche à vos outils via MCP, du déploiement à la gouvernance, pour automatiser vos workflows réels, sans saisie manuelle ni POC qui dort."
+    statement_en: "A <i class=\"acc\">Claude integrator</i> deploys Claude and its agents in your company and wires them to your tools via MCP, from deployment to governance, to automate your real workflows, with no manual entry and no POC left asleep."
+    pills:
+      - { label_fr: "Écosystème Anthropic", label_en: "Anthropic ecosystem" }
+      - { label_fr: "Branché via MCP", label_en: "Wired via MCP" }
+      - { label_fr: "Du POC à la prod", label_en: "From POC to production" }
+      - { label_fr: "Gouvernance", label_en: "Governance" }
+      - { label_fr: "Formation référent", label_en: "Lead training" }
+    specs:
+      - { label_fr: "Claude et Claude Code", label_en: "Claude and Claude Code" }
+      - { label_fr: "MCP", label_en: "MCP" }
+      - { label_fr: "CRM, e-mail, Git", label_en: "CRM, email, Git" }
+      - { label_fr: "Gouvernance", label_en: "Governance" }
+      - { label_fr: "Référent IA formé", label_en: "Trained AI lead" }
+
   - type: "statement-orbit"
     kicker_fr: "FIG 1.5 · Orchestration Claude"
     kicker_en: "FIG 1.5 · Claude orchestration"
@@ -102,41 +121,34 @@ sections:
     media_alt_en: "Wireframe globe with nodes linked by arcs: scattered tools orchestrate into one dispositif."
 
   # ─── Slot 3 · Problèmes (paper-2, reveal-stagger, pictos line-art) ───
-  - type: "problems-grid"
-    background: "paper-2"
-    h2_fr: "Là où l'IA <i>déraille</i> en interne"
-    h2_en: "Where AI <i>derails</i> internally"
-    problems:
-      - num: "01"
-        kicker_fr: "POC qui dort"
-        kicker_en: "POC asleep"
+  - type: "pain-severity-list"
+    background: "ink"
+    kicker_fr: "Pain points · par sévérité"
+    kicker_en: "Pain points · by severity"
+    h2_fr: "Là où l'IA <i class=\"acc\">déraille</i> en interne."
+    h2_en: "Where AI <i class=\"acc\">derails</i> internally."
+    items:
+      - severity: "critical"
         title_fr: "Une démo qui n'atteint jamais la production"
         title_en: "A demo that never reaches production"
-        body_fr: "L'équipe a testé un assistant, fait un POC qui impressionne en réunion. Six mois plus tard, il dort dans un Notion : aucun process réel n'a été automatisé, aucune heure n'a été gagnée. La marche entre la démo et la prod n'a jamais été franchie."
-        body_en: "The team tested an assistant, ran a POC that wowed the meeting. Six months later it sleeps in a Notion: no real process was automated, no hours were saved. The step between demo and production was never crossed."
-        illustration_src: "/images/line-art/probleme-poc-qui-dort.svg"
-        illustration_alt_fr: "Un prototype à l'écran mis en sommeil, jamais passé en production"
-        illustration_alt_en: "A prototype on screen put to sleep, never moved to production"
-      - num: "02"
-        kicker_fr: "Shadow AI"
-        kicker_en: "Shadow AI"
+        desc_fr: "Un POC qui impressionne en réunion, puis dort dans un Notion six mois plus tard : aucun process automatisé, aucune heure gagnée."
+        desc_en: "A POC that wows the meeting, then sleeps in a Notion six months later: no process automated, no hours saved."
+        fix_fr: "Mise en production, du POC au workflow réel."
+        fix_en: "Production: from POC to real workflow."
+      - severity: "high"
         title_fr: "Des outils IA partout, aucune gouvernance"
         title_en: "AI tools everywhere, no governance"
-        body_fr: "Chacun bricole avec son propre outil, sans périmètre ni traçabilité. Des données sensibles passent par des comptes personnels, personne ne sait quel agent fait quoi. L'IA est partout mais elle est ingérable, et le risque grandit en silence."
-        body_en: "Everyone tinkers with their own tool, with no scope or traceability. Sensitive data passes through personal accounts, no one knows which agent does what. AI is everywhere but unmanageable, and the risk grows silently."
-        illustration_src: "/images/line-art/probleme-donnees-eparpillees.svg"
-        illustration_alt_fr: "Des données sensibles éparpillées entre des outils non gouvernés"
-        illustration_alt_en: "Sensitive data scattered across ungoverned tools"
-      - num: "03"
-        kicker_fr: "Outils cloisonnés"
-        kicker_en: "Siloed tools"
+        desc_fr: "Chacun bricole avec son outil, des données sensibles passent par des comptes personnels, personne ne sait quel agent fait quoi."
+        desc_en: "Everyone tinkers with their own tool, sensitive data passes through personal accounts, no one knows which agent does what."
+        fix_fr: "Périmètre, traçabilité, gouvernance."
+        fix_en: "Scope, traceability, governance."
+      - severity: "medium"
         title_fr: "L'humain reste la couche d'intégration"
         title_en: "People stay the integration layer"
-        body_fr: "Vos outils ne se parlent pas. Vos équipes copient, relancent et font le pont à la main, toute la journée. L'assistant IA reste une fenêtre de chat à côté du travail, jamais branché sur le CRM, l'e-mail ou la base de données où le travail se fait vraiment."
-        body_en: "Your tools don't talk to each other. Your teams copy, chase and bridge the gaps by hand, all day. The AI assistant stays a chat window next to the work, never wired into the CRM, the email or the database where the work actually happens."
-        illustration_src: "/images/line-art/probleme-outils-cloisonnes.svg"
-        illustration_alt_fr: "Des outils cloisonnés que l'humain relie à la main"
-        illustration_alt_en: "Siloed tools bridged by hand"
+        desc_fr: "Vos outils ne se parlent pas : les équipes copient, relancent et font le pont à la main toute la journée, l'assistant restant une fenêtre de chat à côté du travail."
+        desc_en: "Your tools don't talk: teams copy, chase and bridge by hand all day, the assistant staying a chat window next to the work."
+        fix_fr: "Agents branchés via MCP au CRM et à l'e-mail."
+        fix_en: "Agents wired via MCP to the CRM and email."
 
   # ─── Slot 4 · Pour qui / pas pour qui (paper, glyphes ✓/✗, honnête E-E-A-T) ───
   - type: "versus-competitors"

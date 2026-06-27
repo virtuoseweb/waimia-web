@@ -89,6 +89,24 @@ sections:
       href: "#capacites"
       variant: "ghost"
 
+  - type: "definition-extract"
+    background: "paper"
+    kicker_fr: "§ Définition · format extractible"
+    kicker_en: "§ Definition · extractable format"
+    statement_fr: "Un <i class=\"acc\">consultant IA</i> cadre où l'IA crée de la valeur, priorise la feuille de route et pose la gouvernance, pour que vos chantiers partent dans le bon ordre, avant la moindre ligne de code."
+    statement_en: "An <i class=\"acc\">AI consultant</i> frames where AI creates value, prioritises the roadmap and sets the governance, so your projects start in the right order, before a single line of code."
+    pills:
+      - { label_fr: "Diagnostic de valeur", label_en: "Value diagnostic" }
+      - { label_fr: "Feuille de route priorisée", label_en: "Prioritised roadmap" }
+      - { label_fr: "Gouvernance", label_en: "Governance" }
+      - { label_fr: "Montée en compétence", label_en: "Team skill-up" }
+    specs:
+      - { label_fr: "Cartographie de valeur", label_en: "Value map" }
+      - { label_fr: "Roadmap chiffrée", label_en: "Costed roadmap" }
+      - { label_fr: "Règles d'usage", label_en: "Usage rules" }
+      - { label_fr: "Conduite du changement", label_en: "Change management" }
+      - { label_fr: "Indépendant des outils", label_en: "Tool-agnostic" }
+
   - type: "statement-orbit"
     kicker_fr: "FIG 1.5 · Cartographie de valeur"
     kicker_en: "FIG 1.5 · Value map"
@@ -106,41 +124,34 @@ sections:
     media_alt_en: "Wireframe globe with nodes linked by arcs: scattered projects order around one trajectory."
 
   # ─── Slot 3 · Problèmes (paper-2, reveal-stagger, pictos line-art) ───
-  - type: "problems-grid"
-    background: "paper-2"
-    h2_fr: "Là où une décision IA <i>se grippe</i>"
-    h2_en: "Where an AI decision <i>stalls</i>"
-    problems:
-      - num: "01"
-        kicker_fr: "Tout en même temps"
-        kicker_en: "Everything at once"
+  - type: "pain-severity-list"
+    background: "ink"
+    kicker_fr: "Pain points · par sévérité"
+    kicker_en: "Pain points · by severity"
+    h2_fr: "Là où une décision IA <i class=\"acc\">se grippe</i>."
+    h2_en: "Where an AI decision <i class=\"acc\">stalls</i>."
+    items:
+      - severity: "critical"
         title_fr: "Aucune priorité, donc aucun départ"
         title_en: "No priority, so no start"
-        body_fr: "On vous parle d'IA partout, vous voyez dix chantiers possibles et aucun ne démarre vraiment. Sans cartographie ni priorisation, chaque idée se vaut, le budget se disperse et l'année passe sans qu'un seul process soit transformé. Le blocage n'est pas technique, il est dans la décision."
-        body_en: "AI is mentioned everywhere, you see ten possible projects and none really starts. Without a map or priorities, every idea looks equal, the budget scatters and the year passes without a single process transformed. The blocker isn't technical, it's in the decision."
-        illustration_src: "/images/line-art/probleme-poc-qui-dort.svg"
-        illustration_alt_fr: "Dix pistes IA sur la table, aucune priorisée ni lancée"
-        illustration_alt_en: "Ten AI leads on the table, none prioritised or launched"
-      - num: "02"
-        kicker_fr: "IA sans cadre"
-        kicker_en: "AI without a frame"
+        desc_fr: "On vous parle d'IA partout, dix chantiers possibles, et aucun ne démarre vraiment. Le budget se disperse et l'année passe sans transformer un seul process."
+        desc_en: "AI is mentioned everywhere, ten possible projects, and none really starts. The budget scatters and the year passes without transforming a single process."
+        fix_fr: "Cartographie de valeur + roadmap priorisée."
+        fix_en: "Value map + prioritised roadmap."
+      - severity: "high"
         title_fr: "Des outils partout, aucune gouvernance décidée"
         title_en: "Tools everywhere, no decided governance"
-        body_fr: "Des outils IA sont déjà utilisés ici et là, sans périmètre, sans règles, sans personne pour arbitrer. Des données sensibles circulent, le risque grandit en silence et la direction n'a aucune vue d'ensemble. Il manque une décision : qui gouverne l'IA, sur quel périmètre, avec quelles règles."
-        body_en: "AI tools are already used here and there, with no scope, no rules, no one to arbitrate. Sensitive data flows, risk grows silently and management has no overview. A decision is missing: who governs AI, on what scope, with which rules."
-        illustration_src: "/images/line-art/probleme-donnees-eparpillees.svg"
-        illustration_alt_fr: "Des outils IA dispersés sans cadre de gouvernance"
-        illustration_alt_en: "Scattered AI tools with no governance frame"
-      - num: "03"
-        kicker_fr: "Équipes en retrait"
-        kicker_en: "Teams left behind"
+        desc_fr: "Des outils IA utilisés sans périmètre ni règles, des données sensibles qui circulent, et une direction sans vue d'ensemble."
+        desc_en: "AI tools used with no scope or rules, sensitive data flowing, and management with no overview."
+        fix_fr: "Périmètre, règles d'usage, référent désigné."
+        fix_en: "Scope, usage rules, a designated lead."
+      - severity: "medium"
         title_fr: "L'IA avance, les équipes décrochent"
         title_en: "AI moves on, teams fall behind"
-        body_fr: "Un projet IA peut être juste sur le papier et échouer parce que personne en interne n'est embarqué. Les équipes voient une menace ou une boîte noire, pas un outil qu'elles maîtrisent. Sans montée en compétence ni conduite du changement, la décision reste théorique et l'usage ne suit jamais."
-        body_en: "An AI project can be right on paper and fail because no one inside is on board. Teams see a threat or a black box, not a tool they master. Without skill-up or change management, the decision stays theoretical and adoption never follows."
-        illustration_src: "/images/line-art/probleme-outils-cloisonnes.svg"
-        illustration_alt_fr: "Une équipe à l'écart d'un projet IA qu'elle ne maîtrise pas"
-        illustration_alt_en: "A team kept apart from an AI project it doesn't master"
+        desc_fr: "Un projet juste sur le papier échoue si personne en interne n'est embarqué : les équipes voient une boîte noire, pas un outil."
+        desc_en: "A project right on paper fails if no one inside is on board: teams see a black box, not a tool."
+        fix_fr: "Montée en compétence + conduite du changement."
+        fix_en: "Skill-up + change management."
 
   # ─── Slot 4 · Différenciation (paper, versus 3-col, honnête E-E-A-T) ───
   - type: "versus-competitors"

@@ -89,6 +89,25 @@ sections:
       href: "#capacites"
       variant: "ghost"
 
+  - type: "definition-extract"
+    background: "paper"
+    kicker_fr: "§ Définition · format extractible"
+    kicker_en: "§ Definition · extractable format"
+    statement_fr: "Un <i class=\"acc\">agent IA</i> est un programme autonome branché à vos outils via MCP, qui exécute relances, tri, veille et reporting sous supervision humaine, sans saisie manuelle."
+    statement_en: "An <i class=\"acc\">AI agent</i> is an autonomous program wired to your tools via MCP, running follow-ups, sorting, watch and reporting under human supervision, with no manual entry."
+    pills:
+      - { label_fr: "Une mission cadrée", label_en: "One framed mission" }
+      - { label_fr: "Branché via MCP", label_en: "Wired via MCP" }
+      - { label_fr: "Autonome sous supervision", label_en: "Autonomous, supervised" }
+      - { label_fr: "Mesurable", label_en: "Measurable" }
+    specs:
+      - { label_fr: "Relances", label_en: "Follow-ups" }
+      - { label_fr: "Tri et qualification", label_en: "Sorting and qualifying" }
+      - { label_fr: "Veille continue", label_en: "Continuous watch" }
+      - { label_fr: "Reporting", label_en: "Reporting" }
+      - { label_fr: "CRM et e-mail", label_en: "CRM and email" }
+      - { label_fr: "Supervision humaine", label_en: "Human supervision" }
+
   - type: "statement-orbit"
     kicker_fr: "FIG 1.5 · Chaîne d'exécution"
     kicker_en: "FIG 1.5 · Execution chain"
@@ -106,41 +125,34 @@ sections:
     media_alt_en: "Wireframe globe with nodes linked by arcs: scattered tasks join one supervised chain."
 
   # ─── Slot 3 · Problèmes (paper-2, reveal-stagger, pictos line-art) ───
-  - type: "problems-grid"
-    background: "paper-2"
-    h2_fr: "Là où le travail répétitif <i>déborde</i>"
-    h2_en: "Where repetitive work <i>overflows</i>"
-    problems:
-      - num: "01"
-        kicker_fr: "Relances oubliées"
-        kicker_en: "Forgotten follow-ups"
+  - type: "pain-severity-list"
+    background: "ink"
+    kicker_fr: "Pain points · par sévérité"
+    kicker_en: "Pain points · by severity"
+    h2_fr: "Là où le travail répétitif <i class=\"acc\">déborde</i>."
+    h2_en: "Where repetitive work <i class=\"acc\">overflows</i>."
+    items:
+      - severity: "critical"
         title_fr: "Les relances tombent, l'argent avec"
         title_en: "Follow-ups slip, money with them"
-        body_fr: "Un devis sans réponse, une facture en retard, un lead qui refroidit : chaque relance manquée est un revenu qui s'évapore. Vos équipes n'ont pas le temps de tout suivre à la main, et personne ne sait vraiment ce qui a été relancé. Le manque à gagner ne se voit pas, mais il s'accumule chaque semaine."
-        body_en: "An unanswered quote, a late invoice, a cooling lead: every missed follow-up is revenue evaporating. Your teams don't have time to track it all by hand, and no one really knows what was followed up. The lost income is invisible, but it piles up every week."
-        illustration_src: "/images/line-art/probleme-poc-qui-dort.svg"
-        illustration_alt_fr: "Des relances en attente qui s'empilent sans être traitées"
-        illustration_alt_en: "Pending follow-ups piling up untreated"
-      - num: "02"
-        kicker_fr: "Saisie et tri manuels"
-        kicker_en: "Manual sorting and entry"
+        desc_fr: "Devis sans réponse, facture en retard, lead qui refroidit : chaque relance manquée est un revenu qui s'évapore, sans que personne sache ce qui a été suivi."
+        desc_en: "Unanswered quote, late invoice, cooling lead: every missed follow-up is revenue evaporating, with no one knowing what was tracked."
+        fix_fr: "Agent de relance branché au CRM."
+        fix_en: "Follow-up agent wired to the CRM."
+      - severity: "high"
         title_fr: "Des heures perdues à trier et recopier"
         title_en: "Hours lost sorting and re-typing"
-        body_fr: "Trier la boîte mail, qualifier les formulaires, recopier des données d'un outil à l'autre : ce travail invisible mange des heures chaque jour sans rien produire de valeur. Il est répétitif, fastidieux, et c'est précisément le genre de tâche où l'erreur humaine se glisse quand l'attention baisse."
-        body_en: "Sorting the mailbox, qualifying forms, re-typing data from one tool to another: this invisible work eats hours every day while producing no value. It is repetitive, tedious, and exactly the kind of task where human error creeps in as attention drops."
-        illustration_src: "/images/line-art/probleme-donnees-eparpillees.svg"
-        illustration_alt_fr: "Une boîte mail et des formulaires triés manuellement"
-        illustration_alt_en: "A mailbox and forms sorted by hand"
-      - num: "03"
-        kicker_fr: "Veille en retard"
-        kicker_en: "Watch falling behind"
+        desc_fr: "Trier la boîte mail, qualifier les formulaires, recopier d'un outil à l'autre : un travail invisible qui mange des heures et où l'erreur se glisse."
+        desc_en: "Sorting the mailbox, qualifying forms, re-typing across tools: invisible work that eats hours and where errors creep in."
+        fix_fr: "Tri et saisie automatisés, supervisés."
+        fix_en: "Sorting and entry automated, supervised."
+      - severity: "medium"
         title_fr: "L'info utile arrive trop tard"
         title_en: "Useful information arrives too late"
-        body_fr: "Un concurrent qui bouge, une réglementation qui change, un sujet qui monte : sans veille continue, vous l'apprenez quand c'est déjà un problème. Surveiller manuellement est trop coûteux pour être tenu dans la durée, alors la veille s'arrête, et l'angle mort grandit."
-        body_en: "A competitor moving, a regulation changing, a topic rising: without continuous watch, you learn it when it's already a problem. Monitoring by hand is too costly to sustain, so the watch stops, and the blind spot grows."
-        illustration_src: "/images/line-art/probleme-outils-cloisonnes.svg"
-        illustration_alt_fr: "Une veille manuelle interrompue faute de temps"
-        illustration_alt_en: "A manual watch interrupted for lack of time"
+        desc_fr: "Sans veille continue, un concurrent qui bouge ou une règle qui change, vous l'apprenez quand c'est déjà un problème."
+        desc_en: "Without continuous watch, a competitor moving or a rule changing reaches you when it's already a problem."
+        fix_fr: "Agent de veille en continu."
+        fix_en: "A watch agent running continuously."
 
   # ─── Slot 4 · Différenciation (paper, versus 3-col, honnête E-E-A-T) ───
   - type: "versus-competitors"
