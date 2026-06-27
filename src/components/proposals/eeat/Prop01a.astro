@@ -1,0 +1,497 @@
+---
+/**
+ * Prop01a · « Dossier d'auteur visuel » (data-bg paper)
+ * Variation IMAGÉE de Prop01 : le dossier d'auteur gagne une colonne média,
+ * un « tableau de bord d'images » (mosaïque éditoriale à filets) et des cases accent.
+ *  - Haut : bloc auteur (nom serif, rôle, bio, CTA) + image posture + colonne « Repères ».
+ *    Le dernier repère bascule en CASE ACCENT (background var(--accent)).
+ *  - Tableau de bord : grille de 6 vignettes éditoriales (EEAT_IMAGES), chacune légendée mono.
+ *  - Bas : grille de liens à filets (Secteurs · À lire · Services & outil) + bloc engagements
+ *    (commitments + honestyNote, PAS de témoignage client : studio solo, 0 client réel).
+ * Grammaire (cf Prop01 + SystemFlow) : kicker mono à puce accent, titres serif --font-display,
+ * labels mono, corps sans, FILETS hairline, href réels du pack en <a>, reveal-stagger.
+ * 0 prop · contenu 100 % EEAT_PACK + EEAT_IMAGES · 0 hardcode (tokens DS uniquement).
+ */
+import { EEAT_PACK, EEAT_IMAGES } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+const IMG = EEAT_IMAGES;
+const img = (id: string) => IMG.find((i) => i.id === id);
+
+// Image posture à côté du bloc auteur.
+const portrait = img('augmented-self') ?? img('handshake');
+
+// Tableau de bord d'images : 6 vignettes éditoriales (thèmes du dossier).
+const boardIds = ['growth', 'strategy', 'trajectory', 'audience', 'site-health', 'momentum'];
+const boardCaptions: Record<string, string> = {
+  growth: 'Retour sur investissement',
+  strategy: 'Stratégie & décisions',
+  trajectory: 'Trajectoire & cap',
+  audience: "Capter l'attention",
+  'site-health': 'Monitoring continu',
+  momentum: 'Élan & croissance',
+};
+const board = boardIds.map((id) => ({ image: img(id), caption: boardCaptions[id] })).filter((b) => b.image);
+
+// Le dernier repère devient une case accent (point focal).
+const keyMilestone = P.milestones[P.milestones.length - 1];
+const earlierMilestones = P.milestones.slice(0, -1);
+---
+<section class="ep1a" data-bg="paper" aria-labelledby="ep1a-h2">
+  <div class="wrap-wide ep1a__in reveal-stagger">
+    <header class="ep1a-hd">
+      <span class="ep1a-kicker">
+        <span class="ep1a-kicker__dot" aria-hidden="true"></span>
+        Dossier d'auteur · visuel
+      </span>
+      <span class="ep1a-meta">E-E-A-T · Waimia</span>
+    </header>
+
+    <div class="ep1a-top">
+      <div class="ep1a-author">
+        <h2 id="ep1a-h2" class="ep1a-name">{P.author.name}</h2>
+        <p class="ep1a-role">{P.author.role}</p>
+        <p class="ep1a-loc">{P.author.location}</p>
+        <p class="ep1a-bio">{P.author.bio}</p>
+        <a class="ep1a-cta" href={P.author.profileHref}>
+          Voir le profil
+          <span class="ep1a-cta__glyph" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      {portrait && (
+        <figure class="ep1a-portrait">
+          <img class="ep1a-portrait__img" src={portrait.src} alt={portrait.alt} loading="lazy" decoding="async" />
+          <figcaption class="ep1a-portrait__cap">{P.author.initials} · {P.author.location}</figcaption>
+        </figure>
+      )}
+
+      <div class="ep1a-reperes">
+        <h3 class="ep1a-colhead">Repères</h3>
+        <ul class="ep1a-mlist">
+          {earlierMilestones.map((m) => (
+            <li class="ep1a-mrow">
+              <span class="ep1a-myear">{m.year}</span>
+              <span class="ep1a-mlabel">{m.label}</span>
+            </li>
+          ))}
+        </ul>
+        {keyMilestone && (
+          <div class="ep1a-accent-card">
+            <span class="ep1a-accent-card__year">{keyMilestone.year}</span>
+            <span class="ep1a-accent-card__label">{keyMilestone.label}</span>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class="ep1a-board">
+      <h3 class="ep1a-colhead ep1a-board__head">Tableau de bord</h3>
+      <ul class="ep1a-board__grid">
+        {board.map((b) => (
+          <li class="ep1a-tile">
+            <img class="ep1a-tile__img" src={b.image!.src} alt={b.image!.alt} loading="lazy" decoding="async" />
+            <span class="ep1a-tile__cap">{b.caption}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="ep1a-grid">
+      <div class="ep1a-cell">
+        <h3 class="ep1a-colhead">Secteurs</h3>
+        <ul class="ep1a-links">
+          {P.sectors.map((s) => (
+            <li><a class="ep1a-link" href={s.href}>{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="ep1a-cell">
+        <h3 class="ep1a-colhead">À lire</h3>
+        <ul class="ep1a-links">
+          {P.articles.map((a) => (
+            <li>
+              <a class="ep1a-link ep1a-link--lead" href={a.href}>
+                <span class="ep1a-link__kicker">{a.kicker}</span>
+                <span class="ep1a-link__label">{a.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="ep1a-cell">
+        <h3 class="ep1a-colhead">Services & outil</h3>
+        <ul class="ep1a-links">
+          {P.services.map((s) => (
+            <li><a class="ep1a-link" href={s.href}>{s.label}</a></li>
+          ))}
+          {P.tools.map((t) => (
+            <li>
+              <a class="ep1a-link ep1a-link--tool" href={t.href}>
+                <span class="ep1a-link__kicker">{t.kicker}</span>
+                <span class="ep1a-link__label">{t.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="ep1a-pledge">
+      <h3 class="ep1a-colhead">Engagements</h3>
+      <ul class="ep1a-pledge__grid">
+        {P.commitments.map((c) => (
+          <li class="ep1a-pledge__item">
+            <span class="ep1a-pledge__label">{c.label}</span>
+            <span class="ep1a-pledge__detail">{c.detail}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="ep1a-note">{P.honestyNote}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ep1a { padding-block: var(--section-base); }
+  .ep1a[data-bg='paper'] { background: var(--paper); }
+
+  .ep1a-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep1a-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+  }
+  .ep1a-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep1a-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Haut : auteur + image posture + repères (3 colonnes à filets). */
+  .ep1a-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr 1fr;
+    gap: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep1a-author {
+    border-right: 1px solid var(--hairline);
+    padding-right: var(--space-8);
+  }
+
+  .ep1a-name {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+    text-wrap: balance;
+  }
+  .ep1a-role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-2);
+  }
+  .ep1a-loc {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+  }
+  .ep1a-bio {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    max-width: 42ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .ep1a-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: var(--space-1);
+    transition: color var(--dur-trim) var(--ease), gap var(--dur-trim) var(--ease);
+  }
+  .ep1a-cta:hover { color: var(--accent-text); gap: var(--space-3); }
+  .ep1a-cta__glyph { font-size: var(--text-glyph); line-height: 1; }
+
+  /* Colonne média : image posture. */
+  .ep1a-portrait {
+    margin: 0;
+    border-right: 1px solid var(--hairline);
+    padding-right: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .ep1a-portrait__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--hairline);
+  }
+  .ep1a-portrait__cap {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ep1a-colhead {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+  }
+
+  .ep1a-mlist { list-style: none; margin: 0; padding: 0; }
+  .ep1a-mrow {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .ep1a-mrow:last-child { border-bottom: 1px solid var(--hairline); }
+  .ep1a-myear {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-text);
+  }
+  .ep1a-mlabel {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+  }
+
+  /* Case accent : repère focal. */
+  .ep1a-accent-card {
+    margin-top: var(--space-5);
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .ep1a-accent-card__year {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    opacity: 0.85;
+  }
+  .ep1a-accent-card__label {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--accent-ink);
+    text-wrap: balance;
+  }
+
+  /* Tableau de bord d'images : mosaïque éditoriale à filets. */
+  .ep1a-board {
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep1a-board__head { margin-bottom: var(--space-6); }
+  .ep1a-board__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+  .ep1a-tile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .ep1a-tile__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+  }
+  .ep1a-tile__cap {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Grille de liens 3 colonnes à filets verticaux. */
+  .ep1a-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep1a-cell { padding: 0 var(--space-7); }
+  .ep1a-cell + .ep1a-cell { border-left: 1px solid var(--hairline); }
+  .ep1a-cell:first-child { padding-left: 0; }
+  .ep1a-cell:last-child { padding-right: 0; }
+
+  .ep1a-links { list-style: none; margin: 0; padding: 0; }
+  .ep1a-links > li { border-top: 1px solid var(--hairline); }
+  .ep1a-links > li:last-child { border-bottom: 1px solid var(--hairline); }
+
+  .ep1a-link {
+    display: block;
+    padding: var(--space-4) 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+    text-decoration: none;
+    transition: color var(--dur-trim) var(--ease), padding-left var(--dur-trim) var(--ease);
+  }
+  .ep1a-link:hover { color: var(--accent-text); padding-left: var(--space-2); }
+  .ep1a-link--lead, .ep1a-link--tool { display: flex; flex-direction: column; gap: var(--space-1); }
+  .ep1a-link__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ep1a-link__label { text-wrap: pretty; }
+
+  /* Engagements : 4 cases (la 1re en accent) + note honnête. */
+  .ep1a-pledge__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+  .ep1a-pledge__item {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .ep1a-pledge__item:first-child {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .ep1a-pledge__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .ep1a-pledge__item:first-child .ep1a-pledge__label { color: var(--accent-ink); }
+  .ep1a-pledge__detail {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+  .ep1a-pledge__item:first-child .ep1a-pledge__detail { color: var(--accent-ink); }
+  .ep1a-note {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    margin: var(--space-6) 0 0;
+  }
+
+  @media (max-width: 980px) {
+    .ep1a-top { grid-template-columns: 1.2fr 1fr; }
+    .ep1a-portrait { grid-row: 1 / 2; grid-column: 2 / 3; border-right: 0; padding-right: 0; }
+    .ep1a-reperes { grid-column: 1 / 3; }
+    .ep1a-board__grid { grid-template-columns: repeat(2, 1fr); }
+    .ep1a-pledge__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 760px) {
+    .ep1a-top { grid-template-columns: 1fr; gap: var(--space-7); }
+    .ep1a-author {
+      border-right: 0;
+      padding-right: 0;
+      padding-bottom: var(--space-7);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .ep1a-portrait {
+      grid-row: auto;
+      grid-column: auto;
+      padding-bottom: var(--space-7);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .ep1a-board__grid { grid-template-columns: 1fr; }
+    .ep1a-grid { grid-template-columns: 1fr; }
+    .ep1a-cell { padding: var(--space-6) 0 0; }
+    .ep1a-cell + .ep1a-cell { border-left: 0; border-top: 1px solid var(--hairline); padding-top: var(--space-6); }
+    .ep1a-pledge__grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+    .ep1a-cta, .ep1a-link { transition: none; }
+  }
+</style>

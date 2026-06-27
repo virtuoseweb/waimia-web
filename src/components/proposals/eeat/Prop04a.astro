@@ -1,0 +1,422 @@
+---
+/**
+ * Prop04a · « Dashboard média » (data-bg ink)
+ * Variation visuelle de Prop04 : la grille bento de cellules (auteur, repères, secteurs,
+ * à lire, engagements, services) ENRICHIE de cellules MÉDIA (images éditoriales site-health,
+ * growth, augmented-self) + une cellule pleine ACCENT (chiffre-repère focal) + le CTA profil
+ * sur fond accent. Plus dynamique que la base, même grammaire (kicker mono, titres serif,
+ * filets paper/0.14, reveal-stagger). Contenu : EEAT_PACK (source unique, 0 prop, 0 hardcode).
+ */
+import { EEAT_PACK, EEAT_IMAGES } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+const IMG = EEAT_IMAGES;
+const img = (id: string) => IMG.find((i) => i.id === id)!;
+---
+<section class="ep4a" data-bg="ink" aria-labelledby="ep4a-h2">
+  <div class="wrap-wide ep4a__in reveal-stagger">
+    <header class="ep4a-hd">
+      <span class="ep4a-kicker">
+        <span class="ep4a-kicker__dot" aria-hidden="true"></span>
+        Tableau de bord média
+      </span>
+      <span class="ep4a-meta">Expérience · expertise · autorité · confiance</span>
+    </header>
+
+    <div class="ep4a-grid">
+      <article class="ep4a-cell ep4a-cell--author">
+        <span class="ep4a-celllabel">Auteur</span>
+        <h2 id="ep4a-h2" class="ep4a-name">{P.author.name}</h2>
+        <p class="ep4a-role">{P.author.role}</p>
+        <p class="ep4a-bio">{P.author.bio}</p>
+      </article>
+
+      <figure class="ep4a-cell ep4a-cell--media ep4a-cell--media-a">
+        <img class="ep4a-img" src={img('site-health').src} alt={img('site-health').alt} loading="lazy" />
+        <figcaption class="ep4a-cap">Monitoring continu · santé du site</figcaption>
+      </figure>
+
+      <a class="ep4a-cell ep4a-cell--cta" href={P.author.profileHref}>
+        <span class="ep4a-celllabel ep4a-celllabel--ink">Profil complet</span>
+        <span class="ep4a-cta__title">Voir le parcours</span>
+        <span class="ep4a-cta__glyph" aria-hidden="true">→</span>
+      </a>
+
+      <article class="ep4a-cell ep4a-cell--reperes">
+        <span class="ep4a-celllabel">Repères</span>
+        <ul class="ep4a-mlist">
+          {P.milestones.map((m) => (
+            <li class="ep4a-mrow">
+              <span class="ep4a-myear">{m.year}</span>
+              <span class="ep4a-mlabel">{m.label}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="ep4a-cell ep4a-cell--focus">
+        <span class="ep4a-celllabel ep4a-celllabel--ink">Repère fondateur</span>
+        <span class="ep4a-focus__num">{P.milestones[0].year}</span>
+        <span class="ep4a-focus__label">{P.milestones[0].label}</span>
+      </article>
+
+      <article class="ep4a-cell ep4a-cell--sectors">
+        <span class="ep4a-celllabel">Secteurs</span>
+        <ul class="ep4a-chips">
+          {P.sectors.map((s) => (
+            <li><a class="ep4a-chip" href={s.href}>{s.label}</a></li>
+          ))}
+        </ul>
+      </article>
+
+      <figure class="ep4a-cell ep4a-cell--media ep4a-cell--media-b">
+        <img class="ep4a-img" src={img('growth').src} alt={img('growth').alt} loading="lazy" />
+        <figcaption class="ep4a-cap">Retour sur investissement mesuré</figcaption>
+      </figure>
+
+      <article class="ep4a-cell ep4a-cell--read">
+        <span class="ep4a-celllabel">À lire</span>
+        <ul class="ep4a-links">
+          {P.articles.map((a) => (
+            <li>
+              <a class="ep4a-link" href={a.href}>
+                <span class="ep4a-link__kicker">{a.kicker}</span>
+                <span class="ep4a-link__label">{a.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="ep4a-cell ep4a-cell--commit">
+        <span class="ep4a-celllabel">Engagements</span>
+        <ul class="ep4a-commits">
+          {P.commitments.map((c) => (
+            <li class="ep4a-commit">
+              <span class="ep4a-commit__label">{c.label}</span>
+              <span class="ep4a-commit__detail">{c.detail}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="ep4a-honesty">{P.honestyNote}</p>
+      </article>
+
+      <article class="ep4a-cell ep4a-cell--services">
+        <span class="ep4a-celllabel">Services & outil</span>
+        <ul class="ep4a-links">
+          {P.services.map((s) => (
+            <li><a class="ep4a-link ep4a-link--flat" href={s.href}>{s.label}</a></li>
+          ))}
+          {P.tools.map((t) => (
+            <li>
+              <a class="ep4a-link" href={t.href}>
+                <span class="ep4a-link__kicker">{t.kicker}</span>
+                <span class="ep4a-link__label">{t.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ep4a {
+    padding-block: var(--section-base);
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .ep4a-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(var(--paper-rgb), 0.14);
+    margin-bottom: var(--space-8);
+  }
+  .ep4a-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    font-weight: var(--fw-medium);
+  }
+  .ep4a-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent-sur-sombre);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep4a-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+
+  /* Bento média : 6 colonnes, cellules de données + cellules image + 2 cases accent. */
+  .ep4a-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(0, auto);
+    gap: 1px;
+    background: rgba(var(--paper-rgb), 0.14);
+    border: 1px solid rgba(var(--paper-rgb), 0.14);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .ep4a-cell {
+    background: var(--ink);
+    padding: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .ep4a-cell--author   { grid-column: span 3; }
+  .ep4a-cell--media-a  { grid-column: span 2; }
+  .ep4a-cell--cta      { grid-column: span 1; }
+  .ep4a-cell--reperes  { grid-column: span 3; }
+  .ep4a-cell--focus    { grid-column: span 1; }
+  .ep4a-cell--sectors  { grid-column: span 2; }
+  .ep4a-cell--media-b  { grid-column: span 2; }
+  .ep4a-cell--read     { grid-column: span 2; }
+  .ep4a-cell--commit   { grid-column: span 2; }
+  .ep4a-cell--services { grid-column: span 6; }
+
+  .ep4a-celllabel {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+  /* MÉDIA */
+  .ep4a-cell--media { padding: 0; gap: 0; position: relative; min-height: 0; }
+  .ep4a-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 12rem;
+    object-fit: cover;
+  }
+  .ep4a-cap {
+    position: absolute;
+    left: var(--space-4);
+    bottom: var(--space-4);
+    margin: 0;
+    padding: var(--space-1) var(--space-3);
+    background: color-mix(in srgb, var(--ink) 70%, transparent);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.82);
+    border-radius: var(--radius-pill);
+  }
+
+  /* CTA case accent */
+  .ep4a-cell--cta {
+    background: var(--accent);
+    color: var(--accent-ink);
+    text-decoration: none;
+    justify-content: space-between;
+    transition: background var(--dur-trim) var(--ease);
+  }
+  .ep4a-cell--cta:hover { background: var(--accent-sur-clair); }
+  .ep4a-cell--cta .ep4a-celllabel--ink {
+    color: var(--accent-ink);
+    opacity: 0.72;
+  }
+  .ep4a-cta__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--accent-ink);
+    margin-top: auto;
+  }
+  .ep4a-cta__glyph {
+    font-size: var(--text-glyph);
+    line-height: 1;
+    color: var(--accent-ink);
+  }
+
+  /* Case focus accent (chiffre-repère) */
+  .ep4a-cell--focus {
+    background: var(--accent);
+    color: var(--accent-ink);
+    justify-content: flex-end;
+  }
+  .ep4a-cell--focus .ep4a-celllabel--ink { color: var(--accent-ink); opacity: 0.72; }
+  .ep4a-focus__num {
+    font-family: var(--font-display);
+    font-size: var(--text-numeral-md);
+    line-height: 1;
+    color: var(--accent-ink);
+    margin-top: auto;
+  }
+  .ep4a-focus__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: var(--accent-ink);
+    opacity: 0.88;
+  }
+
+  .ep4a-name {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .ep4a-role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    margin: 0;
+  }
+  .ep4a-bio {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.72);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .ep4a-mlist { list-style: none; margin: 0; padding: 0; }
+  .ep4a-mrow {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-top: 1px solid rgba(var(--paper-rgb), 0.14);
+  }
+  .ep4a-mrow:first-child { border-top: 0; padding-top: 0; }
+  .ep4a-myear {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-sur-sombre);
+  }
+  .ep4a-mlabel {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--paper);
+  }
+
+  .ep4a-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .ep4a-chip {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid rgba(var(--paper-rgb), 0.18);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--paper);
+    text-decoration: none;
+    transition: border-color var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
+  }
+  .ep4a-chip:hover { border-color: var(--accent-sur-sombre); color: var(--accent-sur-sombre); }
+
+  .ep4a-links { list-style: none; margin: 0; padding: 0; }
+  .ep4a-links > li { border-top: 1px solid rgba(var(--paper-rgb), 0.14); }
+  .ep4a-links > li:first-child { border-top: 0; }
+  .ep4a-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4) 0;
+    text-decoration: none;
+    transition: padding-left var(--dur-trim) var(--ease);
+  }
+  .ep4a-link:hover { padding-left: var(--space-2); }
+  .ep4a-link--flat { display: block; }
+  .ep4a-link__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+  .ep4a-link__label,
+  .ep4a-link--flat {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--paper);
+    text-wrap: pretty;
+  }
+  .ep4a-link:hover .ep4a-link__label,
+  .ep4a-link--flat:hover { color: var(--accent-sur-sombre); }
+
+  .ep4a-commits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+  .ep4a-commit {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.14);
+  }
+  .ep4a-commit:first-child { border-top: 0; padding-top: 0; }
+  .ep4a-commit__label {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--paper);
+  }
+  .ep4a-commit__detail {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.66);
+  }
+  .ep4a-honesty {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    color: rgba(var(--paper-rgb), 0.55);
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 980px) {
+    .ep4a-cell--author   { grid-column: span 3; }
+    .ep4a-cell--media-a  { grid-column: span 3; }
+    .ep4a-cell--cta      { grid-column: span 3; }
+    .ep4a-cell--reperes  { grid-column: span 4; }
+    .ep4a-cell--focus    { grid-column: span 2; }
+    .ep4a-cell--sectors  { grid-column: span 3; }
+    .ep4a-cell--media-b  { grid-column: span 3; }
+    .ep4a-cell--read     { grid-column: span 3; }
+    .ep4a-cell--commit   { grid-column: span 3; }
+  }
+
+  @media (max-width: 760px) {
+    .ep4a-grid { grid-template-columns: 1fr; }
+    .ep4a-cell--author, .ep4a-cell--media-a, .ep4a-cell--cta, .ep4a-cell--reperes,
+    .ep4a-cell--focus, .ep4a-cell--sectors, .ep4a-cell--media-b, .ep4a-cell--read,
+    .ep4a-cell--commit, .ep4a-cell--services { grid-column: span 1; }
+    .ep4a-img { min-height: 14rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+    .ep4a-cta, .ep4a-chip, .ep4a-link, .ep4a-cell--cta { transition: none; }
+  }
+</style>

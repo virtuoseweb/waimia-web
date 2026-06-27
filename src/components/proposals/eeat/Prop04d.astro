@@ -1,0 +1,400 @@
+---
+/**
+ * Prop04d · « Image-hero dashboard » (data-bg ink)
+ * Une grande cellule MÉDIA vedette (growth, image pleine) domine ~40-50% de la grille,
+ * entourée des cellules de données plus compactes (auteur, repères, secteurs, à lire,
+ * engagements, services) + 1 case ACCENT (CTA profil). L'image porte, le reste est
+ * tableau de bord. Même grammaire (kicker mono, titres serif, filets paper/0.14).
+ * Avis = commitments + honestyNote (honnête). Contenu : EEAT_PACK (0 prop, 0 hardcode).
+ */
+import { EEAT_PACK, EEAT_IMAGES } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+const IMG = EEAT_IMAGES;
+const img = (id: string) => IMG.find((i) => i.id === id)!;
+const hero = img('growth');
+---
+<section class="ep4d" data-bg="ink" aria-labelledby="ep4d-h2">
+  <div class="wrap-wide ep4d__in reveal-stagger">
+    <header class="ep4d-hd">
+      <span class="ep4d-kicker">
+        <span class="ep4d-kicker__dot" aria-hidden="true"></span>
+        Tableau de bord illustré
+      </span>
+      <span class="ep4d-meta">Expérience · expertise · autorité · confiance</span>
+    </header>
+
+    <div class="ep4d-grid">
+      <figure class="ep4d-cell ep4d-cell--hero">
+        <img class="ep4d-hero__img" src={hero.src} alt={hero.alt} loading="lazy" />
+        <figcaption class="ep4d-hero__cap">
+          <span class="ep4d-hero__kicker">En production</span>
+          <span class="ep4d-hero__line">Des systèmes qui font croître l'acquisition, mesurés en continu.</span>
+        </figcaption>
+      </figure>
+
+      <article class="ep4d-cell ep4d-cell--author">
+        <span class="ep4d-celllabel">Auteur</span>
+        <h2 id="ep4d-h2" class="ep4d-name">{P.author.name}</h2>
+        <p class="ep4d-role">{P.author.role}</p>
+        <p class="ep4d-bio">{P.author.bio}</p>
+      </article>
+
+      <a class="ep4d-cell ep4d-cell--cta" href={P.author.profileHref}>
+        <span class="ep4d-celllabel ep4d-celllabel--ink">Profil complet</span>
+        <span class="ep4d-cta__title">Voir le parcours</span>
+        <span class="ep4d-cta__glyph" aria-hidden="true">→</span>
+      </a>
+
+      <article class="ep4d-cell ep4d-cell--reperes">
+        <span class="ep4d-celllabel">Repères</span>
+        <ul class="ep4d-mlist">
+          {P.milestones.map((m) => (
+            <li class="ep4d-mrow">
+              <span class="ep4d-myear">{m.year}</span>
+              <span class="ep4d-mlabel">{m.label}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="ep4d-cell ep4d-cell--sectors">
+        <span class="ep4d-celllabel">Secteurs</span>
+        <ul class="ep4d-chips">
+          {P.sectors.map((s) => (
+            <li><a class="ep4d-chip" href={s.href}>{s.label}</a></li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="ep4d-cell ep4d-cell--read">
+        <span class="ep4d-celllabel">À lire</span>
+        <ul class="ep4d-links">
+          {P.articles.map((a) => (
+            <li>
+              <a class="ep4d-link" href={a.href}>
+                <span class="ep4d-link__kicker">{a.kicker}</span>
+                <span class="ep4d-link__label">{a.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="ep4d-cell ep4d-cell--commit">
+        <span class="ep4d-celllabel">Engagements</span>
+        <ul class="ep4d-commits">
+          {P.commitments.map((c) => (
+            <li class="ep4d-commit">
+              <span class="ep4d-commit__label">{c.label}</span>
+              <span class="ep4d-commit__detail">{c.detail}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="ep4d-honesty">{P.honestyNote}</p>
+      </article>
+
+      <article class="ep4d-cell ep4d-cell--services">
+        <span class="ep4d-celllabel">Services & outil</span>
+        <ul class="ep4d-links">
+          {P.services.map((s) => (
+            <li><a class="ep4d-link ep4d-link--flat" href={s.href}>{s.label}</a></li>
+          ))}
+          {P.tools.map((t) => (
+            <li>
+              <a class="ep4d-link" href={t.href}>
+                <span class="ep4d-link__kicker">{t.kicker}</span>
+                <span class="ep4d-link__label">{t.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ep4d {
+    padding-block: var(--section-base);
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .ep4d-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(var(--paper-rgb), 0.14);
+    margin-bottom: var(--space-8);
+  }
+  .ep4d-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    font-weight: var(--fw-medium);
+  }
+  .ep4d-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent-sur-sombre);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep4d-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+
+  /* Grille dominée par l'image-hero (span large), data autour. */
+  .ep4d-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(0, auto);
+    gap: 1px;
+    background: rgba(var(--paper-rgb), 0.14);
+    border: 1px solid rgba(var(--paper-rgb), 0.14);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .ep4d-cell {
+    background: var(--ink);
+    padding: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .ep4d-cell--hero     { grid-column: span 4; grid-row: span 2; }
+  .ep4d-cell--author   { grid-column: span 2; }
+  .ep4d-cell--cta      { grid-column: span 2; }
+  .ep4d-cell--reperes  { grid-column: span 2; }
+  .ep4d-cell--sectors  { grid-column: span 2; }
+  .ep4d-cell--read     { grid-column: span 2; }
+  .ep4d-cell--commit   { grid-column: span 2; }
+  .ep4d-cell--services { grid-column: span 2; }
+
+  .ep4d-celllabel {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+
+  /* HERO MÉDIA */
+  .ep4d-cell--hero { padding: 0; gap: 0; position: relative; min-height: 22rem; }
+  .ep4d-hero__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ep4d-hero__cap {
+    position: absolute;
+    left: var(--space-6);
+    right: var(--space-6);
+    bottom: var(--space-6);
+    margin: 0;
+    padding: var(--space-4) var(--space-5);
+    background: color-mix(in srgb, var(--ink) 72%, transparent);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .ep4d-hero__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+  }
+  .ep4d-hero__line {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--paper);
+    text-wrap: balance;
+  }
+
+  /* CTA case accent */
+  .ep4d-cell--cta {
+    background: var(--accent);
+    color: var(--accent-ink);
+    text-decoration: none;
+    justify-content: space-between;
+    transition: background var(--dur-trim) var(--ease);
+  }
+  .ep4d-cell--cta:hover { background: var(--accent-sur-clair); }
+  .ep4d-celllabel--ink { color: var(--accent-ink); opacity: 0.72; }
+  .ep4d-cta__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--accent-ink);
+    margin-top: auto;
+  }
+  .ep4d-cta__glyph {
+    font-size: var(--text-glyph);
+    line-height: 1;
+    color: var(--accent-ink);
+  }
+
+  .ep4d-name {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .ep4d-role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    margin: 0;
+  }
+  .ep4d-bio {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.72);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .ep4d-mlist { list-style: none; margin: 0; padding: 0; }
+  .ep4d-mrow {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-top: 1px solid rgba(var(--paper-rgb), 0.14);
+  }
+  .ep4d-mrow:first-child { border-top: 0; padding-top: 0; }
+  .ep4d-myear {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-sur-sombre);
+  }
+  .ep4d-mlabel {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: var(--paper);
+  }
+
+  .ep4d-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .ep4d-chip {
+    display: inline-block;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid rgba(var(--paper-rgb), 0.18);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--paper);
+    text-decoration: none;
+    transition: border-color var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
+  }
+  .ep4d-chip:hover { border-color: var(--accent-sur-sombre); color: var(--accent-sur-sombre); }
+
+  .ep4d-links { list-style: none; margin: 0; padding: 0; }
+  .ep4d-links > li { border-top: 1px solid rgba(var(--paper-rgb), 0.14); }
+  .ep4d-links > li:first-child { border-top: 0; }
+  .ep4d-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) 0;
+    text-decoration: none;
+    transition: padding-left var(--dur-trim) var(--ease);
+  }
+  .ep4d-link:hover { padding-left: var(--space-2); }
+  .ep4d-link--flat { display: block; }
+  .ep4d-link__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+  .ep4d-link__label,
+  .ep4d-link--flat {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: var(--paper);
+    text-wrap: pretty;
+  }
+  .ep4d-link:hover .ep4d-link__label,
+  .ep4d-link--flat:hover { color: var(--accent-sur-sombre); }
+
+  .ep4d-commits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+  .ep4d-commit {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.14);
+  }
+  .ep4d-commit:first-child { border-top: 0; padding-top: 0; }
+  .ep4d-commit__label {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--paper);
+  }
+  .ep4d-commit__detail {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.66);
+  }
+  .ep4d-honesty {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    color: rgba(var(--paper-rgb), 0.55);
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 980px) {
+    .ep4d-cell--hero     { grid-column: span 6; grid-row: span 1; min-height: 18rem; }
+    .ep4d-cell--author   { grid-column: span 3; }
+    .ep4d-cell--cta      { grid-column: span 3; }
+    .ep4d-cell--reperes  { grid-column: span 3; }
+    .ep4d-cell--sectors  { grid-column: span 3; }
+    .ep4d-cell--read     { grid-column: span 3; }
+    .ep4d-cell--commit   { grid-column: span 3; }
+    .ep4d-cell--services { grid-column: span 3; }
+  }
+
+  @media (max-width: 760px) {
+    .ep4d-grid { grid-template-columns: 1fr; }
+    .ep4d-cell--hero, .ep4d-cell--author, .ep4d-cell--cta, .ep4d-cell--reperes,
+    .ep4d-cell--sectors, .ep4d-cell--read, .ep4d-cell--commit,
+    .ep4d-cell--services { grid-column: span 1; }
+    .ep4d-cell--hero { min-height: 16rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+    .ep4d-cta, .ep4d-chip, .ep4d-link, .ep4d-cell--cta { transition: none; }
+  }
+</style>

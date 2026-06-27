@@ -1,0 +1,424 @@
+---
+/**
+ * Prop01b · « Dossier d'auteur · form light / alt » (data-bg paper-2)
+ * Variante CLAIRE & AÉRÉE à comparer avec Prop01a (même esprit, composition inversée) :
+ *  - Bandeau image-hero pleine largeur en haut (EEAT_IMAGES, momentum/trajectory), titre auteur
+ *    en overlay sur dégradé ink → lisible, puis méta posée sous le bandeau.
+ *  - Colonnes auteur (bio + CTA + case accent CTA) / Repères, séparées par un filet.
+ *  - Tableau de bord d'images RÉDUIT (4 vignettes éditoriales à filets, légende mono).
+ *  - Grille de liens à filets (Secteurs · À lire · Services & outil) + note d'honnêteté
+ *    (commitments + honestyNote, PAS de témoignage : studio solo, 0 client réel).
+ * Grammaire (cf Prop01 + SystemFlow) : kicker mono à puce accent, titres serif --font-display,
+ * labels mono, corps sans, FILETS hairline, href réels du pack en <a>, reveal-stagger.
+ * 0 prop · contenu 100 % EEAT_PACK + EEAT_IMAGES · 0 hardcode (tokens DS uniquement).
+ */
+import { EEAT_PACK, EEAT_IMAGES } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+const IMG = EEAT_IMAGES;
+const img = (id: string) => IMG.find((i) => i.id === id);
+
+// Bandeau hero pleine largeur.
+const hero = img('momentum') ?? img('trajectory');
+
+// Tableau de bord réduit : 4 vignettes.
+const boardIds = ['strategy', 'growth', 'audience', 'site-health'];
+const boardCaptions: Record<string, string> = {
+  strategy: 'Stratégie & décisions',
+  growth: 'Retour sur investissement',
+  audience: "Capter l'attention",
+  'site-health': 'Monitoring continu',
+};
+const board = boardIds.map((id) => ({ image: img(id), caption: boardCaptions[id] })).filter((b) => b.image);
+---
+<section class="ep1b" data-bg="paper-2" aria-labelledby="ep1b-h2">
+  <div class="wrap-wide ep1b__in reveal-stagger">
+    <header class="ep1b-hd">
+      <span class="ep1b-kicker">
+        <span class="ep1b-kicker__dot" aria-hidden="true"></span>
+        Dossier d'auteur · form light
+      </span>
+      <span class="ep1b-meta">E-E-A-T · Waimia</span>
+    </header>
+
+    {hero && (
+      <figure class="ep1b-hero">
+        <img class="ep1b-hero__img" src={hero.src} alt={hero.alt} loading="lazy" decoding="async" />
+        <figcaption class="ep1b-hero__cap">
+          <h2 id="ep1b-h2" class="ep1b-hero__name">{P.author.name}</h2>
+          <span class="ep1b-hero__role">{P.author.role}</span>
+        </figcaption>
+      </figure>
+    )}
+
+    <div class="ep1b-top">
+      <div class="ep1b-author">
+        <p class="ep1b-loc">{P.author.location}</p>
+        <p class="ep1b-bio">{P.author.bio}</p>
+        <div class="ep1b-accent-cta">
+          <span class="ep1b-accent-cta__lead">Studio solo, suivi par une seule personne</span>
+          <a class="ep1b-accent-cta__link" href={P.author.profileHref}>
+            Voir le profil
+            <span class="ep1b-accent-cta__glyph" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="ep1b-reperes">
+        <h3 class="ep1b-colhead">Repères</h3>
+        <ul class="ep1b-mlist">
+          {P.milestones.map((m) => (
+            <li class="ep1b-mrow">
+              <span class="ep1b-myear">{m.year}</span>
+              <span class="ep1b-mlabel">{m.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="ep1b-board">
+      <h3 class="ep1b-colhead ep1b-board__head">Tableau de bord</h3>
+      <ul class="ep1b-board__grid">
+        {board.map((b) => (
+          <li class="ep1b-tile">
+            <img class="ep1b-tile__img" src={b.image!.src} alt={b.image!.alt} loading="lazy" decoding="async" />
+            <span class="ep1b-tile__cap">{b.caption}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="ep1b-grid">
+      <div class="ep1b-cell">
+        <h3 class="ep1b-colhead">Secteurs</h3>
+        <ul class="ep1b-links">
+          {P.sectors.map((s) => (
+            <li><a class="ep1b-link" href={s.href}>{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="ep1b-cell">
+        <h3 class="ep1b-colhead">À lire</h3>
+        <ul class="ep1b-links">
+          {P.articles.map((a) => (
+            <li>
+              <a class="ep1b-link ep1b-link--lead" href={a.href}>
+                <span class="ep1b-link__kicker">{a.kicker}</span>
+                <span class="ep1b-link__label">{a.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="ep1b-cell">
+        <h3 class="ep1b-colhead">Services & outil</h3>
+        <ul class="ep1b-links">
+          {P.services.map((s) => (
+            <li><a class="ep1b-link" href={s.href}>{s.label}</a></li>
+          ))}
+          {P.tools.map((t) => (
+            <li>
+              <a class="ep1b-link ep1b-link--tool" href={t.href}>
+                <span class="ep1b-link__kicker">{t.kicker}</span>
+                <span class="ep1b-link__label">{t.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <p class="ep1b-note">{P.honestyNote}</p>
+  </div>
+</section>
+
+<style>
+  .ep1b { padding-block: var(--section-base); }
+  .ep1b[data-bg='paper-2'] { background: var(--paper-2); }
+
+  .ep1b-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-7);
+  }
+  .ep1b-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+  }
+  .ep1b-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep1b-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Bandeau hero pleine largeur + titre auteur en overlay. */
+  .ep1b-hero {
+    position: relative;
+    margin: 0 0 var(--space-8);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+  }
+  .ep1b-hero__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+  }
+  .ep1b-hero__cap {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-7);
+    background: linear-gradient(
+      to top,
+      rgba(var(--ink-rgb), 0.78),
+      rgba(var(--ink-rgb), 0.32) 55%,
+      rgba(var(--ink-rgb), 0)
+    );
+  }
+  .ep1b-hero__name {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .ep1b-hero__role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+  }
+
+  /* Colonnes auteur / repères. */
+  .ep1b-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-9);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep1b-author { border-right: 1px solid var(--hairline); padding-right: var(--space-9); }
+
+  .ep1b-loc {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+  }
+  .ep1b-bio {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+
+  /* Case accent : accroche + CTA profil. */
+  .ep1b-accent-cta {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-radius: var(--radius-md);
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .ep1b-accent-cta__lead {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--accent-ink);
+    text-wrap: balance;
+  }
+  .ep1b-accent-cta__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-ink);
+    padding-bottom: var(--space-1);
+    white-space: nowrap;
+    transition: gap var(--dur-trim) var(--ease);
+  }
+  .ep1b-accent-cta__link:hover { gap: var(--space-3); }
+  .ep1b-accent-cta__glyph { font-size: var(--text-glyph); line-height: 1; }
+
+  .ep1b-colhead {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+  }
+
+  .ep1b-mlist { list-style: none; margin: 0; padding: 0; }
+  .ep1b-mrow {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .ep1b-mrow:last-child { border-bottom: 1px solid var(--hairline); }
+  .ep1b-myear {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-text);
+  }
+  .ep1b-mlabel {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+  }
+
+  /* Tableau de bord réduit : 4 vignettes à filets. */
+  .ep1b-board {
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep1b-board__head { margin-bottom: var(--space-6); }
+  .ep1b-board__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+  .ep1b-tile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .ep1b-tile__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+  }
+  .ep1b-tile__cap {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Grille de liens 3 colonnes à filets verticaux. */
+  .ep1b-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .ep1b-cell { padding: 0 var(--space-7); }
+  .ep1b-cell + .ep1b-cell { border-left: 1px solid var(--hairline); }
+  .ep1b-cell:first-child { padding-left: 0; }
+  .ep1b-cell:last-child { padding-right: 0; }
+
+  .ep1b-links { list-style: none; margin: 0; padding: 0; }
+  .ep1b-links > li { border-top: 1px solid var(--hairline); }
+  .ep1b-links > li:last-child { border-bottom: 1px solid var(--hairline); }
+
+  .ep1b-link {
+    display: block;
+    padding: var(--space-4) 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+    text-decoration: none;
+    transition: color var(--dur-trim) var(--ease), padding-left var(--dur-trim) var(--ease);
+  }
+  .ep1b-link:hover { color: var(--accent-text); padding-left: var(--space-2); }
+  .ep1b-link--lead, .ep1b-link--tool { display: flex; flex-direction: column; gap: var(--space-1); }
+  .ep1b-link__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ep1b-link__label { text-wrap: pretty; }
+
+  .ep1b-note {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    margin: var(--space-8) 0 0;
+  }
+
+  @media (max-width: 980px) {
+    .ep1b-board__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 760px) {
+    .ep1b-hero__img { aspect-ratio: 16 / 10; }
+    .ep1b-hero__cap { padding: var(--space-5); }
+    .ep1b-top { grid-template-columns: 1fr; gap: var(--space-7); }
+    .ep1b-author {
+      border-right: 0;
+      padding-right: 0;
+      padding-bottom: var(--space-7);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .ep1b-accent-cta { flex-direction: column; align-items: flex-start; }
+    .ep1b-board__grid { grid-template-columns: 1fr; }
+    .ep1b-grid { grid-template-columns: 1fr; }
+    .ep1b-cell { padding: var(--space-6) 0 0; }
+    .ep1b-cell + .ep1b-cell { border-left: 0; border-top: 1px solid var(--hairline); padding-top: var(--space-6); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+    .ep1b-link, .ep1b-accent-cta__link { transition: none; }
+  }
+</style>
