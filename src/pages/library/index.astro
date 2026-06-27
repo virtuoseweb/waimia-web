@@ -18,8 +18,9 @@ import Base from '../../layouts/Base.astro';
 import DsLocalNav from '../../components/library/DsLocalNav.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import CatalogueExplorer, { type CatalogueItem } from '../../components/library/CatalogueExplorer.tsx';
-import { listCategories, listSections } from '../../lib/section-registry';
+import { listCategories, listSections, listFacetCounts } from '../../lib/section-registry';
 import { listPresets } from '../../lib/section-presets';
+import { FACET_LABELS_FR, type FacetKind } from '../../lib/section-facets';
 
 const categories = listCategories();
 const sections = listSections();
@@ -40,6 +41,32 @@ const items: CatalogueItem[] = sections.map((section) => ({
   tags: section.tags,
   description_fr: section.description_fr,
   presetCount: listPresets(section.type).length,
+  effects: section.effects,
+  interactions: section.interactions,
+  elements: section.elements,
+  layoutFacets: section.layoutFacets,
+}));
+
+// Facettes orthogonales (effets/interactions/éléments/layout) : effectifs + libellés FR pour les
+// filtres multi-select de l'island. On ne descend que les tags présents (count > 0, déjà filtré
+// par listFacetCounts) et leur libellé lisible. Logique de filtrage documentée dans l'island.
+const facetKinds: FacetKind[] = ['effects', 'interactions', 'elements', 'layoutFacets'];
+const facetCountsRaw = listFacetCounts();
+const facetGroups = facetKinds.map((kind) => ({
+  kind,
+  label:
+    kind === 'effects'
+      ? 'Effets'
+      : kind === 'interactions'
+        ? 'Interactions'
+        : kind === 'elements'
+          ? 'Éléments'
+          : 'Layout',
+  options: facetCountsRaw[kind].map(({ tag, count }) => ({
+    value: tag,
+    label: (FACET_LABELS_FR[kind] as Record<string, string>)[tag] ?? tag,
+    count,
+  })),
 }));
 
 // Facettes pré-calculées (value/label/count) pour les selects.
@@ -145,6 +172,7 @@ const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({
       categories={categoryOptions}
       familyReps={familyRepEntries}
       categoryReps={categoryRepEntries}
+      facetGroups={facetGroups}
     />
   </section>
 
@@ -366,6 +394,16 @@ const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({
         }
         .cx-select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
+        /* ── Raccourcis + regroupement (rangée) ── */
+        .cx-toggles {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: var(--space-4);
+        }
+        .cx-quick { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
         .cx-groupby { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
         .cx-segmented {
           display: inline-flex;
@@ -501,6 +539,75 @@ const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({
           color: var(--muted);
           white-space: nowrap;
         }
+        .cx-card-metrics {
+          display: inline-flex;
+          align-items: center;
+          gap: var(--space-2);
+        }
+        .cx-card-presets {
+          font-family: var(--font-mono);
+          font-size: var(--text-micro);
+          color: var(--accent-text);
+          white-space: nowrap;
+        }
+
+        /* ── Chips (facettes multi-select + raccourcis) ── */
+        .cx-facet-groups {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-4);
+          padding-top: var(--space-4);
+          border-top: 1px solid var(--hairline);
+        }
+        .cx-facet-group {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-2);
+          margin: 0;
+          padding: 0;
+          border: 0;
+          min-width: 0;
+        }
+        .cx-facet-group legend {
+          padding: 0;
+          margin: 0 0 var(--space-1);
+        }
+        .cx-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--space-2);
+        }
+        .cx-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: var(--space-2) var(--space-3);
+          border: 1px solid var(--hairline-strong);
+          border-radius: var(--radius-sm);
+          background: var(--paper);
+          color: var(--ink-2);
+          font-family: var(--font-mono);
+          font-size: var(--text-small);
+          line-height: 1;
+          cursor: pointer;
+          transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
+            background var(--dur-fast) var(--ease);
+        }
+        .cx-chip:hover { border-color: var(--accent-text); color: var(--accent-text); }
+        .cx-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+        .cx-chip[aria-pressed='true'] {
+          background: var(--ink);
+          border-color: var(--ink);
+          color: var(--paper);
+        }
+        .cx-chip-count {
+          font-size: var(--text-micro);
+          color: var(--muted);
+        }
+        .cx-chip[aria-pressed='true'] .cx-chip-count {
+          color: color-mix(in srgb, var(--paper) 72%, var(--ink));
+        }
+        .cx-chip--toggle { text-transform: uppercase; letter-spacing: 0.04em; }
 
         @media (max-width: 720px) {
           .cx-controls { position: static; }

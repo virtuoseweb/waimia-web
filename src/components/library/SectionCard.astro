@@ -1,0 +1,255 @@
+---
+// Waimia · Library · carte de section PARTAGÉE (Vague C / P2).
+//
+// Source de vérité unique de la carte catalogue : une vignette d'aperçu (iframe lazy vers
+// /preview/[previewSlug]) + titre + ligne meta (famille · catégorie) + badges de facettes
+// compacts (3 premiers effects + « +N ») + badge presetCount + statut. Utilisée par
+// /library/[category], /library/family/[family] et /library/family/index pour TUER le CSS de
+// carte dupliqué (chaque page avait son propre markup + styles category-card / famx-card / fam-card).
+//
+// Aperçu = MÊME mécanisme anti-saturation que les pages existantes : l'iframe porte un `data-src`
+// (pas `src`) et le wrapper porte [data-lazy-preview] + [data-preview-frame] ; lazy-preview.ts
+// promeut data-src -> src à l'approche du viewport, file de concurrence MAX_CONCURRENT=3 (perf
+// iframes NON régressée). preview-frame.ts scale ensuite l'iframe. Les pages hôtes importent déjà
+// ces deux scripts ; ce composant ne les ré-importe pas (1 init suffit par page).
+//
+// 0 nouveau token DS (rule 60) : variables canoniques uniquement. 0 valeur en dur (sauf
+// structurel : 1px hairline, largeur 1280px de la frame preview = constante du mécanisme d'aperçu,
+// breakpoint 720px). 0 U+2014 (rule 58).
+
+import type { EffectTag, InteractionTag, ElementTag, LayoutTag, FacetKind } from '../../lib/section-facets';
+import { FACET_LABELS_FR } from '../../lib/section-facets';
+
+interface Props {
+  /** type (variante) de la section, sert d'identité et de fallback de titre. */
+  type: string;
+  /** libellé affiché (par défaut = type). */
+  label?: string;
+  family: string;
+  categoryLabel: string;
+  status: 'stable' | 'wip' | 'deprecated';
+  effects: EffectTag[];
+  interactions: InteractionTag[];
+  elements: ElementTag[];
+  layoutFacets: LayoutTag[];
+  /** nombre de déclinaisons (presets) ; badge affiché si > 0. */
+  presetCount?: number;
+  /** lien d'ouverture de la carte (fiche technique ou famille). */
+  href: string;
+  /** slug d'aperçu (par défaut = type) ; ex. `${type}` ou `${type}/${preset}`. */
+  previewSlug?: string;
+  /** hauteur max passée au scaler d'aperçu (preview-frame.ts). */
+  maxHeight?: number;
+  /** description courte optionnelle (affichée sous le titre si fournie). */
+  description?: string;
+}
+
+const {
+  type,
+  label,
+  family,
+  categoryLabel,
+  status,
+  effects = [],
+  interactions = [],
+  elements = [],
+  layoutFacets = [],
+  presetCount = 0,
+  href,
+  previewSlug,
+  maxHeight = 280,
+  description,
+} = Astro.props;
+
+const title = label ?? type;
+const slug = previewSlug ?? type;
+
+// Badges de facettes compacts : on agrège les 4 genres dans l'ordre effects > interactions >
+// elements > layout, on retire les "vides" (static / none), on garde les 3 premiers + un « +N ».
+const MAX_BADGES = 3;
+const labelFor = (kind: FacetKind, tag: string): string =>
+  (FACET_LABELS_FR[kind] as Record<string, string>)[tag] ?? tag;
+const facetBadges: string[] = [
+  ...effects.filter((t) => t !== 'static').map((t) => labelFor('effects', t)),
+  ...interactions.filter((t) => t !== 'none').map((t) => labelFor('interactions', t)),
+  ...elements.map((t) => labelFor('elements', t)),
+  ...layoutFacets.map((t) => labelFor('layoutFacets', t)),
+];
+const shownBadges = facetBadges.slice(0, MAX_BADGES);
+const extraBadges = Math.max(0, facetBadges.length - shownBadges.length);
+---
+
+<article class="sc-card">
+  <span
+    class="sc-preview"
+    data-preview-frame
+    data-lazy-preview
+    data-max-height={String(maxHeight)}
+    aria-hidden="true"
+  >
+    <iframe
+      class="sc-frame"
+      data-src={`/preview/${slug}`}
+      title={`Aperçu ${title}`}
+      loading="lazy"
+      tabindex="-1"
+      scrolling="no"
+    ></iframe>
+  </span>
+
+  <span class="sc-body">
+    <span class="sc-top">
+      <a class="sc-link" href={href}><code>{title}</code></a>
+      <span class={`sc-status sc-status--${status}`}>{status}</span>
+    </span>
+
+    {description && <p class="sc-desc">{description}</p>}
+
+    <span class="sc-meta">
+      <span class="sc-fam">{family}</span>
+      <span class="sc-dot" aria-hidden="true">·</span>
+      <span class="sc-cat">{categoryLabel}</span>
+    </span>
+
+    {(shownBadges.length > 0 || presetCount > 0) && (
+      <span class="sc-badges" aria-label={`Facettes ${title}`}>
+        {shownBadges.map((b) => <span class="sc-badge">{b}</span>)}
+        {extraBadges > 0 && <span class="sc-badge sc-badge--more">+{extraBadges}</span>}
+        {presetCount > 0 && (
+          <span class="sc-badge sc-badge--preset">
+            {presetCount} décl.
+          </span>
+        )}
+      </span>
+    )}
+  </span>
+</article>
+
+<style>
+  .sc-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--paper);
+    position: relative;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .sc-card:hover { background: var(--paper-2); }
+  .sc-card:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  .sc-preview {
+    display: block;
+    position: relative;
+    min-height: 150px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  /* transform + height pilotés par src/scripts/preview-frame.ts (scale responsive). 1280px =
+     largeur de référence du mécanisme d'aperçu (constante structurelle, pas un token DS). */
+  .sc-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    border: 0;
+    transform-origin: top left;
+    pointer-events: none;
+  }
+
+  .sc-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+    padding: var(--space-4);
+  }
+  .sc-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+  .sc-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  /* lien étendu : toute la carte est cliquable, badges restent au-dessus si besoin. */
+  .sc-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+  .sc-link code {
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+  }
+
+  .sc-desc {
+    margin: 0;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+
+  .sc-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .sc-fam { color: var(--accent-text); }
+  .sc-dot { color: var(--hairline-strong); }
+
+  .sc-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+  }
+  .sc-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    background: var(--paper-2);
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    line-height: 1;
+    padding: 5px 7px;
+  }
+  .sc-badge--more {
+    color: var(--ink-2);
+  }
+  .sc-badge--preset {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+
+  .sc-status {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    line-height: 1;
+    padding: 5px 7px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .sc-status--stable { border-color: var(--accent-text); color: var(--accent-text); }
+  .sc-status--wip { border-color: var(--muted-2); color: var(--muted); }
+  .sc-status--deprecated { border-color: var(--hairline-strong); color: var(--muted-2); }
+</style>

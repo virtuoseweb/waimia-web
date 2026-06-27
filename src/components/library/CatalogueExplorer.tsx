@@ -1,17 +1,31 @@
-// Waimia · Library · explorateur de catalogue filtrable (Track C, taxonomie docs/45 §9.6).
+// Waimia · Library · explorateur de catalogue filtrable (Track C, taxonomie docs/45 §9.6 ;
+// facettes IA-opérables Vague C / P2).
 //
 // Island React client:load qui transforme la landing /library en VRAI catalogue rangé,
 // SANS saturer le navigateur :
-//   - on affiche des CARTES-GROUPES (1 par famille OU par catégorie), pas 165 cartes-type ;
+//   - on affiche des CARTES-GROUPES (1 par famille OU par catégorie), pas 199 cartes-type ;
 //   - chaque carte-groupe porte UNE vignette d'aperçu représentative (iframe /preview/<type>)
 //     montée À LA DEMANDE via IntersectionObserver (l'iframe n'entre dans le DOM qu'à l'approche
-//     du viewport) → la landing ne charge jamais 165 documents preview en parallèle
-//     (fini ERR_INSUFFICIENT_RESOURCES). Le détail par type (165) vit sur /library/[category]
+//     du viewport) → la landing ne charge jamais 199 documents preview en parallèle
+//     (fini ERR_INSUFFICIENT_RESOURCES). Le détail par type vit sur /library/[category]
 //     et /library/family/[family] (peu d'iframes par page).
-//   - FILTRES (recherche texte, catégorie, famille, statut) + TRI opèrent sur les TYPES ;
-//     un groupe s'affiche s'il contient au moins un type retenu, avec son compteur filtré.
+//   - FILTRES opèrent sur les TYPES ; un groupe s'affiche s'il contient au moins un type retenu,
+//     avec son compteur filtré.
 //
-// Alimenté par un export JSON léger du registry (props `items` + `familyReps`/`categoryReps`).
+// FILTRES (Vague C / P2) :
+//   - existants : recherche texte, Famille (select), Catégorie (select), Statut (select), Tri,
+//     Regrouper par Famille|Catégorie ;
+//   - facettes orthogonales multi-select (chips) : Effets, Interactions, Éléments, Layout.
+//     Chaque chip porte son effectif (count) ; les tags à 0 sont déjà absents (listFacetCounts) ;
+//   - raccourcis : « Animées » (effects != ['static']) et « Avec déclinaisons » (presetCount > 0).
+//
+// LOGIQUE DE FILTRAGE (documentée, choix retenu) :
+//   - INTER-GROUPES = AND : un type doit satisfaire CHAQUE groupe de facettes où au moins un tag
+//     est sélectionné (ex. un effet ET un élément cochés → il faut les deux genres).
+//   - INTRA-GROUPE = OR : dans un même genre, le type matche s'il porte AU MOINS UN des tags
+//     cochés (ex. 'crossfade' OU 'marquee' → l'un suffit).
+//   Les filtres select (famille/catégorie/statut) et la recherche restent en AND avec le reste.
+//
 // 0 nouvelle dépendance. 0 nouveau token DS (rule 60) : variables canoniques uniquement.
 
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -25,12 +39,24 @@ export interface CatalogueItem {
   tags: string[];
   description_fr: string;
   presetCount: number;
+  // Facettes orthogonales (cf section-facets.ts).
+  effects: string[];
+  interactions: string[];
+  elements: string[];
+  layoutFacets: string[];
 }
 
 interface FacetOption {
   value: string;
   label: string;
   count: number;
+}
+
+/** Un genre de facette (Effets/Interactions/Éléments/Layout) + ses options comptées. */
+interface FacetGroup {
+  kind: 'effects' | 'interactions' | 'elements' | 'layoutFacets';
+  label: string;
+  options: FacetOption[];
 }
 
 /** Représentant (type) d'un groupe → vignette d'aperçu de la card-groupe. */
@@ -45,10 +71,12 @@ interface Props {
   categories: FacetOption[];
   familyReps: RepEntry[];
   categoryReps: RepEntry[];
+  facetGroups: FacetGroup[];
 }
 
 type GroupBy = 'family' | 'category';
 type SortBy = 'alpha' | 'count' | 'status';
+type FacetKind = FacetGroup['kind'];
 
 const STATUS_OPTIONS = [
   { value: 'all', label: 'Tous statuts' },
@@ -56,6 +84,8 @@ const STATUS_OPTIONS = [
   { value: 'wip', label: 'WIP' },
   { value: 'deprecated', label: 'Déprécié' },
 ];
+
+const FACET_KINDS: FacetKind[] = ['effects', 'interactions', 'elements', 'layoutFacets'];
 
 // File de concurrence globale (partagée par toutes les vignettes de l'island) : au plus
 // MAX_CONCURRENT iframes se chargent simultanément. Chaque preview tire ~des dizaines de
@@ -150,13 +180,43 @@ function LazyPreview({ type, label }: { type: string; label: string }) {
   );
 }
 
-export default function CatalogueExplorer({ items, families, categories, familyReps, categoryReps }: Props) {
+export default function CatalogueExplorer({
+  items,
+  families,
+  categories,
+  familyReps,
+  categoryReps,
+  facetGroups,
+}: Props) {
   const [query, setQuery] = useState('');
   const [family, setFamily] = useState('all');
   const [category, setCategory] = useState('all');
   const [status, setStatus] = useState('all');
   const [groupBy, setGroupBy] = useState<GroupBy>('family');
   const [sortBy, setSortBy] = useState<SortBy>('alpha');
+  // Facettes multi-select : un Set de tags cochés par genre.
+  const [facetSel, setFacetSel] = useState<Record<FacetKind, Set<string>>>(() => ({
+    effects: new Set(),
+    interactions: new Set(),
+    elements: new Set(),
+    layoutFacets: new Set(),
+  }));
+  const [animatedOnly, setAnimatedOnly] = useState(false);
+  const [withPresetsOnly, setWithPresetsOnly] = useState(false);
+
+  const toggleFacet = (kind: FacetKind, value: string) => {
+    setFacetSel((prev) => {
+      const nextSet = new Set(prev[kind]);
+      if (nextSet.has(value)) nextSet.delete(value);
+      else nextSet.add(value);
+      return { ...prev, [kind]: nextSet };
+    });
+  };
+
+  const facetSelCount = useMemo(
+    () => FACET_KINDS.reduce((acc, k) => acc + facetSel[k].size, 0),
+    [facetSel],
+  );
 
   // Représentants indexés par valeur de groupe (selon l'axe courant).
   const repByValue = useMemo(() => {
@@ -164,32 +224,47 @@ export default function CatalogueExplorer({ items, families, categories, familyR
     return new Map(reps.map((r) => [r.value, r.type]));
   }, [groupBy, familyReps, categoryReps]);
 
-  // Filtrage des TYPES (recherche + facettes).
+  // Filtrage des TYPES (recherche + selects + facettes orthogonales + raccourcis).
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return items.filter((it) => {
       if (family !== 'all' && it.family !== family) return false;
       if (category !== 'all' && it.categorySlug !== category) return false;
       if (status !== 'all' && it.status !== status) return false;
+      if (animatedOnly) {
+        const hasEffect = it.effects.some((e) => e !== 'static');
+        if (!hasEffect) return false;
+      }
+      if (withPresetsOnly && it.presetCount <= 0) return false;
+      // Facettes : AND inter-genres, OR intra-genre.
+      for (const kind of FACET_KINDS) {
+        const sel = facetSel[kind];
+        if (sel.size === 0) continue;
+        const itemTags = it[kind];
+        const matchesGenre = itemTags.some((t) => sel.has(t));
+        if (!matchesGenre) return false;
+      }
       if (q) {
         const hay = `${it.type} ${it.description_fr} ${it.tags.join(' ')} ${it.family}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
     });
-  }, [items, query, family, category, status]);
+  }, [items, query, family, category, status, facetSel, animatedOnly, withPresetsOnly]);
 
   // Regroupement des types retenus en CARTES-GROUPES (1 vignette représentative chacune).
   const groups = useMemo(() => {
     const map = new Map<
       string,
-      { key: string; label: string; count: number; stableCount: number; sample: string }
+      { key: string; label: string; count: number; stableCount: number; presetCount: number; sample: string }
     >();
     for (const it of filtered) {
       const key = groupBy === 'family' ? it.family : it.categorySlug;
       const label = groupBy === 'family' ? it.family : it.categoryLabel;
-      const g = map.get(key) ?? { key, label, count: 0, stableCount: 0, sample: it.type };
+      const g =
+        map.get(key) ?? { key, label, count: 0, stableCount: 0, presetCount: 0, sample: it.type };
       g.count += 1;
+      g.presetCount += it.presetCount;
       if (it.status === 'stable') g.stableCount += 1;
       map.set(key, g);
     }
@@ -216,13 +291,27 @@ export default function CatalogueExplorer({ items, families, categories, familyR
 
   const totalShown = filtered.length;
   const isFiltered =
-    query.trim() !== '' || family !== 'all' || category !== 'all' || status !== 'all';
+    query.trim() !== '' ||
+    family !== 'all' ||
+    category !== 'all' ||
+    status !== 'all' ||
+    facetSelCount > 0 ||
+    animatedOnly ||
+    withPresetsOnly;
 
   const resetFilters = () => {
     setQuery('');
     setFamily('all');
     setCategory('all');
     setStatus('all');
+    setAnimatedOnly(false);
+    setWithPresetsOnly(false);
+    setFacetSel({
+      effects: new Set(),
+      interactions: new Set(),
+      elements: new Set(),
+      layoutFacets: new Set(),
+    });
   };
 
   return (
@@ -286,26 +375,73 @@ export default function CatalogueExplorer({ items, families, categories, familyR
           </label>
         </div>
 
-        <div className="cx-groupby" role="group" aria-label="Regrouper par">
-          <span className="cx-field-label">Regrouper</span>
-          <div className="cx-segmented">
+        {/* ── Raccourcis + regroupement ── */}
+        <div className="cx-toggles" role="group" aria-label="Raccourcis et regroupement">
+          <div className="cx-quick" role="group" aria-label="Raccourcis">
             <button
               type="button"
-              className="cx-seg-btn"
-              aria-pressed={groupBy === 'family'}
-              onClick={() => setGroupBy('family')}
+              className="cx-chip cx-chip--toggle"
+              aria-pressed={animatedOnly}
+              onClick={() => setAnimatedOnly((v) => !v)}
             >
-              Famille
+              Animées
             </button>
             <button
               type="button"
-              className="cx-seg-btn"
-              aria-pressed={groupBy === 'category'}
-              onClick={() => setGroupBy('category')}
+              className="cx-chip cx-chip--toggle"
+              aria-pressed={withPresetsOnly}
+              onClick={() => setWithPresetsOnly((v) => !v)}
             >
-              Catégorie
+              Avec déclinaisons
             </button>
           </div>
+
+          <div className="cx-groupby" role="group" aria-label="Regrouper par">
+            <span className="cx-field-label">Regrouper</span>
+            <div className="cx-segmented">
+              <button
+                type="button"
+                className="cx-seg-btn"
+                aria-pressed={groupBy === 'family'}
+                onClick={() => setGroupBy('family')}
+              >
+                Famille
+              </button>
+              <button
+                type="button"
+                className="cx-seg-btn"
+                aria-pressed={groupBy === 'category'}
+                onClick={() => setGroupBy('category')}
+              >
+                Catégorie
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Facettes orthogonales multi-select (AND inter-genres, OR intra-genre) ── */}
+        <div className="cx-facet-groups">
+          {facetGroups.map((grp) => (
+            <fieldset className="cx-facet-group" key={grp.kind}>
+              <legend className="cx-field-label">{grp.label}</legend>
+              <div className="cx-chips">
+                {grp.options.map((opt) => {
+                  const active = facetSel[grp.kind].has(opt.value);
+                  return (
+                    <button
+                      type="button"
+                      key={opt.value}
+                      className="cx-chip"
+                      aria-pressed={active}
+                      onClick={() => toggleFacet(grp.kind, opt.value)}
+                    >
+                      {opt.label} <span className="cx-chip-count">{opt.count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
+          ))}
         </div>
       </div>
 
@@ -339,8 +475,13 @@ export default function CatalogueExplorer({ items, families, categories, familyR
                   </span>
                   <span className="cx-card-foot">
                     <span className="cx-card-kind">{groupBy === 'family' ? 'famille' : 'catégorie'}</span>
-                    <span className="cx-card-stable">
-                      {g.stableCount} stable{g.stableCount > 1 ? 's' : ''}
+                    <span className="cx-card-metrics">
+                      {g.presetCount > 0 && (
+                        <span className="cx-card-presets">{g.presetCount} décl.</span>
+                      )}
+                      <span className="cx-card-stable">
+                        {g.stableCount} stable{g.stableCount > 1 ? 's' : ''}
+                      </span>
                     </span>
                   </span>
                 </span>
