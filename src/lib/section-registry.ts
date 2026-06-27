@@ -113,6 +113,8 @@ import InclusionsList from '../components/sections/InclusionsList.astro';
 import ProblemStatement from '../components/sections/ProblemStatement.astro';
 import BentoGrid from '../components/sections/BentoGrid.astro';
 import FeatureZigzag from '../components/sections/FeatureZigzag.astro';
+import ScrollGallery from '../components/sections/ScrollGallery.astro';
+import StackCards from '../components/sections/StackCards.astro';
 import LogoWall from '../components/sections/LogoWall.astro';
 import GalleryMasonry from '../components/sections/GalleryMasonry.astro';
 import FeatureTabs from '../components/sections/FeatureTabs.astro';
@@ -1592,6 +1594,28 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: "Lignes alternées visuel/texte (gauche-droite, droite-gauche) pour presenter les fonctionnalites cles d'une offre avec un rythme editorial fort.",
     description_en: 'Alternating visual/text rows (left-right, right-left) to present key features with strong editorial rhythm.',
+  },
+  'scroll-gallery': {
+    component: ScrollGallery,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'scroll-interactive',
+    tags: ['scroll', 'sticky', 'gallery', 'interactive', 'feature'],
+    status: 'stable',
+    description_fr: "Liste sticky a gauche, cadre media a droite dont l'image change en fondu au scroll. Ideal pour presenter des domaines d'expertise avec un visuel par item.",
+    description_en: 'Sticky list on the left, media frame on the right whose image crossfades on scroll. Ideal to present expertise areas with one visual per item.',
+  },
+  'stack-cards': {
+    component: StackCards,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'scroll-interactive',
+    tags: ['scroll', 'stack', 'sticky', 'cards', 'method', 'interactive'],
+    status: 'stable',
+    description_fr: 'Cartes numerotees qui se superposent en s\'empilant au scroll (effet stack sticky, CSS pur). Ideal pour une methode en plusieurs temps.',
+    description_en: 'Numbered cards that stack and overlap as you scroll (sticky stack effect, pure CSS). Ideal for a multi-step method.',
   },
   'logo-wall': {
     component: LogoWall,

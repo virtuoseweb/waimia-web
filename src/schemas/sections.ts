@@ -2319,6 +2319,79 @@ export const featureZigzagSchema = z.object({
   ).min(2).max(6),
 });
 
+// Galerie scroll : liste sticky à gauche, média qui change en fondu au scroll.
+// Colonne texte qui défile + cadre média STICKY dont l'image active crossfade
+// quand l'item correspondant croise la bande centrale du viewport (IntersectionObserver).
+export const scrollGallerySchema = z.object({
+  type: z.literal('scroll-gallery'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  // Côté du cadre média sticky en desktop (défaut right). 'left' inverse les colonnes.
+  media_side: z.enum(['left', 'right']).optional(),
+  items: z
+    .array(
+      z.object({
+        index_fr: z.string().optional(),
+        index_en: z.string().optional(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        media_src: z.string(),
+        media_alt_fr: z.string().optional(),
+        media_alt_en: z.string().optional(),
+        link_label_fr: z.string().optional(),
+        link_label_en: z.string().optional(),
+        link_href: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(6),
+});
+
+// Cartes empilées au scroll : chaque carte sticky avec un top incrémental → les
+// cartes se superposent à mesure que la page défile (effet stack, CSS pur).
+export const stackCardsSchema = z.object({
+  type: z.literal('stack-cards'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  cards: z
+    .array(
+      z.object({
+        index_fr: z.string().optional(),
+        index_en: z.string().optional(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        // Fond de la carte (défaut paper). 'ink' rend la carte en contraste inverse.
+        tone: z.enum(['paper', 'ink']).optional(),
+        media_src: z.string().optional(),
+        media_alt_fr: z.string().optional(),
+        media_alt_en: z.string().optional(),
+        points: z
+          .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+          .max(4)
+          .optional(),
+        link_label_fr: z.string().optional(),
+        link_label_en: z.string().optional(),
+        link_href: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(6),
+});
+
 // Grille statique de logos partenaires (grayscale → couleur au hover)
 const logoWallItemSchema = z.object({
   src: z.string(),
@@ -4461,6 +4534,8 @@ export const sectionSchema = z.discriminatedUnion('type', [
   problemStatementSchema,
   bentoGridSchema,
   featureZigzagSchema,
+  scrollGallerySchema,
+  stackCardsSchema,
   logoWallSchema,
   pricingComparisonMatrixSchema,
   galleryMasonrySchema,
