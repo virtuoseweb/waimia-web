@@ -1620,6 +1620,20 @@ export const guaranteeBlockSchema = z.object({
 export const architectureDiagramSchema = z.object({
   type: z.literal('architecture-diagram'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // ── Vague C · Scale (Batch 4 « splits/duo ») ──
+  // Disposition header ↔ diagramme. Absent → 'stacked' (header au-dessus, schéma centré
+  // pleine largeur : rendu actuel). 'split' = header (titre + spec + caption) en colonne
+  // gauche, diagramme en colonne droite (lecture éditoriale, schéma plus compact).
+  layout: z.enum(['stacked', 'split']).optional(),
+  // Ratio des colonnes header|diagramme quand layout='split'. Absent → 2fr 3fr (diagramme
+  // dominant). Ignoré par 'stacked'.
+  proportion: z.enum(['1-1', '1-2', '2-1', '2-3', '3-2']).optional(),
+  // Densité (gap header↔diagramme + marge sous le titre). Absent → base (rendu actuel).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // Alignement du bloc header (titre + spec). Absent → start (rendu actuel).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header/media). Forme identique partout.
+  placement: placementSchema,
   fig_num: z.string(),
   fig_title_fr: z.string(),
   fig_title_en: z.string(),
@@ -2401,6 +2415,26 @@ export const featureZigzagSchema = z.object({
   // (rétrocompat). Cf manifeste §5.5 « 1 registre par bloc » : un bloc rendu en
   // ink doit pointer son média sur la variante -ink.webp (choix au contenu).
   alternate_blocks: z.boolean().optional(),
+  // ── Vague C · Scale (Batch 4 « splits/duo ») ──
+  // Recette de disposition des rangées (sous-ensemble du lexique « split/duo »). Absent →
+  // 'alternate' (zigzag historique, alternance gérée en interne rangée par rangée).
+  //   alternate    : zigzag (média gauche/droite alterné par rangée) · défaut, rendu actuel.
+  //   stacked      : média TOUJOURS au-dessus du texte (1 colonne empilée par rangée).
+  //   inline-left  : média TOUJOURS à gauche du texte (pas d'alternance).
+  //   inline-right : média TOUJOURS à droite du texte (pas d'alternance).
+  layout: z.enum(['alternate', 'stacked', 'inline-left', 'inline-right']).optional(),
+  // Ratio des colonnes média|texte appliqué à CHAQUE rangée (mediaSide gère le côté).
+  // Absent → 1fr 1fr (rendu actuel). Ignoré par 'stacked' (empilé, 1 colonne).
+  proportion: z.enum(['1-1', '1-2', '2-1', '2-3', '3-2']).optional(),
+  // Côté du média de la PREMIÈRE rangée (l'alternance enchaîne ensuite). Absent → 'left'
+  // (rendu actuel : impair = visuel gauche). Ignoré par inline-left/inline-right/stacked.
+  mediaSide: z.enum(['left', 'right']).optional(),
+  // Densité (gap entre rangées + gap interne des cellules). Absent → base (rendu actuel).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // Alignement du bloc header (kicker + h2 + lede). Absent → start (rendu actuel).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header/media/body/actions). Forme identique partout.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -2884,6 +2918,19 @@ const comparisonDuoItemSchema = z.object({
 export const comparisonDuoSchema = z.object({
   type: z.literal('comparison-duo'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // ── Vague C · Scale (Batch 4 « splits/duo ») ──
+  // Disposition des 2 cartes (honnête : pas de bento, c'est un duo face-à-face). Absent →
+  // 'inline' (côte à côte, rendu actuel). 'stacked' = empilé vertical (sans/avec l'un sous l'autre).
+  layout: z.enum(['inline', 'stacked']).optional(),
+  // Ratio des 2 colonnes sans|avec. Absent → 1fr 1fr (rendu actuel). Ignoré par 'stacked'.
+  //   1-1 (défaut) · 1-2 (carte AVEC dominante) · 2-1 (carte SANS dominante).
+  proportion: z.enum(['1-1', '1-2', '2-1']).optional(),
+  // Densité (gap entre cartes + padding interne). Absent → base (rendu actuel).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // Alignement du bloc header (kicker + h2). Absent → start (rendu actuel).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header/body). Forme identique partout.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),

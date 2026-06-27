@@ -2437,6 +2437,25 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
         media_alt_fr: 'Illustration : transmission de savoir',
         media_alt_en: 'Illustration: knowledge handover',
       },
+      {
+        kicker_fr: 'Mesure',
+        kicker_en: 'Measure',
+        h3_fr: 'Pilotage en temps réel, sans relance',
+        h3_en: 'Real-time steering, without chasing',
+        body_fr: "Tableaux de bord vivants et alertes automatiques. Vous voyez ce qui marche, ce qui décroche et où agir, sans attendre la réunion mensuelle.",
+        body_en: 'Live dashboards and automatic alerts. You see what works, what slips, and where to act, without waiting for the monthly meeting.',
+        link_label_fr: 'Voir un tableau de bord',
+        link_label_en: 'See a dashboard',
+        link_href: '/offres',
+        points: [
+          { label_fr: 'Tableaux de bord temps réel', label_en: 'Real-time dashboards' },
+          { label_fr: 'Alertes automatiques sur dérive', label_en: 'Automatic drift alerts' },
+        ],
+        // 4e rangée (paire en départ left → rendu ink par le damier) : variante -ink.webp.
+        media_src: '/images/line-art/dispositif-flow.svg',
+        media_alt_fr: 'Schema line-art : flux de pilotage',
+        media_alt_en: 'Line-art diagram: steering flow',
+      },
     ],
   },
   'scroll-gallery': {

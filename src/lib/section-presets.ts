@@ -299,6 +299,14 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'feature-zigzag--ink', type: 'feature-zigzag', label: 'Zigzag features · encre', family: 'split-media', era: '2026', props: { background: 'ink' } },
     { id: 'feature-zigzag--paper-damier', type: 'feature-zigzag', label: 'Zigzag features · papier · damier paper/encre', family: 'split-media', era: '2025', props: { background: 'paper', alternate_blocks: true } },
     { id: 'feature-zigzag--paper-2-damier', type: 'feature-zigzag', label: 'Zigzag features · papier 2 · damier paper/encre', family: 'split-media', era: '2025', props: { background: 'paper-2', alternate_blocks: true } },
+    // ── Vague C · Scale (Batch 4) · recettes layout + proportion + mediaSide + atomic ──
+    { id: 'feature-zigzag--alternate-media-right', type: 'feature-zigzag', label: 'Zigzag · alterné · média à droite au départ', family: 'split-media', era: '2026', props: { layout: 'alternate', mediaSide: 'right', alternate_blocks: false } },
+    { id: 'feature-zigzag--inline-left-2-3', type: 'feature-zigzag', label: 'Zigzag · média gauche fixe · texte dominant 2/3', family: 'split-media', era: '2026', props: { layout: 'inline-left', proportion: '2-3', alternate_blocks: false } },
+    { id: 'feature-zigzag--inline-right-3-2', type: 'feature-zigzag', label: 'Zigzag · média droite fixe · média dominant 3/2', family: 'split-media', era: '2026', props: { layout: 'inline-right', proportion: '3-2', alternate_blocks: false } },
+    { id: 'feature-zigzag--stacked-ample', type: 'feature-zigzag', label: 'Zigzag · empilé · média au-dessus · ample', family: 'split-media', era: '2026', props: { layout: 'stacked', density: 'ample', alternate_blocks: false } },
+    { id: 'feature-zigzag--alternate-1-2-compact', type: 'feature-zigzag', label: 'Zigzag · alterné · texte dominant 1/2 · compact', family: 'split-media', era: '2026', props: { layout: 'alternate', proportion: '1-2', density: 'compact', alternate_blocks: false } },
+    { id: 'feature-zigzag--center-header', type: 'feature-zigzag', label: 'Zigzag · en-tête centré', family: 'split-media', era: '2026', props: { contentAlign: 'center', alternate_blocks: false } },
+    { id: 'feature-zigzag--atomic-actions-center', type: 'feature-zigzag', label: 'Zigzag · atomique · liens centrés', family: 'split-media', era: '2026', props: { alternate_blocks: false, placement: { actions: { justify: 'center' } } } },
   ],
 
   // bento-grid (famille bento) :span par cellule (contenu) ; axes câblés (Vague C) =
@@ -508,6 +516,13 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'comparison-duo--paper-2', type: 'comparison-duo', label: 'Comparatif duo · papier 2', family: 'duo', era: '2023', props: { background: 'paper-2' } },
     { id: 'comparison-duo--paper-3', type: 'comparison-duo', label: 'Comparatif duo · papier 3', family: 'duo', era: '2024', props: { background: 'paper-3' } },
     { id: 'comparison-duo--ink', type: 'comparison-duo', label: 'Comparatif duo · encre', family: 'duo', era: '2026', props: { background: 'ink' } },
+    // ── Vague C · Scale (Batch 4) · layout + proportion + density + contentAlign + atomic ──
+    { id: 'comparison-duo--inline-1-2', type: 'comparison-duo', label: 'Comparatif duo · côte à côte · carte « avec » dominante 1/2', family: 'duo', era: '2026', props: { layout: 'inline', proportion: '1-2' } },
+    { id: 'comparison-duo--inline-2-1', type: 'comparison-duo', label: 'Comparatif duo · côte à côte · carte « sans » dominante 2/1', family: 'duo', era: '2026', props: { layout: 'inline', proportion: '2-1' } },
+    { id: 'comparison-duo--stacked', type: 'comparison-duo', label: 'Comparatif duo · empilé (sans puis avec)', family: 'duo', era: '2026', props: { layout: 'stacked' } },
+    { id: 'comparison-duo--inline-compact', type: 'comparison-duo', label: 'Comparatif duo · côte à côte · compact', family: 'duo', era: '2026', props: { layout: 'inline', density: 'compact' } },
+    { id: 'comparison-duo--ink-ample-center', type: 'comparison-duo', label: 'Comparatif duo · encre · ample · en-tête centré', family: 'duo', era: '2026', props: { background: 'ink', density: 'ample', contentAlign: 'center' } },
+    { id: 'comparison-duo--atomic-header-center', type: 'comparison-duo', label: 'Comparatif duo · atomique · en-tête centré', family: 'duo', era: '2026', props: { placement: { header: { align: 'center' } } } },
   ],
 
   // architecture-diagram (famille split-media) :figure signature ; axe sûr = background.
@@ -516,6 +531,13 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'architecture-diagram--paper-2', type: 'architecture-diagram', label: 'Diagramme archi · papier 2', family: 'split-media', era: '2023', props: { background: 'paper-2' } },
     { id: 'architecture-diagram--paper-3', type: 'architecture-diagram', label: 'Diagramme archi · papier 3', family: 'split-media', era: '2024', props: { background: 'paper-3' } },
     { id: 'architecture-diagram--ink', type: 'architecture-diagram', label: 'Diagramme archi · encre', family: 'split-media', era: '2026', props: { background: 'ink' } },
+    // ── Vague C · Scale (Batch 4) · layout split + proportion + density + contentAlign + atomic ──
+    { id: 'architecture-diagram--split-2-3', type: 'architecture-diagram', label: 'Diagramme archi · split · en-tête gauche · schéma dominant 2/3', family: 'split-media', era: '2026', props: { layout: 'split', proportion: '2-3' } },
+    { id: 'architecture-diagram--split-1-1', type: 'architecture-diagram', label: 'Diagramme archi · split · colonnes égales', family: 'split-media', era: '2026', props: { layout: 'split', proportion: '1-1' } },
+    { id: 'architecture-diagram--split-2-1', type: 'architecture-diagram', label: 'Diagramme archi · split · en-tête dominant 2/1', family: 'split-media', era: '2026', props: { layout: 'split', proportion: '2-1' } },
+    { id: 'architecture-diagram--split-ink-ample', type: 'architecture-diagram', label: 'Diagramme archi · split · encre · ample', family: 'split-media', era: '2026', props: { layout: 'split', background: 'ink', density: 'ample' } },
+    { id: 'architecture-diagram--stacked-center', type: 'architecture-diagram', label: 'Diagramme archi · empilé · en-tête centré', family: 'split-media', era: '2026', props: { layout: 'stacked', contentAlign: 'center' } },
+    { id: 'architecture-diagram--atomic-header-end', type: 'architecture-diagram', label: 'Diagramme archi · atomique · en-tête aligné à droite', family: 'split-media', era: '2026', props: { placement: { header: { align: 'end' } } } },
   ],
 
   // method-stepline (famille timeline) :étapes en ligne ; axe sûr = background.

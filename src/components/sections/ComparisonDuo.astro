@@ -12,18 +12,34 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+
+// ── Vague C · Scale (Batch 4) ──
+// layout : 'inline' (côte à côte, défaut/actuel) · 'stacked' (cartes empilées).
+const cdLayout = data.layout ?? 'inline';
+// Couche atomique : placement.header.align surcharge contentAlign (UN data-attr / région).
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerHide = pl?.header?.hideOn;
+const bodyHide = pl?.body?.hideOn;
 ---
 
-<section class="comparison-duo sec-base" data-bg={data.background} aria-labelledby="comparison-duo-h2">
+<section
+  class="comparison-duo sec-base"
+  data-bg={data.background}
+  data-layout={cdLayout}
+  data-proportion={data.proportion}
+  data-density={data.density}
+  aria-labelledby="comparison-duo-h2"
+>
   <div class="wrap-wide">
-    <div class="comparison-duo__header reveal">
+    <div class="comparison-duo__header reveal" data-header-align={headerAlign} data-header-hide={headerHide}>
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 id="comparison-duo-h2" class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
-    <div class="comparison-duo__grid reveal-stagger">
+    <div class="comparison-duo__grid reveal-stagger" data-body-hide={bodyHide}>
       {/* Carte gauche : sans (etat negatif) */}
       <div class="comparison-duo__card comparison-duo__card--without">
         <div class="comparison-duo__card-header">
@@ -172,10 +188,43 @@ const isFr = lang === 'fr';
     color: var(--accent-text);
   }
 
+  /* ── Vague C · Scale (Batch 4) ── */
+  /* Axe PROPORTION (data-proportion) · ratio sans|avec. minmax(0,..) → 0 débordement.
+     Défaut absent = 1fr 1fr (rendu actuel). Ignoré par stacked (1 colonne). */
+  .comparison-duo[data-proportion='1-2'] .comparison-duo__grid { grid-template-columns: minmax(0,1fr) minmax(0,2fr); }
+  .comparison-duo[data-proportion='2-1'] .comparison-duo__grid { grid-template-columns: minmax(0,2fr) minmax(0,1fr); }
+  .comparison-duo[data-proportion='1-1'] .comparison-duo__grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+
+  /* Layout STACKED · cartes empilées (sans au-dessus, avec en dessous), 1 colonne. */
+  .comparison-duo[data-layout='stacked'] .comparison-duo__grid { grid-template-columns: 1fr; }
+
+  /* Axe DENSITY (data-density) · gap entre cartes + padding interne. Tokens DS. */
+  .comparison-duo[data-density='compact'] .comparison-duo__grid { gap: var(--space-4); }
+  .comparison-duo[data-density='compact'] .comparison-duo__card { padding: var(--space-5); }
+  .comparison-duo[data-density='ample']   .comparison-duo__grid { gap: var(--space-9); }
+  .comparison-duo[data-density='ample']   .comparison-duo__card { padding: var(--space-9); }
+
+  /* Axe CONTENT-ALIGN (data-header-align) · alignement du bloc header. Défaut start = actuel. */
+  .comparison-duo__header[data-header-align='center'] { align-items: center; text-align: center; margin-inline: auto; }
+  .comparison-duo__header[data-header-align='end']    { align-items: flex-end; text-align: end; margin-inline-start: auto; }
+
+  /* COUCHE ATOMIQUE · hideOn (visibilité responsive). 768px = breakpoint structurel. */
+  .comparison-duo__header[data-header-hide='desktop'],
+  .comparison-duo__grid[data-body-hide='desktop'] { display: none; }
+
   @media (max-width: 768px) {
-    .comparison-duo__grid {
+    /* Empilé : 1 colonne quel que soit l'axe (proportion a une spécificité supérieure
+       → on neutralise explicitement chaque ratio). Ordre de lecture sans→avec préservé. */
+    .comparison-duo__grid,
+    .comparison-duo[data-proportion='1-1'] .comparison-duo__grid,
+    .comparison-duo[data-proportion='1-2'] .comparison-duo__grid,
+    .comparison-duo[data-proportion='2-1'] .comparison-duo__grid {
       grid-template-columns: 1fr;
     }
+    .comparison-duo__header[data-header-hide='mobile'],
+    .comparison-duo__grid[data-body-hide='mobile'] { display: none; }
+    .comparison-duo__header[data-header-hide='desktop'] { display: flex; }
+    .comparison-duo__grid[data-body-hide='desktop'] { display: grid; }
   }
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .comparison-duo[data-bg='paper-2'] { background: var(--paper-2); }
