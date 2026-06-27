@@ -92,7 +92,8 @@ const grayscale = data.grayscale ?? true;
     filter: grayscale(0);
     opacity: 1;
   }
-  .logo-marquee[data-bg='ink'] .logo-marquee__item img { filter: grayscale(1) invert(1) brightness(1.8); }
+  .logo-marquee[data-bg='ink'] .logo-marquee__item img { filter: brightness(0) invert(1); opacity: .8; }
+  .logo-marquee[data-bg='ink'] .logo-marquee__item:hover img { opacity: 1; }
   .logo-marquee[data-bg='ink'][data-grayscale='false'] .logo-marquee__item img { filter: none; }
 
   @keyframes logo-marquee-scroll {

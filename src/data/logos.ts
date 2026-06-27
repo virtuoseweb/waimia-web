@@ -4,13 +4,12 @@
 // lieu de recopier chaque { src, name_fr, name_en } → édite une fois ici, propage
 // partout (GLOBAL). Le rendu (grayscale, marquee, alt) reste porté par LogoMarquee.
 //
-// Couverture : les logos réellement utilisés dans les 2 MDX services
-// (integrateur-claude.mdx, site-web-intelligent.mdx) + le minimum demandé (claude,
-// github, hubspot). Étendre ici quand un nouveau logo de marquee apparaît.
+// Couverture : les 12 marques réelles utilisées par les bandeaux logo-marquee des
+// 6 pages service (claude, openai, hubspot, salesforce, slack, notion, github, aws,
+// google, microsoft, sap, meta). Étendre ici quand un nouveau logo de marquee apparaît.
 //
-// Assets : marques d'écosystème sous `/logos/integration-*.svg` ;
-// les logos partenaires (claude, github, hubspot) réutilisent les assets
-// `/logos/partners/partner-*` déjà présents (cf src/data/partners.ts).
+// Assets : tous sous `/logos/partners/partner-*` (vrais logos de marque, cf
+// src/data/partners.ts) : plus de placeholders `integration-*.svg`.
 
 export interface LogoEntry {
   /** Chemin absolu de l'asset (sous /public). */
@@ -29,44 +28,59 @@ export const LOGOS: Record<string, LogoEntry> = {
     name_fr: 'Claude · Anthropic',
     name_en: 'Claude · Anthropic',
   },
+  openai: {
+    src: '/logos/partners/partner-openai.png',
+    name_fr: 'OpenAI',
+    name_en: 'OpenAI',
+  },
+  hubspot: {
+    src: '/logos/partners/partner-hubspot.png',
+    name_fr: 'HubSpot',
+    name_en: 'HubSpot',
+  },
+  salesforce: {
+    src: '/logos/partners/partner-salesforce.png',
+    name_fr: 'Salesforce',
+    name_en: 'Salesforce',
+  },
+  slack: {
+    src: '/logos/partners/partner-slack.svg',
+    name_fr: 'Slack',
+    name_en: 'Slack',
+  },
+  notion: {
+    src: '/logos/partners/partner-notion.webp',
+    name_fr: 'Notion',
+    name_en: 'Notion',
+  },
   github: {
     src: '/logos/partners/partner-github.svg',
     name_fr: 'GitHub',
     name_en: 'GitHub',
   },
-  hubspot: {
-    src: '/logos/integration-hubspot.svg',
-    name_fr: 'HubSpot',
-    name_en: 'HubSpot',
+  aws: {
+    src: '/logos/partners/partner-aws.png',
+    name_fr: 'AWS',
+    name_en: 'AWS',
   },
-  salesforce: {
-    src: '/logos/integration-salesforce.svg',
-    name_fr: 'Salesforce',
-    name_en: 'Salesforce',
+  google: {
+    src: '/logos/partners/partner-google.png',
+    name_fr: 'Google',
+    name_en: 'Google',
   },
-  pipedrive: {
-    src: '/logos/integration-pipedrive.svg',
-    name_fr: 'Pipedrive',
-    name_en: 'Pipedrive',
+  microsoft: {
+    src: '/logos/partners/partner-microsoft.png',
+    name_fr: 'Microsoft',
+    name_en: 'Microsoft',
   },
-  slack: {
-    src: '/logos/integration-slack.svg',
-    name_fr: 'Slack',
-    name_en: 'Slack',
+  sap: {
+    src: '/logos/partners/partner-sap.png',
+    name_fr: 'SAP',
+    name_en: 'SAP',
   },
-  notion: {
-    src: '/logos/integration-notion.svg',
-    name_fr: 'Notion',
-    name_en: 'Notion',
-  },
-  postgres: {
-    src: '/logos/integration-postgres.svg',
-    name_fr: 'PostgreSQL',
-    name_en: 'PostgreSQL',
-  },
-  gmail: {
-    src: '/logos/integration-gmail.svg',
-    name_fr: 'Gmail',
-    name_en: 'Gmail',
+  meta: {
+    src: '/logos/partners/partner-meta-business.png',
+    name_fr: 'Meta',
+    name_en: 'Meta',
   },
 };

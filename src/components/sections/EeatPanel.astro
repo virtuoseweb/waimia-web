@@ -39,6 +39,7 @@ const kicker = eyebrow ?? {
 }[variant];
 const meta = 'Expérience · expertise · autorité · confiance';
 const heroHero = img('growth');
+const credentials = P.credentials;
 ---
 <section
   class:list={['eep', `eep--${variant}`]}
@@ -348,6 +349,20 @@ const heroHero = img('growth');
             ))}
           </ul>
         </article>
+      </div>
+    )}
+
+    {/* ---------- CREDENTIALS (partagé · tous variants) ---------- */}
+    {credentials && credentials.length > 0 && (
+      <div class="eep-creds">
+        <span class="eep-creds__label">Labels &amp; certifications</span>
+        <ul class="eep-creds__list">
+          {credentials.map((c) => (
+            <li class="eep-creds__item">
+              <img class="eep-creds__badge" src={c.src} alt={c.alt} loading="lazy" />
+            </li>
+          ))}
+        </ul>
       </div>
     )}
   </div>
@@ -777,6 +792,50 @@ const heroHero = img('growth');
     text-wrap: pretty;
   }
   .eep--light .eep-honesty { color: var(--muted); }
+
+  /* ===== Credentials (rangée partagée, tous variants) ===== */
+  .eep-creds {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+  .eep-creds__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+  .eep--light .eep-creds__label { color: var(--muted); }
+  .eep-creds__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .eep-creds__item {
+    display: inline-flex;
+    align-items: center;
+    background: var(--paper);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+  }
+  .eep--light .eep-creds__item {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+  }
+  .eep-creds__badge {
+    display: block;
+    height: 2.75rem;
+    width: auto;
+  }
+  @media (max-width: 760px) {
+    .eep-creds__list { flex-direction: column; align-items: flex-start; }
+  }
 
   /* ===== Columns layout ===== */
   .eep-band {

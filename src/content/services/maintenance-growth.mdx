@@ -437,22 +437,7 @@ sections:
     kicker_fr: "§ Les outils qu'on suit"
     kicker_en: "§ The tools we follow"
     grayscale: true
-    logos:
-      - src: "/logos/integration-hubspot.svg"
-        name_fr: "HubSpot"
-        name_en: "HubSpot"
-      - src: "/logos/integration-salesforce.svg"
-        name_fr: "Salesforce"
-        name_en: "Salesforce"
-      - src: "/logos/integration-pipedrive.svg"
-        name_fr: "Pipedrive"
-        name_en: "Pipedrive"
-      - src: "/logos/integration-slack.svg"
-        name_fr: "Slack"
-        name_en: "Slack"
-      - src: "/logos/integration-notion.svg"
-        name_fr: "Notion"
-        name_en: "Notion"
+    logoIds: ["claude", "openai", "hubspot", "salesforce", "slack", "notion", "github", "aws", "google", "microsoft", "sap", "meta"]
 
   # ─── Slot 11 · Ce que dit le marché (paper-3, stats-bento) ───
   - type: "stats-bento"
@@ -599,34 +584,6 @@ sections:
   # ─── Slot 14 · E-E-A-T panel (media) ───
   - type: "eeat-panel"
     variant: "media"
-
-  # ─── Slot 15 · Pour aller plus loin (paper, maillage interne) ───
-  - type: "related-cards-band"
-    background: "paper"
-    kicker_fr: "§ Pour aller plus loin"
-    kicker_en: "§ Go further"
-    cards:
-      - kicker_fr: "Amont"
-        kicker_en: "Upstream"
-        title_fr: "Site web intelligent"
-        title_en: "Intelligent website"
-        lead_fr: "La construction du site qu'on fait ensuite vivre : création, refonte et instrumentation, posées avant le forfait."
-        lead_en: "The build of the site we then keep alive: creation, rebuild and instrumentation, laid before the retainer."
-        href: "/services/site-web-intelligent"
-      - kicker_fr: "Croissance"
-        kicker_en: "Growth"
-        title_fr: "Content marketing intelligent"
-        title_en: "Intelligent content marketing"
-        lead_fr: "Le moteur éditorial qui nourrit le SEO continu : articles balisés, cités par les IA, en cadence."
-        lead_en: "The editorial engine that feeds continuous SEO: tagged articles, cited by AIs, on cadence."
-        href: "/services/content-marketing-intelligent"
-      - kicker_fr: "Outil"
-        kicker_en: "Tool"
-        title_fr: "Calculateur de ROI IA"
-        title_en: "AI ROI calculator"
-        lead_fr: "Estimez le retour d'un site entretenu sur votre acquisition, à partir de vos propres chiffres."
-        lead_en: "Estimate the return of a maintained site on your acquisition, from your own figures."
-        href: "/ressources/outils/calculateur-roi-ia"
 
   # ─── Slot 17 · FAQ (paper-2, miroir verbatim de faq_fr/faq_en) ───
   - type: "faq-two-column"

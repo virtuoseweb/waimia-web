@@ -45,6 +45,8 @@ export interface EeatPack {
   commitments: { label: string; detail: string }[];
   /** Note d'honnêteté à afficher près du bloc avis/preuves. */
   honestyNote: string;
+  /** Labels & certifications officiels (badges couleur, ex. France Num, Meta Business Partner). */
+  credentials?: { src: string; alt: string }[];
 }
 
 export const EEAT_PACK: EeatPack = {
@@ -130,6 +132,10 @@ export const EEAT_PACK: EeatPack = {
     { label: 'Zéro captivité', detail: 'Code, balisage et docs transférés : vous gardez la stack.' },
   ],
   honestyNote: 'Studio solo · premiers cas clients en cours de rédaction.',
+  credentials: [
+    { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num' },
+    { src: '/logos/badge-meta-business-partner.svg', alt: 'Meta Business Partner' },
+  ],
 };
 
 // Images éditoriales curées (public/images/editorial/, importées 2026-06-27 du dossier
