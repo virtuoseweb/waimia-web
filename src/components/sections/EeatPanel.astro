@@ -1,0 +1,917 @@
+---
+/**
+ * EeatPanel · panneau E-E-A-T auteur/autorité (catalogue) à 4 variantes.
+ * Fusionne les 4 variations visuelles validées (Prop04a/b/c/d) sous UN composant piloté
+ * par `variant`, préfixe CSS unifié `eep` + modificateurs (--media / --columns / --light / --hero).
+ *   · media   : dashboard bento + cellules image (fond ink)       ← Prop04a
+ *   · columns : 4 colonnes accent rythmées + bande image (ink)    ← Prop04b
+ *   · light   : dashboard bento, thème clair (fond paper)         ← Prop04c
+ *   · hero    : image-hero dominante + data autour (ink)          ← Prop04d
+ * Contenu GLOBAL single-source : EEAT_PACK + EEAT_IMAGES (0 contenu dupliqué en props).
+ * HONNÊTETÉ : studio solo, 0 client réel → bloc « Engagements » (commitments + honestyNote),
+ * 0 témoignage, 0 étoile. Overrides éditoriaux optionnels : eyebrow / title / lead.
+ */
+import { EEAT_PACK, EEAT_IMAGES } from '../../data/eeat-proposals';
+
+interface Props {
+  variant?: 'media' | 'columns' | 'light' | 'hero';
+  background?: 'ink' | 'paper';
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+}
+
+const { variant = 'media', background, eyebrow, title, lead } = Astro.props;
+
+const P = EEAT_PACK;
+const IMG = EEAT_IMAGES;
+const img = (id: string) => IMG.find((i) => i.id === id)!;
+
+// Fond dérivé du variant si non forcé : light → paper, sinon ink.
+const bg: 'ink' | 'paper' = background ?? (variant === 'light' ? 'paper' : 'ink');
+
+// Valeurs éditoriales par défaut (rôle), surchargées par les props si fournies.
+const kicker = eyebrow ?? {
+  media: 'Tableau de bord média',
+  columns: 'Colonnes E-E-A-T',
+  light: 'Tableau de bord · variante claire',
+  hero: 'Tableau de bord illustré',
+}[variant];
+const meta = 'Expérience · expertise · autorité · confiance';
+const heroHero = img('growth');
+---
+<section
+  class:list={['eep', `eep--${variant}`]}
+  data-bg={bg}
+  aria-labelledby="eep-h2"
+>
+  <div class="wrap-wide eep__in reveal-stagger">
+    <header class="eep-hd">
+      <span class="eep-kicker">
+        <span class="eep-kicker__dot" aria-hidden="true"></span>
+        {kicker}
+      </span>
+      <span class="eep-meta">{title ?? meta}</span>
+    </header>
+
+    {lead && <p class="eep-lead">{lead}</p>}
+
+    {/* ---------- COLUMNS ---------- */}
+    {variant === 'columns' && (
+      <>
+        <figure class="eep-band">
+          <img class="eep-band__img" src={img('momentum').src} alt={img('momentum').alt} loading="lazy" />
+          <figcaption class="eep-band__cap">Élan &amp; croissance · trajectoire des PME accompagnées</figcaption>
+        </figure>
+        <div class="eep-cols">
+          <article class="eep-col">
+            <header class="eep-colhd eep-colhd--accent">
+              <span class="eep-collabel eep-collabel--ink">Qui</span>
+              <h2 id="eep-h2" class="eep-name eep-name--ink">{P.author.name}</h2>
+              <p class="eep-role eep-role--ink">{P.author.role}</p>
+            </header>
+            <div class="eep-colbody">
+              <p class="eep-bio">{P.author.bio}</p>
+              <ul class="eep-mlist">
+                {P.milestones.map((m) => (
+                  <li class="eep-mrow">
+                    <span class="eep-myear">{m.year}</span>
+                    <span class="eep-mlabel">{m.label}</span>
+                  </li>
+                ))}
+              </ul>
+              <a class="eep-cta" href={P.author.profileHref}>
+                Voir le profil <span class="eep-cta__glyph" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="eep-col">
+            <header class="eep-colhd"><span class="eep-collabel">Secteurs</span></header>
+            <div class="eep-colbody">
+              <ul class="eep-chips">
+                {P.sectors.map((s) => (
+                  <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
+                ))}
+              </ul>
+              <ul class="eep-exp">
+                {P.expertise.map((e) => (<li class="eep-exp__item">{e}</li>))}
+              </ul>
+            </div>
+          </article>
+
+          <article class="eep-col">
+            <header class="eep-colhd"><span class="eep-collabel">À lire &amp; services</span></header>
+            <div class="eep-colbody">
+              <ul class="eep-links">
+                {P.articles.map((a) => (
+                  <li>
+                    <a class="eep-link" href={a.href}>
+                      <span class="eep-link__kicker">{a.kicker}</span>
+                      <span class="eep-link__label">{a.label}</span>
+                    </a>
+                  </li>
+                ))}
+                {P.services.map((s) => (
+                  <li><a class="eep-link eep-link--flat" href={s.href}>{s.label}</a></li>
+                ))}
+                {P.tools.map((t) => (
+                  <li>
+                    <a class="eep-link" href={t.href}>
+                      <span class="eep-link__kicker">{t.kicker}</span>
+                      <span class="eep-link__label">{t.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+
+          <article class="eep-col eep-col--accent">
+            <header class="eep-colhd"><span class="eep-collabel eep-collabel--ink">Engagements</span></header>
+            <div class="eep-colbody">
+              <ul class="eep-commits">
+                {P.commitments.map((c) => (
+                  <li class="eep-commit">
+                    <span class="eep-commit__label">{c.label}</span>
+                    <span class="eep-commit__detail">{c.detail}</span>
+                  </li>
+                ))}
+              </ul>
+              <p class="eep-honesty">{P.honestyNote}</p>
+            </div>
+          </article>
+        </div>
+      </>
+    )}
+
+    {/* ---------- MEDIA / LIGHT (bento) ---------- */}
+    {(variant === 'media' || variant === 'light') && (
+      <div class="eep-grid">
+        <article class="eep-cell eep-cell--author">
+          <span class="eep-celllabel">Auteur</span>
+          <h2 id="eep-h2" class="eep-name">{P.author.name}</h2>
+          <p class="eep-role">{P.author.role}</p>
+          <p class="eep-bio">{P.author.bio}</p>
+        </article>
+
+        <figure class="eep-cell eep-cell--media eep-cell--media-a">
+          <img
+            class="eep-img"
+            src={variant === 'light' ? img('augmented-self').src : img('site-health').src}
+            alt={variant === 'light' ? img('augmented-self').alt : img('site-health').alt}
+            loading="lazy"
+          />
+          <figcaption class="eep-cap">
+            {variant === 'light' ? "Travail augmenté par l'IA" : 'Monitoring continu · santé du site'}
+          </figcaption>
+        </figure>
+
+        <a class="eep-cell eep-cell--cta" href={P.author.profileHref}>
+          <span class="eep-celllabel eep-celllabel--ink">Profil complet</span>
+          <span class="eep-cta__title">Voir le parcours</span>
+          <span class="eep-cta__glyph" aria-hidden="true">→</span>
+        </a>
+
+        <article class="eep-cell eep-cell--reperes">
+          <span class="eep-celllabel">Repères</span>
+          <ul class="eep-mlist">
+            {P.milestones.map((m) => (
+              <li class="eep-mrow">
+                <span class="eep-myear">{m.year}</span>
+                <span class="eep-mlabel">{m.label}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        {variant === 'media' && (
+          <article class="eep-cell eep-cell--focus">
+            <span class="eep-celllabel eep-celllabel--ink">Repère fondateur</span>
+            <span class="eep-focus__num">{P.milestones[0].year}</span>
+            <span class="eep-focus__label">{P.milestones[0].label}</span>
+          </article>
+        )}
+
+        <article class="eep-cell eep-cell--sectors">
+          <span class="eep-celllabel">Secteurs</span>
+          <ul class="eep-chips">
+            {P.sectors.map((s) => (
+              <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
+            ))}
+          </ul>
+        </article>
+
+        <figure class="eep-cell eep-cell--media eep-cell--media-b">
+          <img
+            class="eep-img"
+            src={variant === 'light' ? img('audience').src : img('growth').src}
+            alt={variant === 'light' ? img('audience').alt : img('growth').alt}
+            loading="lazy"
+          />
+          <figcaption class="eep-cap">
+            {variant === 'light' ? "Capter l'attention de votre audience" : 'Retour sur investissement mesuré'}
+          </figcaption>
+        </figure>
+
+        <article class="eep-cell eep-cell--read">
+          <span class="eep-celllabel">À lire</span>
+          <ul class="eep-links">
+            {P.articles.map((a) => (
+              <li>
+                <a class="eep-link" href={a.href}>
+                  <span class="eep-link__kicker">{a.kicker}</span>
+                  <span class="eep-link__label">{a.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="eep-cell eep-cell--commit">
+          <span class="eep-celllabel">Engagements</span>
+          <ul class="eep-commits">
+            {P.commitments.map((c) => (
+              <li class="eep-commit">
+                <span class="eep-commit__label">{c.label}</span>
+                <span class="eep-commit__detail">{c.detail}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="eep-honesty">{P.honestyNote}</p>
+        </article>
+
+        <article class="eep-cell eep-cell--services">
+          <span class="eep-celllabel">Services &amp; outil</span>
+          <ul class="eep-links">
+            {P.services.map((s) => (
+              <li><a class="eep-link eep-link--flat" href={s.href}>{s.label}</a></li>
+            ))}
+            {P.tools.map((t) => (
+              <li>
+                <a class="eep-link" href={t.href}>
+                  <span class="eep-link__kicker">{t.kicker}</span>
+                  <span class="eep-link__label">{t.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    )}
+
+    {/* ---------- HERO ---------- */}
+    {variant === 'hero' && (
+      <div class="eep-grid">
+        <figure class="eep-cell eep-cell--hero">
+          <img class="eep-hero__img" src={heroHero.src} alt={heroHero.alt} loading="lazy" />
+          <figcaption class="eep-hero__cap">
+            <span class="eep-hero__kicker">En production</span>
+            <span class="eep-hero__line">Des systèmes qui font croître l'acquisition, mesurés en continu.</span>
+          </figcaption>
+        </figure>
+
+        <article class="eep-cell eep-cell--author">
+          <span class="eep-celllabel">Auteur</span>
+          <h2 id="eep-h2" class="eep-name eep-name--sm">{P.author.name}</h2>
+          <p class="eep-role">{P.author.role}</p>
+          <p class="eep-bio eep-bio--sm">{P.author.bio}</p>
+        </article>
+
+        <a class="eep-cell eep-cell--cta" href={P.author.profileHref}>
+          <span class="eep-celllabel eep-celllabel--ink">Profil complet</span>
+          <span class="eep-cta__title">Voir le parcours</span>
+          <span class="eep-cta__glyph" aria-hidden="true">→</span>
+        </a>
+
+        <article class="eep-cell eep-cell--reperes">
+          <span class="eep-celllabel">Repères</span>
+          <ul class="eep-mlist">
+            {P.milestones.map((m) => (
+              <li class="eep-mrow">
+                <span class="eep-myear">{m.year}</span>
+                <span class="eep-mlabel">{m.label}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="eep-cell eep-cell--sectors">
+          <span class="eep-celllabel">Secteurs</span>
+          <ul class="eep-chips">
+            {P.sectors.map((s) => (
+              <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="eep-cell eep-cell--read">
+          <span class="eep-celllabel">À lire</span>
+          <ul class="eep-links">
+            {P.articles.map((a) => (
+              <li>
+                <a class="eep-link" href={a.href}>
+                  <span class="eep-link__kicker">{a.kicker}</span>
+                  <span class="eep-link__label">{a.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="eep-cell eep-cell--commit">
+          <span class="eep-celllabel">Engagements</span>
+          <ul class="eep-commits">
+            {P.commitments.map((c) => (
+              <li class="eep-commit">
+                <span class="eep-commit__label">{c.label}</span>
+                <span class="eep-commit__detail">{c.detail}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="eep-honesty">{P.honestyNote}</p>
+        </article>
+
+        <article class="eep-cell eep-cell--services">
+          <span class="eep-celllabel">Services &amp; outil</span>
+          <ul class="eep-links">
+            {P.services.map((s) => (
+              <li><a class="eep-link eep-link--flat" href={s.href}>{s.label}</a></li>
+            ))}
+            {P.tools.map((t) => (
+              <li>
+                <a class="eep-link" href={t.href}>
+                  <span class="eep-link__kicker">{t.kicker}</span>
+                  <span class="eep-link__label">{t.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .eep {
+    padding-block: var(--section-base);
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .eep--light {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .eep-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(var(--paper-rgb), 0.14);
+    margin-bottom: var(--space-8);
+  }
+  .eep--columns .eep-hd { margin-bottom: var(--space-6); }
+  .eep--light .eep-hd { border-bottom-color: var(--hairline); }
+
+  .eep-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    font-weight: var(--fw-medium);
+  }
+  .eep--light .eep-kicker { color: var(--accent-text); }
+  .eep-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent-sur-sombre);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .eep--light .eep-kicker__dot { background: var(--accent); }
+  .eep-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+  .eep--light .eep-meta { color: var(--muted); }
+
+  .eep-lead {
+    margin: 0 0 var(--space-6);
+    max-width: 60ch;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.72);
+    text-wrap: pretty;
+  }
+  .eep--light .eep-lead { color: var(--ink); }
+
+  /* ===== Bento (media / light / hero) ===== */
+  .eep-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(0, auto);
+    gap: 1px;
+    background: rgba(var(--paper-rgb), 0.14);
+    border: 1px solid rgba(var(--paper-rgb), 0.14);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .eep--light .eep-grid { background: var(--hairline); border-color: var(--hairline); }
+
+  .eep-cell {
+    background: var(--ink);
+    padding: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .eep--light .eep-cell { background: var(--paper); }
+
+  /* media layout */
+  .eep--media .eep-cell--author   { grid-column: span 3; }
+  .eep--media .eep-cell--media-a  { grid-column: span 2; }
+  .eep--media .eep-cell--cta      { grid-column: span 1; }
+  .eep--media .eep-cell--reperes  { grid-column: span 3; }
+  .eep--media .eep-cell--focus    { grid-column: span 1; }
+  .eep--media .eep-cell--sectors  { grid-column: span 2; }
+  .eep--media .eep-cell--media-b  { grid-column: span 2; }
+  .eep--media .eep-cell--read     { grid-column: span 2; }
+  .eep--media .eep-cell--commit   { grid-column: span 2; }
+  .eep--media .eep-cell--services { grid-column: span 6; }
+
+  /* light layout */
+  .eep--light .eep-cell--author   { grid-column: span 3; }
+  .eep--light .eep-cell--media-a  { grid-column: span 2; }
+  .eep--light .eep-cell--cta      { grid-column: span 1; }
+  .eep--light .eep-cell--reperes  { grid-column: span 2; }
+  .eep--light .eep-cell--sectors  { grid-column: span 2; }
+  .eep--light .eep-cell--media-b  { grid-column: span 2; }
+  .eep--light .eep-cell--read     { grid-column: span 2; }
+  .eep--light .eep-cell--commit   { grid-column: span 2; }
+  .eep--light .eep-cell--services { grid-column: span 2; }
+
+  /* hero layout */
+  .eep--hero .eep-cell--hero     { grid-column: span 4; grid-row: span 2; }
+  .eep--hero .eep-cell--author   { grid-column: span 2; }
+  .eep--hero .eep-cell--cta      { grid-column: span 2; }
+  .eep--hero .eep-cell--reperes  { grid-column: span 2; }
+  .eep--hero .eep-cell--sectors  { grid-column: span 2; }
+  .eep--hero .eep-cell--read     { grid-column: span 2; }
+  .eep--hero .eep-cell--commit   { grid-column: span 2; }
+  .eep--hero .eep-cell--services { grid-column: span 2; }
+
+  .eep-celllabel {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+  .eep--light .eep-celllabel { color: var(--muted); }
+
+  /* MÉDIA cells */
+  .eep-cell--media { padding: 0; gap: 0; position: relative; min-height: 0; }
+  .eep-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 12rem;
+    object-fit: cover;
+  }
+  .eep-cap {
+    position: absolute;
+    left: var(--space-4);
+    bottom: var(--space-4);
+    margin: 0;
+    padding: var(--space-1) var(--space-3);
+    background: color-mix(in srgb, var(--ink) 70%, transparent);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.82);
+    border-radius: var(--radius-pill);
+  }
+  .eep--light .eep-cap {
+    background: color-mix(in srgb, var(--ink) 72%, transparent);
+    color: rgba(var(--paper-rgb), 0.92);
+  }
+
+  /* HERO cell */
+  .eep-cell--hero { padding: 0; gap: 0; position: relative; min-height: 22rem; }
+  .eep-hero__img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .eep-hero__cap {
+    position: absolute;
+    left: var(--space-6);
+    right: var(--space-6);
+    bottom: var(--space-6);
+    margin: 0;
+    padding: var(--space-4) var(--space-5);
+    background: color-mix(in srgb, var(--ink) 72%, transparent);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .eep-hero__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+  }
+  .eep-hero__line {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--paper);
+    text-wrap: balance;
+  }
+
+  /* CTA case accent */
+  .eep-cell--cta {
+    background: var(--accent);
+    color: var(--accent-ink);
+    text-decoration: none;
+    justify-content: space-between;
+    transition: background var(--dur-trim) var(--ease);
+  }
+  .eep-cell--cta:hover { background: var(--accent-sur-clair); }
+  .eep-celllabel--ink { color: var(--accent-ink); opacity: 0.72; }
+  .eep-cta__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--accent-ink);
+    margin-top: auto;
+  }
+  .eep-cta__glyph {
+    font-size: var(--text-glyph);
+    line-height: 1;
+    color: var(--accent-ink);
+  }
+
+  /* Case focus accent (chiffre-repère, media) */
+  .eep-cell--focus {
+    background: var(--accent);
+    color: var(--accent-ink);
+    justify-content: flex-end;
+  }
+  .eep-focus__num {
+    font-family: var(--font-display);
+    font-size: var(--text-numeral-md);
+    line-height: 1;
+    color: var(--accent-ink);
+    margin-top: auto;
+  }
+  .eep-focus__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: var(--accent-ink);
+    opacity: 0.88;
+  }
+
+  /* Author / name / bio (bento) */
+  .eep-name {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .eep--light .eep-name { color: var(--ink); }
+  .eep-name--sm {
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+  }
+  .eep-role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    margin: 0;
+  }
+  .eep--light .eep-role { color: var(--accent-text); }
+  .eep-bio {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.72);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .eep--light .eep-bio { color: var(--ink); }
+  .eep-bio--sm { font-size: var(--text-small); }
+
+  /* Milestones */
+  .eep-mlist { list-style: none; margin: 0; padding: 0; }
+  .eep-mrow {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-top: 1px solid rgba(var(--paper-rgb), 0.14);
+  }
+  .eep--light .eep-mrow { border-top-color: var(--hairline); }
+  .eep--hero .eep-mrow,
+  .eep--columns .eep-mrow {
+    grid-template-columns: 4.5rem 1fr;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+  }
+  .eep-mrow:first-child { border-top: 0; padding-top: 0; }
+  .eep-myear {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-sur-sombre);
+  }
+  .eep--light .eep-myear { color: var(--accent-text); }
+  .eep--hero .eep-myear,
+  .eep--columns .eep-myear { font-size: var(--text-micro); }
+  .eep-mlabel {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--paper);
+  }
+  .eep--light .eep-mlabel { color: var(--ink); }
+  .eep--hero .eep-mlabel,
+  .eep--columns .eep-mlabel { font-size: var(--text-small); }
+
+  /* Chips */
+  .eep-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .eep-chip {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid rgba(var(--paper-rgb), 0.18);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--paper);
+    text-decoration: none;
+    transition: border-color var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
+  }
+  .eep--hero .eep-chip,
+  .eep--columns .eep-chip { padding: var(--space-2) var(--space-3); }
+  .eep--light .eep-chip { border-color: var(--hairline); color: var(--ink); }
+  .eep-chip:hover { border-color: var(--accent-sur-sombre); color: var(--accent-sur-sombre); }
+  .eep--light .eep-chip:hover { border-color: var(--accent); color: var(--accent-text); }
+
+  /* Expertise (columns) */
+  .eep-exp { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .eep-exp__item {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.6);
+    padding-left: var(--space-4);
+    position: relative;
+  }
+  .eep-exp__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent-sur-sombre);
+    border-radius: var(--radius-full);
+  }
+
+  /* Links */
+  .eep-links { list-style: none; margin: 0; padding: 0; }
+  .eep-links > li { border-top: 1px solid rgba(var(--paper-rgb), 0.14); }
+  .eep--light .eep-links > li { border-top-color: var(--hairline); }
+  .eep-links > li:first-child { border-top: 0; }
+  .eep-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4) 0;
+    text-decoration: none;
+    transition: padding-left var(--dur-trim) var(--ease);
+  }
+  .eep--hero .eep-link,
+  .eep--columns .eep-link { padding: var(--space-3) 0; }
+  .eep-link:hover { padding-left: var(--space-2); }
+  .eep-link--flat { display: block; }
+  .eep-link__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+  .eep--light .eep-link__kicker { color: var(--muted); }
+  .eep-link__label,
+  .eep-link--flat {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--paper);
+    text-wrap: pretty;
+  }
+  .eep--light .eep-link__label,
+  .eep--light .eep-link--flat { color: var(--ink); }
+  .eep--hero .eep-link__label,
+  .eep--hero .eep-link--flat,
+  .eep--columns .eep-link__label,
+  .eep--columns .eep-link--flat { font-size: var(--text-small); }
+  .eep-link:hover .eep-link__label,
+  .eep-link--flat:hover { color: var(--accent-sur-sombre); }
+  .eep--light .eep-link:hover .eep-link__label,
+  .eep--light .eep-link--flat:hover { color: var(--accent-text); }
+
+  /* Engagements / avis honnête */
+  .eep-commits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+  .eep--hero .eep-commits { gap: var(--space-3); }
+  .eep-commit {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.14);
+  }
+  .eep--hero .eep-commit { padding-top: var(--space-3); }
+  .eep--light .eep-commit { border-top-color: var(--hairline); }
+  .eep-commit:first-child { border-top: 0; padding-top: 0; }
+  .eep-commit__label {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--paper);
+  }
+  .eep--light .eep-commit__label { color: var(--ink); }
+  .eep-commit__detail {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.66);
+  }
+  .eep--light .eep-commit__detail { color: var(--muted); }
+  .eep-honesty {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    color: rgba(var(--paper-rgb), 0.55);
+    text-wrap: pretty;
+  }
+  .eep--light .eep-honesty { color: var(--muted); }
+
+  /* ===== Columns layout ===== */
+  .eep-band {
+    position: relative;
+    margin: 0 0 var(--space-6);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(var(--paper-rgb), 0.14);
+  }
+  .eep-band__img { display: block; width: 100%; height: 100%; max-height: 18rem; object-fit: cover; }
+  .eep-band__cap {
+    position: absolute;
+    left: var(--space-4);
+    bottom: var(--space-4);
+    margin: 0;
+    padding: var(--space-1) var(--space-3);
+    background: color-mix(in srgb, var(--ink) 70%, transparent);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.82);
+    border-radius: var(--radius-pill);
+  }
+  .eep-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(var(--paper-rgb), 0.14);
+    border: 1px solid rgba(var(--paper-rgb), 0.14);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .eep-col { background: var(--ink); display: flex; flex-direction: column; }
+  .eep-col--accent { background: var(--accent); color: var(--accent-ink); }
+  .eep-colhd {
+    padding: var(--space-6) var(--space-6) var(--space-5);
+    border-bottom: 1px solid rgba(var(--paper-rgb), 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .eep-colhd--accent { background: var(--accent); color: var(--accent-ink); border-bottom: 0; }
+  .eep-col--accent .eep-colhd { border-bottom-color: rgba(var(--paper-rgb), 0.22); }
+  .eep-collabel {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+  .eep-collabel--ink { color: var(--accent-ink); opacity: 0.78; }
+  .eep-colbody {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    flex: 1;
+  }
+  .eep-name--ink { color: var(--accent-ink); }
+  .eep-role--ink { color: var(--accent-ink); opacity: 0.88; }
+  .eep--columns .eep-name {
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+  }
+
+  .eep-cta {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-sur-sombre);
+    padding-bottom: var(--space-1);
+    transition: gap var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
+  }
+  .eep-cta:hover { gap: var(--space-3); color: var(--accent-sur-sombre); }
+
+  /* Columns : engagements sur fond accent → texte accent-ink */
+  .eep-col--accent .eep-commit { border-top-color: rgba(var(--paper-rgb), 0.22); }
+  .eep-col--accent .eep-commit__label { color: var(--accent-ink); }
+  .eep-col--accent .eep-commit__detail { color: var(--accent-ink); opacity: 0.86; }
+  .eep-col--accent .eep-honesty { color: var(--accent-ink); opacity: 0.78; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 980px) {
+    .eep--media .eep-cell--author   { grid-column: span 3; }
+    .eep--media .eep-cell--media-a  { grid-column: span 3; }
+    .eep--media .eep-cell--cta      { grid-column: span 3; }
+    .eep--media .eep-cell--reperes  { grid-column: span 4; }
+    .eep--media .eep-cell--focus    { grid-column: span 2; }
+    .eep--media .eep-cell--sectors  { grid-column: span 3; }
+    .eep--media .eep-cell--media-b  { grid-column: span 3; }
+    .eep--media .eep-cell--read     { grid-column: span 3; }
+    .eep--media .eep-cell--commit   { grid-column: span 3; }
+
+    .eep--light .eep-cell--author   { grid-column: span 3; }
+    .eep--light .eep-cell--media-a  { grid-column: span 3; }
+    .eep--light .eep-cell--cta      { grid-column: span 3; }
+    .eep--light .eep-cell--reperes  { grid-column: span 3; }
+    .eep--light .eep-cell--sectors  { grid-column: span 3; }
+    .eep--light .eep-cell--media-b  { grid-column: span 3; }
+    .eep--light .eep-cell--read     { grid-column: span 3; }
+    .eep--light .eep-cell--commit   { grid-column: span 3; }
+    .eep--light .eep-cell--services { grid-column: span 3; }
+
+    .eep--hero .eep-cell--hero     { grid-column: span 6; grid-row: span 1; min-height: 18rem; }
+    .eep--hero .eep-cell--author   { grid-column: span 3; }
+    .eep--hero .eep-cell--cta      { grid-column: span 3; }
+    .eep--hero .eep-cell--reperes  { grid-column: span 3; }
+    .eep--hero .eep-cell--sectors  { grid-column: span 3; }
+    .eep--hero .eep-cell--read     { grid-column: span 3; }
+    .eep--hero .eep-cell--commit   { grid-column: span 3; }
+    .eep--hero .eep-cell--services { grid-column: span 3; }
+
+    .eep-cols { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 760px) {
+    .eep-grid { grid-template-columns: 1fr; }
+    .eep-cell { grid-column: span 1 !important; }
+    .eep-img { min-height: 14rem; }
+    .eep--hero .eep-cell--hero { min-height: 16rem; }
+    .eep-cols { grid-template-columns: 1fr; }
+    .eep-band__img { max-height: 14rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+    .eep-cta, .eep-chip, .eep-link, .eep-cell--cta { transition: none; }
+  }
+</style>

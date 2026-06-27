@@ -4343,6 +4343,20 @@ export const methodSteplineSchema = z.object({
 });
 // <<< [ds-primitives-v7] end
 
+// >>> [eeat-panel] start
+// Panneau E-E-A-T auteur/autorité à 4 variantes (media/columns/light/hero). Contenu GLOBAL
+// single-source (EEAT_PACK + EEAT_IMAGES) → pas de champ de contenu dans le schéma, seulement
+// le pilotage de variante/fond + overrides éditoriaux optionnels.
+export const eeatPanelSchema = z.object({
+  type: z.literal('eeat-panel'),
+  variant: z.enum(['media', 'columns', 'light', 'hero']).default('media'),
+  background: z.enum(['ink', 'paper']).optional(),
+  eyebrow: z.string().optional(),
+  title: z.string().optional(),
+  lead: z.string().optional(),
+});
+// <<< [eeat-panel] end
+
 export const sectionSchema = z.discriminatedUnion('type', [
   heroSplitSchema,
   heroSplitMediaSchema,
@@ -4555,6 +4569,9 @@ export const sectionSchema = z.discriminatedUnion('type', [
   systemFlowSchema,
   methodSteplineSchema,
   // <<< [ds-primitives-v7] end
+  // >>> [eeat-panel] start
+  eeatPanelSchema,
+  // <<< [eeat-panel] end
 ]);
 
 export type SectionData = (typeof sectionSchema)['_output'];

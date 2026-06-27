@@ -213,6 +213,9 @@ import DefinitionExtract from '../components/sections/DefinitionExtract.astro';
 import SystemFlow from '../components/sections/SystemFlow.astro';
 import MethodStepline from '../components/sections/MethodStepline.astro';
 // <<< [ds-primitives-v7] end
+// >>> [eeat-panel] start
+import EeatPanel from '../components/sections/EeatPanel.astro';
+// <<< [eeat-panel] end
 
 /**
  * Section registry — single source of truth pour composants et métadonnées marketplace.
@@ -2341,6 +2344,19 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_en: 'Horizontal method timeline on a light background: a hairline rail crossed by accent nodes, each node topped with a mono number, a serif title and a mono sub-label. Header kicker on the left, duration on the right. Reveal-stagger, stacks into a column on mobile.',
   },
   // <<< [ds-primitives-v7] end
+  // >>> [eeat-panel] start
+  'eeat-panel': {
+    component: EeatPanel,
+    category: 'marketing',
+    subcategory: 'Trust & Proof',
+    categorySlug: 'trust-proof',
+    family: 'eeat',
+    tags: ['eeat', 'author', 'authority', 'trust', 'bento', 'dashboard'],
+    status: 'stable',
+    description_fr: 'Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.',
+    description_en: 'E-E-A-T author/authority panel with 4 variants (media, columns, light, hero): a bento dashboard or accent columns gathering author, milestones, sectors, articles, services, tool and commitments. Single-source content (EEAT_PACK), honest proof (commitments + solo-studio note, no testimonial). Ink/paper variants, reveal-stagger, responsive.',
+  },
+  // <<< [eeat-panel] end
 };
 
 export const SECTION_REGISTRY: Record<SectionType, AstroComponent> = Object.fromEntries(

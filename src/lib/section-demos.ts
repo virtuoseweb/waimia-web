@@ -3847,6 +3847,13 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     ],
   },
   // <<< [ds-primitives-v7] end
+  // >>> [eeat-panel] start
+  // Contenu réel tiré d'EEAT_PACK (single-source) : la demo ne pilote que la variante.
+  'eeat-panel': {
+    type: 'eeat-panel',
+    variant: 'media',
+  },
+  // <<< [eeat-panel] end
 };
 
 export function getSectionDemo(type: SectionType): DemoData | undefined {
