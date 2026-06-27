@@ -2392,6 +2392,84 @@ export const stackCardsSchema = z.object({
     .max(6),
 });
 
+export const hoverRevealListSchema = z.object({
+  type: z.literal('hover-reveal-list'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  reveal_mode: z.enum(['cursor', 'fixed']).optional(),
+  items: z.array(
+    z.object({
+      label_fr: z.string(),
+      label_en: z.string(),
+      meta_fr: z.string().optional(),
+      meta_en: z.string().optional(),
+      media_src: z.string(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
+      link_href: z.string().optional(),
+    }),
+  ).min(2).max(10),
+});
+
+export const horizontalShowcaseSchema = z.object({
+  type: z.literal('horizontal-showcase'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  panels: z.array(
+    z.object({
+      index_fr: z.string().optional(),
+      index_en: z.string().optional(),
+      title_fr: z.string(),
+      title_en: z.string(),
+      body_fr: z.string().optional(),
+      body_en: z.string().optional(),
+      tone: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+      points: z.array(z.object({ label_fr: z.string(), label_en: z.string() })).max(6).optional(),
+      media_src: z.string(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
+      link_label_fr: z.string().optional(),
+      link_label_en: z.string().optional(),
+      link_href: z.string().optional(),
+    }),
+  ).min(2).max(6),
+});
+
+export const mediaBentoSchema = z.object({
+  type: z.literal('media-bento'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  layout: z.enum(['feature-2', 'quad', 'mosaic']).optional(),
+  tiles: z.array(
+    z.object({
+      title_fr: z.string(),
+      title_en: z.string(),
+      tag_fr: z.string().optional(),
+      tag_en: z.string().optional(),
+      media_src: z.string(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
+      span: z.enum(['1', '2']).optional(),
+      link_href: z.string().optional(),
+    }),
+  ).min(2).max(6),
+});
+
 // Grille statique de logos partenaires (grayscale → couleur au hover)
 const logoWallItemSchema = z.object({
   src: z.string(),
@@ -4536,6 +4614,9 @@ export const sectionSchema = z.discriminatedUnion('type', [
   featureZigzagSchema,
   scrollGallerySchema,
   stackCardsSchema,
+  hoverRevealListSchema,
+  horizontalShowcaseSchema,
+  mediaBentoSchema,
   logoWallSchema,
   pricingComparisonMatrixSchema,
   galleryMasonrySchema,

@@ -1,0 +1,400 @@
+---
+// Section catalogue · horizontal-showcase
+// Panneaux a defilement horizontal smooth (scroll-snap) + index numerote en bas,
+// cliquable. Chaque panneau est teinte par une surface DS (paper/paper-2/paper-3/ink)
+// via `tone`. L'index actif (panneau le plus visible) est detecte par un
+// IntersectionObserver dont la root est la piste `.hsh__track`. Mobile : meme piste
+// horizontale (tactile). Reduced motion : scroll-behavior auto, pas de transition.
+// Ref d'idiomes : ScrollGallery.astro (IIFE multi-instances, IntersectionObserver,
+// u-serif-accent, etat data-active) + FeatureZigzag.astro (variante ink, tokens).
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'horizontal-showcase'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="hsh sec-base" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="hsh__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="hsh__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+
+    <ol class="hsh__track" aria-label={isFr ? 'Expertises' : 'Expertise'}>
+      {data.panels.map((panel, i) => {
+        const tone = panel.tone ?? 'paper-2';
+        const alt = (isFr ? panel.media_alt_fr : panel.media_alt_en) ?? '';
+        const index = isFr ? panel.index_fr : panel.index_en;
+        const linkLabel = isFr ? panel.link_label_fr : panel.link_label_en;
+        return (
+          <li
+            class="hsh__panel"
+            data-idx={i}
+            data-tone={tone}
+            data-active={i === 0 ? 'true' : 'false'}
+            id={`hsh-panel-${i}`}
+          >
+            <div class="hsh__text">
+              {index && (
+                <span class="hsh__panel-index u-serif-accent" aria-hidden="true"><i>{index}</i></span>
+              )}
+              <h3 class="hsh__title">{isFr ? panel.title_fr : panel.title_en}</h3>
+              {(isFr ? panel.body_fr : panel.body_en) && (
+                <p class="hsh__body">{isFr ? panel.body_fr : panel.body_en}</p>
+              )}
+              {panel.points && panel.points.length > 0 && (
+                <ul class="hsh__points">
+                  {panel.points.map((point) => (
+                    <li>{isFr ? point.label_fr : point.label_en}</li>
+                  ))}
+                </ul>
+              )}
+              {linkLabel && panel.link_href && (
+                <a class="hsh__link" href={panel.link_href}>
+                  {linkLabel}
+                  <span aria-hidden="true">&#x2192;</span>
+                </a>
+              )}
+            </div>
+            <div class="hsh__media">
+              <img
+                src={panel.media_src}
+                alt={alt}
+                loading="lazy"
+                decoding="async"
+                width="1000"
+                height="750"
+              />
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+
+    <div class="hsh__index" role="tablist" aria-label={isFr ? 'Naviguer entre les panneaux' : 'Navigate between panels'}>
+      {data.panels.map((panel, i) => {
+        const index = (isFr ? panel.index_fr : panel.index_en) ?? String(i + 1).padStart(2, '0');
+        const title = isFr ? panel.title_fr : panel.title_en;
+        return (
+          <button
+            type="button"
+            class="hsh__index-btn"
+            data-target={i}
+            data-active={i === 0 ? 'true' : 'false'}
+            aria-controls={`hsh-panel-${i}`}
+          >
+            <span class="hsh__index-num u-serif-accent" aria-hidden="true"><i>{index}</i></span>
+            <span class="hsh__index-label">{title}</span>
+          </button>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hsh__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+  .hsh__header h2 :global(i) {
+    font-style: italic;
+  }
+  .hsh__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  /* ── Piste horizontale scroll-snap ── */
+  .hsh__track {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 var(--space-4);
+    display: flex;
+    gap: var(--space-6);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* Masquer la scrollbar proprement (cross-navigateur). */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* Marge de respiration en debut/fin de piste. */
+    scroll-padding-inline: var(--space-1);
+  }
+  .hsh__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Le panneau suivant deborde legerement (effet Akaru). */
+  .hsh__panel {
+    flex: 0 0 clamp(82%, 88vw, 92%);
+    scroll-snap-align: start;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    padding: clamp(var(--space-6), 4vw, var(--space-9));
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--hairline);
+    background: var(--paper-2);
+    box-shadow: var(--shadow-lift);
+  }
+
+  /* Teintes de surface par panneau (tone). */
+  .hsh__panel[data-tone='paper'] { background: var(--paper); }
+  .hsh__panel[data-tone='paper-2'] { background: var(--paper-2); }
+  .hsh__panel[data-tone='paper-3'] { background: var(--paper-3); }
+  .hsh__panel[data-tone='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+
+  .hsh__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .hsh__panel-index {
+    font-size: var(--text-h3);
+    line-height: 1;
+  }
+  .hsh__panel-index :global(i) {
+    color: var(--accent-text);
+  }
+  .hsh__panel[data-tone='ink'] .hsh__panel-index :global(i) {
+    color: var(--accent-sur-sombre, var(--accent-text));
+  }
+
+  .hsh__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    line-height: 1.12;
+    margin: 0;
+  }
+  .hsh__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    max-width: 52ch;
+  }
+
+  /* Liste chevron (modele FeatureZigzag .fz__points). */
+  .hsh__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 52ch;
+  }
+  .hsh__points li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink);
+  }
+  .hsh__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
+    transform: rotate(45deg);
+  }
+
+  .hsh__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    text-decoration: none;
+    font-weight: var(--fw-medium);
+  }
+  .hsh__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .hsh__media {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+  }
+  .hsh__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* tone ink : remap des roles texte (modele [data-bg='ink']). */
+  .hsh__panel[data-tone='ink'] :is(h3, p) { color: var(--paper); }
+  .hsh__panel[data-tone='ink'] .hsh__points li { color: var(--paper); }
+  .hsh__panel[data-tone='ink'] .hsh__body { color: rgba(var(--paper-rgb), 0.72); }
+  .hsh__panel[data-tone='ink'] .hsh__media {
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+
+  /* ── Index footer ── */
+  .hsh__index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-7);
+    border-top: 1px solid var(--hairline);
+    padding-top: var(--space-5);
+  }
+  .hsh__index-btn {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    color: var(--muted);
+    transition:
+      color var(--dur-reveal) var(--ease),
+      border-color var(--dur-reveal) var(--ease);
+  }
+  .hsh__index-btn:hover {
+    color: var(--ink);
+  }
+  .hsh__index-num {
+    font-size: var(--text-h3);
+    line-height: 1;
+  }
+  .hsh__index-num :global(i) {
+    color: var(--muted);
+    transition: color var(--dur-reveal) var(--ease);
+  }
+  .hsh__index-label {
+    font-size: var(--text-small);
+    font-weight: var(--fw-medium);
+  }
+  .hsh__index-btn[data-active='true'] {
+    color: var(--accent-text);
+    border-color: var(--accent);
+  }
+  .hsh__index-btn[data-active='true'] .hsh__index-num :global(i) {
+    color: var(--accent-text);
+  }
+
+  /* ── Desktop (≥ 768px) : panneau en 2 colonnes texte/media ── */
+  @media (min-width: 768px) {
+    .hsh__panel {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-9);
+    }
+  }
+
+  /* ── Variante ink (section) ── */
+  .hsh[data-bg='paper-2'] { background: var(--paper-2); }
+  .hsh[data-bg='paper-3'] { background: var(--paper-3); }
+  .hsh[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .hsh[data-bg='ink'] :is(h2, p) { color: var(--paper); }
+  .hsh[data-bg='ink'] .hsh__lede { color: rgba(var(--paper-rgb), 0.72); }
+  .hsh[data-bg='ink'] .hsh__index { border-top-color: rgba(var(--paper-rgb), 0.14); }
+  /* Sur fond ink, un panneau tone=paper* garde ses roles clairs (deja par defaut). */
+
+  /* ── Reduced motion : scroll instantane, pas de transition ── */
+  @media (prefers-reduced-motion: reduce) {
+    .hsh__track {
+      scroll-behavior: auto;
+    }
+    .hsh__index-btn,
+    .hsh__index-num :global(i) {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const showcases = document.querySelectorAll<HTMLElement>('.hsh');
+
+    showcases.forEach((showcase) => {
+      const track = showcase.querySelector<HTMLElement>('.hsh__track');
+      const panels = Array.from(showcase.querySelectorAll<HTMLElement>('.hsh__panel'));
+      const buttons = Array.from(showcase.querySelectorAll<HTMLElement>('.hsh__index-btn'));
+      if (!track || panels.length === 0) return;
+
+      const setActive = (idx: number) => {
+        panels.forEach((el) => {
+          el.dataset.active = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+        buttons.forEach((el) => {
+          el.dataset.active = el.dataset.target === String(idx) ? 'true' : 'false';
+        });
+      };
+
+      // Clic sur un index → defile vers le panneau correspondant.
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = Number(btn.dataset.target);
+          if (Number.isNaN(target)) return;
+          const panel = panels[target];
+          if (panel) panel.scrollIntoView({ inline: 'start', block: 'nearest', behavior: 'smooth' });
+          setActive(target);
+        });
+      });
+
+      // Panneau le plus visible dans la piste → index actif.
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const idx = Number((entry.target as HTMLElement).dataset.idx);
+                if (!Number.isNaN(idx)) setActive(idx);
+              }
+            });
+          },
+          { root: track, threshold: 0.6 },
+        );
+        panels.forEach((el) => observer.observe(el));
+      }
+
+      // Index 0 actif au depart.
+      setActive(0);
+    });
+  })();
+</script>

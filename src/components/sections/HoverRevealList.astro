@@ -1,0 +1,319 @@
+---
+// Section catalogue · hover-reveal-list
+// Réf : Proweb « OUR WORK ». Grande liste éditoriale de libellés ; au survol d'une
+// ligne, l'image du projet correspondant apparaît dans un carré cadré flottant.
+// reveal_mode='cursor' (défaut) : l'image suit le curseur. reveal_mode='fixed' :
+// image centrée fixe (apparait/disparait en fondu). Tactile / mobile (< 768px ou
+// pointeur grossier) : pas de hover, chaque ligne affiche une vignette inline.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'hover-reveal-list'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const revealMode = data.reveal_mode ?? 'cursor';
+---
+
+<section class="hrl sec-base" data-bg={data.background} data-reveal-mode={revealMode}>
+  <div class="wrap-wide">
+    <div class="hrl__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="hrl__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+
+    <ul class="hrl__list" aria-label={isFr ? 'Réalisations' : 'Work'}>
+      {data.items.map((item, i) => {
+        const label = isFr ? item.label_fr : item.label_en;
+        const meta = isFr ? item.meta_fr : item.meta_en;
+        const alt = (isFr ? item.media_alt_fr : item.media_alt_en) ?? '';
+        const Inner = (
+          <Fragment>
+            <span class="hrl__label">{label}</span>
+            {meta && <span class="hrl__meta">{meta}</span>}
+            <img
+              class="hrl__thumb"
+              src={item.media_src}
+              alt={alt}
+              loading="lazy"
+              decoding="async"
+              width="1000"
+              height="750"
+            />
+          </Fragment>
+        );
+        return (
+          <li class="hrl__item reveal" data-idx={i}>
+            {item.link_href ? (
+              <a class="hrl__row" href={item.link_href}>{Inner}</a>
+            ) : (
+              <div class="hrl__row">{Inner}</div>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+
+  <div class="hrl__reveal" aria-hidden="true">
+    {data.items.map((item, i) => {
+      const alt = (isFr ? item.media_alt_fr : item.media_alt_en) ?? '';
+      return (
+        <img
+          class="hrl__img"
+          data-idx={i}
+          src={item.media_src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          width="1000"
+          height="750"
+        />
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  .hrl__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+  .hrl__header h2 :global(i) {
+    font-style: italic;
+  }
+  .hrl__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  .hrl__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hrl__item {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .hrl__row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: var(--space-3) var(--space-5);
+    padding: var(--space-5) 0;
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--dur-reveal) var(--ease);
+  }
+
+  .hrl__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-title-lg);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    line-height: 1.1;
+    transition: color var(--dur-reveal) var(--ease);
+  }
+
+  .hrl__meta {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    text-align: right;
+  }
+
+  /* Effet focus : au survol d'une ligne, les AUTRES lignes s'estompent (comme
+     ScrollGallery items). Piloté en JS via data-dim sur la liste hôte. */
+  .hrl__list[data-dim='true'] .hrl__item:not([data-hover='true']) .hrl__row {
+    opacity: 0.5;
+  }
+  .hrl__item .hrl__row {
+    transition:
+      transform var(--dur-reveal) var(--ease),
+      opacity var(--dur-reveal) var(--ease);
+  }
+  .hrl__item[data-hover='true'] .hrl__label {
+    color: var(--accent-text);
+  }
+  .hrl__item[data-hover='true'] .hrl__row {
+    transform: translateX(var(--space-2));
+  }
+
+  /* ── Conteneur flottant unique : toutes les images empilées, opacity 0 par défaut.
+     Activé seulement sur pointeur fin desktop (JS toggle .is-on). ── */
+  .hrl__reveal {
+    display: none;
+  }
+  .hrl[data-reveal-active='true'] .hrl__reveal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: clamp(220px, 22vw, 340px);
+    aspect-ratio: 4 / 3;
+    pointer-events: none;
+    z-index: 60;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lift);
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease);
+  }
+  .hrl[data-reveal-active='true'] .hrl__reveal.is-on {
+    opacity: 1;
+  }
+  /* Mode fixe : conteneur centré, pas de suivi curseur. */
+  .hrl[data-reveal-active='true'][data-reveal-mode='fixed'] .hrl__reveal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hrl__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease);
+  }
+  .hrl__img[data-active='true'] {
+    opacity: 1;
+  }
+
+  /* ── Vignette inline : visible UNIQUEMENT en tactile / mobile (le conteneur
+     flottant reste display:none là-bas). Cachée par défaut en desktop. ── */
+  .hrl__thumb {
+    display: none;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    margin-top: var(--space-3);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+  }
+  /* Pointeur grossier OU petit écran : on montre la vignette inline. */
+  @media (hover: none) {
+    .hrl__thumb { display: block; }
+  }
+  @media (max-width: 768px) {
+    .hrl__thumb { display: block; }
+    .hrl__label { font-size: var(--text-h3); }
+  }
+
+  /* ── Variante ink ── */
+  .hrl[data-bg='paper-2'] { background: var(--paper-2); }
+  .hrl[data-bg='paper-3'] { background: var(--paper-3); }
+  .hrl[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .hrl[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .hrl[data-bg='ink'] .hrl__label { color: var(--paper); }
+  .hrl[data-bg='ink'] .hrl__item { border-color: rgba(var(--paper-rgb), 0.14); }
+  .hrl[data-bg='ink'] .hrl__meta { color: rgba(var(--paper-rgb), 0.64); }
+  .hrl[data-bg='ink'] .hrl__item[data-hover='true'] .hrl__label { color: var(--accent-text); }
+  .hrl[data-bg='ink'] .hrl__thumb { border-color: rgba(var(--paper-rgb), 0.16); }
+
+  /* ── Reduced motion : fondu instantané, pas de translateX. ── */
+  @media (prefers-reduced-motion: reduce) {
+    .hrl__row,
+    .hrl__label,
+    .hrl__reveal,
+    .hrl__img {
+      transition: none;
+    }
+    .hrl__item[data-hover='true'] .hrl__row {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // N'activer le suivi/reveal que sur pointeur fin (hover) ET desktop.
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const wide = window.matchMedia('(min-width: 768px)').matches;
+    if (!fine || !wide) return;
+
+    const lists = document.querySelectorAll<HTMLElement>('.hrl');
+
+    lists.forEach((root) => {
+      const list = root.querySelector<HTMLElement>('.hrl__list');
+      const reveal = root.querySelector<HTMLElement>('.hrl__reveal');
+      const items = Array.from(root.querySelectorAll<HTMLElement>('.hrl__item'));
+      const imgs = Array.from(root.querySelectorAll<HTMLElement>('.hrl__img'));
+      if (!list || !reveal || items.length === 0) return;
+
+      root.dataset.revealActive = 'true';
+      const mode = root.dataset.revealMode === 'fixed' ? 'fixed' : 'cursor';
+      const margin = 16; // px · marge anti-débordement viewport (structurel)
+      let frame = 0;
+      let px = 0;
+      let py = 0;
+
+      const place = () => {
+        frame = 0;
+        const w = reveal.offsetWidth;
+        const h = reveal.offsetHeight;
+        const maxX = window.innerWidth - w - margin;
+        const maxY = window.innerHeight - h - margin;
+        const x = Math.max(margin, Math.min(px + margin, maxX));
+        const y = Math.max(margin, Math.min(py - h / 2, maxY));
+        reveal.style.transform = `translate(${x}px, ${y}px)`;
+      };
+
+      const setActive = (idx: number | null) => {
+        items.forEach((el) => {
+          const on = el.dataset.idx === String(idx);
+          el.dataset.hover = on ? 'true' : 'false';
+        });
+        imgs.forEach((el) => {
+          el.dataset.active = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+        list.dataset.dim = idx === null ? 'false' : 'true';
+        reveal.classList.toggle('is-on', idx !== null);
+      };
+
+      items.forEach((el) => {
+        el.addEventListener('pointerenter', () => {
+          const idx = Number(el.dataset.idx);
+          if (!Number.isNaN(idx)) setActive(idx);
+        });
+      });
+
+      list.addEventListener('pointerleave', () => setActive(null));
+
+      if (mode === 'cursor' && !reduce) {
+        list.addEventListener('pointermove', (e) => {
+          px = e.clientX;
+          py = e.clientY;
+          if (!frame) frame = requestAnimationFrame(place);
+        });
+      }
+    });
+  })();
+</script>

@@ -115,6 +115,9 @@ import BentoGrid from '../components/sections/BentoGrid.astro';
 import FeatureZigzag from '../components/sections/FeatureZigzag.astro';
 import ScrollGallery from '../components/sections/ScrollGallery.astro';
 import StackCards from '../components/sections/StackCards.astro';
+import HoverRevealList from '../components/sections/HoverRevealList.astro';
+import HorizontalShowcase from '../components/sections/HorizontalShowcase.astro';
+import MediaBento from '../components/sections/MediaBento.astro';
 import LogoWall from '../components/sections/LogoWall.astro';
 import GalleryMasonry from '../components/sections/GalleryMasonry.astro';
 import FeatureTabs from '../components/sections/FeatureTabs.astro';
@@ -1616,6 +1619,39 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Cartes numerotees qui se superposent en s\'empilant au scroll (effet stack sticky, CSS pur). Ideal pour une methode en plusieurs temps.',
     description_en: 'Numbered cards that stack and overlap as you scroll (sticky stack effect, pure CSS). Ideal for a multi-step method.',
+  },
+  'hover-reveal-list': {
+    component: HoverRevealList,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'scroll-interactive',
+    tags: ['hover', 'reveal', 'list', 'interactive', 'portfolio'],
+    status: 'stable',
+    description_fr: "Liste editoriale qui revele l'image du projet au survol, dans un carre cadre (image qui suit le curseur ou centree).",
+    description_en: 'Editorial list that reveals the project image on hover, in a framed square (image follows the cursor or stays centred).',
+  },
+  'horizontal-showcase': {
+    component: HorizontalShowcase,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'scroll-interactive',
+    tags: ['horizontal', 'scroll', 'showcase', 'expertise', 'interactive'],
+    status: 'stable',
+    description_fr: 'Panneaux a defilement horizontal smooth (scroll-snap) avec index numerote cliquable.',
+    description_en: 'Smooth horizontal scrolling panels (scroll-snap) with a clickable numbered index.',
+  },
+  'media-bento': {
+    component: MediaBento,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'scroll-interactive',
+    tags: ['bento', 'media', 'gallery', 'projects', 'hover'],
+    status: 'stable',
+    description_fr: 'Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).',
+    description_en: 'Asymmetric media bento: image tiles with a large overlaid title and hover zoom (feature-2, quad, mosaic layouts).',
   },
   'logo-wall': {
     component: LogoWall,
