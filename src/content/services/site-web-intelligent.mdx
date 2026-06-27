@@ -199,40 +199,6 @@ sections:
         name_en: "Notion"
     grayscale: true
 
-  - type: "versus-competitors"
-    background: "paper"
-    kicker_fr: "§ Pour qui, pas pour qui"
-    kicker_en: "§ Who it's for, who it isn't"
-    h2_fr: "On travaille <i>bien</i> ensemble si"
-    h2_en: "We work <i>well</i> together if"
-    columns:
-      - name_fr: "Pour vous"
-        name_en: "For you"
-        featured: true
-      - name_fr: "Pas pour vous"
-        name_en: "Not for you"
-        featured: false
-    rows:
-      - group_fr: "Votre situation"
-        group_en: "Your situation"
-        feature_fr: "Vous voulez mesurer votre acquisition, pas la deviner"
-        feature_en: "You want to measure your acquisition, not guess it"
-        values: [true, false]
-      - feature_fr: "Vous cherchez un actif transférable et instrumenté, que vous gardez"
-        feature_en: "You want a transferable, instrumented asset you keep"
-        values: [true, false]
-      - feature_fr: "Vous voulez juste la vitrine la moins chère possible, sans donnée à brancher"
-        feature_en: "You only want the cheapest possible brochure, with no data to wire in"
-        values: [false, true]
-      - group_fr: "Votre posture"
-        group_en: "Your stance"
-        feature_fr: "Vous avez des données (CRM, e-commerce) à brancher et à lire"
-        feature_en: "You have data (CRM, e-commerce) to wire in and read"
-        values: [true, false]
-      - feature_fr: "Vous attendez un SaaS clé en main sans implication ni cadrage"
-        feature_en: "You expect a turnkey SaaS with no involvement or scoping"
-        values: [false, true]
-
   - type: "feature-zigzag"
     anchor: "capacites"
     background: "paper"
@@ -502,6 +468,41 @@ sections:
         body_en: "Complete documentation and training: your team is autonomous at delivery."
         format_fr: "NOTION + VIDÉO"
         format_en: "NOTION + VIDEO"
+
+  - type: "system-flow"
+    background: "ink"
+    fig_num: "Fig. 3.0"
+    fig_title_fr: "Architecture du système"
+    fig_title_en: "System architecture"
+    meta_fr: "PowerLoop · v1"
+    meta_en: "PowerLoop · v1"
+    h2_fr: 'Site → lead → scoring → CRM → <i class="acc">apprentissage</i>.'
+    h2_en: 'Site → lead → scoring → CRM → <i class="acc">learning</i>.'
+    lede_fr: "Chaque maillon transforme une visite anonyme en signal exploitable, puis renvoie la donnée vers le site pour l'améliorer."
+    lede_en: "Each link turns an anonymous visit into a usable signal, then feeds the data back to the site to improve it."
+    steps:
+      - title_fr: "Site"
+        title_en: "Site"
+        desc_fr: "Pages rapides, contenu structuré, points de conversion clairs."
+        desc_en: "Fast pages, structured content, clear conversion points."
+      - title_fr: "Lead magnet"
+        title_en: "Lead magnet"
+        desc_fr: "Ressource à valeur en échange d'un contact qualifié."
+        desc_en: "A valuable resource in exchange for a qualified contact."
+      - title_fr: "Scoring"
+        title_en: "Scoring"
+        desc_fr: "Intention lue, contact noté selon son comportement."
+        desc_en: "Intent read, contact scored on behaviour."
+      - title_fr: "CRM"
+        title_en: "CRM"
+        desc_fr: "Contact enrichi, routé, alerte commerciale déclenchée."
+        desc_en: "Contact enriched, routed, sales alert triggered."
+      - title_fr: "Amélioration"
+        title_en: "Improvement"
+        desc_fr: "Mesure → hypothèses → itérations. La boucle se referme."
+        desc_en: "Measure → hypotheses → iterations. The loop closes."
+    loop_label_fr: "boucle d'amélioration continue"
+    loop_label_en: "continuous improvement loop"
 
   - type: "stats-bento"
     background: "ink"

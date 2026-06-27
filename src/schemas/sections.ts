@@ -4298,6 +4298,32 @@ export const definitionExtractSchema = z.object({
   pills: z.array(z.object({ label_fr: z.string(), label_en: z.string() })).max(6).optional(),
   specs: z.array(z.object({ label_fr: z.string(), label_en: z.string() })).max(8).optional(),
 });
+
+// system-flow (feature-sections) : rangee horizontale de cartes d'etapes sur fond ink +
+// boucle d'amelioration continue. En-tete a la architecture-diagram (ChapterLabel « Fig. N »
+// a gauche + meta mono a droite), grand titre serif avec dernier mot en accent (set:html),
+// lede courte, puis N cartes (numero mono accent derive de l'index, titre serif, desc muted)
+// reliees par des fleches accent, fermees par une ligne « ↺ boucle ». Miroir du couple
+// h2/lede de statementOrbitSchema. La numerotation (01,02…) est derivee, pas stockee.
+export const systemFlowSchema = z.object({
+  type: z.literal('system-flow'),
+  ...sectionBaseSchema.shape,
+  fig_num: z.string().optional(),
+  fig_title_fr: z.string().optional(),
+  fig_title_en: z.string().optional(),
+  meta_fr: z.string().optional(),
+  meta_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  steps: z.array(z.object({
+    title_fr: z.string(), title_en: z.string(),
+    desc_fr: z.string(), desc_en: z.string(),
+  })).min(2).max(6),
+  loop_label_fr: z.string().optional(),
+  loop_label_en: z.string().optional(),
+});
 // <<< [ds-primitives-v7] end
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -4509,6 +4535,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   authorBylineSchema,
   painSeverityListSchema,
   definitionExtractSchema,
+  systemFlowSchema,
   // <<< [ds-primitives-v7] end
 ]);
 

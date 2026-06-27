@@ -210,6 +210,7 @@ import DirectAnswer from '../components/sections/DirectAnswer.astro';
 import AuthorByline from '../components/sections/AuthorByline.astro';
 import PainSeverityList from '../components/sections/PainSeverityList.astro';
 import DefinitionExtract from '../components/sections/DefinitionExtract.astro';
+import SystemFlow from '../components/sections/SystemFlow.astro';
 // <<< [ds-primitives-v7] end
 
 /**
@@ -2315,6 +2316,17 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     status: 'stable',
     description_fr: 'Bloc GEO « format extractible » : kicker mono, gros statement serif avec le terme défini en accent, rangée de pills, puis un bandeau de specs mono. Sobre, fond paper, pensé pour la citation par les moteurs génératifs.',
     description_en: 'GEO « extractable format » block: mono kicker, large serif statement with the defined term accented, a row of pills, then a mono specs strip. Sober, paper background, designed to be cited by generative engines.',
+  },
+  'system-flow': {
+    component: SystemFlow,
+    category: 'marketing',
+    subcategory: 'Feature Sections',
+    categorySlug: 'feature-sections',
+    family: 'flow',
+    tags: ['system', 'flow', 'architecture', 'steps', 'loop', 'ink'],
+    status: 'stable',
+    description_fr: 'Rangée horizontale de cartes d\'étapes sur fond ink, reliées par des flèches accent, qui raconte le flux du système (site → lead → scoring → CRM → apprentissage). En-tête « Fig. N » + méta mono, grand titre serif avec dernier mot en accent, lede courte, puis une ligne « ↺ boucle d\'amélioration continue ». Reveal-stagger, responsive (scroll horizontal / colonne empilée en mobile).',
+    description_en: 'Horizontal row of step cards on an ink background, linked by accent arrows, telling the system flow (site → lead → scoring → CRM → learning). « Fig. N » header + mono meta, large serif title with the last word accented, short lede, then a « ↺ continuous improvement loop » line. Reveal-stagger, responsive (horizontal scroll / stacked column on mobile).',
   },
   // <<< [ds-primitives-v7] end
 };

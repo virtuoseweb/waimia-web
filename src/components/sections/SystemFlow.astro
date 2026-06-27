@@ -1,0 +1,225 @@
+---
+/**
+ * system-flow · « Flux du système · cartes d'étapes horizontales sur ink · boucle d'amélioration »
+ * Raconte le flux (site → lead → scoring → CRM → apprentissage) en une rangée de cartes
+ * d'étapes sur fond ink, reliées par des flèches accent décoratives, fermée par une ligne
+ * « ↺ boucle d'amélioration continue ».
+ * EN-TÊTE → ChapterLabel « Fig. N · titre » à gauche (modèle ArchitectureDiagram) + méta mono à droite.
+ * TITRE → grand serif clair avec dernier mot en accent (set:html → <i class="acc">).
+ * CARTES → bord hairline, numéro mono accent DÉRIVÉ de l'index (01, 02…), titre serif, desc muted.
+ * Modèles : StatementOrbit (carte ink, .acc, reveal-stagger) + ArchitectureDiagram (header Fig./loop).
+ * Responsive : ≤860px scroll horizontal (flèches → conservées) ; ≤560px colonne empilée (flèches ↓).
+ */
+import type { SectionByType } from '../../schemas/sections';
+import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
+
+interface Props {
+  data: SectionByType<'system-flow'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const figTitle = isFr ? (data.fig_title_fr ?? '') : (data.fig_title_en ?? data.fig_title_fr ?? '');
+const meta = isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr);
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const lede = isFr ? data.lede_fr : (data.lede_en ?? data.lede_fr);
+const loopLabel = isFr ? data.loop_label_fr : (data.loop_label_en ?? data.loop_label_fr);
+const steps = data.steps.map((s) => ({
+  title: isFr ? s.title_fr : s.title_en,
+  desc: isFr ? s.desc_fr : s.desc_en,
+}));
+// Numéro DÉRIVÉ de l'index (01, 02…), jamais stocké.
+const num = (i: number) => String(i + 1).padStart(2, '0');
+---
+<section class="sf" data-bg={data.background ?? 'ink'} aria-labelledby="sf-h2">
+  <div class="wrap-wide sf__inner reveal-stagger">
+    <header class="sf-hd">
+      {(data.fig_num || figTitle) && (
+        <ChapterLabel num={data.fig_num ?? ''} title={figTitle} tone="dim" />
+      )}
+      {meta && <span class="sf-meta">{meta}</span>}
+    </header>
+
+    <h2 id="sf-h2" class="sf-title" set:html={h2} />
+    {lede && <p class="sf-lede">{lede}</p>}
+
+    <div class="sf-rail">
+      <ol class="sf-flow">
+        {steps.map((step, i) => (
+          <>
+            <li class="sf-step">
+              <span class="sf-step__num">{num(i)}</span>
+              <h3 class="sf-step__title">{step.title}</h3>
+              <p class="sf-step__desc">{step.desc}</p>
+            </li>
+            {i < steps.length - 1 && <span class="sf-arrow" aria-hidden="true">→</span>}
+          </>
+        ))}
+      </ol>
+
+      {loopLabel && (
+        <p class="sf-loop">
+          <span class="sf-loop__rule" aria-hidden="true"></span>
+          <span class="sf-loop__label"><span class="sf-loop__glyph" aria-hidden="true">↺</span> {loopLabel}</span>
+          <span class="sf-loop__rule" aria-hidden="true"></span>
+        </p>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sf {
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: var(--section-base);
+  }
+
+  .sf-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(var(--paper-rgb), 0.12);
+    margin-bottom: var(--space-7);
+  }
+  .sf-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: rgba(var(--paper-rgb), 0.55);
+  }
+
+  .sf-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    max-width: 22ch;
+    margin: 0 0 var(--space-5);
+    text-wrap: balance;
+  }
+  .sf-title :global(i) { font-style: italic; }
+  .sf-title :global(i.acc),
+  .sf-title :global(.acc) {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--accent-sur-sombre);
+  }
+
+  .sf-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    color: var(--paper-2);
+    max-width: 56ch;
+    margin: 0 0 var(--space-9);
+    text-wrap: pretty;
+  }
+
+  /* Grand conteneur arrondi à bord hairline (sur ink). */
+  .sf-rail {
+    border: 1px solid rgba(var(--paper-rgb), 0.14);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-7);
+  }
+
+  .sf-flow {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-4);
+  }
+
+  .sf-step {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    border: 1px solid rgba(var(--paper-rgb), 0.14);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+  }
+  .sf-step__num {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-sur-sombre);
+  }
+  .sf-step__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .sf-step__desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.66);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .sf-arrow {
+    align-self: center;
+    flex: 0 0 auto;
+    font-family: var(--font-mono);
+    font-size: var(--text-glyph);
+    color: var(--accent-sur-sombre);
+    line-height: 1;
+  }
+
+  .sf-loop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin: var(--space-7) 0 0;
+  }
+  .sf-loop__rule {
+    flex: 1 1 auto;
+    max-width: 8rem;
+    height: 1px;
+    background: rgba(var(--paper-rgb), 0.18);
+  }
+  .sf-loop__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-sur-sombre);
+    white-space: nowrap;
+  }
+  .sf-loop__glyph { font-size: var(--text-glyph); line-height: 1; vertical-align: -0.12em; }
+
+  /* ≤860px : la rangée déborderait → scroll horizontal contenu dans le rail (flèches → gardées).
+     Le rail garde overflow-x:auto, la page ne déborde jamais. */
+  @media (max-width: 860px) {
+    .sf-rail { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .sf-step { flex: 0 0 16rem; }
+  }
+
+  /* ≤560px : empilage en colonne, flèches verticales ↓ (plus de scroll horizontal). */
+  @media (max-width: 560px) {
+    .sf-rail { overflow-x: visible; padding: var(--space-6) var(--space-5); }
+    .sf-flow { flex-direction: column; align-items: stretch; gap: var(--space-3); }
+    .sf-step { flex: 1 1 auto; }
+    .sf-arrow { transform: rotate(90deg); align-self: center; }
+    .sf-loop__rule { max-width: 3rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+  }
+</style>
