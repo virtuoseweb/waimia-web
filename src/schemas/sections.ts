@@ -24,6 +24,10 @@ const sectionBaseSchema = z.object({
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   layout: z.string().optional(),
   density: z.enum(['compact', 'base', 'ample']).optional(),
+  // Alignement du bloc header/contenu (data-content-align). Absent → start (rendu actuel).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Position du rang de CTA, INDÉPENDANTE du contenu (data-actions-align). Absent → suit contentAlign.
+  actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
 });
 
 const bilingualString = z.object({
@@ -2135,6 +2139,13 @@ export const specBarSchema = z.object({
 export const deliverablesGridSchema = z.object({
   type: z.literal('deliverables-grid'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C pilote). Tous optionnels → défaut = rendu actuel.
+  //  - columns : 'auto' (count-adaptive :has, défaut historique) | '2'|'3'|'4' (fixe desktop).
+  //  - density : rythme padding/gap (compact|base|ample) via tokens --space-*.
+  //  - contentAlign : alignement du header (start|center|end).
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),
@@ -4091,6 +4102,15 @@ const footerCtaButtonSchema = z.object({
 export const footerCtaBandSchema = z.object({
   type: z.literal('footer-cta-band'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('ink'),
+  // Axes de variation (Vague C pilote). Tous optionnels → défaut = rendu actuel.
+  //  - layout : 'inline' (CTA à côté du titre, défaut historique) | 'stacked' (CTA sous le bloc).
+  //  - contentAlign : alignement du bloc titre/texte (start|center|end).
+  //  - actionsAlign : position des boutons, INDÉPENDANTE du contenu (start|center|end|spread).
+  //  - density : rythme padding-block/gap via tokens --space-*.
+  layout: z.enum(['inline', 'stacked']).optional(),
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
+  density: z.enum(['compact', 'base', 'ample']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -4141,6 +4161,17 @@ export const featureSplitMediaSchema = z.object({
   // Média sticky (effet éditorial quand le texte est plus long que le média).
   // Absent/false → alignement centré historique préservé.
   media_sticky: z.boolean().optional(),
+  // Axes de variation (Vague C pilote). Tous optionnels → défaut = rendu actuel.
+  //  - proportion : ratio des colonnes texte|média (data-proportion). Préféré à `layout`
+  //    (qui reste en compat : split-1-2 ≈ 1-2, split-2-1 ≈ 2-1). proportion gagne si présent.
+  //  - mediaSide : côté du média en desktop (data-media-side). Absent → ordre DOM (média à droite).
+  //  - contentAlign : alignement vertical/typo du bloc texte ; actionsAlign : position du CTA.
+  //  - density : rythme padding/gap via tokens --space-*.
+  proportion: z.enum(['1-1', '1-2', '2-1', '2-3', '3-2']).optional(),
+  mediaSide: z.enum(['left', 'right']).optional(),
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
+  density: z.enum(['compact', 'base', 'ample']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),

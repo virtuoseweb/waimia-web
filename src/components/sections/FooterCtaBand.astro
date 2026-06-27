@@ -14,7 +14,14 @@ const isFr = lang === 'fr';
 const buttons = data.buttons ?? [];
 ---
 
-<section class={`footer-cta${data.rounded ? ' footer-cta--rounded' : ''}`} data-bg={data.background}>
+<section
+  class={`footer-cta${data.rounded ? ' footer-cta--rounded' : ''}`}
+  data-bg={data.background}
+  data-layout={data.layout}
+  data-content-align={data.contentAlign}
+  data-actions-align={data.actionsAlign}
+  data-density={data.density}
+>
   <div class="wrap-wide footer-cta__inner">
     <div class="footer-cta__copy">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -77,9 +84,45 @@ const buttons = data.buttons ?? [];
     gap: var(--space-3);
     align-items: center;
   }
+  /* ── Axe LAYOUT (data-layout) : 'inline' (CTA à côté du titre, défaut historique
+     1.5fr auto) | 'stacked' (CTA sous le bloc copy, 1 colonne). ── */
+  .footer-cta[data-layout='stacked'] .footer-cta__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  /* ── Axe CONTENT-ALIGN (data-content-align) : alignement du bloc copy. Défaut = start. ── */
+  .footer-cta[data-content-align='center'] .footer-cta__copy { align-items: center; text-align: center; }
+  .footer-cta[data-content-align='center'] .footer-cta__copy :is(h2, .footer-cta__subtitle) { max-width: none; }
+  .footer-cta[data-content-align='end'] .footer-cta__copy { align-items: flex-end; text-align: end; }
+
+  /* ── Axe ACTIONS-ALIGN (data-actions-align) : position du/des bouton(s), INDÉPENDANTE
+     du contenu (le cas d'école « bouton au centre sans décaler le titre »). On élargit la
+     cellule actions à 1fr UNIQUEMENT quand l'axe est posé (sinon `auto` = rendu actuel),
+     pour que justify-content ait de l'espace. ── */
+  .footer-cta[data-actions-align] .footer-cta__inner { grid-template-columns: 1.5fr 1fr; }
+  .footer-cta[data-layout='stacked'][data-actions-align] .footer-cta__inner { grid-template-columns: 1fr; }
+  .footer-cta[data-actions-align='start'] .footer-cta__actions { justify-content: flex-start; }
+  .footer-cta[data-actions-align='center'] .footer-cta__actions { justify-content: center; }
+  .footer-cta[data-actions-align='end'] .footer-cta__actions { justify-content: flex-end; }
+  .footer-cta[data-actions-align='spread'] .footer-cta__actions { justify-content: space-between; }
+
+  /* ── Axe DENSITY (data-density) : rythme padding-block + gap. Tokens --space-* seulement. ── */
+  .footer-cta[data-density='compact'] { padding-block: var(--space-8); }
+  .footer-cta[data-density='compact'] .footer-cta__copy { gap: var(--space-3); }
+  .footer-cta[data-density='base'] { padding-block: var(--space-10); }
+  .footer-cta[data-density='ample'] { padding-block: var(--space-12); }
+  .footer-cta[data-density='ample'] .footer-cta__copy { gap: var(--space-5); }
+
   @media (max-width: 860px) {
-    .footer-cta__inner { grid-template-columns: 1fr; gap: var(--space-7); }
+    .footer-cta__inner,
+    .footer-cta[data-actions-align] .footer-cta__inner { grid-template-columns: 1fr; gap: var(--space-7); }
     .footer-cta__actions { justify-content: flex-start; }
+    /* actions-align reste honoré en mobile (1 colonne pleine largeur). */
+    .footer-cta[data-actions-align='center'] .footer-cta__actions { justify-content: center; }
+    .footer-cta[data-actions-align='end'] .footer-cta__actions { justify-content: flex-end; }
+    .footer-cta[data-actions-align='spread'] .footer-cta__actions { justify-content: space-between; }
   }
   /* ── Dark natif (docs/43) · ink par défaut · remap scopé aux enfants ── */
   .footer-cta[data-bg='paper-2'] { background: var(--paper-2); }

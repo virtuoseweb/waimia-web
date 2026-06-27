@@ -43,6 +43,15 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
   media_sticky?: boolean;
   /** footer-cta-band : bande à coins arrondis. */
   rounded?: boolean;
+  /** Axes de variation universels (Vague C pilote) — lus par data-* dans les composants câblés. */
+  contentAlign?: 'start' | 'center' | 'end';
+  actionsAlign?: 'start' | 'center' | 'end' | 'spread';
+  /** deliverables-grid (FeatureGrid) : nombre de colonnes ('auto' = count-adaptive). */
+  columns?: 'auto' | '2' | '3' | '4';
+  /** feature-split-media : ratio des colonnes texte|média (préféré à layout). */
+  proportion?: '1-1' | '1-2' | '2-1' | '2-3' | '3-2';
+  /** feature-split-media : côté du média en desktop. */
+  mediaSide?: 'left' | 'right';
 };
 
 export type Preset = {
@@ -235,12 +244,17 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'versus-competitors--ink', type: 'versus-competitors', label: 'Versus concurrents · encre', family: 'table', era: '2026', props: { background: 'ink' } },
   ],
 
-  // deliverables-grid (famille card-grid, composant FeatureGrid) :axe sûr = background.
+  // deliverables-grid (famille card-grid, composant FeatureGrid) : axes câblés (Vague C pilote) =
+  // background + columns (auto|2|3|4) + density (compact|base|ample) + contentAlign.
   'deliverables-grid': [
-    { id: 'deliverables-grid--paper', type: 'deliverables-grid', label: 'Livrables · grille · papier', family: 'card-grid', era: '2022', props: { background: 'paper' } },
-    { id: 'deliverables-grid--paper-2', type: 'deliverables-grid', label: 'Livrables · grille · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
-    { id: 'deliverables-grid--paper-3', type: 'deliverables-grid', label: 'Livrables · grille · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
-    { id: 'deliverables-grid--ink', type: 'deliverables-grid', label: 'Livrables · grille · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+    { id: 'deliverables-grid--auto-paper', type: 'deliverables-grid', label: 'Livrables · grille adaptative · papier', family: 'card-grid', era: '2022', props: { background: 'paper', columns: 'auto' } },
+    { id: 'deliverables-grid--3col-paper', type: 'deliverables-grid', label: 'Livrables · 3 colonnes · papier', family: 'card-grid', era: '2022', props: { background: 'paper', columns: '3' } },
+    { id: 'deliverables-grid--4col-paper-2', type: 'deliverables-grid', label: 'Livrables · 4 colonnes · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2', columns: '4' } },
+    { id: 'deliverables-grid--2col-ample-paper-3', type: 'deliverables-grid', label: 'Livrables · 2 colonnes · ample · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3', columns: '2', density: 'ample' } },
+    { id: 'deliverables-grid--3col-centered-paper', type: 'deliverables-grid', label: 'Livrables · 3 colonnes · titre centré · papier', family: 'card-grid', era: '2024', props: { background: 'paper', columns: '3', contentAlign: 'center' } },
+    { id: 'deliverables-grid--3col-compact-paper-2', type: 'deliverables-grid', label: 'Livrables · 3 colonnes · compact · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2', columns: '3', density: 'compact' } },
+    { id: 'deliverables-grid--4col-ink', type: 'deliverables-grid', label: 'Livrables · 4 colonnes · encre', family: 'card-grid', era: '2026', props: { background: 'ink', columns: '4' } },
+    { id: 'deliverables-grid--2col-centered-ink-ample', type: 'deliverables-grid', label: 'Livrables · 2 colonnes · centré · encre · ample', family: 'card-grid', era: '2026', props: { background: 'ink', columns: '2', contentAlign: 'center', density: 'ample' } },
   ],
 
   // feature-zigzag (famille split-media) :background + toggle alternate_blocks (damier paper/ink lu par le composant).
@@ -316,21 +330,32 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'faq-two-column--ink', type: 'faq-two-column', label: 'FAQ deux colonnes · encre', family: 'accordion', era: '2026', props: { background: 'ink' } },
   ],
 
-  // footer-cta-band (famille band) :background (défaut ink) + toggle rounded lu par le composant.
+  // footer-cta-band (famille band) : axes câblés (Vague C pilote) = background (défaut ink) +
+  // layout (inline|stacked) + contentAlign + actionsAlign (INDÉPENDANTE) + density + toggle rounded.
   'footer-cta-band': [
     { id: 'footer-cta-band--ink', type: 'footer-cta-band', label: 'Bande CTA finale · encre', family: 'band', era: '2022', props: { background: 'ink' } },
     { id: 'footer-cta-band--ink-rounded', type: 'footer-cta-band', label: 'Bande CTA finale · encre · arrondie', family: 'band', era: '2024', props: { background: 'ink', rounded: true } },
+    { id: 'footer-cta-band--ink-actions-center', type: 'footer-cta-band', label: 'Bande CTA finale · encre · bouton au centre', family: 'band', era: '2025', props: { background: 'ink', actionsAlign: 'center' } },
+    { id: 'footer-cta-band--ink-actions-spread', type: 'footer-cta-band', label: 'Bande CTA finale · encre · boutons écartés', family: 'band', era: '2025', props: { background: 'ink', actionsAlign: 'spread' } },
+    { id: 'footer-cta-band--ink-stacked-centered', type: 'footer-cta-band', label: 'Bande CTA finale · encre · empilée · tout centré', family: 'band', era: '2026', props: { background: 'ink', layout: 'stacked', contentAlign: 'center', actionsAlign: 'center' } },
     { id: 'footer-cta-band--paper', type: 'footer-cta-band', label: 'Bande CTA finale · papier', family: 'band', era: '2023', props: { background: 'paper' } },
     { id: 'footer-cta-band--paper-2-rounded', type: 'footer-cta-band', label: 'Bande CTA finale · papier 2 · arrondie', family: 'band', era: '2025', props: { background: 'paper-2', rounded: true } },
+    { id: 'footer-cta-band--paper-stacked-compact', type: 'footer-cta-band', label: 'Bande CTA finale · papier · empilée · compact', family: 'band', era: '2024', props: { background: 'paper', layout: 'stacked', density: 'compact' } },
+    { id: 'footer-cta-band--paper-3-actions-end-ample', type: 'footer-cta-band', label: 'Bande CTA finale · papier 3 · boutons à droite · ample', family: 'band', era: '2026', props: { background: 'paper-3', actionsAlign: 'end', density: 'ample' } },
   ],
 
-  // feature-split-media (famille split-media) :background + layout (split-1-2|split-2-1) + reversed + media_sticky (tous lus).
+  // feature-split-media (famille split-media) : axes câblés (Vague C pilote) = background +
+  // proportion (1-1|1-2|2-1|2-3|3-2) + mediaSide (left|right) + contentAlign + actionsAlign +
+  // density, plus les toggles existants reversed/media_sticky. proportion remplace layout.
   'feature-split-media': [
-    { id: 'feature-split-media--paper', type: 'feature-split-media', label: 'Feature split média · papier · symétrique', family: 'split-media', era: '2021', props: { background: 'paper' } },
-    { id: 'feature-split-media--paper-1-2', type: 'feature-split-media', label: 'Feature split média · papier · texte étroit · média large', family: 'split-media', era: '2023', props: { background: 'paper', layout: 'split-1-2' } },
-    { id: 'feature-split-media--paper-2-1-reversed', type: 'feature-split-media', label: 'Feature split média · papier · média à gauche · texte large', family: 'split-media', era: '2024', props: { background: 'paper', layout: 'split-2-1', reversed: true } },
-    { id: 'feature-split-media--paper-2-sticky', type: 'feature-split-media', label: 'Feature split média · papier 2 · média collant', family: 'split-media', era: '2025', props: { background: 'paper-2', media_sticky: true } },
-    { id: 'feature-split-media--ink-1-2-sticky', type: 'feature-split-media', label: 'Feature split média · encre · média large collant', family: 'split-media', era: '2026', props: { background: 'ink', layout: 'split-1-2', media_sticky: true } },
+    { id: 'feature-split-media--1-1-paper', type: 'feature-split-media', label: 'Feature split média · symétrique · papier', family: 'split-media', era: '2021', props: { background: 'paper', proportion: '1-1' } },
+    { id: 'feature-split-media--1-2-paper', type: 'feature-split-media', label: 'Feature split média · texte étroit · média large · papier', family: 'split-media', era: '2023', props: { background: 'paper', proportion: '1-2' } },
+    { id: 'feature-split-media--2-1-media-left-paper', type: 'feature-split-media', label: 'Feature split média · média à gauche · texte large · papier', family: 'split-media', era: '2024', props: { background: 'paper', proportion: '2-1', mediaSide: 'left' } },
+    { id: 'feature-split-media--3-2-paper-2', type: 'feature-split-media', label: 'Feature split média · texte dominant · papier 2', family: 'split-media', era: '2024', props: { background: 'paper-2', proportion: '3-2' } },
+    { id: 'feature-split-media--2-3-media-left-paper-3', type: 'feature-split-media', label: 'Feature split média · média dominant à gauche · papier 3', family: 'split-media', era: '2025', props: { background: 'paper-3', proportion: '2-3', mediaSide: 'left' } },
+    { id: 'feature-split-media--1-2-sticky-paper-2', type: 'feature-split-media', label: 'Feature split média · média large collant · papier 2', family: 'split-media', era: '2025', props: { background: 'paper-2', proportion: '1-2', media_sticky: true } },
+    { id: 'feature-split-media--1-1-centered-ink', type: 'feature-split-media', label: 'Feature split média · symétrique · texte centré · encre', family: 'split-media', era: '2026', props: { background: 'ink', proportion: '1-1', contentAlign: 'center', actionsAlign: 'center' } },
+    { id: 'feature-split-media--2-1-ample-ink', type: 'feature-split-media', label: 'Feature split média · texte large · ample · encre', family: 'split-media', era: '2026', props: { background: 'ink', proportion: '2-1', density: 'ample' } },
   ],
 
   // diagnostic-stages (famille process-steps) :stades horizontaux ; axe sûr = background.
