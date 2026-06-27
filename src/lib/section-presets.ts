@@ -266,12 +266,19 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'feature-zigzag--paper-2-damier', type: 'feature-zigzag', label: 'Zigzag features · papier 2 · damier paper/encre', family: 'split-media', era: '2025', props: { background: 'paper-2', alternate_blocks: true } },
   ],
 
-  // bento-grid (famille bento) :span par cellule (contenu) ; axe sûr = background.
+  // bento-grid (famille bento) :span par cellule (contenu) ; axes câblés (Vague C) =
+  // background + density + columns (auto|2|3|4, bento adaptatif clampé).
   'bento-grid': [
     { id: 'bento-grid--paper', type: 'bento-grid', label: 'Bento · papier', family: 'bento', era: '2022', props: { background: 'paper' } },
     { id: 'bento-grid--paper-2', type: 'bento-grid', label: 'Bento · papier 2', family: 'bento', era: '2023', props: { background: 'paper-2' } },
     { id: 'bento-grid--paper-3', type: 'bento-grid', label: 'Bento · papier 3', family: 'bento', era: '2024', props: { background: 'paper-3' } },
     { id: 'bento-grid--ink', type: 'bento-grid', label: 'Bento · encre', family: 'bento', era: '2026', props: { background: 'ink' } },
+    { id: 'bento-grid--auto-fluide', type: 'bento-grid', label: 'Bento · grille fluide adaptative', family: 'bento', era: '2025', props: { background: 'paper', columns: 'auto' } },
+    { id: 'bento-grid--3col-compact', type: 'bento-grid', label: 'Bento · 3 colonnes · dense', family: 'bento', era: '2025', props: { background: 'paper-2', columns: '3', density: 'compact' } },
+    { id: 'bento-grid--4col-ample', type: 'bento-grid', label: 'Bento · 4 colonnes · aéré', family: 'bento', era: '2026', props: { background: 'paper', columns: '4', density: 'ample' } },
+    { id: 'bento-grid--2col-ink', type: 'bento-grid', label: 'Bento · 2 colonnes · encre', family: 'bento', era: '2026', props: { background: 'ink', columns: '2' } },
+    { id: 'bento-grid--ink-ample', type: 'bento-grid', label: 'Bento · encre · aéré', family: 'bento', era: '2026', props: { background: 'ink', density: 'ample' } },
+    { id: 'bento-grid--paper-compact', type: 'bento-grid', label: 'Bento · papier · dense', family: 'bento', era: '2024', props: { background: 'paper', density: 'compact' } },
   ],
 
   // method-timeline (famille timeline) :axe sûr = background.
@@ -282,12 +289,19 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'method-timeline--ink', type: 'method-timeline', label: 'Méthode · frise · encre', family: 'timeline', era: '2026', props: { background: 'ink' } },
   ],
 
-  // stats-bento (famille bento) :vedette content-driven ; axe sûr = background.
+  // stats-bento (famille bento) :vedette content-driven ; axes câblés (Vague C) =
+  // background + density + columns (auto|2|3|4, span-lg clampé en 2 colonnes).
   'stats-bento': [
     { id: 'stats-bento--paper', type: 'stats-bento', label: 'Stats bento · papier', family: 'bento', era: '2022', props: { background: 'paper' } },
     { id: 'stats-bento--paper-2', type: 'stats-bento', label: 'Stats bento · papier 2', family: 'bento', era: '2023', props: { background: 'paper-2' } },
     { id: 'stats-bento--paper-3', type: 'stats-bento', label: 'Stats bento · papier 3', family: 'bento', era: '2024', props: { background: 'paper-3' } },
     { id: 'stats-bento--ink', type: 'stats-bento', label: 'Stats bento · encre', family: 'bento', era: '2026', props: { background: 'ink' } },
+    { id: 'stats-bento--auto-fluide', type: 'stats-bento', label: 'Stats bento · grille fluide adaptative', family: 'bento', era: '2025', props: { background: 'paper', columns: 'auto' } },
+    { id: 'stats-bento--3col-compact', type: 'stats-bento', label: 'Stats bento · 3 colonnes · dense', family: 'bento', era: '2025', props: { background: 'paper-2', columns: '3', density: 'compact' } },
+    { id: 'stats-bento--4col', type: 'stats-bento', label: 'Stats bento · 4 colonnes', family: 'bento', era: '2026', props: { background: 'paper', columns: '4' } },
+    { id: 'stats-bento--2col-ample', type: 'stats-bento', label: 'Stats bento · 2 colonnes · aéré', family: 'bento', era: '2026', props: { background: 'paper-3', columns: '2', density: 'ample' } },
+    { id: 'stats-bento--ink-compact', type: 'stats-bento', label: 'Stats bento · encre · dense', family: 'bento', era: '2026', props: { background: 'ink', density: 'compact' } },
+    { id: 'stats-bento--ink-ample', type: 'stats-bento', label: 'Stats bento · encre · aéré', family: 'bento', era: '2026', props: { background: 'ink', density: 'ample' } },
   ],
 
   // logo-marquee (famille marquee) :background + speed (slow|base) lu par data-speed.
@@ -298,20 +312,34 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'logo-marquee--ink-base', type: 'logo-marquee', label: 'Logos défilants · encre · cadence normale', family: 'marquee', era: '2026', props: { background: 'ink', speed: 'base' } },
   ],
 
-  // pricing-cards (famille card-grid) :featured par tier (contenu) ; axe sûr = background.
+  // pricing-cards (famille card-grid) :featured par tier (contenu) ; axes câblés (Vague C) =
+  // background + density + contentAlign + columns (auto|2|3|4).
   'pricing-cards': [
     { id: 'pricing-cards--paper', type: 'pricing-cards', label: 'Tarifs · cartes · papier', family: 'card-grid', era: '2021', props: { background: 'paper' } },
     { id: 'pricing-cards--paper-2', type: 'pricing-cards', label: 'Tarifs · cartes · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
     { id: 'pricing-cards--paper-3', type: 'pricing-cards', label: 'Tarifs · cartes · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
     { id: 'pricing-cards--ink', type: 'pricing-cards', label: 'Tarifs · cartes · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+    { id: 'pricing-cards--auto-centre', type: 'pricing-cards', label: 'Tarifs · grille fluide · titre centré', family: 'card-grid', era: '2025', props: { background: 'paper', columns: 'auto', contentAlign: 'center' } },
+    { id: 'pricing-cards--4col', type: 'pricing-cards', label: 'Tarifs · 4 colonnes', family: 'card-grid', era: '2026', props: { background: 'paper', columns: '4' } },
+    { id: 'pricing-cards--3col-ample', type: 'pricing-cards', label: 'Tarifs · 3 colonnes · aéré', family: 'card-grid', era: '2025', props: { background: 'paper-2', columns: '3', density: 'ample' } },
+    { id: 'pricing-cards--2col-centre', type: 'pricing-cards', label: 'Tarifs · 2 colonnes · titre centré', family: 'card-grid', era: '2024', props: { background: 'paper', columns: '2', contentAlign: 'center' } },
+    { id: 'pricing-cards--ink-centre', type: 'pricing-cards', label: 'Tarifs · encre · titre centré', family: 'card-grid', era: '2026', props: { background: 'ink', contentAlign: 'center', columns: 'auto' } },
+    { id: 'pricing-cards--compact', type: 'pricing-cards', label: 'Tarifs · cartes · dense', family: 'card-grid', era: '2024', props: { background: 'paper', density: 'compact', columns: 'auto' } },
   ],
 
-  // case-card-grid (famille card-grid) :table éditoriale de cas ; axe sûr = background.
+  // case-card-grid (famille card-grid) :table éditoriale en lignes (pas de colonnes) ;
+  // axes câblés (Vague C) = background + density + contentAlign (header).
   'case-card-grid': [
     { id: 'case-card-grid--paper', type: 'case-card-grid', label: 'Cas clients · grille · papier', family: 'card-grid', era: '2022', props: { background: 'paper' } },
     { id: 'case-card-grid--paper-2', type: 'case-card-grid', label: 'Cas clients · grille · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
     { id: 'case-card-grid--paper-3', type: 'case-card-grid', label: 'Cas clients · grille · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
     { id: 'case-card-grid--ink', type: 'case-card-grid', label: 'Cas clients · grille · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+    { id: 'case-card-grid--compact', type: 'case-card-grid', label: 'Cas clients · table dense', family: 'card-grid', era: '2024', props: { background: 'paper', density: 'compact' } },
+    { id: 'case-card-grid--ample', type: 'case-card-grid', label: 'Cas clients · table aérée', family: 'card-grid', era: '2025', props: { background: 'paper', density: 'ample' } },
+    { id: 'case-card-grid--centre', type: 'case-card-grid', label: 'Cas clients · en-tête centré', family: 'card-grid', era: '2025', props: { background: 'paper-2', contentAlign: 'center' } },
+    { id: 'case-card-grid--ink-ample', type: 'case-card-grid', label: 'Cas clients · encre · aérée', family: 'card-grid', era: '2026', props: { background: 'ink', density: 'ample' } },
+    { id: 'case-card-grid--ink-centre', type: 'case-card-grid', label: 'Cas clients · encre · en-tête centré', family: 'card-grid', era: '2026', props: { background: 'ink', contentAlign: 'center' } },
+    { id: 'case-card-grid--paper-2-compact', type: 'case-card-grid', label: 'Cas clients · papier 2 · dense', family: 'card-grid', era: '2023', props: { background: 'paper-2', density: 'compact' } },
   ],
 
   // eeat-panel (famille eeat) :variant (media|columns|light|hero) + background (ink|paper SEULEMENT).

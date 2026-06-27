@@ -50,7 +50,7 @@ const emptyBody = isFr
   : data.empty_body_en ??
     'We only publish a case after the result is measured and the client has agreed. The first cases for this industry are coming. In the meantime, let us talk about your project: we show exactly how we work.';
 ---
-<section id="act-4" class="sec" data-bg={data.background} aria-labelledby="cases-h2">
+<section id="act-4" class="sec" data-bg={data.background} data-density={data.density} data-content-align={data.contentAlign} aria-labelledby="cases-h2">
   <div class="wrap-wide">
     <header class="cases-hd">
       <ChapterLabel
@@ -144,6 +144,25 @@ const emptyBody = isFr
   @media (max-width:600px){
     .cases-row{grid-template-columns:1fr}
   }
+
+  /* ── Axe DENSITY (data-density) : rythme du header + padding des lignes. Défaut (absent)
+     = --section-base / row padding --space-7 (rendu actuel). Tokens --space-* uniquement. ── */
+  #act-4[data-density='compact']{padding:var(--space-8) 0}
+  #act-4[data-density='compact'] .cases-hd{margin-bottom:var(--space-5)}
+  #act-4[data-density='compact'] .cases-h2{margin-bottom:var(--space-5)}
+  #act-4[data-density='compact'] .cases-row{padding:var(--space-5) 0}
+  #act-4[data-density='base'] .cases-row{padding:var(--space-7) 0}
+  #act-4[data-density='ample']{padding:var(--space-12) 0}
+  #act-4[data-density='ample'] .cases-hd{margin-bottom:var(--space-9)}
+  #act-4[data-density='ample'] .cases-h2{margin-bottom:var(--space-9)}
+  #act-4[data-density='ample'] .cases-row{padding:var(--space-9) 0}
+
+  /* ── Axe CONTENT-ALIGN (data-content-align) : alignement du header (fig label + spec + h2).
+     Défaut (absent) = start (gauche). center|end recadrent l'en-tête sans toucher la table. ── */
+  #act-4[data-content-align='center'] .cases-hd{justify-content:center;text-align:center}
+  #act-4[data-content-align='center'] .cases-h2{margin-inline:auto}
+  #act-4[data-content-align='end'] .cases-hd{justify-content:flex-end;text-align:end}
+  #act-4[data-content-align='end'] .cases-h2{margin-inline-start:auto}
 
   /* ── Alternance des fonds R4 · defaut (sans data-bg) = rendu clair inchange ── */
   #act-4[data-bg='paper-2']{background:var(--paper-2)}

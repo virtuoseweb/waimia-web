@@ -16,14 +16,19 @@ const lede = isFr ? data.lede_fr : data.lede_en;
 const footnote = isFr ? data.footnote_fr : data.footnote_en;
 ---
 
-<section class="pricing-cards sec-base" data-bg={data.background}>
+<section
+  class="pricing-cards sec-base"
+  data-bg={data.background}
+  data-density={data.density}
+  data-content-align={data.contentAlign}
+>
   <div class="wrap-wide">
     <div class="pricing-cards__header">
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {lede && <p class="pricing-cards__lede">{lede}</p>}
     </div>
-    <div class="pricing-cards__grid" style={`--col-count: ${data.tiers.length}`}>
+    <div class="pricing-cards__grid" data-columns={data.columns} style={`--col-count: ${data.tiers.length}`}>
       {data.tiers.map((tier: (typeof data.tiers)[number], i: number) => (
         <article class:list={['pricing-cards__card', tier.featured && 'is-featured']}>
           {tier.featured && (
@@ -78,9 +83,18 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
   .pricing-cards__grid {
     display: grid;
     grid-template-columns: repeat(var(--col-count, 3), 1fr);
-    gap: var(--space-5);
+    gap: var(--pricing-cards-gap, var(--space-5));
     align-items: start;
   }
+  /* ── Axe COLUMNS (data-columns) : surcharge le --col-count historique. Défaut (absent)
+     = 1 colonne par tier (rendu actuel). 'auto' = auto-fit count-adaptive (minmax),
+     '2'|'3'|'4' = nombre fixe desktop, dégradés sous 900px. ── */
+  .pricing-cards__grid[data-columns='auto'] {
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--pricing-col-min, 16rem), 100%), 1fr));
+  }
+  .pricing-cards__grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pricing-cards__grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pricing-cards__grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .pricing-cards__card {
     position: relative;
     padding: var(--space-7) var(--space-6);
@@ -191,8 +205,28 @@ const footnote = isFr ? data.footnote_fr : data.footnote_en;
     letter-spacing: 0.04em;
     margin: var(--spacing-block) 0 0;
   }
+  /* ── Axe DENSITY (data-density) : rythme du header + gap de la grille + padding des cartes.
+     Défaut (absent) = gap --space-5 (rendu actuel). Tokens --space-* uniquement. ── */
+  .pricing-cards[data-density='compact'] { --pricing-cards-gap: var(--space-4); }
+  .pricing-cards[data-density='compact'] .pricing-cards__header { margin-bottom: var(--space-6); gap: var(--space-3); }
+  .pricing-cards[data-density='compact'] .pricing-cards__card { padding: var(--space-6) var(--space-5); gap: var(--space-4); }
+  .pricing-cards[data-density='base'] { --pricing-cards-gap: var(--space-5); }
+  .pricing-cards[data-density='ample'] { --pricing-cards-gap: var(--space-8); }
+  .pricing-cards[data-density='ample'] .pricing-cards__header { margin-bottom: var(--space-12); gap: var(--space-5); }
+  .pricing-cards[data-density='ample'] .pricing-cards__card { padding: var(--space-9) var(--space-7); gap: var(--space-6); }
+
+  /* ── Axe CONTENT-ALIGN (data-content-align) : alignement du header. Défaut = start (gauche). ── */
+  .pricing-cards[data-content-align='center'] .pricing-cards__header { text-align: center; margin-inline: auto; }
+  .pricing-cards[data-content-align='end'] .pricing-cards__header { text-align: end; margin-inline-start: auto; }
+
   @media (max-width: 900px) {
-    .pricing-cards__grid { grid-template-columns: 1fr; }
+    /* Empilé : 1 colonne quel que soit l'axe (les data-columns ont une spécificité
+       supérieure → on les neutralise explicitement). */
+    .pricing-cards__grid,
+    .pricing-cards__grid[data-columns='auto'],
+    .pricing-cards__grid[data-columns='2'],
+    .pricing-cards__grid[data-columns='3'],
+    .pricing-cards__grid[data-columns='4'] { grid-template-columns: 1fr; }
   }
   /* Mobile : densification (espacement/typo tokenisee, sans perte d'info) */
   @media (max-width: 480px) {

@@ -17,7 +17,11 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
   `span-${cell.span ?? (i === 0 ? 'lg' : 'sm')}`;
 ---
 
-<section class="bento-grid sec-base" data-bg={data.background}>
+<section
+  class="bento-grid sec-base"
+  data-bg={data.background}
+  data-density={data.density}
+>
   <div class="wrap-wide">
     <div class="bento-grid__header">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -26,7 +30,7 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
-    <ul class="bento-grid__mosaic bento-fluid">
+    <ul class="bento-grid__mosaic bento-fluid" data-columns={data.columns}>
       {cells.map((cell: (typeof cells)[number], i: number) => (
         <li class={`bento-grid__cell ${spanClass(cell, i)}`}>
           {cell.glyph && (
@@ -65,7 +69,34 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
        leur contenu et compactent la mosaïque vers le haut. */
     grid-auto-rows: min-content;
     align-content: start;
+    gap: var(--bento-grid-gap, var(--gut));
   }
+
+  /* ── Axe COLUMNS (data-columns) : nombre de colonnes de la mosaïque. Défaut (absent) =
+     auto-fill content-driven (.bento-fluid). '2'|'3'|'4' = nombre fixe ; les spans lg/wide
+     (2 colonnes) sont clampés au nb réel de colonnes pour 'auto' et '2' (jamais de débordement). ── */
+  .bento-grid__mosaic[data-columns='auto'] {
+    grid-template-columns: repeat(auto-fill, minmax(var(--tile-min, 15rem), 1fr));
+  }
+  .bento-grid__mosaic[data-columns='2'] { grid-template-columns: repeat(2, 1fr); }
+  .bento-grid__mosaic[data-columns='3'] { grid-template-columns: repeat(3, 1fr); }
+  .bento-grid__mosaic[data-columns='4'] { grid-template-columns: repeat(4, 1fr); }
+  /* À 2 colonnes, une tuile span-2 occuperait toute la largeur → on borne lg/wide à 1
+     colonne de large (la hauteur span-2 de lg reste, mosaïque cohérente). */
+  .bento-grid__mosaic[data-columns='2'] :global(.span-lg),
+  .bento-grid__mosaic[data-columns='2'] :global(.span-wide) { grid-column: span 1; }
+
+  /* ── Axe DENSITY (data-density) : padding section (via --section-base local), gap mosaïque
+     et padding des tuiles. Défaut (absent) = gap --gut / padding --space-7 (rendu actuel). ── */
+  .bento-grid[data-density='compact'] { --bento-grid-gap: var(--space-4); }
+  .bento-grid[data-density='compact'] .bento-grid__header { margin-bottom: var(--space-6); }
+  .bento-grid[data-density='compact'] .bento-grid__cell { padding: var(--space-5); }
+  .bento-grid[data-density='compact'] .bento-grid__cell.span-lg { padding: var(--space-7); }
+  .bento-grid[data-density='base'] { --bento-grid-gap: var(--space-6); }
+  .bento-grid[data-density='ample'] { --bento-grid-gap: var(--space-8); }
+  .bento-grid[data-density='ample'] .bento-grid__header { margin-bottom: var(--space-12); }
+  .bento-grid[data-density='ample'] .bento-grid__cell { padding: var(--space-9); }
+  .bento-grid[data-density='ample'] .bento-grid__cell.span-lg { padding: var(--space-12); }
 
   .bento-grid__cell {
     border: 1px solid var(--hairline);
@@ -126,7 +157,14 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
 
   /* Responsive : géré par .bento-fluid (grid.css). auto-fill descend les
      pistes selon la largeur dispo, et < 768px tout s'empile en 1 colonne avec
-     les spans neutralisés. Aucune media query par cran à maintenir ici. */
+     les spans neutralisés. On neutralise aussi les colonnes fixes (data-columns)
+     dont la spécificité dépasse .bento-fluid mobile. */
+  @media (max-width: 768px) {
+    .bento-grid__mosaic[data-columns='auto'],
+    .bento-grid__mosaic[data-columns='2'],
+    .bento-grid__mosaic[data-columns='3'],
+    .bento-grid__mosaic[data-columns='4'] { grid-template-columns: 1fr; }
+  }
 
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .bento-grid[data-bg='paper-2'] { background: var(--paper-2); }

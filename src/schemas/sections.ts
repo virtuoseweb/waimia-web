@@ -1746,6 +1746,12 @@ export const useCaseIndexSchema = z.object({
 export const caseCardGridSchema = z.object({
   type: z.literal('case-card-grid'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C) — table éditoriale en lignes (pas une grille de cartes),
+  // donc PAS d'axe `columns` (mentirait). Câblés réellement via data-* :
+  //  - density : rythme du header + padding des lignes (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - contentAlign : alignement du header (titre + ligne spec). start (défaut) | center | end.
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
   fig_num: z.string(),
   fig_title_fr: z.string(),
   fig_title_en: z.string(),
@@ -2269,6 +2275,14 @@ export const problemStatementSchema = z.object({
 export const bentoGridSchema = z.object({
   type: z.literal('bento-grid'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C) — bento adaptatif (grid auto-flow dense, spans clampés
+  // au nb de colonnes → jamais de structure cassée). Tous optionnels, défauts = rendu actuel.
+  //  - density : padding section + gap de la mosaïque + padding des tuiles (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - columns : nombre de colonnes de la mosaïque. 'auto' (défaut) = auto-fill content-driven
+  //    (--tile-min) ; '2'|'3'|'4' = nombre fixe (--bento-cols) ; les spans lg/wide restent
+  //    bornés à la largeur de la grille par CSS (pas de débordement).
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -2716,6 +2730,12 @@ export const statsBentoItemSchema = z.object({
 export const statsBentoSchema = z.object({
   type: z.literal('stats-bento'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C) — bento adaptatif de KPI. Tous optionnels, défauts = rendu actuel.
+  //  - density : padding section + gap de la grille + padding des cellules (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - columns : 'auto' (défaut) = auto-fill content-driven (--tile-min) ; '2'|'3'|'4' = nombre
+  //    fixe (--bento-cols), spans bornés à la largeur de grille par CSS.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -3448,6 +3468,16 @@ const pricingCardTierSchema = z.object({
 export const pricingCardsSchema = z.object({
   type: z.literal('pricing-cards'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C) — lus par data-* dans le composant. Tous optionnels,
+  // défauts = rendu actuel.
+  //  - density : rythme padding section + gap colonnes (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - contentAlign : alignement du header (start|center|end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  //  - columns : 'auto' = auto-fit count-adaptive (s'adapte au nombre de tiers, jamais
+  //    de colonne vide) ; '2'|'3'|'4' = nombre fixe desktop. Absent → comportement
+  //    historique (1 colonne par tier via --col-count).
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
