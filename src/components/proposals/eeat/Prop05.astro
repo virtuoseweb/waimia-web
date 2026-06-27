@@ -1,0 +1,185 @@
+---
+/**
+ * Prop05 · « Colophon + boucle » (data-bg paper-3)
+ * Ours/colophon de magazine, sobre, peu de couleur. Haut : signature serif + sous-ligne mono
+ * (expertise jointe par « · » + localisation). Filet. Puis rangée « Pour aller plus loin »
+ * (articles + outil + services en liens inline) et rangée « Secteurs ». Pied discret = honestyNote.
+ * Tous les href du pack = vrais <a> (maillage interne).
+ * Contenu : EEAT_PACK (source unique, 0 prop, 0 hardcode contenu).
+ */
+import { EEAT_PACK } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+const expertiseLine = P.expertise.join(' · ');
+const further = [...P.articles, ...P.tools, ...P.services];
+---
+<section class="ep5" data-bg="paper-3" aria-labelledby="ep5-h2">
+  <div class="wrap-wide ep5__in reveal-stagger">
+    <header class="ep5-hd">
+      <span class="ep5-kicker">
+        <span class="ep5-kicker__dot" aria-hidden="true"></span>
+        Colophon
+      </span>
+      <a class="ep5-author" href={P.author.profileHref}>{P.author.name}</a>
+    </header>
+
+    <p id="ep5-h2" class="ep5-signature">{P.author.signature}</p>
+    <p class="ep5-sub">{expertiseLine} · {P.author.location}</p>
+
+    <div class="ep5-rows">
+      <div class="ep5-row">
+        <h3 class="ep5-rowlabel">Pour aller plus loin</h3>
+        <ul class="ep5-inline">
+          {further.map((l) => (
+            <li>
+              <a class="ep5-link" href={l.href}>
+                <span class="ep5-link__kicker">{l.kicker}</span>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="ep5-row">
+        <h3 class="ep5-rowlabel">Secteurs</h3>
+        <ul class="ep5-inline">
+          {P.sectors.map((s) => (
+            <li><a class="ep5-link" href={s.href}>{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <p class="ep5-foot">{P.honestyNote}</p>
+  </div>
+</section>
+
+<style>
+  .ep5 { padding-block: var(--section-base); }
+  .ep5[data-bg='paper-3'] { background: var(--paper-3); }
+
+  .ep5-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep5-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+  }
+  .ep5-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep5-author {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .ep5-author:hover { color: var(--accent-text); }
+
+  .ep5-signature {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    max-width: 32ch;
+    margin: 0 0 var(--space-4);
+    text-wrap: balance;
+  }
+  .ep5-sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+    text-wrap: pretty;
+  }
+
+  .ep5-rows { display: flex; flex-direction: column; gap: var(--space-7); }
+  .ep5-row {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: var(--space-7);
+    align-items: baseline;
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .ep5-rowlabel {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+  .ep5-inline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+  }
+  .ep5-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
+  }
+  .ep5-link:hover { color: var(--accent-text); border-bottom-color: var(--accent); }
+  .ep5-link__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ep5-foot {
+    margin: var(--space-7) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 760px) {
+    .ep5-row { grid-template-columns: 1fr; gap: var(--space-4); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+    .ep5-link, .ep5-author { transition: none; }
+  }
+</style>

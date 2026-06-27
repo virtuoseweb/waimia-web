@@ -1,0 +1,275 @@
+---
+/**
+ * Prop09 · « Portrait + index » (data-bg paper, panneau portrait en ink)
+ * Proposition E-E-A-T autonome (NON cataloguée) · galerie asymétrique. Gauche (~40%) : panneau
+ * portrait sombre (fond ink, radius-lg) = grandes initiales, nom clair, rôle, pull-quote tirée de
+ * la bio, localisation, CTA profil. Droite (~60%) : index de liens catégorisé en listes à filets
+ * (Secteurs, À lire, Services, Outil). Contraste carte sombre / index clair.
+ * Grammaire PARTAGÉE (kicker à puce, serif + .acc, filets, reveal-stagger).
+ * 0 prop · importe EEAT_PACK. Contenu = source unique.
+ * Le panneau porte .ep9-portrait avec data-bg='ink' pour hériter des remaps clairs.
+ */
+import { EEAT_PACK } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+---
+<section class="ep9" data-bg="paper" aria-labelledby="ep9-h2">
+  <div class="wrap-wide ep9__in reveal-stagger">
+    <header class="ep9-hd">
+      <span class="ep9-kicker">
+        <span class="ep9-kicker__dot" aria-hidden="true"></span>
+        Le portrait & l'index
+      </span>
+      <span class="ep9-meta">{P.author.location}</span>
+    </header>
+
+    <h2 id="ep9-h2" class="ep9-title">
+      Un visage, <i class="acc">un répertoire</i>
+    </h2>
+
+    <div class="ep9-grid">
+      <!-- Panneau portrait sombre -->
+      <div class="ep9-portrait" data-bg="ink">
+        <span class="ep9-portrait__initials" aria-hidden="true">{P.author.initials}</span>
+        <p class="ep9-portrait__name">{P.author.name}</p>
+        <p class="ep9-portrait__role">{P.author.role}</p>
+        <blockquote class="ep9-quote">{P.author.bio}</blockquote>
+        <p class="ep9-portrait__loc">{P.author.location}</p>
+        <a class="ep9-portrait__cta" href={P.author.profileHref}>
+          Voir le profil <span class="ep9-portrait__glyph" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Index de liens catégorisé -->
+      <div class="ep9-index">
+        <div class="ep9-cat">
+          <span class="ep9-cat__label">Secteurs</span>
+          <ul class="ep9-links">
+            {P.sectors.map((s) => (
+              <li><a class="ep9-link" href={s.href}>{s.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="ep9-cat">
+          <span class="ep9-cat__label">À lire</span>
+          <ul class="ep9-links">
+            {P.articles.map((a) => (
+              <li>
+                <a class="ep9-link ep9-link--lead" href={a.href}>
+                  <span class="ep9-link__k">{a.kicker}</span>
+                  <span class="ep9-link__t">{a.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="ep9-cat">
+          <span class="ep9-cat__label">Services</span>
+          <ul class="ep9-links">
+            {P.services.map((s) => (
+              <li><a class="ep9-link" href={s.href}>{s.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="ep9-cat">
+          <span class="ep9-cat__label">Outil</span>
+          <ul class="ep9-links">
+            {P.tools.map((t) => (
+              <li>
+                <a class="ep9-link ep9-link--lead" href={t.href}>
+                  <span class="ep9-link__k">{t.kicker}</span>
+                  <span class="ep9-link__t">{t.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ep9 {
+    background: var(--paper);
+    color: var(--ink);
+    padding-block: var(--section-base);
+  }
+
+  .ep9-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-7);
+  }
+  .ep9-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+  }
+  .ep9-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep9-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+  }
+
+  .ep9-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    max-width: 22ch;
+    margin: 0 0 var(--space-9);
+    text-wrap: balance;
+  }
+  .ep9-title .acc { font-style: italic; color: var(--accent); }
+
+  .ep9-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  /* Panneau portrait sombre */
+  .ep9-portrait {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-7);
+  }
+  .ep9-portrait__initials {
+    font-family: var(--font-mono);
+    font-size: var(--text-mega);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-sur-sombre);
+  }
+  .ep9-portrait__name {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    color: var(--paper);
+    margin: 0;
+  }
+  .ep9-portrait__role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.64);
+    margin: 0;
+  }
+  .ep9-quote {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    font-style: italic;
+    color: rgba(var(--paper-rgb), 0.88);
+    margin: var(--space-4) 0;
+    padding-left: var(--space-4);
+    border-left: 1px solid var(--accent-sur-sombre);
+    text-wrap: pretty;
+  }
+  .ep9-portrait__loc {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: rgba(var(--paper-rgb), 0.55);
+    margin: 0;
+  }
+  .ep9-portrait__cta {
+    margin-top: var(--space-3);
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    text-decoration: none;
+    transition: gap var(--dur-trim) var(--ease);
+  }
+  .ep9-portrait__cta:hover { gap: var(--space-3); }
+  .ep9-portrait__glyph { font-size: var(--text-glyph); line-height: 1; }
+
+  /* Index clair : 2 colonnes de catégories */
+  .ep9-index {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7) var(--space-8);
+  }
+  .ep9-cat__label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .ep9-links { list-style: none; margin: 0; padding: 0; }
+  .ep9-links > li { border-bottom: 1px solid var(--hairline); }
+  .ep9-links > li:last-child { border-bottom: 0; }
+  .ep9-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--ink);
+    text-decoration: none;
+    padding: var(--space-3) 0;
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .ep9-link:hover { color: var(--accent-text); }
+  .ep9-link--lead { display: flex; flex-direction: column; gap: var(--space-1); }
+  .ep9-link__k {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ep9-link__t { line-height: var(--leading-h3); text-wrap: pretty; }
+
+  /* Tablette : index sur 1 colonne mais portrait à côté. */
+  @media (max-width: 1080px) {
+    .ep9-index { grid-template-columns: 1fr; gap: var(--space-7); }
+  }
+
+  /* Responsive : 1 colonne sous ~760px, aucun débordement. */
+  @media (max-width: 760px) {
+    .ep9-grid { grid-template-columns: 1fr; gap: var(--space-7); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+  }
+</style>

@@ -1,0 +1,316 @@
+---
+/**
+ * Prop10 · « Constellation hub » (data-bg ink)
+ * Proposition E-E-A-T autonome (NON cataloguée) · carte de maillage hub-and-spoke. Cellule
+ * CENTRALE = auteur, entourée de groupes « satellites » à filets reliés par des traits hairline
+ * (bordures + pseudo-éléments, pas de SVG) : Secteurs, Services, À lire (+ outil), Engagements
+ * (= avis HONNÊTE : commitments + honestyNote, AUCUN faux témoignage). Sous ~760px : empilage.
+ * Grammaire PARTAGÉE (kicker à puce, serif + .acc, filets, reveal-stagger).
+ * 0 prop · importe EEAT_PACK. Contenu = source unique.
+ * Sur ink : --muted/--hairline/--accent-text remappés clair par global.css [data-bg='ink'].
+ */
+import { EEAT_PACK } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+---
+<section class="ep10" data-bg="ink" aria-labelledby="ep10-h2">
+  <div class="wrap-wide ep10__in reveal-stagger">
+    <header class="ep10-hd">
+      <span class="ep10-kicker">
+        <span class="ep10-kicker__dot" aria-hidden="true"></span>
+        La constellation du studio
+      </span>
+      <span class="ep10-meta">{P.author.location}</span>
+    </header>
+
+    <h2 id="ep10-h2" class="ep10-title">
+      Tout part <i class="acc">d'un point</i>
+    </h2>
+
+    <div class="ep10-constel">
+      <!-- Hub central : auteur -->
+      <div class="ep10-hub">
+        <span class="ep10-hub__k">Le hub</span>
+        <p class="ep10-hub__name">{P.author.name}</p>
+        <p class="ep10-hub__role">{P.author.role}</p>
+        <a class="ep10-hub__cta" href={P.author.profileHref}>
+          Profil <span class="ep10-hub__glyph" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Satellites reliés par filets -->
+      <div class="ep10-sats">
+        <div class="ep10-sat">
+          <span class="ep10-sat__label">Secteurs</span>
+          <ul class="ep10-links">
+            {P.sectors.map((s) => (
+              <li><a class="ep10-link" href={s.href}>{s.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="ep10-sat">
+          <span class="ep10-sat__label">Services</span>
+          <ul class="ep10-links">
+            {P.services.map((s) => (
+              <li><a class="ep10-link" href={s.href}>{s.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="ep10-sat">
+          <span class="ep10-sat__label">À lire</span>
+          <ul class="ep10-links">
+            {P.articles.map((a) => (
+              <li>
+                <a class="ep10-link ep10-link--lead" href={a.href}>
+                  <span class="ep10-link__k">{a.kicker}</span>
+                  <span class="ep10-link__t">{a.label}</span>
+                </a>
+              </li>
+            ))}
+            {P.tools.map((t) => (
+              <li>
+                <a class="ep10-link ep10-link--lead" href={t.href}>
+                  <span class="ep10-link__k">{t.kicker}</span>
+                  <span class="ep10-link__t">{t.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="ep10-sat ep10-sat--vow">
+          <span class="ep10-sat__label">Engagements</span>
+          <ul class="ep10-vows">
+            {P.commitments.map((c) => (
+              <li class="ep10-vow">
+                <span class="ep10-vow__label">{c.label}</span>
+                <span class="ep10-vow__detail">{c.detail}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="ep10-honesty">{P.honestyNote}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ep10 {
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: var(--section-base);
+  }
+
+  .ep10-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-7);
+  }
+  .ep10-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+  }
+  .ep10-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep10-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+  }
+
+  .ep10-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    max-width: 22ch;
+    margin: 0 0 var(--space-9);
+    text-wrap: balance;
+  }
+  .ep10-title .acc { font-style: italic; color: var(--accent-sur-sombre); }
+
+  /* Constellation : hub à gauche, grille de satellites à droite, filets de liaison. */
+  .ep10-constel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.1fr);
+    gap: var(--space-7);
+    align-items: stretch;
+    border: 1px solid rgba(var(--paper-rgb), 0.14);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-7);
+  }
+
+  /* Hub central */
+  .ep10-hub {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    justify-content: center;
+    padding: var(--space-6);
+    border: 1px solid var(--accent-sur-sombre);
+    border-radius: var(--radius-md);
+  }
+  .ep10-hub__k {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+  }
+  .ep10-hub__name {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    color: var(--paper);
+    margin: 0;
+  }
+  .ep10-hub__role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: rgba(var(--paper-rgb), 0.64);
+    margin: 0;
+  }
+  .ep10-hub__cta {
+    margin-top: var(--space-3);
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    text-decoration: none;
+    transition: gap var(--dur-trim) var(--ease);
+  }
+  .ep10-hub__cta:hover { gap: var(--space-3); }
+  .ep10-hub__glyph { font-size: var(--text-glyph); line-height: 1; }
+
+  /* Satellites : grille 2×2, séparés par filets (bordures partagées). */
+  .ep10-sats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .ep10-sat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border-top: 1px solid rgba(var(--paper-rgb), 0.14);
+    border-left: 1px solid rgba(var(--paper-rgb), 0.14);
+  }
+  /* Filets de liaison : 1ère rangée sans bord haut, 1ère colonne sans bord gauche. */
+  .ep10-sat:nth-child(1),
+  .ep10-sat:nth-child(2) { border-top: 0; }
+  .ep10-sat:nth-child(odd) { border-left: 0; }
+
+  .ep10-sat__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-1);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .ep10-links { list-style: none; margin: 0; padding: 0; }
+  .ep10-links > li { border-bottom: 1px solid var(--hairline); }
+  .ep10-links > li:last-child { border-bottom: 0; }
+  .ep10-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--paper);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .ep10-link:hover { color: var(--accent-sur-sombre); }
+  .ep10-link--lead { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-3) 0; }
+  .ep10-link__k {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ep10-link__t { line-height: var(--leading-h3); text-wrap: pretty; }
+
+  /* Engagements = avis honnête (PAS de témoignage client). */
+  .ep10-vows { list-style: none; margin: 0; padding: 0; }
+  .ep10-vow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .ep10-vow__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-medium);
+    color: var(--paper);
+  }
+  .ep10-vow__detail {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: rgba(var(--paper-rgb), 0.66);
+    text-wrap: pretty;
+  }
+  .ep10-honesty {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-sur-sombre);
+    margin: var(--space-3) 0 0;
+  }
+
+  /* Responsive : empilage propre sous ~760px. */
+  @media (max-width: 760px) {
+    .ep10-constel {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      padding: var(--space-6) var(--space-5);
+    }
+    .ep10-sats { grid-template-columns: 1fr; }
+    .ep10-sat {
+      padding: var(--space-5) 0;
+      border-left: 0;
+      border-top: 1px solid rgba(var(--paper-rgb), 0.14);
+    }
+    .ep10-sat:nth-child(1) { border-top: 0; }
+    .ep10-sat:nth-child(2) { border-top: 1px solid rgba(var(--paper-rgb), 0.14); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+  }
+</style>

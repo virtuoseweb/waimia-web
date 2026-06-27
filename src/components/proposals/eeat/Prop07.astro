@@ -1,0 +1,238 @@
+---
+/**
+ * Prop07 · « Mur de liens éditorial » (data-bg paper-2)
+ * Proposition E-E-A-T autonome (NON cataloguée) · bento ASYMÉTRIQUE de cartes-liens à filets,
+ * tailles variées. Une grande cellule vedette = AUTEUR. Autour : secteurs, articles, services,
+ * outil = cellules cliquables (kicker + titre). Sensation « link wall » dense mais aéré.
+ * Grammaire PARTAGÉE (kicker à puce, serif + .acc, filets hairline, reveal-stagger).
+ * 0 prop · importe EEAT_PACK. Contenu = source unique.
+ */
+import { EEAT_PACK } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+---
+<section class="ep7" data-bg="paper-2" aria-labelledby="ep7-h2">
+  <div class="wrap-wide ep7__in reveal-stagger">
+    <header class="ep7-hd">
+      <span class="ep7-kicker">
+        <span class="ep7-kicker__dot" aria-hidden="true"></span>
+        Tout le studio en un mur
+      </span>
+      <span class="ep7-meta">{P.author.signature}</span>
+    </header>
+
+    <h2 id="ep7-h2" class="ep7-title">
+      Explorer <i class="acc">le réseau</i>
+    </h2>
+
+    <div class="ep7-wall">
+      <!-- Cellule vedette : auteur -->
+      <a class="ep7-cell ep7-cell--feat" href={P.author.profileHref}>
+        <span class="ep7-cell__k">Auteur</span>
+        <span class="ep7-feat__name">{P.author.name}</span>
+        <span class="ep7-feat__role">{P.author.role}</span>
+        <span class="ep7-feat__bio">{P.author.bio}</span>
+        <span class="ep7-cta">Voir le profil <span class="ep7-cta__glyph" aria-hidden="true">→</span></span>
+      </a>
+
+      {P.sectors.map((s) => (
+        <a class="ep7-cell ep7-cell--sm" href={s.href}>
+          <span class="ep7-cell__k">{s.kicker}</span>
+          <span class="ep7-cell__t">{s.label}</span>
+        </a>
+      ))}
+
+      {P.articles.map((a) => (
+        <a class="ep7-cell ep7-cell--md" href={a.href}>
+          <span class="ep7-cell__k">{a.kicker}</span>
+          <span class="ep7-cell__t">{a.label}</span>
+          {a.lead && <span class="ep7-cell__lead">{a.lead}</span>}
+        </a>
+      ))}
+
+      {P.tools.map((t) => (
+        <a class="ep7-cell ep7-cell--md" href={t.href}>
+          <span class="ep7-cell__k">{t.kicker}</span>
+          <span class="ep7-cell__t">{t.label}</span>
+          {t.lead && <span class="ep7-cell__lead">{t.lead}</span>}
+        </a>
+      ))}
+
+      {P.services.map((s) => (
+        <a class="ep7-cell ep7-cell--sm" href={s.href}>
+          <span class="ep7-cell__k">{s.kicker}</span>
+          <span class="ep7-cell__t">{s.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ep7 {
+    background: var(--paper-2);
+    color: var(--ink);
+    padding-block: var(--section-base);
+  }
+
+  .ep7-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-7);
+  }
+  .ep7-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+  }
+  .ep7-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep7-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    max-width: 40ch;
+    text-align: right;
+  }
+
+  .ep7-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    max-width: 22ch;
+    margin: 0 0 var(--space-9);
+    text-wrap: balance;
+  }
+  .ep7-title .acc { font-style: italic; color: var(--accent); }
+
+  /* Bento asymétrique : grille 12 colonnes, spans variés. */
+  .ep7-wall {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-4);
+    grid-auto-flow: dense;
+  }
+
+  .ep7-cell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    background: var(--paper);
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color var(--dur-trim) var(--ease), transform var(--dur-trim) var(--ease);
+  }
+  .ep7-cell:hover {
+    border-color: var(--hairline-strong);
+    transform: translateY(-2px);
+  }
+
+  /* Spans : vedette grande, md moyennes, sm compactes. */
+  .ep7-cell--feat { grid-column: span 6; grid-row: span 2; gap: var(--space-3); }
+  .ep7-cell--md { grid-column: span 6; }
+  .ep7-cell--sm { grid-column: span 3; }
+
+  .ep7-cell__k {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ep7-cell__t {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .ep7-cell__lead {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+  .ep7-cell:hover .ep7-cell__t { color: var(--accent-text); }
+
+  /* Vedette auteur */
+  .ep7-feat__name {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    color: var(--ink);
+  }
+  .ep7-feat__role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ep7-feat__bio {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+  .ep7-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    transition: gap var(--dur-trim) var(--ease);
+  }
+  .ep7-cell--feat:hover .ep7-cta { gap: var(--space-3); }
+  .ep7-cta__glyph { font-size: var(--text-glyph); line-height: 1; }
+
+  /* Tablette : on resserre à 6 colonnes. */
+  @media (max-width: 1080px) {
+    .ep7-wall { grid-template-columns: repeat(6, 1fr); }
+    .ep7-cell--feat { grid-column: span 6; }
+    .ep7-cell--md { grid-column: span 3; }
+    .ep7-cell--sm { grid-column: span 3; }
+  }
+
+  /* Responsive : 1 colonne sous ~760px, aucun débordement. */
+  @media (max-width: 760px) {
+    .ep7-wall { grid-template-columns: 1fr; }
+    .ep7-cell--feat,
+    .ep7-cell--md,
+    .ep7-cell--sm { grid-column: span 1; grid-row: auto; }
+    .ep7-meta { text-align: left; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+    .ep7-cell { transition: none; }
+  }
+</style>

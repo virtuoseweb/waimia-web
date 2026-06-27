@@ -1,0 +1,279 @@
+---
+/**
+ * Prop01 · « Dossier d'auteur » (data-bg paper)
+ * Bento éditorial E-E-A-T autonome (proposition de design, non cataloguée).
+ * Haut : colonne auteur (~55%) + colonne « Repères » à filets (~45%).
+ * Filet horizontal, puis grille bento 3 colonnes à filets verticaux :
+ * Secteurs · À lire · Services & outil. Tous les href = vrais <a> (maillage interne).
+ * Grammaire : kicker mono à puce accent, titres serif, labels mono, corps sans, FILETS hairline.
+ * Contenu : EEAT_PACK (source unique, 0 prop, 0 hardcode contenu).
+ */
+import { EEAT_PACK } from '../../../data/eeat-proposals';
+const P = EEAT_PACK;
+---
+<section class="ep1" data-bg="paper" aria-labelledby="ep1-h2">
+  <div class="wrap-wide ep1__in reveal-stagger">
+    <header class="ep1-hd">
+      <span class="ep1-kicker">
+        <span class="ep1-kicker__dot" aria-hidden="true"></span>
+        Dossier d'auteur
+      </span>
+      <span class="ep1-meta">E-E-A-T · Waimia</span>
+    </header>
+
+    <div class="ep1-top">
+      <div class="ep1-author">
+        <h2 id="ep1-h2" class="ep1-name">{P.author.name}</h2>
+        <p class="ep1-role">{P.author.role}</p>
+        <p class="ep1-loc">{P.author.location}</p>
+        <p class="ep1-bio">{P.author.bio}</p>
+        <a class="ep1-cta" href={P.author.profileHref}>
+          Voir le profil
+          <span class="ep1-cta__glyph" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="ep1-reperes">
+        <h3 class="ep1-colhead">Repères</h3>
+        <ul class="ep1-mlist">
+          {P.milestones.map((m) => (
+            <li class="ep1-mrow">
+              <span class="ep1-myear">{m.year}</span>
+              <span class="ep1-mlabel">{m.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="ep1-grid">
+      <div class="ep1-cell">
+        <h3 class="ep1-colhead">Secteurs</h3>
+        <ul class="ep1-links">
+          {P.sectors.map((s) => (
+            <li><a class="ep1-link" href={s.href}>{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="ep1-cell">
+        <h3 class="ep1-colhead">À lire</h3>
+        <ul class="ep1-links">
+          {P.articles.map((a) => (
+            <li>
+              <a class="ep1-link ep1-link--lead" href={a.href}>
+                <span class="ep1-link__kicker">{a.kicker}</span>
+                <span class="ep1-link__label">{a.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="ep1-cell">
+        <h3 class="ep1-colhead">Services & outil</h3>
+        <ul class="ep1-links">
+          {P.services.map((s) => (
+            <li><a class="ep1-link" href={s.href}>{s.label}</a></li>
+          ))}
+          {P.tools.map((t) => (
+            <li>
+              <a class="ep1-link ep1-link--tool" href={t.href}>
+                <span class="ep1-link__kicker">{t.kicker}</span>
+                <span class="ep1-link__label">{t.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ep1 { padding-block: var(--section-base); }
+  .ep1[data-bg='paper'] { background: var(--paper); }
+
+  .ep1-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep1-kicker {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+  }
+  .ep1-kicker__dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    align-self: center;
+  }
+  .ep1-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Haut : auteur (55%) + repères (45%) séparés par un filet vertical. */
+  .ep1-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-9);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+  }
+  .ep1-author { border-right: 1px solid var(--hairline); padding-right: var(--space-9); }
+
+  .ep1-name {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+    text-wrap: balance;
+  }
+  .ep1-role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-2);
+  }
+  .ep1-loc {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+  }
+  .ep1-bio {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .ep1-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: var(--space-1);
+    transition: color var(--dur-trim) var(--ease), gap var(--dur-trim) var(--ease);
+  }
+  .ep1-cta:hover { color: var(--accent-text); gap: var(--space-3); }
+  .ep1-cta__glyph { font-size: var(--text-glyph); line-height: 1; }
+
+  .ep1-colhead {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+  }
+
+  .ep1-mlist { list-style: none; margin: 0; padding: 0; }
+  .ep1-mrow {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .ep1-mrow:last-child { border-bottom: 1px solid var(--hairline); }
+  .ep1-myear {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent-text);
+  }
+  .ep1-mlabel {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+  }
+
+  /* Grille bento 3 colonnes à filets verticaux. */
+  .ep1-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .ep1-cell { padding: 0 var(--space-7); }
+  .ep1-cell + .ep1-cell { border-left: 1px solid var(--hairline); }
+  .ep1-cell:first-child { padding-left: 0; }
+  .ep1-cell:last-child { padding-right: 0; }
+
+  .ep1-links { list-style: none; margin: 0; padding: 0; }
+  .ep1-links > li { border-top: 1px solid var(--hairline); }
+  .ep1-links > li:last-child { border-bottom: 1px solid var(--hairline); }
+
+  .ep1-link {
+    display: block;
+    padding: var(--space-4) 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+    text-decoration: none;
+    transition: color var(--dur-trim) var(--ease), padding-left var(--dur-trim) var(--ease);
+  }
+  .ep1-link:hover { color: var(--accent-text); padding-left: var(--space-2); }
+  .ep1-link--lead, .ep1-link--tool { display: flex; flex-direction: column; gap: var(--space-1); }
+  .ep1-link__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ep1-link__label { text-wrap: pretty; }
+
+  @media (max-width: 760px) {
+    .ep1-top { grid-template-columns: 1fr; gap: var(--space-7); }
+    .ep1-author {
+      border-right: 0;
+      padding-right: 0;
+      padding-bottom: var(--space-7);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .ep1-grid { grid-template-columns: 1fr; }
+    .ep1-cell { padding: var(--space-6) 0 0; }
+    .ep1-cell + .ep1-cell { border-left: 0; border-top: 1px solid var(--hairline); padding-top: var(--space-6); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-stagger > * { transition: none; }
+    .ep1-cta, .ep1-link { transition: none; }
+  }
+</style>
