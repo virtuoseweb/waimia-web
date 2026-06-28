@@ -18,11 +18,11 @@ export const prerender = true;
 // leurs getStaticPaths émettent des paths DISJOINTS (slugs de catégories vs types de section).
 
 import Base from '../../layouts/Base.astro';
-import DsLocalNav from '../../components/library/DsLocalNav.astro';
-import CopyCode from '../../components/library/CopyCode.tsx';
-import VariantToggle from '../../components/library/VariantToggle.tsx';
-import FacetChip from '../../components/library/FacetChip.astro';
-import SectionCard from '../../components/library/SectionCard.astro';
+import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
+import CopyCode from '@waimia/catalogue-ui/CopyCode.tsx';
+import VariantToggle from '@waimia/catalogue-ui/VariantToggle.tsx';
+import FacetChip from '@waimia/catalogue-ui/FacetChip.astro';
+import SectionCard from '@waimia/catalogue-ui/SectionCard.astro';
 import {
   listSections,
   listCategories,
@@ -327,7 +327,7 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
     </div>
   </article>
 
-  <script>import '../../components/library/lazy-preview.ts';</script>
+  <script>import '@waimia/catalogue-ui/lazy-preview.ts';</script>
   <script>import '../../scripts/preview-frame.ts';</script>
 </Base>
 

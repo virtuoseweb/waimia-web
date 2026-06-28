@@ -10,7 +10,7 @@ export const prerender = true;
 // 0 nouveau token, 0 valeur en dur, 0 U+2014.
 
 import Base from '../../../layouts/Base.astro';
-import DsLocalNav from '../../../components/library/DsLocalNav.astro';
+import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import { listSections } from '../../../lib/section-registry';
 
@@ -88,7 +88,7 @@ const sectionCount = sections.length;
     </ul>
   </section>
 
-  <script>import '../../../components/library/lazy-preview.ts';</script>
+  <script>import '@waimia/catalogue-ui/lazy-preview.ts';</script>
   <script>import '../../../scripts/preview-frame.ts';</script>
 </Base>
 

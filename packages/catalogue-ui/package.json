@@ -1,0 +1,17 @@
+{
+  "name": "@waimia/catalogue-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Waimia Design System : UI de l'explorateur de catalogue (CatalogueExplorer/CopyCode/VariantToggle React + SectionCard/FacetChip/DsLocalNav Astro + lazy-preview). Consomme @waimia/ds-kernel. Surface consommee par les pages library de l'app hote.",
+  "exports": {
+    "./*.astro": "./src/*.astro",
+    "./*.tsx": "./src/*.tsx",
+    "./*.ts": "./src/*.ts",
+    "./*": "./src/*.tsx"
+  },
+  "dependencies": {
+    "@waimia/ds-kernel": "workspace:*",
+    "react": "^18.3.1"
+  }
+}

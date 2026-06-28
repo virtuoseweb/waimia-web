@@ -44,6 +44,9 @@ importers:
       '@upstash/redis':
         specifier: ^1.38.0
         version: 1.38.0
+      '@waimia/catalogue-ui':
+        specifier: workspace:*
+        version: link:packages/catalogue-ui
       '@waimia/ds-kernel':
         specifier: workspace:*
         version: link:packages/ds-kernel
@@ -96,6 +99,15 @@ importers:
       zod:
         specifier: ^4.4.3
         version: 4.4.3
+
+  packages/catalogue-ui:
+    dependencies:
+      '@waimia/ds-kernel':
+        specifier: workspace:*
+        version: link:../ds-kernel
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
 
   packages/ds-kernel:
     dependencies:
