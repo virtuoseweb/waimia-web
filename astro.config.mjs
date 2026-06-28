@@ -255,6 +255,11 @@ export default defineConfig({
   // (validé empiriquement le 2026-04-27 via /api/healthcheck OK post-bascule monorepo)
   vite: {
     plugins: [/** @type {any} */ (tailwindcss())],
+    // DEV-ONLY · git worktrees n'ont pas leur propre node_modules (résolu vers le
+    // repo parent, HORS racine worktree) → Vite `@fs` renvoie 403 sur le client
+    // React et les îles n'hydratent pas sous `astro dev`. On autorise la remontée
+    // jusqu'au parent. Sans effet sur le build statique (le bundling résout déjà tout).
+    server: { fs: { allow: ['.', '..', '../..'] } },
     ssr: {
       noExternal: ['resend', '@react-email/components', '@react-email/render', '@tinacms/astro', '@tinacms/bridge'],
     },
