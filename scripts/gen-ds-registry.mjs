@@ -5,7 +5,7 @@ import { dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const TOKENS_FILE = 'src/styles/tokens.css';
+const TOKENS_FILE = 'packages/ds-tokens/tokens.css';
 const CLASS_FILES = [
   'src/styles/global.css',
   'src/styles/grid.css',

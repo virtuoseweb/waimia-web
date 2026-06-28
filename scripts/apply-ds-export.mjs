@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * apply-ds-export.mjs
- * Applique un export DS Studio sur src/styles/tokens.css
+ * Applique un export DS Studio sur packages/ds-tokens/tokens.css
  *
  * Usage :
  *   node scripts/apply-ds-export.mjs <fichier-export> [--dry] [--allow-new]
@@ -22,7 +22,7 @@
  *   2  tokens inconnus rejetes (sans --allow-new) - avertissement non-bloquant en dry
  *
  * NOTE ARCHITECTURE : la logique pure (parse + application sur le CSS) vit dans
- * scripts/lib/ds-tokens.mjs et est reutilisee par l'integration dev-only
+ * packages/ds-tokens/ds-tokens.mjs et est reutilisee par l'integration dev-only
  * src/integrations/ds-save-dev.mjs (bouton "Enregistrer" du DS Studio).
  * Ce fichier ne garde que le runner CLI (back-compat `npm run ds:apply`).
  */
@@ -34,7 +34,7 @@ import {
   parseKnownTokens,
   applyTokens,
   appendOverrides,
-} from './lib/ds-tokens.mjs';
+} from '../packages/ds-tokens/ds-tokens.mjs';
 
 // --- CLI args ----------------------------------------------------------------
 
@@ -57,7 +57,7 @@ if (!existsSync(exportFile)) {
 // --- Chemins -----------------------------------------------------------------
 
 const scriptDir = new URL('.', import.meta.url).pathname;
-const tokensPath = resolve(scriptDir, '../src/styles/tokens.css');
+const tokensPath = resolve(scriptDir, '../packages/ds-tokens/tokens.css');
 
 if (!existsSync(tokensPath)) {
   console.error(`Erreur : tokens.css introuvable -> ${tokensPath}`);

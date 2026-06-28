@@ -27,7 +27,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const LIBRARY_MANIFEST_FILE = 'src/lib/library-manifest.ts';
-const TOKENS_FILE = 'src/styles/tokens.css';
+const TOKENS_FILE = 'packages/ds-tokens/tokens.css';
 const SECTION_ORDER_FILE = 'scripts/section-order.json';
 const OUTPUT_JSON = 'src/data/ds-section-manifest.json';
 const OUTPUT_MD = 'docs/DS-SECTION-CATALOG.md';

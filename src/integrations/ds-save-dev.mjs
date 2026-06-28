@@ -17,18 +17,18 @@
  *                     (un token inconnu -> 400, on ne cree jamais de token).
  *
  * Aucune dependance npm : Node natif (fs / child_process) + logique partagee avec
- * le CLI `npm run ds:apply` (scripts/lib/ds-tokens.mjs).
+ * le CLI `npm run ds:apply` (packages/ds-tokens/ds-tokens.mjs).
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { parseExport, applyTokenMap } from '../../scripts/lib/ds-tokens.mjs';
+import { parseExport, applyTokenMap } from '../../packages/ds-tokens/ds-tokens.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, '../..');
-const TOKENS_PATH = resolve(PROJECT_ROOT, 'src/styles/tokens.css');
+const TOKENS_PATH = resolve(PROJECT_ROOT, 'packages/ds-tokens/tokens.css');
 const FIXED_DELAY_SECONDS = 180;
 
 const DEFAULT_KEYWORD = 'WAIMIA-SAVE';
@@ -136,7 +136,7 @@ async function handler(req, res, next) {
 
   // 6. Git : add + commit + push sur la branche courante
   try {
-    git(['add', 'src/styles/tokens.css']);
+    git(['add', 'packages/ds-tokens/tokens.css']);
     git(['commit', '-m', `chore(ds): tokens via DS Studio (${changedCount} tokens)`]);
     git(['push', 'origin', branch]);
   } catch (e) {

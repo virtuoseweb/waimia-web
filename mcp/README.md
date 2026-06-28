@@ -10,7 +10,7 @@ Le serveur lit les artefacts deja generes par le site (builder unique `src/lib/m
 
 - `dist/client/library/manifest.json` : index compact tier-1 (forme `ManifestIndex`).
 - `dist/client/library/section/<type>.json` : detail tier-2 par type (forme `SectionDetail`, contrat de slots).
-- `src/styles/tokens.css` : variables CSS du Design System.
+- `packages/ds-tokens/tokens.css` : variables CSS du Design System.
 
 Il n'importe pas `astro:content`, donc il tourne en Node pur, sans serveur Astro. Le seul tool
 qui a besoin d'un site en marche est `preview_render` (il relaie vers l'endpoint SSR de rendu).

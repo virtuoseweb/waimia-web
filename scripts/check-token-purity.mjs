@@ -436,7 +436,7 @@ const rgbaBrandHits = [];
 // (V9-RGBA-contract) et doit rester exempt de rgba de marque hardcodées.
 // Les autres blocs (littéraux, espacement, demi-pixels, SVG) continuent d'exclure tokens.css
 // via isExcludedV8 — on ne modifie PAS allFilesV8.
-const rgbaScanFiles = [...allFilesV8, join(ROOT, 'src/styles/tokens.css')];
+const rgbaScanFiles = [...allFilesV8, join(ROOT, 'packages/ds-tokens/tokens.css')];
 
 // Réutilise allFilesV8 étendu de tokens.css pour ce bloc uniquement
 for (const fpath of rgbaScanFiles) {

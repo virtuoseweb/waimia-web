@@ -5,7 +5,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SOURCE = 'src/styles/tokens.css';
+const SOURCE = 'packages/ds-tokens/tokens.css';
 const LOCK = 'design-system.lock.json';
 const enforce = process.env.DS_TOKEN_LOCK_ENFORCE === '1';
 

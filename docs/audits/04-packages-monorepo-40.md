@@ -129,13 +129,34 @@ Principe (comme #38) : structure d'abord, puis 1 package à la fois, du plus iso
 | Étape | Contenu | Fichiers déplacés | Imports à réécrire | Risque | Preuve GF-1 |
 |---|---|---|---|---|---|
 | **T1 : Scaffolding** | Créer `pnpm-workspace.yaml` (`packages: ['packages/*', '.']`) + `packages/` vide. Extraire le package TÉMOIN déjà standalone : `@waimia/mcp` (déplacer `mcp/` → `packages/mcp/`, ajouter `package.json` + `bin`). AUCUN code src touché. | `mcp/*` → `packages/mcp/` | Ajuster les chemins relatifs du serveur vers `dist/` + `tokens.css` (remontée d'un niveau) | 🟢 Faible | build Complete! + lancer le serveur MCP, `catalogue.search` retourne un résultat. |
-| **T2 : ds-tokens** | `@waimia/ds-tokens` : `tokens.css` + `fonts.css` + `scripts/lib/ds-tokens.mjs`. Re-pointer `global.css:7` `@import` + les 2 consommateurs (`apply-ds-export.mjs`, `ds-save-dev.mjs`). | 3 fichiers | 3 imports (`@import` CSS + 2 `.mjs`) | 🟢 Faible | build Complete! + Tailwind `@theme` toujours résolu (screenshot 1 page → tokens appliqués). |
+| **T2 : ds-tokens** ✅ FAIT | `@waimia/ds-tokens` : `tokens.css` + `fonts.css` + `scripts/lib/ds-tokens.mjs` → `packages/ds-tokens/`. Re-pointer la VRAIE carte (cf addendum T2). | 3 fichiers | 9 refs fonctionnelles (pas 3) | 🟡 Moyen (touche save DS Studio + MCP + 2 générateurs + 3 gates + données générées) | build Complete! + tokens visuellement appliqués (Playwright getComputedStyle) + astro check 62. |
 | **T3 : ds-kernel** | `@waimia/ds-kernel` : schémas + modules de contrat + `_shared`. **Changement clé** : `astro:content`→`zod` dans `sections.ts:8` + `page-document.ts:14`. Définir alias TS+Vite `@waimia/ds-kernel`. | ~13 fichiers | **224 chemins** vers `schemas/sections` → migrer via alias (1 reconfig, pas 224 edits) + grep-replace contrôlé | 🔴 RISQUÉ (worktree-isolé dédié) | build Complete! + `astro check` 0 + `validatePageDoc` round-trip + diff manifest vide. |
 | **T4 : catalogue-ui** | `@waimia/catalogue-ui` : composants React purs d'abord (`CatalogueExplorer/CopyCode/VariantToggle`), puis `.astro` de présentation. | ~7 fichiers | imports des pages `library/*` | 🟡 Moyen | build Complete! + screenshot `/library` (catalogue rendu, filtres OK) + 0 erreur console. |
 | **T5 : builder** | `@waimia/builder` : `BuilderCanvas.tsx` + `types.ts`. (Dépend de #39 « document de composition » et de la résolution de l'`astro:content` de BuilderCanvas.) | 2 fichiers | imports des pages `builder/*` | 🟡 Moyen | build Complete! + screenshot `/library/builder` (canvas + export). |
 | **T6 : sections + registry** | `@waimia/sections` : les **168 `.astro`** + `section-registry.ts` (167 imports) + `section-demos` + `library-manifest` + `mcp-manifest` + modules co-localisés #38. Package « Astro-aware ». | ~175 fichiers | tous les `components/sections/*` + registry refs | 🔴 TRÈS RISQUÉ (worktree-isolé dédié, après #38 T5) | build Complete! + `astro check` 0 + diff manifest vide + GF-1 sweep sur previews. |
 
 L'app hôte `waimia-web` garde `src/pages/**`, `templates/**`, `ui/**`, `integrations/**`, `content.config.ts`, `scripts/**`, et la page `studio.astro`.
+
+### Addendum T2 (2026-06-28) : carte EXACTE des consommateurs ds-tokens (le « 3 imports » était sous-estimé)
+
+`@waimia/ds-tokens` créé : `packages/ds-tokens/{tokens.css,fonts.css,ds-tokens.mjs,package.json}` (`"name":"@waimia/ds-tokens"`, `"private":true`, exports `./tokens.css` `./fonts.css` `./parse`). `pnpm-workspace.yaml` étendu avec `'packages/*'` ; `pnpm install` lie les 3 projets.
+
+⚠️ `fonts.css` utilise des chemins ABSOLUS (`/fonts/*.woff2`) → les woff2 restent dans `public/fonts/`, rien à déplacer (vérifié : 12 woff2 copiés dans `dist/client/fonts/`, `@font-face` présents dans le CSS buildé).
+
+**9 références FONCTIONNELLES repointées** (vs « 3 » du plan initial) :
+1. `src/styles/global.css:6-7` : `@import "../../packages/ds-tokens/{fonts,tokens}.css"`.
+2. `src/integrations/ds-save-dev.mjs` : import `parse` (`:27`) + `TOKENS_PATH` (`:31`) + `git add` (`:139`) → `packages/ds-tokens/`. (Flux SAVE du DS Studio.)
+3. `mcp/waimia-catalogue-server.mjs:41` : `TOKENS_PATH` → `packages/ds-tokens/tokens.css`.
+4. `scripts/gen-ds-registry.mjs:8` : `TOKENS_FILE` → régénéré (`gen:ds-registry`).
+5. `scripts/apply-ds-export.mjs:37,60` : import `parse` + `tokensPath`.
+6. `scripts/gen-section-manifest.mjs:30` : `TOKENS_FILE` → régénéré (`gen:section-manifest`).
+7. `scripts/gen-token-lock.mjs:8` : `SOURCE` → régénéré (`gen:token-lock`).
+8. `scripts/check-token-lock.mjs:8` : `SOURCE` (le gate lit le nouveau chemin).
+9. `scripts/check-token-purity.mjs:439` : scan rgba-marque du contrat → nouveau chemin.
+
+Données générées régénérées (0 ancien chemin résiduel) : `src/data/ds-registry.json` (125 tokens), `design-system.lock.json` (`generatedFrom: packages/ds-tokens/tokens.css`), `src/data/ds-section-manifest.json` (200 types, 5580 token refs). Commentaires `cf tokens.css` dans les composants laissés tels quels (non fonctionnels) ; docstrings/strings MCP + README mis à jour pour exactitude.
+
+**Preuves GF-1** : `pnpm build` → `Complete!` ; tokens visuellement appliqués (Playwright `/` + `/preview/feature-grid` : `--ink #0c0b09`→color rgb(12,11,9), `--paper #f6f1e8`→bg rgb(246,241,232), police « Instrument Serif » chargée, H1 opacity 1, 0 reveal caché) ; `--ink`/`--accent`/`--paper`/`--gut`/`--wrap-read` présents dans `dist/client/_astro/*.css` ; MCP `TOKENS_PATH` résout + lit 125 tokens ; `astro check` 62 erreurs (baseline) ; gates `check:token-lock`/`check:section-modules`/`check:page-schemas`/`check:usage-manifest` exit 0. `check:token-purity` exit 1 = baseline PRÉ-EXISTANT (clamp brut `render.astro`, fichier non touché par T2), sans rapport avec l'extraction.
 
 ## 6. Risques + parades
 

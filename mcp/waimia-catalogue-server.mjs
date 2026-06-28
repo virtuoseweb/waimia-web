@@ -5,7 +5,7 @@
 // 3 tools en lecture seule :
 //   - catalogue_search       : cherche / filtre l'index compact tier-1 (forme ManifestIndex).
 //   - catalogue_get_section  : recupere le detail tier-2 d'un type (forme SectionDetail, contrat de slots).
-//   - ds_tokens              : liste les variables CSS du Design System (src/styles/tokens.css).
+//   - ds_tokens              : liste les variables CSS du Design System (packages/ds-tokens/tokens.css).
 // 2 tools de composition / rendu :
 //   - page_compose           : assemble + valide une liste de sections en un PageDocument type.
 //   - preview_render         : rend un PageDocument en HTML chrome-less en relayant vers
@@ -38,7 +38,7 @@ const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
 // Astro + adaptateur @astrojs/vercel emet le client prerendere sous dist/client/.
 const MANIFEST_PATH = path.join(REPO_ROOT, 'dist', 'client', 'library', 'manifest.json');
 const SECTION_DIR = path.join(REPO_ROOT, 'dist', 'client', 'library', 'section');
-const TOKENS_PATH = path.join(REPO_ROOT, 'src', 'styles', 'tokens.css');
+const TOKENS_PATH = path.join(REPO_ROOT, 'packages', 'ds-tokens', 'tokens.css');
 
 const MAX_SEARCH_LIMIT = 199;
 const DEFAULT_SEARCH_LIMIT = 30;
@@ -113,7 +113,7 @@ function loadSectionDetail(type) {
 }
 
 /**
- * Parse les variables CSS du Design System depuis src/styles/tokens.css.
+ * Parse les variables CSS du Design System depuis packages/ds-tokens/tokens.css.
  * Ne retient que les declarations sous des selecteurs :root (base + redefinitions responsive/state) ;
  * exclut le bloc @theme (aliases Tailwind v4, derives des tokens de base).
  * Dedupe par nom (premiere occurrence = valeur de base canonique).
@@ -273,7 +273,7 @@ server.registerTool(
   {
     title: 'Tokens du Design System',
     description:
-      'Liste les variables CSS du Design System Waimia (src/styles/tokens.css). ' +
+      'Liste les variables CSS du Design System Waimia (packages/ds-tokens/tokens.css). ' +
       'Filtrable par prefixe de nom (ex. --space, --paper, --text). Retourne count et la liste { name, value }.',
     inputSchema: {
       prefix: z.string().optional().describe('Prefixe de nom de token a filtrer (ex. --space).'),
