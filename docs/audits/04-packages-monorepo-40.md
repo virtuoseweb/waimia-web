@@ -221,3 +221,27 @@ Dette mineure notée : `src/data/ds-registry.json` garde des strings de chemin `
 3. **T3 (kernel) peut suivre T1/T2** car `schemas/sections.ts` est stable côté contrat (les couches NOW sont livrées, tâches #48-#55 completed) ; seul `astro:content`→`zod` le bloque, indépendant de #38. Mais il vaut mieux le faire juste avant T6 pour minimiser les fenêtres où l'alias `@waimia/ds-kernel` coexiste avec des imports relatifs legacy.
 
 **Séquencement recommandé** : T1 + T2 (maintenant, sûr) → finir #38 (#38 in_progress, registry/manifest générés) → T3 (kernel, worktree-isolé) → T4 + T5 (ui/builder) → T6 (sections+registry, worktree-isolé, le plus tard). Cela évite le double travail sur les 167 imports et fait porter le risque maximal sur un arbre déjà assaini par #38.
+
+---
+
+## 8. Addendum 2026-06-28 — Clôture #40 sur 4 packages + T6 consciemment NON extrait (rule 59, réconciliation contre le code réel)
+
+> Réconciliation après livraison T1→T5. La carte de §1-§7 était une **hypothèse** ; vérifiée contre le code au moment d'attaquer T6, elle s'avère **matériellement périmée** sur un point décisif. Cet addendum fait foi sur l'état réel et la décision.
+
+### 8.1 Ce qui est LIVRÉ (T1→T5, tous prod-vérifiés `waimia.com`)
+- **T1 `mcp`** (capstone, #41) · **T2 `@waimia/ds-tokens`** · **T3 `@waimia/ds-kernel`** (contrat : schémas + 200 `sections/<type>/schema.ts` + lib facets/slots/presets/colorschemes/variants/archetypes + page-document + `section-family.generated.ts`) `1f5542e4`/`acd29c1e` · **T4 `@waimia/catalogue-ui`** `e230166f`/`4aad9e22` · **T5 `@waimia/builder`** `f0997fb4`.
+- Résolution **`.astro`-in-package** prouvée native sur Vercel via symlink workspace (T4) : **0 alias tsconfig / 0 `vite.resolve.alias`** nécessaire (le §6 « définir un alias AVANT » s'est révélé inutile — la résolution de package pure suffit across Vite/Astro + `astro check` + `tsx`).
+
+### 8.2 Le fait qui contredit le blueprint (GF-4, mesuré)
+- §1/§7 supposaient « **3 modules co-localisés pilotes** ». **Réalité = 200 modules co-localisés** `src/sections/<type>/` (co-location #38 menée à terme sur TOUTES les sections), chacun = `index.ts` + `meta.ts` + `demo.ts` + `Component.astro` (le `schema.ts` est déjà au kernel).
+- **Couplage `package→app` réel** (au-delà de registry→168 `.astro`) : 2 `Component.astro` (hero-social-proof, media-bento) importent des **atoms UI app** (`Kicker` 16 conso · `Button` 6 · `StatRow` 3). *(Les 5 « organisms » du grep initial = **commentaires** `// COPIE FIDÈLE de …organisms/…`, pas des imports — écartés par lecture des lignes réelles, rule 09.)*
+
+### 8.3 Décision : `@waimia/sections` (T6) n'est PAS extrait — frontière acceptée app-couplée
+**Coût d'une extraction complète** : 200 modules + 168 `.astro` legacy déplacés + **~269 sites d'import** réécrits (registry consumers, 40 `meta.ts`, 40 `demo.ts`, library-manifest 8, mcp-manifest 4, imports `.astro` directs templates/pages/studio) + 2 générateurs redirigés cross-package (`gen-section-aggregate`, `gen-section-manifest`) + **cascade UI** (`Kicker`/`Button`/`StatRow` → ~25 réécritures app).
+**Valeur produit/runtime = 0** : le serveur MCP (#41) lit les **artefacts buildés** `dist/client/library/*.json` (0 import) ; le builder consomme `@waimia/ds-kernel` + `@waimia/builder` ; le catalogue consomme `@waimia/catalogue-ui` + le kernel. **Aucune surface produit ne consommerait un package `@waimia/sections`.**
+**Cohérent avec l'intention du blueprint** (§44 « le package reste Astro-aware, pas à casser » ; §84 « ce qui empêche `@waimia/sections` d'être npm pur — à accepter »). Le hub de rendu sections est **intrinsèquement couplé Astro + UI-app** ; le forcer en package = purisme de frontière à fort risque de régression pour zéro bénéfice.
+
+➡️ **#40 = atteint** : les frontières à valeur (contrat `ds-kernel`, feuilles `ds-tokens`/`catalogue-ui`/`builder`, capstone `mcp`) sont des packages workspace réels, prod-vérifiés. `@waimia/sections` reste dans l'app hôte **par conception**.
+
+### 8.4 Réversibilité (si extraction complète voulue plus tard)
+Pré-requis = extraire d'abord un `@waimia/ui-atoms` (ou co-localiser `Kicker`/`Button`/`StatRow`) pour casser le cycle `sections→app/ui`, PUIS mirror `src/sections/*` + `src/components/sections/*` → `packages/sections/src/` (structure miroir = imports relatifs intra-package préservés), rediriger les 2 générateurs, réécrire les ~269 sites externes → `@waimia/sections/*`. Worktree-isolé, worker Opus, parité manifest + `astro check` + GF-1 sweep à chaque palier.
