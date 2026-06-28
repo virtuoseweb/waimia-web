@@ -47,6 +47,10 @@ export interface CatalogueItem {
   // Facettes sémantiques IA (Vague C2-A) : job de communication + place de page.
   intent: string[];
   pageRole: string[];
+  // Modèle de contenu (instance inline / global-ref source partagée / hybrid).
+  contentMode: string;
+  // Usage live : true si la section est en prod sur waimia (>= 1 consommateur live).
+  onSite: boolean;
 }
 
 interface FacetOption {
@@ -57,7 +61,7 @@ interface FacetOption {
 
 /** Un genre de facette (orthogonales + sémantiques C2-A) + ses options comptées. */
 interface FacetGroup {
-  kind: 'effects' | 'interactions' | 'elements' | 'layoutFacets' | 'intent' | 'pageRole';
+  kind: 'effects' | 'interactions' | 'elements' | 'layoutFacets' | 'intent' | 'pageRole' | 'contentMode';
   label: string;
   options: FacetOption[];
 }
@@ -95,6 +99,7 @@ const FACET_KINDS: FacetKind[] = [
   'layoutFacets',
   'intent',
   'pageRole',
+  'contentMode',
 ];
 
 // File de concurrence globale (partagée par toutes les vignettes de l'island) : au plus
@@ -212,9 +217,12 @@ export default function CatalogueExplorer({
     layoutFacets: new Set(),
     intent: new Set(),
     pageRole: new Set(),
+    contentMode: new Set(),
   }));
   const [animatedOnly, setAnimatedOnly] = useState(false);
   const [withPresetsOnly, setWithPresetsOnly] = useState(false);
+  // Raccourci « En prod sur waimia » : ne montre que les sections live (onSite).
+  const [onSiteOnly, setOnSiteOnly] = useState(false);
   // Section des chips de facettes : repliable, fermée par défaut. Sans ça, ~75 chips dans le
   // panneau sticky le font occuper presque tout le viewport et masquent les résultats.
   // Ouverte au montage uniquement si des facettes sont déjà sélectionnées (sinon on cacherait
@@ -266,6 +274,7 @@ export default function CatalogueExplorer({
       layoutFacets: new Set(),
       intent: new Set(),
       pageRole: new Set(),
+      contentMode: new Set(),
     };
     for (const kind of FACET_KINDS) {
       const raw = params.get(kind);
@@ -350,11 +359,14 @@ export default function CatalogueExplorer({
         if (!hasEffect) return false;
       }
       if (withPresetsOnly && it.presetCount <= 0) return false;
+      if (onSiteOnly && !it.onSite) return false;
       // Facettes : AND inter-genres, OR intra-genre.
       for (const kind of FACET_KINDS) {
         const sel = facetSel[kind];
         if (sel.size === 0) continue;
-        const itemTags = it[kind];
+        // contentMode est une valeur unique (string) ; les autres genres sont des
+        // tableaux de tags. On normalise en tableau pour appliquer la même mécanique.
+        const itemTags = kind === 'contentMode' ? [it.contentMode] : it[kind];
         const matchesGenre = itemTags.some((t) => sel.has(t));
         if (!matchesGenre) return false;
       }
@@ -364,7 +376,7 @@ export default function CatalogueExplorer({
       }
       return true;
     });
-  }, [items, query, family, category, status, facetSel, animatedOnly, withPresetsOnly]);
+  }, [items, query, family, category, status, facetSel, animatedOnly, withPresetsOnly, onSiteOnly]);
 
   // Regroupement des types retenus en CARTES-GROUPES (1 vignette représentative chacune).
   const groups = useMemo(() => {
@@ -411,7 +423,8 @@ export default function CatalogueExplorer({
     status !== 'all' ||
     facetSelCount > 0 ||
     animatedOnly ||
-    withPresetsOnly;
+    withPresetsOnly ||
+    onSiteOnly;
 
   const resetFilters = () => {
     setQuery('');
@@ -420,6 +433,7 @@ export default function CatalogueExplorer({
     setStatus('all');
     setAnimatedOnly(false);
     setWithPresetsOnly(false);
+    setOnSiteOnly(false);
     setFacetSel({
       effects: new Set(),
       interactions: new Set(),
@@ -427,6 +441,7 @@ export default function CatalogueExplorer({
       layoutFacets: new Set(),
       intent: new Set(),
       pageRole: new Set(),
+      contentMode: new Set(),
     });
   };
 
@@ -509,6 +524,14 @@ export default function CatalogueExplorer({
               onClick={() => setWithPresetsOnly((v) => !v)}
             >
               Avec déclinaisons
+            </button>
+            <button
+              type="button"
+              className="cx-chip cx-chip--toggle"
+              aria-pressed={onSiteOnly}
+              onClick={() => setOnSiteOnly((v) => !v)}
+            >
+              En prod sur waimia
             </button>
           </div>
 

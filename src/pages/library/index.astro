@@ -8,6 +8,8 @@ export const prerender = true;
 //   - /library/[type]      (fiche technique d'une section, atteinte depuis une catégorie)
 //   - /library/studio      (éditeur de tokens live)
 //   - /library/hero-lab    (variantes de hero comparées côté à côté)
+//   - /library/family      (index des familles transverses)
+//   - /library/manifest.json (graine MCP lisible par les agents)
 //
 // Réutilise les mécanismes existants (registry-driven) : listCategories() pour la grille de familles.
 // Ce hub ne recopie PAS le mono-page design-system.astro (1810 l) : le détail tokens/atomes/sections
@@ -20,10 +22,12 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
 import CatalogueExplorer, { type CatalogueItem } from '../../components/library/CatalogueExplorer.tsx';
 import { listCategories, listSections, listFacetCounts } from '../../lib/section-registry';
 import { listPresets } from '../../lib/section-presets';
+import { getUsage } from '../../lib/library-manifest';
 import {
   FACET_LABELS_FR,
   INTENT_LABELS_FR,
   PAGE_ROLE_LABELS_FR,
+  CONTENT_MODE_LABELS_FR,
   type FacetKind,
 } from '../../lib/section-facets';
 
@@ -52,6 +56,9 @@ const items: CatalogueItem[] = sections.map((section) => ({
   layoutFacets: section.layoutFacets,
   intent: section.intent,
   pageRole: section.pageRole,
+  // Modèle de contenu (registry) + usage live (manifest : 'site' = >= 1 consommateur).
+  contentMode: section.contentMode,
+  onSite: getUsage(section.type) === 'site',
 }));
 
 // Facettes orthogonales (effets/interactions/éléments/layout) : effectifs + libellés FR pour les
@@ -61,7 +68,7 @@ const facetKinds: FacetKind[] = ['effects', 'interactions', 'elements', 'layoutF
 const facetCountsRaw = listFacetCounts();
 // Type aligné sur le contrat FacetGroup de l'island (6 genres : 4 orthogonaux + 2 sémantiques).
 type ExplorerFacetGroup = {
-  kind: FacetKind | 'intent' | 'pageRole';
+  kind: FacetKind | 'intent' | 'pageRole' | 'contentMode';
   label: string;
   options: { value: string; label: string; count: number }[];
 };
@@ -105,6 +112,13 @@ facetGroups.push(
     kind: 'pageRole' as const,
     label: 'Rôle de page',
     options: toFacetOptions(countArray((i) => i.pageRole), PAGE_ROLE_LABELS_FR),
+  },
+  {
+    // 7e genre : modèle de contenu (instance / global-ref / hybrid). Valeur unique
+    // par section -> on l'enveloppe en tableau pour réutiliser countArray.
+    kind: 'contentMode' as const,
+    label: 'Modèle de contenu',
+    options: toFacetOptions(countArray((i) => [i.contentMode]), CONTENT_MODE_LABELS_FR),
   },
 );
 
@@ -169,7 +183,7 @@ const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({
         <li><strong>{familyCount}</strong><span>familles</span></li>
         <li><strong>{categoryCount}</strong><span>catégories</span></li>
         <li><strong>{sectionCount}</strong><span>sections</span></li>
-        <li><strong>3</strong><span>surfaces outillées</span></li>
+        <li><strong>4</strong><span>surfaces outillées</span></li>
       </ul>
     </div>
   </section>
@@ -187,6 +201,18 @@ const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({
       <a class="lib-hub-card" href="/library/hero-lab">
         <span class="lib-hub-card-label">Hero Lab</span>
         <span class="lib-hub-card-desc">Toutes les variantes de hero du catalogue, rendues côté à côté.</span>
+      </a>
+      <a class="lib-hub-card" href="/library/family">
+        <span class="lib-hub-card-label">Familles</span>
+        <span class="lib-hub-card-desc">
+          L'index des familles transverses : explore le catalogue par regroupement plutôt que par catégorie d'intention.
+        </span>
+      </a>
+      <a class="lib-hub-card" href="/library/manifest.json">
+        <span class="lib-hub-card-label">MCP / agents</span>
+        <span class="lib-hub-card-desc">
+          Le manifeste lisible par les agents : la graine qui permet à une IA de choisir et composer les sections.
+        </span>
       </a>
     </nav>
   </section>
