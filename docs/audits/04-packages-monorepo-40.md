@@ -158,6 +158,20 @@ Données générées régénérées (0 ancien chemin résiduel) : `src/data/ds-r
 
 **Preuves GF-1** : `pnpm build` → `Complete!` ; tokens visuellement appliqués (Playwright `/` + `/preview/feature-grid` : `--ink #0c0b09`→color rgb(12,11,9), `--paper #f6f1e8`→bg rgb(246,241,232), police « Instrument Serif » chargée, H1 opacity 1, 0 reveal caché) ; `--ink`/`--accent`/`--paper`/`--gut`/`--wrap-read` présents dans `dist/client/_astro/*.css` ; MCP `TOKENS_PATH` résout + lit 125 tokens ; `astro check` 62 erreurs (baseline) ; gates `check:token-lock`/`check:section-modules`/`check:page-schemas`/`check:usage-manifest` exit 0. `check:token-purity` exit 1 = baseline PRÉ-EXISTANT (clamp brut `render.astro`, fichier non touché par T2), sans rapport avec l'extraction.
 
+### Addendum T3 étape 1 (2026-06-28) : dépin Astro de la couche schéma — le « 2 fichiers » était pré-#38
+
+⚠️ Le plan §5 (« T3 : `astro:content`→`zod` dans `sections.ts:8` + `page-document.ts:14` », 2 fichiers) a été écrit AVANT la fin de #38. Réalité post-co-location mesurée le 2026-06-28 : **205 fichiers** importaient `import { z } from 'astro:content';` (forme strictement uniforme, 0 variante) :
+- 200 schémas co-localisés `src/sections/<type>/schema.ts` (#38) ;
+- `src/sections/_shared/{base,subschemas,locals}.ts` ;
+- `src/schemas/page-document.ts` ;
+- `src/schemas/sections.generated.ts` (GÉNÉRÉ → corriger le GÉNÉRATEUR `scripts/gen-section-aggregate.mjs:89`, sinon `gen:section-aggregate`/build revert le swap silencieusement).
+
+Sécurité du swap (GF-4) : **0 usage `image()`/`z.image`** dans la couche schéma → le `z` d'`astro:content` ≡ `zod` pour ces fichiers. `content.config.ts` CONSERVE `astro:content` (`defineCollection` + `reference()`, reste app-hôte).
+
+**Fait** : swap déterministe ligne-exacte (commit `efbb673b`, 206 fichiers / 206 ins / 206 del, branche `feat/kernel-deatro` → FF main). GF-1 : build `Complete!` + `manifest.json` IDENTIQUE (MCP indemne) + `astro check` 60 ≤ 62 baseline + page composable `/offres/growth-system-ia` rendue (H1 opacity 1, 10 sections, 0 reveal caché). Le build valide les collections composables contre les schémas swappés → plain zod prouvé OK dans le pipeline content Astro. Étape atomique + réversible, AUCUN fichier déplacé.
+
+**Reste T3 étape 2 (déplacement + alias)** : créer `packages/ds-kernel/` + déplacer `schemas/{sections.ts,sections.generated.ts,page-document.ts}` + `lib/section-{facets,slots,presets,colorschemes,variants,archetypes}.ts` + `lib/page-document*.ts` + `_shared/*`, définir alias TS+Vite `@waimia/ds-kernel`, grep-replace contrôlé des chemins relatifs. ⚠️ **Wrinkle post-#38 à trancher** : `sections.ts`→`sections.generated.ts`→`import { schema } from '../sections/<type>/schema'` (200 schémas co-localisés). Ces schémas co-localisés sont, au §1, dans `@waimia/sections` (T6), PAS le kernel → l'agrégateur `sections.generated.ts` (kernel) importerait `@waimia/sections` = **cycle kernel→sections**. Options : (a) déplacer aussi les 200 `schema.ts` co-localisés dans le kernel (les `Component.astro` restant dans sections) ; (b) garder l'agrégat dans `@waimia/sections` et n'exporter du kernel que `_shared` + contrat + `page-document`. À arbitrer AVANT l'étape 2 (branche worktree-isolée dédiée). Le dépin (étape 1) débloque les deux options.
+
 ## 6. Risques + parades
 
 | Risque | Parade |
