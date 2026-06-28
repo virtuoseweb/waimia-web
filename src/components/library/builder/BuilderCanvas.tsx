@@ -38,11 +38,16 @@ import {
   useState,
   type CSSProperties,
 } from 'react';
+// Import RUNTIME depuis le module PUR (sans `astro:content`) : sinon le bundle client tire
+// `lib/page-document` -> `schemas/page-document` -> `astro:content` (virtuel serveur) = build cassé.
+import { pageDocToFrontmatter } from '../../../lib/page-document-frontmatter';
+import type { PageDocument } from '../../../schemas/page-document';
 import type {
   BuilderCanvasProps,
   BuilderCatalogueItem,
   BuilderColorScheme,
   BuilderMeta,
+  BuilderSlot,
   SectionInstance,
 } from './types';
 
@@ -123,6 +128,7 @@ export default function BuilderCanvas({
   const [selectedUid, setSelectedUid] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [exportOpen, setExportOpen] = useState(false);
+  const [exportFormat, setExportFormat] = useState<'json' | 'mdx'>('json');
 
   const selected = useMemo(
     () => sections.find((s) => s.uid === selectedUid) ?? null,
@@ -228,6 +234,15 @@ export default function BuilderCanvas({
     [rebuildData],
   );
 
+  // Édite une clé de contenu d'une section (data[field]) de façon immuable → l'aperçu live suit.
+  const patchData = useCallback((uid: string, field: string, value: unknown) => {
+    setSections((prev) =>
+      prev.map((s) =>
+        s.uid === uid ? { ...s, data: { ...s.data, [field]: value } } : s,
+      ),
+    );
+  }, []);
+
   // ── Aperçu live (GET nominal, POST+srcdoc en repli si l'URL dépasse la limite) ───────────────
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const debounceRef = useRef<number | null>(null);
@@ -286,11 +301,20 @@ export default function BuilderCanvas({
     };
   }, [pageDoc, renderPath]);
 
-  // ── Export JSON ──────────────────────────────────────────────────────────────────────────────
+  // ── Export : JSON brut + MDX round-trip (frontmatter YAML prêt à coller dans la collection) ───
   const exportJson = useMemo(() => JSON.stringify(pageDoc, null, 2), [pageDoc]);
+  // MDX = frontmatter (issu de pageDocToFrontmatter) encadré par ---. Collé dans
+  // src/content/<collection>/<slug>.mdx, il reproduit la page. JSON est un sous-ensemble
+  // valide de YAML 1.2, donc ce bloc est un frontmatter YAML valide pour Astro (et bundlable
+  // côté client, contrairement au package `yaml` qui n'est pas une dépendance directe).
+  const exportMdx = useMemo(() => {
+    const frontmatter = pageDocToFrontmatter(pageDoc as PageDocument);
+    return `---\n${JSON.stringify(frontmatter, null, 2)}\n---\n`;
+  }, [pageDoc]);
+  const exportValue = exportFormat === 'json' ? exportJson : exportMdx;
   const copyExport = useCallback(() => {
-    if (navigator.clipboard) void navigator.clipboard.writeText(exportJson);
-  }, [exportJson]);
+    if (navigator.clipboard) void navigator.clipboard.writeText(exportValue);
+  }, [exportValue]);
 
   // ── Styles inline (var(--token) uniquement) : layout app-shell, anti-mismatch SSR ────────────
   const shell: CSSProperties = {
@@ -367,7 +391,26 @@ export default function BuilderCanvas({
       {exportOpen && (
         <div className="bld-export" id="bld-export">
           <div className="bld-export-head">
-            <span className="bld-export-title">PageDocument (JSON)</span>
+            <div className="bld-export-tabs" role="tablist" aria-label="Format d'export">
+              <button
+                type="button"
+                role="tab"
+                className={`bld-btn bld-export-tab${exportFormat === 'json' ? ' is-active' : ''}`}
+                aria-selected={exportFormat === 'json'}
+                onClick={() => setExportFormat('json')}
+              >
+                JSON
+              </button>
+              <button
+                type="button"
+                role="tab"
+                className={`bld-btn bld-export-tab${exportFormat === 'mdx' ? ' is-active' : ''}`}
+                aria-selected={exportFormat === 'mdx'}
+                onClick={() => setExportFormat('mdx')}
+              >
+                MDX
+              </button>
+            </div>
             <button type="button" className="bld-btn" onClick={copyExport}>
               Copier
             </button>
@@ -375,13 +418,18 @@ export default function BuilderCanvas({
           <textarea
             className="bld-export-area"
             readOnly
-            value={exportJson}
+            value={exportValue}
             spellCheck={false}
-            aria-label="PageDocument sérialisé en JSON"
+            aria-label={
+              exportFormat === 'json'
+                ? 'PageDocument sérialisé en JSON'
+                : 'Frontmatter MDX prêt à coller dans la collection cible'
+            }
           />
           <p className="bld-note">
-            Le round-trip MDX complet (écriture dans la collection cible) relève de T4. Ici, copie
-            du PageDocument typé, prêt pour le MCP page.compose.
+            {exportFormat === 'json'
+              ? 'PageDocument typé, prêt pour le MCP page.compose.'
+              : 'Round-trip : collez ce bloc dans src/content/<collection>/<slug>.mdx pour reproduire la page.'}
           </p>
         </div>
       )}
@@ -526,6 +574,7 @@ export default function BuilderCanvas({
               item={itemByType.get(selected.data.type)}
               colorSchemes={colorSchemes}
               onPatch={patchVariation}
+              onPatchData={patchData}
             />
           )}
         </aside>
@@ -540,9 +589,10 @@ interface InspectorProps {
   item: BuilderCatalogueItem | undefined;
   colorSchemes: BuilderColorScheme[];
   onPatch: (uid: string, key: 'presetId' | 'schemeId', value: string) => void;
+  onPatchData: (uid: string, field: string, value: unknown) => void;
 }
 
-function Inspector({ section, item, colorSchemes, onPatch }: InspectorProps) {
+function Inspector({ section, item, colorSchemes, onPatch, onPatchData }: InspectorProps) {
   const presets = item?.presets ?? [];
   const contentSlots = (item?.slots ?? []).filter((s) => s.kind === 'content');
 
@@ -592,29 +642,247 @@ function Inspector({ section, item, colorSchemes, onPatch }: InspectorProps) {
         </select>
       </div>
 
-      {/* Slots de contenu (lecture seule, édition fine = T4) */}
+      {/* Slots de contenu : éditables (scalaires + bilingues), arrays/objets en édition avancée JSON */}
       <div className="bld-insp-slots">
         <span className="bld-field-label">Contenu (slots)</span>
         {contentSlots.length === 0 && (
           <span className="bld-hint">Aucun slot de contenu déclaré.</span>
         )}
-        <ul className="bld-slot-list">
+        <div className="bld-slot-list">
           {contentSlots.map((slot) => (
-            <li key={slot.field} className="bld-slot">
-              <span className="bld-slot-field">{slot.field}</span>
-              <span className="bld-slot-meta">
-                {slot.type}
-                {slot.bilingual ? ' · fr/en' : ''}
-                {slot.required ? ' · requis' : ''}
-              </span>
-            </li>
+            <SlotEditor
+              key={slot.field}
+              uid={section.uid}
+              slot={slot}
+              data={section.data}
+              onPatchData={onPatchData}
+            />
           ))}
-        </ul>
+        </div>
         <p className="bld-note">
-          L'édition des champs de contenu (saisie bilingue, tableaux d'items) relève de T4. Ici,
-          lecture seule du contrat de slots.
+          Les champs texte/nombre/oui-non sont éditables directement (l'aperçu se met à jour). Les
+          listes et objets sont en édition avancée (JSON).
         </p>
       </div>
     </div>
   );
+}
+
+// ── ÉDITEUR DE SLOT (un champ de contenu) ────────────────────────────────────────────────────────
+interface SlotEditorProps {
+  uid: string;
+  slot: BuilderSlot;
+  data: SectionInstance;
+  onPatchData: (uid: string, field: string, value: unknown) => void;
+}
+
+/** Types logiques de slot éditables par un contrôle scalaire simple (le reste = JSON avancé). */
+const SCALAR_TYPES = new Set(['text', 'richtext', 'url', 'enum', 'number', 'bool']);
+
+function SlotEditor({ uid, slot, data, onPatchData }: SlotEditorProps) {
+  const meta = (
+    <span className="bld-slot-meta">
+      {slot.type}
+      {slot.bilingual ? ' · fr/en' : ''}
+      {slot.required ? ' · requis' : ''}
+    </span>
+  );
+
+  // Slot non scalaire (array/object) → édition avancée via textarea JSON tolérant.
+  if (!SCALAR_TYPES.has(slot.type)) {
+    if (slot.bilingual) {
+      return (
+        <div className="bld-slot">
+          <div className="bld-slot-head">
+            <span className="bld-slot-field">{slot.field}</span>
+            {meta}
+          </div>
+          <JsonField uid={uid} field={`${slot.field}_fr`} label="FR (avancé)" data={data} onPatchData={onPatchData} />
+          <JsonField uid={uid} field={`${slot.field}_en`} label="EN (avancé)" data={data} onPatchData={onPatchData} />
+        </div>
+      );
+    }
+    return (
+      <div className="bld-slot">
+        <div className="bld-slot-head">
+          <span className="bld-slot-field">{slot.field}</span>
+          {meta}
+        </div>
+        <JsonField uid={uid} field={slot.field} label="Avancé (JSON)" data={data} onPatchData={onPatchData} />
+      </div>
+    );
+  }
+
+  // Slot scalaire bilingue → deux contrôles FR / EN.
+  if (slot.bilingual) {
+    return (
+      <div className="bld-slot">
+        <div className="bld-slot-head">
+          <span className="bld-slot-field">{slot.field}</span>
+          {meta}
+        </div>
+        <ScalarField uid={uid} field={`${slot.field}_fr`} label="FR" slot={slot} data={data} onPatchData={onPatchData} />
+        <ScalarField uid={uid} field={`${slot.field}_en`} label="EN" slot={slot} data={data} onPatchData={onPatchData} />
+      </div>
+    );
+  }
+
+  // Slot scalaire simple → un seul contrôle.
+  return (
+    <div className="bld-slot">
+      <div className="bld-slot-head">
+        <span className="bld-slot-field">{slot.field}</span>
+        {meta}
+      </div>
+      <ScalarField uid={uid} field={slot.field} label="" slot={slot} data={data} onPatchData={onPatchData} />
+    </div>
+  );
+}
+
+// ── Contrôle scalaire (texte / nombre / booléen / enum) lié à data[field] ─────────────────────────
+interface ScalarFieldProps {
+  uid: string;
+  field: string;
+  label: string;
+  slot: BuilderSlot;
+  data: SectionInstance;
+  onPatchData: (uid: string, field: string, value: unknown) => void;
+}
+
+function ScalarField({ uid, field, label, slot, data, onPatchData }: ScalarFieldProps) {
+  const raw = data[field];
+  const inputId = `bld-f-${uid}-${field}`;
+
+  if (slot.type === 'bool') {
+    return (
+      <label className="bld-slot-check" htmlFor={inputId}>
+        <input
+          id={inputId}
+          type="checkbox"
+          checked={raw === true}
+          onChange={(e) => onPatchData(uid, field, e.target.checked)}
+        />
+        <span className="bld-slot-sub">{label || 'Activé'}</span>
+      </label>
+    );
+  }
+
+  if (slot.type === 'enum' && slot.enumValues && slot.enumValues.length > 0) {
+    return (
+      <label className="bld-slot-control">
+        {label && <span className="bld-slot-sub">{label}</span>}
+        <select
+          id={inputId}
+          className="bld-select"
+          value={typeof raw === 'string' ? raw : ''}
+          onChange={(e) => onPatchData(uid, field, e.target.value)}
+          aria-label={label ? `${field} ${label}` : field}
+        >
+          <option value="">(non défini)</option>
+          {slot.enumValues.map((v) => (
+            <option key={v} value={v}>
+              {v}
+            </option>
+          ))}
+        </select>
+      </label>
+    );
+  }
+
+  if (slot.type === 'number') {
+    return (
+      <label className="bld-slot-control">
+        {label && <span className="bld-slot-sub">{label}</span>}
+        <input
+          id={inputId}
+          className="bld-input"
+          type="number"
+          value={typeof raw === 'number' ? raw : ''}
+          onChange={(e) => {
+            const v = e.target.value;
+            // Champ vidé → on retire la valeur (undefined) plutôt que de forcer 0.
+            onPatchData(uid, field, v === '' ? undefined : Number(v));
+          }}
+          aria-label={label ? `${field} ${label}` : field}
+        />
+      </label>
+    );
+  }
+
+  // text / richtext / url : zone multiligne (le richtext et les textes longs respirent mieux).
+  return (
+    <label className="bld-slot-control">
+      {label && <span className="bld-slot-sub">{label}</span>}
+      <textarea
+        id={inputId}
+        className="bld-input bld-slot-textarea"
+        rows={slot.type === 'richtext' ? 3 : 2}
+        value={typeof raw === 'string' ? raw : ''}
+        onChange={(e) => onPatchData(uid, field, e.target.value)}
+        spellCheck={false}
+        aria-label={label ? `${field} ${label}` : field}
+      />
+    </label>
+  );
+}
+
+// ── Contrôle JSON tolérant (slots array / object) lié à data[field] ───────────────────────────────
+interface JsonFieldProps {
+  uid: string;
+  field: string;
+  label: string;
+  data: SectionInstance;
+  onPatchData: (uid: string, field: string, value: unknown) => void;
+}
+
+function JsonField({ uid, field, label, data, onPatchData }: JsonFieldProps) {
+  // Brouillon local : on n'écrase la valeur de la section QUE si le JSON est valide (parsing
+  // tolérant). Tant qu'il est invalide, l'aperçu garde la dernière valeur correcte + message.
+  const [draft, setDraft] = useState(() => stableJson(data[field]));
+  const [error, setError] = useState<string | null>(null);
+  // Re-synchronise le brouillon si la valeur change hors de ce champ (preset/scheme rejoués).
+  const lastExternal = useRef(stableJson(data[field]));
+  const external = stableJson(data[field]);
+  if (external !== lastExternal.current) {
+    lastExternal.current = external;
+    if (!error) setDraft(external);
+  }
+
+  const inputId = `bld-j-${uid}-${field}`;
+  return (
+    <label className="bld-slot-control">
+      {label && <span className="bld-slot-sub">{label}</span>}
+      <textarea
+        id={inputId}
+        className="bld-input bld-slot-textarea bld-slot-json"
+        rows={4}
+        value={draft}
+        spellCheck={false}
+        aria-label={`${field} ${label} (JSON)`}
+        onChange={(e) => {
+          const next = e.target.value;
+          setDraft(next);
+          try {
+            const parsed = next.trim() === '' ? undefined : JSON.parse(next);
+            setError(null);
+            onPatchData(uid, field, parsed);
+          } catch {
+            // JSON invalide : on n'écrase pas la valeur de la section, on signale juste.
+            setError('JSON invalide (valeur non appliquée)');
+          }
+        }}
+      />
+      {error && <span className="bld-slot-err">{error}</span>}
+    </label>
+  );
+}
+
+/** Sérialise une valeur de slot pour l'éditeur JSON (stable, indenté). */
+function stableJson(value: unknown): string {
+  if (value === undefined) return '';
+  try {
+    return JSON.stringify(value, null, 2);
+  } catch {
+    return '';
+  }
 }

@@ -22,13 +22,15 @@ export interface VariationOption {
   props: Record<string, unknown>;
 }
 
-/** Slot d'un type de section, vue lecture seule de l'inspecteur (édition fine = T4). */
+/** Slot d'un type de section, édité dans l'inspecteur (T4 : saisie de contenu + round-trip MDX). */
 export interface BuilderSlot {
   field: string;
   kind: 'content' | 'presentation';
   type: string;
   required: boolean;
   bilingual?: boolean;
+  /** Valeurs autorisées (slot enum) : permet un <select> au lieu d'un champ libre. */
+  enumValues?: string[];
 }
 
 /** Entrée du catalogue exposée au picker + à l'inspecteur (1 par type de section). */

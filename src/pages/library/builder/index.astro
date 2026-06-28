@@ -63,6 +63,7 @@ const items: BuilderCatalogueItem[] = sections.map((section) => {
       type: s.type,
       required: s.required,
       bilingual: s.bilingual,
+      enumValues: s.enumValues,
     })),
   };
 });
@@ -251,6 +252,21 @@ const defaultMeta = {
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
+  }
+  /* Onglets de format (segmented control discret) : JSON / MDX. Les boutons portent
+     aussi .bld-btn ; on resserre le rythme et on signale l'onglet actif (.is-active). */
+  .bld-export-tabs {
+    display: flex;
+    gap: var(--space-2);
+  }
+  .bld-export-tab.is-active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .bld-export-tab.is-active:hover {
+    color: var(--paper);
+    border-color: var(--ink);
   }
   .bld-export-title {
     font-family: var(--font-sans);
@@ -476,14 +492,21 @@ const defaultMeta = {
     color: var(--accent-text);
   }
   .bld-insp-slots { display: flex; flex-direction: column; gap: var(--space-2); }
-  .bld-slot-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  /* Conteneur des slots (passé <ul>→<div>) : pile verticale de slots éditables. */
+  .bld-slot-list { display: flex; flex-direction: column; gap: var(--space-3); }
+  /* Un slot = en-tête (champ + meta) + un ou deux contrôles empilés (scalaire/JSON, FR/EN). */
   .bld-slot {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .bld-slot-head {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: var(--space-3);
-    padding: var(--space-1) 0;
-    border-bottom: 1px solid var(--hairline);
   }
   .bld-slot-field {
     font-family: var(--font-mono);
@@ -497,6 +520,45 @@ const defaultMeta = {
     font-size: var(--text-micro);
     color: var(--muted);
     white-space: nowrap;
+  }
+  /* Wrapper d'un contrôle (label englobant) : sous-libellé optionnel + input/select/textarea. */
+  .bld-slot-control {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+  }
+  .bld-slot-control .bld-input,
+  .bld-slot-control .bld-select { width: 100%; }
+  /* Sous-libellé (FR / EN, ou intitulé booléen). */
+  .bld-slot-sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  /* Zone de texte (texte long / richtext) + variante JSON avancé (monospace dense). */
+  .bld-slot-textarea {
+    width: 100%;
+    line-height: 1.5;
+    resize: vertical;
+  }
+  .bld-slot-json { font-family: var(--font-mono); }
+  /* Ligne case à cocher (slot booléen) : la case puis son libellé, alignés. */
+  .bld-slot-check {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+  }
+  .bld-slot-check input { cursor: pointer; }
+  .bld-slot-check:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* Message d'erreur (JSON invalide non appliqué) : rôle texte accent. */
+  .bld-slot-err {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--accent-text);
   }
   .bld-hint {
     font-family: var(--font-mono);

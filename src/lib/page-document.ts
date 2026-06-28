@@ -1,10 +1,10 @@
-// Waimia · page-document.ts — helpers du format PageDocument (#39).
+// Waimia · page-document.ts : helpers du format PageDocument (#39).
 //
 // Convertit dans les deux sens entre :
 //   - une entrée de collection (objet frontmatter MDX à plat : meta + champs propres + sections),
 //   - un `PageDocument` typé/sérialisable.
 // Valide un PageDocument (Zod + slot-level via getSlots) et résout presets/colorschemes en
-// props concrètes (PAS de référence persistée — le doc reste minimal et autoporteur).
+// props concrètes (PAS de référence persistée ; le doc reste minimal et autoporteur).
 //
 // 0 token DS, 0 valeur en dur. Réutilise les sources de vérité existantes : sectionsArraySchema
 // (schémas), getSlots (contrat de slots), listPresets/schemeProps (axes de variation).
@@ -21,17 +21,9 @@ import { getSlots } from './section-slots';
 import { listPresets } from './section-presets';
 import type { PresetProps } from './section-presets';
 import { COLOR_SCHEME_BY_ID, schemeProps, type Surface } from './section-colorschemes';
-
-/** Champs de `meta` à plat dans le frontmatter (le reste non-`sections` → collectionExtra). */
-const META_FLAT_KEYS = [
-  'slug',
-  'lang',
-  'title_fr',
-  'title_en',
-  'description_fr',
-  'description_en',
-  'seo',
-] as const;
+// Sérialisation PURE déplacée dans un module sans dépendance `astro:content` (importable par les
+// îles client, cf page-document-frontmatter.ts). Source de vérité unique ici ré-exportée plus bas.
+import { META_FLAT_KEYS, pageDocToFrontmatter } from './page-document-frontmatter';
 
 /**
  * Construit un `PageDocument` depuis les données d'une entrée de collection.
@@ -75,24 +67,6 @@ export function frontmatterToPageDoc(
     meta,
     sections: (sections ?? []) as PageDocument['sections'],
   } as PageDocument;
-}
-
-/**
- * Inverse de `frontmatterToPageDoc` : reconstruit l'objet frontmatter qu'attend la collection
- * (meta à plat + collectionExtra étalé + `sections:`). `collection` n'est PAS réémis (c'est le
- * nom de la collection cible, pas un champ de l'entrée).
- */
-export function pageDocToFrontmatter(doc: PageDocument): Record<string, unknown> {
-  const { meta, sections } = doc;
-  const { collection: _collection, collectionExtra, ...metaFlat } = meta;
-
-  const out: Record<string, unknown> = { ...collectionExtra };
-  for (const key of META_FLAT_KEYS) {
-    const value = (metaFlat as Record<string, unknown>)[key];
-    if (value !== undefined) out[key] = value;
-  }
-  out.sections = sections;
-  return out;
 }
 
 /** Erreur de validation orientée champ (slot-level). */
@@ -189,4 +163,7 @@ export function resolveScheme(
 }
 
 export { PAGE_COLLECTIONS };
+// Ré-export pour ne casser aucun consommateur serveur (route render.astro, tests) qui importe
+// `pageDocToFrontmatter` depuis `lib/page-document`. La définition vit dans le module pur.
+export { pageDocToFrontmatter } from './page-document-frontmatter';
 export type { PageCollection, PageDocument, PageMeta };
