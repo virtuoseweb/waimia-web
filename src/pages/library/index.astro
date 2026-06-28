@@ -20,7 +20,12 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
 import CatalogueExplorer, { type CatalogueItem } from '../../components/library/CatalogueExplorer.tsx';
 import { listCategories, listSections, listFacetCounts } from '../../lib/section-registry';
 import { listPresets } from '../../lib/section-presets';
-import { FACET_LABELS_FR, type FacetKind } from '../../lib/section-facets';
+import {
+  FACET_LABELS_FR,
+  INTENT_LABELS_FR,
+  PAGE_ROLE_LABELS_FR,
+  type FacetKind,
+} from '../../lib/section-facets';
 
 const categories = listCategories();
 const sections = listSections();
@@ -45,6 +50,8 @@ const items: CatalogueItem[] = sections.map((section) => ({
   interactions: section.interactions,
   elements: section.elements,
   layoutFacets: section.layoutFacets,
+  intent: section.intent,
+  pageRole: section.pageRole,
 }));
 
 // Facettes orthogonales (effets/interactions/éléments/layout) : effectifs + libellés FR pour les
@@ -52,7 +59,13 @@ const items: CatalogueItem[] = sections.map((section) => ({
 // par listFacetCounts) et leur libellé lisible. Logique de filtrage documentée dans l'island.
 const facetKinds: FacetKind[] = ['effects', 'interactions', 'elements', 'layoutFacets'];
 const facetCountsRaw = listFacetCounts();
-const facetGroups = facetKinds.map((kind) => ({
+// Type aligné sur le contrat FacetGroup de l'island (6 genres : 4 orthogonaux + 2 sémantiques).
+type ExplorerFacetGroup = {
+  kind: FacetKind | 'intent' | 'pageRole';
+  label: string;
+  options: { value: string; label: string; count: number }[];
+};
+const facetGroups: ExplorerFacetGroup[] = facetKinds.map((kind) => ({
   kind,
   label:
     kind === 'effects'
@@ -68,6 +81,32 @@ const facetGroups = facetKinds.map((kind) => ({
     count,
   })),
 }));
+
+// Facettes sémantiques IA (Vague C2-A) : intent + pageRole. Multi-valuées (une section porte
+// >= 1 tag) -> on agrège sur items, on ne garde que les tags présents (count > 0), libellés FR.
+// Réutilise EXACTEMENT le contrat FacetGroup de l'island (kind/label/options[value,label,count]).
+const countArray = (pick: (i: CatalogueItem) => string[]) => {
+  const map = new Map<string, number>();
+  for (const it of items) for (const tag of pick(it)) map.set(tag, (map.get(tag) ?? 0) + 1);
+  return map;
+};
+const toFacetOptions = (m: Map<string, number>, labels: Record<string, string>) =>
+  [...m.entries()]
+    .map(([value, count]) => ({ value, label: labels[value] ?? value, count }))
+    .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value));
+
+facetGroups.push(
+  {
+    kind: 'intent' as const,
+    label: 'Intention',
+    options: toFacetOptions(countArray((i) => i.intent), INTENT_LABELS_FR),
+  },
+  {
+    kind: 'pageRole' as const,
+    label: 'Rôle de page',
+    options: toFacetOptions(countArray((i) => i.pageRole), PAGE_ROLE_LABELS_FR),
+  },
+);
 
 // Facettes pré-calculées (value/label/count) pour les selects.
 const countBy = (key: (i: CatalogueItem) => string) => {

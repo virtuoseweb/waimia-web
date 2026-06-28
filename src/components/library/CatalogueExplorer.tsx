@@ -44,6 +44,9 @@ export interface CatalogueItem {
   interactions: string[];
   elements: string[];
   layoutFacets: string[];
+  // Facettes sémantiques IA (Vague C2-A) : job de communication + place de page.
+  intent: string[];
+  pageRole: string[];
 }
 
 interface FacetOption {
@@ -52,9 +55,9 @@ interface FacetOption {
   count: number;
 }
 
-/** Un genre de facette (Effets/Interactions/Éléments/Layout) + ses options comptées. */
+/** Un genre de facette (orthogonales + sémantiques C2-A) + ses options comptées. */
 interface FacetGroup {
-  kind: 'effects' | 'interactions' | 'elements' | 'layoutFacets';
+  kind: 'effects' | 'interactions' | 'elements' | 'layoutFacets' | 'intent' | 'pageRole';
   label: string;
   options: FacetOption[];
 }
@@ -85,7 +88,14 @@ const STATUS_OPTIONS = [
   { value: 'deprecated', label: 'Déprécié' },
 ];
 
-const FACET_KINDS: FacetKind[] = ['effects', 'interactions', 'elements', 'layoutFacets'];
+const FACET_KINDS: FacetKind[] = [
+  'effects',
+  'interactions',
+  'elements',
+  'layoutFacets',
+  'intent',
+  'pageRole',
+];
 
 // File de concurrence globale (partagée par toutes les vignettes de l'island) : au plus
 // MAX_CONCURRENT iframes se chargent simultanément. Chaque preview tire ~des dizaines de
@@ -200,6 +210,8 @@ export default function CatalogueExplorer({
     interactions: new Set(),
     elements: new Set(),
     layoutFacets: new Set(),
+    intent: new Set(),
+    pageRole: new Set(),
   }));
   const [animatedOnly, setAnimatedOnly] = useState(false);
   const [withPresetsOnly, setWithPresetsOnly] = useState(false);
@@ -311,6 +323,8 @@ export default function CatalogueExplorer({
       interactions: new Set(),
       elements: new Set(),
       layoutFacets: new Set(),
+      intent: new Set(),
+      pageRole: new Set(),
     });
   };
 
