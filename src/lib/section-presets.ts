@@ -334,12 +334,21 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'bento-grid--atomic-body-first', type: 'bento-grid', label: 'Bento · mosaïque avant l\'en-tête (atomique)', family: 'bento', era: '2026', props: { background: 'paper', layout: 'mosaic', placement: { header: { order: 1 }, body: { order: 0 } } } },
   ],
 
-  // method-timeline (famille timeline) :axe sûr = background.
+  // method-timeline (famille timeline) · Vague C Batch 5 : recettes layout (vertical-stack /
+  // numbered-rows / horizontal / grid-steps) + density + contentAlign + placement atomique.
   'method-timeline': [
     { id: 'method-timeline--paper', type: 'method-timeline', label: 'Méthode · frise · papier', family: 'timeline', era: '2020', props: { background: 'paper' } },
-    { id: 'method-timeline--paper-2', type: 'method-timeline', label: 'Méthode · frise · papier 2', family: 'timeline', era: '2022', props: { background: 'paper-2' } },
-    { id: 'method-timeline--paper-3', type: 'method-timeline', label: 'Méthode · frise · papier 3', family: 'timeline', era: '2023', props: { background: 'paper-3' } },
     { id: 'method-timeline--ink', type: 'method-timeline', label: 'Méthode · frise · encre', family: 'timeline', era: '2026', props: { background: 'ink' } },
+    { id: 'method-timeline--vertical-stack', type: 'method-timeline', label: 'Méthode · étapes empilées', family: 'timeline', era: '2024', props: { layout: 'vertical-stack' } },
+    { id: 'method-timeline--numbered-rows', type: 'method-timeline', label: 'Méthode · lignes numérotées', family: 'timeline', era: '2024', props: { layout: 'numbered-rows' } },
+    { id: 'method-timeline--horizontal', type: 'method-timeline', label: 'Méthode · rail horizontal', family: 'timeline', era: '2025', props: { layout: 'horizontal' } },
+    { id: 'method-timeline--grid-steps-auto', type: 'method-timeline', label: 'Méthode · cartes en grille (auto)', family: 'timeline', era: '2025', props: { layout: 'grid-steps', columns: 'auto' } },
+    { id: 'method-timeline--grid-steps-3', type: 'method-timeline', label: 'Méthode · cartes en grille (3 col.)', family: 'timeline', era: '2025', props: { layout: 'grid-steps', columns: '3' } },
+    { id: 'method-timeline--grid-steps-2', type: 'method-timeline', label: 'Méthode · cartes en grille (2 col.)', family: 'timeline', era: '2025', props: { layout: 'grid-steps', columns: '2' } },
+    { id: 'method-timeline--numbered-rows-center', type: 'method-timeline', label: 'Méthode · lignes numérotées · titre centré', family: 'timeline', era: '2025', props: { layout: 'numbered-rows', contentAlign: 'center' } },
+    { id: 'method-timeline--horizontal-ample', type: 'method-timeline', label: 'Méthode · rail horizontal · aéré', family: 'timeline', era: '2026', props: { layout: 'horizontal', density: 'ample' } },
+    { id: 'method-timeline--atomic-header-center', type: 'method-timeline', label: 'Méthode · header centré (atomique)', family: 'timeline', era: '2026', props: { layout: 'grid-steps', columns: '3', placement: { header: { align: 'center' } } } },
+    { id: 'method-timeline--atomic-header-last', type: 'method-timeline', label: 'Méthode · header en dessous (atomique)', family: 'timeline', era: '2026', props: { layout: 'vertical-stack', placement: { header: { order: 1 }, body: { order: 0 } } } },
   ],
 
   // stats-bento (famille bento) :vedette content-driven ; axes câblés (Vague C) =
@@ -486,12 +495,21 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'feature-split-media--atomic-body-end', type: 'feature-split-media', label: 'Feature split média · atomique · corps de texte aligné à droite', family: 'split-media', era: '2026', props: { background: 'paper-3', proportion: '2-1', placement: { body: { align: 'end' } } } },
   ],
 
-  // diagnostic-stages (famille process-steps) :stades horizontaux ; axe sûr = background.
+  // diagnostic-stages (famille process-steps) · Vague C Batch 5 : recettes layout (grid-steps /
+  // vertical-stack / numbered-rows) + density + contentAlign + placement. Le relevé « current »
+  // (« vous êtes ici ») est préservé dans chaque recette.
   'diagnostic-stages': [
-    { id: 'diagnostic-stages--paper', type: 'diagnostic-stages', label: 'Auto-diagnostic · stades · papier', family: 'process-steps', era: '2023', props: { background: 'paper' } },
     { id: 'diagnostic-stages--paper-2', type: 'diagnostic-stages', label: 'Auto-diagnostic · stades · papier 2', family: 'process-steps', era: '2024', props: { background: 'paper-2' } },
-    { id: 'diagnostic-stages--paper-3', type: 'diagnostic-stages', label: 'Auto-diagnostic · stades · papier 3', family: 'process-steps', era: '2025', props: { background: 'paper-3' } },
     { id: 'diagnostic-stages--ink', type: 'diagnostic-stages', label: 'Auto-diagnostic · stades · encre', family: 'process-steps', era: '2026', props: { background: 'ink' } },
+    { id: 'diagnostic-stages--grid-steps-3', type: 'diagnostic-stages', label: 'Auto-diagnostic · grille 3 colonnes', family: 'process-steps', era: '2024', props: { layout: 'grid-steps', columns: '3' } },
+    { id: 'diagnostic-stages--grid-steps-2', type: 'diagnostic-stages', label: 'Auto-diagnostic · grille 2 colonnes', family: 'process-steps', era: '2024', props: { layout: 'grid-steps', columns: '2' } },
+    { id: 'diagnostic-stages--grid-steps-4', type: 'diagnostic-stages', label: 'Auto-diagnostic · grille 4 colonnes', family: 'process-steps', era: '2025', props: { layout: 'grid-steps', columns: '4' } },
+    { id: 'diagnostic-stages--vertical-stack', type: 'diagnostic-stages', label: 'Auto-diagnostic · stades empilés', family: 'process-steps', era: '2025', props: { layout: 'vertical-stack' } },
+    { id: 'diagnostic-stages--numbered-rows', type: 'diagnostic-stages', label: 'Auto-diagnostic · lignes numérotées', family: 'process-steps', era: '2025', props: { layout: 'numbered-rows' } },
+    { id: 'diagnostic-stages--vertical-stack-ink', type: 'diagnostic-stages', label: 'Auto-diagnostic · stades empilés · encre', family: 'process-steps', era: '2026', props: { layout: 'vertical-stack', background: 'ink' } },
+    { id: 'diagnostic-stages--numbered-rows-compact', type: 'diagnostic-stages', label: 'Auto-diagnostic · lignes · compact', family: 'process-steps', era: '2026', props: { layout: 'numbered-rows', density: 'compact' } },
+    { id: 'diagnostic-stages--head-center', type: 'diagnostic-stages', label: 'Auto-diagnostic · header centré', family: 'process-steps', era: '2026', props: { layout: 'grid-steps', columns: '3', contentAlign: 'center' } },
+    { id: 'diagnostic-stages--atomic-head-hide-mobile', type: 'diagnostic-stages', label: 'Auto-diagnostic · header masqué mobile (atomique)', family: 'process-steps', era: '2026', props: { layout: 'grid-steps', columns: '3', placement: { header: { hideOn: 'mobile' } } } },
   ],
 
   // workflow-table (famille table) :table signature 5 colonnes ; axe sûr = background.
@@ -540,21 +558,38 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'architecture-diagram--atomic-header-end', type: 'architecture-diagram', label: 'Diagramme archi · atomique · en-tête aligné à droite', family: 'split-media', era: '2026', props: { placement: { header: { align: 'end' } } } },
   ],
 
-  // method-stepline (famille timeline) :étapes en ligne ; axe sûr = background.
+  // method-stepline (famille timeline) · Vague C Batch 5 : recettes layout (horizontal défaut /
+  // vertical-stack / numbered-rows / grid-steps) + density + contentAlign + placement. La
+  // numérotation 00..N dérivée et le disque accent restent alignés dans chaque recette.
   'method-stepline': [
     { id: 'method-stepline--paper', type: 'method-stepline', label: 'Méthode · ligne d étapes · papier', family: 'timeline', era: '2023', props: { background: 'paper' } },
-    { id: 'method-stepline--paper-2', type: 'method-stepline', label: 'Méthode · ligne d étapes · papier 2', family: 'timeline', era: '2024', props: { background: 'paper-2' } },
-    { id: 'method-stepline--paper-3', type: 'method-stepline', label: 'Méthode · ligne d étapes · papier 3', family: 'timeline', era: '2025', props: { background: 'paper-3' } },
     { id: 'method-stepline--ink', type: 'method-stepline', label: 'Méthode · ligne d étapes · encre', family: 'timeline', era: '2026', props: { background: 'ink' } },
+    { id: 'method-stepline--vertical-stack', type: 'method-stepline', label: 'Méthode · rail vertical', family: 'timeline', era: '2024', props: { layout: 'vertical-stack' } },
+    { id: 'method-stepline--numbered-rows', type: 'method-stepline', label: 'Méthode · lignes numérotées', family: 'timeline', era: '2024', props: { layout: 'numbered-rows' } },
+    { id: 'method-stepline--grid-steps-auto', type: 'method-stepline', label: 'Méthode · cartes en grille (auto)', family: 'timeline', era: '2025', props: { layout: 'grid-steps', columns: 'auto' } },
+    { id: 'method-stepline--grid-steps-3', type: 'method-stepline', label: 'Méthode · cartes en grille (3 col.)', family: 'timeline', era: '2025', props: { layout: 'grid-steps', columns: '3' } },
+    { id: 'method-stepline--grid-steps-2', type: 'method-stepline', label: 'Méthode · cartes en grille (2 col.)', family: 'timeline', era: '2025', props: { layout: 'grid-steps', columns: '2' } },
+    { id: 'method-stepline--vertical-stack-ink', type: 'method-stepline', label: 'Méthode · rail vertical · encre', family: 'timeline', era: '2026', props: { layout: 'vertical-stack', background: 'ink' } },
+    { id: 'method-stepline--numbered-rows-ample', type: 'method-stepline', label: 'Méthode · lignes numérotées · aéré', family: 'timeline', era: '2026', props: { layout: 'numbered-rows', density: 'ample' } },
+    { id: 'method-stepline--head-center', type: 'method-stepline', label: 'Méthode · header centré', family: 'timeline', era: '2026', props: { layout: 'grid-steps', columns: '3', contentAlign: 'center' } },
+    { id: 'method-stepline--atomic-body-first', type: 'method-stepline', label: 'Méthode · étapes avant header (atomique)', family: 'timeline', era: '2026', props: { layout: 'numbered-rows', placement: { header: { order: 1 }, body: { order: 0 } } } },
   ],
 
-  // system-flow (famille flow) :cartes d étapes + boucle ; axe sûr = background.
+  // system-flow (famille flow) · Vague C Batch 5 : recettes layout (diagram défaut / horizontal /
+  // vertical-stack) + density + contentAlign + placement. Flèches/boucle alignées dans chaque recette.
   'system-flow': [
-    { id: 'system-flow--paper', type: 'system-flow', label: 'Flux système · papier', family: 'flow', era: '2023', props: { background: 'paper' } },
-    { id: 'system-flow--paper-2', type: 'system-flow', label: 'Flux système · papier 2', family: 'flow', era: '2024', props: { background: 'paper-2' } },
-    { id: 'system-flow--paper-3', type: 'system-flow', label: 'Flux système · papier 3', family: 'flow', era: '2025', props: { background: 'paper-3' } },
     { id: 'system-flow--ink', type: 'system-flow', label: 'Flux système · encre', family: 'flow', era: '2026', props: { background: 'ink' } },
+    { id: 'system-flow--diagram', type: 'system-flow', label: 'Flux système · diagramme horizontal', family: 'flow', era: '2024', props: { layout: 'diagram' } },
+    { id: 'system-flow--horizontal', type: 'system-flow', label: 'Flux système · rail scrollable', family: 'flow', era: '2025', props: { layout: 'horizontal' } },
+    { id: 'system-flow--vertical-stack', type: 'system-flow', label: 'Flux système · étapes empilées', family: 'flow', era: '2025', props: { layout: 'vertical-stack' } },
+    { id: 'system-flow--vertical-stack-ample', type: 'system-flow', label: 'Flux système · empilé · aéré', family: 'flow', era: '2026', props: { layout: 'vertical-stack', density: 'ample' } },
+    { id: 'system-flow--diagram-compact', type: 'system-flow', label: 'Flux système · diagramme · compact', family: 'flow', era: '2026', props: { layout: 'diagram', density: 'compact' } },
+    { id: 'system-flow--head-center', type: 'system-flow', label: 'Flux système · header centré', family: 'flow', era: '2026', props: { layout: 'horizontal', contentAlign: 'center' } },
+    { id: 'system-flow--head-end', type: 'system-flow', label: 'Flux système · en-tête aligné à droite', family: 'flow', era: '2026', props: { layout: 'diagram', placement: { header: { align: 'end' } } } },
+    { id: 'system-flow--atomic-flow-hide-mobile', type: 'system-flow', label: 'Flux système · cartes masquées mobile (atomique)', family: 'flow', era: '2026', props: { layout: 'horizontal', placement: { body: { hideOn: 'mobile' } } } },
   ],
+
+  // (system-flow presets consolidés plus haut · Vague C Batch 5)
 
   // ── 7 familles media-first ─────────────────────────────────────────────────
 

@@ -19,17 +19,46 @@ const kicker = isFr ? data.kicker_fr : data.kicker_en;
 const h2 = isFr ? data.h2_fr : data.h2_en;
 const lede = isFr ? data.lede_fr : data.lede_en;
 const stages = data.stages;
+
+// ── Vague C · Batch 5 (process/stages). Résolution raccourci↔placement : UN data-attr effectif
+// par région (placement.header.align ?? contentAlign). Défaut absent = grille count-adaptive actuelle.
+const dgLayout = data.layout;
+const dgPl = data.placement;
+const dgHeaderAlign = dgPl?.header?.align ?? data.contentAlign;
+const dgHeaderOrder = dgPl?.header?.order;
+const dgHeaderHide = dgPl?.header?.hideOn;
+const dgBodyOrder = dgPl?.body?.order;
+const dgBodyHide = dgPl?.body?.hideOn;
+// grid-steps : colonnes imposées ('auto' = nb de stades = rendu actuel via --diag-cols).
+const dgGridCols = dgLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefined;
 ---
-<section class="diag" data-bg={data.background}>
+<section
+  class="diag"
+  data-bg={data.background}
+  data-layout={dgLayout}
+  data-density={data.density}
+  data-content-align={data.contentAlign}
+>
   <div class="wrap-wide">
     {(kicker || h2 || lede) && (
-      <header class="diag__head reveal">
+      <header
+        class="diag__head reveal"
+        data-header-align={dgHeaderAlign}
+        data-header-order={dgHeaderOrder}
+        data-header-hide={dgHeaderHide}
+      >
         {kicker && <Kicker tone="accent" class="diag__kicker">{kicker}</Kicker>}
         {h2 && <h2 class="diag__h2" set:html={h2} />}
         {lede && <p class="diag__lede">{lede}</p>}
       </header>
     )}
-    <ol class="diag__track reveal-stagger" style={`--diag-cols:${stages.length}`}>
+    <ol
+      class="diag__track reveal-stagger"
+      style={`--diag-cols:${stages.length}`}
+      data-columns={dgGridCols}
+      data-body-order={dgBodyOrder}
+      data-body-hide={dgBodyHide}
+    >
       {stages.map((s, i) => {
         const title = isFr ? s.title_fr : s.title_en;
         const body = isFr ? s.body_fr : s.body_en;
@@ -179,5 +208,96 @@ const stages = data.stages;
   @media (max-width: 560px) {
     .diag__track { grid-template-columns: 1fr; }
     .diag__stage { border-right: none; }
+  }
+
+  /* ── Vague C · Batch 5 · DENSITY (data-density). Défaut absent = rythme actuel (section-base
+     + padding card var(--space-6) var(--space-5)). Tokens --space-* seulement. ── */
+  .diag[data-density='compact'] { padding-block: var(--space-8); }
+  .diag[data-density='compact'] .diag__head { margin-bottom: var(--space-6); }
+  .diag[data-density='compact'] .diag__card { padding: var(--space-4) var(--space-4); }
+  .diag[data-density='ample'] { padding-block: var(--space-12); }
+  .diag[data-density='ample'] .diag__head { margin-bottom: var(--space-12); }
+  .diag[data-density='ample'] .diag__card { padding: var(--space-8) var(--space-6); }
+
+  /* ── CONTENT-ALIGN + header placement (data-header-align effectif = placement.header.align
+     ?? contentAlign). Défaut = start. ── */
+  .diag__head[data-header-align='center'] { margin-inline: auto; text-align: center; }
+  .diag__head[data-header-align='center'] .diag__lede { margin-inline: auto; }
+  .diag__head[data-header-align='end'] { margin-inline-start: auto; text-align: end; }
+  .diag__head[data-header-align='end'] .diag__lede { margin-inline-start: auto; }
+
+  /* order / hideOn structurels. wrap-wide en flux pour réordonner header↔track. */
+  .diag .wrap-wide { display: flex; flex-direction: column; }
+  .diag__head[data-header-order='0'] { order: 0; }
+  .diag__head[data-header-order='1'] { order: 1; }
+  .diag__track[data-body-order='0'] { order: 0; }
+  .diag__track[data-body-order='1'] { order: 1; }
+  .diag__head[data-header-hide='desktop'],
+  .diag__track[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .diag__head[data-header-hide='mobile'],
+    .diag__track[data-body-hide='mobile'] { display: none; }
+    .diag__head[data-header-hide='desktop'] { display: block; }
+    .diag__track[data-body-hide='desktop'] { display: grid; }
+  }
+
+  /* ── VOCABULAIRE DE LAYOUT (data-layout). Défaut absent = piste de stades en grille
+     count-adaptive (--diag-cols, rendu actuel). Le relevé « current » (accent + « vous êtes
+     ici ») et la séquence 1..N sont préservés dans toutes les recettes. ── */
+
+  /* grid-steps : grille de cards, colonnes pilotées par data-columns (auto = nb de stades =
+     rendu actuel). Conserve les filets verticaux entre cartes. */
+  .diag[data-layout='grid-steps'] .diag__track[data-columns='2'] { grid-template-columns: repeat(2, 1fr); }
+  .diag[data-layout='grid-steps'] .diag__track[data-columns='3'] { grid-template-columns: repeat(3, 1fr); }
+  .diag[data-layout='grid-steps'] .diag__track[data-columns='4'] { grid-template-columns: repeat(4, 1fr); }
+
+  /* vertical-stack : stades empilés pleine largeur, séparés par hairline horizontal (la barre
+     « current » accent passe à gauche). Lecture séquentielle verticale. */
+  .diag[data-layout='vertical-stack'] .diag__track {
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--hairline);
+  }
+  .diag[data-layout='vertical-stack'] .diag__stage {
+    border-right: none;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .diag[data-layout='vertical-stack'] .diag__stage:last-child { border-bottom: none; }
+  .diag[data-layout='vertical-stack'] .diag__card { border-top: none; border-left: 2px solid transparent; margin-top: 0; }
+  .diag[data-layout='vertical-stack'] .diag__stage[data-current='true'] .diag__card { border-top: none; border-left: 2px solid var(--accent); }
+
+  /* numbered-rows : comme vertical-stack mais chaque ligne devient une rangée header en grille
+     (numéro | titre+desc | phase) avec un rythme de table éditoriale. */
+  .diag[data-layout='numbered-rows'] .diag__track {
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--hairline);
+  }
+  .diag[data-layout='numbered-rows'] .diag__stage {
+    border-right: none;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .diag[data-layout='numbered-rows'] .diag__stage:last-child { border-bottom: none; }
+  .diag[data-layout='numbered-rows'] .diag__card {
+    display: grid;
+    grid-template-columns: minmax(56px, auto) minmax(0, 1fr) minmax(96px, auto);
+    column-gap: var(--space-6);
+    align-items: baseline;
+    border-top: none;
+    border-left: 2px solid transparent;
+    margin-top: 0;
+  }
+  .diag[data-layout='numbered-rows'] .diag__stage[data-current='true'] .diag__card { border-top: none; border-left: 2px solid var(--accent); }
+  /* col 1 = numéro (+ glyph empilé) ; le « here », titre, body occupent la col 2 ; phase col 3. */
+  .diag[data-layout='numbered-rows'] .diag__top { grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+  .diag[data-layout='numbered-rows'] .diag__here,
+  .diag[data-layout='numbered-rows'] .diag__title,
+  .diag[data-layout='numbered-rows'] .diag__body { grid-column: 2; }
+  .diag[data-layout='numbered-rows'] .diag__phase { grid-column: 3; grid-row: 1; margin-top: 0; align-self: baseline; text-align: end; }
+
+  @media (max-width: 768px) {
+    .diag[data-layout='grid-steps'] .diag__track[data-columns='2'],
+    .diag[data-layout='grid-steps'] .diag__track[data-columns='3'],
+    .diag[data-layout='grid-steps'] .diag__track[data-columns='4'] { grid-template-columns: 1fr; }
+    .diag[data-layout='numbered-rows'] .diag__card { grid-template-columns: 1fr; row-gap: var(--space-2); }
+    .diag[data-layout='numbered-rows'] .diag__phase { text-align: start; }
   }
 </style>

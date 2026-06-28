@@ -31,10 +31,32 @@ const steps = data.steps.map((s) => ({
 }));
 // Numéro DÉRIVÉ de l'index (01, 02…), jamais stocké.
 const num = (i: number) => String(i + 1).padStart(2, '0');
+
+// ── Vague C · Batch 5 (flow). Résolution raccourci↔placement : UN data-attr effectif par région.
+// Défaut absent = diagramme horizontal de cartes reliées par flèches (rendu actuel).
+const sfLayout = data.layout;
+const sfPl = data.placement;
+const sfHeaderAlign = sfPl?.header?.align ?? data.contentAlign;
+const sfHeaderOrder = sfPl?.header?.order;
+const sfHeaderHide = sfPl?.header?.hideOn;
+const sfBodyOrder = sfPl?.body?.order;
+const sfBodyHide = sfPl?.body?.hideOn;
 ---
-<section class="sf" data-bg={data.background ?? 'ink'} aria-labelledby="sf-h2">
+<section
+  class="sf"
+  data-bg={data.background ?? 'ink'}
+  data-layout={sfLayout}
+  data-density={data.density}
+  data-content-align={data.contentAlign}
+  aria-labelledby="sf-h2"
+>
   <div class="wrap-wide sf__inner reveal-stagger">
-    <header class="sf-hd">
+    <header
+      class="sf-hd"
+      data-header-align={sfHeaderAlign}
+      data-header-order={sfHeaderOrder}
+      data-header-hide={sfHeaderHide}
+    >
       {(data.fig_num || figTitle) && (
         <ChapterLabel num={data.fig_num ?? ''} title={figTitle} tone="dim" />
       )}
@@ -45,7 +67,7 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
     {lede && <p class="sf-lede">{lede}</p>}
 
     <div class="sf-rail">
-      <ol class="sf-flow">
+      <ol class="sf-flow" data-body-order={sfBodyOrder} data-body-hide={sfBodyHide}>
         {steps.map((step, i) => (
           <>
             <li class="sf-step">
@@ -218,6 +240,57 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
     .sf-arrow { transform: rotate(90deg); align-self: center; }
     .sf-loop__rule { max-width: 3rem; }
   }
+
+  /* ── Vague C · Batch 5 · DENSITY (data-density). Défaut absent = rythme actuel. ── */
+  .sf[data-density='compact'] { padding-block: var(--space-8); }
+  .sf[data-density='compact'] .sf-rail { padding: var(--space-6) var(--space-5); }
+  .sf[data-density='compact'] .sf-flow { gap: var(--space-3); }
+  .sf[data-density='ample'] { padding-block: var(--space-12); }
+  .sf[data-density='ample'] .sf-rail { padding: var(--space-10) var(--space-8); }
+  .sf[data-density='ample'] .sf-flow { gap: var(--space-6); }
+
+  /* ── CONTENT-ALIGN + header placement. Header = rangée space-between (Fig. à gauche, méta à
+     droite). center/end décalent le bloc ; le titre/lede suivent contentAlign. Défaut = start. ── */
+  .sf-hd[data-header-align='center'] { justify-content: center; }
+  .sf-hd[data-header-align='end'] { justify-content: flex-end; }
+  .sf[data-content-align='center'] .sf-title,
+  .sf[data-content-align='center'] .sf-lede { margin-inline: auto; text-align: center; }
+  .sf[data-content-align='end'] .sf-title,
+  .sf[data-content-align='end'] .sf-lede { margin-inline-start: auto; text-align: end; }
+
+  /* order / hideOn structurels. sf__inner est un flux vertical. */
+  .sf-hd[data-header-order='0'] { order: 0; }
+  .sf-hd[data-header-order='1'] { order: 1; }
+  .sf-flow[data-body-order='0'] { order: 0; }
+  .sf-flow[data-body-order='1'] { order: 1; }
+  .sf-hd[data-header-hide='desktop'],
+  .sf-flow[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .sf-hd[data-header-hide='mobile'],
+    .sf-flow[data-body-hide='mobile'] { display: none; }
+    .sf-hd[data-header-hide='desktop'] { display: flex; }
+    .sf-flow[data-body-hide='desktop'] { display: flex; }
+  }
+
+  /* ── VOCABULAIRE DE LAYOUT (data-layout). Défaut absent = diagramme horizontal de cartes
+     reliées par flèches → (rendu actuel = recette « diagram »). Toutes les recettes gardent la
+     numérotation 01..N dérivée et les flèches/connecteurs alignés. ── */
+
+  /* diagram : recette explicite = rendu par défaut (alias nommé pour le builder). */
+
+  /* horizontal : force le rail en rangée scrollable à toutes largeurs (cartes de largeur bornée,
+     flèches → conservées). Jamais de débordement de page (scroll contenu dans le rail). */
+  .sf[data-layout='horizontal'] .sf-rail { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sf[data-layout='horizontal'] .sf-flow { flex-direction: row; align-items: stretch; }
+  .sf[data-layout='horizontal'] .sf-step { flex: 0 0 16rem; }
+  .sf[data-layout='horizontal'] .sf-arrow { transform: none; align-self: center; }
+
+  /* vertical-stack : cartes empilées en colonne à toutes largeurs, flèches verticales ↓ (plus de
+     scroll horizontal). Lecture séquentielle du flux. */
+  .sf[data-layout='vertical-stack'] .sf-rail { overflow-x: visible; }
+  .sf[data-layout='vertical-stack'] .sf-flow { flex-direction: column; align-items: stretch; gap: var(--space-3); }
+  .sf[data-layout='vertical-stack'] .sf-step { flex: 1 1 auto; }
+  .sf[data-layout='vertical-stack'] .sf-arrow { transform: rotate(90deg); align-self: center; }
 
   @media (prefers-reduced-motion: reduce) {
     .reveal-stagger > * { transition: none; }

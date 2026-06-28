@@ -8,12 +8,34 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+
+// ── Vague C · Batch 5 (process/timeline). Résolution raccourci↔placement : valeur effective
+// calculée UNE fois, UN seul data-attr par région. placement.header.align surcharge contentAlign.
+// Défaut absent = rendu actuel (grille éditoriale 3-col).
+const mtLayout = data.layout;
+const mtPl = data.placement;
+const mtHeaderAlign = mtPl?.header?.align ?? data.contentAlign;
+const mtHeaderOrder = mtPl?.header?.order;
+const mtHeaderHide = mtPl?.header?.hideOn;
+const mtBodyOrder = mtPl?.body?.order;
+const mtBodyHide = mtPl?.body?.hideOn;
 ---
 
-<section class="method-timeline sec-base" data-bg={data.background}>
+<section
+  class="method-timeline sec-base"
+  data-bg={data.background}
+  data-layout={mtLayout}
+  data-density={data.density}
+  data-content-align={data.contentAlign}
+>
   <div class="wrap-wide">
   {(data.kicker_fr || data.kicker_en || data.h2_fr || data.h2_en || data.lede_fr || data.lede_en) && (
-  <div class="method-timeline__header">
+  <div
+    class="method-timeline__header"
+    data-header-align={mtHeaderAlign}
+    data-header-order={mtHeaderOrder}
+    data-header-hide={mtHeaderHide}
+  >
     {(isFr ? data.kicker_fr : data.kicker_en) && (
       <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     )}
@@ -25,7 +47,12 @@ const isFr = lang === 'fr';
     )}
   </div>
   )}
-  <ol class="method-timeline__list">
+  <ol
+    class="method-timeline__list"
+    data-columns={mtLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefined}
+    data-body-order={mtBodyOrder}
+    data-body-hide={mtBodyHide}
+  >
     {data.steps.map((step: (typeof data.steps)[number]) => {
       const meta = isFr ? step.meta_fr : step.meta_en;
       return (
@@ -143,5 +170,120 @@ const isFr = lang === 'fr';
       padding-top: 0;
       order: 3;
     }
+  }
+
+  /* ── Vague C · Batch 5 · DENSITY (data-density). Défaut absent = rythme actuel (sec-base
+     + padding-block var(--space-6) par étape). Tokens --space-* seulement. ── */
+  .method-timeline[data-density='compact'] .method-timeline__step { padding-block: var(--space-4); }
+  .method-timeline[data-density='compact'] .method-timeline__header { margin-bottom: var(--space-6); }
+  .method-timeline[data-density='base'] .method-timeline__step { padding-block: var(--space-6); }
+  .method-timeline[data-density='ample'] .method-timeline__step { padding-block: var(--space-8); }
+  .method-timeline[data-density='ample'] .method-timeline__header { margin-bottom: var(--space-10); }
+
+  /* ── CONTENT-ALIGN (data-content-align) + header placement (data-header-align). UN data-attr
+     effectif posé par le composant (placement.header.align ?? contentAlign). Défaut = start. ── */
+  .method-timeline__header[data-header-align='center'] { text-align: center; max-width: none; }
+  .method-timeline__header[data-header-align='center'] > * { margin-inline: auto; }
+  .method-timeline__header[data-header-align='end'] { text-align: end; margin-inline-start: auto; }
+
+  /* order / hideOn structurels (pas de token). wrap-wide en flux pour réordonner header↔liste. */
+  .method-timeline .wrap-wide { display: flex; flex-direction: column; }
+  .method-timeline__header[data-header-order='0'] { order: 0; }
+  .method-timeline__header[data-header-order='1'] { order: 1; }
+  .method-timeline__list[data-body-order='0'] { order: 0; }
+  .method-timeline__list[data-body-order='1'] { order: 1; }
+  .method-timeline__header[data-header-hide='desktop'],
+  .method-timeline__list[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .method-timeline__header[data-header-hide='mobile'],
+    .method-timeline__list[data-body-hide='mobile'] { display: none; }
+    .method-timeline__header[data-header-hide='desktop'] { display: flex; }
+    .method-timeline__list[data-body-hide='desktop'] { display: block; }
+  }
+
+  /* ── VOCABULAIRE DE LAYOUT (data-layout). Défaut absent = grille éditoriale 3-col (rendu
+     actuel). Chaque recette préserve la séquence 1..N (le numéro reste au début de chaque étape).
+     100% tokens DS ; structurel = 768px, minmax/fr, scroll-snap, order. ── */
+
+  /* numbered-rows : lignes pleine largeur séparées par hairline, gros numéro à gauche, méta à
+     droite. La grille passe de 3 colonnes serrées à un rythme éditorial 1 ligne = 1 étape. */
+  .method-timeline[data-layout='numbered-rows'] .method-timeline__step {
+    grid-template-columns: minmax(72px, auto) minmax(0, 1fr) minmax(120px, auto);
+    column-gap: var(--space-8);
+    align-items: baseline;
+  }
+
+  /* vertical-stack : étapes empilées en pleine largeur sans colonne méta latérale ; numéro
+     au-dessus du contenu. Lecture séquentielle simple. */
+  .method-timeline[data-layout='vertical-stack'] .method-timeline__step {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-3);
+  }
+  .method-timeline[data-layout='vertical-stack'] .method-timeline__aside {
+    justify-self: start;
+    text-align: start;
+    padding-top: 0;
+  }
+
+  /* horizontal : rail horizontal, scroll tactile si déborde (jamais de débordement de page).
+     Chaque étape = colonne de largeur bornée. La bordure top devient une carte hairline. */
+  .method-timeline[data-layout='horizontal'] .method-timeline__list {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-5);
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-3);
+  }
+  .method-timeline[data-layout='horizontal'] .method-timeline__step {
+    flex: 0 0 18rem;
+    grid-template-columns: 1fr;
+    row-gap: var(--space-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    scroll-snap-align: start;
+  }
+  .method-timeline[data-layout='horizontal'] .method-timeline__step:last-child { border-bottom: 1px solid var(--hairline); }
+  .method-timeline[data-layout='horizontal'] .method-timeline__aside { justify-self: start; text-align: start; padding-top: 0; }
+
+  /* grid-steps : étapes en grille de cartes, count-adaptive (auto) ou N colonnes fixes. Cartes
+     hairline égalisées. Absorbe 2..N étapes (auto-fit / centrage dernière ligne). */
+  .method-timeline[data-layout='grid-steps'] .method-timeline__list {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+    justify-content: center;
+    align-items: stretch;
+  }
+  .method-timeline[data-layout='grid-steps'] .method-timeline__list[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .method-timeline[data-layout='grid-steps'] .method-timeline__list[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .method-timeline[data-layout='grid-steps'] .method-timeline__list[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .method-timeline[data-layout='grid-steps'] .method-timeline__step {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+  }
+  .method-timeline[data-layout='grid-steps'] .method-timeline__step:last-child { border-bottom: 1px solid var(--hairline); }
+  .method-timeline[data-layout='grid-steps'] .method-timeline__aside { justify-self: start; text-align: start; padding-top: 0; }
+
+  /* Responsive : grid-steps + horizontal convergent en colonne lisible ≤768px (le bloc mobile
+     générique passe déjà les __step en 1fr ; ici on rend la grille/le rail en pile verticale). */
+  @media (max-width: 768px) {
+    .method-timeline[data-layout='grid-steps'] .method-timeline__list,
+    .method-timeline[data-layout='grid-steps'] .method-timeline__list[data-columns='2'],
+    .method-timeline[data-layout='grid-steps'] .method-timeline__list[data-columns='3'],
+    .method-timeline[data-layout='grid-steps'] .method-timeline__list[data-columns='4'] {
+      grid-template-columns: 1fr;
+    }
+    .method-timeline[data-layout='horizontal'] .method-timeline__list {
+      flex-direction: column;
+      overflow-x: visible;
+    }
+    .method-timeline[data-layout='horizontal'] .method-timeline__step { flex: 1 1 auto; }
+    .method-timeline[data-layout='numbered-rows'] .method-timeline__step { grid-template-columns: 1fr; }
   }
 </style>

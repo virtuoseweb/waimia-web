@@ -1466,6 +1466,18 @@ export const methodTimelineSchema = z.object({
   lede_fr: z.string().optional(),
   lede_en: z.string().optional(),
   steps: z.array(stepSchema).min(2).max(6),
+  // Vague C · Batch 5 (process/timeline). Recettes layout curées de la famille « process » :
+  //  vertical-stack (défaut = grille éditoriale 3-col actuelle), numbered-rows (lignes hairline
+  //  à gros numéro), horizontal (rail scroll tactile), grid-steps (étapes en cartes en grille).
+  layout: z.enum(['vertical-stack', 'numbered-rows', 'horizontal', 'grid-steps']).optional(),
+  // grid-steps : nombre de colonnes (auto = count-adaptive auto-fit). Ignoré par les autres recettes.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  // density (data-density) : rythme padding-block section + gap des étapes via --space-*.
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // contentAlign (data-content-align) : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
 });
 
 export const featureGridSchema = z.object({
@@ -4542,6 +4554,19 @@ export const diagnosticStagesSchema = z.object({
   lede_fr: z.string().optional(),
   lede_en: z.string().optional(),
   stages: z.array(diagnosticStageSchema).min(4).max(6),
+  // Vague C · Batch 5 (process/stages). Recettes layout : grid-steps (défaut = piste de stades
+  //  en grille count-adaptive actuelle), vertical-stack (stades empilés pleine largeur),
+  //  numbered-rows (lignes hairline numérotées). La séquence 1..N et le relevé « current » sont
+  //  préservés dans toutes les recettes.
+  layout: z.enum(['grid-steps', 'vertical-stack', 'numbered-rows']).optional(),
+  // grid-steps : nombre de colonnes imposé (auto = nb de stades, rendu actuel). Ignoré ailleurs.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  // density (data-density) : padding-block section + padding des cards via --space-*.
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // contentAlign (data-content-align) : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
 });
 
 // case-spotlight (case-sections) : carte INK image + métriques latérales massives +
@@ -4802,6 +4827,10 @@ export const systemFlowSchema = z.object({
 export const methodSteplineSchema = z.object({
   type: z.literal('method-stepline'),
   ...sectionBaseSchema.shape,
+  // Vague C · Batch 5 : layout (string mixin) lit horizontal (défaut, rail actuel),
+  // vertical-stack (colonne), numbered-rows (lignes hairline), grid-steps (cartes en grille).
+  // columns : nb de colonnes du mode grid-steps (auto = count-adaptive). Ignoré ailleurs.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   duration_fr: z.string().optional(),
