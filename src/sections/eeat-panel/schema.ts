@@ -5,7 +5,7 @@
 // Contenu GLOBAL single-source (EEAT_PACK + EEAT_IMAGES) → pas de champ de contenu dans le
 // schéma, seulement le pilotage de variante/fond + overrides éditoriaux optionnels.
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('eeat-panel'),

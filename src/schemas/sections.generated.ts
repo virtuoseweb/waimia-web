@@ -3,7 +3,7 @@
 // Régénérer : `npm run gen:section-aggregate`. Gate : `npm run check:section-aggregate`.
 // (src/schemas/sections.generated.ts)
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 
 import { schema as aboutStorySplitSchema } from '../sections/about-story-split/schema';
 import { schema as agenticTerminalSchema } from '../sections/agentic-terminal/schema';

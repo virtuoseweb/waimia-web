@@ -4,7 +4,7 @@
 // `z.object` SANS le wrapper discriminatedUnion. `z` vient de `astro:content` (cohérence
 // build Astro + pattern codegen). `ctaSchema` réimporté depuis la feuille pure `_shared`.
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 import { ctaSchema } from '../_shared/subschemas';
 
 // hero-social-proof · hero centré + bande de preuve sociale (stats + rating) above-fold.

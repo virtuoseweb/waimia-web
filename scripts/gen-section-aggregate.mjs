@@ -86,7 +86,7 @@ function banner(rel) {
 // ─── 1. sections.generated.ts ───
 function genSchemas(ids) {
   let out = banner('src/schemas/sections.generated.ts');
-  out += `import { z } from 'astro:content';\n\n`;
+  out += `import { z } from 'zod';\n\n`;
   // Réexport des schemas de chaque module sous le nom historique `<camel>Schema`.
   for (const id of ids) {
     out += `import { schema as ${camel(id)}Schema } from '../sections/${id}/schema';\n`;

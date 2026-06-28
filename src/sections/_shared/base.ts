@@ -6,7 +6,7 @@
 // (anti-cycle). `z` vient de `astro:content` (comme tout le reste du repo) pour que le
 // build Astro ET le pattern de codegen (replace `astro:content` → zod réel) fonctionnent.
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 
 /**
  * COUCHE ATOMIQUE : placement par élément (Vague C, décision Simon 2026-06-28).

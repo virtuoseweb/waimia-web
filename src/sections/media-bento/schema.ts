@@ -4,7 +4,7 @@
 // `z.object` SANS le wrapper discriminatedUnion. `z` vient de `astro:content` (cohérence
 // build Astro + pattern codegen). `placementSchema` réimporté depuis la feuille pure `_shared`.
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 import { placementSchema } from '../_shared/base';
 
 export const schema = z.object({

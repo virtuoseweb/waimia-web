@@ -4,7 +4,7 @@
 // (rule 60 : déplacer, pas dupliquer). FEUILLE PURE : 0 import vers sections.ts /
 // registry (anti-cycle). `z` vient de `astro:content` (cohérence build + codegen).
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 // Enums de cellule réutilisés par `featureItemSchema` (overrides par item).
 // Dépendance interne `_shared` → `_shared` (reste une feuille pure, 0 cycle vers sections.ts).
 import { cellBgEnum, toneEnum, cellAlignYEnum } from './base';

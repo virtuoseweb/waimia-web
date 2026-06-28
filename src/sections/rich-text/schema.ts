@@ -8,7 +8,7 @@
 // body_md_fr / body_md_en : la paire `_fr`/`_en` est regroupee par le derive en UN slot
 // logique `body_md` de type richtext (scalarType etendu aux motifs `*_md` / `body`).
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 import { sectionBaseSchema } from '../_shared/base';
 
 export const schema = z.object({

@@ -5,7 +5,7 @@
 // FEUILLE PURE : n'importe que z + les sous-schemas/enums partages. 0 import de type-block.
 // Ordre TOPOLOGIQUE (deps avant dependents) pour eviter tout TDZ au build.
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 import { ctaSchema } from './subschemas';
 
 export const aboutStoryMilestoneSchema = z.object({

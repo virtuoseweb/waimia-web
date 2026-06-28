@@ -2,7 +2,7 @@
 // DEPLACE depuis src/schemas/sections.ts (rule 60). z.object SANS discriminatedUnion.
 // z vient d'astro:content (build Astro + pattern codegen). Imports partages reresolus.
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('hero-form-inline'),

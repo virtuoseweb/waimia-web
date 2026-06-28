@@ -11,7 +11,7 @@
 // 0 token DS, 0 valeur en dur. `z` vient d'`astro:content` comme dans sections.ts (cohérence
 // + même neutralisation `astro:content`→zod hors build, cf scripts/derive-section-slots.mjs).
 
-import { z } from 'astro:content';
+import { z } from 'zod';
 import { sectionsArraySchema } from './sections';
 
 /**
