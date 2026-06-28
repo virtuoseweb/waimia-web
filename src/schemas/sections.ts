@@ -61,6 +61,37 @@ const sectionBaseSchema = z.object({
   actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
   // Couche atomique : placement par région (Vague C). Optionnel, forme identique partout.
   placement: placementSchema,
+
+  /* ─── Mixin de variation unique — les 6 couches (Pilier 2, système de production) ───
+   * TOUS optionnels → 0 régression : sans valeur, le composant rend exactement comme
+   * aujourd'hui. La LISTE des valeurs réellement supportées par un type vit dans
+   * `capabilities` (section-archetypes.ts / registry), pas dans des enums divergents.
+   * Le moteur CSS (section-layouts.css) lit les data-attrs correspondants. */
+
+  // Couches 1-3 : layout + axes de grille / split.
+  // `layout` (ci-dessus) reste un z.string() libre au niveau contrat ; capabilities cadre la liste.
+  columns: z.enum(['auto', '1', '2', '3', '4', '5', '6']).optional(),
+  colRatio: z.enum(['equal', '1-2', '2-1', '1-1-2', '2-3', 'golden']).optional(),
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
+  proportion: z.enum(['1-1', '1-2', '2-1', '2-3', '3-2']).optional(),
+  mediaSide: z.enum(['left', 'right']).optional(),
+
+  // Couche 4 : skin / surface (100 % tokens DS).
+  surface: z.enum(['flat', 'outlined', 'filled', 'elevated', 'ghost']).optional(),
+  divider: z.enum(['none', 'hairline', 'rule']).optional(),
+  radius: z.enum(['none', 'sm', 'md', 'lg']).optional(),
+  accentEdge: z.enum(['none', 'top', 'left']).optional(),
+
+  // Couche 5 : responsive par breakpoint.
+  colsMobile: z.enum(['auto', '1', '2', '3', '4']).optional(),
+  colsTablet: z.enum(['auto', '1', '2', '3', '4']).optional(),
+  layoutMobile: z.string().optional(),
+
+  // Couche 6 : emphasis / typo + interaction.
+  titleScale: z.enum(['sm', 'base', 'lg', 'xl']).optional(),
+  eyebrow: z.enum(['none', 'kicker', 'badge']).optional(),
+  reveal: z.enum(['none', 'fade', 'stagger']).optional(),
+  hover: z.enum(['none', 'lift', 'zoom', 'reveal-cta']).optional(),
 });
 
 const bilingualString = z.object({

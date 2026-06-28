@@ -15,6 +15,7 @@ import type {
   LayoutTag,
   FacetKind,
 } from './section-facets';
+import { capabilitiesFor, type Capabilities } from './section-archetypes';
 
 // Astro component type — opaque côté registry ; le rendu passe par SectionsRenderer.
 export type AstroComponent = (_props: never) => unknown;
@@ -47,6 +48,14 @@ export interface SectionDescriptor {
   interactions: InteractionTag[];
   elements: ElementTag[];
   layoutFacets: LayoutTag[];
+  /**
+   * Capacités CÂBLÉES par le composant (Pilier 2 — système de production). Optionnel :
+   * en l'absence d'override, les capacités sont DÉRIVÉES de l'archétype du type via
+   * `capabilitiesFor` (cf section-archetypes.ts) — d'où aucune réécriture des 199
+   * entrées. Renseigner ce champ uniquement pour surcharger ponctuellement les défauts
+   * d'archétype (merge shallow par clé). Lire les capacités effectives = `getCapabilities(type)`.
+   */
+  capabilities?: Partial<Capabilities>;
 }
 
 // Imports section components (sera étendu Wave T2.2 par worker Sonnet)
@@ -3270,6 +3279,16 @@ export function getSectionComponent(type: SectionType): AstroComponent | undefin
 
 export function getSectionMeta(type: SectionType): SectionDescriptor | undefined {
   return SECTIONS[type];
+}
+
+/**
+ * Capacités EFFECTIVES d'un type (Pilier 2). Délègue à `capabilitiesFor` : bundle
+ * d'archétype (dérivé de la `family` du descripteur) fusionné avec l'override partiel
+ * éventuel du registry (`capabilities`). Source de vérité unique pour builder/MCP/gate/UI.
+ */
+export function getCapabilities(type: SectionType): Capabilities {
+  const meta = SECTIONS[type];
+  return capabilitiesFor(type, meta?.capabilities, meta?.family);
 }
 
 export interface SectionListItem extends SectionDescriptor {
