@@ -19,13 +19,13 @@ export const prerender = true;
 import Base from '../../../layouts/Base.astro';
 import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
-import BuilderCanvas from '../../../components/library/builder/BuilderCanvas.tsx';
+import BuilderCanvas from '@waimia/builder/BuilderCanvas.tsx';
 import type {
   BuilderCatalogueItem,
   BuilderColorScheme,
   SectionInstance,
   VariationOption,
-} from '../../../components/library/builder/types';
+} from '@waimia/builder/types';
 import { listSections, listCategories } from '../../../lib/section-registry';
 import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
 import { resolvePreset } from '@waimia/ds-kernel/lib/page-document';
