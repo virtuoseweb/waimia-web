@@ -16,7 +16,7 @@
 //   - exit 0 si tout aligné, exit 1 si AU MOINS un écart (drift réel)
 //   - exit 2 si un fichier est introuvable ou un parse rend 0 résultat (jamais de faux-positif silencieux)
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -26,10 +26,15 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // Vide pour l'instant — sert à pouvoir tolérer un écart connu sans casser la CI.
 const KNOWN_OK = new Set([]);
 
+// Wave #38 T5 (full replace) : les 5 touchpoints vivent désormais dans les MODULES co-localisés
+// (`src/sections/<type>/`) + les agrégats GENERES (sections.generated / *-registry.generated /
+// *-demos.generated). Le drift-guard scanne donc ces sources, plus le manifest hand-authored.
+const SECTIONS_DIR = 'src/sections';
+const IGNORED_DIRS = new Set(['_shared']);
 const FILES = {
-  schema: 'src/schemas/sections.ts',
-  demos: 'src/lib/section-demos.ts',
-  registry: 'src/lib/section-registry.ts',
+  schemaGen: 'src/schemas/sections.generated.ts',
+  demosGen: 'src/lib/section-demos.generated.ts',
+  registryGen: 'src/lib/section-registry.generated.ts',
   manifest: 'src/lib/library-manifest.ts',
 };
 
@@ -45,56 +50,73 @@ function read(rel) {
 const uniq = (arr) => [...new Set(arr)];
 
 // ── Parsing des 5 touchpoints ────────────────────────────────────────────────
-const srcRegistry = read(FILES.registry);
-const srcDemos = read(FILES.demos);
-const srcSchema = read(FILES.schema);
+const srcRegistryGen = read(FILES.registryGen);
+const srcDemosGen = read(FILES.demosGen);
 const srcManifest = read(FILES.manifest);
 
-// 3. registry — clés de SECTIONS (ENSEMBLE DE RÉFÉRENCE)
+// 0. Modules co-localisés (source physique des type-ids). Un module = un sous-dossier avec index.ts.
+const moduleDirs = readdirSync(join(ROOT, SECTIONS_DIR), { withFileTypes: true })
+  .filter((e) => e.isDirectory() && !IGNORED_DIRS.has(e.name))
+  .map((e) => e.name)
+  .filter((name) => existsSync(join(ROOT, SECTIONS_DIR, name, 'index.ts')))
+  .sort();
+
+// 3. registry : clés de SECTIONS dans section-registry.generated.ts (ENSEMBLE DE RÉFÉRENCE)
 const registryKeys = uniq(
-  [...srcRegistry.matchAll(/^\s*['"]([a-z0-9-]+)['"]\s*:\s*\{/gm)].map((m) => m[1]),
+  [...srcRegistryGen.matchAll(/^\s*['"]([a-z0-9-]+)['"]\s*:\s*\{/gm)].map((m) => m[1]),
 );
 
-// 1. schema — literals (fallback sur z.literal nu si le pattern `type:` ne matche rien)
-let schemaKeys = uniq(
-  [...srcSchema.matchAll(/type:\s*z\.literal\(\s*['"]([a-z0-9-]+)['"]\s*\)/g)].map((m) => m[1]),
-);
-if (schemaKeys.length === 0) {
-  schemaKeys = uniq(
-    [...srcSchema.matchAll(/z\.literal\(\s*['"]([a-z0-9-]+)['"]\s*\)/g)].map((m) => m[1]),
-  );
+// 1. schema : literal `type: z.literal('id')` lu dans chaque module schema.ts (doit == nom du dossier).
+const schemaKeys = [];
+const schemaLiteralMismatch = [];
+for (const id of moduleDirs) {
+  const p = join(ROOT, SECTIONS_DIR, id, 'schema.ts');
+  if (!existsSync(p)) {
+    schemaLiteralMismatch.push(`${id} (schema.ts absent)`);
+    continue;
+  }
+  const m = /type:\s*z\.literal\(\s*['"]([a-z0-9-]+)['"]\s*\)/.exec(readFileSync(p, 'utf8'));
+  if (!m) {
+    schemaLiteralMismatch.push(`${id} (pas de type literal)`);
+    continue;
+  }
+  if (m[1] !== id) schemaLiteralMismatch.push(`${id} (literal '${m[1]}' != dossier)`);
+  schemaKeys.push(m[1]);
 }
 
-// 2. demos — clés top-level de SECTION_DEMOS
+// 2. demos : clés de SECTION_DEMOS dans section-demos.generated.ts
 const demoKeys = uniq(
-  [...srcDemos.matchAll(/^\s*['"]([a-z0-9-]+)['"]\s*:\s*\{/gm)].map((m) => m[1]),
+  [...srcDemosGen.matchAll(/^\s*['"]([a-z0-9-]+)['"]\s*:/gm)].map((m) => m[1]),
 );
 
-// 5. manifest — ids de SECTION_USAGE
+// 5. manifest : ids de SECTION_USAGE (hand-authored, inchangé)
 const manifestKeys = uniq(
   [...srcManifest.matchAll(/id:\s*['"]([a-z0-9-]+)['"]/g)].map((m) => m[1]),
 );
 
-// 4. composant — pour chaque import de section dans le registry, vérifier le fichier sur disque
-const componentImports = [
-  ...srcRegistry.matchAll(
-    /import\s+([A-Za-z0-9_]+)\s+from\s+['"](\.\.\/components\/sections\/[A-Za-z0-9_]+\.astro)['"]/g,
-  ),
-].map((m) => ({ name: m[1], rel: m[2] }));
+// 4. composant : chaque module a un Component.astro ; s'il WRAPPE un composant partagé/déplacé,
+// la cible doit exister sur disque. Sinon le module porte le composant lui-même (déjà vérifié présent).
+const componentImports = moduleDirs.map((id) => ({ id, rel: join(SECTIONS_DIR, id, 'Component.astro') }));
 
 // Garde anti faux-positif : un parse à 0 résultat = bug de regex / fichier vide → exit 2.
 const parseGuards = [
+  ['modules co-localisés', moduleDirs.length],
   ['registry SECTIONS keys', registryKeys.length],
   ['schema literals', schemaKeys.length],
   ['demos keys', demoKeys.length],
   ['manifest ids', manifestKeys.length],
-  ['registry component imports', componentImports.length],
+  ['module components', componentImports.length],
 ];
 for (const [label, n] of parseGuards) {
   if (n === 0) {
     console.error(`✗ FATAL : parse "${label}" a rendu 0 résultat — regex/fichier suspect.`);
     process.exit(2);
   }
+}
+if (schemaLiteralMismatch.length) {
+  console.error('✗ FATAL : incohérence module ↔ literal de schema :');
+  for (const x of schemaLiteralMismatch) console.error('    - ' + x);
+  process.exit(2);
 }
 
 // ── Comparaisons ─────────────────────────────────────────────────────────────
@@ -116,10 +138,21 @@ const results = {
   manifest: diff(manifestKeys),
 };
 
-// Touchpoint composant : chaque .astro importé doit exister sur disque
-const missingComponents = componentImports
-  .filter(({ rel }) => !existsSync(join(ROOT, 'src', rel.replace(/^\.\.\//, ''))))
-  .map(({ name, rel }) => `${name} ← ${rel}`);
+// Touchpoint composant : chaque module a un Component.astro ; si wrapper, la cible existe.
+const missingComponents = [];
+for (const { id, rel } of componentImports) {
+  const abs = join(ROOT, rel);
+  if (!existsSync(abs)) {
+    missingComponents.push(`${id} ← ${rel} (absent)`);
+    continue;
+  }
+  // Si le Component.astro WRAPPE un composant partagé (import .../components/sections/X.astro),
+  // vérifier que la cible existe sur disque.
+  const wrap = /from\s+['"](\.\.\/\.\.\/components\/sections\/[A-Za-z0-9_]+\.astro)['"]/.exec(readFileSync(abs, 'utf8'));
+  if (wrap && !existsSync(join(ROOT, SECTIONS_DIR, id, wrap[1]))) {
+    missingComponents.push(`${id} ← cible wrapper ${wrap[1]} introuvable`);
+  }
+}
 
 // ── Rapport ──────────────────────────────────────────────────────────────────
 console.log('━━━ check-touchpoints — drift-guard bibliothèque sections ━━━');

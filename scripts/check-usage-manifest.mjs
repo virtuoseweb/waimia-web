@@ -31,7 +31,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
 const LIBRARY_MANIFEST_FILE = 'src/lib/library-manifest.ts';
-const REGISTRY_FILE = 'src/lib/section-registry.ts';
+// Wave #38 T5 : SECTIONS reconstruit dans le fichier GENERE (le god-file est un re-export).
+const REGISTRY_FILE = 'src/lib/section-registry.generated.ts';
 const MANIFEST_JSON_FILE = 'src/data/ds-section-manifest.json';
 
 function read(rel) {

@@ -1,0 +1,8 @@
+---
+// Waimia · Co-location DS (Wave #38, T5) · module `hero-conversion-funnel` · Component WRAPPER.
+// Le markup vit dans src/components/sections/HeroHubStats.astro (source unique, importe aussi
+// directement par des pages). Ce wrapper pass-through (data+lang, 0 slot) co-localise le
+// composant cote module sans dupliquer ni casser les imports existants (rule 60).
+import Shared from '../../components/sections/HeroHubStats.astro';
+---
+<Shared data={Astro.props.data} lang={Astro.props.lang} />

@@ -272,6 +272,24 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'pricing-toggle',            consumers: [] },
   { id: 'pricing-single-highlight',  consumers: [] },
   // <<< [gen-pricing] end
+  // >>> [t5-touchpoint-sync] start
+  // Wave #38 T5 (2026-06-28) : 13 types présents au registry mais absents de SECTION_USAGE
+  // (gap pré-existant, antérieur à T5). Ajoutés ici pour aligner le 5e touchpoint (manifest).
+  // Tous catalogue-only (0 consommateur live connu) ; corriger consumers si usage live avéré.
+  { id: 'definition-extract',        consumers: [] },
+  { id: 'eeat-panel',                consumers: [] },
+  { id: 'horizontal-showcase',       consumers: [] },
+  { id: 'hover-reveal-list',         consumers: [] },
+  { id: 'media-bento',               consumers: [] },
+  { id: 'media-swap-band',           consumers: [] },
+  { id: 'method-stepline',           consumers: [] },
+  { id: 'pain-severity-list',        consumers: [] },
+  { id: 'photo-cluster',             consumers: [] },
+  { id: 'scroll-gallery',            consumers: [] },
+  { id: 'stack-cards',               consumers: [] },
+  { id: 'statement-orbit',           consumers: [] },
+  { id: 'system-flow',               consumers: [] },
+  // <<< [t5-touchpoint-sync] end
 ];
 
 // ── Overrides d'étiquetage manuels (docs/40 §3) ──────────────────────────────

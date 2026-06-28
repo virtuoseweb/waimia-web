@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "dev:tina": "tinacms dev -c \"astro dev\"",
+    "prebuild": "node scripts/gen-section-aggregate.mjs",
     "build": "astro build",
     "build:tina": "tinacms build --local --skip-cloud-checks && astro build",
     "preview": "astro preview",
@@ -27,6 +28,7 @@
     "gen:section-manifest": "node scripts/gen-section-manifest.mjs",
     "gen:section-quickref": "node scripts/gen-section-quickref.mjs",
     "gen:section-aggregate": "node scripts/gen-section-aggregate.mjs",
+    "check:section-aggregate": "node scripts/check-section-aggregate.mjs",
     "check:touchpoints": "node scripts/check-touchpoints.mjs",
     "check:internal-links": "node scripts/check-internal-links.mjs",
     "check:no-emdash": "node scripts/check-no-emdash.mjs",
