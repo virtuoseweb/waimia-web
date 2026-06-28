@@ -29,13 +29,15 @@ Un système maintient l'alignement **intention ↔ réalité ↔ task-list Claud
 - Dev : `npx -y pnpm@9.15.0 dev`.
 
 ## Bibliothèque / Design System (W6) — composition, DS figé
-Catalogue de sections composables. **4 touchpoints par type, TOUS synchronisés** (sinon build cassé) :
+Catalogue de sections composables. **5 touchpoints par type, TOUS synchronisés** (sinon build cassé) :
 1. Schéma `src/schemas/sections.ts` (`z.object` + `discriminatedUnion` + union `SectionType`)
 2. Demo `src/lib/section-demos.ts` (données bilingues fr/en)
 3. Registry `src/lib/section-registry.ts` (import + entrée `SECTIONS`)
 4. Composant `src/components/sections/*.astro`
+5. Manifest `src/lib/library-manifest.ts` (`SECTION_USAGE`, dérive de `SECTIONS` → suit automatiquement)
+**Co-location (#38, en cours)** : les sections migrent vers un module unique `src/sections/<type>/` (`schema.ts` + `demo.ts` + `meta.ts` + `Component.astro` + `index.ts`), les god-files devenant des points d'agrégation générés (`gen:section-aggregate`). 3 pilotes migrés (media-bento, hero-social-proof, eeat-panel) ; gate `check:section-modules`. Source de vérité : `docs/audits/02-section-colocation-38.md` + blueprint `tasks/wave-38-colocation-spec.md`.
 Pages catalogue : `/agence/design-system`, `/preview/[type]`, `/components/[type]`, `/categories/[slug]`.
-**Régime DS (clarif Simon 2026-06-13) : variables figées, catalogue ACTIF.** ❌ **0 nouvelle variable/token DS** ; ✅ nouvelles valeurs Tailwind / calculs / transparences sur variables existantes ; ✅ **créer de nouveaux composants/familles/variantes/déclinaisons de section dans le catalogue** (c'est l'objet du chantier de design de template, pas figé) — à condition que tout passe par le **DS Studio** (source de vérité DS), soit bâti avec les variables DS, et **propagé/sync au catalogue** (4 touchpoints, sinon build cassé). Préférer la composition si une section existante couvre ~80 %, mais la création n'est PAS bannie. 0 markup orphelin. 0 modif des templates/pages live sans tâche dédiée. *(Rule 28 globale « 0 nouvelle section » = scopée projet Amploi `astro-tina-site-v1` catalogue figé V1 — ne s'applique PAS ici.)*
+**Régime DS (clarif Simon 2026-06-13) : variables figées, catalogue ACTIF.** ❌ **0 nouvelle variable/token DS** ; ✅ nouvelles valeurs Tailwind / calculs / transparences sur variables existantes ; ✅ **créer de nouveaux composants/familles/variantes/déclinaisons de section dans le catalogue** (c'est l'objet du chantier de design de template, pas figé) — à condition que tout passe par le **DS Studio** (source de vérité DS), soit bâti avec les variables DS, et **propagé/sync au catalogue** (5 touchpoints, sinon build cassé). Préférer la composition si une section existante couvre ~80 %, mais la création n'est PAS bannie. 0 markup orphelin. 0 modif des templates/pages live sans tâche dédiée. *(Rule 28 globale « 0 nouvelle section » = scopée projet Amploi `astro-tina-site-v1` catalogue figé V1 — ne s'applique PAS ici.)*
 
 ### 🧭 Règle d'or ANTI-ORPHELIN (source de vérité = le composant, jamais le markup inline)
 3 familles de blocs — ne pas les confondre :
@@ -48,7 +50,7 @@ Deux rendus de page : **composable** = frontmatter MDX `sections: [...]` → `<S
 ➡️ Pour TOUTE modif d'apparence/structure d'une section ou du header/footer : **éditer le composant** (`sections/`, `ui/organisms/`, `header/`, `footer/`) — **JAMAIS inliner du markup neuf dans une page ou un template** (= orphelin déconnecté du catalogue, dette garantie). Le header est global (`src/layouts/Base.astro` → `Header.astro`) : 1 édition → toutes les pages.
 ➡️ **Contenu textuel** = props / frontmatter MDX `src/content/**` / `src/data/*` → 0 impact design.
 ➡️ **Contenu GLOBAL vs INSTANCE** (directive Simon 2026-06-13) : la règle anti-orphelin ci-dessus rend le **markup** GLOBAL (éditer le composant propage partout). Pour le **contenu**, viser le même réflexe quand il est réutilisé cross-page : un cas, un avis, un bloc auteur, un prix affiché sur plusieurs surfaces (page service + landing `/lp/` + hub) doit vivre dans une **source unique** (collection Astro référencée par `*Id`/`*Slug`, ou store `src/data/*.ts` type `pain-points.ts`) → édite une fois, propage partout (**GLOBAL**). Le contenu propre à une page reste inline en frontmatter (**INSTANCE**). Tout nouveau composant porteur de contenu réutilisable se conçoit catalogue-ready avec les 2 états (réf optionnelle + override inline). ⚠️ Aujourd'hui le contenu de section est **INSTANCE-only** (props inline, 0 propagation) ; ne pas dupliquer un contenu partagé d'une page à l'autre (= dette de désync).
-➡️ **Nouveau type de section** = tâche dédiée Simon (les 4 touchpoints ci-dessus synchronisés, sinon build cassé) — **hors scope contenu** d'un collaborateur.
+➡️ **Nouveau type de section** = tâche dédiée Simon (les 5 touchpoints ci-dessus synchronisés, ou module co-localisé `src/sections/<type>/` + `gen:section-aggregate`, sinon build cassé) — **hors scope contenu** d'un collaborateur.
 
 ## 🛑 Garde-fous NON négociables (fallback inline complet — GF-1..GF-6)
 > Le plugin `vw-guardrails` recharge ces GF au boot (cloud + local). Ce bloc est le **filet de secours** si l'install du plugin échoue (réseau cloud) — il doit donc rester **autoporteur**.
