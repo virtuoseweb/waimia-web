@@ -48,10 +48,17 @@ function collectSlugs(collection) {
     process.exit(2);
   }
   const slugs = new Map(); // slug → fichier
-  for (const f of readdirSync(dir).filter((f) => f.endsWith('.mdx'))) {
+  for (const f of readdirSync(dir).filter((f) => f.endsWith('.mdx') || f.endsWith('.json'))) {
     const src = readFileSync(join(dir, f), 'utf8');
-    const m = src.match(/^slug:\s*["']?([a-z0-9-]+)["']?\s*$/m);
-    slugs.set(m ? m[1] : f.replace(/\.mdx$/, ''), f);
+    let slug;
+    if (f.endsWith('.json')) {
+      // Page composable migrée (frontmatter → objet JSON, cf ADR docs/strategy/12).
+      slug = JSON.parse(src).slug ?? f.replace(/\.json$/, '');
+    } else {
+      const m = src.match(/^slug:\s*["']?([a-z0-9-]+)["']?\s*$/m);
+      slug = m ? m[1] : f.replace(/\.mdx$/, '');
+    }
+    slugs.set(slug, f);
   }
   // Collections légitimement vidables (purge P0.2-H : cas/secteurs fictifs retirés,
   // reconstruction réelle en P0.6) + supprimées (SEO état final). Un dossier vide

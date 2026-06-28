@@ -223,7 +223,7 @@ const cases = defineCollection({
 
 // ─── Offres (étendu V2) ───
 const offres = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/offres' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/offres' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -305,7 +305,7 @@ const offres = defineCollection({
 
 // ─── Services (ADR-003) · pages de service composables ───
 const services = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/services' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/services' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -315,7 +315,7 @@ const services = defineCollection({
 
 // ─── Landing pages (ADR-003) · /lp/<slug> · noindex par défaut ───
 const lp = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/lp' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/lp' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -325,7 +325,7 @@ const lp = defineCollection({
 
 // ─── Collections v7 (refonte SEO/GEO) ───
 const casUsages = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/cas-usages' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/cas-usages' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -361,7 +361,7 @@ const guides = defineCollection({
 });
 
 const diagnostics = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/diagnostics' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/diagnostics' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -379,7 +379,7 @@ const comparatifs = defineCollection({
 });
 
 const audits = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/audits' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/audits' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,

@@ -1,0 +1,908 @@
+{
+  "title_fr": "Intégrateur Claude · déployer Claude et ses agents dans votre PME",
+  "title_en": "Claude integrator · deploying Claude and its agents in your SMB",
+  "description_fr": "Intégrateur Claude pour PME : déploiement de Claude, Claude Code et MCP, formation du référent IA et gouvernance. En production, pas en POC. Montpellier.",
+  "description_en": "Claude integrator for SMBs: deploying Claude, Claude Code and MCP, AI lead training and governance. In production, not in POC. Studio in Montpellier.",
+  "slug": "integrateur-claude",
+  "publishedAt": "2026-06-18T00:00:00.000Z",
+  "updatedAt": "2026-06-22T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "integrateur-claude",
+    "claude-code",
+    "agents-ia",
+    "mcp",
+    "integration-ia"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Intégration IA / Agents Claude / MCP",
+    "priceRange": "2000-10000€",
+    "priceMin": 2000,
+    "priceMax": 10000
+  },
+  "faq_fr": [
+    {
+      "q": "Un intégrateur Claude, ça fait quoi exactement ?",
+      "a": "Il transforme Claude, un modèle générique, en un système qui exécute du travail réel dans votre entreprise. Concrètement : on cartographie le process à automatiser, on conçoit l'agent, on le branche à vos outils via le protocole MCP, on le déploie en production et on le supervise dans la durée. Pas une démo, un système mesuré."
+    },
+    {
+      "q": "Vous couvrez Claude Code et l'usage interne, ou seulement les agents métier ?",
+      "a": "Les deux, parce qu'une PME a rarement besoin d'un seul morceau. On déploie Claude pour les équipes et leurs usages quotidiens, on installe Claude Code dans les dépôts d'une équipe technique avec hooks et guardrails, on branche les agents à vos outils via MCP, et on forme un référent IA interne. C'est un seul interlocuteur pour tout le dispositif, du cadrage à la gouvernance."
+    },
+    {
+      "q": "Vous travaillez avec quels modèles et quels outils ?",
+      "a": "L'écosystème Anthropic en priorité : l'API Claude, Claude Code et le protocole MCP, le standard ouvert pour connecter un modèle à vos outils. On branche les agents sur ce que vous utilisez déjà : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. Pour un cas hors écosystème, on évalue la faisabilité au cadrage."
+    },
+    {
+      "q": "Qu'est-ce que le MCP et pourquoi c'est important ?",
+      "a": "Le Model Context Protocol est le standard ouvert d'Anthropic pour connecter un modèle de langage à des outils et des données. C'est lui qui fait passer un assistant de la conversation à l'action : lire un dossier, interroger une base, déclencher une tâche. Un intégrateur sérieux câble des serveurs MCP propres, sécurisés et documentés, pas des scripts jetables."
+    },
+    {
+      "q": "Combien de temps avant un premier agent en production ?",
+      "a": "Le cadrage prend quelques jours, le premier agent utile sort en quelques semaines, pas en trimestres. On commence par le workflow qui coûte le plus de temps ou d'argent, on prouve la valeur, puis on étend. La gouvernance et la supervision sont posées dès le premier déploiement, pas plaquées après."
+    },
+    {
+      "q": "Comment vous garantissez la sécurité et la traçabilité des agents ?",
+      "a": "Chaque agent a un périmètre d'action défini, des permissions explicites et une supervision humaine sur les actions sensibles. Les décisions sont tracées, les serveurs MCP cloisonnés, et vous gardez la main : reprise possible, journaux consultables, rien ne tourne en boîte noire. La politique d'usage et la conformité RGPD sont posées dans le même cadre."
+    },
+    {
+      "q": "Et si nos équipes veulent monter en compétence elles-mêmes ?",
+      "a": "La passation fait partie du livrable et on peut aller plus loin : on forme un référent IA interne, point de contact qui diffuse les bonnes pratiques et rend les équipes autonomes. On documente l'architecture des agents, les skills et les serveurs MCP. L'objectif est l'autonomie : vous n'êtes pas captif d'un prestataire pour ajouter une brique."
+    },
+    {
+      "q": "Vous êtes basés où, et faut-il être à Montpellier ?",
+      "a": "Le studio est à Montpellier et travaille avec des PME en local comme à distance. Le diagnostic et le cadrage se font en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What does a Claude integrator actually do?",
+      "a": "They turn Claude, a generic model, into a system that runs real work inside your business. Concretely: we map the process to automate, design the agent, wire it to your tools through the MCP protocol, deploy it to production and supervise it over time. Not a demo, a measured system."
+    },
+    {
+      "q": "Do you cover Claude Code and internal use, or only business agents?",
+      "a": "Both, because an SMB rarely needs just one piece. We deploy Claude for the teams and their daily uses, set up Claude Code in a technical team's repositories with hooks and guardrails, wire agents to your tools via MCP, and train an internal AI lead. It's a single contact for the whole dispositif, from scoping to governance."
+    },
+    {
+      "q": "Which models and tools do you work with?",
+      "a": "The Anthropic ecosystem first: the Claude API, Claude Code and the MCP protocol, the open standard for connecting a model to your tools. We wire agents to what you already use: CRM, email, calendar, database, Git repo, CI/CD. For a case outside the ecosystem, we assess feasibility at scoping."
+    },
+    {
+      "q": "What is MCP and why does it matter?",
+      "a": "The Model Context Protocol is Anthropic's open standard for connecting a language model to tools and data. It's what moves an assistant from conversation to action: reading a file, querying a database, triggering a task. A serious integrator wires clean, secured and documented MCP servers, not throwaway scripts."
+    },
+    {
+      "q": "How long before a first agent in production?",
+      "a": "Scoping takes a few days, the first useful agent ships in a few weeks, not quarters. We start with the workflow that costs the most time or money, prove the value, then expand. Governance and supervision are laid in at the first deployment, not bolted on after."
+    },
+    {
+      "q": "How do you guarantee the security and traceability of the agents?",
+      "a": "Every agent has a defined scope of action, explicit permissions and human supervision on sensitive actions. Decisions are traced, MCP servers compartmentalised, and you keep control: handover is possible, logs are readable, nothing runs as a black box. The usage policy and GDPR compliance are laid in the same frame."
+    },
+    {
+      "q": "What if our teams want to skill up themselves?",
+      "a": "Handover is part of the deliverable, and we can go further: we train an internal AI lead, a point of contact who spreads good practices and makes teams autonomous. We document the agent architecture, the skills and the MCP servers. The goal is autonomy: you are not captive to a provider to add a building block."
+    },
+    {
+      "q": "Where are you based, and do we need to be in Montpellier?",
+      "a": "The studio is in Montpellier and works with SMBs locally and remotely. The diagnostic and scoping happen by video or on site depending on your preference. Proximity helps for the first workshops, but it is not a condition."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : outils dispersés, orchestration centrale via Claude, résultat mesuré",
+      "media_alt_en": "Diagram: scattered tools, central orchestration via Claude, measured result",
+      "kicker_fr": "§ Intégrateur Claude",
+      "kicker_en": "§ Claude integrator",
+      "h1_fr": "Intégrateur <i class=\"acc\">Claude</i>.",
+      "h1_en": "Claude <i class=\"acc\">integrator</i>.",
+      "lede_fr": "Waimia déploie Claude et ses agents dans votre entreprise et les branche à vos outils via MCP, du déploiement à la gouvernance, pour automatiser vos workflows réels, sans saisie manuelle ni POC qui dort.",
+      "lede_en": "Waimia deploys Claude and its agents in your company and wires them to your tools via MCP, from deployment to governance, to automate your real workflows, with no manual entry and no POC left asleep.",
+      "badges": [
+        {
+          "label_fr": "Écosystème Anthropic · Claude, Claude Code, MCP",
+          "label_en": "Anthropic ecosystem · Claude, Claude Code, MCP"
+        },
+        {
+          "label_fr": "Agents branchés à vos outils · CRM, e-mail, Git, données",
+          "label_en": "Agents wired to your tools · CRM, email, Git, data"
+        },
+        {
+          "label_fr": "Formation référent IA et gouvernance",
+          "label_en": "AI lead training and governance"
+        }
+      ],
+      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
+      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_primary": {
+        "label_fr": "Réserver un diagnostic (45 min) →",
+        "label_en": "Book a diagnostic (45 min) →",
+        "href": "/contact?offer=integrateur-claude&intent=discovery",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les capacités",
+        "label_en": "See the capabilities",
+        "href": "#capacites",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "statement-orbit",
+      "kicker_fr": "FIG 1.5 · Orchestration Claude",
+      "kicker_en": "FIG 1.5 · Claude orchestration",
+      "h2_fr": "Chaque outil rejoint un <i class=\"acc\">dispositif</i> que Claude orchestre, du déploiement à la gouvernance.",
+      "h2_en": "Every tool joins a <i class=\"acc\">dispositif</i> that Claude orchestrates, from deployment to governance.",
+      "lede_fr": "D'outils dispersés à des workflows réels automatisés, vos applications se branchent via MCP et travaillent ensemble, sans POC qui dort.",
+      "lede_en": "From scattered tools to automated real workflows, your apps connect via MCP and work together, with no POC left asleep.",
+      "cta": {
+        "label_fr": "Voir les capacités →",
+        "label_en": "See the capabilities →",
+        "href": "#capacites",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/orbit-network.svg",
+      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : des outils dispersés s'orchestrent en un dispositif.",
+      "media_alt_en": "Wireframe globe with nodes linked by arcs: scattered tools orchestrate into one dispositif."
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition · format extractible",
+      "kicker_en": "§ Definition · extractable format",
+      "statement_fr": "Un <i class=\"acc\">intégrateur Claude</i> déploie Claude et ses agents dans votre entreprise et les branche à vos outils via MCP, du déploiement à la gouvernance, pour automatiser vos workflows réels, sans saisie manuelle ni POC qui dort.",
+      "statement_en": "A <i class=\"acc\">Claude integrator</i> deploys Claude and its agents in your company and wires them to your tools via MCP, from deployment to governance, to automate your real workflows, with no manual entry and no POC left asleep.",
+      "pills": [
+        {
+          "label_fr": "Écosystème Anthropic",
+          "label_en": "Anthropic ecosystem"
+        },
+        {
+          "label_fr": "Branché via MCP",
+          "label_en": "Wired via MCP"
+        },
+        {
+          "label_fr": "Du POC à la prod",
+          "label_en": "From POC to production"
+        },
+        {
+          "label_fr": "Gouvernance",
+          "label_en": "Governance"
+        },
+        {
+          "label_fr": "Formation référent",
+          "label_en": "Lead training"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Claude et Claude Code",
+          "label_en": "Claude and Claude Code"
+        },
+        {
+          "label_fr": "MCP",
+          "label_en": "MCP"
+        },
+        {
+          "label_fr": "CRM, e-mail, Git",
+          "label_en": "CRM, email, Git"
+        },
+        {
+          "label_fr": "Gouvernance",
+          "label_en": "Governance"
+        },
+        {
+          "label_fr": "Référent IA formé",
+          "label_en": "Trained AI lead"
+        }
+      ]
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "Pain points · par sévérité",
+      "kicker_en": "Pain points · by severity",
+      "h2_fr": "Là où l'IA <i class=\"acc\">déraille</i> en interne.",
+      "h2_en": "Where AI <i class=\"acc\">derails</i> internally.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Une démo qui n'atteint jamais la production",
+          "title_en": "A demo that never reaches production",
+          "desc_fr": "Un POC qui impressionne en réunion, puis dort dans un Notion six mois plus tard : aucun process automatisé, aucune heure gagnée.",
+          "desc_en": "A POC that wows the meeting, then sleeps in a Notion six months later: no process automated, no hours saved.",
+          "fix_fr": "Mise en production, du POC au workflow réel.",
+          "fix_en": "Production: from POC to real workflow."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Des outils IA partout, aucune gouvernance",
+          "title_en": "AI tools everywhere, no governance",
+          "desc_fr": "Chacun bricole avec son outil, des données sensibles passent par des comptes personnels, personne ne sait quel agent fait quoi.",
+          "desc_en": "Everyone tinkers with their own tool, sensitive data passes through personal accounts, no one knows which agent does what.",
+          "fix_fr": "Périmètre, traçabilité, gouvernance.",
+          "fix_en": "Scope, traceability, governance."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "L'humain reste la couche d'intégration",
+          "title_en": "People stay the integration layer",
+          "desc_fr": "Vos outils ne se parlent pas : les équipes copient, relancent et font le pont à la main toute la journée, l'assistant restant une fenêtre de chat à côté du travail.",
+          "desc_en": "Your tools don't talk: teams copy, chase and bridge by hand all day, the assistant staying a chat window next to the work.",
+          "fix_fr": "Agents branchés via MCP au CRM et à l'e-mail.",
+          "fix_en": "Agents wired via MCP to the CRM and email."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce qu'on <i>dépose</i> chez vous",
+      "title_en": "What we <i>deliver</i> to you",
+      "lead_fr": "Vous gardez l'architecture et la stack quand on part. Pas de captivité.",
+      "lead_en": "You keep the architecture and the stack when we leave. No lock-in.",
+      "items": [
+        {
+          "title_fr": "Agents en production",
+          "title_en": "Agents in production",
+          "body_fr": "Un ou plusieurs agents Claude déployés sur des workflows réels, avec un périmètre cadré et une mesure avant/après.",
+          "body_en": "One or more Claude agents deployed on real workflows, with a framed scope and before/after measurement.",
+          "format_fr": "LIVE",
+          "format_en": "LIVE",
+          "illustration_src": "/images/line-art/livrable-agents-production.svg",
+          "illustration_alt_fr": "Un agent actif en production avec un statut en marche",
+          "illustration_alt_en": "An active agent in production with a live status"
+        },
+        {
+          "title_fr": "Serveurs MCP et connecteurs",
+          "title_en": "MCP servers and connectors",
+          "body_fr": "La couche d'intégration propre vers vos outils : CRM, e-mail, base de données, dépôt Git, CI/CD. Sécurisée et documentée.",
+          "body_en": "The clean integration layer to your tools: CRM, email, database, Git repo, CI/CD. Secured and documented.",
+          "format_fr": "MCP",
+          "format_en": "MCP",
+          "illustration_src": "/images/line-art/livrable-connecteurs-mcp.svg",
+          "illustration_alt_fr": "Un hub central de serveurs MCP relié à vos outils",
+          "illustration_alt_en": "A central MCP server hub wired to your tools"
+        },
+        {
+          "title_fr": "Skills et orchestration",
+          "title_en": "Skills and orchestration",
+          "body_fr": "Les compétences métier configurées : skills, sous-agents et routines qui suivent vos process, pas des prompts jetables.",
+          "body_en": "The configured business capabilities: skills, sub-agents and routines that follow your processes, not throwaway prompts.",
+          "format_fr": "CODE",
+          "format_en": "CODE",
+          "illustration_src": "/images/line-art/livrable-skills-orchestration.svg",
+          "illustration_alt_fr": "Des skills modulaires assemblés autour d'un module pivot",
+          "illustration_alt_en": "Modular skills assembled around a pivot module"
+        },
+        {
+          "title_fr": "Cadre de gouvernance",
+          "title_en": "Governance framework",
+          "body_fr": "Politique d'usage, permissions par agent, points de validation humaine, journaux de décisions et conformité RGPD. L'IA reste pilotable.",
+          "body_en": "Usage policy, per-agent permissions, human validation points, decision logs and GDPR compliance. AI stays controllable.",
+          "format_fr": "RUNBOOK",
+          "format_en": "RUNBOOK",
+          "illustration_src": "/images/line-art/livrable-gouvernance.svg",
+          "illustration_alt_fr": "Un bouclier de gouvernance avec un point de validation",
+          "illustration_alt_en": "A governance shield with a validation checkpoint"
+        },
+        {
+          "title_fr": "Mesure et tableau de suivi",
+          "title_en": "Measurement and tracking",
+          "body_fr": "Le temps gagné, le volume traité et la qualité suivis dans la durée. On pilote sur des chiffres, pas sur une impression de démo.",
+          "body_en": "Time saved, volume processed and quality tracked over time. We manage on figures, not on a demo impression.",
+          "format_fr": "TABLEAU",
+          "format_en": "DASHBOARD",
+          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
+          "illustration_alt_fr": "Un tableau de bord de KPI avec une courbe de tendance",
+          "illustration_alt_en": "A KPI dashboard with a trend curve"
+        },
+        {
+          "title_fr": "Référent IA et formation",
+          "title_en": "AI lead and training",
+          "body_fr": "Un référent IA interne formé, architecture documentée, skills et serveurs MCP expliqués, équipes outillées pour faire évoluer le système seules.",
+          "body_en": "A trained internal AI lead, documented architecture, explained skills and MCP servers, teams equipped to evolve the system on their own.",
+          "format_fr": "NOTION + VIDÉO",
+          "format_en": "NOTION + VIDEO",
+          "illustration_src": "/images/line-art/livrable-passation-formation.svg",
+          "illustration_alt_fr": "Une transmission de savoir entre deux personnes lors de la passation",
+          "illustration_alt_en": "Knowledge transfer between two people during handover"
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "anchor": "capacites",
+      "background": "paper",
+      "kicker_fr": "§ Les briques",
+      "kicker_en": "§ The building blocks",
+      "h2_fr": "Déployer <i>Claude</i> dans votre entreprise",
+      "h2_en": "Deploying <i>Claude</i> in your company",
+      "lede_fr": "Quatre capacités sur une même base : Claude pour les équipes, Claude Code dans le code, la collaboration assistée au quotidien et la connexion à vos outils internes via MCP. On active celles qui servent votre maturité.",
+      "lede_en": "Four capabilities on a single base: Claude for the teams, Claude Code in the code, assisted collaboration day to day and the connection to your internal tools via MCP. We activate the ones that fit your maturity.",
+      "rows": [
+        {
+          "kicker_fr": "Brique 01",
+          "kicker_en": "Block 01",
+          "h3_fr": "Claude en entreprise",
+          "h3_en": "Claude in the business",
+          "body_fr": "On déploie Claude pour vos équipes sur des cas d'usage métier concrets : rédaction, analyse, synthèse, préparation de dossiers. L'API et l'interface sont configurées pour votre contexte, avec les bons réflexes posés dès le départ, pas un accès ouvert sans cadre.",
+          "body_en": "We deploy Claude for your teams on concrete business use cases: writing, analysis, summarising, preparing files. The API and interface are configured for your context, with the right reflexes laid in from the start, not open access with no frame.",
+          "points": [
+            {
+              "label_fr": "Cas d'usage métier cadrés",
+              "label_en": "Framed business use cases"
+            },
+            {
+              "label_fr": "API et interface configurées",
+              "label_en": "API and interface configured"
+            },
+            {
+              "label_fr": "Bons réflexes posés dès le départ",
+              "label_en": "Right reflexes laid in from day one"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Brique 02",
+          "kicker_en": "Block 02",
+          "h3_fr": "Claude Code",
+          "h3_en": "Claude Code",
+          "body_fr": "Pour une équipe technique, on installe Claude Code dans vos dépôts et votre CI, avec les hooks et guardrails qui imposent vos conventions. La revue de code assistée et un workflow agentique cadré font monter la productivité dev en production, sans casse ni dette.",
+          "body_en": "For a technical team, we set up Claude Code in your repos and CI, with the hooks and guardrails that enforce your conventions. Assisted code review and a framed agentic workflow raise dev productivity in production, without breakage or debt.",
+          "points": [
+            {
+              "label_fr": "Claude Code dans vos dépôts et CI",
+              "label_en": "Claude Code in your repos and CI"
+            },
+            {
+              "label_fr": "Hooks et guardrails sur vos conventions",
+              "label_en": "Hooks and guardrails on your conventions"
+            },
+            {
+              "label_fr": "Revue de code assistée",
+              "label_en": "Assisted code review"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Brique 03",
+          "kicker_en": "Block 03",
+          "h3_fr": "Claude cowork",
+          "h3_en": "Claude cowork",
+          "body_fr": "On branche la collaboration assistée dans les outils de travail que vos équipes utilisent déjà : des agents qui préparent, relancent et synthétisent là où le travail se fait, pas dans une fenêtre de chat à côté. L'IA passe de l'assistant isolé au collègue intégré.",
+          "body_en": "We wire assisted collaboration into the work tools your teams already use: agents that prepare, chase and summarise where the work happens, not in a chat window on the side. AI moves from isolated assistant to integrated colleague.",
+          "points": [
+            {
+              "label_fr": "Agents dans vos outils quotidiens",
+              "label_en": "Agents in your daily tools"
+            },
+            {
+              "label_fr": "Collaboration assistée, pas un chat isolé",
+              "label_en": "Assisted collaboration, not an isolated chat"
+            },
+            {
+              "label_fr": "L'IA intégrée au travail réel",
+              "label_en": "AI integrated into real work"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Brique 04",
+          "kicker_en": "Block 04",
+          "h3_fr": "Connexion outils internes",
+          "h3_en": "Internal tools connection",
+          "body_fr": "On câble des serveurs MCP propres vers vos outils et vos données métier : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. C'est cette couche qui fait passer un assistant de la conversation à l'action, sur vos données réelles, dans votre stack.",
+          "body_en": "We wire clean MCP servers to your tools and business data: CRM, email, calendar, database, Git repo, CI/CD. It's this layer that moves an assistant from conversation to action, on your real data, in your stack.",
+          "points": [
+            {
+              "label_fr": "Serveurs MCP propres et sécurisés",
+              "label_en": "Clean, secured MCP servers"
+            },
+            {
+              "label_fr": "CRM, e-mail, base de données, Git",
+              "label_en": "CRM, email, database, Git"
+            },
+            {
+              "label_fr": "De la conversation à l'action",
+              "label_en": "From conversation to action"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "bento-grid",
+      "background": "ink",
+      "kicker_fr": "§ Architecture",
+      "kicker_en": "§ Architecture",
+      "h2_fr": "Comment on <i>câble</i> un système d'agents",
+      "h2_en": "How we <i>wire</i> an agent system",
+      "cells": [
+        {
+          "glyph": "◆",
+          "title_fr": "Le modèle au centre",
+          "title_en": "The model at the centre",
+          "body_fr": "Claude via l'API et Claude Code : le moteur de raisonnement qui décide, rédige et exécute. On choisit le bon modèle pour chaque tâche, on dose l'effort, on garde la main sur le coût.",
+          "body_en": "Claude via the API and Claude Code: the reasoning engine that decides, writes and executes. We pick the right model for each task, dose the effort, keep control of the cost.",
+          "span": "lg"
+        },
+        {
+          "glyph": "⇄",
+          "title_fr": "Serveurs MCP vers vos outils",
+          "title_en": "MCP servers to your tools",
+          "body_fr": "Une couche de connexion propre, sécurisée et documentée : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. L'agent lit, interroge et agit sur vos données réelles, dans votre stack.",
+          "body_en": "A clean, secured and documented connection layer: CRM, email, calendar, database, Git repo, CI/CD. The agent reads, queries and acts on your real data, in your stack.",
+          "span": "wide"
+        },
+        {
+          "glyph": "⊞",
+          "title_fr": "Skills et sous-agents",
+          "title_en": "Skills and sub-agents",
+          "body_fr": "Les compétences métier découpées en skills réutilisables et en sous-agents spécialisés, orchestrés selon vos process. Pas des prompts jetables, des briques qui durent.",
+          "body_en": "Business capabilities split into reusable skills and specialised sub-agents, orchestrated to follow your processes. Not throwaway prompts, building blocks that last.",
+          "span": "sm"
+        },
+        {
+          "glyph": "▣",
+          "title_fr": "Permissions et périmètre",
+          "title_en": "Permissions and scope",
+          "body_fr": "Chaque agent a un périmètre d'action défini et des permissions explicites. Les actions sensibles passent par une validation humaine, jamais en boîte noire.",
+          "body_en": "Every agent has a defined scope of action and explicit permissions. Sensitive actions go through human validation, never as a black box.",
+          "span": "sm"
+        },
+        {
+          "glyph": "↺",
+          "title_fr": "Supervision et reprise",
+          "title_en": "Supervision and takeover",
+          "body_fr": "Décisions tracées, journaux consultables, reprise humaine possible à tout moment. On mesure l'avant/après et on ajuste le système dans la durée.",
+          "body_en": "Traced decisions, readable logs, human takeover possible at any time. We measure before/after and adjust the system over time.",
+          "span": "sm"
+        }
+      ]
+    },
+    {
+      "type": "method-timeline",
+      "anchor": "methode",
+      "background": "paper-2",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "<i>Méthode</i> d'intégration",
+      "h2_en": "Integration <i>method</i>",
+      "lede_fr": "Du diagnostic au premier agent en production, puis à un système qui s'étend. Vous savez avant de signer quel workflow on attaque en premier et ce qu'il rapporte.",
+      "lede_en": "From diagnostic to the first agent in production, then to a system that expands. You know before signing which workflow we tackle first and what it returns.",
+      "steps": [
+        {
+          "num": "01",
+          "label_fr": "Cartographier les cas d'usage",
+          "label_en": "Map the use cases",
+          "body_fr": "Quelques jours d'analyse : on identifie les workflows qui coûtent le plus de temps ou d'argent et qui sont réellement automatisables. Livrable : une cartographie priorisée et un premier agent ciblé, chiffré.",
+          "body_en": "A few days of analysis: we identify the workflows that cost the most time or money and that are genuinely automatable. Deliverable: a prioritised map and a first targeted agent, costed.",
+          "meta_fr": "Diagnostic & cadrage",
+          "meta_en": "Diagnostic & scoping"
+        },
+        {
+          "num": "02",
+          "label_fr": "Concevoir l'agent et son périmètre",
+          "label_en": "Design the agent and its scope",
+          "body_fr": "On conçoit l'architecture de l'agent : ce qu'il fait, ce qu'il ne fait pas, ses permissions et les actions qui exigent une validation humaine. La gouvernance est posée maintenant, pas après le premier incident.",
+          "body_en": "We design the agent architecture: what it does, what it doesn't, its permissions and the actions that require human validation. Governance is laid in now, not after the first incident.",
+          "meta_fr": "Architecture & gouvernance",
+          "meta_en": "Architecture & governance"
+        },
+        {
+          "num": "03",
+          "label_fr": "Brancher via le protocole MCP",
+          "label_en": "Wire it through the MCP protocol",
+          "body_fr": "On câble des serveurs MCP propres vers vos outils existants : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. L'agent passe de la conversation à l'action, sur vos données, dans votre stack.",
+          "body_en": "We wire clean MCP servers to your existing tools: CRM, email, calendar, database, Git repo, CI/CD. The agent moves from conversation to action, on your data, in your stack.",
+          "meta_fr": "Connexion & déploiement",
+          "meta_en": "Connection & deployment"
+        },
+        {
+          "num": "04",
+          "label_fr": "Déployer, mesurer, superviser",
+          "label_en": "Deploy, measure, supervise",
+          "body_fr": "L'agent passe en production sur un périmètre cadré. On mesure l'avant et l'après, on surveille les décisions, on ajuste. Aucun agent ne tourne en boîte noire : journaux consultables, reprise humaine possible à tout moment.",
+          "body_en": "The agent goes into production on a framed scope. We measure before and after, watch the decisions, adjust. No agent runs as a black box: readable logs, human takeover possible at any moment.",
+          "meta_fr": "Production & mesure",
+          "meta_en": "Production & measurement"
+        },
+        {
+          "num": "05",
+          "label_fr": "Étendre et passer la main",
+          "label_en": "Expand and hand over",
+          "body_fr": "Une fois la valeur prouvée, on étend à d'autres workflows. La passation fait partie du livrable : référent IA formé, architecture documentée, skills et serveurs MCP expliqués. Vous gardez la main et la stack.",
+          "body_en": "Once value is proven, we expand to other workflows. Handover is part of the deliverable: trained AI lead, documented architecture, explained skills and MCP servers. You keep control and the stack.",
+          "meta_fr": "Extension & passation",
+          "meta_en": "Expansion & handover"
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "anchor": "capacites-2",
+      "background": "paper-2",
+      "kicker_fr": "§ Les briques · suite",
+      "kicker_en": "§ The building blocks · continued",
+      "h2_fr": "Déployer, former et <i>garder le contrôle</i>",
+      "h2_en": "Deploy, train and <i>keep control</i>",
+      "lede_fr": "Le déploiement ne tient que s'il est accompagné. Une méthode de montée en charge progressive, un référent IA interne formé, des équipes acculturées et un cadre de gouvernance : l'IA passe en production sans que vous en perdiez la main.",
+      "lede_en": "Deployment only holds if it is supported. A method of progressive scale-up, a trained internal AI lead, skilled-up teams and a governance frame: AI goes into production without you losing your grip on it.",
+      "rows": [
+        {
+          "kicker_fr": "Brique 05",
+          "kicker_en": "Block 05",
+          "h3_fr": "Méthode de déploiement",
+          "h3_en": "Deployment method",
+          "body_fr": "On ne lâche pas tout d'un coup. On cadre le périmètre, on lance un pilote sur le workflow qui coûte le plus, on prouve la valeur, puis on monte en charge progressivement vers les autres usages. Vous savez avant de signer quel workflow on attaque en premier et ce qu'il rapporte.",
+          "body_en": "We don't release everything at once. We frame the scope, launch a pilot on the costliest workflow, prove the value, then scale up progressively toward the other uses. You know before signing which workflow we tackle first and what it returns.",
+          "points": [
+            {
+              "label_fr": "Cadrage du périmètre",
+              "label_en": "Scope framing"
+            },
+            {
+              "label_fr": "Pilote sur le workflow prioritaire",
+              "label_en": "Pilot on the priority workflow"
+            },
+            {
+              "label_fr": "Montée en charge progressive",
+              "label_en": "Progressive scale-up"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Brique 06",
+          "kicker_en": "Block 06",
+          "h3_fr": "Formation référent IA interne",
+          "h3_en": "Internal AI lead training",
+          "body_fr": "On forme et on outille une personne en interne pour devenir le point de contact IA de l'entreprise : cadrage des usages, diffusion des bonnes pratiques, réponse aux questions des équipes. La compétence reste chez vous, pas chez un prestataire, et les équipes deviennent autonomes.",
+          "body_en": "We train and equip an in-house person to become the company's AI point of contact: framing uses, spreading good practices, answering the teams' questions. The skill stays with you, not with a provider, and the teams become autonomous.",
+          "points": [
+            {
+              "label_fr": "Un point de contact IA interne",
+              "label_en": "An internal AI point of contact"
+            },
+            {
+              "label_fr": "Bonnes pratiques diffusées",
+              "label_en": "Good practices spread"
+            },
+            {
+              "label_fr": "La compétence reste chez vous",
+              "label_en": "The skill stays with you"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Brique 07",
+          "kicker_en": "Block 07",
+          "h3_fr": "Montée en compétence des équipes",
+          "h3_en": "Team skill-up",
+          "body_fr": "Au-delà du référent, on acculture les équipes aux bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais dans un outil. L'adoption suit la compétence : un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité.",
+          "body_en": "Beyond the lead, we skill up the teams on the right reflexes: phrasing a request, checking a response, spotting what you never paste into a tool. Adoption follows skill: a tool no one masters stays on the shelf, whatever its quality.",
+          "points": [
+            {
+              "label_fr": "Acculturation des équipes",
+              "label_en": "Team skill-up"
+            },
+            {
+              "label_fr": "Bons réflexes ancrés",
+              "label_en": "Right reflexes anchored"
+            },
+            {
+              "label_fr": "L'adoption suit la compétence",
+              "label_en": "Adoption follows skill"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Brique 08",
+          "kicker_en": "Block 08",
+          "h3_fr": "Gouvernance IA",
+          "h3_en": "AI governance",
+          "body_fr": "On pose le cadre qui laisse l'IA ouverte sans perdre le contrôle : politique d'usage opposable, sécurité des données, conformité RGPD et supervision des décisions. On cartographie ce qui circule, on qualifie chaque outil et on installe les points de contrôle. Vous déployez sous contrôle.",
+          "body_en": "We lay the frame that keeps AI open without losing control: an enforceable usage policy, data security, GDPR compliance and decision oversight. We map what flows, qualify each tool and install the control points. You deploy under control.",
+          "points": [
+            {
+              "label_fr": "Politique d'usage opposable",
+              "label_en": "Enforceable usage policy"
+            },
+            {
+              "label_fr": "Sécurité des données et RGPD",
+              "label_en": "Data security and GDPR"
+            },
+            {
+              "label_fr": "Supervision et traçabilité",
+              "label_en": "Oversight and traceability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "stats-bento",
+      "background": "paper",
+      "kicker_fr": "§ Ce que dit le marché",
+      "kicker_en": "§ What the market shows",
+      "h2_fr": "Pourquoi un agent <i>intégré</i> change l'équation",
+      "h2_en": "Why an <i>integrated</i> agent changes the equation",
+      "stats": [
+        {
+          "value": "MCP",
+          "delta": "Anthropic 2024",
+          "label_fr": "le standard ouvert qui connecte un modèle à vos outils, aujourd'hui l'écosystème agentique le plus mature du marché",
+          "label_en": "the open standard connecting a model to your tools, today the most mature agentic ecosystem on the market"
+        },
+        {
+          "value": "Démo → prod",
+          "delta": "le vrai écart",
+          "label_fr": "la valeur n'est pas dans le POC mais dans le passage en production, là où la plupart des projets IA s'arrêtent",
+          "label_en": "value isn't in the POC but in the move to production, where most AI projects stall"
+        },
+        {
+          "value": "Process réel",
+          "delta": "pas du chat",
+          "label_fr": "un agent branché sur vos outils via MCP agit sur le travail, au lieu de rester une fenêtre de conversation à côté",
+          "label_en": "an agent wired to your tools via MCP acts on the work, instead of staying a chat window on the side"
+        },
+        {
+          "value": "0 captivité",
+          "delta": "passation incluse",
+          "label_fr": "architecture, skills et serveurs MCP transférés à la livraison, vos équipes restent autonomes",
+          "label_en": "architecture, skills and MCP servers handed over at delivery, your teams stay autonomous"
+        }
+      ]
+    },
+    {
+      "type": "logo-marquee",
+      "background": "ink",
+      "kicker_fr": "§ L'écosystème qu'on opère",
+      "kicker_en": "§ The ecosystem we operate",
+      "grayscale": true,
+      "logoIds": [
+        "claude",
+        "openai",
+        "hubspot",
+        "salesforce",
+        "slack",
+        "notion",
+        "github",
+        "aws",
+        "google",
+        "microsoft",
+        "sap",
+        "meta"
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "kicker_fr": "§ Points d'entrée",
+      "kicker_en": "§ Entry points",
+      "h2_fr": "Choisir le bon <i>palier</i>",
+      "h2_en": "Pick the right <i>tier</i>",
+      "lede_fr": "Trois manières d'entrer, selon votre maturité IA. Chaque palier démarre par un diagnostic et débouche sur un livrable concret, pas sur une étude qui dort. Devis adapté au périmètre, chiffré au cadrage.",
+      "lede_en": "Three ways in, depending on your AI maturity. Each tier starts with a diagnostic and leads to a concrete deliverable, not a study that sleeps. Quote adapted to scope, costed at scoping.",
+      "tiers": [
+        {
+          "name_fr": "Diagnostic",
+          "name_en": "Diagnostic",
+          "price": "Sur devis",
+          "period_fr": "cadré · HT",
+          "period_en": "scoped · ex VAT",
+          "features_fr": [
+            "Cartographie des cas d'usage automatisables",
+            "Priorisation par temps et argent gagnés",
+            "Plan d'action chiffré et premier agent ciblé"
+          ],
+          "features_en": [
+            "Map of automatable use cases",
+            "Prioritisation by time and money saved",
+            "Costed action plan and first targeted agent"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un diagnostic →",
+            "label_en": "Scope a diagnostic →",
+            "href": "/contact?offer=integrateur-claude&intent=diagnostic",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Premier agent",
+          "name_en": "First agent",
+          "price": "Sur devis",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · ex VAT",
+          "features_fr": [
+            "Un agent conçu, branché via MCP et déployé",
+            "Connexion à un outil métier existant",
+            "Gouvernance, mesure et passation"
+          ],
+          "features_en": [
+            "One agent designed, wired via MCP and deployed",
+            "Connection to an existing business tool",
+            "Governance, measurement and handover"
+          ],
+          "cta": {
+            "label_fr": "Réserver un diagnostic (45 min) →",
+            "label_en": "Book a diagnostic (45 min) →",
+            "href": "/contact?offer=integrateur-claude&intent=discovery",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Système d'agents",
+          "name_en": "Agent system",
+          "price": "Sur devis",
+          "period_fr": "cadré · HT",
+          "period_en": "scoped · ex VAT",
+          "features_fr": [
+            "Plusieurs agents et serveurs MCP orchestrés",
+            "Cadre de gouvernance complet et référent IA formé",
+            "Formation des équipes et autonomie"
+          ],
+          "features_en": [
+            "Several agents and MCP servers orchestrated",
+            "Full governance framework and trained AI lead",
+            "Team training and autonomy"
+          ],
+          "cta": {
+            "label_fr": "Discuter d'un système →",
+            "label_en": "Discuss a system →",
+            "href": "/contact?offer=integrateur-claude&intent=systeme",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Pas de catalogue figé : chaque mission part du diagnostic, et le périmètre est chiffré au cadrage. Sans abonnement caché ni captivité : à la fin, vous disposez d'agents en production, de leur architecture documentée et d'équipes formées pour les faire évoluer.",
+      "footnote_en": "No fixed catalogue: every engagement starts from the diagnostic, and scope is costed at scoping. No hidden subscription, no lock-in: at the end, you have agents in production, their documented architecture and teams trained to evolve them."
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · systèmes en production",
+      "spec_en": "Client cases · systems in production",
+      "h2_fr": "<i>Résultats</i> sur le terrain",
+      "h2_en": "<i>Results</i> in the field",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Impact",
+      "impact_label_en": "Impact",
+      "cases": [
+        {
+          "client": "Amploi · groupe Vigiscope",
+          "sector_fr": "Externalisation RH",
+          "sector_en": "HR outsourcing",
+          "duration": "6 sem.",
+          "stack": "Site · CRM HubSpot · GEO",
+          "impact_fr": "Site créé avec formulaires branchés HubSpot pour l'attribution des leads et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
+          "impact_en": "Site built with HubSpot-connected forms for lead attribution and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
+          "href": "/cas-clients/amploi"
+        },
+        {
+          "client": "Les Carnets de Montpellier",
+          "sector_fr": "Patrimoine / Média local",
+          "sector_en": "Heritage / Local media",
+          "duration": "6 sem.",
+          "stack": "Création · Abonnement · SEO",
+          "impact_fr": "Plateforme créée de zéro avec pipeline éditorial assisté par IA : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
+          "impact_en": "Platform built from scratch with an AI-assisted editorial pipeline: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
+          "href": "/cas-clients/les-carnets-de-montpellier"
+        },
+        {
+          "client": "Balzeo",
+          "sector_fr": "E-commerce écoresponsable",
+          "sector_en": "Eco-friendly e-commerce",
+          "duration": "8 sem.",
+          "stack": "Refonte · E-commerce · Perf",
+          "impact_fr": "Refonte complète pilotable depuis un chatbot IA : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
+          "impact_en": "Full rebuild drivable from an AI chatbot: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
+          "href": "/cas-clients/balzeo"
+        }
+      ],
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media"
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Un intégrateur Claude, ça fait quoi exactement ?",
+          "q_en": "What does a Claude integrator actually do?",
+          "a_fr": "Il transforme Claude, un modèle générique, en un système qui exécute du travail réel dans votre entreprise. Concrètement : on cartographie le process à automatiser, on conçoit l'agent, on le branche à vos outils via le protocole MCP, on le déploie en production et on le supervise dans la durée. Pas une démo, un système mesuré.",
+          "a_en": "They turn Claude, a generic model, into a system that runs real work inside your business. Concretely: we map the process to automate, design the agent, wire it to your tools through the MCP protocol, deploy it to production and supervise it over time. Not a demo, a measured system."
+        },
+        {
+          "q_fr": "Vous couvrez Claude Code et l'usage interne, ou seulement les agents métier ?",
+          "q_en": "Do you cover Claude Code and internal use, or only business agents?",
+          "a_fr": "Les deux, parce qu'une PME a rarement besoin d'un seul morceau. On déploie Claude pour les équipes et leurs usages quotidiens, on installe Claude Code dans les dépôts d'une équipe technique avec hooks et guardrails, on branche les agents à vos outils via MCP, et on forme un référent IA interne. C'est un seul interlocuteur pour tout le dispositif, du cadrage à la gouvernance.",
+          "a_en": "Both, because an SMB rarely needs just one piece. We deploy Claude for the teams and their daily uses, set up Claude Code in a technical team's repositories with hooks and guardrails, wire agents to your tools via MCP, and train an internal AI lead. It's a single contact for the whole dispositif, from scoping to governance."
+        },
+        {
+          "q_fr": "Vous travaillez avec quels modèles et quels outils ?",
+          "q_en": "Which models and tools do you work with?",
+          "a_fr": "L'écosystème Anthropic en priorité : l'API Claude, Claude Code et le protocole MCP, le standard ouvert pour connecter un modèle à vos outils. On branche les agents sur ce que vous utilisez déjà : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. Pour un cas hors écosystème, on évalue la faisabilité au cadrage.",
+          "a_en": "The Anthropic ecosystem first: the Claude API, Claude Code and the MCP protocol, the open standard for connecting a model to your tools. We wire agents to what you already use: CRM, email, calendar, database, Git repo, CI/CD. For a case outside the ecosystem, we assess feasibility at scoping."
+        },
+        {
+          "q_fr": "Qu'est-ce que le MCP et pourquoi c'est important ?",
+          "q_en": "What is MCP and why does it matter?",
+          "a_fr": "Le Model Context Protocol est le standard ouvert d'Anthropic pour connecter un modèle de langage à des outils et des données. C'est lui qui fait passer un assistant de la conversation à l'action : lire un dossier, interroger une base, déclencher une tâche. Un intégrateur sérieux câble des serveurs MCP propres, sécurisés et documentés, pas des scripts jetables.",
+          "a_en": "The Model Context Protocol is Anthropic's open standard for connecting a language model to tools and data. It's what moves an assistant from conversation to action: reading a file, querying a database, triggering a task. A serious integrator wires clean, secured and documented MCP servers, not throwaway scripts."
+        },
+        {
+          "q_fr": "Combien de temps avant un premier agent en production ?",
+          "q_en": "How long before a first agent in production?",
+          "a_fr": "Le cadrage prend quelques jours, le premier agent utile sort en quelques semaines, pas en trimestres. On commence par le workflow qui coûte le plus de temps ou d'argent, on prouve la valeur, puis on étend. La gouvernance et la supervision sont posées dès le premier déploiement, pas plaquées après.",
+          "a_en": "Scoping takes a few days, the first useful agent ships in a few weeks, not quarters. We start with the workflow that costs the most time or money, prove the value, then expand. Governance and supervision are laid in at the first deployment, not bolted on after."
+        },
+        {
+          "q_fr": "Comment vous garantissez la sécurité et la traçabilité des agents ?",
+          "q_en": "How do you guarantee the security and traceability of the agents?",
+          "a_fr": "Chaque agent a un périmètre d'action défini, des permissions explicites et une supervision humaine sur les actions sensibles. Les décisions sont tracées, les serveurs MCP cloisonnés, et vous gardez la main : reprise possible, journaux consultables, rien ne tourne en boîte noire. La politique d'usage et la conformité RGPD sont posées dans le même cadre.",
+          "a_en": "Every agent has a defined scope of action, explicit permissions and human supervision on sensitive actions. Decisions are traced, MCP servers compartmentalised, and you keep control: handover is possible, logs are readable, nothing runs as a black box. The usage policy and GDPR compliance are laid in the same frame."
+        },
+        {
+          "q_fr": "Et si nos équipes veulent monter en compétence elles-mêmes ?",
+          "q_en": "What if our teams want to skill up themselves?",
+          "a_fr": "La passation fait partie du livrable et on peut aller plus loin : on forme un référent IA interne, point de contact qui diffuse les bonnes pratiques et rend les équipes autonomes. On documente l'architecture des agents, les skills et les serveurs MCP. L'objectif est l'autonomie : vous n'êtes pas captif d'un prestataire pour ajouter une brique.",
+          "a_en": "Handover is part of the deliverable, and we can go further: we train an internal AI lead, a point of contact who spreads good practices and makes teams autonomous. We document the agent architecture, the skills and the MCP servers. The goal is autonomy: you are not captive to a provider to add a building block."
+        },
+        {
+          "q_fr": "Vous êtes basés où, et faut-il être à Montpellier ?",
+          "q_en": "Where are you based, and do we need to be in Montpellier?",
+          "a_fr": "Le studio est à Montpellier et travaille avec des PME en local comme à distance. Le diagnostic et le cadrage se font en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition.",
+          "a_en": "The studio is in Montpellier and works with SMBs locally and remotely. The diagnostic and scoping happen by video or on site depending on your preference. Proximity helps for the first workshops, but it is not a condition."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à brancher l'IA ?",
+      "kicker_en": "§ Ready to wire AI in?",
+      "h2_fr": "Sortez l'IA de la démo, mettez-la en <i>production</i>.",
+      "h2_en": "Take AI out of the demo, put it into <i>production</i>.",
+      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec une cartographie de vos cas d'usage et un premier agent ciblé, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit, câble et supervise lui-même, pas un pool de sous-traitants.",
+      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with a map of your use cases and a first targeted agent, whether we work together or not. Across the table, the founder who designs, wires and supervises himself, not a pool of subcontractors.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un diagnostic (45 min) →",
+          "label_en": "Book a diagnostic (45 min) →",
+          "href": "/contact?offer=integrateur-claude&intent=discovery",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le site web intelligent",
+          "label_en": "See the intelligent website",
+          "href": "/services/site-web-intelligent",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
