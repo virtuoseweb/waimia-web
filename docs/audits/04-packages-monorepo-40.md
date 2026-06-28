@@ -172,6 +172,20 @@ Sécurité du swap (GF-4) : **0 usage `image()`/`z.image`** dans la couche sché
 
 **Reste T3 étape 2 (déplacement + alias)** : créer `packages/ds-kernel/` + déplacer `schemas/{sections.ts,sections.generated.ts,page-document.ts}` + `lib/section-{facets,slots,presets,colorschemes,variants,archetypes}.ts` + `lib/page-document*.ts` + `_shared/*`, définir alias TS+Vite `@waimia/ds-kernel`, grep-replace contrôlé des chemins relatifs. ⚠️ **Wrinkle post-#38 à trancher** : `sections.ts`→`sections.generated.ts`→`import { schema } from '../sections/<type>/schema'` (200 schémas co-localisés). Ces schémas co-localisés sont, au §1, dans `@waimia/sections` (T6), PAS le kernel → l'agrégateur `sections.generated.ts` (kernel) importerait `@waimia/sections` = **cycle kernel→sections**. Options : (a) déplacer aussi les 200 `schema.ts` co-localisés dans le kernel (les `Component.astro` restant dans sections) ; (b) garder l'agrégat dans `@waimia/sections` et n'exporter du kernel que `_shared` + contrat + `page-document`. À arbitrer AVANT l'étape 2 (branche worktree-isolée dédiée). Le dépin (étape 1) débloque les deux options.
 
+### Addendum T3 étape 2 (2026-06-28) : extraction `@waimia/ds-kernel` faite (commit `1f5542e4`)
+
+Décision **option (a)** exécutée (le contrat de section = surface SaaS, va au kernel ; rendu reste app). Stratégie de résolution retenue = **vrai package workspace pnpm** (`exports` wildcards `./schemas/*` `./lib/*` `./sections/*` + `"@waimia/ds-kernel":"workspace:*"` racine + symlink `node_modules/@waimia/ds-kernel`), **0 alias tsconfig/vite nécessaire** (résolu en Vite/Astro + astro check + tsx). Confirme que le pattern « relatif » de ds-tokens (T2) n'était PAS une fatalité : un vrai package résout uniformément si on le LIE (deps + install).
+
+Déplacés (≈217 fichiers, `mv`, arbo préservée) : `schemas/{sections,sections.generated,page-document}.ts` + `lib/section-{facets,slots,presets,colorschemes,variants,archetypes}.ts` + `lib/page-document{,-frontmatter}.ts` + `sections/_shared/*` + 200 `sections/<type>/schema.ts`. ~820 imports entrants réécrits → `@waimia/ds-kernel[/sous-chemin]` (transformation déterministe). 
+
+**Cycle kernel↔app cassé proprement** : le seul edge (`section-variants.ts` lisait `SECTIONS[type].family` = registry app) est résolu par un **4ᵉ artefact généré `section-family.generated.ts`** (Record type→family, scan textuel des `meta.ts`, émis DANS le kernel car la famille = taxonomie/contrat). `gen-section-aggregate.mjs` fait désormais **dual-write** : `sections.generated`+`section-family.generated` → kernel ; `section-registry.generated`+`section-demos.generated` → app.
+
+⚠️ **Régression rattrapée (rule 09)** : le worker a manqué `gen-section-manifest.mjs:311` (`parseSchemaFields` lisait `src/sections/<id>/schema.ts`, chemin périmé) → `DS-SECTION-CATALOG.md` + `ds-section-manifest.json` (consommé par le DS Studio) avaient perdu leurs Props/schemaFields, et le gate `check:usage-manifest` passait quand même (régénère avec le même chemin cassé = angle mort du gate). Fix : repointer vers `packages/ds-kernel/src/sections/<id>/schema.ts` → les 2 artefacts redeviennent **diff-vide vs HEAD** (1963 schemaFields restaurés). **Leçon** : les gates « régénère + diff » ne détectent pas une dégradation si le générateur ET le gate lisent le même mauvais chemin ; vérifier le CONTENU vs HEAD, pas seulement l'auto-cohérence.
+
+madge : 200 cycles type-only `demos`/`demo.ts` PRÉ-EXISTANTS (#38), hors kernel, non bloquants (build OK). GF-1 local complet (build Complete!, manifest dist IDENTIQUE, astro check 60, 6 gates, visuel 3 pages). **Gate preview Vercel** lancé avant FF main (nouveau pattern : package `.ts` consommé cross-package via symlink workspace → confirmer la résolution sur frozen-install cloud, T2 ne couvrait que CSS/mjs).
+
+**Reste #40** : T4 catalogue-ui (🟡), T5 builder (🟡), T6 sections+registry (🔴, le plus tard). Le kernel extrait débloque T4/T5 (ils dépendent de `@waimia/ds-kernel`).
+
 ## 6. Risques + parades
 
 | Risque | Parade |
