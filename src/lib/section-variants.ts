@@ -411,6 +411,91 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
       values: ['note-inline', 'highlight-box', 'icon-callout', 'quote-callout', 'warning-bar', 'tip-card'],
     },
   ],
+  // ─── 12 nouveaux archétypes (un axe `layout`) ───
+  // pageheader (en-tête de page) → 7
+  pageheader: [
+    {
+      prop: 'layout',
+      values: ['title-only', 'title-breadcrumb', 'title-intro', 'title-meta', 'centered-title', 'title-with-cta', 'split-title-aside'],
+    },
+  ],
+  // richtext (texte riche) → 6
+  richtext: [
+    {
+      prop: 'layout',
+      values: ['single-col', 'with-toc', 'two-col', 'wide-prose', 'with-sidebar-notes', 'legal-numbered'],
+    },
+  ],
+  // video (vidéo / lecteur) → 6
+  video: [
+    {
+      prop: 'layout',
+      values: ['video-full', 'video-left-text', 'video-right-text', 'video-grid', 'video-with-chapters', 'poster-modal'],
+    },
+  ],
+  // product (produits / catalogue) → 6
+  product: [
+    {
+      prop: 'layout',
+      values: ['cards-grid', 'cards-list', 'featured-product', 'grid-with-filters', 'carousel-row', 'two-col-detail'],
+    },
+  ],
+  // integrations (intégrations / connecteurs) → 5
+  integrations: [
+    {
+      prop: 'layout',
+      values: ['logo-grid-categories', 'search-grid', 'featured-plus-grid', 'list-by-category', 'marquee-grid'],
+    },
+  ],
+  // divider (séparateur / rupture) → 6
+  divider: [
+    {
+      prop: 'layout',
+      values: ['rule-line', 'label-center', 'icon-break', 'quote-break', 'gradient-fade', 'number-marker'],
+    },
+  ],
+  // breadcrumb (fil d'ariane) → 5
+  breadcrumb: [
+    {
+      prop: 'layout',
+      values: ['inline-path', 'with-title', 'centered', 'arrowed', 'condensed'],
+    },
+  ],
+  // errorstate (état d'erreur / page vide) → 5
+  errorstate: [
+    {
+      prop: 'layout',
+      values: ['centered-illustration', 'split-illustration', 'minimal-text', 'with-search', 'with-links'],
+    },
+  ],
+  // consent (consentement / cookies) → 5
+  consent: [
+    {
+      prop: 'layout',
+      values: ['bottom-bar', 'corner-card', 'center-modal', 'top-bar', 'detailed-prefs'],
+    },
+  ],
+  // modal (boîte de dialogue) → 5
+  modal: [
+    {
+      prop: 'layout',
+      values: ['centered-dialog', 'side-drawer', 'fullscreen', 'bottom-sheet', 'image-dialog'],
+    },
+  ],
+  // jobs (offres d'emploi) → 5
+  jobs: [
+    {
+      prop: 'layout',
+      values: ['list-rows', 'cards-grid', 'by-department', 'table-listing', 'featured-roles'],
+    },
+  ],
+  // events (événements / agenda) → 5
+  events: [
+    {
+      prop: 'layout',
+      values: ['cards-grid', 'list-dated', 'calendar-grid', 'featured-event', 'timeline-upcoming'],
+    },
+  ],
 };
 
 /* ───────────────────────────── Labels FR auto-composés ───────────────────────────── */
@@ -621,6 +706,78 @@ const LAYOUT_LABEL: Record<string, string> = {
   'quote-callout': 'encart citation',
   'warning-bar': 'bandeau d\'alerte',
   'tip-card': 'carte conseil',
+  // ─── 12 nouveaux archétypes (extension 40) ───
+  // pageheader (centered-title réutilise 'centered' ? non : libellé propre)
+  'title-only': 'titre seul',
+  'title-breadcrumb': 'titre + fil',
+  'title-intro': 'titre + intro',
+  'title-meta': 'titre + méta',
+  'centered-title': 'titre centré',
+  'title-with-cta': 'titre + CTA',
+  'split-title-aside': 'titre + aparté',
+  // richtext (two-col existe déjà)
+  'with-toc': 'avec sommaire',
+  'wide-prose': 'prose large',
+  'with-sidebar-notes': 'notes en marge',
+  'legal-numbered': 'légal numéroté',
+  // video
+  'video-full': 'vidéo pleine',
+  'video-left-text': 'vidéo à gauche, texte',
+  'video-right-text': 'vidéo à droite, texte',
+  'video-grid': 'grille vidéos',
+  'video-with-chapters': 'vidéo + chapitres',
+  'poster-modal': 'poster + modal',
+  // product (cards-grid existe déjà)
+  'cards-list': 'liste de cartes',
+  'featured-product': 'produit vedette',
+  'grid-with-filters': 'grille + filtres',
+  'carousel-row': 'rangée carrousel',
+  'two-col-detail': 'détail 2 colonnes',
+  // integrations
+  'logo-grid-categories': 'grille logos catégorisée',
+  'search-grid': 'grille + recherche',
+  'featured-plus-grid': 'vedette + grille',
+  'list-by-category': 'liste par catégorie',
+  'marquee-grid': 'grille défilante',
+  // divider
+  'rule-line': 'filet',
+  'label-center': 'libellé centré',
+  'icon-break': 'rupture icône',
+  'quote-break': 'rupture citation',
+  'gradient-fade': 'fondu dégradé',
+  'number-marker': 'marqueur numéro',
+  // breadcrumb (centered existe déjà)
+  'inline-path': 'chemin en ligne',
+  'with-title': 'avec titre',
+  arrowed: 'fléché',
+  condensed: 'condensé',
+  // errorstate
+  'centered-illustration': 'illustration centrée',
+  'split-illustration': 'illustration split',
+  'minimal-text': 'texte minimal',
+  'with-search': 'avec recherche',
+  'with-links': 'avec liens',
+  // consent
+  'bottom-bar': 'barre basse',
+  'corner-card': 'carte coin',
+  'center-modal': 'modale centrée',
+  'top-bar': 'barre haute',
+  'detailed-prefs': 'préférences détaillées',
+  // modal
+  'centered-dialog': 'dialogue centré',
+  'side-drawer': 'tiroir latéral',
+  fullscreen: 'plein écran',
+  'bottom-sheet': 'panneau bas',
+  'image-dialog': 'dialogue image',
+  // jobs (list-rows et cards-grid existent déjà)
+  'by-department': 'par département',
+  'table-listing': 'liste tableau',
+  'featured-roles': 'rôles vedettes',
+  // events (cards-grid existe déjà)
+  'list-dated': 'liste datée',
+  'calendar-grid': 'grille calendrier',
+  'featured-event': 'événement vedette',
+  'timeline-upcoming': 'à venir',
 };
 
 const PROPORTION_LABEL: Record<string, string> = {
@@ -1025,6 +1182,93 @@ export const FULL_AXES: Record<Archetype, AxisDef[]> = {
     { prop: 'layout', values: ['note-inline', 'highlight-box', 'icon-callout', 'quote-callout', 'warning-bar', 'tip-card'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  // ─── 12 nouveaux archétypes (mêmes layouts que STRUCTURAL_AXES + axes transverses honorés) ───
+  pageheader: [
+    { prop: 'layout', values: ['title-only', 'title-breadcrumb', 'title-intro', 'title-meta', 'centered-title', 'title-with-cta', 'split-title-aside'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  richtext: [
+    { prop: 'layout', values: ['single-col', 'with-toc', 'two-col', 'wide-prose', 'with-sidebar-notes', 'legal-numbered'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  video: [
+    { prop: 'layout', values: ['video-full', 'video-left-text', 'video-right-text', 'video-grid', 'video-with-chapters', 'poster-modal'] },
+    { prop: 'mediaSide', values: ['left', 'right'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  product: [
+    { prop: 'layout', values: ['cards-grid', 'cards-list', 'featured-product', 'grid-with-filters', 'carousel-row', 'two-col-detail'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  integrations: [
+    { prop: 'layout', values: ['logo-grid-categories', 'search-grid', 'featured-plus-grid', 'list-by-category', 'marquee-grid'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  divider: [
+    { prop: 'layout', values: ['rule-line', 'label-center', 'icon-break', 'quote-break', 'gradient-fade', 'number-marker'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  breadcrumb: [
+    { prop: 'layout', values: ['inline-path', 'with-title', 'centered', 'arrowed', 'condensed'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  errorstate: [
+    { prop: 'layout', values: ['centered-illustration', 'split-illustration', 'minimal-text', 'with-search', 'with-links'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  consent: [
+    { prop: 'layout', values: ['bottom-bar', 'corner-card', 'center-modal', 'top-bar', 'detailed-prefs'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  modal: [
+    { prop: 'layout', values: ['centered-dialog', 'side-drawer', 'fullscreen', 'bottom-sheet', 'image-dialog'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  jobs: [
+    { prop: 'layout', values: ['list-rows', 'cards-grid', 'by-department', 'table-listing', 'featured-roles'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  events: [
+    { prop: 'layout', values: ['cards-grid', 'list-dated', 'calendar-grid', 'featured-event', 'timeline-upcoming'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
 };

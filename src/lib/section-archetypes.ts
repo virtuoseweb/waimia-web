@@ -13,8 +13,8 @@ import type { SectionType } from '../schemas/sections';
 import type { LayoutTag } from './section-facets';
 
 /* ───────────────────────────── Archétypes (catégories de section) ───────────────────────────── */
-// 28 archétypes. Les 10 premiers = 10 classes de famille CSS RENDUES du moteur
-// (sec-<archetype>), cf section-layouts.css. Les 18 suivants (stats…callout) réutilisent
+// 40 archétypes. Les 10 premiers = 10 classes de famille CSS RENDUES du moteur
+// (sec-<archetype>), cf section-layouts.css. Les 30 suivants (stats…events) réutilisent
 // chacun une `familyClass` moteur EXISTANTE (recettes CSS dédiées = migration #46) : ils
 // enrichissent le VOCABULAIRE de squelettes sans inventer de nouvelle famille CSS.
 export type Archetype =
@@ -45,7 +45,20 @@ export type Archetype =
   | 'contact'
   | 'map'
   | 'toolbar'
-  | 'callout';
+  | 'callout'
+  // ─── 12 nouveaux archétypes (vocabulaire enrichi, familyClass moteur existante) ───
+  | 'pageheader'
+  | 'richtext'
+  | 'video'
+  | 'product'
+  | 'integrations'
+  | 'divider'
+  | 'breadcrumb'
+  | 'errorstate'
+  | 'consent'
+  | 'modal'
+  | 'jobs'
+  | 'events';
 
 /* ───────────────────────────── Couches (les 6 du standard) ───────────────────────────── */
 // LayerTag = quelle couche du mixin de variation un archétype câble réellement.
@@ -325,10 +338,107 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
     familyClass: 'sec-band',
   },
+  // ─── 12 nouveaux archétypes (vocabulaire encore plus riche, familyClass moteur existante) ───
+  // En-tête de page (titre + fil + intro, réutilise le moteur editorial).
+  pageheader: {
+    layouts: ['1-col', '2-col', 'centered'],
+    regions: ['header', 'body', 'aside'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'sizing'],
+    familyClass: 'sec-editorial',
+  },
+  // Texte riche / corps long (réutilise le moteur editorial).
+  richtext: {
+    layouts: ['1-col', '2-col', 'centered'],
+    regions: ['header', 'body', 'aside'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'sizing'],
+    familyClass: 'sec-editorial',
+  },
+  // Vidéo / lecteur (réutilise le moteur split média ↔ texte).
+  video: {
+    layouts: ['split', 'media-left', 'media-right', 'full-bleed', '1-col'],
+    regions: ['header', 'media', 'body', 'actions'],
+    axes: ['proportion', 'mediaSide', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-split',
+  },
+  // Produits / catalogue (réutilise le moteur collection).
+  product: {
+    layouts: ['2-col', '3-col', '4-col', 'multi-col'],
+    regions: ['header', 'body', 'media', 'actions'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
+  // Intégrations / connecteurs (réutilise le moteur collection).
+  integrations: {
+    layouts: ['3-col', '4-col', 'multi-col', 'centered'],
+    regions: ['header', 'body'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
+  // Séparateur / rupture (réutilise le moteur band).
+  divider: {
+    layouts: ['centered', '1-col', 'full-bleed'],
+    regions: ['body'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
+  // Fil d'ariane (réutilise le moteur band).
+  breadcrumb: {
+    layouts: ['1-col', 'centered'],
+    regions: ['body'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
+  // État d'erreur / page vide (réutilise le moteur band).
+  errorstate: {
+    layouts: ['centered', '1-col', 'full-bleed'],
+    regions: ['header', 'body', 'actions'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
+  // Consentement / cookies (réutilise le moteur band).
+  consent: {
+    layouts: ['1-col', 'full-bleed', 'centered'],
+    regions: ['body', 'actions'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
+  // Boîte de dialogue / modale (réutilise le moteur band).
+  modal: {
+    layouts: ['centered', 'full-bleed', '1-col'],
+    regions: ['header', 'body', 'actions'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
+  // Offres d'emploi (réutilise le moteur collection).
+  jobs: {
+    layouts: ['1-col', '2-col', '3-col', 'multi-col'],
+    regions: ['header', 'body', 'actions'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
+  // Événements / agenda (réutilise le moteur collection).
+  events: {
+    layouts: ['2-col', '3-col', 'multi-col', '1-col'],
+    regions: ['header', 'body', 'media', 'actions'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
 };
 
 /* ───────────────────────────── family (registry) → archétype ─────────────────────────────
- * Le `family` du SectionDescriptor (FamilyTag, 27 valeurs) projette sur l'un des 28
+ * Le `family` du SectionDescriptor (FamilyTag, 27 valeurs) projette sur l'un des 40
  * archétypes. Garde le mapping DRY : TYPE_ARCHETYPE ci-dessous est dérivé de la famille
  * de chaque type (cf section-registry.ts), donc on couvre les 199 types sans table à la
  * main. Source : familles réelles du registry (audit 2026-06-28). */
@@ -340,7 +450,7 @@ const FAMILY_ARCHETYPE: Record<string, Archetype> = {
   accordion: 'faq',
   tabs: 'tabs',
   'form-panel': 'form',
-  breadcrumb: 'collection',
+  breadcrumb: 'breadcrumb',
   'terminal-shell': 'collection',
   // bento
   bento: 'bento',
@@ -389,7 +499,7 @@ export const TYPE_ARCHETYPE: Partial<Record<SectionType, Archetype>> = {
   'hero-tunnel-step': 'hero',
   'hero-atlas': 'hero',
   'masthead-bar': 'hero',
-  'breadcrumb-bar': 'collection',
+  'breadcrumb-bar': 'breadcrumb',
 
   // Collections (cartes / stats / listes)
   'feature-grid': 'collection',
@@ -462,6 +572,10 @@ export const TYPE_ARCHETYPE: Partial<Record<SectionType, Archetype>> = {
   'media-block': 'gallery',
   'scroll-gallery': 'gallery',
   'media-bento': 'gallery',
+
+  // Produits / intégrations (types existants reclassés vers leurs nouveaux archétypes)
+  'product-reel': 'product',
+  'integrations-grid': 'integrations',
 };
 
 /**
