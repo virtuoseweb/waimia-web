@@ -149,7 +149,11 @@ const studioData = JSON.stringify({
   tokenSections: tokenSectionMap,
   demoPresets: DEMO_PRESETS,
   originals: Object.fromEntries(tokens.map((token) => [token.name, token.value])),
+  // env injecté au build : DEV ⟹ le middleware /api/ds/save existe (astro dev) ;
+  // PROD (site output:static) ⟹ pas d'endpoint, on désactive le bouton Enregistrer.
+  env: import.meta.env.DEV ? 'dev' : 'prod',
 });
+const studioEnv = import.meta.env.DEV ? 'dev' : 'prod';
 
 // ── Atelier de section : carte des champs éditables par type ──────────────────
 // On introspecte le discriminatedUnion Zod pour récupérer, par type :
@@ -337,6 +341,9 @@ const moleculesRendered = 12;
         <button id="token-undo" data-action="undo" class="studio-btn" type="button" disabled aria-label="Annuler">↶</button>
         <button id="token-redo" data-action="redo" class="studio-btn" type="button" disabled aria-label="Rétablir">↷</button>
       </div>
+      <span id="studio-env-badge" class="studio-env-badge" data-env={studioEnv} aria-label={`Environnement : ${studioEnv}`}>
+        {studioEnv === 'dev' ? 'DEV ●' : 'PROD'}
+      </span>
       <div class="studio-actions" role="group" aria-label="Viewport de la galerie">
         <button data-viewport="desktop" class="studio-btn is-active" type="button">Desktop</button>
         <button data-viewport="tablet" class="studio-btn" type="button">Tablet</button>
@@ -398,6 +405,9 @@ const moleculesRendered = 12;
             <button id="token-save" data-action="save" class="studio-btn studio-btn--save" type="button">
               Enregistrer (déployer)
             </button>
+            <p id="studio-save-hint" class="studio-save-hint" hidden>
+              Enregistrement disponible en mode développement uniquement.
+            </p>
           </div>
 
           <label class="studio-search">
@@ -1104,6 +1114,16 @@ const moleculesRendered = 12;
     font-family: var(--font-mono); font-size: var(--text-small);
   }
   .studio-contrast-badge { padding: var(--space-1) var(--space-2); border: 1px solid var(--hairline-strong); border-radius: var(--radius-pill); white-space: nowrap; }
+  .studio-env-badge {
+    font-family: var(--font-mono); font-size: var(--text-small); color: var(--muted);
+    padding: var(--space-1) var(--space-2); border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-pill); white-space: nowrap; line-height: 1;
+  }
+  .studio-env-badge[data-env="dev"] { color: var(--accent-text); }
+  .studio-save-hint {
+    font-family: var(--font-mono); font-size: var(--text-small); color: var(--muted);
+    margin: var(--space-2) 0 0;
+  }
   .studio-preset-create { display: flex; flex-direction: column; gap: var(--space-2); padding: 0 var(--space-3) var(--space-3); }
   .studio-preset-row .studio-actions { flex: none; }
   .studio-preset-io {

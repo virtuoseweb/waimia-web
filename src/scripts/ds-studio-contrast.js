@@ -1,10 +1,30 @@
+// Paires de contraste WCAG calculées LIVE sur les tokens courants du DS.
+//
+// Couples = rôles de TEXTE (ink / ink-2 / muted / accent-text) croisés avec les
+// SURFACES réellement utilisées (paper / paper-2 / paper-3 / ink). Les noms de
+// tokens viennent de src/styles/tokens.css (text=--ink, muted=--muted,
+// accent texte=--accent-text ; surfaces=--paper/--paper-2/--paper-3/--ink).
+//
+// Subtilité ink : sous [data-bg='ink'] (global.css), --muted et --accent-text
+// sont remappés. On résout donc les foregrounds de la surface ink DANS un
+// contexte [data-bg='ink'] (option `context`), sinon on lirait les valeurs paper.
 const PAIRS = [
-  ['--ink', '--paper'],
-  ['--ink-2', '--paper'],
-  ['--muted', '--paper'],
-  ['--ink', '--paper-2'],
-  ['--paper', '--accent'],
-  ['--accent', '--paper'],
+  // Surface paper
+  { fg: '--ink', bg: '--paper' },
+  { fg: '--ink-2', bg: '--paper' },
+  { fg: '--muted', bg: '--paper' },
+  { fg: '--accent-text', bg: '--paper' },
+  // Surface paper-2
+  { fg: '--ink', bg: '--paper-2' },
+  { fg: '--muted', bg: '--paper-2' },
+  { fg: '--accent-text', bg: '--paper-2' },
+  // Surface paper-3
+  { fg: '--ink', bg: '--paper-3' },
+  { fg: '--muted', bg: '--paper-3' },
+  // Surface ink (foregrounds résolus en contexte [data-bg='ink'])
+  { fg: '--paper', bg: '--ink', context: 'ink' },
+  { fg: '--muted', bg: '--ink', context: 'ink' },
+  { fg: '--accent-text', bg: '--ink', context: 'ink' },
 ];
 
 function parseRgb(value) {
@@ -22,10 +42,12 @@ function parseRgb(value) {
   ];
 }
 
-function resolveToken(root, token) {
+// Résout un token en couleur rgba. `host` = élément parent du probe : permet de
+// placer la sonde dans un contexte [data-bg='ink'] pour lire les remaps ink.
+function resolveToken(host, token) {
   const probe = document.createElement('span');
   probe.style.color = `var(${token})`;
-  root.appendChild(probe);
+  host.appendChild(probe);
   const value = getComputedStyle(probe).color;
   probe.remove();
   return parseRgb(value);
@@ -65,19 +87,34 @@ function rating(value) {
 
 export function renderContrast(root, list) {
   if (!list) return;
-  const paper = resolveToken(root, '--paper');
+
+  // Contexte ink : un host caché portant data-bg='ink' (cascade des remaps de
+  // global.css) pour résoudre les foregrounds de la surface sombre.
+  let inkHost = null;
+  function getInkHost() {
+    if (inkHost) return inkHost;
+    inkHost = document.createElement('div');
+    inkHost.setAttribute('data-bg', 'ink');
+    inkHost.style.position = 'absolute';
+    inkHost.style.visibility = 'hidden';
+    inkHost.style.pointerEvents = 'none';
+    root.appendChild(inkHost);
+    return inkHost;
+  }
+
   list.replaceChildren();
-  PAIRS.forEach(([foregroundName, backgroundName]) => {
-    const foreground = composite(resolveToken(root, foregroundName), paper);
-    const background = composite(resolveToken(root, backgroundName), paper);
+  PAIRS.forEach(({ fg, bg, context }) => {
+    const fgHost = context === 'ink' ? getInkHost() : root;
+    const background = resolveToken(root, bg); // surface = valeur :root (opaque)
+    const foreground = composite(resolveToken(fgHost, fg), background);
     const value = foreground && background ? ratio(foreground, background) : 0;
 
     const row = document.createElement('div');
     row.className = 'studio-contrast-row';
-    row.dataset.contrastPair = `${foregroundName}/${backgroundName}`;
+    row.dataset.contrastPair = `${fg}/${bg}`;
 
     const label = document.createElement('span');
-    label.textContent = `${foregroundName.slice(2)}/${backgroundName.slice(2)}`;
+    label.textContent = `${fg.slice(2)}/${bg.slice(2)}`;
 
     const badge = document.createElement('span');
     badge.className = 'studio-contrast-badge';
@@ -86,4 +123,6 @@ export function renderContrast(root, list) {
     row.append(label, badge);
     list.appendChild(row);
   });
+
+  if (inkHost) inkHost.remove();
 }

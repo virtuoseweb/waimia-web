@@ -22,6 +22,10 @@ function initStudio() {
   container.dataset.studioInit = '1';
 
   const DATA = JSON.parse(dataEl.textContent || '{}');
+  // env injecté au build par studio.astro (import.meta.env.DEV) : source FIABLE,
+  // pas d'heuristique hostname. En prod le middleware /api/ds/save n'existe pas
+  // (site output:static) → on désactive la sauvegarde et on court-circuite tout fetch.
+  const isDev = DATA.env === 'dev';
   const consumers = DATA.consumers || {};
   const tokenSections = DATA.tokenSections || {};
   const demoPresets = DATA.demoPresets || {};
@@ -307,8 +311,17 @@ function initStudio() {
   // location.reload(). Pas de polling Vercel : délai fixe (setTimeout + interval).
   const saveBtn = container.querySelector('#token-save');
   const keywordInput = container.querySelector('[data-save-keyword]');
+  const saveHint = container.querySelector('#studio-save-hint');
   let countdownTimer = null;
   let reloadTimer = null;
+
+  // PROD : la persistance git n'existe pas (output:static). On verrouille l'UI de
+  // sauvegarde dès l'init (bouton désactivé + champ mot-clé désactivé + aide visible).
+  if (!isDev) {
+    if (saveBtn) saveBtn.disabled = true;
+    if (keywordInput) keywordInput.disabled = true;
+    if (saveHint) saveHint.hidden = false;
+  }
 
   function buildTokensPayload() {
     const out = {};
@@ -456,6 +469,13 @@ function initStudio() {
   }
 
   async function performSave(keyword) {
+    if (!isDev) {
+      // PROD : aucun endpoint /api/ds/save → 0 fetch émis (évite le faux
+      // « Réseau indisponible »). Message clair, pas d'appel réseau.
+      setSaveState('error');
+      toast('Enregistrement disponible en mode développement uniquement');
+      return { ok: false, error: 'prod' };
+    }
     if (!dirty.size) {
       setSaveState('error');
       toast('Aucun changement : modifie au moins un token avant d\'enregistrer');
