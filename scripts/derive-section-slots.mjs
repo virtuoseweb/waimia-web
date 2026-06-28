@@ -174,6 +174,8 @@ function scalarType(fieldName, core) {
   if (/(^|_)(media_src|src|image|img|logo|avatar|icon)($|_)/.test(n) || n.endsWith('_src') || n === 'media_src') return 'image';
   if (n.includes('href') || n.endsWith('link') || n === 'url' || n.endsWith('_url') || n.endsWith('_link')) return 'url';
   if (n.endsWith('_html') || n === 'html' || n === 'body_html') return 'richtext';
+  // Corps Markdown riche (#39) : body_md / *_md / body → slot logique richtext.
+  if (n.endsWith('_md') || n === 'md' || n === 'body_md' || n === 'body') return 'richtext';
   return 'text';
 }
 
@@ -302,13 +304,22 @@ async function loadSchemaModule() {
 
   const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'c2a-sections-'));
   try {
-    // 1) Copier le god-file vers <tmp>/schemas/sections.ts
+    // 1) Copier TOUT src/schemas/*.ts vers <tmp>/schemas/ (god-file `sections.ts` + ses
+    //    siblings GENERES `sections.generated.ts` que le god-file ré-exporte depuis #38 T5,
+    //    + page-document.ts). Sans le sibling généré, l'import `./sections.generated` du
+    //    god-file échoue (MODULE_NOT_FOUND). Les sous-dossiers (schemas/generated/) ne sont
+    //    pas importés par sections.ts : inutile de les copier.
     const tmpSchemasDir = path.join(tmpRoot, 'schemas');
     fs.mkdirSync(tmpSchemasDir, { recursive: true });
-    fs.writeFileSync(
-      path.join(tmpSchemasDir, 'sections.ts'),
-      rebindAstro(fs.readFileSync(SCHEMA_PATH, 'utf8')),
-    );
+    const repoSchemasDir = path.dirname(SCHEMA_PATH);
+    for (const entry of fs.readdirSync(repoSchemasDir, { withFileTypes: true })) {
+      if (entry.isFile() && entry.name.endsWith('.ts')) {
+        fs.writeFileSync(
+          path.join(tmpSchemasDir, entry.name),
+          rebindAstro(fs.readFileSync(path.join(repoSchemasDir, entry.name), 'utf8')),
+        );
+      }
+    }
 
     // 2) Copier toute l'arborescence src/sections/**.ts vers <tmp>/sections/**.ts en
     //    préservant la structure relative (couvre _shared + modules co-localisés). Les

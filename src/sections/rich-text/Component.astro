@@ -1,0 +1,88 @@
+---
+// Waimia · Co-location DS (#39) · module `rich-text` · Component.
+// Section de corps riche : rend un CORPS MARKDOWN bilingue (body_md_fr / body_md_en) en
+// HTML AU BUILD (SSG, 0 runtime), avec les styles prose du DS (.prose dans global.css).
+//
+// Renderer = processeur OFFICIEL Astro `@astrojs/markdown-remark` (GF-6 : officiel d'abord,
+// 0 tiers `marked`). createMarkdownProcessor() est instancie UNE FOIS au niveau MODULE
+// (partage entre toutes les instances de section au build), puis `.render(md)` retourne
+// `{ code, metadata }` ; on injecte `code` (HTML) via set:html dans un conteneur `.prose`.
+// gfm est actif par defaut (listes/liens/gras). Pas de HTML brut arbitraire injecte (le
+// contenu est du Markdown source, pas du HTML utilisateur).
+//
+// Contrat de composant standard du catalogue : <Component data={section} lang={lang} />
+// (idem renderer src/pages/preview/[type].astro : <C data={demo} lang="fr" />). 0 token
+// DS nouveau (rule 60) : la prose reutilise les tokens existants via .prose (global.css).
+import type { SectionByType } from '../../schemas/sections';
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+
+interface Props {
+  data: SectionByType<'rich-text'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+// Processeur instancie UNE FOIS par module (top-level await, partage au build).
+const processor = await createMarkdownProcessor();
+
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const title = isFr ? data.title_fr : data.title_en;
+const bodyMd = isFr ? data.body_md_fr : data.body_md_en;
+
+// Rendu Markdown -> HTML au build. `.render` retourne { code, metadata } ; `code` = HTML.
+const rendered = await processor.render(bodyMd ?? '');
+const bodyHtml = rendered.code;
+---
+
+<section class="rich-text" data-bg={data.background}>
+  <div class="rich-text__col">
+    {(kicker || title) && (
+      <header class="rich-text__hd">
+        {kicker && <span class="rich-text__kicker">{kicker}</span>}
+        {title && <h2 class="rich-text__title">{title}</h2>}
+      </header>
+    )}
+    <div class="prose rich-text__body" set:html={bodyHtml} />
+  </div>
+</section>
+
+<style>
+  /* SKIN local UNIQUEMENT (parite editorial-prose). 0 token DS nouveau : que des var() existants.
+     La typographie de PROSE (h2/h3/p/ul/ol/li/blockquote/code) est portee par .prose (global.css)
+     pour rester 1 source de verite des styles de corps riche partagee par tout le site. */
+  .rich-text {
+    padding: var(--section-base) var(--gut);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .rich-text__col {
+    max-width: var(--wrap-prose);
+    margin: 0 auto;
+  }
+  .rich-text__hd {
+    margin-bottom: var(--space-6);
+  }
+  .rich-text__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin-bottom: var(--space-3);
+  }
+  .rich-text__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.018em;
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    margin: 0;
+  }
+  /* Variante encre (parite idiome data-bg='ink' du DS) : titres/corps lisibles sur fond ink. */
+  .rich-text[data-bg='ink'] { background: var(--ink); }
+  .rich-text[data-bg='ink'] .rich-text__title { color: var(--paper); }
+  .rich-text[data-bg='paper-2'] { background: var(--paper-2); }
+  .rich-text[data-bg='paper-3'] { background: var(--paper-3); }
+</style>

@@ -23,7 +23,7 @@
     "gen:catalog": "node scripts/gen-catalog.mjs",
     "gen:ds-registry": "node scripts/gen-ds-registry.mjs",
     "gen:token-lock": "node scripts/gen-token-lock.mjs",
-    "gen:section-manifest": "node scripts/gen-section-manifest.mjs",
+    "gen:section-manifest": "npx tsx scripts/gen-section-manifest.mjs",
     "gen:section-quickref": "node scripts/gen-section-quickref.mjs",
     "gen:section-aggregate": "node scripts/gen-section-aggregate.mjs",
     "gen:page-schemas": "npx tsx scripts/gen-page-schemas.mjs",
@@ -71,6 +71,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
+    "@astrojs/markdown-remark": "7.2.0",
     "@playwright/test": "^1.59.1",
     "@tailwindcss/vite": "^4.2.4",
     "react": "^18.3.1",

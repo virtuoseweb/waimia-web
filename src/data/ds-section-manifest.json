@@ -585,11 +585,6 @@
     "description_en": "Signature architecture diagram: N input channels flowing into a central system with M outputs, plus a continuous improvement loop.",
     "schemaFields": [
       {
-        "name": "atomique",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "background",
         "type": "enum",
         "required": false,
@@ -665,11 +660,6 @@
         "constraint": "min:2 max:8"
       },
       {
-        "name": "largeur",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "layout",
         "type": "enum",
         "required": false,
@@ -696,6 +686,11 @@
         "type": "array",
         "required": true,
         "constraint": "min:2 max:6"
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
       },
       {
         "name": "proportion",
@@ -1515,11 +1510,6 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
-        "name": "bento",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "cells",
         "type": "array",
         "required": true,
@@ -1576,42 +1566,7 @@
         "constraint": "bento | bento-feature | mosaic | matrix-2x2 | matrix-3x3 | grid-uniform"
       },
       {
-        "name": "mosaic",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "placement",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "ratio",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "ratio",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "ratio",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "uniform",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "x2",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "x3",
         "type": "unknown",
         "required": true
       }
@@ -2221,11 +2176,6 @@
       },
       {
         "name": "caseRefs",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "caseRefs",
         "type": "array",
         "required": false
       },
@@ -2234,11 +2184,6 @@
         "type": "array",
         "required": false,
         "constraint": "max:6"
-      },
-      {
-        "name": "colRatio",
-        "type": "unknown",
-        "required": true
       },
       {
         "name": "colRatio",
@@ -2329,11 +2274,6 @@
       },
       {
         "name": "layout",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "list",
         "type": "enum",
         "required": false,
         "constraint": "rows-divided | list | grid-uniform | grid-asym"
@@ -2552,7 +2492,7 @@
         "10px"
       ]
     },
-    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `list` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.015em, -2px, .14em)."
+    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.015em, -2px, .14em)."
   },
   {
     "id": "case-featured-grid",
@@ -4236,11 +4176,6 @@
     "description_en": "Two side-by-side cards (Without / With) to highlight a before/after or us-vs-them contrast, with bulleted items and differentiated glyphs.",
     "schemaFields": [
       {
-        "name": "atomique",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "background",
         "type": "enum",
         "required": false,
@@ -4285,15 +4220,15 @@
         "constraint": "inline | stacked"
       },
       {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "proportion",
         "type": "enum",
         "required": false,
         "constraint": "1-1 | 1-2 | 2-1"
-      },
-      {
-        "name": "te",
-        "type": "unknown",
-        "required": true
       },
       {
         "name": "with_items",
@@ -7121,17 +7056,6 @@
         "constraint": "compact | base | ample"
       },
       {
-        "name": "divided",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "itemHeight",
-        "type": "enum",
-        "required": false,
-        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
-      },
-      {
         "name": "itemHeight",
         "type": "enum",
         "required": false,
@@ -7155,8 +7079,9 @@
       },
       {
         "name": "layout",
-        "type": "unknown",
-        "required": true
+        "type": "enum",
+        "required": false,
+        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
       },
       {
         "name": "lead_en",
@@ -7455,7 +7380,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `itemHeight` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "department-cta",
@@ -7979,15 +7904,16 @@
     "description_en": "A “Where do you stand?” self-assessment: 4 to 6 maturity stages as clickable horizontal cards, the current stage highlighted in accent (“you are here”). Places the visitor and points them to the next step (conversion + qualification).",
     "schemaFields": [
       {
-        "name": "atomique",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "background",
         "type": "enum",
         "required": false,
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
       },
       {
         "name": "contentAlign",
@@ -8023,11 +7949,6 @@
       },
       {
         "name": "layout",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "layout",
         "type": "enum",
         "required": false,
         "constraint": "grid-steps | vertical-stack | numbered-rows"
@@ -8043,16 +7964,15 @@
         "required": false
       },
       {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "stages",
         "type": "array",
         "required": true,
         "constraint": "min:4 max:6"
-      },
-      {
-        "name": "steps",
-        "type": "enum",
-        "required": false,
-        "constraint": "auto | 2 | 3 | 4"
       }
     ],
     "scopedClasses": [
@@ -8233,7 +8153,7 @@
         "2px"
       ]
     },
-    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `steps` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px)."
+    "agentGuide": "Layout : `background`, `columns`, `contentAlign`, `density`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px)."
   },
   {
     "id": "direct-answer",
@@ -10133,21 +10053,319 @@
     "usage": "library",
     "consumers": [],
     "category": "marketing",
-    "categorySlug": "",
-    "subcategory": "",
-    "tags": [],
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
+    "tags": [
+      "author",
+      "authority",
+      "bento",
+      "dashboard",
+      "eeat",
+      "trust"
+    ],
     "status": "stable",
-    "description_fr": "",
-    "description_en": "",
-    "schemaFields": [],
-    "scopedClasses": [],
-    "tokensUsed": [],
+    "description_fr": "Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.",
+    "description_en": "E-E-A-T author/authority panel with 4 variants (media, columns, light, hero): a bento dashboard or accent columns gathering author, milestones, sectors, articles, services, tool and commitments. Single-source content (EEAT_PACK), honest proof (commitments + solo-studio note, no testimonial). Ink/paper variants, reveal-stagger, responsive.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "ink | paper"
+      },
+      {
+        "name": "eyebrow",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lead",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "default": "media",
+        "constraint": "media | columns | light | hero"
+      }
+    ],
+    "scopedClasses": [
+      "eep",
+      "eep--columns",
+      "eep--hero",
+      "eep--light",
+      "eep--media",
+      "eep-band",
+      "eep-band__cap",
+      "eep-band__img",
+      "eep-bio",
+      "eep-bio--sm",
+      "eep-cap",
+      "eep-cell",
+      "eep-cell--author",
+      "eep-cell--commit",
+      "eep-cell--cta",
+      "eep-cell--focus",
+      "eep-cell--hero",
+      "eep-cell--media",
+      "eep-cell--media-a",
+      "eep-cell--media-b",
+      "eep-cell--read",
+      "eep-cell--reperes",
+      "eep-cell--sectors",
+      "eep-cell--services",
+      "eep-celllabel",
+      "eep-celllabel--ink",
+      "eep-chip",
+      "eep-chips",
+      "eep-col",
+      "eep-col--accent",
+      "eep-colbody",
+      "eep-colhd",
+      "eep-colhd--accent",
+      "eep-collabel",
+      "eep-collabel--ink",
+      "eep-cols",
+      "eep-commit",
+      "eep-commit__detail",
+      "eep-commit__label",
+      "eep-commits",
+      "eep-creds",
+      "eep-creds__badge",
+      "eep-creds__item",
+      "eep-creds__label",
+      "eep-creds__list",
+      "eep-cta",
+      "eep-cta__glyph",
+      "eep-cta__title",
+      "eep-exp",
+      "eep-exp__item",
+      "eep-focus__label",
+      "eep-focus__num",
+      "eep-grid",
+      "eep-hd",
+      "eep-hero__cap",
+      "eep-hero__img",
+      "eep-hero__kicker",
+      "eep-hero__line",
+      "eep-honesty",
+      "eep-img",
+      "eep-kicker",
+      "eep-kicker__dot",
+      "eep-lead",
+      "eep-link",
+      "eep-link__kicker",
+      "eep-link__label",
+      "eep-link--flat",
+      "eep-links",
+      "eep-meta",
+      "eep-mlabel",
+      "eep-mlist",
+      "eep-mrow",
+      "eep-myear",
+      "eep-name",
+      "eep-name--ink",
+      "eep-name--sm",
+      "eep-role",
+      "eep-role--ink",
+      "reveal-stagger"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-ink",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--accent-sur-clair",
+        "value": "#A83D20"
+      },
+      {
+        "name": "--accent-sur-sombre",
+        "value": "#D96A47"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-trim",
+        "value": "220ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-full",
+        "value": "50%"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--radius-pill",
+        "value": "999px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-glyph",
+        "value": "22px"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-micro",
+        "value": "9px"
+      },
+      {
+        "name": "--text-numeral-md",
+        "value": "52px"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
+      }
+    ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 0,
-      "samples": []
+      "count": 15,
+      "samples": [
+        "0.5em",
+        "100%",
+        "12rem",
+        "14rem",
+        "16rem",
+        "18rem",
+        "1px",
+        "2.75rem"
+      ]
     },
-    "agentGuide": "Personnaliser via les props schema (0 requis, 0 optionnels)."
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (0.5em, 100%, 12rem)."
   },
   {
     "id": "faq-accordion",
@@ -11134,11 +11352,6 @@
         "name": "lede_fr",
         "type": "string",
         "required": false
-      },
-      {
-        "name": "unique",
-        "type": "unknown",
-        "required": true
       }
     ],
     "scopedClasses": [
@@ -11963,24 +12176,9 @@
     "description_en": "Alternating visual/text rows (left-right, right-left) to present key features with strong editorial rhythm.",
     "schemaFields": [
       {
-        "name": "actuel",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "alternate",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "alternate_blocks",
         "type": "boolean",
         "required": false
-      },
-      {
-        "name": "atomique",
-        "type": "unknown",
-        "required": true
       },
       {
         "name": "background",
@@ -12011,11 +12209,6 @@
         "required": true
       },
       {
-        "name": "in",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "kicker_en",
         "type": "string",
         "required": false
@@ -12024,6 +12217,12 @@
         "name": "kicker_fr",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "alternate | stacked | inline-left | inline-right"
       },
       {
         "name": "lede_en",
@@ -12042,6 +12241,11 @@
         "constraint": "left | right"
       },
       {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "proportion",
         "type": "enum",
         "required": false,
@@ -12052,12 +12256,6 @@
         "type": "array",
         "required": true,
         "constraint": "min:2 max:4"
-      },
-      {
-        "name": "stacked",
-        "type": "enum",
-        "required": false,
-        "constraint": "alternate | stacked | inline-left | inline-right"
       }
     ],
     "scopedClasses": [
@@ -12208,7 +12406,7 @@
         "24px"
       ]
     },
-    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `mediaSide`, `proportion`, `stacked` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `mediaSide`, `proportion` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%)."
   },
   {
     "id": "fit-columns",
@@ -12463,12 +12661,6 @@
         "name": "density",
         "type": "enum",
         "required": false,
-        "constraint": "inline | stacked"
-      },
-      {
-        "name": "density",
-        "type": "enum",
-        "required": false,
         "constraint": "compact | base | ample"
       },
       {
@@ -12493,8 +12685,9 @@
       },
       {
         "name": "layout",
-        "type": "unknown",
-        "required": true
+        "type": "enum",
+        "required": false,
+        "constraint": "inline | stacked"
       },
       {
         "name": "rounded",
@@ -12628,7 +12821,7 @@
         "clamp(var(--space-6)"
       ]
     },
-    "agentGuide": "Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `density` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px)."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px)."
   },
   {
     "id": "gallery-masonry",
@@ -15953,11 +16146,6 @@
         "type": "array",
         "required": false,
         "constraint": "max:8"
-      },
-      {
-        "name": "col",
-        "type": "unknown",
-        "required": true
       },
       {
         "name": "cta_primary",
@@ -24309,21 +24497,201 @@
     "usage": "library",
     "consumers": [],
     "category": "marketing",
-    "categorySlug": "",
-    "subcategory": "",
-    "tags": [],
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "tags": [
+      "above-fold",
+      "hero",
+      "rating",
+      "social-proof",
+      "stats",
+      "trust"
+    ],
     "status": "stable",
-    "description_fr": "",
-    "description_en": "",
-    "schemaFields": [],
-    "scopedClasses": [],
-    "tokensUsed": [],
+    "description_fr": "Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.",
+    "description_en": "Centered hero with above-the-fold social proof: heading, CTA, optional customer rating and a key-figures band (StatRow) under the fold.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "cta_primary",
+        "type": "object",
+        "required": true
+      },
+      {
+        "name": "cta_secondary",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "h1_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h1_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "rating_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "rating_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "stats",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:4"
+      }
+    ],
+    "scopedClasses": [
+      "hero-social-proof",
+      "hero-social-proof__band",
+      "hero-social-proof__ctas",
+      "hero-social-proof__h1",
+      "hero-social-proof__head",
+      "hero-social-proof__lede",
+      "hero-social-proof__rating",
+      "hero-social-proof__stars"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--header-height",
+        "value": "72px"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 0,
-      "samples": []
+      "count": 3,
+      "samples": [
+        "0.1em",
+        "1px",
+        "700px"
+      ]
     },
-    "agentGuide": "Personnaliser via les props schema (0 requis, 0 optionnels)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 3 litteral(s) hardcode(s) (0.1em, 1px, 700px)."
   },
   {
     "id": "hero-split",
@@ -29089,11 +29457,6 @@
       },
       {
         "name": "logoIds",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "logoIds",
         "type": "array",
         "required": false
       },
@@ -29639,12 +30002,6 @@
     "description_en": "Full-screen manifesto declaration: mono kicker and XL sans statement with serif italic highlights, ink tone (console interlude) or terracotta with a translucent grid.",
     "schemaFields": [
       {
-        "name": "e",
-        "type": "boolean",
-        "required": false,
-        "default": "false"
-      },
-      {
         "name": "kicker_en",
         "type": "string",
         "required": true
@@ -29653,6 +30010,12 @@
         "name": "kicker_fr",
         "type": "string",
         "required": true
+      },
+      {
+        "name": "pinned",
+        "type": "boolean",
+        "required": false,
+        "default": "false"
       },
       {
         "name": "show_grid",
@@ -30229,21 +30592,242 @@
     "usage": "library",
     "consumers": [],
     "category": "marketing",
-    "categorySlug": "",
-    "subcategory": "",
-    "tags": [],
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "bento",
+      "gallery",
+      "hover",
+      "media",
+      "projects"
+    ],
     "status": "stable",
-    "description_fr": "",
-    "description_en": "",
-    "schemaFields": [],
-    "scopedClasses": [],
-    "tokensUsed": [],
+    "description_fr": "Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).",
+    "description_en": "Asymmetric media bento: image tiles with a large overlaid title and hover zoom (feature-2, quad, mosaic layouts).",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | even | square | video"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "feature-2 | quad | mosaic | bento-feature | matrix-2x2 | matrix-3x3 | grid-uniform"
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "tiles",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "scopedClasses": [
+      "align",
+      "header",
+      "mbento",
+      "mbento__caption",
+      "mbento__cell",
+      "mbento__grid",
+      "mbento__header",
+      "mbento__img",
+      "mbento__lede",
+      "mbento__overlay",
+      "mbento__tag",
+      "mbento__tile",
+      "mbento__title",
+      "wrap-wide"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-sur-sombre",
+        "value": "#D96A47"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-reveal",
+        "value": "1100ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-kicker",
+        "value": "11px"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      }
+    ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 0,
-      "samples": []
+      "count": 8,
+      "samples": [
+        "0.04em",
+        "100%",
+        "16rem",
+        "1px",
+        "38%",
+        "640px",
+        "768px",
+        "8px"
+      ]
     },
-    "agentGuide": "Personnaliser via les props schema (0 requis, 0 optionnels)."
+    "agentGuide": "Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-4. Couleur : --accent-sur-sombre --accent-text --ink. Typographie : --font-sans --fw-medium. Dette : 8 litteral(s) hardcode(s) (0.04em, 100%, 16rem)."
   },
   {
     "id": "media-block",
@@ -30842,15 +31426,16 @@
     "description_en": "Method timeline for explaining the steps of a service process or engagement.",
     "schemaFields": [
       {
-        "name": "atomique",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "background",
         "type": "enum",
         "required": false,
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
       },
       {
         "name": "contentAlign",
@@ -30901,16 +31486,15 @@
         "required": false
       },
       {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "steps",
         "type": "array",
         "required": true,
         "constraint": "min:2 max:6"
-      },
-      {
-        "name": "steps",
-        "type": "enum",
-        "required": false,
-        "constraint": "auto | 2 | 3 | 4"
       }
     ],
     "scopedClasses": [
@@ -31064,7 +31648,7 @@
         "72px"
       ]
     },
-    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `steps` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 120px, 140px)."
+    "agentGuide": "Layout : `background`, `columns`, `contentAlign`, `density`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 120px, 140px)."
   },
   {
     "id": "metric-callout-band",
@@ -33496,11 +34080,6 @@
     "schemaFields": [
       {
         "name": "actionsAlign",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "actionsAlign",
         "type": "enum",
         "required": false,
         "constraint": "start | center | end | spread"
@@ -33510,11 +34089,6 @@
         "type": "enum",
         "required": false,
         "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "colRatio",
-        "type": "unknown",
-        "required": true
       },
       {
         "name": "colRatio",
@@ -33539,12 +34113,6 @@
         "type": "enum",
         "required": false,
         "constraint": "compact | base | ample"
-      },
-      {
-        "name": "divided",
-        "type": "enum",
-        "required": false,
-        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
       },
       {
         "name": "footnote_en",
@@ -33584,8 +34152,9 @@
       },
       {
         "name": "layout",
-        "type": "unknown",
-        "required": true
+        "type": "enum",
+        "required": false,
+        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
       },
       {
         "name": "lede_en",
@@ -33803,7 +34372,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `divided`, `itemHeight` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-12px, -3px, 0.04em)."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-12px, -3px, 0.04em)."
   },
   {
     "id": "pricing-comparison-matrix",
@@ -36425,6 +36994,153 @@
     "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, -0.02em, -4px)."
   },
   {
+    "id": "rich-text",
+    "component": {
+      "name": "RichText",
+      "path": "src/sections/rich-text/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "tags": [
+      "body",
+      "content",
+      "editorial",
+      "markdown",
+      "prose",
+      "richtext"
+    ],
+    "status": "stable",
+    "description_fr": "Section de corps riche : un corps Markdown bilingue rendu en HTML au build avec les styles prose du design system. Edition de corps editorial in-context sans backend (le Markdown vit dans le document de page, versionne avec le code). Titres, listes, liens, gras/italique ; mesure de ligne bornee ; variante ink lisible.",
+    "description_en": "Rich text body section: a bilingual Markdown body rendered to HTML at build time with the design system prose styles. In-context editorial body editing without a backend (the Markdown lives in the page document, versioned with the code). Headings, lists, links, bold/italic; bounded line measure; readable ink variant.",
+    "schemaFields": [
+      {
+        "name": "body_md_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "body_md_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "title_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "title_fr",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "scopedClasses": [
+      "css",
+      "prose",
+      "rich-text",
+      "rich-text__col",
+      "rich-text__hd",
+      "rich-text__kicker",
+      "rich-text__title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 2,
+      "samples": [
+        "-0.018em",
+        "1px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-3 --space-6. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (-0.018em, 1px)."
+  },
+  {
     "id": "roi-band",
     "component": {
       "name": "RoiBand",
@@ -38395,16 +39111,6 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
-        "name": "bento",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "columns",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "columns",
         "type": "enum",
         "required": false,
@@ -38455,17 +39161,7 @@
         "constraint": "bento | grid-uniform | matrix-2x2 | list"
       },
       {
-        "name": "list",
-        "type": "unknown",
-        "required": true
-      },
-      {
         "name": "placement",
-        "type": "unknown",
-        "required": true
-      },
-      {
-        "name": "ratio",
         "type": "unknown",
         "required": true
       },
@@ -38474,11 +39170,6 @@
         "type": "array",
         "required": true,
         "constraint": "min:2 max:6"
-      },
-      {
-        "name": "x2",
-        "type": "unknown",
-        "required": true
       }
     ],
     "scopedClasses": [
@@ -40852,7 +41543,83 @@
     "status": "stable",
     "description_fr": "Console terminal configurable (frame TerminalMockup) : copy optionnelle à gauche, lignes cmd/out/ok/comment et curseur clignotant, layout split ou pleine largeur.",
     "description_en": "Configurable terminal console (TerminalMockup frame): optional copy on the left, cmd/out/ok/comment lines and a blinking cursor, split or full-width layout.",
-    "schemaFields": [],
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "default": "paper",
+        "constraint": "paper | paper-2 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "default": "split",
+        "constraint": "split | full"
+      },
+      {
+        "name": "lines",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:14"
+      },
+      {
+        "name": "show_cursor",
+        "type": "boolean",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "tone",
+        "type": "enum",
+        "required": false,
+        "default": "ink",
+        "constraint": "ink | paper"
+      }
+    ],
     "scopedClasses": [
       "acc",
       "term-mock",
@@ -40969,7 +41736,7 @@
         "900px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-5 --space-9. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, .55em, 1.05em)."
+    "agentGuide": "Layout : `background`, `layout`, `tone` (schema, 0 CSS). Espacement : --space-1 --space-5 --space-9. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, .55em, 1.05em)."
   },
   {
     "id": "terminal-table",
@@ -40993,7 +41760,72 @@
     "status": "stable",
     "description_fr": "Table terminal configurable (frame TerminalTable) : en-tête kicker/meta, titre, puis colonnes, headers et lignes cliquables avec rôle typographique par cellule.",
     "description_en": "Configurable terminal table (TerminalTable frame): kicker/meta header, heading, then columns, headers and clickable rows with a typographic role per cell.",
-    "schemaFields": [],
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "default": "paper",
+        "constraint": "paper | paper-2 | ink"
+      },
+      {
+        "name": "cols",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "headers",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:8"
+      },
+      {
+        "name": "intro_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "meta_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "meta_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "rows",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:8"
+      }
+    ],
     "scopedClasses": [
       "acc",
       "tbl-sec",
@@ -41119,7 +41951,7 @@
         "900px"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.01em, -0.02em, .1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.01em, -0.02em, .1em)."
   },
   {
     "id": "testimonial-block",

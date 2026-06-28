@@ -164,6 +164,7 @@ import { schema as pullQuoteBlockSchema } from '../sections/pull-quote-block/sch
 import { schema as quoteSpotlightSchema } from '../sections/quote-spotlight/schema';
 import { schema as relatedCardsBandSchema } from '../sections/related-cards-band/schema';
 import { schema as resourceCardGridSchema } from '../sections/resource-card-grid/schema';
+import { schema as richTextSchema } from '../sections/rich-text/schema';
 import { schema as roiBandSchema } from '../sections/roi-band/schema';
 import { schema as scrollGallerySchema } from '../sections/scroll-gallery/schema';
 import { schema as serviceCatalogListSchema } from '../sections/service-catalog-list/schema';
@@ -365,6 +366,7 @@ export {
   quoteSpotlightSchema,
   relatedCardsBandSchema,
   resourceCardGridSchema,
+  richTextSchema,
   roiBandSchema,
   scrollGallerySchema,
   serviceCatalogListSchema,
@@ -567,6 +569,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   quoteSpotlightSchema,
   relatedCardsBandSchema,
   resourceCardGridSchema,
+  richTextSchema,
   roiBandSchema,
   scrollGallerySchema,
   serviceCatalogListSchema,

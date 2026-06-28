@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 199
+> Sections : 200
 
 ---
 
@@ -122,7 +122,6 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `contentAlign` | enum | non |  | start | center | end |
 | `density` | enum | non |  | compact | base | ample |
@@ -131,8 +130,8 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 | `layout` | enum | non |  | inline | stacked |
+| `placement` | unknown | oui |  |  |
 | `proportion` | enum | non |  | 1-1 | 1-2 | 2-1 |
-| `te` | unknown | oui |  |  |
 | `with_items` | array | oui |  | min:2 max:6 |
 | `with_label_en` | string | oui |  |  |
 | `with_label_fr` | string | oui |  |  |
@@ -747,6 +746,33 @@
 
 ---
 
+### `rich-text`
+
+> Section de corps riche : un corps Markdown bilingue rendu en HTML au build avec les styles prose du design system. Edition de corps editorial in-context sans backend (le Markdown vit dans le document de page, versionne avec le code). Titres, listes, liens, gras/italique ; mesure de ligne bornee ; variante ink lisible.
+> RichText · src/sections/rich-text/Component.astro · marketing/content-sections
+> status : stable · tags : body, content, editorial, markdown, prose, richtext
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `body_md_en` | string | oui |  |  |
+| `body_md_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `title_en` | string | non |  |  |
+| `title_fr` | string | non |  |  |
+
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-h2` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-3` `--space-6` `--text-h2` `--text-small` `--tracking-mono` `--wrap-prose`
+
+**Classes scoped** : .css .prose .rich-text .rich-text__col .rich-text__hd .rich-text__kicker .rich-text__title
+
+**Dette hardcode** : 2 valeur(s) — -0.018em, 1px
+
+**Agent** : Espacement : --space-3 --space-6. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (-0.018em, 1px).
+
+---
+
 ## CTA Sections
 
 ### `branded-callout`
@@ -977,13 +1003,12 @@
 | `background` | enum | non | ink | paper | paper-2 | paper-3 | ink |
 | `buttons` | array | oui |  | min:1 max:2 |
 | `contentAlign` | enum | non |  | start | center | end |
-| `density` | enum | non |  | inline | stacked |
 | `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `layout` | unknown | oui |  |  |
+| `layout` | enum | non |  | inline | stacked |
 | `rounded` | boolean | non |  |  |
 | `subtitle_en` | string | non |  |  |
 | `subtitle_fr` | string | non |  |  |
@@ -994,7 +1019,7 @@
 
 **Dette hardcode** : 4 valeur(s) — 1px, 768px, 860px, clamp(var(--space-6)
 
-**Agent** : Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `density` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px).
+**Agent** : Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px).
 
 ---
 
@@ -1193,7 +1218,6 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `caption_en` | string | oui |  |  |
 | `caption_fr` | string | oui |  |  |
@@ -1208,12 +1232,12 @@
 | `input_examples_fr` | array | non |  |  |
 | `inputs_en` | array | oui |  | min:2 max:8 |
 | `inputs_fr` | array | oui |  | min:2 max:8 |
-| `largeur` | unknown | oui |  |  |
 | `layout` | enum | non |  | stacked | split |
 | `loop_label_en` | string | oui |  |  |
 | `loop_label_fr` | string | oui |  |  |
 | `outputs_en` | array | oui |  | min:2 max:6 |
 | `outputs_fr` | array | oui |  | min:2 max:6 |
+| `placement` | unknown | oui |  |  |
 | `proportion` | enum | non |  | 1-1 | 1-2 | 2-1 | 2-3 | 3-2 |
 | `show_loop` | boolean | non | true |  |
 | `spec_en` | string | oui |  |  |
@@ -1243,7 +1267,6 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `bento` | unknown | oui |  |  |
 | `cells` | array | oui |  | min:3 max:8 |
 | `columns` | enum | non |  | auto | 2 | 3 | 4 |
 | `contentAlign` | enum | non |  | start | center | end |
@@ -1254,14 +1277,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 | `layout` | enum | non |  | bento | bento-feature | mosaic | matrix-2x2 | matrix-3x3 | grid-uniform |
-| `mosaic` | unknown | oui |  |  |
 | `placement` | unknown | oui |  |  |
-| `ratio` | unknown | oui |  |  |
-| `ratio` | unknown | oui |  |  |
-| `ratio` | unknown | oui |  |  |
-| `uniform` | unknown | oui |  |  |
-| `x2` | unknown | oui |  |  |
-| `x3` | unknown | oui |  |  |
 
 **Tokens** : `--accent-text` `--bento-grid-gap` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--shadow-card-hover` `--space-1` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-h3` `--text-small` `--tile-min`
 
@@ -1401,13 +1417,11 @@
 | `columns` | enum | non |  | auto | 2 | 3 | 4 | 5 | 6 |
 | `contentAlign` | enum | non |  | start | center | end |
 | `density` | enum | non |  | compact | base | ample |
-| `divided` | unknown | oui |  |  |
-| `itemHeight` | enum | non |  | grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split |
 | `itemHeight` | enum | non |  | auto | even | square | video |
 | `items` | array | oui |  | min:2 max:8 |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
-| `layout` | unknown | oui |  |  |
+| `layout` | enum | non |  | grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split |
 | `lead_en` | string | non |  |  |
 | `lead_fr` | string | non |  |  |
 | `placement` | unknown | oui |  |  |
@@ -1420,7 +1434,7 @@
 
 **Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
-**Agent** : Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `itemHeight` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1565,7 +1579,6 @@
 | `kicker_fr` | string | non |  |  |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
-| `unique` | unknown | oui |  |  |
 
 **Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-read`
 
@@ -1661,24 +1674,21 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `actuel` | unknown | oui |  |  |
-| `alternate` | unknown | oui |  |  |
 | `alternate_blocks` | boolean | non |  |  |
-| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `contentAlign` | enum | non |  | start | center | end |
 | `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
-| `in` | unknown | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | enum | non |  | alternate | stacked | inline-left | inline-right |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 | `mediaSide` | enum | non |  | left | right |
+| `placement` | unknown | oui |  |  |
 | `proportion` | enum | non |  | 1-1 | 1-2 | 2-1 | 2-3 | 3-2 |
 | `rows` | array | oui |  | min:2 max:4 |
-| `stacked` | enum | non |  | alternate | stacked | inline-left | inline-right |
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-12` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
@@ -1686,7 +1696,7 @@
 
 **Dette hardcode** : 20 valeur(s) — -24px, 0.55em, 100%, 120%, 14px, 16%, 1px, 24px
 
-**Agent** : Layout : `background`, `contentAlign`, `density`, `mediaSide`, `proportion`, `stacked` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%).
+**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `mediaSide`, `proportion` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%).
 
 ---
 
@@ -1850,6 +1860,41 @@
 **Dette hardcode** : 3 valeur(s) — -0.02em, 1200px, 1300px
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-5. Couleur : --accent-text --ink --paper. Typographie : --font-display --fw-regular. Dette : 3 litteral(s) hardcode(s) (-0.02em, 1200px, 1300px).
+
+---
+
+### `media-bento`
+
+> Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).
+> MediaBento · src/components/sections/MediaBento.astro · marketing/feature-sections
+> status : stable · tags : bento, gallery, hover, media, projects
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `columns` | enum | non |  | auto | 2 | 3 | 4 |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `itemHeight` | enum | non |  | auto | even | square | video |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `layout` | enum | non |  | feature-2 | quad | mosaic | bento-feature | matrix-2x2 | matrix-3x3 | grid-uniform |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `placement` | unknown | oui |  |  |
+| `tiles` | array | oui |  | min:2 max:6 |
+
+**Tokens** : `--accent-sur-sombre` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-1` `--space-2` `--space-4` `--space-5` `--space-6` `--space-8` `--spacing-block` `--text-h2` `--text-h3` `--text-kicker` `--text-small`
+
+**Classes scoped** : .align .header .mbento .mbento__caption .mbento__cell .mbento__grid .mbento__header .mbento__img .mbento__lede .mbento__overlay .mbento__tag .mbento__tile .mbento__title .wrap-wide
+
+**Dette hardcode** : 8 valeur(s) — 0.04em, 100%, 16rem, 1px, 38%, 640px, 768px, 8px
+
+**Agent** : Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-4. Couleur : --accent-sur-sombre --accent-text --ink. Typographie : --font-sans --fw-medium. Dette : 8 litteral(s) hardcode(s) (0.04em, 100%, 16rem).
 
 ---
 
@@ -2881,7 +2926,6 @@
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `benefits` | array | non |  | max:8 |
-| `col` | unknown | oui |  |  |
 | `cta_primary` | object | oui |  |  |
 | `cta_secondary` | object | non |  |  |
 | `funnel_num` | string | oui |  |  |
@@ -3736,6 +3780,39 @@
 
 ---
 
+### `hero-social-proof`
+
+> Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.
+> HeroSocialProof · src/components/sections/HeroSocialProof.astro · marketing/hero-header-sections
+> status : stable · tags : above-fold, hero, rating, social-proof, stats, trust
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `cta_primary` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
+| `h1_en` | string | oui |  |  |
+| `h1_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `rating_en` | string | non |  |  |
+| `rating_fr` | string | non |  |  |
+| `stats` | array | oui |  | min:2 max:4 |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--header-height` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-6` `--spacing-block` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
+
+**Classes scoped** : .hero-social-proof .hero-social-proof__band .hero-social-proof__ctas .hero-social-proof__h1 .hero-social-proof__head .hero-social-proof__lede .hero-social-proof__rating .hero-social-proof__stars
+
+**Dette hardcode** : 3 valeur(s) — 0.1em, 1px, 700px
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 3 litteral(s) hardcode(s) (0.1em, 1px, 700px).
+
+---
+
 ### `hero-split`
 
 > Hero en deux colonnes pour présenter une offre avec visuel et appel à l'action principal.
@@ -4275,7 +4352,6 @@
 | `grayscale` | boolean | non | true |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `logoIds` | unknown | oui |  |  |
 | `logoIds` | array | non |  |  |
 | `logos` | array | non |  | min:4 max:24 |
 | `speed` | enum | non | base | slow | base |
@@ -4445,9 +4521,9 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `e` | boolean | non | false |  |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
+| `pinned` | boolean | non | false |  |
 | `show_grid` | boolean | non | false |  |
 | `text_en` | string | oui |  |  |
 | `text_fr` | string | oui |  |  |
@@ -4532,35 +4608,6 @@
 
 ---
 
-## other
-
-### `eeat-panel`
-
-> EeatPanel · src/components/sections/EeatPanel.astro · marketing/
-> status : stable · tags : 
-
-**Agent** : Personnaliser via les props schema (0 requis, 0 optionnels).
-
----
-
-### `hero-social-proof`
-
-> HeroSocialProof · src/components/sections/HeroSocialProof.astro · marketing/
-> status : stable · tags : 
-
-**Agent** : Personnaliser via les props schema (0 requis, 0 optionnels).
-
----
-
-### `media-bento`
-
-> MediaBento · src/components/sections/MediaBento.astro · marketing/
-> status : stable · tags : 
-
-**Agent** : Personnaliser via les props schema (0 requis, 0 optionnels).
-
----
-
 ## Pricing Sections
 
 ### `pricing-cards`
@@ -4573,15 +4620,12 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `actionsAlign` | unknown | oui |  |  |
 | `actionsAlign` | enum | non |  | start | center | end | spread |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `colRatio` | unknown | oui |  |  |
 | `colRatio` | enum | non |  | equal | 1-2 | 2-1 | 1-1-2 | 2-3 |
 | `columns` | enum | non |  | auto | 2 | 3 | 4 | 5 | 6 |
 | `contentAlign` | enum | non |  | start | center | end |
 | `density` | enum | non |  | compact | base | ample |
-| `divided` | enum | non |  | grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split |
 | `footnote_en` | string | non |  |  |
 | `footnote_fr` | string | non |  |  |
 | `h2_en` | string | oui |  |  |
@@ -4589,7 +4633,7 @@
 | `itemHeight` | enum | non |  | auto | even | square | video |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `layout` | unknown | oui |  |  |
+| `layout` | enum | non |  | grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 | `placement` | unknown | oui |  |  |
@@ -4601,7 +4645,7 @@
 
 **Dette hardcode** : 14 valeur(s) — -12px, -3px, 0.04em, 0.06em, 0.14em, 100%, 14px, 1px
 
-**Agent** : Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `divided`, `itemHeight` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-12px, -3px, 0.04em).
+**Agent** : Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-12px, -3px, 0.04em).
 
 ---
 
@@ -4752,20 +4796,19 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `columns` | enum | non |  | auto | 2 | 3 | 4 |
 | `contentAlign` | enum | non |  | start | center | end |
 | `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | non |  |  |
 | `h2_fr` | string | non |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `layout` | unknown | oui |  |  |
 | `layout` | enum | non |  | grid-steps | vertical-stack | numbered-rows |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
+| `placement` | unknown | oui |  |  |
 | `stages` | array | oui |  | min:4 max:6 |
-| `steps` | enum | non |  | auto | 2 | 3 | 4 |
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-text` `--diag-cols` `--dur-trim` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
@@ -4773,7 +4816,7 @@
 
 **Dette hardcode** : 12 valeur(s) — -0.01em, -0.02em, -1px, 100%, 1000px, 18px, 1px, 2px
 
-**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `steps` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px).
+**Agent** : Layout : `background`, `columns`, `contentAlign`, `density`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px).
 
 ---
 
@@ -5074,8 +5117,6 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `bento` | unknown | oui |  |  |
-| `columns` | unknown | oui |  |  |
 | `columns` | enum | non |  | auto | 2 | 3 | 4 |
 | `contentAlign` | enum | non |  | start | center | end |
 | `density` | enum | non |  | compact | base | ample |
@@ -5085,11 +5126,8 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 | `layout` | enum | non |  | bento | grid-uniform | matrix-2x2 | list |
-| `list` | unknown | oui |  |  |
 | `placement` | unknown | oui |  |  |
-| `ratio` | unknown | oui |  |  |
 | `stats` | array | oui |  | min:2 max:6 |
-| `x2` | unknown | oui |  |  |
 
 **Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--stats-bento-gap` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tile-min` `--tracking-display` `--tracking-mono`
 
@@ -5172,13 +5210,30 @@
 > TerminalTableSection · src/components/sections/TerminalTableSection.astro · marketing/table-sections
 > status : stable · tags : console, data, rows, services, table, terminal
 
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non | paper | paper | paper-2 | ink |
+| `cols` | string | oui |  |  |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `headers` | array | oui |  | min:2 max:8 |
+| `intro_en` | string | non |  |  |
+| `intro_fr` | string | non |  |  |
+| `kicker_en` | string | oui |  |  |
+| `kicker_fr` | string | oui |  |  |
+| `meta_en` | string | non |  |  |
+| `meta_fr` | string | non |  |  |
+| `rows` | array | oui |  | min:2 max:8 |
+
 **Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-4` `--space-5` `--space-8` `--text-body` `--text-h2` `--text-h3` `--text-small`
 
 **Classes scoped** : .acc .tbl-sec .tbl-sec__cell .tbl-sec__hd .tbl-sec__intro .tbl-sec__title .u-edit-tbl .u-edit-tbl-head .u-edit-tbl-row
 
 **Dette hardcode** : 6 valeur(s) — -0.01em, -0.02em, .1em, 1100px, 1px, 900px
 
-**Agent** : Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.01em, -0.02em, .1em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.01em, -0.02em, .1em).
 
 ---
 
@@ -5371,13 +5426,31 @@
 > TerminalMockupSection · src/components/sections/TerminalMockupSection.astro · marketing/terminal-sections
 > status : stable · tags : cli, console, mockup, platform, split, terminal
 
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non | paper | paper | paper-2 | ink |
+| `h2_en` | string | non |  |  |
+| `h2_fr` | string | non |  |  |
+| `intro_en` | string | non |  |  |
+| `intro_fr` | string | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `label` | string | non |  |  |
+| `layout` | enum | non | split | split | full |
+| `lines` | array | oui |  | min:1 max:14 |
+| `show_cursor` | boolean | non | true |  |
+| `status` | string | non |  |  |
+| `tone` | enum | non | ink | ink | paper |
+
 **Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-rgb` `--section-base` `--space-1` `--space-5` `--space-9` `--text-body` `--text-h2` `--text-small`
 
 **Classes scoped** : .acc .term-mock .term-mock__body .term-mock__cursor .term-mock__grid .term-mock__intro .term-mock__kicker .term-mock__line .term-mock__line-text .term-mock__ok .term-mock__prompt .term-mock__title
 
 **Dette hardcode** : 6 valeur(s) — -0.02em, .55em, 1.05em, 120px, 50%, 900px
 
-**Agent** : Espacement : --space-1 --space-5 --space-9. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, .55em, 1.05em).
+**Agent** : Layout : `background`, `layout`, `tone` (schema, 0 CSS). Espacement : --space-1 --space-5 --space-9. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, .55em, 1.05em).
 
 ---
 
@@ -5399,10 +5472,8 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `case_label_en` | string | non | CASE |  |
 | `case_label_fr` | string | non | CASE |  |
-| `caseRefs` | unknown | oui |  |  |
 | `caseRefs` | array | non |  |  |
 | `cases` | array | non |  | max:6 |
-| `colRatio` | unknown | oui |  |  |
 | `colRatio` | enum | non |  | equal | 1-2 | 2-1 | 1-1-2 | 2-3 |
 | `columns` | enum | non |  | auto | 2 | 3 | 4 |
 | `contentAlign` | enum | non |  | start | center | end |
@@ -5419,8 +5490,7 @@
 | `impact_label_en` | string | non | Impact |  |
 | `impact_label_fr` | string | non | Impact |  |
 | `itemHeight` | enum | non |  | auto | even | square | video |
-| `layout` | unknown | oui |  |  |
-| `list` | enum | non |  | rows-divided | list | grid-uniform | grid-asym |
+| `layout` | enum | non |  | rows-divided | list | grid-uniform | grid-asym |
 | `placement` | unknown | oui |  |  |
 | `sector_label_en` | string | non | Sector |  |
 | `sector_label_fr` | string | non | Secteur |  |
@@ -5435,7 +5505,7 @@
 
 **Dette hardcode** : 21 valeur(s) — -0.015em, -2px, .14em, .16em, .1em, 100%, 1080px, 10px
 
-**Agent** : Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `list` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.015em, -2px, .14em).
+**Agent** : Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.015em, -2px, .14em).
 
 ---
 
@@ -5911,8 +5981,8 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `columns` | enum | non |  | auto | 2 | 3 | 4 |
 | `contentAlign` | enum | non |  | start | center | end |
 | `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
@@ -5922,8 +5992,8 @@
 | `layout` | enum | non |  | vertical-stack | numbered-rows | horizontal | grid-steps |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
+| `placement` | unknown | oui |  |  |
 | `steps` | array | oui |  | min:2 max:6 |
-| `steps` | enum | non |  | auto | 2 | 3 | 4 |
 
 **Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
@@ -5931,7 +6001,7 @@
 
 **Dette hardcode** : 9 valeur(s) — 100%, 120px, 140px, 16rem, 18rem, 1px, 64px, 72px
 
-**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `steps` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 120px, 140px).
+**Agent** : Layout : `background`, `columns`, `contentAlign`, `density`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 120px, 140px).
 
 ---
 
@@ -6046,6 +6116,32 @@
 ---
 
 ## Trust Sections
+
+### `eeat-panel`
+
+> Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.
+> EeatPanel · src/components/sections/EeatPanel.astro · marketing/trust-sections
+> status : stable · tags : author, authority, bento, dashboard, eeat, trust
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | ink | paper |
+| `eyebrow` | string | non |  |  |
+| `lead` | string | non |  |  |
+| `title` | string | non |  |  |
+| `variant` | enum | non | media | media | columns | light | hero |
+
+**Tokens** : `--accent` `--accent-ink` `--accent-sur-clair` `--accent-sur-sombre` `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-rgb` `--radius-full` `--radius-lg` `--radius-md` `--radius-pill` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-glyph` `--text-h2` `--text-h3` `--text-micro` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+
+**Classes scoped** : .eep .eep--columns .eep--hero .eep--light .eep--media .eep-band .eep-band__cap .eep-band__img .eep-bio .eep-bio--sm .eep-cap .eep-cell .eep-cell--author .eep-cell--commit .eep-cell--cta .eep-cell--focus .eep-cell--hero .eep-cell--media .eep-cell--media-a .eep-cell--media-b .eep-cell--read .eep-cell--reperes .eep-cell--sectors .eep-cell--services .eep-celllabel .eep-celllabel--ink .eep-chip .eep-chips .eep-col .eep-col--accent .eep-colbody .eep-colhd .eep-colhd--accent .eep-collabel .eep-collabel--ink .eep-cols .eep-commit .eep-commit__detail .eep-commit__label .eep-commits .eep-creds .eep-creds__badge .eep-creds__item .eep-creds__label .eep-creds__list .eep-cta .eep-cta__glyph .eep-cta__title .eep-exp .eep-exp__item .eep-focus__label .eep-focus__num .eep-grid .eep-hd .eep-hero__cap .eep-hero__img .eep-hero__kicker .eep-hero__line .eep-honesty .eep-img .eep-kicker .eep-kicker__dot .eep-lead .eep-link .eep-link__kicker .eep-link__label .eep-link--flat .eep-links .eep-meta .eep-mlabel .eep-mlist .eep-mrow .eep-myear .eep-name .eep-name--ink .eep-name--sm .eep-role .eep-role--ink .reveal-stagger
+
+**Dette hardcode** : 15 valeur(s) — 0.5em, 100%, 12rem, 14rem, 16rem, 18rem, 1px, 2.75rem
+
+**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (0.5em, 100%, 12rem).
+
+---
 
 ### `trust-badges-band`
 

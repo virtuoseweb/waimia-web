@@ -289,6 +289,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'stack-cards',               consumers: [] },
   { id: 'statement-orbit',           consumers: [] },
   { id: 'system-flow',               consumers: [] },
+  // #39 : section de corps riche (Markdown -> prose). Catalogue-only a sa creation.
+  { id: 'rich-text',                 consumers: [] },
   // <<< [t5-touchpoint-sync] end
 ];
 

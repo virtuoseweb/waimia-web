@@ -204,6 +204,7 @@ import { demo as definitionExtractDemo } from '../sections/definition-extract/de
 import { demo as systemFlowDemo } from '../sections/system-flow/demo';
 import { demo as methodSteplineDemo } from '../sections/method-stepline/demo';
 import { demo as eeatPanelDemo } from '../sections/eeat-panel/demo';
+import { demo as richTextDemo } from '../sections/rich-text/demo';
 
 export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'hero-form-inline': heroFormInlineDemo,
@@ -405,4 +406,5 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'system-flow': systemFlowDemo,
   'method-stepline': methodSteplineDemo,
   'eeat-panel': eeatPanelDemo,
+  'rich-text': richTextDemo,
 };

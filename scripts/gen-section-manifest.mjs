@@ -4,25 +4,31 @@
  * Waimia · Backlog B DS Health Audit
  *
  * Generates a machine-readable per-section listing of all registry types.
- * Inputs  : src/schemas/sections.ts + src/lib/section-registry.ts + src/components/sections/*.astro
+ *
+ * Post co-location (#38 T5) sources :
+ *   - Metadata per type  : src/sections/<id>/meta.ts (dynamic import via tsx)
+ *   - Canonical order    : scripts/section-order.json (200 ids)
+ *   - Legacy id->component map : src/data/ds-section-manifest.json (read BEFORE rewrite)
+ *   - Schema fields      : src/sections/<id>/schema.ts (text parse of `export const schema = z.object`)
+ *   - Component CSS/tokens : resolved .astro (legacy path if present, else co-located)
  * Outputs : src/data/ds-section-manifest.json + docs/DS-SECTION-CATALOG.md
  *
+ * Run via tsx (npx tsx) so meta.ts (TypeScript) can be imported dynamically.
+ *
  * Constraints :
- *   - Zero new npm dependencies (Node.js built-ins only)
+ *   - Zero new npm dependencies (Node.js built-ins only ; tsx already a devDep)
  *   - Deterministic, idempotent, alpha-sorted everywhere, 0 timestamps
  *   - 0 em-dash U+2014 in any generated content (rule 58)
  */
 
-import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { dirname, extname, join, relative, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SECTIONS_SCHEMA_FILE = 'src/schemas/sections.ts';
-const REGISTRY_FILE = 'src/lib/section-registry.ts';
 const LIBRARY_MANIFEST_FILE = 'src/lib/library-manifest.ts';
 const TOKENS_FILE = 'src/styles/tokens.css';
-const SECTIONS_DIR = 'src/components/sections';
+const SECTION_ORDER_FILE = 'scripts/section-order.json';
 const OUTPUT_JSON = 'src/data/ds-section-manifest.json';
 const OUTPUT_MD = 'docs/DS-SECTION-CATALOG.md';
 
@@ -115,108 +121,88 @@ function parseLibraryManifest(source) {
   return result;
 }
 
-// ─── Registry parsing ─────────────────────────────────────────────────────────
+// ─── Metadata sourcing (post co-location #38 T5) ──────────────────────────────
 
 /**
- * Parses section-registry.ts to extract:
- *   - import map: componentName -> filename (e.g. HeroSplit -> HeroSplit.astro)
- *   - SECTIONS entries: type -> { component (variable name), category, subcategory,
- *     categorySlug, tags, status, description_fr, description_en }
+ * PascalCase a kebab-case id : 'rich-text' -> 'RichText'.
  */
-function parseRegistry(source) {
-  // Parse import statements: import ComponentName from '../components/sections/File.astro'
-  const importMap = new Map(); // componentName -> filename (basename)
-  for (const m of source.matchAll(/^import\s+(\w+)\s+from\s+'[^']*\/sections\/([^']+\.astro)'/gm)) {
-    importMap.set(m[1], m[2]);
-  }
+function pascalCase(id) {
+  return id
+    .split('-')
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
+    .join('');
+}
 
-  // Parse SECTIONS object entries
-  // Pattern: 'type-id': { component: ComponentName, category: '...', ... }
+/**
+ * Build the legacy id -> { name, path } component map from the COMMITTED manifest
+ * (read BEFORE it is rewritten). The committed manifest is the only surviving
+ * source of the id->componentName mapping for the 33 aliasing types
+ * (e.g. hero-author -> HeroSplit). For ids absent from it (e.g. rich-text), the
+ * caller falls back to the co-located convention.
+ * Returns Map<id, { name, path }>.
+ */
+function readCommittedComponentMap() {
+  const map = new Map();
+  const p = join(ROOT, OUTPUT_JSON);
+  if (!existsSync(p)) return map;
+  let committed;
+  try {
+    committed = JSON.parse(readFileSync(p, 'utf8'));
+  } catch {
+    return map;
+  }
+  if (!Array.isArray(committed)) return map;
+  for (const entry of committed) {
+    if (entry && entry.id && entry.component && entry.component.name && entry.component.path) {
+      map.set(entry.id, { name: entry.component.name, path: entry.component.path });
+    }
+  }
+  return map;
+}
+
+/**
+ * Resolve metadata per type from the co-located module src/sections/<id>/meta.ts
+ * (the TRUE post-#38 source). Dynamic-imports each meta.ts (TypeScript, needs tsx)
+ * and normalizes the SectionMeta shape into the per-entry fields the manifest needs.
+ * `component` is resolved against the committed legacy map (preserves aliasing) with
+ * a co-located fallback. Returns Map<id, { component, category, subcategory,
+ * categorySlug, tags, status, description_fr, description_en }>, iteration order =
+ * scripts/section-order.json.
+ */
+async function loadSectionMeta(orderedIds, legacyComponentMap) {
   const entries = new Map();
+  for (const typeId of orderedIds) {
+    const metaPath = join(ROOT, 'src/sections', typeId, 'meta.ts');
+    const mod = await import(pathToFileURL(metaPath).href);
+    const meta = mod.meta ?? {};
 
-  // Split into individual type blocks using a state machine approach
-  // Find the SECTIONS object boundaries
-  const sectionsStart = source.indexOf('export const SECTIONS');
-  if (sectionsStart === -1) throw new Error('SECTIONS not found in registry');
+    const tags = Array.isArray(meta.tags) ? [...meta.tags].sort(alpha) : [];
 
-  const objectStart = source.indexOf('{', sectionsStart);
-  // Find matching closing brace
-  let depth = 0;
-  let objectEnd = -1;
-  for (let i = objectStart; i < source.length; i++) {
-    if (source[i] === '{') depth++;
-    else if (source[i] === '}') {
-      depth--;
-      if (depth === 0) { objectEnd = i; break; }
-    }
-  }
-
-  const objectBody = source.slice(objectStart + 1, objectEnd);
-
-  // Find each top-level type entry: 'type-id': { ... }
-  // Use matchAll to collect all key positions first (avoids off-by-one in pos arithmetic)
-  for (const keyMatch of objectBody.matchAll(/'([a-z][a-z0-9-]*)'\s*:\s*\{/g)) {
-    const typeId = keyMatch[1];
-    // keyMatch[0] ends with '{' — blockStart points at that '{'
-    const blockStart = keyMatch.index + keyMatch[0].length - 1;
-    let d = 0;
-    let blockEnd = -1;
-    for (let i = blockStart; i < objectBody.length; i++) {
-      if (objectBody[i] === '{') d++;
-      else if (objectBody[i] === '}') {
-        d--;
-        if (d === 0) { blockEnd = i; break; }
-      }
-    }
-    if (blockEnd === -1) continue;
-
-    const block = objectBody.slice(blockStart + 1, blockEnd);
-
-    // Extract fields
-    const componentMatch = /component\s*:\s*(\w+)/.exec(block);
-    const categoryMatch = /category\s*:\s*'([^']+)'/.exec(block);
-    const subcategoryMatch = /subcategory\s*:\s*'([^']+)'/.exec(block);
-    const categorySlugMatch = /categorySlug\s*:\s*'([^']+)'/.exec(block);
-    const statusMatch = /status\s*:\s*'([^']+)'/.exec(block);
-    const tagsMatch = /tags\s*:\s*\[([^\]]*)\]/.exec(block);
-    const descFrMatch = /description_fr\s*:\s*(?:'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)")/.exec(block);
-    const descEnMatch = /description_en\s*:\s*(?:'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)")/.exec(block);
-
-    const componentName = componentMatch?.[1] ?? '';
-    const tags = tagsMatch
-      ? [...tagsMatch[1].matchAll(/'([^']+)'/g)].map((m) => m[1]).sort(alpha)
-      : [];
+    // Component : reuse legacy name+path (preserves aliasing) if the committed
+    // manifest knew this id ; else co-located convention.
+    const legacy = legacyComponentMap.get(typeId);
+    const component = legacy
+      ? { name: legacy.name, path: legacy.path }
+      : {
+          name: pascalCase(typeId),
+          path: `src/sections/${typeId}/Component.astro`,
+        };
 
     entries.set(typeId, {
-      componentName,
-      componentFile: importMap.get(componentName) ?? componentName + '.astro',
-      category: categoryMatch?.[1] ?? 'marketing',
-      subcategory: subcategoryMatch?.[1] ?? '',
-      categorySlug: categorySlugMatch?.[1] ?? '',
+      component,
+      category: meta.category ?? 'marketing',
+      subcategory: meta.subcategory ?? '',
+      categorySlug: meta.categorySlug ?? '',
       tags,
-      status: statusMatch?.[1] ?? 'stable',
-      description_fr: (descFrMatch?.[1] ?? descFrMatch?.[2] ?? '').replace(/\\'/g, "'").replace(/\\"/g, '"'),
-      description_en: (descEnMatch?.[1] ?? descEnMatch?.[2] ?? '').replace(/\\'/g, "'").replace(/\\"/g, '"'),
+      status: meta.status ?? 'stable',
+      description_fr: meta.description_fr ?? '',
+      description_en: meta.description_en ?? '',
     });
   }
-
   return entries;
 }
 
 // ─── Zod schema parsing ───────────────────────────────────────────────────────
-
-/**
- * Maps type-id kebab-case to the camelCase schema export name pattern.
- * e.g. 'hero-split' -> 'heroSplitSchema'
- */
-function typeIdToSchemaName(typeId) {
-  return (
-    typeId
-      .split('-')
-      .map((w, i) => (i === 0 ? w : w[0].toUpperCase() + w.slice(1)))
-      .join('') + 'Schema'
-  );
-}
 
 /**
  * Infer a simplified type string from a Zod chain.
@@ -310,18 +296,24 @@ function outerChain(chain) {
 }
 
 /**
- * Given the source of sections.ts and a type id, find the corresponding z.object
- * export and return array of { name, type, required, default?, constraint? }.
+ * Read the co-located schema src/sections/<id>/schema.ts and return the TOP-LEVEL
+ * fields of its `export const schema = z.object({ ... })` as
+ * array of { name, type, required, default?, constraint? }.
  *
- * Strategy: locate the export `export const <schemaName> = z.object({` then
- * extract the DIRECT (top-level) fields of that object.
+ * Post co-location (#38 T5) : schemas no longer live in the god-file as
+ * `export const <name>Schema = z.object`. Each module exports a single
+ * `export const schema = z.object({ type: z.literal('<id>'), ...mixin, <fields> })`.
+ * We parse the TEXT (no import resolution needed ; z is from astro:content).
+ * The `...sectionBaseSchema.shape` spread is ignored (its mixin fields were never
+ * in the manifest). Returns [] if the schema file or declaration is missing.
  */
-function parseSchemaFields(source, typeId) {
-  const schemaName = typeIdToSchemaName(typeId);
-  // Find the declaration
-  const declPattern = new RegExp(
-    `export\\s+const\\s+${schemaName}\\s*=\\s*z\\.object\\s*\\(\\s*\\{`,
-  );
+function parseSchemaFields(typeId) {
+  const schemaPath = join(ROOT, 'src/sections', typeId, 'schema.ts');
+  if (!existsSync(schemaPath)) return [];
+  const source = readFileSync(schemaPath, 'utf8');
+
+  // Find the declaration : export const schema = z.object({
+  const declPattern = /export\s+const\s+schema\s*=\s*z\.object\s*\(\s*\{/;
   const declMatch = declPattern.exec(source);
   if (!declMatch) return [];
 
@@ -338,7 +330,12 @@ function parseSchemaFields(source, typeId) {
   }
   if (objEnd === -1) return [];
 
-  const body = source.slice(objStart + 1, objEnd);
+  // Strip comments so a commented `field: type` line cannot leak into the scan,
+  // and so the `...sectionBaseSchema.shape` spread skip below is unambiguous.
+  const body = source
+    .slice(objStart + 1, objEnd)
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/\/\/[^\n]*/g, ' ');
 
   // Now extract top-level fields: identifier: <zod-chain>,
   // We scan char by char to handle nested parens/brackets/braces.
@@ -348,6 +345,25 @@ function parseSchemaFields(source, typeId) {
     // Skip whitespace and commas at top level
     while (p < body.length && /[\s,]/.test(body[p])) p++;
     if (p >= body.length) break;
+
+    // Skip a top-level spread (e.g. `...sectionBaseSchema.shape,`) : it is NOT a
+    // field. Advance to the next top-level comma (the spread has no nested groups
+    // at top level here, but guard depths anyway).
+    if (body[p] === '.' && body.slice(p, p + 3) === '...') {
+      let sd = 0, sb = 0, ss = 0;
+      while (p < body.length) {
+        const c = body[p];
+        if (c === '(') sd++;
+        else if (c === ')') { if (sd > 0) sd--; }
+        else if (c === '{') sb++;
+        else if (c === '}') { if (sb > 0) sb--; }
+        else if (c === '[') ss++;
+        else if (c === ']') { if (ss > 0) ss--; }
+        else if (c === ',' && sd === 0 && sb === 0 && ss === 0) { p++; break; }
+        p++;
+      }
+      continue;
+    }
 
     // Match field name (identifier or quoted string)
     const nameMatch = /^([a-zA-Z_$][a-zA-Z0-9_$]*)/.exec(body.slice(p));
@@ -639,26 +655,34 @@ function generateMarkdown(manifest) {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
-function main() {
+async function main() {
   // Load token values
   const tokenMap = parseTokens(read(TOKENS_FILE));
 
-  // Parse registry
-  const registrySource = read(REGISTRY_FILE);
-  const registryEntries = parseRegistry(registrySource);
+  // Canonical type order (200 ids)
+  const orderedIds = JSON.parse(read(SECTION_ORDER_FILE));
+
+  // Legacy id -> component (name+path) map, READ BEFORE the JSON is rewritten.
+  // Only surviving source of the id->componentName mapping for aliasing types.
+  const legacyComponentMap = readCommittedComponentMap();
+
+  // Metadata per type, from the co-located src/sections/<id>/meta.ts (post #38 T5).
+  const sectionEntries = await loadSectionMeta(orderedIds, legacyComponentMap);
 
   // Parse library manifest (usage + consumers, docs/40 §3)
   const usageEntries = parseLibraryManifest(read(LIBRARY_MANIFEST_FILE));
 
-  // Parse schemas
-  const schemaSource = read(SECTIONS_SCHEMA_FILE);
-
   // Build manifest
   const manifest = [];
 
-  for (const [typeId, meta] of registryEntries.entries()) {
-    const componentPath = `src/components/sections/${meta.componentFile}`;
-    const componentAbsPath = join(ROOT, componentPath);
+  for (const [typeId, meta] of sectionEntries.entries()) {
+    // Resolve the component file : (a) legacy path if it still exists on disk,
+    // (b) co-located Component.astro otherwise. component.path stays as in meta.
+    const componentPath = meta.component.path;
+    let componentAbsPath = join(ROOT, componentPath);
+    if (!existsSync(componentAbsPath)) {
+      componentAbsPath = join(ROOT, 'src/sections', typeId, 'Component.astro');
+    }
 
     // Parse Astro component
     let scopedClasses = [];
@@ -675,8 +699,8 @@ function main() {
       hardcodedLiterals = parsed.hardcodedLiterals;
     }
 
-    // Parse schema fields
-    const schemaFields = parseSchemaFields(schemaSource, typeId);
+    // Parse schema fields from the co-located schema.ts
+    const schemaFields = parseSchemaFields(typeId);
 
     // Generate agent guide
     const agentGuide = generateAgentGuide(
@@ -692,8 +716,8 @@ function main() {
     manifest.push({
       id: typeId,
       component: {
-        name: meta.componentName,
-        path: componentPath,
+        name: meta.component.name,
+        path: meta.component.path,
       },
       usage: usageInfo.usage,
       consumers: [...usageInfo.consumers].sort(alpha),
@@ -748,4 +772,7 @@ function main() {
   );
 }
 
-main();
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

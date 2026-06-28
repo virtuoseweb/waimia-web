@@ -204,6 +204,7 @@ import { Component as definitionExtractComponent, meta as definitionExtractMeta 
 import { Component as systemFlowComponent, meta as systemFlowMeta } from '../sections/system-flow';
 import { Component as methodSteplineComponent, meta as methodSteplineMeta } from '../sections/method-stepline';
 import { Component as eeatPanelComponent, meta as eeatPanelMeta } from '../sections/eeat-panel';
+import { Component as richTextComponent, meta as richTextMeta } from '../sections/rich-text';
 
 export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'hero-form-inline': {
@@ -1001,5 +1002,9 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'eeat-panel': {
     component: eeatPanelComponent,
     ...eeatPanelMeta,
+  },
+  'rich-text': {
+    component: richTextComponent,
+    ...richTextMeta,
   },
 };
