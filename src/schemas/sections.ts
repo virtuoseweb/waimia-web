@@ -7,391 +7,107 @@
 
 import { z } from 'astro:content';
 
-/* ─── Sous-schémas réutilisables ─── */
+/* ─── Feuilles partagées co-localisées (Wave #38, T1) ───
+ * Les ENUMS de variation, le mixin `sectionBaseSchema` et les sous-schemas réutilisables
+ * ont été EXTRAITS (déplacés, pas dupliqués — rule 60) vers `src/sections/_shared/`
+ * (feuilles pures, anti-cycle). Ils sont réimportés ici → comportement, exports et types
+ * INCHANGÉS (les `const` deviennent des imports nommés, mêmes identifiants partout). */
+export {
+  // placement (couche atomique)
+  placementAlign,
+  placementJustify,
+  placementHide,
+  regionPlacement,
+  placementSchema,
+  // L7
+  justifyContentEnum,
+  alignItemsEnum,
+  justifyItemsEnum,
+  alignContentEnum,
+  cellAlignXEnum,
+  cellAlignYEnum,
+  cellPadEnum,
+  mediaFitEnum,
+  mediaRatioEnum,
+  // L8
+  hoverEnum,
+  pressFeedbackEnum,
+  focusRingEnum,
+  transitionSpeedEnum,
+  transitionEaseEnum,
+  selectedStateEnum,
+  openStateEnum,
+  // L9
+  revealEnum,
+  revealDelayEnum,
+  loopEnum,
+  scrollMotionEnum,
+  textMotionEnum,
+  motionSpeedEnum,
+  motionEaseEnum,
+  pageTransitionEnum,
+  // L10bis
+  cellBgEnum,
+  cellToneEnum,
+  toneEnum,
+  borderToneEnum,
+  // L11
+  textFlowEnum,
+  textTransformEnum,
+  rotateEnum,
+  objectPositionEnum,
+  overflowEnum,
+  scrollSnapEnum,
+  // L6 / L12 / L13
+  measureEnum,
+  clampEnum,
+  minHeightEnum,
+  widthEnum,
+  headingLevelEnum,
+  // COMPOSITION (SYS v2-E)
+  headerAlignEnum,
+  headerKindEnum,
+  introRowEnum,
+  dividersEnum,
+  cardContentEnum,
+  cardMediaEnum,
+  cardAlignEnum,
+  colorDistributionEnum,
+  bgSourceEnum,
+  // mixin de base
+  sectionBaseSchema,
+} from '../sections/_shared/base';
 
-/**
- * Mixin de présentation transverse (Phase B · système de variation, cf docs/46).
- * Axes orthogonaux partagés par les composants-familles paramétrables. On l'applique
- * via `.extend(sectionBaseSchema.shape)` (les champs ajoutés sont tous optionnels →
- * 0 régression : un schema sans valeur garde son rendu par défaut).
- *  - background : déclinaison palette (idiome `data-bg`, déjà consolidé A1).
- *  - layout     : id d'un preset de grille (cf src/styles/layouts.css → var --sec-grid).
- *  - density    : cran de rythme vertical (mappe sur la famille --section-*).
- * `effects` viendra dans une phase ultérieure (NE PAS introduire avant que layout+density
- * soient prouvés sur la famille hero).
- */
-/**
- * COUCHE ATOMIQUE : placement par élément (Vague C, décision Simon 2026-06-28).
- * UN SEUL objet `placement` OPTIONNEL, region-clé, ajouté au mixin de base → forme
- * IDENTIQUE sur toutes les sections (contrat prévisible pour le builder + MCP). Chaque
- * région porte le sous-ensemble pertinent d'atomes (align/justify/order/hideOn). Tous
- * optionnels : sans valeur, le composant rend exactement comme aujourd'hui (rétro-compat).
- * Résolution raccourci↔placement (0 double source) : le composant calcule la valeur
- * effective une fois (`placement?.header?.align ?? contentAlign ?? défaut`) et pose UN
- * seul data-attr par région. `contentAlign`/`actionsAlign` = sucre qui alimente `placement`.
- */
-const placementAlign = z.enum(['start', 'center', 'end']);
-const placementJustify = z.enum(['start', 'center', 'end', 'between']);
-const placementHide = z.enum(['none', 'mobile', 'desktop']);
-const regionPlacement = z
-  .object({
-    align: placementAlign.optional(), // align-self + text-align de la région
-    justify: placementJustify.optional(), // justify-content d'un cluster (ex. groupe CTA)
-    order: z.number().int().min(0).max(9).optional(), // réordonnancement dans le flux (CSS order)
-    hideOn: placementHide.optional(), // visibilité responsive (display:none au breakpoint)
-  })
-  .optional();
-const placementSchema = z
-  .object({
-    header: regionPlacement, // kicker + titre + lede
-    media: regionPlacement, // image/visuel/card
-    body: regionPlacement, // items/contenu principal
-    actions: regionPlacement, // groupe CTA
-    aside: regionPlacement, // colonne/encart secondaire
-  })
-  .optional();
+// Liaisons de VALEUR locales (le `export { … } from` ci-dessus ne crée PAS de binding
+// utilisable dans le corps du module — il ne fait que ré-exporter). On importe ici ce que
+// les schémas ci-dessous référencent réellement comme valeurs.
+import { sectionBaseSchema, placementSchema } from '../sections/_shared/base';
 
-/* ─── Enums factorisés des couches NOW (contrat v2, tasks/wave-c-axes-standard.md) ───
- * Réutilisables et lisibles. Chaque enum = vocabulaire borné d'une couche du contrat,
- * mappé à un data-attr par le composant (moteur CSS section-layouts.css). Tous portés
- * par le mixin en `.optional()` : défaut = rendu actuel (rétro-compat, 0 instance cassée). */
+export {
+  bilingualString,
+  ctaSchema,
+  metricSchema,
+  featureItemSchema,
+  stepSchema,
+  faqItemSchema,
+  pricingTierSchema,
+  testimonialSchema,
+  comparisonRowSchema,
+  timelineEventSchema,
+} from '../sections/_shared/subschemas';
 
-// L7 — alignement parent (conteneur flex/grid) + cellule (niveau section/grille).
-const justifyContentEnum = z.enum(['start', 'center', 'end', 'between', 'around', 'evenly']);
-const alignItemsEnum = z.enum(['start', 'center', 'end', 'stretch', 'baseline']);
-const justifyItemsEnum = z.enum(['start', 'center', 'end', 'stretch']);
-const alignContentEnum = z.enum(['start', 'center', 'end', 'between', 'stretch']);
-const cellAlignXEnum = z.enum(['start', 'center', 'end']);
-const cellAlignYEnum = z.enum(['top', 'middle', 'bottom', 'between']);
-const cellPadEnum = z.enum(['none', 'sm', 'base', 'lg']);
-const mediaFitEnum = z.enum(['cover', 'contain']);
-const mediaRatioEnum = z.enum(['auto', '1-1', '4-3', '3-2', '16-9']);
-
-// L8 — états (interaction). `reveal`/`hover` ci-dessous étendent les enums déjà en place.
-const hoverEnum = z.enum([
-  'none',
-  'lift',
-  'zoom',
-  'glow',
-  'border',
-  'tint',
-  'underline',
-  'reveal-cta',
-  'media-zoom',
-]);
-const pressFeedbackEnum = z.enum(['none', 'press']);
-const focusRingEnum = z.enum(['auto', 'ring', 'inset', 'none']);
-const transitionSpeedEnum = z.enum(['instant', 'fast', 'base', 'slow']);
-const transitionEaseEnum = z.enum(['standard', 'out', 'spring']);
-// L8 RÉSERVE (NEXT — onglets/accordéon) : figés au contrat dès maintenant.
-const selectedStateEnum = z.enum(['none', 'outline', 'fill', 'accent-edge']);
-const openStateEnum = z.enum(['auto']);
-
-// L9 — motion / animation (tous gated prefers-reduced-motion par le moteur).
-const revealEnum = z.enum([
-  'none',
-  'fade',
-  'slide-up',
-  'slide-down',
-  'slide-left',
-  'slide-right',
-  'scale-in',
-  'blur-in',
-  'mask-up',
-]);
-const revealDelayEnum = z.enum(['none', 'sm', 'md']);
-const loopEnum = z.enum(['none', 'marquee', 'pulse', 'float']);
-const scrollMotionEnum = z.enum(['none', 'parallax', 'pin', 'progress']);
-const textMotionEnum = z.enum(['none', 'word-stagger', 'count-up', 'type-on']);
-const motionSpeedEnum = z.enum(['fast', 'base', 'slow']);
-const motionEaseEnum = z.enum(['standard', 'out', 'spring']);
-const pageTransitionEnum = z.enum(['none', 'fade', 'slide']);
-
-// L10bis — couleur multi-scope (rôles DS uniquement, contraste auto, rule 60).
-const cellBgEnum = z.enum(['paper', 'paper-2', 'paper-3', 'ink', 'ink-2', 'ink-3', 'accent', 'none']);
-const cellToneEnum = z.enum(['ink', 'muted', 'accent', 'accent-text', 'paper']);
-const toneEnum = z.enum(['ink', 'muted', 'accent', 'accent-text', 'paper']);
-const borderToneEnum = z.enum(['hairline', 'hairline-strong', 'accent', 'none']);
-
-// L11 — orientation + long-tail.
-const textFlowEnum = z.enum(['horizontal', 'vertical-rl', 'vertical-lr', 'sideways']);
-const textTransformEnum = z.enum(['none', 'uppercase', 'lowercase', 'capitalize']);
-const rotateEnum = z.enum(['none', '90', '-90', '180']);
-const objectPositionEnum = z.enum(['center', 'top', 'bottom', 'left', 'right']);
-const overflowEnum = z.enum(['visible', 'clip', 'auto']);
-const scrollSnapEnum = z.enum(['none', 'proximity', 'mandatory']);
-
-// L6 — typo core.
-const measureEnum = z.enum(['prose', 'read', 'tight', 'wide', 'full']);
-const clampEnum = z.enum(['none', '1', '2', '3', '4']);
-
-// L12 — sizing.
-const minHeightEnum = z.enum(['auto', 'half', 'screen']);
-const widthEnum = z.enum(['full', 'contained', 'narrow', 'prose']);
-
-// L13 — a11y / sémantique (le héros gère h1 séparément).
-const headingLevelEnum = z.enum(['h2', 'h3']);
-
-/* ─── COMPOSITION (axes de mise en COMPOSITION, contrat v2 — SYS v2-E) ───
- * Démultiplient l'espace combinatoire d'un archétype « collection » au-delà du seul
- * layout+couleur : en-tête (alignement + richesse), ligne d'intro au-dessus de la grille,
- * séparateurs de grille, richesse + média de carte, distribution de couleur entre cartes,
- * source de fond (couleur/image/gradient). Tous enum-bornés, optionnels (défaut = rendu
- * actuel), DS-driven. Le MOTEUR (section-layouts.css) les porte génériquement (réutilisables
- * par tout type de famille collection) ; chaque composant les rend. data-attr kebab-case. */
-// En-tête : alignement du bloc header (gauche/centre/droite).
-const headerAlignEnum = z.enum(['left', 'center', 'right']);
-// En-tête : richesse (combien d'éléments d'en-tête rendre).
-const headerKindEnum = z.enum([
-  'none',
-  'title',
-  'eyebrow-title',
-  'eyebrow-title-lede',
-  'eyebrow-title-lede-cta',
-]);
-// Ligne d'intro AU-DESSUS de la grille (aucune / chapô + points / desc gauche + image droite / chapô centré).
-const introRowEnum = z.enum(['none', 'lede-aside', 'desc-media-split', 'lede-centered']);
-// Séparateurs de grille (aucun / traits entre colonnes / traits entre lignes / quadrillage complet).
-const dividersEnum = z.enum(['none', 'column-rules', 'row-rules', 'grid-lines']);
-// Richesse de carte (combien d'éléments par carte).
-const cardContentEnum = z.enum([
-  'title',
-  'title-desc',
-  'icon-title-desc',
-  'title-desc-meta',
-  'media-title-desc',
-]);
-// Média de carte (aucun / icône / image en tête / image en FOND de carte avec scrim).
-const cardMediaEnum = z.enum(['none', 'icon', 'image', 'image-bg']);
-// Alignement du contenu DANS la carte (gauche / centré).
-const cardAlignEnum = z.enum(['left', 'center']);
-// Distribution de couleur entre cartes (uniforme / 1ʳᵉ vedette / 1 accent / alternée en cycle).
-const colorDistributionEnum = z.enum(['uniform', 'featured-first', 'one-accent', 'alternating']);
-// Source de fond de SECTION (couleur DS / image placeholder + scrim / gradient preset).
-const bgSourceEnum = z.enum(['color', 'image', 'gradient']);
-
-const sectionBaseSchema = z.object({
-  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
-  layout: z.string().optional(),
-  density: z.enum(['compact', 'base', 'ample']).optional(),
-  // Alignement du bloc header/contenu (data-content-align). Absent → start (rendu actuel).
-  contentAlign: z.enum(['start', 'center', 'end']).optional(),
-  // Position du rang de CTA, INDÉPENDANTE du contenu (data-actions-align). Absent → suit contentAlign.
-  actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
-  // Couche atomique : placement par région (Vague C). Optionnel, forme identique partout.
-  placement: placementSchema,
-
-  /* ─── Mixin de variation unique — les 6 couches (Pilier 2, système de production) ───
-   * TOUS optionnels → 0 régression : sans valeur, le composant rend exactement comme
-   * aujourd'hui. La LISTE des valeurs réellement supportées par un type vit dans
-   * `capabilities` (section-archetypes.ts / registry), pas dans des enums divergents.
-   * Le moteur CSS (section-layouts.css) lit les data-attrs correspondants. */
-
-  // Couches 1-3 : layout + axes de grille / split.
-  // `layout` (ci-dessus) reste un z.string() libre au niveau contrat ; capabilities cadre la liste.
-  columns: z.enum(['auto', '1', '2', '3', '4', '5', '6']).optional(),
-  colRatio: z.enum(['equal', '1-2', '2-1', '1-1-2', '2-3', 'golden']).optional(),
-  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
-  proportion: z.enum(['1-1', '1-2', '2-1', '2-3', '3-2']).optional(),
-  mediaSide: z.enum(['left', 'right']).optional(),
-
-  // Couche 4 : skin / surface (100 % tokens DS).
-  surface: z.enum(['flat', 'outlined', 'filled', 'elevated', 'ghost']).optional(),
-  divider: z.enum(['none', 'hairline', 'rule']).optional(),
-  radius: z.enum(['none', 'sm', 'md', 'lg']).optional(),
-  accentEdge: z.enum(['none', 'top', 'left']).optional(),
-
-  // Couche 5 : responsive par breakpoint.
-  colsMobile: z.enum(['auto', '1', '2', '3', '4']).optional(),
-  colsTablet: z.enum(['auto', '1', '2', '3', '4']).optional(),
-  layoutMobile: z.string().optional(),
-
-  // Couche 6 : emphasis / typo + interaction.
-  titleScale: z.enum(['sm', 'base', 'lg', 'xl']).optional(),
-  eyebrow: z.enum(['none', 'kicker', 'badge']).optional(),
-
-  /* ─── Contrat v2 — couches NOW (tasks/wave-c-axes-standard.md) ───
-   * Tous `.optional()`, défaut = rendu actuel. Le moteur lit le data-attr correspondant
-   * (mapping : nom de prop → data-attr kebab-case, ex. justifyContent→data-justify-content,
-   * cellBg→data-cell-bg, hover→data-hover, textFlow→data-text-flow). La LISTE des valeurs
-   * réellement câblées par un type vit dans `capabilities` (section-archetypes.ts), pas ici.
-   * NOTE — overrides PAR ITEM (justifySelf/alignSelf/order/colSpan/rowSpan + items[].bg/tone)
-   * = ajoutés dans CHAQUE schéma de type lors de la MIGRATION, pas dans ce mixin de base.
-   * Le moteur CSS les supporte déjà. */
-
-  // L7 — alignement parent (conteneur) + cellule (niveau section/grille).
-  justifyContent: justifyContentEnum.optional(),
-  alignItems: alignItemsEnum.optional(),
-  justifyItems: justifyItemsEnum.optional(),
-  alignContent: alignContentEnum.optional(),
-  cellAlignX: cellAlignXEnum.optional(),
-  cellAlignY: cellAlignYEnum.optional(),
-  cellPad: cellPadEnum.optional(),
-  mediaFit: mediaFitEnum.optional(),
-  mediaRatio: mediaRatioEnum.optional(),
-
-  // L8 — états (interaction). `reveal`/`hover` étendus (enums élargis vs v1).
-  reveal: revealEnum.optional(),
-  hover: hoverEnum.optional(),
-  pressFeedback: pressFeedbackEnum.optional(),
-  focusRing: focusRingEnum.optional(),
-  transitionSpeed: transitionSpeedEnum.optional(),
-  transitionEase: transitionEaseEnum.optional(),
-  // L8 RÉSERVE (NEXT) — figés au contrat dès maintenant.
-  selectedState: selectedStateEnum.optional(),
-  openState: openStateEnum.optional(),
-
-  // L9 — motion / animation.
-  revealStagger: z.boolean().optional(),
-  revealDelay: revealDelayEnum.optional(),
-  loop: loopEnum.optional(),
-  scrollMotion: scrollMotionEnum.optional(),
-  textMotion: textMotionEnum.optional(),
-  motionSpeed: motionSpeedEnum.optional(),
-  motionEase: motionEaseEnum.optional(),
-  pageTransition: pageTransitionEnum.optional(),
-
-  // L10bis — couleur multi-scope (rôles DS, contraste auto).
-  cellBg: cellBgEnum.optional(),
-  cellTone: cellToneEnum.optional(),
-  tone: toneEnum.optional(),
-  borderTone: borderToneEnum.optional(),
-
-  // L11 — orientation + long-tail.
-  textFlow: textFlowEnum.optional(),
-  textTransform: textTransformEnum.optional(),
-  rotate: rotateEnum.optional(),
-  objectPosition: objectPositionEnum.optional(),
-  overflow: overflowEnum.optional(),
-  scrollSnap: scrollSnapEnum.optional(),
-
-  // L6 — typo core (titleScale/eyebrow déjà au-dessus ; weight/tracking/leading = NEXT).
-  measure: measureEnum.optional(),
-  balance: z.boolean().optional(),
-  clamp: clampEnum.optional(),
-
-  // L12 — sizing (`itemHeight` déjà déclaré couche 1 ci-dessus).
-  minHeight: minHeightEnum.optional(),
-  width: widthEnum.optional(),
-
-  // L13 — a11y / sémantique.
-  headingLevel: headingLevelEnum.optional(),
-  ariaLabel: z.string().optional(),
-
-  /* ─── COMPOSITION (SYS v2-E) — axes de mise en composition d'une collection.
-   * Démultiplient l'espace au-delà de layout+couleur (en-tête, ligne d'intro, séparateurs,
-   * richesse + média de carte, distribution de couleur, source de fond). Tous optionnels →
-   * défaut = rendu actuel. Le moteur lit le data-attr kebab-case correspondant. */
-  headerAlign: headerAlignEnum.optional(), // data-header-align (sur le header)
-  headerKind: headerKindEnum.optional(), // richesse d'en-tête (rendu +/- d'éléments)
-  introRow: introRowEnum.optional(), // ligne au-dessus de la grille → data-intro-row
-  dividers: dividersEnum.optional(), // séparateurs de grille → data-dividers
-  cardContent: cardContentEnum.optional(), // richesse de carte (rendu +/- d'éléments)
-  cardMedia: cardMediaEnum.optional(), // média de carte → data-card-media (image-bg = fond)
-  cardAlign: cardAlignEnum.optional(), // alignement intra-carte → data-card-align
-  colorDistribution: colorDistributionEnum.optional(), // distribution couleur → data-color-distribution
-  bgSource: bgSourceEnum.optional(), // source de fond section → data-bg-source
-  // Source image de SECTION (placeholder editorial, remplaçable CMS) — JAMAIS d'URL en dur
-  // dans le CSS : le composant pose --sec-bg-image inline depuis cette donnée.
-  bgImage: z.string().optional(),
-});
-
-const bilingualString = z.object({
-  fr: z.string(),
-  en: z.string(),
-});
-
-const ctaSchema = z.object({
-  label_fr: z.string(),
-  label_en: z.string(),
-  href: z.string(),
-  variant: z.enum(['primary', 'accent', 'ghost', 'ghost-dark', 'terminal']).default('primary'),
-  mag: z.number().min(0).max(1).optional(),
-});
-
-const metricSchema = z.object({
-  value: z.string(),
-  label_fr: z.string(),
-  label_en: z.string(),
-  emphasis: z.boolean().default(false),
-});
-
-const featureItemSchema = z.object({
-  icon: z.string().optional(), // SVG name dans components/svg
-  title_fr: z.string(),
-  title_en: z.string(),
-  body_fr: z.string(),
-  body_en: z.string(),
-  // ─── Overrides PAR ITEM (couches L10bis + L7-enfant), tous optionnels, défaut = hérite
-  //     du réglage de section. Lus par le composant FeatureGrid → data-* sur la carte
-  //     (.sec-item). Le moteur (section-layouts.css) fournit le contraste auto + le span.
-  bg: cellBgEnum.optional(), // fond de cellule → data-cell-bg (contraste auto par le moteur)
-  tone: toneEnum.optional(), // couleur de premier plan → data-tone
-  cellAlignY: cellAlignYEnum.optional(), // distribution verticale → data-cell-y (between = CTA en bas)
-  colSpan: z.enum(['1', '2', '3', '4']).optional(), // span de colonnes → data-col-span
-  // ─── COMPOSITION par carte (SYS v2-E), optionnels, défaut = non rendu (rendu actuel) :
-  //     meta = petite ligne (cardContent=title-desc-meta) ; media = chemin image placeholder
-  //     editorial (cardMedia=image|image-bg), remplaçable CMS, JAMAIS d'URL en dur dans le CSS.
-  meta_fr: z.string().optional(),
-  meta_en: z.string().optional(),
-  media: z.string().optional(),
-  // CTA optionnel par carte (active les états reveal-cta / cellAlignY=between côté démo).
-  cta_label_fr: z.string().optional(),
-  cta_label_en: z.string().optional(),
-  cta_href: z.string().optional(),
-});
-
-const stepSchema = z.object({
-  num: z.string(),
-  label_fr: z.string(),
-  label_en: z.string(),
-  body_fr: z.string(),
-  body_en: z.string(),
-  meta_fr: z.string().optional(),
-  meta_en: z.string().optional(),
-  duration_fr: z.string().optional(),
-});
-
-const faqItemSchema = z.object({
-  q_fr: z.string(),
-  q_en: z.string(),
-  a_fr: z.string(),
-  a_en: z.string(),
-});
-
-const pricingTierSchema = z.object({
-  name_fr: z.string(),
-  name_en: z.string(),
-  price: z.string(),
-  features_fr: z.array(z.string()),
-  features_en: z.array(z.string()),
-  cta: ctaSchema,
-  featured: z.boolean().default(false),
-});
-
-const testimonialSchema = z.object({
-  quote_fr: z.string(),
-  quote_en: z.string(),
-  author: z.string(),
-  role_fr: z.string(),
-  role_en: z.string(),
-  company: z.string().optional(),
-  avatar: z.string().optional(),
-});
-
-const comparisonRowSchema = z.object({
-  feature_fr: z.string(),
-  feature_en: z.string(),
-  values: z.array(z.union([z.string(), z.boolean()])),
-});
-
-const timelineEventSchema = z.object({
-  date: z.string(),
-  title_fr: z.string(),
-  title_en: z.string(),
-  body_fr: z.string(),
-  body_en: z.string(),
-});
+import {
+  bilingualString,
+  ctaSchema,
+  metricSchema,
+  featureItemSchema,
+  stepSchema,
+  faqItemSchema,
+  pricingTierSchema,
+  testimonialSchema,
+  comparisonRowSchema,
+  timelineEventSchema,
+} from '../sections/_shared/subschemas';
 
 /* ─── Section schemas (20 types) ─── */
 
