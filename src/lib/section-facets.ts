@@ -329,6 +329,114 @@ export const FAMILY_TAGS = [
   'timeline',
 ] as const satisfies readonly FamilyTag[];
 
+// ───────────────────────────── Métadonnées sémantiques IA (Vague C2-A) ─────────────────────────────
+// Orthogonales aux facettes ci-dessus : elles décrivent le JOB de communication
+// (intent), la PLACE dans la page (pageRole) et le MODÈLE de contenu (contentMode).
+// But : donner à un agent IA de quoi CHOISIR et REMPLIR une section sans hasard.
+
+// Job de communication de la section (POURQUOI on l'utilise).
+export type IntentTag =
+  | 'state-value-prop' // énoncer la proposition de valeur
+  | 'establish-credibility' // rassurer / E-E-A-T / autorité
+  | 'explain-concept' // expliquer une notion / un problème
+  | 'explain-process' // expliquer une méthode / des étapes
+  | 'show-features' // présenter capacités / livrables
+  | 'compare-options' // comparer (vs concurrents / alternatives)
+  | 'social-proof' // preuve sociale (logos, stats, avis)
+  | 'showcase-work' // montrer des réalisations / cas
+  | 'present-pricing' // tarifs / offres
+  | 'answer-objections' // FAQ / lever les freins
+  | 'capture-lead' // formulaire / capture
+  | 'drive-action' // CTA / pousser à l'action
+  | 'orient-navigate' // nav / index / breadcrumb / sommaire
+  | 'announce' // bannière / annonce
+  | 'tell-story'; // narratif / manifeste / coulisses
+
+// Place dans le flux de page (OÙ on la met).
+export type PageRoleTag =
+  | 'hero'
+  | 'opener'
+  | 'body'
+  | 'proof'
+  | 'conversion'
+  | 'closer'
+  | 'utility';
+
+// Modèle de contenu (les 2 fonctionnements Waimia).
+export type ContentMode =
+  | 'instance' // contenu inline en frontmatter uniquement
+  | 'global-ref' // contenu issu d'une source partagée (caseRefs, logoIds, *PACK, collection)
+  | 'hybrid'; // peut faire les deux
+
+export const INTENT_TAGS = [
+  'state-value-prop',
+  'establish-credibility',
+  'explain-concept',
+  'explain-process',
+  'show-features',
+  'compare-options',
+  'social-proof',
+  'showcase-work',
+  'present-pricing',
+  'answer-objections',
+  'capture-lead',
+  'drive-action',
+  'orient-navigate',
+  'announce',
+  'tell-story',
+] as const satisfies readonly IntentTag[];
+
+export const PAGE_ROLE_TAGS = [
+  'hero',
+  'opener',
+  'body',
+  'proof',
+  'conversion',
+  'closer',
+  'utility',
+] as const satisfies readonly PageRoleTag[];
+
+export const CONTENT_MODES = [
+  'instance',
+  'global-ref',
+  'hybrid',
+] as const satisfies readonly ContentMode[];
+
+// Libellés FR lisibles (filtres UI / DS Studio). Sans tiret cadratin.
+export const INTENT_LABELS_FR: Record<IntentTag, string> = {
+  'state-value-prop': 'Énoncer la proposition de valeur',
+  'establish-credibility': 'Établir la crédibilité',
+  'explain-concept': 'Expliquer un concept',
+  'explain-process': 'Expliquer une méthode',
+  'show-features': 'Présenter les capacités',
+  'compare-options': 'Comparer les options',
+  'social-proof': 'Preuve sociale',
+  'showcase-work': 'Montrer les réalisations',
+  'present-pricing': 'Présenter les tarifs',
+  'answer-objections': 'Répondre aux objections',
+  'capture-lead': 'Capter un lead',
+  'drive-action': 'Pousser à l\'action',
+  'orient-navigate': 'Orienter / naviguer',
+  announce: 'Annoncer',
+  'tell-story': 'Raconter une histoire',
+};
+
+export const PAGE_ROLE_LABELS_FR: Record<PageRoleTag, string> = {
+  hero: 'Héros',
+  opener: 'Ouverture',
+  body: 'Corps',
+  proof: 'Preuve',
+  conversion: 'Conversion',
+  closer: 'Clôture',
+  utility: 'Utilitaire',
+};
+
+export const CONTENT_MODE_LABELS_FR: Record<ContentMode, string> = {
+  instance: 'Contenu inline (instance)',
+  'global-ref': 'Source partagée (global)',
+  hybrid: 'Mixte (inline ou partagé)',
+};
+
 /** Bloc de facettes porté par chaque SectionDescriptor (tous obligatoires). */
 export interface SectionFacets {
   effects: EffectTag[];
