@@ -1568,10 +1568,13 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
     kicker_en: 'Demo · features grid',
     h2_fr: 'Trois <i>piliers</i> du DS Waimia',
     h2_en: 'Three <i>pillars</i> of Waimia DS',
+    // 3 cartes + 1 CTA par carte (vitrine des couches L8 reveal-cta / L7 cellAlignY=between).
+    // Aucune couleur de cellule par défaut (rendu actuel inchangé) ; les presets témoins
+    // posent les couches (hover, cellBg multicolore, cellAlignY, justifyContent).
     features: [
-      { title_fr: 'Tokens canoniques', title_en: 'Canonical tokens', body_fr: "115 tokens CSS exposés à :root. Pioche, n'invente pas.", body_en: '115 CSS tokens at :root. Pick, never invent.' },
-      { title_fr: 'Composants atomiques', title_en: 'Atomic components', body_fr: '114 composants en 7 couches Tier 1.', body_en: '114 components across 7 Tier 1 layers.' },
-      { title_fr: 'Anti-hallucination', title_en: 'Anti-hallucination', body_fr: '5 anti-patterns documentés avec commandes de détection.', body_en: '5 anti-patterns documented with detection commands.' },
+      { title_fr: 'Tokens canoniques', title_en: 'Canonical tokens', body_fr: "115 tokens CSS exposés à :root. Pioche, n'invente pas.", body_en: '115 CSS tokens at :root. Pick, never invent.', cta_label_fr: 'Voir les tokens', cta_label_en: 'View tokens', cta_href: '/agence/design-system' },
+      { title_fr: 'Composants atomiques', title_en: 'Atomic components', body_fr: '114 composants en 7 couches Tier 1.', body_en: '114 components across 7 Tier 1 layers.', cta_label_fr: 'Explorer', cta_label_en: 'Explore', cta_href: '/agence/design-system' },
+      { title_fr: 'Anti-hallucination', title_en: 'Anti-hallucination', body_fr: '5 anti-patterns documentés avec commandes de détection.', body_en: '5 anti-patterns documented with detection commands.', cta_label_fr: 'Lire la doc', cta_label_en: 'Read docs', cta_href: '/agence/design-system' },
     ],
     columns: '3',
   },

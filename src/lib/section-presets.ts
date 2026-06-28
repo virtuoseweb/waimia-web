@@ -57,6 +57,28 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
   proportion?: '1-1' | '1-2' | '2-1' | '2-3' | '3-2';
   /** feature-split-media : côté du média en desktop. */
   mediaSide?: 'left' | 'right';
+  /** feature-grid (witness moteur v2) : couches NOW exposées par preset témoin. Lues par
+   *  data-* dans FeatureGrid → moteur section-layouts.css. */
+  hover?: 'none' | 'lift' | 'zoom' | 'glow' | 'border' | 'tint' | 'underline' | 'reveal-cta' | 'media-zoom';
+  cellAlignY?: 'top' | 'middle' | 'bottom' | 'between';
+  cellBg?: 'paper' | 'paper-2' | 'paper-3' | 'ink' | 'ink-2' | 'ink-3' | 'accent' | 'none';
+  justifyContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+  /** feature-grid : override complet des cartes (merge shallow → fournir le tableau entier).
+   *  Permet le preset « cellules multicolores » (bg par item). Forme = featureItemSchema. */
+  features?: Array<{
+    icon?: string;
+    title_fr: string;
+    title_en: string;
+    body_fr: string;
+    body_en: string;
+    bg?: 'paper' | 'paper-2' | 'paper-3' | 'ink' | 'ink-2' | 'ink-3' | 'accent' | 'none';
+    tone?: 'ink' | 'muted' | 'accent' | 'accent-text' | 'paper';
+    cellAlignY?: 'top' | 'middle' | 'bottom' | 'between';
+    colSpan?: '1' | '2' | '3' | '4';
+    cta_label_fr?: string;
+    cta_label_en?: string;
+    cta_href?: string;
+  }>;
   /** Couche atomique (Vague C) : placement par région, forme identique à placementSchema (Zod).
    *  Lu par data-* dans les composants câblés (FooterCtaBand, FeatureSplitMedia au pilote).
    *  Merge shallow dans la demo → fournir l'objet `placement` complet par preset. */
@@ -309,6 +331,35 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'versus-competitors--paper-2', type: 'versus-competitors', label: 'Versus concurrents · papier 2', family: 'table', era: '2023', props: { background: 'paper-2' } },
     { id: 'versus-competitors--paper-3', type: 'versus-competitors', label: 'Versus concurrents · papier 3', family: 'table', era: '2024', props: { background: 'paper-3' } },
     { id: 'versus-competitors--ink', type: 'versus-competitors', label: 'Versus concurrents · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // feature-grid (famille card-grid, composant FeatureGrid) : WITNESS de la migration sur le
+  // moteur de layout v2. Presets témoins qui EXERCENT les couches NOW (L8 hover, L10bis cellBg
+  // multicolore + contraste auto, L7 cellAlignY=between, L7 justifyContent). Le défaut (demo
+  // sans preset) reste la grille hairline 3 colonnes inchangée.
+  'feature-grid': [
+    { id: 'feature-grid--paper', type: 'feature-grid', label: 'Grille features · papier', family: 'card-grid', era: '2022', props: { background: 'paper' } },
+    { id: 'feature-grid--3col-ink', type: 'feature-grid', label: 'Grille features · 3 colonnes · encre', family: 'card-grid', era: '2026', props: { background: 'ink', columns: '3' } },
+    { id: 'feature-grid--hover-lift', type: 'feature-grid', label: 'Grille features · survol élévation (lift)', family: 'card-grid', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3', hover: 'lift' } },
+    {
+      id: 'feature-grid--cells-multicolor',
+      type: 'feature-grid',
+      label: 'Grille features · cellules multicolores (contraste auto)',
+      family: 'card-grid',
+      era: '2026',
+      props: {
+        background: 'paper',
+        layout: 'grid-uniform',
+        columns: '3',
+        features: [
+          { title_fr: 'Cellule papier', title_en: 'Paper cell', body_fr: 'Fond clair, texte encre (défaut sûr).', body_en: 'Light surface, ink text (safe default).', bg: 'paper', cta_label_fr: 'Lien', cta_label_en: 'Link', cta_href: '/agence/design-system' },
+          { title_fr: 'Cellule encre', title_en: 'Ink cell', body_fr: 'Fond sombre, texte clair fourni par le moteur (contraste auto).', body_en: 'Dark surface, light text from the engine (auto contrast).', bg: 'ink', cta_label_fr: 'Lien', cta_label_en: 'Link', cta_href: '/agence/design-system' },
+          { title_fr: 'Cellule accent', title_en: 'Accent cell', body_fr: 'Fond accent terracotta, texte clair remappé.', body_en: 'Terracotta accent surface, remapped light text.', bg: 'accent', cta_label_fr: 'Lien', cta_label_en: 'Link', cta_href: '/agence/design-system' },
+        ],
+      },
+    },
+    { id: 'feature-grid--cta-bottom', type: 'feature-grid', label: 'Grille features · CTA poussé en bas de carte', family: 'card-grid', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3', cellAlignY: 'between' } },
+    { id: 'feature-grid--justify-center', type: 'feature-grid', label: 'Grille features · grille centrée (justify-content)', family: 'card-grid', era: '2026', props: { background: 'paper', layout: 'grid-auto', justifyContent: 'center' } },
   ],
 
   // deliverables-grid (famille card-grid, composant FeatureGrid) : axes câblés (Vague C pilote) =

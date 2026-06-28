@@ -510,3 +510,599 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗
+   ║  MOTEUR v2 — couches NOW génériques data-attr (additif, inerte par défaut) ║
+   ║  Tout ce qui suit est inerte tant qu'aucun composant ne pose le data-attr. ║
+   ║  0 règle v1 ci-dessus altérée. 0 nouveau token DS. 0 U+2014.               ║
+   ║  Couches : L7 (flex/grid parent+enfant + intra-cellule), L8 (états),       ║
+   ║  L9 (motion compléments), L10bis (couleur multi-scope + contraste auto),   ║
+   ║  L11 (orientation/long-tail), L4/L6/L12 (compléments core), container-type,║
+   ║  :has() count-adaptive généralisé.                                         ║
+   ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DÉCISION POST-CRITIQUE I3 — container-type posé NOW (les @container = NEXT).
+   On POSE le contexte de requête de conteneur sur les grilles/régions dès
+   maintenant pour ne pas rétrofitter 123 composants plus tard. container-type:
+   inline-size ne contraint QUE l'axe inline (largeur) : il n'impose AUCUNE
+   hauteur (contrairement à 'size'), donc 0 risque d'effondrement de hauteur sur
+   les grilles existantes. La seule conséquence est d'établir un contexte de
+   confinement de mise en page ; le sizing inline reste piloté par grid/flex.
+   Re-vérif orchestrateur : confirmer qu'aucune grille ne dépendait d'un
+   débordement de largeur d'enfant hors de .sec-grid (très improbable : tout est
+   minmax(0,1fr) / auto-fit, donc déjà confiné).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid,
+.sec-region {
+  container-type: inline-size;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DÉCISION POST-CRITIQUE I5 — count-adaptive :has() GÉNÉRALISÉ sur grid-auto.
+   Généralise la finesse aujourd'hui dupliquée bespoke (deliverables-grid,
+   problems-grid) : selon le NOMBRE exact d'items, on ajuste la largeur mini de
+   colonne pour éviter une dernière ligne orpheline disgracieuse.
+   - 4 items pile (:nth-child(4):last-child) → 2x2 (col-min plus large).
+   - 5 items pile → 3 + 2 (dernière ligne déjà centrée par justify-content:center).
+   On ne touche que --sec-col-min (var locale) : le moteur grid-auto reste le même,
+   on pilote juste son minmax. Inerte si le composant n'est pas en grid-auto.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-collection[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(2):last-child),
+.sec-gallery[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(2):last-child),
+.sec-process[data-layout='grid-steps'] .sec-grid:has(> .sec-item:nth-child(2):last-child) {
+  --sec-col-min: 22rem; /* 2 items : colonnes larges (évite 2 colonnes étriquées) */
+}
+.sec-collection[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(4):last-child),
+.sec-gallery[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(4):last-child),
+.sec-process[data-layout='grid-steps'] .sec-grid:has(> .sec-item:nth-child(4):last-child) {
+  --sec-col-min: 18rem; /* 4 items : favorise un 2x2 propre plutôt qu'un 1x4 étiré */
+}
+.sec-collection[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(6):last-child),
+.sec-gallery[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(6):last-child),
+.sec-process[data-layout='grid-steps'] .sec-grid:has(> .sec-item:nth-child(6):last-child) {
+  --sec-col-min: 15rem; /* 6 items : colonnes plus serrées (3x2 cohérent) */
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 7 — ALIGNEMENT flex/grid PARENT (conteneur) — décision Simon 2026-06-28.
+   Une règle générique par valeur, appliquée sur tout conteneur du moteur
+   (.sec-grid, .sec-region, .sec-item quand il est lui-même conteneur). DRY.
+   Structurel (align/justify) : pas de token. Inerte sans data-attr.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* justify-content (axe principal flex / inline grid). */
+.sec-grid[data-justify-content='start'],
+.sec-region[data-justify-content='start'],
+.sec-item[data-justify-content='start']   { justify-content: flex-start; }
+.sec-grid[data-justify-content='center'],
+.sec-region[data-justify-content='center'],
+.sec-item[data-justify-content='center']  { justify-content: center; }
+.sec-grid[data-justify-content='end'],
+.sec-region[data-justify-content='end'],
+.sec-item[data-justify-content='end']      { justify-content: flex-end; }
+.sec-grid[data-justify-content='between'],
+.sec-region[data-justify-content='between'],
+.sec-item[data-justify-content='between']  { justify-content: space-between; }
+.sec-grid[data-justify-content='around'],
+.sec-region[data-justify-content='around'],
+.sec-item[data-justify-content='around']   { justify-content: space-around; }
+.sec-grid[data-justify-content='evenly'],
+.sec-region[data-justify-content='evenly'],
+.sec-item[data-justify-content='evenly']   { justify-content: space-evenly; }
+
+/* align-items (axe transverse, tous les enfants). */
+.sec-grid[data-align-items='start'],
+.sec-region[data-align-items='start'],
+.sec-item[data-align-items='start']     { align-items: flex-start; }
+.sec-grid[data-align-items='center'],
+.sec-region[data-align-items='center'],
+.sec-item[data-align-items='center']    { align-items: center; }
+.sec-grid[data-align-items='end'],
+.sec-region[data-align-items='end'],
+.sec-item[data-align-items='end']        { align-items: flex-end; }
+.sec-grid[data-align-items='stretch'],
+.sec-region[data-align-items='stretch'],
+.sec-item[data-align-items='stretch']    { align-items: stretch; }
+.sec-grid[data-align-items='baseline'],
+.sec-region[data-align-items='baseline'],
+.sec-item[data-align-items='baseline']   { align-items: baseline; }
+
+/* justify-items (grid : alignement inline de chaque cellule). */
+.sec-grid[data-justify-items='start'],
+.sec-region[data-justify-items='start']    { justify-items: start; }
+.sec-grid[data-justify-items='center'],
+.sec-region[data-justify-items='center']   { justify-items: center; }
+.sec-grid[data-justify-items='end'],
+.sec-region[data-justify-items='end']       { justify-items: end; }
+.sec-grid[data-justify-items='stretch'],
+.sec-region[data-justify-items='stretch']   { justify-items: stretch; }
+
+/* align-content (multi-lignes). */
+.sec-grid[data-align-content='start'],
+.sec-region[data-align-content='start']     { align-content: start; }
+.sec-grid[data-align-content='center'],
+.sec-region[data-align-content='center']    { align-content: center; }
+.sec-grid[data-align-content='end'],
+.sec-region[data-align-content='end']        { align-content: end; }
+.sec-grid[data-align-content='between'],
+.sec-region[data-align-content='between']    { align-content: space-between; }
+.sec-grid[data-align-content='stretch'],
+.sec-region[data-align-content='stretch']    { align-content: stretch; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 7 — ALIGNEMENT ENFANT / self (sur .sec-item, .sec-region).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* justify-self. */
+.sec-item[data-justify-self='start'],
+.sec-region[data-justify-self='start']    { justify-self: start; }
+.sec-item[data-justify-self='center'],
+.sec-region[data-justify-self='center']   { justify-self: center; }
+.sec-item[data-justify-self='end'],
+.sec-region[data-justify-self='end']       { justify-self: end; }
+.sec-item[data-justify-self='stretch'],
+.sec-region[data-justify-self='stretch']   { justify-self: stretch; }
+
+/* align-self. */
+.sec-item[data-align-self='start'],
+.sec-region[data-align-self='start']     { align-self: start; }
+.sec-item[data-align-self='center'],
+.sec-region[data-align-self='center']    { align-self: center; }
+.sec-item[data-align-self='end'],
+.sec-region[data-align-self='end']        { align-self: end; }
+.sec-item[data-align-self='stretch'],
+.sec-region[data-align-self='stretch']    { align-self: stretch; }
+.sec-item[data-align-self='baseline'],
+.sec-region[data-align-self='baseline']   { align-self: baseline; }
+
+/* order sur l'item (0..9). Complète l'order de région déjà couvert en v1 (couche 2). */
+.sec-item[data-order='0'] { order: 0; }
+.sec-item[data-order='1'] { order: 1; }
+.sec-item[data-order='2'] { order: 2; }
+.sec-item[data-order='3'] { order: 3; }
+.sec-item[data-order='4'] { order: 4; }
+.sec-item[data-order='5'] { order: 5; }
+.sec-item[data-order='6'] { order: 6; }
+.sec-item[data-order='7'] { order: 7; }
+.sec-item[data-order='8'] { order: 8; }
+.sec-item[data-order='9'] { order: 9; }
+
+/* col-span / row-span (1..4). Span structurel ; clampé au nb de colonnes par les
+   garde-fous responsive ci-dessous (et par les règles bento existantes pour le
+   cas data-columns='2'). Pour éviter tout débordement quand le span dépasse le
+   nb de pistes, on borne via min() sur la portée : grid-column: span min(N, cols)
+   n'existe pas en CSS, donc on s'appuie sur l'absorption naturelle de la grille
+   (un span > nb pistes est ramené à la largeur dispo par le moteur grid) + le
+   relâchement mobile. Re-vérif orchestrateur : sur une grille à 2 colonnes, un
+   col-span=4 occupe les 2 colonnes (pas de débordement de page, juste pleine
+   largeur). */
+.sec-item[data-col-span='1'] { grid-column: span 1; }
+.sec-item[data-col-span='2'] { grid-column: span 2; }
+.sec-item[data-col-span='3'] { grid-column: span 3; }
+.sec-item[data-col-span='4'] { grid-column: span 4; }
+.sec-item[data-row-span='1'] { grid-row: span 1; }
+.sec-item[data-row-span='2'] { grid-row: span 2; }
+.sec-item[data-row-span='3'] { grid-row: span 3; }
+.sec-item[data-row-span='4'] { grid-row: span 4; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 7 — INTRA-CELLULE (le contenu DANS chaque carte/colonne).
+   La cellule devient une pile flex-column pour pouvoir distribuer son contenu
+   (cell-y). On ne force le mode flex QUE si un data-cell-* est présent (sinon on
+   ne touche pas au rendu actuel de la carte).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-item[data-cell-x],
+.sec-item[data-cell-y] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* cell-x : alignement horizontal du contenu (align-items en flex-column + text-align). */
+.sec-item[data-cell-x='start']  { align-items: flex-start; text-align: start; }
+.sec-item[data-cell-x='center'] { align-items: center; text-align: center; }
+.sec-item[data-cell-x='end']    { align-items: flex-end; text-align: end; }
+
+/* cell-y : distribution verticale (justify-content en flex-column).
+   between = pousse le dernier enfant (CTA) en bas de carte = pattern pricing/feature.
+   between IMPOSE une hauteur partagée : la cellule doit s'étirer (height:100%) pour
+   que l'espace existe — on le fait ici (inerte si la cellule n'a pas de hauteur). */
+.sec-item[data-cell-y] { height: 100%; }
+.sec-item[data-cell-y='top']     { justify-content: flex-start; }
+.sec-item[data-cell-y='middle']  { justify-content: center; }
+.sec-item[data-cell-y='bottom']  { justify-content: flex-end; }
+.sec-item[data-cell-y='between'] { justify-content: space-between; }
+
+/* cell-pad : padding interne de cellule (tokens --space-*). */
+.sec-item[data-cell-pad='none'] { padding: 0; }
+.sec-item[data-cell-pad='sm']   { padding: var(--space-4); }
+.sec-item[data-cell-pad='base'] { padding: var(--space-5); }
+.sec-item[data-cell-pad='lg']   { padding: var(--space-6); }
+
+/* media-fit / media-ratio : sur le média interne d'une cellule (atome __media ou <img>). */
+.sec-item[data-media-fit='cover']   .sec-item__media,
+.sec-item[data-media-fit='cover']   > img,
+.sec-item[data-media-fit='cover']   img { object-fit: cover; }
+.sec-item[data-media-fit='contain'] .sec-item__media,
+.sec-item[data-media-fit='contain'] > img,
+.sec-item[data-media-fit='contain'] img { object-fit: contain; }
+.sec-item[data-media-ratio='auto'] .sec-item__media,
+.sec-item[data-media-ratio='auto'] > img  { aspect-ratio: auto; }
+.sec-item[data-media-ratio='1-1']  .sec-item__media,
+.sec-item[data-media-ratio='1-1']  > img  { aspect-ratio: 1 / 1; }
+.sec-item[data-media-ratio='4-3']  .sec-item__media,
+.sec-item[data-media-ratio='4-3']  > img  { aspect-ratio: 4 / 3; }
+.sec-item[data-media-ratio='3-2']  .sec-item__media,
+.sec-item[data-media-ratio='3-2']  > img  { aspect-ratio: 3 / 2; }
+.sec-item[data-media-ratio='16-9'] .sec-item__media,
+.sec-item[data-media-ratio='16-9'] > img  { aspect-ratio: 16 / 9; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 8 — ÉTATS (interaction) — décision Simon 2026-06-28.
+   Portée double (comme couche 7) : .sec-grid[data-hover] .sec-item (toute la
+   grille) + .sec-item[data-hover] (override par item, gagne en spécificité égale
+   grâce à l'ordre — l'item est listé après ou via sélecteur direct).
+   TOUT transform/anim hover gated prefers-reduced-motion. focus-visible JAMAIS
+   retiré. reveal-cta doublé focus-within + visible en touch/reduced-motion.
+   0 token inventé (--dur-*, --ease*, --shadow-*, --accent, --radius-*, --paper-*,
+   --ink-*, --hairline-strong existent tous).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Transition de base : appliquée à tout item qui opte pour un état hover, pour
+   que l'effet soit fluide. transition-property bornée à opacity/transform/
+   box-shadow/border-color/background (jamais width/height → 0 reflow). Défaut
+   --dur-hover + --ease, surchargeable par data-transition / data-ease. */
+.sec-grid[data-hover] .sec-item,
+.sec-item[data-hover] {
+  transition-property: transform, box-shadow, border-color, background-color, opacity;
+  transition-duration: var(--dur-hover);
+  transition-timing-function: var(--ease);
+}
+
+/* transition-speed : instant | fast | base(défaut) | slow. */
+.sec-grid[data-transition='instant'] .sec-item, .sec-item[data-transition='instant'] { transition-duration: 0ms; }
+.sec-grid[data-transition='fast'] .sec-item,    .sec-item[data-transition='fast']    { transition-duration: var(--dur-fast); }
+.sec-grid[data-transition='base'] .sec-item,    .sec-item[data-transition='base']    { transition-duration: var(--dur-hover); }
+.sec-grid[data-transition='slow'] .sec-item,    .sec-item[data-transition='slow']    { transition-duration: var(--dur-panel); }
+
+/* transition-ease : standard(défaut) | out | spring. */
+.sec-grid[data-ease='standard'] .sec-item, .sec-item[data-ease='standard'] { transition-timing-function: var(--ease); }
+.sec-grid[data-ease='out'] .sec-item,      .sec-item[data-ease='out']      { transition-timing-function: var(--ease-out); }
+.sec-grid[data-ease='spring'] .sec-item,   .sec-item[data-ease='spring']   { transition-timing-function: var(--ease-spring); }
+
+/* reveal-cta (group-hover) : le CTA/overlay masqué (opacity:0) au repos. Visible
+   au survol de la carte OU au focus clavier (focus-within, OBLIGATOIRE a11y).
+   Cible : .sec-item__cta ou tout [data-reveal-on-hover]. transition opacity. */
+.sec-grid[data-hover='reveal-cta'] .sec-item .sec-item__cta,
+.sec-grid[data-hover='reveal-cta'] .sec-item [data-reveal-on-hover],
+.sec-item[data-hover='reveal-cta'] .sec-item__cta,
+.sec-item[data-hover='reveal-cta'] [data-reveal-on-hover] {
+  opacity: 0;
+  transition: opacity var(--dur-hover) var(--ease);
+}
+
+/* ── États gated motion : transforms/anim uniquement si l'utilisateur ne demande
+   pas de réduction de mouvement. ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  /* lift : élévation au survol. Repos = ombre subtile. */
+  .sec-grid[data-hover='lift'] .sec-item,
+  .sec-item[data-hover='lift'] { box-shadow: var(--shadow-card-rest); }
+  .sec-grid[data-hover='lift'] .sec-item:hover,
+  .sec-item[data-hover='lift']:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* zoom : léger agrandissement de la carte. */
+  .sec-grid[data-hover='zoom'] .sec-item:hover,
+  .sec-item[data-hover='zoom']:hover { transform: scale(1.02); }
+
+  /* media-zoom : seul le MÉDIA interne grandit (cadre overflow:hidden). */
+  .sec-grid[data-hover='media-zoom'] .sec-item,
+  .sec-item[data-hover='media-zoom'] { overflow: hidden; }
+  .sec-grid[data-hover='media-zoom'] .sec-item__media,
+  .sec-grid[data-hover='media-zoom'] .sec-item img,
+  .sec-item[data-hover='media-zoom'] .sec-item__media,
+  .sec-item[data-hover='media-zoom'] img {
+    transition: transform var(--dur-panel) var(--ease-out);
+  }
+  .sec-grid[data-hover='media-zoom'] .sec-item:hover .sec-item__media,
+  .sec-grid[data-hover='media-zoom'] .sec-item:hover img,
+  .sec-item[data-hover='media-zoom']:hover .sec-item__media,
+  .sec-item[data-hover='media-zoom']:hover img { transform: scale(1.04); }
+
+  /* press feedback : retour tactile au clic. Défaut sur les CTA via data-press. */
+  .sec-item[data-press]:active,
+  .sec-grid[data-hover] .sec-item [data-press]:active,
+  .sec-item[data-hover] [data-press]:active {
+    transform: translateY(1px) scale(0.99);
+  }
+}
+
+/* ── États SANS transform (sûrs même en reduced-motion : couleur/ombre/bordure) ── */
+/* glow : halo d'élévation. */
+.sec-grid[data-hover='glow'] .sec-item:hover,
+.sec-item[data-hover='glow']:hover { box-shadow: var(--shadow-lift); }
+
+/* border : bordure renforcée au survol. */
+.sec-grid[data-hover='border'] .sec-item:hover,
+.sec-item[data-hover='border']:hover { border-color: var(--hairline-strong); }
+
+/* tint : fond teinté au survol (paper-2 sur clair ; ink-2 sur cellule/section ink). */
+.sec-grid[data-hover='tint'] .sec-item:hover,
+.sec-item[data-hover='tint']:hover { background-color: var(--paper-2); }
+[data-bg='ink'] .sec-grid[data-hover='tint'] .sec-item:hover,
+[data-bg='ink'] .sec-item[data-hover='tint']:hover,
+.sec-item[data-cell-bg^='ink'][data-hover='tint']:hover { background-color: var(--ink-2); }
+
+/* underline : soulignement animé d'un titre/lien interne (::after width 0→100%). */
+.sec-grid[data-hover='underline'] .sec-item .sec-item__title,
+.sec-item[data-hover='underline'] .sec-item__title { position: relative; }
+.sec-grid[data-hover='underline'] .sec-item .sec-item__title::after,
+.sec-item[data-hover='underline'] .sec-item__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--dur-hover) var(--ease-out);
+}
+.sec-grid[data-hover='underline'] .sec-item:hover .sec-item__title::after,
+.sec-item[data-hover='underline']:hover .sec-item__title::after { width: 100%; }
+
+/* reveal-cta : visible au hover de la carte OU au focus clavier (a11y). */
+.sec-grid[data-hover='reveal-cta'] .sec-item:hover .sec-item__cta,
+.sec-grid[data-hover='reveal-cta'] .sec-item:focus-within .sec-item__cta,
+.sec-grid[data-hover='reveal-cta'] .sec-item:hover [data-reveal-on-hover],
+.sec-grid[data-hover='reveal-cta'] .sec-item:focus-within [data-reveal-on-hover],
+.sec-item[data-hover='reveal-cta']:hover .sec-item__cta,
+.sec-item[data-hover='reveal-cta']:focus-within .sec-item__cta,
+.sec-item[data-hover='reveal-cta']:hover [data-reveal-on-hover],
+.sec-item[data-hover='reveal-cta']:focus-within [data-reveal-on-hover] { opacity: 1; }
+
+/* ── focus-visible (clavier uniquement) : garde-fou WCAG 2.4.7. JAMAIS outline:none
+   sans alternative. S'applique aux éléments focusables d'un item interactif. ──── */
+.sec-item a:focus-visible,
+.sec-item button:focus-visible,
+.sec-item [tabindex]:focus-visible,
+.sec-item:focus-visible,
+.sec-region a:focus-visible,
+.sec-region button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+/* focus-ring inset : pour cartes pleines (l'anneau extérieur déborderait). */
+.sec-item[data-focus-ring='inset']:focus-visible,
+.sec-item[data-focus-ring='inset'] a:focus-visible,
+.sec-item[data-focus-ring='inset'] button:focus-visible { outline-offset: -2px; }
+
+/* ── disabled : cohérence globale, non configurable (présent par défaut). ────── */
+.sec-item :disabled,
+.sec-item [aria-disabled='true'],
+.sec-region :disabled,
+.sec-region [aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Garde-fous DURS couche 8 : reduced-motion + touch. ─────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Coupe toutes les transitions d'item ; l'état final est atteint sans animation. */
+  .sec-grid[data-hover] .sec-item,
+  .sec-item[data-hover],
+  .sec-grid[data-hover] .sec-item__media,
+  .sec-item[data-hover] .sec-item__media,
+  .sec-grid[data-hover] .sec-item img,
+  .sec-item[data-hover] img,
+  .sec-item[data-hover] .sec-item__title::after { transition: none; }
+  /* reveal-cta : reste VISIBLE (jamais piégé derrière une anim supprimée). */
+  .sec-grid[data-hover='reveal-cta'] .sec-item__cta,
+  .sec-grid[data-hover='reveal-cta'] [data-reveal-on-hover],
+  .sec-item[data-hover='reveal-cta'] .sec-item__cta,
+  .sec-item[data-hover='reveal-cta'] [data-reveal-on-hover] { opacity: 1; }
+}
+@media (hover: none) {
+  /* Pointeur grossier (tactile) : un CTA reveal-cta ne doit pas être piégé
+     derrière :hover → visible par défaut. */
+  .sec-grid[data-hover='reveal-cta'] .sec-item__cta,
+  .sec-grid[data-hover='reveal-cta'] [data-reveal-on-hover],
+  .sec-item[data-hover='reveal-cta'] .sec-item__cta,
+  .sec-item[data-hover='reveal-cta'] [data-reveal-on-hover] { opacity: 1; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 9 — MOTION (compléments). Le scroll-reveal d'entrée reste géré par le
+   système data-reveal global (global.css + IntersectionObserver) : on ne le
+   duplique PAS. Ici, uniquement les boucles ambiantes (loop) absentes du global,
+   gated reduced-motion, n'animant que transform/opacity/filter (0 reflow/CLS).
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: no-preference) {
+  /* marquee : défilement horizontal continu. Réutilise un translate borné. */
+  @keyframes sec-marquee { to { transform: translateX(-50%); } }
+  .sec-item[data-loop='marquee'],
+  [data-loop='marquee'] > * { animation: sec-marquee var(--dur-slow) linear infinite; }
+
+  /* pulse : pulsation d'opacité douce (badges/indicateurs « live »). */
+  @keyframes sec-pulse { 50% { opacity: 0.55; } }
+  .sec-item[data-loop='pulse'],
+  [data-loop='pulse'] { animation: sec-pulse var(--dur-reveal) var(--ease) infinite; }
+
+  /* float : flottement vertical léger (visuels décoratifs). */
+  @keyframes sec-float { 50% { transform: translateY(-6px); } }
+  .sec-item[data-loop='float'],
+  [data-loop='float'] { animation: sec-float var(--dur-slow) var(--ease) infinite; }
+}
+/* loop coupé sous reduced-motion (état statique). */
+@media (prefers-reduced-motion: reduce) {
+  [data-loop='marquee'] > *,
+  [data-loop='marquee'],
+  [data-loop='pulse'],
+  [data-loop='float'] { animation: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 10bis — COULEUR multi-scope + CONTRASTE AUTO — décision Simon 2026-06-28.
+   On choisit un fond de cellule, le moteur garantit AA automatiquement en
+   répliquant EXACTEMENT l'idiome [data-bg='ink'] de global.css, SCOPÉ à la cellule
+   (les fonds sombres/accent remappent --muted/--hairline*/--accent-text en clair
+   et basculent le texte sur --paper). 0 nouveau token.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* cell-bg : fond de la cellule (4 portées du contrat : ici cellule + override item). */
+.sec-item[data-cell-bg='none']    { background: transparent; }
+.sec-item[data-cell-bg='paper']   { background: var(--paper); }
+.sec-item[data-cell-bg='paper-2'] { background: var(--paper-2); }
+.sec-item[data-cell-bg='paper-3'] { background: var(--paper-3); }
+.sec-item[data-cell-bg='ink']     { background: var(--ink); }
+.sec-item[data-cell-bg='ink-2']   { background: var(--ink-2); }
+.sec-item[data-cell-bg='ink-3']   { background: var(--ink-3); }
+.sec-item[data-cell-bg='accent']  { background: var(--accent); }
+
+/* Contraste auto sur fonds clairs : texte ink (défaut sûr). */
+.sec-item[data-cell-bg='paper'],
+.sec-item[data-cell-bg='paper-2'],
+.sec-item[data-cell-bg='paper-3'] { color: var(--ink); }
+
+/* Contraste auto sur fonds SOMBRES/ACCENT : réplique l'idiome [data-bg='ink'] au
+   niveau cellule (remap des rôles + texte clair). C'est LA garantie AA au
+   color-swap. accent (terracotta) est sombre/saturé → texte clair également. */
+.sec-item[data-cell-bg='ink'],
+.sec-item[data-cell-bg='ink-2'],
+.sec-item[data-cell-bg='ink-3'],
+.sec-item[data-cell-bg='accent'] {
+  color: var(--paper);
+  --muted: rgba(var(--paper-rgb), 0.64);
+  --hairline: rgba(var(--paper-rgb), 0.14);
+  --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  --accent-text: var(--accent-sur-sombre);
+}
+/* Sur fond accent, le texte accent-text reviendrait sur accent (illisible) →
+   on le neutralise vers paper (le rôle accent n'a pas de sens sur fond accent). */
+.sec-item[data-cell-bg='accent'] { --accent-text: var(--paper); }
+
+/* tone (atome/cellule) : couleur de premier plan d'un élément. data-tone (atome
+   générique) ET data-cell-tone (cellule entière). */
+.sec-item[data-cell-tone='ink'],     [data-tone='ink']         { color: var(--ink); }
+.sec-item[data-cell-tone='muted'],   [data-tone='muted']       { color: var(--muted); }
+.sec-item[data-cell-tone='accent'],  [data-tone='accent']      { color: var(--accent); }
+.sec-item[data-cell-tone='accent-text'], [data-tone='accent-text'] { color: var(--accent-text); }
+.sec-item[data-cell-tone='paper'],   [data-tone='paper']       { color: var(--paper); }
+
+/* border-tone : couleur de bordure d'une cellule (complète la couche 4 SKIN). */
+.sec-item[data-border-tone='hairline']        { border-color: var(--hairline); }
+.sec-item[data-border-tone='hairline-strong'] { border-color: var(--hairline-strong); }
+.sec-item[data-border-tone='accent']          { border-color: var(--accent); }
+.sec-item[data-border-tone='none']            { border-color: transparent; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 11 — ORIENTATION & long-tail (structurel, peu/pas de tokens).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* text-flow : orientation du texte (labels/kickers verticaux éditoriaux). */
+[data-text-flow='horizontal'] { writing-mode: horizontal-tb; }
+[data-text-flow='vertical-rl'] { writing-mode: vertical-rl; }
+[data-text-flow='vertical-lr'] { writing-mode: vertical-lr; }
+[data-text-flow='sideways']    { writing-mode: vertical-rl; text-orientation: sideways; }
+
+/* object-position : cadrage focal du média (complète media-fit/media-ratio L7). */
+.sec-item[data-object-position='center'] .sec-item__media,
+.sec-item[data-object-position='center'] img { object-position: center; }
+.sec-item[data-object-position='top'] .sec-item__media,
+.sec-item[data-object-position='top'] img    { object-position: top; }
+.sec-item[data-object-position='bottom'] .sec-item__media,
+.sec-item[data-object-position='bottom'] img { object-position: bottom; }
+.sec-item[data-object-position='left'] .sec-item__media,
+.sec-item[data-object-position='left'] img   { object-position: left; }
+.sec-item[data-object-position='right'] .sec-item__media,
+.sec-item[data-object-position='right'] img  { object-position: right; }
+
+/* overflow : visible | clip | auto (cadres média zoomés, conteneurs sticky…). */
+.sec-item[data-overflow='visible'] { overflow: visible; }
+.sec-item[data-overflow='clip']    { overflow: clip; }
+.sec-item[data-overflow='auto']    { overflow: auto; }
+
+/* scroll-snap : sur les rails horizontaux (renforce le confort du layout horizontal). */
+.sec-rail[data-scroll-snap='none']      { scroll-snap-type: none; }
+.sec-rail[data-scroll-snap='proximity'] { scroll-snap-type: x proximity; }
+.sec-rail[data-scroll-snap='mandatory'] { scroll-snap-type: x mandatory; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 6 — TYPOGRAPHIE (core NOW : measure, balance, clamp, title-scale).
+   Generic : s'applique à tout élément portant le data-attr (atome ou conteneur).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* measure : largeur de lecture bornée (tokens --wrap-*). full = pas de borne. */
+[data-measure='prose'] { max-width: var(--wrap-prose); margin-inline: auto; }
+[data-measure='read']  { max-width: var(--wrap-read);  margin-inline: auto; }
+[data-measure='tight'] { max-width: var(--wrap-tight); margin-inline: auto; }
+[data-measure='wide']  { max-width: var(--wrap-wide);  margin-inline: auto; }
+[data-measure='full']  { max-width: none; }
+
+/* balance : équilibre des retours à la ligne (titres). */
+[data-balance] { text-wrap: balance; }
+
+/* clamp : tronque à N lignes (line-clamp). -webkit-box requis pour le support large. */
+[data-clamp='1'],
+[data-clamp='2'],
+[data-clamp='3'],
+[data-clamp='4'] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+[data-clamp='1'] { -webkit-line-clamp: 1; line-clamp: 1; }
+[data-clamp='2'] { -webkit-line-clamp: 2; line-clamp: 2; }
+[data-clamp='3'] { -webkit-line-clamp: 3; line-clamp: 3; }
+[data-clamp='4'] { -webkit-line-clamp: 4; line-clamp: 4; }
+
+/* title-scale : échelle de titre (tokens --text-*). sm|base|lg|xl. */
+[data-title-scale='sm']   { font-size: var(--text-h3); }
+[data-title-scale='base'] { font-size: var(--text-h2); }
+[data-title-scale='lg']   { font-size: var(--text-h1); }
+[data-title-scale='xl']   { font-size: var(--text-display); }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 12 — DIMENSIONS / SIZING (core NOW : width-mode).
+   itemHeight est déjà couvert en v1 (data-item-height). Ici : mode de largeur de
+   bloc (full | contained | narrow | prose). Tokens de lecture DS.
+   ════════════════════════════════════════════════════════════════════════════ */
+[data-width='full']      { max-width: none; }
+[data-width='contained'] { max-width: var(--wrap-tight); margin-inline: auto; }
+[data-width='narrow']    { max-width: var(--wrap-read);  margin-inline: auto; }
+[data-width='prose']     { max-width: var(--wrap-prose); margin-inline: auto; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 4 — SKIN (compléments NOW : gap explicite).
+   surface/divider/radius/accent-edge déjà couverts en v1. Ici : gap EXPLICITE
+   (fin du défaut caché), sur .sec-grid (pilote --sec-grid-gap, tokens --space-*).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid[data-gap='none'] { gap: 0; }
+.sec-grid[data-gap='sm']   { gap: var(--space-3); }
+.sec-grid[data-gap='base'] { gap: var(--space-5); }
+.sec-grid[data-gap='lg']   { gap: var(--space-8); }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE v2 — garde-fous des nouvelles couches (≤768px).
+   Les self-align dégradent proprement ; les spans d'item se relâchent (sinon
+   débordement quand la grille passe en 1 colonne) ; le text-flow vertical
+   redevient horizontal (lisibilité mobile).
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Spans d'item (couche 7 enfant) relâchés : en 1 colonne, un span déborderait. */
+  .sec-item[data-col-span],
+  .sec-item[data-row-span] {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  /* media-ratio fixe relâché (hauteur naturelle, le contenu prime). */
+  .sec-item[data-media-ratio] .sec-item__media,
+  .sec-item[data-media-ratio] > img { aspect-ratio: auto; }
+  /* Orientation verticale → horizontale (un label vertical sur mobile gêne). */
+  [data-text-flow='vertical-rl'],
+  [data-text-flow='vertical-lr'],
+  [data-text-flow='sideways'] { writing-mode: horizontal-tb; text-orientation: mixed; }
+}

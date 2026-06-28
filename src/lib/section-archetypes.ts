@@ -34,7 +34,17 @@ export type LayerTag =
   | 'axes' // couche 3 : axes de section (columns/proportion/density…)
   | 'skin' // couche 4 : surface/divider/radius/accentEdge
   | 'responsive' // couche 5 : colsMobile/colsTablet/layoutMobile
-  | 'interaction'; // couche 6 : titleScale/eyebrow/reveal/hover
+  | 'interaction' // couche 6 : titleScale/eyebrow/reveal/hover
+  // ─── Contrat v2 — couches NOW (tasks/wave-c-axes-standard.md) ───
+  | 'grid-align' // L7 parent : justifyContent/alignItems/justifyItems/alignContent
+  | 'cell-align' // L7 cellule : cellAlignX/Y, cellPad, mediaFit, mediaRatio
+  | 'states' // L8 : hover/pressFeedback/focusRing/transitionSpeed-Ease (+selected/open réserve)
+  | 'motion' // L9 : reveal/revealStagger/revealDelay/loop/scrollMotion/textMotion
+  | 'color' // L10bis : cellBg/cellTone/tone/borderTone (couleur multi-scope)
+  | 'orientation' // L11 : textFlow/textTransform/rotate/objectPosition/overflow/scrollSnap
+  | 'typography' // L6 core : measure/balance/clamp
+  | 'sizing' // L12 : minHeight/width (+ itemHeight)
+  | 'a11y'; // L13 : headingLevel/ariaLabel
 
 // Régions nommées (slots) qu'une section peut câbler.
 export type RegionTag = 'header' | 'media' | 'body' | 'actions' | 'aside';
@@ -57,6 +67,13 @@ export interface Capabilities {
 // interaction + placement sont optionnelles et universelles via le mixin).
 const COMMON_LAYERS: LayerTag[] = ['placement', 'skin', 'responsive', 'interaction'];
 
+// Couches NOW transverses (contrat v2) portées par tout archétype : états, motion,
+// couleur de rôle, typo core, a11y. Le câblage réel par composant suit (gate SYS-3).
+const NOW_COMMON_LAYERS: LayerTag[] = ['states', 'motion', 'color', 'typography', 'a11y'];
+// Couches NOW d'alignement (grille parent + cellule) : pour les archétypes qui ont une
+// grille de cellules ou un conteneur flex/grid à distribuer.
+const GRID_LAYERS: LayerTag[] = ['grid-align', 'cell-align', 'sizing'];
+
 /* ───────────────────────────── Bundles de défauts par archétype ─────────────────────────────
  * Chaque entrée = les défauts de capacités de la catégorie. Cohérent avec le CONTRAT
  * PAR ARCHÉTYPE de tasks/wave-c-axes-standard.md (quel sous-ensemble du lexique câbler). */
@@ -66,7 +83,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['1-col', '2-col', '3-col', '4-col', 'multi-col', 'centered'],
     regions: ['header', 'body', 'actions'],
     axes: ['columns', 'colRatio', 'itemHeight', 'density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
     familyClass: 'sec-collection',
   },
   // Spans mixtes + dense : hauteurs contrastées, structure pleine.
@@ -74,7 +91,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['bento', 'multi-col', 'centered'],
     regions: ['header', 'body', 'actions'],
     axes: ['columns', 'itemHeight', 'density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
     familyClass: 'sec-bento',
   },
   // Média ↔ texte / duo de comparaison.
@@ -82,7 +99,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['split', 'media-left', 'media-right', '2-col', '1-col'],
     regions: ['header', 'media', 'body', 'actions'],
     axes: ['proportion', 'mediaSide', 'density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
     familyClass: 'sec-split',
   },
   // Étapes / timeline / flow.
@@ -90,7 +107,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['1-col', 'multi-col', 'centered'],
     regions: ['header', 'body', 'actions'],
     axes: ['columns', 'density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS, 'orientation'],
     familyClass: 'sec-process',
   },
   // Texte / manifeste / citation / points de douleur (1 colonne lisible, 2-col, lead-aside).
@@ -98,7 +115,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['1-col', '2-col', 'centered'],
     regions: ['header', 'body', 'aside'],
     axes: ['density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'sizing'],
     familyClass: 'sec-editorial',
   },
   // Tables éditoriales / comparateurs.
@@ -106,7 +123,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['1-col', 'multi-col'],
     regions: ['header', 'body'],
     axes: ['density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'cell-align'],
     familyClass: 'sec-table',
   },
   // Bandes / CTA / panneaux de confiance (position bouton via contentAlign/actionsAlign).
@@ -114,7 +131,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['centered', '1-col', '2-col', 'full-bleed'],
     regions: ['header', 'body', 'actions'],
     axes: ['density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
     familyClass: 'sec-band',
   },
   // Héros / mastheads / pyramides d'entête.
@@ -122,7 +139,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['centered', 'split', 'media-left', 'media-right', 'full-bleed', '1-col'],
     regions: ['header', 'media', 'body', 'actions', 'aside'],
     axes: ['proportion', 'mediaSide', 'density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
     familyClass: 'sec-hero',
   },
   // Murs de logos / marquees.
@@ -130,7 +147,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['multi-col', '3-col', '4-col', 'centered'],
     regions: ['header', 'body'],
     axes: ['columns', 'density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'cell-align'],
     familyClass: 'sec-logos',
   },
   // Galeries / médias (mosaic, masonry, scroll showcase).
@@ -138,7 +155,7 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layouts: ['bento', 'multi-col', '3-col', 'full-bleed', 'off-grid'],
     regions: ['header', 'media', 'body'],
     axes: ['columns', 'itemHeight', 'density'],
-    layers: ['layout', 'axes', ...COMMON_LAYERS],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS, 'orientation'],
     familyClass: 'sec-gallery',
   },
 };

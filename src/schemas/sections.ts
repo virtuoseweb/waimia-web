@@ -51,6 +51,87 @@ const placementSchema = z
   })
   .optional();
 
+/* ─── Enums factorisés des couches NOW (contrat v2, tasks/wave-c-axes-standard.md) ───
+ * Réutilisables et lisibles. Chaque enum = vocabulaire borné d'une couche du contrat,
+ * mappé à un data-attr par le composant (moteur CSS section-layouts.css). Tous portés
+ * par le mixin en `.optional()` : défaut = rendu actuel (rétro-compat, 0 instance cassée). */
+
+// L7 — alignement parent (conteneur flex/grid) + cellule (niveau section/grille).
+const justifyContentEnum = z.enum(['start', 'center', 'end', 'between', 'around', 'evenly']);
+const alignItemsEnum = z.enum(['start', 'center', 'end', 'stretch', 'baseline']);
+const justifyItemsEnum = z.enum(['start', 'center', 'end', 'stretch']);
+const alignContentEnum = z.enum(['start', 'center', 'end', 'between', 'stretch']);
+const cellAlignXEnum = z.enum(['start', 'center', 'end']);
+const cellAlignYEnum = z.enum(['top', 'middle', 'bottom', 'between']);
+const cellPadEnum = z.enum(['none', 'sm', 'base', 'lg']);
+const mediaFitEnum = z.enum(['cover', 'contain']);
+const mediaRatioEnum = z.enum(['auto', '1-1', '4-3', '3-2', '16-9']);
+
+// L8 — états (interaction). `reveal`/`hover` ci-dessous étendent les enums déjà en place.
+const hoverEnum = z.enum([
+  'none',
+  'lift',
+  'zoom',
+  'glow',
+  'border',
+  'tint',
+  'underline',
+  'reveal-cta',
+  'media-zoom',
+]);
+const pressFeedbackEnum = z.enum(['none', 'press']);
+const focusRingEnum = z.enum(['auto', 'ring', 'inset', 'none']);
+const transitionSpeedEnum = z.enum(['instant', 'fast', 'base', 'slow']);
+const transitionEaseEnum = z.enum(['standard', 'out', 'spring']);
+// L8 RÉSERVE (NEXT — onglets/accordéon) : figés au contrat dès maintenant.
+const selectedStateEnum = z.enum(['none', 'outline', 'fill', 'accent-edge']);
+const openStateEnum = z.enum(['auto']);
+
+// L9 — motion / animation (tous gated prefers-reduced-motion par le moteur).
+const revealEnum = z.enum([
+  'none',
+  'fade',
+  'slide-up',
+  'slide-down',
+  'slide-left',
+  'slide-right',
+  'scale-in',
+  'blur-in',
+  'mask-up',
+]);
+const revealDelayEnum = z.enum(['none', 'sm', 'md']);
+const loopEnum = z.enum(['none', 'marquee', 'pulse', 'float']);
+const scrollMotionEnum = z.enum(['none', 'parallax', 'pin', 'progress']);
+const textMotionEnum = z.enum(['none', 'word-stagger', 'count-up', 'type-on']);
+const motionSpeedEnum = z.enum(['fast', 'base', 'slow']);
+const motionEaseEnum = z.enum(['standard', 'out', 'spring']);
+const pageTransitionEnum = z.enum(['none', 'fade', 'slide']);
+
+// L10bis — couleur multi-scope (rôles DS uniquement, contraste auto, rule 60).
+const cellBgEnum = z.enum(['paper', 'paper-2', 'paper-3', 'ink', 'ink-2', 'ink-3', 'accent', 'none']);
+const cellToneEnum = z.enum(['ink', 'muted', 'accent', 'accent-text', 'paper']);
+const toneEnum = z.enum(['ink', 'muted', 'accent', 'accent-text', 'paper']);
+const borderToneEnum = z.enum(['hairline', 'hairline-strong', 'accent', 'none']);
+
+// L11 — orientation + long-tail.
+const textFlowEnum = z.enum(['horizontal', 'vertical-rl', 'vertical-lr', 'sideways']);
+const textTransformEnum = z.enum(['none', 'uppercase', 'lowercase', 'capitalize']);
+const rotateEnum = z.enum(['none', '90', '-90', '180']);
+const objectPositionEnum = z.enum(['center', 'top', 'bottom', 'left', 'right']);
+const overflowEnum = z.enum(['visible', 'clip', 'auto']);
+const scrollSnapEnum = z.enum(['none', 'proximity', 'mandatory']);
+
+// L6 — typo core.
+const measureEnum = z.enum(['prose', 'read', 'tight', 'wide', 'full']);
+const clampEnum = z.enum(['none', '1', '2', '3', '4']);
+
+// L12 — sizing.
+const minHeightEnum = z.enum(['auto', 'half', 'screen']);
+const widthEnum = z.enum(['full', 'contained', 'narrow', 'prose']);
+
+// L13 — a11y / sémantique (le héros gère h1 séparément).
+const headingLevelEnum = z.enum(['h2', 'h3']);
+
 const sectionBaseSchema = z.object({
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   layout: z.string().optional(),
@@ -90,8 +171,74 @@ const sectionBaseSchema = z.object({
   // Couche 6 : emphasis / typo + interaction.
   titleScale: z.enum(['sm', 'base', 'lg', 'xl']).optional(),
   eyebrow: z.enum(['none', 'kicker', 'badge']).optional(),
-  reveal: z.enum(['none', 'fade', 'stagger']).optional(),
-  hover: z.enum(['none', 'lift', 'zoom', 'reveal-cta']).optional(),
+
+  /* ─── Contrat v2 — couches NOW (tasks/wave-c-axes-standard.md) ───
+   * Tous `.optional()`, défaut = rendu actuel. Le moteur lit le data-attr correspondant
+   * (mapping : nom de prop → data-attr kebab-case, ex. justifyContent→data-justify-content,
+   * cellBg→data-cell-bg, hover→data-hover, textFlow→data-text-flow). La LISTE des valeurs
+   * réellement câblées par un type vit dans `capabilities` (section-archetypes.ts), pas ici.
+   * NOTE — overrides PAR ITEM (justifySelf/alignSelf/order/colSpan/rowSpan + items[].bg/tone)
+   * = ajoutés dans CHAQUE schéma de type lors de la MIGRATION, pas dans ce mixin de base.
+   * Le moteur CSS les supporte déjà. */
+
+  // L7 — alignement parent (conteneur) + cellule (niveau section/grille).
+  justifyContent: justifyContentEnum.optional(),
+  alignItems: alignItemsEnum.optional(),
+  justifyItems: justifyItemsEnum.optional(),
+  alignContent: alignContentEnum.optional(),
+  cellAlignX: cellAlignXEnum.optional(),
+  cellAlignY: cellAlignYEnum.optional(),
+  cellPad: cellPadEnum.optional(),
+  mediaFit: mediaFitEnum.optional(),
+  mediaRatio: mediaRatioEnum.optional(),
+
+  // L8 — états (interaction). `reveal`/`hover` étendus (enums élargis vs v1).
+  reveal: revealEnum.optional(),
+  hover: hoverEnum.optional(),
+  pressFeedback: pressFeedbackEnum.optional(),
+  focusRing: focusRingEnum.optional(),
+  transitionSpeed: transitionSpeedEnum.optional(),
+  transitionEase: transitionEaseEnum.optional(),
+  // L8 RÉSERVE (NEXT) — figés au contrat dès maintenant.
+  selectedState: selectedStateEnum.optional(),
+  openState: openStateEnum.optional(),
+
+  // L9 — motion / animation.
+  revealStagger: z.boolean().optional(),
+  revealDelay: revealDelayEnum.optional(),
+  loop: loopEnum.optional(),
+  scrollMotion: scrollMotionEnum.optional(),
+  textMotion: textMotionEnum.optional(),
+  motionSpeed: motionSpeedEnum.optional(),
+  motionEase: motionEaseEnum.optional(),
+  pageTransition: pageTransitionEnum.optional(),
+
+  // L10bis — couleur multi-scope (rôles DS, contraste auto).
+  cellBg: cellBgEnum.optional(),
+  cellTone: cellToneEnum.optional(),
+  tone: toneEnum.optional(),
+  borderTone: borderToneEnum.optional(),
+
+  // L11 — orientation + long-tail.
+  textFlow: textFlowEnum.optional(),
+  textTransform: textTransformEnum.optional(),
+  rotate: rotateEnum.optional(),
+  objectPosition: objectPositionEnum.optional(),
+  overflow: overflowEnum.optional(),
+  scrollSnap: scrollSnapEnum.optional(),
+
+  // L6 — typo core (titleScale/eyebrow déjà au-dessus ; weight/tracking/leading = NEXT).
+  measure: measureEnum.optional(),
+  balance: z.boolean().optional(),
+  clamp: clampEnum.optional(),
+
+  // L12 — sizing (`itemHeight` déjà déclaré couche 1 ci-dessus).
+  minHeight: minHeightEnum.optional(),
+  width: widthEnum.optional(),
+
+  // L13 — a11y / sémantique.
+  headingLevel: headingLevelEnum.optional(),
+  ariaLabel: z.string().optional(),
 });
 
 const bilingualString = z.object({
@@ -120,6 +267,17 @@ const featureItemSchema = z.object({
   title_en: z.string(),
   body_fr: z.string(),
   body_en: z.string(),
+  // ─── Overrides PAR ITEM (couches L10bis + L7-enfant), tous optionnels, défaut = hérite
+  //     du réglage de section. Lus par le composant FeatureGrid → data-* sur la carte
+  //     (.sec-item). Le moteur (section-layouts.css) fournit le contraste auto + le span.
+  bg: cellBgEnum.optional(), // fond de cellule → data-cell-bg (contraste auto par le moteur)
+  tone: toneEnum.optional(), // couleur de premier plan → data-tone
+  cellAlignY: cellAlignYEnum.optional(), // distribution verticale → data-cell-y (between = CTA en bas)
+  colSpan: z.enum(['1', '2', '3', '4']).optional(), // span de colonnes → data-col-span
+  // CTA optionnel par carte (active les états reveal-cta / cellAlignY=between côté démo).
+  cta_label_fr: z.string().optional(),
+  cta_label_en: z.string().optional(),
+  cta_href: z.string().optional(),
 });
 
 const stepSchema = z.object({
@@ -1513,13 +1671,16 @@ export const methodTimelineSchema = z.object({
 
 export const featureGridSchema = z.object({
   type: z.literal('feature-grid'),
-  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Mixin de variation unique : background/columns/layout/density + couches NOW v2
+  // (hover/cellBg/cellTone/tone/cellAlignX|Y/justifyContent/alignItems/focusRing/
+  // mediaFit/mediaRatio/measure/balance/clamp/headingLevel...). Tous optionnels →
+  // défaut = rendu actuel. `columns` du mixin (auto|1..6) remplace l'ancien 2|3|4.
+  ...sectionBaseSchema.shape,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
   features: z.array(featureItemSchema).min(3).max(8),
-  columns: z.enum(['2', '3', '4']).default('3'),
 });
 
 export const comparisonTableSchema = z.object({

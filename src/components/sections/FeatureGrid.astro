@@ -38,7 +38,22 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
-const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
+
+// ── feature-grid · WITNESS de la migration sur le moteur de layout v2 ──────────────
+// Le composant CONSOMME le moteur (section-layouts.css) : classes .sec-collection /
+// .sec-grid / .sec-item + data-attrs (noms canoniques du CSS, source de vérité). Défaut
+// (aucune prop de variation) = rendu actuel (grille hairline 3 colonnes). Chaque prop du
+// mixin n'est posée en data-attr QUE si elle est définie (sinon rien → défaut moteur).
+const fg = data.type === 'feature-grid' ? data : undefined;
+const fgCols = fg ? (fg.columns ?? '3') : '3';
+// Mode moteur : si une recette `layout` du lexique est demandée, on pilote la grille par
+// le moteur (data-layout) ; sinon on garde la grille hairline bespoke (data-cols).
+const fgLayout = fg?.layout;
+// Raccourci contentAlign (sucre) → justify-content effectif de la grille (1 seul data-attr).
+const fgJustify = fg?.justifyContent
+  ?? (fg?.contentAlign === 'center' ? 'center' : fg?.contentAlign === 'end' ? 'end' : undefined);
+// Heading de carte : h2/h3 (défaut historique = <strong>, conservé si non précisé).
+const FgCardTag = (fg?.headingLevel ?? 'strong') as 'h2' | 'h3' | 'strong';
 
 // ── Couche atomique (Batch 2) · deliverables-grid. Résolution raccourci↔placement :
 // valeur effective calculée UNE fois, UN seul data-attr par région. `placement.header.align`
@@ -177,24 +192,57 @@ const dgBodyJustify = dgPl?.body?.justify;
     </div>
   </section>
 ) : (
-  <section class="feature-grid sec-base" data-bg={data.background}>
+  <section
+    class="feature-grid sec-base sec-collection"
+    data-bg={fg!.background}
+    data-layout={fgLayout}
+    data-density={fg!.density}
+    data-content-align={fg!.contentAlign}
+  >
     <div class="wrap-wide">
     <div class="feature-grid__header">
-      {(isFr ? data.kicker_fr : data.kicker_en) && (
-        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      {(isFr ? fg!.kicker_fr : fg!.kicker_en) && (
+        <Kicker tone="muted">{isFr ? fg!.kicker_fr : fg!.kicker_en}</Kicker>
       )}
-      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="sec-base-h2" set:html={isFr ? fg!.h2_fr : fg!.h2_en} />
     </div>
-    <ul class="feature-grid__list" data-cols={fgCols}>
-      {data.features.map((f: (typeof data.features)[number]) => (
-        <li class="feature-grid__item">
+    <ul
+      class="feature-grid__list sec-grid"
+      data-cols={fgLayout ? undefined : fgCols}
+      data-columns={fg!.columns}
+      data-hover={fg!.hover}
+      data-justify-content={fgJustify}
+      data-align-items={fg!.alignItems}
+      data-item-height={fg!.itemHeight}
+      data-col-ratio={fgLayout === 'grid-asym' ? fg!.colRatio : undefined}
+    >
+      {fg!.features.map((f) => {
+        const cta = f.cta_href ? { label: isFr ? f.cta_label_fr : f.cta_label_en, href: f.cta_href } : undefined;
+        return (
+        <li
+          class="feature-grid__item sec-item"
+          data-cell-bg={f.bg ?? fg!.cellBg}
+          data-tone={f.tone ?? fg!.tone}
+          data-cell-tone={fg!.cellTone}
+          data-cell-x={fg!.cellAlignX}
+          data-cell-y={f.cellAlignY ?? fg!.cellAlignY}
+          data-cell-pad={fg!.cellPad}
+          data-col-span={f.colSpan}
+          data-focus-ring={fg!.focusRing}
+        >
           {f.icon && (
             <Kicker tone="accent" size={10} class="feature-grid__icon">▸ {f.icon}</Kicker>
           )}
-          <strong class="feature-grid__title">{isFr ? f.title_fr : f.title_en}</strong>
-          <p>{isFr ? f.body_fr : f.body_en}</p>
+          <FgCardTag class="feature-grid__title sec-item__title" set:html={isFr ? f.title_fr : f.title_en} />
+          <p data-clamp={fg!.clamp} data-measure={fg!.measure}>{isFr ? f.body_fr : f.body_en}</p>
+          {cta && (
+            <div class="feature-grid__cta sec-item__cta">
+              <a class="btn btn-ghost" href={cta.href}>{cta.label} <span aria-hidden="true">→</span></a>
+            </div>
+          )}
         </li>
-      ))}
+        );
+      })}
     </ul>
     </div>
   </section>
@@ -207,6 +255,16 @@ const dgBodyJustify = dgPl?.body?.justify;
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
+  /* ── MODE PAR DÉFAUT (aucune recette `layout`) = grille hairline 3 colonnes, rendu
+     historique INCHANGÉ. La grille (.feature-grid__list[data-cols]) et le look hairline
+     (bordure + chevauchement -1px, gap 0) sont SPÉCIFIQUES à ce composant : le moteur ne
+     reproduit pas la fusion de bordures, on les garde donc ici, scopés au mode défaut
+     (sélecteur `:not([data-layout])` sur la section). Quand une recette `layout` est posée,
+     c'est le moteur (.sec-collection[data-layout] .sec-grid) qui porte la grille (gap +
+     colonnes) : on ne duplique RIEN. ── */
+  .feature-grid:not([data-layout]) .feature-grid__list {
+    gap: 0; /* annule le gap du moteur (.sec-grid) : le look hairline repose sur margin -1px */
+  }
   .feature-grid__list {
     list-style: none;
     margin: 0;
@@ -216,13 +274,17 @@ const dgBodyJustify = dgPl?.body?.justify;
   .feature-grid__list[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
   .feature-grid__list[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
   .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+  /* Item du mode hairline : bordure + chevauchement -1px. En mode `layout`, le moteur
+     fournit la grille/gap ; la carte garde sa pile flex + son padding (skin du composant). */
   .feature-grid__item {
     padding: var(--space-7);
-    border: 1px solid var(--hairline);
-    margin: -1px -1px 0 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-2);
+  }
+  .feature-grid:not([data-layout]) .feature-grid__item {
+    border: 1px solid var(--hairline);
+    margin: -1px -1px 0 0;
   }
   .feature-grid__icon { margin-bottom: var(--space-1); }
   .feature-grid__title {
@@ -239,6 +301,16 @@ const dgBodyJustify = dgPl?.body?.justify;
     line-height: var(--leading-relaxed);
     margin: 0;
   }
+  /* CTA de carte (apparaît si l'item porte cta_href ; sert les états reveal-cta /
+     cellAlignY=between). Le moteur gère opacity reveal-cta + focus-within. */
+  .feature-grid__cta { margin-top: var(--space-3); }
+  /* ── CONTRASTE PAR CELLULE (couche L10bis) : quand une carte porte data-cell-bg, c'est
+     le MOTEUR qui fixe la couleur de premier plan sur .sec-item (contraste auto). Le titre
+     et le paragraphe doivent alors HÉRITER (sinon le var(--ink)/var(--muted) hardcodé
+     casserait le contraste sur fond sombre/accent). En l'absence de data-cell-bg = défaut
+     inchangé. ── */
+  .feature-grid__item[data-cell-bg]:not([data-cell-bg='none']) .feature-grid__title { color: inherit; }
+  .feature-grid__item[data-cell-bg]:not([data-cell-bg='none']) p { color: var(--muted); }
   @media (max-width: 768px) {
     .feature-grid__list[data-cols="3"],
     .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(2, 1fr); }
@@ -251,7 +323,11 @@ const dgBodyJustify = dgPl?.body?.justify;
     background: var(--ink);
     color: var(--paper);
   }
-  .feature-grid[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  /* Section ink : header + cartes SANS cellBg propre passent en clair. Une carte qui a son
+     PROPRE data-cell-bg gère son contraste via le moteur → on ne la force pas (exclusion). */
+  .feature-grid[data-bg='ink'] :is(.sec-base-h2, .feature-grid__header :is(h2, h3, p)) { color: var(--paper); }
+  .feature-grid[data-bg='ink'] .feature-grid__item:not([data-cell-bg]) :is(h3, strong, h2),
+  .feature-grid[data-bg='ink'] .feature-grid__item:not([data-cell-bg]) p { color: var(--paper); }
 
   /* ───── problems-grid (preset) — CSS VERBATIM ProblemsGrid.astro, `.wrap-wide` scopé
      qualifié `.wrap-wide:where(.problems-grid)` (spécificité inchangée) ───── */
