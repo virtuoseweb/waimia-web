@@ -384,7 +384,9 @@ const moleculesRendered = 12;
             </select>
           </label>
           <button id="preview-refresh" class="studio-btn" type="button">Rafraîchir</button>
+          <button id="preview-inspect" class="studio-btn" type="button" aria-pressed="false">Inspecter</button>
         </div>
+        <div id="inspect-result" class="studio-inspect-result" hidden aria-live="polite"></div>
         <iframe
           id="page-preview"
           class="studio-page-preview"
@@ -1251,6 +1253,28 @@ const moleculesRendered = 12;
     display: block; width: 100%; height: 70vh; border: 1px solid var(--hairline);
     border-radius: var(--radius-xs); background: var(--paper);
   }
+  /* ── Inspecteur d'élément (mode « inspect » du preview) ── */
+  #preview-inspect.is-active { border-color: var(--accent-text); color: var(--accent-text); }
+  .studio-inspect-result {
+    margin-bottom: var(--space-3); padding: var(--space-3);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-xs);
+    background: var(--paper-2); font-family: var(--font-mono); font-size: var(--text-small);
+    display: flex; flex-direction: column; gap: var(--space-2);
+  }
+  .studio-inspect-empty { color: var(--muted); }
+  .studio-inspect-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+  .studio-inspect-prop { color: var(--muted); min-width: 5.5rem; }
+  .studio-inspect-val { color: var(--ink); }
+  .studio-inspect-swatch {
+    width: var(--space-4); height: var(--space-4); border-radius: var(--radius-xs);
+    border: 1px solid var(--hairline-strong); display: inline-block; flex: none;
+  }
+  .studio-inspect-token { font-family: var(--font-mono); }
+  @keyframes studioTokenFlash {
+    0% { background: var(--accent-sur-clair); }
+    100% { background: transparent; }
+  }
+  [data-token-row].is-inspect-flash { animation: studioTokenFlash 1.2s var(--ease); }
   @media (max-width: 1080px) {
     .studio-layout { grid-template-columns: 1fr; }
   }
