@@ -12,7 +12,7 @@ L'audit a montré que les pages composables (offres, services, cas-usages, lp, a
 
 ## Décision
 
-1. **Abandonner Tina.** Raison : le mode d'édition contextuel de Tina pousse vers `output: 'server'` + un datalayer GraphQL + un backend (Tina Cloud ou self-host) pour éditer en prod (doc officielle Tina/Astro). Incompatible avec la cible : SSG pur, zéro serveur, forkable. Ce n'était pas un problème de compatibilité Astro (Tina EST compatible), mais d'architecture d'édition.
+1. **Tina hors scope pour CE produit (site Waimia + boilerplate), PAS « mauvais outil ».** Raison décisive, par ordre : (a) on a **déjà** construit l'éditeur visuel section-aware (le builder, #67/#70/#71) → l'atout phare de Tina (édition visuelle/contextuelle) est la capacité qu'on a déjà remplacée, en mieux (DS-aware) ; adopter Tina = payer son infra la plus lourde pour une feature déjà possédée. (b) L'édition Tina **en prod** exige Tina Cloud (SaaS externe) OU self-host = `TinaNodeBackend` + `@tinacms/datalayer` + un adaptateur DB (ex. MongoDB) + Auth.js + fonctions serverless (doc officielle self-hosted) → contredit frontalement la cible « zéro serveur, zéro DB, forkable clone+install+run ». (c) Le visual editing veut `output: 'server'` + adaptateur SSR ; `output: 'static'` n'est possible qu'en enveloppant **toutes** les régions éditables dans `<TinaIsland>` (invasif sur ~168 composants, chemin non-défaut). Ce n'est PAS une question de format (Tina gère md/mdx/json/yaml/toml) ni de compatibilité Astro (Tina EST compatible) : c'est l'architecture d'édition. **Tina reste le bon choix pour un AUTRE segment** (offre PME éditoriale autonome : beaucoup de contenu long, confort visual/preview, backend accepté) → cf positionnement 2 tiers en bas.
 
 2. **PageDocument JSON canonique, git-based.** Le contenu/structure des pages vit en `.json` validé par le schéma Zod existant (loader data Astro `glob`/`file`, supporté nativement). Git EST la base de données (commits = journal, branches = brouillons, historique = audit). Zéro DB, zéro serveur pour faire tourner le site. Boilerplate forkable : `clone + install + run`. Chaque page porte `"$schema"` (généré depuis Zod via zod-to-json-schema) pour l'autocomplétion humaine et le contrat IA.
 
@@ -68,6 +68,26 @@ Site public en `output: 'static'` (contenu lu au build), ISR per-route via `@ast
 6. POC Keystatic : 1 collection entité + media + reader au build.
 7. GF-1 = parité de rendu (texte visible identique au dist actuel, même méthode que la vérif #38 T5).
 
+## Réévaluation 2026-06-28 (Tina vs Keystatic, doc officielle) : décision MAINTENUE
+
+Re-vérifiée à la demande de Simon, sources officielles via context7.
+
+**Preuve Tina** (`tinacms/tina.io`, framework Astro + self-hosted) :
+- Visual editing par défaut = `output: 'server'` + adaptateur SSR ; l'éditeur « refetch les régions éditables depuis des routes on-demand ». `output: 'static'` possible UNIQUEMENT si toutes les régions éditables sont enveloppées dans `<TinaIsland>`.
+- Édition en prod = Tina Cloud OU self-host (`TinaNodeBackend` + `@tinacms/datalayer` + adaptateur DB type MongoDB + Auth.js + fonctions serverless).
+
+**Preuve Keystatic** (`thinkmill/keystatic`) :
+- `storage: github` = commit direct dans le repo via GitHub App, **sans DB ni backend persistant** ; `storage: local` = filesystem en dev.
+- `createReader` (build) / `createGitHubReader` (SSG/SSR) → lecture build-time, SSG intact.
+
+**Point factuel corrigé** : Tina N'EST PAS limité à Markdown/MDX (gère json/yaml/toml + objets/listes/templates). Le format n'a jamais été le critère ici (cf point 1). Le différenciateur est la **philosophie d'édition** + l'**infra d'édition prod**, pas le format.
+
+**Positionnement 2 tiers (adopté de la note Simon)** :
+- **Option 1 (socle Waimia + boilerplate) = Keystatic** : site propriétaire contrôlé par l'équipe technique, SSG/perf/SEO/GEO prioritaires, Git + PR + Vercel, zéro DB. = NOTRE cas.
+- **Option 2 (offre future, PME éditoriale autonome) = Tina** : client qui édite beaucoup, veut visual/preview confortable, accepte un backend. Reste sur la table comme tier d'offre, pas comme dette.
+
+**Conditions de bascule vers Tina** (réversibilité, anti-dogme) : (1) la cible cesse d'être « zéro serveur/DB forkable » ; (2) on abandonne le builder maison au profit de l'édition contextuelle in-page clé-en-main ; (3) la cible primaire devient le PME marketing autonome plutôt que le boilerplate tech-first. Aucune n'est vraie aujourd'hui.
+
 ---
 
-*Décision produit + ingénierie · 2026-06-28 · à exécuter sous #39/#40.*
+*Décision produit + ingénierie · 2026-06-28 · à exécuter sous #39/#40. Réévaluée 2026-06-28 (doc officielle Tina + Keystatic), décision maintenue.*
