@@ -1,0 +1,18 @@
+{
+  "name": "@waimia/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Serveur MCP du catalogue Design System Waimia (capstone #41) : catalogue_search / catalogue_get_section / ds_tokens / page_compose / preview_render.",
+  "main": "./waimia-catalogue-server.mjs",
+  "bin": {
+    "waimia-catalogue-mcp": "./waimia-catalogue-server.mjs"
+  },
+  "scripts": {
+    "start": "node ./waimia-catalogue-server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
+  }
+}
