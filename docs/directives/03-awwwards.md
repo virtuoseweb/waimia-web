@@ -55,3 +55,100 @@ Page **impactante mais pas trop longue** : astuces UI/UX (progressive disclosure
 
 ### G. Signal de composition repéré 2026-06-20 (flagship `integrateur-claude`)
 Sur les 19 slots : `versus-competitors` **2×** (slots 4 et 12) et `related-cards-band` **2×** (slots 11 et 15). À trancher dans la doctrine B : répétition intentionnelle (deux angles de différenciation distincts) ou monotonie à dédoublonner / différencier de traitement.
+
+---
+
+## Addendum 2026-06-29 · Règles créatives ENRICHIES + bibliothèque de patterns (Simon, 2 interrupts)
+
+> Source de vérité unique de la direction créative (rule 59). Ce bloc est la **référence à embarquer dans CHAQUE brief de worker section/variante**. Il augmente les possibilités de composition et fixe les contraintes dures (compat système + library, DS-driven, images réelles du repo). Inventaire de référence (vérifié 2026-06-29) : **200 types** `src/sections/<type>/`, **42 rasters** `public/images/editorial/`, **28 paires duotone** `public/images/illustrations/ds/*-{ink,paper}.webp`, **12 line-art** `public/images/line-art/`, + dossiers `dashboards/ cas/ cases/ besoins/ textures/ themes/`.
+
+### H. Cadre de variation enrichi (augmenter les possibilités, sortir des défauts)
+Objectif : composition d'auteur, pas « 2 colonnes / 3 cartes ». Tout type ou variante peut explorer LIBREMENT ces axes, **dans les tokens DS** :
+
+1. **Grille** : 1 à 12 colonnes + grilles custom (5/7, 8/4, 9/3, 2/3/7), grilles nichées (subgrid), grille brisée (broken grid, décalage maîtrisé). Pas que du 6/6.
+2. **Spans variables** : `col-span` ET `row-span` libres par item (une carte 4 col à côté de deux cartes 2 col ; un item sur 2 rangées). Bento asymétrique.
+3. **Lignes (rows) variables** : nombre de rangées libre, hauteurs différentes (`auto` / `fr` / `clamp`), rangées de densité différente dans une même section.
+4. **Proportions non conventionnelles** : 10/90 jusqu'à 90/10, 1/5, 1/3, 2/3, 70/30, 62/38 (nombre d'or). Un média peut ne prendre QU'1/5 pour habiller un vide sans le remplir.
+5. **Ratios d'image** : 1:1, 4:3, 3:2, 16:9, 21:9 (cinémascope), 9:16 (portrait), 4:5. Choisir le ratio par le RÔLE (climax cinémascope, vignette carrée, portrait éditorial).
+6. **Gaps variables** : serrés (contact-sheet, densité) vs larges (respiration, luxe) ; gap non uniforme entre rangées.
+7. **Vide actif (active whitespace)** : le blanc / le fond comme matière, pas un reste. Habiller un espace d'une rangée avec un fond, une texture (`public/images/textures/`), un line-art ou un média 1/5 plutôt que de l'étirer.
+8. **Densité (crans `--section-tight/base/loose/grand`)** : alterner pour le rythme inter-section.
+9. **3 niveaux d'expression par famille** (étage créatif §C) : **sobre** (classique fiable, déjà prod) / **expressive** (composition travaillée, média habillé) / **signature** (climax, 1 par page max, effet mémorable). La signature porte l'audace ; tout le reste reste discipliné (restraint, réf §A).
+
+### I. Le « bloc » : contraintes dures de CHAQUE section/variante (non négociable, à coller dans le brief)
+- **Compatible SYSTÈME + LIBRARY** : toute section/variante = composant catalogue (5 touchpoints schema/demo/registry/component/manifest, OU module co-loc `src/sections/<type>/`). JAMAIS de markup orphelin inline dans une page ou un template (règle d'or anti-orphelin, CLAUDE.md). Une variante = un champ d'enum / des props sur le composant, rendu via `section-registry`.
+- **DS-DRIVEN** : 100 % `var(--token)`. **0 nouveau token DS. 0 valeur hardcodée** (couleur, espacement, radius, durée, ratio de rythme). Valeurs Tailwind / calculs / transparences SUR tokens existants = OK. Si une idée EXIGE un nouveau token ou une nouvelle primitive : la **signaler explicitement**, ne pas hardcoder en douce (rule 60).
+- **IMAGES RÉELLES DU REPO** : représentations crédibles et propriétaires, **pas de placeholder générique**. Mapper chaque pattern à un asset réel (éditorial surréaliste coral/teal, duotone ink/paper, line-art SVG, dashboards, cas). Si une représentation réelle existe, l'utiliser. Mapping §K.
+- **RESPONSIVE BY DESIGN** : mobile REPENSÉ, pas rétréci. bento -> stack ; sticky-rail -> stepper ; hover -> tap / état visible ; rail horizontal -> swipe ; 2 col -> 1 col hiérarchisée. Tester desktop + tablette + mobile (GF-1).
+- **PURPOSE-DRIVEN** : chaque section sert (expliquer / prouver / rythmer / convertir / orienter / hiérarchiser / rassurer / différencier / mémoriser). L'effet sert le contenu, jamais décoratif gratuit (§A, §D).
+- **CMS-SAFE** : contenu = props / frontmatter / collections, variable en longueur. La composition tient avec 2 items comme avec 6, titre court comme long.
+- **COPY** : 0 tiret cadratin U+2014 (gate `check-no-emdash`, rule 58). Sentence case, voix active.
+- **PREUVE GF-1** : pas « fini » sans screenshot above-fold + `getComputedStyle` (opacity ≠ 0, transform neutre), desktop + mobile, sur preview / `dist`.
+
+### J. Taxonomie des ~130 patterns mappée au catalogue (GF-4, vérifié contre `src/sections/`)
+Légende : **✅ EXISTE** (famille présente) · **◐ VARIANTE** (étage créatif à ajouter sur une famille existante, via DS Studio + sync) · **✦ GAP** (nouvelle famille à créer, tâche #80).
+
+**Grilles & structure**
+- Bento / bento asymétrique : ✅ `bento-grid`, `media-bento`, `stats-bento` (◐ spans/rows variables, ratios mixtes)
+- Mosaïque / contact-sheet : ✅ `gallery-masonry`, `photo-cluster`
+- Grille suisse 12 col / éditoriale : ✅ `hero-grid-12`, `editorial-split-grid` (◐ grilles custom 5/7, 8/4)
+- Grille brisée (broken grid) : ◐ `asymmetric-services`, `hero-asymmetric-grid`
+- Vide actif / remplissage asymétrique (1/5) : ◐ AXE de variation (§H.4/H.7), pas une famille
+- Cartes flottantes / cadre brutaliste : ◐ axes (ombre éditoriale subtile, cadre hairline) sur `feature-grid`, card-grids
+
+**Split & média**
+- Split éditorial : ✅ `editorial-split-grid`, `feature-split-media`, `case-split`, `tech-positioning-split`
+- Full-bleed / média pleine largeur : ✅ `hero-full-bleed`, `media-block` (◐ 21:9, overlay texte)
+- Image-dominante / texte-dominant : ◐ axes de dosage sur `feature-split-media` / `media-bento`
+- Duotone treatment : ✅ asset `illustrations/ds/*-{ink,paper}` + idiome `[data-bg=ink]`
+- Avant / après : ◐ `comparison-duo`, `metric-shift` (✦ slider visuel avant/après = variante motion optionnelle)
+- Signal vs bruit : ◐ variante `comparison-duo` / `objection-handler`
+
+**Narratif & scroll (coeur de la demande awwwards)**
+- Sticky scroll storytelling (rail texte sticky + média qui change au scroll, le « menu sticky ») : **✦ GAP -> `sticky-scroll-storytelling`** (#80)
+- Hover reveal on words (mot -> image dans un rectangle, suit le curseur) : **✦ GAP -> `hover-reveal-words`** (#80). NOTE : `hover-reveal-list` existe mais c'est une LISTE, pas le reveal au niveau du mot.
+- Scroll-synced tabs : ◐ `feature-tabs` + sync scroll (primitive motion #80)
+- Mask reveal / scroll zoom / parallaxe / image sequence / container expansion : **✦ PRIMITIVES MOTION** réutilisables (#80, §D), `prefers-reduced-motion`
+- Marquee / ruban défilant : ✅ `marquee-band`, `logo-marquee`
+
+**Preuve & données**
+- Proof strip / spec bar : ✅ `proof-bar`, `spec-bar`, `trust-badges-band`
+- Data cards / mini-dashboard / matrice : ✅ `key-metric-grid`, `stats-bento`, `data-table` (+ assets `dashboards/`)
+- Bandeau métriques massives : ✅ `metric-callout-band`, `roi-band`, `stat-block`, `stat-counter`
+- Mur de livrables / wall of outputs : ✅ `deliverables-grid`, `product-reel` (◐ traitement mur dense)
+- Document stack / pile de documents : ✅ `stack-cards` (◐ variante pile avec assets `cas/`)
+- Carte de maturité / stades : ✅ `maturity-pyramid`, `diagnostic-stages`, `tier-pyramid-svg`
+- Témoignages chiffrés / réassurance : ✅ `testimonial-metrics`, `testimonial-logo-metric`, `eeat-panel`, `trust-badges-band`
+
+**Système & produit**
+- Blueprint / system map : ✅ `architecture-diagram`, `system-flow`, `tech-integration-flow`
+- Operating system visual : ✅ `operating-layer`, `agentic-terminal`
+- Browser / device mockup : ✅ `terminal-mockup`, `code-showcase`, `product-reel` (◐ device-frame variante)
+- Flux / process : ✅ `method-stepline`, `method-timeline`, `process-steps`, `journey-steps`, `steps-horizontal`
+
+**Éditorial & rythme**
+- Manifesto : ✅ `manifesto-act`, `manifesto-block`, `manifesto-statement`
+- Timeline : ✅ `editorial-timeline`, `timeline-block`, `timeline-horizontal`
+- Case study preview : ✅ `case-featured-grid`, `case-spotlight`, `editorial-preview`
+- Project / use-case index : ✅ `use-case-index`, `list-index-section`, `service-catalog-list`
+- Visual menu : ◐ `hero-detail-menu`, `tunnel-step-nav` (◐ variante menu visuel illustré)
+- Dropcap / prose / dingbat : ✅ `editorial-dropcap-prose`, `editorial-prose`, `editorial-dingbat-rule`
+- Pull quote / quote spotlight : ✅ `pull-quote-block`, `quote-spotlight`
+
+**Hero** : ~45 types ✅ (exhaustif, étage signature déjà présent : `hero-media-medallion`, `hero-masthead-card`, `hero-magazine-cover`, `hero-numeral-cover`, etc.)
+
+**BILAN** : sur ~130 familles demandées, la grande majorité **existe (✅)** ou relève de **l'étage créatif / variante (◐)** d'une famille présente. Les vrais **GAP (✦)** sont peu nombreux et concentrés sur le **narratif scroll** : `sticky-scroll-storytelling`, `hover-reveal-words`, + un socle de **primitives motion réutilisables** (#80). Donc le travail = surtout **ENRICHIR** (étage créatif §C : variantes via DS Studio + sync 5 touchpoints, spans/rows/ratios variables, assets réels) + **construire 2-3 familles narratives manquantes**, PAS réinventer 130 sections.
+
+### K. Mapping family -> assets réels du repo (extrait, à compléter par famille)
+- **Surréaliste coral/teal** (`public/images/editorial/`, 42) : héros signature, `case-spotlight`, `manifesto`, full-bleed climax. Ex : `burning-boat-style` (transformation), `chess-style-16` (stratégie), `stylemoneymoney`/`moneyinthepig` (ROI), `nonoyes` (décision), `womancomputer17` (IA au travail), `peopleandicecreamcar` (équipe).
+- **Duotone ink/paper** (`public/images/illustrations/ds/`, 28 paires) : sections bicolores selon `background` (paper -> `*-paper`, ink -> `*-ink`). Idéal `media-bento`, `feature-split-media`, `hover-reveal-words`. Ex : `chess`, `men-on-hand`, `car-on-the-road`, `computer-crash-landscape`, `no-no-yes`, `money-money`.
+- **Line-art SVG** (`public/images/line-art/`, 12) : schémas système, livrables, problèmes. `dispositif-flow`, `orbit-network`, `livrable-*`, `probleme-*`. Pour `architecture-diagram`, `system-flow`, `deliverables-grid`, `statement-orbit`. Footgun `currentColor` via `<img>` : couleur explicite DANS le SVG (cf memory `svg-currentcolor-ink-img-footgun`).
+- **`dashboards/`** : mini-dashboard, data-cards, `stats-bento` (représentations produit crédibles).
+- **`cas/` + `cases/`** : document stack, case preview, wall of outputs.
+- **`textures/` + `themes/`** : fonds de vide actif (§H.7).
+
+### L. Plan de build (décomposé, worktree-isolé, GF-1 par livraison)
+1. **#80 GAP narratif** (priorité, coeur de la demande) : `sticky-scroll-storytelling` + `hover-reveal-words` + primitives motion réutilisables (`prefers-reduced-motion`).
+2. **◐ Étage créatif** : enrichir les familles media-first aux 3 niveaux (sobre / expressive / signature) avec spans/rows/ratios variables + assets réels, via DS Studio + sync 5 touchpoints.
+3. **#81 Recomposer SWI** en 3 dosages (sélectif / riche / intermédiaire) à `/preview-swi/a|b|c`, en piochant l'étage par rôle de slot (signature aux climax, sobre aux respirations). Comparaison locale, Simon choisit.
+4. **Polish** : rythme inter-section (alternance ink/paper, densité, statique/animé), GF-1 section-par-section desktop + mobile.
