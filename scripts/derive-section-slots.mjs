@@ -287,15 +287,54 @@ function deriveSlots(optionSchema) {
 async function loadSchemaModule() {
   const reqFromRepo = createRequire(path.join(repoRoot, 'package.json'));
   const zodPath = reqFromRepo.resolve('zod');
-  const src = fs
-    .readFileSync(SCHEMA_PATH, 'utf8')
-    .replace(/from ['"]astro:content['"]/g, `from ${JSON.stringify(zodPath)}`);
-  const tmp = path.join(os.tmpdir(), `c2a-sections-${process.pid}-${Date.now()}.ts`);
-  fs.writeFileSync(tmp, src);
+
+  // Depuis la co-location (#38), `sections.ts` importe des feuilles RELATIVES
+  // (`../sections/_shared/base`, `../sections/_shared/subschemas`, et des modules
+  // co-localisés `../sections/<type>/schema`). Ces feuilles importent elles-mêmes
+  // `z` depuis `astro:content` (transitif). On reconstruit donc l'arborescence RELATIVE
+  // dans UN répertoire temp (mkdtemp) en préservant la structure attendue :
+  //   <tmp>/schemas/sections.ts          (le god-file)
+  //   <tmp>/sections/**.ts               (les feuilles _shared + modules co-localisés)
+  // et on rebinde `astro:content` -> zod réel dans CHAQUE fichier copié. Ainsi les
+  // imports relatifs résolvent dans le temp et le `astro:content` transitif est neutralisé.
+  const rebindAstro = (code) =>
+    code.replace(/from ['"]astro:content['"]/g, `from ${JSON.stringify(zodPath)}`);
+
+  const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'c2a-sections-'));
   try {
-    return await import(tmp);
+    // 1) Copier le god-file vers <tmp>/schemas/sections.ts
+    const tmpSchemasDir = path.join(tmpRoot, 'schemas');
+    fs.mkdirSync(tmpSchemasDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(tmpSchemasDir, 'sections.ts'),
+      rebindAstro(fs.readFileSync(SCHEMA_PATH, 'utf8')),
+    );
+
+    // 2) Copier toute l'arborescence src/sections/**.ts vers <tmp>/sections/**.ts en
+    //    préservant la structure relative (couvre _shared + modules co-localisés). Les
+    //    feuilles non importées par sections.ts (demo.ts / types.ts) sont copiées sans
+    //    risque : elles ne seront jamais chargées par l'import dynamique.
+    const sectionsDir = path.join(repoRoot, 'src/sections');
+    if (fs.existsSync(sectionsDir)) {
+      const tmpSectionsDir = path.join(tmpRoot, 'sections');
+      const copyTsTree = (srcDir, destDir) => {
+        fs.mkdirSync(destDir, { recursive: true });
+        for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
+          const from = path.join(srcDir, entry.name);
+          const to = path.join(destDir, entry.name);
+          if (entry.isDirectory()) {
+            copyTsTree(from, to);
+          } else if (entry.isFile() && entry.name.endsWith('.ts')) {
+            fs.writeFileSync(to, rebindAstro(fs.readFileSync(from, 'utf8')));
+          }
+        }
+      };
+      copyTsTree(sectionsDir, tmpSectionsDir);
+    }
+
+    return await import(path.join(tmpSchemasDir, 'sections.ts'));
   } finally {
-    fs.rmSync(tmp, { force: true });
+    fs.rmSync(tmpRoot, { recursive: true, force: true });
   }
 }
 
