@@ -7,104 +7,107 @@
 
 import { z } from 'astro:content';
 
-/* ─── Sous-schémas réutilisables ─── */
+/* ─── Feuilles partagées co-localisées (Wave #38, T1) ───
+ * Les ENUMS de variation, le mixin `sectionBaseSchema` et les sous-schemas réutilisables
+ * ont été EXTRAITS (déplacés, pas dupliqués — rule 60) vers `src/sections/_shared/`
+ * (feuilles pures, anti-cycle). Ils sont réimportés ici → comportement, exports et types
+ * INCHANGÉS (les `const` deviennent des imports nommés, mêmes identifiants partout). */
+export {
+  // placement (couche atomique)
+  placementAlign,
+  placementJustify,
+  placementHide,
+  regionPlacement,
+  placementSchema,
+  // L7
+  justifyContentEnum,
+  alignItemsEnum,
+  justifyItemsEnum,
+  alignContentEnum,
+  cellAlignXEnum,
+  cellAlignYEnum,
+  cellPadEnum,
+  mediaFitEnum,
+  mediaRatioEnum,
+  // L8
+  hoverEnum,
+  pressFeedbackEnum,
+  focusRingEnum,
+  transitionSpeedEnum,
+  transitionEaseEnum,
+  selectedStateEnum,
+  openStateEnum,
+  // L9
+  revealEnum,
+  revealDelayEnum,
+  loopEnum,
+  scrollMotionEnum,
+  textMotionEnum,
+  motionSpeedEnum,
+  motionEaseEnum,
+  pageTransitionEnum,
+  // L10bis
+  cellBgEnum,
+  cellToneEnum,
+  toneEnum,
+  borderToneEnum,
+  // L11
+  textFlowEnum,
+  textTransformEnum,
+  rotateEnum,
+  objectPositionEnum,
+  overflowEnum,
+  scrollSnapEnum,
+  // L6 / L12 / L13
+  measureEnum,
+  clampEnum,
+  minHeightEnum,
+  widthEnum,
+  headingLevelEnum,
+  // COMPOSITION (SYS v2-E)
+  headerAlignEnum,
+  headerKindEnum,
+  introRowEnum,
+  dividersEnum,
+  cardContentEnum,
+  cardMediaEnum,
+  cardAlignEnum,
+  colorDistributionEnum,
+  bgSourceEnum,
+  // mixin de base
+  sectionBaseSchema,
+} from '../sections/_shared/base';
 
-/**
- * Mixin de présentation transverse (Phase B · système de variation, cf docs/46).
- * Axes orthogonaux partagés par les composants-familles paramétrables. On l'applique
- * via `.extend(sectionBaseSchema.shape)` (les champs ajoutés sont tous optionnels →
- * 0 régression : un schema sans valeur garde son rendu par défaut).
- *  - background : déclinaison palette (idiome `data-bg`, déjà consolidé A1).
- *  - layout     : id d'un preset de grille (cf src/styles/layouts.css → var --sec-grid).
- *  - density    : cran de rythme vertical (mappe sur la famille --section-*).
- * `effects` viendra dans une phase ultérieure (NE PAS introduire avant que layout+density
- * soient prouvés sur la famille hero).
- */
-const sectionBaseSchema = z.object({
-  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
-  layout: z.string().optional(),
-  density: z.enum(['compact', 'base', 'ample']).optional(),
-});
+// Liaisons de VALEUR locales (le `export { … } from` ci-dessus ne crée PAS de binding
+// utilisable dans le corps du module — il ne fait que ré-exporter). On importe ici ce que
+// les schémas ci-dessous référencent réellement comme valeurs.
+import { sectionBaseSchema, placementSchema } from '../sections/_shared/base';
 
-const bilingualString = z.object({
-  fr: z.string(),
-  en: z.string(),
-});
+export {
+  bilingualString,
+  ctaSchema,
+  metricSchema,
+  featureItemSchema,
+  stepSchema,
+  faqItemSchema,
+  pricingTierSchema,
+  testimonialSchema,
+  comparisonRowSchema,
+  timelineEventSchema,
+} from '../sections/_shared/subschemas';
 
-const ctaSchema = z.object({
-  label_fr: z.string(),
-  label_en: z.string(),
-  href: z.string(),
-  variant: z.enum(['primary', 'accent', 'ghost', 'ghost-dark', 'terminal']).default('primary'),
-  mag: z.number().min(0).max(1).optional(),
-});
-
-const metricSchema = z.object({
-  value: z.string(),
-  label_fr: z.string(),
-  label_en: z.string(),
-  emphasis: z.boolean().default(false),
-});
-
-const featureItemSchema = z.object({
-  icon: z.string().optional(), // SVG name dans components/svg
-  title_fr: z.string(),
-  title_en: z.string(),
-  body_fr: z.string(),
-  body_en: z.string(),
-});
-
-const stepSchema = z.object({
-  num: z.string(),
-  label_fr: z.string(),
-  label_en: z.string(),
-  body_fr: z.string(),
-  body_en: z.string(),
-  meta_fr: z.string().optional(),
-  meta_en: z.string().optional(),
-  duration_fr: z.string().optional(),
-});
-
-const faqItemSchema = z.object({
-  q_fr: z.string(),
-  q_en: z.string(),
-  a_fr: z.string(),
-  a_en: z.string(),
-});
-
-const pricingTierSchema = z.object({
-  name_fr: z.string(),
-  name_en: z.string(),
-  price: z.string(),
-  features_fr: z.array(z.string()),
-  features_en: z.array(z.string()),
-  cta: ctaSchema,
-  featured: z.boolean().default(false),
-});
-
-const testimonialSchema = z.object({
-  quote_fr: z.string(),
-  quote_en: z.string(),
-  author: z.string(),
-  role_fr: z.string(),
-  role_en: z.string(),
-  company: z.string().optional(),
-  avatar: z.string().optional(),
-});
-
-const comparisonRowSchema = z.object({
-  feature_fr: z.string(),
-  feature_en: z.string(),
-  values: z.array(z.union([z.string(), z.boolean()])),
-});
-
-const timelineEventSchema = z.object({
-  date: z.string(),
-  title_fr: z.string(),
-  title_en: z.string(),
-  body_fr: z.string(),
-  body_en: z.string(),
-});
+import {
+  bilingualString,
+  ctaSchema,
+  metricSchema,
+  featureItemSchema,
+  stepSchema,
+  faqItemSchema,
+  pricingTierSchema,
+  testimonialSchema,
+  comparisonRowSchema,
+  timelineEventSchema,
+} from '../sections/_shared/subschemas';
 
 /* ─── Section schemas (20 types) ─── */
 
@@ -1429,17 +1432,42 @@ export const methodTimelineSchema = z.object({
   lede_fr: z.string().optional(),
   lede_en: z.string().optional(),
   steps: z.array(stepSchema).min(2).max(6),
+  // Vague C · Batch 5 (process/timeline). Recettes layout curées de la famille « process » :
+  //  vertical-stack (défaut = grille éditoriale 3-col actuelle), numbered-rows (lignes hairline
+  //  à gros numéro), horizontal (rail scroll tactile), grid-steps (étapes en cartes en grille).
+  layout: z.enum(['vertical-stack', 'numbered-rows', 'horizontal', 'grid-steps']).optional(),
+  // grid-steps : nombre de colonnes (auto = count-adaptive auto-fit). Ignoré par les autres recettes.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  // density (data-density) : rythme padding-block section + gap des étapes via --space-*.
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // contentAlign (data-content-align) : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
 });
 
 export const featureGridSchema = z.object({
   type: z.literal('feature-grid'),
-  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Mixin de variation unique : background/columns/layout/density + couches NOW v2
+  // (hover/cellBg/cellTone/tone/cellAlignX|Y/justifyContent/alignItems/focusRing/
+  // mediaFit/mediaRatio/measure/balance/clamp/headingLevel...). Tous optionnels →
+  // défaut = rendu actuel. `columns` du mixin (auto|1..6) remplace l'ancien 2|3|4.
+  ...sectionBaseSchema.shape,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
+  // ─── COMPOSITION (SYS v2-E) — contenu d'en-tête riche + ligne d'intro. Tous optionnels,
+  //     rendus seulement si headerKind/introRow les demandent (défaut = non rendu).
+  lede_fr: z.string().optional(), // chapô (headerKind=*-lede* / introRow=lede-*)
+  lede_en: z.string().optional(),
+  header_cta_label_fr: z.string().optional(), // CTA d'en-tête (headerKind=*-cta)
+  header_cta_label_en: z.string().optional(),
+  header_cta_href: z.string().optional(),
+  intro_desc_fr: z.string().optional(), // desc de la ligne d'intro (introRow=desc-media-split)
+  intro_desc_en: z.string().optional(),
+  intro_media: z.string().optional(), // image de la ligne d'intro (placeholder editorial, CMS)
   features: z.array(featureItemSchema).min(3).max(8),
-  columns: z.enum(['2', '3', '4']).default('3'),
 });
 
 export const comparisonTableSchema = z.object({
@@ -1583,6 +1611,20 @@ export const guaranteeBlockSchema = z.object({
 export const architectureDiagramSchema = z.object({
   type: z.literal('architecture-diagram'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // ── Vague C · Scale (Batch 4 « splits/duo ») ──
+  // Disposition header ↔ diagramme. Absent → 'stacked' (header au-dessus, schéma centré
+  // pleine largeur : rendu actuel). 'split' = header (titre + spec + caption) en colonne
+  // gauche, diagramme en colonne droite (lecture éditoriale, schéma plus compact).
+  layout: z.enum(['stacked', 'split']).optional(),
+  // Ratio des colonnes header|diagramme quand layout='split'. Absent → 2fr 3fr (diagramme
+  // dominant). Ignoré par 'stacked'.
+  proportion: z.enum(['1-1', '1-2', '2-1', '2-3', '3-2']).optional(),
+  // Densité (gap header↔diagramme + marge sous le titre). Absent → base (rendu actuel).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // Alignement du bloc header (titre + spec). Absent → start (rendu actuel).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header/media). Forme identique partout.
+  placement: placementSchema,
   fig_num: z.string(),
   fig_title_fr: z.string(),
   fig_title_en: z.string(),
@@ -1742,6 +1784,29 @@ export const useCaseIndexSchema = z.object({
 export const caseCardGridSchema = z.object({
   type: z.literal('case-card-grid'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C scale — Batch 2). Câblés réellement via data-*. Tous
+  // optionnels → défaut = rendu actuel (table éditoriale en lignes).
+  //  - layout : RECETTE de mise en page. Cette section est une TABLE de lignes : on NE ment
+  //    PAS avec bento. Sous-ensemble honnête :
+  //      rows-divided : table éditoriale (lignes + hairline). = rendu actuel, défaut implicite.
+  //      list         : lignes empilées SANS hairline supérieur (rythme par l'espacement seul).
+  //      grid-uniform : passe les cas en CARTES en grille N colonnes égales (columns).
+  //      grid-asym    : cartes en grille de largeurs différentes via colRatio.
+  layout: z
+    .enum(['rows-divided', 'list', 'grid-uniform', 'grid-asym'])
+    .optional(),
+  //  - columns : nb de colonnes pour layout='grid-uniform' (auto|2|3|4). Ignoré par rows/list.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  //  - colRatio : largeurs de colonnes, UNIQUEMENT pour layout='grid-asym'. Ignoré ailleurs.
+  colRatio: z.enum(['equal', '1-2', '2-1', '1-1-2', '2-3']).optional(),
+  //  - itemHeight : hauteur des cartes en mode grille (auto|even|square|video). Ignoré en table.
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
+  //  - density : rythme du header + padding des lignes (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - contentAlign : alignement du header (titre + ligne spec). start (défaut) | center | end.
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique (Batch 2) : placement par région (header + body + actions=lien « tous »).
+  placement: placementSchema,
   fig_num: z.string(),
   fig_title_fr: z.string(),
   fig_title_en: z.string(),
@@ -2135,6 +2200,40 @@ export const specBarSchema = z.object({
 export const deliverablesGridSchema = z.object({
   type: z.literal('deliverables-grid'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C scale — Batch 2). Tous optionnels → défaut = rendu actuel.
+  //  - layout : RECETTE de mise en page (lexique curé card-collection). Absent → rendu actuel
+  //    (grille count-adaptive éditoriale border-top). Sous-ensemble pertinent pour des livrables :
+  //      grid-uniform   : N colonnes égales (columns) hauteurs stretch.
+  //      grid-auto      : auto-fit count-adaptive (s'adapte au nombre + largeur).
+  //      grid-asym      : colonnes de largeurs différentes via colRatio.
+  //      list           : 1 par ligne, item horizontal pleine largeur.
+  //      rows-divided   : list + hairline entre lignes (table éditoriale).
+  //      bento-feature  : 1ʳᵉ carte vedette (span 2 / row 2) + cellules simples (dense).
+  //      featured-split : 1 gros bloc (1fr) + colonne d'items secondaires (1fr).
+  //  - columns : 'auto' (count-adaptive :has, défaut historique) | '2'|'3'|'4' (fixe desktop).
+  //    Honoré par grid-uniform/grid-auto ; ignoré proprement par list/bento-feature/matrix.
+  //  - colRatio : largeurs de colonnes, UNIQUEMENT pour layout='grid-asym'. Ignoré ailleurs.
+  //  - itemHeight : hauteur des cellules (auto|even|square|video). Couvre « harmonisées/contrastées ».
+  //  - density : rythme padding/gap (compact|base|ample) via tokens --space-*.
+  //  - contentAlign : alignement du header (start|center|end).
+  layout: z
+    .enum([
+      'grid-uniform',
+      'grid-auto',
+      'grid-asym',
+      'list',
+      'rows-divided',
+      'bento-feature',
+      'featured-split',
+    ])
+    .optional(),
+  columns: z.enum(['auto', '2', '3', '4', '5', '6']).optional(),
+  colRatio: z.enum(['equal', '1-2', '2-1', '1-1-2', '2-3']).optional(),
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique (Batch 2) : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),
@@ -2258,6 +2357,32 @@ export const problemStatementSchema = z.object({
 export const bentoGridSchema = z.object({
   type: z.literal('bento-grid'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C) — bento adaptatif (grid auto-flow dense, spans clampés
+  // au nb de colonnes → jamais de structure cassée). Tous optionnels, défauts = rendu actuel.
+  //  - density : padding section + gap de la mosaïque + padding des tuiles (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - columns : nombre de colonnes de la mosaïque. 'auto' (défaut) = auto-fill content-driven
+  //    (--tile-min) ; '2'|'3'|'4' = nombre fixe (--bento-cols) ; les spans lg/wide restent
+  //    bornés à la largeur de la grille par CSS (pas de débordement).
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  //  - layout (Batch 3) : VOCABULAIRE DE LAYOUT curé pour l'archétype bento/média.
+  //      bento          : spans content-driven + auto-flow dense (DÉFAUT, rendu actuel).
+  //      bento-feature  : 1ʳᵉ tuile vedette span 2×2 imposé, le reste en unités.
+  //      mosaic         : spans ET hauteurs variés, dense obligatoire (éditorial).
+  //      matrix-2x2     : matrice 2 colonnes, cellules carrées (aspect-ratio:1).
+  //      matrix-3x3     : matrice 3 colonnes, cellules carrées (aspect-ratio:1).
+  //      grid-uniform   : N colonnes ÉGALES, hauteurs égalisées (stretch), 0 span.
+  //    Spans toujours clampés au nb de colonnes ; matrix réduit proprement la dernière ligne.
+  layout: z
+    .enum(['bento', 'bento-feature', 'mosaic', 'matrix-2x2', 'matrix-3x3', 'grid-uniform'])
+    .optional(),
+  //  - itemHeight (Batch 3) : hauteur des cellules. auto (contenu) | even (égalisées) |
+  //    square (aspect-ratio:1) | video (16/9). Relâché en mobile (contenu prime).
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
+  //  - contentAlign (Batch 3) : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique (Batch 3) : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -2281,6 +2406,26 @@ export const featureZigzagSchema = z.object({
   // (rétrocompat). Cf manifeste §5.5 « 1 registre par bloc » : un bloc rendu en
   // ink doit pointer son média sur la variante -ink.webp (choix au contenu).
   alternate_blocks: z.boolean().optional(),
+  // ── Vague C · Scale (Batch 4 « splits/duo ») ──
+  // Recette de disposition des rangées (sous-ensemble du lexique « split/duo »). Absent →
+  // 'alternate' (zigzag historique, alternance gérée en interne rangée par rangée).
+  //   alternate    : zigzag (média gauche/droite alterné par rangée) · défaut, rendu actuel.
+  //   stacked      : média TOUJOURS au-dessus du texte (1 colonne empilée par rangée).
+  //   inline-left  : média TOUJOURS à gauche du texte (pas d'alternance).
+  //   inline-right : média TOUJOURS à droite du texte (pas d'alternance).
+  layout: z.enum(['alternate', 'stacked', 'inline-left', 'inline-right']).optional(),
+  // Ratio des colonnes média|texte appliqué à CHAQUE rangée (mediaSide gère le côté).
+  // Absent → 1fr 1fr (rendu actuel). Ignoré par 'stacked' (empilé, 1 colonne).
+  proportion: z.enum(['1-1', '1-2', '2-1', '2-3', '3-2']).optional(),
+  // Côté du média de la PREMIÈRE rangée (l'alternance enchaîne ensuite). Absent → 'left'
+  // (rendu actuel : impair = visuel gauche). Ignoré par inline-left/inline-right/stacked.
+  mediaSide: z.enum(['left', 'right']).optional(),
+  // Densité (gap entre rangées + gap interne des cellules). Absent → base (rendu actuel).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // Alignement du bloc header (kicker + h2 + lede). Absent → start (rendu actuel).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header/media/body/actions). Forme identique partout.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -2317,6 +2462,197 @@ export const featureZigzagSchema = z.object({
       media_alt_en: z.string().optional(),
     })
   ).min(2).max(6),
+});
+
+// Galerie scroll : liste sticky à gauche, média qui change en fondu au scroll.
+// Colonne texte qui défile + cadre média STICKY dont l'image active crossfade
+// quand l'item correspondant croise la bande centrale du viewport (IntersectionObserver).
+export const scrollGallerySchema = z.object({
+  type: z.literal('scroll-gallery'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  // Côté du cadre média sticky en desktop (défaut right). 'left' inverse les colonnes.
+  media_side: z.enum(['left', 'right']).optional(),
+  items: z
+    .array(
+      z.object({
+        index_fr: z.string().optional(),
+        index_en: z.string().optional(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        media_src: z.string(),
+        media_alt_fr: z.string().optional(),
+        media_alt_en: z.string().optional(),
+        link_label_fr: z.string().optional(),
+        link_label_en: z.string().optional(),
+        link_href: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(6),
+});
+
+// Cartes empilées au scroll : chaque carte sticky avec un top incrémental → les
+// cartes se superposent à mesure que la page défile (effet stack, CSS pur).
+export const stackCardsSchema = z.object({
+  type: z.literal('stack-cards'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  cards: z
+    .array(
+      z.object({
+        index_fr: z.string().optional(),
+        index_en: z.string().optional(),
+        title_fr: z.string(),
+        title_en: z.string(),
+        body_fr: z.string(),
+        body_en: z.string(),
+        // Fond de la carte (défaut paper). 'ink' rend la carte en contraste inverse.
+        tone: z.enum(['paper', 'ink']).optional(),
+        media_src: z.string().optional(),
+        media_alt_fr: z.string().optional(),
+        media_alt_en: z.string().optional(),
+        points: z
+          .array(z.object({ label_fr: z.string(), label_en: z.string() }))
+          .max(4)
+          .optional(),
+        link_label_fr: z.string().optional(),
+        link_label_en: z.string().optional(),
+        link_href: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(6),
+});
+
+export const hoverRevealListSchema = z.object({
+  type: z.literal('hover-reveal-list'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  reveal_mode: z.enum(['cursor', 'fixed']).optional(),
+  items: z.array(
+    z.object({
+      label_fr: z.string(),
+      label_en: z.string(),
+      meta_fr: z.string().optional(),
+      meta_en: z.string().optional(),
+      media_src: z.string(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
+      link_href: z.string().optional(),
+    }),
+  ).min(2).max(10),
+});
+
+export const horizontalShowcaseSchema = z.object({
+  type: z.literal('horizontal-showcase'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  panels: z.array(
+    z.object({
+      index_fr: z.string().optional(),
+      index_en: z.string().optional(),
+      title_fr: z.string(),
+      title_en: z.string(),
+      body_fr: z.string().optional(),
+      body_en: z.string().optional(),
+      tone: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+      points: z.array(z.object({ label_fr: z.string(), label_en: z.string() })).max(6).optional(),
+      media_src: z.string(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
+      link_label_fr: z.string().optional(),
+      link_label_en: z.string().optional(),
+      link_href: z.string().optional(),
+    }),
+  ).min(2).max(6),
+});
+
+// Wave #38 (T3) · `media-bento` migré en module co-localisé (src/sections/media-bento/).
+// Le schéma vit désormais dans ce module ; on le RÉ-EXPORTE ici (API publique préservée :
+// `mediaBentoSchema` reste importable) ET on le réimporte localement (le `export … from`
+// ne crée pas de binding utilisable dans le corps du module → l'union ci-dessous en a besoin).
+export { schema as mediaBentoSchema } from '../sections/media-bento/schema';
+import { schema as mediaBentoSchema } from '../sections/media-bento/schema';
+
+export const photoClusterSchema = z.object({
+  type: z.literal('photo-cluster'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  note_fr: z.string().optional(),
+  note_en: z.string().optional(),
+  layout: z.enum(['lead-cluster', 'scatter', 'duo']).optional(),
+  lead: z.object({
+    media_src: z.string(),
+    media_alt_fr: z.string().optional(),
+    media_alt_en: z.string().optional(),
+  }),
+  photos: z.array(
+    z.object({
+      media_src: z.string(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
+      caption_fr: z.string().optional(),
+      caption_en: z.string().optional(),
+    }),
+  ).min(1).max(5),
+});
+
+export const mediaSwapBandSchema = z.object({
+  type: z.literal('media-swap-band'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string(),
+  h2_en: z.string(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  swap_mode: z.enum(['auto', 'hover']).optional(),
+  columns: z.array(
+    z.object({
+      label_fr: z.string(),
+      label_en: z.string(),
+      sublabel_fr: z.string().optional(),
+      sublabel_en: z.string().optional(),
+      media: z.array(
+        z.object({
+          media_src: z.string(),
+          media_alt_fr: z.string().optional(),
+          media_alt_en: z.string().optional(),
+        }),
+      ).min(1).max(4),
+    }),
+  ).min(1).max(3),
+  cta_label_fr: z.string().optional(),
+  cta_label_en: z.string().optional(),
+  cta_href: z.string().optional(),
 });
 
 // Grille statique de logos partenaires (grayscale → couleur au hover)
@@ -2496,6 +2832,24 @@ export const statsBentoItemSchema = z.object({
 export const statsBentoSchema = z.object({
   type: z.literal('stats-bento'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C) — bento adaptatif de KPI. Tous optionnels, défauts = rendu actuel.
+  //  - density : padding section + gap de la grille + padding des cellules (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - columns : 'auto' (défaut) = auto-fill content-driven (--tile-min) ; '2'|'3'|'4' = nombre
+  //    fixe (--bento-cols), spans bornés à la largeur de grille par CSS.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  //  - layout (Batch 3) : VOCABULAIRE DE LAYOUT curé pour l'archétype stats/bento.
+  //      bento          : 1ʳᵉ stat vedette span-lg + dense (DÉFAUT, rendu actuel).
+  //      grid-uniform   : N colonnes ÉGALES, hauteurs égalisées (stretch), 0 vedette.
+  //      matrix-2x2     : matrice 2 colonnes, cellules carrées (aspect-ratio:1).
+  //      list           : 1 KPI par ligne, chiffre + label en cluster (table éditoriale).
+  layout: z.enum(['bento', 'grid-uniform', 'matrix-2x2', 'list']).optional(),
+  //  - itemHeight (Batch 3) : hauteur des cellules. auto | even | square (1:1) | video (16/9).
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
+  //  - contentAlign (Batch 3) : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique (Batch 3) : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -2514,6 +2868,19 @@ const comparisonDuoItemSchema = z.object({
 export const comparisonDuoSchema = z.object({
   type: z.literal('comparison-duo'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // ── Vague C · Scale (Batch 4 « splits/duo ») ──
+  // Disposition des 2 cartes (honnête : pas de bento, c'est un duo face-à-face). Absent →
+  // 'inline' (côte à côte, rendu actuel). 'stacked' = empilé vertical (sans/avec l'un sous l'autre).
+  layout: z.enum(['inline', 'stacked']).optional(),
+  // Ratio des 2 colonnes sans|avec. Absent → 1fr 1fr (rendu actuel). Ignoré par 'stacked'.
+  //   1-1 (défaut) · 1-2 (carte AVEC dominante) · 2-1 (carte SANS dominante).
+  proportion: z.enum(['1-1', '1-2', '2-1']).optional(),
+  // Densité (gap entre cartes + padding interne). Absent → base (rendu actuel).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // Alignement du bloc header (kicker + h2). Absent → start (rendu actuel).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header/body). Forme identique partout.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -3228,6 +3595,43 @@ const pricingCardTierSchema = z.object({
 export const pricingCardsSchema = z.object({
   type: z.literal('pricing-cards'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Axes de variation (Vague C scale — Batch 2) — lus par data-* dans le composant. Tous
+  // optionnels, défauts = rendu actuel.
+  //  - layout : RECETTE de mise en page (lexique curé). Absent → rendu actuel (grille --col-count).
+  //      grid-uniform   : N colonnes égales (columns) hauteurs stretch (cartes alignées).
+  //      grid-auto      : auto-fit count-adaptive (s'adapte au nombre de tiers + largeur).
+  //      grid-asym      : colonnes de largeurs différentes via colRatio (offre vedette plus large).
+  //      list           : 1 tier par ligne, carte horizontale pleine largeur (prix ↔ features ↔ CTA).
+  //      rows-divided   : list + hairline entre lignes (table tarifaire éditoriale).
+  //      bento-feature  : 1ʳᵉ carte vedette (span 2 / row 2) + tiers simples (dense).
+  //      featured-split : 1 gros tier (1fr) + colonne de tiers secondaires (1fr).
+  layout: z
+    .enum([
+      'grid-uniform',
+      'grid-auto',
+      'grid-asym',
+      'list',
+      'rows-divided',
+      'bento-feature',
+      'featured-split',
+    ])
+    .optional(),
+  //  - density : rythme padding section + gap colonnes (compact|base|ample).
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - contentAlign : alignement du header (start|center|end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  //  - actionsAlign : justify du CTA dans la carte, indépendant du contenu (start|center|end|spread).
+  actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
+  //  - columns : 'auto' = auto-fit count-adaptive (s'adapte au nombre de tiers, jamais
+  //    de colonne vide) ; '2'..'6' = nombre fixe desktop. Absent → comportement
+  //    historique (1 colonne par tier via --col-count). Honoré par grid-uniform/grid-auto.
+  columns: z.enum(['auto', '2', '3', '4', '5', '6']).optional(),
+  //  - colRatio : largeurs de colonnes, UNIQUEMENT pour layout='grid-asym'. Ignoré ailleurs.
+  colRatio: z.enum(['equal', '1-2', '2-1', '1-1-2', '2-3']).optional(),
+  //  - itemHeight : hauteur des cartes (auto|even|square|video). Défaut = align-items:start (actuel).
+  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
+  // Couche atomique (Batch 2) : placement par région (header + body + actions). Forme = placementSchema.
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -3319,25 +3723,10 @@ export const heroFormInlineSchema = z.object({
     .optional(),
 });
 
-// hero-social-proof · hero centré + bande de preuve sociale (stats + rating) above-fold.
-export const heroSocialProofSchema = z.object({
-  type: z.literal('hero-social-proof'),
-  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
-  kicker_fr: z.string().optional(),
-  kicker_en: z.string().optional(),
-  h1_fr: z.string(),
-  h1_en: z.string(),
-  lede_fr: z.string(),
-  lede_en: z.string(),
-  cta_primary: ctaSchema,
-  cta_secondary: ctaSchema.optional(),
-  rating_fr: z.string().optional(),
-  rating_en: z.string().optional(),
-  stats: z
-    .array(z.object({ k: z.string(), label_fr: z.string(), label_en: z.string() }))
-    .min(2)
-    .max(4),
-});
+// Wave #38 (T3) · `hero-social-proof` migré en module co-localisé (src/sections/hero-social-proof/).
+// Ré-export (API publique préservée) + réimport local (binding requis par l'union ci-dessous).
+export { schema as heroSocialProofSchema } from '../sections/hero-social-proof/schema';
+import { schema as heroSocialProofSchema } from '../sections/hero-social-proof/schema';
 
 // feature-comparison-grid · différenciation légère « nous vs eux » en grille (check/cross).
 export const featureComparisonGridSchema = z.object({
@@ -3882,6 +4271,15 @@ const footerCtaButtonSchema = z.object({
 export const footerCtaBandSchema = z.object({
   type: z.literal('footer-cta-band'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('ink'),
+  // Axes de variation (Vague C pilote). Tous optionnels → défaut = rendu actuel.
+  //  - layout : 'inline' (CTA à côté du titre, défaut historique) | 'stacked' (CTA sous le bloc).
+  //  - contentAlign : alignement du bloc titre/texte (start|center|end).
+  //  - actionsAlign : position des boutons, INDÉPENDANTE du contenu (start|center|end|spread).
+  //  - density : rythme padding-block/gap via tokens --space-*.
+  layout: z.enum(['inline', 'stacked']).optional(),
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
+  density: z.enum(['compact', 'base', 'ample']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -3932,6 +4330,17 @@ export const featureSplitMediaSchema = z.object({
   // Média sticky (effet éditorial quand le texte est plus long que le média).
   // Absent/false → alignement centré historique préservé.
   media_sticky: z.boolean().optional(),
+  // Axes de variation (Vague C pilote). Tous optionnels → défaut = rendu actuel.
+  //  - proportion : ratio des colonnes texte|média (data-proportion). Préféré à `layout`
+  //    (qui reste en compat : split-1-2 ≈ 1-2, split-2-1 ≈ 2-1). proportion gagne si présent.
+  //  - mediaSide : côté du média en desktop (data-media-side). Absent → ordre DOM (média à droite).
+  //  - contentAlign : alignement vertical/typo du bloc texte ; actionsAlign : position du CTA.
+  //  - density : rythme padding/gap via tokens --space-*.
+  proportion: z.enum(['1-1', '1-2', '2-1', '2-3', '3-2']).optional(),
+  mediaSide: z.enum(['left', 'right']).optional(),
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
+  density: z.enum(['compact', 'base', 'ample']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -4068,6 +4477,19 @@ export const diagnosticStagesSchema = z.object({
   lede_fr: z.string().optional(),
   lede_en: z.string().optional(),
   stages: z.array(diagnosticStageSchema).min(4).max(6),
+  // Vague C · Batch 5 (process/stages). Recettes layout : grid-steps (défaut = piste de stades
+  //  en grille count-adaptive actuelle), vertical-stack (stades empilés pleine largeur),
+  //  numbered-rows (lignes hairline numérotées). La séquence 1..N et le relevé « current » sont
+  //  préservés dans toutes les recettes.
+  layout: z.enum(['grid-steps', 'vertical-stack', 'numbered-rows']).optional(),
+  // grid-steps : nombre de colonnes imposé (auto = nb de stades, rendu actuel). Ignoré ailleurs.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
+  // density (data-density) : padding-block section + padding des cards via --space-*.
+  density: z.enum(['compact', 'base', 'ample']).optional(),
+  // contentAlign (data-content-align) : alignement du header (start défaut | center | end).
+  contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Couche atomique : placement par région (header + body). Forme = placementSchema.
+  placement: placementSchema,
 });
 
 // case-spotlight (case-sections) : carte INK image + métriques latérales massives +
@@ -4273,6 +4695,9 @@ export const authorBylineSchema = z.object({
 export const painSeverityListSchema = z.object({
   type: z.literal('pain-severity-list'),
   ...sectionBaseSchema.shape,
+  // Batch 6 (texte/manifeste) · refiner count-adaptive pour layout='two-col'|'grid'.
+  // 'auto' = auto-fit ; '2'|'3' = nb fixe desktop. Ignoré par list/rows-divided. Défaut absent = list.
+  columns: z.enum(['auto', '2', '3']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
@@ -4328,6 +4753,10 @@ export const systemFlowSchema = z.object({
 export const methodSteplineSchema = z.object({
   type: z.literal('method-stepline'),
   ...sectionBaseSchema.shape,
+  // Vague C · Batch 5 : layout (string mixin) lit horizontal (défaut, rail actuel),
+  // vertical-stack (colonne), numbered-rows (lignes hairline), grid-steps (cartes en grille).
+  // columns : nb de colonnes du mode grid-steps (auto = count-adaptive). Ignoré ailleurs.
+  columns: z.enum(['auto', '2', '3', '4']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   duration_fr: z.string().optional(),
@@ -4344,17 +4773,10 @@ export const methodSteplineSchema = z.object({
 // <<< [ds-primitives-v7] end
 
 // >>> [eeat-panel] start
-// Panneau E-E-A-T auteur/autorité à 4 variantes (media/columns/light/hero). Contenu GLOBAL
-// single-source (EEAT_PACK + EEAT_IMAGES) → pas de champ de contenu dans le schéma, seulement
-// le pilotage de variante/fond + overrides éditoriaux optionnels.
-export const eeatPanelSchema = z.object({
-  type: z.literal('eeat-panel'),
-  variant: z.enum(['media', 'columns', 'light', 'hero']).default('media'),
-  background: z.enum(['ink', 'paper']).optional(),
-  eyebrow: z.string().optional(),
-  title: z.string().optional(),
-  lead: z.string().optional(),
-});
+// Wave #38 (T3) · `eeat-panel` migré en module co-localisé (src/sections/eeat-panel/).
+// Ré-export (API publique préservée) + réimport local (binding requis par l'union ci-dessous).
+export { schema as eeatPanelSchema } from '../sections/eeat-panel/schema';
+import { schema as eeatPanelSchema } from '../sections/eeat-panel/schema';
 // <<< [eeat-panel] end
 
 export const sectionSchema = z.discriminatedUnion('type', [
@@ -4461,6 +4883,13 @@ export const sectionSchema = z.discriminatedUnion('type', [
   problemStatementSchema,
   bentoGridSchema,
   featureZigzagSchema,
+  scrollGallerySchema,
+  stackCardsSchema,
+  hoverRevealListSchema,
+  horizontalShowcaseSchema,
+  mediaBentoSchema,
+  photoClusterSchema,
+  mediaSwapBandSchema,
   logoWallSchema,
   pricingComparisonMatrixSchema,
   galleryMasonrySchema,

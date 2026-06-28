@@ -10,6 +10,9 @@
  * Contenu GLOBAL single-source : EEAT_PACK + EEAT_IMAGES (0 contenu dupliqué en props).
  * HONNÊTETÉ : studio solo, 0 client réel → bloc « Engagements » (commitments + honestyNote),
  * 0 témoignage, 0 étoile. Overrides éditoriaux optionnels : eyebrow / title / lead.
+ *
+ * Wave #38 (T3) : DÉPLACÉ depuis src/components/sections/EeatPanel.astro. Seul import
+ * relatif = `../../data/eeat-proposals`, qui résout à l'identique depuis src/sections/eeat-panel/.
  */
 import { EEAT_PACK, EEAT_IMAGES } from '../../data/eeat-proposals';
 

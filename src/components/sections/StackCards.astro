@@ -1,0 +1,293 @@
+---
+// Section catalogue · stack-cards
+// Cartes numérotées qui s'empilent au scroll : chaque carte est sticky avec un top
+// INCRÉMENTAL (calc + --i) et un z-index croissant → les cartes se superposent à
+// mesure que la page défile (effet stack, CSS pur, aucun JS requis). tone='ink'
+// rend une carte en contraste inverse. Média par carte : .svg = line-art inline
+// (currentColor + var(--accent)), .webp = <img> avec dimensions (0 CLS).
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+// Line-art DS inliné au build via ?raw (même idiome que FeatureZigzag) : le SVG vit
+// dans le DOM → currentColor suit la couleur de texte et var(--accent) résout le token.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
+
+interface Props {
+  data: SectionByType<'stack-cards'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+---
+
+<section class="stk sec-base" data-bg={data.background}>
+  <div class="wrap-wide">
+    <div class="stk__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="stk__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+
+    <ol class="stk__list" aria-label={isFr ? 'Étapes' : 'Steps'}>
+      {data.cards.map((card, i) => {
+        const tone = card.tone ?? 'paper';
+        const isSvg = card.media_src?.endsWith('.svg');
+        const art = isSvg ? inlineLineArt(card.media_src) : undefined;
+        const alt = (isFr ? card.media_alt_fr : card.media_alt_en) ?? '';
+        return (
+          <li class="stk__item" style={`--i:${i}`}>
+            <article class="stk__card reveal" data-tone={tone}>
+              <div class="stk__text">
+                {(isFr ? card.index_fr : card.index_en) && (
+                  <span class="stk__index u-serif-accent" aria-hidden="true"><i>{isFr ? card.index_fr : card.index_en}</i></span>
+                )}
+                <h3>{isFr ? card.title_fr : card.title_en}</h3>
+                <p>{isFr ? card.body_fr : card.body_en}</p>
+                {card.points && card.points.length > 0 && (
+                  <ul class="stk__points">
+                    {card.points.map((point) => (
+                      <li>{isFr ? point.label_fr : point.label_en}</li>
+                    ))}
+                  </ul>
+                )}
+                {(isFr ? card.link_label_fr : card.link_label_en) && card.link_href && (
+                  <a class="stk__link" href={card.link_href}>
+                    {isFr ? card.link_label_fr : card.link_label_en}
+                    <span aria-hidden="true">&#x2192;</span>
+                  </a>
+                )}
+              </div>
+              {(art || card.media_src) && (
+                <div class="stk__visual">
+                  {art ? (
+                    <div class="stk__art" set:html={art} role={alt ? 'img' : undefined} aria-label={alt || undefined} aria-hidden={alt ? undefined : 'true'} />
+                  ) : (
+                    <img class="stk__img" src={card.media_src} alt={alt} loading="lazy" decoding="async" width="1000" height="750" />
+                  )}
+                </div>
+              )}
+            </article>
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .stk__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+  .stk__header h2 :global(i) {
+    font-style: italic;
+  }
+  .stk__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  .stk__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  /* Chaque item réserve assez de hauteur de défilement pour l'empilement. */
+  .stk__item {
+    position: sticky;
+    /* top incrémental : chaque carte s'arrête un cran plus bas que la précédente. */
+    top: calc(var(--space-9) + var(--i) * var(--space-4));
+    /* z-index croissant : la carte qui arrive passe au-dessus. */
+    z-index: calc(var(--i) + 1);
+  }
+
+  .stk__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    min-height: clamp(20rem, 60vh, 32rem);
+    padding: clamp(var(--space-6), 4vw, var(--space-9));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lift);
+    background: var(--paper);
+  }
+  .stk__card[data-tone='paper'] {
+    background: var(--paper-2);
+  }
+
+  .stk__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  /* Index : taille display ; couleur accent portée par l'idiome .u-serif-accent i. */
+  .stk__index {
+    font-size: var(--text-h3);
+    line-height: 1;
+  }
+  .stk__text h3 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    line-height: 1.22;
+    margin: 0;
+  }
+  .stk__text p {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    max-width: 52ch;
+  }
+
+  .stk__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 52ch;
+  }
+  .stk__points li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink);
+  }
+  .stk__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
+    transform: rotate(45deg);
+  }
+
+  .stk__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    text-decoration: none;
+    font-weight: var(--fw-medium);
+  }
+  .stk__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .stk__visual {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper-3);
+  }
+  .stk__art {
+    color: var(--ink);
+    line-height: 0;
+    padding: clamp(var(--space-4), 3vw, var(--space-7));
+  }
+  .stk__art :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  .stk__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  /* ── Desktop : carte en 2 colonnes texte/média ── */
+  @media (min-width: 768px) {
+    .stk__card {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-9);
+    }
+    .stk__list {
+      gap: var(--space-7);
+    }
+  }
+
+  /* ── Carte ink (tone='ink') ── */
+  .stk__card[data-tone='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+  .stk__card[data-tone='ink'] :is(h3) { color: var(--paper); }
+  .stk__card[data-tone='ink'] .stk__text p { color: rgba(var(--paper-rgb), 0.72); }
+  .stk__card[data-tone='ink'] .stk__points li { color: var(--paper); }
+  .stk__card[data-tone='ink'] .stk__art { color: var(--paper); }
+  .stk__card[data-tone='ink'] .stk__visual {
+    border-color: rgba(var(--paper-rgb), 0.16);
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+
+  /* ── Section ink (background) : applique le contraste aux cartes paper aussi ── */
+  .stk[data-bg='paper-2'] { background: var(--paper-2); }
+  .stk[data-bg='paper-3'] { background: var(--paper-3); }
+  .stk[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .stk[data-bg='ink'] > .wrap-wide > .stk__header :is(h2, p) { color: var(--paper); }
+
+  /* ── Mobile : empilement normal (lecture titre→body→média), sticky désactivé ── */
+  @media (max-width: 767px) {
+    .stk__item {
+      position: static;
+      z-index: auto;
+    }
+    .stk__card {
+      min-height: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stk__card {
+      transition: none;
+    }
+  }
+</style>

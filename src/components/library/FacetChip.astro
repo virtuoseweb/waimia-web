@@ -1,0 +1,92 @@
+---
+// Waimia · Library · FacetChip : atome lien-chip réutilisable (T2 wave-preview-redesign).
+//
+// Une chip-lien cliquable : <a href> stylé chip, avec un libellé et un compteur optionnel.
+// Deux teintes : 'default' (paper/ink, hairline-strong) et 'accent' (paper/accent-text).
+//
+// Style grounded sur deux sources existantes :
+//   .cx-chip (src/pages/library/index.astro:681-711) : form pill, padding, typo mono,
+//     hover accent-text, focus-visible outline, transition.
+//   .sc-badge (src/components/library/SectionCard.astro:219-237) : surface paper-2,
+//     hairline border, text-micro mono, uppercase, line-height 1.
+//
+// 0 nouveau token DS (rule 60) : uniquement des var(--*) existants dans tokens.css.
+// 0 valeur en dur sauf exception structurelle : 1px hairline, gap 6px inter-éléments
+//   (identique au gap utilisé dans .cx-chip:681, constante structurelle mineure).
+// 0 U+2014 (rule 58).
+
+interface Props {
+  href: string;
+  label: string;
+  count?: number;
+  tone?: 'default' | 'accent';
+}
+
+const { href, label, count, tone = 'default' } = Astro.props;
+---
+
+<a class:list={['fc-chip', tone === 'accent' && 'fc-chip--accent']} href={href}>
+  <span class="fc-label">{label}</span>
+  {count !== undefined && <span class="fc-count" aria-label={`${count} sections`}>{count}</span>}
+</a>
+
+<style>
+  .fc-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;                          /* constante structurelle identique à .cx-chip:684 */
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-pill);
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-tight);
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      border-color var(--dur-fast) var(--ease),
+      color        var(--dur-fast) var(--ease),
+      background   var(--dur-fast) var(--ease);
+  }
+
+  .fc-chip:hover {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+
+  .fc-chip:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  /* tone='accent' : bordure et libellé colorés dès le repos */
+  .fc-chip--accent {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  .fc-chip--accent:hover {
+    background: var(--accent-text);
+    color: var(--paper);
+  }
+
+  .fc-label {
+    /* hérite de .fc-chip (mono, uppercase, semibold) */
+  }
+
+  .fc-count {
+    font-size: var(--text-micro);
+    color: var(--muted);
+    line-height: 1;
+  }
+
+  /* Quand la chip accent est au repos, le compteur s'aligne sur la couleur accent */
+  .fc-chip--accent .fc-count {
+    color: var(--accent-text);
+    opacity: 0.75;
+  }
+</style>

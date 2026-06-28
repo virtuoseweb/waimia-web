@@ -5,6 +5,16 @@
  * (idiome badge mono pill de HeroMastheadCard). Bandeau de specs mono en bas, items separes
  * par un « · ». Tres sobre, pense pour la citation par les moteurs generatifs.
  * Modeles : DirectAnswer (bloc GEO), HeroMastheadCard (pills), HeroSplitMedia (halo ::before).
+ *
+ * Batch 6 (texte/manifeste) · 3 couches de variation :
+ *  1. LAYOUT (data-layout, string curé) : 'prose' (défaut, 1 colonne lecture max-width
+ *     var(--wrap-read)), 'lead-aside' (statement en lead 2fr + pills/specs en colonne
+ *     aparté 1fr), 'rows-divided' (statement puis pills puis specs séparés par hairlines,
+ *     effet fiche éditoriale).
+ *  2. AXES (mixin) : density (gap/padding via --space-*), contentAlign (align bloc),
+ *     actionsAlign (suit content faute de CTA, conservé pour cohérence du contrat).
+ *  3. PLACEMENT ATOMIQUE (objet placement) : header (align/order/hideOn),
+ *     body (align/order/hideOn). Résolution raccourci↔placement (un seul data-attr/région).
  */
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
@@ -20,28 +30,65 @@ const kicker = data.kicker_fr ? (isFr ? data.kicker_fr : (data.kicker_en ?? data
 const statement = isFr ? data.statement_fr : data.statement_en;
 const pills = (data.pills ?? []).map((p) => (isFr ? p.label_fr : p.label_en));
 const specs = (data.specs ?? []).map((s) => (isFr ? s.label_fr : s.label_en));
+
+// ── Couche atomique (Batch 6) · placement par région. Résolution raccourci↔placement :
+// valeur effective calculée UNE fois, UN seul data-attr par région. `placement.header.align`
+// surcharge `contentAlign`. Défaut absent = rendu actuel.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerOrder = pl?.header?.order;
+const headerHide = pl?.header?.hideOn;
+const bodyAlign = pl?.body?.align ?? data.contentAlign;
+const bodyOrder = pl?.body?.order;
+const bodyHide = pl?.body?.hideOn;
 ---
-<section class="dx" data-bg={data.background ?? 'paper'}>
+<section
+  class="dx"
+  data-bg={data.background ?? 'paper'}
+  data-layout={data.layout}
+  data-density={data.density}
+>
   <div class="wrap-tight dx__inner reveal-stagger">
-    {kicker && <Kicker tone="accent" class="dx__kicker">{kicker}</Kicker>}
-    <p class="dx__statement" set:html={statement} />
-
-    {pills.length > 0 && (
-      <ul class="dx__pills" aria-label={isFr ? 'Caractéristiques' : 'Characteristics'}>
-        {pills.map((p) => <li class="dx__pill">{p}</li>)}
-      </ul>
+    {kicker && (
+      <header
+        class="dx__head"
+        data-header-align={headerAlign}
+        data-header-order={headerOrder}
+        data-header-hide={headerHide}
+      >
+        <Kicker tone="accent" class="dx__kicker">{kicker}</Kicker>
+      </header>
     )}
 
-    {specs.length > 0 && (
-      <p class="dx__specs">
-        {specs.map((s, i) => (
-          <>
-            {i > 0 && <span class="dx__sep" aria-hidden="true">·</span>}
-            <span class="dx__spec">{s}</span>
-          </>
-        ))}
-      </p>
-    )}
+    <div
+      class="dx__body"
+      data-body-align={bodyAlign}
+      data-body-order={bodyOrder}
+      data-body-hide={bodyHide}
+    >
+      <p class="dx__statement" set:html={statement} />
+
+      {(pills.length > 0 || specs.length > 0) && (
+        <div class="dx__aside">
+          {pills.length > 0 && (
+            <ul class="dx__pills" aria-label={isFr ? 'Caractéristiques' : 'Characteristics'}>
+              {pills.map((p) => <li class="dx__pill">{p}</li>)}
+            </ul>
+          )}
+
+          {specs.length > 0 && (
+            <p class="dx__specs">
+              {specs.map((s, i) => (
+                <>
+                  {i > 0 && <span class="dx__sep" aria-hidden="true">·</span>}
+                  <span class="dx__spec">{s}</span>
+                </>
+              ))}
+            </p>
+          )}
+        </div>
+      )}
+    </div>
   </div>
 
   <style>
@@ -65,15 +112,21 @@ const specs = (data.specs ?? []).map((s) => (isFr ? s.label_fr : s.label_en));
       pointer-events: none;
     }
 
+    /* Colonne de lecture bornée (token DS --wrap-read). Défaut = prose. */
     .dx__inner {
       position: relative;
       max-width: var(--wrap-read);
       margin-inline: auto;
       display: flex;
       flex-direction: column;
+      gap: var(--space-7);
     }
 
-    :global(.dx__kicker) { margin-bottom: var(--space-5); }
+    .dx__head { display: flex; flex-direction: column; }
+    :global(.dx__kicker) { margin: 0; }
+
+    .dx__body { display: flex; flex-direction: column; gap: var(--space-7); }
+    .dx__aside { display: flex; flex-direction: column; gap: var(--space-7); }
 
     .dx__statement {
       font-family: var(--font-display);
@@ -96,7 +149,7 @@ const specs = (data.specs ?? []).map((s) => (isFr ? s.label_fr : s.label_en));
     /* Pills · idiome badge mono pill (HeroMastheadCard) */
     .dx__pills {
       list-style: none;
-      margin: var(--space-7) 0 0;
+      margin: 0;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
@@ -118,7 +171,7 @@ const specs = (data.specs ?? []).map((s) => (isFr ? s.label_fr : s.label_en));
 
     /* Bandeau specs · mono fin, items separes par un · */
     .dx__specs {
-      margin: var(--space-7) 0 0;
+      margin: 0;
       padding-top: var(--space-5);
       border-top: 1px solid var(--hairline);
       font-family: var(--font-mono);
@@ -138,8 +191,80 @@ const specs = (data.specs ?? []).map((s) => (isFr ? s.label_fr : s.label_en));
     }
     .dx__sep { color: var(--accent-text); }
 
+    /* ── VOCABULAIRE DE LAYOUT (Batch 6) · recettes nommées sur data-layout. Défaut (absent)
+       = prose (rendu actuel, colonne de lecture bornée var(--wrap-read)). 100% tokens DS ;
+       structurel toléré = 768px, largeur de lecture en token, order/align. ── */
+
+    /* lead-aside : statement en lead (2fr) + pills/specs en colonne aparté (1fr). On élargit
+       l'inner à wrap-tight et on grid le body. specs garde sa hairline (séparateur naturel). */
+    .dx[data-layout='lead-aside'] .dx__inner { max-width: var(--wrap-tight); }
+    .dx[data-layout='lead-aside'] .dx__body {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--space-9);
+      align-items: start;
+    }
+    .dx[data-layout='lead-aside'] .dx__statement { max-width: 28ch; }
+    .dx[data-layout='lead-aside'] .dx__specs {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+    /* en colonne, le séparateur · inline n'a plus de sens → masqué */
+    .dx[data-layout='lead-aside'] .dx__specs .dx__sep { display: none; }
+
+    /* rows-divided : statement, pills, specs empilés et séparés par hairlines (fiche éditoriale).
+       Chaque sous-bloc gagne un filet supérieur. specs garde déjà le sien. */
+    .dx[data-layout='rows-divided'] .dx__body { gap: 0; }
+    .dx[data-layout='rows-divided'] .dx__aside { gap: 0; }
+    .dx[data-layout='rows-divided'] .dx__pills {
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .dx[data-layout='rows-divided'] .dx__specs { margin-top: var(--space-6); }
+    .dx[data-layout='rows-divided'][data-bg='ink'] .dx__pills { border-top-color: rgba(var(--paper-rgb), 0.14); }
+
+    /* ── COUCHE ATOMIQUE (Batch 6) · placement par région · UN SEUL data-attr/région. ── */
+    /* Région HEADER : alignement (align-self + text-align). Défaut = start. */
+    .dx__head[data-header-align='center'] { align-items: center; text-align: center; }
+    .dx__head[data-header-align='end'] { align-items: flex-end; text-align: end; }
+    /* Région BODY : alignement du bloc statement/aside. center borne la mesure + margin auto. */
+    .dx__body[data-body-align='center'] { align-items: center; text-align: center; }
+    .dx__body[data-body-align='center'] .dx__statement { margin-inline: auto; }
+    .dx__body[data-body-align='center'] .dx__pills,
+    .dx__body[data-body-align='center'] .dx__specs { justify-content: center; }
+    .dx__body[data-body-align='end'] { align-items: flex-end; text-align: end; }
+    .dx__body[data-body-align='end'] .dx__pills,
+    .dx__body[data-body-align='end'] .dx__specs { justify-content: flex-end; }
+
+    /* ORDER (réordonner header↔body). order = structurel. */
+    .dx__head[data-header-order='0'] { order: 0; }
+    .dx__head[data-header-order='1'] { order: 1; }
+    .dx__body[data-body-order='0'] { order: 0; }
+    .dx__body[data-body-order='1'] { order: 1; }
+
+    /* HIDE-ON (visibilité responsive). 768px = breakpoint structurel. */
+    .dx__head[data-header-hide='desktop'],
+    .dx__body[data-body-hide='desktop'] { display: none; }
+
+    /* ── AXE DENSITY (data-density) : rythme padding-block + gap. Tokens --space-* seulement. ── */
+    .dx[data-density='compact'] { padding-block: var(--space-8); }
+    .dx[data-density='compact'] .dx__inner { gap: var(--space-5); }
+    .dx[data-density='base'] { padding-block: var(--space-10); }
+    .dx[data-density='ample'] { padding-block: var(--space-12); }
+    .dx[data-density='ample'] .dx__inner { gap: var(--space-9); }
+
     @media (max-width: 768px) {
       .dx__statement { font-size: var(--text-h3); }
+      /* lead-aside → empilé 1 colonne (ordre de lecture : lead puis aparté). */
+      .dx[data-layout='lead-aside'] .dx__body { grid-template-columns: 1fr; gap: var(--space-7); }
+      .dx[data-layout='lead-aside'] .dx__statement { max-width: none; }
+      /* hide-on mobile (et on restaure les hide-on desktop). */
+      .dx__head[data-header-hide='mobile'],
+      .dx__body[data-body-hide='mobile'] { display: none; }
+      .dx__head[data-header-hide='desktop'] { display: flex; }
+      .dx__body[data-body-hide='desktop'] { display: flex; }
     }
   </style>
 </section>

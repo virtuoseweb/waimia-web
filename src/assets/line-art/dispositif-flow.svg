@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none" aria-hidden="true" role="presentation">
+  <!-- Grammaire line-art DS Waimia : trait currentColor (inversion gratuite ink/paper), 1 seul accent terracotta = le noeud d'orchestration central. Schema avant -> pendant -> apres. -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ===== AVANT : outils disperses, non relies ===== -->
+    <!-- petite legende d'etape (run pointille) -->
+    <path d="M28 36 L92 36" stroke-width="1.4" stroke-dasharray="22 8" opacity="0.5"/>
+
+    <!-- 4 outils epars, tailles/angles legerement varies pour l'effet "desordre" -->
+    <rect x="26" y="74" width="40" height="30" rx="4"/>
+    <rect x="78" y="118" width="34" height="34" rx="4"/>
+    <rect x="20" y="156" width="46" height="28" rx="4"/>
+    <circle cx="98" cy="78" r="15"/>
+    <!-- petits glyphes internes pour suggerer des apps differentes -->
+    <path d="M34 89 L58 89" stroke-width="1.4" opacity="0.55"/>
+    <path d="M86 135 L104 135" stroke-width="1.4" opacity="0.55"/>
+    <path d="M28 170 L58 170" stroke-width="1.4" opacity="0.55"/>
+    <path d="M92 78 L104 78" stroke-width="1.4" opacity="0.55"/>
+
+    <!-- liens manquants : traits coupes (le "pont a la main") -->
+    <path d="M70 100 L80 122" stroke-width="1.4" stroke-dasharray="3 7" opacity="0.5"/>
+    <path d="M66 168 L92 140" stroke-width="1.4" stroke-dasharray="3 7" opacity="0.5"/>
+
+    <!-- ===== fleche de transition 1 ===== -->
+    <path d="M128 130 L168 130" stroke-width="1.8"/>
+    <path d="M160 123 L168 130 L160 137" stroke-width="1.8"/>
+
+    <!-- ===== PENDANT : orchestration centrale (le noeud terracotta) ===== -->
+    <path d="M196 36 L286 36" stroke-width="1.4" stroke-dasharray="22 8" opacity="0.5"/>
+
+    <!-- anneau d'orchestration -->
+    <circle cx="240" cy="160" r="52"/>
+    <!-- satellites connectes au coeur -->
+    <circle cx="240" cy="96" r="9"/>
+    <circle cx="296" cy="138" r="9"/>
+    <circle cx="296" cy="190" r="9"/>
+    <circle cx="240" cy="224" r="9"/>
+    <circle cx="184" cy="190" r="9"/>
+    <circle cx="184" cy="138" r="9"/>
+    <!-- rayons vers le coeur -->
+    <path d="M240 105 L240 134"/>
+    <path d="M289 143 L258 155"/>
+    <path d="M289 185 L258 168"/>
+    <path d="M240 215 L240 186"/>
+    <path d="M191 185 L222 168"/>
+    <path d="M191 143 L222 155"/>
+  </g>
+
+  <!-- coeur d'orchestration : UNIQUE accent terracotta -->
+  <circle cx="240" cy="160" r="13" fill="var(--accent, #C94F2E)"/>
+
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- ===== fleche de transition 2 ===== -->
+    <path d="M312 130 L352 130" stroke-width="1.8"/>
+    <path d="M344 123 L352 130 L344 137" stroke-width="1.8"/>
+
+    <!-- ===== APRES : resultat mesurable (courbe + jalon) ===== -->
+    <path d="M388 36 L452 36" stroke-width="1.4" stroke-dasharray="22 8" opacity="0.5"/>
+
+    <!-- cadre graphe -->
+    <path d="M372 210 L372 96" stroke-width="1.4" opacity="0.7"/>
+    <path d="M372 210 L460 210" stroke-width="1.4" opacity="0.7"/>
+    <!-- gridlines fines -->
+    <path d="M372 138 L460 138" stroke-width="1" stroke-dasharray="4 6" opacity="0.3"/>
+    <path d="M372 174 L460 174" stroke-width="1" stroke-dasharray="4 6" opacity="0.3"/>
+    <!-- courbe croissante -->
+    <path d="M378 198 L398 184 L418 162 L438 132 L456 108" stroke-width="2.2"/>
+    <!-- jalons sur la courbe -->
+    <circle cx="398" cy="184" r="3" fill="currentColor" stroke="none"/>
+    <circle cx="418" cy="162" r="3" fill="currentColor" stroke="none"/>
+    <circle cx="438" cy="132" r="3" fill="currentColor" stroke="none"/>
+  </g>
+  <!-- point d'arrivee : on pourrait remettre l'accent ici, mais 1 SEUL accent par visuel -> on le laisse au coeur. Dernier jalon en encre pleine. -->
+  <circle cx="456" cy="108" r="4" fill="currentColor"/>
+</svg>

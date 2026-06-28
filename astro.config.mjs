@@ -100,10 +100,27 @@ export default defineConfig({
     '/agence/design-system': '/library',
     '/agence/ds-studio': '/library/studio',
     '/agence/hero-lab': '/library/hero-lab',
+    // 2026-06-28 · Cutover fiche detail catalogue vers la page canonique unique
+    // /library/[type] (blueprint tasks/wave-preview-redesign-spec.md, vague #60).
+    // Les pages doublons /components/[type].astro et /categories/[slug].astro sont
+    // supprimees ; ces redirects dynamiques preservent les URLs internes/indexees
+    // (noindex). Astro substitue le param du source dans la destination (doc redirects).
+    '/components/[type]': '/library/[type]',
+    '/categories/[category]': '/library/[category]',
     // V7-FOLD 2026-06-22 · refonte Phase 1 : la page service /tunnel-conversion-intelligent
     // (prod-live, indexée) est renommée /landing-page-scoring et absorbe le scoring.
     // 301 obligatoire pour préserver le ranking de l'ancienne URL.
     '/services/tunnel-conversion-intelligent': '/services/landing-page-scoring',
+    // Wave #34 2026-06-28 · nettoyage taxonomie dégénérée du catalogue DS.
+    // Catégories dé-dupliquées (slug singleton fusionné dans son équivalent) et
+    // familles singleton repliées sur leur cible même-archétype. 301 pour préserver
+    // les URLs /library/* internes/indexées (noindex). Cibles existantes (pas de 301-vers-404).
+    '/library/call-to-action-sections': '/library/cta-sections',
+    '/library/trust-proof': '/library/trust-sections',
+    '/library/family/eeat': '/library/family/prose',
+    '/library/family/manifesto': '/library/family/prose',
+    '/library/family/pain': '/library/family/prose',
+    '/library/family/flow': '/library/family/process-steps',
   },
   integrations: [
     react(),
@@ -238,6 +255,11 @@ export default defineConfig({
   // (validé empiriquement le 2026-04-27 via /api/healthcheck OK post-bascule monorepo)
   vite: {
     plugins: [/** @type {any} */ (tailwindcss())],
+    // DEV-ONLY · git worktrees n'ont pas leur propre node_modules (résolu vers le
+    // repo parent, HORS racine worktree) → Vite `@fs` renvoie 403 sur le client
+    // React et les îles n'hydratent pas sous `astro dev`. On autorise la remontée
+    // jusqu'au parent. Sans effet sur le build statique (le bundling résout déjà tout).
+    server: { fs: { allow: ['.', '..', '../..'] } },
     ssr: {
       noExternal: ['resend', '@react-email/components', '@react-email/render', '@tinacms/astro', '@tinacms/bridge'],
     },

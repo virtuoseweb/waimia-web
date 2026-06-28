@@ -12,6 +12,21 @@ import type { SectionByType } from '../../schemas/sections';
 import Button from '../ui/atoms/Button.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 
+// Line-art DS inliné au build via ?raw : le SVG vit dans le DOM →
+// `stroke="currentColor"` suit la couleur de texte du conteneur médaillon.
+// Pattern identique à FeatureZigzag.astro. Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
+
 interface Props {
   data: SectionByType<'hero-media-medallion'>;
   lang: 'fr' | 'en';
@@ -50,7 +65,13 @@ const ctaSecondary = data.cta_secondary;
     <div class="hmm-aside">
       {data.media_src && (
         <figure class="hmm-medallion">
-          <img src={data.media_src} alt={mediaAlt ?? ''} loading="eager" decoding="async" />
+          {(() => {
+            const isSvg = data.media_src?.endsWith('.svg');
+            const art = isSvg ? inlineLineArt(data.media_src) : undefined;
+            return art
+              ? <div class="hmm-medallion__art" set:html={art} role={mediaAlt ? 'img' : undefined} aria-label={mediaAlt || undefined} aria-hidden={mediaAlt ? undefined : 'true'} />
+              : <img src={data.media_src} alt={mediaAlt ?? ''} loading="eager" decoding="async" />;
+          })()}
         </figure>
       )}
       {kpis.length > 0 && (
@@ -137,6 +158,22 @@ const ctaSecondary = data.cta_secondary;
       color: var(--ink);
     }
     .hmm[data-bg='ink'] .hmm-medallion img { color: var(--paper); }
+    /* Line-art inliné : traits sombres sur médaillon paper-2, clairs sur médaillon ink-2. */
+    .hmm-medallion__art {
+      display: block;
+      width: 100%;
+      max-height: var(--space-15);
+      color: var(--ink);
+      line-height: 0;
+    }
+    .hmm[data-bg='ink'] .hmm-medallion__art { color: var(--paper); }
+    .hmm-medallion__art :global(svg) {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: var(--space-15);
+      object-fit: contain;
+    }
 
     .hmm-kpis { list-style: none; margin: 0; padding: 0; }
     .hmm-kpi {

@@ -28,10 +28,33 @@ const steps = data.steps.map((s) => ({
 }));
 // Numéro DÉRIVÉ de l'index (00, 01…), jamais stocké.
 const num = (i: number) => String(i).padStart(2, '0');
+
+// ── Vague C · Batch 5. Résolution raccourci↔placement : UN data-attr effectif par région.
+// Défaut absent = rail horizontal actuel. grid-steps lit data-columns ('auto' = count-adaptive).
+const msLayout = data.layout;
+const msPl = data.placement;
+const msHeaderAlign = msPl?.header?.align ?? data.contentAlign;
+const msHeaderOrder = msPl?.header?.order;
+const msHeaderHide = msPl?.header?.hideOn;
+const msBodyOrder = msPl?.body?.order;
+const msBodyHide = msPl?.body?.hideOn;
+const msGridCols = msLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefined;
 ---
-<section class="ms" data-bg={data.background ?? 'paper'} aria-label={kicker}>
+<section
+  class="ms"
+  data-bg={data.background ?? 'paper'}
+  data-layout={msLayout}
+  data-density={data.density}
+  data-content-align={data.contentAlign}
+  aria-label={kicker}
+>
   <div class="wrap-wide ms__inner reveal-stagger">
-    <header class="ms-hd">
+    <header
+      class="ms-hd"
+      data-header-align={msHeaderAlign}
+      data-header-order={msHeaderOrder}
+      data-header-hide={msHeaderHide}
+    >
       {kicker && (
         <span class="ms-kicker">
           <span class="ms-kicker__dot" aria-hidden="true"></span>
@@ -44,7 +67,7 @@ const num = (i: number) => String(i).padStart(2, '0');
     {h2 && <h2 class="ms-title" set:html={h2} />}
     {lede && <p class="ms-lede">{lede}</p>}
 
-    <ol class="ms-line">
+    <ol class="ms-line" data-columns={msGridCols} data-body-order={msBodyOrder} data-body-hide={msBodyHide}>
       {steps.map((step, i) => (
         <li class="ms-node">
           <span class="ms-node__dot" aria-hidden="true"></span>
@@ -208,6 +231,96 @@ const num = (i: number) => String(i).padStart(2, '0');
       top: 0;
       margin-bottom: 0;
     }
+  }
+
+  /* ── Vague C · Batch 5 · DENSITY (data-density). Défaut absent = rythme actuel. ── */
+  .ms[data-density='compact'] { padding-block: var(--space-8); }
+  .ms[data-density='compact'] .ms-line { gap: var(--space-3); }
+  .ms[data-density='ample'] { padding-block: var(--space-12); }
+  .ms[data-density='ample'] .ms-line { gap: var(--space-6); }
+
+  /* ── CONTENT-ALIGN + header placement. Le header est une rangée space-between ; center/end
+     décalent le kicker. Défaut = start (rendu actuel). ── */
+  .ms-hd[data-header-align='center'] { justify-content: center; }
+  .ms-hd[data-header-align='end'] { justify-content: flex-end; }
+  .ms[data-content-align='center'] .ms-title,
+  .ms[data-content-align='center'] .ms-lede { margin-inline: auto; text-align: center; }
+  .ms[data-content-align='end'] .ms-title,
+  .ms[data-content-align='end'] .ms-lede { margin-inline-start: auto; text-align: end; }
+
+  /* order / hideOn structurels. ms__inner est déjà un flux vertical (les enfants s'empilent). */
+  .ms-hd[data-header-order='0'] { order: 0; }
+  .ms-hd[data-header-order='1'] { order: 1; }
+  .ms-line[data-body-order='0'] { order: 0; }
+  .ms-line[data-body-order='1'] { order: 1; }
+  .ms-hd[data-header-hide='desktop'],
+  .ms-line[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .ms-hd[data-header-hide='mobile'],
+    .ms-line[data-body-hide='mobile'] { display: none; }
+    .ms-hd[data-header-hide='desktop'] { display: flex; }
+    .ms-line[data-body-hide='desktop'] { display: flex; }
+  }
+
+  /* ── VOCABULAIRE DE LAYOUT (data-layout). Défaut absent = rail horizontal (rendu actuel).
+     Tous les modes gardent la numérotation 00..N dérivée et le disque accent aligné. ── */
+
+  /* vertical-stack : la ligne devient verticale (rail à gauche, perles le long du fil) à TOUTES
+     les largeurs. Réutilise l'idiome déjà prouvé du breakpoint ≤780px. */
+  .ms[data-layout='vertical-stack'] .ms-line {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-6);
+  }
+  .ms[data-layout='vertical-stack'] .ms-line::before {
+    top: 0; bottom: 0; left: calc(var(--space-3) / 2); right: auto; width: 1px; height: auto;
+  }
+  .ms[data-layout='vertical-stack'] .ms-node { flex: 1 1 auto; padding-left: var(--space-6); }
+  .ms[data-layout='vertical-stack'] .ms-node__dot { position: absolute; left: 0; top: 0; margin-bottom: 0; }
+
+  /* numbered-rows : lignes pleine largeur séparées par hairline, numéro à gauche, titre+sub à
+     droite. Pas de rail continu (chaque ligne porte son numéro). */
+  .ms[data-layout='numbered-rows'] .ms-line { flex-direction: column; align-items: stretch; gap: 0; }
+  .ms[data-layout='numbered-rows'] .ms-line::before { display: none; }
+  .ms[data-layout='numbered-rows'] .ms-node {
+    flex: 1 1 auto;
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-5);
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--hairline);
+  }
+  .ms[data-layout='numbered-rows'] .ms-node:last-child { border-bottom: 1px solid var(--hairline); }
+  .ms[data-layout='numbered-rows'] .ms-node__dot { align-self: center; margin-bottom: 0; box-shadow: none; }
+  .ms[data-layout='numbered-rows'] .ms-node__num { flex: 0 0 auto; }
+  .ms[data-layout='numbered-rows'] .ms-node__title { flex: 1 1 auto; }
+
+  /* grid-steps : nœuds en grille de cartes hairline, count-adaptive (auto) ou N colonnes fixes.
+     Pas de rail continu. Absorbe 2..N étapes (auto-fit / centrage dernière ligne). */
+  .ms[data-layout='grid-steps'] .ms-line {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+    justify-content: center;
+    align-items: stretch;
+  }
+  .ms[data-layout='grid-steps'] .ms-line::before { display: none; }
+  .ms[data-layout='grid-steps'] .ms-line[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ms[data-layout='grid-steps'] .ms-line[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ms[data-layout='grid-steps'] .ms-line[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ms[data-layout='grid-steps'] .ms-node {
+    flex: 1 1 auto;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+  }
+  .ms[data-layout='grid-steps'] .ms-node__dot { box-shadow: none; }
+
+  @media (max-width: 780px) {
+    .ms[data-layout='grid-steps'] .ms-line,
+    .ms[data-layout='grid-steps'] .ms-line[data-columns='2'],
+    .ms[data-layout='grid-steps'] .ms-line[data-columns='3'],
+    .ms[data-layout='grid-steps'] .ms-line[data-columns='4'] { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -113,7 +113,7 @@ docs/
 ├── design-system/ (8)     01 contrat · 02 catalogue · 03 library-strategy · 04 agent-ds · 05 design-os · 06 motion · 07 health · brand-contract (RÉFÉRENCE)
 ├── directives/  (3)       01 typo · 02 dark · 03 awwwards (LIVE court)
 ├── state/       (9)       01 chantiers · 02 plan-execution-claude-code (BACKLOG MAÎTRE, phases P0→P4) · 03 critique · 04 brand-review · 05 design-refonte (détail PHASE P2) · 08 plan-refonte-site-web-intelligent-v6 · 09 plan-harmonisation-ds-page (LIVE, chantier DS+page courant) · RESUME-CLAUDE-CODE · prochain-chantier (LIVE volatile)
-├── audits/      (3)       01 template-registry-migration · 02 token-coherence (RÉFÉRENCE) · 03 audit-consolidé-2026-06-15 (5 axes, P0→P3, RÉFÉRENCE état avant cutover)
+├── audits/      (4)       01 template-registry-migration · 02 token-coherence (RÉFÉRENCE) · 02-section-colocation-38 (modules co-localisés src/sections/, gate check:section-modules) · 03 audit-consolidé-2026-06-15 (5 axes, P0→P3, RÉFÉRENCE état avant cutover)
 ├── specs/       (4)       01 ecosystem-partners · 02 adr-architecture-site (ADR-002) · 03 adr-ouverture-silo-acquerir (ADR-003, ouvre Acquérir en silo) · 04 copy minée ex-tunnel site-web-ia (préservée Phase C)
 ├── archive/               périmé / superseded (~60 docs : cartography/ (23), audit-refonte/ (5), audits consommés, DS périmés…)
 ├── session-reports/       journaux de session horodatés (SR-*)

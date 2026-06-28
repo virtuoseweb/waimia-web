@@ -1,0 +1,276 @@
+---
+// Section catalogue · photo-cluster
+// Composition editoriale asymetrique : une photo lead large + une grappe de
+// photos plus petites decalees, plus un bloc texte (kicker/titre/lede + note en
+// capitales). Statique avec reveal au scroll (classe `.reveal`, observer global
+// scroll-reveal.css → bascule `.is-visible`). `data-layout` change la composition
+// (lead-cluster | scatter | duo). Idiomes copies de FeatureZigzag : variante ink,
+// tokens DS, reduced-motion, mobile 1 colonne, bilingue _fr/_en.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'photo-cluster'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const layout = data.layout ?? 'lead-cluster';
+
+const leadAlt = (isFr ? data.lead.media_alt_fr : data.lead.media_alt_en) ?? '';
+const note = isFr ? data.note_fr : data.note_en;
+---
+
+<section class="pcl sec-base" data-bg={data.background} data-layout={layout}>
+  <div class="wrap-wide">
+    <div class="pcl__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="pcl__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+      {note && <p class="pcl__note">{note}</p>}
+    </div>
+
+    <div class="pcl__grid">
+      <figure class="pcl__lead reveal">
+        <img
+          class="pcl__img"
+          src={data.lead.media_src}
+          alt={leadAlt}
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="1125"
+        />
+      </figure>
+
+      <div class="pcl__cluster">
+        {data.photos.map((photo) => {
+          const alt = (isFr ? photo.media_alt_fr : photo.media_alt_en) ?? '';
+          const caption = isFr ? photo.caption_fr : photo.caption_en;
+          return (
+            <figure class="pcl__photo reveal">
+              <img
+                class="pcl__img"
+                src={photo.media_src}
+                alt={alt}
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="600"
+              />
+              {caption && <figcaption class="pcl__caption">{caption}</figcaption>}
+            </figure>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pcl__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+
+  .pcl__header h2 :global(i) {
+    font-style: italic;
+  }
+
+  .pcl__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  /* Note facon « NOUS AIMONS RESTER SIMPLES » : capitales espacees, muted. */
+  .pcl__note {
+    font-family: var(--font-sans);
+    font-size: var(--text-kicker);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── Grille : mobile-first 1 colonne (lead puis cluster). ── */
+  .pcl__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .pcl__cluster {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .pcl__lead,
+  .pcl__photo {
+    margin: 0;
+  }
+
+  /* Photo : cadre arrondi, image plein cadre, dimensions posees (0 CLS). */
+  .pcl__lead {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+  }
+
+  .pcl__photo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .pcl__photo .pcl__img {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+  }
+
+  .pcl__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .pcl__lead .pcl__img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .pcl__photo .pcl__img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .pcl__caption {
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  /* ── Stagger reveal : delai progressif par photo (s'applique a .is-visible). ── */
+  .pcl__lead.reveal { transition-delay: 0ms; }
+  .pcl__cluster .pcl__photo.reveal:nth-child(1) { transition-delay: 90ms; }
+  .pcl__cluster .pcl__photo.reveal:nth-child(2) { transition-delay: 180ms; }
+  .pcl__cluster .pcl__photo.reveal:nth-child(3) { transition-delay: 270ms; }
+  .pcl__cluster .pcl__photo.reveal:nth-child(4) { transition-delay: 360ms; }
+  .pcl__cluster .pcl__photo.reveal:nth-child(5) { transition-delay: 450ms; }
+
+  /* ──────────────────────────────────────────────────────────────────────
+     Compositions desktop (≥ 768px). Le cluster passe en grille a 2 colonnes
+     et chaque layout decale les photos pour l'effet editorial asymetrique.
+     ────────────────────────────────────────────────────────────────────── */
+  @media (min-width: 768px) {
+    /* lead-cluster (defaut) : lead ~60% a gauche, cluster decale a droite. */
+    .pcl[data-layout='lead-cluster'] .pcl__grid {
+      grid-template-columns: 3fr 2fr;
+      gap: var(--space-9);
+      align-items: center;
+    }
+    .pcl[data-layout='lead-cluster'] .pcl__cluster {
+      grid-template-columns: 1fr;
+      gap: var(--space-7);
+    }
+    /* Decalages verticaux pour casser l'alignement (chevauchement leger). */
+    .pcl[data-layout='lead-cluster'] .pcl__cluster .pcl__photo:nth-child(odd) {
+      margin-top: var(--space-6);
+    }
+    .pcl[data-layout='lead-cluster'] .pcl__cluster .pcl__photo:nth-child(even) {
+      margin-left: var(--space-7);
+    }
+
+    /* scatter : lead la plus grande a gauche (2 rangs), photos dispersees
+       avec decalages varies par nth-child. */
+    .pcl[data-layout='scatter'] .pcl__grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-7);
+      align-items: start;
+    }
+    .pcl[data-layout='scatter'] .pcl__lead {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+    .pcl[data-layout='scatter'] .pcl__lead .pcl__img {
+      aspect-ratio: 4 / 5;
+    }
+    .pcl[data-layout='scatter'] .pcl__cluster {
+      grid-column: 2 / 4;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-7);
+    }
+    .pcl[data-layout='scatter'] .pcl__cluster .pcl__photo:nth-child(2) {
+      margin-top: var(--space-8);
+    }
+    .pcl[data-layout='scatter'] .pcl__cluster .pcl__photo:nth-child(3) {
+      margin-top: var(--space-5);
+    }
+    .pcl[data-layout='scatter'] .pcl__cluster .pcl__photo:nth-child(4) {
+      margin-top: var(--space-9);
+    }
+
+    /* duo : lead + cluster cote a cote, composition simple a 2 colonnes. */
+    .pcl[data-layout='duo'] .pcl__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-9);
+      align-items: start;
+    }
+    .pcl[data-layout='duo'] .pcl__lead .pcl__img {
+      aspect-ratio: 4 / 3;
+    }
+    .pcl[data-layout='duo'] .pcl__cluster {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+
+  /* ── Mobile (≤ 768px) : 1 colonne, pas de decalage horizontal/vertical. ── */
+  @media (max-width: 768px) {
+    .pcl__cluster .pcl__photo {
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+
+  /* ── Reduced motion : neutraliser transitions et delais (le reveal global
+     gere opacity/transform, on coupe aussi les delais locaux). ── */
+  @media (prefers-reduced-motion: reduce) {
+    .pcl__lead.reveal,
+    .pcl__photo.reveal {
+      transition: none;
+      transition-delay: 0ms;
+    }
+  }
+
+  /* ── Alternance des fonds · defaut paper = rendu inchange ── */
+  .pcl[data-bg='paper-2'] { background: var(--paper-2); }
+  .pcl[data-bg='paper-3'] { background: var(--paper-3); }
+  .pcl[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .pcl[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .pcl[data-bg='ink'] .pcl__lede { color: rgba(var(--paper-rgb), 0.72); }
+  .pcl[data-bg='ink'] .pcl__note { color: rgba(var(--paper-rgb), 0.64); }
+  .pcl[data-bg='ink'] .pcl__caption { color: rgba(var(--paper-rgb), 0.64); }
+  .pcl[data-bg='ink'] .pcl__lead,
+  .pcl[data-bg='ink'] .pcl__photo .pcl__img {
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+</style>

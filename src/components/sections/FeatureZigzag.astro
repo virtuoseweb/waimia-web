@@ -34,6 +34,38 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const alternate = data.alternate_blocks === true;
 
+// ── Vague C · Scale (Batch 4) ──
+// layout : 'alternate' (défaut, zigzag) · 'stacked' (média toujours dessus) ·
+// 'inline-left' / 'inline-right' (média toujours du même côté, pas d'alternance).
+const fzLayout = data.layout ?? 'alternate';
+// Côté média de la 1ʳᵉ rangée (mediaSide initial). Défaut 'left' = rendu actuel
+// (rangée 0 → visuel à gauche). 'right' décale le départ de l'alternance.
+const mediaSide = data.mediaSide ?? 'left';
+const startRight = mediaSide === 'right';
+
+// Calcul du reverse PAR RANGÉE selon le layout, posé sur data-reverse (le CSS lit ce flag) :
+//   alternate    → alterne i%2, décalé si mediaSide='right'.
+//   stacked      → reverse ignoré (empilé, 1 colonne).
+//   inline-left  → reverse=false partout (média gauche).
+//   inline-right → reverse=true partout (média droite).
+const rowReverse = (i: number): boolean => {
+  if (fzLayout === 'inline-left') return false;
+  if (fzLayout === 'inline-right') return true;
+  if (fzLayout === 'stacked') return false;
+  // alternate : impair = média gauche (reverse=false) ; pair = média droite (reverse=true).
+  const base = i % 2 === 1;
+  return startRight ? !base : base;
+};
+
+// ── Couche atomique (placement par région) : valeur effective calculée UNE fois,
+// UN seul data-attr par région. placement.header.align surcharge contentAlign.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerHide = pl?.header?.hideOn;
+const bodyHide = pl?.body?.hideOn;
+const mediaHide = pl?.media?.hideOn;
+const actionsJustify = pl?.actions?.justify;
+
 // ── Placeholder mockup « navigateur » (quand une row n'a pas de média) ──
 // Châssis CONSTANT factorisé (barre titre + carte intérieure + boutons bas) ;
 // seul le MODULE DROIT (boîte cadre paper-2, x 384 y 130 w 194 h 132) varie
@@ -83,9 +115,16 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
 </svg>`;
 ---
 
-<section class="fz sec-base" data-bg={data.background} data-alternate={alternate ? 'true' : 'false'}>
+<section
+  class="fz sec-base"
+  data-bg={data.background}
+  data-alternate={alternate ? 'true' : 'false'}
+  data-layout={fzLayout}
+  data-proportion={data.proportion}
+  data-density={data.density}
+>
   <div class="wrap-wide">
-    <div class="fz__header reveal">
+    <div class="fz__header reveal" data-header-align={headerAlign} data-header-hide={headerHide}>
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -97,14 +136,14 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
 
     <ol class="fz__rows" aria-label={isFr ? 'Fonctionnalités' : 'Features'}>
       {data.rows.map((row, i) => {
-        const reverse = i % 2 === 1;
+        const reverse = rowReverse(i);
         const isSvg = row.media_src?.endsWith('.svg');
         const art = isSvg ? inlineLineArt(row.media_src) : undefined;
         const alt = (isFr ? row.media_alt_fr : row.media_alt_en) ?? '';
         return (
           <li class="fz__row reveal" data-reverse={reverse ? 'true' : 'false'}>
             <div class="fz__cell">
-              <div class="fz__visual">
+              <div class="fz__visual" data-media-hide={mediaHide}>
                 {art ? (
                   <div class="fz__art" set:html={art} role={alt ? 'img' : undefined} aria-label={alt || undefined} aria-hidden={alt ? undefined : 'true'} />
                 ) : row.media_src ? (
@@ -113,7 +152,7 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
                   <Fragment set:html={placeholderSvg(i)} />
                 )}
               </div>
-              <div class="fz__text">
+              <div class="fz__text" data-body-hide={bodyHide}>
                 {(isFr ? row.kicker_fr : row.kicker_en) && (
                   <Kicker tone="accent">{isFr ? row.kicker_fr : row.kicker_en}</Kicker>
                 )}
@@ -127,7 +166,7 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
                   </ul>
                 )}
                 {(isFr ? row.link_label_fr : row.link_label_en) && row.link_href && (
-                  <a class="fz__link" href={row.link_href}>
+                  <a class="fz__link" href={row.link_href} data-actions-justify={actionsJustify}>
                     {isFr ? row.link_label_fr : row.link_label_en}
                     <span aria-hidden="true">&#x2192;</span>
                   </a>
@@ -200,6 +239,60 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
     /* Pair (1, 3, ...) : texte gauche, visuel droite */
     .fz__row[data-reverse='true'] .fz__visual { order: 1; }
     .fz__row[data-reverse='true'] .fz__text   { order: 0; }
+
+    /* ── Axe PROPORTION (data-proportion) · ratio média|texte par rangée. minmax(0,..)
+       garantit qu'aucune colonne ne déborde (le contenu peut rétrécir). Posé en container
+       (≥48rem) → cohabite avec le passage 1 colonne sous 48rem. data-reverse gère le côté,
+       donc la 1ʳᵉ fraction = colonne de GAUCHE (peut être média ou texte selon reverse).
+       Pour rester intuitif (proportion = média|texte), on mappe selon reverse. ── */
+    .fz[data-proportion='1-2'] .fz__row[data-reverse='false'] .fz__cell { grid-template-columns: minmax(0,1fr) minmax(0,2fr); }
+    .fz[data-proportion='1-2'] .fz__row[data-reverse='true']  .fz__cell { grid-template-columns: minmax(0,2fr) minmax(0,1fr); }
+    .fz[data-proportion='2-1'] .fz__row[data-reverse='false'] .fz__cell { grid-template-columns: minmax(0,2fr) minmax(0,1fr); }
+    .fz[data-proportion='2-1'] .fz__row[data-reverse='true']  .fz__cell { grid-template-columns: minmax(0,1fr) minmax(0,2fr); }
+    .fz[data-proportion='2-3'] .fz__row[data-reverse='false'] .fz__cell { grid-template-columns: minmax(0,2fr) minmax(0,3fr); }
+    .fz[data-proportion='2-3'] .fz__row[data-reverse='true']  .fz__cell { grid-template-columns: minmax(0,3fr) minmax(0,2fr); }
+    .fz[data-proportion='3-2'] .fz__row[data-reverse='false'] .fz__cell { grid-template-columns: minmax(0,3fr) minmax(0,2fr); }
+    .fz[data-proportion='3-2'] .fz__row[data-reverse='true']  .fz__cell { grid-template-columns: minmax(0,2fr) minmax(0,3fr); }
+
+    /* ── Layout STACKED · média toujours au-dessus du texte, 1 colonne (pas de split même
+       en grande largeur). Le JS pose data-reverse='false' partout → visuel order 0 (dessus). ── */
+    .fz[data-layout='stacked'] .fz__cell { grid-template-columns: 1fr; gap: var(--space-6); }
+  }
+
+  /* ── Axe DENSITY (data-density) · gap entre rangées + gap interne des cellules. Tokens DS. ── */
+  .fz[data-density='compact'] .fz__rows { gap: var(--space-7); }
+  .fz[data-density='ample']   .fz__rows { gap: var(--space-12); }
+  @container (min-width: 48rem) {
+    .fz[data-density='compact'] .fz__cell { gap: var(--space-6); }
+    .fz[data-density='ample']   .fz__cell { gap: var(--space-12); }
+  }
+
+  /* ── Axe CONTENT-ALIGN (data-header-align) · alignement du bloc header (kicker/h2/lede).
+     Résout placement.header.align ?? contentAlign. Défaut start = rendu actuel. ── */
+  .fz__header[data-header-align='center'] { align-items: center; text-align: center; margin-inline: auto; }
+  .fz__header[data-header-align='end']    { align-items: flex-end; text-align: end; margin-inline-start: auto; }
+
+  /* ── COUCHE ATOMIQUE · placement par région (header/media/body/actions).
+     UN data-attr par région. data-actions-justify = alignement du lien CTA dans sa rangée,
+     INDÉPENDANT du contenu. data-*-hide = visibilité responsive. order non câblé ici (le
+     côté média est déjà piloté par data-reverse calculé en amont). ── */
+  .fz__link[data-actions-justify] { display: inline-flex; }
+  .fz__text:has(> .fz__link[data-actions-justify='center']) { align-items: center; }
+  .fz__text:has(> .fz__link[data-actions-justify='end'])    { align-items: flex-end; }
+  .fz__link[data-actions-justify='center'] { align-self: center; }
+  .fz__link[data-actions-justify='end']    { align-self: flex-end; }
+
+  /* HIDE-ON (visibilité responsive). 768px = breakpoint structurel. */
+  .fz__header[data-header-hide='desktop'],
+  .fz__visual[data-media-hide='desktop'],
+  .fz__text[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .fz__header[data-header-hide='mobile'],
+    .fz__visual[data-media-hide='mobile'],
+    .fz__text[data-body-hide='mobile'] { display: none; }
+    .fz__header[data-header-hide='desktop'] { display: flex; }
+    .fz__visual[data-media-hide='desktop'] { display: block; }
+    .fz__text[data-body-hide='desktop'] { display: flex; }
   }
 
   /* Fallback navigateurs sans container-query : bascule sur media-query viewport. */

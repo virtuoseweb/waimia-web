@@ -13,6 +13,22 @@ import Button from '../ui/atoms/Button.astro';
 import DropCap from '../editorial/DropCap.astro';
 import KeyMetric from '../editorial/KeyMetric.astro';
 
+// Line-art DS inliné au build via ?raw : le SVG vit dans le DOM →
+// `stroke="currentColor"` suit la couleur de texte de la coque média (variant split).
+// Un média raster (registre editorial) retombe sur <img> inchangé.
+// Pattern identique à FeatureZigzag.astro. Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
+
 interface Props {
   data:
     | SectionByType<'hero-hub-stats'>
@@ -85,7 +101,13 @@ const cfMediaRegister =
         </div>
         {data.media_src && (
           <figure class="hero-cf-split__media reveal-fade reveal">
-            <img src={data.media_src} alt={cfMediaAlt} loading="eager" decoding="async" width="720" height="560" />
+            {(() => {
+              const isSvg = data.media_src?.endsWith('.svg');
+              const art = cfMediaRegister === 'lineart' && isSvg ? inlineLineArt(data.media_src) : undefined;
+              return art
+                ? <div class="hero-cf-split__art" set:html={art} role={cfMediaAlt ? 'img' : undefined} aria-label={cfMediaAlt || undefined} aria-hidden={cfMediaAlt ? undefined : 'true'} />
+                : <img src={data.media_src} alt={cfMediaAlt} loading="eager" decoding="async" width="720" height="560" />;
+            })()}
           </figure>
         )}
       </div>
@@ -675,6 +697,22 @@ const cfMediaRegister =
     height: 100%;
     color: var(--ink);
   }
+  /* Line-art inliné : traits sombres sur coque paper-2, clairs en mode ink
+     (la règle [data-bg='ink'] ci-dessous bascule le color du conteneur). */
+  .hero-cf-split__art {
+    width: 100%;
+    height: 100%;
+    color: var(--ink);
+    line-height: 0;
+    padding: clamp(var(--space-6), 4vw, var(--space-10));
+    box-sizing: border-box;
+  }
+  .hero-cf-split__art :global(svg) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
   /* Registre LINEART : diagramme posé, respire dans un fond paper-2 + padding. */
   .hero-cf-split[data-media-register='lineart'] .hero-cf-split__media {
     background:
@@ -701,6 +739,7 @@ const cfMediaRegister =
       rgba(var(--paper-rgb), 0.04);
   }
   .hero-conversion-funnel--split[data-bg='ink'] .hero-cf-split__media img { color: var(--paper); }
+  .hero-conversion-funnel--split[data-bg='ink'] .hero-cf-split__art { color: var(--paper); }
   .hero-conversion-funnel--split[data-bg='ink'] .hero-cf-split__meta li::before {
     background: rgba(var(--paper-rgb), 0.28);
   }

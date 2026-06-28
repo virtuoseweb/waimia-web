@@ -6,7 +6,7 @@
 // Rend le parcours Studio <-> Catalogue bidirectionnel et explicite (mission ds-studio-nav + U0 coquille /library).
 // DA : Inter Tight (--font-sans), contraste par le gras, fond ink contrasté, 0 nouveau token.
 
-type Surface = 'studio' | 'catalogue' | 'categories' | 'hero-lab';
+type Surface = 'studio' | 'catalogue' | 'categories' | 'hero-lab' | 'family' | 'manifest';
 
 /** Jeux de cibles : on garde `agence` par défaut (surfaces legacy encore servies),
  *  `library` pointe les nouvelles routes de l'atelier. Le hub `/library` les expose. */
@@ -24,6 +24,8 @@ const TARGETS = {
     catalogue: '/library',
     categories: '/library',
     'hero-lab': '/library/hero-lab',
+    family: '/library/family',
+    manifest: '/library/manifest.json',
   },
 } as const;
 
@@ -45,6 +47,8 @@ const items =
         { key: 'catalogue', label: 'Catalogue', href: t.catalogue, hint: 'bibliothèque des composants' },
         { key: 'studio', label: 'DS Studio', href: t.studio, hint: 'personnaliser les tokens' },
         { key: 'hero-lab', label: 'Hero Lab', href: t['hero-lab'], hint: 'variantes de hero comparées' },
+        { key: 'family', label: 'Familles', href: t.family, hint: 'index des familles transverses' },
+        { key: 'manifest', label: 'MCP', href: t.manifest, hint: 'graine lisible par les agents' },
       ] as const)
     : ([
         { key: 'studio', label: 'DS Studio', href: t.studio, hint: 'personnaliser les tokens' },

@@ -15,18 +15,49 @@ const cells = data.cells ?? [];
 // tout en s'adaptant à N tuiles via .bento-fluid (grid-auto-flow: dense).
 const spanClass = (cell: (typeof cells)[number], i: number): string =>
   `span-${cell.span ?? (i === 0 ? 'lg' : 'sm')}`;
+
+// ── Batch 3 · VOCABULAIRE DE LAYOUT + couche atomique. Le défaut (layout absent) =
+// recette historique « bento » (span content-driven sur .bento-fluid). Les autres recettes
+// (bento-feature/mosaic/matrix-2x2/matrix-3x3/grid-uniform) reprennent la grille via data-layout.
+const layout = data.layout; // absent → rendu actuel
+// Résolution raccourci↔placement : UN seul data-attr par région, valeur effective calculée une fois.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign; // start (défaut CSS) si absent
+const headerOrder = pl?.header?.order;
+const headerHide = pl?.header?.hideOn;
+const bodyOrder = pl?.body?.order;
+const bodyHide = pl?.body?.hideOn;
+const bodyJustify = pl?.body?.justify;
 ---
 
-<section class="bento-grid sec-base" data-bg={data.background}>
+<section
+  class="bento-grid sec-base"
+  data-bg={data.background}
+  data-density={data.density}
+  data-layout={layout}
+  data-content-align={data.contentAlign}
+>
   <div class="wrap-wide">
-    <div class="bento-grid__header">
+    <div
+      class="bento-grid__header"
+      data-header-align={headerAlign}
+      data-header-order={headerOrder}
+      data-header-hide={headerHide}
+    >
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     </div>
 
-    <ul class="bento-grid__mosaic bento-fluid">
+    <ul
+      class="bento-grid__mosaic bento-fluid"
+      data-columns={data.columns}
+      data-item-height={data.itemHeight}
+      data-body-order={bodyOrder}
+      data-body-hide={bodyHide}
+      data-body-justify={bodyJustify}
+    >
       {cells.map((cell: (typeof cells)[number], i: number) => (
         <li class={`bento-grid__cell ${spanClass(cell, i)}`}>
           {cell.glyph && (
@@ -65,7 +96,34 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
        leur contenu et compactent la mosaïque vers le haut. */
     grid-auto-rows: min-content;
     align-content: start;
+    gap: var(--bento-grid-gap, var(--gut));
   }
+
+  /* ── Axe COLUMNS (data-columns) : nombre de colonnes de la mosaïque. Défaut (absent) =
+     auto-fill content-driven (.bento-fluid). '2'|'3'|'4' = nombre fixe ; les spans lg/wide
+     (2 colonnes) sont clampés au nb réel de colonnes pour 'auto' et '2' (jamais de débordement). ── */
+  .bento-grid__mosaic[data-columns='auto'] {
+    grid-template-columns: repeat(auto-fill, minmax(var(--tile-min, 15rem), 1fr));
+  }
+  .bento-grid__mosaic[data-columns='2'] { grid-template-columns: repeat(2, 1fr); }
+  .bento-grid__mosaic[data-columns='3'] { grid-template-columns: repeat(3, 1fr); }
+  .bento-grid__mosaic[data-columns='4'] { grid-template-columns: repeat(4, 1fr); }
+  /* À 2 colonnes, une tuile span-2 occuperait toute la largeur → on borne lg/wide à 1
+     colonne de large (la hauteur span-2 de lg reste, mosaïque cohérente). */
+  .bento-grid__mosaic[data-columns='2'] :global(.span-lg),
+  .bento-grid__mosaic[data-columns='2'] :global(.span-wide) { grid-column: span 1; }
+
+  /* ── Axe DENSITY (data-density) : padding section (via --section-base local), gap mosaïque
+     et padding des tuiles. Défaut (absent) = gap --gut / padding --space-7 (rendu actuel). ── */
+  .bento-grid[data-density='compact'] { --bento-grid-gap: var(--space-4); }
+  .bento-grid[data-density='compact'] .bento-grid__header { margin-bottom: var(--space-6); }
+  .bento-grid[data-density='compact'] .bento-grid__cell { padding: var(--space-5); }
+  .bento-grid[data-density='compact'] .bento-grid__cell.span-lg { padding: var(--space-7); }
+  .bento-grid[data-density='base'] { --bento-grid-gap: var(--space-6); }
+  .bento-grid[data-density='ample'] { --bento-grid-gap: var(--space-8); }
+  .bento-grid[data-density='ample'] .bento-grid__header { margin-bottom: var(--space-12); }
+  .bento-grid[data-density='ample'] .bento-grid__cell { padding: var(--space-9); }
+  .bento-grid[data-density='ample'] .bento-grid__cell.span-lg { padding: var(--space-12); }
 
   .bento-grid__cell {
     border: 1px solid var(--hairline);
@@ -124,9 +182,130 @@ const spanClass = (cell: (typeof cells)[number], i: number): string =>
     margin: 0;
   }
 
+  /* ══ Batch 3 · VOCABULAIRE DE LAYOUT (data-layout) ══════════════════════════
+     Défaut (layout absent) = recette « bento » historique (.bento-fluid : auto-fill +
+     auto-flow dense + spans content-driven). Les recettes nommées surchargent la grille.
+     Chaque recette absorbe 1..N tuiles sans trou ; spans clampés au nb de colonnes ;
+     matrix réduit proprement la dernière ligne. 100% tokens DS ; structurel = 768px,
+     aspect-ratio, minmax en rem. ── */
+
+  /* bento (explicite) : identique au défaut .bento-fluid (auto-fill dense). */
+  .bento-grid[data-layout='bento'] .bento-grid__mosaic {
+    grid-template-columns: repeat(auto-fill, minmax(var(--tile-min, 15rem), 1fr));
+    grid-auto-flow: dense;
+  }
+
+  /* bento-feature : 1ʳᵉ tuile vedette span 2 colonnes + 2 lignes (imposé, calque FeatureGrid B2),
+     le reste en unités. dense comble les trous. Override les .span-* content-driven. */
+  .bento-grid[data-layout='bento-feature'] .bento-grid__mosaic {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: min-content;
+  }
+  .bento-grid[data-layout='bento-feature'] .bento-grid__cell { grid-column: auto; grid-row: auto; }
+  .bento-grid[data-layout='bento-feature'] .bento-grid__cell:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  /* mosaic : spans variés conservés (content-driven .span-*) MAIS hauteurs contrastées via
+     grid-auto-rows fixe + spans de rang ; dense obligatoire pour 0 trou. 3 colonnes. */
+  .bento-grid[data-layout='mosaic'] .bento-grid__mosaic {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(var(--space-12), auto);
+  }
+
+  /* matrix-2x2 / matrix-3x3 : matrices carrées. columns imposé par le nom, cellules en
+     aspect-ratio:1 (carrés synchrones). auto-flow:row → si items < N², la dernière ligne se
+     réduit proprement (jamais de trou béant). Spans content-driven neutralisés. */
+  .bento-grid[data-layout='matrix-2x2'] .bento-grid__mosaic,
+  .bento-grid[data-layout='matrix-3x3'] .bento-grid__mosaic {
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+  }
+  .bento-grid[data-layout='matrix-2x2'] .bento-grid__mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bento-grid[data-layout='matrix-3x3'] .bento-grid__mosaic { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bento-grid[data-layout='matrix-2x2'] .bento-grid__cell,
+  .bento-grid[data-layout='matrix-3x3'] .bento-grid__cell {
+    grid-column: auto;
+    grid-row: auto;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  /* grid-uniform : N colonnes ÉGALES, hauteurs égalisées (stretch). N piloté par data-columns
+     (défaut 3). 0 span (toutes les cellules unité). */
+  .bento-grid[data-layout='grid-uniform'] .bento-grid__mosaic {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: row;
+    align-items: stretch;
+  }
+  .bento-grid[data-layout='grid-uniform'] .bento-grid__mosaic[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bento-grid[data-layout='grid-uniform'] .bento-grid__mosaic[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bento-grid[data-layout='grid-uniform'] .bento-grid__mosaic[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .bento-grid[data-layout='grid-uniform'] .bento-grid__cell { grid-column: auto; grid-row: auto; }
+
+  /* ── Batch 3 · itemHeight (data-item-height) : hauteur des cellules. Honoré par les recettes
+     en grille. square/video via aspect-ratio (relâché en mobile). even = stretch. ── */
+  .bento-grid__mosaic[data-item-height='even'] { align-items: stretch; }
+  .bento-grid__mosaic[data-item-height='even'] .bento-grid__cell { align-self: stretch; }
+  .bento-grid__mosaic[data-item-height='square'] .bento-grid__cell { aspect-ratio: 1; overflow: hidden; }
+  .bento-grid__mosaic[data-item-height='video'] .bento-grid__cell { aspect-ratio: 16 / 9; overflow: hidden; }
+
+  /* ── Batch 3 · CONTENT-ALIGN + couche atomique HEADER (data-header-align résout
+     placement.header.align ?? contentAlign). Défaut = start/gauche (rendu actuel). ── */
+  .bento-grid__header[data-header-align='center'] { text-align: center; align-items: center; }
+  .bento-grid__header[data-header-align='end'] { text-align: end; align-items: flex-end; }
+
+  /* ── Batch 3 · couche atomique BODY (justify du cluster d'items, structurel). ── */
+  .bento-grid__mosaic[data-body-justify='center'] { justify-content: center; }
+  .bento-grid__mosaic[data-body-justify='end'] { justify-content: end; }
+  .bento-grid__mosaic[data-body-justify='between'] { justify-content: space-between; }
+
+  /* ── Batch 3 · couche atomique ORDER + HIDE-ON (header/body). order structurel ;
+     le wrap-wide passe en flux colonne pour que `order` ait un effet. 768px = structurel. ── */
+  .bento-grid .wrap-wide { display: flex; flex-direction: column; }
+  .bento-grid__header[data-header-order='0'] { order: 0; }
+  .bento-grid__header[data-header-order='1'] { order: 1; }
+  .bento-grid__mosaic[data-body-order='0'] { order: 0; }
+  .bento-grid__mosaic[data-body-order='1'] { order: 1; }
+  .bento-grid__header[data-header-hide='desktop'],
+  .bento-grid__mosaic[data-body-hide='desktop'] { display: none; }
+
   /* Responsive : géré par .bento-fluid (grid.css). auto-fill descend les
      pistes selon la largeur dispo, et < 768px tout s'empile en 1 colonne avec
-     les spans neutralisés. Aucune media query par cran à maintenir ici. */
+     les spans neutralisés. On neutralise aussi les colonnes fixes (data-columns)
+     dont la spécificité dépasse .bento-fluid mobile. */
+  @media (max-width: 768px) {
+    .bento-grid__mosaic[data-columns='auto'],
+    .bento-grid__mosaic[data-columns='2'],
+    .bento-grid__mosaic[data-columns='3'],
+    .bento-grid__mosaic[data-columns='4'] { grid-template-columns: 1fr; }
+    /* Toute recette en grille converge en 1 colonne ; spans/aspect-ratio relâchés. */
+    .bento-grid[data-layout='bento'] .bento-grid__mosaic,
+    .bento-grid[data-layout='bento-feature'] .bento-grid__mosaic,
+    .bento-grid[data-layout='mosaic'] .bento-grid__mosaic,
+    .bento-grid[data-layout='matrix-2x2'] .bento-grid__mosaic,
+    .bento-grid[data-layout='matrix-3x3'] .bento-grid__mosaic,
+    .bento-grid[data-layout='grid-uniform'] .bento-grid__mosaic,
+    .bento-grid[data-layout='grid-uniform'] .bento-grid__mosaic[data-columns='2'],
+    .bento-grid[data-layout='grid-uniform'] .bento-grid__mosaic[data-columns='3'],
+    .bento-grid[data-layout='grid-uniform'] .bento-grid__mosaic[data-columns='4'] {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+    }
+    .bento-grid[data-layout='bento-feature'] .bento-grid__cell:first-child { grid-column: auto; grid-row: auto; }
+    .bento-grid[data-layout='matrix-2x2'] .bento-grid__cell,
+    .bento-grid[data-layout='matrix-3x3'] .bento-grid__cell,
+    .bento-grid__mosaic[data-item-height='square'] .bento-grid__cell,
+    .bento-grid__mosaic[data-item-height='video'] .bento-grid__cell { aspect-ratio: auto; }
+    /* hideOn mobile prime ; on rétablit les éléments masqués-desktop. */
+    .bento-grid__header[data-header-hide='mobile'],
+    .bento-grid__mosaic[data-body-hide='mobile'] { display: none; }
+    .bento-grid__header[data-header-hide='desktop'] { display: flex; }
+    .bento-grid__mosaic[data-body-hide='desktop'] { display: grid; }
+  }
 
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .bento-grid[data-bg='paper-2'] { background: var(--paper-2); }

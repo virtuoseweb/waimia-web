@@ -363,6 +363,10 @@
     "description_fr": "Diagramme d'architecture signature : N canaux d'entrée vers un système central et M sorties, avec boucle d'amélioration continue.",
     "requiredProps": [
       {
+        "name": "atomique",
+        "type": "unknown"
+      },
+      {
         "name": "caption_en",
         "type": "string"
       },
@@ -399,6 +403,10 @@
         "name": "inputs_fr",
         "type": "array",
         "constraint": "min:2 max:8"
+      },
+      {
+        "name": "largeur",
+        "type": "unknown"
       },
       {
         "name": "loop_label_en",
@@ -446,12 +454,32 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
         "name": "input_examples_en",
         "type": "array"
       },
       {
         "name": "input_examples_fr",
         "type": "array"
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "stacked | split"
+      },
+      {
+        "name": "proportion",
+        "type": "enum",
+        "constraint": "1-1 | 1-2 | 2-1 | 2-3 | 3-2"
       },
       {
         "name": "show_loop",
@@ -775,6 +803,10 @@
     "description_fr": "Mosaique bento asymetrique de 5 cellules (1 grande 2x2 + 4 petites) pour valoriser les capacites cles avec une mise en page moderne.",
     "requiredProps": [
       {
+        "name": "bento",
+        "type": "unknown"
+      },
+      {
         "name": "cells",
         "type": "array",
         "constraint": "min:3 max:8"
@@ -786,6 +818,38 @@
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "mosaic",
+        "type": "unknown"
+      },
+      {
+        "name": "placement",
+        "type": "unknown"
+      },
+      {
+        "name": "ratio",
+        "type": "unknown"
+      },
+      {
+        "name": "ratio",
+        "type": "unknown"
+      },
+      {
+        "name": "ratio",
+        "type": "unknown"
+      },
+      {
+        "name": "uniform",
+        "type": "unknown"
+      },
+      {
+        "name": "x2",
+        "type": "unknown"
+      },
+      {
+        "name": "x3",
+        "type": "unknown"
       }
     ],
     "optionalProps": [
@@ -795,12 +859,37 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "constraint": "auto | even | square | video"
+      },
+      {
         "name": "kicker_en",
         "type": "string"
       },
       {
         "name": "kicker_fr",
         "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "bento | bento-feature | mosaic | matrix-2x2 | matrix-3x3 | grid-uniform"
       }
     ],
     "hasDemo": true,
@@ -844,6 +933,13 @@
           "body_fr": "Preview par branche, GF-1 sur prod avant tout merge sur main.",
           "body_en": "Branch previews, GF-1 on prod before any merge to main.",
           "span": "wide"
+        },
+        {
+          "glyph": "⊞",
+          "title_fr": "Facettes IA-opérables",
+          "title_en": "AI-operable facets",
+          "body_fr": "Effets, interactions, éléments, layout : chaque section déclare ses axes.",
+          "body_en": "Effects, interactions, elements, layout: each section declares its axes."
         }
       ]
     }
@@ -1024,6 +1120,10 @@
         "type": "unknown"
       },
       {
+        "name": "colRatio",
+        "type": "unknown"
+      },
+      {
         "name": "fig_num",
         "type": "string"
       },
@@ -1042,6 +1142,14 @@
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "unknown"
+      },
+      {
+        "name": "placement",
+        "type": "unknown"
       },
       {
         "name": "spec_en",
@@ -1090,6 +1198,26 @@
         "constraint": "max:6"
       },
       {
+        "name": "colRatio",
+        "type": "enum",
+        "constraint": "equal | 1-2 | 2-1 | 1-1-2 | 2-3"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
         "name": "empty_body_en",
         "type": "string"
       },
@@ -1114,6 +1242,16 @@
         "name": "impact_label_fr",
         "type": "string",
         "default": "Impact"
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "constraint": "auto | even | square | video"
+      },
+      {
+        "name": "list",
+        "type": "enum",
+        "constraint": "rows-divided | list | grid-uniform | grid-asym"
       },
       {
         "name": "sector_label_en",
@@ -1774,12 +1912,20 @@
     "description_fr": "Deux cartes cote a cote (Sans / Avec) pour mettre en evidence le contraste avant/apres ou nous-vs-eux, avec items a puces et glyphes differencies.",
     "requiredProps": [
       {
+        "name": "atomique",
+        "type": "unknown"
+      },
+      {
         "name": "h2_en",
         "type": "string"
       },
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "te",
+        "type": "unknown"
       },
       {
         "name": "with_items",
@@ -1831,12 +1977,32 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
         "name": "kicker_en",
         "type": "string"
       },
       {
         "name": "kicker_fr",
         "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "inline | stacked"
+      },
+      {
+        "name": "proportion",
+        "type": "enum",
+        "constraint": "1-1 | 1-2 | 2-1"
       }
     ],
     "hasDemo": true,
@@ -2847,6 +3013,50 @@
     }
   },
   {
+    "type": "definition-extract",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "status": "stable",
+    "description_fr": "Bloc GEO « format extractible » : kicker mono, gros statement serif avec le terme défini en accent, rangée de pills, puis un bandeau de specs mono. Sobre, fond paper, pensé pour la citation par les moteurs génératifs.",
+    "requiredProps": [
+      {
+        "name": "statement_en",
+        "type": "string"
+      },
+      {
+        "name": "statement_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "pills",
+        "type": "array",
+        "constraint": "max:6"
+      },
+      {
+        "name": "specs",
+        "type": "array",
+        "constraint": "max:8"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "definition-extract",
+      "statement_fr": "Un <i class=\"acc\">site web intelligent</i> est un site rapide et structuré qui mesure chaque visite, qualifie les contacts, les route vers vos outils et s'améliore en continu : un actif d'acquisition, pas une vitrine.",
+      "statement_en": "An <i class=\"acc\">intelligent website</i> is a fast, structured site that measures every visit, qualifies contacts, routes them to your tools and keeps improving : an acquisition asset, not a brochure."
+    }
+  },
+  {
     "type": "deliverables-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -2854,6 +3064,10 @@
     "status": "stable",
     "description_fr": "Grille de livrables tangibles avec cards numérotées et tag format/durée, extraite des pages offre et détail.",
     "requiredProps": [
+      {
+        "name": "divided",
+        "type": "unknown"
+      },
       {
         "name": "items",
         "type": "array",
@@ -2866,6 +3080,14 @@
       {
         "name": "kicker_fr",
         "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "unknown"
+      },
+      {
+        "name": "placement",
+        "type": "unknown"
       },
       {
         "name": "title_en",
@@ -2881,6 +3103,36 @@
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "colRatio",
+        "type": "enum",
+        "constraint": "equal | 1-2 | 2-1 | 1-1-2 | 2-3"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4 | 5 | 6"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "constraint": "auto | even | square | video"
       },
       {
         "name": "lead_en",
@@ -2931,6 +3183,39 @@
           "format_en": "Notion",
           "duration_fr": "Transfert",
           "duration_en": "Handover"
+        },
+        {
+          "title_fr": "Tableau de bord des métriques",
+          "title_en": "Metrics dashboard",
+          "body_fr": "Les indicateurs clés du dispositif suivis en temps réel, lisibles par toute l’équipe.",
+          "body_en": "The key indicators of the system tracked in real time, readable by the whole team.",
+          "format_fr": "Looker",
+          "format_en": "Looker",
+          "duration_fr": "3 jours",
+          "duration_en": "3 days",
+          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
+          "illustration_alt_fr": "Un tableau de bord avec des indicateurs",
+          "illustration_alt_en": "A dashboard with indicators"
+        },
+        {
+          "title_fr": "Jeu de prompts validés",
+          "title_en": "Validated prompt set",
+          "body_fr": "La bibliothèque de prompts métier testés, versionnés et documentés pour vos cas d’usage.",
+          "body_en": "The library of business prompts, tested, versioned, and documented for your use cases.",
+          "format_fr": "Repo",
+          "format_en": "Repo",
+          "duration_fr": "1 sem.",
+          "duration_en": "1 wk"
+        },
+        {
+          "title_fr": "Plan de montée en charge",
+          "title_en": "Scale-up plan",
+          "body_fr": "La feuille de route d’extension du dispositif aux équipes et processus voisins.",
+          "body_en": "The roadmap to extend the system to neighbouring teams and processes.",
+          "format_fr": "PDF",
+          "format_en": "PDF",
+          "duration_fr": "2 jours",
+          "duration_en": "2 days"
         }
       ]
     }
@@ -3122,6 +3407,14 @@
     "description_fr": "Auto-diagnostic « Où en êtes-vous ? » : 4 à 6 stades de maturité en cards horizontales cliquables, le stade courant relevé en accent (« vous êtes ici »). Situe le visiteur et l’oriente vers l’étape suivante (conversion + qualification).",
     "requiredProps": [
       {
+        "name": "atomique",
+        "type": "unknown"
+      },
+      {
+        "name": "layout",
+        "type": "unknown"
+      },
+      {
         "name": "stages",
         "type": "array",
         "constraint": "min:4 max:6"
@@ -3132,6 +3425,16 @@
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
       },
       {
         "name": "h2_en",
@@ -3150,12 +3453,22 @@
         "type": "string"
       },
       {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "grid-steps | vertical-stack | numbered-rows"
+      },
+      {
         "name": "lede_en",
         "type": "string"
       },
       {
         "name": "lede_fr",
         "type": "string"
+      },
+      {
+        "name": "steps",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
       }
     ],
     "hasDemo": true,
@@ -3877,7 +4190,7 @@
     "type": "editorial-timeline",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "status": "stable",
     "description_fr": "Frise chronologique éditoriale composant l'atome Timeline : axe gauche, points, numéros, dates, titres et descriptions, vertical ou horizontal. Pour une méthode ou un parcours en N phases.",
     "requiredProps": [
@@ -4047,6 +4360,20 @@
           "href": "/ressources/blog"
         }
       ]
+    }
+  },
+  {
+    "type": "eeat-panel",
+    "category": "marketing",
+    "categorySlug": "",
+    "subcategory": "",
+    "status": "stable",
+    "description_fr": "",
+    "requiredProps": [],
+    "optionalProps": [],
+    "hasDemo": false,
+    "demo": {
+      "type": "eeat-panel"
     }
   },
   {
@@ -4520,19 +4847,36 @@
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "unique",
+        "type": "unknown"
       }
     ],
     "optionalProps": [
       {
-        "name": "background",
-        "type": "enum",
-        "constraint": "paper | paper-2 | paper-3 | ink"
+        "name": "header_cta_href",
+        "type": "string"
       },
       {
-        "name": "columns",
-        "type": "enum",
-        "constraint": "2 | 3 | 4",
-        "default": "3"
+        "name": "header_cta_label_en",
+        "type": "string"
+      },
+      {
+        "name": "header_cta_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "intro_desc_en",
+        "type": "string"
+      },
+      {
+        "name": "intro_desc_fr",
+        "type": "string"
+      },
+      {
+        "name": "intro_media",
+        "type": "string"
       },
       {
         "name": "kicker_en",
@@ -4540,6 +4884,14 @@
       },
       {
         "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
         "type": "string"
       }
     ],
@@ -4550,22 +4902,56 @@
       "h2_en": "Three <i>pillars</i> of Waimia DS",
       "features": [
         {
+          "icon": "tokens",
           "title_fr": "Tokens canoniques",
           "title_en": "Canonical tokens",
           "body_fr": "115 tokens CSS exposés à :root. Pioche, n'invente pas.",
-          "body_en": "115 CSS tokens at :root. Pick, never invent."
+          "body_en": "115 CSS tokens at :root. Pick, never invent.",
+          "meta_fr": "115 tokens",
+          "meta_en": "115 tokens",
+          "media": "/images/editorial/image-style-4.webp",
+          "cta_label_fr": "Voir les tokens",
+          "cta_label_en": "View tokens",
+          "cta_href": "/agence/design-system"
         },
         {
+          "icon": "grid",
           "title_fr": "Composants atomiques",
           "title_en": "Atomic components",
           "body_fr": "114 composants en 7 couches Tier 1.",
-          "body_en": "114 components across 7 Tier 1 layers."
+          "body_en": "114 components across 7 Tier 1 layers.",
+          "meta_fr": "114 composants",
+          "meta_en": "114 components",
+          "media": "/images/editorial/image-style-6.webp",
+          "cta_label_fr": "Explorer",
+          "cta_label_en": "Explore",
+          "cta_href": "/agence/design-system"
         },
         {
+          "icon": "shield",
           "title_fr": "Anti-hallucination",
           "title_en": "Anti-hallucination",
           "body_fr": "5 anti-patterns documentés avec commandes de détection.",
-          "body_en": "5 anti-patterns documented with detection commands."
+          "body_en": "5 anti-patterns documented with detection commands.",
+          "meta_fr": "5 garde-fous",
+          "meta_en": "5 guardrails",
+          "media": "/images/editorial/image-style-7.webp",
+          "cta_label_fr": "Lire la doc",
+          "cta_label_en": "Read docs",
+          "cta_href": "/agence/design-system"
+        },
+        {
+          "icon": "layers",
+          "title_fr": "Moteur de layout",
+          "title_en": "Layout engine",
+          "body_fr": "Un CSS unique porte toutes les recettes ; les composants se branchent.",
+          "body_en": "One CSS file holds every recipe; components plug in.",
+          "meta_fr": "10 familles",
+          "meta_en": "10 families",
+          "media": "/images/editorial/image-style-8.webp",
+          "cta_label_fr": "Voir le moteur",
+          "cta_label_en": "View engine",
+          "cta_href": "/agence/design-system"
         }
       ]
     }
@@ -4597,9 +4983,19 @@
     ],
     "optionalProps": [
       {
+        "name": "actionsAlign",
+        "type": "enum",
+        "constraint": "start | center | end | spread"
+      },
+      {
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
       },
       {
         "name": "cta_href",
@@ -4612,6 +5008,11 @@
       {
         "name": "cta_label_fr",
         "type": "string"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
       },
       {
         "name": "kicker_en",
@@ -4651,9 +5052,19 @@
         "type": "boolean"
       },
       {
+        "name": "mediaSide",
+        "type": "enum",
+        "constraint": "left | right"
+      },
+      {
         "name": "points",
         "type": "array",
         "constraint": "max:6"
+      },
+      {
+        "name": "proportion",
+        "type": "enum",
+        "constraint": "1-1 | 1-2 | 2-1 | 2-3 | 3-2"
       },
       {
         "name": "reversed",
@@ -4766,6 +5177,18 @@
     "description_fr": "Lignes alternées visuel/texte (gauche-droite, droite-gauche) pour presenter les fonctionnalites cles d'une offre avec un rythme editorial fort.",
     "requiredProps": [
       {
+        "name": "actuel",
+        "type": "unknown"
+      },
+      {
+        "name": "alternate",
+        "type": "unknown"
+      },
+      {
+        "name": "atomique",
+        "type": "unknown"
+      },
+      {
         "name": "h2_en",
         "type": "string"
       },
@@ -4794,6 +5217,16 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
         "name": "kicker_en",
         "type": "string"
       },
@@ -4808,6 +5241,21 @@
       {
         "name": "lede_fr",
         "type": "string"
+      },
+      {
+        "name": "mediaSide",
+        "type": "enum",
+        "constraint": "left | right"
+      },
+      {
+        "name": "proportion",
+        "type": "enum",
+        "constraint": "1-1 | 1-2 | 2-1 | 2-3 | 3-2"
+      },
+      {
+        "name": "stacked",
+        "type": "enum",
+        "constraint": "alternate | stacked | inline-left | inline-right"
       }
     ],
     "hasDemo": true,
@@ -4881,6 +5329,30 @@
           "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
           "media_alt_fr": "Illustration : transmission de savoir",
           "media_alt_en": "Illustration: knowledge handover"
+        },
+        {
+          "kicker_fr": "Mesure",
+          "kicker_en": "Measure",
+          "h3_fr": "Pilotage en temps réel, sans relance",
+          "h3_en": "Real-time steering, without chasing",
+          "body_fr": "Tableaux de bord vivants et alertes automatiques. Vous voyez ce qui marche, ce qui décroche et où agir, sans attendre la réunion mensuelle.",
+          "body_en": "Live dashboards and automatic alerts. You see what works, what slips, and where to act, without waiting for the monthly meeting.",
+          "link_label_fr": "Voir un tableau de bord",
+          "link_label_en": "See a dashboard",
+          "link_href": "/offres",
+          "points": [
+            {
+              "label_fr": "Tableaux de bord temps réel",
+              "label_en": "Real-time dashboards"
+            },
+            {
+              "label_fr": "Alertes automatiques sur dérive",
+              "label_en": "Automatic drift alerts"
+            }
+          ],
+          "media_src": "/images/line-art/dispositif-flow.svg",
+          "media_alt_fr": "Schema line-art : flux de pilotage",
+          "media_alt_en": "Line-art diagram: steering flow"
         }
       ]
     }
@@ -5014,14 +5486,38 @@
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "unknown"
       }
     ],
     "optionalProps": [
+      {
+        "name": "actionsAlign",
+        "type": "enum",
+        "constraint": "start | center | end | spread"
+      },
       {
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink",
         "default": "ink"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "inline | stacked"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
       },
       {
         "name": "kicker_en",
@@ -5393,7 +5889,7 @@
     "type": "hero-atlas",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
-    "subcategory": "Hero Sections",
+    "subcategory": "Hero Header Sections",
     "status": "stable",
     "description_fr": "Hero Atlas en deux colonnes avec signature grid, copy éditoriale, CTAs et mini-map des quatre piliers.",
     "requiredProps": [
@@ -8133,99 +8629,15 @@
   {
     "type": "hero-social-proof",
     "category": "marketing",
-    "categorySlug": "hero-header-sections",
-    "subcategory": "Hero Header Sections",
+    "categorySlug": "",
+    "subcategory": "",
     "status": "stable",
-    "description_fr": "Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.",
-    "requiredProps": [
-      {
-        "name": "cta_primary",
-        "type": "object"
-      },
-      {
-        "name": "h1_en",
-        "type": "string"
-      },
-      {
-        "name": "h1_fr",
-        "type": "string"
-      },
-      {
-        "name": "lede_en",
-        "type": "string"
-      },
-      {
-        "name": "lede_fr",
-        "type": "string"
-      },
-      {
-        "name": "stats",
-        "type": "array",
-        "constraint": "min:2 max:4"
-      }
-    ],
-    "optionalProps": [
-      {
-        "name": "background",
-        "type": "enum",
-        "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "cta_secondary",
-        "type": "object"
-      },
-      {
-        "name": "kicker_en",
-        "type": "string"
-      },
-      {
-        "name": "kicker_fr",
-        "type": "string"
-      },
-      {
-        "name": "rating_en",
-        "type": "string"
-      },
-      {
-        "name": "rating_fr",
-        "type": "string"
-      }
-    ],
-    "hasDemo": true,
+    "description_fr": "",
+    "requiredProps": [],
+    "optionalProps": [],
+    "hasDemo": false,
     "demo": {
-      "type": "hero-social-proof",
-      "h1_fr": "L'IA qui <i>livre</i>, pas qui promet.",
-      "h1_en": "The AI that <i>ships</i>, not just promises.",
-      "lede_fr": "Des systèmes d'activation déployés en production, mesurés sur le pipeline réel. Pas de démo, des résultats signés.",
-      "lede_en": "Activation systems deployed in production, measured on real pipeline. No demos, signed results.",
-      "cta_primary": {
-        "label_fr": "Réserver un audit →",
-        "label_en": "Book an audit →",
-        "href": "/contact",
-        "variant": "primary"
-      },
-      "stats": [
-        {
-          "k": "5 jours",
-          "label_fr": "pour cibler le levier",
-          "label_en": "to pinpoint the lever"
-        },
-        {
-          "k": "4 sem.",
-          "label_fr": "au premier workflow en production",
-          "label_en": "to first workflow in production"
-        },
-        {
-          "k": "1",
-          "label_fr": "interlocuteur unique",
-          "label_en": "single point of contact"
-        },
-        {
-          "k": "Mesuré",
-          "label_fr": "ROI, jamais estimé",
-          "label_en": "ROI, never estimated"
-        }
-      ]
+      "type": "hero-social-proof"
     }
   },
   {
@@ -8339,6 +8751,14 @@
         "type": "object"
       },
       {
+        "name": "definition_kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "definition_kicker_fr",
+        "type": "string"
+      },
+      {
         "name": "kicker_en",
         "type": "string"
       },
@@ -8357,15 +8777,23 @@
       {
         "name": "media_src",
         "type": "string"
+      },
+      {
+        "name": "subtitle_en",
+        "type": "string"
+      },
+      {
+        "name": "subtitle_fr",
+        "type": "string"
       }
     ],
     "hasDemo": true,
     "demo": {
       "type": "hero-split-media",
-      "h1_fr": "Un site web <i class=\"acc\">intelligent</i>.",
-      "h1_en": "An intelligent <i class=\"acc\">website</i>.",
-      "lede_fr": "Pas une vitrine. Une web app pilotée par l'IA, branchée à vos données, qui transforme chaque visite en client.",
-      "lede_en": "Not a brochure. An AI-driven web app, wired to your data, that turns every visit into a customer.",
+      "h1_fr": "Un site web <i class=\"acc\">intelligent</i> pour PME.",
+      "h1_en": "An intelligent <i class=\"acc\">website</i> for SMEs.",
+      "lede_fr": "Un site web intelligent est une application web pilotée par l'IA (Claude, GPT), branchée à votre Search Console et à votre Analytics. Elle lit ses propres KPI, optimise son SEO et son contenu en continu, et qualifie chaque visiteur via un quiz de routing relié au CRM. À la différence d'une vitrine statique, il mesure son acquisition de bout en bout et alimente votre stack sans saisie manuelle.",
+      "lede_en": "An intelligent website is a web application driven by AI (Claude, GPT), wired to your Search Console and your Analytics. It reads its own KPIs, optimises its SEO and content continuously, and qualifies every visitor through a routing quiz connected to the CRM. Unlike a static brochure, it measures its acquisition end to end and feeds your stack without manual entry.",
       "cta_primary": {
         "label_fr": "Réserver un diagnostic (45 min) →",
         "label_en": "Book a diagnostic (45 min) →",
@@ -9018,10 +9446,263 @@
     }
   },
   {
+    "type": "horizontal-showcase",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Panneaux a defilement horizontal smooth (scroll-snap) avec index numerote cliquable.",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "panels",
+        "type": "array",
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "horizontal-showcase",
+      "h2_fr": "Quatre <i>terrains</i> de jeu",
+      "h2_en": "Four <i>playing fields</i>",
+      "panels": [
+        {
+          "index_fr": "01",
+          "index_en": "01",
+          "tone": "paper-2",
+          "title_fr": "Site web intelligent",
+          "title_en": "Intelligent website",
+          "body_fr": "Un site qui capte, qualifie et convertit, instrumenté pour mesurer ce qui compte.",
+          "body_en": "A site that captures, qualifies and converts, instrumented to measure what matters.",
+          "points": [
+            {
+              "label_fr": "Acquisition mesurée",
+              "label_en": "Measured acquisition"
+            },
+            {
+              "label_fr": "Contenu qui se classe",
+              "label_en": "Content that ranks"
+            }
+          ],
+          "media_src": "/images/themes/theme-acquisition.webp",
+          "media_alt_fr": "Acquisition",
+          "media_alt_en": "Acquisition",
+          "link_label_fr": "Voir",
+          "link_label_en": "View",
+          "link_href": "/services/site-web-intelligent"
+        },
+        {
+          "index_fr": "02",
+          "index_en": "02",
+          "tone": "ink",
+          "title_fr": "Intégration Claude",
+          "title_en": "Claude integration",
+          "body_fr": "Des workflows IA câblés dans vos outils, transférés à votre équipe.",
+          "body_en": "AI workflows wired into your tools, handed over to your team.",
+          "points": [
+            {
+              "label_fr": "Connecteurs MCP",
+              "label_en": "MCP connectors"
+            },
+            {
+              "label_fr": "Gouvernance claire",
+              "label_en": "Clear governance"
+            }
+          ],
+          "media_src": "/images/themes/theme-productivite.webp",
+          "media_alt_fr": "Productivité",
+          "media_alt_en": "Productivity",
+          "link_label_fr": "Voir",
+          "link_label_en": "View",
+          "link_href": "/services/integrateur-claude"
+        },
+        {
+          "index_fr": "03",
+          "index_en": "03",
+          "tone": "paper-3",
+          "title_fr": "Contenu & SEO",
+          "title_en": "Content & SEO",
+          "body_fr": "Du contenu qui se classe sur Google et se fait citer par les IA génératives.",
+          "body_en": "Content that ranks on Google and gets cited by generative AI.",
+          "points": [
+            {
+              "label_fr": "SEO technique",
+              "label_en": "Technical SEO"
+            },
+            {
+              "label_fr": "GEO (IA génératives)",
+              "label_en": "GEO (generative AI)"
+            }
+          ],
+          "media_src": "/images/themes/theme-contenu-seo.webp",
+          "media_alt_fr": "Contenu et SEO",
+          "media_alt_en": "Content and SEO",
+          "link_label_fr": "Voir",
+          "link_label_en": "View",
+          "link_href": "/services/content-marketing-intelligent"
+        },
+        {
+          "index_fr": "04",
+          "index_en": "04",
+          "tone": "paper-2",
+          "title_fr": "Pilotage & finance",
+          "title_en": "Steering & finance",
+          "body_fr": "Voir clair dans les chiffres et décider sur des données fraîches.",
+          "body_en": "See clearly in the numbers and decide on fresh data.",
+          "points": [
+            {
+              "label_fr": "Tableaux de bord",
+              "label_en": "Dashboards"
+            },
+            {
+              "label_fr": "Données fraîches",
+              "label_en": "Fresh data"
+            }
+          ],
+          "media_src": "/images/themes/theme-finance.webp",
+          "media_alt_fr": "Pilotage et finance",
+          "media_alt_en": "Steering and finance",
+          "link_label_fr": "Voir",
+          "link_label_en": "View",
+          "link_href": "/services/maintenance-growth"
+        }
+      ]
+    }
+  },
+  {
+    "type": "hover-reveal-list",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Liste editoriale qui revele l'image du projet au survol, dans un carre cadre (image qui suit le curseur ou centree).",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:2 max:10"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "reveal_mode",
+        "type": "enum",
+        "constraint": "cursor | fixed"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "hover-reveal-list",
+      "h2_fr": "Des systèmes qui <i>tournent</i> en production",
+      "h2_en": "Systems that <i>run</i> in production",
+      "items": [
+        {
+          "label_fr": "Plateau",
+          "label_en": "Plateau",
+          "meta_fr": "Restauration · acquisition",
+          "meta_en": "Hospitality · acquisition",
+          "media_src": "/images/cas/cas-plateau.webp",
+          "media_alt_fr": "Projet Plateau",
+          "media_alt_en": "Plateau project",
+          "link_href": "/cas-clients"
+        },
+        {
+          "label_fr": "Halcyon",
+          "label_en": "Halcyon",
+          "meta_fr": "Services · productivité",
+          "meta_en": "Services · productivity",
+          "media_src": "/images/cas/cas-halcyon.webp",
+          "media_alt_fr": "Projet Halcyon",
+          "media_alt_en": "Halcyon project",
+          "link_href": "/cas-clients"
+        },
+        {
+          "label_fr": "Northbound",
+          "label_en": "Northbound",
+          "meta_fr": "Industrie · pilotage",
+          "meta_en": "Industry · steering",
+          "media_src": "/images/cas/cas-northbound.webp",
+          "media_alt_fr": "Projet Northbound",
+          "media_alt_en": "Northbound project",
+          "link_href": "/cas-clients"
+        },
+        {
+          "label_fr": "Caserne",
+          "label_en": "Caserne",
+          "meta_fr": "Public · support",
+          "meta_en": "Public · support",
+          "media_src": "/images/cas/cas-caserne.webp",
+          "media_alt_fr": "Projet Caserne",
+          "media_alt_en": "Caserne project",
+          "link_href": "/cas-clients"
+        }
+      ]
+    }
+  },
+  {
     "type": "how-we-ship",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "status": "stable",
     "description_fr": "Section \"comment on livre\", sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).",
     "requiredProps": [
@@ -10026,7 +10707,7 @@
     "type": "maturity-pyramid",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "status": "stable",
     "description_fr": "Pyramide de maturité à quatre paliers avec timeline d'étapes, SVG progressif et grille de cartes asymétriques.",
     "requiredProps": [
@@ -10203,6 +10884,20 @@
     }
   },
   {
+    "type": "media-bento",
+    "category": "marketing",
+    "categorySlug": "",
+    "subcategory": "",
+    "status": "stable",
+    "description_fr": "",
+    "requiredProps": [],
+    "optionalProps": [],
+    "hasDemo": false,
+    "demo": {
+      "type": "media-bento"
+    }
+  },
+  {
     "type": "media-block",
     "category": "marketing",
     "categorySlug": "gallery-sections",
@@ -10264,13 +10959,214 @@
     }
   },
   {
+    "type": "media-swap-band",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Bande 2 ou 3 colonnes dont les images changent en fondu (auto ou au survol), avec CTA.",
+    "requiredProps": [
+      {
+        "name": "columns",
+        "type": "array",
+        "constraint": "min:1 max:4"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "cta_href",
+        "type": "string"
+      },
+      {
+        "name": "cta_label_en",
+        "type": "string"
+      },
+      {
+        "name": "cta_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "swap_mode",
+        "type": "enum",
+        "constraint": "auto | hover"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "media-swap-band",
+      "h2_fr": "Au plus près de vos <i>équipes</i>",
+      "h2_en": "Close to your <i>teams</i>",
+      "columns": [
+        {
+          "label_fr": "Sur site",
+          "label_en": "On site",
+          "sublabel_fr": "Ateliers et cadrage",
+          "sublabel_en": "Workshops and scoping",
+          "media": [
+            {
+              "media_src": "/images/editorial/menonhand.webp",
+              "media_alt_fr": "Atelier",
+              "media_alt_en": "Workshop"
+            },
+            {
+              "media_src": "/images/editorial/gentlemanhandcraftergoworknow.webp",
+              "media_alt_fr": "Cadrage",
+              "media_alt_en": "Scoping"
+            }
+          ]
+        },
+        {
+          "label_fr": "À distance",
+          "label_en": "Remote",
+          "sublabel_fr": "Build et itérations",
+          "sublabel_en": "Build and iterations",
+          "media": [
+            {
+              "media_src": "/images/editorial/womancomputer17.webp",
+              "media_alt_fr": "Build",
+              "media_alt_en": "Build"
+            },
+            {
+              "media_src": "/images/themes/theme-productivite.webp",
+              "media_alt_fr": "Itérations",
+              "media_alt_en": "Iterations"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "method-stepline",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timelines",
+    "status": "stable",
+    "description_fr": "Timeline de méthode horizontale sur fond clair : ligne hairline traversée de nœuds accent, chaque nœud surmonté d'un numéro mono, d'un titre serif et d'un sous-label mono. En-tête kicker à gauche, durée à droite. Reveal-stagger, empilage en colonne en mobile.",
+    "requiredProps": [
+      {
+        "name": "steps",
+        "type": "array",
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "duration_en",
+        "type": "string"
+      },
+      {
+        "name": "duration_fr",
+        "type": "string"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "method-stepline",
+      "steps": [
+        {
+          "title_fr": "Diagnostic & cadrage",
+          "title_en": "Diagnosis & scoping",
+          "sub_fr": "Plan de tracking",
+          "sub_en": "Tracking plan"
+        },
+        {
+          "title_fr": "Architecture & contenu",
+          "title_en": "Architecture & content",
+          "sub_fr": "Wireframes · copy",
+          "sub_en": "Wireframes · copy"
+        },
+        {
+          "title_fr": "Design & maquette",
+          "title_en": "Design & mockup",
+          "sub_fr": "Design system",
+          "sub_en": "Design system"
+        },
+        {
+          "title_fr": "Build & instrumentation",
+          "title_en": "Build & instrumentation",
+          "sub_fr": "Site · CRM · tracking",
+          "sub_en": "Site · CRM · tracking"
+        },
+        {
+          "title_fr": "Mise en ligne & passation",
+          "title_en": "Go-live & handover",
+          "sub_fr": "Livraison · support",
+          "sub_en": "Delivery · support"
+        }
+      ]
+    }
+  },
+  {
     "type": "method-timeline",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "status": "stable",
     "description_fr": "Timeline méthodologique pour expliquer les étapes d'un accompagnement ou d'un processus.",
     "requiredProps": [
+      {
+        "name": "atomique",
+        "type": "unknown"
+      },
       {
         "name": "h2_en",
         "type": "string"
@@ -10292,6 +11188,16 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
         "name": "kicker_en",
         "type": "string"
       },
@@ -10300,12 +11206,22 @@
         "type": "string"
       },
       {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "vertical-stack | numbered-rows | horizontal | grid-steps"
+      },
+      {
         "name": "lede_en",
         "type": "string"
       },
       {
         "name": "lede_fr",
         "type": "string"
+      },
+      {
+        "name": "steps",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
       }
     ],
     "hasDemo": true,
@@ -10319,28 +11235,54 @@
           "label_fr": "Audit",
           "label_en": "Audit",
           "body_fr": "Cartographie stack, données, équipe, frictions.",
-          "body_en": "Map stack, data, team, frictions."
+          "body_en": "Map stack, data, team, frictions.",
+          "meta_fr": "Semaine 1",
+          "meta_en": "Week 1"
         },
         {
           "num": "02",
           "label_fr": "Diagnostic",
           "label_en": "Diagnostic",
           "body_fr": "Priorisation des chantiers par ROI mesurable.",
-          "body_en": "Prioritization by measurable ROI."
+          "body_en": "Prioritization by measurable ROI.",
+          "meta_fr": "Semaine 2",
+          "meta_en": "Week 2"
         },
         {
           "num": "03",
           "label_fr": "Pilote",
           "label_en": "Pilot",
           "body_fr": "Premier workflow en production sous 5 jours.",
-          "body_en": "First workflow in production in 5 days."
+          "body_en": "First workflow in production in 5 days.",
+          "meta_fr": "Semaines 3-4",
+          "meta_en": "Weeks 3-4"
         },
         {
           "num": "04",
           "label_fr": "Industrialisation",
           "label_en": "Industrialization",
           "body_fr": "Extension à 6-10 semaines après mesure.",
-          "body_en": "Extension over 6-10 weeks after measurement."
+          "body_en": "Extension over 6-10 weeks after measurement.",
+          "meta_fr": "Semaines 5-8",
+          "meta_en": "Weeks 5-8"
+        },
+        {
+          "num": "05",
+          "label_fr": "Formation",
+          "label_en": "Training",
+          "body_fr": "Montée en autonomie des équipes sur les agents livrés.",
+          "body_en": "Teams reach autonomy on the delivered agents.",
+          "meta_fr": "Semaine 9",
+          "meta_en": "Week 9"
+        },
+        {
+          "num": "06",
+          "label_fr": "Mesure & itération",
+          "label_en": "Measure & iterate",
+          "body_fr": "Boucle de mesure continue, ajustements pilotés par la donnée.",
+          "body_en": "Continuous measurement loop, data-driven adjustments.",
+          "meta_fr": "En continu",
+          "meta_en": "Ongoing"
         }
       ]
     }
@@ -11077,6 +12019,97 @@
     }
   },
   {
+    "type": "pain-severity-list",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Liste éditoriale de pain-points sur fond ink, classés par sévérité : chaque item porte un label severity vertical (mono) et un glyphe (◆▲●○), un titre serif, une description, et une ligne mono « → correctif ». Séparateurs hairline, reveal-stagger.",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "pain-severity-list",
+      "h2_fr": "Là où le site <i class=\"acc\">fuit</i>.",
+      "h2_en": "Where the site <i class=\"acc\">leaks</i>.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Aucune présence à convertir",
+          "title_en": "No presence to convert",
+          "desc_fr": "Vous existez en ligne, mais rien n'amène le visiteur vers une conversation commerciale.",
+          "desc_en": "You exist online, but nothing leads the visitor toward a sales conversation.",
+          "fix_fr": "Tunnel repensé, orienté preuve.",
+          "fix_en": "Redesigned funnel, proof-first."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Une vitrine qui ne capte rien",
+          "title_en": "A brochure that captures nothing",
+          "desc_fr": "De jolies pages, mais aucun mécanisme de capture : ni quiz, ni scoring, ni routage.",
+          "desc_en": "Nice pages, but no capture mechanism : no quiz, no scoring, no routing.",
+          "fix_fr": "Capture + scoring + routage CRM.",
+          "fix_en": "Capture + scoring + CRM routing."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Un site qui ne lit pas ses données",
+          "title_en": "A site that doesn't read its data",
+          "desc_fr": "Aucune lecture du comportement : vous ne savez ni qui vient, ni pourquoi il repart.",
+          "desc_en": "No behavioural reading : you know neither who comes nor why they leave.",
+          "fix_fr": "Tracking first-party + reporting.",
+          "fix_en": "First-party tracking + reporting."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Des contenus qui ne ressortent jamais",
+          "title_en": "Content that never surfaces",
+          "desc_fr": "Vos pages existent mais restent invisibles : ni les moteurs classiques ni les moteurs génératifs ne les citent.",
+          "desc_en": "Your pages exist but stay invisible : neither classic engines nor generative engines cite them.",
+          "fix_fr": "Structure SEO + GEO, données structurées.",
+          "fix_en": "SEO + GEO structure, structured data."
+        },
+        {
+          "severity": "low",
+          "title_fr": "Une stack qui se grippe au moindre ajout",
+          "title_en": "A stack that seizes on every change",
+          "desc_fr": "Chaque évolution coûte cher et casse autre chose : le site freine vos opérations au lieu de les servir.",
+          "desc_en": "Every change is costly and breaks something else : the site slows your operations instead of serving them.",
+          "fix_fr": "Socle composable, déploiements sûrs.",
+          "fix_en": "Composable foundation, safe deploys."
+        }
+      ]
+    }
+  },
+  {
     "type": "persona-attributes-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -11185,12 +12218,12 @@
     }
   },
   {
-    "type": "pricing-cards",
+    "type": "photo-cluster",
     "category": "marketing",
-    "categorySlug": "pricing-sections",
-    "subcategory": "Pricing Sections",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
     "status": "stable",
-    "description_fr": "Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.",
+    "description_fr": "Composition editoriale : photo lead + grappe de photos decalees (layouts lead-cluster, scatter, duo).",
     "requiredProps": [
       {
         "name": "h2_en",
@@ -11201,9 +12234,13 @@
         "type": "string"
       },
       {
-        "name": "tiers",
+        "name": "lead",
+        "type": "object"
+      },
+      {
+        "name": "photos",
         "type": "array",
-        "constraint": "min:2 max:4"
+        "constraint": "min:1 max:5"
       }
     ],
     "optionalProps": [
@@ -11213,12 +12250,156 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "lead-cluster | scatter | duo"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "note_en",
+        "type": "string"
+      },
+      {
+        "name": "note_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "photo-cluster",
+      "h2_fr": "Un studio qui aime rester <i>simple</i>",
+      "h2_en": "A studio that likes to stay <i>simple</i>",
+      "lead": {
+        "media_src": "/images/editorial/gentlemanhandcraftergoworknow.webp",
+        "media_alt_fr": "Atelier au travail",
+        "media_alt_en": "Studio at work"
+      },
+      "photos": [
+        {
+          "media_src": "/images/editorial/menonhand.webp",
+          "media_alt_fr": "Collaboration",
+          "media_alt_en": "Collaboration",
+          "caption_fr": "Au travail",
+          "caption_en": "At work"
+        },
+        {
+          "media_src": "/images/editorial/chess-style-16.webp",
+          "media_alt_fr": "Stratégie",
+          "media_alt_en": "Strategy",
+          "caption_fr": "Stratégie",
+          "caption_en": "Strategy"
+        },
+        {
+          "media_src": "/images/editorial/womancomputer17.webp",
+          "media_alt_fr": "Production",
+          "media_alt_en": "Production",
+          "caption_fr": "Production",
+          "caption_en": "Production"
+        }
+      ]
+    }
+  },
+  {
+    "type": "pricing-cards",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "status": "stable",
+    "description_fr": "Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.",
+    "requiredProps": [
+      {
+        "name": "actionsAlign",
+        "type": "unknown"
+      },
+      {
+        "name": "colRatio",
+        "type": "unknown"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "unknown"
+      },
+      {
+        "name": "placement",
+        "type": "unknown"
+      },
+      {
+        "name": "tiers",
+        "type": "array",
+        "constraint": "min:2 max:4"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "actionsAlign",
+        "type": "enum",
+        "constraint": "start | center | end | spread"
+      },
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "colRatio",
+        "type": "enum",
+        "constraint": "equal | 1-2 | 2-1 | 1-1-2 | 2-3"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4 | 5 | 6"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "divided",
+        "type": "enum",
+        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
+      },
+      {
         "name": "footnote_en",
         "type": "string"
       },
       {
         "name": "footnote_fr",
         "type": "string"
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "constraint": "auto | even | square | video"
       },
       {
         "name": "kicker_en",
@@ -11317,6 +12498,32 @@
             "label_fr": "Nous parler",
             "label_en": "Talk to us",
             "href": "/contact?offer=custom",
+            "variant": "ghost"
+          },
+          "featured": false
+        },
+        {
+          "name_fr": "Enterprise",
+          "name_en": "Enterprise",
+          "price": "40 000 €",
+          "period_fr": "HT · annuel",
+          "period_en": "excl. VAT · annual",
+          "features_fr": [
+            "Plateforme agentique multi-équipes",
+            "Gouvernance et audit dédiés",
+            "Intégrations sur-mesure (ERP, CRM)",
+            "CSM dédié + SLA 99,9%"
+          ],
+          "features_en": [
+            "Multi-team agentic platform",
+            "Dedicated governance and audit",
+            "Custom integrations (ERP, CRM)",
+            "Dedicated CSM + 99.9% SLA"
+          ],
+          "cta": {
+            "label_fr": "Demander une démo",
+            "label_en": "Request a demo",
+            "href": "/contact?offer=enterprise",
             "variant": "ghost"
           },
           "featured": false
@@ -12554,6 +13761,120 @@
     }
   },
   {
+    "type": "scroll-gallery",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Liste sticky a gauche, cadre media a droite dont l'image change en fondu au scroll. Ideal pour presenter des domaines d'expertise avec un visuel par item.",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "media_side",
+        "type": "enum",
+        "constraint": "left | right"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "scroll-gallery",
+      "h2_fr": "Là où l'IA crée le plus de <i>valeur</i>",
+      "h2_en": "Where AI creates the most <i>value</i>",
+      "items": [
+        {
+          "index_fr": "01",
+          "index_en": "01",
+          "title_fr": "Acquisition",
+          "title_en": "Acquisition",
+          "body_fr": "Capter, qualifier et convertir la demande sans multiplier les outils ni les saisies manuelles.",
+          "body_en": "Capture, qualify and convert demand without multiplying tools or manual entry.",
+          "media_src": "/images/themes/theme-acquisition.webp",
+          "media_alt_fr": "Illustration : acquisition",
+          "media_alt_en": "Illustration: acquisition"
+        },
+        {
+          "index_fr": "02",
+          "index_en": "02",
+          "title_fr": "Productivité interne",
+          "title_en": "Internal productivity",
+          "body_fr": "Automatiser les tâches répétitives et rendre chaque équipe plus rapide sur ce qui compte.",
+          "body_en": "Automate repetitive tasks and make every team faster on what matters.",
+          "media_src": "/images/themes/theme-productivite.webp",
+          "media_alt_fr": "Illustration : productivité",
+          "media_alt_en": "Illustration: productivity"
+        },
+        {
+          "index_fr": "03",
+          "index_en": "03",
+          "title_fr": "Contenu & SEO",
+          "title_en": "Content & SEO",
+          "body_fr": "Produire un contenu qui se classe sur Google et se fait citer par les IA génératives.",
+          "body_en": "Produce content that ranks on Google and gets cited by generative AI.",
+          "media_src": "/images/themes/theme-contenu-seo.webp",
+          "media_alt_fr": "Illustration : contenu et SEO",
+          "media_alt_en": "Illustration: content and SEO"
+        },
+        {
+          "index_fr": "04",
+          "index_en": "04",
+          "title_fr": "Support client",
+          "title_en": "Client support",
+          "body_fr": "Répondre plus vite et mieux, en gardant la main sur le ton et la qualité.",
+          "body_en": "Answer faster and better, keeping control over tone and quality.",
+          "media_src": "/images/themes/theme-support-client.webp",
+          "media_alt_fr": "Illustration : support client",
+          "media_alt_en": "Illustration: client support"
+        },
+        {
+          "index_fr": "05",
+          "index_en": "05",
+          "title_fr": "Pilotage & finance",
+          "title_en": "Steering & finance",
+          "body_fr": "Voir clair dans les chiffres et décider sur des données fraîches, pas sur des tableaux figés.",
+          "body_en": "See clearly in the numbers and decide on fresh data, not frozen spreadsheets.",
+          "media_src": "/images/themes/theme-finance.webp",
+          "media_alt_fr": "Illustration : pilotage et finance",
+          "media_alt_en": "Illustration: steering and finance"
+        }
+      ]
+    }
+  },
+  {
     "type": "service-catalog-list",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -12934,6 +14255,148 @@
     }
   },
   {
+    "type": "stack-cards",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Cartes numerotees qui se superposent en s'empilant au scroll (effet stack sticky, CSS pur). Ideal pour une methode en plusieurs temps.",
+    "requiredProps": [
+      {
+        "name": "cards",
+        "type": "array",
+        "constraint": "min:2 max:4"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "stack-cards",
+      "h2_fr": "De la stratégie à la <i>croissance</i>",
+      "h2_en": "From strategy to <i>growth</i>",
+      "cards": [
+        {
+          "index_fr": "01",
+          "index_en": "01",
+          "tone": "paper",
+          "title_fr": "Stratégie",
+          "title_en": "Strategy",
+          "body_fr": "On cartographie vos flux, vos outils et vos angles morts pour cibler les gains les plus rapides.",
+          "body_en": "We map your flows, tools and blind spots to target the fastest wins.",
+          "points": [
+            {
+              "label_fr": "Cartographie des flux",
+              "label_en": "Flow mapping"
+            },
+            {
+              "label_fr": "Plan d'action priorisé",
+              "label_en": "Prioritised action plan"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/chess-paper.webp",
+          "media_alt_fr": "Illustration : stratégie",
+          "media_alt_en": "Illustration: strategy"
+        },
+        {
+          "index_fr": "02",
+          "index_en": "02",
+          "tone": "ink",
+          "title_fr": "Conception",
+          "title_en": "Design",
+          "body_fr": "On conçoit l'architecture, les workflows et l'expérience, alignés sur vos objectifs business.",
+          "body_en": "We design the architecture, workflows and experience, aligned with your business goals.",
+          "points": [
+            {
+              "label_fr": "Architecture et workflows",
+              "label_en": "Architecture and workflows"
+            },
+            {
+              "label_fr": "Maquettes validées",
+              "label_en": "Validated mockups"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/style-12-ink.webp",
+          "media_alt_fr": "Illustration : conception",
+          "media_alt_en": "Illustration: design"
+        },
+        {
+          "index_fr": "03",
+          "index_en": "03",
+          "tone": "paper",
+          "title_fr": "Déploiement",
+          "title_en": "Deployment",
+          "body_fr": "On déploie, on documente et on transfère. Tout reste lisible, modifiable et extensible par votre équipe.",
+          "body_en": "We deploy, document and hand over. Everything stays readable, editable and extensible by your team.",
+          "points": [
+            {
+              "label_fr": "Mise en production",
+              "label_en": "Go live"
+            },
+            {
+              "label_fr": "Documentation transférée",
+              "label_en": "Documentation handed over"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
+          "media_alt_fr": "Illustration : déploiement",
+          "media_alt_en": "Illustration: deployment"
+        },
+        {
+          "index_fr": "04",
+          "index_en": "04",
+          "tone": "ink",
+          "title_fr": "Croissance",
+          "title_en": "Growth",
+          "body_fr": "On mesure, on itère et on fait monter votre équipe en autonomie à chaque cycle.",
+          "body_en": "We measure, iterate and grow your team autonomy with every cycle.",
+          "points": [
+            {
+              "label_fr": "Mesure et itération",
+              "label_en": "Measure and iterate"
+            },
+            {
+              "label_fr": "Montée en autonomie",
+              "label_en": "Growing autonomy"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/money-money-ink.webp",
+          "media_alt_fr": "Illustration : croissance",
+          "media_alt_en": "Illustration: growth"
+        }
+      ]
+    }
+  },
+  {
     "type": "stat-block",
     "category": "marketing",
     "categorySlug": "stats-sections",
@@ -13098,12 +14561,12 @@
     }
   },
   {
-    "type": "stats-bento",
+    "type": "statement-orbit",
     "category": "marketing",
-    "categorySlug": "stats-sections",
-    "subcategory": "Stats Sections",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
     "status": "stable",
-    "description_fr": "Quatre KPI en grille bento de tailles inegales : une grande cellule avec chiffre geant et trois cellules secondaires, plus un bandeau bas pleine largeur.",
+    "description_fr": "Statement éditorial pleine largeur : carte ink qui s'étend de 80 % à 100 % au scroll, titre serif accent, lede, CTA, et un média globe filaire (réseau en orbite). Pose un concept sous un hero.",
     "requiredProps": [
       {
         "name": "h2_en",
@@ -13114,9 +14577,94 @@
         "type": "string"
       },
       {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "media_src",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "cta",
+        "type": "object"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "media_alt_en",
+        "type": "string"
+      },
+      {
+        "name": "media_alt_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "statement-orbit",
+      "h2_fr": "Chaque visite rejoint un <i class=\"acc\">réseau</i> qui qualifie, route et apprend.",
+      "h2_en": "Every visit joins a <i class=\"acc\">network</i> that qualifies, routes and learns.",
+      "lede_fr": "D'une audience anonyme à un pipeline lisible, votre site devient le centre d'un système, pas une page isolée.",
+      "lede_en": "From an anonymous audience to a readable pipeline, your site becomes the center of a system, not an isolated page.",
+      "media_src": "/images/line-art/orbit-network.svg"
+    }
+  },
+  {
+    "type": "stats-bento",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "status": "stable",
+    "description_fr": "Quatre KPI en grille bento de tailles inegales : une grande cellule avec chiffre geant et trois cellules secondaires, plus un bandeau bas pleine largeur.",
+    "requiredProps": [
+      {
+        "name": "bento",
+        "type": "unknown"
+      },
+      {
+        "name": "columns",
+        "type": "unknown"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "list",
+        "type": "unknown"
+      },
+      {
+        "name": "placement",
+        "type": "unknown"
+      },
+      {
+        "name": "ratio",
+        "type": "unknown"
+      },
+      {
         "name": "stats",
         "type": "array",
         "constraint": "min:2 max:6"
+      },
+      {
+        "name": "x2",
+        "type": "unknown"
       }
     ],
     "optionalProps": [
@@ -13126,12 +14674,37 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "constraint": "auto | even | square | video"
+      },
+      {
         "name": "kicker_en",
         "type": "string"
       },
       {
         "name": "kicker_fr",
         "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "bento | grid-uniform | matrix-2x2 | list"
       }
     ],
     "hasDemo": true,
@@ -13162,6 +14735,18 @@
           "label_fr": "Durée moyenne d'une mission Activation de A à Z",
           "label_en": "Average duration of an Activation mission end to end",
           "delta": "vs 6 sem. marche"
+        },
+        {
+          "value": "12",
+          "label_fr": "Workflows agentiques déployés en moyenne par client Growth",
+          "label_en": "Agentic workflows deployed on average per Growth client",
+          "delta": "+8 vs pilote"
+        },
+        {
+          "value": "60 j",
+          "label_fr": "Délai médian entre le pilote et le premier résultat mesuré",
+          "label_en": "Median delay between pilot and first measured result",
+          "delta": "-50%"
         }
       ]
     }
@@ -13232,6 +14817,105 @@
           "title_en": "Measure and refine",
           "body_fr": "Suivi des indicateurs, itérations rapides, transfert de compétences.",
           "body_en": "Tracking metrics, rapid iterations, and skills transfer."
+        }
+      ]
+    }
+  },
+  {
+    "type": "system-flow",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Rangée horizontale de cartes d'étapes sur fond ink, reliées par des flèches accent, qui raconte le flux du système (site → lead → scoring → CRM → apprentissage). En-tête « Fig. N » + méta mono, grand titre serif avec dernier mot en accent, lede courte, puis une ligne « ↺ boucle d'amélioration continue ». Reveal-stagger, responsive (scroll horizontal / colonne empilée en mobile).",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "steps",
+        "type": "array",
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "fig_num",
+        "type": "string"
+      },
+      {
+        "name": "fig_title_en",
+        "type": "string"
+      },
+      {
+        "name": "fig_title_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "loop_label_en",
+        "type": "string"
+      },
+      {
+        "name": "loop_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "meta_en",
+        "type": "string"
+      },
+      {
+        "name": "meta_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "system-flow",
+      "h2_fr": "Site → lead → scoring → CRM → <i class=\"acc\">apprentissage</i>.",
+      "h2_en": "Site → lead → scoring → CRM → <i class=\"acc\">learning</i>.",
+      "steps": [
+        {
+          "title_fr": "Site",
+          "title_en": "Site",
+          "desc_fr": "Pages rapides, contenu structuré, points de conversion clairs.",
+          "desc_en": "Fast pages, structured content, clear conversion points."
+        },
+        {
+          "title_fr": "Lead magnet",
+          "title_en": "Lead magnet",
+          "desc_fr": "Ressource à valeur en échange d'un contact qualifié.",
+          "desc_en": "A valuable resource in exchange for a qualified contact."
+        },
+        {
+          "title_fr": "Scoring",
+          "title_en": "Scoring",
+          "desc_fr": "Intention lue, contact noté selon son comportement.",
+          "desc_en": "Intent read, contact scored on behaviour."
+        },
+        {
+          "title_fr": "CRM",
+          "title_en": "CRM",
+          "desc_fr": "Contact enrichi, routé, alerte commerciale déclenchée.",
+          "desc_en": "Contact enriched, routed, sales alert triggered."
+        },
+        {
+          "title_fr": "Amélioration",
+          "title_en": "Improvement",
+          "desc_fr": "Mesure → hypothèses → itérations. La boucle se referme.",
+          "desc_en": "Measure → hypotheses → iterations. The loop closes."
         }
       ]
     }
@@ -14297,7 +15981,7 @@
     "type": "tier-pyramid-svg",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
-    "subcategory": "Hero Sections",
+    "subcategory": "Hero Header Sections",
     "status": "stable",
     "description_fr": "Pyramide SVG isocèle à trois niveaux pour visualiser la progression Découverte · Transformation · Partenariat.",
     "requiredProps": [
@@ -14349,7 +16033,7 @@
     "type": "timeline-block",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "status": "stable",
     "description_fr": "Bloc chronologique pour raconter une progression, un historique ou une séquence d'événements.",
     "requiredProps": [
@@ -14705,8 +16389,8 @@
   {
     "type": "tunnel-step-nav",
     "category": "marketing",
-    "categorySlug": "call-to-action-sections",
-    "subcategory": "Call-to-Action Sections",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
     "status": "stable",
     "description_fr": "Pied de navigation d'étape tunnel : lien prev optionnel + cta (primary/accent/ghost) + barre méta (lecture + retour offre).",
     "requiredProps": [

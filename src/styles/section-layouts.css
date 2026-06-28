@@ -1,0 +1,1319 @@
+/* Waimia · section-layouts.css — MOTEUR DE LAYOUT PARTAGÉ (Pilier 1).
+   Source : tasks/section-production-system.md + tasks/wave-c-axes-standard.md.
+   Importé par global.css APRÈS layouts.css (étend le même idiome : classes + data-attrs
+   génériques + var(--x, défaut), 0 régression tant qu'un composant ne porte pas .sec-*).
+
+   ─── CONTRAT ───
+   Racine de section : classe de famille (.sec-collection .sec-bento .sec-split .sec-process
+     .sec-editorial .sec-table .sec-band .sec-hero .sec-logos .sec-gallery)
+     + data-layout (recette du lexique) + data-columns (auto|1..6) + data-col-ratio
+     (equal|1-2|2-1|1-1-2|2-3|golden) + data-item-height (auto|even|square|video)
+     + data-proportion (1-1|1-2|2-1|2-3|3-2) + data-media-side (left|right) + data-density
+     (compact|base|ample). data-bg géré ailleurs (global.css) — NON dupliqué ici.
+   Conteneurs internes :
+     .sec-grid   = grille / collection (lit data-layout/columns/col-ratio/item-height)
+     .sec-rail   = rail horizontal scroll (process/gallery)
+     .sec-region = région nommée (data-region header|media|body|actions|aside) +
+                   data-align + data-justify + data-order + data-hide (convention UNIQUE)
+     .sec-item   = cellule / carte (lit la couche SKIN data-surface/divider/radius/accent-edge)
+
+   ─── PURETÉ DS ───
+   100 % tokens (--space-*, --text-*, --hairline, --radius-*, --wrap-read, --paper*, --accent,
+   ombres). Exceptions STRUCTURELLES tolérées : 1px hairline, breakpoints 640/768/1024px,
+   aspect-ratio, fr/minmax, ch/rem de lecture, order/align/justify, columns, scroll-snap.
+   0 nouveau token DS. 0 U+2014.
+
+   ─── ÉCONOMIE DES VARS LOCALES (pilotables par density, défaut = rendu actuel) ───
+   --sec-grid-gap  : gap des grilles/rails de collection (défaut --space-5)
+   --sec-region-gap: gap interne d'une région en flux (défaut --space-4)
+   --sec-col-min   : largeur mini d'une colonne auto-fit (défaut 16rem, structurel)
+   --sec-bento-min : largeur mini d'une tuile bento auto-fill (défaut 15rem, structurel) */
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 3 — AXES (density)  ·  pose les vars locales lues par les couches 1-2.
+   Étend l'idiome --sec-pad de layouts.css. Défaut (data-density absent) = rendu actuel.
+   ════════════════════════════════════════════════════════════════════════════ */
+:where(.sec-collection, .sec-bento, .sec-split, .sec-process, .sec-editorial,
+       .sec-table, .sec-band, .sec-hero, .sec-logos, .sec-gallery) {
+  --sec-grid-gap: var(--space-5);
+  --sec-region-gap: var(--space-4);
+}
+:where(.sec-collection, .sec-bento, .sec-split, .sec-process, .sec-editorial,
+       .sec-table, .sec-band, .sec-hero, .sec-logos, .sec-gallery)[data-density='compact'] {
+  --sec-grid-gap: var(--space-4);
+  --sec-region-gap: var(--space-3);
+  --sec-pad: var(--section-tight);
+}
+:where(.sec-collection, .sec-bento, .sec-split, .sec-process, .sec-editorial,
+       .sec-table, .sec-band, .sec-hero, .sec-logos, .sec-gallery)[data-density='base'] {
+  --sec-grid-gap: var(--space-5);
+  --sec-region-gap: var(--space-4);
+  --sec-pad: var(--section-base);
+}
+:where(.sec-collection, .sec-bento, .sec-split, .sec-process, .sec-editorial,
+       .sec-table, .sec-band, .sec-hero, .sec-logos, .sec-gallery)[data-density='ample'] {
+  --sec-grid-gap: var(--space-8);
+  --sec-region-gap: var(--space-5);
+  --sec-pad: var(--section-loose);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 1 — LAYOUT  ·  recettes de grille, keyées .sec-<famille>[data-layout] .sec-grid.
+   Recettes EXTRAITES verbatim des composants prouvés GF-1 (BentoGrid, FeatureGrid/
+   DeliverablesGrid, PricingCards, CaseCardGrid, FeatureSplitMedia, FeatureZigzag,
+   MethodTimeline, DefinitionExtract, PainSeverityList).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Base du conteneur de grille ── */
+.sec-grid {
+  display: grid;
+  gap: var(--sec-grid-gap, var(--space-5));
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FAMILLE « collection » (cartes / items / stats / médias)
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* grid-uniform : N colonnes ÉGALES, hauteurs égalisées (stretch). N piloté par data-columns.
+   minmax(0,1fr) = pas de débordement. Défaut 3 colonnes (cf PricingCards/Bento grid-uniform). */
+.sec-collection[data-layout='grid-uniform'] .sec-grid:not([data-columns]),
+.sec-bento[data-layout='grid-uniform'] .sec-grid:not([data-columns]),
+.sec-gallery[data-layout='grid-uniform'] .sec-grid:not([data-columns]),
+.sec-logos[data-layout='grid-uniform'] .sec-grid:not([data-columns]) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+.sec-grid[data-columns='1'] { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.sec-grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sec-grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sec-grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sec-grid[data-columns='5'] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.sec-grid[data-columns='6'] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.sec-grid[data-columns='auto'] { grid-template-columns: repeat(auto-fit, minmax(min(var(--sec-col-min, 16rem), 100%), 1fr)); }
+
+/* grid-auto : count-adaptive auto-fit — s'adapte au NOMBRE et à la largeur. Dernière ligne
+   incomplète centrée (justify-content). col-min = rem structurel borné (cf DeliverablesGrid). */
+.sec-collection[data-layout='grid-auto'] .sec-grid,
+.sec-gallery[data-layout='grid-auto'] .sec-grid,
+.sec-logos[data-layout='grid-auto'] .sec-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--sec-col-min, 16rem), 100%), 1fr));
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* grid-asym : colonnes de largeurs DIFFÉRENTES via data-col-ratio (cf DeliverablesGrid/Pricing).
+   golden ≈ 1.618:1 → 13fr 8fr (approximation entière du nombre d'or, structurel). */
+.sec-collection[data-layout='grid-asym'] .sec-grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+.sec-collection[data-layout='grid-asym'] .sec-grid[data-col-ratio='equal']  { grid-template-columns: 1fr 1fr; }
+.sec-collection[data-layout='grid-asym'] .sec-grid[data-col-ratio='1-2']    { grid-template-columns: 1fr 2fr; }
+.sec-collection[data-layout='grid-asym'] .sec-grid[data-col-ratio='2-1']    { grid-template-columns: 2fr 1fr; }
+.sec-collection[data-layout='grid-asym'] .sec-grid[data-col-ratio='1-1-2']  { grid-template-columns: 1fr 1fr 2fr; }
+.sec-collection[data-layout='grid-asym'] .sec-grid[data-col-ratio='2-3']    { grid-template-columns: 2fr 3fr; }
+.sec-collection[data-layout='grid-asym'] .sec-grid[data-col-ratio='golden'] { grid-template-columns: 13fr 8fr; }
+
+/* list : 1 par ligne, item en cluster horizontal pleine largeur (cf DeliverablesGrid/Pricing list).
+   La projection interne de chaque carte (média↔texte côte à côte) reste au composant ; ici on
+   garantit 1 colonne + rythme par le gap. */
+.sec-collection[data-layout='list'] .sec-grid,
+.sec-table[data-layout='list'] .sec-grid {
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+/* rows-divided : list + hairline entre lignes (table éditoriale, cf DeliverablesGrid/Pricing). */
+.sec-collection[data-layout='rows-divided'] .sec-grid,
+.sec-table[data-layout='rows-divided'] .sec-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--hairline);
+}
+.sec-collection[data-layout='rows-divided'] .sec-grid > .sec-item,
+.sec-table[data-layout='rows-divided'] .sec-grid > .sec-item {
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* featured-split : 1 gros bloc (1fr) + colonne d'items secondaires (1fr) à côté. Le 1er item
+   s'étire sur toute la hauteur (grid-row 1/-1) ; dense comble (cf DeliverablesGrid/Pricing). */
+.sec-collection[data-layout='featured-split'] .sec-grid,
+.sec-gallery[data-layout='featured-split'] .sec-grid {
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: dense;
+  align-items: start;
+}
+.sec-collection[data-layout='featured-split'] .sec-grid > .sec-item:first-child,
+.sec-gallery[data-layout='featured-split'] .sec-grid > .sec-item:first-child {
+  grid-row: 1 / -1;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FAMILLE « bento » (spans mixtes, hauteurs contrastées)  — cf BentoGrid.astro
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* bento : auto-fill content-driven + auto-flow dense. Les spans des items (.sec-item[data-span])
+   se posent ci-dessous, CLAMPÉS au nb de colonnes (0 débordement). */
+.sec-bento[data-layout='bento'] .sec-grid {
+  grid-template-columns: repeat(auto-fill, minmax(var(--sec-bento-min, 15rem), 1fr));
+  grid-auto-flow: dense;
+  grid-auto-rows: min-content;
+  align-content: start;
+}
+.sec-bento[data-layout='bento'] .sec-grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sec-bento[data-layout='bento'] .sec-grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sec-bento[data-layout='bento'] .sec-grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* bento-feature : 1ʳᵉ cellule vedette span 2 colonnes + 2 lignes, le reste simple. dense comble
+   (cf BentoGrid/DeliverablesGrid/Pricing bento-feature). 3 colonnes imposées. */
+.sec-bento[data-layout='bento-feature'] .sec-grid,
+.sec-collection[data-layout='bento-feature'] .sec-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  grid-auto-rows: min-content;
+  align-items: stretch;
+}
+.sec-bento[data-layout='bento-feature'] .sec-grid > .sec-item:first-child,
+.sec-collection[data-layout='bento-feature'] .sec-grid > .sec-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* mosaic : spans ET hauteurs variés (éditorial assumé), dense OBLIGATOIRE pour 0 trou
+   (cf BentoGrid mosaic). grid-auto-rows fixe → rangs contrastés. */
+.sec-bento[data-layout='mosaic'] .sec-grid,
+.sec-gallery[data-layout='mosaic'] .sec-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  grid-auto-rows: minmax(var(--space-12), auto);
+}
+
+/* matrix-2x2 / matrix-3x3 / matrix-4x4 : matrices carrées, cellules aspect-ratio:1 (carrés
+   synchrones), columns imposé par le nom. auto-flow:row → si items < N², la dernière ligne se
+   réduit proprement (cf BentoGrid matrix-2x2/3x3 ; 4x4 = même patron étendu). */
+.sec-bento[data-layout^='matrix-'] .sec-grid,
+.sec-gallery[data-layout^='matrix-'] .sec-grid {
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+}
+.sec-bento[data-layout='matrix-2x2'] .sec-grid,
+.sec-gallery[data-layout='matrix-2x2'] .sec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sec-bento[data-layout='matrix-3x3'] .sec-grid,
+.sec-gallery[data-layout='matrix-3x3'] .sec-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sec-bento[data-layout='matrix-4x4'] .sec-grid,
+.sec-gallery[data-layout='matrix-4x4'] .sec-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sec-bento[data-layout^='matrix-'] .sec-grid > .sec-item,
+.sec-gallery[data-layout^='matrix-'] .sec-grid > .sec-item {
+  grid-column: auto;
+  grid-row: auto;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+/* masonry : colonnes à hauteurs NATURELLES non harmonisées (galeries). CSS columns en fallback
+   universel (grid masonry pas encore largement supporté) ; break-inside évite la coupure d'item. */
+.sec-gallery[data-layout='masonry'] .sec-grid,
+.sec-collection[data-layout='masonry'] .sec-grid {
+  display: block;
+  column-count: 3;
+  column-gap: var(--sec-grid-gap, var(--space-5));
+}
+.sec-gallery[data-layout='masonry'] .sec-grid[data-columns='2'],
+.sec-collection[data-layout='masonry'] .sec-grid[data-columns='2'] { column-count: 2; }
+.sec-gallery[data-layout='masonry'] .sec-grid[data-columns='4'],
+.sec-collection[data-layout='masonry'] .sec-grid[data-columns='4'] { column-count: 4; }
+.sec-gallery[data-layout='masonry'] .sec-grid > .sec-item,
+.sec-collection[data-layout='masonry'] .sec-grid > .sec-item {
+  break-inside: avoid;
+  margin-bottom: var(--sec-grid-gap, var(--space-5));
+}
+
+/* ── Spans de cellule bento (data-span sur .sec-item), CLAMPÉS au nb de colonnes ──
+   lg = 2×2 (vedette), wide = 2 colonnes, tall = 2 lignes, sm = unité (défaut implicite). */
+.sec-bento .sec-grid > .sec-item[data-span='lg']   { grid-column: span 2; grid-row: span 2; }
+.sec-bento .sec-grid > .sec-item[data-span='wide'] { grid-column: span 2; }
+.sec-bento .sec-grid > .sec-item[data-span='tall'] { grid-row: span 2; }
+/* À 2 colonnes, un span-2 occuperait toute la largeur → on borne lg/wide à 1 colonne
+   (la hauteur span-2 de lg/tall reste, mosaïque cohérente — cf BentoGrid). */
+.sec-bento .sec-grid[data-columns='2'] > .sec-item[data-span='lg'],
+.sec-bento .sec-grid[data-columns='2'] > .sec-item[data-span='wide'] { grid-column: span 1; }
+
+/* ── itemHeight (data-item-height sur .sec-grid) : hauteur des cellules en mode grille.
+   even = stretch ; square = carré ; video = 16/9. Relâché en mobile (contenu prime). ── */
+.sec-grid[data-item-height='even'] { align-items: stretch; }
+.sec-grid[data-item-height='even'] > .sec-item { align-self: stretch; }
+.sec-grid[data-item-height='auto'] { align-items: start; }
+.sec-grid[data-item-height='square'] > .sec-item { aspect-ratio: 1; overflow: hidden; }
+.sec-grid[data-item-height='video']  > .sec-item { aspect-ratio: 16 / 9; overflow: hidden; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FAMILLE « split / duo » (média↔texte, comparaison)  — cf FeatureSplitMedia/Zigzag
+   Conteneur = .sec-grid à 2 colonnes ; ratio par data-proportion, côté par data-media-side.
+   ───────────────────────────────────────────────────────────────────────── */
+.sec-split .sec-grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+/* inline = côte à côte (défaut). stacked = empilé 1 colonne. alternate = zigzag géré au composant
+   (par rangée, data-reverse) ; ici on garantit la base 2 colonnes. */
+.sec-split[data-layout='stacked'] .sec-grid { grid-template-columns: 1fr; }
+
+/* proportion : ratio des colonnes texte|média (minmax(0,..) = pas de débordement). */
+.sec-split[data-proportion='1-1'] .sec-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.sec-split[data-proportion='1-2'] .sec-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+.sec-split[data-proportion='2-1'] .sec-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.sec-split[data-proportion='2-3'] .sec-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.sec-split[data-proportion='3-2'] .sec-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+
+/* media-side : côté du média (région data-region='media'), INDÉPENDANT du ratio. order structurel. */
+.sec-split[data-media-side='left']  .sec-grid > .sec-region[data-region='media'] { order: 0; }
+.sec-split[data-media-side='left']  .sec-grid > .sec-region[data-region='body'],
+.sec-split[data-media-side='left']  .sec-grid > .sec-region[data-region='header'] { order: 1; }
+.sec-split[data-media-side='right'] .sec-grid > .sec-region[data-region='media'] { order: 1; }
+.sec-split[data-media-side='right'] .sec-grid > .sec-region[data-region='body'],
+.sec-split[data-media-side='right'] .sec-grid > .sec-region[data-region='header'] { order: 0; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FAMILLE « process / timeline / flow »  — cf MethodTimeline.astro
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* vertical-stack : étapes empilées en pleine largeur, séquentielles. */
+.sec-process[data-layout='vertical-stack'] .sec-grid {
+  grid-template-columns: 1fr;
+  gap: var(--sec-grid-gap, var(--space-5));
+}
+
+/* numbered-rows : lignes pleine largeur séparées par hairline, rythme éditorial. */
+.sec-process[data-layout='numbered-rows'] .sec-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--hairline);
+}
+.sec-process[data-layout='numbered-rows'] .sec-grid > .sec-item {
+  border-bottom: 1px solid var(--hairline);
+  padding-block: var(--space-6);
+}
+
+/* grid-steps : étapes en grille de cartes, count-adaptive (auto) ou N colonnes fixes.
+   auto-fit + centrage dernière ligne (cf MethodTimeline grid-steps). */
+.sec-process[data-layout='grid-steps'] .sec-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--sec-col-min, 16rem), 100%), 1fr));
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* horizontal : RAIL horizontal, scroll tactile interne si déborde (JAMAIS de débordement de
+   page : overflow-x sur le rail lui-même). scroll-snap pour le confort (cf MethodTimeline). */
+.sec-process[data-layout='horizontal'] .sec-rail,
+.sec-gallery[data-layout='horizontal'] .sec-rail {
+  display: flex;
+  flex-direction: row;
+  gap: var(--sec-grid-gap, var(--space-5));
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--space-3);
+}
+.sec-process[data-layout='horizontal'] .sec-rail > .sec-item,
+.sec-gallery[data-layout='horizontal'] .sec-rail > .sec-item {
+  flex: 0 0 18rem;
+  scroll-snap-align: start;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FAMILLE « editorial » (texte / manifeste / liste de points) — cf DefinitionExtract/PSL
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* prose : 1 colonne de lecture bornée (token DS --wrap-read), centrée. */
+.sec-editorial[data-layout='prose'] .sec-grid,
+.sec-editorial[data-layout='prose'] .sec-region[data-region='body'] {
+  display: block;
+  max-width: var(--wrap-read);
+  margin-inline: auto;
+}
+
+/* two-col : 2 colonnes de texte (columns CSS, break-inside évite la coupure). */
+.sec-editorial[data-layout='two-col'] .sec-grid {
+  display: block;
+  column-count: 2;
+  column-gap: var(--space-9);
+}
+.sec-editorial[data-layout='two-col'] .sec-grid > .sec-item { break-inside: avoid; }
+
+/* list / rows-divided : items empilés (rows-divided ajoute les hairlines — déjà couvert par les
+   règles .sec-editorial ci-dessous + la règle collection rows-divided générique). */
+.sec-editorial[data-layout='list'] .sec-grid {
+  grid-template-columns: 1fr;
+  gap: var(--sec-grid-gap, var(--space-6));
+}
+.sec-editorial[data-layout='rows-divided'] .sec-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--hairline);
+}
+.sec-editorial[data-layout='rows-divided'] .sec-grid > .sec-item {
+  border-bottom: 1px solid var(--hairline);
+  padding-block: var(--space-6);
+}
+
+/* lead-aside : chapô en lead (2fr) + points/aparté en colonne (1fr) — cf DefinitionExtract. */
+.sec-editorial[data-layout='lead-aside'] .sec-grid {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-9);
+  align-items: start;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 2 — PLACEMENT ATOMIQUE  ·  convention UNIQUE générique sur .sec-region.
+   UN jeu de règles couvre TOUTES les régions (header/media/body/actions/aside) = DRY.
+   Pour que data-order ait un effet, le conteneur de la région doit être en flux/grid
+   (assuré par .sec-grid ou par un wrapper flex côté composant).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Région en flux vertical par défaut (rythme interne piloté par --sec-region-gap). */
+.sec-region {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sec-region-gap, var(--space-4));
+}
+
+/* align : alignement transversal du contenu de la région + text-align + centrage de mesure. */
+.sec-region[data-align='start']  { align-items: flex-start; text-align: start; }
+.sec-region[data-align='center'] { align-items: center; text-align: center; }
+.sec-region[data-align='center'] > * { margin-inline: auto; }
+.sec-region[data-align='end']    { align-items: flex-end; text-align: end; }
+
+/* justify : alignement d'un cluster horizontal (ex. groupe CTA, rangée d'items). between =
+   space-between. S'applique quand la région est en rangée (data-justify implique l'axe principal
+   horizontal : on bascule en row pour les régions de type actions). */
+.sec-region[data-justify] { flex-direction: row; flex-wrap: wrap; align-items: center; }
+.sec-region[data-justify='start']   { justify-content: flex-start; }
+.sec-region[data-justify='center']  { justify-content: center; }
+.sec-region[data-justify='end']     { justify-content: flex-end; }
+.sec-region[data-justify='between'] { justify-content: space-between; }
+
+/* order : réordonnancement dans le flux (CSS order, structurel). */
+.sec-region[data-order='0'] { order: 0; }
+.sec-region[data-order='1'] { order: 1; }
+.sec-region[data-order='2'] { order: 2; }
+.sec-region[data-order='3'] { order: 3; }
+.sec-region[data-order='4'] { order: 4; }
+.sec-region[data-order='5'] { order: 5; }
+.sec-region[data-order='6'] { order: 6; }
+.sec-region[data-order='7'] { order: 7; }
+.sec-region[data-order='8'] { order: 8; }
+.sec-region[data-order='9'] { order: 9; }
+
+/* hide : visibilité responsive (display:none au breakpoint). desktop = caché ≥769px. */
+.sec-region[data-hide='desktop'] { display: none; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 4 — SKIN / SURFACE  ·  sur .sec-item. 100 % tokens DS (border=--hairline,
+   fill=--paper-*, shadow=ombre existante, radius=--radius-*, accent=--accent).
+   Défaut (data-surface absent) = rendu actuel (transparent, pas de bordure forcée).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* surface : flat (transparent, défaut) | outlined | filled | elevated | ghost. */
+.sec-item[data-surface='flat']     { background: transparent; border: 0; box-shadow: none; }
+.sec-item[data-surface='outlined'] { border: 1px solid var(--hairline); background: transparent; }
+.sec-item[data-surface='filled']   { background: var(--paper-2); border: 0; }
+.sec-item[data-surface='elevated'] { background: var(--paper); box-shadow: var(--shadow-card-hover); border: 0; }
+.sec-item[data-surface='ghost']    { background: transparent; border: 0; box-shadow: none; }
+
+/* divider : none (défaut) | hairline (filet bas) | rule (filet haut accentué). */
+.sec-item[data-divider='none']     { border-bottom: 0; }
+.sec-item[data-divider='hairline'] { border-bottom: 1px solid var(--hairline); }
+.sec-item[data-divider='rule']     { border-top: 1px solid var(--hairline-strong); }
+
+/* radius : none | sm | md | lg (tokens --radius-*). */
+.sec-item[data-radius='none'] { border-radius: 0; }
+.sec-item[data-radius='sm']   { border-radius: var(--radius-sm); }
+.sec-item[data-radius='md']   { border-radius: var(--radius-md); }
+.sec-item[data-radius='lg']   { border-radius: var(--radius-lg); }
+
+/* accent-edge : none (défaut) | top | left — barre d'accent (2px structurel, couleur token). */
+.sec-item[data-accent-edge='top']  { border-top: 2px solid var(--accent); }
+.sec-item[data-accent-edge='left'] { border-left: 2px solid var(--accent); }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE  ·  garde-fou « toujours responsive, jamais de débordement ».
+   ≤768px : toute grille multi-colonnes → 1 colonne (2 pour petites cartes/logos).
+   Le rail horizontal reste scrollable (jamais de débordement de page). hide=mobile.
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Toute recette en grille de collection/bento/split/process/editorial → 1 colonne. */
+  .sec-collection .sec-grid,
+  .sec-bento .sec-grid,
+  .sec-split .sec-grid,
+  .sec-process[data-layout='grid-steps'] .sec-grid,
+  .sec-process[data-layout='numbered-rows'] .sec-grid,
+  .sec-process[data-layout='vertical-stack'] .sec-grid,
+  .sec-table .sec-grid,
+  .sec-editorial[data-layout='lead-aside'] .sec-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  /* Neutralise les colonnes fixes (spécificité supérieure) + columns CSS (two-col/masonry). */
+  .sec-grid[data-columns='1'],
+  .sec-grid[data-columns='2'],
+  .sec-grid[data-columns='3'],
+  .sec-grid[data-columns='4'],
+  .sec-grid[data-columns='5'],
+  .sec-grid[data-columns='6'] { grid-template-columns: 1fr; }
+  .sec-editorial[data-layout='two-col'] .sec-grid,
+  .sec-gallery[data-layout='masonry'] .sec-grid,
+  .sec-collection[data-layout='masonry'] .sec-grid { column-count: 1; }
+
+  /* Spans bento/feature/featured relâchés (sinon débordement). */
+  .sec-bento .sec-grid > .sec-item[data-span],
+  .sec-bento[data-layout='bento-feature'] .sec-grid > .sec-item:first-child,
+  .sec-collection[data-layout='bento-feature'] .sec-grid > .sec-item:first-child,
+  .sec-collection[data-layout='featured-split'] .sec-grid > .sec-item:first-child,
+  .sec-gallery[data-layout='featured-split'] .sec-grid > .sec-item:first-child {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* aspect-ratio (matrix/square/video) relâché → hauteur naturelle (contenu prime). */
+  .sec-bento[data-layout^='matrix-'] .sec-grid > .sec-item,
+  .sec-gallery[data-layout^='matrix-'] .sec-grid > .sec-item,
+  .sec-grid[data-item-height='square'] > .sec-item,
+  .sec-grid[data-item-height='video']  > .sec-item { aspect-ratio: auto; }
+
+  /* Rail horizontal → pile verticale (plus de scroll latéral nécessaire). */
+  .sec-process[data-layout='horizontal'] .sec-rail,
+  .sec-gallery[data-layout='horizontal'] .sec-rail {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+  .sec-process[data-layout='horizontal'] .sec-rail > .sec-item,
+  .sec-gallery[data-layout='horizontal'] .sec-rail > .sec-item { flex: 1 1 auto; }
+
+  /* Split empilé : ordre de lecture restauré (le média ne reste pas avant le texte
+     de façon absurde — la region media repasse en order 1). */
+  .sec-split[data-media-side] .sec-grid > .sec-region[data-region='media'] { order: 1; }
+  .sec-split[data-media-side] .sec-grid > .sec-region[data-region='body'],
+  .sec-split[data-media-side] .sec-grid > .sec-region[data-region='header'] { order: 0; }
+
+  /* hide=mobile prime ; on rétablit les régions cachées-desktop. */
+  .sec-region[data-hide='mobile']  { display: none; }
+  .sec-region[data-hide='desktop'] { display: flex; }
+}
+
+/* Petites cartes / logos : 2 colonnes tolérées en mobile (plus lisible qu'1 colonne). */
+@media (max-width: 768px) {
+  .sec-logos[data-layout='grid-uniform'] .sec-grid,
+  .sec-logos[data-layout='grid-auto'] .sec-grid,
+  .sec-logos .sec-grid[data-columns='3'],
+  .sec-logos .sec-grid[data-columns='4'],
+  .sec-logos .sec-grid[data-columns='5'],
+  .sec-logos .sec-grid[data-columns='6'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗
+   ║  MOTEUR v2 — couches NOW génériques data-attr (additif, inerte par défaut) ║
+   ║  Tout ce qui suit est inerte tant qu'aucun composant ne pose le data-attr. ║
+   ║  0 règle v1 ci-dessus altérée. 0 nouveau token DS. 0 U+2014.               ║
+   ║  Couches : L7 (flex/grid parent+enfant + intra-cellule), L8 (états),       ║
+   ║  L9 (motion compléments), L10bis (couleur multi-scope + contraste auto),   ║
+   ║  L11 (orientation/long-tail), L4/L6/L12 (compléments core), container-type,║
+   ║  :has() count-adaptive généralisé.                                         ║
+   ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DÉCISION POST-CRITIQUE I3 — container-type posé NOW (les @container = NEXT).
+   On POSE le contexte de requête de conteneur sur les grilles/régions dès
+   maintenant pour ne pas rétrofitter 123 composants plus tard. container-type:
+   inline-size ne contraint QUE l'axe inline (largeur) : il n'impose AUCUNE
+   hauteur (contrairement à 'size'), donc 0 risque d'effondrement de hauteur sur
+   les grilles existantes. La seule conséquence est d'établir un contexte de
+   confinement de mise en page ; le sizing inline reste piloté par grid/flex.
+   Re-vérif orchestrateur : confirmer qu'aucune grille ne dépendait d'un
+   débordement de largeur d'enfant hors de .sec-grid (très improbable : tout est
+   minmax(0,1fr) / auto-fit, donc déjà confiné).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid,
+.sec-region {
+  container-type: inline-size;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DÉCISION POST-CRITIQUE I5 — count-adaptive :has() GÉNÉRALISÉ sur grid-auto.
+   Généralise la finesse aujourd'hui dupliquée bespoke (deliverables-grid,
+   problems-grid) : selon le NOMBRE exact d'items, on ajuste la largeur mini de
+   colonne pour éviter une dernière ligne orpheline disgracieuse.
+   - 4 items pile (:nth-child(4):last-child) → 2x2 (col-min plus large).
+   - 5 items pile → 3 + 2 (dernière ligne déjà centrée par justify-content:center).
+   On ne touche que --sec-col-min (var locale) : le moteur grid-auto reste le même,
+   on pilote juste son minmax. Inerte si le composant n'est pas en grid-auto.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-collection[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(2):last-child),
+.sec-gallery[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(2):last-child),
+.sec-process[data-layout='grid-steps'] .sec-grid:has(> .sec-item:nth-child(2):last-child) {
+  --sec-col-min: 22rem; /* 2 items : colonnes larges (évite 2 colonnes étriquées) */
+}
+.sec-collection[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(4):last-child),
+.sec-gallery[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(4):last-child),
+.sec-process[data-layout='grid-steps'] .sec-grid:has(> .sec-item:nth-child(4):last-child) {
+  --sec-col-min: 18rem; /* 4 items : favorise un 2x2 propre plutôt qu'un 1x4 étiré */
+}
+.sec-collection[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(6):last-child),
+.sec-gallery[data-layout='grid-auto'] .sec-grid:has(> .sec-item:nth-child(6):last-child),
+.sec-process[data-layout='grid-steps'] .sec-grid:has(> .sec-item:nth-child(6):last-child) {
+  --sec-col-min: 15rem; /* 6 items : colonnes plus serrées (3x2 cohérent) */
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 7 — ALIGNEMENT flex/grid PARENT (conteneur) — décision Simon 2026-06-28.
+   Une règle générique par valeur, appliquée sur tout conteneur du moteur
+   (.sec-grid, .sec-region, .sec-item quand il est lui-même conteneur). DRY.
+   Structurel (align/justify) : pas de token. Inerte sans data-attr.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* justify-content (axe principal flex / inline grid). */
+.sec-grid[data-justify-content='start'],
+.sec-region[data-justify-content='start'],
+.sec-item[data-justify-content='start']   { justify-content: flex-start; }
+.sec-grid[data-justify-content='center'],
+.sec-region[data-justify-content='center'],
+.sec-item[data-justify-content='center']  { justify-content: center; }
+.sec-grid[data-justify-content='end'],
+.sec-region[data-justify-content='end'],
+.sec-item[data-justify-content='end']      { justify-content: flex-end; }
+.sec-grid[data-justify-content='between'],
+.sec-region[data-justify-content='between'],
+.sec-item[data-justify-content='between']  { justify-content: space-between; }
+.sec-grid[data-justify-content='around'],
+.sec-region[data-justify-content='around'],
+.sec-item[data-justify-content='around']   { justify-content: space-around; }
+.sec-grid[data-justify-content='evenly'],
+.sec-region[data-justify-content='evenly'],
+.sec-item[data-justify-content='evenly']   { justify-content: space-evenly; }
+
+/* align-items (axe transverse, tous les enfants). */
+.sec-grid[data-align-items='start'],
+.sec-region[data-align-items='start'],
+.sec-item[data-align-items='start']     { align-items: flex-start; }
+.sec-grid[data-align-items='center'],
+.sec-region[data-align-items='center'],
+.sec-item[data-align-items='center']    { align-items: center; }
+.sec-grid[data-align-items='end'],
+.sec-region[data-align-items='end'],
+.sec-item[data-align-items='end']        { align-items: flex-end; }
+.sec-grid[data-align-items='stretch'],
+.sec-region[data-align-items='stretch'],
+.sec-item[data-align-items='stretch']    { align-items: stretch; }
+.sec-grid[data-align-items='baseline'],
+.sec-region[data-align-items='baseline'],
+.sec-item[data-align-items='baseline']   { align-items: baseline; }
+
+/* justify-items (grid : alignement inline de chaque cellule). */
+.sec-grid[data-justify-items='start'],
+.sec-region[data-justify-items='start']    { justify-items: start; }
+.sec-grid[data-justify-items='center'],
+.sec-region[data-justify-items='center']   { justify-items: center; }
+.sec-grid[data-justify-items='end'],
+.sec-region[data-justify-items='end']       { justify-items: end; }
+.sec-grid[data-justify-items='stretch'],
+.sec-region[data-justify-items='stretch']   { justify-items: stretch; }
+
+/* align-content (multi-lignes). */
+.sec-grid[data-align-content='start'],
+.sec-region[data-align-content='start']     { align-content: start; }
+.sec-grid[data-align-content='center'],
+.sec-region[data-align-content='center']    { align-content: center; }
+.sec-grid[data-align-content='end'],
+.sec-region[data-align-content='end']        { align-content: end; }
+.sec-grid[data-align-content='between'],
+.sec-region[data-align-content='between']    { align-content: space-between; }
+.sec-grid[data-align-content='stretch'],
+.sec-region[data-align-content='stretch']    { align-content: stretch; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 7 — ALIGNEMENT ENFANT / self (sur .sec-item, .sec-region).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* justify-self. */
+.sec-item[data-justify-self='start'],
+.sec-region[data-justify-self='start']    { justify-self: start; }
+.sec-item[data-justify-self='center'],
+.sec-region[data-justify-self='center']   { justify-self: center; }
+.sec-item[data-justify-self='end'],
+.sec-region[data-justify-self='end']       { justify-self: end; }
+.sec-item[data-justify-self='stretch'],
+.sec-region[data-justify-self='stretch']   { justify-self: stretch; }
+
+/* align-self. */
+.sec-item[data-align-self='start'],
+.sec-region[data-align-self='start']     { align-self: start; }
+.sec-item[data-align-self='center'],
+.sec-region[data-align-self='center']    { align-self: center; }
+.sec-item[data-align-self='end'],
+.sec-region[data-align-self='end']        { align-self: end; }
+.sec-item[data-align-self='stretch'],
+.sec-region[data-align-self='stretch']    { align-self: stretch; }
+.sec-item[data-align-self='baseline'],
+.sec-region[data-align-self='baseline']   { align-self: baseline; }
+
+/* order sur l'item (0..9). Complète l'order de région déjà couvert en v1 (couche 2). */
+.sec-item[data-order='0'] { order: 0; }
+.sec-item[data-order='1'] { order: 1; }
+.sec-item[data-order='2'] { order: 2; }
+.sec-item[data-order='3'] { order: 3; }
+.sec-item[data-order='4'] { order: 4; }
+.sec-item[data-order='5'] { order: 5; }
+.sec-item[data-order='6'] { order: 6; }
+.sec-item[data-order='7'] { order: 7; }
+.sec-item[data-order='8'] { order: 8; }
+.sec-item[data-order='9'] { order: 9; }
+
+/* col-span / row-span (1..4). Span structurel ; clampé au nb de colonnes par les
+   garde-fous responsive ci-dessous (et par les règles bento existantes pour le
+   cas data-columns='2'). Pour éviter tout débordement quand le span dépasse le
+   nb de pistes, on borne via min() sur la portée : grid-column: span min(N, cols)
+   n'existe pas en CSS, donc on s'appuie sur l'absorption naturelle de la grille
+   (un span > nb pistes est ramené à la largeur dispo par le moteur grid) + le
+   relâchement mobile. Re-vérif orchestrateur : sur une grille à 2 colonnes, un
+   col-span=4 occupe les 2 colonnes (pas de débordement de page, juste pleine
+   largeur). */
+.sec-item[data-col-span='1'] { grid-column: span 1; }
+.sec-item[data-col-span='2'] { grid-column: span 2; }
+.sec-item[data-col-span='3'] { grid-column: span 3; }
+.sec-item[data-col-span='4'] { grid-column: span 4; }
+.sec-item[data-row-span='1'] { grid-row: span 1; }
+.sec-item[data-row-span='2'] { grid-row: span 2; }
+.sec-item[data-row-span='3'] { grid-row: span 3; }
+.sec-item[data-row-span='4'] { grid-row: span 4; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 7 — INTRA-CELLULE (le contenu DANS chaque carte/colonne).
+   La cellule devient une pile flex-column pour pouvoir distribuer son contenu
+   (cell-y). On ne force le mode flex QUE si un data-cell-* est présent (sinon on
+   ne touche pas au rendu actuel de la carte).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-item[data-cell-x],
+.sec-item[data-cell-y] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* cell-x : alignement horizontal du contenu (align-items en flex-column + text-align). */
+.sec-item[data-cell-x='start']  { align-items: flex-start; text-align: start; }
+.sec-item[data-cell-x='center'] { align-items: center; text-align: center; }
+.sec-item[data-cell-x='end']    { align-items: flex-end; text-align: end; }
+
+/* cell-y : distribution verticale (justify-content en flex-column).
+   between = pousse le dernier enfant (CTA) en bas de carte = pattern pricing/feature.
+   between IMPOSE une hauteur partagée : la cellule doit s'étirer (height:100%) pour
+   que l'espace existe — on le fait ici (inerte si la cellule n'a pas de hauteur). */
+.sec-item[data-cell-y] { height: 100%; }
+.sec-item[data-cell-y='top']     { justify-content: flex-start; }
+.sec-item[data-cell-y='middle']  { justify-content: center; }
+.sec-item[data-cell-y='bottom']  { justify-content: flex-end; }
+.sec-item[data-cell-y='between'] { justify-content: space-between; }
+
+/* cell-pad : padding interne de cellule (tokens --space-*). */
+.sec-item[data-cell-pad='none'] { padding: 0; }
+.sec-item[data-cell-pad='sm']   { padding: var(--space-4); }
+.sec-item[data-cell-pad='base'] { padding: var(--space-5); }
+.sec-item[data-cell-pad='lg']   { padding: var(--space-6); }
+
+/* media-fit / media-ratio : sur le média interne d'une cellule (atome __media ou <img>). */
+.sec-item[data-media-fit='cover']   .sec-item__media,
+.sec-item[data-media-fit='cover']   > img,
+.sec-item[data-media-fit='cover']   img { object-fit: cover; }
+.sec-item[data-media-fit='contain'] .sec-item__media,
+.sec-item[data-media-fit='contain'] > img,
+.sec-item[data-media-fit='contain'] img { object-fit: contain; }
+.sec-item[data-media-ratio='auto'] .sec-item__media,
+.sec-item[data-media-ratio='auto'] > img  { aspect-ratio: auto; }
+.sec-item[data-media-ratio='1-1']  .sec-item__media,
+.sec-item[data-media-ratio='1-1']  > img  { aspect-ratio: 1 / 1; }
+.sec-item[data-media-ratio='4-3']  .sec-item__media,
+.sec-item[data-media-ratio='4-3']  > img  { aspect-ratio: 4 / 3; }
+.sec-item[data-media-ratio='3-2']  .sec-item__media,
+.sec-item[data-media-ratio='3-2']  > img  { aspect-ratio: 3 / 2; }
+.sec-item[data-media-ratio='16-9'] .sec-item__media,
+.sec-item[data-media-ratio='16-9'] > img  { aspect-ratio: 16 / 9; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 8 — ÉTATS (interaction) — décision Simon 2026-06-28.
+   Portée double (comme couche 7) : .sec-grid[data-hover] .sec-item (toute la
+   grille) + .sec-item[data-hover] (override par item, gagne en spécificité égale
+   grâce à l'ordre — l'item est listé après ou via sélecteur direct).
+   TOUT transform/anim hover gated prefers-reduced-motion. focus-visible JAMAIS
+   retiré. reveal-cta doublé focus-within + visible en touch/reduced-motion.
+   0 token inventé (--dur-*, --ease*, --shadow-*, --accent, --radius-*, --paper-*,
+   --ink-*, --hairline-strong existent tous).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Transition de base : appliquée à tout item qui opte pour un état hover, pour
+   que l'effet soit fluide. transition-property bornée à opacity/transform/
+   box-shadow/border-color/background (jamais width/height → 0 reflow). Défaut
+   --dur-hover + --ease, surchargeable par data-transition / data-ease. */
+.sec-grid[data-hover] .sec-item,
+.sec-item[data-hover] {
+  transition-property: transform, box-shadow, border-color, background-color, opacity;
+  transition-duration: var(--dur-hover);
+  transition-timing-function: var(--ease);
+}
+
+/* transition-speed : instant | fast | base(défaut) | slow. */
+.sec-grid[data-transition='instant'] .sec-item, .sec-item[data-transition='instant'] { transition-duration: 0ms; }
+.sec-grid[data-transition='fast'] .sec-item,    .sec-item[data-transition='fast']    { transition-duration: var(--dur-fast); }
+.sec-grid[data-transition='base'] .sec-item,    .sec-item[data-transition='base']    { transition-duration: var(--dur-hover); }
+.sec-grid[data-transition='slow'] .sec-item,    .sec-item[data-transition='slow']    { transition-duration: var(--dur-panel); }
+
+/* transition-ease : standard(défaut) | out | spring. */
+.sec-grid[data-ease='standard'] .sec-item, .sec-item[data-ease='standard'] { transition-timing-function: var(--ease); }
+.sec-grid[data-ease='out'] .sec-item,      .sec-item[data-ease='out']      { transition-timing-function: var(--ease-out); }
+.sec-grid[data-ease='spring'] .sec-item,   .sec-item[data-ease='spring']   { transition-timing-function: var(--ease-spring); }
+
+/* reveal-cta (group-hover) : le CTA/overlay masqué (opacity:0) au repos. Visible
+   au survol de la carte OU au focus clavier (focus-within, OBLIGATOIRE a11y).
+   Cible : .sec-item__cta ou tout [data-reveal-on-hover]. transition opacity. */
+.sec-grid[data-hover='reveal-cta'] .sec-item .sec-item__cta,
+.sec-grid[data-hover='reveal-cta'] .sec-item [data-reveal-on-hover],
+.sec-item[data-hover='reveal-cta'] .sec-item__cta,
+.sec-item[data-hover='reveal-cta'] [data-reveal-on-hover] {
+  opacity: 0;
+  transition: opacity var(--dur-hover) var(--ease);
+}
+
+/* ── États gated motion : transforms/anim uniquement si l'utilisateur ne demande
+   pas de réduction de mouvement. ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  /* lift : élévation au survol. Repos = ombre subtile. */
+  .sec-grid[data-hover='lift'] .sec-item,
+  .sec-item[data-hover='lift'] { box-shadow: var(--shadow-card-rest); }
+  .sec-grid[data-hover='lift'] .sec-item:hover,
+  .sec-item[data-hover='lift']:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* zoom : léger agrandissement de la carte. */
+  .sec-grid[data-hover='zoom'] .sec-item:hover,
+  .sec-item[data-hover='zoom']:hover { transform: scale(1.02); }
+
+  /* media-zoom : seul le MÉDIA interne grandit (cadre overflow:hidden). */
+  .sec-grid[data-hover='media-zoom'] .sec-item,
+  .sec-item[data-hover='media-zoom'] { overflow: hidden; }
+  .sec-grid[data-hover='media-zoom'] .sec-item__media,
+  .sec-grid[data-hover='media-zoom'] .sec-item img,
+  .sec-item[data-hover='media-zoom'] .sec-item__media,
+  .sec-item[data-hover='media-zoom'] img {
+    transition: transform var(--dur-panel) var(--ease-out);
+  }
+  .sec-grid[data-hover='media-zoom'] .sec-item:hover .sec-item__media,
+  .sec-grid[data-hover='media-zoom'] .sec-item:hover img,
+  .sec-item[data-hover='media-zoom']:hover .sec-item__media,
+  .sec-item[data-hover='media-zoom']:hover img { transform: scale(1.04); }
+
+  /* press feedback : retour tactile au clic. Défaut sur les CTA via data-press. */
+  .sec-item[data-press]:active,
+  .sec-grid[data-hover] .sec-item [data-press]:active,
+  .sec-item[data-hover] [data-press]:active {
+    transform: translateY(1px) scale(0.99);
+  }
+}
+
+/* ── États SANS transform (sûrs même en reduced-motion : couleur/ombre/bordure) ── */
+/* glow : halo d'élévation. */
+.sec-grid[data-hover='glow'] .sec-item:hover,
+.sec-item[data-hover='glow']:hover { box-shadow: var(--shadow-lift); }
+
+/* border : bordure renforcée au survol. */
+.sec-grid[data-hover='border'] .sec-item:hover,
+.sec-item[data-hover='border']:hover { border-color: var(--hairline-strong); }
+
+/* tint : fond teinté au survol (paper-2 sur clair ; ink-2 sur cellule/section ink). */
+.sec-grid[data-hover='tint'] .sec-item:hover,
+.sec-item[data-hover='tint']:hover { background-color: var(--paper-2); }
+[data-bg='ink'] .sec-grid[data-hover='tint'] .sec-item:hover,
+[data-bg='ink'] .sec-item[data-hover='tint']:hover,
+.sec-item[data-cell-bg^='ink'][data-hover='tint']:hover { background-color: var(--ink-2); }
+
+/* underline : soulignement animé d'un titre/lien interne (::after width 0→100%). */
+.sec-grid[data-hover='underline'] .sec-item .sec-item__title,
+.sec-item[data-hover='underline'] .sec-item__title { position: relative; }
+.sec-grid[data-hover='underline'] .sec-item .sec-item__title::after,
+.sec-item[data-hover='underline'] .sec-item__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--dur-hover) var(--ease-out);
+}
+.sec-grid[data-hover='underline'] .sec-item:hover .sec-item__title::after,
+.sec-item[data-hover='underline']:hover .sec-item__title::after { width: 100%; }
+
+/* reveal-cta : visible au hover de la carte OU au focus clavier (a11y). */
+.sec-grid[data-hover='reveal-cta'] .sec-item:hover .sec-item__cta,
+.sec-grid[data-hover='reveal-cta'] .sec-item:focus-within .sec-item__cta,
+.sec-grid[data-hover='reveal-cta'] .sec-item:hover [data-reveal-on-hover],
+.sec-grid[data-hover='reveal-cta'] .sec-item:focus-within [data-reveal-on-hover],
+.sec-item[data-hover='reveal-cta']:hover .sec-item__cta,
+.sec-item[data-hover='reveal-cta']:focus-within .sec-item__cta,
+.sec-item[data-hover='reveal-cta']:hover [data-reveal-on-hover],
+.sec-item[data-hover='reveal-cta']:focus-within [data-reveal-on-hover] { opacity: 1; }
+
+/* ── focus-visible (clavier uniquement) : garde-fou WCAG 2.4.7. JAMAIS outline:none
+   sans alternative. S'applique aux éléments focusables d'un item interactif. ──── */
+.sec-item a:focus-visible,
+.sec-item button:focus-visible,
+.sec-item [tabindex]:focus-visible,
+.sec-item:focus-visible,
+.sec-region a:focus-visible,
+.sec-region button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+/* focus-ring inset : pour cartes pleines (l'anneau extérieur déborderait). */
+.sec-item[data-focus-ring='inset']:focus-visible,
+.sec-item[data-focus-ring='inset'] a:focus-visible,
+.sec-item[data-focus-ring='inset'] button:focus-visible { outline-offset: -2px; }
+
+/* ── disabled : cohérence globale, non configurable (présent par défaut). ────── */
+.sec-item :disabled,
+.sec-item [aria-disabled='true'],
+.sec-region :disabled,
+.sec-region [aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Garde-fous DURS couche 8 : reduced-motion + touch. ─────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Coupe toutes les transitions d'item ; l'état final est atteint sans animation. */
+  .sec-grid[data-hover] .sec-item,
+  .sec-item[data-hover],
+  .sec-grid[data-hover] .sec-item__media,
+  .sec-item[data-hover] .sec-item__media,
+  .sec-grid[data-hover] .sec-item img,
+  .sec-item[data-hover] img,
+  .sec-item[data-hover] .sec-item__title::after { transition: none; }
+  /* reveal-cta : reste VISIBLE (jamais piégé derrière une anim supprimée). */
+  .sec-grid[data-hover='reveal-cta'] .sec-item__cta,
+  .sec-grid[data-hover='reveal-cta'] [data-reveal-on-hover],
+  .sec-item[data-hover='reveal-cta'] .sec-item__cta,
+  .sec-item[data-hover='reveal-cta'] [data-reveal-on-hover] { opacity: 1; }
+}
+@media (hover: none) {
+  /* Pointeur grossier (tactile) : un CTA reveal-cta ne doit pas être piégé
+     derrière :hover → visible par défaut. */
+  .sec-grid[data-hover='reveal-cta'] .sec-item__cta,
+  .sec-grid[data-hover='reveal-cta'] [data-reveal-on-hover],
+  .sec-item[data-hover='reveal-cta'] .sec-item__cta,
+  .sec-item[data-hover='reveal-cta'] [data-reveal-on-hover] { opacity: 1; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 9 — MOTION (compléments). Le scroll-reveal d'entrée reste géré par le
+   système data-reveal global (global.css + IntersectionObserver) : on ne le
+   duplique PAS. Ici, uniquement les boucles ambiantes (loop) absentes du global,
+   gated reduced-motion, n'animant que transform/opacity/filter (0 reflow/CLS).
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: no-preference) {
+  /* marquee : défilement horizontal continu. Réutilise un translate borné. */
+  @keyframes sec-marquee { to { transform: translateX(-50%); } }
+  .sec-item[data-loop='marquee'],
+  [data-loop='marquee'] > * { animation: sec-marquee var(--dur-slow) linear infinite; }
+
+  /* pulse : pulsation d'opacité douce (badges/indicateurs « live »). */
+  @keyframes sec-pulse { 50% { opacity: 0.55; } }
+  .sec-item[data-loop='pulse'],
+  [data-loop='pulse'] { animation: sec-pulse var(--dur-reveal) var(--ease) infinite; }
+
+  /* float : flottement vertical léger (visuels décoratifs). */
+  @keyframes sec-float { 50% { transform: translateY(-6px); } }
+  .sec-item[data-loop='float'],
+  [data-loop='float'] { animation: sec-float var(--dur-slow) var(--ease) infinite; }
+}
+/* loop coupé sous reduced-motion (état statique). */
+@media (prefers-reduced-motion: reduce) {
+  [data-loop='marquee'] > *,
+  [data-loop='marquee'],
+  [data-loop='pulse'],
+  [data-loop='float'] { animation: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 10bis — COULEUR multi-scope + CONTRASTE AUTO — décision Simon 2026-06-28.
+   On choisit un fond de cellule, le moteur garantit AA automatiquement en
+   répliquant EXACTEMENT l'idiome [data-bg='ink'] de global.css, SCOPÉ à la cellule
+   (les fonds sombres/accent remappent --muted/--hairline*/--accent-text en clair
+   et basculent le texte sur --paper). 0 nouveau token.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* cell-bg : fond de la cellule (4 portées du contrat : ici cellule + override item). */
+.sec-item[data-cell-bg='none']    { background: transparent; }
+.sec-item[data-cell-bg='paper']   { background: var(--paper); }
+.sec-item[data-cell-bg='paper-2'] { background: var(--paper-2); }
+.sec-item[data-cell-bg='paper-3'] { background: var(--paper-3); }
+.sec-item[data-cell-bg='ink']     { background: var(--ink); }
+.sec-item[data-cell-bg='ink-2']   { background: var(--ink-2); }
+.sec-item[data-cell-bg='ink-3']   { background: var(--ink-3); }
+.sec-item[data-cell-bg='accent']  { background: var(--accent); }
+
+/* Contraste auto sur fonds clairs : texte ink (défaut sûr). */
+.sec-item[data-cell-bg='paper'],
+.sec-item[data-cell-bg='paper-2'],
+.sec-item[data-cell-bg='paper-3'] { color: var(--ink); }
+
+/* Contraste auto sur fonds SOMBRES/ACCENT : réplique l'idiome [data-bg='ink'] au
+   niveau cellule (remap des rôles + texte clair). C'est LA garantie AA au
+   color-swap. accent (terracotta) est sombre/saturé → texte clair également. */
+.sec-item[data-cell-bg='ink'],
+.sec-item[data-cell-bg='ink-2'],
+.sec-item[data-cell-bg='ink-3'],
+.sec-item[data-cell-bg='accent'] {
+  color: var(--paper);
+  --muted: rgba(var(--paper-rgb), 0.64);
+  --hairline: rgba(var(--paper-rgb), 0.14);
+  --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  --accent-text: var(--accent-sur-sombre);
+}
+/* Sur fond accent, le texte accent-text reviendrait sur accent (illisible) →
+   on le neutralise vers paper (le rôle accent n'a pas de sens sur fond accent). */
+.sec-item[data-cell-bg='accent'] { --accent-text: var(--paper); }
+
+/* tone (atome/cellule) : couleur de premier plan d'un élément. data-tone (atome
+   générique) ET data-cell-tone (cellule entière). */
+.sec-item[data-cell-tone='ink'],     [data-tone='ink']         { color: var(--ink); }
+.sec-item[data-cell-tone='muted'],   [data-tone='muted']       { color: var(--muted); }
+.sec-item[data-cell-tone='accent'],  [data-tone='accent']      { color: var(--accent); }
+.sec-item[data-cell-tone='accent-text'], [data-tone='accent-text'] { color: var(--accent-text); }
+.sec-item[data-cell-tone='paper'],   [data-tone='paper']       { color: var(--paper); }
+
+/* border-tone : couleur de bordure d'une cellule (complète la couche 4 SKIN). */
+.sec-item[data-border-tone='hairline']        { border-color: var(--hairline); }
+.sec-item[data-border-tone='hairline-strong'] { border-color: var(--hairline-strong); }
+.sec-item[data-border-tone='accent']          { border-color: var(--accent); }
+.sec-item[data-border-tone='none']            { border-color: transparent; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 11 — ORIENTATION & long-tail (structurel, peu/pas de tokens).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* text-flow : orientation du texte (labels/kickers verticaux éditoriaux). */
+[data-text-flow='horizontal'] { writing-mode: horizontal-tb; }
+[data-text-flow='vertical-rl'] { writing-mode: vertical-rl; }
+[data-text-flow='vertical-lr'] { writing-mode: vertical-lr; }
+[data-text-flow='sideways']    { writing-mode: vertical-rl; text-orientation: sideways; }
+
+/* object-position : cadrage focal du média (complète media-fit/media-ratio L7). */
+.sec-item[data-object-position='center'] .sec-item__media,
+.sec-item[data-object-position='center'] img { object-position: center; }
+.sec-item[data-object-position='top'] .sec-item__media,
+.sec-item[data-object-position='top'] img    { object-position: top; }
+.sec-item[data-object-position='bottom'] .sec-item__media,
+.sec-item[data-object-position='bottom'] img { object-position: bottom; }
+.sec-item[data-object-position='left'] .sec-item__media,
+.sec-item[data-object-position='left'] img   { object-position: left; }
+.sec-item[data-object-position='right'] .sec-item__media,
+.sec-item[data-object-position='right'] img  { object-position: right; }
+
+/* overflow : visible | clip | auto (cadres média zoomés, conteneurs sticky…). */
+.sec-item[data-overflow='visible'] { overflow: visible; }
+.sec-item[data-overflow='clip']    { overflow: clip; }
+.sec-item[data-overflow='auto']    { overflow: auto; }
+
+/* scroll-snap : sur les rails horizontaux (renforce le confort du layout horizontal). */
+.sec-rail[data-scroll-snap='none']      { scroll-snap-type: none; }
+.sec-rail[data-scroll-snap='proximity'] { scroll-snap-type: x proximity; }
+.sec-rail[data-scroll-snap='mandatory'] { scroll-snap-type: x mandatory; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 6 — TYPOGRAPHIE (core NOW : measure, balance, clamp, title-scale).
+   Generic : s'applique à tout élément portant le data-attr (atome ou conteneur).
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* measure : largeur de lecture bornée (tokens --wrap-*). full = pas de borne. */
+[data-measure='prose'] { max-width: var(--wrap-prose); margin-inline: auto; }
+[data-measure='read']  { max-width: var(--wrap-read);  margin-inline: auto; }
+[data-measure='tight'] { max-width: var(--wrap-tight); margin-inline: auto; }
+[data-measure='wide']  { max-width: var(--wrap-wide);  margin-inline: auto; }
+[data-measure='full']  { max-width: none; }
+
+/* balance : équilibre des retours à la ligne (titres). */
+[data-balance] { text-wrap: balance; }
+
+/* clamp : tronque à N lignes (line-clamp). -webkit-box requis pour le support large. */
+[data-clamp='1'],
+[data-clamp='2'],
+[data-clamp='3'],
+[data-clamp='4'] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+[data-clamp='1'] { -webkit-line-clamp: 1; line-clamp: 1; }
+[data-clamp='2'] { -webkit-line-clamp: 2; line-clamp: 2; }
+[data-clamp='3'] { -webkit-line-clamp: 3; line-clamp: 3; }
+[data-clamp='4'] { -webkit-line-clamp: 4; line-clamp: 4; }
+
+/* title-scale : échelle de titre (tokens --text-*). sm|base|lg|xl. */
+[data-title-scale='sm']   { font-size: var(--text-h3); }
+[data-title-scale='base'] { font-size: var(--text-h2); }
+[data-title-scale='lg']   { font-size: var(--text-h1); }
+[data-title-scale='xl']   { font-size: var(--text-display); }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   PRIMITIVE GÉNÉRIQUE · LISTE À MARQUEURS (data-list sur un <ul>/<ol>).
+   Recette réutilisable (PricingCards aujourd'hui ; PricingToggle /
+   FeatureComparisonGrid demain) : style le marqueur d'item de liste via ::before,
+   sans markup bespoke ni glyphe inline répété. 100 % tokens DS, 0 nouveau token.
+   - check : coche/chevron accent (réutilise le glyphe ▸ + var(--accent-text)).
+   La liste passe en pile flex par item (marqueur ↔ texte alignés baseline) ; gap et
+   typo héritent du composant. Inerte tant qu'aucun <ul> ne porte data-list.
+   ════════════════════════════════════════════════════════════════════════════ */
+[data-list] { list-style: none; padding: 0; }
+[data-list] > li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+}
+[data-list='check'] > li::before {
+  content: '\25B8'; /* ▸ chevron accent, identique à l'ancien marqueur bespoke */
+  flex-shrink: 0;
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 12 — DIMENSIONS / SIZING (core NOW : width-mode).
+   itemHeight est déjà couvert en v1 (data-item-height). Ici : mode de largeur de
+   bloc (full | contained | narrow | prose). Tokens de lecture DS.
+   ════════════════════════════════════════════════════════════════════════════ */
+[data-width='full']      { max-width: none; }
+[data-width='contained'] { max-width: var(--wrap-tight); margin-inline: auto; }
+[data-width='narrow']    { max-width: var(--wrap-read);  margin-inline: auto; }
+[data-width='prose']     { max-width: var(--wrap-prose); margin-inline: auto; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE 4 — SKIN (compléments NOW : gap explicite).
+   surface/divider/radius/accent-edge déjà couverts en v1. Ici : gap EXPLICITE
+   (fin du défaut caché), sur .sec-grid (pilote --sec-grid-gap, tokens --space-*).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid[data-gap='none'] { gap: 0; }
+.sec-grid[data-gap='sm']   { gap: var(--space-3); }
+.sec-grid[data-gap='base'] { gap: var(--space-5); }
+.sec-grid[data-gap='lg']   { gap: var(--space-8); }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE v2 — garde-fous des nouvelles couches (≤768px).
+   Les self-align dégradent proprement ; les spans d'item se relâchent (sinon
+   débordement quand la grille passe en 1 colonne) ; le text-flow vertical
+   redevient horizontal (lisibilité mobile).
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Spans d'item (couche 7 enfant) relâchés : en 1 colonne, un span déborderait. */
+  .sec-item[data-col-span],
+  .sec-item[data-row-span] {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  /* media-ratio fixe relâché (hauteur naturelle, le contenu prime). */
+  .sec-item[data-media-ratio] .sec-item__media,
+  .sec-item[data-media-ratio] > img { aspect-ratio: auto; }
+  /* Orientation verticale → horizontale (un label vertical sur mobile gêne). */
+  [data-text-flow='vertical-rl'],
+  [data-text-flow='vertical-lr'],
+  [data-text-flow='sideways'] { writing-mode: horizontal-tb; text-orientation: mixed; }
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗
+   ║  COUCHE COMPOSITION (SYS v2-E) — axes génériques additifs, inertes sans   ║
+   ║  data-attr. Réutilisables par TOUTE famille « collection » (et au-delà).  ║
+   ║  Démultiplient l'espace au-delà de layout+couleur : en-tête (alignement + ║
+   ║  richesse), ligne d'intro au-dessus de la grille, séparateurs de grille,  ║
+   ║  carte à fond image (scrim + contraste auto), fond de section image/      ║
+   ║  gradient, distribution de couleur entre cartes. 100 % tokens DS ; toute  ║
+   ║  URL image vient d'une var inline posée par le composant (--sec-bg-image /║
+   ║  --sec-card-image), JAMAIS en dur dans ce CSS. 0 nouveau token. 0 U+2014. ║
+   ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+/* ════════════════════════════════════════════════════════════════════════════
+   EN-TÊTE — alignement générique du bloc d'en-tête de section.
+   Cible : tout conteneur portant data-header-align (le composant le pose sur son
+   header). center → centrage texte + centrage de la mesure des enfants directs.
+   ════════════════════════════════════════════════════════════════════════════ */
+[data-header-align='left']   { text-align: start; }
+[data-header-align='center'] { text-align: center; }
+[data-header-align='center'] > * { margin-inline: auto; }
+[data-header-align='right']  { text-align: end; }
+[data-header-align='right']  > * { margin-inline-start: auto; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   LIGNE D'INTRO — .sec-intro, posée AU-DESSUS de la grille par le composant.
+   - desc-media-split : desc à gauche + média (image placeholder) à droite.
+   - lede-aside       : chapô (2fr) + points/aparté (1fr).
+   - lede-centered    : chapô centré, mesure de lecture bornée.
+   Responsive : empile sous 768px. Image via --sec-intro-image inline (sinon vide).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-intro { margin-bottom: var(--space-9); }
+.sec-intro[data-intro-row='desc-media-split'] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: center;
+}
+.sec-intro[data-intro-row='lede-aside'] {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+.sec-intro[data-intro-row='lede-centered'] {
+  max-width: var(--wrap-read);
+  margin-inline: auto;
+  text-align: center;
+}
+/* Le cadre média de la ligne d'intro : image en background (var inline), ratio borné. */
+.sec-intro__media {
+  background-image: var(--sec-intro-image);
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .sec-intro[data-intro-row='desc-media-split'],
+  .sec-intro[data-intro-row='lede-aside'] { grid-template-columns: 1fr; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   SÉPARATEURS DE GRILLE — data-dividers sur .sec-grid (opt-in explicite).
+   column-rules : filets entre colonnes (bordure gauche, sauf 1ʳᵉ de rangée).
+   row-rules    : filets entre lignes (bordure haute par cellule).
+   grid-lines   : quadrillage complet (les deux). Filets = --hairline.
+   N'altère PAS le mode hairline par défaut de feature-grid (qui n'a pas data-dividers).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid[data-dividers='row-rules'] > .sec-item,
+.sec-grid[data-dividers='grid-lines'] > .sec-item {
+  border-top: 1px solid var(--hairline);
+}
+.sec-grid[data-dividers='column-rules'] > .sec-item,
+.sec-grid[data-dividers='grid-lines'] > .sec-item {
+  border-left: 1px solid var(--hairline);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   ALIGNEMENT INTRA-CARTE — data-card-align sur .sec-grid → toutes les cartes.
+   left (défaut) | center. Complète cell-x (L7) au niveau composition.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid[data-card-align='left']   > .sec-item { text-align: start; align-items: flex-start; }
+.sec-grid[data-card-align='center'] > .sec-item { text-align: center; align-items: center; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   CARTE À FOND IMAGE — data-card-media='image-bg' sur .sec-item.
+   L'image vient d'une var inline (--sec-card-image) posée par le composant ; un
+   scrim sombre tokenisé garantit la lisibilité, le texte passe en clair (réplique
+   l'idiome de contraste de la couche 10bis). 0 URL en dur. Hauteur mini bornée.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-item[data-card-media='image-bg'] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  min-height: var(--space-12);
+  background-image: var(--sec-card-image);
+  background-size: cover;
+  background-position: center;
+  /* Contraste auto : texte clair + remap des rôles (comme [data-cell-bg='ink']). */
+  color: var(--paper);
+  --muted: rgba(var(--paper-rgb), 0.74);
+  --hairline: rgba(var(--paper-rgb), 0.14);
+  --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  --accent-text: var(--accent-sur-sombre);
+}
+/* Scrim : dégradé sombre tokenisé, sous le contenu (z-index), au-dessus de l'image. */
+.sec-item[data-card-media='image-bg']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(var(--ink-rgb), 0.82) 0%,
+    rgba(var(--ink-rgb), 0.52) 45%,
+    rgba(var(--ink-rgb), 0.32) 100%
+  );
+}
+/* Le contenu textuel d'une carte image-bg hérite de la couleur claire (le composant
+   peut avoir des couleurs hardcodées : on les neutralise vers inherit). */
+.sec-item[data-card-media='image-bg'] :is(h2, h3, h4, strong, p) { color: inherit; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   FOND DE SECTION — data-bg-source sur la racine de section.
+   image    : image placeholder (var inline --sec-bg-image) + scrim + texte clair.
+   gradient : gradient preset tokenisé (paper→paper-2), pas de gradient libre.
+   color (défaut) : inerte (le data-bg existant gère la couleur).
+   ════════════════════════════════════════════════════════════════════════════ */
+[data-bg-source='image'] {
+  position: relative;
+  isolation: isolate;
+  background-image: var(--sec-bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--paper);
+}
+[data-bg-source='image']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--ink-rgb), 0.74) 0%,
+    rgba(var(--ink-rgb), 0.62) 100%
+  );
+}
+/* Texte de section sur fond image → clair (titres + paragraphes d'en-tête/intro). */
+[data-bg-source='image'] :is(.sec-base-h2, .feature-grid__header :is(h2, h3, p), .sec-intro :is(h2, h3, p)) {
+  color: var(--paper);
+}
+/* gradient preset : doux, dans le DS (paper → paper-2). Inerte si data-bg gère déjà. */
+[data-bg-source='gradient'] {
+  background-image: linear-gradient(to bottom, var(--paper), var(--paper-2));
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DISTRIBUTION DE COULEUR — data-color-distribution sur .sec-grid.
+   featured-first : la 1ʳᵉ carte prend l'accent (vedette), le reste neutre.
+   one-accent     : une seule carte accent (la 2ᵉ, point focal sans dominer).
+   alternating    : alternance ink/paper-2 (cycle visuel) ; uniform = inerte.
+   Réplique le contraste auto de la couche 10bis (texte clair sur accent/ink) sans
+   nouveau token. N'agit QUE si la carte n'a pas déjà son propre data-cell-bg.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid[data-color-distribution='featured-first'] > .sec-item:first-child:not([data-cell-bg]),
+.sec-grid[data-color-distribution='one-accent'] > .sec-item:nth-child(2):not([data-cell-bg]) {
+  background: var(--accent);
+  color: var(--paper);
+  --muted: rgba(var(--paper-rgb), 0.74);
+  --accent-text: var(--paper);
+}
+.sec-grid[data-color-distribution='featured-first'] > .sec-item:first-child:not([data-cell-bg]) :is(h2, h3, h4, strong, p),
+.sec-grid[data-color-distribution='one-accent'] > .sec-item:nth-child(2):not([data-cell-bg]) :is(h2, h3, h4, strong, p) {
+  color: inherit;
+}
+.sec-grid[data-color-distribution='alternating'] > .sec-item:nth-child(even):not([data-cell-bg]) {
+  background: var(--ink);
+  color: var(--paper);
+  --muted: rgba(var(--paper-rgb), 0.74);
+  --hairline: rgba(var(--paper-rgb), 0.14);
+  --accent-text: var(--accent-sur-sombre);
+}
+.sec-grid[data-color-distribution='alternating'] > .sec-item:nth-child(even):not([data-cell-bg]) :is(h2, h3, h4, strong, p) {
+  color: inherit;
+}

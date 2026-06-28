@@ -1,0 +1,191 @@
+---
+// Waimia · Builder T2 (#67) : rendu chrome-less d'un PageDocument (#39).
+//
+// Cible : alimenter le CANVAS du futur builder visuel (#39). Cet HTML est destiné à être
+// affiché dans une IFRAME : il ne rend QUE les sections (aucun Header/Footer/nav/CookiesBanner),
+// exactement comme src/pages/preview/[type].astro (qui n'utilise PAS Base.astro et importe
+// global.css/grid.css/scroll-reveal.css directement).
+//
+// Entrée d'un PageDocument (cf src/schemas/page-document.ts + src/lib/page-document.ts) :
+//   - GET  ?doc=<JSON encodé URI>      (ex. depuis un <iframe src=...>)
+//   - POST  body JSON application/json (ex. depuis le canvas qui fetch() le rendu)
+// Le doc est validé par `validatePageDoc` (Zod structure + slot-level), PUIS rendu via
+// SectionsRenderer (props réelles : { sections: SectionData[], lang: 'fr' | 'en' }).
+//
+// CHOIX DE GESTION D'ERREUR (documenté) : on renvoie TOUJOURS un statut 200 avec un HTML
+// d'erreur lisible (pas un 400/500 nu). Raison : ce rendu vit dans une iframe de canvas builder ;
+// un statut d'erreur ferait afficher la page d'erreur du navigateur (illisible, non stylée) à
+// l'éditeur. Un HTML 200 explicite garde le canvas propre et montre la cause (parse JSON, doc
+// invalide, type de section inconnu) directement dans l'iframe. Aucune erreur n'est silencieuse :
+// chaque cause produit un message visible. SSR (prerender=false) → tout risque est runtime, donc
+// le frontmatter ne peut PAS casser le build ; on borne le runtime avec un try/catch global.
+//
+// 0 token DS, 0 valeur en dur : on réutilise les variables DS (var(--paper), var(--ink), …) et
+// les feuilles de style globales. 0 tiret cadratin U+2014 dans le texte visible.
+
+import '../../../styles/global.css';
+import '../../../styles/grid.css';
+import '../../../styles/scroll-reveal.css';
+import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+import { validatePageDoc } from '../../../lib/page-document';
+import type { PageDocument } from '../../../schemas/page-document';
+import type { SectionData } from '../../../schemas/sections';
+
+export const prerender = false;
+
+interface ParseResult {
+  ok: boolean;
+  /** Document validé (présent si ok). */
+  doc?: PageDocument;
+  /** Titre court de l'erreur (présent si !ok). */
+  errorTitle?: string;
+  /** Détails lisibles de l'erreur (présent si !ok). */
+  errorLines?: string[];
+}
+
+async function readPageDocument(): Promise<ParseResult> {
+  const method = Astro.request.method.toUpperCase();
+
+  // 1. Récupère la source brute (chaîne JSON) selon la méthode.
+  let raw: string | null = null;
+  try {
+    if (method === 'POST') {
+      raw = await Astro.request.text();
+    } else {
+      raw = Astro.url.searchParams.get('doc');
+    }
+  } catch (err) {
+    return {
+      ok: false,
+      errorTitle: 'Lecture de la requête impossible',
+      errorLines: [err instanceof Error ? err.message : String(err)],
+    };
+  }
+
+  if (!raw || raw.trim().length === 0) {
+    return {
+      ok: false,
+      errorTitle: 'Aucun PageDocument fourni',
+      errorLines: [
+        method === 'POST'
+          ? 'Envoyez le PageDocument dans le corps de la requête (JSON).'
+          : 'Passez le PageDocument via le paramètre ?doc=<JSON encodé URI>.',
+      ],
+    };
+  }
+
+  // 2. Parse JSON (robuste : aucun throw ne doit fuir).
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (err) {
+    return {
+      ok: false,
+      errorTitle: 'JSON invalide',
+      errorLines: [
+        'Le PageDocument fourni n\'est pas un JSON valide.',
+        err instanceof Error ? err.message : String(err),
+      ],
+    };
+  }
+
+  // 3. Valide via la source de vérité (Zod structure + slot-level).
+  const validation = validatePageDoc(parsed);
+  if (!validation.valid) {
+    return {
+      ok: false,
+      errorTitle: 'PageDocument invalide',
+      errorLines: validation.errors.map((e) => {
+        const where = e.index >= 0 ? `section #${e.index}${e.type ? ` (${e.type})` : ''}` : 'document';
+        const field = e.field ? ` · champ « ${e.field} »` : '';
+        return `${where}${field} : ${e.message}`;
+      }),
+    };
+  }
+
+  return { ok: true, doc: parsed as PageDocument };
+}
+
+// Tout est borné : un PageDocument malformé ne fait jamais planter le rendu (try/catch global +
+// validation préalable). Pas de 500 silencieux : le catch produit un message visible.
+let result: ParseResult;
+try {
+  result = await readPageDocument();
+} catch (err) {
+  result = {
+    ok: false,
+    errorTitle: 'Erreur de rendu inattendue',
+    errorLines: [err instanceof Error ? err.message : String(err)],
+  };
+}
+
+const lang: 'fr' | 'en' = result.doc?.meta.lang ?? 'fr';
+const sections: SectionData[] = (result.doc?.sections as SectionData[] | undefined) ?? [];
+---
+<!doctype html>
+<html lang={lang} data-lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Builder · rendu de page</title>
+    {/* Force l'état révélé : ce rendu est une iframe statique non scrollée. Les classes
+        scroll-reveal démarrent opacity:0 et ne se révèlent qu'au scroll via IntersectionObserver
+        (absent ici) → on force l'état final. Idiome repris de src/pages/preview/[type].astro. */}
+    <style is:inline>
+      html, body { margin: 0; padding: 0; background: var(--paper, #fff); }
+      .reveal, .reveal-up, .reveal-fade, .reveal-slide, .reveal-snap,
+      .scale-in, .blur-in, .clip-up, .hair-draw, .row-lines,
+      .reveal-mask-up, .reveal-zoom-in, .reveal-blur-clip,
+      .reveal-curtain, .reveal-split-letter,
+      .reveal-stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        clip-path: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+      /* Panneau d'erreur lisible (light + ink) si le PageDocument est absent/invalide. */
+      .builder-error {
+        max-width: 60ch;
+        margin: clamp(24px, 8vh, 80px) auto;
+        padding: 24px;
+        border: 1px solid var(--hairline);
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--font-mono);
+        font-size: var(--text-small);
+        line-height: 1.6;
+      }
+      .builder-error h1 {
+        margin: 0 0 12px;
+        font-size: var(--text-body);
+        color: var(--accent-text);
+      }
+      .builder-error ul { margin: 0; padding-left: 1.2em; }
+      .builder-error li { margin: 4px 0; }
+    </style>
+  </head>
+  <body>
+    {result.ok ? (
+      <SectionsRenderer sections={sections} lang={lang} />
+    ) : (
+      <div class="builder-error" role="alert">
+        <h1>{result.errorTitle}</h1>
+        <ul>
+          {(result.errorLines ?? []).map((line) => <li>{line}</li>)}
+        </ul>
+      </div>
+    )}
+    {result.ok && (
+      <script>
+        // Câble l'IntersectionObserver scroll-reveal (idem Base.astro + preview/[type].astro).
+        // Le bloc <style is:inline> force déjà l'état révélé ; ce script garde la parité avec le
+        // rendu réel des sections si l'iframe est scrollée par le canvas.
+        import { initScrollReveal } from '../../../lib/animations/scroll-reveal';
+        initScrollReveal();
+      </script>
+    )}
+  </body>
+</html>

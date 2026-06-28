@@ -1,0 +1,243 @@
+---
+// Section catalogue · media-swap-band
+// Bande a 2 ou 3 colonnes. Chaque colonne = libelle (+ sublabel) au-dessus d'un
+// cadre media dont l'image active change en FONDU (crossfade). swap_mode='auto' :
+// chaque colonne cycle son image active a intervalle regulier (depart decale par
+// colonne pour eviter la synchro). swap_mode='hover' : au survol on passe a l'image
+// suivante (modulo), retour a 0 au pointerleave. Bloc CTA optionnel sous les colonnes
+// (reutilise l'atome bouton .btn .btn-primary du DS, variante ink geree globalement).
+// Variante ink, reduced-motion (pas de cycle), mobile 1 colonne.
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'media-swap-band'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const swapMode = data.swap_mode ?? 'auto';
+const cols = data.columns.length;
+const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
+---
+
+<section
+  class="msb sec-base"
+  data-bg={data.background}
+  data-swap-mode={swapMode}
+  data-cols={cols}
+>
+  <div class="wrap-wide">
+    <div class="msb__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="msb__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+
+    <div class="msb__cols">
+      {data.columns.map((col) => {
+        const single = col.media.length < 2;
+        return (
+          <div class="msb__col reveal" data-single={single ? 'true' : 'false'}>
+            <div class="msb__col-head">
+              <span class="msb__label">{isFr ? col.label_fr : col.label_en}</span>
+              {(isFr ? col.sublabel_fr : col.sublabel_en) && (
+                <span class="msb__sublabel">{isFr ? col.sublabel_fr : col.sublabel_en}</span>
+              )}
+            </div>
+            <div class="msb__frame">
+              {col.media.map((m, mi) => {
+                const alt = (isFr ? m.media_alt_fr : m.media_alt_en) ?? '';
+                return (
+                  <figure class="msb__fig" data-idx={mi} data-active={mi === 0 ? 'true' : 'false'}>
+                    <img
+                      src={m.media_src}
+                      alt={alt}
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="600"
+                    />
+                  </figure>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    {ctaLabel && data.cta_href && (
+      <div class="msb__cta reveal">
+        <a class="btn btn-primary" href={data.cta_href}>{ctaLabel}</a>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .msb__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+  .msb__header h2 :global(i) {
+    font-style: italic;
+  }
+  .msb__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  /* Mobile-first : une seule colonne. */
+  .msb__cols {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  .msb__col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .msb__col-head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .msb__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    line-height: 1.18;
+  }
+  .msb__sublabel {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+  }
+
+  /* Cadre media : images empilees, seule .is-active (data-active='true') visible. */
+  .msb__frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+  }
+  .msb__fig {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease);
+  }
+  .msb__fig[data-active='true'] {
+    opacity: 1;
+  }
+  .msb__fig img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Bloc CTA sous les colonnes. */
+  .msb__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-9);
+  }
+
+  /* ── Desktop (>= 768px) : N colonnes (max 3) selon data-cols ── */
+  @media (min-width: 768px) {
+    .msb[data-cols='2'] .msb__cols {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-7);
+    }
+    .msb[data-cols='3'] .msb__cols {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-7);
+    }
+  }
+
+  /* ── Variante ink ── */
+  .msb[data-bg='paper-2'] { background: var(--paper-2); }
+  .msb[data-bg='paper-3'] { background: var(--paper-3); }
+  .msb[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .msb[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .msb[data-bg='ink'] .msb__label { color: var(--paper); }
+  .msb[data-bg='ink'] .msb__frame {
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+
+  /* ── Reduced motion : pas de cycle/transition (script ne lance pas l'intervalle) ── */
+  @media (prefers-reduced-motion: reduce) {
+    .msb__fig {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const bands = document.querySelectorAll<HTMLElement>('.msb');
+
+    bands.forEach((band) => {
+      const mode = band.dataset.swapMode ?? 'auto';
+      const columns = Array.from(band.querySelectorAll<HTMLElement>('.msb__col'));
+
+      columns.forEach((col, colIdx) => {
+        const figs = Array.from(col.querySelectorAll<HTMLElement>('.msb__fig'));
+        if (figs.length < 2) return; // colonne a 1 image : pas de swap
+
+        let current = 0;
+        const setActive = (idx: number) => {
+          figs.forEach((fig) => {
+            fig.dataset.active = fig.dataset.idx === String(idx) ? 'true' : 'false';
+          });
+        };
+
+        if (mode === 'auto') {
+          if (reduceMotion) return; // guard : pas de cycle, image 0 reste active
+          // Depart decale par colonne pour eviter la synchro (cadence ~3.2s).
+          window.setTimeout(() => {
+            window.setInterval(() => {
+              current = (current + 1) % figs.length;
+              setActive(current);
+            }, 3200);
+          }, colIdx * 800);
+        } else {
+          // hover : image suivante au pointerenter, retour a 0 au pointerleave.
+          col.addEventListener('pointerenter', () => {
+            current = (current + 1) % figs.length;
+            setActive(current);
+          });
+          col.addEventListener('pointerleave', () => {
+            current = 0;
+            setActive(0);
+          });
+        }
+      });
+    });
+  })();
+</script>

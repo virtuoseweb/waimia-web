@@ -16,22 +16,42 @@ const inputs = isFr ? data.inputs_fr : data.inputs_en;
 const outputs = isFr ? data.outputs_fr : data.outputs_en;
 // Exemples concrets par canal (absorption du rôle FeatureGrid · tooltip natif SVG)
 const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?? [];
+
+// ── Vague C · Scale (Batch 4) ──
+// layout : 'stacked' (header au-dessus, schéma centré pleine largeur, défaut/actuel) ·
+// 'split' (header en colonne gauche, diagramme en colonne droite).
+const adLayout = data.layout ?? 'stacked';
+// Couche atomique : placement.header.align surcharge contentAlign (UN data-attr / région).
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerHide = pl?.header?.hideOn;
+const mediaHide = pl?.media?.hideOn;
 ---
-<section id="system-architecture" class="sysarch" data-bg={data.background} aria-labelledby="sysarch-h2">
-  <div class="wrap-wide">
-    <header class="sysarch-hd">
-      <ChapterLabel
-        num={data.fig_num}
-        title={isFr ? data.fig_title_fr : data.fig_title_en}
-      />
-      <span class="sysarch-spec">
-        {isFr ? data.spec_fr : data.spec_en}
-      </span>
-    </header>
+<section
+  id="system-architecture"
+  class="sysarch"
+  data-bg={data.background}
+  data-layout={adLayout}
+  data-proportion={data.proportion}
+  data-density={data.density}
+  aria-labelledby="sysarch-h2"
+>
+  <div class="wrap-wide sysarch-wrap">
+    <div class="sysarch-head" data-header-align={headerAlign} data-header-hide={headerHide}>
+      <header class="sysarch-hd">
+        <ChapterLabel
+          num={data.fig_num}
+          title={isFr ? data.fig_title_fr : data.fig_title_en}
+        />
+        <span class="sysarch-spec">
+          {isFr ? data.spec_fr : data.spec_en}
+        </span>
+      </header>
 
-    <h2 id="sysarch-h2" class="sysarch-h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 id="sysarch-h2" class="sysarch-h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
+    </div>
 
-    <figure class="sysarch-fig reveal reveal-fade">
+    <figure class="sysarch-fig reveal reveal-fade" data-media-hide={mediaHide}>
       <svg
         class="sysarch-svg"
         viewBox="0 0 880 360"
@@ -190,6 +210,52 @@ const inputExamples = (isFr ? data.input_examples_fr : data.input_examples_en) ?
   @media (prefers-reduced-motion: reduce) {
     .sysarch-flow { stroke-dashoffset: 0; transition: none; }
     .sysarch-fig:is(.in, .is-visible) .sysarch-loop { animation: none; }
+  }
+
+  /* ── Vague C · Scale (Batch 4) ── */
+  /* Layout SPLIT · header (label+spec+titre) en colonne gauche, diagramme en colonne droite.
+     Défaut absent = 'stacked' (block flow, rendu actuel inchangé). En split, le titre perd sa
+     marge basse (la colonne gère l'espacement), et le SVG se cale en haut de sa colonne. */
+  .sysarch[data-layout='split'] .sysarch-wrap {
+    display: grid;
+    grid-template-columns: minmax(0,2fr) minmax(0,3fr);
+    gap: clamp(var(--space-8), 5vw, var(--space-12));
+    align-items: center;
+  }
+  .sysarch[data-layout='split'] .sysarch-head { align-self: center; }
+  .sysarch[data-layout='split'] .sysarch-h2 { margin-bottom: 0; }
+  .sysarch[data-layout='split'] .sysarch-fig { align-self: center; }
+
+  /* Axe PROPORTION (data-proportion) · ratio header|diagramme, SPLIT uniquement. minmax(0,..). */
+  .sysarch[data-layout='split'][data-proportion='1-1'] .sysarch-wrap { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  .sysarch[data-layout='split'][data-proportion='1-2'] .sysarch-wrap { grid-template-columns: minmax(0,1fr) minmax(0,2fr); }
+  .sysarch[data-layout='split'][data-proportion='2-1'] .sysarch-wrap { grid-template-columns: minmax(0,2fr) minmax(0,1fr); }
+  .sysarch[data-layout='split'][data-proportion='2-3'] .sysarch-wrap { grid-template-columns: minmax(0,2fr) minmax(0,3fr); }
+  .sysarch[data-layout='split'][data-proportion='3-2'] .sysarch-wrap { grid-template-columns: minmax(0,3fr) minmax(0,2fr); }
+
+  /* Axe DENSITY (data-density) · marge sous le titre (stacked) + gap des colonnes (split). */
+  .sysarch[data-density='compact'] .sysarch-h2 { margin-bottom: var(--space-5); }
+  .sysarch[data-density='ample']   .sysarch-h2 { margin-bottom: var(--space-9); }
+  .sysarch[data-layout='split'][data-density='compact'] .sysarch-wrap { gap: var(--space-7); }
+  .sysarch[data-layout='split'][data-density='ample']   .sysarch-wrap { gap: var(--space-12); }
+
+  /* Axe CONTENT-ALIGN (data-header-align) · alignement du bloc header. Défaut start = actuel. */
+  .sysarch-head[data-header-align='center'] { text-align: center; }
+  .sysarch-head[data-header-align='center'] .sysarch-hd { justify-content: center; }
+  .sysarch-head[data-header-align='end'] { text-align: end; }
+  .sysarch-head[data-header-align='end'] .sysarch-hd { justify-content: flex-end; }
+
+  /* COUCHE ATOMIQUE · hideOn (visibilité responsive). 768px = breakpoint structurel. */
+  .sysarch-head[data-header-hide='desktop'],
+  .sysarch-fig[data-media-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    /* Split → empilé sous 768px (header dessus, diagramme dessous : ordre de lecture logique). */
+    .sysarch[data-layout='split'] .sysarch-wrap { grid-template-columns: 1fr; gap: var(--space-7); }
+    .sysarch[data-layout='split'] .sysarch-h2 { margin-bottom: var(--space-6); }
+    .sysarch-head[data-header-hide='mobile'],
+    .sysarch-fig[data-media-hide='mobile'] { display: none; }
+    .sysarch-head[data-header-hide='desktop'] { display: block; }
+    .sysarch-fig[data-media-hide='desktop'] { display: flex; }
   }
 
   /* Mobile : SVG plus petit, H2 réduit */

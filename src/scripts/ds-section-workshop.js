@@ -27,11 +27,14 @@ function initSectionWorkshop() {
 
   const DATA = safeParse(dataEl.textContent) || {};
   const FIELDS = DATA.fields || {}; // { type: { background: ['paper',…], variants: {field:[…]}, texts: [{field,role,value}] } }
+  const SCHEMES = DATA.schemes || []; // [{id,label}] · 16 schémas couleur globaux
 
   const frame = root.querySelector('#workshop-preview');
   const typeLabel = root.querySelector('#workshop-current-type');
   const bgGroup = root.querySelector('#workshop-bg-group');
   const variantsHost = root.querySelector('#workshop-variants');
+  const presetsHost = root.querySelector('#workshop-presets');
+  const schemesHost = root.querySelector('#workshop-schemes');
   const textsHost = root.querySelector('#workshop-texts');
   const emptyHint = root.querySelector('#workshop-empty');
   const exportBtn = root.querySelector('#workshop-export');
@@ -41,7 +44,7 @@ function initSectionWorkshop() {
   // État courant de l'atelier (le type actif + les overrides appliqués).
   let activeType = '';
   let frameLoads = 0; // compteur de (re)chargements de l'iframe : preuve de non-reload
-  const overrides = { background: null, variants: {}, texts: {} };
+  const overrides = { background: null, variants: {}, texts: {}, preset: null, scheme: null };
 
   // Le compteur de loads est aussi exposé dans la fenêtre de l'iframe pour la preuve GF-1.
   if (frame) {
@@ -218,6 +221,108 @@ function initSectionWorkshop() {
     });
   }
 
+  function buildPresets(type) {
+    if (!presetsHost) return;
+    presetsHost.replaceChildren();
+    const list = (fieldsFor(type).presets) || [];
+    const wrap = presetsHost.closest('[data-workshop-presets-wrap]');
+    if (!list.length) {
+      if (wrap) wrap.hidden = true;
+      return;
+    }
+    if (wrap) wrap.hidden = false;
+    list.forEach((preset) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'studio-btn workshop-preset-btn';
+      btn.textContent = preset.label;
+      btn.dataset.presetId = preset.id;
+      btn.addEventListener('click', () => {
+        setPreset(preset.id);
+        syncPresetButtons();
+      });
+      presetsHost.appendChild(btn);
+    });
+    syncPresetButtons();
+  }
+
+  function syncPresetButtons() {
+    if (!presetsHost) return;
+    presetsHost.querySelectorAll('.workshop-preset-btn').forEach((b) => {
+      const on = b.dataset.presetId === overrides.preset;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+  }
+
+  // Surfaces DS fermées, du plus long au plus court (évite les faux matchs sur préfixes courts).
+  const SURFACES = ['paper-2', 'paper-3', 'ink-2', 'ink-3', 'paper', 'ink', 'accent'];
+
+  // Extrait la surface de base d'un id de schéma (ex. 'mono-paper' -> 'paper',
+  // 'duo-paper-ink' -> 'paper', 'trio-ink' -> 'ink').
+  function parseSchemeBase(id) {
+    const rest = String(id).replace(/^(mono|duo|trio)-/, '');
+    return SURFACES.find((s) => rest === s || rest.startsWith(s + '-')) || null;
+  }
+
+  function buildSchemes() {
+    if (!schemesHost) return;
+    schemesHost.replaceChildren();
+    // Bouton defaut (retire le scheme).
+    const defBtn = document.createElement('button');
+    defBtn.type = 'button';
+    defBtn.className = 'studio-btn workshop-scheme-btn';
+    defBtn.textContent = 'défaut';
+    defBtn.dataset.schemeId = '';
+    defBtn.addEventListener('click', () => {
+      setScheme(null);
+      syncSchemeButtons();
+    });
+    schemesHost.appendChild(defBtn);
+    SCHEMES.forEach((scheme) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'studio-btn workshop-scheme-btn';
+      btn.textContent = scheme.label;
+      btn.dataset.schemeId = scheme.id;
+      btn.addEventListener('click', () => {
+        setScheme(scheme.id);
+        syncSchemeButtons();
+      });
+      schemesHost.appendChild(btn);
+    });
+    syncSchemeButtons();
+  }
+
+  function syncSchemeButtons() {
+    if (!schemesHost) return;
+    schemesHost.querySelectorAll('.workshop-scheme-btn').forEach((b) => {
+      const v = b.dataset.schemeId || null;
+      const on = v === overrides.scheme;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+  }
+
+  // Preset = reload volontaire de la route preset (re-render complet : props structurelles).
+  // C'est le seul reload volontaire avec le changement de type.
+  function setPreset(id) {
+    if (!frame || !activeType || !id) return;
+    overrides.preset = id;
+    const nextSrc = `/preview/${activeType}/${id}`;
+    if (frame.getAttribute('src') !== nextSrc) frame.setAttribute('src', nextSrc);
+    // applyAllOverrides() sera ré-appelé au 'load' (listener existant) -> background/variant/texte conservés.
+  }
+
+  // Colorscheme = DOM-patch du background (axe universel, no-reload).
+  function setScheme(id) {
+    overrides.scheme = id || null;
+    const base = id ? parseSchemeBase(id) : null;
+    overrides.background = base;
+    applyBackground();
+    syncBgButtons();
+  }
+
   function buildTexts(type) {
     if (!textsHost) return;
     textsHost.replaceChildren();
@@ -264,19 +369,25 @@ function initSectionWorkshop() {
     overrides.background = null;
     overrides.variants = {};
     overrides.texts = {};
+    overrides.preset = null;
+    overrides.scheme = null;
     if (typeLabel) typeLabel.textContent = type;
     if (openPreview) openPreview.setAttribute('href', `/preview/${type}`);
 
     buildBackground(type);
     buildVariants(type);
     buildTexts(type);
+    buildPresets(type);
+    buildSchemes();
     syncBgButtons();
 
     const f = fieldsFor(type);
     const hasControls =
       (f.background && f.background.length) ||
       Object.keys(f.variants || {}).length ||
-      (f.texts && f.texts.length);
+      (f.texts && f.texts.length) ||
+      (f.presets && f.presets.length) ||
+      SCHEMES.length;
     if (emptyHint) emptyHint.hidden = Boolean(hasControls);
 
     // Changement de TYPE = nouveau src (chargement volontaire). Les éditions de props
@@ -290,6 +401,8 @@ function initSectionWorkshop() {
   function buildConfig() {
     const config = { type: activeType };
     if (overrides.background) config.background = overrides.background;
+    if (overrides.preset) config.preset = overrides.preset;
+    if (overrides.scheme) config.scheme = overrides.scheme;
     Object.entries(overrides.variants).forEach(([field, value]) => {
       if (value) config[field] = value;
     });
@@ -372,6 +485,8 @@ function initSectionWorkshop() {
       if (target) target.textContent = value;
       return target ? target.textContent : null;
     },
+    setPreset,
+    setScheme,
     config: buildConfig,
     loads: () => frameLoads,
     state: () => ({ activeType, overrides: JSON.parse(JSON.stringify(overrides)) }),

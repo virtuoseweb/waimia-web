@@ -38,11 +38,81 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
-const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
+
+// ── feature-grid · WITNESS de la migration sur le moteur de layout v2 ──────────────
+// Le composant CONSOMME le moteur (section-layouts.css) : classes .sec-collection /
+// .sec-grid / .sec-item + data-attrs (noms canoniques du CSS, source de vérité). Défaut
+// (aucune prop de variation) = rendu actuel (grille hairline 3 colonnes). Chaque prop du
+// mixin n'est posée en data-attr QUE si elle est définie (sinon rien → défaut moteur).
+const fg = data.type === 'feature-grid' ? data : undefined;
+const fgCols = fg ? (fg.columns ?? '3') : '3';
+// Mode moteur : si une recette `layout` du lexique est demandée, on pilote la grille par
+// le moteur (data-layout) ; sinon on garde la grille hairline bespoke (data-cols).
+const fgLayout = fg?.layout;
+// Raccourci contentAlign (sucre) → justify-content effectif de la grille (1 seul data-attr).
+const fgJustify = fg?.justifyContent
+  ?? (fg?.contentAlign === 'center' ? 'center' : fg?.contentAlign === 'end' ? 'end' : undefined);
+// Heading de carte : h2/h3 (défaut historique = <strong>, conservé si non précisé).
+const FgCardTag = (fg?.headingLevel ?? 'strong') as 'h2' | 'h3' | 'strong';
+
+// ── Couche atomique (Batch 2) · deliverables-grid. Résolution raccourci↔placement :
+// valeur effective calculée UNE fois, UN seul data-attr par région. `placement.header.align`
+// surcharge `contentAlign`. Défaut absent = rendu actuel.
+const dgPl = data.type === 'deliverables-grid' ? data.placement : undefined;
+const dgHeaderAlign = dgPl?.header?.align ?? (data.type === 'deliverables-grid' ? data.contentAlign : undefined);
+const dgHeaderOrder = dgPl?.header?.order;
+const dgHeaderHide = dgPl?.header?.hideOn;
+const dgBodyOrder = dgPl?.body?.order;
+const dgBodyHide = dgPl?.body?.hideOn;
+const dgBodyJustify = dgPl?.body?.justify;
 // deliverables-grid et problems-grid : la recomposition selon le nombre de cartes
 // (anti-orpheline) est désormais portée par du CSS structurel scopé (`:has(> :nth-child)`)
 // au lieu d'un calcul JS couplé à `data.*.length`. Voir les blocs `.problems-grid__cards`
 // et `.deliverables-grid__grid` ci-dessous. Aucune custom property de colonnes injectée.
+
+// ── Cycle couleur cellules (schémas duo/trio) ────────────────────────────────
+// cellCycle est une prop libre (chaîne CSV) posée par colorVariantsFor() ; elle n'est
+// PAS dans le schéma Zod (knob builder). Parsed ici une seule fois => tableau vide si absent.
+const fgCellCycle: string[] = fg?.cellCycle
+  ? String(fg.cellCycle).split(',').filter(Boolean)
+  : [];
+
+// ── COMPOSITION (SYS v2-E) · axes de mise en composition. Tous optionnels ; défaut absent
+//    = rendu actuel (rétro-compat stricte). Le moteur (section-layouts.css) porte les règles
+//    génériques ; ici on RÉSOUT ce que chaque axe doit faire rendre.
+const fgHeaderAlign = fg?.headerAlign; // data-header-align (left/center/right)
+const fgHeaderKind = fg?.headerKind ?? 'eyebrow-title'; // défaut = kicker + titre (rendu actuel)
+const fgIntroRow = fg?.introRow; // ligne au-dessus de la grille
+const fgDividers = fg?.dividers; // séparateurs de grille
+const fgCardContent = fg?.cardContent ?? 'icon-title-desc'; // défaut = icône + titre + desc (actuel)
+const fgCardMedia = fg?.cardMedia; // média de carte (image-bg = fond)
+const fgCardAlign = fg?.cardAlign; // alignement intra-carte
+const fgColorDistribution = fg?.colorDistribution; // distribution couleur entre cartes
+const fgBgSource = fg?.bgSource; // source de fond section
+// Image de fond de section (placeholder editorial) → var inline (JAMAIS d'URL dans le CSS).
+const fgBgImageStyle =
+  fgBgSource === 'image' && fg?.bgImage ? `--sec-bg-image:url('${fg.bgImage}')` : undefined;
+// Quels éléments d'en-tête rendre selon headerKind (défaut = kicker+titre).
+const fgShowEyebrow = fgHeaderKind !== 'none' && fgHeaderKind !== 'title';
+const fgShowTitle = fgHeaderKind !== 'none';
+const fgShowHeaderLede =
+  fgHeaderKind === 'eyebrow-title-lede' || fgHeaderKind === 'eyebrow-title-lede-cta';
+const fgShowHeaderCta = fgHeaderKind === 'eyebrow-title-lede-cta';
+const fgHeaderLede = isFr ? fg?.lede_fr : fg?.lede_en;
+const fgHeaderCtaLabel = isFr ? fg?.header_cta_label_fr : fg?.header_cta_label_en;
+// Ligne d'intro (introRow) : desc + image placeholder.
+const fgIntroDesc = isFr ? fg?.intro_desc_fr : fg?.intro_desc_en;
+const fgIntroMediaStyle =
+  fgIntroRow === 'desc-media-split' && fg?.intro_media
+    ? `--sec-intro-image:url('${fg.intro_media}')`
+    : undefined;
+// Richesse de carte (cardContent) : quels éléments d'une carte rendre.
+const fgShowCardIcon = fgCardContent === 'icon-title-desc';
+const fgShowCardDesc = fgCardContent !== 'title';
+const fgShowCardMeta = fgCardContent === 'title-desc-meta';
+const fgShowCardMedia =
+  fgCardMedia === 'image' || fgCardContent === 'media-title-desc';
+const fgCardImageBg = fgCardMedia === 'image-bg';
 ---
 
 {data.type === 'problems-grid' ? (
@@ -67,9 +137,20 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
     </div>
   </section>
 ) : data.type === 'deliverables-grid' ? (
-  <section class="deliverables-grid" data-bg={data.background}>
+  <section
+    class="deliverables-grid"
+    data-bg={data.background}
+    data-density={data.density}
+    data-content-align={data.contentAlign}
+    data-layout={data.layout}
+  >
     <div class="wrap-wide">
-      <header class="deliverables-grid__hd">
+      <header
+        class="deliverables-grid__hd"
+        data-header-align={dgHeaderAlign}
+        data-header-order={dgHeaderOrder}
+        data-header-hide={dgHeaderHide}
+      >
         <Kicker as="span" tone="accent" class="deliverables-grid__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         <h2 class="deliverables-grid__title" set:html={isFr ? data.title_fr : data.title_en} />
         {(isFr ? data.lead_fr : data.lead_en) && (
@@ -77,7 +158,15 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
         )}
       </header>
 
-      <div class="deliverables-grid__grid reveal-stagger">
+      <div
+        class="deliverables-grid__grid reveal-stagger"
+        data-columns={data.columns ?? 'auto'}
+        data-col-ratio={data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : undefined}
+        data-item-height={data.itemHeight}
+        data-body-order={dgBodyOrder}
+        data-body-hide={dgBodyHide}
+        data-body-justify={dgBodyJustify}
+      >
         {data.items.map((item) => {
           const format = isFr ? item.format_fr : item.format_en;
           const duration = isFr ? item.duration_fr : item.duration_en;
@@ -147,24 +236,95 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
     </div>
   </section>
 ) : (
-  <section class="feature-grid sec-base" data-bg={data.background}>
+  <section
+    class="feature-grid sec-base sec-collection"
+    data-bg={fg!.background}
+    data-layout={fgLayout}
+    data-density={fg!.density}
+    data-content-align={fg!.contentAlign}
+    data-bg-source={fgBgSource}
+    style={fgBgImageStyle}
+  >
     <div class="wrap-wide">
-    <div class="feature-grid__header">
-      {(isFr ? data.kicker_fr : data.kicker_en) && (
-        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    {fgShowEyebrow || fgShowTitle ? (
+    <div class="feature-grid__header" data-header-align={fgHeaderAlign}>
+      {fgShowEyebrow && (isFr ? fg!.kicker_fr : fg!.kicker_en) && (
+        <Kicker tone="muted">{isFr ? fg!.kicker_fr : fg!.kicker_en}</Kicker>
       )}
-      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {fgShowTitle && <h2 class="sec-base-h2" set:html={isFr ? fg!.h2_fr : fg!.h2_en} />}
+      {fgShowHeaderLede && fgHeaderLede && (
+        <p class="feature-grid__lede" data-measure="read">{fgHeaderLede}</p>
+      )}
+      {fgShowHeaderCta && fgHeaderCtaLabel && fg!.header_cta_href && (
+        <div class="feature-grid__header-cta">
+          <a class="btn btn-ghost" href={fg!.header_cta_href}>{fgHeaderCtaLabel} <span aria-hidden="true">→</span></a>
+        </div>
+      )}
     </div>
-    <ul class="feature-grid__list" data-cols={fgCols}>
-      {data.features.map((f: (typeof data.features)[number]) => (
-        <li class="feature-grid__item">
-          {f.icon && (
+    ) : null}
+
+    {fgIntroRow && fgIntroRow !== 'none' && (
+      <div class="sec-intro" data-intro-row={fgIntroRow}>
+        <div class="sec-intro__body">
+          {fgIntroDesc && <p class="feature-grid__intro-desc">{fgIntroDesc}</p>}
+        </div>
+        {fgIntroRow === 'desc-media-split' && (
+          <div class="sec-intro__media" style={fgIntroMediaStyle} role="presentation"></div>
+        )}
+      </div>
+    )}
+
+    <ul
+      class="feature-grid__list sec-grid"
+      data-cols={fgLayout ? undefined : fgCols}
+      data-columns={fg!.columns}
+      data-hover={fg!.hover}
+      data-justify-content={fgJustify}
+      data-align-items={fg!.alignItems}
+      data-item-height={fg!.itemHeight}
+      data-col-ratio={fgLayout === 'grid-asym' ? fg!.colRatio : undefined}
+      data-dividers={fgDividers}
+      data-card-align={fgCardAlign}
+      data-color-distribution={fgColorDistribution}
+    >
+      {fg!.features.map((f, i) => {
+        const cta = f.cta_href ? { label: isFr ? f.cta_label_fr : f.cta_label_en, href: f.cta_href } : undefined;
+        const cardCellBg = f.bg ?? (fgCellCycle.length > 0 ? fgCellCycle[i % fgCellCycle.length] : undefined);
+        const meta = isFr ? f.meta_fr : f.meta_en;
+        // Image de carte (image en tête OU en fond). Source = donnée (placeholder editorial),
+        // jamais d'URL en dur dans le CSS : pour image-bg on pose --sec-card-image inline.
+        const cardImageStyle = fgCardImageBg && f.media ? `--sec-card-image:url('${f.media}')` : undefined;
+        return (
+        <li
+          class="feature-grid__item sec-item"
+          data-cell-bg={fgCardImageBg ? undefined : cardCellBg}
+          data-card-media={fgCardImageBg ? 'image-bg' : undefined}
+          style={cardImageStyle}
+          data-tone={f.tone ?? fg!.tone}
+          data-cell-tone={fg!.cellTone}
+          data-cell-x={fg!.cellAlignX}
+          data-cell-y={f.cellAlignY ?? fg!.cellAlignY}
+          data-cell-pad={fg!.cellPad}
+          data-col-span={f.colSpan}
+          data-focus-ring={fg!.focusRing}
+        >
+          {fgShowCardMedia && f.media && (
+            <div class="feature-grid__media sec-item__media" style={`background-image:url('${f.media}')`} role="presentation"></div>
+          )}
+          {fgShowCardIcon && f.icon && (
             <Kicker tone="accent" size={10} class="feature-grid__icon">▸ {f.icon}</Kicker>
           )}
-          <strong class="feature-grid__title">{isFr ? f.title_fr : f.title_en}</strong>
-          <p>{isFr ? f.body_fr : f.body_en}</p>
+          {fgShowCardMeta && meta && <span class="feature-grid__meta">{meta}</span>}
+          <FgCardTag class="feature-grid__title sec-item__title" set:html={isFr ? f.title_fr : f.title_en} />
+          {fgShowCardDesc && <p data-clamp={fg!.clamp} data-measure={fg!.measure}>{isFr ? f.body_fr : f.body_en}</p>}
+          {cta && (
+            <div class="feature-grid__cta sec-item__cta">
+              <a class="btn btn-ghost" href={cta.href}>{cta.label} <span aria-hidden="true">→</span></a>
+            </div>
+          )}
         </li>
-      ))}
+        );
+      })}
     </ul>
     </div>
   </section>
@@ -177,6 +337,16 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
   }
+  /* ── MODE PAR DÉFAUT (aucune recette `layout`) = grille hairline 3 colonnes, rendu
+     historique INCHANGÉ. La grille (.feature-grid__list[data-cols]) et le look hairline
+     (bordure + chevauchement -1px, gap 0) sont SPÉCIFIQUES à ce composant : le moteur ne
+     reproduit pas la fusion de bordures, on les garde donc ici, scopés au mode défaut
+     (sélecteur `:not([data-layout])` sur la section). Quand une recette `layout` est posée,
+     c'est le moteur (.sec-collection[data-layout] .sec-grid) qui porte la grille (gap +
+     colonnes) : on ne duplique RIEN. ── */
+  .feature-grid:not([data-layout]) .feature-grid__list {
+    gap: 0; /* annule le gap du moteur (.sec-grid) : le look hairline repose sur margin -1px */
+  }
   .feature-grid__list {
     list-style: none;
     margin: 0;
@@ -186,13 +356,17 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
   .feature-grid__list[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
   .feature-grid__list[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
   .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+  /* Item du mode hairline : bordure + chevauchement -1px. En mode `layout`, le moteur
+     fournit la grille/gap ; la carte garde sa pile flex + son padding (skin du composant). */
   .feature-grid__item {
     padding: var(--space-7);
-    border: 1px solid var(--hairline);
-    margin: -1px -1px 0 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-2);
+  }
+  .feature-grid:not([data-layout]) .feature-grid__item {
+    border: 1px solid var(--hairline);
+    margin: -1px -1px 0 0;
   }
   .feature-grid__icon { margin-bottom: var(--space-1); }
   .feature-grid__title {
@@ -209,6 +383,64 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
     line-height: var(--leading-relaxed);
     margin: 0;
   }
+  /* CTA de carte (apparaît si l'item porte cta_href ; sert les états reveal-cta /
+     cellAlignY=between). Le moteur gère opacity reveal-cta + focus-within. */
+  .feature-grid__cta { margin-top: var(--space-3); }
+
+  /* ── COMPOSITION (SYS v2-E) · éléments skin propres au composant (le moteur porte
+     la mise en page générique : data-header-align, .sec-intro, data-card-media…). ── */
+  /* Chapô d'en-tête (headerKind=*-lede*) + CTA d'en-tête (headerKind=*-cta). */
+  .feature-grid__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: var(--wrap-read);
+    margin: var(--space-4) 0 0;
+  }
+  .feature-grid__header-cta { margin-top: var(--space-5); }
+  /* Desc de la ligne d'intro (introRow). */
+  .feature-grid__intro-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+  /* Petite ligne meta (cardContent=title-desc-meta). */
+  .feature-grid__meta {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin-bottom: var(--space-2);
+  }
+  /* Vignette image en tête de carte (cardMedia=image / cardContent=media-title-desc).
+     Le fond image vient d'un style inline (donnée) ; cadre ratio + radius tokenisés. */
+  .feature-grid__media {
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-4);
+    overflow: hidden;
+  }
+  /* Carte à FOND image : padding interne (le moteur fournit position/scrim/contraste). */
+  .feature-grid__item[data-card-media='image-bg'] {
+    padding: var(--space-7);
+    justify-content: flex-end;
+  }
+  .feature-grid__item[data-card-media='image-bg'] .feature-grid__title { color: inherit; }
+  .feature-grid__item[data-card-media='image-bg'] p { color: rgba(var(--paper-rgb), 0.82); }
+  /* ── CONTRASTE PAR CELLULE (couche L10bis) : quand une carte porte data-cell-bg, c'est
+     le MOTEUR qui fixe la couleur de premier plan sur .sec-item (contraste auto). Le titre
+     et le paragraphe doivent alors HÉRITER (sinon le var(--ink)/var(--muted) hardcodé
+     casserait le contraste sur fond sombre/accent). En l'absence de data-cell-bg = défaut
+     inchangé. ── */
+  .feature-grid__item[data-cell-bg]:not([data-cell-bg='none']) .feature-grid__title { color: inherit; }
+  .feature-grid__item[data-cell-bg]:not([data-cell-bg='none']) p { color: var(--muted); }
   @media (max-width: 768px) {
     .feature-grid__list[data-cols="3"],
     .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(2, 1fr); }
@@ -221,7 +453,11 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
     background: var(--ink);
     color: var(--paper);
   }
-  .feature-grid[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  /* Section ink : header + cartes SANS cellBg propre passent en clair. Une carte qui a son
+     PROPRE data-cell-bg gère son contraste via le moteur → on ne la force pas (exclusion). */
+  .feature-grid[data-bg='ink'] :is(.sec-base-h2, .feature-grid__header :is(h2, h3, p)) { color: var(--paper); }
+  .feature-grid[data-bg='ink'] .feature-grid__item:not([data-cell-bg]) :is(h3, strong, h2),
+  .feature-grid[data-bg='ink'] .feature-grid__item:not([data-cell-bg]) p { color: var(--paper); }
 
   /* ───── problems-grid (preset) — CSS VERBATIM ProblemsGrid.astro, `.wrap-wide` scopé
      qualifié `.wrap-wide:where(.problems-grid)` (spécificité inchangée) ───── */
@@ -374,22 +610,28 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
     display: grid;
     /* Content-driven : 3 colonnes par défaut, recomposé par compte exact via :has()
        ci-dessous pour éviter la cellule orpheline. Le rythme éditorial (gap 0 + border-top
-       par carte) est préservé : seule la répartition des colonnes change selon le nombre. */
+       par carte) est préservé : seule la répartition des colonnes change selon le nombre.
+       Axe `columns` (data-columns) : 'auto' (défaut) = count-adaptive :has() ci-dessous ;
+       '2'|'3'|'4' = nombre fixe desktop (dégrade en auto-fit sous 900/640px). */
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: var(--deliverables-grid-col-gap, 0);
   }
+  /* Colonnes fixes (opt-in) : surcharge le count-adaptive. minmax garde la lisibilité. */
+  .deliverables-grid__grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deliverables-grid__grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .deliverables-grid__grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   @supports selector(:has(*)) {
-    /* Exactement 4 cartes → 2×2 (au lieu de 3 + 1 orpheline). */
-    .deliverables-grid__grid:has(> :nth-child(4):last-child) {
+    /* Count-adaptive : UNIQUEMENT en mode 'auto' (défaut). Exactement 4 cartes → 2×2. */
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(4):last-child) {
       grid-template-columns: repeat(2, 1fr);
     }
     /* Exactement 5 cartes → 6 sous-colonnes : 3 en haut (span 2), 2 centrées en bas. */
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) {
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) {
       grid-template-columns: repeat(6, 1fr);
     }
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) > * { grid-column: span 2; }
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) > :nth-child(4) { grid-column: 2 / span 2; }
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: 4 / span 2; }
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > * { grid-column: span 2; }
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > :nth-child(4) { grid-column: 2 / span 2; }
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: 4 / span 2; }
   }
   .deliverables-grid__card {
     position: relative;
@@ -470,24 +712,192 @@ const fgCols = data.type === 'feature-grid' ? (data.columns ?? '3') : '3';
   }
   @media (max-width: 900px) {
     .deliverables-grid__grid,
-    .deliverables-grid__grid:has(> :nth-child(4):last-child),
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) {
+    .deliverables-grid__grid[data-columns='3'],
+    .deliverables-grid__grid[data-columns='4'],
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(4):last-child),
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) {
       grid-template-columns: repeat(2, 1fr);
     }
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) > *,
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) > :nth-child(4),
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: auto; }
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > *,
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > :nth-child(4),
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: auto; }
   }
   @media (max-width: 640px) {
     .deliverables-grid__grid,
-    .deliverables-grid__grid:has(> :nth-child(4):last-child),
-    .deliverables-grid__grid:has(> :nth-child(5):last-child) {
+    .deliverables-grid__grid[data-columns='2'],
+    .deliverables-grid__grid[data-columns='3'],
+    .deliverables-grid__grid[data-columns='4'],
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(4):last-child),
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) {
       grid-template-columns: 1fr;
     }
     .deliverables-grid__card {
       padding-right: 0;
     }
   }
+  /* ── Axe DENSITY (data-density) : rythme padding section + gap colonnes.
+     Défaut (absent) = --section-loose / gap 0 (rendu actuel). Tokens --space-* seulement. ── */
+  .deliverables-grid[data-density='compact'] { --deliverables-grid-pad: var(--space-8); --deliverables-grid-col-gap: var(--space-4); }
+  .deliverables-grid[data-density='compact'] .deliverables-grid__hd { margin-bottom: var(--space-6); }
+  .deliverables-grid[data-density='base'] { --deliverables-grid-pad: var(--space-10); --deliverables-grid-col-gap: var(--space-6); }
+  .deliverables-grid[data-density='ample'] { --deliverables-grid-pad: var(--space-12); --deliverables-grid-col-gap: var(--space-8); }
+  .deliverables-grid[data-density='ample'] .deliverables-grid__hd { margin-bottom: var(--space-12); }
+
+  /* ── Axe CONTENT-ALIGN (data-content-align) : alignement du header.
+     Défaut (absent) = start/gauche (rendu actuel). ── */
+  .deliverables-grid[data-content-align='center'] .deliverables-grid__hd { text-align: center; }
+  .deliverables-grid[data-content-align='center'] .deliverables-grid__title,
+  .deliverables-grid[data-content-align='center'] .deliverables-grid__lead { margin-inline: auto; }
+  .deliverables-grid[data-content-align='end'] .deliverables-grid__hd { text-align: end; }
+  .deliverables-grid[data-content-align='end'] .deliverables-grid__title,
+  .deliverables-grid[data-content-align='end'] .deliverables-grid__lead { margin-inline-start: auto; }
+
+  /* ── COUCHE ATOMIQUE (Batch 2) · placement par région (header + body).
+     UN SEUL data-attr par région. data-header-align résout placement.header.align ?? contentAlign.
+     order/hideOn structurels (pas de token). ── */
+  .deliverables-grid__hd[data-header-align='center'] { text-align: center; }
+  .deliverables-grid__hd[data-header-align='center'] .deliverables-grid__title,
+  .deliverables-grid__hd[data-header-align='center'] .deliverables-grid__lead { margin-inline: auto; }
+  .deliverables-grid__hd[data-header-align='end'] { text-align: end; }
+  .deliverables-grid__hd[data-header-align='end'] .deliverables-grid__title,
+  .deliverables-grid__hd[data-header-align='end'] .deliverables-grid__lead { margin-inline-start: auto; }
+  /* wrap-wide interne en flux : header + grid → order possible. */
+  .deliverables-grid .wrap-wide { display: flex; flex-direction: column; }
+  .deliverables-grid__hd[data-header-order='0'] { order: 0; }
+  .deliverables-grid__hd[data-header-order='1'] { order: 1; }
+  .deliverables-grid__grid[data-body-order='0'] { order: 0; }
+  .deliverables-grid__grid[data-body-order='1'] { order: 1; }
+  .deliverables-grid__hd[data-header-hide='desktop'],
+  .deliverables-grid__grid[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .deliverables-grid__hd[data-header-hide='mobile'],
+    .deliverables-grid__grid[data-body-hide='mobile'] { display: none; }
+    .deliverables-grid__hd[data-header-hide='desktop'] { display: block; }
+    .deliverables-grid__grid[data-body-hide='desktop'] { display: grid; }
+  }
+
+  /* ── VOCABULAIRE DE LAYOUT (Batch 2) · recettes nommées sur data-layout. Défaut (absent)
+     = grille éditoriale count-adaptive border-top (rendu actuel). Chaque recette absorbe
+     1..N items sans trou (dense/auto-fit/centrage). 100% tokens DS ; structurel = 768px,
+     aspect-ratio, minmax en rem, order/align. ── */
+
+  /* grid-uniform : N colonnes ÉGALES, hauteurs stretch. N piloté par columns. Réintroduit
+     gap + bordure pleine par carte (look « cartes » plutôt que rythme border-top éditorial). */
+  .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+    align-items: stretch;
+  }
+  .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='5'] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='6'] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+  /* grid-auto : count-adaptive auto-fit ; s'adapte au nombre ET à la largeur. Dernière ligne
+     incomplète centrée. col-min = rem structurel borné. */
+  .deliverables-grid[data-layout='grid-auto'] .deliverables-grid__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min, 16rem), 100%), 1fr));
+    gap: var(--space-5);
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  /* grid-asym : colonnes de largeurs DIFFÉRENTES via colRatio. Non-uniforme maîtrisé. */
+  .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid {
+    display: grid;
+    gap: var(--space-5);
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+  }
+  .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='equal'] { grid-template-columns: 1fr 1fr; }
+  .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='1-2'] { grid-template-columns: 1fr 2fr; }
+  .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='2-1'] { grid-template-columns: 2fr 1fr; }
+  .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='1-1-2'] { grid-template-columns: 1fr 1fr 2fr; }
+  .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='2-3'] { grid-template-columns: 2fr 3fr; }
+
+  /* list : 1 par ligne, item horizontal pleine largeur (art à gauche, texte à droite). */
+  .deliverables-grid[data-layout='list'] .deliverables-grid__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .deliverables-grid[data-layout='list'] .deliverables-grid__card,
+  .deliverables-grid[data-layout='rows-divided'] .deliverables-grid__card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-6);
+    align-items: start;
+    padding: var(--space-6) 0;
+    border-top: none;
+  }
+  .deliverables-grid[data-layout='list'] .deliverables-grid__art,
+  .deliverables-grid[data-layout='rows-divided'] .deliverables-grid__art { grid-row: span 3; margin-bottom: 0; }
+  .deliverables-grid[data-layout='list'] .deliverables-grid__card::before,
+  .deliverables-grid[data-layout='rows-divided'] .deliverables-grid__card::before { top: var(--space-6); }
+
+  /* rows-divided : list + hairline entre lignes (table éditoriale). */
+  .deliverables-grid[data-layout='rows-divided'] .deliverables-grid__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .deliverables-grid[data-layout='rows-divided'] .deliverables-grid__card {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  /* bento-feature : 1ʳᵉ carte vedette span 2 colonnes + 2 lignes, le reste simple. dense comble. */
+  .deliverables-grid[data-layout='bento-feature'] .deliverables-grid__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: var(--space-5);
+    align-items: stretch;
+  }
+  .deliverables-grid[data-layout='bento-feature'] .deliverables-grid__card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  /* featured-split : 1 gros bloc (1fr) + colonne d'items secondaires empilés (1fr). */
+  .deliverables-grid[data-layout='featured-split'] .deliverables-grid__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+    gap: var(--space-5);
+    align-items: start;
+  }
+  .deliverables-grid[data-layout='featured-split'] .deliverables-grid__card:first-child {
+    grid-row: 1 / -1;
+  }
+
+  /* itemHeight : hauteur des cellules. Ces recettes ne s'appliquent QUE quand un layout en
+     grille pose une grille (sinon align-items absent). square/video via aspect-ratio. */
+  .deliverables-grid[data-layout] .deliverables-grid__grid[data-item-height='even'] { align-items: stretch; }
+  .deliverables-grid[data-layout] .deliverables-grid__grid[data-item-height='square'] .deliverables-grid__card { aspect-ratio: 1; overflow: hidden; }
+  .deliverables-grid[data-layout] .deliverables-grid__grid[data-item-height='video'] .deliverables-grid__card { aspect-ratio: 16 / 9; overflow: hidden; }
+
+  /* Responsive : toute recette grille converge en 1 colonne ≤768px ; list/rows restent. */
+  @media (max-width: 768px) {
+    .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid,
+    .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='2'],
+    .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='3'],
+    .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='4'],
+    .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='5'],
+    .deliverables-grid[data-layout='grid-uniform'] .deliverables-grid__grid[data-columns='6'],
+    .deliverables-grid[data-layout='grid-auto'] .deliverables-grid__grid,
+    .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid,
+    .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='1-2'],
+    .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='2-1'],
+    .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='1-1-2'],
+    .deliverables-grid[data-layout='grid-asym'] .deliverables-grid__grid[data-col-ratio='2-3'],
+    .deliverables-grid[data-layout='bento-feature'] .deliverables-grid__grid,
+    .deliverables-grid[data-layout='featured-split'] .deliverables-grid__grid { grid-template-columns: 1fr; }
+    /* feature/featured cards perdent leur span pour ne pas déborder. */
+    .deliverables-grid[data-layout='bento-feature'] .deliverables-grid__card:first-child,
+    .deliverables-grid[data-layout='featured-split'] .deliverables-grid__card:first-child { grid-column: auto; grid-row: auto; }
+    /* square/video relâchés en hauteur naturelle sur mobile (contenu prime). */
+    .deliverables-grid[data-layout] .deliverables-grid__grid[data-item-height='square'] .deliverables-grid__card,
+    .deliverables-grid[data-layout] .deliverables-grid__grid[data-item-height='video'] .deliverables-grid__card { aspect-ratio: auto; }
+  }
+
   /* ── Alternance des fonds R4 · defaut clair = rendu inchange ── */
   .deliverables-grid[data-bg='paper-2'] { background: var(--paper-2); }
   .deliverables-grid[data-bg='paper-3'] { background: var(--paper-3); }

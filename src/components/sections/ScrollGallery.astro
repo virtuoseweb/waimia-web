@@ -1,0 +1,320 @@
+---
+// Section catalogue · scroll-gallery
+// Colonne GAUCHE : liste d'items qui défile. Colonne DROITE : cadre média STICKY
+// dont l'image active change en FONDU (crossfade) quand l'item correspondant croise
+// la bande centrale du viewport (IntersectionObserver). Mobile : pas de sticky, chaque
+// item affiche son image inline. media_side='left' inverse l'ordre des colonnes (desktop).
+import Kicker from '../ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'scroll-gallery'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const mediaSide = data.media_side ?? 'right';
+---
+
+<section class="sgal sec-base" data-bg={data.background} data-media-side={mediaSide}>
+  <div class="wrap-wide">
+    <div class="sgal__header reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="sgal__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+
+    <div class="sgal__grid">
+      <ol class="sgal__list" aria-label={isFr ? 'Domaines' : 'Domains'}>
+        {data.items.map((item, i) => {
+          const alt = (isFr ? item.media_alt_fr : item.media_alt_en) ?? '';
+          return (
+            <li class="sgal__item reveal" data-idx={i} data-active={i === 0 ? 'true' : 'false'}>
+              {(isFr ? item.index_fr : item.index_en) && (
+                <span class="sgal__index u-serif-accent" aria-hidden="true"><i>{isFr ? item.index_fr : item.index_en}</i></span>
+              )}
+              <div class="sgal__body">
+                <h3>{isFr ? item.title_fr : item.title_en}</h3>
+                <p>{isFr ? item.body_fr : item.body_en}</p>
+                {(isFr ? item.link_label_fr : item.link_label_en) && item.link_href && (
+                  <a class="sgal__link" href={item.link_href}>
+                    {isFr ? item.link_label_fr : item.link_label_en}
+                    <span aria-hidden="true">&#x2192;</span>
+                  </a>
+                )}
+                <img
+                  class="sgal__inline-img"
+                  src={item.media_src}
+                  alt={alt}
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="900"
+                />
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+
+      <div class="sgal__media" aria-hidden="true">
+        <div class="sgal__frame">
+          {data.items.map((item, i) => {
+            const alt = (isFr ? item.media_alt_fr : item.media_alt_en) ?? '';
+            return (
+              <figure class="sgal__fig" data-idx={i} data-active={i === 0 ? 'true' : 'false'}>
+                <img
+                  src={item.media_src}
+                  alt={alt}
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="900"
+                />
+              </figure>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sgal__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+  .sgal__header h2 :global(i) {
+    font-style: italic;
+  }
+  .sgal__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  /* Mobile-first : une seule colonne (liste avec images inline). */
+  .sgal__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  .sgal__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+
+  .sgal__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: start;
+    transition: opacity var(--dur-reveal) var(--ease);
+  }
+  .sgal__item[data-active='false'] {
+    opacity: 0.55;
+  }
+  .sgal__item[data-active='true'] {
+    opacity: 1;
+  }
+
+  .sgal__index {
+    font-size: var(--text-h3);
+    line-height: 1;
+  }
+  /* L'idiome .u-serif-accent stylise l'<i> enfant (police display + accent). On
+     surcharge la couleur selon l'état actif (muted hors focus, accent quand actif). */
+  .sgal__index :global(i) {
+    color: var(--muted);
+    transition: color var(--dur-reveal) var(--ease);
+  }
+  .sgal__item[data-active='true'] .sgal__index :global(i) {
+    color: var(--accent-text);
+  }
+
+  .sgal__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .sgal__body h3 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    line-height: 1.22;
+    margin: 0;
+  }
+  .sgal__body p {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    max-width: 52ch;
+  }
+
+  .sgal__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    text-decoration: none;
+    font-weight: var(--fw-medium);
+  }
+  .sgal__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Image inline (mobile uniquement). Cachée en desktop (cadre sticky prend le relais). */
+  .sgal__inline-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    margin-top: var(--space-3);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+  }
+
+  /* Le cadre média sticky est masqué tant qu'on est mono-colonne (mobile). */
+  .sgal__media {
+    display: none;
+  }
+
+  /* ── Desktop (≥ 768px) : 2 colonnes, cadre média sticky ── */
+  @media (min-width: 768px) {
+    .sgal__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-9);
+    }
+    .sgal__media {
+      display: block;
+      position: sticky;
+      top: var(--space-9);
+      align-self: start;
+    }
+    .sgal[data-media-side='left'] .sgal__list {
+      order: 1;
+    }
+    .sgal[data-media-side='left'] .sgal__media {
+      order: 0;
+    }
+    /* En desktop, l'image inline disparaît au profit du cadre sticky crossfade. */
+    .sgal__inline-img {
+      display: none;
+    }
+    .sgal__list {
+      gap: var(--space-10);
+    }
+  }
+
+  .sgal__frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-lift);
+  }
+  .sgal__fig {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease);
+  }
+  .sgal__fig[data-active='true'] {
+    opacity: 1;
+  }
+  .sgal__fig img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── Variante ink ── */
+  .sgal[data-bg='paper-2'] { background: var(--paper-2); }
+  .sgal[data-bg='paper-3'] { background: var(--paper-3); }
+  .sgal[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .sgal[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .sgal[data-bg='ink'] .sgal__item[data-active='false'] { opacity: 0.5; }
+  .sgal[data-bg='ink'] .sgal__frame {
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+  .sgal[data-bg='ink'] .sgal__inline-img {
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+
+  /* ── Reduced motion : swap instantané, sticky conservé ── */
+  @media (prefers-reduced-motion: reduce) {
+    .sgal__item,
+    .sgal__index,
+    .sgal__fig {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    if (!('IntersectionObserver' in window)) return;
+
+    const galleries = document.querySelectorAll<HTMLElement>('.sgal');
+
+    galleries.forEach((gallery) => {
+      const items = Array.from(gallery.querySelectorAll<HTMLElement>('.sgal__item'));
+      const figs = Array.from(gallery.querySelectorAll<HTMLElement>('.sgal__fig'));
+      if (items.length === 0) return;
+
+      const setActive = (idx: number) => {
+        items.forEach((el) => {
+          el.dataset.active = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+        figs.forEach((el) => {
+          el.dataset.active = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = Number((entry.target as HTMLElement).dataset.idx);
+              if (!Number.isNaN(idx)) setActive(idx);
+            }
+          });
+        },
+        { rootMargin: '-45% 0px -45% 0px', threshold: 0 },
+      );
+
+      items.forEach((el) => observer.observe(el));
+    });
+  })();
+</script>

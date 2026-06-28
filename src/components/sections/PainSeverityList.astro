@@ -6,6 +6,17 @@
  * + glyphe severity ; corps = titre serif + description muted + ligne mono « → fix ».
  * Convention severity (glyphes ◆▲●○, labels Critique/Eleve/Modere/Faible) reprise de la
  * molecule PainPointInline. Modeles de style/tokens : StatementOrbit (carte ink, reveal-stagger).
+ *
+ * Batch 6 (texte/manifeste) · 3 couches de variation :
+ *  1. LAYOUT (data-layout, string curé) : 'list' (défaut, lignes empilées hairline =
+ *     rendu actuel), 'rows-divided' (alias explicite, hairlines + rythme), 'two-col'
+ *     (deux colonnes d'items, count-adaptive via columns), 'grid' (count-adaptive
+ *     auto-fit en cartes). Sur grid/two-col, le label severity passe horizontal (lisible
+ *     en cellule étroite).
+ *  2. AXES (mixin) : density (gap/padding via --space-*), contentAlign (align header),
+ *     columns (refiner pour two-col/grid : auto|2|3). actionsAlign conservé (pas de CTA).
+ *  3. PLACEMENT ATOMIQUE (objet placement) : header (align/order/hideOn),
+ *     body (align/order/hideOn). Résolution raccourci↔placement (un seul data-attr/région).
  */
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
@@ -49,15 +60,40 @@ const items = data.items.map((it) => ({
   desc: isFr ? it.desc_fr : it.desc_en,
   fix: it.fix_fr ? (isFr ? it.fix_fr : (it.fix_en ?? it.fix_fr)) : undefined,
 }));
+
+// ── Couche atomique (Batch 6) · placement par région. Résolution raccourci↔placement :
+// valeur effective calculée UNE fois, UN seul data-attr par région. `placement.header.align`
+// surcharge `contentAlign`. Défaut absent = rendu actuel.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerOrder = pl?.header?.order;
+const headerHide = pl?.header?.hideOn;
+const bodyOrder = pl?.body?.order;
+const bodyHide = pl?.body?.hideOn;
 ---
-<section class="psl" data-bg="ink">
+<section
+  class="psl"
+  data-bg={data.background ?? 'ink'}
+  data-layout={data.layout}
+  data-density={data.density}
+  data-columns={data.columns}
+>
   <div class="wrap-tight psl__inner reveal-stagger">
-    <header class="psl__head">
+    <header
+      class="psl__head"
+      data-header-align={headerAlign}
+      data-header-order={headerOrder}
+      data-header-hide={headerHide}
+    >
       {kicker && <Kicker tone="accent" class="psl__kicker">{kicker}</Kicker>}
       <h2 class="psl__title" set:html={h2} />
     </header>
 
-    <ul class="psl__list">
+    <ul
+      class="psl__list"
+      data-body-order={bodyOrder}
+      data-body-hide={bodyHide}
+    >
       {items.map((it) => (
         <li class={`psl__item psl__item--${it.severity}`}>
           <div class="psl__sev" aria-hidden="true">
@@ -80,6 +116,9 @@ const items = data.items.map((it) => ({
       color: var(--paper);
       padding-block: var(--section-base);
     }
+    .psl[data-bg='paper'] { background: var(--paper); color: var(--ink); }
+    .psl[data-bg='paper-2'] { background: var(--paper-2); color: var(--ink); }
+    .psl[data-bg='paper-3'] { background: var(--paper-3); color: var(--ink); }
 
     .psl__inner { display: flex; flex-direction: column; gap: var(--space-9); }
 
@@ -97,6 +136,7 @@ const items = data.items.map((it) => ({
       margin: 0;
       text-wrap: balance;
     }
+    .psl[data-bg^='paper'] .psl__title { color: var(--ink); }
     .psl__title :global(i) { font-style: italic; }
     .psl__title :global(i.acc), .psl__title :global(.acc) {
       font-family: var(--font-display);
@@ -106,14 +146,18 @@ const items = data.items.map((it) => ({
 
     .psl__list { list-style: none; margin: 0; padding: 0; }
 
+    /* Couleur des hairlines : claire sur ink, hairline DS sur paper. */
+    .psl { --psl-rule: rgba(var(--paper-rgb), 0.14); }
+    .psl[data-bg^='paper'] { --psl-rule: var(--hairline); }
+
     .psl__item {
       display: grid;
       grid-template-columns: 64px 1fr;
       gap: 0;
       padding-block: var(--space-6);
-      border-bottom: 1px solid rgba(var(--paper-rgb), 0.14);
+      border-bottom: 1px solid var(--psl-rule);
     }
-    .psl__item:first-child { border-top: 1px solid rgba(var(--paper-rgb), 0.14); }
+    .psl__item:first-child { border-top: 1px solid var(--psl-rule); }
 
     /* ── Colonne severity verticale ── */
     .psl__sev {
@@ -128,10 +172,14 @@ const items = data.items.map((it) => ({
       line-height: 1;
       color: var(--paper-2);
     }
+    .psl[data-bg^='paper'] .psl__glyph { color: var(--ink-2); }
     .psl__item--critical .psl__glyph { color: var(--accent-text); }
     .psl__item--high     .psl__glyph { color: var(--paper-2); }
     .psl__item--medium   .psl__glyph { color: rgba(var(--paper-rgb), 0.6); }
     .psl__item--low      .psl__glyph { color: rgba(var(--paper-rgb), 0.42); }
+    .psl[data-bg^='paper'] .psl__item--high .psl__glyph { color: var(--ink-2); }
+    .psl[data-bg^='paper'] .psl__item--medium .psl__glyph { color: var(--muted); }
+    .psl[data-bg^='paper'] .psl__item--low .psl__glyph { color: var(--muted); }
 
     .psl__sev-label {
       font-family: var(--font-mono);
@@ -143,11 +191,12 @@ const items = data.items.map((it) => ({
       color: rgba(var(--paper-rgb), 0.55);
       user-select: none;
     }
+    .psl[data-bg^='paper'] .psl__sev-label { color: var(--muted); }
 
     /* ── Corps ── */
     .psl__body {
       padding-left: var(--space-6);
-      border-left: 1px solid rgba(var(--paper-rgb), 0.14);
+      border-left: 1px solid var(--psl-rule);
       display: flex;
       flex-direction: column;
       gap: var(--space-3);
@@ -162,6 +211,7 @@ const items = data.items.map((it) => ({
       margin: 0;
       text-wrap: balance;
     }
+    .psl[data-bg^='paper'] .psl__item-title { color: var(--ink); }
     .psl__desc {
       font-family: var(--font-sans);
       font-size: var(--text-body);
@@ -171,6 +221,7 @@ const items = data.items.map((it) => ({
       margin: 0;
       text-wrap: pretty;
     }
+    .psl[data-bg^='paper'] .psl__desc { color: var(--muted); }
     .psl__fix {
       font-family: var(--font-mono);
       font-size: var(--text-small);
@@ -179,15 +230,118 @@ const items = data.items.map((it) => ({
       color: rgba(var(--paper-rgb), 0.6);
       margin: 0;
     }
+    .psl[data-bg^='paper'] .psl__fix { color: var(--muted); }
+
+    /* ── VOCABULAIRE DE LAYOUT (Batch 6) · recettes nommées sur data-layout. Défaut (absent)
+       = list (rendu actuel). 100% tokens DS ; structurel toléré = 64px gouttière severity,
+       768/480px, auto-fit minmax en rem, order/align. ── */
+
+    /* rows-divided : alias explicite de la list hairline, rythme density-pilotable. Même rendu
+       que le défaut (les hairlines + grille severity sont déjà la signature). */
+    /* (aucune surcharge nécessaire : list EST déjà des rows séparées par hairline) */
+
+    /* two-col / grid : items en cellules côte à côte. Le label severity vertical n'a plus de
+       sens en cellule étroite → on passe la colonne severity en rang horizontal au-dessus
+       du corps (glyphe + label inline), et on retire le filet vertical interne. */
+    .psl[data-layout='two-col'] .psl__list,
+    .psl[data-layout='grid'] .psl__list {
+      display: grid;
+      gap: var(--space-7);
+      column-gap: var(--space-9);
+    }
+    /* two-col : 2 colonnes égales par défaut (override par columns). */
+    .psl[data-layout='two-col'] .psl__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    /* grid : count-adaptive auto-fit, s'adapte au nombre ET à la largeur. col-min = rem structurel. */
+    .psl[data-layout='grid'] .psl__list {
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min, 18rem), 100%), 1fr));
+    }
+    /* refiner columns (auto|2|3) : surcharge le nb de colonnes pour two-col/grid. */
+    .psl[data-layout='two-col'][data-columns='auto'] .psl__list,
+    .psl[data-layout='grid'][data-columns='auto'] .psl__list {
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min, 18rem), 100%), 1fr));
+    }
+    .psl[data-layout='two-col'][data-columns='2'] .psl__list,
+    .psl[data-layout='grid'][data-columns='2'] .psl__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .psl[data-layout='two-col'][data-columns='3'] .psl__list,
+    .psl[data-layout='grid'][data-columns='3'] .psl__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    /* En grille : item en carte verticale (severity en tête de rang, pas de filet vertical). */
+    .psl[data-layout='two-col'] .psl__item,
+    .psl[data-layout='grid'] .psl__item {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+      padding-block: 0;
+      border: none;
+    }
+    .psl[data-layout='two-col'] .psl__item:first-child,
+    .psl[data-layout='grid'] .psl__item:first-child { border-top: none; }
+    /* severity en rang horizontal (glyphe + label côte à côte). */
+    .psl[data-layout='two-col'] .psl__sev,
+    .psl[data-layout='grid'] .psl__sev {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-2);
+      padding-top: 0;
+    }
+    .psl[data-layout='two-col'] .psl__sev-label,
+    .psl[data-layout='grid'] .psl__sev-label {
+      writing-mode: horizontal-tb;
+      rotate: none;
+    }
+    .psl[data-layout='two-col'] .psl__body,
+    .psl[data-layout='grid'] .psl__body { padding-left: 0; border-left: none; }
+
+    /* ── COUCHE ATOMIQUE (Batch 6) · placement par région · UN SEUL data-attr/région. ── */
+    /* Région HEADER : alignement (align-self + text-align). Défaut = start. center borne la mesure. */
+    .psl__head[data-header-align='center'] { align-items: center; text-align: center; }
+    .psl__head[data-header-align='center'] .psl__title { max-width: none; margin-inline: auto; }
+    .psl__head[data-header-align='end'] { align-items: flex-end; text-align: end; }
+
+    /* ORDER (réordonner header↔liste). order = structurel. */
+    .psl__head[data-header-order='0'] { order: 0; }
+    .psl__head[data-header-order='1'] { order: 1; }
+    .psl__list[data-body-order='0'] { order: 0; }
+    .psl__list[data-body-order='1'] { order: 1; }
+
+    /* HIDE-ON (visibilité responsive). 768px = breakpoint structurel. */
+    .psl__head[data-header-hide='desktop'],
+    .psl__list[data-body-hide='desktop'] { display: none; }
+
+    /* ── AXE DENSITY (data-density) : rythme padding-block + gap. Tokens --space-* seulement. ── */
+    .psl[data-density='compact'] { padding-block: var(--space-8); }
+    .psl[data-density='compact'] .psl__inner { gap: var(--space-7); }
+    .psl[data-density='compact'] .psl__item { padding-block: var(--space-5); }
+    .psl[data-density='base'] { padding-block: var(--space-10); }
+    .psl[data-density='ample'] { padding-block: var(--space-12); }
+    .psl[data-density='ample'] .psl__inner { gap: var(--space-11); }
+    .psl[data-density='ample'] .psl__item { padding-block: var(--space-7); }
+    /* En grille, density pilote l'espacement de la grille, pas le padding-block des items. */
+    .psl[data-layout='two-col'][data-density='compact'] .psl__list,
+    .psl[data-layout='grid'][data-density='compact'] .psl__list { gap: var(--space-5); column-gap: var(--space-7); }
+    .psl[data-layout='two-col'][data-density='ample'] .psl__list,
+    .psl[data-layout='grid'][data-density='ample'] .psl__list { gap: var(--space-9); column-gap: var(--space-11); }
 
     @media (max-width: 768px) {
       .psl__item { grid-template-columns: 44px 1fr; padding-block: var(--space-5); }
       .psl__body { padding-left: var(--space-4); }
       .psl__title { font-size: var(--text-h2); }
+      /* two-col / grid → 1 colonne (les items reviennent en cartes empilées). */
+      .psl[data-layout='two-col'] .psl__list,
+      .psl[data-layout='grid'] .psl__list { grid-template-columns: 1fr; }
+      /* hide-on mobile (et on restaure les hide-on desktop). */
+      .psl__head[data-header-hide='mobile'] { display: none; }
+      .psl__list[data-body-hide='mobile'] { display: none; }
+      .psl__head[data-header-hide='desktop'] { display: flex; }
+      .psl__list[data-body-hide='desktop'] { display: block; }
     }
     @media (max-width: 480px) {
       .psl__sev-label { display: none; }
       .psl__item { grid-template-columns: 32px 1fr; }
+      /* en grille la severity reste un rang horizontal lisible → garder le label */
+      .psl[data-layout='two-col'] .psl__sev-label,
+      .psl[data-layout='grid'] .psl__sev-label { display: inline; }
+      .psl[data-layout='two-col'] .psl__item,
+      .psl[data-layout='grid'] .psl__item { grid-template-columns: 1fr; }
     }
   </style>
 </section>

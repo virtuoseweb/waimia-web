@@ -1,0 +1,345 @@
+---
+// Section catalogue · media-bento
+// Bento media asymetrique : tuiles image avec grand titre superpose + tag,
+// overlay degrade token-safe pour la lisibilite, zoom au survol. Le champ
+// `layout` (feature-2 | quad | mosaic) change la grille CSS. Variante ink,
+// mobile 1 colonne, reduced-motion neutralise le scale.
+// Wave #38 (T3) : DÉPLACÉ depuis src/components/sections/MediaBento.astro
+// (chemins relatifs ré-ancrés depuis src/sections/media-bento/).
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import type { SectionByType } from '../../schemas/sections';
+
+interface Props {
+  data: SectionByType<'media-bento'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const layout = data.layout ?? 'feature-2';
+
+// ── Batch 3 · VOCABULAIRE DE LAYOUT étendu + couche atomique. Le défaut (feature-2) et les
+// recettes legacy (quad/mosaic) sont préservés ; ajout de bento-feature/matrix-2x2/matrix-3x3/
+// grid-uniform + axes density/columns/itemHeight/contentAlign + placement par région.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const headerOrder = pl?.header?.order;
+const headerHide = pl?.header?.hideOn;
+const bodyOrder = pl?.body?.order;
+const bodyHide = pl?.body?.hideOn;
+const bodyJustify = pl?.body?.justify;
+---
+
+<section
+  class="mbento sec-base"
+  data-bg={data.background}
+  data-layout={layout}
+  data-density={data.density}
+  data-content-align={data.contentAlign}
+>
+  <div class="wrap-wide">
+    <div
+      class="mbento__header reveal"
+      data-header-align={headerAlign}
+      data-header-order={headerOrder}
+      data-header-hide={headerHide}
+    >
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+      <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      {(isFr ? data.lede_fr : data.lede_en) && (
+        <p class="mbento__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+      )}
+    </div>
+
+    <ul
+      class="mbento__grid"
+      data-columns={data.columns}
+      data-item-height={data.itemHeight}
+      data-body-order={bodyOrder}
+      data-body-hide={bodyHide}
+      data-body-justify={bodyJustify}
+      aria-label={isFr ? 'Projets' : 'Projects'}
+    >
+      {data.tiles.map((tile) => {
+        const span = tile.span ?? '1';
+        const title = isFr ? tile.title_fr : tile.title_en;
+        const tag = isFr ? tile.tag_fr : tile.tag_en;
+        const alt = (isFr ? tile.media_alt_fr : tile.media_alt_en) ?? '';
+        const Tag = tile.link_href ? 'a' : 'div';
+        return (
+          <li class="mbento__cell" data-span={span}>
+            <Tag class="mbento__tile" href={tile.link_href || undefined}>
+              <img
+                class="mbento__img"
+                src={tile.media_src}
+                alt={alt}
+                loading="lazy"
+                decoding="async"
+                width="1000"
+                height="750"
+              />
+              <span class="mbento__overlay" aria-hidden="true"></span>
+              <span class="mbento__caption">
+                {tag && <span class="mbento__tag">{tag}</span>}
+                <span class="mbento__title">{title}</span>
+              </span>
+            </Tag>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .mbento__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 640px;
+  }
+
+  .mbento__header h2 :global(i) {
+    font-style: italic;
+  }
+
+  .mbento__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  /* Grille bento. Mobile-first : 1 colonne (toutes les tuiles plein largeur). */
+  .mbento__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .mbento__cell {
+    min-width: 0;
+  }
+
+  /* ── Tuile ── */
+  .mbento__tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-lg, var(--radius-md, 8px));
+    border: 1px solid var(--hairline);
+    text-decoration: none;
+    color: inherit;
+    background: var(--paper-2, var(--paper));
+  }
+
+  .mbento__img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-reveal) var(--ease);
+    will-change: transform;
+  }
+
+  /* Overlay bas degrade token-safe (rgba sur --ink-rgb) pour lisibilite du titre. */
+  .mbento__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(var(--ink-rgb), 0) 38%,
+      rgba(var(--ink-rgb), 0.62) 100%
+    );
+    pointer-events: none;
+  }
+
+  .mbento__caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    transition: transform var(--dur-reveal) var(--ease);
+    will-change: transform;
+  }
+
+  .mbento__tag {
+    font-family: var(--font-sans);
+    font-size: var(--text-kicker);
+    font-weight: var(--fw-medium);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre, var(--accent-text));
+  }
+
+  .mbento__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    line-height: 1.18;
+    color: var(--paper);
+  }
+
+  /* Hover : zoom image + leger relevement du titre. */
+  .mbento__tile:hover .mbento__img {
+    transform: scale(1.04);
+  }
+  .mbento__tile:hover .mbento__caption {
+    transform: translateY(calc(-1 * var(--space-1)));
+  }
+
+  /* ── Layouts desktop ── */
+  @media (min-width: 768px) {
+    .mbento__grid {
+      gap: var(--space-6);
+    }
+
+    /* feature-2 : 1 grande tuile (2 col / 2 rangs) + 2 petites a droite. */
+    .mbento[data-layout='feature-2'] .mbento__grid {
+      grid-template-columns: 2fr 1fr;
+      grid-auto-rows: 1fr;
+    }
+    .mbento[data-layout='feature-2'] .mbento__cell:first-child {
+      grid-row: span 2;
+    }
+    .mbento[data-layout='feature-2'] .mbento__cell:first-child .mbento__tile {
+      aspect-ratio: auto;
+      min-height: 100%;
+    }
+
+    /* quad : grille 2x2 reguliere. */
+    .mbento[data-layout='quad'] .mbento__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* mosaic : flux dense, span='2' occupe 2 colonnes. */
+    .mbento[data-layout='mosaic'] .mbento__grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-flow: dense;
+    }
+    .mbento[data-layout='mosaic'] .mbento__cell[data-span='2'] {
+      grid-column: span 2;
+    }
+
+    /* ══ Batch 3 · recettes ajoutées ══ */
+
+    /* bento-feature : 1ʳᵉ tuile vedette span 2 colonnes + 2 lignes (imposé), le reste en unités.
+       dense comble. Calque FeatureGrid B2 transposé au média. */
+    .mbento[data-layout='bento-feature'] .mbento__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-flow: dense;
+      grid-auto-rows: 1fr;
+    }
+    .mbento[data-layout='bento-feature'] .mbento__cell:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .mbento[data-layout='bento-feature'] .mbento__cell:first-child .mbento__tile {
+      aspect-ratio: auto;
+      min-height: 100%;
+    }
+
+    /* matrix-2x2 / matrix-3x3 : matrices carrées (aspect-ratio:1). Le nom impose les colonnes ;
+       auto-flow:row → dernière ligne réduite proprement si tiles < N² (jamais de trou béant). */
+    .mbento[data-layout='matrix-2x2'] .mbento__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mbento[data-layout='matrix-3x3'] .mbento__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mbento[data-layout='matrix-2x2'] .mbento__tile,
+    .mbento[data-layout='matrix-3x3'] .mbento__tile { aspect-ratio: 1; }
+
+    /* grid-uniform : N colonnes ÉGALES (data-columns, défaut 3), tuiles 4/3 régulières. */
+    .mbento[data-layout='grid-uniform'] .mbento__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mbento[data-layout='grid-uniform'] .mbento__grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mbento[data-layout='grid-uniform'] .mbento__grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mbento[data-layout='grid-uniform'] .mbento__grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .mbento[data-layout='grid-uniform'] .mbento__grid[data-columns='auto'] {
+      grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+    }
+
+    /* itemHeight (desktop) : square (1:1) | video (16/9) | even (carré 1:1 régulier).
+       auto = aspect-ratio par défaut de la tuile (4/3). Honoré par toutes les recettes en grille. */
+    .mbento .mbento__grid[data-item-height='square'] .mbento__tile,
+    .mbento .mbento__grid[data-item-height='even'] .mbento__tile { aspect-ratio: 1; }
+    .mbento .mbento__grid[data-item-height='video'] .mbento__tile { aspect-ratio: 16 / 9; }
+
+    /* body justify (cluster d'items, structurel) honoré desktop. */
+    .mbento__grid[data-body-justify='center'] { justify-content: center; }
+    .mbento__grid[data-body-justify='end'] { justify-content: end; }
+    .mbento__grid[data-body-justify='between'] { justify-content: space-between; }
+
+    .mbento__title {
+      font-size: var(--text-h2);
+    }
+  }
+
+  /* ── Batch 3 · DENSITY (data-density) : gap de la grille. Tokens --space-* seulement.
+     Défaut (absent) = gap --space-5 (mobile) / --space-6 (desktop, rendu actuel). ── */
+  .mbento[data-density='compact'] .mbento__grid { gap: var(--space-4); }
+  .mbento[data-density='ample'] .mbento__grid { gap: var(--space-8); }
+
+  /* ── Batch 3 · CONTENT-ALIGN + couche atomique HEADER (data-header-align résout
+     placement.header.align ?? contentAlign). Défaut = start (rendu actuel). Le header a un
+     max-width 640px : en center on le recentre (margin-inline:auto). ── */
+  .mbento__header[data-header-align='center'] { text-align: center; align-items: center; margin-inline: auto; }
+  .mbento__header[data-header-align='end'] { text-align: end; align-items: flex-end; margin-inline-start: auto; }
+
+  /* ── Batch 3 · couche atomique ORDER + HIDE-ON (header/body). order structurel ; le wrap-wide
+     passe en flux colonne pour que `order` ait un effet. ── */
+  .mbento .wrap-wide { display: flex; flex-direction: column; }
+  .mbento__header[data-header-order='0'] { order: 0; }
+  .mbento__header[data-header-order='1'] { order: 1; }
+  .mbento__grid[data-body-order='0'] { order: 0; }
+  .mbento__grid[data-body-order='1'] { order: 1; }
+  .mbento__header[data-header-hide='desktop'],
+  .mbento__grid[data-body-hide='desktop'] { display: none; }
+  @media (max-width: 768px) {
+    .mbento__header[data-header-hide='mobile'],
+    .mbento__grid[data-body-hide='mobile'] { display: none; }
+    .mbento__header[data-header-hide='desktop'] { display: flex; }
+    .mbento__grid[data-body-hide='desktop'] { display: grid; }
+    /* Mobile : itemHeight relâché (la tuile garde son aspect-ratio mobile naturel). */
+    .mbento .mbento__grid[data-item-height='square'] .mbento__tile,
+    .mbento .mbento__grid[data-item-height='even'] .mbento__tile,
+    .mbento .mbento__grid[data-item-height='video'] .mbento__tile { aspect-ratio: 4 / 3; }
+  }
+
+  /* ── Variante ink (section) : fond ink, header en paper. ── */
+  .mbento[data-bg='paper-2'] { background: var(--paper-2); }
+  .mbento[data-bg='paper-3'] { background: var(--paper-3); }
+  .mbento[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .mbento[data-bg='ink'] :is(h2, p) { color: var(--paper); }
+  .mbento[data-bg='ink'] .mbento__tile {
+    border-color: rgba(var(--paper-rgb), 0.16);
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+
+  /* ── Reduced motion : pas de scale ni de relevement. ── */
+  @media (prefers-reduced-motion: reduce) {
+    .mbento__img,
+    .mbento__caption {
+      transition: none;
+    }
+    .mbento__tile:hover .mbento__img,
+    .mbento__tile:hover .mbento__caption {
+      transform: none;
+    }
+  }
+</style>

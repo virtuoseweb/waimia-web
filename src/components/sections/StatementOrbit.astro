@@ -7,10 +7,37 @@
  * GAUCHE → kicker mono accent + h2 serif accent + lede + CTA ghost optionnel.
  * DROITE → figure média line-art (currentColor → lignes claires sur ink).
  * Modèle : HeroMastheadCard (paper/ink, atomes Kicker/Button, lede) + ManifestoStatement (reveal).
+ *
+ * Batch 6 (texte/manifeste) · 3 couches de variation :
+ *  1. LAYOUT (data-layout, string curé) : défaut (absent) = split 52/48 (rendu actuel).
+ *     'prose' = colonne de texte unique lisible centrée, média en figure contenue dessous.
+ *     'lead-aside' = texte dominant (2fr) + média en aparté étroit (1fr).
+ *     'two-col' = lede en 2 colonnes de texte sous le titre, média pleine largeur dessous.
+ *  2. AXES (mixin) : density (gap/padding via --space-*), contentAlign (align header/texte),
+ *     actionsAlign (justify du rang CTA, indépendant du contenu).
+ *  3. PLACEMENT ATOMIQUE (objet placement) : header (align/order/hideOn),
+ *     media (order/hideOn), actions (justify/order/hideOn).
+ *     Résolution raccourci↔placement (un seul data-attr/région).
  */
 import type { SectionByType } from '../../schemas/sections';
 import Kicker from '../ui/atoms/Kicker.astro';
 import Button from '../ui/atoms/Button.astro';
+
+// Line-art DS inliné au build via ?raw : le SVG vit dans le DOM →
+// `stroke="currentColor"` suit la couleur de texte du contexte (clair sur ink).
+// Un <img> n'hériterait ni de currentColor ni des custom properties.
+// Pattern identique à FeatureZigzag.astro. Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
 
 interface Props {
   data: SectionByType<'statement-orbit'>;
@@ -24,16 +51,41 @@ const h2 = isFr ? data.h2_fr : data.h2_en;
 const lede = isFr ? data.lede_fr : data.lede_en;
 const mediaAlt = isFr ? data.media_alt_fr : (data.media_alt_en ?? data.media_alt_fr);
 const cta = data.cta;
+
+// ── Couche atomique (Batch 6) · placement par région. Résolution raccourci↔placement :
+// valeur effective calculée UNE fois, UN seul data-attr par région. `placement.header.align`
+// surcharge `contentAlign` ; `placement.actions.justify` surcharge `actionsAlign`
+// (le raccourci 'spread' se normalise vers 'between'). Défaut absent = rendu actuel.
+const pl = data.placement;
+const headerAlign = pl?.header?.align ?? data.contentAlign;
+const actionsJustify =
+  pl?.actions?.justify ?? (data.actionsAlign === 'spread' ? 'between' : data.actionsAlign);
+const headerOrder = pl?.header?.order;
+const headerHide = pl?.header?.hideOn;
+const mediaOrder = pl?.media?.order;
+const mediaHide = pl?.media?.hideOn;
+const actionsOrder = pl?.actions?.order;
+const actionsHide = pl?.actions?.hideOn;
 ---
-<section class="so">
+<section class="so" data-layout={data.layout} data-density={data.density}>
   <div class="so-card" data-bg="ink">
     <div class="wrap-wide so-card__inner reveal-stagger">
-      <div class="so-main">
+      <div
+        class="so-main"
+        data-header-align={headerAlign}
+        data-header-order={headerOrder}
+        data-header-hide={headerHide}
+      >
         {kicker && <Kicker tone="accent" class="so-kicker">{kicker}</Kicker>}
         <h2 class="so-title" set:html={h2} />
         <p class="so-lede" set:html={lede} />
         {cta && (
-          <div class="so-cta">
+          <div
+            class="so-cta"
+            data-actions-justify={actionsJustify}
+            data-actions-order={actionsOrder}
+            data-actions-hide={actionsHide}
+          >
             <Button href={cta.href} variant="ghost" size="lg">
               {isFr ? cta.label_fr : cta.label_en}
             </Button>
@@ -41,8 +93,18 @@ const cta = data.cta;
         )}
       </div>
 
-      <figure class="so-media">
-        <img src={data.media_src} alt={mediaAlt ?? ''} loading="lazy" decoding="async" />
+      <figure
+        class="so-media"
+        data-media-order={mediaOrder}
+        data-media-hide={mediaHide}
+      >
+        {(() => {
+          const isSvg = data.media_src?.endsWith('.svg');
+          const art = isSvg ? inlineLineArt(data.media_src) : undefined;
+          return art
+            ? <div class="so-media__art" set:html={art} role={mediaAlt ? 'img' : undefined} aria-label={mediaAlt || undefined} aria-hidden={mediaAlt ? undefined : 'true'} />
+            : <img src={data.media_src} alt={mediaAlt ?? ''} loading="lazy" decoding="async" />;
+        })()}
       </figure>
     </div>
   </div>
@@ -105,7 +167,7 @@ const cta = data.cta;
     }
     .so-lede :global(i) { font-style: italic; color: var(--accent-text); }
 
-    .so-cta { margin-top: var(--space-6); }
+    .so-cta { margin-top: var(--space-6); display: flex; }
 
     .so-media {
       margin: 0;
@@ -118,14 +180,109 @@ const cta = data.cta;
       height: auto;
       color: var(--paper); /* SVG currentColor → lignes claires sur ink */
     }
+    /* Line-art inliné : carte toujours ink → traits clairs (currentColor = paper). */
+    .so-media__art {
+      width: 100%;
+      color: var(--paper);
+      line-height: 0;
+    }
+    .so-media__art :global(svg) {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ── VOCABULAIRE DE LAYOUT (Batch 6) · recettes nommées sur data-layout. Défaut (absent)
+       = split 52/48 (rendu actuel). 100% tokens DS ; structurel toléré = 768px, fr, ch
+       (largeur de lecture), order/align. ── */
+
+    /* prose : colonne de texte unique lisible centrée, média en figure contenue dessous. */
+    .so[data-layout='prose'] .so-card__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-9);
+      justify-items: center;
+      text-align: center;
+    }
+    .so[data-layout='prose'] .so-main { align-items: center; max-width: var(--wrap-read); }
+    .so[data-layout='prose'] .so-title { max-width: 22ch; margin-inline: auto; }
+    .so[data-layout='prose'] .so-lede { max-width: 60ch; margin-inline: auto; }
+    .so[data-layout='prose'] .so-cta { justify-content: center; }
+    .so[data-layout='prose'] .so-media { max-width: 26rem; order: 1; }
+
+    /* lead-aside : texte dominant (2fr) + média en aparté étroit (1fr). */
+    .so[data-layout='lead-aside'] .so-card__inner {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      align-items: start;
+    }
+
+    /* two-col : lede en 2 colonnes de texte sous le titre, média pleine largeur dessous.
+       Le texte coulant utilise CSS columns ; break-inside évite de couper le lede de façon
+       absurde. Le titre reste pleine largeur au-dessus. */
+    .so[data-layout='two-col'] .so-card__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-9);
+    }
+    .so[data-layout='two-col'] .so-main { max-width: none; }
+    .so[data-layout='two-col'] .so-title { max-width: 28ch; }
+    .so[data-layout='two-col'] .so-lede {
+      columns: 2;
+      column-gap: var(--space-9);
+      max-width: none;
+    }
+    .so[data-layout='two-col'] .so-lede :global(*) { break-inside: avoid; }
+    .so[data-layout='two-col'] .so-media { order: 1; }
+
+    /* ── COUCHE ATOMIQUE (Batch 6) · placement par région · UN SEUL data-attr/région. ── */
+    /* Région HEADER : alignement du bloc texte (align-self + text-align). Défaut = start. */
+    .so-main[data-header-align='center'] { align-items: center; text-align: center; }
+    .so-main[data-header-align='center'] :is(.so-title, .so-lede) { margin-inline: auto; }
+    .so-main[data-header-align='center'] .so-cta { justify-content: center; }
+    .so-main[data-header-align='end'] { align-items: flex-end; text-align: end; }
+    .so-main[data-header-align='end'] .so-cta { justify-content: flex-end; }
+
+    /* Région ACTIONS : justify-content du cluster CTA (between = space-between). INDÉPENDANT
+       du header (« bouton au centre sans décaler le titre »). */
+    .so-cta[data-actions-justify='start'] { justify-content: flex-start; }
+    .so-cta[data-actions-justify='center'] { justify-content: center; }
+    .so-cta[data-actions-justify='end'] { justify-content: flex-end; }
+    .so-cta[data-actions-justify='between'] { justify-content: space-between; }
+
+    /* ORDER (réordonner header↔média dans la grille, CTA dans le flux du bloc texte). */
+    .so-main[data-header-order='0'] { order: 0; }
+    .so-main[data-header-order='1'] { order: 1; }
+    .so-media[data-media-order='0'] { order: 0; }
+    .so-media[data-media-order='1'] { order: 1; }
+    .so-cta[data-actions-order='0'] { order: 0; }
+    .so-cta[data-actions-order='1'] { order: 1; }
+
+    /* HIDE-ON (visibilité responsive). 768px = breakpoint structurel. */
+    .so-main[data-header-hide='desktop'],
+    .so-media[data-media-hide='desktop'],
+    .so-cta[data-actions-hide='desktop'] { display: none; }
+
+    /* ── AXE DENSITY (data-density) : rythme padding-block carte + gap grille. Tokens only. ── */
+    .so[data-density='compact'] .so-card__inner { padding-block: var(--space-9); gap: var(--space-8); }
+    .so[data-density='base'] .so-card__inner { padding-block: var(--space-11); gap: var(--space-10); }
+    .so[data-density='ample'] .so-card__inner { padding-block: var(--space-12); gap: var(--space-12); }
 
     @media (max-width: 768px) {
-      .so-card__inner {
+      .so-card__inner,
+      .so[data-layout='lead-aside'] .so-card__inner,
+      .so[data-layout='two-col'] .so-card__inner {
         grid-template-columns: 1fr;
         gap: var(--space-7);
         padding-block: var(--space-9);
       }
       .so-media { order: 1; max-width: 22rem; margin-inline: auto; }
+      /* two-col → lede en 1 colonne en mobile. */
+      .so[data-layout='two-col'] .so-lede { columns: 1; }
+      /* hide-on mobile (et on restaure les hide-on desktop). */
+      .so-main[data-header-hide='mobile'],
+      .so-media[data-media-hide='mobile'],
+      .so-cta[data-actions-hide='mobile'] { display: none; }
+      .so-main[data-header-hide='desktop'] { display: flex; }
+      .so-media[data-media-hide='desktop'] { display: flex; }
+      .so-cta[data-actions-hide='desktop'] { display: flex; }
     }
 
     /* ── MOMENT motion signature : la carte ink passe de contenue (80%) à pleine largeur (100%)

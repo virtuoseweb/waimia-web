@@ -22,6 +22,10 @@ function initStudio() {
   container.dataset.studioInit = '1';
 
   const DATA = JSON.parse(dataEl.textContent || '{}');
+  // env injecté au build par studio.astro (import.meta.env.DEV) : source FIABLE,
+  // pas d'heuristique hostname. En prod le middleware /api/ds/save n'existe pas
+  // (site output:static) → on désactive la sauvegarde et on court-circuite tout fetch.
+  const isDev = DATA.env === 'dev';
   const consumers = DATA.consumers || {};
   const tokenSections = DATA.tokenSections || {};
   const demoPresets = DATA.demoPresets || {};
@@ -307,8 +311,17 @@ function initStudio() {
   // location.reload(). Pas de polling Vercel : délai fixe (setTimeout + interval).
   const saveBtn = container.querySelector('#token-save');
   const keywordInput = container.querySelector('[data-save-keyword]');
+  const saveHint = container.querySelector('#studio-save-hint');
   let countdownTimer = null;
   let reloadTimer = null;
+
+  // PROD : la persistance git n'existe pas (output:static). On verrouille l'UI de
+  // sauvegarde dès l'init (bouton désactivé + champ mot-clé désactivé + aide visible).
+  if (!isDev) {
+    if (saveBtn) saveBtn.disabled = true;
+    if (keywordInput) keywordInput.disabled = true;
+    if (saveHint) saveHint.hidden = false;
+  }
 
   function buildTokensPayload() {
     const out = {};
@@ -456,6 +469,13 @@ function initStudio() {
   }
 
   async function performSave(keyword) {
+    if (!isDev) {
+      // PROD : aucun endpoint /api/ds/save → 0 fetch émis (évite le faux
+      // « Réseau indisponible »). Message clair, pas d'appel réseau.
+      setSaveState('error');
+      toast('Enregistrement disponible en mode développement uniquement');
+      return { ok: false, error: 'prod' };
+    }
     if (!dirty.size) {
       setSaveState('error');
       toast('Aucun changement : modifie au moins un token avant d\'enregistrer');
@@ -948,6 +968,561 @@ function initStudio() {
     toastTimer = window.setTimeout(() => el.classList.remove('is-on'), 2600);
   }
 
+  // ── Palette de recherche universelle (Cmd/Ctrl+K) ──────────────────────────
+  // Recherche transverse instantanée dans 2 corpus déjà présents dans le DOM
+  // (sources autoritaires, pas de reconstruction) :
+  //   • tokens   → [data-token-row] (chaque ligne porte data-group) → action :
+  //               sélection + scroll de la ligne (réutilise showImpact()).
+  //   • sections → [data-catalog-type] (catalogue complet) → action :
+  //               loadCatalogType(type) (charge le type dans l'atelier).
+  const palette = document.getElementById('studio-palette');
+  const paletteInput = palette ? palette.querySelector('#studio-palette-input') : null;
+  const paletteResults = palette ? palette.querySelector('#studio-palette-results') : null;
+  const paletteEmpty = palette ? palette.querySelector('#studio-palette-empty') : null;
+
+  // Index construit une fois depuis le DOM rendu (full token list + full catalogue).
+  function buildPaletteIndex() {
+    const items = [];
+    container.querySelectorAll('[data-token-row]').forEach((row) => {
+      const token = row.getAttribute('data-token-row') || '';
+      if (!token) return;
+      items.push({
+        kind: 'token',
+        label: token,
+        group: row.getAttribute('data-group') || '',
+        run: () => activateToken(token),
+      });
+    });
+    const seenTypes = new Set();
+    container.querySelectorAll('[data-catalog-type]').forEach((btn) => {
+      const type = btn.getAttribute('data-catalog-type') || '';
+      if (!type || seenTypes.has(type)) return;
+      seenTypes.add(type);
+      items.push({
+        kind: 'section',
+        label: type,
+        group: '',
+        run: () => activateSection(type),
+      });
+    });
+    return items;
+  }
+
+  function activateToken(token) {
+    // Une recherche dans le panneau peut masquer la ligne : on neutralise le filtre.
+    if (search && search.value) {
+      search.value = '';
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    showImpact(token);
+    const row = container.querySelector(`[data-token-row="${token}"]`);
+    if (row) {
+      row.hidden = false;
+      const block = row.closest('[data-group-block]');
+      if (block) block.hidden = false;
+      row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function activateSection(type) {
+    loadCatalogType(type);
+    const workshopSection = container.querySelector('#ds-workshop');
+    const catalogSection = container.querySelector('#catalogue');
+    const target = workshopSection || catalogSection;
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const KIND_LABEL = { token: 'Token', section: 'Section' };
+  let paletteItems = [];
+  let paletteMatches = [];
+  let paletteActive = 0;
+
+  function scorePaletteItem(item, q) {
+    const label = item.label.toLowerCase();
+    if (!q) return 0;
+    const idx = label.indexOf(q);
+    if (idx < 0) return -1;
+    // Préfixe exact priorisé, puis position du match, puis brièveté du label.
+    return (idx === 0 ? 0 : 100) + idx + label.length / 1000;
+  }
+
+  function renderPaletteResults() {
+    if (!paletteResults) return;
+    paletteResults.replaceChildren();
+    if (!paletteMatches.length) {
+      if (paletteEmpty) paletteEmpty.hidden = false;
+      return;
+    }
+    if (paletteEmpty) paletteEmpty.hidden = true;
+    paletteMatches.forEach((item, i) => {
+      const li = document.createElement('li');
+      li.className = 'studio-palette-item';
+      li.setAttribute('role', 'option');
+      li.id = `studio-palette-opt-${i}`;
+      li.setAttribute('aria-selected', String(i === paletteActive));
+      if (i === paletteActive) li.classList.add('is-active');
+
+      const kind = document.createElement('span');
+      kind.className = 'studio-palette-kind';
+      kind.textContent = KIND_LABEL[item.kind] || item.kind;
+
+      const label = document.createElement('span');
+      label.className = 'studio-palette-label';
+      label.textContent = item.label;
+
+      li.append(kind, label);
+      if (item.group) {
+        const meta = document.createElement('span');
+        meta.className = 'studio-palette-meta';
+        meta.textContent = item.group;
+        li.append(meta);
+      }
+
+      li.addEventListener('mousemove', () => {
+        if (paletteActive === i) return;
+        paletteActive = i;
+        syncPaletteActive();
+      });
+      li.addEventListener('click', () => runPaletteItem(i));
+      paletteResults.appendChild(li);
+    });
+    syncPaletteActive();
+  }
+
+  function syncPaletteActive() {
+    if (!paletteResults) return;
+    [...paletteResults.children].forEach((li, i) => {
+      const on = i === paletteActive;
+      li.classList.toggle('is-active', on);
+      li.setAttribute('aria-selected', String(on));
+      if (on) li.scrollIntoView({ block: 'nearest' });
+    });
+    if (paletteInput) {
+      const cur = paletteMatches[paletteActive];
+      paletteInput.setAttribute('aria-activedescendant', cur ? `studio-palette-opt-${paletteActive}` : '');
+    }
+  }
+
+  function filterPalette() {
+    const q = (paletteInput ? paletteInput.value : '').trim().toLowerCase();
+    paletteMatches = paletteItems
+      .map((item) => ({ item, s: scorePaletteItem(item, q) }))
+      .filter((r) => r.s >= 0)
+      .sort((a, b) => a.s - b.s)
+      .slice(0, 50)
+      .map((r) => r.item);
+    paletteActive = 0;
+    renderPaletteResults();
+  }
+
+  function runPaletteItem(i) {
+    const item = paletteMatches[i];
+    if (!item) return;
+    closePalette();
+    item.run();
+  }
+
+  let paletteLastFocus = null;
+  function openPalette() {
+    if (!palette) return;
+    paletteItems = buildPaletteIndex();
+    paletteLastFocus = document.activeElement;
+    palette.hidden = false;
+    palette.classList.add('is-on');
+    if (paletteInput) {
+      paletteInput.value = '';
+      filterPalette();
+      paletteInput.focus();
+    }
+  }
+
+  function closePalette() {
+    if (!palette || palette.hidden) return;
+    palette.classList.remove('is-on');
+    palette.hidden = true;
+    if (paletteLastFocus instanceof HTMLElement) {
+      try { paletteLastFocus.focus(); } catch { /* élément retiré : ignore */ }
+    }
+    paletteLastFocus = null;
+  }
+
+  if (paletteInput) paletteInput.addEventListener('input', filterPalette);
+  if (palette) {
+    palette.addEventListener('click', (event) => {
+      if (event.target === palette) closePalette();
+    });
+    palette.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closePalette();
+        return;
+      }
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (paletteMatches.length) {
+          paletteActive = (paletteActive + 1) % paletteMatches.length;
+          syncPaletteActive();
+        }
+        return;
+      }
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (paletteMatches.length) {
+          paletteActive = (paletteActive - 1 + paletteMatches.length) % paletteMatches.length;
+          syncPaletteActive();
+        }
+        return;
+      }
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        runPaletteItem(paletteActive);
+      }
+    });
+  }
+
+  // Handler clavier GLOBAL dédié : SÉPARÉ de window.__dsStudioKeydownHandler
+  // (undo/redo) et de window.__dsStudioBaselineKeyHandler (baseline) → 0 collision.
+  // Idempotent : on retire l'ancien avant de rebrancher (re-init View Transition).
+  if (window.__dsStudioPaletteKeydownHandler) {
+    document.removeEventListener('keydown', window.__dsStudioPaletteKeydownHandler);
+  }
+  window.__dsStudioPaletteKeydownHandler = (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      if (palette && palette.hidden) openPalette();
+      else closePalette();
+    }
+  };
+  document.addEventListener('keydown', window.__dsStudioPaletteKeydownHandler);
+
+  // ── Inspecteur d'élément du preview (façon « inspect » Webflow/Figma) ───────
+  // Clic sur un élément de l'iframe → on résout par VALEUR (le nom du token est
+  // perdu après résolution de var() par le navigateur) les tokens DS pilotes, via
+  // un index inverse valeur→[tokens] construit depuis getComputedStyle(frameRoot).
+  const inspectBtn = container.querySelector('#preview-inspect');
+  const inspectResult = container.querySelector('#inspect-result');
+  let inspectMode = false;
+  let inspectOverlay = null;          // <div> de surbrillance injecté dans l'iframe
+  let inspectOutlineColor = '';        // couleur d'outil lue une fois depuis --accent-text
+  let inspectReverseIndex = null;      // Map valeurNormalisée → [tokens]
+  let inspectIndexDirtyAt = -1;        // taille de `dirty` à la construction de l'index
+
+  // Normalise une couleur (#rgb, #rrggbb, #rrggbbaa, rgb(), rgba()) → "r,g,b" ou "r,g,b,a".
+  function canonColor(str) {
+    const s = String(str || '').trim().toLowerCase();
+    if (!s || s === 'transparent') return null;
+    let m = s.match(/^#([\da-f]{3,8})$/);
+    if (m) {
+      let hex = m[1];
+      if (hex.length === 3) hex = hex.split('').map((c) => c + c).join('');
+      else if (hex.length === 4) hex = hex.split('').map((c) => c + c).join('');
+      if (hex.length !== 6 && hex.length !== 8) return null;
+      const r = parseInt(hex.slice(0, 2), 16);
+      const g = parseInt(hex.slice(2, 4), 16);
+      const b = parseInt(hex.slice(4, 6), 16);
+      if (hex.length === 8) {
+        const a = Math.round((parseInt(hex.slice(6, 8), 16) / 255) * 1000) / 1000;
+        return a >= 1 ? `${r},${g},${b}` : `${r},${g},${b},${a}`;
+      }
+      return `${r},${g},${b}`;
+    }
+    m = s.match(/^rgba?\(([^)]+)\)$/);
+    if (m) {
+      const parts = m[1].split(/[,\s/]+/).filter(Boolean);
+      if (parts.length < 3) return null;
+      const r = parseInt(parts[0], 10);
+      const g = parseInt(parts[1], 10);
+      const b = parseInt(parts[2], 10);
+      if ([r, g, b].some((n) => Number.isNaN(n))) return null;
+      const a = parts[3] != null ? Math.round(parseFloat(parts[3]) * 1000) / 1000 : 1;
+      return a >= 1 ? `${r},${g},${b}` : `${r},${g},${b},${a}`;
+    }
+    return null;
+  }
+
+  // Normalise une longueur en px (getComputedStyle résout clamp()/rem en px) au 0.5 près.
+  function canonLength(str) {
+    const m = String(str || '').trim().match(/^(-?[\d.]+)px$/);
+    if (!m) return null;
+    const px = Math.round(parseFloat(m[1]) * 2) / 2;
+    return Number.isNaN(px) ? null : `${px}px`;
+  }
+
+  // Normalise une famille de police : 1re famille, sans quotes, lowercase.
+  function canonFont(str) {
+    const first = String(str || '').split(',')[0] || '';
+    const cleaned = first.trim().replace(/^["']|["']$/g, '').toLowerCase();
+    return cleaned || null;
+  }
+
+  // Une valeur est NON informative (ne doit jamais lister de token) si :
+  //   longueur nulle (0px après canonLength), couleur totalement transparente
+  //   (alpha = 0 ou mot-clé transparent), ou mot-clé none / chaîne vide.
+  function isDegenerateValue(str, kind) {
+    const s = String(str || '').trim().toLowerCase();
+    if (!s || s === 'none') return true;
+    if (kind === 'length') {
+      const l = canonLength(s);
+      return !l || parseFloat(l) === 0;
+    }
+    if (kind === 'color') {
+      if (s === 'transparent') return true;
+      const c = canonColor(s); // "r,g,b" ou "r,g,b,a" ; alpha présent => < 1
+      if (c) {
+        const parts = c.split(',');
+        if (parts.length === 4 && parseFloat(parts[3]) === 0) return true;
+      }
+    }
+    return false;
+  }
+
+  // Renvoie toutes les formes normalisées plausibles d'une valeur (couleur OU longueur OU police).
+  function normalizeValue(str) {
+    const out = [];
+    const c = canonColor(str);
+    if (c) out.push('c:' + c);
+    const l = canonLength(str);
+    if (l) out.push('l:' + l);
+    const f = canonFont(str);
+    if (f) out.push('f:' + f);
+    return out;
+  }
+
+  // (Re)construit l'index inverse valeur→[tokens] depuis les valeurs RÉSOLUES dans l'iframe.
+  function buildInspectIndex() {
+    const frameRoot = previewFrame?.contentDocument?.documentElement;
+    const idx = new Map();
+    if (!frameRoot) return idx;
+    const styles = getComputedStyle(frameRoot);
+    originals.forEach((_v, token) => {
+      const resolved = styles.getPropertyValue(token).trim();
+      if (!resolved) return;
+      normalizeValue(resolved).forEach((key) => {
+        if (!idx.has(key)) idx.set(key, []);
+        const arr = idx.get(key);
+        if (!arr.includes(token)) arr.push(token);
+      });
+    });
+    return idx;
+  }
+
+  function getInspectIndex() {
+    if (!inspectReverseIndex || inspectIndexDirtyAt !== dirty.size) {
+      inspectReverseIndex = buildInspectIndex();
+      inspectIndexDirtyAt = dirty.size;
+    }
+    return inspectReverseIndex;
+  }
+
+  // Propriétés examinées, dans l'ordre de pertinence, avec un type et un libellé FR court.
+  const INSPECT_PROPS = [
+    { prop: 'color', label: 'Texte', kind: 'color' },
+    { prop: 'background-color', label: 'Fond', kind: 'color' },
+    { prop: 'border-top-color', label: 'Bordure', kind: 'color', widthProp: 'border-top-width' },
+    { prop: 'border-right-color', label: 'Bordure', kind: 'color', widthProp: 'border-right-width' },
+    { prop: 'border-bottom-color', label: 'Bordure', kind: 'color', widthProp: 'border-bottom-width' },
+    { prop: 'border-left-color', label: 'Bordure', kind: 'color', widthProp: 'border-left-width' },
+    { prop: 'border-top-left-radius', label: 'Rayon', kind: 'length' },
+    { prop: 'font-family', label: 'Police', kind: 'font' },
+    { prop: 'font-size', label: 'Taille', kind: 'length' },
+    { prop: 'gap', label: 'Espacement', kind: 'length' },
+    { prop: 'column-gap', label: 'Espacement', kind: 'length' },
+    { prop: 'padding-top', label: 'Espacement', kind: 'length' },
+    { prop: 'padding-left', label: 'Espacement', kind: 'length' },
+    { prop: 'box-shadow', label: 'Ombre', kind: 'color' },
+  ];
+
+  // Cœur : pour un élément, renvoie [{property, value, tokens:[...]}] dédupliqué.
+  function inspectElement(el) {
+    if (!el || el.nodeType !== 1) return [];
+    const idx = getInspectIndex();
+    const cs = getComputedStyle(el);
+    const results = [];
+    const seenValues = new Set(); // anti-doublon par label+valeur normalisée
+    INSPECT_PROPS.forEach(({ prop, label, kind, widthProp }) => {
+      const raw = cs.getPropertyValue(prop).trim();
+      if (!raw) return;
+      // Couleur de bordure = bruit si la bordure n'a aucune épaisseur visible.
+      if (widthProp) {
+        const w = canonLength(cs.getPropertyValue(widthProp).trim());
+        if (!w || parseFloat(w) === 0) return;
+      }
+      // Valeur non informative (0px, transparent / alpha 0, none) → aucun token.
+      if (isDegenerateValue(raw, kind)) return;
+      let keys;
+      if (kind === 'color') keys = canonColor(raw) ? ['c:' + canonColor(raw)] : [];
+      else if (kind === 'length') keys = canonLength(raw) ? ['l:' + canonLength(raw)] : [];
+      else keys = canonFont(raw) ? ['f:' + canonFont(raw)] : [];
+      const tokens = [];
+      keys.forEach((k) => (idx.get(k) || []).forEach((t) => { if (!tokens.includes(t)) tokens.push(t); }));
+      if (!tokens.length) return;
+      const dedupKey = label + '|' + keys.join('|');
+      if (seenValues.has(dedupKey)) return;
+      seenValues.add(dedupKey);
+      results.push({ property: label, value: raw, tokens });
+    });
+    return results;
+  }
+
+  // Affiche le panneau de résultats sous la toolbar (ou un message si aucun token).
+  function renderInspectResult(candidates) {
+    if (!inspectResult) return;
+    inspectResult.replaceChildren();
+    inspectResult.hidden = false;
+    if (!candidates.length) {
+      const p = document.createElement('p');
+      p.className = 'studio-inspect-empty';
+      p.textContent = 'Aucun token DS ne pilote directement cet élément.';
+      inspectResult.appendChild(p);
+      return;
+    }
+    candidates.forEach((cand) => {
+      const row = document.createElement('div');
+      row.className = 'studio-inspect-row';
+
+      const prop = document.createElement('span');
+      prop.className = 'studio-inspect-prop';
+      prop.textContent = cand.property;
+      row.appendChild(prop);
+
+      const canon = canonColor(cand.value);
+      if (canon) {
+        const swatch = document.createElement('span');
+        swatch.className = 'studio-inspect-swatch';
+        swatch.style.background = cand.value;
+        row.appendChild(swatch);
+      }
+
+      const val = document.createElement('span');
+      val.className = 'studio-inspect-val';
+      val.textContent = cand.value;
+      row.appendChild(val);
+
+      cand.tokens.forEach((token) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'studio-btn studio-inspect-token';
+        btn.textContent = token;
+        btn.addEventListener('click', () => revealToken(token));
+        row.appendChild(btn);
+      });
+
+      inspectResult.appendChild(row);
+    });
+  }
+
+  // Sélectionne la ligne token (carte d'impact), la fait défiler et la flashe.
+  function revealToken(token) {
+    showImpact(token);
+    const row = container.querySelector(`[data-token-row="${token}"]`);
+    if (!row) return;
+    row.hidden = false;
+    const block = row.closest('[data-group-block]');
+    if (block) block.hidden = false;
+    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    row.classList.remove('is-inspect-flash');
+    void row.offsetWidth; // reflow → relance l'animation si re-cliqué
+    row.classList.add('is-inspect-flash');
+  }
+
+  // Overlay de surbrillance (un seul, réutilisé) positionné via getBoundingClientRect.
+  function ensureInspectOverlay(doc) {
+    if (inspectOverlay && inspectOverlay.ownerDocument === doc) return inspectOverlay;
+    inspectOverlay = doc.createElement('div');
+    inspectOverlay.setAttribute('aria-hidden', 'true');
+    Object.assign(inspectOverlay.style, {
+      position: 'fixed', pointerEvents: 'none', zIndex: '2147483647',
+      border: `2px solid ${inspectOutlineColor || '#000'}`, borderRadius: '2px',
+      boxSizing: 'border-box', display: 'none', top: '0', left: '0',
+    });
+    doc.body.appendChild(inspectOverlay);
+    return inspectOverlay;
+  }
+
+  function positionOverlay(el) {
+    const doc = el.ownerDocument;
+    const overlay = ensureInspectOverlay(doc);
+    const r = el.getBoundingClientRect();
+    overlay.style.display = 'block';
+    overlay.style.top = `${r.top}px`;
+    overlay.style.left = `${r.left}px`;
+    overlay.style.width = `${r.width}px`;
+    overlay.style.height = `${r.height}px`;
+  }
+
+  // Handlers nommés (réattachables / détachables proprement à chaque (ré)attache).
+  function onInspectMove(event) {
+    const el = event.target;
+    if (el && el.nodeType === 1 && el !== inspectOverlay) positionOverlay(el);
+  }
+  function onInspectClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const candidates = inspectElement(event.target);
+    renderInspectResult(candidates);
+    setInspectMode(false); // sortie après un clic (plus ergonomique)
+  }
+  function onInspectKey(event) {
+    if (event.key === 'Escape' && inspectMode) {
+      event.preventDefault();
+      setInspectMode(false);
+    }
+  }
+
+  // Attache/détache les listeners sur le DOCUMENT courant de l'iframe.
+  function attachInspectListeners() {
+    const doc = previewFrame?.contentDocument;
+    if (!doc || !doc.body) return;
+    inspectReverseIndex = null; // doc neuf → l'index sera rebâti au clic
+    doc.body.style.cursor = 'crosshair';
+    doc.addEventListener('mousemove', onInspectMove);
+    doc.addEventListener('click', onInspectClick, true);
+    doc.addEventListener('keydown', onInspectKey);
+  }
+  function detachInspectListeners() {
+    const doc = previewFrame?.contentDocument;
+    if (doc) {
+      doc.removeEventListener('mousemove', onInspectMove);
+      doc.removeEventListener('click', onInspectClick, true);
+      doc.removeEventListener('keydown', onInspectKey);
+      if (doc.body) doc.body.style.cursor = '';
+    }
+    if (inspectOverlay) {
+      inspectOverlay.remove();
+      inspectOverlay = null;
+    }
+  }
+
+  function setInspectMode(on) {
+    inspectMode = !!on;
+    if (inspectBtn) {
+      inspectBtn.classList.toggle('is-active', inspectMode);
+      inspectBtn.setAttribute('aria-pressed', String(inspectMode));
+    }
+    if (inspectMode) {
+      if (!inspectOutlineColor) inspectOutlineColor = getComputedStyle(root).getPropertyValue('--accent-text').trim();
+      attachInspectListeners();
+    } else {
+      detachInspectListeners();
+    }
+  }
+
+  if (inspectBtn) {
+    inspectBtn.addEventListener('click', () => setInspectMode(!inspectMode));
+  }
+  // Escape côté document parent (le focus peut être hors iframe).
+  if (window.__dsStudioInspectKeyHandler) {
+    document.removeEventListener('keydown', window.__dsStudioInspectKeyHandler);
+  }
+  window.__dsStudioInspectKeyHandler = (event) => {
+    if (event.key === 'Escape' && inspectMode) setInspectMode(false);
+  };
+  document.addEventListener('keydown', window.__dsStudioInspectKeyHandler);
+  // Reload de l'iframe : le contentDocument est neuf → ré-attache si le mode était actif.
+  if (previewFrame) {
+    previewFrame.addEventListener('load', () => { if (inspectMode) attachInspectListeners(); });
+  }
+
   /** Applique un token comme un contrôle humain et retourne sa valeur calculée. */
   function setToken(name, value) {
     applyToken(name, value);
@@ -1005,7 +1580,10 @@ function initStudio() {
       seedDemos: seedDemoPresets,
     },
     inspect: (token) => tokenSections[token] || [],
+    inspectElement,
+    setInspectMode,
     selectToken: showImpact,
+    palette: { open: openPalette, close: closePalette },
     compare: { hold: holdBaseline, diff: () => [...dirty.entries()].map(([name, value]) => ({ name, value, old: originals.get(name) ?? '' })) },
   };
 

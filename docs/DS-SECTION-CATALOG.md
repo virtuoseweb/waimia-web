@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 186
+> Sections : 199
 
 ---
 
@@ -66,9 +66,9 @@
 
 **Classes scoped** : .announce .announce__badge .announce__close .announce__inner .announce__link .announce__text
 
-**Dette hardcode** : 4 valeur(s) — 1px, 2px, 3px, 640px
+**Dette hardcode** : 5 valeur(s) — #fff, 1px, 2px, 3px, 640px
 
-**Agent** : Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 2px, 3px).
+**Agent** : Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (#fff, 1px, 2px).
 
 ---
 
@@ -110,37 +110,6 @@
 
 ---
 
-## Call-to-Action Sections
-
-### `tunnel-step-nav`
-
-> Pied de navigation d'étape tunnel : lien prev optionnel + cta (primary/accent/ghost) + barre méta (lecture + retour offre).
-> TunnelStepNav · src/components/sections/TunnelStepNav.astro · marketing/call-to-action-sections
-> status : stable · tags : cta, footer, meta, nav, prev, step, tunnel
-
-**Props**
-
-| Champ | Type | Req | Default | Contrainte |
-|---|---|---|---|---|
-| `back_href` | string | oui |  |  |
-| `back_label` | string | oui |  |  |
-| `cta` | enum | oui |  | primary | accent | ghost |
-| `prev_href` | string | non |  |  |
-| `prev_label_en` | string | non | ← Previous step |  |
-| `prev_label_fr` | string | non | ← Étape précédente |  |
-| `reading_en` | string | non | 2 min read |  |
-| `reading_fr` | string | non | Temps de lecture : 2 min |  |
-
-**Tokens** : `--accent` `--dur-fast` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--muted` `--paper` `--radius-xs` `--section-base` `--space-3` `--space-5` `--space-6` `--text-body` `--text-small`
-
-**Classes scoped** : .tunnel-step-nav .tunnel-step-nav__btn-cta .tunnel-step-nav__btn-cta--accent .tunnel-step-nav__btn-cta--ghost .tunnel-step-nav__btn-cta--primary .tunnel-step-nav__btn-ghost .tunnel-step-nav__meta .tunnel-step-nav__meta-back .tunnel-step-nav__meta-reading .wrap-wide
-
-**Dette hardcode** : 7 valeur(s) — .06em, 100%, 1200px, 14px, 1px, 28px, 700px
-
-**Agent** : Layout : `cta` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (.06em, 100%, 1200px).
-
----
-
 ## Comparison Sections
 
 ### `comparison-duo`
@@ -153,11 +122,17 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | enum | non |  | inline | stacked |
+| `proportion` | enum | non |  | 1-1 | 1-2 | 2-1 |
+| `te` | unknown | oui |  |  |
 | `with_items` | array | oui |  | min:2 max:6 |
 | `with_label_en` | string | oui |  |  |
 | `with_label_fr` | string | oui |  |  |
@@ -169,13 +144,13 @@
 | `without_title_en` | string | oui |  |  |
 | `without_title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-sm` `--shadow-paper-lift` `--space-1` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-sm` `--shadow-paper-lift` `--space-1` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
 **Classes scoped** : .comparison-duo .comparison-duo__badge .comparison-duo__badge--with .comparison-duo__badge--without .comparison-duo__card .comparison-duo__card--with .comparison-duo__card-header .comparison-duo__card-title .comparison-duo__card-title--with .comparison-duo__glyph .comparison-duo__grid .comparison-duo__header .comparison-duo__item .comparison-duo__item--with .comparison-duo__item--without .comparison-duo__list
 
 **Dette hardcode** : 5 valeur(s) — 0.14em, 10px, 1px, 2px, 768px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (0.14em, 10px, 1px).
+**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (0.14em, 10px, 1px).
 
 ---
 
@@ -614,6 +589,33 @@
 
 ## Content Sections
 
+### `definition-extract`
+
+> Bloc GEO « format extractible » : kicker mono, gros statement serif avec le terme défini en accent, rangée de pills, puis un bandeau de specs mono. Sobre, fond paper, pensé pour la citation par les moteurs génératifs.
+> DefinitionExtract · src/components/sections/DefinitionExtract.astro · marketing/content-sections
+> status : stable · tags : answer, definition, eeat, extractible, geo
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `pills` | array | non |  | max:6 |
+| `specs` | array | non |  | max:8 |
+| `statement_en` | string | oui |  |  |
+| `statement_fr` | string | oui |  |  |
+
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--section-base` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-read` `--wrap-tight`
+
+**Classes scoped** : .acc .dx .dx__aside .dx__body .dx__head .dx__inner .dx__kicker .dx__pill .dx__pills .dx__sep .dx__specs .dx__statement
+
+**Dette hardcode** : 7 valeur(s) — 100%, 1px, 30%, 45%, 50%, 70%, 768px
+
+**Agent** : Espacement : --space-10 --space-12 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (100%, 1px, 30%).
+
+---
+
 ### `direct-answer`
 
 > Bloc GEO « réponse directe » en tête de page : reformule une question implicite, définit éventuellement une entité, puis délivre une réponse directe de 2 à 4 phrases en colonne de lecture. Sobre, éditorial, fond alterné.
@@ -971,23 +973,28 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `actionsAlign` | enum | non |  | start | center | end | spread |
 | `background` | enum | non | ink | paper | paper-2 | paper-3 | ink |
 | `buttons` | array | oui |  | min:1 max:2 |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | inline | stacked |
+| `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | unknown | oui |  |  |
 | `rounded` | boolean | non |  |  |
 | `subtitle_en` | string | non |  |  |
 | `subtitle_fr` | string | non |  |  |
 
-**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-band` `--section-grand` `--space-10` `--space-3` `--space-4` `--space-6` `--space-7` `--text-body` `--text-h1`
+**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-band` `--section-grand` `--space-10` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1`
 
-**Classes scoped** : .footer-cta .footer-cta__actions .footer-cta__copy .footer-cta__inner .footer-cta__subtitle .footer-cta--rounded
+**Classes scoped** : .actions .align .footer-cta .footer-cta__actions .footer-cta__copy .footer-cta__inner .footer-cta__subtitle .footer-cta--rounded .header .justify
 
-**Dette hardcode** : 3 valeur(s) — 1px, 860px, clamp(var(--space-6)
+**Dette hardcode** : 4 valeur(s) — 1px, 768px, 860px, clamp(var(--space-6)
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 3 litteral(s) hardcode(s) (1px, 860px, clamp(var(--space-6)).
+**Agent** : Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `density` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px).
 
 ---
 
@@ -1025,6 +1032,35 @@
 **Dette hardcode** : 11 valeur(s) — -0.024em, 0.06em, 10px, 14px, 18px, 1px, 22px, 2px
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.024em, 0.06em, 10px).
+
+---
+
+### `tunnel-step-nav`
+
+> Pied de navigation d'étape tunnel : lien prev optionnel + cta (primary/accent/ghost) + barre méta (lecture + retour offre).
+> TunnelStepNav · src/components/sections/TunnelStepNav.astro · marketing/cta-sections
+> status : stable · tags : cta, footer, meta, nav, prev, step, tunnel
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `back_href` | string | oui |  |  |
+| `back_label` | string | oui |  |  |
+| `cta` | enum | oui |  | primary | accent | ghost |
+| `prev_href` | string | non |  |  |
+| `prev_label_en` | string | non | ← Previous step |  |
+| `prev_label_fr` | string | non | ← Étape précédente |  |
+| `reading_en` | string | non | 2 min read |  |
+| `reading_fr` | string | non | Temps de lecture : 2 min |  |
+
+**Tokens** : `--accent` `--dur-fast` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--muted` `--paper` `--radius-xs` `--section-base` `--space-3` `--space-5` `--space-6` `--text-body` `--text-small`
+
+**Classes scoped** : .tunnel-step-nav .tunnel-step-nav__btn-cta .tunnel-step-nav__btn-cta--accent .tunnel-step-nav__btn-cta--ghost .tunnel-step-nav__btn-cta--primary .tunnel-step-nav__btn-ghost .tunnel-step-nav__meta .tunnel-step-nav__meta-back .tunnel-step-nav__meta-reading .wrap-wide
+
+**Dette hardcode** : 7 valeur(s) — .06em, 100%, 1200px, 14px, 1px, 28px, 700px
+
+**Agent** : Layout : `cta` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (.06em, 100%, 1200px).
 
 ---
 
@@ -1157,9 +1193,12 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `caption_en` | string | oui |  |  |
 | `caption_fr` | string | oui |  |  |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
 | `fig_num` | string | oui |  |  |
 | `fig_title_en` | string | oui |  |  |
 | `fig_title_fr` | string | oui |  |  |
@@ -1169,10 +1208,13 @@
 | `input_examples_fr` | array | non |  |  |
 | `inputs_en` | array | oui |  | min:2 max:8 |
 | `inputs_fr` | array | oui |  | min:2 max:8 |
+| `largeur` | unknown | oui |  |  |
+| `layout` | enum | non |  | stacked | split |
 | `loop_label_en` | string | oui |  |  |
 | `loop_label_fr` | string | oui |  |  |
 | `outputs_en` | array | oui |  | min:2 max:6 |
 | `outputs_fr` | array | oui |  | min:2 max:6 |
+| `proportion` | enum | non |  | 1-1 | 1-2 | 2-1 | 2-3 | 3-2 |
 | `show_loop` | boolean | non | true |  |
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
@@ -1180,13 +1222,13 @@
 | `system_label` | string | oui |  |  |
 | `system_subtitle` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-6` `--space-7` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-12` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--wrap-prose`
 
-**Classes scoped** : .css .in .is-visible .reveal-fade .sysarch .sysarch-cap .sysarch-fig .sysarch-flow .sysarch-h2 .sysarch-hd .sysarch-loop .sysarch-node .sysarch-spec .sysarch-svg
+**Classes scoped** : .css .in .is-visible .reveal-fade .sysarch .sysarch-cap .sysarch-fig .sysarch-flow .sysarch-h2 .sysarch-hd .sysarch-head .sysarch-loop .sysarch-node .sysarch-spec .sysarch-svg .sysarch-wrap
 
-**Dette hardcode** : 10 valeur(s) — 0.1em, 100%, 10px, 14px, 1px, 240px, 320px, 700px
+**Dette hardcode** : 12 valeur(s) — 0.1em, 100%, 10px, 14px, 1px, 240px, 320px, 700px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-7. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (0.1em, 100%, 10px).
+**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-5 --space-6. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (0.1em, 100%, 10px).
 
 ---
 
@@ -1201,19 +1243,33 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `bento` | unknown | oui |  |  |
 | `cells` | array | oui |  | min:3 max:8 |
+| `columns` | enum | non |  | auto | 2 | 3 | 4 |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
+| `itemHeight` | enum | non |  | auto | even | square | video |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | enum | non |  | bento | bento-feature | mosaic | matrix-2x2 | matrix-3x3 | grid-uniform |
+| `mosaic` | unknown | oui |  |  |
+| `placement` | unknown | oui |  |  |
+| `ratio` | unknown | oui |  |  |
+| `ratio` | unknown | oui |  |  |
+| `ratio` | unknown | oui |  |  |
+| `uniform` | unknown | oui |  |  |
+| `x2` | unknown | oui |  |  |
+| `x3` | unknown | oui |  |  |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--shadow-card-hover` `--space-1` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--bento-grid-gap` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--shadow-card-hover` `--space-1` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-h3` `--text-small` `--tile-min`
 
-**Classes scoped** : .bento-fluid .bento-grid .bento-grid__body .bento-grid__cell .bento-grid__glyph .bento-grid__header .bento-grid__mosaic .bento-grid__title .css .span-lg .span-sm .span-wide
+**Classes scoped** : .align .bento-fluid .bento-grid .bento-grid__body .bento-grid__cell .bento-grid__glyph .bento-grid__header .bento-grid__mosaic .bento-grid__title .css .header .N .span- .span-lg .span-sm .span-wide .wrap-wide
 
-**Dette hardcode** : 6 valeur(s) — -2px, 15rem, 1px, 673px, 768px, 880px
+**Dette hardcode** : 7 valeur(s) — -2px, 100%, 15rem, 1px, 673px, 768px, 880px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-2px, 15rem, 1px).
+**Agent** : Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-2px, 100%, 15rem).
 
 ---
 
@@ -1293,13 +1349,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-read`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
-**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1341,21 +1397,30 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `colRatio` | enum | non |  | equal | 1-2 | 2-1 | 1-1-2 | 2-3 |
+| `columns` | enum | non |  | auto | 2 | 3 | 4 | 5 | 6 |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
+| `divided` | unknown | oui |  |  |
+| `itemHeight` | enum | non |  | grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split |
+| `itemHeight` | enum | non |  | auto | even | square | video |
 | `items` | array | oui |  | min:2 max:8 |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
+| `layout` | unknown | oui |  |  |
 | `lead_en` | string | non |  |  |
 | `lead_fr` | string | non |  |  |
+| `placement` | unknown | oui |  |  |
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-read`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
-**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `itemHeight` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1487,21 +1552,28 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
-| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `columns` | enum | non | 3 | 2 | 3 | 4 |
 | `features` | array | oui |  | min:3 max:8 |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
+| `header_cta_href` | string | non |  |  |
+| `header_cta_label_en` | string | non |  |  |
+| `header_cta_label_fr` | string | non |  |  |
+| `intro_desc_en` | string | non |  |  |
+| `intro_desc_fr` | string | non |  |  |
+| `intro_media` | string | non |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `unique` | unknown | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-read`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
-**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
-**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1515,12 +1587,15 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `actionsAlign` | enum | non |  | start | center | end | spread |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `body_en` | string | oui |  |  |
 | `body_fr` | string | oui |  |  |
+| `contentAlign` | enum | non |  | start | center | end |
 | `cta_href` | string | non |  |  |
 | `cta_label_en` | string | non |  |  |
 | `cta_label_fr` | string | non |  |  |
+| `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
@@ -1532,16 +1607,18 @@
 | `media_caption_fr` | string | non |  |  |
 | `media_src` | string | non |  |  |
 | `media_sticky` | boolean | non |  |  |
+| `mediaSide` | enum | non |  | left | right |
 | `points` | array | non |  | max:6 |
+| `proportion` | enum | non |  | 1-1 | 1-2 | 2-1 | 2-3 | 3-2 |
 | `reversed` | boolean | non | false |  |
 
-**Tokens** : `--accent` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--radius-sm` `--sec-grid` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
+**Tokens** : `--accent` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--radius-sm` `--sec-grid` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .css .feature-split .feature-split__body .feature-split__copy .feature-split__cta .feature-split__frame .feature-split__grid .feature-split__media .feature-split__placeholder .feature-split__points .feature-split--sticky-media
+**Classes scoped** : .actions .align .css .feature-split .feature-split__body .feature-split__copy .feature-split__cta .feature-split__frame .feature-split__grid .feature-split__media .feature-split__placeholder .feature-split__points .feature-split--sticky-media .header .justify .media .order
 
-**Dette hardcode** : 7 valeur(s) — 0.55em, 100%, 14px, 1px, 860px, 8px, clamp(var(--space-8)
+**Dette hardcode** : 8 valeur(s) — 0.55em, 100%, 14px, 1px, 768px, 860px, 8px, clamp(var(--space-8)
 
-**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (0.55em, 100%, 14px).
+**Agent** : Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `layout`, `mediaSide`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (0.55em, 100%, 14px).
 
 ---
 
@@ -1584,8 +1661,13 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `actuel` | unknown | oui |  |  |
+| `alternate` | unknown | oui |  |  |
 | `alternate_blocks` | boolean | non |  |  |
+| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `in` | unknown | oui |  |  |
@@ -1593,15 +1675,18 @@
 | `kicker_fr` | string | non |  |  |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
+| `mediaSide` | enum | non |  | left | right |
+| `proportion` | enum | non |  | 1-1 | 1-2 | 2-1 | 2-3 | 3-2 |
 | `rows` | array | oui |  | min:2 max:4 |
+| `stacked` | enum | non |  | alternate | stacked | inline-left | inline-right |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-12` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
 
-**Classes scoped** : .fz .fz__art .fz__cell .fz__header .fz__img .fz__lede .fz__link .fz__points .fz__row .fz__rows .fz__svg .fz__text .fz__visual .in .is-visible .webp
+**Classes scoped** : .align .fz .fz__art .fz__cell .fz__header .fz__img .fz__lede .fz__link .fz__points .fz__row .fz__rows .fz__svg .fz__text .fz__visual .header .in .is-visible .webp
 
 **Dette hardcode** : 20 valeur(s) — -24px, 0.55em, 100%, 120%, 14px, 16%, 1px, 24px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%).
+**Agent** : Layout : `background`, `contentAlign`, `density`, `mediaSide`, `proportion`, `stacked` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%).
 
 ---
 
@@ -1628,6 +1713,65 @@
 
 ---
 
+### `horizontal-showcase`
+
+> Panneaux a defilement horizontal smooth (scroll-snap) avec index numerote cliquable.
+> HorizontalShowcase · src/components/sections/HorizontalShowcase.astro · marketing/feature-sections
+> status : stable · tags : expertise, horizontal, interactive, scroll, showcase
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `panels` | array | oui |  | min:2 max:6 |
+
+**Tokens** : `--accent` `--accent-sur-sombre` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h1` `--text-h3` `--text-small`
+
+**Classes scoped** : .fz__points .hsh .hsh__body .hsh__header .hsh__index .hsh__index-btn .hsh__index-label .hsh__index-num .hsh__lede .hsh__link .hsh__media .hsh__panel .hsh__panel-index .hsh__points .hsh__text .hsh__title .hsh__track
+
+**Dette hardcode** : 9 valeur(s) — 0.55em, 100%, 1px, 3px, 640px, 6px, 768px, clamp(82%, 88vw, 92%)
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-sans --fw-medium. Dette : 9 litteral(s) hardcode(s) (0.55em, 100%, 1px).
+
+---
+
+### `hover-reveal-list`
+
+> Liste editoriale qui revele l'image du projet au survol, dans un carre cadre (image qui suit le curseur ou centree).
+> HoverRevealList · src/components/sections/HoverRevealList.astro · marketing/feature-sections
+> status : stable · tags : hover, interactive, list, portfolio, reveal
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `items` | array | oui |  | min:2 max:10 |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `reveal_mode` | enum | non |  | cursor | fixed |
+
+**Tokens** : `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--shadow-lift` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-h3` `--text-small` `--text-title-lg`
+
+**Classes scoped** : .hrl .hrl__header .hrl__img .hrl__item .hrl__label .hrl__lede .hrl__list .hrl__meta .hrl__reveal .hrl__row .hrl__thumb .is-on
+
+**Dette hardcode** : 7 valeur(s) — -50%, 100%, 1px, 50%, 640px, 768px, clamp(220px, 22vw, 340px)
+
+**Agent** : Layout : `background`, `reveal_mode` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (-50%, 100%, 1px).
+
+---
+
 ### `icon-trio`
 
 > Trois colonnes iconographiques avec titre et description, séparées par des hairlines verticaux. Idéal pour présenter 3 piliers ou bénéfices distincts.
@@ -1645,13 +1789,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-read`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
-**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1706,6 +1850,39 @@
 **Dette hardcode** : 3 valeur(s) — -0.02em, 1200px, 1300px
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-5. Couleur : --accent-text --ink --paper. Typographie : --font-display --fw-regular. Dette : 3 litteral(s) hardcode(s) (-0.02em, 1200px, 1300px).
+
+---
+
+### `media-swap-band`
+
+> Bande 2 ou 3 colonnes dont les images changent en fondu (auto ou au survol), avec CTA.
+> MediaSwapBand · src/components/sections/MediaSwapBand.astro · marketing/feature-sections
+> status : stable · tags : band, crossfade, interactive, media, swap
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `columns` | array | oui |  | min:1 max:4 |
+| `cta_href` | string | non |  |  |
+| `cta_label_en` | string | non |  |  |
+| `cta_label_fr` | string | non |  |  |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `swap_mode` | enum | non |  | auto | hover |
+
+**Tokens** : `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-1` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+
+**Classes scoped** : .is-active .msb .msb__col .msb__col-head .msb__cols .msb__cta .msb__fig .msb__frame .msb__header .msb__label .msb__lede .msb__sublabel
+
+**Dette hardcode** : 4 valeur(s) — 100%, 1px, 640px, 768px
+
+**Agent** : Layout : `background`, `swap_mode` (schema, 0 CSS). Espacement : --space-1 --space-4 --space-7. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (100%, 1px, 640px).
 
 ---
 
@@ -1808,6 +1985,33 @@
 
 ---
 
+### `pain-severity-list`
+
+> Liste éditoriale de pain-points sur fond ink, classés par sévérité : chaque item porte un label severity vertical (mono) et un glyphe (◆▲●○), un titre serif, une description, et une ligne mono « → correctif ». Séparateurs hairline, reveal-stagger.
+> PainSeverityList · src/components/sections/PainSeverityList.astro · marketing/feature-sections
+> status : stable · tags : editorial, ink, pain-points, problems, severity
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `columns` | enum | non |  | auto | 2 | 3 |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `items` | array | oui |  | min:2 max:6 |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+
+**Tokens** : `--accent-text` `--col-min` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--psl-rule` `--section-base` `--space-1` `--space-10` `--space-11` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-glyph` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+
+**Classes scoped** : .acc .psl .psl__body .psl__desc .psl__fix .psl__glyph .psl__head .psl__inner .psl__item .psl__item--critical .psl__item--high .psl__item--low .psl__item--medium .psl__item-title .psl__kicker .psl__list .psl__sev .psl__sev-label .psl__title
+
+**Dette hardcode** : 8 valeur(s) — 100%, 18rem, 1px, 32px, 44px, 480px, 64px, 768px
+
+**Agent** : Layout : `columns` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (100%, 18rem, 1px).
+
+---
+
 ### `persona-attributes-grid`
 
 > Grille persona 2×2 pain points / critères / objections / preuves avec footer méta sombre en trois colonnes.
@@ -1832,6 +2036,39 @@
 
 ---
 
+### `photo-cluster`
+
+> Composition editoriale : photo lead + grappe de photos decalees (layouts lead-cluster, scatter, duo).
+> PhotoCluster · src/components/sections/PhotoCluster.astro · marketing/feature-sections
+> status : stable · tags : cluster, editorial, gallery, photo, team
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `layout` | enum | non |  | lead-cluster | scatter | duo |
+| `lead` | object | oui |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `note_en` | string | non |  |  |
+| `note_fr` | string | non |  |  |
+| `photos` | array | oui |  | min:1 max:5 |
+
+**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-kicker` `--text-micro` `--text-small`
+
+**Classes scoped** : .is-visible .pcl .pcl__caption .pcl__cluster .pcl__grid .pcl__header .pcl__img .pcl__lead .pcl__lede .pcl__note .pcl__photo .reveal
+
+**Dette hardcode** : 7 valeur(s) — 0.16em, 0.1em, 100%, 1px, 60%, 640px, 768px
+
+**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (0.16em, 0.1em, 100%).
+
+---
+
 ### `problem-statement`
 
 > Énoncé macro-typographique du problème avec stats optionnelles en grille hairline.
@@ -1850,13 +2087,13 @@
 | `statement_fr` | string | oui |  |  |
 | `stats` | array | non |  | max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--problem-statement-cols` `--problem-statement-pad` `--section-loose` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--problem-statement-cols` `--problem-statement-pad` `--section-loose` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .drop-cap .problem-statement .problem-statement__kicker .problem-statement__label .problem-statement__stat .problem-statement__statement--dropcap .problem-statement__stats .problem-statement__text .problem-statement__value
 
-**Dette hardcode** : 8 valeur(s) — -0.01em, 0.16em, 1px, 800px, 980px, clamp(var(--space-8), clamp(var(--text-h2), clamp(var(--text-h3)
+**Dette hardcode** : 5 valeur(s) — 0.16em, 1px, 800px, clamp(var(--space-8), clamp(var(--text-h2)
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, 0.16em, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (0.16em, 1px, 800px).
 
 ---
 
@@ -1875,13 +2112,13 @@
 | `h2_fr` | string | oui |  |  |
 | `problems` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--accent-text` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--font-serif` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-read`
 
-**Classes scoped** : .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__header .feature-grid__icon .feature-grid__item .feature-grid__list .feature-grid__title .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
-**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 10px
+**Dette hardcode** : 19 valeur(s) — -.01em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px).
 
 ---
 
@@ -1907,6 +2144,36 @@
 **Dette hardcode** : 2 valeur(s) — -2px, 1px
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-6. Couleur : --accent-text --ink --muted. Dette : 2 litteral(s) hardcode(s) (-2px, 1px).
+
+---
+
+### `scroll-gallery`
+
+> Liste sticky a gauche, cadre media a droite dont l'image change en fondu au scroll. Ideal pour presenter des domaines d'expertise avec un visuel par item.
+> ScrollGallery · src/components/sections/ScrollGallery.astro · marketing/feature-sections
+> status : stable · tags : feature, gallery, interactive, scroll, sticky
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `items` | array | oui |  | min:2 max:6 |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `media_side` | enum | non |  | left | right |
+
+**Tokens** : `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-10` `--space-2` `--space-3` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+
+**Classes scoped** : .sgal .sgal__body .sgal__fig .sgal__frame .sgal__grid .sgal__header .sgal__index .sgal__inline-img .sgal__item .sgal__lede .sgal__link .sgal__list .sgal__media .u-serif-accent
+
+**Dette hardcode** : 5 valeur(s) — 100%, 1px, 3px, 640px, 768px
+
+**Agent** : Layout : `background`, `media_side` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px).
 
 ---
 
@@ -1975,6 +2242,99 @@
 **Dette hardcode** : 22 valeur(s) — -0.02em, -1px, -2px, 0.04em, 0.14em, 0.1em, 10px, 14px
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 22 litteral(s) hardcode(s) (-0.02em, -1px, -2px).
+
+---
+
+### `stack-cards`
+
+> Cartes numerotees qui se superposent en s'empilant au scroll (effet stack sticky, CSS pur). Ideal pour une methode en plusieurs temps.
+> StackCards · src/components/sections/StackCards.astro · marketing/feature-sections
+> status : stable · tags : cards, interactive, method, scroll, stack, sticky
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `cards` | array | oui |  | min:2 max:4 |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+
+**Tokens** : `--accent` `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--i` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+
+**Classes scoped** : .stk .stk__art .stk__card .stk__header .stk__img .stk__index .stk__item .stk__lede .stk__link .stk__list .stk__points .stk__text .stk__visual .u-serif-accent .wrap-wide
+
+**Dette hardcode** : 11 valeur(s) — 0.55em, 100%, 1px, 3px, 640px, 6px, 767px, 768px
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-sans --fw-medium. Dette : 11 litteral(s) hardcode(s) (0.55em, 100%, 1px).
+
+---
+
+### `statement-orbit`
+
+> Statement éditorial pleine largeur : carte ink qui s'étend de 80 % à 100 % au scroll, titre serif accent, lede, CTA, et un média globe filaire (réseau en orbite). Pose un concept sous un hero.
+> StatementOrbit · src/components/sections/StatementOrbit.astro · marketing/feature-sections
+> status : stable · tags : editorial, ink, network, orbit, scroll-expand, statement
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `cta` | object | non |  |  |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `media_alt_en` | string | non |  |  |
+| `media_alt_fr` | string | non |  |  |
+| `media_src` | string | oui |  |  |
+
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-regular` `--ink` `--leading-h2` `--leading-lede` `--paper` `--paper-2` `--radius-lg` `--section-base` `--space-10` `--space-11` `--space-12` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-h2` `--text-h3` `--tracking-display` `--wrap-read`
+
+**Classes scoped** : .acc .so .so-card .so-card__inner .so-cta .so-kicker .so-lede .so-main .so-media .so-media__art .so-title
+
+**Dette hardcode** : 7 valeur(s) — 100%, 22rem, 26rem, 38%, 768px, 8%, 80%
+
+**Agent** : Espacement : --space-10 --space-11 --space-12. Couleur : --accent-text --ink --paper. Typographie : --font-display --font-sans. Dette : 7 litteral(s) hardcode(s) (100%, 22rem, 26rem).
+
+---
+
+### `system-flow`
+
+> Rangée horizontale de cartes d'étapes sur fond ink, reliées par des flèches accent, qui raconte le flux du système (site → lead → scoring → CRM → apprentissage). En-tête « Fig. N » + méta mono, grand titre serif avec dernier mot en accent, lede courte, puis une ligne « ↺ boucle d'amélioration continue ». Reveal-stagger, responsive (scroll horizontal / colonne empilée en mobile).
+> SystemFlow · src/components/sections/SystemFlow.astro · marketing/feature-sections
+> status : stable · tags : architecture, flow, ink, loop, steps, system
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `fig_num` | string | non |  |  |
+| `fig_title_en` | string | non |  |  |
+| `fig_title_fr` | string | non |  |  |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `loop_label_en` | string | non |  |  |
+| `loop_label_fr` | string | non |  |  |
+| `meta_en` | string | non |  |  |
+| `meta_fr` | string | non |  |  |
+| `steps` | array | oui |  | min:2 max:6 |
+
+**Tokens** : `--accent-sur-sombre` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--ink` `--leading-h2` `--leading-h3` `--leading-lede` `--leading-relaxed` `--paper` `--paper-2` `--paper-rgb` `--radius-lg` `--radius-md` `--section-base` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-glyph` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
+
+**Classes scoped** : .acc .N .reveal-stagger .sf .sf-arrow .sf-flow .sf-hd .sf-lede .sf-loop .sf-loop__glyph .sf-loop__label .sf-loop__rule .sf-meta .sf-rail .sf-step .sf-step__desc .sf-step__num .sf-step__title .sf-title
+
+**Dette hardcode** : 8 valeur(s) — -0.12em, 16rem, 1px, 3rem, 560px, 768px, 860px, 8rem
+
+**Agent** : Espacement : --space-10 --space-12 --space-2. Couleur : --accent-sur-sombre --ink --paper. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.12em, 16rem, 1px).
 
 ---
 
@@ -2094,7 +2454,7 @@
 
 **Classes scoped** : .aside .css .dept-index .dept-row .dept-row-arr .dept-row-label .dept-row-num .dept-row-num-prefix .dept-row-tag .dept-sector .sec .sec-hd
 
-**Dette hardcode** : 15 valeur(s) — -0.018em, .14em, .16em, 100%, 12px, 1px, 28px, 32px
+**Dette hardcode** : 15 valeur(s) — -0.018em, .14em, .16em, 100%, 120px, 12px, 1px, 28px
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-6. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 15 litteral(s) hardcode(s) (-0.018em, .14em, .16em).
 
@@ -2347,7 +2707,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-display` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-display` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono-tight`
 
 **Classes scoped** : .acc .hbs .hbs-ctas .hbs-head .hbs-kicker .hbs-kpi .hbs-kpi-cap .hbs-kpi-num .hbs-kpis .hbs-lede .hbs-stack .hbs-title
 
@@ -2414,7 +2774,7 @@
 
 **Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--shadow-lift` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-display` `--text-h1` `--text-numeral-sm` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
 
-**Classes scoped** : .acc .btn .hcc .hcc-badge .hcc-badges .hcc-card .hcc-card-kpis .hcc-card-media .hcc-col .hcc-ctas .hcc-grid .hcc-kicker .hcc-kpi .hcc-kpi-cap .hcc-kpi-num .hcc-lede .hcc-title
+**Classes scoped** : .acc .btn .hcc .hcc-badge .hcc-badges .hcc-card .hcc-card-kpis .hcc-card-media .hcc-card-media__art .hcc-col .hcc-ctas .hcc-grid .hcc-kicker .hcc-kpi .hcc-kpi-cap .hcc-kpi-num .hcc-lede .hcc-title
 
 **Dette hardcode** : 6 valeur(s) — 100%, 1px, 320px, 480px, 900px, clamp(var(--space-6)
 
@@ -2539,9 +2899,9 @@
 | `stats` | array | non |  | max:4 |
 | `variant` | enum | non |  | split | sumie | minimal |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--section-base` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
-**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
+**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__art .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
 **Dette hardcode** : 39 valeur(s) — -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 10px, 11px
 
@@ -2631,7 +2991,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--viewport-h`
 
 **Classes scoped** : .acc .btn .hero-sig-mark .proof .signature-grid .z1 .z1__cta-sub .z1__ctas .z1__fig .z1__grid .z1__inner .z1__lede .z1__main .z1__proof .z1__proof-label .z1__proof-num .z1__proofs .z1__rail .z1__title
 
@@ -2661,13 +3021,13 @@
 | `lede_fr` | string | oui |  |  |
 | `meta` | array | non |  | max:3 |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--space-1` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--space-1` `--space-3` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
 
 **Classes scoped** : .acc .hem .hem-crumb .hem-ctas .hem-here .hem-kpi .hem-kpi-cap .hem-kpi-num .hem-kpis .hem-lede .hem-lede-col .hem-masthead .hem-meta--end .hem-row .hem-sep .hem-title
 
 **Dette hardcode** : 2 valeur(s) — 1px, 768px
 
-**Agent** : Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px).
+**Agent** : Espacement : --space-1 --space-3 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px).
 
 ---
 
@@ -2785,7 +3145,7 @@
 | `lede_fr` | string | oui |  |  |
 | `sigil` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--viewport-h`
 
 **Classes scoped** : .acc .btn .hg12 .hg12-bullet .hg12-bullets .hg12-ctas .hg12-grid .hg12-kicker .hg12-lede .hg12-sig .hg12-title
 
@@ -2914,9 +3274,9 @@
 | `meta_kicker_fr` | string | oui |  |  |
 | `stats` | array | non |  | min:2 max:4 |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--section-base` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
-**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
+**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__art .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
 **Dette hardcode** : 39 valeur(s) — -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 10px, 11px
 
@@ -3045,7 +3405,7 @@
 | `tagline_en` | string | oui |  |  |
 | `tagline_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-pill` `--space-10` `--space-11` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-caps` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-pill` `--space-10` `--space-11` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
 
 **Classes scoped** : .acc .btn .hmc .hmc-cover .hmc-cta .hmc-inner .hmc-kicker .hmc-mast-cell .hmc-masthead .hmc-rule .hmc-tagline .hmc-title
 
@@ -3083,7 +3443,7 @@
 
 **Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
 
-**Classes scoped** : .acc .btn .hmc .hmc__badge .hmc__badges .hmc__cta-sub .hmc__ctas .hmc__fig .hmc__grid .hmc__kpi .hmc__kpi-label .hmc__kpi-num .hmc__kpis .hmc__lede .hmc__main .hmc__media .hmc__rail .hmc__title .signature-grid
+**Classes scoped** : .acc .btn .hmc .hmc__badge .hmc__badges .hmc__cta-sub .hmc__ctas .hmc__fig .hmc__grid .hmc__kpi .hmc__kpi-label .hmc__kpi-num .hmc__kpis .hmc__lede .hmc__main .hmc__media .hmc__media-svg .hmc__rail .hmc__title .signature-grid
 
 **Dette hardcode** : 10 valeur(s) — -0.02em, 100%, 1px, 45%, 50%, 60%, 70%, 768px
 
@@ -3114,13 +3474,13 @@
 | `media_alt_fr` | string | non |  |  |
 | `media_src` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--radius-lg` `--shadow-card-rest` `--space-10` `--space-15` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--radius-lg` `--shadow-card-rest` `--space-10` `--space-15` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
 
-**Classes scoped** : .acc .btn .hmm .hmm-aside .hmm-ctas .hmm-grid .hmm-kicker .hmm-kpi .hmm-kpi-cap .hmm-kpi-num .hmm-kpis .hmm-lead .hmm-lede .hmm-medallion .hmm-title
+**Classes scoped** : .acc .btn .hmm .hmm-aside .hmm-ctas .hmm-grid .hmm-kicker .hmm-kpi .hmm-kpi-cap .hmm-kpi-num .hmm-kpis .hmm-lead .hmm-lede .hmm-medallion .hmm-medallion__art .hmm-title
 
-**Dette hardcode** : 6 valeur(s) — 100%, 1px, 768px, 80px, 900px, 90px
+**Dette hardcode** : 6 valeur(s) — 100%, 120px, 1px, 768px, 80px, 900px
 
-**Agent** : Espacement : --space-10 --space-15 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (100%, 1px, 768px).
+**Agent** : Espacement : --space-10 --space-15 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (100%, 120px, 1px).
 
 ---
 
@@ -3216,9 +3576,9 @@
 | `meta_kicker_fr` | string | oui |  |  |
 | `stats` | array | non |  | min:2 max:4 |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--sec-grid` `--section-base` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--viewport-h` `--wrap-wide`
 
-**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
+**Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__art .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
 **Dette hardcode** : 39 valeur(s) — -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 10px, 11px
 
@@ -3278,7 +3638,7 @@
 | `lede_fr` | string | oui |  |  |
 | `minimap` | array | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--viewport-h`
 
 **Classes scoped** : .acc .btn .hero-sig-mark .minimap .signature-grid .z2 .z2__cta-sub .z2__ctas .z2__fig .z2__grid .z2__inner .z2__lede .z2__main .z2__minimap .z2__mm-item .z2__mm-items .z2__mm-label .z2__rail .z2__title
 
@@ -3376,39 +3736,6 @@
 
 ---
 
-### `hero-social-proof`
-
-> Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.
-> HeroSocialProof · src/components/sections/HeroSocialProof.astro · marketing/hero-header-sections
-> status : stable · tags : above-fold, hero, rating, social-proof, stats, trust
-
-**Props**
-
-| Champ | Type | Req | Default | Contrainte |
-|---|---|---|---|---|
-| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
-| `cta_primary` | object | oui |  |  |
-| `cta_secondary` | object | non |  |  |
-| `h1_en` | string | oui |  |  |
-| `h1_fr` | string | oui |  |  |
-| `kicker_en` | string | non |  |  |
-| `kicker_fr` | string | non |  |  |
-| `lede_en` | string | oui |  |  |
-| `lede_fr` | string | oui |  |  |
-| `rating_en` | string | non |  |  |
-| `rating_fr` | string | non |  |  |
-| `stats` | array | oui |  | min:2 max:4 |
-
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--header-height` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-3` `--space-6` `--spacing-block` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
-
-**Classes scoped** : .hero-social-proof .hero-social-proof__band .hero-social-proof__ctas .hero-social-proof__h1 .hero-social-proof__head .hero-social-proof__lede .hero-social-proof__rating .hero-social-proof__stars
-
-**Dette hardcode** : 3 valeur(s) — 0.1em, 1px, 700px
-
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 3 litteral(s) hardcode(s) (0.1em, 1px, 700px).
-
----
-
 ### `hero-split`
 
 > Hero en deux colonnes pour présenter une offre avec visuel et appel à l'action principal.
@@ -3454,6 +3781,8 @@
 | `badges` | array | non |  | max:4 |
 | `cta_primary` | object | oui |  |  |
 | `cta_secondary` | object | non |  |  |
+| `definition_kicker_en` | string | non |  |  |
+| `definition_kicker_fr` | string | non |  |  |
 | `h1_en` | string | oui |  |  |
 | `h1_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
@@ -3463,14 +3792,16 @@
 | `media_alt_en` | string | non |  |  |
 | `media_alt_fr` | string | non |  |  |
 | `media_src` | string | non |  |  |
+| `subtitle_en` | string | non |  |  |
+| `subtitle_fr` | string | non |  |  |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-display` `--text-h1` `--text-micro` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-body` `--text-display` `--text-fine` `--text-h1` `--text-h3` `--text-micro` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
 
-**Classes scoped** : .acc .btn .hsm .hsm-badge .hsm-badges .hsm-ctas .hsm-grid .hsm-kicker .hsm-lede .hsm-media .hsm-title
+**Classes scoped** : .acc .btn .hsm .hsm-badge .hsm-badges .hsm-ctas .hsm-def-kicker .hsm-grid .hsm-kicker .hsm-lede .hsm-media .hsm-subtitle .hsm-title .masthead-bar .problem-statement__text
 
-**Dette hardcode** : 8 valeur(s) — 100%, 1px, 45%, 50%, 60%, 70%, 768px, clamp(var(--space-6)
+**Dette hardcode** : 9 valeur(s) — 0px, 100%, 1px, 45%, 50%, 60%, 70%, 768px
 
-**Agent** : Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (100%, 1px, 45%).
+**Agent** : Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (0px, 100%, 1px).
 
 ---
 
@@ -3627,7 +3958,7 @@
 
 **Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
 
-**Classes scoped** : .acc .btn .hero-sig-mark .signature-grid .z3 .z3__badge .z3__badges .z3__ctas .z3__fig .z3__grid .z3__inner .z3__lede .z3__main .z3__media .z3__title
+**Classes scoped** : .acc .btn .hero-sig-mark .signature-grid .z3 .z3__badge .z3__badges .z3__ctas .z3__fig .z3__grid .z3__inner .z3__lede .z3__main .z3__media .z3__media-art .z3__title
 
 **Dette hardcode** : 9 valeur(s) — 100%, 1px, 45%, 50%, 60%, 70%, 768px, 88px
 
@@ -3692,9 +4023,9 @@
 
 **Classes scoped** : .hero-tunnel-step .hero-tunnel-step__h1 .hero-tunnel-step__h1--hero .hero-tunnel-step__h1--section .hero-tunnel-step__kicker .hero-tunnel-step__lede .hero-tunnel-step__progress .hero-tunnel-step__progress-step .is-active .tunnel-step-hero .tunnel-step-hero__h1 .tunnel-step-hero__h1--hero .tunnel-step-hero__h1--section .tunnel-step-hero__kicker .tunnel-step-hero__lede .tunnel-step-hero__progress .tunnel-step-hero__progress-step .wrap-wide
 
-**Dette hardcode** : 9 valeur(s) — -.02em, .06em, .1em, 100%, 10px, 11px, 1200px, 1px
+**Dette hardcode** : 8 valeur(s) — -.02em, .06em, 100%, 10px, 11px, 1200px, 1px, 700px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-.02em, .06em, .1em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-.02em, .06em, 100%).
 
 ---
 
@@ -3742,13 +4073,13 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `tiers` | array | oui |  |  |
 
-**Tokens** : `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-6` `--space-7`
+**Tokens** : `--accent-rgb` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-6` `--space-7`
 
-**Classes scoped** : .pyramid-wrap
+**Classes scoped** : .pyramid-wrap .tier-fill--base .tier-fill--mid .tier-fill--top
 
-**Dette hardcode** : 2 valeur(s) — 100%, 800px
+**Dette hardcode** : 2 valeur(s) — 100%, 640px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-7. Couleur : --ink --muted --paper. Dette : 2 litteral(s) hardcode(s) (100%, 800px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-7. Couleur : --accent-rgb --ink --muted. Dette : 2 litteral(s) hardcode(s) (100%, 640px).
 
 ---
 
@@ -3774,9 +4105,9 @@
 
 **Classes scoped** : .hero-tunnel-step .hero-tunnel-step__h1 .hero-tunnel-step__h1--hero .hero-tunnel-step__h1--section .hero-tunnel-step__kicker .hero-tunnel-step__lede .hero-tunnel-step__progress .hero-tunnel-step__progress-step .is-active .tunnel-step-hero .tunnel-step-hero__h1 .tunnel-step-hero__h1--hero .tunnel-step-hero__h1--section .tunnel-step-hero__kicker .tunnel-step-hero__lede .tunnel-step-hero__progress .tunnel-step-hero__progress-step .wrap-wide
 
-**Dette hardcode** : 9 valeur(s) — -.02em, .06em, .1em, 100%, 10px, 11px, 1200px, 1px
+**Dette hardcode** : 8 valeur(s) — -.02em, .06em, 100%, 10px, 11px, 1200px, 1px, 700px
 
-**Agent** : Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-.02em, .06em, .1em).
+**Agent** : Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-.02em, .06em, 100%).
 
 ---
 
@@ -3857,15 +4188,15 @@
 | `list_html_en` | string | non |  |  |
 | `list_html_fr` | string | non |  |  |
 
-**Tokens** : `--font-display` `--font-sans` `--fw-regular` `--hairline` `--ink-2` `--leading-lede` `--section-loose` `--space-3` `--space-5` `--space-6` `--space-9` `--text-display` `--text-h3`
+**Tokens** : `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-lede` `--muted` `--section-loose` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-display` `--text-h3` `--text-small`
 
-**Classes scoped** : .list-body .list-filters .list-footer .list-h1 .list-hd .list-kicker .list-lede
+**Classes scoped** : .demo-list-row .list-body .list-filters .list-footer .list-h1 .list-hd .list-kicker .list-lede
 
 **Tailwind** : list-body list-filters list-footer list-h1 list-hd list-kicker list-lede
 
 **Dette hardcode** : 4 valeur(s) — -0.03em, 140px, 1px, 760px
 
-**Agent** : Espacement : --space-3 --space-5 --space-6. Couleur : --ink-2. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.03em, 140px, 1px).
+**Agent** : Espacement : --space-3 --space-4 --space-5. Couleur : --ink --ink-2 --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.03em, 140px, 1px).
 
 ---
 
@@ -4201,6 +4532,35 @@
 
 ---
 
+## other
+
+### `eeat-panel`
+
+> EeatPanel · src/components/sections/EeatPanel.astro · marketing/
+> status : stable · tags : 
+
+**Agent** : Personnaliser via les props schema (0 requis, 0 optionnels).
+
+---
+
+### `hero-social-proof`
+
+> HeroSocialProof · src/components/sections/HeroSocialProof.astro · marketing/
+> status : stable · tags : 
+
+**Agent** : Personnaliser via les props schema (0 requis, 0 optionnels).
+
+---
+
+### `media-bento`
+
+> MediaBento · src/components/sections/MediaBento.astro · marketing/
+> status : stable · tags : 
+
+**Agent** : Personnaliser via les props schema (0 requis, 0 optionnels).
+
+---
+
 ## Pricing Sections
 
 ### `pricing-cards`
@@ -4213,24 +4573,35 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `actionsAlign` | unknown | oui |  |  |
+| `actionsAlign` | enum | non |  | start | center | end | spread |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `colRatio` | unknown | oui |  |  |
+| `colRatio` | enum | non |  | equal | 1-2 | 2-1 | 1-1-2 | 2-3 |
+| `columns` | enum | non |  | auto | 2 | 3 | 4 | 5 | 6 |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
+| `divided` | enum | non |  | grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split |
 | `footnote_en` | string | non |  |  |
 | `footnote_fr` | string | non |  |  |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
+| `itemHeight` | enum | non |  | auto | even | square | video |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | unknown | oui |  |  |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
+| `placement` | unknown | oui |  |  |
 | `tiers` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent-rgb` `--accent-sur-clair` `--accent-text` `--col-count` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-h2` `--text-h3` `--text-small` `--tracking-display`
+**Tokens** : `--accent-rgb` `--accent-sur-clair` `--accent-text` `--col-count` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--pricing-cards-gap` `--radius-pill` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-h2` `--text-h3` `--text-small` `--tracking-display`
 
-**Classes scoped** : .is-featured .pricing-cards .pricing-cards__badge .pricing-cards__btn .pricing-cards__card .pricing-cards__card-hd .pricing-cards__check .pricing-cards__features .pricing-cards__footnote .pricing-cards__grid .pricing-cards__header .pricing-cards__idx .pricing-cards__lede .pricing-cards__name .pricing-cards__period .pricing-cards__price .pricing-cards__price-k
+**Classes scoped** : .actions .align .css .header .is-featured .justify .pricing-cards .pricing-cards__badge .pricing-cards__btn .pricing-cards__card .pricing-cards__card-hd .pricing-cards__features .pricing-cards__footnote .pricing-cards__grid .pricing-cards__header .pricing-cards__idx .pricing-cards__lede .pricing-cards__name .pricing-cards__period .pricing-cards__price .pricing-cards__price-k .sec-collection .sec-grid .wrap-wide
 
-**Dette hardcode** : 13 valeur(s) — -12px, -3px, 0.04em, 0.06em, 0.14em, 100%, 14px, 1px
+**Dette hardcode** : 14 valeur(s) — -12px, -3px, 0.04em, 0.06em, 0.14em, 100%, 14px, 1px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-12px, -3px, 0.04em).
+**Agent** : Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `divided`, `itemHeight` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-12px, -3px, 0.04em).
 
 ---
 
@@ -4381,22 +4752,28 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | non |  |  |
 | `h2_fr` | string | non |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | unknown | oui |  |  |
+| `layout` | enum | non |  | grid-steps | vertical-stack | numbered-rows |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 | `stages` | array | oui |  | min:4 max:6 |
+| `steps` | enum | non |  | auto | 2 | 3 | 4 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--diag-cols` `--dur-trim` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--diag-cols` `--dur-trim` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
-**Classes scoped** : .acc .diag .diag__body .diag__card .diag__glyph .diag__h2 .diag__head .diag__here .diag__kicker .diag__lede .diag__num .diag__phase .diag__stage .diag__title .diag__top .diag__track
+**Classes scoped** : .acc .align .diag .diag__body .diag__card .diag__glyph .diag__h2 .diag__head .diag__here .diag__kicker .diag__lede .diag__num .diag__phase .diag__stage .diag__title .diag__top .diag__track .header .N .wrap-wide
 
-**Dette hardcode** : 9 valeur(s) — -0.01em, -0.02em, -1px, 100%, 1000px, 18px, 1px, 2px
+**Dette hardcode** : 12 valeur(s) — -0.01em, -0.02em, -1px, 100%, 1000px, 18px, 1px, 2px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px).
+**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `steps` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px).
 
 ---
 
@@ -4697,19 +5074,30 @@
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `bento` | unknown | oui |  |  |
+| `columns` | unknown | oui |  |  |
+| `columns` | enum | non |  | auto | 2 | 3 | 4 |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
+| `itemHeight` | enum | non |  | auto | even | square | video |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | enum | non |  | bento | grid-uniform | matrix-2x2 | list |
+| `list` | unknown | oui |  |  |
+| `placement` | unknown | oui |  |  |
+| `ratio` | unknown | oui |  |  |
 | `stats` | array | oui |  | min:2 max:6 |
+| `x2` | unknown | oui |  |  |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-2` `--space-3` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--stats-bento-gap` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tile-min` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .bento-fluid .css .span-lg .stats-bento .stats-bento__cell .stats-bento__delta .stats-bento__grid .stats-bento__header .stats-bento__label .stats-bento__number
+**Classes scoped** : .bento-fluid .css .span-lg .stats-bento .stats-bento__cell .stats-bento__delta .stats-bento__grid .stats-bento__header .stats-bento__label .stats-bento__number .wrap-wide
 
-**Dette hardcode** : 4 valeur(s) — -2px, 14rem, 1px, 768px
+**Dette hardcode** : 5 valeur(s) — -2px, 100%, 14rem, 1px, 768px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-2px, 14rem, 1px).
+**Agent** : Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-2px, 100%, 14rem).
 
 ---
 
@@ -4944,9 +5332,11 @@
 
 **Tokens** : `--ink` `--paper`
 
-**Classes scoped** : .product-reel
+**Classes scoped** : .product-reel .product-reel-grid
 
-**Agent** : Couleur : --ink --paper.
+**Dette hardcode** : 1 valeur(s) — 768px
+
+**Agent** : Couleur : --ink --paper. Dette : 1 litteral(s) hardcode(s) (768px).
 
 ---
 
@@ -5012,6 +5402,11 @@
 | `caseRefs` | unknown | oui |  |  |
 | `caseRefs` | array | non |  |  |
 | `cases` | array | non |  | max:6 |
+| `colRatio` | unknown | oui |  |  |
+| `colRatio` | enum | non |  | equal | 1-2 | 2-1 | 1-1-2 | 2-3 |
+| `columns` | enum | non |  | auto | 2 | 3 | 4 |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
 | `empty_body_en` | string | non |  |  |
 | `empty_body_fr` | string | non |  |  |
 | `empty_kicker_en` | string | non |  |  |
@@ -5023,20 +5418,24 @@
 | `h2_fr` | string | oui |  |  |
 | `impact_label_en` | string | non | Impact |  |
 | `impact_label_fr` | string | non | Impact |  |
+| `itemHeight` | enum | non |  | auto | even | square | video |
+| `layout` | unknown | oui |  |  |
+| `list` | enum | non |  | rows-divided | list | grid-uniform | grid-asym |
+| `placement` | unknown | oui |  |  |
 | `sector_label_en` | string | non | Sector |  |
 | `sector_label_fr` | string | non | Secteur |  |
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-1` `--space-3` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-glyph` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--space-1` `--space-12` `--space-3` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-glyph` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .cases-arr .cases-client .cases-col .cases-col-k .cases-col-v .cases-empty .cases-empty__body .cases-empty__kicker .cases-foot .cases-h2 .cases-hd .cases-idx .cases-impact .cases-row .cases-spec .cases-tbl .sector-cases-empty
+**Classes scoped** : .actions .align .cases-arr .cases-client .cases-col .cases-col-k .cases-col-v .cases-empty .cases-empty__body .cases-empty__kicker .cases-foot .cases-h2 .cases-hd .cases-idx .cases-impact .cases-row .cases-spec .cases-tbl .header .justify .sector-cases-empty .wrap-wide
 
 **Tailwind** : row-lines
 
-**Dette hardcode** : 18 valeur(s) — -0.015em, -2px, .14em, .16em, .1em, 1080px, 10px, 1100px
+**Dette hardcode** : 21 valeur(s) — -0.015em, -2px, .14em, .16em, .1em, 100%, 1080px, 10px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.015em, -2px, .14em).
+**Agent** : Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `list` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.015em, -2px, .14em).
 
 ---
 
@@ -5059,13 +5458,13 @@
 | `second_party_label_en` | string | non |  |  |
 | `second_party_label_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--cookie-banner-height` `--dur-trim` `--ease` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-rgb` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-h2` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--cookie-banner-height` `--dur-trim` `--ease` `--font-display` `--font-mono` `--fw-regular` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-rgb` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .cas-card .cas-card--featured .cas-card--row .cas-card-body .cas-card-cta .cas-card-headline .cas-card-img .cas-card-index .cas-card-kicker .cas-card-provenance .cas-card-title .cas-grid .cas-grid-outer .cas-secondary
 
-**Dette hardcode** : 15 valeur(s) — -0.015em, -0.02em, -2px, 0.04em, 0.08em, 0px, 100%, 10px
+**Dette hardcode** : 14 valeur(s) — -0.015em, -0.02em, -2px, 0.04em, 0px, 100%, 10px, 12px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px).
 
 ---
 
@@ -5129,13 +5528,13 @@
 | `title_fr` | string | oui |  |  |
 | `variant` | enum | non |  | media-left | media-right |
 
-**Tokens** : `--accent` `--accent-text` `--cs-mcols` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--radius-full` `--section-base` `--shadow-card-rest` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-h1` `--text-h2` `--text-h3` `--text-small`
+**Tokens** : `--accent` `--accent-text` `--cs-mcols` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--radius-full` `--section-base` `--shadow-card-rest` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-h1` `--text-h2` `--text-h3` `--text-small`
 
-**Classes scoped** : .acc .cspot .cspot__body .cspot__card .cspot__cite .cspot__cta .cspot__kicker .cspot__media .cspot__metric .cspot__metric-k .cspot__metric-l .cspot__metrics .cspot__quote .cspot__tags .cspot__title
+**Classes scoped** : .acc .cspot .cspot__body .cspot__card .cspot__cite .cspot__cta .cspot__kicker .cspot__media .cspot__media-art .cspot__metric .cspot__metric-k .cspot__metric-l .cspot__metrics .cspot__quote .cspot__tags .cspot__title
 
-**Dette hardcode** : 10 valeur(s) — -0.02em, -0.03em, .1em, 100%, 1px, 2px, 3px, 480px
+**Dette hardcode** : 11 valeur(s) — -0.02em, -0.03em, .1em, 100%, 1px, 2px, 3px, 480px
 
-**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-0.02em, -0.03em, .1em).
+**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.02em, -0.03em, .1em).
 
 ---
 
@@ -5165,9 +5564,9 @@
 
 **Tailwind** : col-12 col-5 col-7
 
-**Dette hardcode** : 5 valeur(s) — -0.018em, 100%, 640px, clamp(var(--space-4), clamp(var(--space-5)
+**Dette hardcode** : 6 valeur(s) — -0.018em, 100%, 640px, 768px, clamp(var(--space-4), clamp(var(--space-5)
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (-0.018em, 100%, 640px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 100%, 640px).
 
 ---
 
@@ -5302,7 +5701,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--shadow-card-hover` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-h2` `--text-h3` `--text-small` `--tlm-cols` `--tracking-mono` `--wrap-prose`
+**Tokens** : `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--shadow-card-hover` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-h2` `--text-h3` `--text-small` `--tlm-cols` `--tracking-mono` `--wrap-prose`
 
 **Classes scoped** : .tlm .tlm__author .tlm__author-name .tlm__author-role .tlm__card .tlm__grid .tlm__h2 .tlm__head .tlm__inner .tlm__kicker .tlm__logo .tlm__logo-text .tlm__metric .tlm__metric-label .tlm__metric-value .tlm__quote
 
@@ -5376,7 +5775,7 @@
 
 ---
 
-## Timeline Sections
+## Timelines
 
 ### `editorial-timeline`
 
@@ -5471,6 +5870,37 @@
 
 ---
 
+### `method-stepline`
+
+> Timeline de méthode horizontale sur fond clair : ligne hairline traversée de nœuds accent, chaque nœud surmonté d'un numéro mono, d'un titre serif et d'un sous-label mono. En-tête kicker à gauche, durée à droite. Reveal-stagger, empilage en colonne en mobile.
+> MethodStepline · src/components/sections/MethodStepline.astro · marketing/timelines
+> status : stable · tags : horizontal, method, process, steps, timeline
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `columns` | enum | non |  | auto | 2 | 3 | 4 |
+| `duration_en` | string | non |  |  |
+| `duration_fr` | string | non |  |  |
+| `h2_en` | string | non |  |  |
+| `h2_fr` | string | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `steps` | array | oui |  | min:2 max:6 |
+
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h2` `--leading-h3` `--leading-lede` `--muted` `--paper` `--radius-full` `--radius-md` `--section-base` `--space-1` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
+
+**Classes scoped** : .acc .ms .ms-duration .ms-hd .ms-kicker .ms-kicker__dot .ms-lede .ms-line .ms-node .ms-node__dot .ms-node__num .ms-node__sub .ms-node__title .ms-title .N .reveal-stagger
+
+**Dette hardcode** : 5 valeur(s) — 100%, 14rem, 1px, 768px, 780px
+
+**Agent** : Layout : `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (100%, 14rem, 1px).
+
+---
+
 ### `method-timeline`
 
 > Timeline méthodologique pour expliquer les étapes d'un accompagnement ou d'un processus.
@@ -5481,22 +5911,27 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `atomique` | unknown | oui |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `contentAlign` | enum | non |  | start | center | end |
+| `density` | enum | non |  | compact | base | ample |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `layout` | enum | non |  | vertical-stack | numbered-rows | horizontal | grid-steps |
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 | `steps` | array | oui |  | min:2 max:6 |
+| `steps` | enum | non |  | auto | 2 | 3 | 4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .method-timeline .method-timeline__aside .method-timeline__content .method-timeline__header .method-timeline__label .method-timeline__list .method-timeline__meta .method-timeline__sn .method-timeline__step
+**Classes scoped** : .align .header .method-timeline .method-timeline__aside .method-timeline__content .method-timeline__header .method-timeline__label .method-timeline__list .method-timeline__meta .method-timeline__sn .method-timeline__step .N .wrap-wide
 
-**Dette hardcode** : 4 valeur(s) — 140px, 1px, 64px, 768px
+**Dette hardcode** : 9 valeur(s) — 100%, 120px, 140px, 16rem, 18rem, 1px, 64px, 72px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (140px, 1px, 64px).
+**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `steps` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 120px, 140px).
 
 ---
 
