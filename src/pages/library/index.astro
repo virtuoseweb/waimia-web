@@ -589,6 +589,16 @@ const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({
           font-size: var(--text-small);
           color: var(--accent-text);
         }
+        /* Identité technique de la carte-type (vue à plat) : mono, comme la fiche détail
+           et SectionCard (.sc-link code). Réutilise les tokens existants, 0 nouveau token. */
+        .cx-type-code {
+          font-family: var(--font-mono);
+          font-size: var(--text-small);
+          font-weight: var(--fw-semibold);
+          color: var(--ink);
+          line-height: 1.25;
+          word-break: break-word;
+        }
         .cx-card-foot {
           display: flex;
           align-items: center;

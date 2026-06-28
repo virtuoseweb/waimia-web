@@ -83,7 +83,14 @@ interface Props {
 
 type GroupBy = 'family' | 'category';
 type SortBy = 'alpha' | 'count' | 'status';
+type ViewMode = 'groups' | 'types';
 type FacetKind = FacetGroup['kind'];
+
+const STATUS_LABELS_FR: Record<CatalogueItem['status'], string> = {
+  stable: 'Stable',
+  wip: 'WIP',
+  deprecated: 'Déprécié',
+};
 
 const STATUS_OPTIONS = [
   { value: 'all', label: 'Tous statuts' },
@@ -209,6 +216,9 @@ export default function CatalogueExplorer({
   const [status, setStatus] = useState('all');
   const [groupBy, setGroupBy] = useState<GroupBy>('family');
   const [sortBy, setSortBy] = useState<SortBy>('alpha');
+  // Vue : 'groups' = cartes-groupes (défaut), 'types' = une carte par type filtré (vue à plat).
+  // La vue ne change QUE le rendu, jamais le filtrage (filtres communs aux 2 vues).
+  const [view, setView] = useState<ViewMode>('groups');
   // Facettes multi-select : un Set de tags cochés par genre.
   const [facetSel, setFacetSel] = useState<Record<FacetKind, Set<string>>>(() => ({
     effects: new Set(),
@@ -299,6 +309,10 @@ export default function CatalogueExplorer({
     const statusParam = params.get('status');
     if (statusParam && STATUS_OPTIONS.some((s) => s.value === statusParam)) setStatus(statusParam);
 
+    // Vue : ?view=types ouvre l'explorer directement sur la vue à plat (liens partageables).
+    const viewParam = params.get('view');
+    if (viewParam === 'types' || viewParam === 'groups') setView(viewParam);
+
     // Tag : la recherche texte couvre déjà les tags (cf filtre `hay` ci-dessous),
     // donc on injecte le tag dans `query`, cohérent avec le filtrage existant,
     // sans facette dédiée à maintenir.
@@ -331,10 +345,11 @@ export default function CatalogueExplorer({
     if (category !== 'all') params.set('category', category);
     if (status !== 'all') params.set('status', status);
     if (query.trim() !== '') params.set('tag', query.trim());
+    if (view !== 'groups') params.set('view', view);
     const qs = params.toString();
     const next = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
     window.history.replaceState(window.history.state, '', next);
-  }, [facetSel, family, category, status, query]);
+  }, [facetSel, family, category, status, query, view]);
 
   const facetSelCount = useMemo(
     () => FACET_KINDS.reduce((acc, k) => acc + facetSel[k].size, 0),
@@ -547,27 +562,51 @@ export default function CatalogueExplorer({
             <span className="cx-facets-chevron" aria-hidden="true" />
           </button>
 
-          <div className="cx-groupby" role="group" aria-label="Regrouper par">
-            <span className="cx-field-label">Regrouper</span>
+          <div className="cx-groupby" role="group" aria-label="Vue du catalogue">
+            <span className="cx-field-label">Vue</span>
             <div className="cx-segmented">
               <button
                 type="button"
                 className="cx-seg-btn"
-                aria-pressed={groupBy === 'family'}
-                onClick={() => setGroupBy('family')}
+                aria-pressed={view === 'groups'}
+                onClick={() => setView('groups')}
               >
-                Famille
+                Regrouper
               </button>
               <button
                 type="button"
                 className="cx-seg-btn"
-                aria-pressed={groupBy === 'category'}
-                onClick={() => setGroupBy('category')}
+                aria-pressed={view === 'types'}
+                onClick={() => setView('types')}
               >
-                Catégorie
+                Types
               </button>
             </div>
           </div>
+
+          {view === 'groups' && (
+            <div className="cx-groupby" role="group" aria-label="Regrouper par">
+              <span className="cx-field-label">Regrouper</span>
+              <div className="cx-segmented">
+                <button
+                  type="button"
+                  className="cx-seg-btn"
+                  aria-pressed={groupBy === 'family'}
+                  onClick={() => setGroupBy('family')}
+                >
+                  Famille
+                </button>
+                <button
+                  type="button"
+                  className="cx-seg-btn"
+                  aria-pressed={groupBy === 'category'}
+                  onClick={() => setGroupBy('category')}
+                >
+                  Catégorie
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* ── Facettes orthogonales multi-select (AND inter-genres, OR intra-genre) ── */}
@@ -604,8 +643,13 @@ export default function CatalogueExplorer({
       <div className="cx-meta">
         <span className="cx-count" aria-live="polite">
           {totalShown} {totalShown > 1 ? 'sections' : 'section'}
-          {isFiltered ? ` sur ${items.length}` : ''} · {groups.length}{' '}
-          {groupBy === 'family' ? 'familles' : 'catégories'}
+          {isFiltered ? ` sur ${items.length}` : ''}
+          {view === 'groups' && (
+            <>
+              {' '}
+              · {groups.length} {groupBy === 'family' ? 'familles' : 'catégories'}
+            </>
+          )}
         </span>
         {isFiltered && (
           <button type="button" className="cx-reset" onClick={resetFilters}>
@@ -614,35 +658,71 @@ export default function CatalogueExplorer({
         )}
       </div>
 
-      {/* ── Cartes-groupes (1 vignette représentative chacune, montée à la demande) ── */}
-      {groups.length === 0 ? (
-        <p className="cx-empty">Aucune section ne correspond à ces filtres.</p>
-      ) : (
-        <ul className="cx-grid">
-          {groups.map((g) => (
-            <li key={g.key}>
-              <a className="cx-card" href={g.href}>
-                <LazyPreview type={g.rep} label={`Aperçu ${g.label}`} />
-                <span className="cx-card-body">
-                  <span className="cx-card-top">
-                    <strong className="cx-card-name">{g.label}</strong>
-                    <span className="cx-card-count">{g.count}</span>
-                  </span>
-                  <span className="cx-card-foot">
-                    <span className="cx-card-kind">{groupBy === 'family' ? 'famille' : 'catégorie'}</span>
-                    <span className="cx-card-metrics">
-                      {g.presetCount > 0 && (
-                        <span className="cx-card-presets">{g.presetCount} décl.</span>
-                      )}
-                      <span className="cx-card-stable">
-                        {g.stableCount} stable{g.stableCount > 1 ? 's' : ''}
+      {/* ── Résultats : vue Groupes (cartes-groupes) OU vue Types (cartes à plat) ── */}
+      {/* Les 2 vues réutilisent les mêmes classes .cx-card* (1 vignette LazyPreview montée à
+          la demande) : 0 nouveau CSS, style DS hérité (cf <style is:global> dans index.astro). */}
+      {view === 'groups' ? (
+        groups.length === 0 ? (
+          <p className="cx-empty">Aucune section ne correspond à ces filtres.</p>
+        ) : (
+          <ul className="cx-grid">
+            {groups.map((g) => (
+              <li key={g.key}>
+                <a className="cx-card" href={g.href}>
+                  <LazyPreview type={g.rep} label={`Aperçu ${g.label}`} />
+                  <span className="cx-card-body">
+                    <span className="cx-card-top">
+                      <strong className="cx-card-name">{g.label}</strong>
+                      <span className="cx-card-count">{g.count}</span>
+                    </span>
+                    <span className="cx-card-foot">
+                      <span className="cx-card-kind">{groupBy === 'family' ? 'famille' : 'catégorie'}</span>
+                      <span className="cx-card-metrics">
+                        {g.presetCount > 0 && (
+                          <span className="cx-card-presets">{g.presetCount} décl.</span>
+                        )}
+                        <span className="cx-card-stable">
+                          {g.stableCount} stable{g.stableCount > 1 ? 's' : ''}
+                        </span>
                       </span>
                     </span>
                   </span>
-                </span>
-              </a>
-            </li>
-          ))}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      ) : filtered.length === 0 ? (
+        <p className="cx-empty">Aucune section ne correspond à ces filtres.</p>
+      ) : (
+        <ul className="cx-grid">
+          {filtered.map((it) => {
+            const fam = it.family;
+            const cat = it.categoryLabel;
+            return (
+              <li key={it.type}>
+                {/* Carte-type : vignette /preview/[type] + identité technique (mono) + statut +
+                    famille·catégorie + déclinaisons. Clic -> fiche détail /library/[type]. */}
+                <a className="cx-card" href={`/library/${it.type}`}>
+                  <LazyPreview type={it.type} label={`Aperçu ${it.type}`} />
+                  <span className="cx-card-body">
+                    <span className="cx-card-top">
+                      <code className="cx-type-code">{it.type}</code>
+                      <span className="cx-card-count">{STATUS_LABELS_FR[it.status]}</span>
+                    </span>
+                    <span className="cx-card-foot">
+                      <span className="cx-card-kind">
+                        {fam} · {cat}
+                      </span>
+                      {it.presetCount > 0 && (
+                        <span className="cx-card-presets">{it.presetCount} décl.</span>
+                      )}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>
