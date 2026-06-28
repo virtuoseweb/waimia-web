@@ -60,6 +60,8 @@ Ordre de lecture :
 6. `state/12-design-direction-service-template.md` : direction design consolidée du template service (brainstorm multi-agents), doc pilote D4 (primitives compositionnelles, 5 bridges, visuels SVG line-art à générer).
 
 ### 🔧 Mission technique (archi / standards)
+- **`strategy/12-cms-content-format-decision.md`** — décision FIGÉE (2026-06-28) : Tina abandonné, PageDocument JSON git-based, Keystatic pour la coque CMS (entités/media), builder maison pour les sections, MCP pour l'IA, 1 fichier = 1 propriétaire. À exécuter sous #39/#40.
+
 `architecture/01-standards-patterns.md`, `archive/07-component-patterns.md`,
 `architecture/02-content-models.md`, `architecture/03-integrations.md`,
 `architecture/05-url-redirects.md`, `architecture/36-TINA-ASTRO-*.md`.
