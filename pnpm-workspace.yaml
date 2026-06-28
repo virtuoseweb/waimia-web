@@ -1,0 +1,7 @@
+# Waimia monorepo (#40, T1) : frontières packages.
+# App hôte = racine (waimia-web). Premier package extrait = mcp/ (serveur MCP standalone,
+# 0 import de src/, cf docs/audits/04-packages-monorepo-40.md). Les autres packages
+# (ds-tokens, ds-kernel, sections, catalogue-ui, builder) seront extraits par étapes,
+# le gros (sections/registry) APRÈS la co-location #38 T5.
+packages:
+  - 'mcp'
