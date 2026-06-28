@@ -37,6 +37,29 @@ const TOKENS_PATH = path.join(REPO_ROOT, 'src', 'styles', 'tokens.css');
 const MAX_SEARCH_LIMIT = 199;
 const DEFAULT_SEARCH_LIMIT = 30;
 
+// Miroir de l'enum PAGE_COLLECTIONS de src/schemas/page-document.ts (source de verite cote app).
+// On NE peut PAS importer ce schema ici car page-document.ts tire astro:content (serveur-only,
+// non runnable en Node pur) ; cette liste est donc un miroir documente d'un enum, pas une valeur DS.
+const PAGE_COLLECTIONS = [
+  'cases',
+  'offres',
+  'blog',
+  'secteurs',
+  'outils',
+  'authors',
+  'courses',
+  'services',
+  'lp',
+  'cas-usages',
+  'demonstrations',
+  'implantations',
+  'guides',
+  'diagnostics',
+  'comparatifs',
+  'audits',
+  'pages-locales',
+];
+
 // ─── Helpers de chargement (memoise les artefacts qui ne changent pas a runtime) ───
 
 /** Erreur typee : artefact dist absent (le site n'a pas ete builde). */
@@ -264,6 +287,143 @@ server.registerTool(
     }
     const filtered = filter ? tokens.filter((t) => t.name.startsWith(filter)) : tokens;
     return textResult({ count: filtered.length, tokens: filtered });
+  },
+);
+
+// Vrai si une valeur de slot est consideree comme remplie.
+// string -> non vide apres trim ; array -> au moins un element ; autre -> defini et non null.
+function isFilled(v) {
+  if (typeof v === 'string') return v.trim().length > 0;
+  if (Array.isArray(v)) return v.length > 0;
+  return v !== undefined && v !== null;
+}
+
+server.registerTool(
+  'page_compose',
+  {
+    title: 'Composer un PageDocument typé à partir de sections',
+    description:
+      'Assemble une liste de sections (type + données de slots) en un PageDocument sérialisable ' +
+      '(forme waimia.page-document/v1) ET valide chaque section contre son contrat de slots tier-2 ' +
+      '(la source de vérité exposée par catalogue_get_section). ' +
+      'IMPORTANT : on NE peut PAS importer validatePageDoc (src/lib/page-document.ts) car il tire ' +
+      'astro:content (serveur-only, non runnable en Node pur) ; le contrat de slots tier-2 EST donc la ' +
+      'source de vérité utilisée pour valider. Construit toujours le pageDocument (même invalide) pour ' +
+      "permettre à l'agent d'itérer, et retourne errors + warnings.",
+    inputSchema: {
+      sections: z
+        .array(
+          z.object({
+            type: z.string(),
+            data: z.record(z.unknown()).optional(),
+          }),
+        )
+        .min(1)
+        .describe('Liste ordonnée des sections à composer (type + données de slots).'),
+      meta: z
+        .object({
+          collection: z.string().optional(),
+          slug: z.string().optional(),
+          lang: z.enum(['fr', 'en']).optional(),
+          title_fr: z.string().optional(),
+          title_en: z.string().optional(),
+          description_fr: z.string().optional(),
+          description_en: z.string().optional(),
+        })
+        .optional()
+        .describe('Métadonnées de page (collection, slug, langue, titres et descriptions bilingues).'),
+    },
+  },
+  async ({ sections, meta }) => {
+    // 1. Toujours construire le pageDocument (meme invalide) pour que l'agent puisse iterer.
+    const pageMeta = {
+      collection: meta?.collection ?? null,
+      slug: meta?.slug ?? null,
+      lang: meta?.lang ?? 'fr',
+      collectionExtra: {},
+    };
+    if (meta?.title_fr !== undefined) pageMeta.title_fr = meta.title_fr;
+    if (meta?.title_en !== undefined) pageMeta.title_en = meta.title_en;
+    if (meta?.description_fr !== undefined) pageMeta.description_fr = meta.description_fr;
+    if (meta?.description_en !== undefined) pageMeta.description_en = meta.description_en;
+
+    const pageDocument = {
+      $schema: 'waimia.page-document/v1',
+      meta: pageMeta,
+      sections: sections.map((s) => ({ type: s.type, ...(s.data ?? {}) })),
+    };
+
+    const errors = [];
+    const warnings = [];
+
+    // 2a. Validation des metadonnees (index -1 = scope page, pas une section).
+    if (meta?.collection === undefined) {
+      errors.push({ index: -1, type: '', field: 'meta.collection', message: 'collection requise' });
+    } else if (!PAGE_COLLECTIONS.includes(meta.collection)) {
+      errors.push({ index: -1, type: '', field: 'meta.collection', message: `collection inconnue: ${meta.collection}` });
+    }
+    if (meta?.slug === undefined) {
+      errors.push({ index: -1, type: '', field: 'meta.slug', message: 'slug requis' });
+    } else if (!/^[a-z0-9/-]+$/.test(meta.slug)) {
+      errors.push({ index: -1, type: '', field: 'meta.slug', message: 'slug invalide (kebab-case)' });
+    }
+
+    // 2b. Validation par section contre son contrat de slots tier-2.
+    for (let index = 0; index < sections.length; index += 1) {
+      const { type, data } = sections[index];
+      let detail;
+      try {
+        detail = loadSectionDetail(type);
+      } catch (err) {
+        // Artefacts dist absents : message clair "build d'abord", comme les autres tools.
+        if (err instanceof ArtifactMissingError) return errorResult(err.message);
+        throw err;
+      }
+
+      if (detail === null) {
+        errors.push({ index, type, field: 'type', message: 'type inconnu' });
+        continue;
+      }
+
+      const slots = detail.slots || [];
+      const sectionData = data ?? {};
+
+      // Slots de contenu requis : chaque slot kind==='content' && required doit etre rempli.
+      for (const slot of slots) {
+        if (slot.kind !== 'content' || !slot.required) continue;
+        if (slot.bilingual) {
+          const ok = isFilled(sectionData[`${slot.field}_fr`]) && isFilled(sectionData[`${slot.field}_en`]);
+          if (!ok) {
+            errors.push({ index, type, field: `${slot.field}_fr`, message: 'slot de contenu requis manquant ou vide' });
+          }
+        } else if (!isFilled(sectionData[slot.field])) {
+          errors.push({ index, type, field: slot.field, message: 'slot de contenu requis manquant ou vide' });
+        }
+      }
+
+      // Warnings (non bloquant) : cle de data qui ne correspond a aucun slot du type.
+      const known = new Set();
+      for (const slot of slots) {
+        known.add(slot.field);
+        known.add(`${slot.field}_fr`);
+        known.add(`${slot.field}_en`);
+      }
+      for (const key of Object.keys(sectionData)) {
+        if (!known.has(key)) {
+          warnings.push({ index, type, field: key, message: 'champ inconnu pour ce type' });
+        }
+      }
+    }
+
+    // 3. Verdict.
+    const valid = errors.length === 0;
+
+    // 4. Retour.
+    return textResult({
+      pageDocument,
+      validation: { valid, errors, warnings },
+      sectionCount: sections.length,
+    });
   },
 );
 
