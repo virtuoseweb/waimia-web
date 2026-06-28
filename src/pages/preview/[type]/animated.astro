@@ -63,6 +63,63 @@ const consumerCount = getConsumers(type).length;
         pointer-events: none;
       }
       .ds-preview-usage--site { border-color: var(--accent-text); color: var(--accent-sur-clair); }
+
+      /* ======================================================================
+         TOOLBAR de preview (T5) · cachée par défaut (0 flash en iframe).
+         Révélée UNIQUEMENT en consultation standalone via :root[data-standalone]
+         (posé par le script inline self===top ci-dessous). Cette route est la
+         vue ANIMÉE : le toggle de rendu pointe vers la version statique.
+         Style calqué sur .ds-preview-usage : 100 % tokens DS. */
+      .preview-toolbar { display: none; }
+      :root[data-standalone] .preview-toolbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-2) var(--space-4);
+        padding: var(--space-2) var(--space-3);
+        background: var(--paper);
+        border-bottom: 1px solid var(--hairline);
+        font-family: var(--font-mono);
+        font-size: var(--text-small);
+        letter-spacing: var(--tracking-mono-tight);
+        color: var(--ink-2);
+      }
+      :root[data-standalone] body { padding-top: var(--space-9); }
+      .preview-toolbar__group { display: inline-flex; align-items: center; gap: var(--space-2); }
+      .preview-toolbar__label { color: var(--muted); text-transform: uppercase; }
+      .preview-toolbar__btn {
+        appearance: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        padding: var(--space-1) var(--space-2);
+        background: transparent;
+        border: 1px solid var(--hairline-strong);
+        border-radius: var(--radius-sm);
+        color: var(--ink-2);
+        font: inherit;
+        letter-spacing: inherit;
+      }
+      .preview-toolbar__btn:hover { border-color: var(--accent-text); color: var(--accent-text); }
+      .preview-toolbar__btn[aria-pressed='true'] {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--accent-ink);
+      }
+      .preview-toolbar__link {
+        color: var(--accent-text);
+        text-decoration: none;
+        border-bottom: 1px solid var(--hairline-strong);
+      }
+      .preview-toolbar__link:hover { border-color: var(--accent-text); }
+      .preview-stage { width: 100%; margin: 0 auto; }
+      .preview-stage[data-viewport='tablet'] { max-width: 768px; } /* largeur structurelle outil · tablette */
+      .preview-stage[data-viewport='mobile'] { max-width: 390px; } /* largeur structurelle outil · mobile */
     </style>
   </head>
   <body>
@@ -71,7 +128,69 @@ const consumerCount = getConsumers(type).length;
     ) : (
       <span class="ds-preview-usage ds-preview-usage--library">Bibliothèque</span>
     )}
-    {C && demo ? <C data={demo} lang="fr" /> : <p style="font-family:monospace;padding:24px">Section inconnue : {type}</p>}
+
+    {/* Toolbar de preview · révélée seulement en standalone (cf CSS + script self===top). */}
+    <nav class="preview-toolbar" aria-label="Outils de prévisualisation">
+      <div class="preview-toolbar__group" role="group" aria-label="Largeur du viewport">
+        <span class="preview-toolbar__label">Viewport</span>
+        <button type="button" class="preview-toolbar__btn" data-viewport-btn="desktop" aria-pressed="true">Desktop</button>
+        <button type="button" class="preview-toolbar__btn" data-viewport-btn="tablet" aria-pressed="false">Tablette</button>
+        <button type="button" class="preview-toolbar__btn" data-viewport-btn="mobile" aria-pressed="false">Mobile</button>
+      </div>
+      <div class="preview-toolbar__group">
+        <span class="preview-toolbar__label">Rendu</span>
+        {/* Vue animée : le toggle renvoie à la version statique. */}
+        <a class="preview-toolbar__link" href={`/preview/${type}`}>Voir le statique</a>
+      </div>
+      <div class="preview-toolbar__group">
+        <a class="preview-toolbar__link" href={`/library/${type}`}>Fiche</a>
+      </div>
+      <div class="preview-toolbar__group">
+        <button type="button" class="preview-toolbar__btn" data-copy-json>Copier le JSON</button>
+      </div>
+    </nav>
+
+    <div class="preview-stage" data-viewport="desktop">
+      {C && demo ? <C data={demo} lang="fr" /> : <p style="font-family:monospace;padding:24px">Section inconnue : {type}</p>}
+    </div>
+
+    {/* Données démo sérialisées pour le bouton « Copier le JSON » (lu par le script inline). */}
+    <script type="application/json" data-demo-json set:html={JSON.stringify(demo ?? null)}></script>
+
+    {/* Révèle la toolbar UNIQUEMENT hors iframe + câble ses contrôles (vanilla, 0 React). */}
+    <script is:inline>
+      (function () {
+        var isStandalone = window.self === window.top;
+        if (!isStandalone) return; // en iframe : toolbar reste cachée, section pleine largeur
+        document.documentElement.setAttribute('data-standalone', '');
+
+        var stage = document.querySelector('.preview-stage');
+        var vpButtons = document.querySelectorAll('[data-viewport-btn]');
+        vpButtons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var vp = btn.getAttribute('data-viewport-btn');
+            if (stage) stage.setAttribute('data-viewport', vp);
+            vpButtons.forEach(function (b) {
+              b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+            });
+          });
+        });
+
+        var copyBtn = document.querySelector('[data-copy-json]');
+        var jsonEl = document.querySelector('[data-demo-json]');
+        if (copyBtn && jsonEl) {
+          copyBtn.addEventListener('click', function () {
+            var pretty = jsonEl.textContent;
+            try { pretty = JSON.stringify(JSON.parse(jsonEl.textContent), null, 2); } catch (e) {}
+            navigator.clipboard.writeText(pretty).then(function () {
+              var prev = copyBtn.textContent;
+              copyBtn.textContent = 'Copié';
+              setTimeout(function () { copyBtn.textContent = prev; }, 1500);
+            });
+          });
+        }
+      })();
+    </script>
 
     {/* Monte l'observer scroll-reveal réel : les .reveal[*] démarrent opacity:0 puis
         passent .is-visible/.in au scroll (même module que Base.astro). */}
