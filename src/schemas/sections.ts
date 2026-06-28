@@ -4772,6 +4772,9 @@ export const authorBylineSchema = z.object({
 export const painSeverityListSchema = z.object({
   type: z.literal('pain-severity-list'),
   ...sectionBaseSchema.shape,
+  // Batch 6 (texte/manifeste) · refiner count-adaptive pour layout='two-col'|'grid'.
+  // 'auto' = auto-fit ; '2'|'3' = nb fixe desktop. Ignoré par list/rows-divided. Défaut absent = list.
+  columns: z.enum(['auto', '2', '3']).optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),

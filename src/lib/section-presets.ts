@@ -235,28 +235,72 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'hero-masthead-card--ink', type: 'hero-masthead-card', label: 'Masthead carte · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
   ],
 
-  // statement-orbit (famille manifesto) :carte ink interne ; axe sûr = background.
+  // statement-orbit (famille manifesto) · Batch 6 (texte/manifeste) · 3 couches :
+  // layout prose|lead-aside|two-col + density/contentAlign/actionsAlign + placement atomique.
+  // La carte interne reste toujours ink (signature) ; `background` agit sur la zone externe.
   'statement-orbit': [
-    { id: 'statement-orbit--paper', type: 'statement-orbit', label: 'Statement orbite · papier', family: 'manifesto', era: '2021', props: { background: 'paper' } },
-    { id: 'statement-orbit--paper-2', type: 'statement-orbit', label: 'Statement orbite · papier 2', family: 'manifesto', era: '2023', props: { background: 'paper-2' } },
-    { id: 'statement-orbit--paper-3', type: 'statement-orbit', label: 'Statement orbite · papier 3', family: 'manifesto', era: '2024', props: { background: 'paper-3' } },
-    { id: 'statement-orbit--ink', type: 'statement-orbit', label: 'Statement orbite · encre', family: 'manifesto', era: '2026', props: { background: 'ink' } },
+    // Défaut (split 52/48) + palette externe
+    { id: 'statement-orbit--paper', type: 'statement-orbit', label: 'Statement orbite · split · papier', family: 'manifesto', era: '2021', props: { background: 'paper' } },
+    { id: 'statement-orbit--paper-2', type: 'statement-orbit', label: 'Statement orbite · split · papier 2', family: 'manifesto', era: '2023', props: { background: 'paper-2' } },
+    { id: 'statement-orbit--ink', type: 'statement-orbit', label: 'Statement orbite · split · encre', family: 'manifesto', era: '2026', props: { background: 'ink' } },
+    // Layout : prose (1 colonne centrée, média contenu dessous)
+    { id: 'statement-orbit--prose', type: 'statement-orbit', label: 'Statement orbite · prose centrée', family: 'manifesto', era: '2024', props: { layout: 'prose' } },
+    { id: 'statement-orbit--prose-ample', type: 'statement-orbit', label: 'Statement orbite · prose · ample', family: 'manifesto', era: '2025', props: { layout: 'prose', density: 'ample' } },
+    // Layout : lead-aside (texte 2fr + média aparté 1fr)
+    { id: 'statement-orbit--lead-aside', type: 'statement-orbit', label: 'Statement orbite · texte dominant + média aparté', family: 'manifesto', era: '2023', props: { layout: 'lead-aside' } },
+    { id: 'statement-orbit--lead-aside-compact', type: 'statement-orbit', label: 'Statement orbite · lead-aside · compact', family: 'manifesto', era: '2024', props: { layout: 'lead-aside', density: 'compact' } },
+    // Layout : two-col (lede en 2 colonnes de texte sous le titre)
+    { id: 'statement-orbit--two-col', type: 'statement-orbit', label: 'Statement orbite · lede en deux colonnes', family: 'manifesto', era: '2022', props: { layout: 'two-col' } },
+    // Axe : contentAlign centré (split, titre + lede centrés)
+    { id: 'statement-orbit--center', type: 'statement-orbit', label: 'Statement orbite · contenu centré', family: 'manifesto', era: '2025', props: { contentAlign: 'center' } },
+    // Atomique : CTA centré sans décaler le titre (actions justify indépendant du header)
+    { id: 'statement-orbit--atomic-cta-center', type: 'statement-orbit', label: 'Statement orbite · CTA centré (titre à gauche)', family: 'manifesto', era: '2026', props: { layout: 'prose', placement: { header: { align: 'start' }, actions: { justify: 'center' } } } },
+    // Atomique : média en premier (inversion ordre média↔texte)
+    { id: 'statement-orbit--atomic-media-first', type: 'statement-orbit', label: 'Statement orbite · média en premier', family: 'manifesto', era: '2026', props: { placement: { media: { order: 0 }, header: { order: 1 } } } },
   ],
 
-  // definition-extract (famille prose) :bloc GEO extractible ; axe sûr = background.
+  // definition-extract (famille prose) · Batch 6 · 3 couches :
+  // layout prose|lead-aside|rows-divided + density/contentAlign + placement atomique.
   'definition-extract': [
-    { id: 'definition-extract--paper', type: 'definition-extract', label: 'Définition extractible · papier', family: 'prose', era: '2024', props: { background: 'paper' } },
-    { id: 'definition-extract--paper-2', type: 'definition-extract', label: 'Définition extractible · papier 2', family: 'prose', era: '2025', props: { background: 'paper-2' } },
-    { id: 'definition-extract--paper-3', type: 'definition-extract', label: 'Définition extractible · papier 3', family: 'prose', era: '2025', props: { background: 'paper-3' } },
-    { id: 'definition-extract--ink', type: 'definition-extract', label: 'Définition extractible · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+    // Défaut (prose) + palette
+    { id: 'definition-extract--paper', type: 'definition-extract', label: 'Définition extractible · prose · papier', family: 'prose', era: '2024', props: { background: 'paper' } },
+    { id: 'definition-extract--paper-2', type: 'definition-extract', label: 'Définition extractible · prose · papier 2', family: 'prose', era: '2025', props: { background: 'paper-2' } },
+    { id: 'definition-extract--ink', type: 'definition-extract', label: 'Définition extractible · prose · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+    // Layout : lead-aside (statement en lead + pills/specs en colonne aparté)
+    { id: 'definition-extract--lead-aside', type: 'definition-extract', label: 'Définition extractible · lead + aparté', family: 'prose', era: '2025', props: { layout: 'lead-aside' } },
+    { id: 'definition-extract--lead-aside-ink', type: 'definition-extract', label: 'Définition extractible · lead + aparté · encre', family: 'prose', era: '2026', props: { layout: 'lead-aside', background: 'ink' } },
+    // Layout : rows-divided (statement / pills / specs séparés par hairlines)
+    { id: 'definition-extract--rows-divided', type: 'definition-extract', label: 'Définition extractible · fiche à filets', family: 'prose', era: '2024', props: { layout: 'rows-divided' } },
+    { id: 'definition-extract--rows-divided-paper-2', type: 'definition-extract', label: 'Définition extractible · fiche à filets · papier 2', family: 'prose', era: '2025', props: { layout: 'rows-divided', background: 'paper-2' } },
+    // Axe : density
+    { id: 'definition-extract--prose-compact', type: 'definition-extract', label: 'Définition extractible · prose · compact', family: 'prose', era: '2025', props: { density: 'compact' } },
+    { id: 'definition-extract--prose-ample', type: 'definition-extract', label: 'Définition extractible · prose · ample', family: 'prose', era: '2024', props: { density: 'ample' } },
+    // Axe : contentAlign centré (statement + pills centrés)
+    { id: 'definition-extract--center', type: 'definition-extract', label: 'Définition extractible · centrée', family: 'prose', era: '2026', props: { contentAlign: 'center' } },
+    // Atomique : header (kicker) caché en mobile
+    { id: 'definition-extract--atomic-kicker-desktop', type: 'definition-extract', label: 'Définition extractible · kicker desktop seul', family: 'prose', era: '2026', props: { layout: 'rows-divided', placement: { header: { hideOn: 'mobile' } } } },
   ],
 
-  // pain-severity-list (famille pain) :liste sévérité ; axe sûr = background.
+  // pain-severity-list (famille pain) · Batch 6 · 3 couches :
+  // layout list|rows-divided|two-col|grid + columns/density/contentAlign + placement atomique.
   'pain-severity-list': [
-    { id: 'pain-severity-list--paper', type: 'pain-severity-list', label: 'Liste sévérité · papier', family: 'pain', era: '2023', props: { background: 'paper' } },
-    { id: 'pain-severity-list--paper-2', type: 'pain-severity-list', label: 'Liste sévérité · papier 2', family: 'pain', era: '2024', props: { background: 'paper-2' } },
-    { id: 'pain-severity-list--paper-3', type: 'pain-severity-list', label: 'Liste sévérité · papier 3', family: 'pain', era: '2025', props: { background: 'paper-3' } },
-    { id: 'pain-severity-list--ink', type: 'pain-severity-list', label: 'Liste sévérité · encre', family: 'pain', era: '2026', props: { background: 'ink' } },
+    // Défaut (list ink) + palette
+    { id: 'pain-severity-list--ink', type: 'pain-severity-list', label: 'Liste sévérité · list · encre', family: 'pain', era: '2026', props: { background: 'ink' } },
+    { id: 'pain-severity-list--paper', type: 'pain-severity-list', label: 'Liste sévérité · list · papier', family: 'pain', era: '2023', props: { background: 'paper' } },
+    { id: 'pain-severity-list--paper-2', type: 'pain-severity-list', label: 'Liste sévérité · list · papier 2', family: 'pain', era: '2024', props: { background: 'paper-2' } },
+    // Layout : rows-divided (alias explicite des rows à filets)
+    { id: 'pain-severity-list--rows-divided', type: 'pain-severity-list', label: 'Liste sévérité · rows à filets', family: 'pain', era: '2024', props: { layout: 'rows-divided' } },
+    // Layout : two-col (deux colonnes d'items, severity en rang horizontal)
+    { id: 'pain-severity-list--two-col', type: 'pain-severity-list', label: 'Liste sévérité · deux colonnes', family: 'pain', era: '2025', props: { layout: 'two-col' } },
+    { id: 'pain-severity-list--two-col-paper', type: 'pain-severity-list', label: 'Liste sévérité · deux colonnes · papier', family: 'pain', era: '2025', props: { layout: 'two-col', background: 'paper' } },
+    // Layout : grid count-adaptive (auto-fit) + refiner columns
+    { id: 'pain-severity-list--grid-auto', type: 'pain-severity-list', label: 'Liste sévérité · grille adaptative', family: 'pain', era: '2026', props: { layout: 'grid', columns: 'auto' } },
+    { id: 'pain-severity-list--grid-3', type: 'pain-severity-list', label: 'Liste sévérité · grille 3 colonnes', family: 'pain', era: '2026', props: { layout: 'grid', columns: '3' } },
+    // Axe : density
+    { id: 'pain-severity-list--list-compact', type: 'pain-severity-list', label: 'Liste sévérité · list · compact', family: 'pain', era: '2025', props: { density: 'compact' } },
+    { id: 'pain-severity-list--list-ample', type: 'pain-severity-list', label: 'Liste sévérité · list · ample', family: 'pain', era: '2024', props: { density: 'ample' } },
+    // Atomique : header centré + grille (titre centré, items en grille à gauche)
+    { id: 'pain-severity-list--atomic-head-center', type: 'pain-severity-list', label: 'Liste sévérité · titre centré + grille', family: 'pain', era: '2026', props: { layout: 'grid', columns: '2', placement: { header: { align: 'center' } } } },
   ],
 
   // versus-competitors (famille table) :comparatif ; axe sûr = background.
