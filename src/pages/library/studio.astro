@@ -578,6 +578,120 @@ const moleculesRendered = 12;
           </div>
         </section>
 
+        {/* 1bis. Échelle fluide · les knobs --fl-* qui recalculent toute l'échelle --space-* */}
+        <section class="studio-section studio-fluid" id="echelle-fluide" aria-labelledby="fluid-title">
+          <ChapterLabel num="FIG · 0bis" title="Échelle fluide" tone="muted" />
+          <p class="studio-section-lede" id="fluid-title">
+            Trois knobs paramétriques <code>--fl-*</code> pilotent l'échelle d'espacement
+            <code>--space-7</code> à <code>--space-15</code> (et, par ricochet, tout le rythme de section).
+            Chaque cran est un <code>clamp()</code> interpolé entre une plage de viewport.
+            Bouge un curseur : l'échelle dérivée se recalcule en direct, sans rebuild.
+          </p>
+
+          <div class="studio-fluid-grid">
+            {/* Colonne 1 · les knobs pilotes */}
+            <div class="studio-fluid-knobs" role="group" aria-label="Knobs de l'échelle fluide">
+              <h3 class="studio-h4">Knobs pilotes</h3>
+
+              <div class="studio-fluid-knob">
+                <div class="studio-fluid-knob-head">
+                  <label class="studio-fluid-knob-label" for="fl-shrink">
+                    <code>--fl-space-shrink</code>
+                  </label>
+                  <output class="studio-fluid-knob-val" id="fl-shrink-out" for="fl-shrink">0.82</output>
+                </div>
+                <input
+                  type="range"
+                  class="studio-range studio-fluid-range"
+                  id="fl-shrink"
+                  data-fl-knob="--fl-space-shrink"
+                  min="0.5"
+                  max="1"
+                  step="0.01"
+                  value="0.82"
+                  aria-describedby="fl-shrink-help"
+                />
+                <p class="studio-fluid-knob-help" id="fl-shrink-help">
+                  Plancher mobile de l'espacement. À 1 l'échelle est figée (aucune réduction) ;
+                  plus c'est bas, plus l'écart desktop ↔ mobile se creuse.
+                </p>
+              </div>
+
+              <div class="studio-fluid-knob">
+                <div class="studio-fluid-knob-head">
+                  <label class="studio-fluid-knob-label" for="fl-min-vw">
+                    <code>--fl-min-vw</code>
+                  </label>
+                  <output class="studio-fluid-knob-val" id="fl-min-vw-out" for="fl-min-vw">360</output>
+                </div>
+                <input
+                  type="range"
+                  class="studio-range studio-fluid-range"
+                  id="fl-min-vw"
+                  data-fl-knob="--fl-min-vw"
+                  min="280"
+                  max="768"
+                  step="10"
+                  value="360"
+                  aria-describedby="fl-min-vw-help"
+                />
+                <p class="studio-fluid-knob-help" id="fl-min-vw-help">
+                  Largeur de viewport où l'échelle touche son plancher (px).
+                </p>
+              </div>
+
+              <div class="studio-fluid-knob">
+                <div class="studio-fluid-knob-head">
+                  <label class="studio-fluid-knob-label" for="fl-max-vw">
+                    <code>--fl-max-vw</code>
+                  </label>
+                  <output class="studio-fluid-knob-val" id="fl-max-vw-out" for="fl-max-vw">1440</output>
+                </div>
+                <input
+                  type="range"
+                  class="studio-range studio-fluid-range"
+                  id="fl-max-vw"
+                  data-fl-knob="--fl-max-vw"
+                  min="1024"
+                  max="1920"
+                  step="20"
+                  value="1440"
+                  aria-describedby="fl-max-vw-help"
+                />
+                <p class="studio-fluid-knob-help" id="fl-max-vw-help">
+                  Largeur de viewport où l'échelle atteint sa valeur desktop ancre (px).
+                </p>
+              </div>
+
+              <button type="button" class="studio-fluid-reset" id="fl-reset">
+                Réinitialiser les knobs fluides
+              </button>
+            </div>
+
+            {/* Colonne 2 · l'échelle dérivée, recalculée en live dans un cadre redimensionnable */}
+            <div class="studio-fluid-preview">
+              <div class="studio-fluid-preview-head">
+                <h3 class="studio-h4">Échelle dérivée <code>--space-*</code></h3>
+                <span class="studio-tag" id="fl-frame-w" aria-live="polite">cadre : auto</span>
+              </div>
+              <p class="studio-fluid-knob-help">
+                Cadre redimensionnable (poignée en bas à droite) : étire-le pour simuler un viewport
+                et voir l'interpolation <code>clamp()</code> entre plancher et ancre. Les barres consomment
+                <code>var(--space-N)</code> ; leur largeur mesurée s'affiche à droite.
+              </p>
+              <div class="studio-fluid-frame" id="fl-frame">
+                {[7, 8, 9, 10, 11, 12, 13, 14, 15].map((n) => (
+                  <div class="studio-fluid-spec">
+                    <code class="studio-fluid-spec-name">--space-{n}</code>
+                    <div class="studio-fluid-spec-bar" data-fl-spec={`--space-${n}`}></div>
+                    <span class="studio-fluid-spec-px" data-fl-px={`--space-${n}`}>...</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* 2. Galerie · Atomes */}
         <section class="studio-section">
           <ChapterLabel num="01" title={`Atomes · ${atomVariantsRendered} variants rendus`} />
@@ -1004,6 +1118,73 @@ const moleculesRendered = 12;
   <script>
     import '../../scripts/ds-studio.js';
     import '../../scripts/ds-section-workshop.js';
+  </script>
+
+  {/* Démo « échelle fluide » · autonome, n'altère ni window.dsStudio ni window.dsWorkshop.
+      Pilote les 3 knobs --fl-* sur :root et mesure l'échelle --space-* dérivée en live. */}
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const knobs = Array.from(document.querySelectorAll('[data-fl-knob]'));
+      if (!knobs.length) return;
+      const defaults = new Map(knobs.map((el) => [el, el.value]));
+      const frame = document.getElementById('fl-frame');
+      const frameW = document.getElementById('fl-frame-w');
+      const bars = Array.from(document.querySelectorAll('[data-fl-spec]'));
+      const pxOut = Array.from(document.querySelectorAll('[data-fl-px]'));
+
+      // Borne supérieure pour normaliser la largeur des barres (256px = --space-15 desktop).
+      const SCALE_MAX = 256;
+
+      const measure = () => {
+        const cs = getComputedStyle(root);
+        const computed = {};
+        for (const el of pxOut) {
+          const token = el.getAttribute('data-fl-px');
+          const raw = cs.getPropertyValue(token).trim();
+          const val = parseFloat(raw);
+          computed[token] = Number.isFinite(val) ? val : null;
+          el.textContent = Number.isFinite(val) ? `${Math.round(val)}px` : raw || '...';
+        }
+        for (const bar of bars) {
+          const token = bar.getAttribute('data-fl-spec');
+          const val = computed[token];
+          const pct = Number.isFinite(val) ? Math.max(1, Math.min(100, (val / SCALE_MAX) * 100)) : 0;
+          bar.style.width = `${pct}%`;
+        }
+        if (frame && frameW) frameW.textContent = `cadre : ${Math.round(frame.clientWidth)}px`;
+      };
+
+      const syncKnob = (el) => {
+        const token = el.getAttribute('data-fl-knob');
+        root.style.setProperty(token, el.value);
+        const out = document.getElementById(`${el.id}-out`);
+        if (out) out.textContent = el.value;
+        measure();
+      };
+
+      for (const el of knobs) el.addEventListener('input', () => syncKnob(el));
+
+      const resetBtn = document.getElementById('fl-reset');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          for (const el of knobs) {
+            const def = defaults.get(el);
+            el.value = def;
+            const token = el.getAttribute('data-fl-knob');
+            root.style.removeProperty(token);
+            const out = document.getElementById(`${el.id}-out`);
+            if (out) out.textContent = def;
+          }
+          measure();
+        });
+      }
+
+      // Recalcul live au resize fenêtre (clamp interpole sur 100vw réel) et au resize du cadre.
+      window.addEventListener('resize', measure, { passive: true });
+      if (frame && 'ResizeObserver' in window) new ResizeObserver(measure).observe(frame);
+      measure();
+    })();
   </script>
 </Base>
 
@@ -1705,5 +1886,70 @@ const moleculesRendered = 12;
     clip-path: none !important;
     transition: none !important;
     animation: none !important;
+  }
+
+  /* ── Échelle fluide · knobs --fl-* + spécimens --space-* dérivés ── */
+  .studio-fluid {
+    border: 1px solid var(--hairline-strong); border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md); padding: var(--space-4) var(--space-5);
+    background: var(--paper);
+  }
+  .studio-fluid-grid {
+    display: grid; grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+    gap: var(--space-6); align-items: start; margin-top: var(--space-3);
+  }
+  @media (max-width: 900px) { .studio-fluid-grid { grid-template-columns: 1fr; } }
+
+  .studio-fluid-knobs { display: flex; flex-direction: column; gap: var(--space-4); }
+  .studio-fluid-knob { display: flex; flex-direction: column; gap: var(--space-2); }
+  .studio-fluid-knob-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-2);
+  }
+  .studio-fluid-knob-label { font-family: var(--font-mono); font-size: var(--text-small); color: var(--ink-2); }
+  .studio-fluid-knob-label code { color: var(--accent-text); }
+  .studio-fluid-knob-val {
+    font-family: var(--font-mono); font-size: var(--text-body); font-weight: var(--fw-semibold);
+    color: var(--ink); font-variant-numeric: tabular-nums;
+  }
+  .studio-fluid-range { width: 100%; }
+  .studio-fluid-knob-help {
+    font-family: var(--font-sans); font-size: var(--text-small); line-height: var(--leading-body);
+    color: var(--muted); margin: 0;
+  }
+  .studio-fluid-reset {
+    align-self: flex-start; font-family: var(--font-mono); font-size: var(--text-small);
+    background: var(--paper-2); color: var(--ink); padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-xs); cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .studio-fluid-reset:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent-text); }
+  .studio-fluid-reset:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+
+  .studio-fluid-preview { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+  .studio-fluid-preview-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap;
+  }
+  .studio-fluid-preview-head .studio-h4 { margin: 0; }
+  .studio-fluid-frame {
+    display: flex; flex-direction: column; gap: var(--space-2);
+    border: 1px dashed var(--hairline-strong); border-radius: var(--radius-md);
+    background: var(--paper-2); padding: var(--space-4);
+    resize: horizontal; overflow: auto; min-width: 240px; max-width: 100%;
+  }
+  .studio-fluid-spec {
+    display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) 4.5rem;
+    align-items: center; gap: var(--space-3); min-width: 0;
+  }
+  .studio-fluid-spec-name {
+    font-family: var(--font-mono); font-size: var(--text-small); color: var(--ink-2);
+  }
+  .studio-fluid-spec-bar {
+    height: var(--space-3); border-radius: var(--radius-pill);
+    background: var(--accent); min-width: 2px;
+    transition: width var(--dur-fast) var(--ease);
+  }
+  .studio-fluid-spec-px {
+    font-family: var(--font-mono); font-size: var(--text-small); color: var(--muted);
+    text-align: right; font-variant-numeric: tabular-nums;
   }
 </style>
