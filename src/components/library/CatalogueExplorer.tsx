@@ -233,6 +233,100 @@ export default function CatalogueExplorer({
     });
   };
 
+  // Garde-fou de séquencement : la sync URL (replaceState) ne doit pas s'exécuter
+  // AVANT que l'init au montage ait lu la querystring, sinon le premier render
+  // (état par défaut) écraserait les params entrants avant qu'on les lise.
+  const hydratedRef = useRef(false);
+
+  // ── Pré-filtrage depuis la querystring (T3) ──────────────────────────────
+  // Au montage client, on lit window.location.search pour que les chips des fiches
+  // détail (/library?intent=…, ?pageRole=…, ?{facetKind}=…, ?family=…, ?category=…,
+  // ?status=…, ?tag=…) ouvrent l'explorer déjà filtré. On ne garde que les valeurs
+  // réellement présentes dans les options (anti-bruit / anti-état invalide).
+  // Effet à montage unique (premier render client) : ne pas lutter contre les
+  // actions utilisateur ni contre la sync URL (replaceState) faite ensuite.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    if ([...params.keys()].length === 0) {
+      hydratedRef.current = true;
+      return;
+    }
+
+    // Ensembles de valeurs valides par genre de facette (depuis facetGroups).
+    const validByKind = new Map<FacetKind, Set<string>>(
+      facetGroups.map((g) => [g.kind, new Set(g.options.map((o) => o.value))]),
+    );
+
+    let didFilterFacets = false;
+    const nextFacetSel: Record<FacetKind, Set<string>> = {
+      effects: new Set(),
+      interactions: new Set(),
+      elements: new Set(),
+      layoutFacets: new Set(),
+      intent: new Set(),
+      pageRole: new Set(),
+    };
+    for (const kind of FACET_KINDS) {
+      const raw = params.get(kind);
+      if (!raw) continue;
+      const valid = validByKind.get(kind);
+      for (const v of raw.split(',').map((s) => s.trim()).filter(Boolean)) {
+        if (!valid || valid.has(v)) {
+          nextFacetSel[kind].add(v);
+          didFilterFacets = true;
+        }
+      }
+    }
+    if (didFilterFacets) setFacetSel(nextFacetSel);
+
+    // Selects : on ne retient que des valeurs présentes dans les options fournies.
+    const familyParam = params.get('family');
+    if (familyParam && families.some((f) => f.value === familyParam)) setFamily(familyParam);
+
+    const categoryParam = params.get('category');
+    if (categoryParam && categories.some((c) => c.value === categoryParam)) setCategory(categoryParam);
+
+    const statusParam = params.get('status');
+    if (statusParam && STATUS_OPTIONS.some((s) => s.value === statusParam)) setStatus(statusParam);
+
+    // Tag : la recherche texte couvre déjà les tags (cf filtre `hay` ci-dessous),
+    // donc on injecte le tag dans `query`, cohérent avec le filtrage existant,
+    // sans facette dédiée à maintenir.
+    const tagParam = params.get('tag');
+    if (tagParam) setQuery(tagParam);
+
+    // Si des facettes ont été pré-sélectionnées par l'URL, ouvrir le panneau
+    // « Filtres avancés » pour que l'utilisateur voie pourquoi c'est filtré
+    // (sinon des filtres actifs resteraient cachés ; ne régresse pas 6b588e8).
+    if (didFilterFacets) setFacetsOpen(true);
+
+    hydratedRef.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // ── Sync URL au changement de filtres (liens partageables) ────────────────
+  // history.replaceState (PAS de navigation Astro / pas de full reload) reflète
+  // l'état des filtres actifs dans la querystring : copier l'URL = partager la vue.
+  // On n'écrit qu'après l'hydratation initiale (hydratedRef) pour ne pas écraser
+  // les params entrants. Les facettes multi-valeurs sont jointes par virgule, en
+  // miroir exact du parseur d'init ci-dessus (même contrat ?kind=a,b).
+  useEffect(() => {
+    if (typeof window === 'undefined' || !hydratedRef.current) return;
+    const params = new URLSearchParams();
+    for (const kind of FACET_KINDS) {
+      const sel = facetSel[kind];
+      if (sel.size > 0) params.set(kind, [...sel].join(','));
+    }
+    if (family !== 'all') params.set('family', family);
+    if (category !== 'all') params.set('category', category);
+    if (status !== 'all') params.set('status', status);
+    if (query.trim() !== '') params.set('tag', query.trim());
+    const qs = params.toString();
+    const next = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
+    window.history.replaceState(window.history.state, '', next);
+  }, [facetSel, family, category, status, query]);
+
   const facetSelCount = useMemo(
     () => FACET_KINDS.reduce((acc, k) => acc + facetSel[k].size, 0),
     [facetSel],

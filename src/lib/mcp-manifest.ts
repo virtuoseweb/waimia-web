@@ -21,6 +21,7 @@ import {
   listSections,
   listCategories,
   listFacetCounts,
+  listSimilarSections,
   type SectionListItem,
 } from './section-registry';
 import {
@@ -107,6 +108,35 @@ export interface SectionDetail {
   slots: SectionSlot[]; // CONTRAT DE CONTENU (C2-A) : coeur du tier 2
   presets: { id: string; label: string }[];
   presetCount: number;
+  /**
+   * Sections SIMILAIRES (scoring registry, source unique → 0 drift tier-1/tier-2).
+   * `reason` = courte string lisible des axes dominants de la proximité (ex. "intent+family").
+   */
+  related: { type: SectionType; score: number; reason: string }[];
+}
+
+/** Axes de proximité, du plus au moins pondérant (cf section-registry §Scoring). */
+const RELATED_AXES: { key: keyof Pick<SectionListItem,
+  'intent' | 'pageRole' | 'family' | 'elements' | 'layoutFacets' | 'tags' | 'effects' | 'categorySlug'>;
+  label: string }[] = [
+  { key: 'intent', label: 'intent' },
+  { key: 'pageRole', label: 'pageRole' },
+  { key: 'family', label: 'family' },
+  { key: 'elements', label: 'elements' },
+  { key: 'layoutFacets', label: 'layout' },
+  { key: 'tags', label: 'tags' },
+  { key: 'effects', label: 'effects' },
+  { key: 'categorySlug', label: 'category' },
+];
+
+/** Construit une `reason` lisible : axes partagés entre deux sections, ordre de poids, cap 2. */
+function relatedReason(base: SectionListItem, peer: SectionListItem): string {
+  const shares = (a: unknown, b: unknown): boolean => {
+    if (Array.isArray(a) && Array.isArray(b)) return a.some((v) => b.includes(v));
+    return a === b;
+  };
+  const axes = RELATED_AXES.filter((ax) => shares(base[ax.key], peer[ax.key])).map((ax) => ax.label);
+  return axes.slice(0, 2).join('+') || 'related';
 }
 
 const GENERATED_FROM =
@@ -236,6 +266,11 @@ export function buildSectionDetail(type: SectionType): SectionDetail | null {
 
   const labelBySlug = categoryLabelMap();
   const presets = listPresets(type);
+  const related = listSimilarSections(type).map(({ section: peer, score }) => ({
+    type: peer.type,
+    score: Math.round(score * 1000) / 1000,
+    reason: relatedReason(section, peer),
+  }));
 
   const detail: SectionDetail = {
     version: MANIFEST_VERSION,
@@ -258,6 +293,7 @@ export function buildSectionDetail(type: SectionType): SectionDetail | null {
     slots: getSlots(type),
     presets: presets.map((p) => ({ id: p.id, label: p.label })),
     presetCount: presets.length,
+    related,
   };
   if (section.contentSource) detail.contentSource = section.contentSource;
   return detail;

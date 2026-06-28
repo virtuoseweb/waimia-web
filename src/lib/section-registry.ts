@@ -4011,3 +4011,125 @@ export function listFacetCounts(): Record<FacetKind, FacetCount[]> {
     layoutFacets: toSorted(acc.layoutFacets),
   };
 }
+
+// ───────────── Sections liées (Wave preview/détail · helpers purs, build-time) ─────────────
+//
+// Couche data consommée par la fiche détail `/library/[type]` ET le manifest MCP tier 2
+// (mcp-manifest.ts → SectionDetail.related). Source de vérité unique = le registry → 0 drift.
+// Tout est dérivé de listSections()/getSectionMeta()/listCategories() (0 nouvelle dépendance).
+
+/** Une section similaire avec son score de proximité (déterministe, SSG). */
+export interface ScoredSection {
+  section: SectionListItem;
+  score: number;
+}
+
+/** Fil d'Ariane d'un type : catégorie (slug + libellé), famille, type. */
+export interface SectionBreadcrumb {
+  categorySlug: string;
+  categoryLabel: string;
+  family: FamilyTag;
+  type: SectionType;
+}
+
+/** Map slug -> libellé court humain (subcategory), depuis listCategories(). */
+function categoryLabelBySlug(): Map<string, string> {
+  return new Map(listCategories().map((c) => [c.slug, c.label]));
+}
+
+/**
+ * Sections de la même FAMILLE que `type`, hors `type` lui-même. Triées par type
+ * pour un rendu déterministe (SSG). Vide si type inconnu.
+ */
+export function listFamilyPeers(type: SectionType): SectionListItem[] {
+  const meta = getSectionMeta(type);
+  if (!meta) return [];
+  return listSections()
+    .filter((s) => s.type !== type && s.family === meta.family)
+    .sort((a, b) => a.type.localeCompare(b.type));
+}
+
+/**
+ * Sections de la même CATÉGORIE (categorySlug) que `type`, hors `type` lui-même.
+ * Triées par type pour un rendu déterministe (SSG). Vide si type inconnu.
+ */
+export function listCategoryPeers(type: SectionType): SectionListItem[] {
+  const meta = getSectionMeta(type);
+  if (!meta) return [];
+  return listSections()
+    .filter((s) => s.type !== type && s.categorySlug === meta.categorySlug)
+    .sort((a, b) => a.type.localeCompare(b.type));
+}
+
+/** Indice de Jaccard |∩|/|∪| de deux listes vues comme ensembles. 0 si union vide. */
+function jaccard(a: readonly string[], b: readonly string[]): number {
+  const setA = new Set(a);
+  const setB = new Set(b);
+  if (setA.size === 0 && setB.size === 0) return 0;
+  let inter = 0;
+  for (const v of setA) if (setB.has(v)) inter += 1;
+  const union = setA.size + setB.size - inter;
+  return union === 0 ? 0 : inter / union;
+}
+
+/** Score de proximité entre deux sections (cf spec §Scoring). Pondérations exactes. */
+function similarityScore(a: SectionListItem, b: SectionListItem): number {
+  return (
+    3 * jaccard(a.intent, b.intent) +
+    2 * jaccard(a.pageRole, b.pageRole) +
+    1.5 * (a.family === b.family ? 1 : 0) +
+    1 * jaccard(a.elements, b.elements) +
+    1 * jaccard(a.layoutFacets, b.layoutFacets) +
+    0.8 * jaccard(a.tags, b.tags) +
+    0.5 * jaccard(a.effects, b.effects) +
+    0.5 * (a.categorySlug === b.categorySlug ? 1 : 0)
+  );
+}
+
+/**
+ * Map memoïsée type -> liste complète des autres sections triées par score décroissant
+ * (puis type pour départager). Calculée UNE fois (build O(n²), n≈199, trivial en SSG).
+ */
+let _scoredMap: Map<SectionType, ScoredSection[]> | null = null;
+function scoredMap(): Map<SectionType, ScoredSection[]> {
+  if (_scoredMap) return _scoredMap;
+  const sections = listSections();
+  const map = new Map<SectionType, ScoredSection[]>();
+  for (const a of sections) {
+    const scored = sections
+      .filter((b) => b.type !== a.type)
+      .map((b) => ({ section: b, score: similarityScore(a, b) }))
+      .sort((x, y) => y.score - x.score || x.section.type.localeCompare(y.section.type));
+    map.set(a.type, scored);
+  }
+  _scoredMap = map;
+  return map;
+}
+
+/**
+ * Sections les plus SIMILAIRES à `type` (scoring spec §Scoring), self exclu, plus
+ * tout type listé dans `opts.exclude`. Tri décroissant par score. Défaut limit=6.
+ * Vide si type inconnu.
+ */
+export function listSimilarSections(
+  type: SectionType,
+  opts?: { limit?: number; exclude?: SectionType[] },
+): ScoredSection[] {
+  if (!getSectionMeta(type)) return [];
+  const limit = opts?.limit ?? 6;
+  const excluded = new Set(opts?.exclude ?? []);
+  const scored = scoredMap().get(type) ?? [];
+  return scored.filter((s) => !excluded.has(s.section.type)).slice(0, limit);
+}
+
+/** Fil d'Ariane d'un type : catégorie › famille › type. */
+export function getBreadcrumb(type: SectionType): SectionBreadcrumb {
+  const meta = getSectionMeta(type);
+  const categorySlug = meta?.categorySlug ?? '';
+  return {
+    categorySlug,
+    categoryLabel: categoryLabelBySlug().get(categorySlug) ?? meta?.subcategory ?? '',
+    family: meta?.family as FamilyTag,
+    type,
+  };
+}

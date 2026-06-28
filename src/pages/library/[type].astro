@@ -1,29 +1,45 @@
 ---
 export const prerender = true;
 
-// Page static · /library/[type] · CLONE adapté de components/[type].astro (U0, §11.2 docs/design-system/03).
+// Page static · /library/[type] · FICHE DÉTAIL CANONIQUE du catalogue DS (datasheet de composant).
 //
-// Fiche technique d'une section : grand aperçu live (iframe /preview/[type], cible INCHANGÉE) +
-// bloc « copier le code » + métadonnées. Une page par section.type du registry.
-// Pour U0 = clone fonctionnel : l'enrichissement variantes + toggle animation est une autre unité.
-// Seuls changements vs components/[type] :
-//   - DsLocalNav scope="library"
-//   - lien retour vers /library/[category] au lieu de /categories/[slug].
-// 0 nouveau token, 0 valeur en dur, 0 U+2014.
+// Parti pris « datasheet » (ordre vertical, pas de sticky) : fil d'Ariane mono cliquable, masthead
+// (eyebrow + h1 mono + ligne-thèse serif + status/usage + lede + tags cliquables), aperçu live
+// (VariantToggle), panneau « Comment l'utiliser » (identité sémantique intent/pageRole/contentMode +
+// facettes + contrat de slots = datasheet), déclinaisons (presets), sections liées (3 rails disjoints),
+// code (demo JSON + chemin MCP tier-2).
+//
+// Toute la donnée vient du registry (source de vérité unique) via les helpers T1 :
+//   getBreadcrumb · listFamilyPeers · listCategoryPeers · listSimilarSections.
+// 0 nouveau token DS (rule 60), 0 valeur en dur (tokens var(--*) uniquement, sauf exceptions
+// structurelles : 1px hairline, 1280px frame preview, breakpoint @media). 0 U+2014 (rule 58).
 //
 // NB collision de routes : /library/[category] et /library/[type] coexistent au même niveau ;
-// leurs getStaticPaths émettent des paths DISJOINTS (slugs de catégories en '*-sections'/'timelines'
-// vs types de section), donc aucun path n'est généré deux fois (cf astro prerender-route-conflict).
+// leurs getStaticPaths émettent des paths DISJOINTS (slugs de catégories vs types de section).
 
 import Base from '../../layouts/Base.astro';
 import DsLocalNav from '../../components/library/DsLocalNav.astro';
 import CopyCode from '../../components/library/CopyCode.tsx';
 import VariantToggle from '../../components/library/VariantToggle.tsx';
+import FacetChip from '../../components/library/FacetChip.astro';
+import SectionCard from '../../components/library/SectionCard.astro';
 import {
   listSections,
   listCategories,
+  listFamilyPeers,
+  listCategoryPeers,
+  listSimilarSections,
+  getBreadcrumb,
   type SectionListItem,
 } from '../../lib/section-registry';
+import {
+  INTENT_LABELS_FR,
+  PAGE_ROLE_LABELS_FR,
+  CONTENT_MODE_LABELS_FR,
+  FACET_LABELS_FR,
+  type FacetKind,
+} from '../../lib/section-facets';
+import { getSlots, type SectionSlot } from '../../lib/section-slots';
 import { SECTION_DEMOS } from '../../lib/section-demos';
 import { getUsage, getConsumers } from '../../lib/library-manifest';
 import { listPresets } from '../../lib/section-presets';
@@ -41,20 +57,61 @@ interface Props {
 
 const { section } = Astro.props;
 
-const categoryLabel =
-  listCategories().find((c) => c.slug === section.categorySlug)?.label ?? section.subcategory;
+// Map slug -> libellé court humain (subcategory), partagée par le fil d'Ariane et les rails
+// (les rails « Similaires » peuvent traverser les catégories, d'où la résolution par map).
+const categoryLabelBySlug = new Map(listCategories().map((c) => [c.slug, c.label]));
+const labelForCategory = (slug: string, fallback: string): string =>
+  categoryLabelBySlug.get(slug) ?? fallback;
+
+const categoryLabel = labelForCategory(section.categorySlug, section.subcategory);
+
+// Fil d'Ariane (T1) : Catalogue › catégorie › famille › type.
+const crumb = getBreadcrumb(section.type);
+
+// Ligne-thèse serif : « ce que fait la section » à partir des libellés d'intention.
+const thesis = section.intent.map((t) => INTENT_LABELS_FR[t]).join(', ');
 
 // Étiquetage catalogue (docs/40 §3) : usage 'site' | 'library'.
 const usage = getUsage(section.type);
 const consumerCount = getConsumers(section.type).length;
 
+// Datasheet : contrat de slots dérivé du Zod (présentation/contenu, type, requis, bilingue, bornes/enum).
+const slots: SectionSlot[] = getSlots(section.type);
+
+// Facettes ORTHOGONALES filtrées (mêmes règles que SectionCard : on retire les valeurs vides).
+type FacetGroup = { kind: FacetKind; label: string; tags: string[] };
+const facetGroups: FacetGroup[] = [
+  { kind: 'effects', label: 'Effets', tags: section.effects.filter((t) => t !== 'static') },
+  { kind: 'interactions', label: 'Interactions', tags: section.interactions.filter((t) => t !== 'none') },
+  { kind: 'elements', label: 'Éléments', tags: section.elements },
+  { kind: 'layoutFacets', label: 'Mise en page', tags: section.layoutFacets },
+].filter((g) => g.tags.length > 0);
+const facetLabel = (kind: FacetKind, tag: string): string =>
+  (FACET_LABELS_FR[kind] as Record<string, string>)[tag] ?? tag;
+
 // Code copiable : l'entrée telle qu'on la placerait dans le sections[] d'une page W6.
 const demo = SECTION_DEMOS[section.type];
 const sectionEntry = JSON.stringify(demo, null, 2);
 
-// Déclinaisons (presets) de cette variante : combinaisons nommées « layout × palette × densité »
-// (taxonomie docs/45 niveau 4). Prévisualisées via /preview/[type]/[preset].
+// Chemin machine tier-2 (MCP / agent) : détail JSON de la section.
+const mcpPath = `/library/section/${section.type}.json`;
+
+// Déclinaisons (presets).
 const presets = listPresets(section.type);
+
+// Sections liées : 3 rails DISJOINTS, chacun capé à 6.
+const familyPeers = listFamilyPeers(section.type).slice(0, 6);
+const categoryPeers = listCategoryPeers(section.type).slice(0, 6);
+const similarPeers = listSimilarSections(section.type, {
+  limit: 6,
+  exclude: [...familyPeers.map((s) => s.type), ...categoryPeers.map((s) => s.type)],
+}).map((r) => r.section);
+
+const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = [
+  { id: 'family', label: 'Même famille', peers: familyPeers },
+  { id: 'category', label: 'Même catégorie', peers: categoryPeers },
+  { id: 'similar', label: 'Similaires', peers: similarPeers },
+].filter((rail) => rail.peers.length > 0);
 ---
 
 <Base
@@ -66,11 +123,23 @@ const presets = listPresets(section.type);
   <article class="component-detail">
     <div class="wrap-wide">
       <DsLocalNav active="catalogue" scope="library" note="Ici : la fiche technique d'une section. Aperçu en rendu isolé + données à copier dans sections[]." />
-      <a class="component-back" href={`/library/${section.categorySlug}`}>
-        ← {categoryLabel}
-      </a>
+
+      <nav class="component-crumb" aria-label="Fil d'Ariane">
+        <a class="component-crumb-link" href="/library#catalogue">Catalogue</a>
+        <span class="component-crumb-sep" aria-hidden="true">/</span>
+        <a class="component-crumb-link" href={`/library/${crumb.categorySlug}`}>{categoryLabel}</a>
+        {crumb.family && (
+          <>
+            <span class="component-crumb-sep" aria-hidden="true">/</span>
+            <a class="component-crumb-link" href={`/library/family/${crumb.family}`}>{crumb.family}</a>
+          </>
+        )}
+        <span class="component-crumb-sep" aria-hidden="true">/</span>
+        <span class="component-crumb-current" aria-current="page">{section.type}</span>
+      </nav>
 
       <header class="component-head">
+        <p class="component-subcat">{section.subcategory}</p>
         <div class="component-head-top">
           <h1>{section.type}</h1>
           <span class={`component-status component-status--${section.status}`}>{section.status}</span>
@@ -80,16 +149,15 @@ const presets = listPresets(section.type);
             <span class="component-usage component-usage--library">Bibliothèque</span>
           )}
         </div>
-        <p class="component-subcat">{section.subcategory}</p>
+        {thesis && <p class="component-thesis">{thesis}</p>}
         <p class="component-lede">{section.description_fr}</p>
-        {section.family && (
-          <p class="component-family">
-            Famille : <a href={`/library/family/${section.family}`}>{section.family}</a>
-          </p>
+        {section.tags.length > 0 && (
+          <div class="component-tags" aria-label={`Tags ${section.type}`}>
+            {section.tags.map((tag) => (
+              <FacetChip href={`/library?tag=${encodeURIComponent(tag)}`} label={tag} />
+            ))}
+          </div>
         )}
-        <div class="component-tags" aria-label={`Tags ${section.type}`}>
-          {section.tags.map((tag) => <span>{tag}</span>)}
-        </div>
       </header>
 
       <section class="component-block" aria-label="Aperçu live">
@@ -99,6 +167,97 @@ const presets = listPresets(section.type);
           type={section.type}
           title={`Aperçu ${section.type}`}
         />
+      </section>
+
+      <section class="component-block" aria-label="Comment utiliser la section">
+        <h2 class="component-block-title">Comment l'utiliser</h2>
+
+        <div class="component-identity">
+          {section.intent.length > 0 && (
+            <div class="component-meta-group">
+              <p class="component-meta-label">Intention</p>
+              <div class="component-chip-row">
+                {section.intent.map((tag) => (
+                  <FacetChip href={`/library?intent=${tag}`} label={INTENT_LABELS_FR[tag]} tone="accent" />
+                ))}
+              </div>
+            </div>
+          )}
+          {section.pageRole.length > 0 && (
+            <div class="component-meta-group">
+              <p class="component-meta-label">Rôle de page</p>
+              <div class="component-chip-row">
+                {section.pageRole.map((tag) => (
+                  <FacetChip href={`/library?pageRole=${tag}`} label={PAGE_ROLE_LABELS_FR[tag]} />
+                ))}
+              </div>
+            </div>
+          )}
+          <div class="component-meta-group">
+            <p class="component-meta-label">Modèle de contenu</p>
+            <div class="component-chip-row">
+              <FacetChip href={`/library?contentMode=${section.contentMode}`} label={CONTENT_MODE_LABELS_FR[section.contentMode]} />
+            </div>
+            {section.contentSource && (
+              <p class="component-meta-note">Source partagée : <code>{section.contentSource}</code></p>
+            )}
+          </div>
+        </div>
+
+        {facetGroups.length > 0 && (
+          <div class="component-facets">
+            {facetGroups.map((group) => (
+              <div class="component-meta-group">
+                <p class="component-meta-label">{group.label}</p>
+                <div class="component-chip-row">
+                  {group.tags.map((tag) => (
+                    <FacetChip href={`/library?${group.kind}=${tag}`} label={facetLabel(group.kind, tag)} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div class="component-datasheet">
+          <p class="component-meta-label">Contrat de slots</p>
+          {slots.length > 0 ? (
+            <div class="component-datasheet-scroll">
+              <table class="component-slots">
+                <thead>
+                  <tr>
+                    <th scope="col">Champ</th>
+                    <th scope="col">Nature</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Requis</th>
+                    <th scope="col">Bilingue</th>
+                    <th scope="col">Bornes / valeurs</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {slots.map((slot) => (
+                    <tr>
+                      <td><code class="component-slot-field">{slot.field}</code></td>
+                      <td>{slot.kind === 'content' ? 'Contenu' : 'Présentation'}</td>
+                      <td><code class="component-slot-type">{slot.type}</code></td>
+                      <td>{slot.required ? 'Oui' : 'Non'}</td>
+                      <td>{slot.bilingual ? 'fr / en' : '·'}</td>
+                      <td class="component-slot-bounds">
+                        {slot.enumValues && slot.enumValues.length > 0
+                          ? slot.enumValues.join(' · ')
+                          : (slot.min !== undefined || slot.max !== undefined)
+                            ? `${slot.min ?? 0}..${slot.max ?? '∞'}`
+                            : '·'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p class="component-meta-note">Pas de contrat de slots dérivé.</p>
+          )}
+        </div>
       </section>
 
       {presets.length > 0 && (
@@ -121,6 +280,36 @@ const presets = listPresets(section.type);
         </section>
       )}
 
+      {relatedRails.length > 0 && (
+        <section class="component-block" aria-label="Sections liées">
+          <h2 class="component-block-title">Sections liées</h2>
+          {relatedRails.map((rail) => (
+            <div class="component-rail">
+              <p class="component-rail-title">{rail.label}</p>
+              <div class="component-rail-grid">
+                {rail.peers.map((peer) => (
+                  <SectionCard
+                    type={peer.type}
+                    family={peer.family}
+                    categoryLabel={labelForCategory(peer.categorySlug, peer.subcategory)}
+                    status={peer.status}
+                    effects={peer.effects}
+                    interactions={peer.interactions}
+                    elements={peer.elements}
+                    layoutFacets={peer.layoutFacets}
+                    presetCount={listPresets(peer.type).length}
+                    href={`/library/${peer.type}`}
+                    previewSlug={peer.type}
+                    maxHeight={220}
+                    description={peer.description_fr}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
       <section class="component-block" aria-label="Code de la section">
         <h2 class="component-block-title">Code</h2>
         <CopyCode
@@ -128,10 +317,17 @@ const presets = listPresets(section.type);
           code={sectionEntry}
           label="Données de la section (à placer dans sections[])"
         />
+        <div class="component-mcp">
+          <p class="component-meta-label">Pour un agent / MCP</p>
+          <p class="component-meta-note">Détail machine de cette section (intention, rôle, contrat de slots, sections liées).</p>
+          <p class="component-mcp-path"><code>{mcpPath}</code></p>
+          <CopyCode client:visible code={mcpPath} label="Chemin du détail machine" />
+        </div>
       </section>
     </div>
   </article>
 
+  <script>import '../../components/library/lazy-preview.ts';</script>
   <script>import '../../scripts/preview-frame.ts';</script>
 </Base>
 
@@ -143,18 +339,40 @@ const presets = listPresets(section.type);
     padding-left: var(--space-6);
     padding-right: var(--space-6);
   }
-  .component-back {
-    display: inline-flex;
-    width: fit-content;
-    margin-bottom: 28px;
+
+  /* ── Fil d'Ariane mono ── */
+  .component-crumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-crumb-link {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .component-crumb-link:hover { color: var(--accent-text); }
+  .component-crumb-sep {
+    color: var(--hairline-strong);
+  }
+  .component-crumb-current {
+    color: var(--ink);
+  }
+
+  /* ── Masthead ── */
+  .component-head {
+    margin-bottom: var(--space-9);
+  }
+  .component-subcat {
+    margin: 0 0 var(--space-4);
     color: var(--muted);
     font-family: var(--font-mono);
     font-size: var(--text-small);
-    text-decoration: none;
-  }
-  .component-back:hover { color: var(--accent-text); }
-  .component-head {
-    margin-bottom: var(--space-9);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
   }
   .component-head-top {
     display: flex;
@@ -179,7 +397,7 @@ const presets = listPresets(section.type);
     font-family: var(--font-mono);
     font-size: var(--text-small);
     line-height: 1;
-    padding: 6px var(--space-2);
+    padding: var(--space-1) var(--space-2);
     text-transform: uppercase;
     white-space: nowrap;
   }
@@ -202,9 +420,9 @@ const presets = listPresets(section.type);
     font-family: var(--font-mono);
     font-size: var(--text-small);
     line-height: 1;
-    padding: 6px var(--space-2);
+    padding: var(--space-1) var(--space-2);
     white-space: nowrap;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--tracking-mono-tight);
   }
   .component-usage--site {
     border-color: var(--accent-text);
@@ -214,67 +432,136 @@ const presets = listPresets(section.type);
     border-color: var(--hairline-strong);
     color: var(--muted);
   }
-  .component-subcat {
-    margin: 18px 0 0;
-    color: var(--muted);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  .component-thesis {
+    max-width: 720px;
+    margin: var(--space-5) 0 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
   }
   .component-lede {
     max-width: 680px;
     margin: var(--space-4) 0 0;
     color: var(--ink-2);
-    font-size: var(--text-h3);
-    line-height: 1.55;
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
   }
   .component-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 22px;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
   }
-  .component-tags span {
-    display: inline-flex;
-    align-items: center;
-    width: fit-content;
-    background: var(--paper-2);
-    border: 1px solid var(--hairline);
-    color: var(--muted);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    line-height: 1;
-    padding: 6px 7px;
-  }
+
+  /* ── Blocs ── */
   .component-block {
     margin-top: var(--space-9);
   }
   .component-block-title {
-    margin: 0 0 18px;
+    margin: 0 0 var(--space-5);
     color: var(--muted);
     font-family: var(--font-mono);
     font-size: var(--text-small);
     font-weight: var(--fw-regular);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
   }
-  .component-family {
-    margin: var(--space-4) 0 0;
+
+  /* ── Panneau « Comment l'utiliser » ── */
+  .component-meta-label {
+    margin: 0 0 var(--space-3);
+    color: var(--muted);
     font-family: var(--font-mono);
     font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+  .component-meta-note {
+    margin: var(--space-2) 0 0;
     color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
   }
-  .component-family a {
-    color: var(--accent-text);
-    text-decoration: none;
-    text-transform: capitalize;
+  .component-meta-note code {
+    font-family: var(--font-mono);
+    color: var(--ink-2);
   }
-  .component-family a:hover { text-decoration: underline; }
+  .component-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .component-identity {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+  .component-meta-group {
+    min-width: 0;
+  }
+  .component-facets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
 
-  /* L'aperçu (iframe + toggles animation/dark) est rendu par l'island
-     VariantToggle.tsx ; il porte son propre conteneur .vt-preview[data-preview-frame]
-     mis à l'échelle par src/scripts/preview-frame.ts. */
+  /* ── Datasheet (contrat de slots) ── */
+  .component-datasheet {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+  .component-datasheet-scroll {
+    overflow-x: auto;
+  }
+  .component-slots {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+  }
+  .component-slots th {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline-strong);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .component-slots td {
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  .component-slots tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .component-slot-field {
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+  }
+  .component-slot-type {
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-slot-bounds {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+  }
 
   /* ── Déclinaisons (presets) ── */
   .component-presets-lede {
@@ -283,7 +570,7 @@ const presets = listPresets(section.type);
     color: var(--ink-2);
     font-family: var(--font-sans);
     font-size: var(--text-small);
-    line-height: 1.55;
+    line-height: var(--leading-relaxed);
   }
   .component-presets {
     display: grid;
@@ -328,10 +615,50 @@ const presets = listPresets(section.type);
     font-size: var(--text-micro);
   }
 
+  /* ── Sections liées (3 rails) ── */
+  .component-rail {
+    margin-top: var(--space-6);
+  }
+  .component-rail:first-child {
+    margin-top: 0;
+  }
+  .component-rail-title {
+    margin: 0 0 var(--space-4);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+  .component-rail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-5);
+  }
+
+  /* ── Code / MCP ── */
+  .component-mcp {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+  .component-mcp-path {
+    margin: var(--space-3) 0;
+  }
+  .component-mcp-path code {
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+
   @media (max-width: 720px) {
     .component-detail .wrap-wide {
       padding-left: 20px;
       padding-right: 20px;
+    }
+    .component-identity,
+    .component-facets {
+      gap: var(--space-5);
     }
   }
 </style>

@@ -100,6 +100,13 @@ export default defineConfig({
     '/agence/design-system': '/library',
     '/agence/ds-studio': '/library/studio',
     '/agence/hero-lab': '/library/hero-lab',
+    // 2026-06-28 · Cutover fiche detail catalogue vers la page canonique unique
+    // /library/[type] (blueprint tasks/wave-preview-redesign-spec.md, vague #60).
+    // Les pages doublons /components/[type].astro et /categories/[slug].astro sont
+    // supprimees ; ces redirects dynamiques preservent les URLs internes/indexees
+    // (noindex). Astro substitue le param du source dans la destination (doc redirects).
+    '/components/[type]': '/library/[type]',
+    '/categories/[category]': '/library/[category]',
     // V7-FOLD 2026-06-22 · refonte Phase 1 : la page service /tunnel-conversion-intelligent
     // (prod-live, indexée) est renommée /landing-page-scoring et absorbe le scoring.
     // 301 obligatoire pour préserver le ranking de l'ancienne URL.

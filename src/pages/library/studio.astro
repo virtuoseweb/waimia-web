@@ -776,14 +776,14 @@ const moleculesRendered = 12;
                   </summary>
                   <ul class="studio-cat-types">
                     <li class="studio-cat-all">
-                      <a href={`/categories/${cat.slug}`}>Ouvrir la catégorie « {cat.label} » →</a>
+                      <a href={`/library/${cat.slug}`}>Ouvrir la catégorie « {cat.label} » →</a>
                     </li>
                     {cat.sectionTypes.map((type) => (
                       <li class="studio-cat-type">
                         <button type="button" class="studio-cat-type-btn" data-catalog-type={type}>{type}</button>
                         <span class="studio-cat-links">
                           <a href={`/preview/${type}`} title={`Rendu isolé de ${type}`}>preview</a>
-                          <a href={`/components/${type}`} title={`Fiche technique de ${type}`}>fiche</a>
+                          <a href={`/library/${type}`} title={`Fiche technique de ${type}`}>fiche</a>
                         </span>
                       </li>
                     ))}
@@ -795,7 +795,7 @@ const moleculesRendered = 12;
               <div class="studio-catalog-side-head">
                 <code id="catalog-current">{catalogDefaultType}</code>
                 <span class="studio-catalog-side-links">
-                  <a id="catalog-open-fiche" href={`/components/${catalogDefaultType}`}>fiche →</a>
+                  <a id="catalog-open-fiche" href={`/library/${catalogDefaultType}`}>fiche →</a>
                   <a id="catalog-open-preview" href={`/preview/${catalogDefaultType}`}>plein écran →</a>
                 </span>
               </div>
