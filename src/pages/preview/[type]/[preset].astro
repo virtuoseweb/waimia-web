@@ -10,7 +10,7 @@ import '../../../styles/scroll-reveal.css';
 import { SECTION_REGISTRY } from '../../../lib/section-registry';
 import { SECTION_DEMOS } from '../../../lib/section-demos';
 import { SECTION_PRESETS } from '../../../lib/section-presets';
-import { variantsFor, colorVariantsFor } from '../../../lib/section-variants';
+import { variantsFor, colorVariantsFor, coverageVariantsFor } from '../../../lib/section-variants';
 import { SECTIONS } from '../../../lib/section-registry';
 import type { SectionType } from '../../../schemas/sections';
 
@@ -25,11 +25,15 @@ export function getStaticPaths() {
     const manual = SECTION_PRESETS[type] ?? [];
     const generated = variantsFor(type);
     const witnessColors = type === COLOR_WITNESS ? colorVariantsFor(type) : [];
+    // Couverture DIVERSE de l'espace d'axes complet : témoin = feature-grid (SYS v2-E).
+    // Chaque valeur de chaque axe apparaît ≥ 1 ; le catalogue est riche sans pré-rendre
+    // les milliards de combinaisons (cf combinationCount).
+    const coverage = type === COLOR_WITNESS ? coverageVariantsFor(type) : [];
 
     // Dedup par id : un preset manuel l'emporte sur une variante générée de même id.
     const seen = new Set<string>();
     const merged: Array<{ id: string; label: string; props: Record<string, unknown> }> = [];
-    for (const entry of [...manual, ...generated, ...witnessColors]) {
+    for (const entry of [...manual, ...generated, ...witnessColors, ...coverage]) {
       if (seen.has(entry.id)) continue;
       seen.add(entry.id);
       merged.push({ id: entry.id, label: entry.label, props: entry.props });

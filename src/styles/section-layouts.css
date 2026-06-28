@@ -1106,3 +1106,190 @@
   [data-text-flow='vertical-lr'],
   [data-text-flow='sideways'] { writing-mode: horizontal-tb; text-orientation: mixed; }
 }
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗
+   ║  COUCHE COMPOSITION (SYS v2-E) — axes génériques additifs, inertes sans   ║
+   ║  data-attr. Réutilisables par TOUTE famille « collection » (et au-delà).  ║
+   ║  Démultiplient l'espace au-delà de layout+couleur : en-tête (alignement + ║
+   ║  richesse), ligne d'intro au-dessus de la grille, séparateurs de grille,  ║
+   ║  carte à fond image (scrim + contraste auto), fond de section image/      ║
+   ║  gradient, distribution de couleur entre cartes. 100 % tokens DS ; toute  ║
+   ║  URL image vient d'une var inline posée par le composant (--sec-bg-image /║
+   ║  --sec-card-image), JAMAIS en dur dans ce CSS. 0 nouveau token. 0 U+2014. ║
+   ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+/* ════════════════════════════════════════════════════════════════════════════
+   EN-TÊTE — alignement générique du bloc d'en-tête de section.
+   Cible : tout conteneur portant data-header-align (le composant le pose sur son
+   header). center → centrage texte + centrage de la mesure des enfants directs.
+   ════════════════════════════════════════════════════════════════════════════ */
+[data-header-align='left']   { text-align: start; }
+[data-header-align='center'] { text-align: center; }
+[data-header-align='center'] > * { margin-inline: auto; }
+[data-header-align='right']  { text-align: end; }
+[data-header-align='right']  > * { margin-inline-start: auto; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   LIGNE D'INTRO — .sec-intro, posée AU-DESSUS de la grille par le composant.
+   - desc-media-split : desc à gauche + média (image placeholder) à droite.
+   - lede-aside       : chapô (2fr) + points/aparté (1fr).
+   - lede-centered    : chapô centré, mesure de lecture bornée.
+   Responsive : empile sous 768px. Image via --sec-intro-image inline (sinon vide).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-intro { margin-bottom: var(--space-9); }
+.sec-intro[data-intro-row='desc-media-split'] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: center;
+}
+.sec-intro[data-intro-row='lede-aside'] {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+.sec-intro[data-intro-row='lede-centered'] {
+  max-width: var(--wrap-read);
+  margin-inline: auto;
+  text-align: center;
+}
+/* Le cadre média de la ligne d'intro : image en background (var inline), ratio borné. */
+.sec-intro__media {
+  background-image: var(--sec-intro-image);
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .sec-intro[data-intro-row='desc-media-split'],
+  .sec-intro[data-intro-row='lede-aside'] { grid-template-columns: 1fr; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   SÉPARATEURS DE GRILLE — data-dividers sur .sec-grid (opt-in explicite).
+   column-rules : filets entre colonnes (bordure gauche, sauf 1ʳᵉ de rangée).
+   row-rules    : filets entre lignes (bordure haute par cellule).
+   grid-lines   : quadrillage complet (les deux). Filets = --hairline.
+   N'altère PAS le mode hairline par défaut de feature-grid (qui n'a pas data-dividers).
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid[data-dividers='row-rules'] > .sec-item,
+.sec-grid[data-dividers='grid-lines'] > .sec-item {
+  border-top: 1px solid var(--hairline);
+}
+.sec-grid[data-dividers='column-rules'] > .sec-item,
+.sec-grid[data-dividers='grid-lines'] > .sec-item {
+  border-left: 1px solid var(--hairline);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   ALIGNEMENT INTRA-CARTE — data-card-align sur .sec-grid → toutes les cartes.
+   left (défaut) | center. Complète cell-x (L7) au niveau composition.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid[data-card-align='left']   > .sec-item { text-align: start; align-items: flex-start; }
+.sec-grid[data-card-align='center'] > .sec-item { text-align: center; align-items: center; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   CARTE À FOND IMAGE — data-card-media='image-bg' sur .sec-item.
+   L'image vient d'une var inline (--sec-card-image) posée par le composant ; un
+   scrim sombre tokenisé garantit la lisibilité, le texte passe en clair (réplique
+   l'idiome de contraste de la couche 10bis). 0 URL en dur. Hauteur mini bornée.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-item[data-card-media='image-bg'] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  min-height: var(--space-12);
+  background-image: var(--sec-card-image);
+  background-size: cover;
+  background-position: center;
+  /* Contraste auto : texte clair + remap des rôles (comme [data-cell-bg='ink']). */
+  color: var(--paper);
+  --muted: rgba(var(--paper-rgb), 0.74);
+  --hairline: rgba(var(--paper-rgb), 0.14);
+  --hairline-strong: rgba(var(--paper-rgb), 0.28);
+  --accent-text: var(--accent-sur-sombre);
+}
+/* Scrim : dégradé sombre tokenisé, sous le contenu (z-index), au-dessus de l'image. */
+.sec-item[data-card-media='image-bg']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(var(--ink-rgb), 0.82) 0%,
+    rgba(var(--ink-rgb), 0.52) 45%,
+    rgba(var(--ink-rgb), 0.32) 100%
+  );
+}
+/* Le contenu textuel d'une carte image-bg hérite de la couleur claire (le composant
+   peut avoir des couleurs hardcodées : on les neutralise vers inherit). */
+.sec-item[data-card-media='image-bg'] :is(h2, h3, h4, strong, p) { color: inherit; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   FOND DE SECTION — data-bg-source sur la racine de section.
+   image    : image placeholder (var inline --sec-bg-image) + scrim + texte clair.
+   gradient : gradient preset tokenisé (paper→paper-2), pas de gradient libre.
+   color (défaut) : inerte (le data-bg existant gère la couleur).
+   ════════════════════════════════════════════════════════════════════════════ */
+[data-bg-source='image'] {
+  position: relative;
+  isolation: isolate;
+  background-image: var(--sec-bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--paper);
+}
+[data-bg-source='image']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--ink-rgb), 0.74) 0%,
+    rgba(var(--ink-rgb), 0.62) 100%
+  );
+}
+/* Texte de section sur fond image → clair (titres + paragraphes d'en-tête/intro). */
+[data-bg-source='image'] :is(.sec-base-h2, .feature-grid__header :is(h2, h3, p), .sec-intro :is(h2, h3, p)) {
+  color: var(--paper);
+}
+/* gradient preset : doux, dans le DS (paper → paper-2). Inerte si data-bg gère déjà. */
+[data-bg-source='gradient'] {
+  background-image: linear-gradient(to bottom, var(--paper), var(--paper-2));
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DISTRIBUTION DE COULEUR — data-color-distribution sur .sec-grid.
+   featured-first : la 1ʳᵉ carte prend l'accent (vedette), le reste neutre.
+   one-accent     : une seule carte accent (la 2ᵉ, point focal sans dominer).
+   alternating    : alternance ink/paper-2 (cycle visuel) ; uniform = inerte.
+   Réplique le contraste auto de la couche 10bis (texte clair sur accent/ink) sans
+   nouveau token. N'agit QUE si la carte n'a pas déjà son propre data-cell-bg.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-grid[data-color-distribution='featured-first'] > .sec-item:first-child:not([data-cell-bg]),
+.sec-grid[data-color-distribution='one-accent'] > .sec-item:nth-child(2):not([data-cell-bg]) {
+  background: var(--accent);
+  color: var(--paper);
+  --muted: rgba(var(--paper-rgb), 0.74);
+  --accent-text: var(--paper);
+}
+.sec-grid[data-color-distribution='featured-first'] > .sec-item:first-child:not([data-cell-bg]) :is(h2, h3, h4, strong, p),
+.sec-grid[data-color-distribution='one-accent'] > .sec-item:nth-child(2):not([data-cell-bg]) :is(h2, h3, h4, strong, p) {
+  color: inherit;
+}
+.sec-grid[data-color-distribution='alternating'] > .sec-item:nth-child(even):not([data-cell-bg]) {
+  background: var(--ink);
+  color: var(--paper);
+  --muted: rgba(var(--paper-rgb), 0.74);
+  --hairline: rgba(var(--paper-rgb), 0.14);
+  --accent-text: var(--accent-sur-sombre);
+}
+.sec-grid[data-color-distribution='alternating'] > .sec-item:nth-child(even):not([data-cell-bg]) :is(h2, h3, h4, strong, p) {
+  color: inherit;
+}

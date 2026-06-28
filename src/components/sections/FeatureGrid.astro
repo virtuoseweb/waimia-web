@@ -76,6 +76,43 @@ const dgBodyJustify = dgPl?.body?.justify;
 const fgCellCycle: string[] = fg?.cellCycle
   ? String(fg.cellCycle).split(',').filter(Boolean)
   : [];
+
+// ── COMPOSITION (SYS v2-E) · axes de mise en composition. Tous optionnels ; défaut absent
+//    = rendu actuel (rétro-compat stricte). Le moteur (section-layouts.css) porte les règles
+//    génériques ; ici on RÉSOUT ce que chaque axe doit faire rendre.
+const fgHeaderAlign = fg?.headerAlign; // data-header-align (left/center/right)
+const fgHeaderKind = fg?.headerKind ?? 'eyebrow-title'; // défaut = kicker + titre (rendu actuel)
+const fgIntroRow = fg?.introRow; // ligne au-dessus de la grille
+const fgDividers = fg?.dividers; // séparateurs de grille
+const fgCardContent = fg?.cardContent ?? 'icon-title-desc'; // défaut = icône + titre + desc (actuel)
+const fgCardMedia = fg?.cardMedia; // média de carte (image-bg = fond)
+const fgCardAlign = fg?.cardAlign; // alignement intra-carte
+const fgColorDistribution = fg?.colorDistribution; // distribution couleur entre cartes
+const fgBgSource = fg?.bgSource; // source de fond section
+// Image de fond de section (placeholder editorial) → var inline (JAMAIS d'URL dans le CSS).
+const fgBgImageStyle =
+  fgBgSource === 'image' && fg?.bgImage ? `--sec-bg-image:url('${fg.bgImage}')` : undefined;
+// Quels éléments d'en-tête rendre selon headerKind (défaut = kicker+titre).
+const fgShowEyebrow = fgHeaderKind !== 'none' && fgHeaderKind !== 'title';
+const fgShowTitle = fgHeaderKind !== 'none';
+const fgShowHeaderLede =
+  fgHeaderKind === 'eyebrow-title-lede' || fgHeaderKind === 'eyebrow-title-lede-cta';
+const fgShowHeaderCta = fgHeaderKind === 'eyebrow-title-lede-cta';
+const fgHeaderLede = isFr ? fg?.lede_fr : fg?.lede_en;
+const fgHeaderCtaLabel = isFr ? fg?.header_cta_label_fr : fg?.header_cta_label_en;
+// Ligne d'intro (introRow) : desc + image placeholder.
+const fgIntroDesc = isFr ? fg?.intro_desc_fr : fg?.intro_desc_en;
+const fgIntroMediaStyle =
+  fgIntroRow === 'desc-media-split' && fg?.intro_media
+    ? `--sec-intro-image:url('${fg.intro_media}')`
+    : undefined;
+// Richesse de carte (cardContent) : quels éléments d'une carte rendre.
+const fgShowCardIcon = fgCardContent === 'icon-title-desc';
+const fgShowCardDesc = fgCardContent !== 'title';
+const fgShowCardMeta = fgCardContent === 'title-desc-meta';
+const fgShowCardMedia =
+  fgCardMedia === 'image' || fgCardContent === 'media-title-desc';
+const fgCardImageBg = fgCardMedia === 'image-bg';
 ---
 
 {data.type === 'problems-grid' ? (
@@ -205,14 +242,38 @@ const fgCellCycle: string[] = fg?.cellCycle
     data-layout={fgLayout}
     data-density={fg!.density}
     data-content-align={fg!.contentAlign}
+    data-bg-source={fgBgSource}
+    style={fgBgImageStyle}
   >
     <div class="wrap-wide">
-    <div class="feature-grid__header">
-      {(isFr ? fg!.kicker_fr : fg!.kicker_en) && (
+    {fgShowEyebrow || fgShowTitle ? (
+    <div class="feature-grid__header" data-header-align={fgHeaderAlign}>
+      {fgShowEyebrow && (isFr ? fg!.kicker_fr : fg!.kicker_en) && (
         <Kicker tone="muted">{isFr ? fg!.kicker_fr : fg!.kicker_en}</Kicker>
       )}
-      <h2 class="sec-base-h2" set:html={isFr ? fg!.h2_fr : fg!.h2_en} />
+      {fgShowTitle && <h2 class="sec-base-h2" set:html={isFr ? fg!.h2_fr : fg!.h2_en} />}
+      {fgShowHeaderLede && fgHeaderLede && (
+        <p class="feature-grid__lede" data-measure="read">{fgHeaderLede}</p>
+      )}
+      {fgShowHeaderCta && fgHeaderCtaLabel && fg!.header_cta_href && (
+        <div class="feature-grid__header-cta">
+          <a class="btn btn-ghost" href={fg!.header_cta_href}>{fgHeaderCtaLabel} <span aria-hidden="true">→</span></a>
+        </div>
+      )}
     </div>
+    ) : null}
+
+    {fgIntroRow && fgIntroRow !== 'none' && (
+      <div class="sec-intro" data-intro-row={fgIntroRow}>
+        <div class="sec-intro__body">
+          {fgIntroDesc && <p class="feature-grid__intro-desc">{fgIntroDesc}</p>}
+        </div>
+        {fgIntroRow === 'desc-media-split' && (
+          <div class="sec-intro__media" style={fgIntroMediaStyle} role="presentation"></div>
+        )}
+      </div>
+    )}
+
     <ul
       class="feature-grid__list sec-grid"
       data-cols={fgLayout ? undefined : fgCols}
@@ -222,14 +283,23 @@ const fgCellCycle: string[] = fg?.cellCycle
       data-align-items={fg!.alignItems}
       data-item-height={fg!.itemHeight}
       data-col-ratio={fgLayout === 'grid-asym' ? fg!.colRatio : undefined}
+      data-dividers={fgDividers}
+      data-card-align={fgCardAlign}
+      data-color-distribution={fgColorDistribution}
     >
       {fg!.features.map((f, i) => {
         const cta = f.cta_href ? { label: isFr ? f.cta_label_fr : f.cta_label_en, href: f.cta_href } : undefined;
         const cardCellBg = f.bg ?? (fgCellCycle.length > 0 ? fgCellCycle[i % fgCellCycle.length] : undefined);
+        const meta = isFr ? f.meta_fr : f.meta_en;
+        // Image de carte (image en tête OU en fond). Source = donnée (placeholder editorial),
+        // jamais d'URL en dur dans le CSS : pour image-bg on pose --sec-card-image inline.
+        const cardImageStyle = fgCardImageBg && f.media ? `--sec-card-image:url('${f.media}')` : undefined;
         return (
         <li
           class="feature-grid__item sec-item"
-          data-cell-bg={cardCellBg}
+          data-cell-bg={fgCardImageBg ? undefined : cardCellBg}
+          data-card-media={fgCardImageBg ? 'image-bg' : undefined}
+          style={cardImageStyle}
           data-tone={f.tone ?? fg!.tone}
           data-cell-tone={fg!.cellTone}
           data-cell-x={fg!.cellAlignX}
@@ -238,11 +308,15 @@ const fgCellCycle: string[] = fg?.cellCycle
           data-col-span={f.colSpan}
           data-focus-ring={fg!.focusRing}
         >
-          {f.icon && (
+          {fgShowCardMedia && f.media && (
+            <div class="feature-grid__media sec-item__media" style={`background-image:url('${f.media}')`} role="presentation"></div>
+          )}
+          {fgShowCardIcon && f.icon && (
             <Kicker tone="accent" size={10} class="feature-grid__icon">▸ {f.icon}</Kicker>
           )}
+          {fgShowCardMeta && meta && <span class="feature-grid__meta">{meta}</span>}
           <FgCardTag class="feature-grid__title sec-item__title" set:html={isFr ? f.title_fr : f.title_en} />
-          <p data-clamp={fg!.clamp} data-measure={fg!.measure}>{isFr ? f.body_fr : f.body_en}</p>
+          {fgShowCardDesc && <p data-clamp={fg!.clamp} data-measure={fg!.measure}>{isFr ? f.body_fr : f.body_en}</p>}
           {cta && (
             <div class="feature-grid__cta sec-item__cta">
               <a class="btn btn-ghost" href={cta.href}>{cta.label} <span aria-hidden="true">→</span></a>
@@ -312,6 +386,54 @@ const fgCellCycle: string[] = fg?.cellCycle
   /* CTA de carte (apparaît si l'item porte cta_href ; sert les états reveal-cta /
      cellAlignY=between). Le moteur gère opacity reveal-cta + focus-within. */
   .feature-grid__cta { margin-top: var(--space-3); }
+
+  /* ── COMPOSITION (SYS v2-E) · éléments skin propres au composant (le moteur porte
+     la mise en page générique : data-header-align, .sec-intro, data-card-media…). ── */
+  /* Chapô d'en-tête (headerKind=*-lede*) + CTA d'en-tête (headerKind=*-cta). */
+  .feature-grid__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: var(--wrap-read);
+    margin: var(--space-4) 0 0;
+  }
+  .feature-grid__header-cta { margin-top: var(--space-5); }
+  /* Desc de la ligne d'intro (introRow). */
+  .feature-grid__intro-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+  /* Petite ligne meta (cardContent=title-desc-meta). */
+  .feature-grid__meta {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin-bottom: var(--space-2);
+  }
+  /* Vignette image en tête de carte (cardMedia=image / cardContent=media-title-desc).
+     Le fond image vient d'un style inline (donnée) ; cadre ratio + radius tokenisés. */
+  .feature-grid__media {
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-4);
+    overflow: hidden;
+  }
+  /* Carte à FOND image : padding interne (le moteur fournit position/scrim/contraste). */
+  .feature-grid__item[data-card-media='image-bg'] {
+    padding: var(--space-7);
+    justify-content: flex-end;
+  }
+  .feature-grid__item[data-card-media='image-bg'] .feature-grid__title { color: inherit; }
+  .feature-grid__item[data-card-media='image-bg'] p { color: rgba(var(--paper-rgb), 0.82); }
   /* ── CONTRASTE PAR CELLULE (couche L10bis) : quand une carte porte data-cell-bg, c'est
      le MOTEUR qui fixe la couleur de premier plan sur .sec-item (contraste auto). Le titre
      et le paragraphe doivent alors HÉRITER (sinon le var(--ink)/var(--muted) hardcodé
