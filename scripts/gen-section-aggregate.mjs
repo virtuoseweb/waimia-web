@@ -1,141 +1,177 @@
 #!/usr/bin/env node
 /**
  * gen-section-aggregate.mjs
- * Waimia · Co-location DS (Wave #38, T2) · agrégateur de modules de section
+ * Waimia · Co-location DS (Wave #38, T5) · agrégateur de modules de section
  *
- * MODE « MERGE » (pilote) — co-existe avec les god-files legacy pendant la migration.
- * Scanne `src/sections/<type>/index.ts` (modules co-localisés). Pour chaque module trouvé,
- * il prépare les lignes de ré-export à injecter dans les god-files (schema + demo + meta),
- * SANS jamais réécrire le contenu legacy des 196+ sections encore mono-fichier. Tant
- * qu'AUCUN module n'existe (état T1), la sortie est un NO-OP propre (0 god-file modifié).
+ * MODE « REPLACE » (post-pilote, T5). Les 199 types vivent désormais en modules co-localisés
+ * `src/sections/<type>/` (5 fichiers chacun, forme des pilotes). Ce générateur SCANNE ces
+ * modules et (re)génère 3 fichiers COMMITÉS, source de vérité reconstruite, importés par les
+ * god-files (qui ne sont plus que de minces ré-exports préservant l'API publique exacte) :
  *
- * La bascule « REPLACE » (régénération complète de sections.generated.ts /
- * section-registry.generated.ts / section-demos.generated.ts + hook prebuild + gate
- * « généré == commité ») est HORS scope T2 (= T5, post-pilote).
+ *   - src/schemas/sections.generated.ts
+ *       réexporte chaque `<camel>Schema` depuis son module + le discriminatedUnion('type', [...])
+ *       en ordre ALPHA déterministe + les types dérivés (SectionData/SectionType/SectionByType)
+ *       + l'anchor wrapper + sectionsArraySchema (API publique de sections.ts préservée).
+ *   - src/lib/section-registry.generated.ts
+ *       reconstruit `SECTIONS: Record<SectionType, SectionDescriptor>` drop-in (component
+ *       réattaché depuis le module + spread du `meta`), exports nommés IDENTIQUES
+ *       (SECTIONS, SECTION_REGISTRY, getSectionComponent, getSectionMeta, getCapabilities,
+ *       listSections, listCategories, ... - voir API_PUBLIC). 0 import `../components/sections`.
+ *   - src/lib/section-demos.generated.ts
+ *       reconstruit `SECTION_DEMOS: Record<SectionType, DemoData>` (demo réattachée par module)
+ *       + getSectionDemo.
  *
- * Méthode d'introspection (réutilisée à l'identique de scripts/derive-section-slots.mjs:287-300) :
- * les schémas importent `z` depuis `astro:content` (module virtuel Astro non résoluble hors
- * build). On copie le fichier hors repo en remplaçant cet import par le zod réel, puis on
- * l'importe dynamiquement (tsx transpile le .ts à la volée). Zod v4 (`_def.options`).
+ * Méthode : génération PUREMENT TEXTUELLE par scan du système de fichiers (0 import() runtime :
+ * les modules importent astro:content + .astro). Déterministe, idempotent, tri alphabétique,
+ * 0 timestamp, 0 U+2014 (rule 58). Le gate `check:section-aggregate` régénère en mémoire et
+ * compare au commité (clone de check-token-lock).
  *
  * Lancement : `node scripts/gen-section-aggregate.mjs` (ou `npm run gen:section-aggregate`).
- *
- * Contraintes (alignées sur les autres générateurs du repo) :
- *   - 0 nouvelle dépendance npm (built-ins Node + tsx déjà utilisé par derive-slots).
- *   - Déterministe, idempotent, tri alphabétique, 0 timestamp.
- *   - 0 em-dash U+2014 dans tout contenu généré (rule 58).
  */
 
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
-import { createRequire } from 'node:module';
-import { pathToFileURL } from 'node:url';
 
 const repoRoot = process.cwd();
 const MODULES_DIR = path.join(repoRoot, 'src/sections');
-// Dossiers ignorés lors du scan (feuilles partagées, pas des modules de section).
+const ORDER_FILE = path.join(repoRoot, 'scripts/section-order.json');
 const IGNORED_DIRS = new Set(['_shared']);
 
-// ─── Découverte des modules co-localisés ───
-// Un module = un dossier `src/sections/<type>/` contenant `index.ts`.
+const camel = (kebab) => kebab.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
+
+// Ordre CANONIQUE des sections (registry/demos/manifest) = ordre historique d'insertion,
+// fige one-shot dans scripts/section-order.json (T5). PRESERVE la parite du manifest
+// (l'array `sections` suit Object.keys(SECTIONS)). L'union de schema reste alpha (set, ordre
+// non observable). Tout module hors de cet ordre (ajout/suppression futur) fait echouer le gate
+// avec un message clair → on met a jour section-order.json sciemment.
+function canonicalOrder(discovered) {
+  const order = JSON.parse(fs.readFileSync(ORDER_FILE, 'utf8'));
+  const orderSet = new Set(order);
+  const discSet = new Set(discovered);
+  const missingFromOrder = discovered.filter((id) => !orderSet.has(id));
+  const missingFromDisc = order.filter((id) => !discSet.has(id));
+  if (missingFromOrder.length || missingFromDisc.length) {
+    let msg = 'gen-section-aggregate : desync entre les modules et scripts/section-order.json.\n';
+    if (missingFromOrder.length) msg += `  modules SANS entree dans section-order.json : ${missingFromOrder.join(', ')}\n`;
+    if (missingFromDisc.length) msg += `  entrees section-order.json SANS module : ${missingFromDisc.join(', ')}\n`;
+    msg += '  → ajoute/retire l\'id dans scripts/section-order.json (a la position voulue), puis regenere.';
+    throw new Error(msg);
+  }
+  return order; // ordre figé, tous les modules présents
+}
+
+// ─── Découverte des modules co-localisés (alpha-déterministe) ───
 function discoverModules() {
   if (!fs.existsSync(MODULES_DIR)) return [];
   const out = [];
   for (const entry of fs.readdirSync(MODULES_DIR, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    if (IGNORED_DIRS.has(entry.name)) continue;
-    const indexPath = path.join(MODULES_DIR, entry.name, 'index.ts');
-    if (fs.existsSync(indexPath)) {
-      out.push({ type: entry.name, dir: path.join(MODULES_DIR, entry.name), indexPath });
-    }
+    if (!entry.isDirectory() || IGNORED_DIRS.has(entry.name)) continue;
+    if (!fs.existsSync(path.join(MODULES_DIR, entry.name, 'index.ts'))) continue;
+    out.push(entry.name);
   }
-  // Tri alphabétique déterministe.
-  out.sort((a, b) => a.type.localeCompare(b.type, 'en'));
+  out.sort((a, b) => a.localeCompare(b, 'en'));
   return out;
 }
 
-// ─── Introspection Zod (clone du pattern derive-section-slots.mjs) ───
-// Copie un module .ts hors repo en rebindant `astro:content` → zod réel, puis import().
-// Réécrit aussi les imports relatifs `./` et `../` vers des chemins ABSOLUS du repo, sinon
-// le fichier temp (dans os.tmpdir()) ne résout plus les feuilles `_shared` co-localisées.
-async function importSchemaModule(absPath) {
-  const reqFromRepo = createRequire(path.join(repoRoot, 'package.json'));
-  const zodPath = reqFromRepo.resolve('zod');
-  const srcDir = path.dirname(absPath);
-  let src = fs.readFileSync(absPath, 'utf8');
-  // Rebind du module virtuel Astro.
-  src = src.replace(/from ['"]astro:content['"]/g, `from ${JSON.stringify(zodPath)}`);
-  // Rebind des imports relatifs vers des chemins absolus (le temp vit hors repo).
-  src = src.replace(/from ['"](\.[^'"]+)['"]/g, (_m, rel) => {
-    const abs = path.resolve(srcDir, rel);
-    return `from ${JSON.stringify(abs)}`;
-  });
-  const tmp = path.join(os.tmpdir(), `gen-section-aggregate-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.ts`);
-  fs.writeFileSync(tmp, src);
-  try {
-    // tsx (loader) requis pour transpiler le .ts à la volée — comme derive-slots via `npx tsx`.
-    return await import(pathToFileURL(tmp).href);
-  } finally {
-    fs.rmSync(tmp, { force: true });
-  }
-}
-
-async function main() {
-  const modules = discoverModules();
-
-  if (modules.length === 0) {
-    // État T1 : aucun module co-localisé encore créé. NO-OP strict : on ne touche AUCUN
-    // god-file (sections.ts / section-registry.ts / section-demos.ts restent intacts).
-    console.log(
-      'gen-section-aggregate (mode merge) : 0 module trouvé dans src/sections/<type>/. ' +
-        'Rien à agréger, aucun god-file modifié (no-op attendu en T1).',
-    );
-    return;
-  }
-
-  // Mode MERGE : on construit les lignes de ré-export pour chaque module découvert. On NE
-  // régénère PAS les god-files entiers (les 196 legacy restent inchangés) ; on prépare
-  // seulement les réexports drop-in, alpha-déterministes, à injecter dans les blocs gérés.
-  const reexports = { schema: [], demo: [], meta: [] };
-  for (const mod of modules) {
-    let loaded;
-    try {
-      loaded = await importSchemaModule(mod.indexPath);
-    } catch (err) {
-      throw new Error(`Module « ${mod.type} » non importable (${mod.indexPath}): ${err.message}`);
-    }
-    const def = loaded?.default;
-    if (!def || typeof def !== 'object') {
-      throw new Error(`Module « ${mod.type} » : export default { id, schema, demo, meta, Component } attendu.`);
-    }
-    if (def.schema?._def?.shape?.type === undefined && !def.schema) {
-      throw new Error(`Module « ${mod.type} » : champ \`schema\` (z.object) manquant.`);
-    }
-    const relFromLib = path.relative(path.join(repoRoot, 'src/lib'), mod.dir);
-    const relFromSchema = path.relative(path.join(repoRoot, 'src/schemas'), mod.dir);
-    reexports.schema.push(
-      `export { schema as ${mod.type.replace(/-([a-z])/g, (_, c) => c.toUpperCase())}Schema } from '${toPosix(relFromSchema)}/schema';`,
-    );
-    reexports.demo.push(`// demo: ${mod.type} → ${toPosix(relFromLib)}/demo`);
-    reexports.meta.push(`// meta: ${mod.type} → ${toPosix(relFromLib)}/meta`);
-  }
-
-  // En T2, on s'arrête à la PRÉPARATION (et on la journalise). L'injection effective dans les
-  // blocs gérés des god-files relève de T3 (migration des 3 pilotes), pas de T2.
-  console.log(
-    `gen-section-aggregate (mode merge) : ${modules.length} module(s) découvert(s) : ` +
-      `${modules.map((m) => m.type).join(', ')}.`,
+// Bandeau d'avertissement « fichier généré » (identique sur les 3 sorties).
+function banner(rel) {
+  return (
+    `// ⚠️ FICHIER GENERE - NE PAS EDITER A LA MAIN.\n` +
+    `// Source : scripts/gen-section-aggregate.mjs (Wave #38 T5, mode REPLACE).\n` +
+    `// Régénérer : \`npm run gen:section-aggregate\`. Gate : \`npm run check:section-aggregate\`.\n` +
+    `// (${rel})\n\n`
   );
-  console.log('Réexports schema préparés (à injecter en T3, blocs gérés des god-files) :');
-  for (const line of reexports.schema) console.log('  ' + line);
 }
 
-function toPosix(p) {
-  return p.split(path.sep).join('/');
+// ─── 1. sections.generated.ts ───
+function genSchemas(ids) {
+  let out = banner('src/schemas/sections.generated.ts');
+  out += `import { z } from 'astro:content';\n\n`;
+  // Réexport des schemas de chaque module sous le nom historique `<camel>Schema`.
+  for (const id of ids) {
+    out += `import { schema as ${camel(id)}Schema } from '../sections/${id}/schema';\n`;
+  }
+  out += `\nexport {\n`;
+  for (const id of ids) out += `  ${camel(id)}Schema,\n`;
+  out += `};\n\n`;
+  // discriminatedUnion (ordre alpha déterministe).
+  out += `export const sectionSchema = z.discriminatedUnion('type', [\n`;
+  for (const id of ids) out += `  ${camel(id)}Schema,\n`;
+  out += `]);\n\n`;
+  out += `export type SectionData = (typeof sectionSchema)['_output'];\n\n`;
+  // anchor wrapper + sectionsArraySchema (préserve l'API publique de sections.ts).
+  out += `const sectionWithAnchorSchema = z.intersection(\n`;
+  out += `  sectionSchema,\n`;
+  out += `  z.object({\n`;
+  out += `    anchor: z\n`;
+  out += `      .string()\n`;
+  out += `      .regex(/^[a-z0-9-]+$/, 'anchor doit etre un slug kebab-case (a-z, 0-9, tirets)')\n`;
+  out += `      .optional(),\n`;
+  out += `    expand: z.boolean().optional(),\n`;
+  out += `  }),\n`;
+  out += `);\n\n`;
+  out += `export const sectionsArraySchema = z.array(sectionWithAnchorSchema).default([]);\n\n`;
+  out += `export type SectionType = SectionData['type'];\n`;
+  out += `export type SectionByType<T extends SectionType> = Extract<SectionData, { type: T }>;\n`;
+  return out;
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// ─── 2. section-registry.generated.ts ───
+function genRegistry(ids) {
+  let out = banner('src/lib/section-registry.generated.ts');
+  out += `import type { SectionType } from '../schemas/sections';\n`;
+  out += `import type { SectionDescriptor, AstroComponent } from './section-registry-types';\n`;
+  // Import component + meta de chaque module.
+  for (const id of ids) {
+    const C = camel(id);
+    out += `import { Component as ${C}Component, meta as ${C}Meta } from '../sections/${id}';\n`;
+  }
+  out += `\nexport const SECTIONS: Record<SectionType, SectionDescriptor> = {\n`;
+  for (const id of ids) {
+    const C = camel(id);
+    out += `  '${id}': {\n    component: ${C}Component,\n    ...${C}Meta,\n  },\n`;
+  }
+  out += `};\n`;
+  return out;
+}
+
+// ─── 3. section-demos.generated.ts ───
+function genDemos(ids) {
+  let out = banner('src/lib/section-demos.generated.ts');
+  out += `import type { SectionType } from '../schemas/sections';\n`;
+  out += `import type { DemoData } from './section-demos-types';\n`;
+  for (const id of ids) {
+    out += `import { demo as ${camel(id)}Demo } from '../sections/${id}/demo';\n`;
+  }
+  out += `\nexport const SECTION_DEMOS: Record<SectionType, DemoData> = {\n`;
+  for (const id of ids) out += `  '${id}': ${camel(id)}Demo,\n`;
+  out += `};\n`;
+  return out;
+}
+
+export function buildGenerated() {
+  const alphaIds = discoverModules(); // ordre alpha déterministe (union de schema)
+  if (alphaIds.length === 0) throw new Error('gen-section-aggregate (REPLACE) : 0 module trouvé dans src/sections/<type>/.');
+  const orderedIds = canonicalOrder(alphaIds); // ordre historique (registry + demos → parité manifest)
+  return {
+    'src/schemas/sections.generated.ts': genSchemas(alphaIds),
+    'src/lib/section-registry.generated.ts': genRegistry(orderedIds),
+    'src/lib/section-demos.generated.ts': genDemos(orderedIds),
+    ids: alphaIds,
+  };
+}
+
+function main() {
+  const built = buildGenerated();
+  const { ids, ...files } = built;
+  for (const [rel, content] of Object.entries(files)) {
+    fs.writeFileSync(path.join(repoRoot, rel), content);
+  }
+  console.log(`gen-section-aggregate (REPLACE) : ${ids.length} modules agrégés.`);
+  for (const rel of Object.keys(files)) console.log('  écrit ' + rel);
+}
+
+// Exécuté en CLI (pas seulement importé par le gate).
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}

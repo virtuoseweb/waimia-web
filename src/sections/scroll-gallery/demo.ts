@@ -1,0 +1,71 @@
+// Waimia · Co-location DS (Wave #38, T5) · module `scroll-gallery` · demo bilingue (extrait)
+// DEPLACE depuis src/lib/section-demos.ts (rule 60).
+
+import type { DemoData } from '../../lib/section-demos';
+
+export const demo: DemoData = {
+    type: 'scroll-gallery',
+    kicker_fr: 'Domaines · expertise',
+    kicker_en: 'Domains · expertise',
+    h2_fr: "Là où l'IA crée le plus de <i>valeur</i>",
+    h2_en: 'Where AI creates the most <i>value</i>',
+    lede_fr: "Cinq terrains où un système bien câblé change la donne, du premier contact client au pilotage interne.",
+    lede_en: 'Five areas where a well wired system changes the game, from first client contact to internal steering.',
+    items: [
+      {
+        index_fr: '01',
+        index_en: '01',
+        title_fr: 'Acquisition',
+        title_en: 'Acquisition',
+        body_fr: "Capter, qualifier et convertir la demande sans multiplier les outils ni les saisies manuelles.",
+        body_en: 'Capture, qualify and convert demand without multiplying tools or manual entry.',
+        media_src: '/images/themes/theme-acquisition.webp',
+        media_alt_fr: 'Illustration : acquisition',
+        media_alt_en: 'Illustration: acquisition',
+      },
+      {
+        index_fr: '02',
+        index_en: '02',
+        title_fr: 'Productivité interne',
+        title_en: 'Internal productivity',
+        body_fr: "Automatiser les tâches répétitives et rendre chaque équipe plus rapide sur ce qui compte.",
+        body_en: 'Automate repetitive tasks and make every team faster on what matters.',
+        media_src: '/images/themes/theme-productivite.webp',
+        media_alt_fr: 'Illustration : productivité',
+        media_alt_en: 'Illustration: productivity',
+      },
+      {
+        index_fr: '03',
+        index_en: '03',
+        title_fr: 'Contenu & SEO',
+        title_en: 'Content & SEO',
+        body_fr: "Produire un contenu qui se classe sur Google et se fait citer par les IA génératives.",
+        body_en: 'Produce content that ranks on Google and gets cited by generative AI.',
+        media_src: '/images/themes/theme-contenu-seo.webp',
+        media_alt_fr: 'Illustration : contenu et SEO',
+        media_alt_en: 'Illustration: content and SEO',
+      },
+      {
+        index_fr: '04',
+        index_en: '04',
+        title_fr: 'Support client',
+        title_en: 'Client support',
+        body_fr: "Répondre plus vite et mieux, en gardant la main sur le ton et la qualité.",
+        body_en: 'Answer faster and better, keeping control over tone and quality.',
+        media_src: '/images/themes/theme-support-client.webp',
+        media_alt_fr: 'Illustration : support client',
+        media_alt_en: 'Illustration: client support',
+      },
+      {
+        index_fr: '05',
+        index_en: '05',
+        title_fr: 'Pilotage & finance',
+        title_en: 'Steering & finance',
+        body_fr: "Voir clair dans les chiffres et décider sur des données fraîches, pas sur des tableaux figés.",
+        body_en: 'See clearly in the numbers and decide on fresh data, not frozen spreadsheets.',
+        media_src: '/images/themes/theme-finance.webp',
+        media_alt_fr: 'Illustration : pilotage et finance',
+        media_alt_en: 'Illustration: steering and finance',
+      },
+    ],
+  };

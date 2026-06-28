@@ -1,0 +1,66 @@
+// Waimia · Co-location DS (Wave #38, T5) · module `case-featured-grid` · demo bilingue (extrait)
+// DEPLACE depuis src/lib/section-demos.ts (rule 60).
+
+import type { DemoData } from '../../lib/section-demos';
+
+export const demo: DemoData = {
+    type: 'case-featured-grid',
+    cases: [
+      {
+        slug: 'acquisition-b2b',
+        href: '#',
+        case_num: '01',
+        sector_fr: 'SaaS B2B',
+        sector_en: 'B2B SaaS',
+        title_fr: 'Pipeline reconnecté, qualification automatisée',
+        title_en: 'Pipeline reconnected, qualification automated',
+        headline_fr: 'Leads dispersés sur cinq outils, qualifiés à la main. On a recâblé le flux et automatisé le scoring.',
+        headline_en: 'Leads scattered across five tools, qualified by hand. We rewired the flow and automated scoring.',
+        duration_fr: '10 sem',
+        duration_en: '10 wk',
+        provenance: 'first-party',
+      },
+      {
+        slug: 'sante-tech',
+        href: '#',
+        case_num: '02',
+        sector_fr: 'Santé-tech',
+        sector_en: 'Healthtech',
+        title_fr: 'Triage allégé, réponse 24/7',
+        title_en: 'Triage streamlined, 24/7 response',
+        headline_fr: "Le support croulait sous les demandes de premier niveau. Un agent les absorbe, l'équipe garde le complexe.",
+        headline_en: 'Support drowned in first-line requests. An agent absorbs them, the team keeps the complex ones.',
+        duration_fr: '6 sem',
+        duration_en: '6 wk',
+        provenance: 'first-party',
+      },
+      {
+        slug: 'fintech-ue',
+        href: '#',
+        case_num: '03',
+        sector_fr: 'Fintech · UE',
+        sector_en: 'Fintech · EU',
+        title_fr: 'Scoring automatisé, conversion suivie',
+        title_en: 'Automated scoring, conversion tracked',
+        headline_fr: 'Onboarding manuel, conversion opaque. On a câblé un scoring fiable et un suivi bout en bout.',
+        headline_en: 'Manual onboarding, opaque conversion. We wired reliable scoring and end-to-end tracking.',
+        duration_fr: '14 sem',
+        duration_en: '14 wk',
+        provenance: 'second-party',
+      },
+      {
+        slug: 'industrie-fr',
+        href: '#',
+        case_num: '04',
+        sector_fr: 'Industrie · FR',
+        sector_en: 'Industry · FR',
+        title_fr: 'Heures récupérées, back-office déchargé',
+        title_en: 'Hours recovered, back office streamlined',
+        headline_fr: "Ressaisies entre l'ERP et les e-mails fournisseurs. Un RAG sur mesure relie les deux mondes.",
+        headline_en: 'Re-keying between the ERP and supplier emails. A custom RAG bridges both worlds.',
+        duration_fr: '8 sem',
+        duration_en: '8 wk',
+        provenance: 'second-party',
+      },
+    ],
+  };
