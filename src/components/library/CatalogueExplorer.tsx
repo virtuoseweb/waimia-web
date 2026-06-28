@@ -28,7 +28,7 @@
 //
 // 0 nouvelle dépendance. 0 nouveau token DS (rule 60) : variables canoniques uniquement.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react';
 
 export interface CatalogueItem {
   type: string;
@@ -202,6 +202,530 @@ function LazyPreview({ type, label }: { type: string; label: string }) {
   );
 }
 
+// ── Palette de recherche full-text (⌘K / Ctrl+K) ───────────────────────────
+// Overlay role=dialog + listbox plein-texte sur TOUS les types (type + label/family +
+// description + tags + facettes). 0 fetch : opère sur la liste d'items déjà reçue en props.
+// Navigation clavier (flèches / Entrée / Échap), Entrée -> /library/<type>. Échap ferme et
+// restaure le focus sur l'élément qui a ouvert la palette. reduced-motion respecté (styles
+// inline -> pas d'animation déclenchée ; on évite tout keyframe). 0 nouvelle classe globale :
+// apparence portée par tokens DS inline (var(--token)), idiome identique au comparateur (#65).
+const PALETTE_MAX_RESULTS = 40;
+
+interface PaletteResult {
+  type: string;
+  label: string;
+  family: string;
+  hay: string;
+}
+
+function CommandPalette({
+  results,
+  onClose,
+  reducedMotion,
+}: {
+  results: PaletteResult[];
+  onClose: () => void;
+  reducedMotion: boolean;
+}) {
+  const [q, setQ] = useState('');
+  const [active, setActive] = useState(0);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const listRef = useRef<HTMLUListElement | null>(null);
+
+  // Focus le champ à l'ouverture (pattern command palette).
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const matches = useMemo(() => {
+    const needle = q.trim().toLowerCase();
+    if (!needle) return results.slice(0, PALETTE_MAX_RESULTS);
+    // Tous les mots de la requête doivent matcher (AND), recherche sous-chaîne.
+    const words = needle.split(/\s+/).filter(Boolean);
+    return results
+      .filter((r) => words.every((w) => r.hay.includes(w)))
+      .slice(0, PALETTE_MAX_RESULTS);
+  }, [q, results]);
+
+  // Borne l'index actif quand la liste filtrée change.
+  useEffect(() => {
+    setActive((i) => (matches.length === 0 ? 0 : Math.min(i, matches.length - 1)));
+  }, [matches.length]);
+
+  // Garde l'option active visible (scroll into view).
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const el = list.querySelector<HTMLElement>(`[data-idx="${active}"]`);
+    el?.scrollIntoView({ block: 'nearest' });
+  }, [active]);
+
+  const go = (type: string) => {
+    window.location.href = `/library/${type}`;
+  };
+
+  const onKeyDown = (e: ReactKeyboardEvent) => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      onClose();
+      return;
+    }
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActive((i) => (matches.length === 0 ? 0 : (i + 1) % matches.length));
+      return;
+    }
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActive((i) => (matches.length === 0 ? 0 : (i - 1 + matches.length) % matches.length));
+      return;
+    }
+    if (e.key === 'Home') {
+      e.preventDefault();
+      setActive(0);
+      return;
+    }
+    if (e.key === 'End') {
+      e.preventDefault();
+      setActive(Math.max(0, matches.length - 1));
+      return;
+    }
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const hit = matches[active];
+      if (hit) go(hit.type);
+    }
+  };
+
+  const listboxId = 'cx-palette-listbox';
+
+  return (
+    <div
+      role="presentation"
+      onMouseDown={(e) => {
+        // Clic sur le voile (hors panneau) ferme.
+        if (e.target === e.currentTarget) onClose();
+      }}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 50,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        padding: 'var(--space-8) var(--space-4)',
+        background: 'color-mix(in srgb, var(--ink) 40%, transparent)',
+        backdropFilter: 'blur(2px)',
+      }}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Recherche dans le catalogue"
+        onKeyDown={onKeyDown}
+        style={{
+          width: '100%',
+          maxWidth: '40rem',
+          display: 'flex',
+          flexDirection: 'column',
+          maxHeight: 'min(70vh, 36rem)',
+          border: '1px solid var(--hairline-strong)',
+          borderRadius: 'var(--radius-md)',
+          background: 'var(--paper)',
+          boxShadow: '0 24px 60px -20px color-mix(in srgb, var(--ink) 45%, transparent)',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--space-3)',
+            padding: 'var(--space-3) var(--space-4)',
+            borderBottom: '1px solid var(--hairline)',
+          }}
+        >
+          <span
+            aria-hidden="true"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--text-small)',
+              color: 'var(--muted)',
+            }}
+          >
+            /
+          </span>
+          <input
+            ref={inputRef}
+            type="text"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Rechercher un type, une intention, un tag…"
+            aria-label="Rechercher dans le catalogue"
+            aria-controls={listboxId}
+            aria-expanded={true}
+            aria-activedescendant={matches[active] ? `cx-palette-opt-${active}` : undefined}
+            role="combobox"
+            autoComplete="off"
+            spellCheck={false}
+            style={{
+              flex: 1,
+              minWidth: 0,
+              border: 0,
+              background: 'transparent',
+              color: 'var(--ink)',
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'var(--text-body)',
+              outline: 'none',
+            }}
+          />
+          <kbd
+            aria-hidden="true"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--text-micro)',
+              letterSpacing: 'var(--tracking-mono)',
+              textTransform: 'uppercase',
+              color: 'var(--muted)',
+              border: '1px solid var(--hairline-strong)',
+              borderRadius: 'var(--radius-sm)',
+              padding: '0 var(--space-2)',
+            }}
+          >
+            Échap
+          </kbd>
+        </div>
+
+        {matches.length === 0 ? (
+          <p
+            style={{
+              margin: 0,
+              padding: 'var(--space-6)',
+              textAlign: 'center',
+              color: 'var(--muted)',
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'var(--text-small)',
+            }}
+          >
+            Aucun type ne correspond.
+          </p>
+        ) : (
+          <ul
+            ref={listRef}
+            id={listboxId}
+            role="listbox"
+            aria-label="Résultats"
+            style={{ margin: 0, padding: 'var(--space-2)', listStyle: 'none', overflowY: 'auto' }}
+          >
+            {matches.map((r, i) => {
+              const isActive = i === active;
+              return (
+                <li key={r.type} role="presentation">
+                  <a
+                    id={`cx-palette-opt-${i}`}
+                    data-idx={i}
+                    role="option"
+                    aria-selected={isActive}
+                    href={`/library/${r.type}`}
+                    onMouseMove={() => setActive(i)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      go(r.type);
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'baseline',
+                      gap: 'var(--space-3)',
+                      padding: 'var(--space-3) var(--space-3)',
+                      borderRadius: 'var(--radius-sm)',
+                      textDecoration: 'none',
+                      background: isActive ? 'var(--ink)' : 'transparent',
+                      transition: reducedMotion
+                        ? 'none'
+                        : 'background var(--dur-fast) var(--ease)',
+                    }}
+                  >
+                    <code
+                      style={{
+                        flex: 'none',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: 'var(--text-small)',
+                        fontWeight: 'var(--fw-semibold)',
+                        color: isActive ? 'var(--paper)' : 'var(--ink)',
+                      }}
+                    >
+                      {r.type}
+                    </code>
+                    <span
+                      style={{
+                        flex: 1,
+                        minWidth: 0,
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                        fontFamily: 'var(--font-sans)',
+                        fontSize: 'var(--text-small)',
+                        color: isActive
+                          ? 'color-mix(in srgb, var(--paper) 80%, var(--ink))'
+                          : 'var(--ink-2)',
+                      }}
+                    >
+                      {r.label}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        flex: 'none',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: 'var(--text-micro)',
+                        letterSpacing: 'var(--tracking-mono)',
+                        textTransform: 'uppercase',
+                        color: isActive
+                          ? 'color-mix(in srgb, var(--paper) 65%, var(--ink))'
+                          : 'var(--muted)',
+                      }}
+                    >
+                      {r.family}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Quick-look au survol (popover) ─────────────────────────────────────────
+// Sur survol prolongé d'une carte (>= QUICKLOOK_DELAY), un popover affiche un aperçu rapide :
+// mini-iframe /preview/<type> LAZY (1 seule à la fois, via la même file de concurrence que
+// LazyPreview : cap dur, l'iframe est détruite à la fermeture du popover -> pas d'accumulation),
+// + label + thèse + facettes clés + un lien « Ouvrir la fiche ». Choix iframe : on réutilise le
+// rendu réel de la section (vérité catalogue) ; si la frame n'a pas chargé, le bloc texte riche
+// reste affiché en dessous, donc l'info utile est toujours présente (dégradation gracieuse).
+// Positionné en fixed au point d'ancrage de la carte (pas de portail : reste dans l'island).
+const QUICKLOOK_DELAY = 400; // ms : survol prolongé avant ouverture (anti-flicker au balayage)
+
+interface QuickLookData {
+  type: string;
+  label: string;
+  thesis: string;
+  facets: string[];
+  rect: { top: number; left: number; width: number; height: number };
+}
+
+function QuickLook({
+  data,
+  onClose,
+  onKeep,
+  reducedMotion,
+}: {
+  data: QuickLookData;
+  onClose: () => void;
+  onKeep: () => void;
+  reducedMotion: boolean;
+}) {
+  const [showFrame, setShowFrame] = useState(false);
+  const releasedRef = useRef(false);
+  const loadedRef = useRef(false);
+
+  // Acquiert un slot de la file de concurrence partagée avant de monter l'iframe.
+  useEffect(() => {
+    let cancelled = false;
+    acquireSlot().then(() => {
+      if (cancelled) {
+        releaseSlot();
+        releasedRef.current = true;
+        return;
+      }
+      setShowFrame(true);
+    });
+    return () => {
+      cancelled = true;
+      // Libère le slot au démontage si l'iframe n'a jamais signalé `load`
+      // (sinon le slot resterait pris -> on viderait la file de concurrence).
+      if (!loadedRef.current && !releasedRef.current) {
+        releaseSlot();
+        releasedRef.current = true;
+      }
+    };
+  }, []);
+
+  // Re-câble le scaling preview-frame.ts une fois l'iframe montée.
+  useEffect(() => {
+    if (!showFrame) return;
+    const id = window.setTimeout(
+      () => document.dispatchEvent(new Event('astro:page-load')),
+      0,
+    );
+    return () => window.clearTimeout(id);
+  }, [showFrame]);
+
+  const handleLoad = () => {
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+    if (!releasedRef.current) {
+      releaseSlot();
+      releasedRef.current = true;
+    }
+  };
+
+  // Place le popover sous l'ancre, recadré dans le viewport (largeur fixe en rem).
+  const PANEL_W = 320; // px ; borne d'estimation pour le recadrage horizontal
+  const margin = 12;
+  const rawLeft = data.rect.left;
+  const left = Math.max(
+    margin,
+    Math.min(rawLeft, window.innerWidth - PANEL_W - margin),
+  );
+  const below = data.rect.top + data.rect.height + 8;
+  const placeBelow = below + 260 < window.innerHeight;
+  const top = placeBelow ? below : Math.max(margin, data.rect.top - 268);
+
+  return (
+    <div
+      role="dialog"
+      aria-label={`Aperçu ${data.type}`}
+      onMouseEnter={onKeep}
+      onMouseLeave={onClose}
+      style={{
+        position: 'fixed',
+        top,
+        left,
+        width: `${PANEL_W}px`,
+        maxWidth: 'calc(100vw - 24px)',
+        zIndex: 40,
+        display: 'flex',
+        flexDirection: 'column',
+        border: '1px solid var(--hairline-strong)',
+        borderRadius: 'var(--radius-md)',
+        background: 'var(--paper)',
+        boxShadow: '0 18px 48px -18px color-mix(in srgb, var(--ink) 45%, transparent)',
+        overflow: 'hidden',
+        transition: reducedMotion ? 'none' : 'opacity var(--dur-fast) var(--ease)',
+      }}
+    >
+      {/* Vignette de rendu réel (mini-iframe lazy, 1 à la fois). */}
+      <span
+        data-preview-frame
+        data-max-height="150"
+        aria-hidden="true"
+        style={{
+          display: 'block',
+          position: 'relative',
+          minHeight: '120px',
+          height: '150px',
+          overflow: 'hidden',
+          borderBottom: '1px solid var(--hairline)',
+          background: 'var(--paper-2)',
+        }}
+      >
+        {showFrame && (
+          <iframe
+            src={`/preview/${data.type}`}
+            title={`Aperçu ${data.type}`}
+            loading="lazy"
+            tabIndex={-1}
+            scrolling="no"
+            onLoad={handleLoad}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '1280px',
+              border: 0,
+              transformOrigin: 'top left',
+              pointerEvents: 'none',
+            }}
+          />
+        )}
+      </span>
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--space-2)',
+          padding: 'var(--space-4)',
+        }}
+      >
+        <code
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'var(--text-small)',
+            fontWeight: 'var(--fw-semibold)',
+            color: 'var(--ink)',
+          }}
+        >
+          {data.type}
+        </code>
+        <strong
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: 'var(--text-body)',
+            fontWeight: 'var(--fw-semibold)',
+            color: 'var(--ink)',
+            lineHeight: 1.25,
+          }}
+        >
+          {data.label}
+        </strong>
+        {data.thesis && (
+          <p
+            style={{
+              margin: 0,
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'var(--text-small)',
+              lineHeight: 1.5,
+              color: 'var(--ink-2)',
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}
+          >
+            {data.thesis}
+          </p>
+        )}
+        {data.facets.length > 0 && (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
+            {data.facets.map((f) => (
+              <span
+                key={f}
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 'var(--text-micro)',
+                  letterSpacing: 'var(--tracking-mono)',
+                  color: 'var(--muted)',
+                  border: '1px solid var(--hairline)',
+                  borderRadius: 'var(--radius-sm)',
+                  padding: '1px var(--space-2)',
+                }}
+              >
+                {f}
+              </span>
+            ))}
+          </div>
+        )}
+        <a
+          href={`/library/${data.type}`}
+          style={{
+            marginTop: 'var(--space-1)',
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'var(--text-small)',
+            color: 'var(--accent-text)',
+            textDecoration: 'none',
+          }}
+        >
+          Ouvrir la fiche →
+        </a>
+      </div>
+    </div>
+  );
+}
+
 export default function CatalogueExplorer({
   items,
   families,
@@ -271,6 +795,157 @@ export default function CatalogueExplorer({
     if (compareSel.length < 2) return;
     window.location.href = `/library/compare?types=${compareSel.join(',')}`;
   };
+
+  // ── Palette de recherche ⌘K (#65 / T6) ────────────────────────────────────
+  // Cmd/Ctrl+K (ou « / » hors champ de saisie) ouvre la palette plein-texte. La palette
+  // est globale (overlay) et N'INTERFÈRE PAS avec les filtres/toggles : elle navigue
+  // directement vers /library/<type>, elle ne touche pas à `query`/`facetSel`/`view`.
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  // Élément à re-focuser à la fermeture (restauration du focus, a11y).
+  const paletteOpenerRef = useRef<HTMLElement | null>(null);
+
+  // reduced-motion : on neutralise les transitions des overlays si l'OS le demande.
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const apply = () => setReducedMotion(mq.matches);
+    apply();
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
+  }, []);
+
+  const openPalette = useCallback(() => {
+    paletteOpenerRef.current = (document.activeElement as HTMLElement) ?? null;
+    setPaletteOpen(true);
+  }, []);
+  const closePalette = useCallback(() => {
+    setPaletteOpen(false);
+    // Restaure le focus sur l'élément d'origine (ou le body) après la fermeture.
+    const opener = paletteOpenerRef.current;
+    window.setTimeout(() => opener?.focus?.(), 0);
+  }, []);
+
+  // Raccourci clavier global : Cmd/Ctrl+K ouvre ; « / » ouvre si on n'est pas en train
+  // de taper dans un champ (input/textarea/select/contenteditable).
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const cmdK = (e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K');
+      if (cmdK) {
+        e.preventDefault();
+        setPaletteOpen((open) => {
+          if (!open) paletteOpenerRef.current = (document.activeElement as HTMLElement) ?? null;
+          return !open;
+        });
+        return;
+      }
+      if (e.key === '/' && !paletteOpen) {
+        const t = e.target as HTMLElement | null;
+        const tag = t?.tagName;
+        const typing =
+          tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || t?.isContentEditable;
+        if (!typing) {
+          e.preventDefault();
+          openPalette();
+        }
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [paletteOpen, openPalette]);
+
+  // Données plein-texte de la palette : 1 entrée par type, haystack pré-calculé
+  // (type + description + tags + famille + catégorie + intentions/rôles) -> filtrage rapide.
+  const paletteResults = useMemo<PaletteResult[]>(
+    () =>
+      items
+        .map((it) => ({
+          type: it.type,
+          label: it.description_fr || it.type,
+          family: it.family,
+          hay: `${it.type} ${it.description_fr} ${it.tags.join(' ')} ${it.family} ${it.categoryLabel} ${it.intent.join(' ')} ${it.pageRole.join(' ')}`.toLowerCase(),
+        }))
+        .sort((a, b) => a.type.localeCompare(b.type)),
+    [items],
+  );
+
+  // ── Quick-look au survol (#65 / T6) ───────────────────────────────────────
+  // Survol prolongé (QUICKLOOK_DELAY) d'une carte -> popover d'aperçu. 1 seul à la fois.
+  const [quickLook, setQuickLook] = useState<QuickLookData | null>(null);
+  const hoverTimerRef = useRef<number | null>(null);
+  // Fermeture DIFFÉRÉE : quitter la carte programme une fermeture courte, annulée si l'on
+  // entre dans le popover (sinon le gap carte<->popover fermerait avant qu'on l'atteigne).
+  const closeTimerRef = useRef<number | null>(null);
+
+  const cancelHoverTimer = () => {
+    if (hoverTimerRef.current !== null) {
+      window.clearTimeout(hoverTimerRef.current);
+      hoverTimerRef.current = null;
+    }
+  };
+  const cancelCloseTimer = useCallback(() => {
+    if (closeTimerRef.current !== null) {
+      window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  }, []);
+
+  const scheduleQuickLook = useCallback(
+    (it: CatalogueItem, anchor: HTMLElement) => {
+      cancelHoverTimer();
+      cancelCloseTimer();
+      const rect = anchor.getBoundingClientRect();
+      const facets = [...it.intent, ...it.pageRole].slice(0, 4);
+      hoverTimerRef.current = window.setTimeout(() => {
+        setQuickLook({
+          type: it.type,
+          label: it.description_fr || it.type,
+          thesis: it.description_fr,
+          facets,
+          rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height },
+        });
+      }, QUICKLOOK_DELAY);
+    },
+    [cancelCloseTimer],
+  );
+
+  // Fermeture immédiate (scroll/resize/Échap implicite via démontage).
+  const closeQuickLookNow = useCallback(() => {
+    cancelHoverTimer();
+    cancelCloseTimer();
+    setQuickLook(null);
+  }, [cancelCloseTimer]);
+
+  // Fermeture différée (sortie de carte) : laisse le temps d'entrer dans le popover.
+  const clearQuickLook = useCallback(() => {
+    cancelHoverTimer();
+    cancelCloseTimer();
+    closeTimerRef.current = window.setTimeout(() => setQuickLook(null), 120);
+  }, [cancelCloseTimer]);
+
+  // Maintient le popover ouvert quand le pointeur y entre.
+  const keepQuickLook = useCallback(() => cancelCloseTimer(), [cancelCloseTimer]);
+
+  // Ferme le popover si on scrolle (sa position fixed deviendrait fausse) ou si la fenêtre
+  // change de taille. Nettoie aussi le timer en attente au démontage.
+  useEffect(() => {
+    if (!quickLook) return;
+    const onScrollOrResize = () => closeQuickLookNow();
+    window.addEventListener('scroll', onScrollOrResize, true);
+    window.addEventListener('resize', onScrollOrResize);
+    return () => {
+      window.removeEventListener('scroll', onScrollOrResize, true);
+      window.removeEventListener('resize', onScrollOrResize);
+    };
+  }, [quickLook, closeQuickLookNow]);
+
+  useEffect(
+    () => () => {
+      cancelHoverTimer();
+      cancelCloseTimer();
+    },
+    [cancelCloseTimer],
+  );
 
   // Garde-fou de séquencement : la sync URL (replaceState) ne doit pas s'exécuter
   // AVANT que l'init au montage ait lu la querystring, sinon le premier render
@@ -485,15 +1160,40 @@ export default function CatalogueExplorer({
     <div className="cx">
       {/* ── Barre de contrôle ── */}
       <div className="cx-controls" role="group" aria-label="Filtres et tri du catalogue">
-        <div className="cx-search">
+        <div className="cx-search" style={{ gap: 'var(--space-2)' }}>
           <input
             type="search"
             className="cx-input"
             placeholder="Rechercher un type, un tag, une intention…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            aria-label="Rechercher dans le catalogue"
+            aria-label="Filtrer le catalogue"
           />
+          {/* Ouvre la palette plein-texte (⌘K). Apparence = .cx-facets-toggle existant ;
+              0 nouvelle classe. Le champ ci-dessus FILTRE la grille ; la palette NAVIGUE. */}
+          <button
+            type="button"
+            className="cx-facets-toggle"
+            onClick={openPalette}
+            aria-haspopup="dialog"
+            aria-keyshortcuts="Meta+K Control+K"
+            title="Recherche plein-texte (⌘K)"
+            style={{ flex: 'none' }}
+          >
+            <span>Recherche</span>
+            <kbd
+              aria-hidden="true"
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: 'var(--text-micro)',
+                border: '1px solid var(--hairline-strong)',
+                borderRadius: 'var(--radius-sm)',
+                padding: '0 var(--space-1)',
+              }}
+            >
+              ⌘K
+            </kbd>
+          </button>
         </div>
 
         <div className="cx-facets">
@@ -687,9 +1387,22 @@ export default function CatalogueExplorer({
           <p className="cx-empty">Aucune section ne correspond à ces filtres.</p>
         ) : (
           <ul className="cx-grid">
-            {groups.map((g) => (
-              <li key={g.key}>
-                <a className="cx-card" href={g.href}>
+            {groups.map((g) => {
+              // Quick-look pour la carte-groupe : on s'appuie sur le type représentant (g.rep)
+              // dont on retrouve l'item complet (thèse + facettes) pour le popover.
+              const repItem = items.find((it) => it.type === g.rep);
+              return (
+              <li
+                key={g.key}
+                onMouseEnter={(e) => repItem && scheduleQuickLook(repItem, e.currentTarget)}
+                onMouseLeave={clearQuickLook}
+              >
+                <a
+                  className="cx-card"
+                  href={g.href}
+                  onFocus={(e) => repItem && scheduleQuickLook(repItem, e.currentTarget.closest('li') ?? e.currentTarget)}
+                  onBlur={clearQuickLook}
+                >
                   <LazyPreview type={g.rep} label={`Aperçu ${g.label}`} />
                   <span className="cx-card-body">
                     <span className="cx-card-top">
@@ -710,7 +1423,8 @@ export default function CatalogueExplorer({
                   </span>
                 </a>
               </li>
-            ))}
+              );
+            })}
           </ul>
         )
       ) : filtered.length === 0 ? (
@@ -721,7 +1435,12 @@ export default function CatalogueExplorer({
             const fam = it.family;
             const cat = it.categoryLabel;
             return (
-              <li key={it.type} style={{ position: 'relative' }}>
+              <li
+                key={it.type}
+                style={{ position: 'relative' }}
+                onMouseEnter={(e) => scheduleQuickLook(it, e.currentTarget)}
+                onMouseLeave={clearQuickLook}
+              >
                 {/* Sélecteur « comparer » (#65) : hors du <a> (sinon il intercepterait le clic),
                     posé en overlay sur la vignette. Apparence = .cx-chip existant ; le
                     positionnement résiduel est inline (var(--token)) pour ne pas créer de classe
@@ -755,7 +1474,12 @@ export default function CatalogueExplorer({
                 </label>
                 {/* Carte-type : vignette /preview/[type] + identité technique (mono) + statut +
                     famille·catégorie + déclinaisons. Clic -> fiche détail /library/[type]. */}
-                <a className="cx-card" href={`/library/${it.type}`}>
+                <a
+                  className="cx-card"
+                  href={`/library/${it.type}`}
+                  onFocus={(e) => scheduleQuickLook(it, e.currentTarget.closest('li') ?? e.currentTarget)}
+                  onBlur={clearQuickLook}
+                >
                   <LazyPreview type={it.type} label={`Aperçu ${it.type}`} />
                   <span className="cx-card-body">
                     <span className="cx-card-top">
@@ -836,6 +1560,24 @@ export default function CatalogueExplorer({
             </button>
           </div>
         </div>
+      )}
+
+      {/* ── Overlays : palette ⌘K + quick-look au survol ── */}
+      {paletteOpen && (
+        <CommandPalette
+          results={paletteResults}
+          onClose={closePalette}
+          reducedMotion={reducedMotion}
+        />
+      )}
+      {quickLook && (
+        <QuickLook
+          key={quickLook.type}
+          data={quickLook}
+          onClose={clearQuickLook}
+          onKeep={keepQuickLook}
+          reducedMotion={reducedMotion}
+        />
       )}
     </div>
   );
