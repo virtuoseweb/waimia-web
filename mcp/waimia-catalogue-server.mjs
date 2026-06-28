@@ -1,17 +1,23 @@
 #!/usr/bin/env node
-// Waimia · Serveur MCP capstone (#41) · SLICE 1 lecture seule.
+// Waimia · Serveur MCP capstone (#41).
 //
-// Expose le catalogue Design System Waimia a un agent IA via 3 tools en lecture seule :
+// Expose le catalogue Design System Waimia a un agent IA via 5 tools.
+// 3 tools en lecture seule :
 //   - catalogue_search       : cherche / filtre l'index compact tier-1 (forme ManifestIndex).
 //   - catalogue_get_section  : recupere le detail tier-2 d'un type (forme SectionDetail, contrat de slots).
 //   - ds_tokens              : liste les variables CSS du Design System (src/styles/tokens.css).
+// 2 tools de composition / rendu :
+//   - page_compose           : assemble + valide une liste de sections en un PageDocument type.
+//   - preview_render         : rend un PageDocument en HTML chrome-less en relayant vers
+//                              l'endpoint SSR du site /library/builder/render (source de verite
+//                              unique du rendu = SectionsRenderer ; 0 duplication de logique).
 //
-// Source de vérité = les artefacts prerendered de dist/ (builder unique src/lib/mcp-manifest.ts) :
+// Source de vérité (lecture + compose) = les artefacts prerendered de dist/ (builder unique
+// src/lib/mcp-manifest.ts) :
 //   - dist/client/library/manifest.json        (tier-1 index compact)
 //   - dist/client/library/section/<type>.json  (tier-2 detail par type)
 // Ce serveur n'importe PAS astro:content : il lit le JSON deja genere, donc runnable en Node pur.
 //
-// Les tools d'ecriture / render (page.compose, preview.render) viendront dans une slice ulterieure.
 // Convention stdio MCP : stdout = canal protocole, on ne logge JAMAIS dessus. Logs via console.error.
 //
 // 0 nouveau token DS, 0 valeur en dur metier.
@@ -423,6 +429,73 @@ server.registerTool(
       pageDocument,
       validation: { valid, errors, warnings },
       sectionCount: sections.length,
+    });
+  },
+);
+
+server.registerTool(
+  'preview_render',
+  {
+    title: 'Rendre un PageDocument en HTML chrome-less',
+    description:
+      'Rend un PageDocument (ex. la sortie de page_compose) en HTML chrome-less en relayant ' +
+      "vers l'endpoint SSR du site /library/builder/render. Source de verite unique du rendu = " +
+      'SectionsRenderer cote site (ce tool ne duplique aucune logique de rendu). Un doc valide ' +
+      'retourne status 200 + le markup des sections ; un doc invalide retourne 200 + une page ' +
+      "d'erreur lisible. Necessite que le site soit joignable (pnpm dev, ou baseUrl/WAIMIA_BASE_URL en prod).",
+    inputSchema: {
+      pageDocument: z
+        .record(z.unknown())
+        .describe("L'objet PageDocument a rendre (ex. la sortie de page_compose)."),
+      baseUrl: z
+        .string()
+        .optional()
+        .describe("Override de l'URL de base du site (ex. https://waimia.com). Defaut: WAIMIA_BASE_URL ou http://localhost:4321."),
+      htmlMaxChars: z
+        .number()
+        .int()
+        .positive()
+        .optional()
+        .describe('Tronque le HTML retourne pour economiser les tokens. Defaut: pas de troncature.'),
+    },
+  },
+  async ({ pageDocument, baseUrl, htmlMaxChars }) => {
+    // Defaut dev Astro : http://localhost:4321. En prod, passer baseUrl ou definir
+    // WAIMIA_BASE_URL (ex. https://waimia.com).
+    const base = baseUrl ?? process.env.WAIMIA_BASE_URL ?? 'http://localhost:4321';
+    const endpoint = base.replace(/\/$/, '') + '/library/builder/render';
+
+    let res;
+    try {
+      // fetch global (Node 25, pas d'import). Le serveur relaie simplement le PageDocument.
+      res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(pageDocument),
+      });
+    } catch (err) {
+      return errorResult(
+        `site non joignable a ${endpoint}. Lance "pnpm dev" ou definis WAIMIA_BASE_URL (ex. https://waimia.com). Detail: ${err.message}`,
+      );
+    }
+
+    let html = await res.text();
+    const byteLength = Buffer.byteLength(html, 'utf8');
+    let truncated = false;
+    if (htmlMaxChars !== undefined && html.length > htmlMaxChars) {
+      truncated = true;
+      html = html.slice(0, htmlMaxChars);
+    }
+
+    return textResult({
+      ok: res.ok,
+      status: res.status,
+      baseUrl: base,
+      endpoint,
+      contentType: res.headers.get('content-type'),
+      byteLength,
+      truncated,
+      html,
     });
   },
 );
