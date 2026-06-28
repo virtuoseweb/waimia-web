@@ -549,15 +549,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 5,
       "samples": [
+        "#fff",
         "1px",
         "2px",
         "3px",
         "640px"
       ]
     },
-    "agentGuide": "Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 2px, 3px)."
+    "agentGuide": "Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (#fff, 1px, 2px)."
   },
   {
     "id": "architecture-diagram",
@@ -2521,23 +2522,27 @@
       {
         "name": "--text-small",
         "value": "13px"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 15,
+      "count": 14,
       "samples": [
         "-0.015em",
         "-0.02em",
         "-2px",
         "0.04em",
-        "0.08em",
         "0px",
         "100%",
-        "10px"
+        "10px",
+        "12px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px)."
   },
   {
     "id": "case-split",
@@ -3783,10 +3788,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -6669,10 +6670,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -10495,10 +10492,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--font-serif",
-        "value": ""
-      },
-      {
         "name": "--fw-medium",
         "value": "500"
       },
@@ -13411,10 +13404,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -13483,16 +13472,8 @@
         "value": "-0.025em"
       },
       {
-        "name": "--tracking-mono",
-        "value": "0.12em"
-      },
-      {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -15309,6 +15290,10 @@
         "value": ""
       },
       {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
         "name": "--space-1",
         "value": "0.25rem"
       },
@@ -16449,10 +16434,6 @@
         "value": "-0.025em"
       },
       {
-        "name": "--tracking-mono",
-        "value": "0.12em"
-      },
-      {
         "name": "--viewport-h",
         "value": "100svh"
       }
@@ -16629,10 +16610,6 @@
         "value": "0.75rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -16689,7 +16666,7 @@
         "768px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px)."
+    "agentGuide": "Espacement : --space-1 --space-3 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px)."
   },
   {
     "id": "hero-essay",
@@ -17647,10 +17624,6 @@
       {
         "name": "--tracking-display",
         "value": "-0.025em"
-      },
-      {
-        "name": "--tracking-mono",
-        "value": "0.12em"
       },
       {
         "name": "--viewport-h",
@@ -19013,6 +18986,10 @@
         "value": ""
       },
       {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
         "name": "--space-1",
         "value": "0.25rem"
       },
@@ -20217,10 +20194,6 @@
         "value": "13px"
       },
       {
-        "name": "--tracking-caps",
-        "value": "0.2em"
-      },
-      {
         "name": "--tracking-display",
         "value": "-0.025em"
       },
@@ -20755,10 +20728,6 @@
         "value": "-0.025em"
       },
       {
-        "name": "--tracking-mono",
-        "value": "0.12em"
-      },
-      {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
       },
@@ -20772,14 +20741,14 @@
       "count": 6,
       "samples": [
         "100%",
+        "120px",
         "1px",
         "768px",
         "80px",
-        "900px",
-        "90px"
+        "900px"
       ]
     },
-    "agentGuide": "Espacement : --space-10 --space-15 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (100%, 1px, 768px)."
+    "agentGuide": "Espacement : --space-10 --space-15 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (100%, 120px, 1px)."
   },
   {
     "id": "hero-numeral-cover",
@@ -21571,6 +21540,10 @@
         "value": ""
       },
       {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
         "name": "--space-1",
         "value": "0.25rem"
       },
@@ -22284,10 +22257,6 @@
       {
         "name": "--tracking-display",
         "value": "-0.025em"
-      },
-      {
-        "name": "--tracking-mono",
-        "value": "0.12em"
       },
       {
         "name": "--viewport-h",
@@ -23985,6 +23954,16 @@
         "required": false
       },
       {
+        "name": "definition_kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "definition_kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "h1_en",
         "type": "string",
         "required": true
@@ -24028,6 +24007,16 @@
         "name": "media_src",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "subtitle_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "subtitle_fr",
+        "type": "string",
+        "required": false
       }
     ],
     "scopedClasses": [
@@ -24037,11 +24026,14 @@
       "hsm-badge",
       "hsm-badges",
       "hsm-ctas",
+      "hsm-def-kicker",
       "hsm-grid",
       "hsm-kicker",
       "hsm-lede",
       "hsm-media",
-      "hsm-title"
+      "hsm-subtitle",
+      "hsm-title",
+      "problem-statement__text"
     ],
     "tokensUsed": [
       {
@@ -24073,6 +24065,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -24097,12 +24093,20 @@
         "value": "#1A1814"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h1",
         "value": "0.96"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
       },
       {
         "name": "--muted",
@@ -24133,6 +24137,10 @@
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
+        "name": "--space-11",
+        "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -24157,16 +24165,20 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
         "name": "--text-display",
         "value": "clamp(48px, 8vw, 128px)"
       },
       {
+        "name": "--text-fine",
+        "value": "11px"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-micro",
@@ -24177,12 +24189,12 @@
         "value": "13px"
       },
       {
-        "name": "--tracking-display",
-        "value": "-0.025em"
+        "name": "--tracking-body",
+        "value": "-0.005em"
       },
       {
-        "name": "--tracking-mono",
-        "value": "0.12em"
+        "name": "--tracking-display",
+        "value": "-0.025em"
       },
       {
         "name": "--tracking-mono-tight",
@@ -24207,7 +24219,7 @@
         "clamp(var(--space-6)"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (100%, 1px, 45%)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (100%, 1px, 45%)."
   },
   {
     "id": "hero-stack-rhythm",
@@ -25874,19 +25886,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 8,
       "samples": [
         "-.02em",
         ".06em",
-        ".1em",
         "100%",
         "10px",
         "11px",
         "1200px",
-        "1px"
+        "1px",
+        "700px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-.02em, .06em, 100%)."
   },
   {
     "id": "hero-utility-masthead",
@@ -26598,10 +26610,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -27753,6 +27761,7 @@
       }
     ],
     "scopedClasses": [
+      "demo-list-row",
       "list-body",
       "list-filters",
       "list-footer",
@@ -27767,8 +27776,16 @@
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
       {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -27779,6 +27796,10 @@
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
         "name": "--ink-2",
         "value": "#1A1814"
       },
@@ -27787,12 +27808,20 @@
         "value": "1.4"
       },
       {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
         "name": "--section-loose",
         "value": "var(--space-13)"
       },
       {
         "name": "--space-3",
         "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
       },
       {
         "name": "--space-5",
@@ -27813,6 +27842,10 @@
       {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -27833,7 +27866,7 @@
         "760px"
       ]
     },
-    "agentGuide": "Espacement : --space-3 --space-5 --space-6. Couleur : --ink-2. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.03em, 140px, 1px)."
+    "agentGuide": "Espacement : --space-3 --space-4 --space-5. Couleur : --ink --ink-2 --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.03em, 140px, 1px)."
   },
   {
     "id": "logo-marquee",
@@ -30423,16 +30456,17 @@
       "col-7"
     ],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 6,
       "samples": [
         "-0.018em",
         "100%",
         "640px",
+        "768px",
         "clamp(var(--space-4)",
         "clamp(var(--space-5)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (-0.018em, 100%, 640px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 100%, 640px)."
   },
   {
     "id": "offer-tier-grid",
@@ -32598,10 +32632,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -32620,10 +32650,6 @@
       {
         "name": "--leading-body",
         "value": "1.5"
-      },
-      {
-        "name": "--leading-h2",
-        "value": "1.02"
       },
       {
         "name": "--muted",
@@ -32674,6 +32700,10 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
@@ -32682,12 +32712,12 @@
         "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
-      },
-      {
         "name": "--text-small",
         "value": "13px"
+      },
+      {
+        "name": "--tracking-body",
+        "value": "-0.005em"
       },
       {
         "name": "--tracking-display",
@@ -32700,19 +32730,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 5,
       "samples": [
-        "-0.01em",
         "0.16em",
         "1px",
         "800px",
-        "980px",
         "clamp(var(--space-8)",
-        "clamp(var(--text-h2)",
-        "clamp(var(--text-h3)"
+        "clamp(var(--text-h2)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, 0.16em, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (0.16em, 1px, 800px)."
   },
   {
     "id": "problems-grid",
@@ -32836,10 +32863,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -33238,7 +33261,8 @@
     "description_en": "Scroll-driven product reel: steps on the left driven by scroll, terminal console on the right whose content changes per screen. Sticky viewport.",
     "schemaFields": [],
     "scopedClasses": [
-      "product-reel"
+      "product-reel",
+      "product-reel-grid"
     ],
     "tokensUsed": [
       {
@@ -33252,10 +33276,12 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 0,
-      "samples": []
+      "count": 1,
+      "samples": [
+        "768px"
+      ]
     },
-    "agentGuide": "Couleur : --ink --paper."
+    "agentGuide": "Couleur : --ink --paper. Dette : 1 litteral(s) hardcode(s) (768px)."
   },
   {
     "id": "proof-bar",
@@ -38089,6 +38115,14 @@
         "value": "var(--accent-sur-clair)"
       },
       {
+        "name": "--dur-trim",
+        "value": "220ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
         "name": "--font-display",
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
@@ -38711,9 +38745,16 @@
       }
     ],
     "scopedClasses": [
-      "pyramid-wrap"
+      "pyramid-wrap",
+      "tier-fill--base",
+      "tier-fill--mid",
+      "tier-fill--top"
     ],
     "tokensUsed": [
+      {
+        "name": "--accent-rgb",
+        "value": "201, 79, 46"
+      },
       {
         "name": "--ink",
         "value": "#0C0B09"
@@ -38756,10 +38797,10 @@
       "count": 2,
       "samples": [
         "100%",
-        "800px"
+        "640px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-7. Couleur : --ink --muted --paper. Dette : 2 litteral(s) hardcode(s) (100%, 800px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-7. Couleur : --accent-rgb --ink --muted. Dette : 2 litteral(s) hardcode(s) (100%, 640px)."
   },
   {
     "id": "timeline-block",
@@ -39725,19 +39766,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 8,
       "samples": [
         "-.02em",
         ".06em",
-        ".1em",
         "100%",
         "10px",
         "11px",
         "1200px",
-        "1px"
+        "1px",
+        "700px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-.02em, .06em, 100%)."
   },
   {
     "id": "tunnel-step-nav",
@@ -40141,10 +40182,10 @@
         ".14em",
         ".16em",
         "100%",
+        "120px",
         "12px",
         "1px",
-        "28px",
-        "32px"
+        "28px"
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-6. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 15 litteral(s) hardcode(s) (-0.018em, .14em, .16em)."
