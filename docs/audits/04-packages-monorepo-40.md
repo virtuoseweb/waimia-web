@@ -186,6 +186,18 @@ madge : 200 cycles type-only `demos`/`demo.ts` PRÉ-EXISTANTS (#38), hors kernel
 
 **Reste #40** : T4 catalogue-ui (🟡), T5 builder (🟡), T6 sections+registry (🔴, le plus tard). Le kernel extrait débloque T4/T5 (ils dépendent de `@waimia/ds-kernel`).
 
+### Addendum T4 (2026-06-28) : `@waimia/catalogue-ui` extrait (commit `e230166f`)
+
+7 composants explorateur déplacés vers `packages/catalogue-ui/` (même schéma que ds-kernel : exports wildcards PAR EXTENSION `./*.astro`/`./*.tsx`/`./*.ts` car un seul `*` ne mappe pas plusieurs extensions ; `workspace:*` + symlink ; 0 alias). Déplacés : `CatalogueExplorer/CopyCode/VariantToggle.tsx` + `SectionCard/FacetChip/DsLocalNav.astro` + `lazy-preview.ts`. 20 imports réécrits dans 9 pages `src/pages/library/*`.
+
+**Scope clarifié (rule 09)** : `hero-explore`/`hero-explore-2` (prototypes hero `HeroX1-10`/`Z1-9`, « phase de test, standalone ») NON déplacés. Les 12 `HeroXxx.astro` de `sections/` ne les référencent QU'EN COMMENTAIRE (« Source visuelle : … »), 0 import réel → pas de couplage sections→catalogue-ui. (Faux positif du grep initial.)
+
+**Résultat clé qui dé-risque T6** : la résolution d'un `.astro` importé depuis un package workspace fonctionne NATIVEMENT (symlink), 0 aménagement. Prouvé empiriquement (le test sur 1 consommateur n'a échoué que sur l'ancien chemin relatif, jamais sur le nouveau specifier package) + GF-1 local (build Complete!, manifest IDENTIQUE, astro check 60, 6 gates, `/library` rendu : 32 cartes + 174 facet-chips + CatalogueExplorer, 0 erreur). Gate preview Vercel avant FF main. → **T6 peut compter sur `.astro`-in-package.**
+
+Dette mineure notée : `src/data/ds-registry.json` garde des strings de chemin `src/components/library/<X>.astro` périmées (non régénéré par le worker ; attribution de tokens, non-fonctionnel ; le gate `check:token-lock` passe). À rafraîchir lors d'un `gen:ds-registry` ultérieur.
+
+**Reste #40** : T5 builder (🟡) → T6 sections+registry (🔴). T5 : `BuilderCanvas.tsx` + `types.ts` → `@waimia/builder` (dépend de ds-kernel + sections-registry app + vérifier l'`astro:content` de BuilderCanvas = type-only ?).
+
 ## 6. Risques + parades
 
 | Risque | Parade |
