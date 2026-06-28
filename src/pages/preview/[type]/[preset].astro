@@ -10,15 +10,36 @@ import '../../../styles/scroll-reveal.css';
 import { SECTION_REGISTRY } from '../../../lib/section-registry';
 import { SECTION_DEMOS } from '../../../lib/section-demos';
 import { SECTION_PRESETS } from '../../../lib/section-presets';
+import { variantsFor, colorVariantsFor } from '../../../lib/section-variants';
+import { SECTIONS } from '../../../lib/section-registry';
 import type { SectionType } from '../../../schemas/sections';
 
 export function getStaticPaths() {
-  return Object.entries(SECTION_PRESETS).flatMap(([type, presets]) =>
-    (presets ?? []).map((preset) => ({
-      params: { type, preset: preset.id },
-      props: { presetProps: preset.props, label: preset.label },
-    })),
-  );
+  // Témoin de complétude couleur : un seul type rend ses 16 schémas (axe orthogonal,
+  // pas multiplié sur tout le catalogue).
+  const COLOR_WITNESS: SectionType = 'feature-grid';
+
+  const allTypes = Object.keys(SECTIONS) as SectionType[];
+
+  return allTypes.flatMap((type) => {
+    const manual = SECTION_PRESETS[type] ?? [];
+    const generated = variantsFor(type);
+    const witnessColors = type === COLOR_WITNESS ? colorVariantsFor(type) : [];
+
+    // Dedup par id : un preset manuel l'emporte sur une variante générée de même id.
+    const seen = new Set<string>();
+    const merged: Array<{ id: string; label: string; props: Record<string, unknown> }> = [];
+    for (const entry of [...manual, ...generated, ...witnessColors]) {
+      if (seen.has(entry.id)) continue;
+      seen.add(entry.id);
+      merged.push({ id: entry.id, label: entry.label, props: entry.props });
+    }
+
+    return merged.map((entry) => ({
+      params: { type, preset: entry.id },
+      props: { presetProps: entry.props, label: entry.label },
+    }));
+  });
 }
 
 const { type, preset } = Astro.params as { type: string; preset: string };

@@ -69,6 +69,13 @@ const dgBodyJustify = dgPl?.body?.justify;
 // (anti-orpheline) est désormais portée par du CSS structurel scopé (`:has(> :nth-child)`)
 // au lieu d'un calcul JS couplé à `data.*.length`. Voir les blocs `.problems-grid__cards`
 // et `.deliverables-grid__grid` ci-dessous. Aucune custom property de colonnes injectée.
+
+// ── Cycle couleur cellules (schémas duo/trio) ────────────────────────────────
+// cellCycle est une prop libre (chaîne CSV) posée par colorVariantsFor() ; elle n'est
+// PAS dans le schéma Zod (knob builder). Parsed ici une seule fois => tableau vide si absent.
+const fgCellCycle: string[] = fg?.cellCycle
+  ? String(fg.cellCycle).split(',').filter(Boolean)
+  : [];
 ---
 
 {data.type === 'problems-grid' ? (
@@ -216,12 +223,13 @@ const dgBodyJustify = dgPl?.body?.justify;
       data-item-height={fg!.itemHeight}
       data-col-ratio={fgLayout === 'grid-asym' ? fg!.colRatio : undefined}
     >
-      {fg!.features.map((f) => {
+      {fg!.features.map((f, i) => {
         const cta = f.cta_href ? { label: isFr ? f.cta_label_fr : f.cta_label_en, href: f.cta_href } : undefined;
+        const cardCellBg = f.bg ?? (fgCellCycle.length > 0 ? fgCellCycle[i % fgCellCycle.length] : undefined);
         return (
         <li
           class="feature-grid__item sec-item"
-          data-cell-bg={f.bg ?? fg!.cellBg}
+          data-cell-bg={cardCellBg}
           data-tone={f.tone ?? fg!.tone}
           data-cell-tone={fg!.cellTone}
           data-cell-x={fg!.cellAlignX}
