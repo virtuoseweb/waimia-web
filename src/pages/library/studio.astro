@@ -47,6 +47,9 @@ import TerminalMockup from '../../components/ui/molecules/TerminalMockup.astro';
 import { SECTION_REGISTRY, listSections, listCategories } from '../../lib/section-registry';
 import { SECTION_DEMOS } from '../../lib/section-demos';
 import { sectionSchema } from '../../schemas/sections';
+import type { SectionType } from '../../schemas/sections';
+import { listPresets } from '../../lib/section-presets';
+import { COLOR_SCHEMES } from '../../lib/section-colorschemes';
 import DsLocalNav from '../../components/library/DsLocalNav.astro';
 
 import registry from '../../data/ds-registry.json';
@@ -163,10 +166,12 @@ const studioEnv = import.meta.env.DEV ? 'dev' : 'prod';
 //     pour cibler un élément DOM générique dans la preview (h1/h2, kicker, lede).
 // L'introspection est défensive (try/catch) : un échec n'empêche pas le build.
 type WorkshopText = { field: string; role: 'title' | 'kicker' | 'lede'; value: string };
+type WorkshopPreset = { id: string; label: string };
 type WorkshopFieldMap = {
   background: string[];
   variants: Record<string, string[]>;
   texts: WorkshopText[];
+  presets: WorkshopPreset[];
 };
 
 const TITLE_KEYS = ['h1_fr', 'h2_fr', 'title_fr', 'heading_fr', 'name_lead', 'text_fr'];
@@ -228,7 +233,14 @@ try {
     if (!shape) continue;
     const demo = SECTION_DEMOS[literal as keyof typeof SECTION_DEMOS] as Record<string, unknown> | undefined;
 
-    const map: WorkshopFieldMap = { background: [], variants: {}, texts: [] };
+    const map: WorkshopFieldMap = { background: [], variants: {}, texts: [], presets: [] };
+
+    // Déclinaisons (presets) du type : id + label lisible (axe « volume » du catalogue).
+    try {
+      map.presets = listPresets(literal as SectionType).map((p) => ({ id: p.id, label: p.label }));
+    } catch {
+      map.presets = [];
+    }
 
     const bg = enumOptions(shape.background);
     if (bg) map.background = bg.filter((v) => v !== 'accent'); // 'accent' n'est pas un data-bg générique
@@ -261,7 +273,14 @@ try {
   workshopDebug = `error: ${(err as Error)?.message ?? String(err)}`;
 }
 
-const workshopData = JSON.stringify({ fields: workshopFields, debug: workshopDebug });
+// Schémas couleur : axe ORTHOGONAL borné (16), partagé par tous les types (id + label).
+const workshopSchemes = COLOR_SCHEMES.map((s) => ({ id: s.id, label: s.label }));
+
+const workshopData = JSON.stringify({
+  fields: workshopFields,
+  schemes: workshopSchemes,
+  debug: workshopDebug,
+});
 
 // Token le plus consommé (sélection initiale de la carte d'impact)
 const topConsumer = [...consumers].sort((a, b) => b.count - a.count)[0];
@@ -848,6 +867,16 @@ const moleculesRendered = 12;
 
               <div id="workshop-variants" class="studio-workshop-variants" hidden></div>
 
+              <div class="workshop-field" data-workshop-presets-wrap hidden>
+                <span class="workshop-field-label">Déclinaison (preset)</span>
+                <div id="workshop-presets" class="workshop-btn-row" role="group" aria-label="Déclinaison de la section"></div>
+              </div>
+
+              <div class="workshop-field" data-workshop-schemes-wrap>
+                <span class="workshop-field-label">Schéma couleur</span>
+                <div id="workshop-schemes" class="workshop-btn-row" role="group" aria-label="Schéma couleur de la section"></div>
+              </div>
+
               <div id="workshop-texts" class="studio-workshop-texts" hidden></div>
 
               <p id="workshop-empty" class="studio-workshop-empty" hidden>
@@ -1382,7 +1411,9 @@ const moleculesRendered = 12;
   }
   .workshop-btn-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
   .workshop-bg-btn.is-active,
-  .workshop-variant-btn.is-active {
+  .workshop-variant-btn.is-active,
+  .workshop-preset-btn.is-active,
+  .workshop-scheme-btn.is-active {
     background: var(--accent); color: var(--accent-ink); border-color: var(--accent-text);
   }
   .studio-workshop-variants { display: flex; flex-direction: column; gap: var(--space-3); }
