@@ -46,7 +46,7 @@ export interface GeneratedVariant {
  * `columns`/`density`/etc. NON listés ici = knobs éditeur (tier 3), pas des cartes.
  */
 export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
-  // collection (feature-grid, pricing-cards, case-card-grid, deliverables-grid) → 7
+  // collection (feature-grid, case-card-grid, deliverables-grid) → 10
   collection: [
     {
       prop: 'layout',
@@ -58,53 +58,212 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'rows-divided',
         'bento-feature',
         'featured-split',
+        'two-col',
+        'alternating',
+        'cards-deck',
       ],
     },
   ],
-  // split (feature-split-media, comparison-duo, feature-zigzag) → 5 proportion × 2 side, élagué = 9
+  // split (feature-split-media, feature-zigzag) → 5 proportion × 2 side, élagué = 9
   split: [
     { prop: 'proportion', values: ['1-1', '1-2', '2-1', '2-3', '3-2'] },
     { prop: 'mediaSide', values: ['left', 'right'] },
   ],
-  // bento (bento-grid, stats-bento, media-bento) → 6
+  // bento (bento-grid, media-bento) → 8
   bento: [
     {
       prop: 'layout',
-      values: ['bento', 'bento-feature', 'mosaic', 'matrix-2x2', 'matrix-3x3', 'grid-uniform'],
+      values: [
+        'bento',
+        'bento-feature',
+        'mosaic',
+        'matrix-2x2',
+        'matrix-3x3',
+        'matrix-4x4',
+        'grid-uniform',
+        'feature-corner',
+      ],
     },
   ],
-  // process (method-timeline, diagnostic-stages, system-flow, architecture-diagram) → 5
+  // process (method-timeline, diagnostic-stages, system-flow, architecture-diagram) → 7
   process: [
     {
       prop: 'layout',
-      values: ['vertical-stack', 'horizontal', 'numbered-rows', 'grid-steps', 'diagram'],
+      values: [
+        'vertical-stack',
+        'horizontal',
+        'numbered-rows',
+        'grid-steps',
+        'diagram',
+        'zigzag',
+        'connected-line',
+      ],
     },
   ],
-  // editorial (definition-extract, pain-severity-list, statement-orbit, eeat-panel) → 5
+  // editorial (definition-extract, pain-severity-list, statement-orbit, eeat-panel) → 8
   editorial: [
     {
       prop: 'layout',
-      values: ['prose', 'two-col', 'list', 'rows-divided', 'lead-aside'],
+      values: [
+        'prose',
+        'two-col',
+        'list',
+        'rows-divided',
+        'lead-aside',
+        'drop-cap',
+        'pull-quote',
+        'centered-statement',
+      ],
     },
   ],
-  // gallery (scroll-gallery, photo-cluster, horizontal-showcase, media-swap-band) → 5
+  // gallery (scroll-gallery, photo-cluster, horizontal-showcase, media-swap-band) → 8
   gallery: [
     {
       prop: 'layout',
-      values: ['grid-auto', 'mosaic', 'masonry', 'matrix-3x3', 'featured-split'],
+      values: [
+        'grid-auto',
+        'mosaic',
+        'masonry',
+        'matrix-3x3',
+        'matrix-4x4',
+        'grid-uniform',
+        'featured-split',
+        'peek-scroll',
+      ],
     },
   ],
-  // table (versus-competitors, workflow-table, department-stack) → 2
-  table: [{ prop: 'layout', values: ['rows-divided', 'grid-steps'] }],
-  // band (footer-cta-band) → 2 layout × 2 align = 4
+  // table (workflow-table, department-stack) → 5
+  table: [
+    {
+      prop: 'layout',
+      values: ['rows-divided', 'grid-steps', 'comparison-matrix', 'feature-check', 'spec-rows'],
+    },
+  ],
+  // band (footer-cta-band) → 4 layout × 2 align = 8
   band: [
-    { prop: 'layout', values: ['inline', 'stacked'] },
+    { prop: 'layout', values: ['inline', 'stacked', 'centered', 'full-bleed'] },
     { prop: 'align', values: ['start', 'center'] },
   ],
-  // hero (hero-split, hero-centered, hero-masthead-card, hero-conversion-funnel) → 4
-  hero: [{ prop: 'layout', values: ['split', 'centered', 'masthead', 'funnel'] }],
-  // logos (logo-marquee) → 4
-  logos: [{ prop: 'layout', values: ['marquee', 'grid-uniform', 'grid-auto', 'rows-divided'] }],
+  // hero (hero-split, hero-centered, hero-masthead-card, hero-conversion-funnel) → 8
+  hero: [
+    {
+      prop: 'layout',
+      values: [
+        'split',
+        'centered',
+        'masthead',
+        'funnel',
+        'full-bleed-image',
+        'stacked',
+        'minimal',
+        'with-form',
+      ],
+    },
+  ],
+  // logos (logo-marquee) → 6
+  logos: [
+    {
+      prop: 'layout',
+      values: ['marquee', 'grid-uniform', 'grid-auto', 'rows-divided', 'bordered-grid', 'with-heading'],
+    },
+  ],
+  // ─── 12 nouveaux archétypes (un axe `layout`) ───
+  // stats (stat-block, metric-shift, stats-bento) → 7
+  stats: [
+    {
+      prop: 'layout',
+      values: [
+        'inline-row',
+        'grid-uniform',
+        'big-number-split',
+        'bento',
+        'with-context',
+        'ticker',
+        'comparison-pair',
+      ],
+    },
+  ],
+  // testimonial (testimonial-block) → 7
+  testimonial: [
+    {
+      prop: 'layout',
+      values: [
+        'single-quote',
+        'quote-grid',
+        'carousel',
+        'with-logos',
+        'avatar-row',
+        'big-quote',
+        'video-quote',
+      ],
+    },
+  ],
+  // pricing (pricing-cards, pricing-table) → 7
+  pricing: [
+    {
+      prop: 'layout',
+      values: [
+        'tier-cards-3',
+        'tier-cards-2',
+        'single',
+        'comparison-matrix',
+        'toggle-billing',
+        'feature-checklist',
+        'highlighted-popular',
+      ],
+    },
+  ],
+  // faq (faq-accordion, objection-handler) → 5
+  faq: [
+    {
+      prop: 'layout',
+      values: ['accordion-single', 'accordion-two-col', 'list-open', 'grid', 'with-aside-cta'],
+    },
+  ],
+  // form (newsletter-band, form-panel) → 6
+  form: [
+    {
+      prop: 'layout',
+      values: ['single-col', 'two-col', 'inline', 'split-with-media', 'multi-step', 'boxed-card'],
+    },
+  ],
+  // banner (annonces / bandeaux) → 4
+  banner: [
+    { prop: 'layout', values: ['thin-bar', 'with-cta', 'countdown', 'dismissible'] },
+  ],
+  // tabs (onglets) → 4
+  tabs: [
+    { prop: 'layout', values: ['horizontal-tabs', 'vertical-tabs', 'segmented', 'pills'] },
+  ],
+  // carousel (sliders) → 4
+  carousel: [
+    { prop: 'layout', values: ['slider', 'peek', 'fade', 'thumbnails'] },
+  ],
+  // timeline (timeline-block) → 5
+  timeline: [
+    {
+      prop: 'layout',
+      values: ['vertical-events', 'horizontal-events', 'alternating', 'milestone-rail', 'dated-list'],
+    },
+  ],
+  // comparison (versus-competitors, comparison-table, comparison-duo) → 4
+  comparison: [
+    { prop: 'layout', values: ['two-col-versus', 'matrix', 'before-after', 'toggle'] },
+  ],
+  // nav (barres de navigation) → 6
+  nav: [
+    {
+      prop: 'layout',
+      values: ['logo-left', 'centered', 'mega-menu', 'minimal', 'with-cta', 'split'],
+    },
+  ],
+  // footer (pieds de page) → 6
+  footer: [
+    {
+      prop: 'layout',
+      values: ['columns-4', 'columns-mega', 'minimal', 'big-cta', 'newsletter', 'sitemap'],
+    },
+  ],
 };
 
 /* ───────────────────────────── Labels FR auto-composés ───────────────────────────── */
@@ -137,6 +296,80 @@ const LAYOUT_LABEL: Record<string, string> = {
   masthead: 'masthead',
   funnel: 'entonnoir',
   marquee: 'marquee',
+  // ─── nouvelles valeurs (extension 22 archétypes) ───
+  alternating: 'alternance',
+  'cards-deck': 'jeu de cartes',
+  'matrix-4x4': 'matrice 4x4',
+  'feature-corner': 'coin vedette',
+  zigzag: 'zigzag',
+  'connected-line': 'ligne connectée',
+  'drop-cap': 'lettrine',
+  'pull-quote': 'citation détachée',
+  'centered-statement': 'énoncé centré',
+  'peek-scroll': 'défilement aperçu',
+  'comparison-matrix': 'matrice comparative',
+  'feature-check': 'cases à cocher',
+  'spec-rows': 'lignes specs',
+  'full-bleed': 'pleine largeur',
+  'full-bleed-image': 'image pleine',
+  minimal: 'minimal',
+  'with-form': 'avec formulaire',
+  'bordered-grid': 'grille bordée',
+  'with-heading': 'avec titre',
+  'inline-row': 'ligne en ligne',
+  'big-number-split': 'grand nombre split',
+  'with-context': 'avec contexte',
+  ticker: 'bandeau défilant',
+  'comparison-pair': 'paire comparée',
+  'single-quote': 'citation unique',
+  'quote-grid': 'grille de citations',
+  carousel: 'carrousel',
+  'with-logos': 'avec logos',
+  'avatar-row': 'ligne avatars',
+  'big-quote': 'grande citation',
+  'video-quote': 'citation vidéo',
+  'tier-cards-3': '3 paliers',
+  'tier-cards-2': '2 paliers',
+  single: 'palier unique',
+  'toggle-billing': 'bascule facturation',
+  'feature-checklist': 'liste de cases',
+  'highlighted-popular': 'palier mis en avant',
+  'accordion-single': 'accordéon simple',
+  'accordion-two-col': 'accordéon 2 colonnes',
+  'list-open': 'liste ouverte',
+  grid: 'grille',
+  'with-aside-cta': 'avec aparté CTA',
+  'single-col': 'colonne unique',
+  'split-with-media': 'split avec média',
+  'multi-step': 'multi-étapes',
+  'boxed-card': 'carte encadrée',
+  'thin-bar': 'bandeau fin',
+  'with-cta': 'avec CTA',
+  countdown: 'compte à rebours',
+  dismissible: 'fermable',
+  'horizontal-tabs': 'onglets horizontaux',
+  'vertical-tabs': 'onglets verticaux',
+  segmented: 'segmenté',
+  pills: 'pilules',
+  slider: 'slider',
+  peek: 'aperçu',
+  fade: 'fondu',
+  thumbnails: 'vignettes',
+  'vertical-events': 'événements verticaux',
+  'horizontal-events': 'événements horizontaux',
+  'milestone-rail': 'rail de jalons',
+  'dated-list': 'liste datée',
+  'two-col-versus': 'face à face',
+  matrix: 'matrice',
+  'before-after': 'avant après',
+  toggle: 'bascule',
+  'logo-left': 'logo à gauche',
+  'mega-menu': 'méga-menu',
+  'columns-4': '4 colonnes',
+  'columns-mega': 'méga colonnes',
+  'big-cta': 'grand CTA',
+  newsletter: 'newsletter',
+  sitemap: 'plan du site',
 };
 
 const PROPORTION_LABEL: Record<string, string> = {
@@ -393,9 +626,95 @@ export const FULL_AXES: Record<Archetype, AxisDef[]> = {
     { prop: 'bgSource', values: ['color', 'image', 'gradient'] },
   ],
   logos: [
-    { prop: 'layout', values: ['marquee', 'grid-uniform', 'grid-auto', 'rows-divided'] },
+    { prop: 'layout', values: ['marquee', 'grid-uniform', 'grid-auto', 'rows-divided', 'bordered-grid', 'with-heading'] },
     { prop: 'columns', values: ['auto', '3', '4', '6'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  // ─── 12 nouveaux archétypes (mêmes layouts que STRUCTURAL_AXES + axes transverses honorés) ───
+  stats: [
+    { prop: 'layout', values: ['inline-row', 'grid-uniform', 'big-number-split', 'bento', 'with-context', 'ticker', 'comparison-pair'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  testimonial: [
+    { prop: 'layout', values: ['single-quote', 'quote-grid', 'carousel', 'with-logos', 'avatar-row', 'big-quote', 'video-quote'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  pricing: [
+    { prop: 'layout', values: ['tier-cards-3', 'tier-cards-2', 'single', 'comparison-matrix', 'toggle-billing', 'feature-checklist', 'highlighted-popular'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  faq: [
+    { prop: 'layout', values: ['accordion-single', 'accordion-two-col', 'list-open', 'grid', 'with-aside-cta'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  form: [
+    { prop: 'layout', values: ['single-col', 'two-col', 'inline', 'split-with-media', 'multi-step', 'boxed-card'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'mediaSide', values: ['left', 'right'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  banner: [
+    { prop: 'layout', values: ['thin-bar', 'with-cta', 'countdown', 'dismissible'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  tabs: [
+    { prop: 'layout', values: ['horizontal-tabs', 'vertical-tabs', 'segmented', 'pills'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  carousel: [
+    { prop: 'layout', values: ['slider', 'peek', 'fade', 'thumbnails'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  timeline: [
+    { prop: 'layout', values: ['vertical-events', 'horizontal-events', 'alternating', 'milestone-rail', 'dated-list'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  comparison: [
+    { prop: 'layout', values: ['two-col-versus', 'matrix', 'before-after', 'toggle'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  nav: [
+    { prop: 'layout', values: ['logo-left', 'centered', 'mega-menu', 'minimal', 'with-cta', 'split'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  footer: [
+    { prop: 'layout', values: ['columns-4', 'columns-mega', 'minimal', 'big-cta', 'newsletter', 'sitemap'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
 };

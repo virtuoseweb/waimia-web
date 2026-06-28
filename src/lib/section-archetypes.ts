@@ -13,7 +13,10 @@ import type { SectionType } from '../schemas/sections';
 import type { LayoutTag } from './section-facets';
 
 /* ───────────────────────────── Archétypes (catégories de section) ───────────────────────────── */
-// 10 archétypes = 10 classes de famille CSS du moteur (sec-<archetype>), cf section-layouts.css.
+// 22 archétypes. Les 10 premiers = 10 classes de famille CSS RENDUES du moteur
+// (sec-<archetype>), cf section-layouts.css. Les 12 nouveaux (stats…footer) réutilisent
+// chacun une `familyClass` moteur EXISTANTE (recettes CSS dédiées = migration #46) : ils
+// enrichissent le VOCABULAIRE de squelettes sans inventer de nouvelle famille CSS.
 export type Archetype =
   | 'collection'
   | 'bento'
@@ -24,7 +27,19 @@ export type Archetype =
   | 'band'
   | 'hero'
   | 'logos'
-  | 'gallery';
+  | 'gallery'
+  | 'stats'
+  | 'testimonial'
+  | 'pricing'
+  | 'faq'
+  | 'form'
+  | 'banner'
+  | 'tabs'
+  | 'carousel'
+  | 'timeline'
+  | 'comparison'
+  | 'nav'
+  | 'footer';
 
 /* ───────────────────────────── Couches (les 6 du standard) ───────────────────────────── */
 // LayerTag = quelle couche du mixin de variation un archétype câble réellement.
@@ -158,21 +173,118 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS, 'orientation'],
     familyClass: 'sec-gallery',
   },
+  // ─── 12 nouveaux archétypes : vocabulaire de squelettes plus riche, familyClass moteur RENDUE existante ───
+  // Chiffres clés / KPI (réutilise le moteur bento pour les spans contrastés).
+  stats: {
+    layouts: ['multi-col', '3-col', '4-col', 'centered'],
+    regions: ['header', 'body'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-bento',
+  },
+  // Témoignages / avis (réutilise le moteur collection).
+  testimonial: {
+    layouts: ['1-col', '2-col', '3-col', 'multi-col', 'centered'],
+    regions: ['header', 'body', 'media'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
+  // Tarifs / paliers (réutilise le moteur collection).
+  pricing: {
+    layouts: ['2-col', '3-col', 'multi-col', 'centered'],
+    regions: ['header', 'body', 'actions'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
+  // Questions fréquentes (réutilise le moteur editorial).
+  faq: {
+    layouts: ['1-col', '2-col', 'centered'],
+    regions: ['header', 'body', 'aside'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'sizing'],
+    familyClass: 'sec-editorial',
+  },
+  // Formulaires (réutilise le moteur split média ↔ champ).
+  form: {
+    layouts: ['split', 'media-left', 'media-right', '1-col', 'centered'],
+    regions: ['header', 'media', 'body', 'actions'],
+    axes: ['proportion', 'mediaSide', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-split',
+  },
+  // Bandeaux / annonces (réutilise le moteur band).
+  banner: {
+    layouts: ['centered', '1-col', 'full-bleed'],
+    regions: ['body', 'actions'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
+  // Onglets (réutilise le moteur collection).
+  tabs: {
+    layouts: ['1-col', '2-col', 'multi-col', 'centered'],
+    regions: ['header', 'body'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
+  // Carrousels / sliders (réutilise le moteur gallery).
+  carousel: {
+    layouts: ['multi-col', '3-col', 'full-bleed', 'off-grid'],
+    regions: ['header', 'media', 'body'],
+    axes: ['columns', 'itemHeight', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS, 'orientation'],
+    familyClass: 'sec-gallery',
+  },
+  // Frises chronologiques (réutilise le moteur process).
+  timeline: {
+    layouts: ['1-col', 'multi-col', 'centered'],
+    regions: ['header', 'body'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS, 'orientation'],
+    familyClass: 'sec-process',
+  },
+  // Comparatifs / face à face (réutilise le moteur table).
+  comparison: {
+    layouts: ['1-col', '2-col', 'multi-col'],
+    regions: ['header', 'body'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'cell-align'],
+    familyClass: 'sec-table',
+  },
+  // Navigation / barres (réutilise le moteur band).
+  nav: {
+    layouts: ['1-col', 'full-bleed', 'centered'],
+    regions: ['header', 'body', 'actions'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
+  // Pieds de page (réutilise le moteur collection multi-colonnes).
+  footer: {
+    layouts: ['multi-col', '2-col', '3-col', '4-col'],
+    regions: ['header', 'body', 'actions'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
 };
 
 /* ───────────────────────────── family (registry) → archétype ─────────────────────────────
- * Le `family` du SectionDescriptor (FamilyTag, 27 valeurs) projette sur l'un des 10
+ * Le `family` du SectionDescriptor (FamilyTag, 27 valeurs) projette sur l'un des 22
  * archétypes. Garde le mapping DRY : TYPE_ARCHETYPE ci-dessous est dérivé de la famille
  * de chaque type (cf section-registry.ts), donc on couvre les 199 types sans table à la
  * main. Source : familles réelles du registry (audit 2026-06-28). */
 const FAMILY_ARCHETYPE: Record<string, Archetype> = {
   // collection
   'card-grid': 'collection',
-  'stat-grid': 'collection',
+  'stat-grid': 'stats',
   list: 'collection',
-  accordion: 'collection',
-  tabs: 'collection',
-  'form-panel': 'collection',
+  accordion: 'faq',
+  tabs: 'tabs',
+  'form-panel': 'form',
   breadcrumb: 'collection',
   'terminal-shell': 'collection',
   // bento
@@ -183,7 +295,7 @@ const FAMILY_ARCHETYPE: Record<string, Archetype> = {
   // process
   'process-steps': 'process',
   flow: 'process',
-  timeline: 'process',
+  timeline: 'timeline',
   // editorial
   prose: 'editorial',
   manifesto: 'editorial',
@@ -231,28 +343,27 @@ export const TYPE_ARCHETYPE: Partial<Record<SectionType, Archetype>> = {
   'case-card-grid': 'collection',
   'case-featured-grid': 'collection',
   'team-card-grid': 'collection',
-  'pricing-cards': 'collection',
+  'pricing-cards': 'pricing',
+  'pricing-table': 'pricing',
   'use-case-index': 'collection',
   'pain-points': 'collection',
   'inclusions-list': 'collection',
-  'stat-block': 'collection',
-  'metric-shift': 'collection',
+  'stat-block': 'stats',
+  'metric-shift': 'stats',
 
   // Bento
   'bento-grid': 'bento',
-  'stats-bento': 'bento',
+  'stats-bento': 'stats',
 
   // Split / duo
   'feature-zigzag': 'split',
   'feature-split-media': 'split',
   'architecture-diagram': 'split',
-  'comparison-duo': 'split',
 
   // Process / timeline / flow
   'process-steps': 'process',
   'method-timeline': 'process',
   'how-we-ship': 'process',
-  'timeline-block': 'process',
   'system-flow': 'process',
   'diagnostic-stages': 'process',
 
@@ -263,25 +374,28 @@ export const TYPE_ARCHETYPE: Partial<Record<SectionType, Archetype>> = {
   'definition-extract': 'editorial',
   'pain-severity-list': 'editorial',
   'pull-quote-block': 'editorial',
-  'testimonial-block': 'editorial',
+  'testimonial-block': 'testimonial',
 
-  // Tables
-  'comparison-table': 'table',
-  'versus-competitors': 'table',
-  'pricing-table': 'table',
+  // Tables / comparatifs
+  'comparison-table': 'comparison',
+  'versus-competitors': 'comparison',
+  'comparison-duo': 'comparison',
   'data-table': 'table',
   'workflow-table': 'table',
   'department-stack': 'table',
 
+  // Timeline
+  'timeline-block': 'timeline',
+
   // Bandes / CTA / FAQ / confiance
   'cta-final': 'band',
   'cta-band': 'band',
-  'newsletter-band': 'band',
+  'newsletter-band': 'form',
   'proof-bar': 'band',
   'spec-bar': 'band',
   'guarantee-block': 'band',
-  'faq-accordion': 'collection',
-  'objection-handler': 'collection',
+  'faq-accordion': 'faq',
+  'objection-handler': 'faq',
 
   // Logos
   'logo-marquee': 'logos',
