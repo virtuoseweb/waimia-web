@@ -416,7 +416,7 @@ Références : `docs/19§B.5.2`, `docs/19§B.6`, `docs/20§C.1.3`, `docs/29§Imp
 |---|---|---|
 | 1 | `FormationDetailTemplate` → `CourseDetailTemplate` | `docs/32§2.1`, `docs/32§5.3` |
 | 2 | `ServiceDetailTemplate` → `OffresDetailTemplate` | `docs/32§2.1`, `docs/32§2.2`, `docs/32§5.4` |
-| 3 | `DetailMenuTemplate` → `OffresDetailTemplate` ou `SectionsRenderer` | `docs/32§2.1`, `docs/32§5.3` |
+| 3 | ~~`DetailMenuTemplate` → `OffresDetailTemplate` ou `SectionsRenderer`~~ ✅ fait : template supprimé (mort, 0 route ; offres composables via `SectionsRenderer`) | `docs/32§2.1`, `docs/32§5.3` |
 | 4 | Rationaliser `HubTemplate` / `EcoleHubTemplate` / `ListIndexTemplate` | `docs/32§2.1`, `docs/32§4.3`, `docs/32§5.3` |
 
 **Workstream 3 · Migration pages drift**

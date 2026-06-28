@@ -110,7 +110,7 @@ L'échelle réelle (vérifiée `tokens.css`) a des **trous** que ces hits expose
 | `ListIndexTemplate` | 93 | ~40 | HeroCentered ∈ registry | **Facile** | HeroCentered + CtaBand suffisent |
 | `UtilityTemplate` | 151 | ~60 | HeroCentered | Facile | léger |
 | `WelcomeTemplate` | 197 | ~80 | (slot) WelcomeSection ∈ registry | Facile | slot-based |
-| `DetailMenuTemplate` | 285 | ~110 | HeroCentered | Moyenne | ProofBar/MethodTimeline ∈ sections/ |
+| ~~`DetailMenuTemplate`~~ | 285 | n/a | HeroCentered | ✅ supprimé | template mort (0 route) supprimé ; section `hero-detail-menu` conservée au catalogue |
 | `EcoleHubTemplate` | 286 | ~100 | HeroCentered | Moyenne | body minimal + couleurs `#3a7d44/#7b4ea6` |
 | `HubTemplate` | 307 | ~110 | HeroHubStats | Moyenne | body inline |
 | `ServiceDetailTemplate` | 312 | ~100 | HeroServiceDetail | Moyenne | ProofBand/MethodTimeline/CtaFinal ∈ sections/ |

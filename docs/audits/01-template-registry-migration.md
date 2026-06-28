@@ -49,7 +49,7 @@ before/after pixel-identiques, `getComputedStyle` h1 identique (opacity 1, trans
 | Template | h1 live | `vt` | Composant catalogué candidat | Statut |
 |---|---|:--:|---|---|
 | ServiceDetailTemplate | `svc-h1` | 0 | `HeroServiceDetail` | ✅ migré (`7c41d4c`) — prop `topPad` |
-| DetailMenuTemplate | `dt-h1` | 0 | `HeroDetailMenu` | ✅ migré (`d582554`) — props `topPad`+`wrapMaxWidth` ; 0 modif e2e |
+| ~~DetailMenuTemplate~~ | `dt-h1` | 0 | `HeroDetailMenu` | 🗑️ supprimé (template mort, 0 route — offres/solutions/technologies rendues en composable via `SectionsRenderer`) ; section `hero-detail-menu` conservée au catalogue |
 | ConversionFunnelTemplate | `cf-h1` | 0 | `HeroConversionFunnel` | ✅ migré (`d4e402b`) — props `wrapMaxWidth`+`statsAsKeyMetric`+`kickerReveal` ; caveat mobile 768-800px |
 | UtilityTemplate | `util-h1` | 0 | `HeroUtilityMasthead` | ✅ migré — **10 pages** (contact, about, careers, methode, academy, veille-ia, livres-blancs + 3 EN) ; props `wrapMaxWidth`+`reveal` ; `align` natif ; 0 modif e2e |
 | CourseDetailTemplate | `hd-title` | 0 | `HeroCourse` | ✅ migré (`c4fcf2b`, 5/18) — props `topPad`+`wrap`+`ctaPrimaryDisabled/External`+`ghostStyle` ; e2e `/ecole/cours/intro-ia-pme-b2b` |

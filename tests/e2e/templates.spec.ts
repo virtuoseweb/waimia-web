@@ -391,8 +391,8 @@ test("Solution détail composable · /solutions/fintech rend grammaire ACPR/AI A
   expect(h1).toBe(1);
 });
 
-/* DetailMenuTemplate · /offres/audit-maturite-ia · 8 sections + deliverables custom */
-test("DetailMenuTemplate · /offres/audit-maturite-ia rend 8 sections + 3 deliverables", async ({
+/* Offre détail composable · /offres/audit-maturite-ia · 8 sections + deliverables custom (ex-DetailMenuTemplate supprimé) */
+test("Offre détail composable · /offres/audit-maturite-ia rend 8 sections + 3 deliverables", async ({
   page,
 }) => {
   const resp = await page.goto("/offres/audit-maturite-ia");

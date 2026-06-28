@@ -1026,7 +1026,7 @@ export const heroServiceMastheadSchema = z.object({
   lede_en: z.string(),
 });
 
-// Hero · menu détail (DetailMenuTemplate) · parent kicker + num accent + h1 + lede sobre
+// Hero · menu détail · parent kicker + num accent + h1 + lede sobre
 export const heroDetailMenuSchema = z.object({
   type: z.literal('hero-detail-menu'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),

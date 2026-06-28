@@ -606,7 +606,6 @@
     "consumers": [
       "src/components/templates/ConversionFunnelTemplate.astro",
       "src/components/templates/CaseStudyTemplate.astro",
-      "src/components/templates/DetailMenuTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro"
@@ -1709,10 +1708,8 @@
     ],
     "description_fr": "Hero d'entrée de menu détail : kicker parent + numéro § accent + h1 + lede sobre, idéal pour sous-pages catalogue.",
     "description_en": "Detail-menu entry hero: parent kicker + accent § number + h1 + plain lede, ideal for sub-catalogue pages.",
-    "rendering": "live",
-    "consumers": [
-      "src/components/templates/DetailMenuTemplate.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -2923,8 +2920,7 @@
     "description_en": "Method timeline for explaining the steps of a service process or engagement.",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro",
-      "src/components/templates/DetailMenuTemplate.astro"
+      "src/components/templates/CaseStudyTemplate.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -3387,7 +3383,6 @@
     "description_en": "Compact proof bar for displaying key metrics and reinforcing credibility.",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/DetailMenuTemplate.astro",
       "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
