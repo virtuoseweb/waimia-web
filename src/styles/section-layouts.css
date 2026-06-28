@@ -76,10 +76,10 @@
 
 /* grid-uniform : N colonnes ÉGALES, hauteurs égalisées (stretch). N piloté par data-columns.
    minmax(0,1fr) = pas de débordement. Défaut 3 colonnes (cf PricingCards/Bento grid-uniform). */
-.sec-collection[data-layout='grid-uniform'] .sec-grid,
-.sec-bento[data-layout='grid-uniform'] .sec-grid,
-.sec-gallery[data-layout='grid-uniform'] .sec-grid,
-.sec-logos[data-layout='grid-uniform'] .sec-grid {
+.sec-collection[data-layout='grid-uniform'] .sec-grid:not([data-columns]),
+.sec-bento[data-layout='grid-uniform'] .sec-grid:not([data-columns]),
+.sec-gallery[data-layout='grid-uniform'] .sec-grid:not([data-columns]),
+.sec-logos[data-layout='grid-uniform'] .sec-grid:not([data-columns]) {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
 }

@@ -22,6 +22,16 @@ import { COLOR_SCHEMES, COLOR_SCHEME_BY_ID, schemeProps, type ColorScheme } from
 
 export { COLOR_SCHEMES } from './section-colorschemes';
 
+/**
+ * Allowlist des TYPES dont le composant est vérifié « mixin-safe » : il consomme les props
+ * du moteur (layout/columns string/density…) sans collision avec un contrat legacy. Certains
+ * composants legacy résolus en archétype collection traitent `data.columns` comme un TABLEAU
+ * et crashent sur un string (.map) au prerender ; ils doivent rester sur le cartésien d'origine.
+ * Seuls les types de cette liste reçoivent les squelettes-presets de STRUCTURAL_SKELETONS.
+ * Cette liste S'ÉTEND à mesure que les composants sont câblés au moteur (migration #46).
+ */
+const MIXIN_READY: Set<SectionType> = new Set(['feature-grid']);
+
 /* ───────────────────────────── Axes structurels ───────────────────────────── */
 
 /** Un axe structurel = une prop + son petit jeu de valeurs curées. */
@@ -498,6 +508,38 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
   ],
 };
 
+/* ───────────────────────────── Squelettes = PRESETS de props primitives ─────────────────────────────
+ * MIGRATION #46-A. Un squelette n'est PAS un nom de layout opaque : c'est un PRESET de props
+ * PRIMITIVES déjà honorées par le moteur/composant. Chaque preset pose un `layout` ∈ les 21
+ * recettes CSS RÉELLES (cf section-layouts.css) + d'autres props honorées → rend DISTINCTEMENT
+ * sans aucune recette CSS nouvelle. STRUCTURAL_SKELETONS est PARTIAL : seuls les archétypes
+ * migrés y figurent ; les autres retombent sur le cartésien STRUCTURAL_AXES (migration
+ * incrémentale). 0 clé inventée, 0 valeur `layout` hors des 21 recettes. */
+export interface SkeletonDef {
+  name: string;
+  props: Record<string, string | number>;
+}
+
+export const STRUCTURAL_SKELETONS: Partial<Record<Archetype, SkeletonDef[]>> = {
+  // collection (feature-grid, case-card-grid, deliverables-grid…) : 14 presets témoins.
+  collection: [
+    { name: 'grid-uniform', props: { layout: 'grid-uniform', columns: '3' } },
+    { name: 'grid-auto', props: { layout: 'grid-auto' } },
+    { name: 'grid-asym', props: { layout: 'grid-asym' } },
+    { name: 'list', props: { layout: 'list' } },
+    { name: 'rows-divided', props: { layout: 'rows-divided', dividers: 'row-rules' } },
+    { name: 'bento-feature', props: { layout: 'bento-feature' } },
+    { name: 'featured-split', props: { layout: 'featured-split' } },
+    { name: 'two-col', props: { layout: 'two-col', columns: '2' } },
+    { name: 'alternating', props: { layout: 'rows-divided', colorDistribution: 'alternating' } },
+    { name: 'cards-deck', props: { layout: 'grid-uniform', columns: '4', density: 'compact' } },
+    { name: 'list-media-left', props: { layout: 'list', cardMedia: 'image', cardContent: 'media-title-desc' } },
+    { name: 'grid-3-featured', props: { layout: 'grid-uniform', columns: '3', colorDistribution: 'featured-first' } },
+    { name: 'cards-overlap', props: { layout: 'bento-feature', density: 'ample' } },
+    { name: 'metric-row', props: { layout: 'grid-uniform', columns: '4', cardContent: 'title-desc', density: 'compact' } },
+  ],
+};
+
 /* ───────────────────────────── Labels FR auto-composés ───────────────────────────── */
 
 const LAYOUT_LABEL: Record<string, string> = {
@@ -801,6 +843,28 @@ function valueLabel(prop: string, value: string): string {
   return value;
 }
 
+/** Libellé FR d'un squelette (preset). Réutilise LAYOUT_LABEL quand le nom existe déjà. */
+const SKELETON_LABEL: Record<string, string> = {
+  'grid-uniform': 'grille uniforme',
+  'grid-auto': 'grille auto',
+  'grid-asym': 'grille asymétrique',
+  list: 'liste',
+  'rows-divided': 'lignes séparées',
+  'bento-feature': 'bento vedette',
+  'featured-split': 'vedette + split',
+  'two-col': 'deux colonnes',
+  alternating: 'alternance',
+  'cards-deck': 'jeu de cartes',
+  'list-media-left': 'liste média à gauche',
+  'grid-3-featured': 'grille 3 + vedette',
+  'cards-overlap': 'cartes superposées',
+  'metric-row': 'ligne de métriques',
+};
+
+function skeletonLabel(name: string): string {
+  return SKELETON_LABEL[name] ?? LAYOUT_LABEL[name] ?? name;
+}
+
 /* ───────────────────────────── Cartésien + élagage ───────────────────────────── */
 
 /** Famille registry d'un type (pour remplir `family` + dériver l'archétype). */
@@ -848,6 +912,31 @@ function prune(
 export function variantsFor(type: SectionType): GeneratedVariant[] {
   const family = familyOf(type);
   const archetype = archetypeFor(type, family);
+
+  // TYPE mixin-safe MIGRÉ (#46-A) → 1 variante par PRESET de props primitives (rend
+  // distinctement sans recette CSS nouvelle). Gardé par MIXIN_READY : un type collection NON
+  // câblé au moteur (ex. composant legacy attendant un columns TABLEAU) repasse par le
+  // cartésien STRUCTURAL_AXES d'origine → pas de crash columns.map au prerender.
+  const skeletons = MIXIN_READY.has(type) ? STRUCTURAL_SKELETONS[archetype] : undefined;
+  if (skeletons && skeletons.length > 0) {
+    const seenSk = new Set<string>();
+    const outSk: GeneratedVariant[] = [];
+    for (const sk of skeletons) {
+      const id = `${type}--${sk.name}`;
+      if (seenSk.has(id)) continue;
+      seenSk.add(id);
+      outSk.push({
+        id,
+        type,
+        label: `${type} · ${skeletonLabel(sk.name)}`,
+        family,
+        props: { ...sk.props },
+        generated: true,
+      });
+    }
+    return outSk;
+  }
+
   const axes = STRUCTURAL_AXES[archetype];
   if (!axes || axes.length === 0) return [];
 

@@ -132,6 +132,44 @@ const widthEnum = z.enum(['full', 'contained', 'narrow', 'prose']);
 // L13 — a11y / sémantique (le héros gère h1 séparément).
 const headingLevelEnum = z.enum(['h2', 'h3']);
 
+/* ─── COMPOSITION (axes de mise en COMPOSITION, contrat v2 — SYS v2-E) ───
+ * Démultiplient l'espace combinatoire d'un archétype « collection » au-delà du seul
+ * layout+couleur : en-tête (alignement + richesse), ligne d'intro au-dessus de la grille,
+ * séparateurs de grille, richesse + média de carte, distribution de couleur entre cartes,
+ * source de fond (couleur/image/gradient). Tous enum-bornés, optionnels (défaut = rendu
+ * actuel), DS-driven. Le MOTEUR (section-layouts.css) les porte génériquement (réutilisables
+ * par tout type de famille collection) ; chaque composant les rend. data-attr kebab-case. */
+// En-tête : alignement du bloc header (gauche/centre/droite).
+const headerAlignEnum = z.enum(['left', 'center', 'right']);
+// En-tête : richesse (combien d'éléments d'en-tête rendre).
+const headerKindEnum = z.enum([
+  'none',
+  'title',
+  'eyebrow-title',
+  'eyebrow-title-lede',
+  'eyebrow-title-lede-cta',
+]);
+// Ligne d'intro AU-DESSUS de la grille (aucune / chapô + points / desc gauche + image droite / chapô centré).
+const introRowEnum = z.enum(['none', 'lede-aside', 'desc-media-split', 'lede-centered']);
+// Séparateurs de grille (aucun / traits entre colonnes / traits entre lignes / quadrillage complet).
+const dividersEnum = z.enum(['none', 'column-rules', 'row-rules', 'grid-lines']);
+// Richesse de carte (combien d'éléments par carte).
+const cardContentEnum = z.enum([
+  'title',
+  'title-desc',
+  'icon-title-desc',
+  'title-desc-meta',
+  'media-title-desc',
+]);
+// Média de carte (aucun / icône / image en tête / image en FOND de carte avec scrim).
+const cardMediaEnum = z.enum(['none', 'icon', 'image', 'image-bg']);
+// Alignement du contenu DANS la carte (gauche / centré).
+const cardAlignEnum = z.enum(['left', 'center']);
+// Distribution de couleur entre cartes (uniforme / 1ʳᵉ vedette / 1 accent / alternée en cycle).
+const colorDistributionEnum = z.enum(['uniform', 'featured-first', 'one-accent', 'alternating']);
+// Source de fond de SECTION (couleur DS / image placeholder + scrim / gradient preset).
+const bgSourceEnum = z.enum(['color', 'image', 'gradient']);
+
 const sectionBaseSchema = z.object({
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   layout: z.string().optional(),
@@ -239,6 +277,23 @@ const sectionBaseSchema = z.object({
   // L13 — a11y / sémantique.
   headingLevel: headingLevelEnum.optional(),
   ariaLabel: z.string().optional(),
+
+  /* ─── COMPOSITION (SYS v2-E) — axes de mise en composition d'une collection.
+   * Démultiplient l'espace au-delà de layout+couleur (en-tête, ligne d'intro, séparateurs,
+   * richesse + média de carte, distribution de couleur, source de fond). Tous optionnels →
+   * défaut = rendu actuel. Le moteur lit le data-attr kebab-case correspondant. */
+  headerAlign: headerAlignEnum.optional(), // data-header-align (sur le header)
+  headerKind: headerKindEnum.optional(), // richesse d'en-tête (rendu +/- d'éléments)
+  introRow: introRowEnum.optional(), // ligne au-dessus de la grille → data-intro-row
+  dividers: dividersEnum.optional(), // séparateurs de grille → data-dividers
+  cardContent: cardContentEnum.optional(), // richesse de carte (rendu +/- d'éléments)
+  cardMedia: cardMediaEnum.optional(), // média de carte → data-card-media (image-bg = fond)
+  cardAlign: cardAlignEnum.optional(), // alignement intra-carte → data-card-align
+  colorDistribution: colorDistributionEnum.optional(), // distribution couleur → data-color-distribution
+  bgSource: bgSourceEnum.optional(), // source de fond section → data-bg-source
+  // Source image de SECTION (placeholder editorial, remplaçable CMS) — JAMAIS d'URL en dur
+  // dans le CSS : le composant pose --sec-bg-image inline depuis cette donnée.
+  bgImage: z.string().optional(),
 });
 
 const bilingualString = z.object({
@@ -274,6 +329,12 @@ const featureItemSchema = z.object({
   tone: toneEnum.optional(), // couleur de premier plan → data-tone
   cellAlignY: cellAlignYEnum.optional(), // distribution verticale → data-cell-y (between = CTA en bas)
   colSpan: z.enum(['1', '2', '3', '4']).optional(), // span de colonnes → data-col-span
+  // ─── COMPOSITION par carte (SYS v2-E), optionnels, défaut = non rendu (rendu actuel) :
+  //     meta = petite ligne (cardContent=title-desc-meta) ; media = chemin image placeholder
+  //     editorial (cardMedia=image|image-bg), remplaçable CMS, JAMAIS d'URL en dur dans le CSS.
+  meta_fr: z.string().optional(),
+  meta_en: z.string().optional(),
+  media: z.string().optional(),
   // CTA optionnel par carte (active les états reveal-cta / cellAlignY=between côté démo).
   cta_label_fr: z.string().optional(),
   cta_label_en: z.string().optional(),
@@ -1680,6 +1741,16 @@ export const featureGridSchema = z.object({
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
+  // ─── COMPOSITION (SYS v2-E) — contenu d'en-tête riche + ligne d'intro. Tous optionnels,
+  //     rendus seulement si headerKind/introRow les demandent (défaut = non rendu).
+  lede_fr: z.string().optional(), // chapô (headerKind=*-lede* / introRow=lede-*)
+  lede_en: z.string().optional(),
+  header_cta_label_fr: z.string().optional(), // CTA d'en-tête (headerKind=*-cta)
+  header_cta_label_en: z.string().optional(),
+  header_cta_href: z.string().optional(),
+  intro_desc_fr: z.string().optional(), // desc de la ligne d'intro (introRow=desc-media-split)
+  intro_desc_en: z.string().optional(),
+  intro_media: z.string().optional(), // image de la ligne d'intro (placeholder editorial, CMS)
   features: z.array(featureItemSchema).min(3).max(8),
 });
 
