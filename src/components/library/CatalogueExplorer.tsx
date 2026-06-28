@@ -251,6 +251,27 @@ export default function CatalogueExplorer({
     });
   };
 
+  // ── Mode « sélection pour comparer » (#65) ───────────────────────────────
+  // Accumule jusqu'à MAX_COMPARE types ; la barre d'action navigue vers
+  // /library/compare?types=... (le comparateur lit ?types côté client, SSG).
+  const MAX_COMPARE = 4;
+  const [compareSel, setCompareSel] = useState<string[]>([]);
+  const compareSet = useMemo(() => new Set(compareSel), [compareSel]);
+  const compareFull = compareSel.length >= MAX_COMPARE;
+
+  const toggleCompare = (type: string) => {
+    setCompareSel((prev) => {
+      if (prev.includes(type)) return prev.filter((t) => t !== type);
+      if (prev.length >= MAX_COMPARE) return prev; // cap dur
+      return [...prev, type];
+    });
+  };
+
+  const goCompare = () => {
+    if (compareSel.length < 2) return;
+    window.location.href = `/library/compare?types=${compareSel.join(',')}`;
+  };
+
   // Garde-fou de séquencement : la sync URL (replaceState) ne doit pas s'exécuter
   // AVANT que l'init au montage ait lu la querystring, sinon le premier render
   // (état par défaut) écraserait les params entrants avant qu'on les lise.
@@ -700,7 +721,38 @@ export default function CatalogueExplorer({
             const fam = it.family;
             const cat = it.categoryLabel;
             return (
-              <li key={it.type}>
+              <li key={it.type} style={{ position: 'relative' }}>
+                {/* Sélecteur « comparer » (#65) : hors du <a> (sinon il intercepterait le clic),
+                    posé en overlay sur la vignette. Apparence = .cx-chip existant ; le
+                    positionnement résiduel est inline (var(--token)) pour ne pas créer de classe
+                    orpheline ni toucher au <style is:global> d'index.astro. */}
+                <label
+                  className="cx-chip cx-chip--toggle"
+                  aria-pressed={compareSet.has(it.type)}
+                  style={{
+                    position: 'absolute',
+                    top: 'var(--space-2)',
+                    left: 'var(--space-2)',
+                    zIndex: 2,
+                    background: 'var(--paper)',
+                  }}
+                  title={
+                    compareSet.has(it.type)
+                      ? 'Retirer de la comparaison'
+                      : compareFull
+                        ? `Maximum ${MAX_COMPARE} sections`
+                        : 'Ajouter à la comparaison'
+                  }
+                >
+                  <input
+                    type="checkbox"
+                    checked={compareSet.has(it.type)}
+                    disabled={!compareSet.has(it.type) && compareFull}
+                    onChange={() => toggleCompare(it.type)}
+                    aria-label={`Comparer ${it.type}`}
+                  />
+                  Comparer
+                </label>
                 {/* Carte-type : vignette /preview/[type] + identité technique (mono) + statut +
                     famille·catégorie + déclinaisons. Clic -> fiche détail /library/[type]. */}
                 <a className="cx-card" href={`/library/${it.type}`}>
@@ -724,6 +776,66 @@ export default function CatalogueExplorer({
             );
           })}
         </ul>
+      )}
+
+      {/* ── Barre d'action « comparer » (#65) ── */}
+      {/* Visible dès qu'une section est sélectionnée (vue Types). Navigue vers le comparateur.
+          Réutilise le langage .cx-chip ; 0 nouveau token. */}
+      {/* Apparence portée par .cx-* existants ; layout résiduel inline (var(--token)) pour
+          rester barre flottante sans classe orpheline ni édition d'index.astro. */}
+      {compareSel.length > 0 && (
+        <div
+          role="region"
+          aria-label="Sélection à comparer"
+          style={{
+            position: 'sticky',
+            bottom: 'var(--space-4)',
+            zIndex: 6,
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: 'var(--space-3)',
+            padding: 'var(--space-3) var(--space-4)',
+            border: '1px solid var(--hairline-strong)',
+            borderRadius: 'var(--radius-md)',
+            background: 'var(--paper-2)',
+          }}
+        >
+          <span
+            className="cx-count"
+            style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-small)' }}
+          >
+            {compareSel.length} / {MAX_COMPARE} sélectionnée{compareSel.length > 1 ? 's' : ''}
+          </span>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)', flex: 1, minWidth: 0 }}>
+            {compareSel.map((t) => (
+              <button
+                type="button"
+                key={t}
+                className="cx-chip"
+                onClick={() => toggleCompare(t)}
+                aria-label={`Retirer ${t}`}
+                title="Retirer"
+              >
+                {t} <span className="cx-chip-count" aria-hidden="true">×</span>
+              </button>
+            ))}
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
+            <button type="button" className="cx-reset" onClick={() => setCompareSel([])}>
+              Vider
+            </button>
+            <button
+              type="button"
+              className="cx-chip cx-chip--toggle"
+              aria-pressed={compareSel.length >= 2}
+              disabled={compareSel.length < 2}
+              onClick={goCompare}
+            >
+              Comparer ({compareSel.length})
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
