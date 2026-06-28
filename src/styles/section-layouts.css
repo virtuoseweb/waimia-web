@@ -1066,6 +1066,29 @@
 [data-title-scale='xl']   { font-size: var(--text-display); }
 
 /* ════════════════════════════════════════════════════════════════════════════
+   PRIMITIVE GÉNÉRIQUE · LISTE À MARQUEURS (data-list sur un <ul>/<ol>).
+   Recette réutilisable (PricingCards aujourd'hui ; PricingToggle /
+   FeatureComparisonGrid demain) : style le marqueur d'item de liste via ::before,
+   sans markup bespoke ni glyphe inline répété. 100 % tokens DS, 0 nouveau token.
+   - check : coche/chevron accent (réutilise le glyphe ▸ + var(--accent-text)).
+   La liste passe en pile flex par item (marqueur ↔ texte alignés baseline) ; gap et
+   typo héritent du composant. Inerte tant qu'aucun <ul> ne porte data-list.
+   ════════════════════════════════════════════════════════════════════════════ */
+[data-list] { list-style: none; padding: 0; }
+[data-list] > li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+}
+[data-list='check'] > li::before {
+  content: '\25B8'; /* ▸ chevron accent, identique à l'ancien marqueur bespoke */
+  flex-shrink: 0;
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
    COUCHE 12 — DIMENSIONS / SIZING (core NOW : width-mode).
    itemHeight est déjà couvert en v1 (data-item-height). Ici : mode de largeur de
    bloc (full | contained | narrow | prose). Tokens de lecture DS.

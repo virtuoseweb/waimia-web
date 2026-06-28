@@ -31,7 +31,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
 ---
 
 <section
-  class="pricing-cards sec-base"
+  class="pricing-cards sec-base sec-collection"
   data-bg={data.background}
   data-density={data.density}
   data-content-align={data.contentAlign}
@@ -49,7 +49,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
       {lede && <p class="pricing-cards__lede">{lede}</p>}
     </div>
     <div
-      class="pricing-cards__grid"
+      class="pricing-cards__grid sec-grid"
       data-columns={data.columns}
       data-col-ratio={colRatio}
       data-item-height={data.itemHeight}
@@ -58,7 +58,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
       style={`--col-count: ${data.tiers.length}`}
     >
       {data.tiers.map((tier: (typeof data.tiers)[number], i: number) => (
-        <article class:list={['pricing-cards__card', tier.featured && 'is-featured']} data-actions-justify={actionsJustify}>
+        <article class:list={['pricing-cards__card', 'sec-item', tier.featured && 'is-featured']} data-actions-justify={actionsJustify}>
           {tier.featured && (
             <span class="pricing-cards__badge">{isFr ? 'Recommandé' : 'Recommended'}</span>
           )}
@@ -72,9 +72,9 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
               <span class="pricing-cards__period">{isFr ? tier.period_fr : tier.period_en}</span>
             )}
           </div>
-          <ul class="pricing-cards__features">
+          <ul class="pricing-cards__features" data-list="check">
             {(isFr ? tier.features_fr : tier.features_en).map((f: string) => (
-              <li><span class="pricing-cards__check" aria-hidden="true">▸</span><span>{f}</span></li>
+              <li><span>{f}</span></li>
             ))}
           </ul>
           <Button
@@ -217,12 +217,8 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     line-height: var(--leading-body);
     color: var(--ink-2);
   }
-  .pricing-cards__check {
-    color: var(--accent-text);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    flex-shrink: 0;
-  }
+  /* Marqueur de feature (▸) porté par la primitive générique [data-list='check']
+     (section-layouts.css) : ::before sur chaque <li>, plus de markup inline. */
   /* Doctrine alignement gauche : la pleine largeur reste pour la zone cliquable,
      mais le libellé est ancré à gauche (et non centré) comme les autres CTA. */
   .pricing-cards__btn { width: 100%; justify-content: flex-start; text-align: left; }
