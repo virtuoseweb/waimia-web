@@ -968,6 +968,233 @@ function initStudio() {
     toastTimer = window.setTimeout(() => el.classList.remove('is-on'), 2600);
   }
 
+  // ── Palette de recherche universelle (Cmd/Ctrl+K) ──────────────────────────
+  // Recherche transverse instantanée dans 2 corpus déjà présents dans le DOM
+  // (sources autoritaires, pas de reconstruction) :
+  //   • tokens   → [data-token-row] (chaque ligne porte data-group) → action :
+  //               sélection + scroll de la ligne (réutilise showImpact()).
+  //   • sections → [data-catalog-type] (catalogue complet) → action :
+  //               loadCatalogType(type) (charge le type dans l'atelier).
+  const palette = document.getElementById('studio-palette');
+  const paletteInput = palette ? palette.querySelector('#studio-palette-input') : null;
+  const paletteResults = palette ? palette.querySelector('#studio-palette-results') : null;
+  const paletteEmpty = palette ? palette.querySelector('#studio-palette-empty') : null;
+
+  // Index construit une fois depuis le DOM rendu (full token list + full catalogue).
+  function buildPaletteIndex() {
+    const items = [];
+    container.querySelectorAll('[data-token-row]').forEach((row) => {
+      const token = row.getAttribute('data-token-row') || '';
+      if (!token) return;
+      items.push({
+        kind: 'token',
+        label: token,
+        group: row.getAttribute('data-group') || '',
+        run: () => activateToken(token),
+      });
+    });
+    const seenTypes = new Set();
+    container.querySelectorAll('[data-catalog-type]').forEach((btn) => {
+      const type = btn.getAttribute('data-catalog-type') || '';
+      if (!type || seenTypes.has(type)) return;
+      seenTypes.add(type);
+      items.push({
+        kind: 'section',
+        label: type,
+        group: '',
+        run: () => activateSection(type),
+      });
+    });
+    return items;
+  }
+
+  function activateToken(token) {
+    // Une recherche dans le panneau peut masquer la ligne : on neutralise le filtre.
+    if (search && search.value) {
+      search.value = '';
+      search.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    showImpact(token);
+    const row = container.querySelector(`[data-token-row="${token}"]`);
+    if (row) {
+      row.hidden = false;
+      const block = row.closest('[data-group-block]');
+      if (block) block.hidden = false;
+      row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function activateSection(type) {
+    loadCatalogType(type);
+    const workshopSection = container.querySelector('#ds-workshop');
+    const catalogSection = container.querySelector('#catalogue');
+    const target = workshopSection || catalogSection;
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const KIND_LABEL = { token: 'Token', section: 'Section' };
+  let paletteItems = [];
+  let paletteMatches = [];
+  let paletteActive = 0;
+
+  function scorePaletteItem(item, q) {
+    const label = item.label.toLowerCase();
+    if (!q) return 0;
+    const idx = label.indexOf(q);
+    if (idx < 0) return -1;
+    // Préfixe exact priorisé, puis position du match, puis brièveté du label.
+    return (idx === 0 ? 0 : 100) + idx + label.length / 1000;
+  }
+
+  function renderPaletteResults() {
+    if (!paletteResults) return;
+    paletteResults.replaceChildren();
+    if (!paletteMatches.length) {
+      if (paletteEmpty) paletteEmpty.hidden = false;
+      return;
+    }
+    if (paletteEmpty) paletteEmpty.hidden = true;
+    paletteMatches.forEach((item, i) => {
+      const li = document.createElement('li');
+      li.className = 'studio-palette-item';
+      li.setAttribute('role', 'option');
+      li.id = `studio-palette-opt-${i}`;
+      li.setAttribute('aria-selected', String(i === paletteActive));
+      if (i === paletteActive) li.classList.add('is-active');
+
+      const kind = document.createElement('span');
+      kind.className = 'studio-palette-kind';
+      kind.textContent = KIND_LABEL[item.kind] || item.kind;
+
+      const label = document.createElement('span');
+      label.className = 'studio-palette-label';
+      label.textContent = item.label;
+
+      li.append(kind, label);
+      if (item.group) {
+        const meta = document.createElement('span');
+        meta.className = 'studio-palette-meta';
+        meta.textContent = item.group;
+        li.append(meta);
+      }
+
+      li.addEventListener('mousemove', () => {
+        if (paletteActive === i) return;
+        paletteActive = i;
+        syncPaletteActive();
+      });
+      li.addEventListener('click', () => runPaletteItem(i));
+      paletteResults.appendChild(li);
+    });
+    syncPaletteActive();
+  }
+
+  function syncPaletteActive() {
+    if (!paletteResults) return;
+    [...paletteResults.children].forEach((li, i) => {
+      const on = i === paletteActive;
+      li.classList.toggle('is-active', on);
+      li.setAttribute('aria-selected', String(on));
+      if (on) li.scrollIntoView({ block: 'nearest' });
+    });
+    if (paletteInput) {
+      const cur = paletteMatches[paletteActive];
+      paletteInput.setAttribute('aria-activedescendant', cur ? `studio-palette-opt-${paletteActive}` : '');
+    }
+  }
+
+  function filterPalette() {
+    const q = (paletteInput ? paletteInput.value : '').trim().toLowerCase();
+    paletteMatches = paletteItems
+      .map((item) => ({ item, s: scorePaletteItem(item, q) }))
+      .filter((r) => r.s >= 0)
+      .sort((a, b) => a.s - b.s)
+      .slice(0, 50)
+      .map((r) => r.item);
+    paletteActive = 0;
+    renderPaletteResults();
+  }
+
+  function runPaletteItem(i) {
+    const item = paletteMatches[i];
+    if (!item) return;
+    closePalette();
+    item.run();
+  }
+
+  let paletteLastFocus = null;
+  function openPalette() {
+    if (!palette) return;
+    paletteItems = buildPaletteIndex();
+    paletteLastFocus = document.activeElement;
+    palette.hidden = false;
+    palette.classList.add('is-on');
+    if (paletteInput) {
+      paletteInput.value = '';
+      filterPalette();
+      paletteInput.focus();
+    }
+  }
+
+  function closePalette() {
+    if (!palette || palette.hidden) return;
+    palette.classList.remove('is-on');
+    palette.hidden = true;
+    if (paletteLastFocus instanceof HTMLElement) {
+      try { paletteLastFocus.focus(); } catch { /* élément retiré : ignore */ }
+    }
+    paletteLastFocus = null;
+  }
+
+  if (paletteInput) paletteInput.addEventListener('input', filterPalette);
+  if (palette) {
+    palette.addEventListener('click', (event) => {
+      if (event.target === palette) closePalette();
+    });
+    palette.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closePalette();
+        return;
+      }
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (paletteMatches.length) {
+          paletteActive = (paletteActive + 1) % paletteMatches.length;
+          syncPaletteActive();
+        }
+        return;
+      }
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (paletteMatches.length) {
+          paletteActive = (paletteActive - 1 + paletteMatches.length) % paletteMatches.length;
+          syncPaletteActive();
+        }
+        return;
+      }
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        runPaletteItem(paletteActive);
+      }
+    });
+  }
+
+  // Handler clavier GLOBAL dédié : SÉPARÉ de window.__dsStudioKeydownHandler
+  // (undo/redo) et de window.__dsStudioBaselineKeyHandler (baseline) → 0 collision.
+  // Idempotent : on retire l'ancien avant de rebrancher (re-init View Transition).
+  if (window.__dsStudioPaletteKeydownHandler) {
+    document.removeEventListener('keydown', window.__dsStudioPaletteKeydownHandler);
+  }
+  window.__dsStudioPaletteKeydownHandler = (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      if (palette && palette.hidden) openPalette();
+      else closePalette();
+    }
+  };
+  document.addEventListener('keydown', window.__dsStudioPaletteKeydownHandler);
+
   /** Applique un token comme un contrôle humain et retourne sa valeur calculée. */
   function setToken(name, value) {
     applyToken(name, value);
@@ -1026,6 +1253,7 @@ function initStudio() {
     },
     inspect: (token) => tokenSections[token] || [],
     selectToken: showImpact,
+    palette: { open: openPalette, close: closePalette },
     compare: { hold: holdBaseline, diff: () => [...dirty.entries()].map(([name, value]) => ({ name, value, old: originals.get(name) ?? '' })) },
   };
 

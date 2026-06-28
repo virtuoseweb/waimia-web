@@ -970,6 +970,33 @@ const moleculesRendered = 12;
     </div>
   </div>
 
+  {/* Palette de recherche universelle (⌘K / Ctrl+K) : tokens + sections du catalogue */}
+  <div id="studio-palette" class="studio-palette" role="dialog" aria-modal="true" aria-label="Recherche universelle du Studio" hidden>
+    <div class="studio-palette-card">
+      <div class="studio-palette-head">
+        <span class="studio-palette-prompt" aria-hidden="true">⌘K</span>
+        <input
+          id="studio-palette-input"
+          class="studio-palette-input"
+          type="text"
+          role="combobox"
+          aria-expanded="true"
+          aria-controls="studio-palette-results"
+          aria-autocomplete="list"
+          placeholder="Chercher un token ou une section…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <kbd class="studio-palette-esc">Échap</kbd>
+      </div>
+      <ul id="studio-palette-results" class="studio-palette-results" role="listbox" aria-label="Résultats"></ul>
+      <p id="studio-palette-empty" class="studio-palette-empty" hidden>Aucun résultat.</p>
+      <p class="studio-palette-foot">
+        <kbd>↑</kbd><kbd>↓</kbd> naviguer · <kbd>Entrée</kbd> activer · <kbd>Échap</kbd> fermer
+      </p>
+    </div>
+  </div>
+
   {/* Île de données pour le JS (carte d'impact) */}
   <script type="application/json" id="ds-studio-data" set:html={studioData}></script>
   {/* Île de données pour l'atelier de section (champs éditables par type) */}
@@ -1552,6 +1579,90 @@ const moleculesRendered = 12;
   .studio-diff-row { justify-content: flex-start; padding: var(--space-2); border-bottom: 1px solid var(--hairline); }
   .studio-diff-swatch { width: var(--space-4); height: var(--space-4); border: 1px solid var(--hairline-strong); border-radius: var(--radius-sm); flex: none; }
 
+  /* ── Palette de recherche universelle (⌘K) ── */
+  .studio-palette[hidden] { display: none; }
+  .studio-palette {
+    position: fixed; inset: 0; z-index: 10001;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: var(--space-9) var(--space-5) var(--space-5);
+    background: color-mix(in srgb, var(--ink) 82%, transparent);
+    backdrop-filter: blur(6px);
+    opacity: 0; transition: opacity var(--dur-fast) var(--ease);
+  }
+  .studio-palette.is-on { opacity: 1; }
+  .studio-palette-card {
+    width: min(100%, var(--wrap-read)); max-height: 70vh;
+    display: flex; flex-direction: column;
+    background: var(--paper); border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-lift);
+    overflow: hidden;
+  }
+  .studio-palette-head {
+    display: flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .studio-palette-prompt {
+    font-family: var(--font-mono); font-size: var(--text-small);
+    color: var(--accent-text); letter-spacing: var(--tracking-mono); flex: none;
+  }
+  .studio-palette-input {
+    flex: 1 1 auto; min-width: 0;
+    font-family: var(--font-sans); font-size: var(--text-body);
+    color: var(--ink); background: transparent; border: none; padding: 0;
+  }
+  .studio-palette-input:focus { outline: none; }
+  .studio-palette-input::placeholder { color: var(--muted); }
+  .studio-palette-esc {
+    flex: none; font-family: var(--font-mono); font-size: var(--text-small);
+    color: var(--muted); background: var(--paper-2);
+    border: 1px solid var(--hairline-strong); border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+  }
+  .studio-palette-results {
+    list-style: none; margin: 0; padding: var(--space-2);
+    overflow-y: auto; display: flex; flex-direction: column; gap: 1px;
+  }
+  .studio-palette-item {
+    display: flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-xs); cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .studio-palette-item.is-active {
+    background: var(--paper-2); border-color: var(--accent-text);
+  }
+  .studio-palette-kind {
+    flex: none; width: var(--space-9); font-family: var(--font-mono);
+    font-size: var(--text-small); text-transform: uppercase;
+    letter-spacing: var(--tracking-mono); color: var(--muted);
+  }
+  .studio-palette-label {
+    flex: 1 1 auto; font-family: var(--font-mono); font-size: var(--text-small);
+    color: var(--ink-2); word-break: break-all;
+  }
+  .studio-palette-item.is-active .studio-palette-label { color: var(--accent-text); }
+  .studio-palette-meta {
+    flex: none; font-family: var(--font-sans); font-size: var(--text-small);
+    color: var(--muted);
+  }
+  .studio-palette-empty {
+    font-family: var(--font-sans); font-size: var(--text-small);
+    color: var(--muted); margin: 0; padding: var(--space-4) var(--space-5);
+  }
+  .studio-palette-foot {
+    margin: 0; padding: var(--space-2) var(--space-5);
+    border-top: 1px solid var(--hairline);
+    font-family: var(--font-sans); font-size: var(--text-small); color: var(--muted);
+  }
+  .studio-palette-foot kbd, .studio-palette-esc {
+    font-family: var(--font-mono);
+  }
+  .studio-palette-foot kbd {
+    background: var(--paper-2); border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm); padding: 0 var(--space-1); color: var(--ink-2);
+  }
+
   /* Vapeur : 3 bouffées qui montent et se dissipent en boucle (CSS pur, tokens). */
   :global(.studio-steam) {
     position: relative; width: var(--space-9); height: var(--space-9);
@@ -1572,6 +1683,7 @@ const moleculesRendered = 12;
   @media (prefers-reduced-motion: reduce) {
     :global(.studio-steam-puff) { animation: none; opacity: 0.5; }
     :global(.studio-overlay) { transition: none; }
+    .studio-palette { transition: none; }
   }
 
   /* Force l'état révélé des sections rendues inline (sinon scroll-reveal = opacity:0 = GF-1 fail).
