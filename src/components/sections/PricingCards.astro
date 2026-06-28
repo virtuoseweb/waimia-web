@@ -108,21 +108,21 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     margin: 0;
     text-wrap: pretty;
   }
+  /* La grille délègue colonnes + recettes layout au moteur (.sec-collection .sec-grid +
+     data-columns/data-layout, section-layouts.css). Le composant ne garde que le gap et le
+     défaut hors-layout/hors-columns. */
   .pricing-cards__grid {
     display: grid;
-    grid-template-columns: repeat(var(--col-count, 3), 1fr);
     gap: var(--pricing-cards-gap, var(--space-5));
     align-items: start;
   }
-  /* ── Axe COLUMNS (data-columns) : surcharge le --col-count historique. Défaut (absent)
-     = 1 colonne par tier (rendu actuel). 'auto' = auto-fit count-adaptive (minmax),
-     '2'|'3'|'4' = nombre fixe desktop, dégradés sous 900px. ── */
-  .pricing-cards__grid[data-columns='auto'] {
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--pricing-col-min, 16rem), 100%), 1fr));
+  /* Défaut peu spécifique, gaté hors data-columns : le moteur .sec-grid[data-columns] pilote
+     les colonnes quand l'attribut est posé ; les recettes layout du moteur (.sec-collection
+     [data-layout] .sec-grid, 0,3,0+) surchargent par spécificité ; ce défaut sert de fallback
+     pour le mode défaut (instances live) et les layouts opaques sans recette moteur. */
+  .pricing-cards__grid:not([data-columns]) {
+    grid-template-columns: repeat(var(--col-count, 3), 1fr);
   }
-  .pricing-cards__grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pricing-cards__grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .pricing-cards__grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .pricing-cards__card {
     position: relative;
     padding: var(--space-7) var(--space-6);
@@ -276,31 +276,9 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
      = grille --col-count (rendu actuel). 100% tokens DS ; structurel = 768px/900px,
      aspect-ratio, minmax en rem, order. ── */
 
-  /* grid-uniform : N colonnes égales, cartes étirées (hauteurs alignées). */
-  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: stretch;
-  }
-  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='5'] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='6'] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-
-  /* grid-auto : auto-fit count-adaptive. Dernière ligne centrée. */
-  .pricing-cards[data-layout='grid-auto'] .pricing-cards__grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--pricing-col-min, 16rem), 100%), 1fr));
-    justify-content: center;
-    align-items: stretch;
-  }
-
-  /* grid-asym : colonnes de largeurs différentes via colRatio. */
-  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid { grid-template-columns: 1fr 1fr; align-items: stretch; }
-  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='equal'] { grid-template-columns: 1fr 1fr; }
-  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='1-2'] { grid-template-columns: 1fr 2fr; }
-  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='2-1'] { grid-template-columns: 2fr 1fr; }
-  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='1-1-2'] { grid-template-columns: 1fr 1fr 2fr; }
-  .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='2-3'] { grid-template-columns: 2fr 3fr; }
+  /* grid-uniform / grid-auto / grid-asym : colonnes déléguées au moteur générique
+     (.sec-collection .sec-grid + data-layout/data-columns/data-col-ratio, section-layouts.css).
+     Le composant n'émet plus de recette grid-template-columns pour ces 3 layouts. */
 
   /* list : 1 tier par ligne, carte horizontale (header+price ↔ features ↔ CTA). */
   .pricing-cards[data-layout='list'] .pricing-cards__grid { grid-template-columns: 1fr; }
@@ -342,18 +320,6 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
 
   /* Responsive : toute recette grille converge en 1 colonne ≤768px ; list/rows en 1 col empilée. */
   @media (max-width: 768px) {
-    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid,
-    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='2'],
-    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='3'],
-    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='4'],
-    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='5'],
-    .pricing-cards[data-layout='grid-uniform'] .pricing-cards__grid[data-columns='6'],
-    .pricing-cards[data-layout='grid-auto'] .pricing-cards__grid,
-    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid,
-    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='1-2'],
-    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='2-1'],
-    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='1-1-2'],
-    .pricing-cards[data-layout='grid-asym'] .pricing-cards__grid[data-col-ratio='2-3'],
     .pricing-cards[data-layout='bento-feature'] .pricing-cards__grid,
     .pricing-cards[data-layout='featured-split'] .pricing-cards__grid { grid-template-columns: 1fr; }
     .pricing-cards[data-layout='bento-feature'] .pricing-cards__card:first-child,
@@ -366,13 +332,9 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
   }
 
   @media (max-width: 900px) {
-    /* Empilé : 1 colonne quel que soit l'axe (les data-columns ont une spécificité
-       supérieure → on les neutralise explicitement). */
-    .pricing-cards__grid,
-    .pricing-cards__grid[data-columns='auto'],
-    .pricing-cards__grid[data-columns='2'],
-    .pricing-cards__grid[data-columns='3'],
-    .pricing-cards__grid[data-columns='4'] { grid-template-columns: 1fr; }
+    /* Défaut sans layout/columns : 1 colonne. Les recettes layout (grid-uniform/auto/asym)
+       sont gérées par section-layouts.css qui inclut leur responsive. */
+    .pricing-cards__grid:not([data-columns]) { grid-template-columns: 1fr; }
   }
   /* Mobile : densification (espacement/typo tokenisee, sans perte d'info) */
   @media (max-width: 480px) {

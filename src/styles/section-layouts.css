@@ -89,6 +89,7 @@
 .sec-grid[data-columns='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .sec-grid[data-columns='5'] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .sec-grid[data-columns='6'] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.sec-grid[data-columns='auto'] { grid-template-columns: repeat(auto-fit, minmax(min(var(--sec-col-min, 16rem), 100%), 1fr)); }
 
 /* grid-auto : count-adaptive auto-fit — s'adapte au NOMBRE et à la largeur. Dernière ligne
    incomplète centrée (justify-content). col-min = rem structurel borné (cf DeliverablesGrid). */
