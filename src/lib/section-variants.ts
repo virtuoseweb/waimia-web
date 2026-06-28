@@ -61,12 +61,16 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'two-col',
         'alternating',
         'cards-deck',
+        'list-media-left',
+        'grid-3-featured',
+        'cards-overlap',
+        'metric-row',
       ],
     },
   ],
-  // split (feature-split-media, feature-zigzag) → 5 proportion × 2 side, élagué = 9
+  // split (feature-split-media, feature-zigzag) → 7 proportion × 2 side, élagué = 13
   split: [
-    { prop: 'proportion', values: ['1-1', '1-2', '2-1', '2-3', '3-2'] },
+    { prop: 'proportion', values: ['1-1', '1-2', '2-1', '2-3', '3-2', '1-3', '3-1'] },
     { prop: 'mediaSide', values: ['left', 'right'] },
   ],
   // bento (bento-grid, media-bento) → 8
@@ -82,6 +86,9 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'matrix-4x4',
         'grid-uniform',
         'feature-corner',
+        'matrix-3x2',
+        'feature-row',
+        'quad',
       ],
     },
   ],
@@ -97,6 +104,9 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'diagram',
         'zigzag',
         'connected-line',
+        'cards-steps',
+        'snake',
+        'vertical-alternating',
       ],
     },
   ],
@@ -113,6 +123,10 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'drop-cap',
         'pull-quote',
         'centered-statement',
+        'sidenote',
+        'numbered-prose',
+        'two-col-lead',
+        'statement-big',
       ],
     },
   ],
@@ -129,6 +143,10 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'grid-uniform',
         'featured-split',
         'peek-scroll',
+        'masonry-3',
+        'fullbleed-pair',
+        'filmstrip',
+        'overlap',
       ],
     },
   ],
@@ -136,12 +154,22 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
   table: [
     {
       prop: 'layout',
-      values: ['rows-divided', 'grid-steps', 'comparison-matrix', 'feature-check', 'spec-rows'],
+      values: [
+        'rows-divided',
+        'grid-steps',
+        'comparison-matrix',
+        'feature-check',
+        'spec-rows',
+        'striped-rows',
+        'sticky-header',
+        'two-col-compare',
+        'checklist',
+      ],
     },
   ],
-  // band (footer-cta-band) → 4 layout × 2 align = 8
+  // band (footer-cta-band) → 7 layout × 2 align = 14
   band: [
-    { prop: 'layout', values: ['inline', 'stacked', 'centered', 'full-bleed'] },
+    { prop: 'layout', values: ['inline', 'stacked', 'centered', 'full-bleed', 'split-image', 'boxed', 'gradient'] },
     { prop: 'align', values: ['start', 'center'] },
   ],
   // hero (hero-split, hero-centered, hero-masthead-card, hero-conversion-funnel) → 8
@@ -157,6 +185,11 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'stacked',
         'minimal',
         'with-form',
+        'split-reverse',
+        'video-bg',
+        'centered-narrow',
+        'with-logos-strip',
+        'side-form',
       ],
     },
   ],
@@ -164,7 +197,17 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
   logos: [
     {
       prop: 'layout',
-      values: ['marquee', 'grid-uniform', 'grid-auto', 'rows-divided', 'bordered-grid', 'with-heading'],
+      values: [
+        'marquee',
+        'grid-uniform',
+        'grid-auto',
+        'rows-divided',
+        'bordered-grid',
+        'with-heading',
+        'two-row',
+        'logo-quote',
+        'tiered',
+      ],
     },
   ],
   // ─── 12 nouveaux archétypes (un axe `layout`) ───
@@ -180,6 +223,9 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'with-context',
         'ticker',
         'comparison-pair',
+        'kpi-row',
+        'dual-metric',
+        'progress-bars',
       ],
     },
   ],
@@ -195,6 +241,9 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'avatar-row',
         'big-quote',
         'video-quote',
+        'logo-quote-grid',
+        'split-quote',
+        'rating-cards',
       ],
     },
   ],
@@ -210,6 +259,9 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
         'toggle-billing',
         'feature-checklist',
         'highlighted-popular',
+        'tier-cards-4',
+        'side-by-side',
+        'enterprise-row',
       ],
     },
   ],
@@ -217,38 +269,66 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
   faq: [
     {
       prop: 'layout',
-      values: ['accordion-single', 'accordion-two-col', 'list-open', 'grid', 'with-aside-cta'],
+      values: [
+        'accordion-single',
+        'accordion-two-col',
+        'list-open',
+        'grid',
+        'with-aside-cta',
+        'two-col-open',
+        'categorized',
+        'search-faq',
+      ],
     },
   ],
   // form (newsletter-band, form-panel) → 6
   form: [
     {
       prop: 'layout',
-      values: ['single-col', 'two-col', 'inline', 'split-with-media', 'multi-step', 'boxed-card'],
+      values: [
+        'single-col',
+        'two-col',
+        'inline',
+        'split-with-media',
+        'multi-step',
+        'boxed-card',
+        'two-step',
+        'compact-inline',
+        'full-width',
+      ],
     },
   ],
-  // banner (annonces / bandeaux) → 4
+  // banner (annonces / bandeaux) → 6
   banner: [
-    { prop: 'layout', values: ['thin-bar', 'with-cta', 'countdown', 'dismissible'] },
+    { prop: 'layout', values: ['thin-bar', 'with-cta', 'countdown', 'dismissible', 'sticky-top', 'promo-split'] },
   ],
-  // tabs (onglets) → 4
+  // tabs (onglets) → 7
   tabs: [
-    { prop: 'layout', values: ['horizontal-tabs', 'vertical-tabs', 'segmented', 'pills'] },
+    { prop: 'layout', values: ['horizontal-tabs', 'vertical-tabs', 'segmented', 'pills', 'underline-tabs', 'boxed-tabs', 'vertical-rail'] },
   ],
-  // carousel (sliders) → 4
+  // carousel (sliders) → 7
   carousel: [
-    { prop: 'layout', values: ['slider', 'peek', 'fade', 'thumbnails'] },
+    { prop: 'layout', values: ['slider', 'peek', 'fade', 'thumbnails', 'cards-peek', 'full-slide', 'logo-carousel'] },
   ],
-  // timeline (timeline-block) → 5
+  // timeline (timeline-block) → 8
   timeline: [
     {
       prop: 'layout',
-      values: ['vertical-events', 'horizontal-events', 'alternating', 'milestone-rail', 'dated-list'],
+      values: [
+        'vertical-events',
+        'horizontal-events',
+        'alternating',
+        'milestone-rail',
+        'dated-list',
+        'snake-timeline',
+        'cards-timeline',
+        'compact-dates',
+      ],
     },
   ],
-  // comparison (versus-competitors, comparison-table, comparison-duo) → 4
+  // comparison (versus-competitors, comparison-table, comparison-duo) → 7
   comparison: [
-    { prop: 'layout', values: ['two-col-versus', 'matrix', 'before-after', 'toggle'] },
+    { prop: 'layout', values: ['two-col-versus', 'matrix', 'before-after', 'toggle', 'three-way', 'toggle-rows', 'highlight-winner'] },
   ],
   // nav (barres de navigation) → 6
   nav: [
@@ -262,6 +342,73 @@ export const STRUCTURAL_AXES: Record<Archetype, AxisDef[]> = {
     {
       prop: 'layout',
       values: ['columns-4', 'columns-mega', 'minimal', 'big-cta', 'newsletter', 'sitemap'],
+    },
+  ],
+  // ─── 6 nouveaux archétypes (un axe `layout`) ───
+  // blog (cartes / listes d'articles) → 8
+  blog: [
+    {
+      prop: 'layout',
+      values: [
+        'cards-grid',
+        'list-rows',
+        'featured-plus-list',
+        'magazine',
+        'grid-with-sidebar',
+        'minimal-list',
+        'cards-image-top',
+        'two-col-list',
+      ],
+    },
+  ],
+  // people (équipe / personnes) → 7
+  people: [
+    {
+      prop: 'layout',
+      values: [
+        'avatar-grid',
+        'avatar-row',
+        'cards-bio',
+        'list-rows',
+        'featured-leader',
+        'circular-grid',
+        'two-col',
+      ],
+    },
+  ],
+  // contact (formulaire + infos) → 6
+  contact: [
+    {
+      prop: 'layout',
+      values: [
+        'form-left-info-right',
+        'form-right-info-left',
+        'form-only',
+        'form-map-split',
+        'info-columns-form-below',
+        'centered-form',
+      ],
+    },
+  ],
+  // map (carte / localisations) → 5
+  map: [
+    {
+      prop: 'layout',
+      values: ['map-full', 'map-left-info', 'map-right-info', 'map-with-cards', 'locations-list-map'],
+    },
+  ],
+  // toolbar (barre d'outils / filtres) → 5
+  toolbar: [
+    {
+      prop: 'layout',
+      values: ['filters-inline', 'search-center', 'tabs-filters', 'sort-bar', 'sticky-toolbar'],
+    },
+  ],
+  // callout (encart / aparté) → 6
+  callout: [
+    {
+      prop: 'layout',
+      values: ['note-inline', 'highlight-box', 'icon-callout', 'quote-callout', 'warning-bar', 'tip-card'],
     },
   ],
 };
@@ -370,6 +517,110 @@ const LAYOUT_LABEL: Record<string, string> = {
   'big-cta': 'grand CTA',
   newsletter: 'newsletter',
   sitemap: 'plan du site',
+  // ─── extension 28 archétypes : allongements (2b) ───
+  'list-media-left': 'liste média à gauche',
+  'grid-3-featured': 'grille 3 + vedette',
+  'cards-overlap': 'cartes superposées',
+  'metric-row': 'ligne de mesures',
+  'matrix-3x2': 'matrice 3x2',
+  'feature-row': 'ligne vedette',
+  quad: 'quadrant',
+  'cards-steps': 'cartes étapes',
+  snake: 'serpentin',
+  'vertical-alternating': 'vertical alterné',
+  sidenote: 'note de marge',
+  'numbered-prose': 'prose numérotée',
+  'two-col-lead': 'chapeau 2 colonnes',
+  'statement-big': 'grand énoncé',
+  'masonry-3': 'masonry 3 colonnes',
+  'fullbleed-pair': 'paire pleine largeur',
+  filmstrip: 'pellicule',
+  overlap: 'chevauchement',
+  'striped-rows': 'lignes zébrées',
+  'sticky-header': 'en-tête collant',
+  'two-col-compare': 'comparaison 2 colonnes',
+  checklist: 'liste de contrôle',
+  'split-image': 'split image',
+  boxed: 'encadré',
+  gradient: 'dégradé',
+  'two-row': 'deux rangées',
+  'logo-quote': 'logo + citation',
+  tiered: 'par paliers',
+  'split-reverse': 'split inversé',
+  'video-bg': 'fond vidéo',
+  'centered-narrow': 'centré étroit',
+  'with-logos-strip': 'avec bande de logos',
+  'side-form': 'formulaire latéral',
+  'kpi-row': 'ligne KPI',
+  'dual-metric': 'double mesure',
+  'progress-bars': 'barres de progression',
+  'logo-quote-grid': 'grille logo + citation',
+  'split-quote': 'citation split',
+  'rating-cards': 'cartes de notes',
+  'tier-cards-4': '4 paliers',
+  'side-by-side': 'côte à côte',
+  'enterprise-row': 'ligne entreprise',
+  'two-col-open': '2 colonnes ouvert',
+  categorized: 'par catégories',
+  'search-faq': 'FAQ avec recherche',
+  'two-step': 'deux étapes',
+  'compact-inline': 'compact en ligne',
+  'full-width': 'pleine largeur',
+  'sticky-top': 'collant en haut',
+  'promo-split': 'promo split',
+  'underline-tabs': 'onglets soulignés',
+  'boxed-tabs': 'onglets encadrés',
+  'vertical-rail': 'rail vertical',
+  'cards-peek': 'cartes en aperçu',
+  'full-slide': 'diapo pleine',
+  'logo-carousel': 'carrousel de logos',
+  'snake-timeline': 'frise serpentin',
+  'cards-timeline': 'frise en cartes',
+  'compact-dates': 'dates compactes',
+  'three-way': 'trois voies',
+  'toggle-rows': 'lignes à bascule',
+  'highlight-winner': 'gagnant mis en avant',
+  // ─── 6 nouveaux archétypes (2a) ───
+  // blog
+  'cards-grid': 'grille de cartes',
+  'list-rows': 'lignes de liste',
+  'featured-plus-list': 'vedette + liste',
+  magazine: 'magazine',
+  'grid-with-sidebar': 'grille + colonne',
+  'minimal-list': 'liste minimale',
+  'cards-image-top': 'cartes image en haut',
+  'two-col-list': 'liste 2 colonnes',
+  // people
+  'avatar-grid': 'grille avatars',
+  'cards-bio': 'cartes bio',
+  'featured-leader': 'dirigeant en vedette',
+  'circular-grid': 'grille ronde',
+  // contact
+  'form-left-info-right': 'formulaire à gauche, infos à droite',
+  'form-right-info-left': 'formulaire à droite, infos à gauche',
+  'form-only': 'formulaire seul',
+  'form-map-split': 'formulaire + carte',
+  'info-columns-form-below': 'colonnes infos, formulaire dessous',
+  'centered-form': 'formulaire centré',
+  // map
+  'map-full': 'carte pleine',
+  'map-left-info': 'carte à gauche, infos',
+  'map-right-info': 'carte à droite, infos',
+  'map-with-cards': 'carte avec cartes',
+  'locations-list-map': 'liste de lieux + carte',
+  // toolbar
+  'filters-inline': 'filtres en ligne',
+  'search-center': 'recherche centrée',
+  'tabs-filters': 'onglets + filtres',
+  'sort-bar': 'barre de tri',
+  'sticky-toolbar': 'barre collante',
+  // callout
+  'note-inline': 'note en ligne',
+  'highlight-box': 'encart surligné',
+  'icon-callout': 'encart à icône',
+  'quote-callout': 'encart citation',
+  'warning-bar': 'bandeau d\'alerte',
+  'tip-card': 'carte conseil',
 };
 
 const PROPORTION_LABEL: Record<string, string> = {
@@ -378,6 +629,8 @@ const PROPORTION_LABEL: Record<string, string> = {
   '2-1': 'texte dominant',
   '2-3': 'média large',
   '3-2': 'texte large',
+  '1-3': 'média très large',
+  '3-1': 'texte très large',
 };
 
 const SIDE_LABEL: Record<string, string> = { left: 'média à gauche', right: 'média à droite' };
@@ -567,8 +820,9 @@ export const FULL_AXES: Record<Archetype, AxisDef[]> = {
   // Autres archétypes : espace raisonnable (seul collection est RENDU richement aujourd'hui ;
   // ces déclarations donnent un combinationCount honnête et préparent l'extension).
   split: [
-    { prop: 'proportion', values: ['1-1', '1-2', '2-1', '2-3', '3-2'] },
+    { prop: 'proportion', values: ['1-1', '1-2', '2-1', '2-3', '3-2', '1-3', '3-1'] },
     { prop: 'mediaSide', values: ['left', 'right'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'headerKind', values: ['none', 'title', 'eyebrow-title', 'eyebrow-title-lede'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'mediaFit', values: ['cover', 'contain'] },
@@ -577,7 +831,8 @@ export const FULL_AXES: Record<Archetype, AxisDef[]> = {
     { prop: 'hover', values: ['none', 'lift', 'media-zoom'] },
   ],
   bento: [
-    { prop: 'layout', values: ['bento', 'bento-feature', 'mosaic', 'matrix-2x2', 'matrix-3x3', 'grid-uniform'] },
+    { prop: 'layout', values: ['bento', 'bento-feature', 'mosaic', 'matrix-2x2', 'matrix-3x3', 'matrix-3x2', 'grid-uniform', 'quad', 'feature-row'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'columns', values: ['auto', '2', '3', '4'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'cardMedia', values: ['none', 'icon', 'image', 'image-bg'] },
@@ -600,83 +855,93 @@ export const FULL_AXES: Record<Archetype, AxisDef[]> = {
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   gallery: [
-    { prop: 'layout', values: ['grid-auto', 'mosaic', 'masonry', 'matrix-3x3', 'featured-split'] },
+    { prop: 'layout', values: ['grid-auto', 'mosaic', 'masonry', 'masonry-3', 'matrix-3x3', 'featured-split', 'filmstrip', 'overlap'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'itemHeight', values: ['auto', 'even', 'square'] },
     { prop: 'cardMedia', values: ['image', 'image-bg'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
     { prop: 'hover', values: ['none', 'media-zoom', 'zoom'] },
   ],
   table: [
-    { prop: 'layout', values: ['rows-divided', 'grid-steps'] },
+    { prop: 'layout', values: ['rows-divided', 'grid-steps', 'striped-rows', 'sticky-header', 'two-col-compare', 'checklist'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'dividers', values: ['none', 'row-rules', 'grid-lines'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   band: [
-    { prop: 'layout', values: ['inline', 'stacked'] },
+    { prop: 'layout', values: ['inline', 'stacked', 'centered', 'full-bleed', 'split-image', 'boxed', 'gradient'] },
     { prop: 'align', values: ['start', 'center'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   hero: [
-    { prop: 'layout', values: ['split', 'centered', 'masthead', 'funnel'] },
+    { prop: 'layout', values: ['split', 'centered', 'masthead', 'funnel', 'full-bleed-image', 'minimal', 'split-reverse', 'side-form'] },
     { prop: 'mediaSide', values: ['left', 'right'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
     { prop: 'bgSource', values: ['color', 'image', 'gradient'] },
   ],
   logos: [
-    { prop: 'layout', values: ['marquee', 'grid-uniform', 'grid-auto', 'rows-divided', 'bordered-grid', 'with-heading'] },
+    { prop: 'layout', values: ['marquee', 'grid-uniform', 'grid-auto', 'rows-divided', 'bordered-grid', 'with-heading', 'two-row', 'logo-quote', 'tiered'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'columns', values: ['auto', '3', '4', '6'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   // ─── 12 nouveaux archétypes (mêmes layouts que STRUCTURAL_AXES + axes transverses honorés) ───
   stats: [
-    { prop: 'layout', values: ['inline-row', 'grid-uniform', 'big-number-split', 'bento', 'with-context', 'ticker', 'comparison-pair'] },
+    { prop: 'layout', values: ['inline-row', 'grid-uniform', 'big-number-split', 'bento', 'with-context', 'ticker', 'comparison-pair', 'kpi-row', 'dual-metric', 'progress-bars'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'columns', values: ['auto', '2', '3', '4'] },
     { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   testimonial: [
-    { prop: 'layout', values: ['single-quote', 'quote-grid', 'carousel', 'with-logos', 'avatar-row', 'big-quote', 'video-quote'] },
+    { prop: 'layout', values: ['single-quote', 'quote-grid', 'carousel', 'with-logos', 'avatar-row', 'big-quote', 'video-quote', 'logo-quote-grid', 'split-quote', 'rating-cards'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'columns', values: ['auto', '2', '3', '4'] },
     { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   pricing: [
-    { prop: 'layout', values: ['tier-cards-3', 'tier-cards-2', 'single', 'comparison-matrix', 'toggle-billing', 'feature-checklist', 'highlighted-popular'] },
+    { prop: 'layout', values: ['tier-cards-3', 'tier-cards-2', 'single', 'comparison-matrix', 'toggle-billing', 'feature-checklist', 'highlighted-popular', 'tier-cards-4', 'side-by-side', 'enterprise-row'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'columns', values: ['auto', '2', '3', '4'] },
     { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   faq: [
-    { prop: 'layout', values: ['accordion-single', 'accordion-two-col', 'list-open', 'grid', 'with-aside-cta'] },
+    { prop: 'layout', values: ['accordion-single', 'accordion-two-col', 'list-open', 'grid', 'with-aside-cta', 'two-col-open', 'categorized', 'search-faq'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   form: [
-    { prop: 'layout', values: ['single-col', 'two-col', 'inline', 'split-with-media', 'multi-step', 'boxed-card'] },
+    { prop: 'layout', values: ['single-col', 'two-col', 'inline', 'split-with-media', 'multi-step', 'boxed-card', 'two-step', 'compact-inline', 'full-width'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'mediaSide', values: ['left', 'right'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   banner: [
-    { prop: 'layout', values: ['thin-bar', 'with-cta', 'countdown', 'dismissible'] },
+    { prop: 'layout', values: ['thin-bar', 'with-cta', 'countdown', 'dismissible', 'sticky-top', 'promo-split'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   tabs: [
-    { prop: 'layout', values: ['horizontal-tabs', 'vertical-tabs', 'segmented', 'pills'] },
+    { prop: 'layout', values: ['horizontal-tabs', 'vertical-tabs', 'segmented', 'pills', 'underline-tabs', 'boxed-tabs', 'vertical-rail'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'columns', values: ['auto', '2', '3', '4'] },
@@ -684,7 +949,7 @@ export const FULL_AXES: Record<Archetype, AxisDef[]> = {
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   carousel: [
-    { prop: 'layout', values: ['slider', 'peek', 'fade', 'thumbnails'] },
+    { prop: 'layout', values: ['slider', 'peek', 'fade', 'thumbnails', 'cards-peek', 'full-slide', 'logo-carousel'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'columns', values: ['auto', '2', '3', '4'] },
@@ -692,13 +957,13 @@ export const FULL_AXES: Record<Archetype, AxisDef[]> = {
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   timeline: [
-    { prop: 'layout', values: ['vertical-events', 'horizontal-events', 'alternating', 'milestone-rail', 'dated-list'] },
+    { prop: 'layout', values: ['vertical-events', 'horizontal-events', 'alternating', 'milestone-rail', 'dated-list', 'snake-timeline', 'cards-timeline', 'compact-dates'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
   comparison: [
-    { prop: 'layout', values: ['two-col-versus', 'matrix', 'before-after', 'toggle'] },
+    { prop: 'layout', values: ['two-col-versus', 'matrix', 'before-after', 'toggle', 'three-way', 'toggle-rows', 'highlight-winner'] },
     { prop: 'headerAlign', values: ['left', 'center', 'right'] },
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
@@ -715,6 +980,51 @@ export const FULL_AXES: Record<Archetype, AxisDef[]> = {
     { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'columns', values: ['auto', '2', '3', '4'] },
     { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  // ─── 6 nouveaux archétypes (mêmes layouts que STRUCTURAL_AXES + axes transverses honorés) ───
+  blog: [
+    { prop: 'layout', values: ['cards-grid', 'list-rows', 'featured-plus-list', 'magazine', 'grid-with-sidebar', 'minimal-list', 'cards-image-top', 'two-col-list'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  people: [
+    { prop: 'layout', values: ['avatar-grid', 'avatar-row', 'cards-bio', 'list-rows', 'featured-leader', 'circular-grid', 'two-col'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'columns', values: ['auto', '2', '3', '4'] },
+    { prop: 'hover', values: ['none', 'lift', 'zoom'] },
+    { prop: 'colorDistribution', values: ['uniform', 'featured-first', 'one-accent', 'alternating'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  contact: [
+    { prop: 'layout', values: ['form-left-info-right', 'form-right-info-left', 'form-only', 'form-map-split', 'info-columns-form-below', 'centered-form'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'mediaSide', values: ['left', 'right'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  map: [
+    { prop: 'layout', values: ['map-full', 'map-left-info', 'map-right-info', 'map-with-cards', 'locations-list-map'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'mediaSide', values: ['left', 'right'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  toolbar: [
+    { prop: 'layout', values: ['filters-inline', 'search-center', 'tabs-filters', 'sort-bar', 'sticky-toolbar'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
+    { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
+  ],
+  callout: [
+    { prop: 'layout', values: ['note-inline', 'highlight-box', 'icon-callout', 'quote-callout', 'warning-bar', 'tip-card'] },
+    { prop: 'headerAlign', values: ['left', 'center', 'right'] },
+    { prop: 'density', values: ['compact', 'base', 'ample'] },
     { prop: 'colorScheme', values: COLOR_SCHEMES.map((s) => s.id) },
   ],
 };

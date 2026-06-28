@@ -13,8 +13,8 @@ import type { SectionType } from '../schemas/sections';
 import type { LayoutTag } from './section-facets';
 
 /* ───────────────────────────── Archétypes (catégories de section) ───────────────────────────── */
-// 22 archétypes. Les 10 premiers = 10 classes de famille CSS RENDUES du moteur
-// (sec-<archetype>), cf section-layouts.css. Les 12 nouveaux (stats…footer) réutilisent
+// 28 archétypes. Les 10 premiers = 10 classes de famille CSS RENDUES du moteur
+// (sec-<archetype>), cf section-layouts.css. Les 18 suivants (stats…callout) réutilisent
 // chacun une `familyClass` moteur EXISTANTE (recettes CSS dédiées = migration #46) : ils
 // enrichissent le VOCABULAIRE de squelettes sans inventer de nouvelle famille CSS.
 export type Archetype =
@@ -39,7 +39,13 @@ export type Archetype =
   | 'timeline'
   | 'comparison'
   | 'nav'
-  | 'footer';
+  | 'footer'
+  | 'blog'
+  | 'people'
+  | 'contact'
+  | 'map'
+  | 'toolbar'
+  | 'callout';
 
 /* ───────────────────────────── Couches (les 6 du standard) ───────────────────────────── */
 // LayerTag = quelle couche du mixin de variation un archétype câble réellement.
@@ -270,10 +276,59 @@ export const ARCHETYPE_CAPABILITIES: Record<Archetype, Capabilities> = {
     layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
     familyClass: 'sec-collection',
   },
+  // ─── 6 nouveaux archétypes (vocabulaire encore plus riche, familyClass moteur existante) ───
+  // Articles / cartes de blog (réutilise le moteur collection).
+  blog: {
+    layouts: ['1-col', '2-col', '3-col', 'multi-col'],
+    regions: ['header', 'body', 'media'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
+  // Équipe / personnes (réutilise le moteur collection).
+  people: {
+    layouts: ['2-col', '3-col', '4-col', 'multi-col', 'centered'],
+    regions: ['header', 'body', 'media'],
+    axes: ['columns', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-collection',
+  },
+  // Contact (formulaire + infos, réutilise le moteur split).
+  contact: {
+    layouts: ['split', 'media-left', 'media-right', '1-col', 'centered'],
+    regions: ['header', 'media', 'body', 'actions'],
+    axes: ['proportion', 'mediaSide', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-split',
+  },
+  // Carte / localisations (réutilise le moteur split média ↔ infos).
+  map: {
+    layouts: ['split', 'media-left', 'media-right', 'full-bleed'],
+    regions: ['header', 'media', 'body'],
+    axes: ['proportion', 'mediaSide', 'density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, ...GRID_LAYERS],
+    familyClass: 'sec-split',
+  },
+  // Barre d'outils / filtres (réutilise le moteur band).
+  toolbar: {
+    layouts: ['1-col', 'centered', 'full-bleed'],
+    regions: ['header', 'body', 'actions'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
+  // Encart / aparté en avant (réutilise le moteur band).
+  callout: {
+    layouts: ['centered', '1-col', '2-col'],
+    regions: ['header', 'body', 'actions'],
+    axes: ['density'],
+    layers: ['layout', 'axes', ...COMMON_LAYERS, ...NOW_COMMON_LAYERS, 'grid-align', 'sizing'],
+    familyClass: 'sec-band',
+  },
 };
 
 /* ───────────────────────────── family (registry) → archétype ─────────────────────────────
- * Le `family` du SectionDescriptor (FamilyTag, 27 valeurs) projette sur l'un des 22
+ * Le `family` du SectionDescriptor (FamilyTag, 27 valeurs) projette sur l'un des 28
  * archétypes. Garde le mapping DRY : TYPE_ARCHETYPE ci-dessous est dérivé de la famille
  * de chaque type (cf section-registry.ts), donc on couvre les 199 types sans table à la
  * main. Source : familles réelles du registry (audit 2026-06-28). */
@@ -342,7 +397,7 @@ export const TYPE_ARCHETYPE: Partial<Record<SectionType, Archetype>> = {
   'deliverables-grid': 'collection',
   'case-card-grid': 'collection',
   'case-featured-grid': 'collection',
-  'team-card-grid': 'collection',
+  'team-card-grid': 'people',
   'pricing-cards': 'pricing',
   'pricing-table': 'pricing',
   'use-case-index': 'collection',
