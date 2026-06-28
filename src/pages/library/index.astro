@@ -21,7 +21,7 @@ import DsLocalNav from '../../components/library/DsLocalNav.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import CatalogueExplorer, { type CatalogueItem } from '../../components/library/CatalogueExplorer.tsx';
 import { listCategories, listSections, listFacetCounts } from '../../lib/section-registry';
-import { listPresets } from '../../lib/section-presets';
+import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
 import { getUsage } from '../../lib/library-manifest';
 import {
   FACET_LABELS_FR,
@@ -29,7 +29,7 @@ import {
   PAGE_ROLE_LABELS_FR,
   CONTENT_MODE_LABELS_FR,
   type FacetKind,
-} from '../../lib/section-facets';
+} from '@waimia/ds-kernel/lib/section-facets';
 
 const categories = listCategories();
 const sections = listSections();

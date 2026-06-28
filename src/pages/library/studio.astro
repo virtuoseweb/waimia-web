@@ -46,10 +46,10 @@ import TerminalMockup from '../../components/ui/molecules/TerminalMockup.astro';
 // Sections cataloguées (rendu inline → réactif au token LIVE, contrairement aux iframes)
 import { SECTION_REGISTRY, listSections, listCategories } from '../../lib/section-registry';
 import { SECTION_DEMOS } from '../../lib/section-demos';
-import { sectionSchema } from '../../schemas/sections';
-import type { SectionType } from '../../schemas/sections';
-import { listPresets } from '../../lib/section-presets';
-import { COLOR_SCHEMES } from '../../lib/section-colorschemes';
+import { sectionSchema } from '@waimia/ds-kernel';
+import type { SectionType } from '@waimia/ds-kernel';
+import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
+import { COLOR_SCHEMES } from '@waimia/ds-kernel/lib/section-colorschemes';
 import DsLocalNav from '../../components/library/DsLocalNav.astro';
 
 import registry from '../../data/ds-registry.json';

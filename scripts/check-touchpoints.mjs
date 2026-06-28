@@ -30,9 +30,13 @@ const KNOWN_OK = new Set([]);
 // (`src/sections/<type>/`) + les agrégats GENERES (sections.generated / *-registry.generated /
 // *-demos.generated). Le drift-guard scanne donc ces sources, plus le manifest hand-authored.
 const SECTIONS_DIR = 'src/sections';
+// #40 T3 etape 2 : les schema.ts co-localises ont ete deplaces dans le package @waimia/ds-kernel
+// (packages/ds-kernel/src/sections/<id>/schema.ts). index.ts/meta.ts/demo.ts/Component.astro
+// restent cote app dans src/sections/<id>/.
+const KERNEL_SECTIONS_DIR = 'packages/ds-kernel/src/sections';
 const IGNORED_DIRS = new Set(['_shared']);
 const FILES = {
-  schemaGen: 'src/schemas/sections.generated.ts',
+  schemaGen: 'packages/ds-kernel/src/schemas/sections.generated.ts',
   demosGen: 'src/lib/section-demos.generated.ts',
   registryGen: 'src/lib/section-registry.generated.ts',
   manifest: 'src/lib/library-manifest.ts',
@@ -70,7 +74,7 @@ const registryKeys = uniq(
 const schemaKeys = [];
 const schemaLiteralMismatch = [];
 for (const id of moduleDirs) {
-  const p = join(ROOT, SECTIONS_DIR, id, 'schema.ts');
+  const p = join(ROOT, KERNEL_SECTIONS_DIR, id, 'schema.ts');
   if (!existsSync(p)) {
     schemaLiteralMismatch.push(`${id} (schema.ts absent)`);
     continue;

@@ -5,7 +5,7 @@
 // Réutilise la section cataloguée `case-card-grid` (pas de markup neuf).
 import { getCollection } from 'astro:content';
 import { localizeHref } from './i18n';
-import type { SectionByType } from '../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 
 type CaseGridData = SectionByType<'case-card-grid'>;
 type CaseRow = CaseGridData['cases'][number];

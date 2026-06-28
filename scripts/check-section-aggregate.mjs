@@ -2,9 +2,10 @@
 /**
  * check-section-aggregate.mjs : gate « généré == commité » des agrégats de section (Wave #38 T5).
  *
- * Les 3 fichiers `*.generated.ts` (sections.generated.ts, section-registry.generated.ts,
- * section-demos.generated.ts) sont COMMITES mais 100 % dérivés des modules co-localisés
- * `src/sections/<type>/`. Ce gate régénère le contenu EN MEMOIRE (buildGenerated) et le compare
+ * Les 4 fichiers `*.generated.ts` (kernel : sections.generated.ts + section-family.generated.ts ;
+ * app : section-registry.generated.ts + section-demos.generated.ts) sont COMMITES mais 100 %
+ * dérivés des modules co-localisés `src/sections/<type>/` (+ schema.ts cote kernel depuis #40 T3
+ * etape 2). Ce gate régénère le contenu EN MEMOIRE (buildGenerated) et le compare
  * octet à octet au contenu commité : tout écart = drift (modules modifiés sans régénérer, ou
  * édition à la main d'un fichier généré) → exit 1.
  *
@@ -68,7 +69,7 @@ async function main() {
     console.log('✗ DRIFT des agrégats. Lance `npm run gen:section-aggregate` puis recommit.');
     process.exit(1);
   }
-  console.log('✓ Les 3 agrégats générés sont alignés avec les modules.');
+  console.log('✓ Les agrégats générés sont alignés avec les modules.');
   process.exit(0);
 }
 

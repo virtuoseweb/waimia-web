@@ -15,7 +15,7 @@ import EditorialProse from '../../components/sections/EditorialProse.astro';
 import { localizeHref } from '../../lib/i18n';
 import { sectorCaseGridData } from '../../lib/sector-cases';
 import { buildArticle } from '../../lib/seo/schema-builder';
-import type { SectionData, SectionByType } from '../../schemas/sections';
+import type { SectionData, SectionByType } from '@waimia/ds-kernel';
 
 export async function getStaticPaths() {
   const entries = await getCollection('secteurs');

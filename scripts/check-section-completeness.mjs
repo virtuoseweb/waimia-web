@@ -50,10 +50,14 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+// section-registry.ts (re-export god-file depuis #38 T5). NB : parseRegistry n'y trouve pas
+// le bloc SECTIONS inline (il vit dans section-registry.generated.ts) → comportement baseline
+// inchange. Repointer ici depasse le scope #40 T3 etape 2 (surface des composants, pas le kernel).
 const REGISTRY_FILE = 'src/lib/section-registry.ts';
-const ARCHETYPES_FILE = 'src/lib/section-archetypes.ts';
-const SCHEMA_FILE = 'src/schemas/sections.ts';
-const PRESETS_FILE = 'src/lib/section-presets.ts';
+// #40 T3 etape 2 : archetypes/schema/presets vivent dans le package @waimia/ds-kernel.
+const ARCHETYPES_FILE = 'packages/ds-kernel/src/lib/section-archetypes.ts';
+const SCHEMA_FILE = 'packages/ds-kernel/src/schemas/sections.ts';
+const PRESETS_FILE = 'packages/ds-kernel/src/lib/section-presets.ts';
 const SECTIONS_DIR = 'src/components/sections';
 
 const SHOW_ALL = process.argv.includes('--all');
@@ -231,13 +235,19 @@ function typeIdToSchemaName(typeId) {
   );
 }
 
-function schemaHasMixin(schemaSrc, typeId) {
-  const name = typeIdToSchemaName(typeId);
-  const decl = new RegExp(`export\\s+const\\s+${name}\\s*=\\s*z\\.object\\s*\\(\\s*\\{`).exec(schemaSrc);
+// #40 T3 etape 2 : depuis la co-location (#38) + l'extraction kernel, chaque type a son
+// schema dans packages/ds-kernel/src/sections/<typeId>/schema.ts sous la forme
+// `export const schema = z.object({ ... })` (et non plus `<camel>Schema` dans un god-file).
+// On lit le module du type et on cherche le mixin sectionBaseSchema dans cet objet.
+function schemaHasMixin(_unusedSchemaSrc, typeId) {
+  const modPath = join(ROOT, `packages/ds-kernel/src/sections/${typeId}/schema.ts`);
+  if (!existsSync(modPath)) return { found: false, hasMixin: false };
+  const objSrc = readFileSync(modPath, 'utf8');
+  const decl = /export\s+const\s+schema\s*=\s*z\.object\s*\(\s*\{/.exec(objSrc);
   if (!decl) return { found: false, hasMixin: false };
   const open = decl.index + decl[0].length - 1;
-  const end = matchBrace(schemaSrc, open);
-  const objBody = schemaSrc.slice(open + 1, end);
+  const end = matchBrace(objSrc, open);
+  const objBody = objSrc.slice(open + 1, end);
   // Accepte les deux idiomes possibles : spread du .shape, ou .extend / merge.
   const hasMixin =
     /\.\.\.sectionBaseSchema\.shape/.test(objBody) ||

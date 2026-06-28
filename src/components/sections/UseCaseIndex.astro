@@ -3,7 +3,7 @@
 // Index éditorial de cas d'usage par département (rows mono numérotées).
 // Source : `Departments.astro` (§ 05 — Cas d'usage horizontaux) — COPIE VERBATIM data-driven.
 import SectionHeader from '../ui/molecules/SectionHeader.astro';
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 interface Props {
   data: SectionByType<'use-case-index'>;
   lang: 'fr' | 'en';

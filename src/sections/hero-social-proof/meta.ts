@@ -2,7 +2,7 @@
 // DÉPLACÉES depuis src/lib/section-registry.ts (rule 60 : déplacer, pas dupliquer).
 // `SectionMeta` = `SectionDescriptor` SANS `component` (porté par Component.astro) ni `usage`.
 
-import type { SectionMeta } from '../_shared/types';
+import type { SectionMeta } from '@waimia/ds-kernel/sections/_shared/types';
 
 export const meta: SectionMeta = {
   category: 'marketing',

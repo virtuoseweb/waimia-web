@@ -10,7 +10,7 @@
 // (`buildSectionDetail`, DRY, 0 drift avec le tier 1). 0 nouveau token, 0 U+2014.
 
 import type { APIRoute, GetStaticPaths } from 'astro';
-import type { SectionType } from '../../../schemas/sections';
+import type { SectionType } from '@waimia/ds-kernel';
 import { allSectionTypes } from '../../../lib/mcp-manifest';
 import { buildSectionDetail } from '../../../lib/mcp-manifest';
 

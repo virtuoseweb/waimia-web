@@ -6,7 +6,7 @@
 // rend une carte en contraste inverse. Média par carte : .svg = line-art inline
 // (currentColor + var(--accent)), .webp = <img> avec dimensions (0 CLS).
 import Kicker from '../ui/atoms/Kicker.astro';
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 
 // Line-art DS inliné au build via ?raw (même idiome que FeatureZigzag) : le SVG vit
 // dans le DOM → currentColor suit la couleur de texte et var(--accent) résout le token.

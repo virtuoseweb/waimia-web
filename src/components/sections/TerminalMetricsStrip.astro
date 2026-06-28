@@ -5,7 +5,7 @@
 // esthétique télémétrie de console (uptime, workspaces, agents, locale, release).
 // Pattern source : /console hero, strip 5 metrics sous le terminal.
 import Kicker from '../ui/atoms/Kicker.astro';
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 
 interface Props {
   data: SectionByType<'terminal-metrics-strip'>;

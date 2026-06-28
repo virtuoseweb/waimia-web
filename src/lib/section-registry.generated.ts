@@ -3,7 +3,7 @@
 // Régénérer : `npm run gen:section-aggregate`. Gate : `npm run check:section-aggregate`.
 // (src/lib/section-registry.generated.ts)
 
-import type { SectionType } from '../schemas/sections';
+import type { SectionType } from '@waimia/ds-kernel';
 import type { SectionDescriptor, AstroComponent } from './section-registry-types';
 import { Component as heroFormInlineComponent, meta as heroFormInlineMeta } from '../sections/hero-form-inline';
 import { Component as heroSocialProofComponent, meta as heroSocialProofMeta } from '../sections/hero-social-proof';

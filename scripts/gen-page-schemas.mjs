@@ -71,19 +71,27 @@ async function loadConfigModule() {
     const shimLoaders = path.join(tmpRoot, '__shim_astro_loaders.mjs');
     fs.writeFileSync(shimLoaders, `export const glob = () => ({});\n`);
 
+    // #40 T3 etape 2 : le contrat vit dans @waimia/ds-kernel (bare specifier). Il ne resout
+    // pas depuis un tmp hors repo → on rebind aussi `@waimia/ds-kernel[/sous-chemin]` vers le
+    // barrel du kernel COPIE dans <tmp>/ds-kernel/. Le kernel est deja en zod pur (efbb673b),
+    // mais on garde le rebind astro:content/loaders par securite (idempotent).
+    const KERNEL_SRC = path.join(repoRoot, 'packages/ds-kernel/src');
+    const kernelBarrel = path.join(tmpRoot, 'ds-kernel', 'index.ts');
     const rebind = (code) =>
       code
         .replace(/from ['"]astro:content['"]/g, `from ${JSON.stringify(shimContent)}`)
-        .replace(/from ['"]astro\/loaders['"]/g, `from ${JSON.stringify(shimLoaders)}`);
+        .replace(/from ['"]astro\/loaders['"]/g, `from ${JSON.stringify(shimLoaders)}`)
+        // zod (bare) : depuis efbb673b le kernel importe `zod` directement ; le tmp est hors
+        // repo → rebind vers le chemin absolu resolu (meme idiome que le shim astro:content).
+        .replace(/from ['"]zod['"]/g, `from ${JSON.stringify(zodPath)}`)
+        // sous-chemins d'abord (@waimia/ds-kernel/lib/x, /sections/x, /schemas/x)
+        .replace(/from ['"]@waimia\/ds-kernel\/([^'"]+)['"]/g, (_m, sub) =>
+          `from ${JSON.stringify(path.join(tmpRoot, 'ds-kernel', sub + '.ts'))}`)
+        // puis le barrel racine
+        .replace(/from ['"]@waimia\/ds-kernel['"]/g, `from ${JSON.stringify(kernelBarrel)}`);
 
-    // content.config.ts (racine src/) -> <tmp>/content.config.ts
-    fs.writeFileSync(
-      path.join(tmpRoot, 'content.config.ts'),
-      rebind(fs.readFileSync(path.join(repoRoot, 'src/content.config.ts'), 'utf8')),
-    );
-
-    // Arborescences relatives importées (transitives) : src/schemas/** + src/sections/**.
-    // On préserve la structure pour que les imports relatifs résolvent dans le temp.
+    // Arborescence importee (transitive) : tout le kernel + content.config.ts.
+    // On preserve la structure pour que les imports relatifs INTERNES au kernel resolvent.
     const copyTsTree = (srcDir, destDir) => {
       if (!fs.existsSync(srcDir)) return;
       fs.mkdirSync(destDir, { recursive: true });
@@ -91,12 +99,20 @@ async function loadConfigModule() {
         const from = path.join(srcDir, entry.name);
         const to = path.join(destDir, entry.name);
         if (entry.isDirectory()) copyTsTree(from, to);
-        else if (entry.isFile() && entry.name.endsWith('.ts'))
-          fs.writeFileSync(to, rebind(fs.readFileSync(from, 'utf8')));
+        else if (entry.isFile() && (entry.name.endsWith('.ts') || entry.name.endsWith('.json')))
+          entry.name.endsWith('.json')
+            ? fs.copyFileSync(from, to)
+            : fs.writeFileSync(to, rebind(fs.readFileSync(from, 'utf8')));
       }
     };
-    copyTsTree(path.join(repoRoot, 'src/schemas'), path.join(tmpRoot, 'schemas'));
-    copyTsTree(path.join(repoRoot, 'src/sections'), path.join(tmpRoot, 'sections'));
+    // Tout le kernel (schemas + lib + sections/<type>/schema.ts + _shared) -> <tmp>/ds-kernel/**
+    copyTsTree(KERNEL_SRC, path.join(tmpRoot, 'ds-kernel'));
+
+    // content.config.ts (racine src/) -> <tmp>/content.config.ts (rebind @waimia + astro)
+    fs.writeFileSync(
+      path.join(tmpRoot, 'content.config.ts'),
+      rebind(fs.readFileSync(path.join(repoRoot, 'src/content.config.ts'), 'utf8')),
+    );
 
     const mod = await import(pathToFileURL(path.join(tmpRoot, 'content.config.ts')).href);
     if (!mod?.collections) throw new Error('content.config.ts neutralisé : export `collections` introuvable.');

@@ -4,7 +4,7 @@
 
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { sectionsArraySchema } from './schemas/sections';
+import { sectionsArraySchema } from '@waimia/ds-kernel';
 
 // ─── Mixin commun (SEO/GEO/AIO) ───
 const seoBlock = z

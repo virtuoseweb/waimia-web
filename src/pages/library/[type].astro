@@ -38,11 +38,11 @@ import {
   CONTENT_MODE_LABELS_FR,
   FACET_LABELS_FR,
   type FacetKind,
-} from '../../lib/section-facets';
-import { getSlots, type SectionSlot } from '../../lib/section-slots';
+} from '@waimia/ds-kernel/lib/section-facets';
+import { getSlots, type SectionSlot } from '@waimia/ds-kernel/lib/section-slots';
 import { SECTION_DEMOS } from '../../lib/section-demos';
 import { getUsage, getConsumers } from '../../lib/library-manifest';
-import { listPresets } from '../../lib/section-presets';
+import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
 
 export function getStaticPaths() {
   return listSections().map((section) => ({

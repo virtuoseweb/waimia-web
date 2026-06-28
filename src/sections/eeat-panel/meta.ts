@@ -4,7 +4,7 @@
 // family 'prose', categorySlug 'trust-sections').
 // `SectionMeta` = `SectionDescriptor` SANS `component` (porté par Component.astro) ni `usage`.
 
-import type { SectionMeta } from '../_shared/types';
+import type { SectionMeta } from '@waimia/ds-kernel/sections/_shared/types';
 
 export const meta: SectionMeta = {
   category: 'marketing',

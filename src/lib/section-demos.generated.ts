@@ -3,7 +3,7 @@
 // Régénérer : `npm run gen:section-aggregate`. Gate : `npm run check:section-aggregate`.
 // (src/lib/section-demos.generated.ts)
 
-import type { SectionType } from '../schemas/sections';
+import type { SectionType } from '@waimia/ds-kernel';
 import type { DemoData } from './section-demos-types';
 import { demo as heroFormInlineDemo } from '../sections/hero-form-inline/demo';
 import { demo as heroSocialProofDemo } from '../sections/hero-social-proof/demo';

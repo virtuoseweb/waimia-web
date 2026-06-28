@@ -11,7 +11,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
-import type { SectionData, SectionByType } from '../../../schemas/sections';
+import type { SectionData, SectionByType } from '@waimia/ds-kernel';
 
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const isFr = lang === 'fr';

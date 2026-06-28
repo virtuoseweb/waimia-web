@@ -308,7 +308,9 @@ function outerChain(chain) {
  * in the manifest). Returns [] if the schema file or declaration is missing.
  */
 function parseSchemaFields(typeId) {
-  const schemaPath = join(ROOT, 'src/sections', typeId, 'schema.ts');
+  // #40 T3 etape 2 : seul schema.ts a ete deplace dans le package @waimia/ds-kernel
+  // (meta.ts + Component.astro restent cote app). Lire le contrat depuis le kernel.
+  const schemaPath = join(ROOT, 'packages/ds-kernel/src/sections', typeId, 'schema.ts');
   if (!existsSync(schemaPath)) return [];
   const source = readFileSync(schemaPath, 'utf8');
 

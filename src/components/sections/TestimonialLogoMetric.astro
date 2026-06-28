@@ -4,7 +4,7 @@
 // chiffrée par carte. Combine preuve sociale, autorité de marque et résultat mesuré.
 // Réutilise le pattern KeyMetric (chiffre dominant + label mono) inline dans chaque carte.
 import Kicker from '../ui/atoms/Kicker.astro';
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 
 interface Props {
   data: SectionByType<'testimonial-logo-metric'>;

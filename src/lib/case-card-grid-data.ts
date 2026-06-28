@@ -3,7 +3,7 @@
 // générique « domaines ». La home, /cas-clients et les secteurs racontent le MÊME récit.
 // Le consommateur passe les entrées de la collection ; ici on mappe vers la forme de section.
 import { localizeHref } from './i18n';
-import type { SectionByType } from '../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 
 // Forme minimale attendue d'une entrée `cases` (sous-ensemble du schéma collection).
 // `id` = identifiant de route Astro (glob loader) ; `data.slug` = secours frontmatter.

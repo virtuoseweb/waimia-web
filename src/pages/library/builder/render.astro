@@ -27,9 +27,9 @@ import '../../../styles/global.css';
 import '../../../styles/grid.css';
 import '../../../styles/scroll-reveal.css';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
-import { validatePageDoc } from '../../../lib/page-document';
-import type { PageDocument } from '../../../schemas/page-document';
-import type { SectionData } from '../../../schemas/sections';
+import { validatePageDoc } from '@waimia/ds-kernel/lib/page-document';
+import type { PageDocument } from '@waimia/ds-kernel';
+import type { SectionData } from '@waimia/ds-kernel';
 
 export const prerender = false;
 

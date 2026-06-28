@@ -5,7 +5,7 @@
 // - markup/CSS des rows = COPIE VERBATIM de ServiceCatalogRow.astro (mêmes tokens, mêmes valeurs).
 import SectionHeader from '../ui/molecules/SectionHeader.astro';
 import Bi from '../ui/atoms/Bi.astro';
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 interface Props {
   data: SectionByType<'service-catalog-list'>;
   lang: 'fr' | 'en';

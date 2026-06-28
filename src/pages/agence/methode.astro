@@ -56,7 +56,7 @@ const cadenceData = {
     { label_fr: 'Pilote en prod', label_en: 'Pilot in prod', value: '2 semaines' },
     { label_fr: 'Pour démarrer', label_en: 'To get started', value: '45 min' },
   ],
-} satisfies import('../../schemas/sections').SectionByType<'spec-bar'>;
+} satisfies import('@waimia/ds-kernel').SectionByType<'spec-bar'>;
 
 // ── Impact mesuré · MetricCalloutBand INK · 3 chiffres canoniques (proof-points.ts, 0 invention) ──
 const _audit = getProofPoint('time-5-jours-audit');
@@ -74,7 +74,7 @@ const impactData = {
     { value: _pilote?.value ?? '2 semaines', label_fr: 'pour un premier pilote en production', label_en: 'for a first pilot in production' },
     { value: _equipe?.value ?? '100%', label_fr: 'des équipes formées et autonomes', label_en: 'of teams trained and autonomous' },
   ],
-} satisfies import('../../schemas/sections').SectionByType<'metric-callout-band'>;
+} satisfies import('@waimia/ds-kernel').SectionByType<'metric-callout-band'>;
 
 const howToLd = buildHowTo('Notre méthode · Process Intelligence', [
   { name: 'Cartographie', text: "On regarde votre métier, pas vos présentations. Vos vrais workflows, vos vrais bouchons. Le mardi on observe, le vendredi on chiffre." },

@@ -16,7 +16,7 @@
 //
 // 0 nouveau token, 0 U+2014. Aucune valeur en dur : libellés via les maps de section-facets.
 
-import type { SectionType } from '../schemas/sections';
+import type { SectionType } from '@waimia/ds-kernel';
 import {
   listSections,
   listCategories,
@@ -33,9 +33,9 @@ import {
   type IntentTag,
   type PageRoleTag,
   type ContentMode,
-} from './section-facets';
-import { getSlots, type SectionSlot } from './section-slots';
-import { listPresets } from './section-presets';
+} from '@waimia/ds-kernel/lib/section-facets';
+import { getSlots, type SectionSlot } from '@waimia/ds-kernel/lib/section-slots';
+import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
 import { getUsage } from './library-manifest';
 
 /** Version du schéma du manifest (tier 1 ET tier 2). */

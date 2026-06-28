@@ -44,6 +44,9 @@ importers:
       '@upstash/redis':
         specifier: ^1.38.0
         version: 1.38.0
+      '@waimia/ds-kernel':
+        specifier: workspace:*
+        version: link:packages/ds-kernel
       astro:
         specifier: ^6.1.9
         version: 6.4.2(@types/node@25.9.1)(@upstash/redis@1.38.0)(@vercel/functions@3.6.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.61.0)(yaml@2.9.0)
@@ -90,6 +93,12 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.29.0
         version: 1.29.0(zod@4.4.3)
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
+  packages/ds-kernel:
+    dependencies:
       zod:
         specifier: ^4.4.3
         version: 4.4.3

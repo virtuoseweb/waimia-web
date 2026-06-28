@@ -4,7 +4,7 @@
 // `SectionMeta` = `SectionDescriptor` SANS `component` (porté par Component.astro) ni `usage`.
 // 0 U+2014 (rule 58).
 
-import type { SectionMeta } from '../_shared/types';
+import type { SectionMeta } from '@waimia/ds-kernel/sections/_shared/types';
 
 export const meta: SectionMeta = {
   category: 'marketing',

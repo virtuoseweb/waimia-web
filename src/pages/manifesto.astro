@@ -76,7 +76,7 @@ const acteVCta = {
   availability_fr: '◉ 45 minutes · diagnostic en clair · aucune relance pénible',
   availability_en: '◉ 45 minutes · clear diagnosis · no annoying follow-up',
   background: 'paper' as const,
-} satisfies import('../schemas/sections').SectionByType<'cta-final'>;
+} satisfies import('@waimia/ds-kernel').SectionByType<'cta-final'>;
 ---
 <Base
   title={lang === 'fr' ? "Waimia · Manifeste · Construire du revenu, pas des démos" : 'Waimia · Manifesto · Build revenue, not demos'}

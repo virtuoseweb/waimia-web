@@ -2,7 +2,7 @@
 // Section · agentic-terminal : IDE mockup avec écriture live du bloc de code.
 // Wrapper catalogue. L'island AgenticTerminal.tsx embarque DEFAULT_COPY ;
 // les champs du schema (déjà résolus dans la langue active) la surchargent via `copy`.
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 import AgenticTerminal from '../motion/AgenticTerminal.tsx';
 
 interface Props { data: SectionByType<'agentic-terminal'>; lang: 'fr' | 'en'; }

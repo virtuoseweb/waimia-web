@@ -2,7 +2,7 @@
 // Lit SECTIONS pour category/component (anti-drift). Ne modifie pas section-registry.ts.
 
 import { SECTIONS } from './section-registry';
-import type { SectionType } from '../schemas/sections';
+import type { SectionType } from '@waimia/ds-kernel';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 

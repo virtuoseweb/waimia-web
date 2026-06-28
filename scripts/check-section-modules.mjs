@@ -35,13 +35,19 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const MODULES_DIR = join(ROOT, 'src/sections');
+// #40 T3 etape 2 : le schema.ts co-localise a ete deplace dans le package @waimia/ds-kernel
+// (packages/ds-kernel/src/sections/<id>/schema.ts). Il reste REQUIS, mais cote kernel ; les 4
+// autres facettes (demo/meta/Component/index) restent cote app dans src/sections/<id>/.
+const KERNEL_MODULES_DIR = join(ROOT, 'packages/ds-kernel/src/sections');
 
 // Dossiers ignorés : feuilles partagées, pas des modules de section.
 // (Même liste que IGNORED_DIRS dans gen-section-aggregate.mjs.)
 const IGNORED_DIRS = new Set(['_shared']);
 
-// Les 5 fichiers requis par module.
-const REQUIRED_FILES = ['schema.ts', 'demo.ts', 'meta.ts', 'Component.astro', 'index.ts'];
+// Les 4 fichiers requis cote APP par module (schema.ts est verifie cote kernel, cf ci-dessus).
+const REQUIRED_FILES = ['demo.ts', 'meta.ts', 'Component.astro', 'index.ts'];
+// Le 5e fichier requis, cote kernel.
+const KERNEL_REQUIRED_FILE = 'schema.ts';
 
 // Les clés de facette que le default export du module doit référencer (au minimum).
 // `id` et un éventuel `consumers` sont tolérés mais non exigés.
@@ -108,15 +114,19 @@ function checkModule(mod) {
   );
 
   const missingFiles = REQUIRED_FILES.filter((f) => !present.has(f));
+  // schema.ts requis cote kernel (packages/ds-kernel/src/sections/<id>/schema.ts).
+  const kernelSchemaPresent = existsSync(join(KERNEL_MODULES_DIR, mod.type, KERNEL_REQUIRED_FILE));
 
-  // Module fantôme : dossier présent mais AUCUN des fichiers requis.
-  const ghost = REQUIRED_FILES.every((f) => !present.has(f));
+  // Module fantôme : dossier présent mais AUCUN des fichiers requis (app + kernel).
+  const ghost = REQUIRED_FILES.every((f) => !present.has(f)) && !kernelSchemaPresent;
   if (ghost) {
     issues.push('module fantôme : dossier présent, 0 fichier requis');
     return { ...mod, ok: false, issues };
   }
 
   for (const f of missingFiles) issues.push(`fichier requis manquant : ${f}`);
+  if (!kernelSchemaPresent)
+    issues.push(`fichier requis manquant : ${KERNEL_REQUIRED_FILE} (cote @waimia/ds-kernel)`);
 
   // Analyse de index.ts uniquement s'il existe (sinon déjà signalé ci-dessus).
   if (present.has('index.ts')) {

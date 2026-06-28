@@ -3,7 +3,7 @@
 // `SectionMeta` = `SectionDescriptor` SANS `component` (porté par Component.astro) ni `usage`.
 // Le god-file réattache `component` pour reconstituer le `SectionDescriptor` (API préservée).
 
-import type { SectionMeta } from '../_shared/types';
+import type { SectionMeta } from '@waimia/ds-kernel/sections/_shared/types';
 
 export const meta: SectionMeta = {
   category: 'marketing',

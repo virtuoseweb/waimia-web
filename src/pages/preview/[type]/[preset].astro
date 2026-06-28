@@ -9,10 +9,10 @@ import '../../../styles/grid.css';
 import '../../../styles/scroll-reveal.css';
 import { SECTION_REGISTRY } from '../../../lib/section-registry';
 import { SECTION_DEMOS } from '../../../lib/section-demos';
-import { SECTION_PRESETS } from '../../../lib/section-presets';
-import { variantsFor, colorVariantsFor, coverageVariantsFor } from '../../../lib/section-variants';
+import { SECTION_PRESETS } from '@waimia/ds-kernel/lib/section-presets';
+import { variantsFor, colorVariantsFor, coverageVariantsFor } from '@waimia/ds-kernel/lib/section-variants';
 import { SECTIONS } from '../../../lib/section-registry';
-import type { SectionType } from '../../../schemas/sections';
+import type { SectionType } from '@waimia/ds-kernel';
 
 export function getStaticPaths() {
   // Témoin de complétude couleur : un seul type rend ses 16 schémas (axe orthogonal,

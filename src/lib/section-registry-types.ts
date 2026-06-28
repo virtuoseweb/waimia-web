@@ -7,7 +7,7 @@
 // SectionDescriptor = SectionMeta (feuille _shared/types) + le runtime `component`. Source
 // unique de la forme « meta » conservée dans _shared/types.ts (déjà = Omit<…, 'component'>).
 
-import type { SectionMeta } from '../sections/_shared/types';
+import type { SectionMeta } from '@waimia/ds-kernel/sections/_shared/types';
 
 // Astro component type - opaque côté registry ; le rendu passe par SectionsRenderer.
 export type AstroComponent = (_props: never) => unknown;

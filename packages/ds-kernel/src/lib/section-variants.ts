@@ -17,7 +17,7 @@
 import type { SectionType } from '../schemas/sections';
 import type { Archetype } from './section-archetypes';
 import { archetypeFor } from './section-archetypes';
-import { SECTIONS } from './section-registry';
+import { SECTION_FAMILY } from './section-family.generated';
 import { COLOR_SCHEMES, COLOR_SCHEME_BY_ID, schemeProps, type ColorScheme } from './section-colorschemes';
 
 export { COLOR_SCHEMES } from './section-colorschemes';
@@ -867,9 +867,9 @@ function skeletonLabel(name: string): string {
 
 /* ───────────────────────────── Cartésien + élagage ───────────────────────────── */
 
-/** Famille registry d'un type (pour remplir `family` + dériver l'archétype). */
+/** Famille (taxonomie) d'un type (pour remplir `family` + dériver l'archétype). */
 function familyOf(type: SectionType): string | undefined {
-  return SECTIONS[type]?.family;
+  return SECTION_FAMILY[type];
 }
 
 /** Produit cartésien des axes → liste de combos {prop: value}. Ordre stable. */

@@ -24,8 +24,12 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 
 const repoRoot = process.cwd();
-const SCHEMA_PATH = path.join(repoRoot, 'src/schemas/sections.ts');
-const OUT_PATH = path.join(repoRoot, 'src/lib/section-slots.generated.json');
+// #40 T3 etape 2 : le contrat (sections.ts + schema.ts co-localises + _shared) vit dans
+// @waimia/ds-kernel. Le contrat de slots derive (section-slots.generated.json) y vit aussi
+// (consomme par packages/ds-kernel/src/lib/section-slots.ts).
+const KERNEL_SRC = path.join(repoRoot, 'packages/ds-kernel/src');
+const SCHEMA_PATH = path.join(KERNEL_SRC, 'schemas/sections.ts');
+const OUT_PATH = path.join(KERNEL_SRC, 'lib/section-slots.generated.json');
 
 // Axes de présentation (rendu), classés 'presentation'. Le reste = 'content'.
 // On y met (1) les axes nommés par la spec C2-A et (2) l'INTÉGRALITÉ du mixin de
@@ -290,60 +294,40 @@ async function loadSchemaModule() {
   const reqFromRepo = createRequire(path.join(repoRoot, 'package.json'));
   const zodPath = reqFromRepo.resolve('zod');
 
-  // Depuis la co-location (#38), `sections.ts` importe des feuilles RELATIVES
-  // (`../sections/_shared/base`, `../sections/_shared/subschemas`, et des modules
-  // co-localisés `../sections/<type>/schema`). Ces feuilles importent elles-mêmes
-  // `z` depuis `astro:content` (transitif). On reconstruit donc l'arborescence RELATIVE
-  // dans UN répertoire temp (mkdtemp) en préservant la structure attendue :
-  //   <tmp>/schemas/sections.ts          (le god-file)
-  //   <tmp>/sections/**.ts               (les feuilles _shared + modules co-localisés)
-  // et on rebinde `astro:content` -> zod réel dans CHAQUE fichier copié. Ainsi les
-  // imports relatifs résolvent dans le temp et le `astro:content` transitif est neutralisé.
-  const rebindAstro = (code) =>
-    code.replace(/from ['"]astro:content['"]/g, `from ${JSON.stringify(zodPath)}`);
-
+  // #40 T3 etape 2 : `sections.ts` (kernel) importe des feuilles RELATIVES internes au kernel
+  // (`../sections/_shared/base`, `../sections/<type>/schema`, `./sections.generated`) qui
+  // importent `zod` (depuis efbb673b ; avant : astro:content). On copie TOUT le kernel dans un
+  // tmp en preservant la structure (les imports relatifs internes resolvent) et on rebinde
+  // `zod` + `@waimia/ds-kernel` (sous-chemins) + `astro:content` (par securite, idempotent)
+  // vers des chemins absolus/locaux. Puis on importe <tmp>/ds-kernel/schemas/sections.ts.
   const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'c2a-sections-'));
+  const rebind = (code) =>
+    code
+      .replace(/from ['"]astro:content['"]/g, `from ${JSON.stringify(zodPath)}`)
+      .replace(/from ['"]zod['"]/g, `from ${JSON.stringify(zodPath)}`)
+      .replace(/from ['"]@waimia\/ds-kernel\/([^'"]+)['"]/g, (_m, sub) =>
+        `from ${JSON.stringify(path.join(tmpRoot, 'ds-kernel', sub + '.ts'))}`)
+      .replace(/from ['"]@waimia\/ds-kernel['"]/g, `from ${JSON.stringify(path.join(tmpRoot, 'ds-kernel', 'index.ts'))}`);
+
   try {
-    // 1) Copier TOUT src/schemas/*.ts vers <tmp>/schemas/ (god-file `sections.ts` + ses
-    //    siblings GENERES `sections.generated.ts` que le god-file ré-exporte depuis #38 T5,
-    //    + page-document.ts). Sans le sibling généré, l'import `./sections.generated` du
-    //    god-file échoue (MODULE_NOT_FOUND). Les sous-dossiers (schemas/generated/) ne sont
-    //    pas importés par sections.ts : inutile de les copier.
-    const tmpSchemasDir = path.join(tmpRoot, 'schemas');
-    fs.mkdirSync(tmpSchemasDir, { recursive: true });
-    const repoSchemasDir = path.dirname(SCHEMA_PATH);
-    for (const entry of fs.readdirSync(repoSchemasDir, { withFileTypes: true })) {
-      if (entry.isFile() && entry.name.endsWith('.ts')) {
-        fs.writeFileSync(
-          path.join(tmpSchemasDir, entry.name),
-          rebindAstro(fs.readFileSync(path.join(repoSchemasDir, entry.name), 'utf8')),
-        );
+    // Copier TOUT le kernel (schemas + lib + sections/<type>/schema.ts + _shared) ->
+    // <tmp>/ds-kernel/** en preservant la structure (+ .json comme section-slots.generated.json
+    // et les schemas/generated/*.json eventuels, copies tels quels).
+    const copyTree = (srcDir, destDir) => {
+      fs.mkdirSync(destDir, { recursive: true });
+      for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
+        const from = path.join(srcDir, entry.name);
+        const to = path.join(destDir, entry.name);
+        if (entry.isDirectory()) copyTree(from, to);
+        else if (entry.isFile() && entry.name.endsWith('.ts'))
+          fs.writeFileSync(to, rebind(fs.readFileSync(from, 'utf8')));
+        else if (entry.isFile() && entry.name.endsWith('.json'))
+          fs.copyFileSync(from, to);
       }
-    }
+    };
+    copyTree(KERNEL_SRC, path.join(tmpRoot, 'ds-kernel'));
 
-    // 2) Copier toute l'arborescence src/sections/**.ts vers <tmp>/sections/**.ts en
-    //    préservant la structure relative (couvre _shared + modules co-localisés). Les
-    //    feuilles non importées par sections.ts (demo.ts / types.ts) sont copiées sans
-    //    risque : elles ne seront jamais chargées par l'import dynamique.
-    const sectionsDir = path.join(repoRoot, 'src/sections');
-    if (fs.existsSync(sectionsDir)) {
-      const tmpSectionsDir = path.join(tmpRoot, 'sections');
-      const copyTsTree = (srcDir, destDir) => {
-        fs.mkdirSync(destDir, { recursive: true });
-        for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
-          const from = path.join(srcDir, entry.name);
-          const to = path.join(destDir, entry.name);
-          if (entry.isDirectory()) {
-            copyTsTree(from, to);
-          } else if (entry.isFile() && entry.name.endsWith('.ts')) {
-            fs.writeFileSync(to, rebindAstro(fs.readFileSync(from, 'utf8')));
-          }
-        }
-      };
-      copyTsTree(sectionsDir, tmpSectionsDir);
-    }
-
-    return await import(path.join(tmpSchemasDir, 'sections.ts'));
+    return await import(path.join(tmpRoot, 'ds-kernel', 'schemas', 'sections.ts'));
   } finally {
     fs.rmSync(tmpRoot, { recursive: true, force: true });
   }

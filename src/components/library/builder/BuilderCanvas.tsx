@@ -40,8 +40,8 @@ import {
 } from 'react';
 // Import RUNTIME depuis le module PUR (sans `astro:content`) : sinon le bundle client tire
 // `lib/page-document` -> `schemas/page-document` -> `astro:content` (virtuel serveur) = build cassé.
-import { pageDocToFrontmatter } from '../../../lib/page-document-frontmatter';
-import type { PageDocument } from '../../../schemas/page-document';
+import { pageDocToFrontmatter } from '@waimia/ds-kernel/lib/page-document-frontmatter';
+import type { PageDocument } from '@waimia/ds-kernel';
 import type {
   BuilderCanvasProps,
   BuilderCatalogueItem,

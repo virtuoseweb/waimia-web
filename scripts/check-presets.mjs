@@ -17,7 +17,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 const FILES = {
-  presets: 'src/lib/section-presets.ts',
+  // #40 T3 etape 2 : section-presets vit dans le package @waimia/ds-kernel.
+  presets: 'packages/ds-kernel/src/lib/section-presets.ts',
   // Wave #38 T5 : SECTIONS reconstruit dans le fichier GENERE (le god-file est un re-export).
   registry: 'src/lib/section-registry.generated.ts',
   layouts: 'src/styles/layouts.css',

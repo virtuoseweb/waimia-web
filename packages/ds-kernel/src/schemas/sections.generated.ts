@@ -1,7 +1,7 @@
 // ⚠️ FICHIER GENERE - NE PAS EDITER A LA MAIN.
 // Source : scripts/gen-section-aggregate.mjs (Wave #38 T5, mode REPLACE).
 // Régénérer : `npm run gen:section-aggregate`. Gate : `npm run check:section-aggregate`.
-// (src/schemas/sections.generated.ts)
+// (packages/ds-kernel/src/schemas/sections.generated.ts)
 
 import { z } from 'zod';
 

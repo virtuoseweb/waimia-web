@@ -4,7 +4,7 @@
 // Source : EcoleHubTemplate.astro (markup l.51-88, CSS scoped l.127-219 + responsive l.273-285).
 // - markup/CSS = COPIE VERBATIM des styles scoped legacy (tokens var(--*), 0 hex brut sauf pills d'origine).
 // - piloté par `data.rows` (data-driven) au lieu de la collection inline du template.
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 interface Props {
   data: SectionByType<'course-catalog-table'>;
   lang: 'fr' | 'en';

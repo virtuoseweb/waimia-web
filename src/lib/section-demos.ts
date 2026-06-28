@@ -6,7 +6,7 @@
 // dans `section-demos-types.ts` (feuille anti-cycle). API PUBLIQUE PRESERVEE (drop-in).
 // Régénérer : `npm run gen:section-aggregate`. Gate : `npm run check:section-aggregate`.
 
-import type { SectionType } from '../schemas/sections';
+import type { SectionType } from '@waimia/ds-kernel';
 
 export type { DemoData } from './section-demos-types';
 import type { DemoData } from './section-demos-types';

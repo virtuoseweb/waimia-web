@@ -14,7 +14,7 @@ import Base from '../../../layouts/Base.astro';
 import DsLocalNav from '../../../components/library/DsLocalNav.astro';
 import SectionCard from '../../../components/library/SectionCard.astro';
 import { listSections, type SectionListItem } from '../../../lib/section-registry';
-import { listPresets, type Preset } from '../../../lib/section-presets';
+import { listPresets, type Preset } from '@waimia/ds-kernel/lib/section-presets';
 
 export function getStaticPaths() {
   const families = new Map<string, SectionListItem[]>();

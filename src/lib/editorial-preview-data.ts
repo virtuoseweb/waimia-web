@@ -4,7 +4,7 @@
 // `picks` optionnelle (home = 3 entrées, 1 seul CAS max : les dossiers vivent dans CaseCardGrid).
 import { FIELD_NOTES } from '../data/sitemap';
 import { localizeHref } from './i18n';
-import type { SectionByType } from '../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 
 export function editorialPreviewData(
   lang: 'fr' | 'en',

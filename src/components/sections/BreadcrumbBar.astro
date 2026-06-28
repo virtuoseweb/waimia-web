@@ -5,7 +5,7 @@
  * « classic » de la catégorie breadcrumb, à côté du modèle éditorial `masthead-bar`.
  * Compose la molécule Breadcrumb (déjà 100% DS-driven). Dual-prop : section (data) OU template (items/lang).
  */
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 import Breadcrumb from '../ui/molecules/Breadcrumb.astro';
 
 interface Crumb { label: string; href?: string; }

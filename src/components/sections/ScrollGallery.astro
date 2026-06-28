@@ -5,7 +5,7 @@
 // la bande centrale du viewport (IntersectionObserver). Mobile : pas de sticky, chaque
 // item affiche son image inline. media_side='left' inverse l'ordre des colonnes (desktop).
 import Kicker from '../ui/atoms/Kicker.astro';
-import type { SectionByType } from '../../schemas/sections';
+import type { SectionByType } from '@waimia/ds-kernel';
 
 interface Props {
   data: SectionByType<'scroll-gallery'>;

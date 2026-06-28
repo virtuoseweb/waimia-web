@@ -27,12 +27,12 @@ import type {
   VariationOption,
 } from '../../../components/library/builder/types';
 import { listSections, listCategories } from '../../../lib/section-registry';
-import { listPresets } from '../../../lib/section-presets';
-import { resolvePreset } from '../../../lib/page-document';
-import { COLOR_SCHEMES, schemeProps } from '../../../lib/section-colorschemes';
-import { getSlots } from '../../../lib/section-slots';
+import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
+import { resolvePreset } from '@waimia/ds-kernel/lib/page-document';
+import { COLOR_SCHEMES, schemeProps } from '@waimia/ds-kernel/lib/section-colorschemes';
+import { getSlots } from '@waimia/ds-kernel/lib/section-slots';
 import { SECTION_DEMOS } from '../../../lib/section-demos';
-import { PAGE_COLLECTIONS } from '../../../schemas/page-document';
+import { PAGE_COLLECTIONS } from '@waimia/ds-kernel';
 
 const sections = listSections();
 const categories = listCategories();

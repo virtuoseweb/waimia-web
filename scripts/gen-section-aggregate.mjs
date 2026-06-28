@@ -33,7 +33,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const repoRoot = process.cwd();
+// #40 T3 etape 2 : le CONTRAT (schemas/sections.generated.ts + schema.ts co-localises +
+// _shared) vit dans le package @waimia/ds-kernel ; les facettes APP (registry/demos, qui
+// importent Component/meta/demo) restent cote app. Ce generateur DUAL-WRITE en consequence.
+const KERNEL_DIR = path.join(repoRoot, 'packages/ds-kernel/src');
+// Les MODULES co-localises (index.ts + Component.astro + meta.ts + demo.ts) restent cote app ;
+// seul leur schema.ts a ete deplace dans le kernel (packages/ds-kernel/src/sections/<id>/schema.ts).
 const MODULES_DIR = path.join(repoRoot, 'src/sections');
+const KERNEL_SECTIONS_DIR = path.join(KERNEL_DIR, 'sections');
 const ORDER_FILE = path.join(repoRoot, 'scripts/section-order.json');
 const IGNORED_DIRS = new Set(['_shared']);
 
@@ -85,7 +92,7 @@ function banner(rel) {
 
 // ─── 1. sections.generated.ts ───
 function genSchemas(ids) {
-  let out = banner('src/schemas/sections.generated.ts');
+  let out = banner('packages/ds-kernel/src/schemas/sections.generated.ts');
   out += `import { z } from 'zod';\n\n`;
   // Réexport des schemas de chaque module sous le nom historique `<camel>Schema`.
   for (const id of ids) {
@@ -116,10 +123,32 @@ function genSchemas(ids) {
   return out;
 }
 
+// ─── 1bis. section-family.generated.ts (KERNEL) ───
+// Map pure `Record<SectionType, family>` extraite des meta.ts co-localises (cote app), emise
+// DANS le kernel pour casser la seule dependance kernel->app : section-variants.ts lisait
+// `SECTIONS[type].family` (registry app). La famille est une donnee de TAXONOMIE (contrat),
+// pas de rendu → elle a sa place dans le kernel. Scan textuel du champ `family:` de chaque meta.
+function familyOfModule(id) {
+  const metaPath = path.join(MODULES_DIR, id, 'meta.ts');
+  const src = fs.readFileSync(metaPath, 'utf8');
+  const m = src.match(/family:\s*'([^']+)'/);
+  if (!m) throw new Error(`gen-section-aggregate : meta.ts de '${id}' sans champ family.`);
+  return m[1];
+}
+
+function genFamily(ids) {
+  let out = banner('packages/ds-kernel/src/lib/section-family.generated.ts');
+  out += `import type { SectionType } from '../schemas/sections';\n\n`;
+  out += `export const SECTION_FAMILY: Record<SectionType, string> = {\n`;
+  for (const id of ids) out += `  '${id}': '${familyOfModule(id)}',\n`;
+  out += `};\n`;
+  return out;
+}
+
 // ─── 2. section-registry.generated.ts ───
 function genRegistry(ids) {
   let out = banner('src/lib/section-registry.generated.ts');
-  out += `import type { SectionType } from '../schemas/sections';\n`;
+  out += `import type { SectionType } from '@waimia/ds-kernel';\n`;
   out += `import type { SectionDescriptor, AstroComponent } from './section-registry-types';\n`;
   // Import component + meta de chaque module.
   for (const id of ids) {
@@ -138,7 +167,7 @@ function genRegistry(ids) {
 // ─── 3. section-demos.generated.ts ───
 function genDemos(ids) {
   let out = banner('src/lib/section-demos.generated.ts');
-  out += `import type { SectionType } from '../schemas/sections';\n`;
+  out += `import type { SectionType } from '@waimia/ds-kernel';\n`;
   out += `import type { DemoData } from './section-demos-types';\n`;
   for (const id of ids) {
     out += `import { demo as ${camel(id)}Demo } from '../sections/${id}/demo';\n`;
@@ -153,8 +182,11 @@ export function buildGenerated() {
   const alphaIds = discoverModules(); // ordre alpha déterministe (union de schema)
   if (alphaIds.length === 0) throw new Error('gen-section-aggregate (REPLACE) : 0 module trouvé dans src/sections/<type>/.');
   const orderedIds = canonicalOrder(alphaIds); // ordre historique (registry + demos → parité manifest)
+  // DUAL-WRITE (#40 T3 etape 2) : le contrat (sections.generated + family-map) -> KERNEL ;
+  // les facettes app (registry/demos qui importent Component/demo) -> APP.
   return {
-    'src/schemas/sections.generated.ts': genSchemas(alphaIds),
+    'packages/ds-kernel/src/schemas/sections.generated.ts': genSchemas(alphaIds),
+    'packages/ds-kernel/src/lib/section-family.generated.ts': genFamily(alphaIds),
     'src/lib/section-registry.generated.ts': genRegistry(orderedIds),
     'src/lib/section-demos.generated.ts': genDemos(orderedIds),
     ids: alphaIds,

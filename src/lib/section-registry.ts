@@ -7,13 +7,13 @@
 // vivent dans `section-registry-types.ts` (feuille anti-cycle). Les helpers de listing/nichage
 // restent ici. API PUBLIQUE PRESERVEE (drop-in). Gate : `npm run check:section-aggregate`.
 
-import type { SectionType } from '../schemas/sections';
+import type { SectionType } from '@waimia/ds-kernel';
 import type {
   CategorySlug,
   FamilyTag,
   FacetKind,
-} from './section-facets';
-import { capabilitiesFor, type Capabilities } from './section-archetypes';
+} from '@waimia/ds-kernel/lib/section-facets';
+import { capabilitiesFor, type Capabilities } from '@waimia/ds-kernel/lib/section-archetypes';
 
 // Types du descripteur (extraits one-shot vers la feuille anti-cycle) - ré-export inchangé.
 export type {
