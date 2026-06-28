@@ -215,6 +215,14 @@ export default function CatalogueExplorer({
   }));
   const [animatedOnly, setAnimatedOnly] = useState(false);
   const [withPresetsOnly, setWithPresetsOnly] = useState(false);
+  // Section des chips de facettes : repliable, fermée par défaut. Sans ça, ~75 chips dans le
+  // panneau sticky le font occuper presque tout le viewport et masquent les résultats.
+  // Ouverte au montage uniquement si des facettes sont déjà sélectionnées (sinon on cacherait
+  // des filtres actifs). facetSelCount initial = 0 ici (Sets vides), mais on garde la logique
+  // robuste si l'état initial évoluait.
+  const [facetsOpen, setFacetsOpen] = useState(
+    () => FACET_KINDS.reduce((acc, k) => acc + facetSel[k].size, 0) > 0,
+  );
 
   const toggleFacet = (kind: FacetKind, value: string) => {
     setFacetSel((prev) => {
@@ -410,6 +418,18 @@ export default function CatalogueExplorer({
             </button>
           </div>
 
+          <button
+            type="button"
+            className="cx-facets-toggle"
+            aria-expanded={facetsOpen}
+            aria-controls="cx-facet-groups"
+            onClick={() => setFacetsOpen((v) => !v)}
+          >
+            <span>Filtres avancés</span>
+            {facetSelCount > 0 && <span className="cx-facets-badge">{facetSelCount}</span>}
+            <span className="cx-facets-chevron" aria-hidden="true" />
+          </button>
+
           <div className="cx-groupby" role="group" aria-label="Regrouper par">
             <span className="cx-field-label">Regrouper</span>
             <div className="cx-segmented">
@@ -434,7 +454,11 @@ export default function CatalogueExplorer({
         </div>
 
         {/* ── Facettes orthogonales multi-select (AND inter-genres, OR intra-genre) ── */}
-        <div className="cx-facet-groups">
+        {/* Repliable : fermée par défaut pour garder le panneau sticky compact. */}
+        <div
+          id="cx-facet-groups"
+          className={`cx-facet-groups${facetsOpen ? ' is-open' : ' is-collapsed'}`}
+        >
           {facetGroups.map((grp) => (
             <fieldset className="cx-facet-group" key={grp.kind}>
               <legend className="cx-field-label">{grp.label}</legend>
