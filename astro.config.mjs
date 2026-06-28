@@ -7,7 +7,6 @@ import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import robotsTxt from 'astro-robots-txt';
 import llmsTxt from '@4hse/astro-llms-txt';
-import tina from '@tinacms/astro/integration';
 import llmsMdPages from './src/integrations/llms-md-pages';
 import dsSaveDev from './src/integrations/ds-save-dev.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
@@ -125,7 +124,6 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    tina(),
     sitemap({
       // P0.2-I · lancement FR monolingue : sitemap FR only (plus de miroir /en).
       // Réactiver `en: 'en-US'` ici quand le miroir EN sera regénéré.
@@ -261,7 +259,7 @@ export default defineConfig({
     // jusqu'au parent. Sans effet sur le build statique (le bundling résout déjà tout).
     server: { fs: { allow: ['.', '..', '../..'] } },
     ssr: {
-      noExternal: ['resend', '@react-email/components', '@react-email/render', '@tinacms/astro', '@tinacms/bridge'],
+      noExternal: ['resend', '@react-email/components', '@react-email/render'],
     },
   },
 });

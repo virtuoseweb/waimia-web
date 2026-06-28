@@ -32,15 +32,6 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
   throw new Error(`offres/${entry.id} : frontmatter \`sections:\` requis (voie template legacy éteinte en R6)`);
 }
 
-const tina = import.meta.env.DEV
-  ? await Promise.all([
-      import('@tinacms/astro/TinaIsland.astro'),
-      import('../../lib/tina-islands'),
-    ])
-  : undefined;
-const TinaIsland = tina?.[0].default;
-const tinaWrapper = tina?.[1].islands.offre.wrapper;
-
 // JSON-LD métier · BreadcrumbList + Service (+ Offer si un prix réel existe dans
 // le frontmatter). Base émet déjà Organization + WebSite ; ces blocs viennent en plus.
 const siteUrl = 'https://waimia.com';
@@ -82,11 +73,5 @@ const offreLd = faqLd ? [serviceLd, faqLd] : serviceLd;
     { label: lang === 'fr' ? 'Offres' : 'Services', href: lang === 'fr' ? '/offres' : '/en/offres' },
     { label: (lang === 'fr' ? data.title_fr : data.title_en).split(' · ').filter((s) => s !== 'Offres' && s !== 'Offers')[0] },
   ]} />
-  {TinaIsland && tinaWrapper ? (
-    <TinaIsland name="offre" wrapper={tinaWrapper} params={{ slug: entry.id }} primary>
-      <SectionsRenderer sections={data.sections!} lang={lang} />
-    </TinaIsland>
-  ) : (
-    <SectionsRenderer sections={data.sections!} lang={lang} />
-  )}
+  <SectionsRenderer sections={data.sections!} lang={lang} />
 </Base>
