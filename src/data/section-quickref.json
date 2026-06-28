@@ -4365,40 +4365,15 @@
   {
     "type": "eeat-panel",
     "category": "marketing",
-    "categorySlug": "trust-sections",
-    "subcategory": "Trust Sections",
+    "categorySlug": "",
+    "subcategory": "",
     "status": "stable",
-    "description_fr": "Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.",
+    "description_fr": "",
     "requiredProps": [],
-    "optionalProps": [
-      {
-        "name": "background",
-        "type": "enum",
-        "constraint": "ink | paper"
-      },
-      {
-        "name": "eyebrow",
-        "type": "string"
-      },
-      {
-        "name": "lead",
-        "type": "string"
-      },
-      {
-        "name": "title",
-        "type": "string"
-      },
-      {
-        "name": "variant",
-        "type": "enum",
-        "constraint": "media | columns | light | hero",
-        "default": "media"
-      }
-    ],
-    "hasDemo": true,
+    "optionalProps": [],
+    "hasDemo": false,
     "demo": {
-      "type": "eeat-panel",
-      "variant": "media"
+      "type": "eeat-panel"
     }
   },
   {
@@ -8654,99 +8629,15 @@
   {
     "type": "hero-social-proof",
     "category": "marketing",
-    "categorySlug": "hero-header-sections",
-    "subcategory": "Hero Header Sections",
+    "categorySlug": "",
+    "subcategory": "",
     "status": "stable",
-    "description_fr": "Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.",
-    "requiredProps": [
-      {
-        "name": "cta_primary",
-        "type": "object"
-      },
-      {
-        "name": "h1_en",
-        "type": "string"
-      },
-      {
-        "name": "h1_fr",
-        "type": "string"
-      },
-      {
-        "name": "lede_en",
-        "type": "string"
-      },
-      {
-        "name": "lede_fr",
-        "type": "string"
-      },
-      {
-        "name": "stats",
-        "type": "array",
-        "constraint": "min:2 max:4"
-      }
-    ],
-    "optionalProps": [
-      {
-        "name": "background",
-        "type": "enum",
-        "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "cta_secondary",
-        "type": "object"
-      },
-      {
-        "name": "kicker_en",
-        "type": "string"
-      },
-      {
-        "name": "kicker_fr",
-        "type": "string"
-      },
-      {
-        "name": "rating_en",
-        "type": "string"
-      },
-      {
-        "name": "rating_fr",
-        "type": "string"
-      }
-    ],
-    "hasDemo": true,
+    "description_fr": "",
+    "requiredProps": [],
+    "optionalProps": [],
+    "hasDemo": false,
     "demo": {
-      "type": "hero-social-proof",
-      "h1_fr": "L'IA qui <i>livre</i>, pas qui promet.",
-      "h1_en": "The AI that <i>ships</i>, not just promises.",
-      "lede_fr": "Des systèmes d'activation déployés en production, mesurés sur le pipeline réel. Pas de démo, des résultats signés.",
-      "lede_en": "Activation systems deployed in production, measured on real pipeline. No demos, signed results.",
-      "cta_primary": {
-        "label_fr": "Réserver un audit →",
-        "label_en": "Book an audit →",
-        "href": "/contact",
-        "variant": "primary"
-      },
-      "stats": [
-        {
-          "k": "5 jours",
-          "label_fr": "pour cibler le levier",
-          "label_en": "to pinpoint the lever"
-        },
-        {
-          "k": "4 sem.",
-          "label_fr": "au premier workflow en production",
-          "label_en": "to first workflow in production"
-        },
-        {
-          "k": "1",
-          "label_fr": "interlocuteur unique",
-          "label_en": "single point of contact"
-        },
-        {
-          "k": "Mesuré",
-          "label_fr": "ROI, jamais estimé",
-          "label_en": "ROI, never estimated"
-        }
-      ]
+      "type": "hero-social-proof"
     }
   },
   {
@@ -10995,178 +10886,15 @@
   {
     "type": "media-bento",
     "category": "marketing",
-    "categorySlug": "feature-sections",
-    "subcategory": "Feature Sections",
+    "categorySlug": "",
+    "subcategory": "",
     "status": "stable",
-    "description_fr": "Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).",
-    "requiredProps": [
-      {
-        "name": "feature",
-        "type": "unknown"
-      },
-      {
-        "name": "h2_en",
-        "type": "string"
-      },
-      {
-        "name": "h2_fr",
-        "type": "string"
-      },
-      {
-        "name": "placement",
-        "type": "unknown"
-      },
-      {
-        "name": "quad",
-        "type": "unknown"
-      },
-      {
-        "name": "ratio",
-        "type": "unknown"
-      },
-      {
-        "name": "ratio",
-        "type": "unknown"
-      },
-      {
-        "name": "tiles",
-        "type": "array",
-        "constraint": "min:2 max:6"
-      },
-      {
-        "name": "uniform",
-        "type": "unknown"
-      },
-      {
-        "name": "x2",
-        "type": "unknown"
-      },
-      {
-        "name": "x3",
-        "type": "unknown"
-      }
-    ],
-    "optionalProps": [
-      {
-        "name": "background",
-        "type": "enum",
-        "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "columns",
-        "type": "enum",
-        "constraint": "auto | 2 | 3 | 4"
-      },
-      {
-        "name": "contentAlign",
-        "type": "enum",
-        "constraint": "start | center | end"
-      },
-      {
-        "name": "density",
-        "type": "enum",
-        "constraint": "compact | base | ample"
-      },
-      {
-        "name": "itemHeight",
-        "type": "enum",
-        "constraint": "auto | even | square | video"
-      },
-      {
-        "name": "kicker_en",
-        "type": "string"
-      },
-      {
-        "name": "kicker_fr",
-        "type": "string"
-      },
-      {
-        "name": "layout",
-        "type": "enum",
-        "constraint": "feature-2 | quad | mosaic | bento-feature | matrix-2x2 | matrix-3x3 | grid-uniform"
-      },
-      {
-        "name": "lede_en",
-        "type": "string"
-      },
-      {
-        "name": "lede_fr",
-        "type": "string"
-      }
-    ],
-    "hasDemo": true,
+    "description_fr": "",
+    "requiredProps": [],
+    "optionalProps": [],
+    "hasDemo": false,
     "demo": {
-      "type": "media-bento",
-      "h2_fr": "Le travail, <i>en images</i>",
-      "h2_en": "The work, <i>in pictures</i>",
-      "tiles": [
-        {
-          "title_fr": "Plateau",
-          "title_en": "Plateau",
-          "tag_fr": "Acquisition",
-          "tag_en": "Acquisition",
-          "media_src": "/images/cas/cas-plateau.webp",
-          "media_alt_fr": "Projet Plateau",
-          "media_alt_en": "Plateau project",
-          "span": "2",
-          "link_href": "/cas-clients"
-        },
-        {
-          "title_fr": "Halcyon",
-          "title_en": "Halcyon",
-          "tag_fr": "Productivité",
-          "tag_en": "Productivity",
-          "media_src": "/images/cas/cas-halcyon.webp",
-          "media_alt_fr": "Projet Halcyon",
-          "media_alt_en": "Halcyon project",
-          "span": "1",
-          "link_href": "/cas-clients"
-        },
-        {
-          "title_fr": "Northbound",
-          "title_en": "Northbound",
-          "tag_fr": "Pilotage",
-          "tag_en": "Steering",
-          "media_src": "/images/cas/cas-northbound.webp",
-          "media_alt_fr": "Projet Northbound",
-          "media_alt_en": "Northbound project",
-          "span": "1",
-          "link_href": "/cas-clients"
-        },
-        {
-          "title_fr": "Méridien",
-          "title_en": "Meridian",
-          "tag_fr": "Conversion",
-          "tag_en": "Conversion",
-          "media_src": "/images/themes/theme-acquisition.webp",
-          "media_alt_fr": "Projet Méridien",
-          "media_alt_en": "Meridian project",
-          "span": "1",
-          "link_href": "/cas-clients"
-        },
-        {
-          "title_fr": "Boréal",
-          "title_en": "Boreal",
-          "tag_fr": "Automatisation",
-          "tag_en": "Automation",
-          "media_src": "/images/themes/theme-productivite.webp",
-          "media_alt_fr": "Projet Boréal",
-          "media_alt_en": "Boreal project",
-          "span": "1",
-          "link_href": "/cas-clients"
-        },
-        {
-          "title_fr": "Sillage",
-          "title_en": "Wake",
-          "tag_fr": "Contenu",
-          "tag_en": "Content",
-          "media_src": "/images/themes/theme-contenu-seo.webp",
-          "media_alt_fr": "Projet Sillage",
-          "media_alt_en": "Wake project",
-          "span": "1",
-          "link_href": "/cas-clients"
-        }
-      ]
+      "type": "media-bento"
     }
   },
   {

@@ -161,7 +161,8 @@ import ScrollGallery from '../components/sections/ScrollGallery.astro';
 import StackCards from '../components/sections/StackCards.astro';
 import HoverRevealList from '../components/sections/HoverRevealList.astro';
 import HorizontalShowcase from '../components/sections/HorizontalShowcase.astro';
-import MediaBento from '../components/sections/MediaBento.astro';
+// Wave #38 (T3) · `media-bento` migré en module co-localisé (src/sections/media-bento/).
+import { Component as MediaBento, meta as mediaBentoMeta } from '../sections/media-bento';
 import PhotoCluster from '../components/sections/PhotoCluster.astro';
 import MediaSwapBand from '../components/sections/MediaSwapBand.astro';
 import LogoWall from '../components/sections/LogoWall.astro';
@@ -196,7 +197,8 @@ import ManifestoStatement from '../components/sections/ManifestoStatement.astro'
 import ManifestoAct from '../components/sections/ManifestoAct.astro';
 // >>> [gen-hero-feature] start
 import HeroFormInline from '../components/sections/HeroFormInline.astro';
-import HeroSocialProof from '../components/sections/HeroSocialProof.astro';
+// Wave #38 (T3) · `hero-social-proof` migré en module co-localisé (src/sections/hero-social-proof/).
+import { Component as HeroSocialProof, meta as heroSocialProofMeta } from '../sections/hero-social-proof';
 import FeatureComparisonGrid from '../components/sections/FeatureComparisonGrid.astro';
 import FeatureAccordion from '../components/sections/FeatureAccordion.astro';
 // <<< [gen-hero-feature] end
@@ -265,7 +267,8 @@ import SystemFlow from '../components/sections/SystemFlow.astro';
 import MethodStepline from '../components/sections/MethodStepline.astro';
 // <<< [ds-primitives-v7] end
 // >>> [eeat-panel] start
-import EeatPanel from '../components/sections/EeatPanel.astro';
+// Wave #38 (T3) · `eeat-panel` migré en module co-localisé (src/sections/eeat-panel/).
+import { Component as EeatPanel, meta as eeatPanelMeta } from '../sections/eeat-panel';
 // <<< [eeat-panel] end
 
 /**
@@ -291,23 +294,11 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_fr: 'Hero de capture lead above-the-fold : promesse à gauche, formulaire email/CTA à droite postant sur /api/newsletter, points de réassurance optionnels.',
     description_en: 'Above-the-fold lead-capture hero: promise on the left, email/CTA form on the right posting to /api/newsletter, optional reassurance points.',
   },
+  // Wave #38 (T3) · `hero-social-proof` : meta migrée dans src/sections/hero-social-proof/meta.ts,
+  // composant réattaché ici (SectionDescriptor reconstitué, API publique préservée).
   'hero-social-proof': {
     component: HeroSocialProof,
-    category: 'marketing',
-    subcategory: 'Hero Header Sections',
-    categorySlug: 'hero-header-sections',
-    family: 'hero',
-    intent: ['state-value-prop'],
-    pageRole: ['hero'],
-    contentMode: 'instance',
-    effects: ['scroll-reveal'],
-    interactions: ['scroll'],
-    elements: ['buttons', 'kpi-numbers'],
-    layoutFacets: ['centered'],
-    tags: ['hero', 'social-proof', 'stats', 'rating', 'trust', 'above-fold'],
-    status: 'stable',
-    description_fr: 'Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.',
-    description_en: 'Centered hero with above-the-fold social proof: heading, CTA, optional customer rating and a key-figures band (StatRow) under the fold.',
+    ...heroSocialProofMeta,
   },
   'feature-comparison-grid': {
     component: FeatureComparisonGrid,
@@ -2586,23 +2577,11 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     description_fr: 'Panneaux a defilement horizontal smooth (scroll-snap) avec index numerote cliquable.',
     description_en: 'Smooth horizontal scrolling panels (scroll-snap) with a clickable numbered index.',
   },
+  // Wave #38 (T3) · `media-bento` : meta migrée dans src/sections/media-bento/meta.ts,
+  // composant réattaché ici (SectionDescriptor reconstitué, API publique préservée).
   'media-bento': {
     component: MediaBento,
-    category: 'marketing',
-    subcategory: 'Feature Sections',
-    categorySlug: 'feature-sections',
-    family: 'scroll-interactive',
-    intent: ['showcase-work'],
-    pageRole: ['body'],
-    contentMode: 'instance',
-    effects: ['hover-zoom', 'scroll-reveal'],
-    interactions: ['hover', 'scroll'],
-    elements: ['multiple-images', 'cards'],
-    layoutFacets: ['bento'],
-    tags: ['bento', 'media', 'gallery', 'projects', 'hover'],
-    status: 'stable',
-    description_fr: 'Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).',
-    description_en: 'Asymmetric media bento: image tiles with a large overlaid title and hover zoom (feature-2, quad, mosaic layouts).',
+    ...mediaBentoMeta,
   },
   'photo-cluster': {
     component: PhotoCluster,
@@ -3861,24 +3840,11 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   },
   // <<< [ds-primitives-v7] end
   // >>> [eeat-panel] start
+  // Wave #38 (T3) · `eeat-panel` : meta migrée dans src/sections/eeat-panel/meta.ts,
+  // composant réattaché ici (SectionDescriptor reconstitué, API publique préservée).
   'eeat-panel': {
     component: EeatPanel,
-    category: 'marketing',
-    subcategory: 'Trust Sections',
-    categorySlug: 'trust-sections',
-    family: 'prose',
-    intent: ['establish-credibility'],
-    pageRole: ['proof'],
-    contentMode: 'global-ref',
-    contentSource: 'EEAT_PACK',
-    effects: ['scroll-reveal'],
-    interactions: ['hover', 'scroll'],
-    elements: ['multiple-images', 'kpi-numbers', 'badge', 'avatar', 'buttons', 'list'],
-    layoutFacets: ['multi-col', 'bento'],
-    tags: ['eeat', 'author', 'authority', 'trust', 'bento', 'dashboard'],
-    status: 'stable',
-    description_fr: 'Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.',
-    description_en: 'E-E-A-T author/authority panel with 4 variants (media, columns, light, hero): a bento dashboard or accent columns gathering author, milestones, sectors, articles, services, tool and commitments. Single-source content (EEAT_PACK), honest proof (commitments + solo-studio note, no testimonial). Ink/paper variants, reveal-stagger, responsive.',
+    ...eeatPanelMeta,
   },
   // <<< [eeat-panel] end
 };

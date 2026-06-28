@@ -3,10 +3,12 @@
 // Titre + lede + CTA, puis une bande de stats (StatRow) sous le pli haut, plus
 // une note/rating optionnelle. Trust avant le scroll. Réutilise StatRow + Button.
 // Géométrie hero (exempte rythme R5). 0 nouveau token.
+// Wave #38 (T3) : DÉPLACÉ depuis src/components/sections/HeroSocialProof.astro
+// (chemins relatifs ré-ancrés depuis src/sections/hero-social-proof/).
 import type { SectionByType } from '../../schemas/sections';
-import Kicker from '../ui/atoms/Kicker.astro';
-import Button from '../ui/atoms/Button.astro';
-import StatRow from '../ui/molecules/StatRow.astro';
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import Button from '../../components/ui/atoms/Button.astro';
+import StatRow from '../../components/ui/molecules/StatRow.astro';
 
 interface Props {
   data: SectionByType<'hero-social-proof'>;

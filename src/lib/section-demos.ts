@@ -7,6 +7,12 @@ import type { SectionType } from '../schemas/sections';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type DemoData = Record<string, any>;
 
+// Wave #38 (T3) · demos migrées dans les modules co-localisés src/sections/<type>/demo.ts.
+// Réimportées ici sous des alias et référencées dans SECTION_DEMOS (API publique préservée).
+import { demo as mediaBentoDemo } from '../sections/media-bento/demo';
+import { demo as heroSocialProofDemo } from '../sections/hero-social-proof/demo';
+import { demo as eeatPanelDemo } from '../sections/eeat-panel/demo';
+
 export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   // >>> [gen-hero-feature] start
   'hero-form-inline': {
@@ -25,25 +31,8 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       { text_fr: 'Zéro spam, données jamais revendues', text_en: 'Zero spam, data never resold' },
     ],
   },
-  'hero-social-proof': {
-    type: 'hero-social-proof',
-    kicker_fr: 'Approuvé par les équipes revenue',
-    kicker_en: 'Trusted by revenue teams',
-    h1_fr: "L'IA qui <i>livre</i>, pas qui promet.",
-    h1_en: 'The AI that <i>ships</i>, not just promises.',
-    lede_fr: "Des systèmes d'activation déployés en production, mesurés sur le pipeline réel. Pas de démo, des résultats signés.",
-    lede_en: 'Activation systems deployed in production, measured on real pipeline. No demos, signed results.',
-    cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact', variant: 'primary' },
-    cta_secondary: { label_fr: 'Voir les cas', label_en: 'See the cases', href: '/cas-clients', variant: 'ghost' },
-    rating_fr: 'Méthode mesurée, jamais estimée',
-    rating_en: 'Method measured, never estimated',
-    stats: [
-      { k: '5 jours', label_fr: 'pour cibler le levier', label_en: 'to pinpoint the lever' },
-      { k: '4 sem.', label_fr: 'au premier workflow en production', label_en: 'to first workflow in production' },
-      { k: '1', label_fr: 'interlocuteur unique', label_en: 'single point of contact' },
-      { k: 'Mesuré', label_fr: 'ROI, jamais estimé', label_en: 'ROI, never estimated' },
-    ],
-  },
+  // Wave #38 (T3) · demo migrée dans src/sections/hero-social-proof/demo.ts (déplacée, pas dupliquée).
+  'hero-social-proof': heroSocialProofDemo,
   'feature-comparison-grid': {
     type: 'feature-comparison-grid',
     kicker_fr: 'La différence',
@@ -2648,24 +2637,8 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
       { index_fr: '04', index_en: '04', tone: 'paper-2', title_fr: 'Pilotage & finance', title_en: 'Steering & finance', body_fr: "Voir clair dans les chiffres et décider sur des données fraîches.", body_en: 'See clearly in the numbers and decide on fresh data.', points: [ { label_fr: 'Tableaux de bord', label_en: 'Dashboards' }, { label_fr: 'Données fraîches', label_en: 'Fresh data' } ], media_src: '/images/themes/theme-finance.webp', media_alt_fr: 'Pilotage et finance', media_alt_en: 'Steering and finance', link_label_fr: 'Voir', link_label_en: 'View', link_href: '/services/maintenance-growth' },
     ],
   },
-  'media-bento': {
-    type: 'media-bento',
-    kicker_fr: 'Projets · panorama',
-    kicker_en: 'Projects · overview',
-    h2_fr: 'Le travail, <i>en images</i>',
-    h2_en: 'The work, <i>in pictures</i>',
-    lede_fr: "Un aperçu des systèmes conçus pour des PME exigeantes.",
-    lede_en: 'A glimpse of systems built for demanding SMBs.',
-    layout: 'feature-2',
-    tiles: [
-      { title_fr: 'Plateau', title_en: 'Plateau', tag_fr: 'Acquisition', tag_en: 'Acquisition', media_src: '/images/cas/cas-plateau.webp', media_alt_fr: 'Projet Plateau', media_alt_en: 'Plateau project', span: '2', link_href: '/cas-clients' },
-      { title_fr: 'Halcyon', title_en: 'Halcyon', tag_fr: 'Productivité', tag_en: 'Productivity', media_src: '/images/cas/cas-halcyon.webp', media_alt_fr: 'Projet Halcyon', media_alt_en: 'Halcyon project', span: '1', link_href: '/cas-clients' },
-      { title_fr: 'Northbound', title_en: 'Northbound', tag_fr: 'Pilotage', tag_en: 'Steering', media_src: '/images/cas/cas-northbound.webp', media_alt_fr: 'Projet Northbound', media_alt_en: 'Northbound project', span: '1', link_href: '/cas-clients' },
-      { title_fr: 'Méridien', title_en: 'Meridian', tag_fr: 'Conversion', tag_en: 'Conversion', media_src: '/images/themes/theme-acquisition.webp', media_alt_fr: 'Projet Méridien', media_alt_en: 'Meridian project', span: '1', link_href: '/cas-clients' },
-      { title_fr: 'Boréal', title_en: 'Boreal', tag_fr: 'Automatisation', tag_en: 'Automation', media_src: '/images/themes/theme-productivite.webp', media_alt_fr: 'Projet Boréal', media_alt_en: 'Boreal project', span: '1', link_href: '/cas-clients' },
-      { title_fr: 'Sillage', title_en: 'Wake', tag_fr: 'Contenu', tag_en: 'Content', media_src: '/images/themes/theme-contenu-seo.webp', media_alt_fr: 'Projet Sillage', media_alt_en: 'Wake project', span: '1', link_href: '/cas-clients' },
-    ],
-  },
+  // Wave #38 (T3) · demo migrée dans src/sections/media-bento/demo.ts (déplacée, pas dupliquée).
+  'media-bento': mediaBentoDemo,
   'photo-cluster': {
     type: 'photo-cluster',
     kicker_fr: 'Agence · coulisses',
@@ -4188,11 +4161,8 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   },
   // <<< [ds-primitives-v7] end
   // >>> [eeat-panel] start
-  // Contenu réel tiré d'EEAT_PACK (single-source) : la demo ne pilote que la variante.
-  'eeat-panel': {
-    type: 'eeat-panel',
-    variant: 'media',
-  },
+  // Wave #38 (T3) · demo migrée dans src/sections/eeat-panel/demo.ts (déplacée, pas dupliquée).
+  'eeat-panel': eeatPanelDemo,
   // <<< [eeat-panel] end
 };
 

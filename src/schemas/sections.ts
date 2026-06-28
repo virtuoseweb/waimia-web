@@ -2590,53 +2590,12 @@ export const horizontalShowcaseSchema = z.object({
   ).min(2).max(6),
 });
 
-export const mediaBentoSchema = z.object({
-  type: z.literal('media-bento'),
-  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
-  // Axes de variation (Batch 3) — bento média. Tous optionnels, défauts = rendu actuel.
-  //  - density : gap de la grille (compact|base|ample).
-  density: z.enum(['compact', 'base', 'ample']).optional(),
-  //  - contentAlign : alignement du header (start défaut | center | end).
-  contentAlign: z.enum(['start', 'center', 'end']).optional(),
-  // Couche atomique (Batch 3) : placement par région (header + body). Forme = placementSchema.
-  placement: placementSchema,
-  kicker_fr: z.string().optional(),
-  kicker_en: z.string().optional(),
-  h2_fr: z.string(),
-  h2_en: z.string(),
-  lede_fr: z.string().optional(),
-  lede_en: z.string().optional(),
-  //  - layout (Batch 3) : VOCABULAIRE DE LAYOUT curé pour le bento média.
-  //      feature-2      : 1 grande tuile (2 col / 2 rangs) + tuiles à droite (DÉFAUT, rendu actuel).
-  //      quad           : grille 2×2 régulière (legacy, conservé).
-  //      mosaic         : flux dense, tile span='2' occupe 2 colonnes (legacy, conservé).
-  //      bento-feature  : 1ʳᵉ tuile vedette span 2×2 imposé, le reste en unités.
-  //      matrix-2x2     : matrice 2 colonnes, tuiles carrées (aspect-ratio:1).
-  //      matrix-3x3     : matrice 3 colonnes, tuiles carrées (aspect-ratio:1).
-  //      grid-uniform   : N colonnes ÉGALES, tuiles 4/3 régulières.
-  //    Spans clampés au nb de colonnes ; matrix réduit proprement la dernière ligne.
-  layout: z
-    .enum(['feature-2', 'quad', 'mosaic', 'bento-feature', 'matrix-2x2', 'matrix-3x3', 'grid-uniform'])
-    .optional(),
-  //  - columns : nb de colonnes pour grid-uniform (auto|2|3|4). Ignoré par les recettes
-  //    qui imposent leur grille (feature-2/matrix/bento-feature).
-  columns: z.enum(['auto', '2', '3', '4']).optional(),
-  //  - itemHeight : hauteur des tuiles. auto | even | square (1:1) | video (16/9).
-  itemHeight: z.enum(['auto', 'even', 'square', 'video']).optional(),
-  tiles: z.array(
-    z.object({
-      title_fr: z.string(),
-      title_en: z.string(),
-      tag_fr: z.string().optional(),
-      tag_en: z.string().optional(),
-      media_src: z.string(),
-      media_alt_fr: z.string().optional(),
-      media_alt_en: z.string().optional(),
-      span: z.enum(['1', '2']).optional(),
-      link_href: z.string().optional(),
-    }),
-  ).min(2).max(6),
-});
+// Wave #38 (T3) · `media-bento` migré en module co-localisé (src/sections/media-bento/).
+// Le schéma vit désormais dans ce module ; on le RÉ-EXPORTE ici (API publique préservée :
+// `mediaBentoSchema` reste importable) ET on le réimporte localement (le `export … from`
+// ne crée pas de binding utilisable dans le corps du module → l'union ci-dessous en a besoin).
+export { schema as mediaBentoSchema } from '../sections/media-bento/schema';
+import { schema as mediaBentoSchema } from '../sections/media-bento/schema';
 
 export const photoClusterSchema = z.object({
   type: z.literal('photo-cluster'),
@@ -3764,25 +3723,10 @@ export const heroFormInlineSchema = z.object({
     .optional(),
 });
 
-// hero-social-proof · hero centré + bande de preuve sociale (stats + rating) above-fold.
-export const heroSocialProofSchema = z.object({
-  type: z.literal('hero-social-proof'),
-  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
-  kicker_fr: z.string().optional(),
-  kicker_en: z.string().optional(),
-  h1_fr: z.string(),
-  h1_en: z.string(),
-  lede_fr: z.string(),
-  lede_en: z.string(),
-  cta_primary: ctaSchema,
-  cta_secondary: ctaSchema.optional(),
-  rating_fr: z.string().optional(),
-  rating_en: z.string().optional(),
-  stats: z
-    .array(z.object({ k: z.string(), label_fr: z.string(), label_en: z.string() }))
-    .min(2)
-    .max(4),
-});
+// Wave #38 (T3) · `hero-social-proof` migré en module co-localisé (src/sections/hero-social-proof/).
+// Ré-export (API publique préservée) + réimport local (binding requis par l'union ci-dessous).
+export { schema as heroSocialProofSchema } from '../sections/hero-social-proof/schema';
+import { schema as heroSocialProofSchema } from '../sections/hero-social-proof/schema';
 
 // feature-comparison-grid · différenciation légère « nous vs eux » en grille (check/cross).
 export const featureComparisonGridSchema = z.object({
@@ -4829,17 +4773,10 @@ export const methodSteplineSchema = z.object({
 // <<< [ds-primitives-v7] end
 
 // >>> [eeat-panel] start
-// Panneau E-E-A-T auteur/autorité à 4 variantes (media/columns/light/hero). Contenu GLOBAL
-// single-source (EEAT_PACK + EEAT_IMAGES) → pas de champ de contenu dans le schéma, seulement
-// le pilotage de variante/fond + overrides éditoriaux optionnels.
-export const eeatPanelSchema = z.object({
-  type: z.literal('eeat-panel'),
-  variant: z.enum(['media', 'columns', 'light', 'hero']).default('media'),
-  background: z.enum(['ink', 'paper']).optional(),
-  eyebrow: z.string().optional(),
-  title: z.string().optional(),
-  lead: z.string().optional(),
-});
+// Wave #38 (T3) · `eeat-panel` migré en module co-localisé (src/sections/eeat-panel/).
+// Ré-export (API publique préservée) + réimport local (binding requis par l'union ci-dessous).
+export { schema as eeatPanelSchema } from '../sections/eeat-panel/schema';
+import { schema as eeatPanelSchema } from '../sections/eeat-panel/schema';
 // <<< [eeat-panel] end
 
 export const sectionSchema = z.discriminatedUnion('type', [

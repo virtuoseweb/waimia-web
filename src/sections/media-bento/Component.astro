@@ -4,7 +4,9 @@
 // overlay degrade token-safe pour la lisibilite, zoom au survol. Le champ
 // `layout` (feature-2 | quad | mosaic) change la grille CSS. Variante ink,
 // mobile 1 colonne, reduced-motion neutralise le scale.
-import Kicker from '../ui/atoms/Kicker.astro';
+// Wave #38 (T3) : DÉPLACÉ depuis src/components/sections/MediaBento.astro
+// (chemins relatifs ré-ancrés depuis src/sections/media-bento/).
+import Kicker from '../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '../../schemas/sections';
 
 interface Props {
