@@ -111,6 +111,16 @@ export default defineConfig({
     // (prod-live, indexée) est renommée /landing-page-scoring et absorbe le scoring.
     // 301 obligatoire pour préserver le ranking de l'ancienne URL.
     '/services/tunnel-conversion-intelligent': '/services/landing-page-scoring',
+    // Wave #34 2026-06-28 · nettoyage taxonomie dégénérée du catalogue DS.
+    // Catégories dé-dupliquées (slug singleton fusionné dans son équivalent) et
+    // familles singleton repliées sur leur cible même-archétype. 301 pour préserver
+    // les URLs /library/* internes/indexées (noindex). Cibles existantes (pas de 301-vers-404).
+    '/library/call-to-action-sections': '/library/cta-sections',
+    '/library/trust-proof': '/library/trust-sections',
+    '/library/family/eeat': '/library/family/prose',
+    '/library/family/manifesto': '/library/family/prose',
+    '/library/family/pain': '/library/family/prose',
+    '/library/family/flow': '/library/family/process-steps',
   },
   integrations: [
     react(),

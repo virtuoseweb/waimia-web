@@ -549,15 +549,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 5,
       "samples": [
+        "#fff",
         "1px",
         "2px",
         "3px",
         "640px"
       ]
     },
-    "agentGuide": "Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 2px, 3px)."
+    "agentGuide": "Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (#fff, 1px, 2px)."
   },
   {
     "id": "architecture-diagram",
@@ -584,6 +585,11 @@
     "description_en": "Signature architecture diagram: N input channels flowing into a central system with M outputs, plus a continuous improvement loop.",
     "schemaFields": [
       {
+        "name": "atomique",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "background",
         "type": "enum",
         "required": false,
@@ -598,6 +604,18 @@
         "name": "caption_fr",
         "type": "string",
         "required": true
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
       },
       {
         "name": "fig_num",
@@ -647,6 +665,17 @@
         "constraint": "min:2 max:8"
       },
       {
+        "name": "largeur",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "stacked | split"
+      },
+      {
         "name": "loop_label_en",
         "type": "string",
         "required": true
@@ -667,6 +696,12 @@
         "type": "array",
         "required": true,
         "constraint": "min:2 max:6"
+      },
+      {
+        "name": "proportion",
+        "type": "enum",
+        "required": false,
+        "constraint": "1-1 | 1-2 | 2-1 | 2-3 | 3-2"
       },
       {
         "name": "show_loop",
@@ -711,10 +746,12 @@
       "sysarch-flow",
       "sysarch-h2",
       "sysarch-hd",
+      "sysarch-head",
       "sysarch-loop",
       "sysarch-node",
       "sysarch-spec",
-      "sysarch-svg"
+      "sysarch-svg",
+      "sysarch-wrap"
     ],
     "tokensUsed": [
       {
@@ -794,12 +831,28 @@
         "value": "var(--space-11)"
       },
       {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
       {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
         "name": "--text-h2",
@@ -824,7 +877,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 10,
+      "count": 12,
       "samples": [
         "0.1em",
         "100%",
@@ -836,7 +889,7 @@
         "700px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-7. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (0.1em, 100%, 10px)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-5 --space-6. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (0.1em, 100%, 10px)."
   },
   {
     "id": "article-grid",
@@ -1462,10 +1515,33 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "bento",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "cells",
         "type": "array",
         "required": true,
         "constraint": "min:3 max:8"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
       },
       {
         "name": "h2_en",
@@ -1478,6 +1554,12 @@
         "required": true
       },
       {
+        "name": "itemHeight",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | even | square | video"
+      },
+      {
         "name": "kicker_en",
         "type": "string",
         "required": false
@@ -1486,9 +1568,56 @@
         "name": "kicker_fr",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "bento | bento-feature | mosaic | matrix-2x2 | matrix-3x3 | grid-uniform"
+      },
+      {
+        "name": "mosaic",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "ratio",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "ratio",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "ratio",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "uniform",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "x2",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "x3",
+        "type": "unknown",
+        "required": true
       }
     ],
     "scopedClasses": [
+      "align",
       "bento-fluid",
       "bento-grid",
       "bento-grid__body",
@@ -1498,14 +1627,22 @@
       "bento-grid__mosaic",
       "bento-grid__title",
       "css",
+      "header",
+      "N",
+      "span-",
       "span-lg",
       "span-sm",
-      "span-wide"
+      "span-wide",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--bento-grid-gap",
+        "value": ""
       },
       {
         "name": "--dur-hover",
@@ -1526,6 +1663,10 @@
       {
         "name": "--fw-medium",
         "value": "500"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
       },
       {
         "name": "--hairline",
@@ -1572,6 +1713,10 @@
         "value": "0.25rem"
       },
       {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
         "name": "--space-3",
         "value": "0.75rem"
       },
@@ -1584,8 +1729,16 @@
         "value": "1.5rem"
       },
       {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -1602,13 +1755,18 @@
       {
         "name": "--text-small",
         "value": "13px"
+      },
+      {
+        "name": "--tile-min",
+        "value": ""
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 7,
       "samples": [
         "-2px",
+        "100%",
         "15rem",
         "1px",
         "673px",
@@ -1616,7 +1774,7 @@
         "880px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-2px, 15rem, 1px)."
+    "agentGuide": "Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-2px, 100%, 15rem)."
   },
   {
     "id": "booking-embed",
@@ -2078,6 +2236,35 @@
         "constraint": "max:6"
       },
       {
+        "name": "colRatio",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "colRatio",
+        "type": "enum",
+        "required": false,
+        "constraint": "equal | 1-2 | 2-1 | 1-1-2 | 2-3"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
+      },
+      {
         "name": "empty_body_en",
         "type": "string",
         "required": false
@@ -2135,6 +2322,28 @@
         "default": "Impact"
       },
       {
+        "name": "itemHeight",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | even | square | video"
+      },
+      {
+        "name": "layout",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "list",
+        "type": "enum",
+        "required": false,
+        "constraint": "rows-divided | list | grid-uniform | grid-asym"
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "sector_label_en",
         "type": "string",
         "required": false,
@@ -2158,6 +2367,8 @@
       }
     ],
     "scopedClasses": [
+      "actions",
+      "align",
       "cases-arr",
       "cases-client",
       "cases-col",
@@ -2174,7 +2385,10 @@
       "cases-row",
       "cases-spec",
       "cases-tbl",
-      "sector-cases-empty"
+      "header",
+      "justify",
+      "sector-cases-empty",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
@@ -2258,12 +2472,20 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-xs",
+        "value": "2px"
+      },
+      {
         "name": "--section-base",
         "value": "var(--space-11)"
       },
       {
         "name": "--space-1",
         "value": "0.25rem"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
       {
         "name": "--space-3",
@@ -2280,6 +2502,10 @@
       {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -2314,19 +2540,19 @@
       "row-lines"
     ],
     "hardcodedLiterals": {
-      "count": 18,
+      "count": 21,
       "samples": [
         "-0.015em",
         "-2px",
         ".14em",
         ".16em",
         ".1em",
+        "100%",
         "1080px",
-        "10px",
-        "1100px"
+        "10px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.015em, -2px, .14em)."
+    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `list` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.015em, -2px, .14em)."
   },
   {
     "id": "case-featured-grid",
@@ -2521,23 +2747,27 @@
       {
         "name": "--text-small",
         "value": "13px"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 15,
+      "count": 14,
       "samples": [
         "-0.015em",
         "-0.02em",
         "-2px",
         "0.04em",
-        "0.08em",
         "0px",
         "100%",
-        "10px"
+        "10px",
+        "12px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px)."
   },
   {
     "id": "case-split",
@@ -2884,6 +3114,7 @@
       "cspot__cta",
       "cspot__kicker",
       "cspot__media",
+      "cspot__media-art",
       "cspot__metric",
       "cspot__metric-k",
       "cspot__metric-l",
@@ -2998,6 +3229,10 @@
         "value": "2rem"
       },
       {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
@@ -3020,7 +3255,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 10,
+      "count": 11,
       "samples": [
         "-0.02em",
         "-0.03em",
@@ -3032,7 +3267,7 @@
         "480px"
       ]
     },
-    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-0.02em, -0.03em, .1em)."
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.02em, -0.03em, .1em)."
   },
   {
     "id": "challenges-grid",
@@ -3707,6 +3942,7 @@
       }
     ],
     "scopedClasses": [
+      "align",
       "astro",
       "commitments-grid",
       "commitments-grid__body",
@@ -3726,11 +3962,18 @@
       "deliverables-grid__tag",
       "deliverables-grid__title",
       "feature-grid",
+      "feature-grid__cta",
       "feature-grid__header",
+      "feature-grid__header-cta",
       "feature-grid__icon",
+      "feature-grid__intro-desc",
       "feature-grid__item",
+      "feature-grid__lede",
       "feature-grid__list",
+      "feature-grid__media",
+      "feature-grid__meta",
       "feature-grid__title",
+      "header",
       "icon-trio",
       "icon-trio__body",
       "icon-trio__col",
@@ -3738,6 +3981,7 @@
       "icon-trio__glyph",
       "icon-trio__title",
       "kicker",
+      "N",
       "problems-grid",
       "problems-grid__art",
       "problems-grid__card",
@@ -3745,6 +3989,11 @@
       "problems-grid__h2",
       "problems-grid__kicker",
       "problems-grid__num",
+      "sec-base-h2",
+      "sec-collection",
+      "sec-grid",
+      "sec-intro",
+      "sec-item",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -3755,6 +4004,14 @@
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--col-min",
+        "value": ""
+      },
+      {
+        "name": "--deliverables-grid-col-gap",
+        "value": ""
       },
       {
         "name": "--deliverables-grid-inline",
@@ -3783,10 +4040,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -3849,6 +4102,10 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-sm",
+        "value": "4px"
+      },
+      {
         "name": "--radius-xs",
         "value": "2px"
       },
@@ -3863,6 +4120,10 @@
       {
         "name": "--space-1",
         "value": "0.25rem"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
         "name": "--space-12",
@@ -3931,6 +4192,10 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
       }
     ],
     "tailwindUtils": [],
@@ -3944,10 +4209,10 @@
         ".06em",
         ".08em",
         "100%",
-        "10px"
+        "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "comparison-duo",
@@ -3971,10 +4236,27 @@
     "description_en": "Two side-by-side cards (Without / With) to highlight a before/after or us-vs-them contrast, with bulleted items and differentiated glyphs.",
     "schemaFields": [
       {
+        "name": "atomique",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "background",
         "type": "enum",
         "required": false,
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
       },
       {
         "name": "h2_en",
@@ -3995,6 +4277,23 @@
         "name": "kicker_fr",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "inline | stacked"
+      },
+      {
+        "name": "proportion",
+        "type": "enum",
+        "required": false,
+        "constraint": "1-1 | 1-2 | 2-1"
+      },
+      {
+        "name": "te",
+        "type": "unknown",
+        "required": true
       },
       {
         "name": "with_items",
@@ -4153,6 +4452,10 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
       },
@@ -4176,7 +4479,7 @@
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (0.14em, 10px, 1px)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (0.14em, 10px, 1px)."
   },
   {
     "id": "comparison-pricing-callout",
@@ -6529,6 +6832,244 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-6 --space-9. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (18px, 1px, 280px)."
   },
   {
+    "id": "definition-extract",
+    "component": {
+      "name": "DefinitionExtract",
+      "path": "src/components/sections/DefinitionExtract.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "tags": [
+      "answer",
+      "definition",
+      "eeat",
+      "extractible",
+      "geo"
+    ],
+    "status": "stable",
+    "description_fr": "Bloc GEO « format extractible » : kicker mono, gros statement serif avec le terme défini en accent, rangée de pills, puis un bandeau de specs mono. Sobre, fond paper, pensé pour la citation par les moteurs génératifs.",
+    "description_en": "GEO « extractable format » block: mono kicker, large serif statement with the defined term accented, a row of pills, then a mono specs strip. Sober, paper background, designed to be cited by generative engines.",
+    "schemaFields": [
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "pills",
+        "type": "array",
+        "required": false,
+        "constraint": "max:6"
+      },
+      {
+        "name": "specs",
+        "type": "array",
+        "required": false,
+        "constraint": "max:8"
+      },
+      {
+        "name": "statement_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "statement_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "acc",
+      "dx",
+      "dx__aside",
+      "dx__body",
+      "dx__head",
+      "dx__inner",
+      "dx__kicker",
+      "dx__pill",
+      "dx__pills",
+      "dx__sep",
+      "dx__specs",
+      "dx__statement"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-rgb",
+        "value": "201, 79, 46"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-hover",
+        "value": "300ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-pill",
+        "value": "999px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
+      },
+      {
+        "name": "--wrap-tight",
+        "value": "1120px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 7,
+      "samples": [
+        "100%",
+        "1px",
+        "30%",
+        "45%",
+        "50%",
+        "70%",
+        "768px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-10 --space-12 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (100%, 1px, 30%)."
+  },
+  {
     "id": "deliverables-grid",
     "component": {
       "name": "FeatureGrid",
@@ -6556,6 +7097,47 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "colRatio",
+        "type": "enum",
+        "required": false,
+        "constraint": "equal | 1-2 | 2-1 | 1-1-2 | 2-3"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4 | 5 | 6"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "divided",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "required": false,
+        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | even | square | video"
+      },
+      {
         "name": "items",
         "type": "array",
         "required": true,
@@ -6572,6 +7154,11 @@
         "required": true
       },
       {
+        "name": "layout",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "lead_en",
         "type": "string",
         "required": false
@@ -6580,6 +7167,11 @@
         "name": "lead_fr",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
       },
       {
         "name": "title_en",
@@ -6593,6 +7185,7 @@
       }
     ],
     "scopedClasses": [
+      "align",
       "astro",
       "commitments-grid",
       "commitments-grid__body",
@@ -6612,11 +7205,18 @@
       "deliverables-grid__tag",
       "deliverables-grid__title",
       "feature-grid",
+      "feature-grid__cta",
       "feature-grid__header",
+      "feature-grid__header-cta",
       "feature-grid__icon",
+      "feature-grid__intro-desc",
       "feature-grid__item",
+      "feature-grid__lede",
       "feature-grid__list",
+      "feature-grid__media",
+      "feature-grid__meta",
       "feature-grid__title",
+      "header",
       "icon-trio",
       "icon-trio__body",
       "icon-trio__col",
@@ -6624,6 +7224,7 @@
       "icon-trio__glyph",
       "icon-trio__title",
       "kicker",
+      "N",
       "problems-grid",
       "problems-grid__art",
       "problems-grid__card",
@@ -6631,6 +7232,11 @@
       "problems-grid__h2",
       "problems-grid__kicker",
       "problems-grid__num",
+      "sec-base-h2",
+      "sec-collection",
+      "sec-grid",
+      "sec-intro",
+      "sec-item",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -6641,6 +7247,14 @@
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--col-min",
+        "value": ""
+      },
+      {
+        "name": "--deliverables-grid-col-gap",
+        "value": ""
       },
       {
         "name": "--deliverables-grid-inline",
@@ -6669,10 +7283,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -6735,6 +7345,10 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-sm",
+        "value": "4px"
+      },
+      {
         "name": "--radius-xs",
         "value": "2px"
       },
@@ -6749,6 +7363,10 @@
       {
         "name": "--space-1",
         "value": "0.25rem"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
         "name": "--space-12",
@@ -6817,6 +7435,10 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
       }
     ],
     "tailwindUtils": [],
@@ -6830,10 +7452,10 @@
         ".06em",
         ".08em",
         "100%",
-        "10px"
+        "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `itemHeight` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "department-cta",
@@ -7357,10 +7979,27 @@
     "description_en": "A “Where do you stand?” self-assessment: 4 to 6 maturity stages as clickable horizontal cards, the current stage highlighted in accent (“you are here”). Places the visitor and points them to the next step (conversion + qualification).",
     "schemaFields": [
       {
+        "name": "atomique",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "background",
         "type": "enum",
         "required": false,
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
       },
       {
         "name": "h2_en",
@@ -7383,6 +8022,17 @@
         "required": false
       },
       {
+        "name": "layout",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "grid-steps | vertical-stack | numbered-rows"
+      },
+      {
         "name": "lede_en",
         "type": "string",
         "required": false
@@ -7397,10 +8047,17 @@
         "type": "array",
         "required": true,
         "constraint": "min:4 max:6"
+      },
+      {
+        "name": "steps",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
       }
     ],
     "scopedClasses": [
       "acc",
+      "align",
       "diag",
       "diag__body",
       "diag__card",
@@ -7415,7 +8072,10 @@
       "diag__stage",
       "diag__title",
       "diag__top",
-      "diag__track"
+      "diag__track",
+      "header",
+      "N",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
@@ -7499,6 +8159,10 @@
         "value": "var(--space-11)"
       },
       {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -7517,6 +8181,10 @@
       {
         "name": "--space-6",
         "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -7553,7 +8221,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 12,
       "samples": [
         "-0.01em",
         "-0.02em",
@@ -7565,7 +8233,7 @@
         "2px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `steps` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.01em, -0.02em, -1px)."
   },
   {
     "id": "direct-answer",
@@ -9147,7 +9815,7 @@
     "consumers": [],
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "tags": [
       "dated",
       "editorial",
@@ -9455,6 +10123,329 @@
       ]
     },
     "agentGuide": "Layout : `tone` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-7. Couleur : --accent-text --ink --paper. Typographie : --font-display --font-sans. Dette : 3 litteral(s) hardcode(s) (-0.02em, 1000px, 1px)."
+  },
+  {
+    "id": "eeat-panel",
+    "component": {
+      "name": "EeatPanel",
+      "path": "src/components/sections/EeatPanel.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
+    "tags": [
+      "author",
+      "authority",
+      "bento",
+      "dashboard",
+      "eeat",
+      "trust"
+    ],
+    "status": "stable",
+    "description_fr": "Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.",
+    "description_en": "E-E-A-T author/authority panel with 4 variants (media, columns, light, hero): a bento dashboard or accent columns gathering author, milestones, sectors, articles, services, tool and commitments. Single-source content (EEAT_PACK), honest proof (commitments + solo-studio note, no testimonial). Ink/paper variants, reveal-stagger, responsive.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "ink | paper"
+      },
+      {
+        "name": "eyebrow",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lead",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "default": "media",
+        "constraint": "media | columns | light | hero"
+      }
+    ],
+    "scopedClasses": [
+      "eep",
+      "eep--columns",
+      "eep--hero",
+      "eep--light",
+      "eep--media",
+      "eep-band",
+      "eep-band__cap",
+      "eep-band__img",
+      "eep-bio",
+      "eep-bio--sm",
+      "eep-cap",
+      "eep-cell",
+      "eep-cell--author",
+      "eep-cell--commit",
+      "eep-cell--cta",
+      "eep-cell--focus",
+      "eep-cell--hero",
+      "eep-cell--media",
+      "eep-cell--media-a",
+      "eep-cell--media-b",
+      "eep-cell--read",
+      "eep-cell--reperes",
+      "eep-cell--sectors",
+      "eep-cell--services",
+      "eep-celllabel",
+      "eep-celllabel--ink",
+      "eep-chip",
+      "eep-chips",
+      "eep-col",
+      "eep-col--accent",
+      "eep-colbody",
+      "eep-colhd",
+      "eep-colhd--accent",
+      "eep-collabel",
+      "eep-collabel--ink",
+      "eep-cols",
+      "eep-commit",
+      "eep-commit__detail",
+      "eep-commit__label",
+      "eep-commits",
+      "eep-creds",
+      "eep-creds__badge",
+      "eep-creds__item",
+      "eep-creds__label",
+      "eep-creds__list",
+      "eep-cta",
+      "eep-cta__glyph",
+      "eep-cta__title",
+      "eep-exp",
+      "eep-exp__item",
+      "eep-focus__label",
+      "eep-focus__num",
+      "eep-grid",
+      "eep-hd",
+      "eep-hero__cap",
+      "eep-hero__img",
+      "eep-hero__kicker",
+      "eep-hero__line",
+      "eep-honesty",
+      "eep-img",
+      "eep-kicker",
+      "eep-kicker__dot",
+      "eep-lead",
+      "eep-link",
+      "eep-link__kicker",
+      "eep-link__label",
+      "eep-link--flat",
+      "eep-links",
+      "eep-meta",
+      "eep-mlabel",
+      "eep-mlist",
+      "eep-mrow",
+      "eep-myear",
+      "eep-name",
+      "eep-name--ink",
+      "eep-name--sm",
+      "eep-role",
+      "eep-role--ink",
+      "reveal-stagger"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-ink",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--accent-sur-clair",
+        "value": "#A83D20"
+      },
+      {
+        "name": "--accent-sur-sombre",
+        "value": "#D96A47"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-trim",
+        "value": "220ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-full",
+        "value": "50%"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--radius-pill",
+        "value": "999px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-glyph",
+        "value": "22px"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-micro",
+        "value": "9px"
+      },
+      {
+        "name": "--text-numeral-md",
+        "value": "52px"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 15,
+      "samples": [
+        "0.5em",
+        "100%",
+        "12rem",
+        "14rem",
+        "16rem",
+        "18rem",
+        "1px",
+        "2.75rem"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (0.5em, 100%, 12rem)."
   },
   {
     "id": "faq-accordion",
@@ -10377,19 +11368,6 @@
     "description_en": "Feature grid for structuring the core benefits or capabilities of an offer.",
     "schemaFields": [
       {
-        "name": "background",
-        "type": "enum",
-        "required": false,
-        "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "columns",
-        "type": "enum",
-        "required": false,
-        "default": "3",
-        "constraint": "2 | 3 | 4"
-      },
-      {
         "name": "features",
         "type": "array",
         "required": true,
@@ -10406,6 +11384,36 @@
         "required": true
       },
       {
+        "name": "header_cta_href",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "header_cta_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "header_cta_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_desc_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_desc_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_media",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "kicker_en",
         "type": "string",
         "required": false
@@ -10414,9 +11422,25 @@
         "name": "kicker_fr",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "unique",
+        "type": "unknown",
+        "required": true
       }
     ],
     "scopedClasses": [
+      "align",
       "astro",
       "commitments-grid",
       "commitments-grid__body",
@@ -10436,11 +11460,18 @@
       "deliverables-grid__tag",
       "deliverables-grid__title",
       "feature-grid",
+      "feature-grid__cta",
       "feature-grid__header",
+      "feature-grid__header-cta",
       "feature-grid__icon",
+      "feature-grid__intro-desc",
       "feature-grid__item",
+      "feature-grid__lede",
       "feature-grid__list",
+      "feature-grid__media",
+      "feature-grid__meta",
       "feature-grid__title",
+      "header",
       "icon-trio",
       "icon-trio__body",
       "icon-trio__col",
@@ -10448,6 +11479,7 @@
       "icon-trio__glyph",
       "icon-trio__title",
       "kicker",
+      "N",
       "problems-grid",
       "problems-grid__art",
       "problems-grid__card",
@@ -10455,6 +11487,11 @@
       "problems-grid__h2",
       "problems-grid__kicker",
       "problems-grid__num",
+      "sec-base-h2",
+      "sec-collection",
+      "sec-grid",
+      "sec-intro",
+      "sec-item",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -10465,6 +11502,14 @@
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--col-min",
+        "value": ""
+      },
+      {
+        "name": "--deliverables-grid-col-gap",
+        "value": ""
       },
       {
         "name": "--deliverables-grid-inline",
@@ -10493,10 +11538,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -10559,6 +11600,10 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-sm",
+        "value": "4px"
+      },
+      {
         "name": "--radius-xs",
         "value": "2px"
       },
@@ -10573,6 +11618,10 @@
       {
         "name": "--space-1",
         "value": "0.25rem"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
         "name": "--space-12",
@@ -10641,6 +11690,10 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
       }
     ],
     "tailwindUtils": [],
@@ -10654,10 +11707,10 @@
         ".06em",
         ".08em",
         "100%",
-        "10px"
+        "1200px"
       ]
     },
-    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "feature-split-media",
@@ -10682,6 +11735,12 @@
     "description_en": "One major feature laid out in two columns: copy and key points on one side, mockup or screenshot on the other. The reversed field alternates sides down the page.",
     "schemaFields": [
       {
+        "name": "actionsAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end | spread"
+      },
+      {
         "name": "background",
         "type": "enum",
         "required": false,
@@ -10698,6 +11757,12 @@
         "required": true
       },
       {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
         "name": "cta_href",
         "type": "string",
         "required": false
@@ -10711,6 +11776,12 @@
         "name": "cta_label_fr",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
       },
       {
         "name": "h2_en",
@@ -10769,10 +11840,22 @@
         "required": false
       },
       {
+        "name": "mediaSide",
+        "type": "enum",
+        "required": false,
+        "constraint": "left | right"
+      },
+      {
         "name": "points",
         "type": "array",
         "required": false,
         "constraint": "max:6"
+      },
+      {
+        "name": "proportion",
+        "type": "enum",
+        "required": false,
+        "constraint": "1-1 | 1-2 | 2-1 | 2-3 | 3-2"
       },
       {
         "name": "reversed",
@@ -10782,6 +11865,8 @@
       }
     ],
     "scopedClasses": [
+      "actions",
+      "align",
       "css",
       "feature-split",
       "feature-split__body",
@@ -10792,7 +11877,11 @@
       "feature-split__media",
       "feature-split__placeholder",
       "feature-split__points",
-      "feature-split--sticky-media"
+      "feature-split--sticky-media",
+      "header",
+      "justify",
+      "media",
+      "order"
     ],
     "tokensUsed": [
       {
@@ -10884,6 +11973,10 @@
         "value": "1.5rem"
       },
       {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
@@ -10910,18 +12003,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 7,
+      "count": 8,
       "samples": [
         "0.55em",
         "100%",
         "14px",
         "1px",
+        "768px",
         "860px",
         "8px",
         "clamp(var(--space-8)"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (0.55em, 100%, 14px)."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `layout`, `mediaSide`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (0.55em, 100%, 14px)."
   },
   {
     "id": "feature-tabs",
@@ -11167,15 +12261,42 @@
     "description_en": "Alternating visual/text rows (left-right, right-left) to present key features with strong editorial rhythm.",
     "schemaFields": [
       {
+        "name": "actuel",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "alternate",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "alternate_blocks",
         "type": "boolean",
         "required": false
+      },
+      {
+        "name": "atomique",
+        "type": "unknown",
+        "required": true
       },
       {
         "name": "background",
         "type": "enum",
         "required": false,
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
       },
       {
         "name": "h2_en",
@@ -11213,13 +12334,32 @@
         "required": false
       },
       {
+        "name": "mediaSide",
+        "type": "enum",
+        "required": false,
+        "constraint": "left | right"
+      },
+      {
+        "name": "proportion",
+        "type": "enum",
+        "required": false,
+        "constraint": "1-1 | 1-2 | 2-1 | 2-3 | 3-2"
+      },
+      {
         "name": "rows",
         "type": "array",
         "required": true,
         "constraint": "min:2 max:4"
+      },
+      {
+        "name": "stacked",
+        "type": "enum",
+        "required": false,
+        "constraint": "alternate | stacked | inline-left | inline-right"
       }
     ],
     "scopedClasses": [
+      "align",
       "fz",
       "fz__art",
       "fz__cell",
@@ -11233,6 +12373,7 @@
       "fz__svg",
       "fz__text",
       "fz__visual",
+      "header",
       "in",
       "is-visible",
       "webp"
@@ -11311,6 +12452,10 @@
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -11361,7 +12506,7 @@
         "24px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `mediaSide`, `proportion`, `stacked` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%)."
   },
   {
     "id": "fit-columns",
@@ -11588,6 +12733,12 @@
     "description_en": "Full-bleed final CTA band (title, subtitle, one or two buttons), designed as the climax right before the footer. Dark by default to contrast with the page.",
     "schemaFields": [
       {
+        "name": "actionsAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end | spread"
+      },
+      {
         "name": "background",
         "type": "enum",
         "required": false,
@@ -11599,6 +12750,24 @@
         "type": "array",
         "required": true,
         "constraint": "min:1 max:2"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "inline | stacked"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
       },
       {
         "name": "h2_en",
@@ -11621,6 +12790,11 @@
         "required": false
       },
       {
+        "name": "layout",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "rounded",
         "type": "boolean",
         "required": false
@@ -11637,12 +12811,16 @@
       }
     ],
     "scopedClasses": [
+      "actions",
+      "align",
       "footer-cta",
       "footer-cta__actions",
       "footer-cta__copy",
       "footer-cta__inner",
       "footer-cta__subtitle",
-      "footer-cta--rounded"
+      "footer-cta--rounded",
+      "header",
+      "justify"
     ],
     "tokensUsed": [
       {
@@ -11702,6 +12880,10 @@
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
         "name": "--space-3",
         "value": "0.75rem"
       },
@@ -11710,12 +12892,20 @@
         "value": "1rem"
       },
       {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
       {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--text-body",
@@ -11728,14 +12918,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 3,
+      "count": 4,
       "samples": [
         "1px",
+        "768px",
         "860px",
         "clamp(var(--space-6)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 3 litteral(s) hardcode(s) (1px, 860px, clamp(var(--space-6))."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `density` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px)."
   },
   {
     "id": "gallery-masonry",
@@ -12707,7 +13898,7 @@
     ],
     "category": "marketing",
     "categorySlug": "hero-header-sections",
-    "subcategory": "Hero Sections",
+    "subcategory": "Hero Header Sections",
     "tags": [
       "atlas",
       "hero",
@@ -13411,10 +14602,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -13483,16 +14670,8 @@
         "value": "-0.025em"
       },
       {
-        "name": "--tracking-mono",
-        "value": "0.12em"
-      },
-      {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -13824,6 +15003,7 @@
       "hcc-card",
       "hcc-card-kpis",
       "hcc-card-media",
+      "hcc-card-media__art",
       "hcc-col",
       "hcc-ctas",
       "hcc-grid",
@@ -15173,6 +16353,7 @@
       "hero-cf-minimal__stat-value",
       "hero-cf-minimal__stats",
       "hero-cf-split",
+      "hero-cf-split__art",
       "hero-cf-split__media",
       "hero-cf-split__meta",
       "hero-cf-split__text",
@@ -15307,6 +16488,10 @@
       {
         "name": "--sec-grid",
         "value": ""
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
       },
       {
         "name": "--space-1",
@@ -16449,10 +17634,6 @@
         "value": "-0.025em"
       },
       {
-        "name": "--tracking-mono",
-        "value": "0.12em"
-      },
-      {
         "name": "--viewport-h",
         "value": "100svh"
       }
@@ -16629,10 +17810,6 @@
         "value": "0.75rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -16689,7 +17866,7 @@
         "768px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px)."
+    "agentGuide": "Espacement : --space-1 --space-3 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (1px, 768px)."
   },
   {
     "id": "hero-essay",
@@ -17647,10 +18824,6 @@
       {
         "name": "--tracking-display",
         "value": "-0.025em"
-      },
-      {
-        "name": "--tracking-mono",
-        "value": "0.12em"
       },
       {
         "name": "--viewport-h",
@@ -18877,6 +20050,7 @@
       "hero-cf-minimal__stat-value",
       "hero-cf-minimal__stats",
       "hero-cf-split",
+      "hero-cf-split__art",
       "hero-cf-split__media",
       "hero-cf-split__meta",
       "hero-cf-split__text",
@@ -19011,6 +20185,10 @@
       {
         "name": "--sec-grid",
         "value": ""
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
       },
       {
         "name": "--space-1",
@@ -20217,10 +21395,6 @@
         "value": "13px"
       },
       {
-        "name": "--tracking-caps",
-        "value": "0.2em"
-      },
-      {
         "name": "--tracking-display",
         "value": "-0.025em"
       },
@@ -20362,6 +21536,7 @@
       "hmc__lede",
       "hmc__main",
       "hmc__media",
+      "hmc__media-svg",
       "hmc__rail",
       "hmc__title",
       "signature-grid"
@@ -20623,6 +21798,7 @@
       "hmm-lead",
       "hmm-lede",
       "hmm-medallion",
+      "hmm-medallion__art",
       "hmm-title"
     ],
     "tokensUsed": [
@@ -20755,10 +21931,6 @@
         "value": "-0.025em"
       },
       {
-        "name": "--tracking-mono",
-        "value": "0.12em"
-      },
-      {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
       },
@@ -20772,14 +21944,14 @@
       "count": 6,
       "samples": [
         "100%",
+        "120px",
         "1px",
         "768px",
         "80px",
-        "900px",
-        "90px"
+        "900px"
       ]
     },
-    "agentGuide": "Espacement : --space-10 --space-15 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (100%, 1px, 768px)."
+    "agentGuide": "Espacement : --space-10 --space-15 --space-2. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (100%, 120px, 1px)."
   },
   {
     "id": "hero-numeral-cover",
@@ -21435,6 +22607,7 @@
       "hero-cf-minimal__stat-value",
       "hero-cf-minimal__stats",
       "hero-cf-split",
+      "hero-cf-split__art",
       "hero-cf-split__media",
       "hero-cf-split__meta",
       "hero-cf-split__text",
@@ -21569,6 +22742,10 @@
       {
         "name": "--sec-grid",
         "value": ""
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
       },
       {
         "name": "--space-1",
@@ -22284,10 +23461,6 @@
       {
         "name": "--tracking-display",
         "value": "-0.025em"
-      },
-      {
-        "name": "--tracking-mono",
-        "value": "0.12em"
       },
       {
         "name": "--viewport-h",
@@ -23985,6 +25158,16 @@
         "required": false
       },
       {
+        "name": "definition_kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "definition_kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "h1_en",
         "type": "string",
         "required": true
@@ -24028,6 +25211,16 @@
         "name": "media_src",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "subtitle_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "subtitle_fr",
+        "type": "string",
+        "required": false
       }
     ],
     "scopedClasses": [
@@ -24037,11 +25230,15 @@
       "hsm-badge",
       "hsm-badges",
       "hsm-ctas",
+      "hsm-def-kicker",
       "hsm-grid",
       "hsm-kicker",
       "hsm-lede",
       "hsm-media",
-      "hsm-title"
+      "hsm-subtitle",
+      "hsm-title",
+      "masthead-bar",
+      "problem-statement__text"
     ],
     "tokensUsed": [
       {
@@ -24073,6 +25270,10 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -24097,12 +25298,16 @@
         "value": "#1A1814"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h1",
         "value": "0.96"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
       },
       {
         "name": "--muted",
@@ -24153,8 +25358,8 @@
         "value": "2rem"
       },
       {
-        "name": "--space-7",
-        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
         "name": "--text-body",
@@ -24165,8 +25370,16 @@
         "value": "clamp(48px, 8vw, 128px)"
       },
       {
+        "name": "--text-fine",
+        "value": "11px"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-micro",
@@ -24177,12 +25390,12 @@
         "value": "13px"
       },
       {
-        "name": "--tracking-display",
-        "value": "-0.025em"
+        "name": "--tracking-body",
+        "value": "-0.005em"
       },
       {
-        "name": "--tracking-mono",
-        "value": "0.12em"
+        "name": "--tracking-display",
+        "value": "-0.025em"
       },
       {
         "name": "--tracking-mono-tight",
@@ -24195,19 +25408,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 9,
       "samples": [
+        "0px",
         "100%",
         "1px",
         "45%",
         "50%",
         "60%",
         "70%",
-        "768px",
-        "clamp(var(--space-6)"
+        "768px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (100%, 1px, 45%)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (0px, 100%, 1px)."
   },
   {
     "id": "hero-stack-rhythm",
@@ -25309,6 +26522,7 @@
       "z3__lede",
       "z3__main",
       "z3__media",
+      "z3__media-art",
       "z3__title"
     ],
     "tokensUsed": [
@@ -25874,19 +27088,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 8,
       "samples": [
         "-.02em",
         ".06em",
-        ".1em",
         "100%",
         "10px",
         "11px",
         "1200px",
-        "1px"
+        "1px",
+        "700px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-.02em, .06em, 100%)."
   },
   {
     "id": "hero-utility-masthead",
@@ -26307,6 +27521,422 @@
     "agentGuide": "Layout : `align`, `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 41 litteral(s) hardcode(s) (-0.01em, -0.026em, -0.028em)."
   },
   {
+    "id": "horizontal-showcase",
+    "component": {
+      "name": "HorizontalShowcase",
+      "path": "src/components/sections/HorizontalShowcase.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "expertise",
+      "horizontal",
+      "interactive",
+      "scroll",
+      "showcase"
+    ],
+    "status": "stable",
+    "description_fr": "Panneaux a defilement horizontal smooth (scroll-snap) avec index numerote cliquable.",
+    "description_en": "Smooth horizontal scrolling panels (scroll-snap) with a clickable numbered index.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "panels",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "scopedClasses": [
+      "fz__points",
+      "hsh",
+      "hsh__body",
+      "hsh__header",
+      "hsh__index",
+      "hsh__index-btn",
+      "hsh__index-label",
+      "hsh__index-num",
+      "hsh__lede",
+      "hsh__link",
+      "hsh__media",
+      "hsh__panel",
+      "hsh__panel-index",
+      "hsh__points",
+      "hsh__text",
+      "hsh__title",
+      "hsh__track"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-sur-sombre",
+        "value": "#D96A47"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-reveal",
+        "value": "1100ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--shadow-lift",
+        "value": "0 12px 40px rgba(var(--ink-rgb), 0.08)"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 9,
+      "samples": [
+        "0.55em",
+        "100%",
+        "1px",
+        "3px",
+        "640px",
+        "6px",
+        "768px",
+        "clamp(82%, 88vw, 92%)"
+      ]
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-sans --fw-medium. Dette : 9 litteral(s) hardcode(s) (0.55em, 100%, 1px)."
+  },
+  {
+    "id": "hover-reveal-list",
+    "component": {
+      "name": "HoverRevealList",
+      "path": "src/components/sections/HoverRevealList.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "hover",
+      "interactive",
+      "list",
+      "portfolio",
+      "reveal"
+    ],
+    "status": "stable",
+    "description_fr": "Liste editoriale qui revele l'image du projet au survol, dans un carre cadre (image qui suit le curseur ou centree).",
+    "description_en": "Editorial list that reveals the project image on hover, in a framed square (image follows the cursor or stays centred).",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:10"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "reveal_mode",
+        "type": "enum",
+        "required": false,
+        "constraint": "cursor | fixed"
+      }
+    ],
+    "scopedClasses": [
+      "hrl",
+      "hrl__header",
+      "hrl__img",
+      "hrl__item",
+      "hrl__label",
+      "hrl__lede",
+      "hrl__list",
+      "hrl__meta",
+      "hrl__reveal",
+      "hrl__row",
+      "hrl__thumb",
+      "is-on"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-reveal",
+        "value": "1100ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--shadow-lift",
+        "value": "0 12px 40px rgba(var(--ink-rgb), 0.08)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--text-title-lg",
+        "value": "38px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 7,
+      "samples": [
+        "-50%",
+        "100%",
+        "1px",
+        "50%",
+        "640px",
+        "768px",
+        "clamp(220px, 22vw, 340px)"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `reveal_mode` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (-50%, 100%, 1px)."
+  },
+  {
     "id": "how-we-ship",
     "component": {
       "name": "HowWeShip",
@@ -26316,7 +27946,7 @@
     "consumers": [],
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "tags": [
       "pin",
       "process",
@@ -26522,6 +28152,7 @@
       }
     ],
     "scopedClasses": [
+      "align",
       "astro",
       "commitments-grid",
       "commitments-grid__body",
@@ -26541,11 +28172,18 @@
       "deliverables-grid__tag",
       "deliverables-grid__title",
       "feature-grid",
+      "feature-grid__cta",
       "feature-grid__header",
+      "feature-grid__header-cta",
       "feature-grid__icon",
+      "feature-grid__intro-desc",
       "feature-grid__item",
+      "feature-grid__lede",
       "feature-grid__list",
+      "feature-grid__media",
+      "feature-grid__meta",
       "feature-grid__title",
+      "header",
       "icon-trio",
       "icon-trio__body",
       "icon-trio__col",
@@ -26553,6 +28191,7 @@
       "icon-trio__glyph",
       "icon-trio__title",
       "kicker",
+      "N",
       "problems-grid",
       "problems-grid__art",
       "problems-grid__card",
@@ -26560,6 +28199,11 @@
       "problems-grid__h2",
       "problems-grid__kicker",
       "problems-grid__num",
+      "sec-base-h2",
+      "sec-collection",
+      "sec-grid",
+      "sec-intro",
+      "sec-item",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -26570,6 +28214,14 @@
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--col-min",
+        "value": ""
+      },
+      {
+        "name": "--deliverables-grid-col-gap",
+        "value": ""
       },
       {
         "name": "--deliverables-grid-inline",
@@ -26598,10 +28250,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -26664,6 +28312,10 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-sm",
+        "value": "4px"
+      },
+      {
         "name": "--radius-xs",
         "value": "2px"
       },
@@ -26678,6 +28330,10 @@
       {
         "name": "--space-1",
         "value": "0.25rem"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
         "name": "--space-12",
@@ -26746,6 +28402,10 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
       }
     ],
     "tailwindUtils": [],
@@ -26759,10 +28419,10 @@
         ".06em",
         ".08em",
         "100%",
-        "10px"
+        "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "inclusions-list",
@@ -27753,6 +29413,7 @@
       }
     ],
     "scopedClasses": [
+      "demo-list-row",
       "list-body",
       "list-filters",
       "list-footer",
@@ -27767,8 +29428,16 @@
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
       {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -27779,6 +29448,10 @@
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
         "name": "--ink-2",
         "value": "#1A1814"
       },
@@ -27787,12 +29460,20 @@
         "value": "1.4"
       },
       {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
         "name": "--section-loose",
         "value": "var(--space-13)"
       },
       {
         "name": "--space-3",
         "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
       },
       {
         "name": "--space-5",
@@ -27813,6 +29494,10 @@
       {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -27833,7 +29518,7 @@
         "760px"
       ]
     },
-    "agentGuide": "Espacement : --space-3 --space-5 --space-6. Couleur : --ink-2. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.03em, 140px, 1px)."
+    "agentGuide": "Espacement : --space-3 --space-4 --space-5. Couleur : --ink --ink-2 --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.03em, 140px, 1px)."
   },
   {
     "id": "logo-marquee",
@@ -28743,7 +30428,7 @@
     ],
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "tags": [
       "maturity",
       "pyramid",
@@ -29014,6 +30699,287 @@
     "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-0.01em, -0.02em, -3px)."
   },
   {
+    "id": "media-bento",
+    "component": {
+      "name": "MediaBento",
+      "path": "src/components/sections/MediaBento.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "bento",
+      "gallery",
+      "hover",
+      "media",
+      "projects"
+    ],
+    "status": "stable",
+    "description_fr": "Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).",
+    "description_en": "Asymmetric media bento: image tiles with a large overlaid title and hover zoom (feature-2, quad, mosaic layouts).",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "feature",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | even | square | video"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "feature-2 | quad | mosaic | bento-feature | matrix-2x2 | matrix-3x3 | grid-uniform"
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "quad",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "ratio",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "ratio",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "tiles",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:6"
+      },
+      {
+        "name": "uniform",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "x2",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "x3",
+        "type": "unknown",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "align",
+      "header",
+      "mbento",
+      "mbento__caption",
+      "mbento__cell",
+      "mbento__grid",
+      "mbento__header",
+      "mbento__img",
+      "mbento__lede",
+      "mbento__overlay",
+      "mbento__tag",
+      "mbento__tile",
+      "mbento__title",
+      "wrap-wide"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-sur-sombre",
+        "value": "#D96A47"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-reveal",
+        "value": "1100ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-kicker",
+        "value": "11px"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 8,
+      "samples": [
+        "0.04em",
+        "100%",
+        "16rem",
+        "1px",
+        "38%",
+        "640px",
+        "768px",
+        "8px"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-4. Couleur : --accent-sur-sombre --accent-text --ink. Typographie : --font-sans --fw-medium. Dette : 8 litteral(s) hardcode(s) (0.04em, 100%, 16rem)."
+  },
+  {
     "id": "media-block",
     "component": {
       "name": "MediaBlock",
@@ -29157,33 +31123,53 @@
     "agentGuide": "Layout : `background`, `display`, `media_kind` (schema, 0 CSS). Espacement : --space-4. Couleur : --ink --muted --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (100%, 1px)."
   },
   {
-    "id": "method-timeline",
+    "id": "media-swap-band",
     "component": {
-      "name": "MethodTimeline",
-      "path": "src/components/sections/MethodTimeline.astro"
+      "name": "MediaSwapBand",
+      "path": "src/components/sections/MediaSwapBand.astro"
     },
-    "usage": "site",
-    "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro",
-      "src/components/templates/DetailMenuTemplate.astro"
-    ],
+    "usage": "library",
+    "consumers": [],
     "category": "marketing",
-    "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
     "tags": [
-      "method",
-      "steps",
-      "timeline"
+      "band",
+      "crossfade",
+      "interactive",
+      "media",
+      "swap"
     ],
     "status": "stable",
-    "description_fr": "Timeline méthodologique pour expliquer les étapes d'un accompagnement ou d'un processus.",
-    "description_en": "Method timeline for explaining the steps of a service process or engagement.",
+    "description_fr": "Bande 2 ou 3 colonnes dont les images changent en fondu (auto ou au survol), avec CTA.",
+    "description_en": "Band of 2 or 3 columns whose images crossfade (auto or on hover), with a CTA.",
     "schemaFields": [
       {
         "name": "background",
         "type": "enum",
         "required": false,
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "columns",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:4"
+      },
+      {
+        "name": "cta_href",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_label_fr",
+        "type": "string",
+        "required": false
       },
       {
         "name": "h2_en",
@@ -29216,6 +31202,189 @@
         "required": false
       },
       {
+        "name": "swap_mode",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | hover"
+      }
+    ],
+    "scopedClasses": [
+      "is-active",
+      "msb",
+      "msb__col",
+      "msb__col-head",
+      "msb__cols",
+      "msb__cta",
+      "msb__fig",
+      "msb__frame",
+      "msb__header",
+      "msb__label",
+      "msb__lede",
+      "msb__sublabel"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--dur-reveal",
+        "value": "1100ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 4,
+      "samples": [
+        "100%",
+        "1px",
+        "640px",
+        "768px"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `swap_mode` (schema, 0 CSS). Espacement : --space-1 --space-4 --space-7. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (100%, 1px, 640px)."
+  },
+  {
+    "id": "method-stepline",
+    "component": {
+      "name": "MethodStepline",
+      "path": "src/components/sections/MethodStepline.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timelines",
+    "tags": [
+      "horizontal",
+      "method",
+      "process",
+      "steps",
+      "timeline"
+    ],
+    "status": "stable",
+    "description_fr": "Timeline de méthode horizontale sur fond clair : ligne hairline traversée de nœuds accent, chaque nœud surmonté d'un numéro mono, d'un titre serif et d'un sous-label mono. En-tête kicker à gauche, durée à droite. Reveal-stagger, empilage en colonne en mobile.",
+    "description_en": "Horizontal method timeline on a light background: a hairline rail crossed by accent nodes, each node topped with a mono number, a serif title and a mono sub-label. Header kicker on the left, duration on the right. Reveal-stagger, stacks into a column on mobile.",
+    "schemaFields": [
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "duration_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "duration_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "steps",
         "type": "array",
         "required": true,
@@ -29223,6 +31392,264 @@
       }
     ],
     "scopedClasses": [
+      "acc",
+      "ms",
+      "ms-duration",
+      "ms-hd",
+      "ms-kicker",
+      "ms-kicker__dot",
+      "ms-lede",
+      "ms-line",
+      "ms-node",
+      "ms-node__dot",
+      "ms-node__num",
+      "ms-node__sub",
+      "ms-node__title",
+      "ms-title",
+      "N",
+      "reveal-stagger"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--radius-full",
+        "value": "50%"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 5,
+      "samples": [
+        "100%",
+        "14rem",
+        "1px",
+        "768px",
+        "780px"
+      ]
+    },
+    "agentGuide": "Layout : `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (100%, 14rem, 1px)."
+  },
+  {
+    "id": "method-timeline",
+    "component": {
+      "name": "MethodTimeline",
+      "path": "src/components/sections/MethodTimeline.astro"
+    },
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/CaseStudyTemplate.astro",
+      "src/components/templates/DetailMenuTemplate.astro"
+    ],
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timelines",
+    "tags": [
+      "method",
+      "steps",
+      "timeline"
+    ],
+    "status": "stable",
+    "description_fr": "Timeline méthodologique pour expliquer les étapes d'un accompagnement ou d'un processus.",
+    "description_en": "Method timeline for explaining the steps of a service process or engagement.",
+    "schemaFields": [
+      {
+        "name": "atomique",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "vertical-stack | numbered-rows | horizontal | grid-steps"
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "steps",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:6"
+      },
+      {
+        "name": "steps",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
+      }
+    ],
+    "scopedClasses": [
+      "align",
+      "header",
       "method-timeline",
       "method-timeline__aside",
       "method-timeline__content",
@@ -29231,7 +31658,9 @@
       "method-timeline__list",
       "method-timeline__meta",
       "method-timeline__sn",
-      "method-timeline__step"
+      "method-timeline__step",
+      "N",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
@@ -29291,6 +31720,14 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -29303,12 +31740,20 @@
         "value": "1rem"
       },
       {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
       {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--spacing-block",
@@ -29341,15 +31786,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 9,
       "samples": [
+        "100%",
+        "120px",
         "140px",
+        "16rem",
+        "18rem",
         "1px",
         "64px",
-        "768px"
+        "72px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (140px, 1px, 64px)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `steps` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 120px, 140px)."
   },
   {
     "id": "metric-callout-band",
@@ -30423,16 +32872,17 @@
       "col-7"
     ],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 6,
       "samples": [
         "-0.018em",
         "100%",
         "640px",
+        "768px",
         "clamp(var(--space-4)",
         "clamp(var(--space-5)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (-0.018em, 100%, 640px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 100%, 640px)."
   },
   {
     "id": "offer-tier-grid",
@@ -31145,6 +33595,268 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.018em, 0.1em, 1px)."
   },
   {
+    "id": "pain-severity-list",
+    "component": {
+      "name": "PainSeverityList",
+      "path": "src/components/sections/PainSeverityList.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "editorial",
+      "ink",
+      "pain-points",
+      "problems",
+      "severity"
+    ],
+    "status": "stable",
+    "description_fr": "Liste éditoriale de pain-points sur fond ink, classés par sévérité : chaque item porte un label severity vertical (mono) et un glyphe (◆▲●○), un titre serif, une description, et une ligne mono « → correctif ». Séparateurs hairline, reveal-stagger.",
+    "description_en": "Editorial list of pain-points on an ink background, ordered by severity: each item carries a vertical severity label (mono) and a glyph (◆▲●○), a serif title, a description, and a mono « → fix » line. Hairline separators, reveal-stagger.",
+    "schemaFields": [
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:6"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "scopedClasses": [
+      "acc",
+      "psl",
+      "psl__body",
+      "psl__desc",
+      "psl__fix",
+      "psl__glyph",
+      "psl__head",
+      "psl__inner",
+      "psl__item",
+      "psl__item--critical",
+      "psl__item--high",
+      "psl__item--low",
+      "psl__item--medium",
+      "psl__item-title",
+      "psl__kicker",
+      "psl__list",
+      "psl__sev",
+      "psl__sev-label",
+      "psl__title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--col-min",
+        "value": ""
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--psl-rule",
+        "value": ""
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-11",
+        "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-glyph",
+        "value": "22px"
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-body",
+        "value": "-0.005em"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 8,
+      "samples": [
+        "100%",
+        "18rem",
+        "1px",
+        "32px",
+        "44px",
+        "480px",
+        "64px",
+        "768px"
+      ]
+    },
+    "agentGuide": "Layout : `columns` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (100%, 18rem, 1px)."
+  },
+  {
     "id": "persona-attributes-grid",
     "component": {
       "name": "PersonaAttributesGrid",
@@ -31290,42 +34002,32 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 6px, 768px)."
   },
   {
-    "id": "pricing-cards",
+    "id": "photo-cluster",
     "component": {
-      "name": "PricingCards",
-      "path": "src/components/sections/PricingCards.astro"
+      "name": "PhotoCluster",
+      "path": "src/components/sections/PhotoCluster.astro"
     },
     "usage": "library",
     "consumers": [],
     "category": "marketing",
-    "categorySlug": "pricing-sections",
-    "subcategory": "Pricing Sections",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
     "tags": [
-      "cards",
-      "plans",
-      "pricing",
-      "recommended",
-      "tiers"
+      "cluster",
+      "editorial",
+      "gallery",
+      "photo",
+      "team"
     ],
     "status": "stable",
-    "description_fr": "Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.",
-    "description_en": "Grid of 2 to 4 pricing cards side by side with a highlighted \"Recommended\" card, price, period, features and CTA per card. Anchoring by contrast.",
+    "description_fr": "Composition editoriale : photo lead + grappe de photos decalees (layouts lead-cluster, scatter, duo).",
+    "description_en": "Editorial composition: lead photo plus a cluster of offset photos (lead-cluster, scatter, duo layouts).",
     "schemaFields": [
       {
         "name": "background",
         "type": "enum",
         "required": false,
         "constraint": "paper | paper-2 | paper-3 | ink"
-      },
-      {
-        "name": "footnote_en",
-        "type": "string",
-        "required": false
-      },
-      {
-        "name": "footnote_fr",
-        "type": "string",
-        "required": false
       },
       {
         "name": "h2_en",
@@ -31348,6 +34050,17 @@
         "required": false
       },
       {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "lead-cluster | scatter | duo"
+      },
+      {
+        "name": "lead",
+        "type": "object",
+        "required": true
+      },
+      {
         "name": "lede_en",
         "type": "string",
         "required": false
@@ -31358,6 +34071,272 @@
         "required": false
       },
       {
+        "name": "note_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "note_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "photos",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:5"
+      }
+    ],
+    "scopedClasses": [
+      "is-visible",
+      "pcl",
+      "pcl__caption",
+      "pcl__cluster",
+      "pcl__grid",
+      "pcl__header",
+      "pcl__img",
+      "pcl__lead",
+      "pcl__lede",
+      "pcl__note",
+      "pcl__photo",
+      "reveal"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-kicker",
+        "value": "11px"
+      },
+      {
+        "name": "--text-micro",
+        "value": "9px"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 7,
+      "samples": [
+        "0.16em",
+        "0.1em",
+        "100%",
+        "1px",
+        "60%",
+        "640px",
+        "768px"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (0.16em, 0.1em, 100%)."
+  },
+  {
+    "id": "pricing-cards",
+    "component": {
+      "name": "PricingCards",
+      "path": "src/components/sections/PricingCards.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "tags": [
+      "cards",
+      "plans",
+      "pricing",
+      "recommended",
+      "tiers"
+    ],
+    "status": "stable",
+    "description_fr": "Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.",
+    "description_en": "Grid of 2 to 4 pricing cards side by side with a highlighted \"Recommended\" card, price, period, features and CTA per card. Anchoring by contrast.",
+    "schemaFields": [
+      {
+        "name": "actionsAlign",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "actionsAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end | spread"
+      },
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "colRatio",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "colRatio",
+        "type": "enum",
+        "required": false,
+        "constraint": "equal | 1-2 | 2-1 | 1-1-2 | 2-3"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4 | 5 | 6"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "divided",
+        "type": "enum",
+        "required": false,
+        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
+      },
+      {
+        "name": "footnote_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "footnote_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | even | square | video"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "layout",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "tiers",
         "type": "array",
         "required": true,
@@ -31365,13 +34344,17 @@
       }
     ],
     "scopedClasses": [
+      "actions",
+      "align",
+      "css",
+      "header",
       "is-featured",
+      "justify",
       "pricing-cards",
       "pricing-cards__badge",
       "pricing-cards__btn",
       "pricing-cards__card",
       "pricing-cards__card-hd",
-      "pricing-cards__check",
       "pricing-cards__features",
       "pricing-cards__footnote",
       "pricing-cards__grid",
@@ -31381,7 +34364,10 @@
       "pricing-cards__name",
       "pricing-cards__period",
       "pricing-cards__price",
-      "pricing-cards__price-k"
+      "pricing-cards__price-k",
+      "sec-collection",
+      "sec-grid",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
@@ -31469,12 +34455,20 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--pricing-cards-gap",
+        "value": ""
+      },
+      {
         "name": "--radius-pill",
         "value": "999px"
       },
       {
         "name": "--space-1",
         "value": "0.25rem"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
       {
         "name": "--space-2",
@@ -31501,6 +34495,14 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
       },
@@ -31523,7 +34525,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 13,
+      "count": 14,
       "samples": [
         "-12px",
         "-3px",
@@ -31535,7 +34537,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 13 litteral(s) hardcode(s) (-12px, -3px, 0.04em)."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `divided`, `itemHeight` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-12px, -3px, 0.04em)."
   },
   {
     "id": "pricing-comparison-matrix",
@@ -32598,10 +35600,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -32620,10 +35618,6 @@
       {
         "name": "--leading-body",
         "value": "1.5"
-      },
-      {
-        "name": "--leading-h2",
-        "value": "1.02"
       },
       {
         "name": "--muted",
@@ -32674,6 +35668,10 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
@@ -32682,12 +35680,12 @@
         "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
-      },
-      {
         "name": "--text-small",
         "value": "13px"
+      },
+      {
+        "name": "--tracking-body",
+        "value": "-0.005em"
       },
       {
         "name": "--tracking-display",
@@ -32700,19 +35698,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 5,
       "samples": [
-        "-0.01em",
         "0.16em",
         "1px",
         "800px",
-        "980px",
         "clamp(var(--space-8)",
-        "clamp(var(--text-h2)",
-        "clamp(var(--text-h3)"
+        "clamp(var(--text-h2)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, 0.16em, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (0.16em, 1px, 800px)."
   },
   {
     "id": "problems-grid",
@@ -32760,6 +35755,7 @@
       }
     ],
     "scopedClasses": [
+      "align",
       "astro",
       "commitments-grid",
       "commitments-grid__body",
@@ -32779,11 +35775,18 @@
       "deliverables-grid__tag",
       "deliverables-grid__title",
       "feature-grid",
+      "feature-grid__cta",
       "feature-grid__header",
+      "feature-grid__header-cta",
       "feature-grid__icon",
+      "feature-grid__intro-desc",
       "feature-grid__item",
+      "feature-grid__lede",
       "feature-grid__list",
+      "feature-grid__media",
+      "feature-grid__meta",
       "feature-grid__title",
+      "header",
       "icon-trio",
       "icon-trio__body",
       "icon-trio__col",
@@ -32791,6 +35794,7 @@
       "icon-trio__glyph",
       "icon-trio__title",
       "kicker",
+      "N",
       "problems-grid",
       "problems-grid__art",
       "problems-grid__card",
@@ -32798,6 +35802,11 @@
       "problems-grid__h2",
       "problems-grid__kicker",
       "problems-grid__num",
+      "sec-base-h2",
+      "sec-collection",
+      "sec-grid",
+      "sec-intro",
+      "sec-item",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -32808,6 +35817,14 @@
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--col-min",
+        "value": ""
+      },
+      {
+        "name": "--deliverables-grid-col-gap",
+        "value": ""
       },
       {
         "name": "--deliverables-grid-inline",
@@ -32836,10 +35853,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--font-serif",
-        "value": ""
       },
       {
         "name": "--fw-medium",
@@ -32902,6 +35915,10 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-sm",
+        "value": "4px"
+      },
+      {
         "name": "--radius-xs",
         "value": "2px"
       },
@@ -32916,6 +35933,10 @@
       {
         "name": "--space-1",
         "value": "0.25rem"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
         "name": "--space-12",
@@ -32984,6 +36005,10 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
       }
     ],
     "tailwindUtils": [],
@@ -32997,10 +36022,10 @@
         ".06em",
         ".08em",
         "100%",
-        "10px"
+        "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "process-steps",
@@ -33238,7 +36263,8 @@
     "description_en": "Scroll-driven product reel: steps on the left driven by scroll, terminal console on the right whose content changes per screen. Sticky viewport.",
     "schemaFields": [],
     "scopedClasses": [
-      "product-reel"
+      "product-reel",
+      "product-reel-grid"
     ],
     "tokensUsed": [
       {
@@ -33252,10 +36278,12 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 0,
-      "samples": []
+      "count": 1,
+      "samples": [
+        "768px"
+      ]
     },
-    "agentGuide": "Couleur : --ink --paper."
+    "agentGuide": "Couleur : --ink --paper. Dette : 1 litteral(s) hardcode(s) (768px)."
   },
   {
     "id": "proof-bar",
@@ -34306,6 +37334,208 @@
     "agentGuide": "Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --paper. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.018em, -0.02em, 0.1em)."
   },
   {
+    "id": "scroll-gallery",
+    "component": {
+      "name": "ScrollGallery",
+      "path": "src/components/sections/ScrollGallery.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "feature",
+      "gallery",
+      "interactive",
+      "scroll",
+      "sticky"
+    ],
+    "status": "stable",
+    "description_fr": "Liste sticky a gauche, cadre media a droite dont l'image change en fondu au scroll. Ideal pour presenter des domaines d'expertise avec un visuel par item.",
+    "description_en": "Sticky list on the left, media frame on the right whose image crossfades on scroll. Ideal to present expertise areas with one visual per item.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:6"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "media_side",
+        "type": "enum",
+        "required": false,
+        "constraint": "left | right"
+      }
+    ],
+    "scopedClasses": [
+      "sgal",
+      "sgal__body",
+      "sgal__fig",
+      "sgal__frame",
+      "sgal__grid",
+      "sgal__header",
+      "sgal__index",
+      "sgal__inline-img",
+      "sgal__item",
+      "sgal__lede",
+      "sgal__link",
+      "sgal__list",
+      "sgal__media",
+      "u-serif-accent"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-reveal",
+        "value": "1100ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--shadow-lift",
+        "value": "0 12px 40px rgba(var(--ink-rgb), 0.08)"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 5,
+      "samples": [
+        "100%",
+        "1px",
+        "3px",
+        "640px",
+        "768px"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `media_side` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px)."
+  },
+  {
     "id": "service-catalog-list",
     "component": {
       "name": "ServiceCatalogList",
@@ -35066,6 +38296,211 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --leading-lede. Dette : 6 litteral(s) hardcode(s) (0.04em, 0.14em, 1px)."
   },
   {
+    "id": "stack-cards",
+    "component": {
+      "name": "StackCards",
+      "path": "src/components/sections/StackCards.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "cards",
+      "interactive",
+      "method",
+      "scroll",
+      "stack",
+      "sticky"
+    ],
+    "status": "stable",
+    "description_fr": "Cartes numerotees qui se superposent en s'empilant au scroll (effet stack sticky, CSS pur). Ideal pour une methode en plusieurs temps.",
+    "description_en": "Numbered cards that stack and overlap as you scroll (sticky stack effect, pure CSS). Ideal for a multi-step method.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "cards",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:4"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "scopedClasses": [
+      "stk",
+      "stk__art",
+      "stk__card",
+      "stk__header",
+      "stk__img",
+      "stk__index",
+      "stk__item",
+      "stk__lede",
+      "stk__link",
+      "stk__list",
+      "stk__points",
+      "stk__text",
+      "stk__visual",
+      "u-serif-accent",
+      "wrap-wide"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--i",
+        "value": ""
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--shadow-lift",
+        "value": "0 12px 40px rgba(var(--ink-rgb), 0.08)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 11,
+      "samples": [
+        "0.55em",
+        "100%",
+        "1px",
+        "3px",
+        "640px",
+        "6px",
+        "767px",
+        "768px"
+      ]
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-sans --fw-medium. Dette : 11 litteral(s) hardcode(s) (0.55em, 100%, 1px)."
+  },
+  {
     "id": "stat-block",
     "component": {
       "name": "StatBlock",
@@ -35467,6 +38902,206 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-0.01em, -0.02em, .1em)."
   },
   {
+    "id": "statement-orbit",
+    "component": {
+      "name": "StatementOrbit",
+      "path": "src/components/sections/StatementOrbit.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "editorial",
+      "ink",
+      "network",
+      "orbit",
+      "scroll-expand",
+      "statement"
+    ],
+    "status": "stable",
+    "description_fr": "Statement éditorial pleine largeur : carte ink qui s'étend de 80 % à 100 % au scroll, titre serif accent, lede, CTA, et un média globe filaire (réseau en orbite). Pose un concept sous un hero.",
+    "description_en": "Full-width editorial statement: an ink card expanding from 80% to 100% on scroll, accented serif title, lede, CTA, and a wireframe globe media (orbiting network). Sets a concept under a hero.",
+    "schemaFields": [
+      {
+        "name": "cta",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "media_alt_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "media_alt_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "media_src",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "acc",
+      "so",
+      "so-card",
+      "so-card__inner",
+      "so-cta",
+      "so-kicker",
+      "so-lede",
+      "so-main",
+      "so-media",
+      "so-media__art",
+      "so-title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-11",
+        "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 7,
+      "samples": [
+        "100%",
+        "22rem",
+        "26rem",
+        "38%",
+        "768px",
+        "8%",
+        "80%"
+      ]
+    },
+    "agentGuide": "Espacement : --space-10 --space-11 --space-12. Couleur : --accent-text --ink --paper. Typographie : --font-display --font-sans. Dette : 7 litteral(s) hardcode(s) (100%, 22rem, 26rem)."
+  },
+  {
     "id": "stats-bento",
     "component": {
       "name": "StatsBento",
@@ -35494,6 +39129,34 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "bento",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "columns",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "required": false,
+        "constraint": "compact | base | ample"
+      },
+      {
         "name": "h2_en",
         "type": "string",
         "required": true
@@ -35502,6 +39165,12 @@
         "name": "h2_fr",
         "type": "string",
         "required": true
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "required": false,
+        "constraint": "auto | even | square | video"
       },
       {
         "name": "kicker_en",
@@ -35514,10 +39183,36 @@
         "required": false
       },
       {
+        "name": "layout",
+        "type": "enum",
+        "required": false,
+        "constraint": "bento | grid-uniform | matrix-2x2 | list"
+      },
+      {
+        "name": "list",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "ratio",
+        "type": "unknown",
+        "required": true
+      },
+      {
         "name": "stats",
         "type": "array",
         "required": true,
         "constraint": "min:2 max:6"
+      },
+      {
+        "name": "x2",
+        "type": "unknown",
+        "required": true
       }
     ],
     "scopedClasses": [
@@ -35530,7 +39225,8 @@
       "stats-bento__grid",
       "stats-bento__header",
       "stats-bento__label",
-      "stats-bento__number"
+      "stats-bento__number",
+      "wrap-wide"
     ],
     "tokensUsed": [
       {
@@ -35560,6 +39256,10 @@
       {
         "name": "--fw-regular",
         "value": "400"
+      },
+      {
+        "name": "--gut",
+        "value": "32px"
       },
       {
         "name": "--hairline",
@@ -35606,6 +39306,10 @@
         "value": "0 0 0 1px var(--hairline-strong), 0 8px 24px -16px rgba(var(--ink-rgb), 0.1)"
       },
       {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -35618,8 +39322,20 @@
         "value": "1rem"
       },
       {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
         "name": "--space-9",
@@ -35628,6 +39344,10 @@
       {
         "name": "--spacing-block",
         "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--stats-bento-gap",
+        "value": ""
       },
       {
         "name": "--text-body",
@@ -35646,6 +39366,10 @@
         "value": "13px"
       },
       {
+        "name": "--tile-min",
+        "value": ""
+      },
+      {
         "name": "--tracking-display",
         "value": "-0.025em"
       },
@@ -35656,15 +39380,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 5,
       "samples": [
         "-2px",
+        "100%",
         "14rem",
         "1px",
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-2px, 14rem, 1px)."
+    "agentGuide": "Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-2px, 100%, 14rem)."
   },
   {
     "id": "steps-horizontal",
@@ -35831,6 +39556,262 @@
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --accent-ink --ink. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 40px, 760px)."
+  },
+  {
+    "id": "system-flow",
+    "component": {
+      "name": "SystemFlow",
+      "path": "src/components/sections/SystemFlow.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "architecture",
+      "flow",
+      "ink",
+      "loop",
+      "steps",
+      "system"
+    ],
+    "status": "stable",
+    "description_fr": "Rangée horizontale de cartes d'étapes sur fond ink, reliées par des flèches accent, qui raconte le flux du système (site → lead → scoring → CRM → apprentissage). En-tête « Fig. N » + méta mono, grand titre serif avec dernier mot en accent, lede courte, puis une ligne « ↺ boucle d'amélioration continue ». Reveal-stagger, responsive (scroll horizontal / colonne empilée en mobile).",
+    "description_en": "Horizontal row of step cards on an ink background, linked by accent arrows, telling the system flow (site → lead → scoring → CRM → learning). « Fig. N » header + mono meta, large serif title with the last word accented, short lede, then a « ↺ continuous improvement loop » line. Reveal-stagger, responsive (horizontal scroll / stacked column on mobile).",
+    "schemaFields": [
+      {
+        "name": "fig_num",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "fig_title_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "fig_title_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "loop_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "loop_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "meta_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "meta_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "steps",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "scopedClasses": [
+      "acc",
+      "N",
+      "reveal-stagger",
+      "sf",
+      "sf-arrow",
+      "sf-flow",
+      "sf-hd",
+      "sf-lede",
+      "sf-loop",
+      "sf-loop__glyph",
+      "sf-loop__label",
+      "sf-loop__rule",
+      "sf-meta",
+      "sf-rail",
+      "sf-step",
+      "sf-step__desc",
+      "sf-step__num",
+      "sf-step__title",
+      "sf-title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-sur-sombre",
+        "value": "#D96A47"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-glyph",
+        "value": "22px"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 8,
+      "samples": [
+        "-0.12em",
+        "16rem",
+        "1px",
+        "3rem",
+        "560px",
+        "768px",
+        "860px",
+        "8rem"
+      ]
+    },
+    "agentGuide": "Espacement : --space-10 --space-12 --space-2. Couleur : --accent-sur-sombre --ink --paper. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.12em, 16rem, 1px)."
   },
   {
     "id": "team-bio-grid",
@@ -38089,6 +42070,14 @@
         "value": "var(--accent-sur-clair)"
       },
       {
+        "name": "--dur-trim",
+        "value": "220ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
         "name": "--font-display",
         "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
       },
@@ -38677,7 +42666,7 @@
     ],
     "category": "marketing",
     "categorySlug": "hero-header-sections",
-    "subcategory": "Hero Sections",
+    "subcategory": "Hero Header Sections",
     "tags": [
       "offers",
       "pyramid",
@@ -38711,9 +42700,16 @@
       }
     ],
     "scopedClasses": [
-      "pyramid-wrap"
+      "pyramid-wrap",
+      "tier-fill--base",
+      "tier-fill--mid",
+      "tier-fill--top"
     ],
     "tokensUsed": [
+      {
+        "name": "--accent-rgb",
+        "value": "201, 79, 46"
+      },
       {
         "name": "--ink",
         "value": "#0C0B09"
@@ -38756,10 +42752,10 @@
       "count": 2,
       "samples": [
         "100%",
-        "800px"
+        "640px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-7. Couleur : --ink --muted --paper. Dette : 2 litteral(s) hardcode(s) (100%, 800px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-7. Couleur : --accent-rgb --ink --muted. Dette : 2 litteral(s) hardcode(s) (100%, 640px)."
   },
   {
     "id": "timeline-block",
@@ -38771,7 +42767,7 @@
     "consumers": [],
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
+    "subcategory": "Timelines",
     "tags": [
       "events",
       "history",
@@ -39725,19 +43721,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 8,
       "samples": [
         "-.02em",
         ".06em",
-        ".1em",
         "100%",
         "10px",
         "11px",
         "1200px",
-        "1px"
+        "1px",
+        "700px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-.02em, .06em, .1em)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-.02em, .06em, 100%)."
   },
   {
     "id": "tunnel-step-nav",
@@ -39748,8 +43744,8 @@
     "usage": "library",
     "consumers": [],
     "category": "marketing",
-    "categorySlug": "call-to-action-sections",
-    "subcategory": "Call-to-Action Sections",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
     "tags": [
       "cta",
       "footer",
@@ -40141,10 +44137,10 @@
         ".14em",
         ".16em",
         "100%",
+        "120px",
         "12px",
         "1px",
-        "28px",
-        "32px"
+        "28px"
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-6. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 15 litteral(s) hardcode(s) (-0.018em, .14em, .16em)."

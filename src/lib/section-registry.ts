@@ -23,7 +23,8 @@ import { capabilitiesFor, type Capabilities } from './section-archetypes';
 // Astro component type — opaque côté registry ; le rendu passe par SectionsRenderer.
 export type AstroComponent = (_props: never) => unknown;
 
-export type SectionCategory = 'marketing' | 'ecommerce' | 'app-ui';
+// Domaine mono-valeur gelé, non exposé en nav (taxonomie effective = Catégorie > Famille > Section).
+export type SectionCategory = 'marketing';
 export type SectionStatus = 'stable' | 'wip' | 'deprecated';
 
 export interface SectionDescriptor {
@@ -861,7 +862,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     category: 'marketing',
     subcategory: 'Feature Sections',
     categorySlug: 'feature-sections',
-    family: 'manifesto',
+    family: 'prose',
     intent: ['state-value-prop', 'tell-story'],
     pageRole: ['opener'],
     contentMode: 'instance',
@@ -1561,8 +1562,8 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'tunnel-step-nav': {
     component: TunnelStepNav,
     category: 'marketing',
-    subcategory: 'Call-to-Action Sections',
-    categorySlug: 'call-to-action-sections',
+    subcategory: 'CTA Sections',
+    categorySlug: 'cta-sections',
     family: 'list',
     intent: ['drive-action'],
     pageRole: ['conversion'],
@@ -1633,7 +1634,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'how-we-ship': {
     component: HowWeShip,
     category: 'marketing',
-    subcategory: 'Timeline Sections',
+    subcategory: 'Timelines',
     categorySlug: 'timelines',
     family: 'timeline',
     intent: ['explain-process'],
@@ -1813,7 +1814,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'method-timeline': {
     component: MethodTimeline,
     category: 'marketing',
-    subcategory: 'Timeline Sections',
+    subcategory: 'Timelines',
     categorySlug: 'timelines',
     family: 'timeline',
     intent: ['explain-process'],
@@ -1867,7 +1868,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'timeline-block': {
     component: TimelineBlock,
     category: 'marketing',
-    subcategory: 'Timeline Sections',
+    subcategory: 'Timelines',
     categorySlug: 'timelines',
     family: 'timeline',
     intent: ['explain-process'],
@@ -2083,7 +2084,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'maturity-pyramid': {
     component: MaturityPyramid,
     category: 'marketing',
-    subcategory: 'Timeline Sections',
+    subcategory: 'Timelines',
     categorySlug: 'timelines',
     family: 'pyramid',
     intent: ['explain-process'],
@@ -2156,7 +2157,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'tier-pyramid-svg': {
     component: TierPyramidSvg,
     category: 'marketing',
-    subcategory: 'Hero Sections',
+    subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
     family: 'pyramid',
     intent: ['state-value-prop'],
@@ -2210,7 +2211,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'hero-atlas': {
     component: HeroAtlas,
     category: 'marketing',
-    subcategory: 'Hero Sections',
+    subcategory: 'Hero Header Sections',
     categorySlug: 'hero-header-sections',
     family: 'hero',
     intent: ['state-value-prop'],
@@ -3733,7 +3734,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'editorial-timeline': {
     component: EditorialTimeline,
     category: 'marketing',
-    subcategory: 'Timeline Sections',
+    subcategory: 'Timelines',
     categorySlug: 'timelines',
     family: 'timeline',
     intent: ['explain-process'],
@@ -3791,7 +3792,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     category: 'marketing',
     subcategory: 'Feature Sections',
     categorySlug: 'feature-sections',
-    family: 'pain',
+    family: 'prose',
     intent: ['explain-concept'],
     pageRole: ['body'],
     contentMode: 'instance',
@@ -3827,7 +3828,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
     category: 'marketing',
     subcategory: 'Feature Sections',
     categorySlug: 'feature-sections',
-    family: 'flow',
+    family: 'process-steps',
     intent: ['explain-concept', 'explain-process'],
     pageRole: ['body'],
     contentMode: 'instance',
@@ -3843,7 +3844,7 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'method-stepline': {
     component: MethodStepline,
     category: 'marketing',
-    subcategory: 'Timeline Sections',
+    subcategory: 'Timelines',
     categorySlug: 'timelines',
     family: 'timeline',
     intent: ['explain-process'],
@@ -3863,9 +3864,9 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'eeat-panel': {
     component: EeatPanel,
     category: 'marketing',
-    subcategory: 'Trust & Proof',
-    categorySlug: 'trust-proof',
-    family: 'eeat',
+    subcategory: 'Trust Sections',
+    categorySlug: 'trust-sections',
+    family: 'prose',
     intent: ['establish-credibility'],
     pageRole: ['proof'],
     contentMode: 'global-ref',

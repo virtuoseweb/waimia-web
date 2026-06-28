@@ -459,14 +459,10 @@ const FAMILY_ARCHETYPE: Record<string, Archetype> = {
   duo: 'split',
   // process
   'process-steps': 'process',
-  flow: 'process',
   timeline: 'timeline',
   // editorial
   prose: 'editorial',
-  manifesto: 'editorial',
   quote: 'editorial',
-  pain: 'editorial',
-  eeat: 'editorial',
   // table
   table: 'table',
   // band
@@ -535,6 +531,8 @@ export const TYPE_ARCHETYPE: Partial<Record<SectionType, Archetype>> = {
   // Editorial / manifeste / citation
   'manifesto-block': 'editorial',
   'statement-orbit': 'editorial',
+  // Pin garde-capability (wave #34) : familles singleton repliées, archétype préservé.
+  'eeat-panel': 'editorial',
   'editorial-prose': 'editorial',
   'definition-extract': 'editorial',
   'pain-severity-list': 'editorial',

@@ -207,12 +207,11 @@ export const FACET_LABELS_FR: {
 };
 
 // ───────────────────────────── Unions dérivées des valeurs réelles du registry ─────────────────────────────
-// 28 categorySlug (intent, niveau Catégorie de la taxonomie).
+// 26 categorySlug (intent, niveau Catégorie de la taxonomie).
 export type CategorySlug =
   | 'about-sections'
   | 'banner-sections'
   | 'breadcrumb-sections'
-  | 'call-to-action-sections'
   | 'comparison-sections'
   | 'contact-sections'
   | 'content-listing-sections'
@@ -234,11 +233,10 @@ export type CategorySlug =
   | 'terminal-sections'
   | 'testimonial-sections'
   | 'timelines'
-  | 'trust-proof'
   | 'trust-sections'
   | 'utility-sections';
 
-// 27 family (niveau Famille de la taxonomie).
+// 23 family (niveau Famille de la taxonomie).
 export type FamilyTag =
   | 'accordion'
   | 'band'
@@ -246,16 +244,12 @@ export type FamilyTag =
   | 'breadcrumb'
   | 'card-grid'
   | 'duo'
-  | 'eeat'
-  | 'flow'
   | 'form-panel'
   | 'gallery'
   | 'hero'
   | 'list'
-  | 'manifesto'
   | 'marquee'
   | 'masthead'
-  | 'pain'
   | 'process-steps'
   | 'prose'
   | 'pyramid'
@@ -272,7 +266,6 @@ export const CATEGORY_SLUGS = [
   'about-sections',
   'banner-sections',
   'breadcrumb-sections',
-  'call-to-action-sections',
   'comparison-sections',
   'contact-sections',
   'content-listing-sections',
@@ -294,7 +287,6 @@ export const CATEGORY_SLUGS = [
   'terminal-sections',
   'testimonial-sections',
   'timelines',
-  'trust-proof',
   'trust-sections',
   'utility-sections',
 ] as const satisfies readonly CategorySlug[];
@@ -306,16 +298,12 @@ export const FAMILY_TAGS = [
   'breadcrumb',
   'card-grid',
   'duo',
-  'eeat',
-  'flow',
   'form-panel',
   'gallery',
   'hero',
   'list',
-  'manifesto',
   'marquee',
   'masthead',
-  'pain',
   'process-steps',
   'prose',
   'pyramid',

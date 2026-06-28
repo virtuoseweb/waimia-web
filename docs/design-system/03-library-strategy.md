@@ -193,6 +193,11 @@ Règles d'application :
 - **2 niveaux de perso** (cf `state/09 §1`) : niveau 1 = changer la **valeur** d'un token DS → repeint toutes les classes (aucune nouvelle classe) ; niveau 2 (exception délibérée) = nouveau token + nouvelle déclinaison (nouvelle classe).
 - **Conservation** : une famille/variante/déclinaison correctement générée et cataloguée n'est **jamais supprimée** parce qu'une page ne l'utilise pas ; elle enrichit le catalogue, on choisit par page. Non conforme DS → **remise en conformité** (tokens/classes partagés), pas suppression.
 
+**Addendum 2026-06-28 (wave #34, nettoyage taxonomie dégénérée).** Trois corrections de la couche de classement, sans toucher au modèle matriciel figé ci-dessus ni au principe « famille trans-catégorie » :
+- **Domaine retiré du modèle de nav.** Le champ `category` du registry (`SectionCategory`) valait `'marketing' | 'ecommerce' | 'app-ui'` mais 199/199 sections étaient `'marketing'` (les 2 autres valeurs jamais utilisées). Collapse en `type SectionCategory = 'marketing'` (mono-valeur gelé, non exposé en nav). La **taxonomie effective est désormais `Catégorie > Famille > Section`** (le « Domaine » n'est plus un niveau de nav).
+- **Catégories dé-dupliquées** (slug singleton fusionné dans son équivalent canonique, 0 perte) : `call-to-action-sections` → `cta-sections` ; `trust-proof` → `trust-sections`. 301 sur `/library/<ancien>`.
+- **Familles singleton repliées** sur leur cible de **même archétype** (capability préservée, pin `TYPE_ARCHETYPE` en garde) : `eeat` / `manifesto` / `pain` → `prose` (archétype `editorial`) ; `flow` → `process-steps` (archétype `process`). 301 sur `/library/family/<ancienne>`. **Familles trans-catégorie conservées intactes** (modèle voulu).
+
 ## 10. Refonte « fluid modular scale » — base mathématique unique pilotable (plan staté, 2026-06-14)
 
 > Vision Simon (verbatim 2026-06-14) : « des fonctions mathématiques calculées sur une base personnalisable qui redéfinit tous les espacements et valeurs… tout fluide… plusieurs systèmes de mesure du très petit au très grand pour chaque unité (block/section/card/button/padding/margin) + typo… puis réutiliser dans les sections/composants du catalogue… migration complète, remplacement de toutes les valeurs statiques + DS Studio épuré des doublons/variables inutiles. »
