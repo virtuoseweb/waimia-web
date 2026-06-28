@@ -1,0 +1,408 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Waimia page document - services",
+  "type": "object",
+  "properties": {
+    "title_fr": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title_en": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description_fr": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 180
+    },
+    "description_en": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 180
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "publishedAt": {},
+    "updatedAt": {},
+    "canonical": {
+      "type": "string",
+      "format": "uri"
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "ogImage": {
+          "type": "string"
+        },
+        "noindex": {
+          "default": false,
+          "type": "boolean"
+        },
+        "serviceType": {
+          "type": "string"
+        },
+        "priceRange": {
+          "type": "string"
+        },
+        "priceMin": {
+          "type": "number"
+        },
+        "priceMax": {
+          "type": "number"
+        }
+      }
+    },
+    "faq_fr": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string"
+          },
+          "a": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "q",
+          "a"
+        ]
+      }
+    },
+    "faq_en": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string"
+          },
+          "a": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "q",
+          "a"
+        ]
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "acquisition",
+        "crm",
+        "contenu-seo-geo",
+        "productivite",
+        "support",
+        "pilotage",
+        "data",
+        "gouvernance"
+      ]
+    },
+    "cluster": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "tags": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      }
+    },
+    "sources": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "state",
+              "university",
+              "journal",
+              "enterprise",
+              "research"
+            ]
+          },
+          "publishedAt": {},
+          "author": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "type"
+        ]
+      }
+    },
+    "relatedSolutions": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedOffres": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedCases": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedSecteurs": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "type": "array",
+      "description": "Sections composables. Le contrat detaille par type est servi par le serveur MCP catalogue (#41) et section-slots.generated.json, hors de ce schema d enveloppe.",
+      "items": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "about-story-split",
+              "agentic-terminal",
+              "announcement-banner",
+              "architecture-diagram",
+              "article-grid",
+              "asymmetric-services",
+              "author-byline",
+              "bento-grid",
+              "booking-embed",
+              "branded-callout",
+              "breadcrumb-bar",
+              "case-card-grid",
+              "case-featured-grid",
+              "case-split",
+              "case-spotlight",
+              "challenges-grid",
+              "code-showcase",
+              "coming-soon-pills",
+              "commitments-grid",
+              "comparison-duo",
+              "comparison-pricing-callout",
+              "comparison-table",
+              "contact-form",
+              "course-catalog-table",
+              "cta-band",
+              "cta-final",
+              "cta-form-inline",
+              "cta-inline",
+              "cta-newsletter-footer",
+              "cta-split-visual",
+              "data-table",
+              "decision-list",
+              "definition-extract",
+              "deliverables-grid",
+              "department-cta",
+              "department-stack",
+              "diagnostic-stages",
+              "direct-answer",
+              "ecosystem-partners",
+              "editorial-callout",
+              "editorial-dingbat-rule",
+              "editorial-dropcap-prose",
+              "editorial-preview",
+              "editorial-prose",
+              "editorial-split-grid",
+              "editorial-table-block",
+              "editorial-timeline",
+              "editorial-write-feed",
+              "eeat-panel",
+              "faq-accordion",
+              "faq-cta-aside",
+              "faq-two-column",
+              "feature-accordion",
+              "feature-comparison-grid",
+              "feature-grid",
+              "feature-split-media",
+              "feature-tabs",
+              "feature-zigzag",
+              "fit-columns",
+              "footer-cta-band",
+              "gallery-masonry",
+              "guarantee-block",
+              "hero-academy-hub",
+              "hero-asymmetric-grid",
+              "hero-atlas",
+              "hero-author",
+              "hero-baseline-stats",
+              "hero-capability-band",
+              "hero-card-cover",
+              "hero-case-study",
+              "hero-centered",
+              "hero-centered-band",
+              "hero-conversion-funnel",
+              "hero-course",
+              "hero-detail-menu",
+              "hero-editorial-kpi",
+              "hero-editorial-masthead",
+              "hero-essay",
+              "hero-form-inline",
+              "hero-full-bleed",
+              "hero-grid-12",
+              "hero-home",
+              "hero-hub-listing",
+              "hero-hub-masthead",
+              "hero-hub-stats",
+              "hero-landing",
+              "hero-lead-magnet",
+              "hero-liquid",
+              "hero-magazine-cover",
+              "hero-masthead-card",
+              "hero-media-medallion",
+              "hero-numeral-cover",
+              "hero-offer-detail",
+              "hero-pillar-hub",
+              "hero-problem-index",
+              "hero-scope-minimap",
+              "hero-sector",
+              "hero-service-detail",
+              "hero-service-masthead",
+              "hero-social-proof",
+              "hero-split",
+              "hero-split-media",
+              "hero-stack-rhythm",
+              "hero-summary-rail",
+              "hero-tech-layer",
+              "hero-tech-signature",
+              "hero-thin-media",
+              "hero-trizone",
+              "hero-tunnel-step",
+              "hero-utility-masthead",
+              "horizontal-showcase",
+              "hover-reveal-list",
+              "how-we-ship",
+              "icon-trio",
+              "inclusions-list",
+              "integrations-grid",
+              "journey-steps",
+              "key-metric-grid",
+              "learning-path-list",
+              "list-index-section",
+              "logo-marquee",
+              "logo-wall",
+              "manifesto-act",
+              "manifesto-block",
+              "manifesto-statement",
+              "marquee-band",
+              "masthead-bar",
+              "maturity-pyramid",
+              "media-bento",
+              "media-block",
+              "media-swap-band",
+              "method-stepline",
+              "method-timeline",
+              "metric-callout-band",
+              "metric-shift",
+              "newsletter-band",
+              "newsletter-signup-section",
+              "objection-handler",
+              "off-proof",
+              "offer-tier-grid",
+              "operating-layer",
+              "pain-points",
+              "pain-severity-list",
+              "persona-attributes-grid",
+              "photo-cluster",
+              "pricing-cards",
+              "pricing-comparison-matrix",
+              "pricing-single-highlight",
+              "pricing-table",
+              "pricing-toggle",
+              "problem-statement",
+              "problems-grid",
+              "process-steps",
+              "product-reel",
+              "proof-bar",
+              "pull-quote-block",
+              "quote-spotlight",
+              "related-cards-band",
+              "resource-card-grid",
+              "roi-band",
+              "scroll-gallery",
+              "service-catalog-list",
+              "services-grid",
+              "social-proof",
+              "spec-bar",
+              "stack-cards",
+              "stat-block",
+              "stat-counter",
+              "statement-orbit",
+              "stats-bento",
+              "steps-horizontal",
+              "system-flow",
+              "team-bio-grid",
+              "team-card-grid",
+              "tech-capabilities-specs",
+              "tech-integration-flow",
+              "tech-models-table",
+              "tech-positioning-split",
+              "tech-stack-band",
+              "tech-when-dual",
+              "terminal-metrics-strip",
+              "terminal-mockup",
+              "terminal-table",
+              "testimonial-block",
+              "testimonial-logo-metric",
+              "testimonial-metrics",
+              "testimonial-single-spotlight",
+              "tier-pyramid-svg",
+              "timeline-block",
+              "timeline-horizontal",
+              "trust-badges-band",
+              "trust-legal-section",
+              "tunnel-step-hero",
+              "tunnel-step-nav",
+              "use-case-index",
+              "versus-competitors",
+              "welcome-section",
+              "why-stalls",
+              "workflow-table"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "title_fr",
+    "title_en",
+    "description_fr",
+    "description_en",
+    "slug",
+    "publishedAt"
+  ]
+}

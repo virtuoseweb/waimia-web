@@ -1,0 +1,751 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Waimia page document - offres",
+  "type": "object",
+  "properties": {
+    "title_fr": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title_en": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description_fr": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 180
+    },
+    "description_en": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 180
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "publishedAt": {},
+    "updatedAt": {},
+    "canonical": {
+      "type": "string",
+      "format": "uri"
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "ogImage": {
+          "type": "string"
+        },
+        "noindex": {
+          "default": false,
+          "type": "boolean"
+        },
+        "serviceType": {
+          "type": "string"
+        },
+        "priceRange": {
+          "type": "string"
+        },
+        "priceMin": {
+          "type": "number"
+        },
+        "priceMax": {
+          "type": "number"
+        }
+      }
+    },
+    "faq_fr": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string"
+          },
+          "a": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "q",
+          "a"
+        ]
+      }
+    },
+    "faq_en": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string"
+          },
+          "a": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "q",
+          "a"
+        ]
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "acquisition",
+        "crm",
+        "contenu-seo-geo",
+        "productivite",
+        "support",
+        "pilotage",
+        "data",
+        "gouvernance"
+      ]
+    },
+    "cluster": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "tags": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      }
+    },
+    "sources": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "state",
+              "university",
+              "journal",
+              "enterprise",
+              "research"
+            ]
+          },
+          "publishedAt": {},
+          "author": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "type"
+        ]
+      }
+    },
+    "relatedSolutions": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedOffres": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedCases": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedSecteurs": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tier": {
+      "anyOf": [
+        {
+          "type": "number",
+          "const": 1
+        },
+        {
+          "type": "number",
+          "const": 2
+        },
+        {
+          "type": "number",
+          "const": 3
+        },
+        {
+          "type": "number",
+          "const": 4
+        }
+      ]
+    },
+    "category_fr": {
+      "type": "string"
+    },
+    "category_en": {
+      "type": "string"
+    },
+    "priceFrom": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "deliverables_fr": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deliverables_en": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedTechnologies": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "caseStudies": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tier_fr": {
+      "type": "string"
+    },
+    "tier_en": {
+      "type": "string"
+    },
+    "tier_label_fr": {
+      "type": "string"
+    },
+    "tier_label_en": {
+      "type": "string"
+    },
+    "hero_title_html_fr": {
+      "type": "string"
+    },
+    "hero_title_html_en": {
+      "type": "string"
+    },
+    "meta_fr": {
+      "type": "string"
+    },
+    "meta_en": {
+      "type": "string"
+    },
+    "price_from_eur": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "price_to_eur": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "duration_min_weeks": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "duration_max_weeks": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "cta_label_fr": {
+      "type": "string"
+    },
+    "cta_label_en": {
+      "type": "string"
+    },
+    "cta_href": {
+      "type": "string"
+    },
+    "lead_fr": {
+      "type": "string"
+    },
+    "lead_en": {
+      "type": "string"
+    },
+    "problem_statement_fr": {
+      "type": "string"
+    },
+    "problem_statement_en": {
+      "type": "string"
+    },
+    "problem_annotations": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "label_fr": {
+            "type": "string"
+          },
+          "label_en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "label_fr",
+          "label_en"
+        ]
+      }
+    },
+    "method_aside_fr": {
+      "type": "string"
+    },
+    "method_aside_en": {
+      "type": "string"
+    },
+    "method_steps": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "num": {
+            "type": "string"
+          },
+          "label_fr": {
+            "type": "string"
+          },
+          "label_en": {
+            "type": "string"
+          },
+          "body_fr": {
+            "type": "string"
+          },
+          "body_en": {
+            "type": "string"
+          },
+          "meta_fr": {
+            "type": "string"
+          },
+          "meta_en": {
+            "type": "string"
+          },
+          "duration_fr": {
+            "type": "string"
+          },
+          "duration_en": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "num",
+          "label_fr",
+          "label_en",
+          "body_fr",
+          "body_en"
+        ]
+      }
+    },
+    "deliverables_aside_fr": {
+      "type": "string"
+    },
+    "deliverables_aside_en": {
+      "type": "string"
+    },
+    "deliverable_items": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title_fr": {
+            "type": "string"
+          },
+          "title_en": {
+            "type": "string"
+          },
+          "body_fr": {
+            "type": "string"
+          },
+          "body_en": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title_fr",
+          "title_en",
+          "body_fr",
+          "body_en",
+          "tag"
+        ]
+      }
+    },
+    "proof": {
+      "type": "object",
+      "properties": {
+        "quote_fr": {
+          "type": "string"
+        },
+        "quote_en": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "metrics": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "label_fr": {
+                "type": "string"
+              },
+              "label_en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "label_fr",
+              "label_en"
+            ]
+          }
+        }
+      },
+      "required": [
+        "quote_fr",
+        "quote_en",
+        "attribution"
+      ]
+    },
+    "cta_title_fr": {
+      "type": "string"
+    },
+    "cta_title_en": {
+      "type": "string"
+    },
+    "cta_body_fr": {
+      "type": "string"
+    },
+    "cta_body_en": {
+      "type": "string"
+    },
+    "inclusions_fr": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inclusions_en": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pricing_table": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "formula_fr": {
+            "type": "string"
+          },
+          "formula_en": {
+            "type": "string"
+          },
+          "included_fr": {
+            "type": "string"
+          },
+          "included_en": {
+            "type": "string"
+          },
+          "delay_fr": {
+            "type": "string"
+          },
+          "delay_en": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "formula_fr",
+          "formula_en",
+          "included_fr",
+          "included_en",
+          "delay_fr",
+          "delay_en",
+          "price"
+        ]
+      }
+    },
+    "has_tunnel": {
+      "default": false,
+      "type": "boolean"
+    },
+    "sections": {
+      "type": "array",
+      "description": "Sections composables. Le contrat detaille par type est servi par le serveur MCP catalogue (#41) et section-slots.generated.json, hors de ce schema d enveloppe.",
+      "items": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "about-story-split",
+              "agentic-terminal",
+              "announcement-banner",
+              "architecture-diagram",
+              "article-grid",
+              "asymmetric-services",
+              "author-byline",
+              "bento-grid",
+              "booking-embed",
+              "branded-callout",
+              "breadcrumb-bar",
+              "case-card-grid",
+              "case-featured-grid",
+              "case-split",
+              "case-spotlight",
+              "challenges-grid",
+              "code-showcase",
+              "coming-soon-pills",
+              "commitments-grid",
+              "comparison-duo",
+              "comparison-pricing-callout",
+              "comparison-table",
+              "contact-form",
+              "course-catalog-table",
+              "cta-band",
+              "cta-final",
+              "cta-form-inline",
+              "cta-inline",
+              "cta-newsletter-footer",
+              "cta-split-visual",
+              "data-table",
+              "decision-list",
+              "definition-extract",
+              "deliverables-grid",
+              "department-cta",
+              "department-stack",
+              "diagnostic-stages",
+              "direct-answer",
+              "ecosystem-partners",
+              "editorial-callout",
+              "editorial-dingbat-rule",
+              "editorial-dropcap-prose",
+              "editorial-preview",
+              "editorial-prose",
+              "editorial-split-grid",
+              "editorial-table-block",
+              "editorial-timeline",
+              "editorial-write-feed",
+              "eeat-panel",
+              "faq-accordion",
+              "faq-cta-aside",
+              "faq-two-column",
+              "feature-accordion",
+              "feature-comparison-grid",
+              "feature-grid",
+              "feature-split-media",
+              "feature-tabs",
+              "feature-zigzag",
+              "fit-columns",
+              "footer-cta-band",
+              "gallery-masonry",
+              "guarantee-block",
+              "hero-academy-hub",
+              "hero-asymmetric-grid",
+              "hero-atlas",
+              "hero-author",
+              "hero-baseline-stats",
+              "hero-capability-band",
+              "hero-card-cover",
+              "hero-case-study",
+              "hero-centered",
+              "hero-centered-band",
+              "hero-conversion-funnel",
+              "hero-course",
+              "hero-detail-menu",
+              "hero-editorial-kpi",
+              "hero-editorial-masthead",
+              "hero-essay",
+              "hero-form-inline",
+              "hero-full-bleed",
+              "hero-grid-12",
+              "hero-home",
+              "hero-hub-listing",
+              "hero-hub-masthead",
+              "hero-hub-stats",
+              "hero-landing",
+              "hero-lead-magnet",
+              "hero-liquid",
+              "hero-magazine-cover",
+              "hero-masthead-card",
+              "hero-media-medallion",
+              "hero-numeral-cover",
+              "hero-offer-detail",
+              "hero-pillar-hub",
+              "hero-problem-index",
+              "hero-scope-minimap",
+              "hero-sector",
+              "hero-service-detail",
+              "hero-service-masthead",
+              "hero-social-proof",
+              "hero-split",
+              "hero-split-media",
+              "hero-stack-rhythm",
+              "hero-summary-rail",
+              "hero-tech-layer",
+              "hero-tech-signature",
+              "hero-thin-media",
+              "hero-trizone",
+              "hero-tunnel-step",
+              "hero-utility-masthead",
+              "horizontal-showcase",
+              "hover-reveal-list",
+              "how-we-ship",
+              "icon-trio",
+              "inclusions-list",
+              "integrations-grid",
+              "journey-steps",
+              "key-metric-grid",
+              "learning-path-list",
+              "list-index-section",
+              "logo-marquee",
+              "logo-wall",
+              "manifesto-act",
+              "manifesto-block",
+              "manifesto-statement",
+              "marquee-band",
+              "masthead-bar",
+              "maturity-pyramid",
+              "media-bento",
+              "media-block",
+              "media-swap-band",
+              "method-stepline",
+              "method-timeline",
+              "metric-callout-band",
+              "metric-shift",
+              "newsletter-band",
+              "newsletter-signup-section",
+              "objection-handler",
+              "off-proof",
+              "offer-tier-grid",
+              "operating-layer",
+              "pain-points",
+              "pain-severity-list",
+              "persona-attributes-grid",
+              "photo-cluster",
+              "pricing-cards",
+              "pricing-comparison-matrix",
+              "pricing-single-highlight",
+              "pricing-table",
+              "pricing-toggle",
+              "problem-statement",
+              "problems-grid",
+              "process-steps",
+              "product-reel",
+              "proof-bar",
+              "pull-quote-block",
+              "quote-spotlight",
+              "related-cards-band",
+              "resource-card-grid",
+              "roi-band",
+              "scroll-gallery",
+              "service-catalog-list",
+              "services-grid",
+              "social-proof",
+              "spec-bar",
+              "stack-cards",
+              "stat-block",
+              "stat-counter",
+              "statement-orbit",
+              "stats-bento",
+              "steps-horizontal",
+              "system-flow",
+              "team-bio-grid",
+              "team-card-grid",
+              "tech-capabilities-specs",
+              "tech-integration-flow",
+              "tech-models-table",
+              "tech-positioning-split",
+              "tech-stack-band",
+              "tech-when-dual",
+              "terminal-metrics-strip",
+              "terminal-mockup",
+              "terminal-table",
+              "testimonial-block",
+              "testimonial-logo-metric",
+              "testimonial-metrics",
+              "testimonial-single-spotlight",
+              "tier-pyramid-svg",
+              "timeline-block",
+              "timeline-horizontal",
+              "trust-badges-band",
+              "trust-legal-section",
+              "tunnel-step-hero",
+              "tunnel-step-nav",
+              "use-case-index",
+              "versus-competitors",
+              "welcome-section",
+              "why-stalls",
+              "workflow-table"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "title_fr",
+    "title_en",
+    "description_fr",
+    "description_en",
+    "slug",
+    "publishedAt"
+  ]
+}

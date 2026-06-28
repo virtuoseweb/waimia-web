@@ -26,6 +26,8 @@
     "gen:section-manifest": "node scripts/gen-section-manifest.mjs",
     "gen:section-quickref": "node scripts/gen-section-quickref.mjs",
     "gen:section-aggregate": "node scripts/gen-section-aggregate.mjs",
+    "gen:page-schemas": "npx tsx scripts/gen-page-schemas.mjs",
+    "check:page-schemas": "npx tsx scripts/check-page-schemas.mjs",
     "check:section-aggregate": "node scripts/check-section-aggregate.mjs",
     "check:touchpoints": "node scripts/check-touchpoints.mjs",
     "check:internal-links": "node scripts/check-internal-links.mjs",
