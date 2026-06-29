@@ -4,9 +4,11 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
-import EditorialWriteRow from '../../components/ui/molecules/EditorialWriteRow.astro';
+import ArticleGrid from '../../components/sections/ArticleGrid.astro';
+import type { SectionByType } from '@waimia/ds-kernel';
 import { langFromPath } from '../../lib/i18n';
-import { blogEntryHref } from '../../lib/blog-routing';
+import { blogEntryHref, fieldNoteTagLabel } from '../../lib/blog-routing';
+import { resolveBlogVisual } from '../../lib/blog-taxo-visuals';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -28,6 +30,52 @@ const formatDate = (d: Date) => {
   const mm = String(d.getMonth() + 1).padStart(2, '0');
   return `${dd}.${mm}`;
 };
+
+// Label de type court (ESSAI, NOTE, CAS, RECETTE…) dérivé de editorialType, sinon `type`.
+const tagLabel = (data: (typeof sortedBlog)[number]['data']): string =>
+  data.editorialType
+    ? fieldNoteTagLabel(data.editorialType, lang).toUpperCase()
+    : (data.type ?? 'NOTE').toUpperCase();
+
+// Label auteur court pour la carte (référence `authors` ou chaîne kebab-case).
+const authorLabel = (author: unknown): string | undefined => {
+  if (!author) return undefined;
+  const slug = typeof author === 'string'
+    ? author
+    : (author as { id?: string }).id;
+  if (!slug) return undefined;
+  return slug.split('-').map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
+};
+
+// Mapping entrée blog → item article-grid (illustration teintée par taxonomie).
+const articles = sortedBlog.map((entry) => {
+  const d = entry.data;
+  const visual = resolveBlogVisual({ category: d.category, heroImage: d.heroImage });
+  const tag = tagLabel(d);
+  const readTime = d.readingTime ? `${d.readingTime} min` : undefined;
+  return {
+    image: visual.image,
+    tint: visual.hue,
+    tag_fr: tag,
+    tag_en: tag,
+    title_fr: d.title_fr,
+    title_en: d.title_en,
+    excerpt_fr: d.excerpt_fr ?? d.description_fr,
+    excerpt_en: d.excerpt_en ?? d.description_en,
+    date: formatDate(d.publishedAt),
+    read_time_fr: readTime,
+    read_time_en: readTime,
+    author: authorLabel(d.author),
+    href: blogEntryHref(entry),
+  };
+});
+
+const gridData = {
+  type: 'article-grid',
+  background: 'paper',
+  columns: '3',
+  articles,
+} satisfies SectionByType<'article-grid'>;
 ---
 <UtilityTemplate
   variant="list"
@@ -44,31 +92,25 @@ const formatDate = (d: Date) => {
   </Fragment>
 
   <Fragment slot="list">
-    <div class="blog-list">
-      {sortedBlog.map((entry) => (
-        <EditorialWriteRow
-          date={formatDate(entry.data.publishedAt)}
-          tag={(entry.data.editorialType ?? entry.data.type ?? 'NOTE').toUpperCase()}
-          href={blogEntryHref(entry)}
-          tone="paper"
-        >
-          {lang === 'fr' ? entry.data.title_fr : entry.data.title_en}
-        </EditorialWriteRow>
-      ))}
+    <div class="blog-grid">
+      <ArticleGrid data={gridData} lang={lang} />
     </div>
   </Fragment>
 </UtilityTemplate>
 
 <style>
-  /* max-width live + resserrage micro-rythme du blanc hero→liste (it.10) :
-     le masthead `hero-hub-listing` (bottom clamp ~72px) + `.list-body` (top clamp ~100px)
-     du template partagé creusaient une bande vide ; on remonte la liste d'un cran --space
-     depuis la page (override local, template intact). */
-  .blog-list {
-    max-width: 1100px;
-    margin-top: calc(-1 * var(--space-9));
+  /* Resserrage micro-rythme du blanc hero→grille (cf masthead `hero-hub-listing`
+     bottom clamp + `.list-body` top clamp du template partagé) : on remonte la grille
+     d'un cran depuis la page (override local, template intact). La section ArticleGrid
+     porte son propre padding-block (--section-base) : on le neutralise en tête pour
+     éviter une double bande. */
+  .blog-grid :global(.article-grid) {
+    padding-block-start: 0;
+  }
+  .blog-grid {
+    margin-top: calc(-1 * var(--space-7));
   }
   @media (max-width: 768px) {
-    .blog-list { margin-top: calc(-1 * var(--space-7)); }
+    .blog-grid { margin-top: calc(-1 * var(--space-5)); }
   }
 </style>

@@ -34,7 +34,12 @@ const intro = isFr ? data.intro_fr : data.intro_en;
           <a class="article-card" href={a.href}>
             {a.image && (
               <div class="article-card__media">
-                <img src={a.image} alt="" loading="lazy" />
+                <img
+                  src={a.image}
+                  alt=""
+                  loading="lazy"
+                  style={a.tint != null ? `filter: hue-rotate(${a.tint}deg)` : undefined}
+                />
               </div>
             )}
             <div class="article-card__body">

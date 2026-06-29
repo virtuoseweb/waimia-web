@@ -18,6 +18,11 @@ export const schema = z.object({
     .array(
       z.object({
         image: z.string().optional(),
+        // Teinte de carte en degrés pour `filter: hue-rotate(Ndeg)` sur l'illustration
+        // (habillage par taxonomie, HAB-7). OPTIONNEL → rétrocompatible (0 régression
+        // sur les usages existants d'article-grid). Valeur structurelle de filtre, pas
+        // une couleur DS.
+        tint: z.number().optional(),
         tag_fr: z.string().optional(),
         tag_en: z.string().optional(),
         title_fr: z.string(),
