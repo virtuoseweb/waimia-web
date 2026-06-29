@@ -364,12 +364,12 @@ const CAS: MegaMenuSection = {
       title: { fr: 'Par secteur', en: 'By industry' },
       goal: { fr: 'La preuve par votre métier', en: 'Proof from your industry' },
       links: [
-        { label: { fr: 'Conseil', en: 'Consulting' }, href: '/secteurs/conseil', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Comptabilité', en: 'Accounting' }, href: '/secteurs/comptabilite', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Agence', en: 'Agency' }, href: '/secteurs/agence', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Industrie', en: 'Industry' }, href: '/secteurs/industrie', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Formation', en: 'Training' }, href: '/secteurs/formation', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'ESN', en: 'IT services firm' }, href: '/secteurs/esn', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Conseil', en: 'Consulting' }, href: '/secteurs/conseil' },
+        { label: { fr: 'Comptabilité', en: 'Accounting' }, href: '/secteurs/comptabilite' },
+        { label: { fr: 'Agence', en: 'Agency' }, href: '/secteurs/agence' },
+        { label: { fr: 'Industrie', en: 'Industry' }, href: '/secteurs/industrie' },
+        { label: { fr: 'Formation', en: 'Training' }, href: '/secteurs/formation' },
+        { label: { fr: 'ESN', en: 'IT services firm' }, href: '/secteurs/esn' },
       ],
       footer: {
         label: { fr: 'Tous les secteurs →', en: 'All industries →' },
