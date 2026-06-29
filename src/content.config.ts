@@ -334,7 +334,7 @@ const casUsages = defineCollection({
 });
 
 const demonstrations = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/demonstrations' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/demonstrations' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -343,7 +343,7 @@ const demonstrations = defineCollection({
 });
 
 const implantations = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/implantations' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/implantations' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -352,7 +352,7 @@ const implantations = defineCollection({
 });
 
 const guides = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/guides' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/guides' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -370,7 +370,7 @@ const diagnostics = defineCollection({
 });
 
 const comparatifs = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/comparatifs' }),
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/comparatifs' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,

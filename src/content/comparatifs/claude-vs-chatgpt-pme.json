@@ -1,0 +1,423 @@
+{
+  "$schema": "../../schemas/generated/comparatifs.page.schema.json",
+  "title_fr": "Claude vs ChatGPT pour une PME : lequel choisir en 2026",
+  "title_en": "Claude vs ChatGPT for an SMB: which one to choose in 2026",
+  "description_fr": "Comparatif Claude vs ChatGPT pour une PME : forces, limites, coûts, sécurité des données et cas d'usage métier, pour choisir selon votre besoin réel.",
+  "description_en": "Claude vs ChatGPT comparison for an SMB: strengths, limits, costs, data security and business use cases, to choose by your real need.",
+  "slug": "claude-vs-chatgpt-pme",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-06-29T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "claude-vs-chatgpt",
+    "comparatif-ia",
+    "integrateur-claude",
+    "securite-donnees",
+    "outils-ia-pme",
+    "productivite"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Claude ou ChatGPT : lequel choisir pour une PME ?",
+      "a": "Cela dépend de votre besoin réel. Pour de l'assistance générale, de la rédaction grand public et un écosystème d'extensions riche, ChatGPT est excellent. Pour intégrer l'IA à vos outils métier, traiter des documents longs et garder un cadre de sécurité strict, Claude prend l'avantage. La vraie question n'est pas lequel est meilleur dans l'absolu, mais lequel sert le mieux votre cas d'usage prioritaire."
+    },
+    {
+      "q": "Quelle est la différence principale entre Claude et ChatGPT ?",
+      "a": "ChatGPT vise large : assistant polyvalent, génération d'images, voix, plugins, GPTs personnalisés. Claude est conçu pour le travail rigoureux sur texte et code, avec une fenêtre de contexte très large et le protocole MCP qui le branche proprement à vos outils. En clair, ChatGPT est un couteau suisse grand public, Claude un outil d'intégration métier."
+    },
+    {
+      "q": "Lequel est le plus sûr pour les données d'entreprise ?",
+      "a": "Les deux proposent des offres entreprise qui n'entraînent pas les modèles sur vos données. Anthropic met la sécurité et l'alignement au cœur de sa proposition, ce qui rassure sur les usages sensibles. Mais le vrai facteur de sécurité reste l'intégration : un déploiement cadré, avec une politique d'usage claire, protège bien mieux que le choix du modèle seul. C'est là que l'accompagnement compte."
+    },
+    {
+      "q": "Combien coûtent Claude et ChatGPT pour une équipe ?",
+      "a": "Les deux tournent autour de 20 à 30 € par utilisateur et par mois pour les offres pro, avec des paliers entreprise au-dessus. Le coût des abonnements est rarement le poste décisif. Le vrai coût d'une PME se cache dans le temps d'intégration, la formation et la maintenance des automatisations. Comparer les prix de licence sans regarder le coût total d'usage mène à de mauvaises décisions."
+    },
+    {
+      "q": "Claude est-il meilleur que ChatGPT pour coder ?",
+      "a": "Sur les tâches de code complexes, de refactor et de raisonnement sur de grandes bases, Claude est régulièrement préféré par les développeurs pour sa rigueur et sa fenêtre de contexte. ChatGPT reste très solide et son écosystème d'outils est riche. Pour une PME, l'enjeu n'est pas le benchmark brut mais la capacité à brancher le modèle à votre code et à vos process, ce que Claude facilite via MCP."
+    },
+    {
+      "q": "Peut-on connecter Claude ou ChatGPT à mes outils métier ?",
+      "a": "Oui pour les deux, mais par des voies différentes. ChatGPT s'appuie sur ses plugins, ses GPTs et des connecteurs. Claude utilise le protocole MCP, un standard ouvert qui le relie proprement à vos bases, votre CRM ou vos fichiers, sans bricolage. Pour une intégration durable et maintenable dans une PME, cette approche standardisée est un atout net en faveur de Claude."
+    },
+    {
+      "q": "Faut-il choisir un seul outil ou les deux ?",
+      "a": "Beaucoup de PME utilisent les deux : ChatGPT pour l'assistance individuelle au quotidien et Claude pour les agents intégrés à leurs process. Ce n'est pas incohérent. L'erreur serait de multiplier les abonnements sans cadre, avec des données sensibles qui circulent partout. Mieux vaut un usage cadré d'un outil bien intégré qu'une dispersion d'outils sous-exploités."
+    },
+    {
+      "q": "Pourquoi Waimia recommande-t-il Claude pour l'intégration ?",
+      "a": "Parce que notre métier est de brancher l'IA à vos outils, et que le protocole MCP de Claude rend ces intégrations propres, standardisées et maintenables. Cela ne disqualifie pas ChatGPT, qui reste excellent en assistance générale. Notre recommandation est nuancée : Claude pour les agents métier intégrés, et chacun choisit l'outil grand public qu'il préfère pour l'assistance individuelle."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Claude or ChatGPT: which to choose for an SMB?",
+      "a": "It depends on your real need. For general assistance, mainstream writing and a rich extension ecosystem, ChatGPT is excellent. To integrate AI into your business tools, process long documents and keep a strict security frame, Claude takes the lead. The real question isn't which is better in absolute terms, but which best serves your priority use case."
+    },
+    {
+      "q": "What is the main difference between Claude and ChatGPT?",
+      "a": "ChatGPT goes broad: versatile assistant, image generation, voice, plugins, custom GPTs. Claude is built for rigorous work on text and code, with a very large context window and the MCP protocol that wires it cleanly to your tools. In short, ChatGPT is a mainstream Swiss army knife, Claude a business integration tool."
+    },
+    {
+      "q": "Which is safer for company data?",
+      "a": "Both offer enterprise plans that don't train models on your data. Anthropic puts safety and alignment at the heart of its proposition, which reassures for sensitive uses. But the real safety factor remains integration: a framed deployment with a clear usage policy protects far better than the choice of model alone. That's where guidance matters."
+    },
+    {
+      "q": "How much do Claude and ChatGPT cost for a team?",
+      "a": "Both sit around 20 to 30 € per user per month for pro plans, with enterprise tiers above. Subscription cost is rarely the decisive item. An SMB's real cost hides in integration time, training and automation maintenance. Comparing licence prices without looking at total cost of use leads to bad decisions."
+    },
+    {
+      "q": "Is Claude better than ChatGPT for coding?",
+      "a": "On complex code, refactoring and reasoning over large bases, Claude is regularly preferred by developers for its rigour and context window. ChatGPT remains very solid and its tooling ecosystem is rich. For an SMB, the issue isn't the raw benchmark but the ability to wire the model to your code and processes, which Claude makes easier via MCP."
+    },
+    {
+      "q": "Can I connect Claude or ChatGPT to my business tools?",
+      "a": "Yes for both, but through different routes. ChatGPT relies on its plugins, GPTs and connectors. Claude uses the MCP protocol, an open standard that links it cleanly to your databases, your CRM or your files, with no hacking. For a durable, maintainable integration in an SMB, this standardised approach is a clear point for Claude."
+    },
+    {
+      "q": "Should you pick one tool or both?",
+      "a": "Many SMBs use both: ChatGPT for daily individual assistance and Claude for agents integrated into their processes. That isn't incoherent. The mistake would be to multiply subscriptions with no frame, with sensitive data flowing everywhere. Better a framed use of one well-integrated tool than a scatter of underused ones."
+    },
+    {
+      "q": "Why does Waimia recommend Claude for integration?",
+      "a": "Because our job is to wire AI into your tools, and Claude's MCP protocol makes those integrations clean, standardised and maintainable. That doesn't disqualify ChatGPT, which stays excellent for general assistance. Our recommendation is nuanced: Claude for integrated business agents, and everyone picks the mainstream tool they prefer for individual assistance."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : deux assistants IA mis en regard, l'un orienté grand public, l'autre branché aux outils métier",
+      "media_alt_en": "Diagram: two AI assistants set side by side, one mainstream-oriented, the other wired to business tools",
+      "kicker_fr": "§ Comparatif Claude vs ChatGPT",
+      "kicker_en": "§ Claude vs ChatGPT comparison",
+      "h1_fr": "Claude vs <i class=\"acc\">ChatGPT</i> pour une PME.",
+      "h1_en": "Claude vs <i class=\"acc\">ChatGPT</i> for an SMB.",
+      "definition_kicker_fr": "De quoi parle-t-on ?",
+      "definition_kicker_en": "What are we comparing?",
+      "lede_fr": "Deux assistants IA excellents, deux philosophies. ChatGPT vise <i>large</i> : assistant grand public, écosystème riche. Claude vise <i>l'intégration</i> métier : contexte étendu, protocole MCP. Ce comparatif pose les forces, limites, coûts et la sécurité de chacun, pour choisir selon votre besoin réel.",
+      "lede_en": "Two excellent AI assistants, two philosophies. ChatGPT goes <i>broad</i>: mainstream assistant, rich ecosystem. Claude goes for business <i>integration</i>: extended context, MCP protocol. This comparison lays out each one's strengths, limits, costs and security, to choose by your real need.",
+      "badges": [
+        {
+          "label_fr": "Verdict nuancé · pro-intégration",
+          "label_en": "Nuanced verdict · pro-integration"
+        },
+        {
+          "label_fr": "Forces, limites, coûts, sécurité",
+          "label_en": "Strengths, limits, costs, security"
+        },
+        {
+          "label_fr": "Cas d'usage PME concrets",
+          "label_en": "Concrete SMB use cases"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit IA (45 min) →",
+        "label_en": "Book the AI audit (45 min) →",
+        "href": "/contact?offer=claude-vs-chatgpt-pme&intent=comparatif",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir le comparatif détaillé",
+        "label_en": "See the detailed comparison",
+        "href": "#comparatif",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Claude ou ChatGPT : lequel choisir pour une PME ?",
+      "question_en": "Claude or ChatGPT: which one should an SMB choose?",
+      "term_fr": "Claude vs ChatGPT",
+      "term_en": "Claude vs ChatGPT",
+      "answer_fr": "Pour une PME, le choix se joue sur le besoin prioritaire, pas sur un classement absolu. ChatGPT excelle en assistant grand public polyvalent : rédaction, images, voix, GPTs personnalisés et un écosystème d'extensions très riche. Claude prend l'avantage dès qu'il s'agit d'intégrer l'IA à vos outils métier, de traiter des documents longs avec rigueur et de garder un cadre de sécurité strict, grâce au protocole MCP qui le branche proprement à vos systèmes. Notre verdict est nuancé : Claude pour les agents métier intégrés et maintenables, ChatGPT pour l'assistance individuelle au quotidien. Beaucoup de PME utilisent d'ailleurs les deux, à condition de cadrer les usages.",
+      "answer_en": "For an SMB, the choice hinges on the priority need, not an absolute ranking. ChatGPT excels as a versatile mainstream assistant: writing, images, voice, custom GPTs and a very rich extension ecosystem. Claude takes the lead as soon as it's about integrating AI into your business tools, processing long documents rigorously and keeping a strict security frame, thanks to the MCP protocol that wires it cleanly into your systems. Our verdict is nuanced: Claude for integrated, maintainable business agents, ChatGPT for daily individual assistance. Many SMBs actually use both, provided uses are framed."
+    },
+    {
+      "type": "comparison-table",
+      "background": "paper",
+      "h2_fr": "Claude vs ChatGPT, <i>point par point</i>",
+      "h2_en": "Claude vs ChatGPT, <i>point by point</i>",
+      "column_headers_fr": ["Critère", "Claude", "ChatGPT"],
+      "column_headers_en": ["Criterion", "Claude", "ChatGPT"],
+      "rows": [
+        {
+          "feature_fr": "Raisonnement sur documents longs",
+          "feature_en": "Reasoning over long documents",
+          "values": ["excellent", "très bon"]
+        },
+        {
+          "feature_fr": "Génération d'images et de voix",
+          "feature_en": "Image and voice generation",
+          "values": [false, true]
+        },
+        {
+          "feature_fr": "Intégration native aux outils (MCP)",
+          "feature_en": "Native tool integration (MCP)",
+          "values": [true, false]
+        },
+        {
+          "feature_fr": "Écosystème de plugins grand public",
+          "feature_en": "Mainstream plugin ecosystem",
+          "values": ["ciblé", "très large"]
+        },
+        {
+          "feature_fr": "Code complexe et refactor",
+          "feature_en": "Complex code and refactoring",
+          "values": ["référence", "solide"]
+        },
+        {
+          "feature_fr": "Sécurité et alignement au cœur",
+          "feature_en": "Safety and alignment at the core",
+          "values": [true, true]
+        },
+        {
+          "feature_fr": "Pas d'entraînement sur vos données (offre pro)",
+          "feature_en": "No training on your data (pro plan)",
+          "values": [true, true]
+        },
+        {
+          "feature_fr": "Prix indicatif par utilisateur / mois",
+          "feature_en": "Indicative price per user / month",
+          "values": ["20-30 €", "20-30 €"]
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper-2",
+      "kicker_fr": "§ Forces et limites",
+      "kicker_en": "§ Strengths and limits",
+      "h2_fr": "Ce que chacun fait <i>vraiment bien</i>",
+      "h2_en": "What each one does <i>really well</i>",
+      "lede_fr": "Aucun des deux n'est mauvais. Ils sont taillés pour des usages différents. Voici, sans dénigrement, ce qui les distingue concrètement pour une PME.",
+      "lede_en": "Neither is bad. They are cut for different uses. Here, without disparaging either, is what concretely sets them apart for an SMB.",
+      "rows": [
+        {
+          "kicker_fr": "Là où ChatGPT brille",
+          "kicker_en": "Where ChatGPT shines",
+          "h3_fr": "Assistant grand public, écosystème riche",
+          "h3_en": "Mainstream assistant, rich ecosystem",
+          "body_fr": "ChatGPT est le couteau suisse de l'assistance individuelle : rédaction, brainstorming, images, voix, GPTs personnalisés et une marketplace fournie. Pour un collaborateur qui veut un copilote polyvalent au quotidien, sans intégration lourde, c'est un excellent point de départ et la prise en main est immédiate.",
+          "body_en": "ChatGPT is the Swiss army knife of individual assistance: writing, brainstorming, images, voice, custom GPTs and a well-stocked marketplace. For an employee who wants a versatile daily copilot, with no heavy integration, it's an excellent starting point and onboarding is immediate.",
+          "points": [
+            {
+              "label_fr": "Polyvalence et création multimédia",
+              "label_en": "Versatility and multimedia creation"
+            },
+            {
+              "label_fr": "Écosystème de GPTs et plugins",
+              "label_en": "Ecosystem of GPTs and plugins"
+            },
+            {
+              "label_fr": "Prise en main immédiate",
+              "label_en": "Immediate onboarding"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Là où Claude prend l'avantage",
+          "kicker_en": "Where Claude takes the lead",
+          "h3_fr": "Intégration métier et rigueur",
+          "h3_en": "Business integration and rigour",
+          "body_fr": "Claude est conçu pour le travail rigoureux et pour s'intégrer à vos systèmes. Sa fenêtre de contexte très large encaisse des documents entiers, et le protocole MCP le branche proprement à vos bases, votre CRM ou vos fichiers. Pour transformer un process récurrent en agent fiable, maintenable et cadré, c'est un terrain bien plus solide.",
+          "body_en": "Claude is built for rigorous work and to integrate into your systems. Its very large context window swallows whole documents, and the MCP protocol wires it cleanly to your databases, your CRM or your files. To turn a recurring process into a reliable, maintainable, framed agent, it's much firmer ground.",
+          "points": [
+            {
+              "label_fr": "Contexte très large, documents entiers",
+              "label_en": "Very large context, whole documents"
+            },
+            {
+              "label_fr": "Intégration propre via MCP",
+              "label_en": "Clean integration via MCP"
+            },
+            {
+              "label_fr": "Rigueur sur code et raisonnement",
+              "label_en": "Rigour on code and reasoning"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Le facteur décisif",
+          "kicker_en": "The decisive factor",
+          "h3_fr": "Sécurité des données et coût total",
+          "h3_en": "Data security and total cost",
+          "body_fr": "Les deux ne s'entraînent pas sur vos données en offre pro et placent la sécurité haut. Mais le vrai risque, comme le vrai coût, se joue à l'intégration : une politique d'usage claire et un déploiement cadré protègent mieux que le choix du modèle seul. Comparer les prix de licence sans regarder le temps d'intégration et de maintenance mène à de mauvaises décisions.",
+          "body_en": "Neither trains on your data on pro plans and both rank security high. But the real risk, like the real cost, plays out at integration: a clear usage policy and a framed deployment protect better than the choice of model alone. Comparing licence prices without looking at integration and maintenance time leads to bad decisions.",
+          "points": [
+            {
+              "label_fr": "Aucun entraînement sur vos données",
+              "label_en": "No training on your data"
+            },
+            {
+              "label_fr": "La sécurité se joue à l'intégration",
+              "label_en": "Security plays out at integration"
+            },
+            {
+              "label_fr": "Coût total, pas prix de licence",
+              "label_en": "Total cost, not licence price"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand choisir quoi",
+      "kicker_en": "§ When to choose which",
+      "heading_fr": "Choisir selon <i>votre besoin</i>",
+      "heading_en": "Choose by <i>your need</i>",
+      "items": [
+        {
+          "label_fr": "Vous voulez un copilote polyvalent pour la rédaction, les images et le quotidien : ChatGPT.",
+          "label_en": "You want a versatile copilot for writing, images and daily work: ChatGPT."
+        },
+        {
+          "label_fr": "Vous voulez brancher l'IA à votre CRM, vos fichiers ou votre code de façon maintenable : Claude.",
+          "label_en": "You want to wire AI to your CRM, files or code in a maintainable way: Claude."
+        },
+        {
+          "label_fr": "Vous traitez de longs documents ou contrats et la rigueur prime : Claude.",
+          "label_en": "You process long documents or contracts and rigour comes first: Claude."
+        },
+        {
+          "label_fr": "Vos équipes veulent explorer l'IA sans projet d'intégration pour l'instant : ChatGPT.",
+          "label_en": "Your teams want to explore AI with no integration project for now: ChatGPT."
+        },
+        {
+          "label_fr": "Vous transformez un process récurrent en agent fiable et cadré : Claude.",
+          "label_en": "You turn a recurring process into a reliable, framed agent: Claude."
+        },
+        {
+          "label_fr": "Vous hésitez encore : commencez par un audit qui part de votre besoin réel, pas du modèle.",
+          "label_en": "You're still hesitating: start with an audit that begins from your real need, not the model."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Audit gratuit",
+          "kicker_en": "Free audit",
+          "title_fr": "Audit IA pour PME",
+          "title_en": "AI audit for SMBs",
+          "lead_fr": "On part de votre besoin réel, pas du modèle à la mode : 45 min pour identifier le premier process à automatiser et le bon outil pour le faire.",
+          "lead_en": "We start from your real need, not the trendy model: 45 min to identify the first process to automate and the right tool to do it.",
+          "href": "/contact"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégrateur Claude",
+          "title_en": "Claude integrator",
+          "lead_fr": "Quand l'intégration métier prime : déployer Claude et ses agents dans votre entreprise, branchés à vos outils via le protocole MCP.",
+          "lead_en": "When business integration comes first: deploying Claude and its agents in your company, wired to your tools via the MCP protocol.",
+          "href": "/services/integrateur-claude"
+        },
+        {
+          "kicker_fr": "Diagnostic",
+          "kicker_en": "Diagnostic",
+          "title_fr": "Maturité IA : où en êtes-vous ?",
+          "title_en": "AI maturity: where do you stand?",
+          "lead_fr": "Avant de choisir un outil, situez votre niveau réel sur la grille des cinq niveaux. Le bon outil dépend d'abord de vos fondations.",
+          "lead_en": "Before picking a tool, place your real level on the five-level grid. The right tool depends first on your foundations.",
+          "href": "/ressources/diagnostics/maturite-ia"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Claude ou ChatGPT : lequel choisir pour une PME ?",
+          "q_en": "Claude or ChatGPT: which to choose for an SMB?",
+          "a_fr": "Cela dépend de votre besoin réel. Pour de l'assistance générale, de la rédaction grand public et un écosystème d'extensions riche, ChatGPT est excellent. Pour intégrer l'IA à vos outils métier, traiter des documents longs et garder un cadre de sécurité strict, Claude prend l'avantage. La vraie question n'est pas lequel est meilleur dans l'absolu, mais lequel sert le mieux votre cas d'usage prioritaire.",
+          "a_en": "It depends on your real need. For general assistance, mainstream writing and a rich extension ecosystem, ChatGPT is excellent. To integrate AI into your business tools, process long documents and keep a strict security frame, Claude takes the lead. The real question isn't which is better in absolute terms, but which best serves your priority use case."
+        },
+        {
+          "q_fr": "Quelle est la différence principale entre Claude et ChatGPT ?",
+          "q_en": "What is the main difference between Claude and ChatGPT?",
+          "a_fr": "ChatGPT vise large : assistant polyvalent, génération d'images, voix, plugins, GPTs personnalisés. Claude est conçu pour le travail rigoureux sur texte et code, avec une fenêtre de contexte très large et le protocole MCP qui le branche proprement à vos outils. En clair, ChatGPT est un couteau suisse grand public, Claude un outil d'intégration métier.",
+          "a_en": "ChatGPT goes broad: versatile assistant, image generation, voice, plugins, custom GPTs. Claude is built for rigorous work on text and code, with a very large context window and the MCP protocol that wires it cleanly to your tools. In short, ChatGPT is a mainstream Swiss army knife, Claude a business integration tool."
+        },
+        {
+          "q_fr": "Lequel est le plus sûr pour les données d'entreprise ?",
+          "q_en": "Which is safer for company data?",
+          "a_fr": "Les deux proposent des offres entreprise qui n'entraînent pas les modèles sur vos données. Anthropic met la sécurité et l'alignement au cœur de sa proposition, ce qui rassure sur les usages sensibles. Mais le vrai facteur de sécurité reste l'intégration : un déploiement cadré, avec une politique d'usage claire, protège bien mieux que le choix du modèle seul. C'est là que l'accompagnement compte.",
+          "a_en": "Both offer enterprise plans that don't train models on your data. Anthropic puts safety and alignment at the heart of its proposition, which reassures for sensitive uses. But the real safety factor remains integration: a framed deployment with a clear usage policy protects far better than the choice of model alone. That's where guidance matters."
+        },
+        {
+          "q_fr": "Combien coûtent Claude et ChatGPT pour une équipe ?",
+          "q_en": "How much do Claude and ChatGPT cost for a team?",
+          "a_fr": "Les deux tournent autour de 20 à 30 € par utilisateur et par mois pour les offres pro, avec des paliers entreprise au-dessus. Le coût des abonnements est rarement le poste décisif. Le vrai coût d'une PME se cache dans le temps d'intégration, la formation et la maintenance des automatisations. Comparer les prix de licence sans regarder le coût total d'usage mène à de mauvaises décisions.",
+          "a_en": "Both sit around 20 to 30 € per user per month for pro plans, with enterprise tiers above. Subscription cost is rarely the decisive item. An SMB's real cost hides in integration time, training and automation maintenance. Comparing licence prices without looking at total cost of use leads to bad decisions."
+        },
+        {
+          "q_fr": "Claude est-il meilleur que ChatGPT pour coder ?",
+          "q_en": "Is Claude better than ChatGPT for coding?",
+          "a_fr": "Sur les tâches de code complexes, de refactor et de raisonnement sur de grandes bases, Claude est régulièrement préféré par les développeurs pour sa rigueur et sa fenêtre de contexte. ChatGPT reste très solide et son écosystème d'outils est riche. Pour une PME, l'enjeu n'est pas le benchmark brut mais la capacité à brancher le modèle à votre code et à vos process, ce que Claude facilite via MCP.",
+          "a_en": "On complex code, refactoring and reasoning over large bases, Claude is regularly preferred by developers for its rigour and context window. ChatGPT remains very solid and its tooling ecosystem is rich. For an SMB, the issue isn't the raw benchmark but the ability to wire the model to your code and processes, which Claude makes easier via MCP."
+        },
+        {
+          "q_fr": "Peut-on connecter Claude ou ChatGPT à mes outils métier ?",
+          "q_en": "Can I connect Claude or ChatGPT to my business tools?",
+          "a_fr": "Oui pour les deux, mais par des voies différentes. ChatGPT s'appuie sur ses plugins, ses GPTs et des connecteurs. Claude utilise le protocole MCP, un standard ouvert qui le relie proprement à vos bases, votre CRM ou vos fichiers, sans bricolage. Pour une intégration durable et maintenable dans une PME, cette approche standardisée est un atout net en faveur de Claude.",
+          "a_en": "Yes for both, but through different routes. ChatGPT relies on its plugins, GPTs and connectors. Claude uses the MCP protocol, an open standard that links it cleanly to your databases, your CRM or your files, with no hacking. For a durable, maintainable integration in an SMB, this standardised approach is a clear point for Claude."
+        },
+        {
+          "q_fr": "Faut-il choisir un seul outil ou les deux ?",
+          "q_en": "Should you pick one tool or both?",
+          "a_fr": "Beaucoup de PME utilisent les deux : ChatGPT pour l'assistance individuelle au quotidien et Claude pour les agents intégrés à leurs process. Ce n'est pas incohérent. L'erreur serait de multiplier les abonnements sans cadre, avec des données sensibles qui circulent partout. Mieux vaut un usage cadré d'un outil bien intégré qu'une dispersion d'outils sous-exploités.",
+          "a_en": "Many SMBs use both: ChatGPT for daily individual assistance and Claude for agents integrated into their processes. That isn't incoherent. The mistake would be to multiply subscriptions with no frame, with sensitive data flowing everywhere. Better a framed use of one well-integrated tool than a scatter of underused ones."
+        },
+        {
+          "q_fr": "Pourquoi Waimia recommande-t-il Claude pour l'intégration ?",
+          "q_en": "Why does Waimia recommend Claude for integration?",
+          "a_fr": "Parce que notre métier est de brancher l'IA à vos outils, et que le protocole MCP de Claude rend ces intégrations propres, standardisées et maintenables. Cela ne disqualifie pas ChatGPT, qui reste excellent en assistance générale. Notre recommandation est nuancée : Claude pour les agents métier intégrés, et chacun choisit l'outil grand public qu'il préfère pour l'assistance individuelle.",
+          "a_en": "Because our job is to wire AI into your tools, and Claude's MCP protocol makes those integrations clean, standardised and maintainable. That doesn't disqualify ChatGPT, which stays excellent for general assistance. Our recommendation is nuanced: Claude for integrated business agents, and everyone picks the mainstream tool they prefer for individual assistance."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à trancher selon votre besoin ?",
+      "kicker_en": "§ Ready to decide by your need?",
+      "h2_fr": "Le bon outil dépend de <i>votre</i> cas, pas d'un classement.",
+      "h2_en": "The right tool depends on <i>your</i> case, not a ranking.",
+      "subtitle_fr": "L'audit IA gratuit de 45 min part de votre besoin réel pour identifier le premier process à automatiser et le bon outil pour le faire. On vous dit franchement quand ChatGPT suffit et quand Claude s'impose. Sans engagement.",
+      "subtitle_en": "The free 45-min AI audit starts from your real need to identify the first process to automate and the right tool to do it. We tell you frankly when ChatGPT is enough and when Claude is the call. No commitment.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit IA (45 min) →",
+          "label_en": "Book the AI audit (45 min) →",
+          "href": "/contact?offer=claude-vs-chatgpt-pme&intent=comparatif",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'intégrateur Claude",
+          "label_en": "See the Claude integrator",
+          "href": "/services/integrateur-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

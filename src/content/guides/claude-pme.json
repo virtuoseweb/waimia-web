@@ -1,0 +1,453 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Déployer Claude dans une PME : le guide pratique des 90 premiers jours",
+  "title_en": "Deploying Claude in an SMB: the practical 90-day guide",
+  "description_fr": "Guide pratique pour déployer Claude dans une PME : par où commencer, les 5 cas d'usage à fort ROI, comment structurer ses données, gouvernance et premiers 90 jours.",
+  "description_en": "Practical guide to deploy Claude in an SMB: where to start, the 5 high-ROI use cases, how to structure your data, governance and the first 90 days.",
+  "slug": "claude-pme",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-06-29T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "claude-pme",
+    "deploiement-ia",
+    "integrateur-claude",
+    "cas-usage-ia",
+    "gouvernance-ia",
+    "productivite"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Par où commencer pour déployer Claude dans une PME ?",
+      "a": "On ne commence pas par l'outil mais par un process. Choisissez une tâche récurrente, chronophage et à faible risque : tri d'emails, rédaction de comptes-rendus, réponses de premier niveau. Cadrez le résultat attendu, donnez à Claude le contexte dont il a besoin, puis mesurez le temps gagné. Un premier cas d'usage réussi vaut mieux que dix pilotes abandonnés."
+    },
+    {
+      "q": "Quels sont les cas d'usage Claude à plus fort ROI en PME ?",
+      "a": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que l'IA paie le plus vite."
+    },
+    {
+      "q": "Faut-il structurer ses données avant de déployer Claude ?",
+      "a": "Oui, au moins partiellement. Claude est aussi bon que le contexte qu'on lui donne. Des données éparpillées, en doublon ou périmées produisent des réponses floues. Commencez par centraliser ce qui sert au premier cas d'usage : une base de connaissances, des procédures, un historique propre. Inutile de tout ranger d'un coup, rangez ce que l'agent va lire."
+    },
+    {
+      "q": "Comment gérer la sécurité et la confidentialité avec Claude ?",
+      "a": "Trois leviers : une politique d'usage claire qui dit quelles données peuvent passer dans l'outil, des comptes professionnels avec données non utilisées pour l'entraînement, et un cadrage des accès via MCP plutôt que des copier-coller manuels. La gouvernance n'est pas un frein, c'est ce qui permet de déployer sans que des données sensibles fuitent par des comptes personnels."
+    },
+    {
+      "q": "Quelles sont les erreurs les plus fréquentes au démarrage ?",
+      "a": "Vouloir tout automatiser d'un coup, choisir l'outil avant d'avoir clarifié le process, négliger la formation des équipes, et oublier de mesurer. Une autre erreur classique : automatiser un process déjà inefficace, ce qui ne fait que l'accélérer. La bonne approche reste un cas d'usage cadré, mesuré, puis étendu une fois prouvé."
+    },
+    {
+      "q": "Combien de temps pour voir des résultats concrets ?",
+      "a": "Sur un cas d'usage bien choisi, les premiers gains sont visibles en quelques semaines. Le plan des 90 jours sert à enchaîner trois phases : cadrer et lancer un premier agent, le fiabiliser et former les équipes, puis étendre à un deuxième usage. L'objectif n'est pas la vitesse mais une montée en maturité qui tient dans la durée."
+    },
+    {
+      "q": "Faut-il un profil technique pour déployer Claude ?",
+      "a": "Pour les premiers cas d'usage conversationnels, non : une bonne compréhension métier et des process clairs suffisent. Pour brancher Claude à vos outils via MCP et automatiser des workflows, un accompagnement technique accélère et sécurise. L'enjeu est moins de coder que de bien cadrer ce que l'agent doit faire, voir et ne jamais toucher."
+    },
+    {
+      "q": "Quelle différence entre utiliser Claude et l'intégrer vraiment ?",
+      "a": "Utiliser Claude, c'est l'ouvrir au cas par cas pour aider un collaborateur. L'intégrer, c'est le brancher à vos données et vos outils pour qu'il agisse dans vos process, de façon mesurée et gouvernée. La première étape sensibilise, la seconde produit de la valeur en production. Ce guide vise la seconde, sans brûler la première."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Where do you start to deploy Claude in an SMB?",
+      "a": "You don't start with the tool but with a process. Pick a recurring, time-consuming, low-risk task: email triage, meeting notes, first-level replies. Frame the expected result, give Claude the context it needs, then measure the time saved. One successful first use case beats ten abandoned pilots."
+    },
+    {
+      "q": "Which Claude use cases have the highest ROI in an SMB?",
+      "a": "Five come up constantly: writing and rewriting content, summarising documents and meetings, first-level customer support, extracting data from documents, and automating repetitive tasks via the MCP protocol. The common thread: high volume, clear rules and a significant hourly cost. That's where AI pays off fastest."
+    },
+    {
+      "q": "Do you need to structure your data before deploying Claude?",
+      "a": "Yes, at least partially. Claude is only as good as the context you give it. Scattered, duplicated or outdated data produces fuzzy answers. Start by centralising what serves the first use case: a knowledge base, procedures, a clean history. No need to tidy everything at once, tidy what the agent will read."
+    },
+    {
+      "q": "How do you handle security and confidentiality with Claude?",
+      "a": "Three levers: a clear usage policy stating which data can go into the tool, professional accounts with data not used for training, and access framed via MCP rather than manual copy-pasting. Governance isn't a brake, it's what lets you deploy without sensitive data leaking through personal accounts."
+    },
+    {
+      "q": "What are the most frequent mistakes at the start?",
+      "a": "Wanting to automate everything at once, picking the tool before clarifying the process, neglecting team training, and forgetting to measure. Another classic mistake: automating an already inefficient process, which only accelerates it. The right approach stays a framed, measured use case, then expanded once proven."
+    },
+    {
+      "q": "How long to see concrete results?",
+      "a": "On a well-chosen use case, the first gains are visible within a few weeks. The 90-day plan chains three phases: frame and launch a first agent, make it reliable and train the teams, then expand to a second use. The goal isn't speed but a maturity ramp that holds over time."
+    },
+    {
+      "q": "Do you need a technical profile to deploy Claude?",
+      "a": "For the first conversational use cases, no: a good business understanding and clear processes are enough. To wire Claude to your tools via MCP and automate workflows, technical support speeds things up and secures them. The challenge is less coding than framing well what the agent must do, see and never touch."
+    },
+    {
+      "q": "What's the difference between using Claude and truly integrating it?",
+      "a": "Using Claude means opening it case by case to help an employee. Integrating it means wiring it to your data and tools so it acts within your processes, in a measured and governed way. The first step raises awareness, the second produces value in production. This guide aims for the second, without skipping the first."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : un déploiement de Claude branché aux outils d'une PME via le protocole MCP",
+      "media_alt_en": "Diagram: a Claude deployment wired to an SMB's tools via the MCP protocol",
+      "kicker_fr": "§ Guide pratique",
+      "kicker_en": "§ Practical guide",
+      "h1_fr": "Déployer <i class=\"acc\">Claude</i> dans votre PME.",
+      "h1_en": "Deploying <i class=\"acc\">Claude</i> in your SMB.",
+      "definition_kicker_fr": "De quoi parle ce guide ?",
+      "definition_kicker_en": "What is this guide about?",
+      "lede_fr": "Pas une démo de chatbot, un <i>plan de déploiement</i> : par où commencer, les cinq cas d'usage qui paient le plus vite, comment structurer vos données, cadrer la gouvernance et tenir les premiers 90 jours sans dérapage. Tout ce qu'on aurait aimé qu'on nous dise avant de se lancer.",
+      "lede_en": "Not a chatbot demo, a <i>deployment plan</i>: where to start, the five use cases that pay off fastest, how to structure your data, frame governance and hold the first 90 days without drift. Everything we'd have liked to be told before starting.",
+      "badges": [
+        {
+          "label_fr": "5 cas d'usage à fort ROI",
+          "label_en": "5 high-ROI use cases"
+        },
+        {
+          "label_fr": "Plan des 90 premiers jours",
+          "label_en": "First 90-day plan"
+        },
+        {
+          "label_fr": "Gouvernance et sécurité cadrées",
+          "label_en": "Governance and security framed"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit IA (45 min) →",
+        "label_en": "Book the AI audit (45 min) →",
+        "href": "/contact?offer=claude-pme&intent=guide",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les 5 cas d'usage",
+        "label_en": "See the 5 use cases",
+        "href": "#cas-usage",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment déployer Claude dans une PME ?",
+      "question_en": "How do you deploy Claude in an SMB?",
+      "term_fr": "Déploiement de Claude",
+      "term_en": "Claude deployment",
+      "answer_fr": "On déploie Claude dans une PME en partant d'un process, pas de l'outil. On choisit une tâche récurrente, chronophage et à faible risque, on donne à Claude le contexte et les données dont il a besoin, on cadre ce qu'il peut faire et ce qu'il ne touche jamais, puis on mesure le temps gagné. Une fois ce premier cas d'usage prouvé en production, on le fiabilise, on forme les équipes et on l'étend à un deuxième usage. Le bon déploiement avance par marches mesurées, pas par grand soir technologique : un agent qui marche vaut mieux que dix pilotes oubliés.",
+      "answer_en": "You deploy Claude in an SMB by starting from a process, not the tool. You pick a recurring, time-consuming, low-risk task, give Claude the context and data it needs, frame what it can do and what it never touches, then measure the time saved. Once this first use case is proven in production, you make it reliable, train the teams and expand to a second use. A good deployment advances in measured steps, not a technological big bang: one agent that works beats ten forgotten pilots."
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper",
+      "kicker_fr": "§ Les 5 cas d'usage",
+      "kicker_en": "§ The 5 use cases",
+      "h2_fr": "Là où Claude <i>paie le plus vite</i>",
+      "h2_en": "Where Claude <i>pays off fastest</i>",
+      "lede_fr": "Tous les usages ne se valent pas au démarrage. Visez le volume élevé, des règles claires et un coût horaire réel. Ces cinq familles cochent les trois cases et donnent un retour mesurable en quelques semaines.",
+      "lede_en": "Not all uses are equal at the start. Aim for high volume, clear rules and a real hourly cost. These five families tick all three boxes and deliver a measurable return within a few weeks.",
+      "rows": [
+        {
+          "kicker_fr": "Cas d'usage 01",
+          "kicker_en": "Use case 01",
+          "h3_fr": "Rédaction et reformulation",
+          "h3_en": "Writing and rewriting",
+          "body_fr": "Emails, propositions, descriptions produit, posts : tout ce qui se rédige à la chaîne. Claude part de vos notes brutes et produit un premier jet propre, dans votre ton. Le collaborateur relit et valide au lieu d'écrire de zéro, et le temps de rédaction fond.",
+          "body_en": "Emails, proposals, product descriptions, posts: everything written in volume. Claude starts from your raw notes and produces a clean first draft, in your tone. The employee reviews and approves instead of writing from scratch, and drafting time melts away.",
+          "points": [
+            {
+              "label_fr": "Premier jet en quelques secondes",
+              "label_en": "First draft in seconds"
+            },
+            {
+              "label_fr": "Ton et style maison respectés",
+              "label_en": "House tone and style kept"
+            },
+            {
+              "label_fr": "Relecture humaine, pas saisie",
+              "label_en": "Human review, not typing"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Cas d'usage 02",
+          "kicker_en": "Use case 02",
+          "h3_fr": "Synthèse de documents et réunions",
+          "h3_en": "Document and meeting synthesis",
+          "body_fr": "Contrats, rapports, transcriptions, fils d'emails interminables : Claude lit et restitue l'essentiel en points actionnables. Plus besoin de parcourir quarante pages pour trouver les trois décisions qui comptent. Le compte-rendu est prêt avant la fin de la pause café.",
+          "body_en": "Contracts, reports, transcripts, endless email threads: Claude reads and returns the essentials as actionable points. No more skimming forty pages to find the three decisions that matter. The summary is ready before the coffee break ends.",
+          "points": [
+            {
+              "label_fr": "L'essentiel, pas le bruit",
+              "label_en": "The essentials, not the noise"
+            },
+            {
+              "label_fr": "Décisions et actions extraites",
+              "label_en": "Decisions and actions extracted"
+            },
+            {
+              "label_fr": "Compte-rendu prêt à envoyer",
+              "label_en": "Summary ready to send"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Cas d'usage 03",
+          "kicker_en": "Use case 03",
+          "h3_fr": "Support client de premier niveau",
+          "h3_en": "First-level customer support",
+          "body_fr": "Branché à votre base de connaissances, Claude répond aux questions récurrentes avec vos propres réponses, et passe la main à l'humain dès que c'est sensible. Vos équipes traitent les cas complexes au lieu de répéter les mêmes réponses dix fois par jour.",
+          "body_en": "Wired to your knowledge base, Claude answers recurring questions with your own responses, and hands off to a human as soon as it's sensitive. Your teams handle complex cases instead of repeating the same answers ten times a day.",
+          "points": [
+            {
+              "label_fr": "Réponses tirées de votre base",
+              "label_en": "Answers drawn from your base"
+            },
+            {
+              "label_fr": "Passage de main si sensible",
+              "label_en": "Handoff if sensitive"
+            },
+            {
+              "label_fr": "Équipes sur les cas complexes",
+              "label_en": "Teams on the complex cases"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Cas d'usage 04",
+          "kicker_en": "Use case 04",
+          "h3_fr": "Extraction de données",
+          "h3_en": "Data extraction",
+          "body_fr": "Factures, devis, formulaires, PDF mal foutus : Claude lit des documents non structurés et en sort des données propres, prêtes pour votre CRM ou votre tableur. La saisie manuelle, source d'erreurs et de fatigue, disparaît du quotidien.",
+          "body_en": "Invoices, quotes, forms, messy PDFs: Claude reads unstructured documents and pulls out clean data, ready for your CRM or spreadsheet. Manual entry, a source of errors and fatigue, disappears from daily life.",
+          "points": [
+            {
+              "label_fr": "Documents non structurés lus",
+              "label_en": "Unstructured documents read"
+            },
+            {
+              "label_fr": "Données propres et exploitables",
+              "label_en": "Clean, usable data"
+            },
+            {
+              "label_fr": "Fin de la saisie manuelle",
+              "label_en": "End of manual entry"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Cas d'usage 05",
+          "kicker_en": "Use case 05",
+          "h3_fr": "Automatisation via MCP",
+          "h3_en": "Automation via MCP",
+          "body_fr": "Le protocole MCP branche Claude à vos outils : CRM, agenda, messagerie, base de données. Il ne se contente plus de répondre, il agit : crée une fiche, planifie un suivi, met à jour un statut. C'est le passage de l'assistant à l'agent qui fait le travail.",
+          "body_en": "The MCP protocol wires Claude to your tools: CRM, calendar, messaging, database. It no longer just answers, it acts: creates a record, schedules a follow-up, updates a status. That's the shift from assistant to agent that does the work.",
+          "points": [
+            {
+              "label_fr": "Branché à vos outils existants",
+              "label_en": "Wired to your existing tools"
+            },
+            {
+              "label_fr": "Agit, ne se contente pas de répondre",
+              "label_en": "Acts, doesn't just answer"
+            },
+            {
+              "label_fr": "Accès cadrés et tracés",
+              "label_en": "Framed and traced access"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Les 90 premiers jours",
+      "kicker_en": "§ The first 90 days",
+      "h2_fr": "Trois phases pour <i>démarrer juste</i>",
+      "h2_en": "Three phases to <i>start right</i>",
+      "intro_fr": "Le déploiement ne se joue pas en une semaine ni en un grand chantier. Trois phases de trente jours suffisent à transformer une intention en agent qui tourne, mesuré et adopté.",
+      "intro_en": "Deployment isn't won in a week nor in one big project. Three phases of thirty days are enough to turn an intention into a running agent, measured and adopted.",
+      "steps": [
+        {
+          "title_fr": "Jours 1 à 30 : cadrer et lancer",
+          "title_en": "Days 1 to 30: frame and launch",
+          "body_fr": "On choisit un seul cas d'usage à fort ROI, on rassemble les données et le contexte dont l'agent a besoin, on pose la politique d'usage et on lance un premier agent sur un périmètre limité. Objectif : un résultat mesurable, pas un projet parfait.",
+          "body_en": "You pick a single high-ROI use case, gather the data and context the agent needs, set the usage policy and launch a first agent on a limited scope. Goal: a measurable result, not a perfect project.",
+          "meta_fr": "Cadrage",
+          "meta_en": "Framing"
+        },
+        {
+          "title_fr": "Jours 31 à 60 : fiabiliser et former",
+          "title_en": "Days 31 to 60: make reliable and train",
+          "body_fr": "On affine l'agent sur les cas réels, on corrige ce qui dérape et on forme les équipes à formuler et vérifier. On désigne un référent IA interne pour que la compétence reste chez vous. La confiance se gagne sur des résultats répétés, pas sur une démo.",
+          "body_en": "You refine the agent on real cases, fix what drifts and train teams to phrase and verify. You appoint an internal AI lead so the skill stays with you. Trust is earned on repeated results, not on a demo.",
+          "meta_fr": "Fiabilisation",
+          "meta_en": "Reliability"
+        },
+        {
+          "title_fr": "Jours 61 à 90 : étendre et gouverner",
+          "title_en": "Days 61 to 90: expand and govern",
+          "body_fr": "Le premier agent prouvé, on ouvre un deuxième cas d'usage et on renforce la gouvernance : accès, traçabilité, mesure du gain. L'extension s'appuie sur ce qui marche déjà, jamais sur un pari neuf. La maturité monte d'une marche.",
+          "body_en": "With the first agent proven, you open a second use case and reinforce governance: access, traceability, gain measurement. Expansion builds on what already works, never on a fresh bet. Maturity moves up a step.",
+          "meta_fr": "Extension",
+          "meta_en": "Expansion"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Avant de vous lancer",
+      "kicker_en": "§ Before you start",
+      "heading_fr": "Six questions pour <i>partir du bon pied</i>",
+      "heading_en": "Six questions to <i>start on the right foot</i>",
+      "items": [
+        {
+          "label_fr": "Quel process récurrent et chronophage choisiriez-vous comme premier cas d'usage ?",
+          "label_en": "Which recurring, time-consuming process would you pick as a first use case?"
+        },
+        {
+          "label_fr": "Les données dont l'agent a besoin sont-elles centralisées, à jour et accessibles ?",
+          "label_en": "Is the data the agent needs centralised, up to date and accessible?"
+        },
+        {
+          "label_fr": "Avez-vous une politique d'usage qui dit quelles données peuvent passer dans l'outil ?",
+          "label_en": "Do you have a usage policy stating which data can go into the tool?"
+        },
+        {
+          "label_fr": "Vos équipes savent-elles formuler une demande et vérifier une réponse d'IA ?",
+          "label_en": "Do your teams know how to phrase a request and check an AI answer?"
+        },
+        {
+          "label_fr": "Avez-vous désigné un référent interne pour porter le sujet dans la durée ?",
+          "label_en": "Have you appointed an internal lead to carry the topic over time?"
+        },
+        {
+          "label_fr": "Saurez-vous mesurer le gain : temps économisé, erreurs évitées, volume traité ?",
+          "label_en": "Will you be able to measure the gain: time saved, errors avoided, volume handled?"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Audit gratuit",
+          "kicker_en": "Free audit",
+          "title_fr": "Audit IA pour PME",
+          "title_en": "AI audit for SMBs",
+          "lead_fr": "La suite concrète de ce guide : 45 min pour identifier le premier process à automatiser et chiffrer le gain, avant d'écrire la moindre ligne.",
+          "lead_en": "The concrete follow-up to this guide: 45 min to identify the first process to automate and size the gain, before writing a single line.",
+          "href": "/contact"
+        },
+        {
+          "kicker_fr": "Diagnostic",
+          "kicker_en": "Diagnostic",
+          "title_fr": "Maturité IA : où en êtes-vous ?",
+          "title_en": "AI maturity: where do you stand?",
+          "lead_fr": "Avant de déployer, situez-vous : la grille des cinq niveaux et les dimensions qui décident du bon prochain pas.",
+          "lead_en": "Before deploying, place yourself: the five-level grid and the dimensions that decide the right next step.",
+          "href": "/ressources/diagnostics/maturite-ia"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégrateur Claude",
+          "title_en": "Claude integrator",
+          "lead_fr": "Quand les fondations sont là : déployer Claude et ses agents dans votre entreprise, branchés à vos outils via le protocole MCP.",
+          "lead_en": "When the foundations are there: deploying Claude and its agents in your company, wired to your tools via the MCP protocol.",
+          "href": "/services/integrateur-claude"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Par où commencer pour déployer Claude dans une PME ?",
+          "q_en": "Where do you start to deploy Claude in an SMB?",
+          "a_fr": "On ne commence pas par l'outil mais par un process. Choisissez une tâche récurrente, chronophage et à faible risque : tri d'emails, rédaction de comptes-rendus, réponses de premier niveau. Cadrez le résultat attendu, donnez à Claude le contexte dont il a besoin, puis mesurez le temps gagné. Un premier cas d'usage réussi vaut mieux que dix pilotes abandonnés.",
+          "a_en": "You don't start with the tool but with a process. Pick a recurring, time-consuming, low-risk task: email triage, meeting notes, first-level replies. Frame the expected result, give Claude the context it needs, then measure the time saved. One successful first use case beats ten abandoned pilots."
+        },
+        {
+          "q_fr": "Quels sont les cas d'usage Claude à plus fort ROI en PME ?",
+          "q_en": "Which Claude use cases have the highest ROI in an SMB?",
+          "a_fr": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que l'IA paie le plus vite.",
+          "a_en": "Five come up constantly: writing and rewriting content, summarising documents and meetings, first-level customer support, extracting data from documents, and automating repetitive tasks via the MCP protocol. The common thread: high volume, clear rules and a significant hourly cost. That's where AI pays off fastest."
+        },
+        {
+          "q_fr": "Faut-il structurer ses données avant de déployer Claude ?",
+          "q_en": "Do you need to structure your data before deploying Claude?",
+          "a_fr": "Oui, au moins partiellement. Claude est aussi bon que le contexte qu'on lui donne. Des données éparpillées, en doublon ou périmées produisent des réponses floues. Commencez par centraliser ce qui sert au premier cas d'usage : une base de connaissances, des procédures, un historique propre. Inutile de tout ranger d'un coup, rangez ce que l'agent va lire.",
+          "a_en": "Yes, at least partially. Claude is only as good as the context you give it. Scattered, duplicated or outdated data produces fuzzy answers. Start by centralising what serves the first use case: a knowledge base, procedures, a clean history. No need to tidy everything at once, tidy what the agent will read."
+        },
+        {
+          "q_fr": "Comment gérer la sécurité et la confidentialité avec Claude ?",
+          "q_en": "How do you handle security and confidentiality with Claude?",
+          "a_fr": "Trois leviers : une politique d'usage claire qui dit quelles données peuvent passer dans l'outil, des comptes professionnels avec données non utilisées pour l'entraînement, et un cadrage des accès via MCP plutôt que des copier-coller manuels. La gouvernance n'est pas un frein, c'est ce qui permet de déployer sans que des données sensibles fuitent par des comptes personnels.",
+          "a_en": "Three levers: a clear usage policy stating which data can go into the tool, professional accounts with data not used for training, and access framed via MCP rather than manual copy-pasting. Governance isn't a brake, it's what lets you deploy without sensitive data leaking through personal accounts."
+        },
+        {
+          "q_fr": "Quelles sont les erreurs les plus fréquentes au démarrage ?",
+          "q_en": "What are the most frequent mistakes at the start?",
+          "a_fr": "Vouloir tout automatiser d'un coup, choisir l'outil avant d'avoir clarifié le process, négliger la formation des équipes, et oublier de mesurer. Une autre erreur classique : automatiser un process déjà inefficace, ce qui ne fait que l'accélérer. La bonne approche reste un cas d'usage cadré, mesuré, puis étendu une fois prouvé.",
+          "a_en": "Wanting to automate everything at once, picking the tool before clarifying the process, neglecting team training, and forgetting to measure. Another classic mistake: automating an already inefficient process, which only accelerates it. The right approach stays a framed, measured use case, then expanded once proven."
+        },
+        {
+          "q_fr": "Combien de temps pour voir des résultats concrets ?",
+          "q_en": "How long to see concrete results?",
+          "a_fr": "Sur un cas d'usage bien choisi, les premiers gains sont visibles en quelques semaines. Le plan des 90 jours sert à enchaîner trois phases : cadrer et lancer un premier agent, le fiabiliser et former les équipes, puis étendre à un deuxième usage. L'objectif n'est pas la vitesse mais une montée en maturité qui tient dans la durée.",
+          "a_en": "On a well-chosen use case, the first gains are visible within a few weeks. The 90-day plan chains three phases: frame and launch a first agent, make it reliable and train the teams, then expand to a second use. The goal isn't speed but a maturity ramp that holds over time."
+        },
+        {
+          "q_fr": "Faut-il un profil technique pour déployer Claude ?",
+          "q_en": "Do you need a technical profile to deploy Claude?",
+          "a_fr": "Pour les premiers cas d'usage conversationnels, non : une bonne compréhension métier et des process clairs suffisent. Pour brancher Claude à vos outils via MCP et automatiser des workflows, un accompagnement technique accélère et sécurise. L'enjeu est moins de coder que de bien cadrer ce que l'agent doit faire, voir et ne jamais toucher.",
+          "a_en": "For the first conversational use cases, no: a good business understanding and clear processes are enough. To wire Claude to your tools via MCP and automate workflows, technical support speeds things up and secures them. The challenge is less coding than framing well what the agent must do, see and never touch."
+        },
+        {
+          "q_fr": "Quelle différence entre utiliser Claude et l'intégrer vraiment ?",
+          "q_en": "What's the difference between using Claude and truly integrating it?",
+          "a_fr": "Utiliser Claude, c'est l'ouvrir au cas par cas pour aider un collaborateur. L'intégrer, c'est le brancher à vos données et vos outils pour qu'il agisse dans vos process, de façon mesurée et gouvernée. La première étape sensibilise, la seconde produit de la valeur en production. Ce guide vise la seconde, sans brûler la première.",
+          "a_en": "Using Claude means opening it case by case to help an employee. Integrating it means wiring it to your data and tools so it acts within your processes, in a measured and governed way. The first step raises awareness, the second produces value in production. This guide aims for the second, without skipping the first."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à passer du guide à l'action ?",
+      "kicker_en": "§ Ready to go from guide to action?",
+      "h2_fr": "Vous savez par où commencer. <i>Cadrons</i> votre premier agent.",
+      "h2_en": "You know where to start. <i>Let's</i> frame your first agent.",
+      "subtitle_fr": "L'audit IA gratuit de 45 min transforme ce guide en plan concret : on part de votre réalité pour identifier le premier process à automatiser et chiffrer le gain. Sans engagement.",
+      "subtitle_en": "The free 45-min AI audit turns this guide into a concrete plan: we start from your reality to identify the first process to automate and size the gain. No commitment.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit IA (45 min) →",
+          "label_en": "Book the AI audit (45 min) →",
+          "href": "/contact?offer=claude-pme&intent=guide",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'audit IA pour PME",
+          "label_en": "See the AI audit for SMBs",
+          "href": "/contact",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

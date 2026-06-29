@@ -1,0 +1,475 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Checklist de déploiement de Claude en entreprise · les 6 prérequis",
+  "title_en": "Claude enterprise deployment checklist · the 6 prerequisites",
+  "description_fr": "Checklist pour déployer Claude en entreprise : prérequis données, sécurité, choix des cas d'usage, formation, mesure du ROI et gouvernance, étape par étape.",
+  "description_en": "Checklist to deploy Claude in your company: data prerequisites, security, use-case selection, training, ROI measurement and governance, step by step.",
+  "slug": "checklist-deploiement-claude",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-06-29T00:00:00.000Z",
+  "category": "gouvernance",
+  "tags": [
+    "deploiement-claude",
+    "gouvernance-ia",
+    "integrateur-claude",
+    "securite-ia",
+    "conduite-du-changement",
+    "roi-ia"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Par où commencer un déploiement de Claude en entreprise ?",
+      "a": "On commence par les données, pas par l'outil. Avant d'ouvrir le moindre compte, on identifie quelles données Claude devra lire, où elles vivent et lesquelles ne doivent jamais y passer. On choisit ensuite un seul cas d'usage à fort volume et faible risque pour le pilote. Ouvrir vingt licences sans ce cadrage est la façon la plus sûre de gaspiller un budget et de créer du risque."
+    },
+    {
+      "q": "Mes données restent-elles confidentielles avec Claude ?",
+      "a": "Sur les offres entreprise et API d'Anthropic, vos données ne sont pas utilisées pour entraîner les modèles par défaut, et la rétention peut être encadrée par contrat. Le vrai risque n'est pas le modèle, c'est l'usage non gouverné : des collaborateurs qui collent des données sensibles dans des comptes personnels gratuits. La parade est une politique d'usage claire et des accès cadrés, pas l'interdiction."
+    },
+    {
+      "q": "Comment choisir le premier cas d'usage à déployer ?",
+      "a": "Le bon premier cas coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, et un résultat mesurable. Rédaction de comptes rendus, tri d'emails entrants, première réponse au support, synthèse de documents sont d'excellents candidats. On évite pour le pilote tout ce qui touche une décision irréversible ou une donnée très sensible."
+    },
+    {
+      "q": "Faut-il former les équipes ou Claude suffit-il seul ?",
+      "a": "La formation décide de l'adoption. Un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité. Comptez une demi-journée pour les bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais. Désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines."
+    },
+    {
+      "q": "Comment mesurer le ROI d'un déploiement de Claude ?",
+      "a": "On mesure avant de déployer, sinon le gain reste une impression. Sur le cas pilote, on note le temps passé et le taux d'erreur actuels, puis on compare après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes, en délais raccourcis et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité et finit par être coupé."
+    },
+    {
+      "q": "Qu'est-ce que le protocole MCP et pourquoi il compte ?",
+      "a": "Le MCP, Model Context Protocol, est le standard ouvert qui connecte Claude à vos outils : CRM, base documentaire, agenda, ticketing. C'est ce qui fait passer Claude d'un assistant de conversation à un agent qui agit sur vos données réelles. Bien posée, cette couche d'intégration est ce qui transforme un pilote sympathique en gain durable et mesurable."
+    },
+    {
+      "q": "Combien de temps prend un déploiement bien mené ?",
+      "a": "Un pilote cadré se monte en deux à quatre semaines : cadrage des données et de la sécurité, branchement d'un cas d'usage, formation courte, première mesure. L'extension à d'autres workflows vient ensuite, par paliers, une fois le premier gain prouvé. Vouloir tout brancher d'un coup est le meilleur moyen de ne rien livrer en production."
+    },
+    {
+      "q": "Cette checklist remplace-t-elle un accompagnement ?",
+      "a": "Non. Elle vous donne la trame pour ne rien oublier et discuter d'égal à égal avec un intégrateur. Si vous voulez la transformer en plan daté pour votre contexte, l'audit IA gratuit de 45 min part de votre réalité, identifie le premier process à automatiser et chiffre le gain attendu. Sans engagement."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Where do you start a Claude deployment in a company?",
+      "a": "You start with data, not with the tool. Before opening a single account, you identify which data Claude will read, where it lives and which must never go through it. You then pick a single high-volume, low-risk use case for the pilot. Opening twenty licences without this framing is the surest way to waste a budget and create risk."
+    },
+    {
+      "q": "Does my data stay confidential with Claude?",
+      "a": "On Anthropic's enterprise and API offers, your data isn't used to train the models by default, and retention can be governed by contract. The real risk isn't the model, it's ungoverned usage: employees pasting sensitive data into free personal accounts. The fix is a clear usage policy and framed access, not a ban."
+    },
+    {
+      "q": "How do you choose the first use case to deploy?",
+      "a": "A good first case ticks three boxes: a volume repeated each week, low risk if it errs, and a measurable result. Drafting minutes, triaging inbound email, first support reply and document summarisation are excellent candidates. For the pilot you avoid anything touching an irreversible decision or very sensitive data."
+    },
+    {
+      "q": "Do teams need training or does Claude work alone?",
+      "a": "Training decides adoption. A tool no one masters stays on the shelf, whatever its quality. Count half a day for the right reflexes: phrasing a request, checking a response, spotting what you never paste in. Appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks."
+    },
+    {
+      "q": "How do you measure the ROI of a Claude deployment?",
+      "a": "You measure before deploying, otherwise the gain stays a feeling. On the pilot case, you note the current time spent and error rate, then compare after a few weeks of real use. ROI reads in hours given back to teams, shortened delays and tasks that no longer come back. An unmeasured case can't be defended in committee and ends up cut."
+    },
+    {
+      "q": "What is the MCP protocol and why does it matter?",
+      "a": "MCP, the Model Context Protocol, is the open standard that connects Claude to your tools: CRM, document base, calendar, ticketing. It's what turns Claude from a conversation assistant into an agent that acts on your real data. Done well, this integration layer is what turns a pleasant pilot into a durable, measurable gain."
+    },
+    {
+      "q": "How long does a well-run deployment take?",
+      "a": "A framed pilot is built in two to four weeks: data and security framing, wiring a use case, short training, first measurement. Expansion to other workflows comes next, in steps, once the first gain is proven. Trying to wire everything at once is the best way to ship nothing to production."
+    },
+    {
+      "q": "Does this checklist replace hands-on support?",
+      "a": "No. It gives you the frame to forget nothing and talk on equal terms with an integrator. If you want to turn it into a dated plan for your context, the free 45-min AI audit starts from your reality, identifies the first process to automate and sizes the expected gain. No commitment."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : une checklist de six prérequis pour déployer Claude, des données à la gouvernance",
+      "media_alt_en": "Diagram: a six-prerequisite checklist to deploy Claude, from data to governance",
+      "kicker_fr": "§ Guide de déploiement",
+      "kicker_en": "§ Deployment guide",
+      "h1_fr": "Checklist de déploiement de <i class=\"acc\">Claude</i>.",
+      "h1_en": "Claude <i class=\"acc\">deployment</i> checklist.",
+      "definition_kicker_fr": "Qu'est-ce qu'un déploiement réussi ?",
+      "definition_kicker_en": "What is a successful deployment?",
+      "lede_fr": "Déployer Claude en entreprise ne consiste pas à <i>distribuer des licences</i>. C'est poser six prérequis dans le bon ordre : données, sécurité, cas d'usage, formation, mesure du ROI et gouvernance. Cette checklist vous donne la trame actionnable pour ne rien oublier, avant d'ouvrir le premier compte.",
+      "lede_en": "Deploying Claude in a company isn't about <i>handing out licences</i>. It's laying six prerequisites in the right order: data, security, use case, training, ROI measurement and governance. This checklist gives you the actionable frame to forget nothing, before opening the first account.",
+      "badges": [
+        {
+          "label_fr": "6 prérequis · 1 ordre",
+          "label_en": "6 prerequisites · 1 order"
+        },
+        {
+          "label_fr": "Pilote en 2 à 4 semaines",
+          "label_en": "Pilot in 2 to 4 weeks"
+        },
+        {
+          "label_fr": "Sécurité avant licences",
+          "label_en": "Security before licences"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit IA (45 min) →",
+        "label_en": "Book the AI audit (45 min) →",
+        "href": "/contact?offer=checklist-deploiement-claude&intent=deploiement",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les 6 prérequis",
+        "label_en": "See the 6 prerequisites",
+        "href": "#prerequis",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment déployer Claude en entreprise sans se tromper ?",
+      "question_en": "How do you deploy Claude in a company without getting it wrong?",
+      "term_fr": "Déploiement de Claude",
+      "term_en": "Claude deployment",
+      "answer_fr": "On déploie Claude en suivant six prérequis dans l'ordre : cartographier les données qu'il devra lire, poser le cadre de sécurité et de confidentialité, choisir un seul cas d'usage à fort volume et faible risque, former les équipes aux bons réflexes, mesurer le ROI avant et après, puis installer la gouvernance qui pérennise l'usage. L'erreur la plus coûteuse est d'inverser cet ordre, en distribuant des licences avant d'avoir cadré données et sécurité. Un déploiement réussi tient à la solidité de ces fondations, pas au nombre de comptes ouverts.",
+      "answer_en": "You deploy Claude by following six prerequisites in order: map the data it will read, lay the security and confidentiality frame, pick a single high-volume, low-risk use case, train teams on the right reflexes, measure ROI before and after, then install the governance that sustains usage. The costliest mistake is reversing that order, handing out licences before framing data and security. A successful deployment rests on the strength of these foundations, not on the number of accounts opened."
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper",
+      "kicker_fr": "§ Les 6 prérequis",
+      "kicker_en": "§ The 6 prerequisites",
+      "h2_fr": "Ce qu'il faut <i>poser</i> avant le premier compte",
+      "h2_en": "What to <i>lay</i> before the first account",
+      "lede_fr": "Six prérequis, un ordre. Chacun conditionne le suivant : sauter une étape ne fait pas gagner du temps, ça déplace le problème plus loin, là où il coûte plus cher à corriger.",
+      "lede_en": "Six prerequisites, one order. Each conditions the next: skipping a step doesn't save time, it pushes the problem further down, where it costs more to fix.",
+      "rows": [
+        {
+          "kicker_fr": "Prérequis 01",
+          "kicker_en": "Prerequisite 01",
+          "h3_fr": "Données",
+          "h3_en": "Data",
+          "body_fr": "Avant tout, cartographiez ce que Claude devra lire : CRM, base documentaire, emails, agenda. Où vivent ces données, dans quel état, et lesquelles ne doivent jamais sortir ? Des données éparpillées et sales produisent des réponses floues, quel que soit le modèle branché dessus.",
+          "body_en": "First, map what Claude will read: CRM, document base, emails, calendar. Where does this data live, in what state, and which must never leave? Scattered, dirty data produces fuzzy answers, whatever model is wired to it.",
+          "points": [
+            {
+              "label_fr": "Sources cartographiées",
+              "label_en": "Sources mapped"
+            },
+            {
+              "label_fr": "Données sensibles repérées",
+              "label_en": "Sensitive data flagged"
+            },
+            {
+              "label_fr": "Accessibles via MCP",
+              "label_en": "Accessible via MCP"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 02",
+          "kicker_en": "Prerequisite 02",
+          "h3_fr": "Sécurité et confidentialité",
+          "h3_en": "Security and confidentiality",
+          "body_fr": "Décidez quelles données peuvent passer dans Claude et lesquelles non, et écrivez-le. Sur les offres entreprise, vos données n'entraînent pas les modèles par défaut. Le vrai risque, c'est l'usage non cadré : des comptes personnels gratuits où circulent des données sensibles. Cadrez les accès plutôt que d'interdire.",
+          "body_en": "Decide which data can go into Claude and which can't, and write it down. On enterprise offers, your data doesn't train the models by default. The real risk is unframed usage: free personal accounts where sensitive data flows. Frame access rather than ban it.",
+          "points": [
+            {
+              "label_fr": "Politique d'usage écrite",
+              "label_en": "Written usage policy"
+            },
+            {
+              "label_fr": "Conformité RGPD vérifiée",
+              "label_en": "GDPR compliance checked"
+            },
+            {
+              "label_fr": "Comptes pro, pas personnels",
+              "label_en": "Pro accounts, not personal"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 03",
+          "kicker_en": "Prerequisite 03",
+          "h3_fr": "Choix du cas d'usage",
+          "h3_en": "Use-case selection",
+          "body_fr": "Choisissez un seul cas pour le pilote, pas dix. Le bon coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, un résultat mesurable. Comptes rendus, tri d'emails, première réponse au support : d'excellents candidats. On garde les décisions irréversibles pour plus tard.",
+          "body_en": "Pick a single case for the pilot, not ten. The good one ticks three boxes: a volume repeated each week, low risk if it errs, a measurable result. Minutes, email triage, first support reply: excellent candidates. Irreversible decisions are kept for later.",
+          "points": [
+            {
+              "label_fr": "Volume répété, hebdomadaire",
+              "label_en": "Repeated, weekly volume"
+            },
+            {
+              "label_fr": "Risque faible en cas d'erreur",
+              "label_en": "Low risk if it errs"
+            },
+            {
+              "label_fr": "Résultat mesurable",
+              "label_en": "Measurable result"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 04",
+          "kicker_en": "Prerequisite 04",
+          "h3_fr": "Formation des équipes",
+          "h3_en": "Team training",
+          "body_fr": "La formation décide de l'adoption : un outil que personne ne maîtrise reste sur l'étagère. Comptez une demi-journée pour les bons réflexes, puis désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines.",
+          "body_en": "Training decides adoption: a tool no one masters stays on the shelf. Count half a day for the right reflexes, then appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks.",
+          "points": [
+            {
+              "label_fr": "Formuler et vérifier",
+              "label_en": "Phrase and check"
+            },
+            {
+              "label_fr": "Un référent IA interne",
+              "label_en": "An internal AI lead"
+            },
+            {
+              "label_fr": "Bibliothèque de prompts",
+              "label_en": "Prompt library"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 05",
+          "kicker_en": "Prerequisite 05",
+          "h3_fr": "Mesure du ROI",
+          "h3_en": "ROI measurement",
+          "body_fr": "Mesurez avant de déployer, sinon le gain reste une impression. Notez le temps passé et le taux d'erreur actuels sur le cas pilote, puis comparez après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité.",
+          "body_en": "Measure before deploying, otherwise the gain stays a feeling. Note current time spent and error rate on the pilot case, then compare after a few weeks of real use. ROI reads in hours given back to teams and tasks that no longer come back. An unmeasured case can't be defended in committee.",
+          "points": [
+            {
+              "label_fr": "Baseline avant déploiement",
+              "label_en": "Baseline before deployment"
+            },
+            {
+              "label_fr": "Heures rendues mesurées",
+              "label_en": "Hours given back measured"
+            },
+            {
+              "label_fr": "Comparaison avant/après",
+              "label_en": "Before/after comparison"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 06",
+          "kicker_en": "Prerequisite 06",
+          "h3_fr": "Gouvernance",
+          "h3_en": "Governance",
+          "body_fr": "La gouvernance pérennise ce qui marche : qui valide un nouveau cas d'usage, qui révise la politique, comment on étend sans recréer le chaos. Ce n'est pas un frein, c'est ce qui permet de passer du pilote à l'échelle sans que chaque équipe réinvente ses propres règles dans son coin.",
+          "body_en": "Governance sustains what works: who validates a new use case, who revises the policy, how you scale without recreating chaos. It isn't a brake, it's what lets you move from pilot to scale without each team reinventing its own rules in a corner.",
+          "points": [
+            {
+              "label_fr": "Validation des nouveaux cas",
+              "label_en": "New-case validation"
+            },
+            {
+              "label_fr": "Politique révisée régulièrement",
+              "label_en": "Policy revised regularly"
+            },
+            {
+              "label_fr": "Extension par paliers",
+              "label_en": "Expansion in steps"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le déroulé",
+      "kicker_en": "§ The sequence",
+      "h2_fr": "Comment <i>enchaîner</i> les étapes",
+      "h2_en": "How to <i>chain</i> the steps",
+      "intro_fr": "Un déploiement bien mené se déroule en trois temps. Chacun se valide avant de passer au suivant, sinon on empile des fondations bancales.",
+      "intro_en": "A well-run deployment unfolds in three phases. Each is validated before moving to the next, otherwise you stack shaky foundations.",
+      "steps": [
+        {
+          "title_fr": "Semaine 1 : cadrer données et sécurité",
+          "title_en": "Week 1: frame data and security",
+          "body_fr": "On cartographie les sources, on repère les données sensibles et on écrit la politique d'usage. Rien n'est branché tant que ce cadre n'est pas posé. C'est l'étape la moins spectaculaire et la plus déterminante du déploiement.",
+          "body_en": "We map the sources, flag sensitive data and write the usage policy. Nothing is wired until that frame is laid. It's the least spectacular and most decisive step of the deployment.",
+          "meta_fr": "Fondations",
+          "meta_en": "Foundations"
+        },
+        {
+          "title_fr": "Semaines 2 et 3 : brancher le cas pilote",
+          "title_en": "Weeks 2 and 3: wire the pilot case",
+          "body_fr": "On connecte Claude au seul cas d'usage retenu via le protocole MCP, on forme les utilisateurs concernés et on relève la baseline. Le pilote tourne sur un périmètre limité, mesuré, et réversible si besoin.",
+          "body_en": "We connect Claude to the single chosen use case via the MCP protocol, train the users involved and record the baseline. The pilot runs on a limited, measured and reversible scope if needed.",
+          "meta_fr": "Pilote",
+          "meta_en": "Pilot"
+        },
+        {
+          "title_fr": "Semaine 4 et au-delà : mesurer puis étendre",
+          "title_en": "Week 4 and beyond: measure then expand",
+          "body_fr": "On compare avant/après, on défend le gain en comité, puis on installe la gouvernance et on étend à un deuxième workflow. L'extension suit la preuve, jamais l'inverse : on ne généralise que ce qui a déjà fait ses preuves.",
+          "body_en": "We compare before/after, defend the gain in committee, then install governance and expand to a second workflow. Expansion follows proof, never the reverse: we only generalise what has already proven itself.",
+          "meta_fr": "Extension",
+          "meta_en": "Expansion"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Avant de lancer",
+      "kicker_en": "§ Before you launch",
+      "heading_fr": "Six questions pour <i>vous valider</i>",
+      "heading_en": "Six questions to <i>validate yourself</i>",
+      "items": [
+        {
+          "label_fr": "Savez-vous précisément quelles données Claude devra lire, et où elles vivent aujourd'hui ?",
+          "label_en": "Do you know precisely which data Claude will read, and where it lives today?"
+        },
+        {
+          "label_fr": "Avez-vous écrit une politique disant quelles données peuvent passer dans l'IA et lesquelles non ?",
+          "label_en": "Have you written a policy stating which data can go into the AI and which can't?"
+        },
+        {
+          "label_fr": "Avez-vous choisi un seul cas d'usage pilote, à fort volume et faible risque ?",
+          "label_en": "Have you picked a single pilot use case, high-volume and low-risk?"
+        },
+        {
+          "label_fr": "Un référent IA interne est-il désigné pour entretenir l'usage après la formation ?",
+          "label_en": "Is an internal AI lead appointed to sustain usage after training?"
+        },
+        {
+          "label_fr": "Avez-vous relevé une baseline de temps et d'erreur avant de déployer le pilote ?",
+          "label_en": "Have you recorded a baseline of time and error before deploying the pilot?"
+        },
+        {
+          "label_fr": "Sait-on qui valide un nouveau cas d'usage et comment on étend sans recréer le chaos ?",
+          "label_en": "Do you know who validates a new use case and how you expand without recreating chaos?"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Audit gratuit",
+          "kicker_en": "Free audit",
+          "title_fr": "Audit IA pour PME",
+          "title_en": "AI audit for SMBs",
+          "lead_fr": "La suite concrète de cette checklist : 45 min pour transformer la trame en plan daté et identifier le premier process à automatiser chez vous.",
+          "lead_en": "The concrete follow-up to this checklist: 45 min to turn the frame into a dated plan and identify the first process to automate at your company.",
+          "href": "/contact"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégrateur Claude",
+          "title_en": "Claude integrator",
+          "lead_fr": "Le déploiement mené de bout en bout : brancher Claude et ses agents à vos outils via le protocole MCP, sécurité et gouvernance comprises.",
+          "lead_en": "The deployment run end to end: wiring Claude and its agents to your tools via the MCP protocol, security and governance included.",
+          "href": "/services/integrateur-claude"
+        },
+        {
+          "kicker_fr": "Diagnostic",
+          "kicker_en": "Diagnostic",
+          "title_fr": "Maturité IA : les 5 niveaux",
+          "title_en": "AI maturity: the 5 levels",
+          "lead_fr": "Avant de déployer, situez-vous : la grille des cinq niveaux et les dimensions qui décident de votre prochaine marche.",
+          "lead_en": "Before deploying, place yourself: the five-level grid and the dimensions that decide your next step.",
+          "href": "/ressources/diagnostics/maturite-ia"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Par où commencer un déploiement de Claude en entreprise ?",
+          "q_en": "Where do you start a Claude deployment in a company?",
+          "a_fr": "On commence par les données, pas par l'outil. Avant d'ouvrir le moindre compte, on identifie quelles données Claude devra lire, où elles vivent et lesquelles ne doivent jamais y passer. On choisit ensuite un seul cas d'usage à fort volume et faible risque pour le pilote. Ouvrir vingt licences sans ce cadrage est la façon la plus sûre de gaspiller un budget et de créer du risque.",
+          "a_en": "You start with data, not with the tool. Before opening a single account, you identify which data Claude will read, where it lives and which must never go through it. You then pick a single high-volume, low-risk use case for the pilot. Opening twenty licences without this framing is the surest way to waste a budget and create risk."
+        },
+        {
+          "q_fr": "Mes données restent-elles confidentielles avec Claude ?",
+          "q_en": "Does my data stay confidential with Claude?",
+          "a_fr": "Sur les offres entreprise et API d'Anthropic, vos données ne sont pas utilisées pour entraîner les modèles par défaut, et la rétention peut être encadrée par contrat. Le vrai risque n'est pas le modèle, c'est l'usage non gouverné : des collaborateurs qui collent des données sensibles dans des comptes personnels gratuits. La parade est une politique d'usage claire et des accès cadrés, pas l'interdiction.",
+          "a_en": "On Anthropic's enterprise and API offers, your data isn't used to train the models by default, and retention can be governed by contract. The real risk isn't the model, it's ungoverned usage: employees pasting sensitive data into free personal accounts. The fix is a clear usage policy and framed access, not a ban."
+        },
+        {
+          "q_fr": "Comment choisir le premier cas d'usage à déployer ?",
+          "q_en": "How do you choose the first use case to deploy?",
+          "a_fr": "Le bon premier cas coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, et un résultat mesurable. Rédaction de comptes rendus, tri d'emails entrants, première réponse au support, synthèse de documents sont d'excellents candidats. On évite pour le pilote tout ce qui touche une décision irréversible ou une donnée très sensible.",
+          "a_en": "A good first case ticks three boxes: a volume repeated each week, low risk if it errs, and a measurable result. Drafting minutes, triaging inbound email, first support reply and document summarisation are excellent candidates. For the pilot you avoid anything touching an irreversible decision or very sensitive data."
+        },
+        {
+          "q_fr": "Faut-il former les équipes ou Claude suffit-il seul ?",
+          "q_en": "Do teams need training or does Claude work alone?",
+          "a_fr": "La formation décide de l'adoption. Un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité. Comptez une demi-journée pour les bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais. Désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines.",
+          "a_en": "Training decides adoption. A tool no one masters stays on the shelf, whatever its quality. Count half a day for the right reflexes: phrasing a request, checking a response, spotting what you never paste in. Appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks."
+        },
+        {
+          "q_fr": "Comment mesurer le ROI d'un déploiement de Claude ?",
+          "q_en": "How do you measure the ROI of a Claude deployment?",
+          "a_fr": "On mesure avant de déployer, sinon le gain reste une impression. Sur le cas pilote, on note le temps passé et le taux d'erreur actuels, puis on compare après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes, en délais raccourcis et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité et finit par être coupé.",
+          "a_en": "You measure before deploying, otherwise the gain stays a feeling. On the pilot case, you note the current time spent and error rate, then compare after a few weeks of real use. ROI reads in hours given back to teams, shortened delays and tasks that no longer come back. An unmeasured case can't be defended in committee and ends up cut."
+        },
+        {
+          "q_fr": "Qu'est-ce que le protocole MCP et pourquoi il compte ?",
+          "q_en": "What is the MCP protocol and why does it matter?",
+          "a_fr": "Le MCP, Model Context Protocol, est le standard ouvert qui connecte Claude à vos outils : CRM, base documentaire, agenda, ticketing. C'est ce qui fait passer Claude d'un assistant de conversation à un agent qui agit sur vos données réelles. Bien posée, cette couche d'intégration est ce qui transforme un pilote sympathique en gain durable et mesurable.",
+          "a_en": "MCP, the Model Context Protocol, is the open standard that connects Claude to your tools: CRM, document base, calendar, ticketing. It's what turns Claude from a conversation assistant into an agent that acts on your real data. Done well, this integration layer is what turns a pleasant pilot into a durable, measurable gain."
+        },
+        {
+          "q_fr": "Combien de temps prend un déploiement bien mené ?",
+          "q_en": "How long does a well-run deployment take?",
+          "a_fr": "Un pilote cadré se monte en deux à quatre semaines : cadrage des données et de la sécurité, branchement d'un cas d'usage, formation courte, première mesure. L'extension à d'autres workflows vient ensuite, par paliers, une fois le premier gain prouvé. Vouloir tout brancher d'un coup est le meilleur moyen de ne rien livrer en production.",
+          "a_en": "A framed pilot is built in two to four weeks: data and security framing, wiring a use case, short training, first measurement. Expansion to other workflows comes next, in steps, once the first gain is proven. Trying to wire everything at once is the best way to ship nothing to production."
+        },
+        {
+          "q_fr": "Cette checklist remplace-t-elle un accompagnement ?",
+          "q_en": "Does this checklist replace hands-on support?",
+          "a_fr": "Non. Elle vous donne la trame pour ne rien oublier et discuter d'égal à égal avec un intégrateur. Si vous voulez la transformer en plan daté pour votre contexte, l'audit IA gratuit de 45 min part de votre réalité, identifie le premier process à automatiser et chiffre le gain attendu. Sans engagement.",
+          "a_en": "No. It gives you the frame to forget nothing and talk on equal terms with an integrator. If you want to turn it into a dated plan for your context, the free 45-min AI audit starts from your reality, identifies the first process to automate and sizes the expected gain. No commitment."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à passer de la checklist au plan ?",
+      "kicker_en": "§ Ready to go from checklist to plan?",
+      "h2_fr": "Vous avez la trame. <i>Posons</i> votre premier chantier.",
+      "h2_en": "You have the frame. <i>Let's</i> lay your first project.",
+      "subtitle_fr": "L'audit IA gratuit de 45 min transforme cette checklist en plan daté pour votre contexte : on part de votre réalité, on identifie le premier process à automatiser et on chiffre le gain attendu. Sans engagement.",
+      "subtitle_en": "The free 45-min AI audit turns this checklist into a dated plan for your context: we start from your reality, identify the first process to automate and size the expected gain. No commitment.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit IA (45 min) →",
+          "label_en": "Book the AI audit (45 min) →",
+          "href": "/contact?offer=checklist-deploiement-claude&intent=deploiement",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'intégrateur Claude",
+          "label_en": "See the Claude integrator",
+          "href": "/services/integrateur-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

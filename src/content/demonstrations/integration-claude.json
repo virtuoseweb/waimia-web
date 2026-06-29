@@ -1,0 +1,417 @@
+{
+  "$schema": "../../schemas/generated/demonstrations.page.schema.json",
+  "title_fr": "Intégration Claude dans un process PME · la démo avant/après",
+  "title_en": "Claude integration in an SMB process · the before/after demo",
+  "description_fr": "Démonstration concrète d'une intégration Claude dans un process PME : le flux manuel avant, le flux orchestré après, les heures gagnées et l'architecture exacte.",
+  "description_en": "A concrete demo of a Claude integration in an SMB process: the manual flow before, the orchestrated flow after, the hours saved and the exact architecture.",
+  "slug": "integration-claude",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-06-29T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "integration-claude",
+    "automatisation",
+    "agent-ia",
+    "protocole-mcp",
+    "productivite",
+    "demonstration"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Concrètement, qu'est-ce qu'une intégration Claude dans un process ?",
+      "a": "C'est brancher Claude sur vos outils réels, pas le faire travailler dans une fenêtre de chat isolée. Via le protocole MCP, Claude lit votre boîte mail, votre CRM ou votre drive, exécute une tâche définie et écrit le résultat au bon endroit. Le collaborateur garde la main : il déclenche, vérifie et valide. L'intégration transforme une suite de copier-coller manuels en un flux orchestré et traçable."
+    },
+    {
+      "q": "Quel type de process se prête le mieux à une première intégration ?",
+      "a": "Un process récurrent, répétitif et à faible enjeu créatif : tri et qualification d'e-mails entrants, rédaction de comptes-rendus, préparation de devis à partir d'un cahier des charges, extraction d'informations dans des PDF. Plus le process est documenté et stable, plus le gain est rapide et mesurable. On évite d'attaquer d'emblée un process flou ou rarement exécuté."
+    },
+    {
+      "q": "Combien de temps une PME gagne-t-elle vraiment ?",
+      "a": "Sur le process de qualification de leads montré ici, on passe de quarante minutes à six minutes par lot, soit environ trois heures récupérées chaque semaine pour une personne. Le gain dépend du volume et de la fréquence, mais l'effet le plus net n'est pas le temps brut : c'est la disparition des tâches ingrates qui libère l'équipe pour le travail à valeur."
+    },
+    {
+      "q": "Faut-il remplacer mes outils actuels ?",
+      "a": "Non, c'est tout l'intérêt de l'approche par intégration. Claude se branche sur l'existant via MCP : votre CRM, votre messagerie et votre stockage restent en place. On ajoute une couche d'orchestration au-dessus, sans migration douloureuse ni refonte du système d'information. Si un outil n'a pas de connecteur, on en construit un sur mesure."
+    },
+    {
+      "q": "Mes données sensibles sont-elles exposées ?",
+      "a": "L'intégration est cadrée dès le départ par une politique d'usage : on définit quelles données Claude peut voir et lesquelles restent hors de portée. Les accès sont scopés au strict nécessaire et chaque action est traçable. La gouvernance n'est pas un ajout après coup, c'est une condition de départ du chantier, pensée pour la conformité RGPD."
+    },
+    {
+      "q": "Le collaborateur reste-t-il dans la boucle ?",
+      "a": "Toujours, par conception. L'agent prépare, propose et structure, mais c'est l'humain qui valide avant l'envoi ou l'enregistrement définitif. On ne vise pas l'automatisation aveugle mais l'augmentation : la personne fait en six minutes ce qui en prenait quarante, et garde la décision finale. La confiance se construit étape par étape, sur des cas vérifiés."
+    },
+    {
+      "q": "Combien de temps pour mettre en place une première intégration ?",
+      "a": "Une fois le process choisi et documenté, un premier agent ciblé se cadre, se construit et se teste en quelques semaines, pas en plusieurs mois. On commence sur un périmètre limité, on mesure l'avant/après, puis on étend si le résultat tient. Cette logique d'itération courte évite l'effet tunnel et prouve la valeur avant d'investir davantage."
+    },
+    {
+      "q": "Par où commencer si je veux ce type d'intégration ?",
+      "a": "Par l'audit IA gratuit de 45 min. On part de vos process réels pour repérer celui qui combine le mieux volume, répétitivité et données disponibles, puis on chiffre le gain attendu. Cette démonstration vous montre à quoi ressemble le résultat : l'audit, lui, identifie votre premier chantier concret. Sans engagement."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Concretely, what is a Claude integration in a process?",
+      "a": "It's wiring Claude to your real tools, not making it work in an isolated chat window. Via the MCP protocol, Claude reads your inbox, your CRM or your drive, runs a defined task and writes the result in the right place. The employee stays in control: they trigger, check and approve. The integration turns a chain of manual copy-pastes into an orchestrated, traceable flow."
+    },
+    {
+      "q": "Which kind of process suits a first integration best?",
+      "a": "A recurring, repetitive process with low creative stakes: sorting and qualifying inbound emails, drafting meeting notes, preparing quotes from a brief, extracting information from PDFs. The more documented and stable the process, the faster and more measurable the gain. We avoid starting with a fuzzy or rarely run process."
+    },
+    {
+      "q": "How much time does an SMB really save?",
+      "a": "On the lead qualification process shown here, we go from forty minutes to six minutes per batch, roughly three hours recovered each week for one person. The gain depends on volume and frequency, but the clearest effect isn't the raw time: it's the disappearance of thankless tasks that frees the team for high-value work."
+    },
+    {
+      "q": "Do I have to replace my current tools?",
+      "a": "No, that's the whole point of the integration approach. Claude wires onto the existing stack via MCP: your CRM, your mail and your storage stay in place. We add an orchestration layer on top, with no painful migration or rebuild of the information system. If a tool has no connector, we build one to measure."
+    },
+    {
+      "q": "Is my sensitive data exposed?",
+      "a": "The integration is framed from the start by a usage policy: we define which data Claude can see and which stays out of reach. Access is scoped to the strict minimum and every action is traceable. Governance isn't an afterthought, it's a starting condition of the project, designed for GDPR compliance."
+    },
+    {
+      "q": "Does the employee stay in the loop?",
+      "a": "Always, by design. The agent prepares, proposes and structures, but it's the human who validates before final sending or saving. We don't aim for blind automation but for augmentation: the person does in six minutes what took forty, and keeps the final decision. Trust is built step by step, on verified cases."
+    },
+    {
+      "q": "How long to set up a first integration?",
+      "a": "Once the process is chosen and documented, a first targeted agent is framed, built and tested in a few weeks, not several months. We start on a limited scope, measure the before/after, then expand if the result holds. This short iteration logic avoids the tunnel effect and proves value before investing further."
+    },
+    {
+      "q": "Where do I start if I want this kind of integration?",
+      "a": "With the free 45-min AI audit. We start from your real processes to spot the one that best combines volume, repetitiveness and available data, then size the expected gain. This demonstration shows you what the result looks like: the audit identifies your first concrete project. No commitment."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : un process métier branché à Claude via le protocole MCP, du déclenchement à la validation humaine",
+      "media_alt_en": "Diagram: a business process wired to Claude through the MCP protocol, from trigger to human validation",
+      "kicker_fr": "§ Démonstration · intégration Claude",
+      "kicker_en": "§ Demonstration · Claude integration",
+      "h1_fr": "Une intégration <i class=\"acc\">Claude</i>, avant/après.",
+      "h1_en": "A <i class=\"acc\">Claude</i> integration, before/after.",
+      "definition_kicker_fr": "Qu'est-ce qu'une intégration Claude ?",
+      "definition_kicker_en": "What is a Claude integration?",
+      "lede_fr": "Intégrer Claude, c'est le <i>brancher sur vos outils</i> réels plutôt que sur une fenêtre de chat. Cette démo prend un process PME concret, la qualification de leads, et montre le flux manuel d'hier face au flux orchestré d'aujourd'hui : mêmes tâches, six fois moins de temps.",
+      "lede_en": "Integrating Claude means <i>wiring it to your real tools</i> rather than a chat window. This demo takes a concrete SMB process, lead qualification, and shows yesterday's manual flow against today's orchestrated flow: same tasks, six times less time.",
+      "badges": [
+        {
+          "label_fr": "Avant : 40 min · Après : 6 min",
+          "label_en": "Before: 40 min · After: 6 min"
+        },
+        {
+          "label_fr": "Branché via le protocole MCP",
+          "label_en": "Wired through the MCP protocol"
+        },
+        {
+          "label_fr": "L'humain valide, toujours",
+          "label_en": "The human validates, always"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit IA (45 min) →",
+        "label_en": "Book the AI audit (45 min) →",
+        "href": "/contact?offer=integration-claude&intent=demonstration",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir le flux après",
+        "label_en": "See the after flow",
+        "href": "#process",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment Claude s'intègre-t-il dans un process métier d'une PME ?",
+      "question_en": "How does Claude integrate into an SMB's business process?",
+      "term_fr": "Intégration Claude",
+      "term_en": "Claude integration",
+      "answer_fr": "Claude s'intègre dans un process en se branchant sur les outils existants de l'entreprise via le protocole MCP, plutôt qu'en travaillant dans une fenêtre de chat isolée. Concrètement, l'agent lit la source de données qu'on lui autorise (messagerie, CRM, drive), exécute une tâche définie et documentée, puis écrit le résultat au bon endroit, où un collaborateur le vérifie avant validation. L'intégration ne remplace pas les outils en place : elle ajoute une couche d'orchestration au-dessus, cadrée par une politique d'usage. Le gain n'est pas seulement le temps récupéré mais la fin des tâches répétitives à faible valeur, qui libère l'équipe pour le travail qui compte vraiment.",
+      "answer_en": "Claude integrates into a process by wiring onto the company's existing tools through the MCP protocol, rather than working in an isolated chat window. Concretely, the agent reads the data source it's allowed (mail, CRM, drive), runs a defined and documented task, then writes the result in the right place, where an employee checks it before validation. The integration doesn't replace the tools in place: it adds an orchestration layer on top, framed by a usage policy. The gain isn't only the time recovered but the end of repetitive low-value tasks, which frees the team for the work that truly matters."
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper",
+      "kicker_fr": "§ Avant / après",
+      "kicker_en": "§ Before / after",
+      "h2_fr": "Le même process, <i>deux mondes</i>",
+      "h2_en": "The same process, <i>two worlds</i>",
+      "lede_fr": "Le cas pris ici : qualifier les leads entrants d'une semaine. On compare le flux manuel d'avant, ses frictions et son architecture, au flux orchestré d'après. Mêmes tâches, mais l'effort et le temps changent d'échelle.",
+      "lede_en": "The case taken here: qualifying a week of inbound leads. We compare the manual flow before, its frictions and its architecture, against the orchestrated flow after. Same tasks, but effort and time change scale.",
+      "rows": [
+        {
+          "kicker_fr": "Avant · manuel",
+          "kicker_en": "Before · manual",
+          "h3_fr": "Quarante minutes de copier-coller",
+          "h3_en": "Forty minutes of copy-paste",
+          "body_fr": "Chaque lundi, une personne ouvre la boîte mail, lit chaque demande, cherche l'entreprise sur le web, recopie les infos dans le CRM, rédige une réponse et la classe par priorité. Le travail est lent, répétitif et sujet aux oublis : une demande chaude noyée dans le lot peut attendre deux jours avant qu'on la voie.",
+          "body_en": "Every Monday, one person opens the inbox, reads each request, looks up the company on the web, retypes the info into the CRM, drafts a reply and ranks it by priority. The work is slow, repetitive and error-prone: a hot request lost in the batch can wait two days before anyone sees it.",
+          "points": [
+            {
+              "label_fr": "Lecture une à une, à la main",
+              "label_en": "Read one by one, by hand"
+            },
+            {
+              "label_fr": "Recherche et recopie dans le CRM",
+              "label_en": "Lookup and retyping into the CRM"
+            },
+            {
+              "label_fr": "Priorisation au jugé, oublis fréquents",
+              "label_en": "Guesswork ranking, frequent misses"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Après · orchestré",
+          "kicker_en": "After · orchestrated",
+          "h3_fr": "Six minutes de vérification",
+          "h3_en": "Six minutes of review",
+          "body_fr": "L'agent Claude lit le lot d'e-mails, enrichit chaque lead avec les infos publiques de l'entreprise, le crée dans le CRM avec un score d'intérêt et une note de synthèse, et prépare un brouillon de réponse. La personne ouvre un tableau prêt, corrige une ou deux nuances, valide. Le travail ingrat a disparu, la décision reste humaine.",
+          "body_en": "The Claude agent reads the email batch, enriches each lead with the company's public info, creates it in the CRM with an interest score and a synthesis note, and prepares a draft reply. The person opens a ready table, tweaks one or two nuances, validates. The thankless work is gone, the decision stays human.",
+          "points": [
+            {
+              "label_fr": "Lecture et enrichissement automatiques",
+              "label_en": "Automatic reading and enrichment"
+            },
+            {
+              "label_fr": "Écriture directe dans le CRM",
+              "label_en": "Direct writing into the CRM"
+            },
+            {
+              "label_fr": "Score et brouillon prêts à valider",
+              "label_en": "Score and draft ready to validate"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Sous le capot",
+          "kicker_en": "Under the hood",
+          "h3_fr": "L'architecture de l'intégration",
+          "h3_en": "The architecture of the integration",
+          "body_fr": "Rien de magique : Claude est relié à la messagerie, au CRM et à une source d'enrichissement par des connecteurs MCP scopés au strict nécessaire. Une politique d'usage définit ce qu'il peut voir, chaque action est tracée, et une étape de validation humaine garde le contrôle. L'existant reste en place, on ajoute la couche d'orchestration au-dessus.",
+          "body_en": "Nothing magic: Claude is linked to the mail, the CRM and an enrichment source through MCP connectors scoped to the strict minimum. A usage policy defines what it can see, every action is traced, and a human validation step keeps control. The existing stack stays in place, we add the orchestration layer on top.",
+          "points": [
+            {
+              "label_fr": "Connecteurs MCP scopés",
+              "label_en": "Scoped MCP connectors"
+            },
+            {
+              "label_fr": "Actions tracées, politique d'usage",
+              "label_en": "Traced actions, usage policy"
+            },
+            {
+              "label_fr": "Validation humaine en garde-fou",
+              "label_en": "Human validation as a guardrail"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le flux après, étape par étape",
+      "kicker_en": "§ The after flow, step by step",
+      "h2_fr": "Ce que fait <i>l'agent</i>, dans l'ordre",
+      "h2_en": "What <i>the agent</i> does, in order",
+      "intro_fr": "Le déclencheur reste humain : on lance le traitement du lot. Ensuite, l'agent enchaîne quatre étapes en quelques minutes, et rend la main pour la validation finale.",
+      "intro_en": "The trigger stays human: we launch the batch processing. Then the agent chains four steps in a few minutes, and hands back control for the final validation.",
+      "steps": [
+        {
+          "title_fr": "Lire et trier le lot",
+          "title_en": "Read and sort the batch",
+          "body_fr": "L'agent ouvre les e-mails entrants de la période, écarte le bruit et les sollicitations hors sujet, et ne garde que les demandes commerciales réelles. Il extrait pour chacune le besoin exprimé, le nom de l'entreprise et le contact.",
+          "body_en": "The agent opens the period's inbound emails, sets aside noise and off-topic solicitations, and keeps only the real commercial requests. For each, it extracts the stated need, the company name and the contact.",
+          "meta_fr": "Étape 1",
+          "meta_en": "Step 1"
+        },
+        {
+          "title_fr": "Enrichir chaque lead",
+          "title_en": "Enrich each lead",
+          "body_fr": "Pour chaque demande, l'agent récupère les informations publiques de l'entreprise, taille, secteur, signaux d'activité, et croise avec l'historique du CRM pour repérer un contact déjà connu. Le lead n'est plus une ligne vide à compléter à la main.",
+          "body_en": "For each request, the agent pulls the company's public information, size, sector, activity signals, and cross-checks the CRM history to spot an already-known contact. The lead is no longer an empty line to fill by hand.",
+          "meta_fr": "Étape 2",
+          "meta_en": "Step 2"
+        },
+        {
+          "title_fr": "Scorer et écrire dans le CRM",
+          "title_en": "Score and write to the CRM",
+          "body_fr": "L'agent attribue un score d'intérêt selon des critères posés à l'avance avec vous, crée ou met à jour la fiche dans le CRM et y joint une note de synthèse en deux lignes. Le tableau de la semaine se remplit seul, priorisé.",
+          "body_en": "The agent assigns an interest score using criteria set in advance with you, creates or updates the record in the CRM and attaches a two-line synthesis note. The week's table fills itself, prioritised.",
+          "meta_fr": "Étape 3",
+          "meta_en": "Step 3"
+        },
+        {
+          "title_fr": "Préparer la réponse, rendre la main",
+          "title_en": "Draft the reply, hand back control",
+          "body_fr": "Pour les leads chauds, l'agent rédige un brouillon de première réponse, dans votre ton, prêt à relire. La personne ouvre le tableau, ajuste ce qui mérite une touche humaine, et envoie. Rien ne part sans son feu vert.",
+          "body_en": "For hot leads, the agent drafts a first reply, in your tone, ready to review. The person opens the table, adjusts what deserves a human touch, and sends. Nothing goes out without their green light.",
+          "meta_fr": "Étape 4",
+          "meta_en": "Step 4"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Votre process est-il prêt ?",
+      "kicker_en": "§ Is your process ready?",
+      "heading_fr": "Six questions pour <i>repérer le bon</i> candidat",
+      "heading_en": "Six questions to <i>spot the right</i> candidate",
+      "items": [
+        {
+          "label_fr": "Le process se répète-t-il chaque semaine, sur un volume qui pèse vraiment dans une journée ?",
+          "label_en": "Does the process repeat each week, on a volume that really weighs on a day?"
+        },
+        {
+          "label_fr": "Les étapes sont-elles claires et documentées, ou implicites dans la tête d'une seule personne ?",
+          "label_en": "Are the steps clear and documented, or implicit in a single person's head?"
+        },
+        {
+          "label_fr": "Les données nécessaires existent-elles déjà dans vos outils, accessibles et à jour ?",
+          "label_en": "Does the needed data already exist in your tools, accessible and up to date?"
+        },
+        {
+          "label_fr": "Le résultat peut-il être vérifié vite par un humain avant d'être envoyé ou enregistré ?",
+          "label_en": "Can the result be checked quickly by a human before being sent or saved?"
+        },
+        {
+          "label_fr": "Sait-on quelles données peuvent passer par l'agent et lesquelles restent hors de portée ?",
+          "label_en": "Do you know which data can pass through the agent and which stays out of reach?"
+        },
+        {
+          "label_fr": "Le gain de temps attendu justifie-t-il un premier chantier cadré sur quelques semaines ?",
+          "label_en": "Does the expected time gain justify a first project framed over a few weeks?"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Audit gratuit",
+          "kicker_en": "Free audit",
+          "title_fr": "Audit IA pour PME",
+          "title_en": "AI audit for SMBs",
+          "lead_fr": "La suite concrète de cette démo : 45 min pour repérer dans vos process celui qui se prête le mieux à une première intégration, et chiffrer le gain.",
+          "lead_en": "The concrete follow-up to this demo: 45 min to spot the process best suited to a first integration, and size the gain.",
+          "href": "/contact"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégrateur Claude",
+          "title_en": "Claude integrator",
+          "lead_fr": "Le service qui transforme cette démo en réalité : déployer Claude et ses agents dans votre entreprise, branchés à vos outils via le protocole MCP.",
+          "lead_en": "The service that turns this demo into reality: deploying Claude and its agents in your company, wired to your tools via the MCP protocol.",
+          "href": "/services/integrateur-claude"
+        },
+        {
+          "kicker_fr": "Diagnostic",
+          "kicker_en": "Diagnostic",
+          "title_fr": "Maturité IA : où vous en êtes",
+          "title_en": "AI maturity: where you stand",
+          "lead_fr": "Avant l'intégration, situez vos fondations : la grille des cinq niveaux pour savoir si votre entreprise est prête à orchestrer un agent.",
+          "lead_en": "Before integrating, place your foundations: the five-level grid to know if your company is ready to orchestrate an agent.",
+          "href": "/ressources/diagnostics/maturite-ia"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Concrètement, qu'est-ce qu'une intégration Claude dans un process ?",
+          "q_en": "Concretely, what is a Claude integration in a process?",
+          "a_fr": "C'est brancher Claude sur vos outils réels, pas le faire travailler dans une fenêtre de chat isolée. Via le protocole MCP, Claude lit votre boîte mail, votre CRM ou votre drive, exécute une tâche définie et écrit le résultat au bon endroit. Le collaborateur garde la main : il déclenche, vérifie et valide. L'intégration transforme une suite de copier-coller manuels en un flux orchestré et traçable.",
+          "a_en": "It's wiring Claude to your real tools, not making it work in an isolated chat window. Via the MCP protocol, Claude reads your inbox, your CRM or your drive, runs a defined task and writes the result in the right place. The employee stays in control: they trigger, check and approve. The integration turns a chain of manual copy-pastes into an orchestrated, traceable flow."
+        },
+        {
+          "q_fr": "Quel type de process se prête le mieux à une première intégration ?",
+          "q_en": "Which kind of process suits a first integration best?",
+          "a_fr": "Un process récurrent, répétitif et à faible enjeu créatif : tri et qualification d'e-mails entrants, rédaction de comptes-rendus, préparation de devis à partir d'un cahier des charges, extraction d'informations dans des PDF. Plus le process est documenté et stable, plus le gain est rapide et mesurable. On évite d'attaquer d'emblée un process flou ou rarement exécuté.",
+          "a_en": "A recurring, repetitive process with low creative stakes: sorting and qualifying inbound emails, drafting meeting notes, preparing quotes from a brief, extracting information from PDFs. The more documented and stable the process, the faster and more measurable the gain. We avoid starting with a fuzzy or rarely run process."
+        },
+        {
+          "q_fr": "Combien de temps une PME gagne-t-elle vraiment ?",
+          "q_en": "How much time does an SMB really save?",
+          "a_fr": "Sur le process de qualification de leads montré ici, on passe de quarante minutes à six minutes par lot, soit environ trois heures récupérées chaque semaine pour une personne. Le gain dépend du volume et de la fréquence, mais l'effet le plus net n'est pas le temps brut : c'est la disparition des tâches ingrates qui libère l'équipe pour le travail à valeur.",
+          "a_en": "On the lead qualification process shown here, we go from forty minutes to six minutes per batch, roughly three hours recovered each week for one person. The gain depends on volume and frequency, but the clearest effect isn't the raw time: it's the disappearance of thankless tasks that frees the team for high-value work."
+        },
+        {
+          "q_fr": "Faut-il remplacer mes outils actuels ?",
+          "q_en": "Do I have to replace my current tools?",
+          "a_fr": "Non, c'est tout l'intérêt de l'approche par intégration. Claude se branche sur l'existant via MCP : votre CRM, votre messagerie et votre stockage restent en place. On ajoute une couche d'orchestration au-dessus, sans migration douloureuse ni refonte du système d'information. Si un outil n'a pas de connecteur, on en construit un sur mesure.",
+          "a_en": "No, that's the whole point of the integration approach. Claude wires onto the existing stack via MCP: your CRM, your mail and your storage stay in place. We add an orchestration layer on top, with no painful migration or rebuild of the information system. If a tool has no connector, we build one to measure."
+        },
+        {
+          "q_fr": "Mes données sensibles sont-elles exposées ?",
+          "q_en": "Is my sensitive data exposed?",
+          "a_fr": "L'intégration est cadrée dès le départ par une politique d'usage : on définit quelles données Claude peut voir et lesquelles restent hors de portée. Les accès sont scopés au strict nécessaire et chaque action est traçable. La gouvernance n'est pas un ajout après coup, c'est une condition de départ du chantier, pensée pour la conformité RGPD.",
+          "a_en": "The integration is framed from the start by a usage policy: we define which data Claude can see and which stays out of reach. Access is scoped to the strict minimum and every action is traceable. Governance isn't an afterthought, it's a starting condition of the project, designed for GDPR compliance."
+        },
+        {
+          "q_fr": "Le collaborateur reste-t-il dans la boucle ?",
+          "q_en": "Does the employee stay in the loop?",
+          "a_fr": "Toujours, par conception. L'agent prépare, propose et structure, mais c'est l'humain qui valide avant l'envoi ou l'enregistrement définitif. On ne vise pas l'automatisation aveugle mais l'augmentation : la personne fait en six minutes ce qui en prenait quarante, et garde la décision finale. La confiance se construit étape par étape, sur des cas vérifiés.",
+          "a_en": "Always, by design. The agent prepares, proposes and structures, but it's the human who validates before final sending or saving. We don't aim for blind automation but for augmentation: the person does in six minutes what took forty, and keeps the final decision. Trust is built step by step, on verified cases."
+        },
+        {
+          "q_fr": "Combien de temps pour mettre en place une première intégration ?",
+          "q_en": "How long to set up a first integration?",
+          "a_fr": "Une fois le process choisi et documenté, un premier agent ciblé se cadre, se construit et se teste en quelques semaines, pas en plusieurs mois. On commence sur un périmètre limité, on mesure l'avant/après, puis on étend si le résultat tient. Cette logique d'itération courte évite l'effet tunnel et prouve la valeur avant d'investir davantage.",
+          "a_en": "Once the process is chosen and documented, a first targeted agent is framed, built and tested in a few weeks, not several months. We start on a limited scope, measure the before/after, then expand if the result holds. This short iteration logic avoids the tunnel effect and proves value before investing further."
+        },
+        {
+          "q_fr": "Par où commencer si je veux ce type d'intégration ?",
+          "q_en": "Where do I start if I want this kind of integration?",
+          "a_fr": "Par l'audit IA gratuit de 45 min. On part de vos process réels pour repérer celui qui combine le mieux volume, répétitivité et données disponibles, puis on chiffre le gain attendu. Cette démonstration vous montre à quoi ressemble le résultat : l'audit, lui, identifie votre premier chantier concret. Sans engagement.",
+          "a_en": "With the free 45-min AI audit. We start from your real processes to spot the one that best combines volume, repetitiveness and available data, then size the expected gain. This demonstration shows you what the result looks like: the audit identifies your first concrete project. No commitment."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à passer de la démo à votre process ?",
+      "kicker_en": "§ Ready to go from demo to your process?",
+      "h2_fr": "Vous avez vu le résultat. <i>Trouvons</i> votre premier chantier.",
+      "h2_en": "You've seen the result. <i>Let's</i> find your first project.",
+      "subtitle_fr": "L'audit IA gratuit de 45 min part de vos process réels pour repérer celui qui se prête le mieux à une intégration Claude, et chiffrer le gain. On passe de la démonstration à un plan concret. Sans engagement.",
+      "subtitle_en": "The free 45-min AI audit starts from your real processes to spot the one best suited to a Claude integration, and size the gain. We move from demonstration to a concrete plan. No commitment.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit IA (45 min) →",
+          "label_en": "Book the AI audit (45 min) →",
+          "href": "/contact?offer=integration-claude&intent=demonstration",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le service Intégrateur Claude",
+          "label_en": "See the Claude integrator service",
+          "href": "/services/integrateur-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
