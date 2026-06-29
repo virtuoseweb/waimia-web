@@ -349,51 +349,75 @@
       ]
     },
     {
-      "type": "method-timeline",
+      "type": "sticky-scroll-storytelling",
       "anchor": "methode",
       "background": "paper-2",
-      "kicker_fr": "§ Méthode",
-      "kicker_en": "§ Method",
-      "h2_fr": "<i>Méthode</i> Waimia",
-      "h2_en": "<i>Method</i> Waimia",
+      "textSide": "left",
+      "proportion": "balanced",
+      "mediaRatio": "4-3",
+      "density": "base",
+      "numbering": "serif",
+      "kicker_fr": "§ Méthode · le dispositif se construit",
+      "kicker_en": "§ Method · the setup takes shape",
+      "h2_fr": "<i class=\"acc\">Méthode</i> Waimia",
+      "h2_en": "<i class=\"acc\">Method</i> Waimia",
       "lede_fr": "Quatre à huit semaines, de l'audit du parcours à une file de priorité dans le CRM. Vous savez avant de signer si le bon point d'entrée est la landing complète, le scoring, ou les deux.",
       "lede_en": "Four to eight weeks, from the journey audit to a priority queue in the CRM. You know before signing whether the right entry point is the full landing, the scoring, or both.",
       "steps": [
         {
-          "num": "01",
-          "label_fr": "Auditer le parcours et le pipeline",
-          "label_en": "Audit the journey and pipeline",
+          "index_fr": "01",
+          "index_en": "01",
+          "eyebrow_fr": "Audit & cadrage",
+          "eyebrow_en": "Audit & scoping",
+          "title_fr": "Auditer le parcours et le pipeline",
+          "title_en": "Audit the journey and pipeline",
           "body_fr": "Cinq jours d'analyse : où le trafic décroche, quel persona convertit, et quels signaux distinguent vos leads gagnés de vos leads perdus. Livrable : carte du parcours et lecture claire de ce qui sépare un lead chaud d'un lead froid, plus un plan d'action chiffré.",
           "body_en": "Five days of analysis: where traffic drops, which persona converts, and which signals set your won leads apart from your lost ones. Deliverable: journey map and a clear read of what separates a hot lead from a cold one, plus a costed action plan.",
-          "meta_fr": "Audit & cadrage",
-          "meta_en": "Audit & scoping"
+          "media_src": "/images/illustrations/ds/chess-paper.webp",
+          "media_alt_fr": "Audit du parcours et cadrage du pipeline",
+          "media_alt_en": "Journey audit and pipeline scoping"
         },
         {
-          "num": "02",
-          "label_fr": "Landing pages, lead magnet et tracking",
-          "label_en": "Landing pages, lead magnet and tracking",
+          "index_fr": "02",
+          "index_en": "02",
+          "eyebrow_fr": "Capture & conversion",
+          "eyebrow_en": "Capture & conversion",
+          "title_fr": "Landing pages, lead magnet et tracking",
+          "title_en": "Landing pages, lead magnet and tracking",
           "body_fr": "Des landing pages à paliers par persona, un lead magnet d'entrée qui capte sans friction et score déjà l'intention, un copywriting orienté conversion et des variantes prêtes à tester. Tracking complet pour mesurer tout de suite qui avance, qui décroche, et pourquoi.",
           "body_en": "Tiered landing pages per persona, an entry lead magnet that captures without friction and already scores intent, conversion-oriented copywriting and variants ready to test. Complete tracking to immediately measure who advances, who drops, and why.",
-          "meta_fr": "Capture & conversion",
-          "meta_en": "Capture & conversion"
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "Landing pages, lead magnet et tracking en place",
+          "media_alt_en": "Landing pages, lead magnet and tracking in place"
         },
         {
-          "num": "03",
-          "label_fr": "Scoring et file de priorité au CRM",
-          "label_en": "Scoring and priority queue in the CRM",
+          "index_fr": "03",
+          "index_en": "03",
+          "eyebrow_fr": "Scoring & priorisation",
+          "eyebrow_en": "Scoring & prioritisation",
+          "title_fr": "Scoring et file de priorité au CRM",
+          "title_en": "Scoring and priority queue in the CRM",
           "body_fr": "On capte les signaux des landing pages et des formulaires, on les agrège en une note prédictive de probabilité d'achat, et on écrit le score sur la fiche du lead dans votre CRM. On pose les seuils d'alerte. Le commercial voit enfin qui rappeler en premier, sans deviner.",
           "body_en": "We capture signals from landing pages and forms, aggregate them into a predictive purchase-likelihood score, and write it on the lead's record in your CRM. We set the alert thresholds. The salesperson finally sees who to call first, without guessing.",
-          "meta_fr": "Scoring & priorisation",
-          "meta_en": "Scoring & prioritisation"
+          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
+          "media_alt_fr": "Scoring des signaux et file de priorité écrite au CRM",
+          "media_alt_en": "Signal scoring and priority queue written to the CRM"
         },
         {
-          "num": "04",
-          "label_fr": "Embarquer l'équipe et mesurer",
-          "label_en": "Onboard the team and measure",
+          "index_fr": "04",
+          "index_en": "04",
+          "eyebrow_fr": "Adoption & réglage",
+          "eyebrow_en": "Adoption & tuning",
+          "title_fr": "Embarquer l'équipe et mesurer",
+          "title_en": "Onboard the team and measure",
           "body_fr": "On montre comment lire la file de priorité, comprendre un score et le contester si besoin. Puis on suit la performance : taux de conversion par palier, taux de contact des leads chauds, et on réajuste les pondérations. La note sert l'équipe, elle ne la déposséde pas.",
           "body_en": "We show how to read the priority queue, understand a score and challenge it if needed. Then we track performance: conversion rate per stage, hot-lead contact rate, and we re-tune the weights. The score serves the team, it doesn't dispossess them.",
-          "meta_fr": "Adoption & réglage",
-          "meta_en": "Adoption & tuning"
+          "media_src": "/images/illustrations/ds/money-money-paper.webp",
+          "media_alt_fr": "Adoption par l'équipe et mesure de la performance",
+          "media_alt_en": "Team adoption and performance measurement",
+          "link_label_fr": "Voir un cas concret",
+          "link_label_en": "See a real case",
+          "link_href": "/cas-clients"
         }
       ]
     },
@@ -717,31 +741,57 @@
           "group_fr": "Régies publicitaires",
           "group_en": "Advertising platforms",
           "items": [
-            { "name": "Google Ads" },
-            { "name": "Meta Ads" },
-            { "name": "LinkedIn Ads" },
-            { "name": "Microsoft Ads" }
+            {
+              "name": "Google Ads"
+            },
+            {
+              "name": "Meta Ads"
+            },
+            {
+              "name": "LinkedIn Ads"
+            },
+            {
+              "name": "Microsoft Ads"
+            }
           ]
         },
         {
           "group_fr": "Mesure et tracking",
           "group_en": "Measurement and tracking",
           "items": [
-            { "name": "GA4" },
-            { "name": "Google Tag Manager" },
-            { "name": "Meta Pixel" },
-            { "name": "Conversions API" },
-            { "name": "Search Console" }
+            {
+              "name": "GA4"
+            },
+            {
+              "name": "Google Tag Manager"
+            },
+            {
+              "name": "Meta Pixel"
+            },
+            {
+              "name": "Conversions API"
+            },
+            {
+              "name": "Search Console"
+            }
           ]
         },
         {
           "group_fr": "CRM et relance",
           "group_en": "CRM and follow-up",
           "items": [
-            { "name": "HubSpot" },
-            { "name": "Salesforce" },
-            { "name": "Pipedrive" },
-            { "name": "Brevo" }
+            {
+              "name": "HubSpot"
+            },
+            {
+              "name": "Salesforce"
+            },
+            {
+              "name": "Pipedrive"
+            },
+            {
+              "name": "Brevo"
+            }
           ]
         }
       ]
