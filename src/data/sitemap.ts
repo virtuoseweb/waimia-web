@@ -306,8 +306,16 @@ export const FOOTER_COLS: FooterCol[] = [
   // Intégration Claude, matérialisées en pages service. Piliers Acquérir/Piloter/
   // Opérer retirés du footer — neutralisés noindex, strat 10 §3.5/§4 + 11 §2).
   {
-    heading: { en: 'Solutions', fr: 'Solutions' },
+    heading: { en: 'Offers & services', fr: 'Offres & services' },
     items: [
+      {
+        href: '/services/systeme-complet',
+        label: { en: 'Complete system', fr: 'Système complet' },
+      },
+      {
+        href: '/services/machine-outbound',
+        label: { en: 'Outbound machine', fr: 'Machine outbound' },
+      },
       {
         href: '/services/site-web-intelligent',
         label: { en: 'Smart website', fr: 'Site web intelligent' },

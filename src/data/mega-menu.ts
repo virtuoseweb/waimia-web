@@ -76,13 +76,14 @@ export interface MegaMenuSection {
   featured?: MegaMenuFeatured;
 }
 
-function mapLegacyFeatured(featured: LegacyFeaturedCard): MegaMenuFeatured {
+function mapLegacyFeatured(featured: LegacyFeaturedCard, image?: string): MegaMenuFeatured {
   return {
     kicker: featured.kicker,
     label: featured.label,
     body: featured.body,
     cta: featured.cta,
     href: featured.href,
+    ...(image ? { image } : {}),
   };
 }
 
@@ -214,7 +215,11 @@ const RESSOURCES: MegaMenuSection = {
       ],
     },
   ],
-  featured: MM_RESOURCES.featured ? mapLegacyFeatured(MM_RESOURCES.featured) : undefined,
+  // Image featured distincte par méga-menu (décoration, demande Simon 2026-06) :
+  // RESSOURCES = visuel éditorial.
+  featured: MM_RESOURCES.featured
+    ? mapLegacyFeatured(MM_RESOURCES.featured, '/images/editorial/image-style-12.webp')
+    : undefined,
 };
 
 // ─── SOLUTIONS · refonte Phase 1 V7-FOLD 2026-06-22 : on REDUIT le nombre de pages
@@ -309,6 +314,10 @@ const SOLUTIONS: MegaMenuSection = {
           label: { fr: 'Standardiser les processus', en: 'Standardize processes' },
           href: '/cas-usages/standardiser-processus',
         },
+        {
+          label: { fr: 'Réserver un audit', en: 'Book an audit' },
+          href: '/contact',
+        },
       ],
       // V7-FOLD 2026-06-22 : 3 problèmes pour équilibrer avec les colonnes 1-2
       // (3 liens + footer). Footer « Voir tous les problèmes » en soon (le hub
@@ -319,19 +328,20 @@ const SOLUTIONS: MegaMenuSection = {
       },
     },
   ],
-  // V7-FOLD 2026-06-22 (Simon) : colonne « Audits » supprimée. Le panneau featured
-  // n'est plus l'offre Growth System IA mais le PANNEAU AUDIT, avec le visuel stylé
-  // conservé et un CTA mis en avant (bouton) vers la prise de rendez-vous (/contact).
+  // Featured Solutions (Simon 2026-06) : on met en avant l'offre apex « Système
+  // complet » (inbound + outbound piloté). L'audit gratuit n'est PLUS le featured
+  // mais reste accessible via le lien « Réserver un audit » → /contact ajouté en
+  // fin de la colonne « Résoudre un problème ». Image distincte par méga-menu.
   featured: {
-    kicker: { fr: 'PAR OÙ COMMENCER', en: 'WHERE TO START' },
-    label: { fr: 'Audit gratuit', en: 'Free audit' },
+    kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
+    label: { fr: 'Système complet', en: 'Complete system' },
     body: {
-      fr: '45 min, gratuit. Vous repartez avec la réponse à votre question sur votre site web et votre système d\'acquisition en ligne, un plan d\'action pour votre objectif, et au moins 2 process à automatiser.',
-      en: '45 min, free. You leave with the answer to your question about your website and your online acquisition system, an action plan for your goal, and at least 2 processes to automate.',
+      fr: 'La machine inbound + outbound, pilotée. Packs sur devis à tarif dégressif.',
+      en: 'The inbound + outbound machine, managed. Packs on quote with degressive pricing.',
     },
-    cta: { fr: 'Prendre rendez-vous →', en: 'Book a call →' },
-    href: '/contact',
-    image: '/images/besoins/besoin-acquerir.webp',
+    cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
+    href: '/services/systeme-complet',
+    image: '/images/besoins/besoin-piloter.webp',
   },
 };
 
@@ -398,6 +408,7 @@ const CAS: MegaMenuSection = {
     },
     cta: { fr: 'Lire le cas →', en: 'Read the case →' },
     href: '/cas-clients/amploi',
+    image: '/images/cas/cas-northbound.webp',
   },
 };
 
@@ -529,6 +540,7 @@ const AGENCE: MegaMenuSection = {
     },
     cta: { fr: 'Découvrir le studio →', en: 'Discover the studio →' },
     href: '/agence/about',
+    image: '/images/besoins/besoin-operer.webp',
   },
 };
 
