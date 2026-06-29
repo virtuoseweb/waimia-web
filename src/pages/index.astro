@@ -55,7 +55,7 @@ const cByType = <T extends string>(t: T) =>
 // 02 · marquee « écosystème » sur fond ink + grayscale (logos blancs, hover couleur) = config page SWI (directive Simon 2026-06-29)
 const logoMarqueeC = { ...cByType('logo-marquee'), background: 'ink', grayscale: true } as SectionData;
 const featureZigzagC = { ...cByType('feature-zigzag'), background: 'paper' } as SectionData;      // 03 · garde anchor "offres"
-const stickyScrollC = { ...cByType('sticky-scroll-storytelling'), background: 'paper-2' } as SectionData; // 06
+const stickyScrollC = { ...cByType('sticky-scroll-storytelling'), background: 'paper-2', proportion: 'media-led' } as SectionData; // 06 · media-led (asymétrique 38/62, comme integrateur-claude) au lieu de balanced 50/50
 const painSeverityC = { ...cByType('pain-severity-list'), background: 'ink' } as SectionData;     // 07
 const caseGridC = { ...cByType('case-card-grid'), background: 'ink' } as SectionData;             // 09
 // 10 · stats-bento « climax » (le 2ᵉ stats-bento de C) recoloré ink → paper-2 (anti 2-ink + moins de noir)
