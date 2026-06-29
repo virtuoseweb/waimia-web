@@ -279,19 +279,43 @@ const pageTransitionId = Astro.url.pathname
   }
 
   @media (max-width: 700px) {
-    .hero-minimap { grid-template-columns: repeat(2, 1fr); }
+    /* Mini-map · 2 colonnes plus respirées · label mono accent renforcé + items
+       en bloc lisible (vs ligne plate « sans vie ») · gap vertical généreux */
+    .hero-minimap { grid-template-columns: repeat(2, 1fr); gap: 0; }
+    .hero-mm-item {
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-4) var(--space-4) 0;
+    }
     .hero-mm-item:nth-child(3n) { border-right: 1px solid var(--hairline); }
-    .hero-mm-item:nth-child(2n) { border-right: none; }
+    .hero-mm-item:nth-child(2n) { border-right: none; padding-right: 0; }
     .hero-mm-item:nth-last-child(-n+2) { border-bottom: none; }
     .hero-mm-item:nth-last-child(-n+3):not(:nth-last-child(-n+2)) { border-bottom: 1px solid var(--hairline); }
-    .hero-mm-item:not(:nth-child(2n+1)) { padding-left: var(--space-3); }
+    .hero-mm-item:not(:nth-child(2n+1)) { padding-left: var(--space-4); }
     .hero-mm-item:nth-child(2n+1) { padding-left: 0; }
+    /* Hiérarchie : label plus présent, items un cran plus lisibles */
+    .hero-mm-label { font-size: var(--text-small); letter-spacing: 0.16em; }
+    .hero-mm-items { font-size: var(--text-body); line-height: var(--leading-body); color: var(--ink); }
   }
   @media (max-width: 440px) {
     .hero-minimap { grid-template-columns: 1fr; }
-    .hero-mm-item, .hero-mm-item:nth-child(n) { border-right: none; padding-left: 0; }
+    .hero-mm-item, .hero-mm-item:nth-child(n) {
+      border-right: none;
+      padding-left: 0;
+      padding-right: 0;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
     .hero-mm-item:not(:last-child) { border-bottom: 1px solid var(--hairline); }
     .hero-mm-item:last-child { border-bottom: none; }
+    .hero-mm-items { text-align: right; }
+  }
+
+  /* CTAs · mobile : pleine largeur empilés (vs wrap bancal des 2 boutons lg) */
+  @media (max-width: 560px) {
+    .hero-ctas { flex-direction: column; align-items: stretch; gap: var(--space-3); }
+    .hero-ctas :global(.btn) { width: 100%; justify-content: center; }
   }
 
   /* CTAs · reveal-snap delay 400ms */

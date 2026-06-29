@@ -2,76 +2,92 @@
 export const prerender = true;
 
 /**
- * Homepage · recomposition V-F2 (docs/visual-audit/home/README.md + docs/40 §6) · FR
+ * Homepage · recomposition V-F3 (directive Simon 2026-06-29) · FR
  *
- * Principe : 1 information = 1 représentation. Séquence 10 slots (vs 12 + 8 interludes) :
- *   Acte I  promesse & preuve  → Hero (intouché) + bande de preuve unifiée (StatBlock + SocialProof)
- *   Acte II système & offre    → ArchitectureDiagram (FIG 2.0) + ServicesGrid fusionnée UseCaseIndex (FIG 2.5)
- *   Acte III engagement        → MaturityPyramid cards-only (stage + prix d'entrée) + CtaInline
- *   Acte IV domaines           → CaseCardGrid (domaines d'intervention) + FAQ (Q.01 ouverte) + Notes de terrain ×3
- *   Acte V  action             → BookSession (ink)
+ * Mix : composants LIVE bespoke (Hero, ArchitectureDiagram, ServicesGrid, CtaBand,
+ * FaqAccordion, BookSession) + sections CATALOGUÉES de la variante C rendues via
+ * <SectionsRenderer> en groupes contigus. Rythme paper/ink rééquilibré :
+ * ink uniquement sur 4 nœuds (ArchitectureDiagram · pain-severity · case-card-grid · BookSession),
+ * jamais 2 ink adjacents, l'accent (CtaBand) casse le run clair au moment-prix.
  *
- * Retirés de la home (restent au catalogue / autres pages) :
- *   - FeatureGrid « 8 piliers » → rôle absorbé par ArchitectureDiagram (exemples par nœud)
- *   - UseCaseIndex → fusionné dans ServicesGrid (liens cas d'usage par service + pied de grille)
- *   - 5 des 8 interludes SectionTransition (3 pivots conservés)
+ * Séquence (15 slots) :
+ *   01 Hero (live, paper, mobile amélioré)
+ *   02 logo-marquee (C, paper-2) · 03 feature-zigzag « offres » (C, paper)
+ *   04 ArchitectureDiagram (live, ink) · 05 ServicesGrid 6 services (live, paper)
+ *   06 sticky-scroll (C, paper-2) · 07 pain-severity (C, ink) · 08 feature-split-media dashboard (paper)
+ *   09 case-card-grid (C, ink) · 10 stats-bento climax (C, paper-2 recoloré)
+ *   11 CtaBand (live, accent) · 12 pricing-cards (C, paper)
+ *   13 FaqAccordion (live, contenu C, paper-2) · 14 BookSession (live, ink, épuré) · 15 FooterMarquee
+ *
+ * Retirés (vs V-F2 / variante C) : Acte I StatBlock+SocialProof (doublon de chiffres),
+ * hero-masthead-card C (Hero live gardé), bento-grid C (doublon ArchitectureDiagram),
+ * eeat-panel, faq-two-column C (→ FaqAccordion live), EditorialPreview, MaturityPyramid,
+ * stats-bento Acte I C.
  *
  * Typo (directive 2026-06-11) : la masse passe en sans via la couche `.home-typo`
  * (global.css), le serif italique ne fait que relever les fragments <i>. Hero hors scope.
  */
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import BootSplash from '../components/motion/BootSplash.astro';
 import ScrollProgress from '../components/ui/atoms/ScrollProgress.astro';
 
 import Hero                from '../components/ui/organisms/Hero.astro';
-import StatBlock           from '../components/sections/StatBlock.astro';
-import SocialProof         from '../components/sections/SocialProof.astro';
+import SectionsRenderer    from '../components/sections/SectionsRenderer.astro';
 import ArchitectureDiagram from '../components/sections/ArchitectureDiagram.astro';
 import ServicesGrid        from '../components/sections/ServicesGrid.astro';
-import MaturityPyramid     from '../components/sections/MaturityPyramid.astro';
 import CtaBandSection      from '../components/sections/CtaBandSection.astro';
-import CaseCardGrid        from '../components/sections/CaseCardGrid.astro';
-import { caseCardGridData } from '../lib/case-card-grid-data';
 import FaqAccordion        from '../components/sections/FaqAccordion.astro';
-import EditorialPreview    from '../components/sections/EditorialPreview.astro';
-import { editorialPreviewData } from '../lib/editorial-preview-data';
 import BookSession         from '../components/ui/organisms/BookSession.astro';
 import FooterMarquee       from '../components/ui/organisms/FooterMarquee.astro';
 import SectionTransition   from '../components/ui/atoms/SectionTransition.astro';
 
-import { CLIENT_LOGOS, HERO_METRICS, SIX_SERVICES, PYRAMID_TIERS, DEPARTMENTS_GRID } from '../data/sitemap';
-import { PRICING_GRID, tierPriceLabel, PRICE_FROM_LABEL } from '../data/pricing';
+import homeVariantC from '../data/page-variants/home/c.json';
+
+import { SIX_SERVICES } from '../data/sitemap';
 import { localizeHref } from '../lib/i18n';
-import type { SectionByType } from '@waimia/ds-kernel';
+import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 
-// ── Acte I · Bande d'engagements unifiée (audit home §02+03) ───────────────────
-// 3 repères NON présents dans le hero (le « 12h/sem » vit déjà dans la preuve n°1
-// du hero, 250 px plus haut) + lien vers les domaines d'intervention. Honnêteté : ce
-// sont des engagements/capacités (audit 5j, pilote, ROI mesuré sur vos données), 0 résultat client.
-const proofBarData = {
-  type: 'proof-bar' as const,
-  layout: 'horizontal' as const,
-  background: 'paper-2' as const,
-  kicker_fr: 'ACTE I · PREUVES',
-  kicker_en: 'ACT I · PROOFS',
-  metrics: HERO_METRICS.filter((m) => m.k !== '01').map((m) => ({
-    value: m.n,
-    label_fr: m.label.fr,
-    label_en: m.label.en,
-    emphasis: false,
-  })),
-  link_label_fr: "Voir les domaines d'intervention →",
-  link_label_en: 'See where we intervene →',
-  link_href: localizeHref('/cas-clients', 'fr'),
-} satisfies SectionByType<'proof-bar'>;
+// ── Sections cataloguées · copiées de la variante C (c.json) ───────────────────
+// On pioche les objets validés par type et on ajuste `background` selon le rythme cible.
+const cByType = <T extends string>(t: T) =>
+  (homeVariantC.sections as any[]).find((s) => s.type === t);
 
-const socialProofData = {
-  type: 'social-proof' as const,
-  background: 'paper-2' as const,
-  logos: CLIENT_LOGOS.map((name) => ({ name })),
-  marquee: true,
-} satisfies SectionByType<'social-proof'>;
+const logoMarqueeC = { ...cByType('logo-marquee'), background: 'paper-2' } as SectionData;       // 02
+const featureZigzagC = { ...cByType('feature-zigzag'), background: 'paper' } as SectionData;      // 03 · garde anchor "offres"
+const stickyScrollC = { ...cByType('sticky-scroll-storytelling'), background: 'paper-2' } as SectionData; // 06
+const painSeverityC = { ...cByType('pain-severity-list'), background: 'ink' } as SectionData;     // 07
+const caseGridC = { ...cByType('case-card-grid'), background: 'ink' } as SectionData;             // 09
+// 10 · stats-bento « climax » (le 2ᵉ stats-bento de C) recoloré ink → paper-2 (anti 2-ink + moins de noir)
+const statsBentoClimaxC = {
+  ...(homeVariantC.sections as any[]).filter((s) => s.type === 'stats-bento')[1],
+  background: 'paper-2',
+} as SectionData;
+const pricingCardsC = { ...cByType('pricing-cards'), background: 'paper' } as SectionData;        // 12
+
+// 08 · feature-split-media NOUVELLE · pilotage par tableaux de bord temps réel · paper.
+// Image réelle catalogue (dashboard tunnel de conversion, fond clair → paper).
+const dashboardMediaData = {
+  type: 'feature-split-media' as const,
+  background: 'paper' as const,
+  proportion: '2-3' as const,
+  mediaSide: 'right' as const,
+  kicker_fr: '§ Pilotage · temps réel',
+  kicker_en: '§ Steering · real time',
+  h2_fr: 'Vos données lues en <i>tableaux de bord</i>',
+  h2_en: 'Your data read as <i>dashboards</i>',
+  body_fr: "GA4, Search Console et CRM réunis en un tableau de bord temps réel. Vous décidez sur des chiffres, en deux minutes, pas en réunion : où le trafic se perd, quel lead rappeler, ce qui convertit vraiment.",
+  body_en: 'GA4, Search Console and CRM brought together into a real-time dashboard. You decide on figures, in two minutes, not in a meeting: where traffic leaks, which lead to call back, what really converts.',
+  points: [
+    { label_fr: 'GA4, Search Console et CRM dans une seule vue', label_en: 'GA4, Search Console and CRM in a single view' },
+    { label_fr: 'Tunnel de conversion suivi étape par étape', label_en: 'Conversion funnel tracked step by step' },
+    { label_fr: 'Décider en deux minutes, pas en réunion', label_en: 'Decide in two minutes, not in a meeting' },
+  ],
+  media_src: '/images/dashboards/dashboard-funnel-conversion.svg',
+  media_alt_fr: 'Tableau de bord du tunnel de conversion : étapes, taux et fuites mesurés en temps réel.',
+  media_alt_en: 'Conversion funnel dashboard: stages, rates and leaks measured in real time.',
+  media_caption_fr: 'Tableau de bord · le tunnel de conversion suivi en temps réel',
+  media_caption_en: 'Dashboard · the conversion funnel tracked in real time',
+} satisfies SectionByType<'feature-split-media'>;
 
 // ── Acte II · FIG 2.0 Le système (absorbe le rôle de FeatureGrid) ──────────────
 // Exemples par canal dérivés du copy existant (hero mini-map + SIX_SERVICES) : 0 invention.
@@ -110,22 +126,10 @@ const architectureDiagramData = {
   caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
 } satisfies SectionByType<'architecture-diagram'>;
 
-// ── Acte II · FIG 2.5 L'offre (ServicesGrid fusionnée avec UseCaseIndex) ───────
-// Métriques = capacités/engagements VÉRIFIABLES (source UNIQUE = SIX_SERVICES dans
-// sitemap.ts), registre du hero : audit 5j, pipeline connecté, CRM relié, temps réel,
-// workflows, souverain. Honnêteté (studio solo, 0 cas mesuré) : aucun chiffre de ROI inventé.
-// SEO état final : pages /solutions/* supprimées (anti-dilution). Archi v7 : les piliers
-// Acquérir/Piloter/Opérer sont neutralisés → maillage re-ciblé vers les cas-usages réels
-// (strat 10 §3.5/§7 discipline de maillage : 0 lien depuis l'indexable vers du déprécié).
-const SERVICE_USECASES: Record<string, string> = {
-  '02': 'publicite-en-ligne',
-  '03': 'agent-marketing-commercial',
-};
-const USECASE_ANCHOR: Record<string, string> = {
-  'publicite-en-ligne': '/cas-usages/generer-plus-de-leads',
-  'agent-marketing-commercial': '/cas-usages/generer-plus-de-leads',
-};
-const usecaseBySlug = (slug: string) => DEPARTMENTS_GRID.find((d) => d.slug === slug);
+// ── Acte II · FIG 2.5 L'offre (ServicesGrid · 6 services réels v7) ──────────────
+// Source UNIQUE = SIX_SERVICES (sitemap.ts). Chaque carte pointe vers sa vraie page
+// /services/<slug> via le slot per-service `usecase_*`. Honnêteté : capacités/engagements,
+// 0 résultat client chiffré (studio solo). Pied de grille = liens directs vers les 6 pages.
 const servicesGridData = {
   type: 'services-grid' as const,
   fig_num: 'FIG II · 2.5',
@@ -137,141 +141,41 @@ const servicesGridData = {
   h2_en: 'Six services, taught by <i>doing</i>, not by slides.',
   connectors_label_fr: 'Connecteurs',
   connectors_label_en: 'Connectors',
-  services: SIX_SERVICES.map((s) => {
-    const ucSlug = SERVICE_USECASES[s.k];
-    const uc = ucSlug ? usecaseBySlug(ucSlug) : undefined;
-    return {
-      fig: `2.5${Number(s.k)}`,
-      metric_fr: s.metric.fr,
-      metric_en: s.metric.en,
-      label_fr: s.label.fr,
-      label_en: s.label.en,
-      body_fr: s.body.fr,
-      body_en: s.body.en,
-      connectors_fr: s.connectors.fr,
-      connectors_en: s.connectors.en,
-      ...(uc
-        ? {
-            usecase_label_fr: `Cas d'usage · ${uc.label.fr} →`,
-            usecase_label_en: `Use case · ${uc.label.en} →`,
-            usecase_href: localizeHref(USECASE_ANCHOR[ucSlug] ?? '/cas-usages/generer-plus-de-leads', 'fr'),
-          }
-        : {}),
-    };
-  }),
-  // Archi v7 : 2 offres réelles (Site Web Intelligent · Intégration Claude) + cas clients.
-  // Piliers Acquérir/Piloter/Opérer retirés du maillage home (neutralisés noindex).
+  services: SIX_SERVICES.map((s) => ({
+    fig: `2.5${Number(s.k)}`,
+    metric_fr: s.metric.fr,
+    metric_en: s.metric.en,
+    label_fr: s.label.fr,
+    label_en: s.label.en,
+    body_fr: s.body.fr,
+    body_en: s.body.en,
+    connectors_fr: s.connectors.fr,
+    connectors_en: s.connectors.en,
+    usecase_label_fr: 'Voir le service →',
+    usecase_label_en: 'See the service →',
+    usecase_href: localizeHref(s.href, 'fr'),
+  })),
   foot_links: [
-    { label_fr: 'Site web intelligent →', label_en: 'Smart website →', href: localizeHref('/services/site-web-intelligent', 'fr') },
-    { label_fr: 'Intégration Claude →', label_en: 'Claude integration →', href: localizeHref('/services/integrateur-claude', 'fr') },
-    { label_fr: "Cas d'usage →", label_en: 'Use cases →', href: localizeHref('/cas-usages/generer-plus-de-leads', 'fr') },
+    { label_fr: 'Toutes les solutions →', label_en: 'All solutions →', href: localizeHref('/services', 'fr') },
     { label_fr: 'Nos cas clients →', label_en: 'Our case studies →', href: localizeHref('/cas-clients', 'fr') },
   ],
 } satisfies SectionByType<'services-grid'>;
 
-// ── Acte III · Pyramide cards-only (cas d'école « 1 info = 4 représentations ») ─
-// Timeline + SVG paliers supprimés : le stage (ex-timeline) entre en sur-titre de card,
-// la progression I→IV passe par la jauge, le verbe ne vit plus que dans le H2.
-// Prix d'entrée par palier · source UNIQUE = src/data/pricing.ts (grille 2/4/7/10k + sur-mesure).
-// Audit/diagnostic d'entrée gratuit (décision 4). Délais indicatifs, cadrés au diagnostic.
-const ACTION_LABELS = [
-  { fr: 'Cartographier', en: 'Map' },
-  { fr: 'Orchestrer', en: 'Orchestrate' },
-  { fr: 'Mettre en production', en: 'Ship to production' },
-  { fr: 'Industrialiser', en: 'Industrialize' },
-];
-// 4 paliers visibles dans la pyramide = essentiel / standard / avancé / système (grille canonique).
-// Le palier sur-mesure vit au pied de l'offre (FAQ + pages service).
-const TIER_DELAYS = [
-  { fr: '1 à 2 sem', en: '1 to 2 weeks' },
-  { fr: '3 à 5 sem', en: '3 to 5 weeks' },
-  { fr: '5 à 8 sem', en: '5 to 8 weeks' },
-  { fr: '8 à 12 sem', en: '8 to 12 weeks' },
-];
-const TIER_DETAILS = ['essentiel', 'standard', 'avance', 'systeme'].map((id, idx) => ({
-  stage: { fr: PRICING_GRID[idx].label!.fr, en: PRICING_GRID[idx].label!.en },
-  price: {
-    fr: `${tierPriceLabel(id as any, 'fr')} HT · ${TIER_DELAYS[idx].fr}`,
-    en: `${tierPriceLabel(id as any, 'en')} excl. VAT · ${TIER_DELAYS[idx].en}`,
-  },
-}));
-const maturityPyramidData = {
-  type: 'maturity-pyramid' as const,
-  variant: 'cards-only' as const,
-  roman: 'III',
-  label_fr: "Acte III : La pyramide d'engagements",
-  label_en: 'Act III: The engagement pyramid',
-  heading_fr: '<i>Cartographier.</i> Orchestrer.<br/>Mettre en production. <i>Industrialiser.</i>',
-  heading_en: '<i>Map.</i> Orchestrate.<br/>Ship to production. <i>Industrialize.</i>',
-  aside_fr: "Du diagnostic process à l'infrastructure souveraine : chaque palier prépare le suivant. Vous montez quand vous êtes prêt.",
-  aside_en: "From process diagnostic to sovereign infrastructure: each tier sets up the next. You climb when you're ready.",
-  timeline_label_fr: 'Progression de maturité IA',
-  timeline_label_en: 'AI maturity path',
-  tier_cta_fr: 'Voir le palier →',
-  tier_cta_en: 'Open tier →',
-  tiers: PYRAMID_TIERS.map((tier, idx) => ({
-    n: tier.n,
-    tag_fr: tier.tag.fr, tag_en: tier.tag.en,
-    label_fr: tier.label.fr, label_en: tier.label.en,
-    lead_fr: tier.lead.fr, lead_en: tier.lead.en,
-    items_fr: tier.items, items_en: tier.items,
-    action_fr: ACTION_LABELS[idx].fr, action_en: ACTION_LABELS[idx].en,
-    href: tier.href,
-    stage_fr: TIER_DETAILS[idx].stage.fr, stage_en: TIER_DETAILS[idx].stage.en,
-    price_fr: TIER_DETAILS[idx].price.fr, price_en: TIER_DETAILS[idx].price.en,
-  })),
-} satisfies SectionByType<'maturity-pyramid'>;
-
 // CTA intermédiaire (docs/39 P1-8 : jamais > 3 500 px sans porte de sortie) ·
-// posé au 2ᵉ pic d'intention, juste après le moment prix.
+// posé au moment-prix pour casser le run clair avec une frame accent.
 const ctaInlineData = {
   type: 'cta-band' as const,
-  text_fr: "Un doute sur le palier d'entrée ? 30 minutes au téléphone suffisent pour le situer.",
-  text_en: 'Not sure which tier to start at? A 30-minute call is enough to place it.',
+  text_fr: "Pas sûr du point de départ ? 30 minutes au téléphone suffisent pour le situer.",
+  text_en: 'Not sure where to start? A 30-minute call is enough to place it.',
   cta: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: localizeHref('/contact', 'fr'), variant: 'primary' as const },
-  // Touche accent au moment-prix (rythme paper → ink → paper → accent). Token DS existant.
   background: 'accent' as const,
 } satisfies SectionByType<'cta-band'>;
 
-// FAQ PME-first · 8 questions scannables (V5 : + CMS · + brand consistency)
-const faqItems = [
-  {
-    q: "Combien coûte un premier engagement avec Waimia ?",
-    a: `Le diagnostic IA est gratuit. Ensuite, la grille démarre ${PRICE_FROM_LABEL.fr} (palier Essentiel : un premier système intelligent en ligne) et monte à 4 000, 7 000 puis 10 000 € HT selon votre maturité, avec un palier sur-mesure au-delà. La plupart des PME commencent petit, mesurent vite, puis montent en charge quand c'est rentable.`,
-  },
-  {
-    q: "Pour qui c'est fait, et pour qui ce n'est pas fait.",
-    a: "PME françaises, 10 à 250 collaborateurs. Pas les grands groupes déjà bardés de prestataires. Pas les startups trop jeunes, qui changent de cap toutes les semaines. Nos meilleurs profils : services B2B, industrie, cabinets finance et compta, commerces qui veulent un site qui travaille.",
-  },
-  {
-    q: "En combien de temps voit-on un retour sur investissement ?",
-    a: "Le palier Essentiel met un premier système en production en 1 à 2 semaines, mesure avant/après incluse. Un système complet se déploie en 5 à 12 semaines selon le périmètre. On orchestre, puis on mesure : le ROI de chaque chantier est relevé avant/après, sur vos données, pas un chiffre moyen inventé.",
-  },
-  {
-    q: "Et si on veut reprendre la main en interne ?",
-    a: "Tout est documenté, ouvert, transmissible. Pas de boîte noire, pas de captivité. On forme votre équipe pendant la mission (2 à 3 jours) et on livre le mode opératoire complet. Vous gardez la plateforme quand on part.",
-  },
-  {
-    q: "Comment garantissez-vous la conformité RGPD et AI Act ?",
-    a: "Chaque système inclut par défaut : journal des actions, export CSV/JSON, retour arrière possible, classification du risque AI Act. Sur les périmètres sensibles, on mène une analyse d'impact (PIA) avant le sprint.",
-  },
-  {
-    q: "Travaillez-vous avec notre stack actuelle (HubSpot, Salesforce, Excel, etc.) ?",
-    a: "Oui : on se branche sur votre stack actuelle : HubSpot, Salesforce, Pipedrive, Notion, Excel, Office, ERP. Pas de migration imposée. Si vous n'avez pas de CRM, on en propose un adapté à votre volume, souvent HubSpot pour les PME B2B.",
-  },
-  {
-    q: "Et notre site web et CMS actuels ? Faut-il tout refaire ?",
-    a: "Non. On se branche sur votre CMS existant (WordPress, Webflow, Sanity, headless) ou on bascule vers un CMS Git-based si la maturité de l'équipe le permet. Sites IA-first, landing, tunnels et pages évolutives peuvent vivre en parallèle ou remplacer progressivement l'existant, à votre rythme.",
-  },
-  {
-    q: "Comment garantissez-vous la cohérence de marque sur tous les supports ?",
-    a: "On part de votre design system (ou on le construit), on encode votre charte et votre ton dans des templates, et on déploie des agents de production alignés. Résultat : site, posts, decks PowerPoint, PDF, ads et supports sales restent visuellement et verbalement cohérents même quand l'IA produit en volume.",
-  },
-];
-
-// Acte IV · Cas clients · source UNIQUE = collection `cases` (P0-5). Plus de CASE_FEED générique.
-const allCases = await getCollection('cases', ({ data }) => !data.ndaProtected);
-const homeCases = caseCardGridData('fr', allCases);
+// FAQ PME-first · 8 questions scannables (contenu transcrit du faq-two-column de la variante C).
+const faqItems = (cByType('faq-two-column').items as any[]).map((it) => ({
+  q: it.q_fr,
+  a: it.a_fr,
+}));
 ---
 <Base
   title="Waimia · Studio IA & intégration IA pour PME · Site web intelligent · Montpellier"
@@ -280,35 +184,37 @@ const homeCases = caseCardGridData('fr', allCases);
   {/* Splash · respiration cinématique 1.1s · CSS-only depuis V2 2026-05-15 (zéro JS bundle) */}
   <BootSplash lang="fr" />
 
-  {/* 01 — Hero · promesse + mini-map 6 territoires + CTAs · INTOUCHÉ (référence qualité) */}
+  {/* 01 · Hero · promesse + mini-map 6 territoires + CTAs · INTOUCHÉ (référence qualité) */}
   <Hero />
 
   <div class="home-typo">
 
-    {/* 02 — Bande de preuve unifiée · 3 métriques hors-hero + logos + lien dossiers (Acte I) */}
-    <StatBlock data={proofBarData} lang="fr" />
-    <SocialProof data={socialProofData} lang="fr" />
+    {/* 02 logo-marquee (paper-2) · 03 feature-zigzag « offres » (paper) · sections cataloguées C */}
+    <SectionsRenderer sections={[logoMarqueeC, featureZigzagC]} lang="fr" />
 
-    <SectionTransition phrase="Les chiffres ne viennent pas d'un outil isolé. Ils viennent d'un système connecté." />
+    <SectionTransition phrase="Deux offres, une même couche connectée. Le système qui les relie." />
 
-    {/* 03 — ArchitectureDiagram · FIG 2.0 · le modèle mental, flux dessinés au scroll */}
+    {/* 04 · ArchitectureDiagram · FIG 2.0 · le modèle mental, flux dessinés au scroll (ink) */}
     <ArchitectureDiagram data={architectureDiagramData} lang="fr" />
 
-    {/* 04 — ServicesGrid · FIG 2.5 · l'unique taxonomie de l'offre (fusion UseCaseIndex) */}
+    {/* 05 · ServicesGrid · FIG 2.5 · les 6 services réels v7 (paper) */}
     <ServicesGrid data={servicesGridData} lang="fr" />
 
-    {/* 05 — Pyramide cards-only · stage + prix d'entrée + jauge I→IV (Acte III) */}
-    <MaturityPyramid data={maturityPyramidData} lang="fr" />
-
-    {/* 05b — CTA inline · porte de sortie au moment prix (P1-8) */}
-    <CtaBandSection data={ctaInlineData} lang="fr" />
+    {/* 06 sticky-scroll méthode (paper-2) · 07 pain-severity tension (ink) · 08 feature-split-media dashboard (paper) */}
+    <SectionsRenderer sections={[stickyScrollC, painSeverityC, dashboardMediaData]} lang="fr" />
 
     <SectionTransition phrase="Promesse vérifiable, pas discours." />
 
-    {/* 07 — CaseCardGrid · cas clients réels (collection `cases`) · secteur · durée · stack · livré */}
-    <CaseCardGrid data={homeCases} lang="fr" />
+    {/* 09 case-card-grid cas clients (ink) · 10 stats-bento climax (paper-2 recoloré) */}
+    <SectionsRenderer sections={[caseGridC, statsBentoClimaxC]} lang="fr" />
 
-    {/* 08 — FaqAccordion · 8 questions PME-first · Q.01 (prix) ouverte par défaut */}
+    {/* 11 · CtaBand · porte de sortie au moment-prix · frame accent qui casse le run clair */}
+    <CtaBandSection data={ctaInlineData} lang="fr" />
+
+    {/* 12 · pricing-cards · points d'entrée (paper) */}
+    <SectionsRenderer sections={[pricingCardsC]} lang="fr" />
+
+    {/* 13 · FaqAccordion · 8 questions PME-first · Q.01 ouverte (contenu transcrit de C) */}
     <FaqAccordion
       items={faqItems}
       heading="Questions fréquentes"
@@ -317,12 +223,9 @@ const homeCases = caseCardGridData('fr', allCases);
       openFirst
     />
 
-    {/* 09 — Notes de terrain ×3 · doctrine + maillage (1 CAS max : les dossiers vivent au-dessus) */}
-    <EditorialPreview data={editorialPreviewData('fr', [0, 2, 3])} lang="fr" />
-
     <SectionTransition phrase="Lire aide à comprendre. Auditer permet de chiffrer." />
 
-    {/* 10 — BookSession · climax ink · CTA principal vers /contact (Acte V) */}
+    {/* 14 · BookSession · climax ink · CTA principal vers /contact (Acte V) */}
     <BookSession />
 
   </div>

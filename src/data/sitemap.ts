@@ -43,7 +43,7 @@ export type SimpleNav = { key: string; label: BiText; href: string; simple: true
 export const MM_SOLUTIONS_NEW: MegaMenu = {
   key: 'solutions',
   label: { en: 'Solutions', fr: 'Solutions' },
-  href: '/acquerir',
+  href: '/services',
   lead: {
     en: 'Five AI systems built around recurring SMB pain points: acquisition, customer relations, productivity, intelligence, operations.',
     fr: "Cinq systèmes IA qui adressent les douleurs récurrentes des PME : acquisition, relation client, productivité, pilotage, opérations.",
@@ -52,21 +52,17 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
     {
       kicker: { en: 'BY PROBLEM', fr: 'PAR PROBLÈME' },
       label: { en: 'Business use cases', fr: "Cas d'usage business" },
-      // SEO état final (§0ter) : pages /solutions/* supprimées → services réels + ancres /acquerir.
+      // SEO état final (§0ter) : pages /solutions/* supprimées → services réels + ancres — tous les cas dirigés vers /cas-clients.
       items: [
         { href: '/services/content-marketing-intelligent', label: { en: 'Smart content marketing', fr: 'Content marketing intelligent' }, lead: { en: 'Editorial line + SEO/GEO found by Google AND AI engines.', fr: 'Ligne éditoriale + SEO/GEO trouvés par Google ET les IA.' } },
         { href: '/services/site-web-intelligent', label: { en: 'Smart website', fr: 'Site web intelligent' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
         { href: '/services/landing-page-scoring', label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
-        { href: '/acquerir#publicite', label: { en: 'Online advertising', fr: 'Publicité en ligne' }, lead: { en: 'ROI-driven campaigns, without waste.', fr: 'Campagnes pilotées au ROI, sans gaspillage.' } },
-        { href: '/acquerir#agent-marketing', label: { en: 'Marketing & sales agent', fr: 'Agent marketing & commercial' }, lead: { en: 'An agent that prospects and follows up continuously.', fr: 'Un agent qui prospecte et relance en continu.' } },
       ],
     },
     {
       kicker: { en: 'BY NEED', fr: 'PAR BESOIN' },
       label: { en: 'Steer & operate', fr: 'Piloter & opérer' },
       items: [
-        { href: '/piloter', label: { en: 'Business Intelligence →', fr: 'Business Intelligence →' } },
-        { href: '/operer', label: { en: 'AI Operations →', fr: 'Operations IA →' } },
       ],
     },
   ],
@@ -514,48 +510,57 @@ export const FIELD_NOTES = [
   { date: '02.2026', tag: { en: 'METHOD',    fr: 'MÉTHODE' },  text: { en: 'RevOps rebuild: reconnect site, CRM, follow-ups into one pipeline.',             fr: 'Refonte RevOps : reconnecter site, CRM et relances dans un seul pipeline.' } },
 ];
 
+// 6 services réels v7 (strat 11 §3) · source UNIQUE des cartes de la home (ServicesGrid).
+// `href` pointe vers la vraie page /services/<slug> (les 6 collections existent).
+// Honnêteté : capacités et engagements, 0 résultat client chiffré (studio solo).
 export const SIX_SERVICES = [
   {
     k: '01',
-    metric: { en: '30 min', fr: '30 min' },
-    label: { en: '30-min diagnostic', fr: 'Diagnostic 30 min' },
-    body: { en: 'We identify the business lever before the technology.', fr: 'On identifie le levier métier avant la techno.' },
-    connectors: { en: 'Audit · Cartography · Stack mapping', fr: 'Audit · Cartographie · Stack mapping' },
+    metric: { en: 'Astro + AI', fr: 'Astro + IA' },
+    label: { en: 'Smart website', fr: 'Site web intelligent' },
+    body: { en: 'A web app wired to AI and your data: it reads its KPIs, optimises its SEO and qualifies every visitor.', fr: "Une web app branchée à l'IA et à vos données : elle lit ses KPI, optimise son SEO et qualifie chaque visiteur." },
+    connectors: { en: 'SEO/GEO · Analytics · CRM · Funnel', fr: 'SEO/GEO · Analytics · CRM · Tunnel' },
+    href: '/services/site-web-intelligent',
   },
   {
     k: '02',
-    metric: { en: 'Pipeline wired', fr: 'Pipeline connecté' },
-    label: { en: 'Acquisition system', fr: "Système d'acquisition" },
-    body: { en: 'Pipeline reconnected, qualification automated.', fr: 'Pipeline reconnecté, qualification automatisée.' },
-    connectors: { en: 'Google Ads · Meta · LinkedIn · GA4 · Landing', fr: 'Google Ads · Meta · LinkedIn · GA4 · Landing' },
+    metric: { en: 'Editorial machine', fr: 'Machine éditoriale' },
+    label: { en: 'Intelligent content marketing', fr: 'Content marketing intelligent' },
+    body: { en: 'SEO articles and GEO-ready content produced in your tone and validated by a human, to build authority.', fr: "Articles SEO et contenus GEO-ready produits dans votre ton et validés par un humain, pour bâtir l'autorité." },
+    connectors: { en: 'SEO · GEO · Multi-channel · Human review', fr: 'SEO · GEO · Multi-canal · Relecture humaine' },
+    href: '/services/content-marketing-intelligent',
   },
   {
     k: '03',
-    metric: { en: 'CRM connected', fr: 'CRM relié' },
-    label: { en: 'Augmented CRM', fr: 'CRM augmenté' },
-    body: { en: 'The CRM that follows up, qualifies and alerts, without you touching it.', fr: 'Le CRM qui relance, qualifie et alerte, sans que vous touchiez rien.' },
-    connectors: { en: 'HubSpot · Salesforce · Pipedrive · Outlook', fr: 'HubSpot · Salesforce · Pipedrive · Outlook' },
+    metric: { en: 'Qualified leads', fr: 'Leads qualifiés' },
+    label: { en: 'Landing page & scoring', fr: 'Landing page & scoring' },
+    body: { en: 'Landing pages that convert and scoring that prioritises: from visitor to qualified lead, wired to your CRM.', fr: 'Landing pages qui convertissent et scoring qui priorise : du visiteur au lead qualifié, branché à votre CRM.' },
+    connectors: { en: 'Landing · Scoring · CRM · Qualification', fr: 'Landing · Scoring · CRM · Qualification' },
+    href: '/services/landing-page-scoring',
   },
   {
     k: '04',
-    metric: { en: 'Real time', fr: 'Temps réel' },
-    label: { en: 'Data clarity', fr: 'Lisibilité des données' },
-    body: { en: 'Real-time dashboards: decide in 2 minutes, not a meeting.', fr: 'Tableaux de bord temps réel : décidez en 2 minutes, pas en réunion.' },
-    connectors: { en: 'GA4 · Search Console · SEO tools · Dashboards', fr: 'GA4 · Search Console · SEO tools · Dashboards' },
+    metric: { en: 'In production', fr: 'En production' },
+    label: { en: 'Claude integrator', fr: 'Intégrateur Claude' },
+    body: { en: 'Deploy Claude, Claude Code and MCP wired to your tools, with AI-lead training and governance. In production, not in a POC.', fr: "Déployer Claude, Claude Code et MCP branchés à vos outils, avec formation du référent IA et gouvernance. En production, pas en POC." },
+    connectors: { en: 'Claude · Claude Code · MCP · Governance', fr: 'Claude · Claude Code · MCP · Gouvernance' },
+    href: '/services/integrateur-claude',
   },
   {
     k: '05',
-    metric: { en: 'Workflows', fr: 'Workflows' },
-    label: { en: 'Repetitive tasks removed', fr: 'Tâches répétitives éliminées' },
-    body: { en: 'Workflows that run without you.', fr: 'Workflows qui tournent sans vous.' },
-    connectors: { en: 'Workflows · AI agents · Excel · Office', fr: 'Workflows · Agents IA · Excel · Office' },
+    metric: { en: 'Roadmap', fr: 'Feuille de route' },
+    label: { en: 'Claude AI consultant', fr: 'Consultant IA Claude' },
+    body: { en: 'Frame where AI creates value, set the roadmap, lay governance and skill up your teams.', fr: "Cadrer où l'IA crée de la valeur, tracer la feuille de route, poser la gouvernance et faire monter vos équipes." },
+    connectors: { en: 'Scoping · Roadmap · Governance · Training', fr: 'Cadrage · Feuille de route · Gouvernance · Formation' },
+    href: '/services/consultant-ia-claude',
   },
   {
     k: '06',
-    metric: { en: 'Sovereign', fr: 'Souverain' },
-    label: { en: 'Enterprise custom build', fr: 'Sur-mesure ETI' },
-    body: { en: 'Sovereign architecture, when the market stack hits your perimeter limits.', fr: "Architecture souveraine, quand les outils du marché butent sur votre périmètre." },
-    connectors: { en: 'Trust Center · Design System · Governance · VirtuoseOS', fr: 'Trust Center · Design System · Governance · VirtuoseOS' },
+    metric: { en: 'Autonomous', fr: 'Autonomes' },
+    label: { en: 'AI agents', fr: 'Agents IA' },
+    body: { en: 'Chatbot, MCP integration, workflows and business agents wired to your tools, executing under supervision.', fr: "Chatbot, intégration MCP, workflows et agents métier branchés à vos outils, qui exécutent sous supervision." },
+    connectors: { en: 'Chatbot · MCP · Workflows · Business agents', fr: 'Chatbot · MCP · Workflows · Agents métier' },
+    href: '/services/agents-ia',
   },
 ];
 

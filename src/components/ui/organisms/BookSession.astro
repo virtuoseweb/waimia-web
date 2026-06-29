@@ -12,7 +12,6 @@ import { langFromPath, localizeHref } from '../../../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
 const ctaHref = localizeHref('/contact', lang);
-const email = lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr';
 ---
 <section id="act-5" class="book-session scale-in on-dark" aria-labelledby="book-h2">
   <div class="wrap-wide book-inner">
@@ -33,22 +32,13 @@ const email = lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr';
 
     <p class="book-lede u-serif">
       {lang === 'fr'
-        ? "45 minutes. On regarde. On audite. On chiffre. Si on n'a rien à vous proposer, on le dit. On ne relance pas."
-        : "45 minutes. We look. We audit. We price. If we have nothing to offer, we say so. No follow-up."}
-    </p>
-
-    <p class="book-avail">
-      {lang === 'fr'
-        ? '● DISPONIBLE · T3 2026 · RÉPONSE SOUS 24H'
-        : '● AVAILABLE · Q3 2026 · RESPONSE IN 24H'}
+        ? "Un diagnostic gratuit et sans engagement. On regarde, on audite, on chiffre. Si on n'a rien à vous proposer, on le dit, et on ne relance pas."
+        : "A free, no-commitment diagnostic. We look, we audit, we price. If we have nothing to offer, we say so, and we don't follow up."}
     </p>
 
     <div class="book-ctas reveal-snap">
       <Button href={ctaHref} variant="primary" size="lg" mag={0.22}>
-        {lang === 'fr' ? 'Orchestrer →' : 'Orchestrate it →'}
-      </Button>
-      <Button href={`mailto:${email}`} variant="ghost" size="lg">
-        {email}
+        {lang === 'fr' ? 'Réserver un audit gratuit →' : 'Book a free audit →'}
       </Button>
     </div>
 
@@ -75,8 +65,7 @@ const email = lang === 'fr' ? 'bonjour@waimia.fr' : 'hello@waimia.fr';
   /* H2 token sémantique · variant grand (BookSession climax final) · cf tokens.css */
   /* H2 climax = masse → Instrument Sans medium ; <i> reste relevé serif italic accent */
   .book-h2{font-family:var(--font-sans);font-style:normal;font-size:var(--text-h1);line-height:var(--leading-h1);letter-spacing:-0.015em;margin:20px 0 20px;text-wrap:balance;font-weight:var(--fw-medium)}
-  .book-lede{font-size:var(--text-h3);color:var(--muted);max-width:620px;margin:0 auto 36px;font-family:var(--font-sans);line-height:1.45}
-  .book-avail{font-family:var(--font-mono);font-size:var(--text-small);font-style:normal;letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--muted);margin:0 0 var(--space-6);line-height:1}
+  .book-lede{font-size:var(--text-h3);color:var(--muted);max-width:620px;margin:0 auto var(--space-7);font-family:var(--font-sans);line-height:1.45}
   .book-ctas{display:inline-flex;gap:var(--space-3);flex-wrap:wrap;justify-content:center}
 
   /* Sub-CTA · réassurance · serif italique terracotta sur les mots clés */
