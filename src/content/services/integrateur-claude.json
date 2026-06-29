@@ -130,7 +130,23 @@
         "label_en": "See the capabilities",
         "href": "#capacites",
         "variant": "ghost"
-      }
+      },
+      "kpis": [
+        { "num": "2–8 sem.", "cap_fr": "premier agent en production", "cap_en": "first agent in production" },
+        { "num": "0 captivité", "cap_fr": "code et architecture transférés", "cap_en": "code and architecture handed over" }
+      ]
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ At a glance",
+      "metrics": [
+        { "value": "Sur devis", "label_fr": "chiffré au cadrage, pas de catalogue figé", "label_en": "costed at scoping, no fixed catalogue", "emphasis": true },
+        { "value": "2–8 sem.", "label_fr": "premier agent en production", "label_en": "first agent in production" },
+        { "value": "MCP", "label_fr": "agents branchés à vos outils réels", "label_en": "agents wired to your real tools" },
+        { "value": "Démo → prod", "label_fr": "la valeur est en production, pas dans le POC", "label_en": "value is in production, not the POC" }
+      ]
     },
     {
       "type": "statement-orbit",
@@ -469,11 +485,56 @@
       ]
     },
     {
+      "type": "architecture-diagram",
+      "background": "paper-3",
+      "fig_num": "Fig. 07",
+      "fig_title_fr": "L'architecture d'un système d'agents",
+      "fig_title_en": "The architecture of an agent system",
+      "spec_fr": "OUTILS · MCP · CLAUDE · AGENTS · GOUVERNANCE",
+      "spec_en": "TOOLS · MCP · CLAUDE · AGENTS · GOVERNANCE",
+      "h2_fr": "Un agent MCP, <i class=\"acc\">pas un POC</i>",
+      "h2_en": "An MCP agent, <i class=\"acc\">not a POC</i>",
+      "inputs_fr": ["Vos outils", "Vos données", "Vos process", "Vos équipes"],
+      "inputs_en": ["Your tools", "Your data", "Your processes", "Your teams"],
+      "input_examples_fr": [
+        "CRM, e-mail, agenda, Git, bases de données",
+        "Documents, historiques, tickets, fichiers",
+        "Workflows métier répétitifs à automatiser",
+        "Un référent IA formé à la gouvernance"
+      ],
+      "input_examples_en": [
+        "CRM, email, calendar, Git, databases",
+        "Documents, history, tickets, files",
+        "Repetitive business workflows to automate",
+        "An AI lead trained in governance"
+      ],
+      "outputs_fr": [
+        "Agents branchés via MCP",
+        "Tâches exécutées sur vos outils",
+        "Décisions tracées et journalisées",
+        "Reprise humaine à tout moment"
+      ],
+      "outputs_en": [
+        "Agents wired via MCP",
+        "Tasks executed on your tools",
+        "Traced and logged decisions",
+        "Human takeover at any time"
+      ],
+      "system_label": "Claude + agents",
+      "system_kicker": "SYSTÈME D'AGENTS",
+      "system_subtitle": "Claude · Claude Code · serveurs MCP",
+      "show_loop": true,
+      "loop_label_fr": "SUPERVISION ET AMÉLIORATION CONTINUE",
+      "loop_label_en": "CONTINUOUS SUPERVISION AND IMPROVEMENT",
+      "caption_fr": "Vos outils et vos données sont exposés à Claude via des serveurs MCP propres et documentés. Les agents lisent, interrogent et agissent sur le travail réel, avec un périmètre et des permissions explicites. Chaque décision est tracée, la reprise humaine reste possible, et un référent IA formé fait évoluer le système, sans boîte <i>noire</i>.",
+      "caption_en": "Your tools and data are exposed to Claude through clean, documented MCP servers. Agents read, query and act on real work, with an explicit scope and permissions. Every decision is traced, human takeover stays possible, and a trained AI lead evolves the system, with no black <i>box</i>."
+    },
+    {
       "type": "sticky-scroll-storytelling",
       "anchor": "methode",
       "background": "paper-2",
       "textSide": "left",
-      "proportion": "balanced",
+      "proportion": "media-led",
       "mediaRatio": "4-3",
       "density": "base",
       "numbering": "serif",
