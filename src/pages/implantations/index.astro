@@ -1,0 +1,120 @@
+---
+export const prerender = true;
+
+// Page SSG · /implantations · HUB implantations · rendu 100 % composable.
+// noindex=true : hub mince (politique index-on-quality strategy/10 §3).
+// Hero court + cartes via section catalogue `related-cards-band` (.min(2)/.max(3)).
+// Collection vide → 0 carte → 0 band (pas de crash).
+// Profondeur 2 niveaux (implantations/) → imports en `../../`.
+
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
+import type { SectionData, SectionByType } from '@waimia/ds-kernel';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const isFr = lang === 'fr';
+
+type Card = SectionByType<'related-cards-band'>['cards'][number];
+
+const cards: Card[] = (await getCollection('implantations'))
+  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
+  .map((e) => {
+    const d = e.data;
+    const shortTitle = (full: string) => full.split(' · ')[0].trim();
+    return {
+      kicker_fr: 'Implantation',
+      kicker_en: 'Location',
+      title_fr: shortTitle(d.title_fr),
+      title_en: shortTitle(d.title_en),
+      lead_fr: d.description_fr,
+      lead_en: d.description_en,
+      href: `/implantations/${d.slug ?? e.id}`,
+    };
+  });
+
+// Chunker équilibré 2-3 (jamais de singleton) : respecte .min(2)/.max(3) du schéma.
+function chunkCards(items: Card[]): Card[][] {
+  if (items.length < 2) return [];
+  const chunks: Card[][] = [];
+  let rest = [...items];
+  while (rest.length > 0) {
+    if (rest.length === 4) {
+      chunks.push(rest.slice(0, 2));
+      chunks.push(rest.slice(2, 4));
+      rest = [];
+    } else if (rest.length <= 3) {
+      chunks.push(rest);
+      rest = [];
+    } else {
+      chunks.push(rest.slice(0, 3));
+      rest = rest.slice(3);
+    }
+  }
+  return chunks;
+}
+
+const hero: SectionByType<'hero-hub-masthead'> = {
+  type: 'hero-hub-masthead',
+  background: 'paper',
+  variant: 'listing',
+  decoration: false,
+  align: 'left',
+  kicker_fr: '§ Implantations · l\'IA près de chez vous',
+  kicker_en: '§ Locations · AI near you',
+  h1_fr: '<span>Nos</span><br/><span><i>implantations</i>.</span>',
+  h1_en: '<span>Our</span><br/><span><i>locations</i>.</span>',
+  lede_fr: "Là où nous intervenons et accompagnons les PME dans leur transformation IA. Un ancrage local, des références par territoire.",
+  lede_en: 'Where we operate and support SMBs in their AI transformation. Local roots, territorial references.',
+};
+
+const ctaFinal: SectionByType<'cta-final'> = {
+  type: 'cta-final',
+  background: 'ink',
+  h2_fr: 'Envie d\'en <i>parler</i> ?',
+  h2_en: 'Want to <i>talk</i> about it?',
+  body_fr: 'Un diagnostic de 45 minutes, gratuit et sans engagement : on lit votre contexte ensemble et on vous dit vite où sont les leviers.',
+  body_en: 'A 45-minute diagnostic, free and with no commitment: we read your context together and tell you quickly where the levers are.',
+  cta_primary: {
+    label_fr: 'Réserver un diagnostic (45 min) →',
+    label_en: 'Book a diagnostic (45 min) →',
+    href: '/contact',
+    variant: 'primary',
+  },
+  cta_secondary: {
+    label_fr: "Voir l'audit IA pour PME →",
+    label_en: 'See the AI audit for SMBs →',
+    href: '/audit-ia-pme',
+    variant: 'ghost',
+  },
+};
+
+const cardBands: SectionData[] = chunkCards(cards).map((chunk, i) => ({
+  type: 'related-cards-band',
+  background: i % 2 === 0 ? 'paper' : 'paper-2',
+  ...(i === 0
+    ? { kicker_fr: '§ Les implantations', kicker_en: '§ Our locations' }
+    : {}),
+  cards: chunk,
+}) satisfies SectionByType<'related-cards-band'>);
+
+const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
+---
+
+<Base
+  title={isFr ? 'Implantations · Waimia' : 'Locations · Waimia'}
+  description={isFr
+    ? "Là où nous intervenons et accompagnons les PME dans leur transformation IA. Un ancrage local, des références concrètes par territoire."
+    : 'Where we operate and support SMBs in their AI transformation. Local roots, concrete territorial references.'}
+  noindex={true}
+>
+  <MastheadBar
+    lang={lang}
+    items={[
+      { label: isFr ? 'Accueil' : 'Home', href: isFr ? '/' : '/en' },
+      { label: isFr ? 'Implantations' : 'Locations' },
+    ]}
+  />
+  <SectionsRenderer sections={sections} lang={lang} />
+</Base>
