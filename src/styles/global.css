@@ -898,8 +898,18 @@ a:not([class]):hover,
   letter-spacing: -0.015em;
   text-wrap: balance;
 }
+/* Sous-titre de contexte « par besoin » : DISCRET (correction Simon 2026-06).
+   Avant, `.goal` héritait de `.k` (mono caps accent-text) et attirait plus l'œil
+   que les liens. Désormais ton muted, casse normale, poids regular : un simple
+   contexte qui ne concurrence pas les liens. 100% tokens DS. */
 .mega-col-hd .goal {
-  font-size: var(--text-small);
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-body);
+  text-transform: none;
+  line-height: var(--leading-body);
+  color: var(--muted);
 }
 .mega-quote {
   border-left: 2px solid var(--accent);
@@ -1194,6 +1204,13 @@ a:not([class]):hover,
   margin-bottom: var(--space-1);
 }
 .m-sheet-acc-col .g {
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-body);
+  text-transform: none;
+  line-height: var(--leading-body);
+  color: var(--muted);
   margin-bottom: 0;
 }
 .m-sheet-acc-col .q {

@@ -118,9 +118,11 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
           return (
           <div class="mega-col" data-need={isNeed ? '' : undefined}>
             <div class="mega-col-hd">
-              {col.kicker && <div class="k">{t(col.kicker, lang)}</div>}
+              {/* Kicker de colonne retiré du rendu : il répétait le titre `.t`
+                  (« SITE WEB INTELLIGENT » ≡ « Site web intelligent »). Le titre
+                  suffit (correction Simon 2026-06). `col.kicker` reste en data. */}
               <div class="t">{t(col.title, lang)}</div>
-              {col.goal && <div class="k goal">{t(col.goal, lang)}</div>}
+              {col.goal && <div class="goal">{t(col.goal, lang)}</div>}
             </div>
             {col.quote && <p class="mega-quote">{t(col.quote, lang)}</p>}
             <ul>
@@ -211,9 +213,9 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
           <div class="m-sheet-acc-inner">
             {item.columns.map((col) => (
               <div class="m-sheet-acc-col" data-need={col.goal || col.quote ? '' : undefined}>
-                {col.kicker && <div class="k">{t(col.kicker, lang)}</div>}
+                {/* Kicker de colonne retiré (répétait le titre), cf desktop. */}
                 <div class="t">{t(col.title, lang)}</div>
-                {col.goal && <div class="k g">{t(col.goal, lang)}</div>}
+                {col.goal && <div class="g">{t(col.goal, lang)}</div>}
                 {col.quote && <p class="q">{t(col.quote, lang)}</p>}
                 {col.links.map((sub) => (
                   sub.soon ? (

@@ -184,36 +184,6 @@ const RESSOURCES: MegaMenuSection = {
         href: '/ressources/outils',
       },
     },
-    {
-      kicker: { fr: 'LES PLUS CONSULTÉS', en: 'MOST READ' },
-      title: { fr: 'Les plus consultés', en: 'Most read' },
-      links: [
-        {
-          label: { fr: 'Claude vs ChatGPT PME', en: 'Claude vs ChatGPT for SMEs' },
-          href: '/ressources/comparatifs/claude-vs-chatgpt-pme',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'GEO vs SEO', en: 'GEO vs SEO' },
-          href: '/ressources/comparatifs/geo-vs-seo',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'Site Web Intelligent vs WordPress', en: 'Smart website vs WordPress' },
-          href: '/ressources/comparatifs/site-web-intelligent-vs-wordpress',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'Claude Code vs Cursor', en: 'Claude Code vs Cursor' },
-          href: '/ressources/comparatifs/claude-code-vs-cursor',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-      ],
-    },
   ],
   // Image featured distincte par méga-menu (décoration, demande Simon 2026-06) :
   // RESSOURCES = visuel éditorial.
@@ -425,7 +395,7 @@ const AGENCE: MegaMenuSection = {
   },
   columns: [
     {
-      kicker: { fr: "L'ÉQUIPE", en: 'THE TEAM' },
+      kicker: { fr: 'STUDIO & VISION', en: 'STUDIO & VISION' },
       title: { fr: 'Qui nous sommes', en: 'Who we are' },
       links: [
         {
@@ -449,12 +419,6 @@ const AGENCE: MegaMenuSection = {
             en: 'Agentic systems architecture.',
           },
         },
-      ],
-    },
-    {
-      kicker: { fr: 'VISION', en: 'VISION' },
-      title: { fr: 'Notre vision', en: 'Our vision' },
-      links: [
         {
           label: { fr: 'Manifesto', en: 'Manifesto' },
           href: '/manifesto',
@@ -463,14 +427,6 @@ const AGENCE: MegaMenuSection = {
             en: 'Operational AI, not theatre.',
           },
           featured: true,
-        },
-        {
-          label: { fr: 'Process Intelligence', en: 'Process Intelligence' },
-          href: '/agence/methode',
-          description: {
-            fr: 'Cartographie, priorisation, câblage : la méthode anti-théâtre.',
-            en: 'Mapping, prioritisation, wiring: the anti-theatre method.',
-          },
         },
       ],
     },
