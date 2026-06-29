@@ -1,0 +1,379 @@
+---
+// Section catalogue · hover-reveal-words (#80, GAP narratif awwwards)
+//
+// Prose éditoriale où des MOTS déclencheurs révèlent une vignette image.
+//  - Desktop : au survol (ou focus clavier) d'un mot, une vignette apparaît et SUIT le
+//    curseur (fade rapide). Mots soulignés discrètement.
+//  - Mobile / tap : pas de survol → le mot devient un bouton qui TOGGLE la vignette inline
+//    sous le paragraphe. Tout reste accessible sans survol.
+// A11y : chaque mot = <button> focusable, aria-expanded + aria-controls vers sa vignette.
+// 100 % var(--token). prefers-reduced-motion = apparition sans translation (opacity seule).
+//
+// Segmentation build-time : on découpe `prose_*` autour de la 1ʳᵉ occurrence de chaque mot
+// déclencheur et on enveloppe ce mot d'un <button>. 0 markup orphelin, contenu CMS-safe.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import type { SectionByType } from '@waimia/ds-kernel';
+
+interface Props {
+  data: SectionByType<'hover-reveal-words'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const contentAlign = data.contentAlign ?? 'start';
+const measure = data.measure ?? 'read';
+const thumbRatio = data.thumbRatio ?? '4-3';
+const proseScale = data.proseScale ?? 'lede';
+
+const prose = isFr ? data.prose_fr : data.prose_en;
+
+// Construit la liste des mots déclencheurs (avec leur index de vignette) pour la langue active.
+const triggerWords = data.triggers.map((t, i) => ({
+  i,
+  word: isFr ? t.word_fr : t.word_en,
+  alt: (isFr ? t.media_alt_fr : t.media_alt_en) ?? '',
+  src: t.media_src,
+}));
+
+// Segmente la prose en parts : { text } (texte brut) ou { trigger } (mot enveloppé).
+// On parcourt le texte et on capture la 1ʳᵉ occurrence de chaque mot déclencheur, dans
+// l'ordre d'apparition. Robuste aux mots absents (ignorés silencieusement).
+type Part = { kind: 'text'; value: string } | { kind: 'trigger'; value: string; idx: number };
+const parts: Part[] = [];
+{
+  let cursor = 0;
+  const remaining = new Set(triggerWords.map((t) => t.i));
+  // À chaque tour, trouver la prochaine occurrence (la plus à gauche) parmi les mots restants.
+  while (cursor < prose.length) {
+    let best: { at: number; tw: (typeof triggerWords)[number] } | null = null;
+    for (const tw of triggerWords) {
+      if (!remaining.has(tw.i) || !tw.word) continue;
+      const at = prose.indexOf(tw.word, cursor);
+      if (at === -1) continue;
+      if (best === null || at < best.at) best = { at, tw };
+    }
+    if (best === null) {
+      parts.push({ kind: 'text', value: prose.slice(cursor) });
+      break;
+    }
+    if (best.at > cursor) parts.push({ kind: 'text', value: prose.slice(cursor, best.at) });
+    parts.push({ kind: 'trigger', value: best.tw.word, idx: best.tw.i });
+    remaining.delete(best.tw.i);
+    cursor = best.at + best.tw.word.length;
+  }
+}
+
+const sectionId = `hrw-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<section
+  class="hrw sec-base"
+  data-bg={data.background}
+  data-align={contentAlign}
+  data-measure={measure}
+  data-thumb-ratio={thumbRatio}
+  data-prose-scale={proseScale}
+  id={sectionId}
+>
+  <div class="wrap-wide">
+    <div class="hrw__inner reveal">
+      {(isFr ? data.kicker_fr : data.kicker_en) && (
+        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+      )}
+
+      <p class="hrw__prose">
+        {parts.map((part) =>
+          part.kind === 'text' ? (
+            <span set:text={part.value} />
+          ) : (
+            <button
+              type="button"
+              class="hrw__word"
+              data-idx={part.idx}
+              aria-expanded="false"
+              aria-controls={`${sectionId}-thumb-${part.idx}`}
+            >{part.value}</button>
+          ),
+        )}
+      </p>
+
+      {/* Vignettes inline (mobile / tap). En desktop la même donnée alimente le suiveur de curseur. */}
+      <div class="hrw__thumbs">
+        {triggerWords.map((tw) => (
+          <figure
+            class="hrw__thumb"
+            id={`${sectionId}-thumb-${tw.i}`}
+            data-idx={tw.i}
+            data-active="false"
+            hidden
+          >
+            <img src={tw.src} alt={tw.alt} loading="lazy" decoding="async" width="800" height="600" />
+          </figure>
+        ))}
+      </div>
+    </div>
+
+    {/* Suiveur de curseur (desktop) : une seule vignette flottante, positionnée en JS. */}
+    <div class="hrw__cursor-thumb" aria-hidden="true" data-active="false">
+      <img class="hrw__cursor-img" src="" alt="" decoding="async" width="800" height="600" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hrw .wrap-wide {
+    position: relative;
+  }
+  .hrw__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .hrw[data-align='center'] .hrw__inner {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Largeur de lecture (measure). */
+  .hrw__prose {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--ink);
+    line-height: var(--leading-prose);
+    max-width: var(--wrap-read);
+  }
+  .hrw[data-measure='prose'] .hrw__prose { max-width: var(--wrap-prose); }
+  .hrw[data-measure='wide'] .hrw__prose { max-width: var(--wrap-tight); }
+  .hrw[data-align='center'] .hrw__prose { margin-inline: auto; }
+
+  .hrw[data-prose-scale='lede'] .hrw__prose { font-size: var(--text-h3); line-height: var(--leading-lede); }
+  .hrw[data-prose-scale='body'] .hrw__prose { font-size: var(--text-body); }
+
+  /* Mot déclencheur : souligné discret + accent au focus/hover. */
+  .hrw__word {
+    appearance: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font: inherit;
+    color: var(--accent-text);
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(var(--accent-rgb), 0.4);
+    transition: text-decoration-color var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease);
+  }
+  .hrw__word:hover,
+  .hrw__word:focus-visible {
+    text-decoration-color: var(--accent);
+  }
+  .hrw__word:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  /* Vignettes inline (mobile / tap). Cachées par défaut, révélées au toggle. */
+  .hrw__thumbs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+    width: 100%;
+    max-width: var(--wrap-read);
+  }
+  .hrw[data-align='center'] .hrw__thumbs { margin-inline: auto; align-items: center; }
+
+  .hrw__thumb {
+    margin: 0;
+    width: 100%;
+    max-width: 22rem;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-paper-lift);
+    opacity: 0;
+    transform: translateY(var(--space-2));
+    transition: opacity var(--dur-hover) var(--ease), transform var(--dur-hover) var(--ease);
+  }
+  .hrw[data-thumb-ratio='1-1'] .hrw__thumb { aspect-ratio: 1; }
+  .hrw[data-thumb-ratio='3-2'] .hrw__thumb { aspect-ratio: 3 / 2; }
+  .hrw[data-thumb-ratio='4-5'] .hrw__thumb { aspect-ratio: 4 / 5; }
+  .hrw__thumb[data-active='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .hrw__thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Suiveur de curseur (desktop uniquement). Masqué tant qu'il n'est pas actif. */
+  .hrw__cursor-thumb {
+    display: none;
+  }
+
+  /* ── Desktop (≥ 768px) : vignette flottante qui suit le curseur, vignettes inline OFF. ── */
+  @media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+    .hrw__thumbs {
+      display: none;
+    }
+    .hrw__cursor-thumb {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: var(--z-sticky);
+      width: 17rem;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--hairline);
+      box-shadow: var(--shadow-lift);
+      background: var(--paper-2);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.96);
+      transition: opacity var(--dur-fast) var(--ease), transform var(--dur-hover) var(--ease);
+      will-change: transform, opacity;
+    }
+    .hrw[data-thumb-ratio='1-1'] .hrw__cursor-thumb { aspect-ratio: 1; }
+    .hrw[data-thumb-ratio='3-2'] .hrw__cursor-thumb { aspect-ratio: 3 / 2; }
+    .hrw[data-thumb-ratio='4-5'] .hrw__cursor-thumb { aspect-ratio: 4 / 5; width: 14rem; }
+    .hrw__cursor-thumb[data-active='true'] {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .hrw__cursor-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* ── Variante ink ── */
+  .hrw[data-bg='paper-2'] { background: var(--paper-2); }
+  .hrw[data-bg='paper-3'] { background: var(--paper-3); }
+  .hrw[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .hrw[data-bg='ink'] .hrw__prose { color: var(--paper); }
+  .hrw[data-bg='ink'] .hrw__word { color: var(--accent-sur-sombre); }
+  .hrw[data-bg='ink'] .hrw__word:hover,
+  .hrw[data-bg='ink'] .hrw__word:focus-visible { text-decoration-color: var(--accent-sur-sombre); }
+  .hrw[data-bg='ink'] .hrw__thumb,
+  .hrw[data-bg='ink'] .hrw__cursor-thumb {
+    border-color: rgba(var(--paper-rgb), 0.16);
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+
+  /* ── Reduced motion : apparition sans translation (opacity seule), pas de scale. ── */
+  @media (prefers-reduced-motion: reduce) {
+    .hrw__thumb,
+    .hrw__cursor-thumb,
+    .hrw__word {
+      transition: opacity var(--dur-fast) linear;
+      transform: none;
+    }
+    .hrw__thumb[data-active='true'],
+    .hrw__cursor-thumb[data-active='true'] {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const sections = document.querySelectorAll<HTMLElement>('.hrw');
+    const finePointer =
+      window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth >= 768;
+
+    sections.forEach((section) => {
+      const words = Array.from(section.querySelectorAll<HTMLButtonElement>('.hrw__word'));
+      const thumbs = Array.from(section.querySelectorAll<HTMLElement>('.hrw__thumb'));
+      const cursorThumb = section.querySelector<HTMLElement>('.hrw__cursor-thumb');
+      const cursorImg = section.querySelector<HTMLImageElement>('.hrw__cursor-img');
+      if (words.length === 0) return;
+
+      const thumbByIdx = (idx: number) => thumbs.find((t) => t.dataset.idx === String(idx)) || null;
+      const imgSrcByIdx = (idx: number) => thumbByIdx(idx)?.querySelector('img')?.getAttribute('src') || '';
+      const imgAltByIdx = (idx: number) => thumbByIdx(idx)?.querySelector('img')?.getAttribute('alt') || '';
+
+      // ── Desktop : vignette flottante qui suit le curseur ──
+      if (finePointer && cursorThumb && cursorImg) {
+        let raf = 0;
+        let pendingX = 0;
+        let pendingY = 0;
+        const move = () => {
+          cursorThumb.style.left = pendingX + 'px';
+          cursorThumb.style.top = pendingY + 'px';
+          raf = 0;
+        };
+        const showFor = (idx: number) => {
+          const src = imgSrcByIdx(idx);
+          if (src && cursorImg.getAttribute('src') !== src) {
+            cursorImg.setAttribute('src', src);
+            cursorImg.setAttribute('alt', imgAltByIdx(idx));
+          }
+          cursorThumb.dataset.active = 'true';
+        };
+        const hide = () => {
+          cursorThumb.dataset.active = 'false';
+        };
+
+        words.forEach((w) => {
+          const idx = Number(w.dataset.idx);
+          w.addEventListener('mouseenter', () => showFor(idx));
+          w.addEventListener('mouseleave', hide);
+          w.addEventListener('focus', () => showFor(idx));
+          w.addEventListener('blur', hide);
+        });
+
+        section.addEventListener('mousemove', (e) => {
+          pendingX = e.clientX;
+          pendingY = e.clientY;
+          if (!raf) raf = requestAnimationFrame(move);
+        });
+      }
+
+      // ── Mobile / tap / clavier : toggle de la vignette inline ──
+      const closeAll = (except?: number) => {
+        thumbs.forEach((t) => {
+          if (except !== undefined && t.dataset.idx === String(except)) return;
+          t.dataset.active = 'false';
+          t.hidden = true;
+        });
+        words.forEach((w) => {
+          if (except !== undefined && w.dataset.idx === String(except)) return;
+          w.setAttribute('aria-expanded', 'false');
+        });
+      };
+
+      words.forEach((w) => {
+        w.addEventListener('click', (e) => {
+          // En pointeur fin (desktop hover), le clic n'a pas à toggler l'inline.
+          if (finePointer) return;
+          e.preventDefault();
+          const idx = Number(w.dataset.idx);
+          const thumb = thumbByIdx(idx);
+          if (!thumb) return;
+          const willOpen = thumb.dataset.active !== 'true';
+          closeAll(willOpen ? idx : undefined);
+          thumb.hidden = !willOpen;
+          // Forcer un reflow pour que la transition d'opacité s'applique après unhide.
+          void thumb.offsetWidth;
+          thumb.dataset.active = willOpen ? 'true' : 'false';
+          w.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        });
+      });
+    });
+  })();
+</script>

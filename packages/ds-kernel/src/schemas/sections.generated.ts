@@ -117,6 +117,7 @@ import { schema as heroTunnelStepSchema } from '../sections/hero-tunnel-step/sch
 import { schema as heroUtilityMastheadSchema } from '../sections/hero-utility-masthead/schema';
 import { schema as horizontalShowcaseSchema } from '../sections/horizontal-showcase/schema';
 import { schema as hoverRevealListSchema } from '../sections/hover-reveal-list/schema';
+import { schema as hoverRevealWordsSchema } from '../sections/hover-reveal-words/schema';
 import { schema as howWeShipSchema } from '../sections/how-we-ship/schema';
 import { schema as iconTrioSchema } from '../sections/icon-trio/schema';
 import { schema as inclusionsListSchema } from '../sections/inclusions-list/schema';
@@ -177,6 +178,7 @@ import { schema as statCounterSchema } from '../sections/stat-counter/schema';
 import { schema as statementOrbitSchema } from '../sections/statement-orbit/schema';
 import { schema as statsBentoSchema } from '../sections/stats-bento/schema';
 import { schema as stepsHorizontalSchema } from '../sections/steps-horizontal/schema';
+import { schema as stickyScrollStorytellingSchema } from '../sections/sticky-scroll-storytelling/schema';
 import { schema as systemFlowSchema } from '../sections/system-flow/schema';
 import { schema as teamBioGridSchema } from '../sections/team-bio-grid/schema';
 import { schema as teamCardGridSchema } from '../sections/team-card-grid/schema';
@@ -319,6 +321,7 @@ export {
   heroUtilityMastheadSchema,
   horizontalShowcaseSchema,
   hoverRevealListSchema,
+  hoverRevealWordsSchema,
   howWeShipSchema,
   iconTrioSchema,
   inclusionsListSchema,
@@ -379,6 +382,7 @@ export {
   statementOrbitSchema,
   statsBentoSchema,
   stepsHorizontalSchema,
+  stickyScrollStorytellingSchema,
   systemFlowSchema,
   teamBioGridSchema,
   teamCardGridSchema,
@@ -522,6 +526,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroUtilityMastheadSchema,
   horizontalShowcaseSchema,
   hoverRevealListSchema,
+  hoverRevealWordsSchema,
   howWeShipSchema,
   iconTrioSchema,
   inclusionsListSchema,
@@ -582,6 +587,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   statementOrbitSchema,
   statsBentoSchema,
   stepsHorizontalSchema,
+  stickyScrollStorytellingSchema,
   systemFlowSchema,
   teamBioGridSchema,
   teamCardGridSchema,

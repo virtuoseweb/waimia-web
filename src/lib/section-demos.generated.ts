@@ -205,6 +205,8 @@ import { demo as systemFlowDemo } from '../sections/system-flow/demo';
 import { demo as methodSteplineDemo } from '../sections/method-stepline/demo';
 import { demo as eeatPanelDemo } from '../sections/eeat-panel/demo';
 import { demo as richTextDemo } from '../sections/rich-text/demo';
+import { demo as stickyScrollStorytellingDemo } from '../sections/sticky-scroll-storytelling/demo';
+import { demo as hoverRevealWordsDemo } from '../sections/hover-reveal-words/demo';
 
 export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'hero-form-inline': heroFormInlineDemo,
@@ -407,4 +409,6 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'method-stepline': methodSteplineDemo,
   'eeat-panel': eeatPanelDemo,
   'rich-text': richTextDemo,
+  'sticky-scroll-storytelling': stickyScrollStorytellingDemo,
+  'hover-reveal-words': hoverRevealWordsDemo,
 };

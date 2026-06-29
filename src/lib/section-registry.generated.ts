@@ -205,6 +205,8 @@ import { Component as systemFlowComponent, meta as systemFlowMeta } from '../sec
 import { Component as methodSteplineComponent, meta as methodSteplineMeta } from '../sections/method-stepline';
 import { Component as eeatPanelComponent, meta as eeatPanelMeta } from '../sections/eeat-panel';
 import { Component as richTextComponent, meta as richTextMeta } from '../sections/rich-text';
+import { Component as stickyScrollStorytellingComponent, meta as stickyScrollStorytellingMeta } from '../sections/sticky-scroll-storytelling';
+import { Component as hoverRevealWordsComponent, meta as hoverRevealWordsMeta } from '../sections/hover-reveal-words';
 
 export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'hero-form-inline': {
@@ -1006,5 +1008,13 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'rich-text': {
     component: richTextComponent,
     ...richTextMeta,
+  },
+  'sticky-scroll-storytelling': {
+    component: stickyScrollStorytellingComponent,
+    ...stickyScrollStorytellingMeta,
+  },
+  'hover-reveal-words': {
+    component: hoverRevealWordsComponent,
+    ...hoverRevealWordsMeta,
   },
 };

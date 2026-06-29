@@ -1,0 +1,406 @@
+---
+// Section catalogue · sticky-scroll-storytelling (#80, GAP narratif awwwards)
+//
+// Desktop : 2 colonnes. RAIL de texte (étapes/chapitres) d'un côté, colonne MÉDIA STICKY
+// de l'autre. Au scroll, l'étape qui croise la bande centrale du viewport passe ACTIVE
+// (accent, opacité pleine) ; les autres en retrait. L'image du cadre média change en
+// crossfade vers celle de l'étape active. Proportions non 50/50 (§H.4), ratio média
+// paramétrable (§H.5), numéral serif d'emphase (typo §A : serif = quelques mots).
+// Mobile : pas de sticky 2-col → STEPPER vertical (image + texte empilés par étape).
+// 100 % var(--token), reduced-motion = swap instantané sans translation.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import type { SectionByType } from '@waimia/ds-kernel';
+
+interface Props {
+  data: SectionByType<'sticky-scroll-storytelling'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const textSide = data.textSide ?? 'left';
+const proportion = data.proportion ?? 'media-led';
+const mediaRatio = data.mediaRatio ?? '4-5';
+const numbering = data.numbering ?? 'serif';
+---
+
+<section
+  class="sss sec-base"
+  data-bg={data.background}
+  data-text-side={textSide}
+  data-proportion={proportion}
+  data-media-ratio={mediaRatio}
+  data-density={data.density}
+  data-numbering={numbering}
+>
+  <div class="wrap-wide">
+    {(isFr ? data.kicker_fr : data.kicker_en) || (isFr ? data.lede_fr : data.lede_en) ? (
+      <div class="sss__header reveal">
+        {(isFr ? data.kicker_fr : data.kicker_en) && (
+          <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        )}
+        <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+        {(isFr ? data.lede_fr : data.lede_en) && (
+          <p class="sss__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+        )}
+      </div>
+    ) : (
+      <div class="sss__header reveal">
+        <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      </div>
+    )}
+
+    <div class="sss__grid">
+      <ol class="sss__rail" aria-label={isFr ? 'Étapes' : 'Steps'}>
+        {data.steps.map((step, i) => {
+          const index = isFr ? step.index_fr : step.index_en;
+          const eyebrow = isFr ? step.eyebrow_fr : step.eyebrow_en;
+          const alt = (isFr ? step.media_alt_fr : step.media_alt_en) ?? '';
+          const linkLabel = isFr ? step.link_label_fr : step.link_label_en;
+          return (
+            <li class="sss__step reveal" data-idx={i} data-active={i === 0 ? 'true' : 'false'}>
+              <div class="sss__step-head">
+                {index && numbering === 'serif' && (
+                  <span class="sss__num u-serif-accent" aria-hidden="true"><i>{index}</i></span>
+                )}
+                <div class="sss__step-titles">
+                  {eyebrow && <span class="sss__eyebrow">{eyebrow}</span>}
+                  <h3 class="sss__title">{isFr ? step.title_fr : step.title_en}</h3>
+                </div>
+              </div>
+              <p class="sss__body">{isFr ? step.body_fr : step.body_en}</p>
+              {linkLabel && step.link_href && (
+                <a class="sss__link" href={step.link_href}>
+                  {linkLabel}
+                  <span aria-hidden="true">&#x2192;</span>
+                </a>
+              )}
+              {/* Image inline : visible en stepper mobile uniquement. */}
+              <img
+                class="sss__inline-img"
+                src={step.media_src}
+                alt={alt}
+                loading="lazy"
+                decoding="async"
+                width="1000"
+                height="1250"
+              />
+            </li>
+          );
+        })}
+      </ol>
+
+      <div class="sss__media" aria-hidden="true">
+        <div class="sss__frame">
+          {data.steps.map((step, i) => {
+            const alt = (isFr ? step.media_alt_fr : step.media_alt_en) ?? '';
+            return (
+              <figure class="sss__fig" data-idx={i} data-active={i === 0 ? 'true' : 'false'}>
+                <img
+                  src={step.media_src}
+                  alt={alt}
+                  loading="lazy"
+                  decoding="async"
+                  width="1000"
+                  height="1250"
+                />
+              </figure>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sss__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 720px;
+  }
+  .sss__header h2 :global(i) {
+    font-style: italic;
+  }
+  .sss__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    color: var(--muted);
+    line-height: var(--leading-lede);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  /* Mobile-first : une colonne = stepper (image inline + texte par étape). */
+  .sss__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  .sss__rail {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-9);
+  }
+
+  .sss__step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    transition: opacity var(--dur-reveal) var(--ease);
+  }
+
+  .sss__step-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+
+  .sss__num {
+    font-size: var(--text-numeral-md);
+    line-height: 1;
+  }
+  .sss__num :global(i) {
+    color: var(--muted);
+    transition: color var(--dur-reveal) var(--ease);
+  }
+  .sss__step[data-active='true'] .sss__num :global(i) {
+    color: var(--accent-text);
+  }
+
+  .sss__step-titles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .sss__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color var(--dur-reveal) var(--ease);
+  }
+  .sss__step[data-active='true'] .sss__eyebrow {
+    color: var(--accent-text);
+  }
+
+  .sss__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .sss__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    max-width: 52ch;
+  }
+
+  .sss__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: var(--fw-medium);
+    color: var(--accent-text);
+    text-decoration: none;
+  }
+  .sss__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Image inline = mobile stepper. Masquée en desktop (cadre sticky prend le relais). */
+  .sss__inline-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    margin-top: var(--space-2);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--hairline);
+  }
+
+  /* Le cadre média sticky est masqué tant qu'on est mono-colonne (mobile). */
+  .sss__media {
+    display: none;
+  }
+
+  /* ── Desktop (≥ 860px) : 2 colonnes, proportions non 50/50, cadre média sticky ── */
+  @media (min-width: 860px) {
+    .sss__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-11);
+      align-items: start;
+    }
+    /* Proportions §H.4 (texte / média). Le rail est toujours posé en 1ʳᵉ piste du DOM ;
+       data-text-side bascule l'ordre visuel. data-proportion fixe les fractions. */
+    .sss[data-proportion='text-led'] .sss__grid { grid-template-columns: 62fr 38fr; }
+    .sss[data-proportion='media-led'] .sss__grid { grid-template-columns: 38fr 62fr; }
+    .sss[data-proportion='media-wide'] .sss__grid { grid-template-columns: 34fr 66fr; }
+
+    .sss__rail {
+      gap: var(--space-13);
+    }
+    .sss__step {
+      min-height: 38vh; /* respiration : chaque étape occupe une bande lisible au scroll */
+      justify-content: center;
+    }
+    .sss__step[data-active='false'] {
+      opacity: 0.42;
+    }
+    .sss__step[data-active='true'] {
+      opacity: 1;
+    }
+
+    .sss__media {
+      display: block;
+      position: sticky;
+      top: var(--space-10);
+      align-self: start;
+    }
+    /* media-side : texte à droite → le rail passe en 2ᵉ colonne, média en 1ʳᵉ. */
+    .sss[data-text-side='right'] .sss__rail { order: 1; }
+    .sss[data-text-side='right'] .sss__media { order: 0; }
+
+    .sss__inline-img {
+      display: none;
+    }
+    .sss__title {
+      font-size: var(--text-h2);
+    }
+    .sss__num {
+      font-size: var(--text-numeral);
+    }
+  }
+
+  /* ── Densité du rail (gap entre étapes) ── */
+  .sss[data-density='compact'] .sss__rail { gap: var(--space-9); }
+  .sss[data-density='ample'] .sss__rail { gap: var(--space-15); }
+
+  /* ── Cadre média sticky + crossfade ── */
+  .sss__frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-lift);
+    background: var(--paper-2);
+  }
+  .sss[data-media-ratio='1-1'] .sss__frame { aspect-ratio: 1; }
+  .sss[data-media-ratio='4-3'] .sss__frame { aspect-ratio: 4 / 3; }
+  .sss[data-media-ratio='3-2'] .sss__frame { aspect-ratio: 3 / 2; }
+
+  .sss__fig {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity var(--dur-reveal) var(--ease), transform var(--dur-slow) var(--ease);
+  }
+  .sss__fig[data-active='true'] {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .sss__fig img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── Variante ink ── */
+  .sss[data-bg='paper-2'] { background: var(--paper-2); }
+  .sss[data-bg='paper-3'] { background: var(--paper-3); }
+  .sss[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .sss[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .sss[data-bg='ink'] .sss__title { color: var(--paper); }
+  .sss[data-bg='ink'] .sss__body,
+  .sss[data-bg='ink'] .sss__lede { color: rgba(var(--paper-rgb), 0.72); }
+  .sss[data-bg='ink'] .sss__step[data-active='false'] { opacity: 0.4; }
+  .sss[data-bg='ink'] .sss__frame {
+    border-color: rgba(var(--paper-rgb), 0.16);
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+  .sss[data-bg='ink'] .sss__inline-img {
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+
+  /* ── Reduced motion : swap instantané, pas de scale, sticky conservé ── */
+  @media (prefers-reduced-motion: reduce) {
+    .sss__step,
+    .sss__num :global(i),
+    .sss__eyebrow,
+    .sss__fig {
+      transition: none;
+    }
+    .sss__fig {
+      transform: none;
+    }
+    .sss__fig[data-active='true'] {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    if (!('IntersectionObserver' in window)) return;
+
+    const sections = document.querySelectorAll<HTMLElement>('.sss');
+
+    sections.forEach((section) => {
+      const steps = Array.from(section.querySelectorAll<HTMLElement>('.sss__step'));
+      const figs = Array.from(section.querySelectorAll<HTMLElement>('.sss__fig'));
+      if (steps.length === 0) return;
+
+      const setActive = (idx: number) => {
+        steps.forEach((el) => {
+          el.dataset.active = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+        figs.forEach((el) => {
+          el.dataset.active = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = Number((entry.target as HTMLElement).dataset.idx);
+              if (!Number.isNaN(idx)) setActive(idx);
+            }
+          });
+        },
+        { rootMargin: '-45% 0px -45% 0px', threshold: 0 },
+      );
+
+      steps.forEach((el) => observer.observe(el));
+    });
+  })();
+</script>

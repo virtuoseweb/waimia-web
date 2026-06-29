@@ -291,6 +291,9 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'system-flow',               consumers: [] },
   // #39 : section de corps riche (Markdown -> prose). Catalogue-only a sa creation.
   { id: 'rich-text',                 consumers: [] },
+  // #80 : 2 familles narratives awwwards (catalogue-only a leur creation).
+  { id: 'sticky-scroll-storytelling', consumers: [] },
+  { id: 'hover-reveal-words',         consumers: [] },
   // <<< [t5-touchpoint-sync] end
 ];
 
