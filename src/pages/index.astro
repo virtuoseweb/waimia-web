@@ -52,7 +52,8 @@ import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 const cByType = <T extends string>(t: T) =>
   (homeVariantC.sections as any[]).find((s) => s.type === t);
 
-const logoMarqueeC = { ...cByType('logo-marquee'), background: 'paper-2' } as SectionData;       // 02
+// 02 · marquee « écosystème » sur fond ink + grayscale (logos blancs, hover couleur) = config page SWI (directive Simon 2026-06-29)
+const logoMarqueeC = { ...cByType('logo-marquee'), background: 'ink', grayscale: true } as SectionData;
 const featureZigzagC = { ...cByType('feature-zigzag'), background: 'paper' } as SectionData;      // 03 · garde anchor "offres"
 const stickyScrollC = { ...cByType('sticky-scroll-storytelling'), background: 'paper-2' } as SectionData; // 06
 const painSeverityC = { ...cByType('pain-severity-list'), background: 'ink' } as SectionData;     // 07
@@ -200,19 +201,19 @@ const faqItems = (cByType('faq-two-column').items as any[]).map((it) => ({
     {/* 05 · ServicesGrid · FIG 2.5 · les 6 services réels v7 (paper) */}
     <ServicesGrid data={servicesGridData} lang="fr" />
 
-    {/* 06 sticky-scroll méthode (paper-2) · 07 pain-severity tension (ink) · 08 feature-split-media dashboard (paper) */}
-    <SectionsRenderer sections={[stickyScrollC, painSeverityC, dashboardMediaData]} lang="fr" />
+    {/* 06 sticky-scroll méthode (paper-2) · 07 pain-severity tension (ink) · 08 stats-bento climax (paper-2, séparateur anti 2-ink) */}
+    <SectionsRenderer sections={[stickyScrollC, painSeverityC, statsBentoClimaxC]} lang="fr" />
 
     <SectionTransition phrase="Promesse vérifiable, pas discours." />
 
-    {/* 09 case-card-grid cas clients (ink) · 10 stats-bento climax (paper-2 recoloré) */}
-    <SectionsRenderer sections={[caseGridC, statsBentoClimaxC]} lang="fr" />
+    {/* 09 case-card-grid cas clients (ink) */}
+    <SectionsRenderer sections={[caseGridC]} lang="fr" />
 
     {/* 11 · CtaBand · porte de sortie au moment-prix · frame accent qui casse le run clair */}
     <CtaBandSection data={ctaInlineData} lang="fr" />
 
-    {/* 12 · pricing-cards · points d'entrée (paper) */}
-    <SectionsRenderer sections={[pricingCardsC]} lang="fr" />
+    {/* 12 · pricing-cards · points d'entrée (paper) · 12bis feature-split-media « tableau de bord média » juste avant la FAQ (directive Simon 2026-06-29) */}
+    <SectionsRenderer sections={[pricingCardsC, dashboardMediaData]} lang="fr" />
 
     {/* 13 · FaqAccordion · 8 questions PME-first · Q.01 ouverte (contenu transcrit de C) */}
     <FaqAccordion
