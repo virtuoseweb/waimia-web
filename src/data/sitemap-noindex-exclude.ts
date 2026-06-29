@@ -53,10 +53,4 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // maturite-ia, site-web-intelligent) → hors sitemap pour cohérence. Retirer quand le hub
   // listera ≥ 3-5 diagnostics complets (politique index-on-quality, strategy/10 §3).
   "/ressources/diagnostics",
-  // Piliers Acquérir/Piloter/Opérer (archi 3-piliers abandonnée, strat 10 §3.5) : neutralisés
-  // noindex (prop Base) + retirés du menu/footer/home → hors sitemap pour cohérence noindex↔crawl.
-  // Contenu conservé (réversible), pas supprimé.
-  "/acquerir",
-  "/piloter",
-  "/operer",
 ]);

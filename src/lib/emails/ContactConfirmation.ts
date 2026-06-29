@@ -32,7 +32,7 @@ export default function ContactConfirmation({
     `<p style="${pStyle}margin:0;font-style:italic;">« ${briefSafe} »</p>` +
     `</div>` +
     `<p style="${pStyle}">En attendant, deux ressources qui peuvent répondre directement :</p>` +
-    `<p style="${mutedStyle}">· <a href="https://waimia.com/cas-clients" style="${accentLinkStyle}">Études de cas · refonte RevOps</a><br />· <a href="https://waimia.com/acquerir" style="${accentLinkStyle}">Acquérir · notre offre</a></p>` +
+    `<p style="${mutedStyle}">· <a href="https://waimia.com/cas-clients" style="${accentLinkStyle}">Études de cas · refonte RevOps</a><br />· <a href="https://waimia.com/services" style="${accentLinkStyle}">Nos solutions · IA pour PME</a></p>` +
     `<p style="${mutedStyle}">Si urgent : <a href="mailto:bonjour@waimia.fr" style="${accentLinkStyle}">bonjour@waimia.fr</a></p>`;
 
   return wrapEmail(

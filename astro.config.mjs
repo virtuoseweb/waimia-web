@@ -136,6 +136,11 @@ export default defineConfig({
     '/offres/mcp-connectors': '/services',
     '/offres/agents-metiers': '/services',
     '/offres/audit-process-intelligence': '/services',
+    // Refonte v7 2026-06-29 · suppression des 3 pages piliers (acquerir/operer/piloter).
+    // L'architecture Solutions pointe désormais /services → 301 permanents.
+    '/acquerir': '/services',
+    '/operer': '/services',
+    '/piloter': '/services',
   },
   integrations: [
     react(),
@@ -223,9 +228,6 @@ export default defineConfig({
           include: ['!{preview/**,404}'],
           promote: [
             'services/**',
-            'acquerir/**',
-            'operer/**',
-            'piloter/**',
             'secteurs/**',
             'offres/**',
             'agence/**',
@@ -240,9 +242,6 @@ export default defineConfig({
           onlyStructure: true,
           promote: [
             'services/**',
-            'acquerir/**',
-            'operer/**',
-            'piloter/**',
             'secteurs/**',
             'offres/**',
             'agence/**',

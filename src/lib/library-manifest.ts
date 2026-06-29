@@ -120,7 +120,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-utility-masthead', consumers: ['src/components/templates/UtilityTemplate.astro'] },
   { id: 'hero-academy-hub',      consumers: [] }, // P0.2-F : page hub /ecole supprimée (cours stub non vendables) → catalogue-only
   { id: 'hero-conversion-funnel',consumers: ['src/components/templates/ConversionFunnelTemplate.astro'] },
-  { id: 'hero-hub-stats',        consumers: ['src/content/offres/conseil.mdx'] }, // R6 purge : HubTemplate supprimé en R0 ; vérité actuelle = conseil composable
+  { id: 'hero-hub-stats',        consumers: ['src/pages/agence-web-montpellier.astro', 'src/pages/expertise-claude.astro', 'src/pages/agence/index.astro'] }, // v7 : conseil.mdx supprimé ; rendu réel = 3 pages .astro composables (sections inline)
   { id: 'hero-detail-menu',      consumers: ['src/components/templates/DetailMenuTemplate.astro'] },
   { id: 'hero-author',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'hero-lead-magnet',      consumers: ['src/components/templates/LeadMagnetTemplate.astro'] },
