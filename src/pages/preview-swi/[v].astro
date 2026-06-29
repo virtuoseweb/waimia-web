@@ -1,0 +1,62 @@
+---
+export const prerender = true;
+
+// Page SSG noindex · /preview-swi/[v] · aperçu interne des variantes de composition
+// de la page service « Site Web Intelligent » (SWI). Hors content collections : les
+// variantes vivent dans src/data/swi-variants/*.json (PAS src/content/, sinon collision
+// avec la collection `services` qui route + valide tout .json sous src/content/services).
+//
+// Chaque variante = { variant, label, sections: [...] }. Le rendu réutilise le même
+// pipeline composable que /offres/[slug] : <SectionsRenderer sections={...} />.
+// Tant qu'une seule variante (-c.json) existe, seule /preview-swi/c est générée ;
+// ajouter -a.json / -b.json générera /preview-swi/a et /preview-swi/b sans changer ce fichier.
+
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+
+type Variant = { variant?: string; label?: string; sections: unknown[] };
+
+// eager: import statique de tous les variants au build. Clé = lettre extraite du
+// nom de fichier `site-web-intelligent-<v>.json`.
+const modules = import.meta.glob<{ default: Variant }>(
+  '../../data/swi-variants/*.json',
+  { eager: true },
+);
+
+const variants = new Map<string, Variant>();
+for (const [path, mod] of Object.entries(modules)) {
+  const match = path.match(/site-web-intelligent-([a-z0-9]+)\.json$/i);
+  if (!match) continue;
+  variants.set(match[1].toLowerCase(), mod.default);
+}
+
+export async function getStaticPaths() {
+  const all = import.meta.glob<{ default: Variant }>(
+    '../../data/swi-variants/*.json',
+    { eager: true },
+  );
+  const paths: { params: { v: string } }[] = [];
+  for (const path of Object.keys(all)) {
+    const match = path.match(/site-web-intelligent-([a-z0-9]+)\.json$/i);
+    if (match) paths.push({ params: { v: match[1].toLowerCase() } });
+  }
+  return paths;
+}
+
+const { v } = Astro.params as { v: string };
+const data = variants.get(v);
+
+if (!data || !Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error(`preview-swi/${v} : variante introuvable ou \`sections\` vide`);
+}
+
+const lang = 'fr' as const;
+const label = data.label ?? `variante ${v}`;
+---
+<Base
+  title={`Aperçu SWI · ${label}`}
+  description="Page de revue interne : aperçu d'une variante de composition de la page service Site Web Intelligent."
+  noindex={true}
+>
+  <SectionsRenderer sections={data.sections as any} lang={lang} />
+</Base>
