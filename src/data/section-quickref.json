@@ -7849,6 +7849,10 @@
       {
         "name": "lede_fr",
         "type": "string"
+      },
+      {
+        "name": "media_src",
+        "type": "string"
       }
     ],
     "optionalProps": [
@@ -7889,10 +7893,6 @@
       {
         "name": "media_alt_fr",
         "type": "string"
-      },
-      {
-        "name": "media_src",
-        "type": "string"
       }
     ],
     "hasDemo": true,
@@ -7907,7 +7907,8 @@
         "label_en": "Start a diagnostic",
         "href": "/contact",
         "variant": "primary"
-      }
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg"
     }
   },
   {
@@ -8434,9 +8435,13 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "cta_secondary",
+        "type": "object"
+      },
+      {
         "name": "hero_variant",
         "type": "enum",
-        "constraint": "equilibre | showcase | encadre"
+        "constraint": "equilibre | showcase | encadre | editorial"
       },
       {
         "name": "meta_en",

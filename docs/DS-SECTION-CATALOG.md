@@ -3516,7 +3516,7 @@
 | `lede_fr` | string | oui |  |  |
 | `media_alt_en` | string | non |  |  |
 | `media_alt_fr` | string | non |  |  |
-| `media_src` | string | non |  |  |
+| `media_src` | string | oui |  |  |
 
 **Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
 
@@ -3623,13 +3623,13 @@
 | `tier_en` | string | oui |  |  |
 | `tier_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
+**Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__actions--editorial .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--editorial .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
-**Dette hardcode** : 20 valeur(s) — -50%, 100%, 1100px, 118%, 1320px, 138%, 1px, 280px
+**Dette hardcode** : 21 valeur(s) — -50%, 100%, 1100px, 118%, 1320px, 138%, 1px, 280px
 
-**Agent** : Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-50%, 100%, 1100px).
+**Agent** : Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-50%, 100%, 1100px).
 
 ---
 
@@ -3737,24 +3737,25 @@
 |---|---|---|---|---|
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `cta` | object | oui |  |  |
+| `cta_secondary` | object | non |  |  |
 | `dept_en` | string | oui |  |  |
 | `dept_fr` | string | oui |  |  |
 | `h1_en` | string | oui |  |  |
 | `h1_fr` | string | oui |  |  |
-| `hero_variant` | enum | non |  | equilibre | showcase | encadre |
+| `hero_variant` | enum | non |  | equilibre | showcase | encadre | editorial |
 | `lead_en` | string | oui |  |  |
 | `lead_fr` | string | oui |  |  |
 | `meta_en` | string | non |  |  |
 | `meta_fr` | string | non |  |  |
 | `tags` | array | non |  | max:8 |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
+**Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__actions--editorial .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--editorial .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
-**Dette hardcode** : 20 valeur(s) — -50%, 100%, 1100px, 118%, 1320px, 138%, 1px, 280px
+**Dette hardcode** : 21 valeur(s) — -50%, 100%, 1100px, 118%, 1320px, 138%, 1px, 280px
 
-**Agent** : Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-50%, 100%, 1100px).
+**Agent** : Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-50%, 100%, 1100px).
 
 ---
 
@@ -4001,13 +4002,13 @@
 | `meta_en` | string | non |  |  |
 | `meta_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--hod-wrap` `--htl-wrap` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-pill` `--radius-xs` `--space-10` `--space-11` `--space-12` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-body` `--tracking-display` `--tracking-mono`
 
-**Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
+**Classes scoped** : .hero-detail .hero-detail__actions .hero-detail__actions--editorial .hero-detail__art .hero-detail__bc .hero-detail__copy .hero-detail__eyebrow .hero-detail__geo .hero-detail__lead .hero-detail__meta .hero-detail__meta--copy .hero-detail__sub .hero-detail__sumie .hero-detail__tag .hero-detail__tags .hero-detail__title .hero-detail__visual .hero-detail__wrap .hero-detail--editorial .hero-detail--encadre .hero-detail--equilibre .hero-detail--showcase .hero-tech-layer .hero-tech-layer__actions .hero-tech-layer__cta .hero-tech-layer__geo .hero-tech-layer__layer .hero-tech-layer__layer--claude .hero-tech-layer__layer--orch .hero-tech-layer__layer--os .hero-tech-layer__lead .hero-tech-layer__meta .hero-tech-layer__sub .hero-tech-layer__title .hero-tech-layer__wrap
 
-**Dette hardcode** : 20 valeur(s) — -50%, 100%, 1100px, 118%, 1320px, 138%, 1px, 280px
+**Dette hardcode** : 21 valeur(s) — -50%, 100%, 1100px, 118%, 1320px, 138%, 1px, 280px
 
-**Agent** : Layout : `background`, `layer_type` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-50%, 100%, 1100px).
+**Agent** : Layout : `background`, `layer_type` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-50%, 100%, 1100px).
 
 ---
 

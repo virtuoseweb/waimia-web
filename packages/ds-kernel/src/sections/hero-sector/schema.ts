@@ -8,7 +8,7 @@ import { ctaSchema } from '../_shared/subschemas';
 export const schema = z.object({
   type: z.literal('hero-sector'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
-  hero_variant: z.enum(['equilibre', 'showcase', 'encadre']).optional(),
+  hero_variant: z.enum(['equilibre', 'showcase', 'encadre', 'editorial']).optional(),
   dept_fr: z.string(),
   dept_en: z.string(),
   h1_fr: z.string(),
@@ -16,6 +16,7 @@ export const schema = z.object({
   lead_fr: z.string(),
   lead_en: z.string(),
   cta: ctaSchema,
+  cta_secondary: ctaSchema.optional(),
   meta_fr: z.string().optional(),
   meta_en: z.string().optional(),
   tags: z

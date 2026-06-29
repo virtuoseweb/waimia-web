@@ -21402,7 +21402,7 @@
       {
         "name": "media_src",
         "type": "string",
-        "required": false
+        "required": true
       }
     ],
     "scopedClasses": [
@@ -22199,6 +22199,7 @@
     "scopedClasses": [
       "hero-detail",
       "hero-detail__actions",
+      "hero-detail__actions--editorial",
       "hero-detail__art",
       "hero-detail__bc",
       "hero-detail__copy",
@@ -22214,6 +22215,7 @@
       "hero-detail__title",
       "hero-detail__visual",
       "hero-detail__wrap",
+      "hero-detail--editorial",
       "hero-detail--encadre",
       "hero-detail--equilibre",
       "hero-detail--showcase",
@@ -22381,6 +22383,10 @@
         "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
+        "name": "--text-lede",
+        "value": ""
+      },
+      {
         "name": "--text-small",
         "value": "13px"
       },
@@ -22399,7 +22405,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 20,
+      "count": 21,
       "samples": [
         "-50%",
         "100%",
@@ -22411,7 +22417,7 @@
         "280px"
       ]
     },
-    "agentGuide": "Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-50%, 100%, 1100px)."
+    "agentGuide": "Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-50%, 100%, 1100px)."
   },
   {
     "id": "hero-pillar-hub",
@@ -23401,6 +23407,11 @@
         "required": true
       },
       {
+        "name": "cta_secondary",
+        "type": "object",
+        "required": false
+      },
+      {
         "name": "dept_en",
         "type": "string",
         "required": true
@@ -23424,7 +23435,7 @@
         "name": "hero_variant",
         "type": "enum",
         "required": false,
-        "constraint": "equilibre | showcase | encadre"
+        "constraint": "equilibre | showcase | encadre | editorial"
       },
       {
         "name": "lead_en",
@@ -23456,6 +23467,7 @@
     "scopedClasses": [
       "hero-detail",
       "hero-detail__actions",
+      "hero-detail__actions--editorial",
       "hero-detail__art",
       "hero-detail__bc",
       "hero-detail__copy",
@@ -23471,6 +23483,7 @@
       "hero-detail__title",
       "hero-detail__visual",
       "hero-detail__wrap",
+      "hero-detail--editorial",
       "hero-detail--encadre",
       "hero-detail--equilibre",
       "hero-detail--showcase",
@@ -23638,6 +23651,10 @@
         "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
+        "name": "--text-lede",
+        "value": ""
+      },
+      {
         "name": "--text-small",
         "value": "13px"
       },
@@ -23656,7 +23673,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 20,
+      "count": 21,
       "samples": [
         "-50%",
         "100%",
@@ -23668,7 +23685,7 @@
         "280px"
       ]
     },
-    "agentGuide": "Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-50%, 100%, 1100px)."
+    "agentGuide": "Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-50%, 100%, 1100px)."
   },
   {
     "id": "hero-service-detail",
@@ -25860,6 +25877,7 @@
     "scopedClasses": [
       "hero-detail",
       "hero-detail__actions",
+      "hero-detail__actions--editorial",
       "hero-detail__art",
       "hero-detail__bc",
       "hero-detail__copy",
@@ -25875,6 +25893,7 @@
       "hero-detail__title",
       "hero-detail__visual",
       "hero-detail__wrap",
+      "hero-detail--editorial",
       "hero-detail--encadre",
       "hero-detail--equilibre",
       "hero-detail--showcase",
@@ -26042,6 +26061,10 @@
         "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
+        "name": "--text-lede",
+        "value": ""
+      },
+      {
         "name": "--text-small",
         "value": "13px"
       },
@@ -26060,7 +26083,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 20,
+      "count": 21,
       "samples": [
         "-50%",
         "100%",
@@ -26072,7 +26095,7 @@
         "280px"
       ]
     },
-    "agentGuide": "Layout : `background`, `layer_type` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-50%, 100%, 1100px)."
+    "agentGuide": "Layout : `background`, `layer_type` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-50%, 100%, 1100px)."
   },
   {
     "id": "hero-tech-signature",

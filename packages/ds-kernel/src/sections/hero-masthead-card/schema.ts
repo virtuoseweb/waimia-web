@@ -24,7 +24,7 @@ export const schema = z.object({
   cta_sub_en: z.string().optional(),
   cta_primary: ctaSchema,
   cta_secondary: ctaSchema.optional(),
-  media_src: z.string().optional(),
+  media_src: z.string(),
   media_alt_fr: z.string().optional(),
   media_alt_en: z.string().optional(),
   kpis: z

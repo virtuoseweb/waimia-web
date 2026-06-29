@@ -81,8 +81,17 @@ const offerSumie =
           {heroVariant === 'showcase' && data.meta_fr && (
             <div class="hero-detail__meta hero-detail__meta--copy">{isFr ? data.meta_fr : (data.meta_en ?? data.meta_fr)}</div>
           )}
+          {heroVariant === 'editorial' && (
+            <div class="hero-detail__actions hero-detail__actions--editorial">
+              <a class="btn btn-primary" href={data.cta.href}>{isFr ? data.cta.label_fr : data.cta.label_en}</a>
+              {data.type === 'hero-sector' && data.cta_secondary && (
+                <a class="btn btn-ghost" href={data.cta_secondary.href}>{isFr ? data.cta_secondary.label_fr : data.cta_secondary.label_en}</a>
+              )}
+            </div>
+          )}
         </div>
 
+        {heroVariant !== 'editorial' && (
         <div class="hero-detail__visual">
           <div class="hero-detail__art">
             <svg class:list={['hero-detail__geo', geoReveal && 'reveal-blur-clip']} viewBox="0 0 620 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
@@ -102,6 +111,7 @@ const offerSumie =
             )}
           </div>
         </div>
+        )}
       </div>
     </div>
   </section>
@@ -265,6 +275,20 @@ const offerSumie =
   .hero-detail--showcase .hero-detail__sumie,
   .hero-detail--showcase .hero-detail__actions { width: min(100%, 540px); }
   .hero-detail--showcase .hero-detail__actions { margin-top: auto; }
+  .hero-detail--editorial .hero-detail__sub { grid-template-columns: 1fr; }
+  .hero-detail--editorial .hero-detail__lead {
+    font-style: normal;
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+  .hero-detail--editorial .hero-detail__actions--editorial {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-7);
+  }
   .hero-detail--encadre .hero-detail__sub { border-bottom: 0; padding-bottom: 0; }
   .hero-detail--encadre .hero-detail__visual {
     position: relative;
