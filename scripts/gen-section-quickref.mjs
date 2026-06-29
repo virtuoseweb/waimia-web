@@ -9,13 +9,14 @@
  *     demo: { ...minimal frontmatter extract ready to paste } }
  *
  * Inputs  : src/data/ds-section-manifest.json (props / constraints / required-ness)
- *           src/lib/section-demos.ts          (real demo values)
+ *           src/sections/<type>/demo.ts        (real demo values, co-located modules)
  * Output  : src/data/section-quickref.json
  *
  * Derives EVERYTHING from existing sources of truth (no new source).
- * The demo file imports .astro components so a Node import() is impossible :
- * we parse SECTION_DEMOS statically by balanced-brace scanning (same strategy
- * as gen-section-manifest.mjs / check-presets.mjs).
+ * Each co-located demo module imports .astro components so a Node import() is
+ * impossible : we parse the `export const demo = { ... }` object-literal of every
+ * src/sections/<type>/demo.ts statically by balanced-brace scanning (same strategy
+ * as gen-section-manifest.mjs / check-presets.mjs). The typeId is the folder name.
  *
  * Constraints :
  *   - Zero new npm dependencies (Node.js built-ins only)
@@ -23,13 +24,13 @@
  *   - 0 em-dash U+2014 in any generated content (rule 58)
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const MANIFEST_FILE = 'src/data/ds-section-manifest.json';
-const DEMOS_FILE = 'src/lib/section-demos.ts';
+const SECTIONS_DIR = 'src/sections';
 const OUTPUT_JSON = 'src/data/section-quickref.json';
 
 const collator = new Intl.Collator('en');
@@ -47,44 +48,52 @@ function read(rel) {
 // ─── Demo parsing (static, balanced-brace) ────────────────────────────────────
 
 /**
- * Parses SECTION_DEMOS in section-demos.ts and returns Map<type, rawObjectBody>,
- * where rawObjectBody is the JS source between the entry's outer braces.
- * We then re-parse each body into a JSON-ish object via a JS-literal evaluator.
+ * Isolates the `export const demo ... = { ... }` object-literal of a co-located
+ * demo module and returns the raw object source (braces included), or null if the
+ * declaration is absent. Balanced-brace scan starting at the first '{' after the
+ * `export const demo` declaration (the `= {` may carry a type annotation in
+ * between, e.g. `export const demo: DemoData = {`).
  */
-function parseDemoBlocks(source) {
-  const startMatch = /export\s+const\s+SECTION_DEMOS[^=]*=\s*\{/.exec(source);
-  if (!startMatch) {
-    console.error('FATAL : SECTION_DEMOS introuvable dans section-demos.ts');
-    process.exit(2);
-  }
-  const objStart = startMatch.index + startMatch[0].length - 1; // at outer '{'
+function extractDemoLiteral(source) {
+  const startMatch = /export\s+const\s+demo\b[^=]*=\s*\{/.exec(source);
+  if (!startMatch) return null;
+  const objStart = startMatch.index + startMatch[0].length - 1; // at the '{'
   let depth = 0;
-  let objEnd = -1;
   for (let i = objStart; i < source.length; i++) {
     if (source[i] === '{') depth++;
     else if (source[i] === '}') {
       depth--;
-      if (depth === 0) { objEnd = i; break; }
+      if (depth === 0) return source.slice(objStart, i + 1); // includes braces
     }
   }
-  const body = source.slice(objStart + 1, objEnd);
+  return null;
+}
 
+/**
+ * Enumerates the co-located section modules (src/sections/<type>/) and returns
+ * Map<typeId, rawObjectBody> for every module that has both an index.ts (valid
+ * module marker) and a demo.ts whose `export const demo = {...}` literal could be
+ * isolated. The typeId is the folder name (robust source of truth, preferred over
+ * the in-literal `type:` field). The raw body is re-parsed via evalLiteral later.
+ */
+function parseDemoBlocks() {
+  const dir = join(ROOT, SECTIONS_DIR);
+  if (!existsSync(dir)) {
+    console.error(`FATAL : repertoire introuvable -> ${SECTIONS_DIR}`);
+    process.exit(2);
+  }
   const blocks = new Map();
-  // Top-level keys : 'type-id': { ... }
-  for (const keyMatch of body.matchAll(/'([a-z][a-z0-9-]*)'\s*:\s*\{/g)) {
-    const typeId = keyMatch[1];
-    const blockStart = keyMatch.index + keyMatch[0].length - 1; // at '{'
-    let d = 0;
-    let blockEnd = -1;
-    for (let i = blockStart; i < body.length; i++) {
-      if (body[i] === '{') d++;
-      else if (body[i] === '}') {
-        d--;
-        if (d === 0) { blockEnd = i; break; }
-      }
-    }
-    if (blockEnd === -1) continue;
-    blocks.set(typeId, body.slice(blockStart, blockEnd + 1)); // includes braces
+  const entries = readdirSync(dir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+    .sort(alpha);
+  for (const typeId of entries) {
+    const indexPath = join(dir, typeId, 'index.ts');
+    const demoPath = join(dir, typeId, 'demo.ts');
+    if (!existsSync(indexPath) || !existsSync(demoPath)) continue;
+    const literal = extractDemoLiteral(readFileSync(demoPath, 'utf8'));
+    if (literal == null) continue;
+    blocks.set(typeId, literal);
   }
   return blocks;
 }
@@ -261,7 +270,7 @@ function noEmdash(value) {
 
 function main() {
   const manifest = JSON.parse(read(MANIFEST_FILE));
-  const demoBlocks = parseDemoBlocks(read(DEMOS_FILE));
+  const demoBlocks = parseDemoBlocks();
 
   const quickref = [];
 

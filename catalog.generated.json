@@ -4,7 +4,7 @@
     "category": "marketing",
     "categorySlug": "about-sections",
     "subcategory": "About Sections",
-    "component": "AboutStorySplit",
+    "component": "aboutStorySplitComponent",
     "status": "stable",
     "tags": [
       "about",
@@ -23,11 +23,37 @@
     }
   },
   {
+    "id": "agentic-terminal",
+    "category": "marketing",
+    "categorySlug": "terminal-sections",
+    "subcategory": "Terminal Sections",
+    "component": "agenticTerminalComponent",
+    "status": "stable",
+    "tags": [
+      "terminal",
+      "ide",
+      "agentic",
+      "typing",
+      "live",
+      "cli",
+      "code",
+      "animated"
+    ],
+    "description_fr": "Mockup IDE agentique : fenêtre macOS, explorateur de fichiers, prompt utilisateur et bloc de code qui s'écrit en direct caractère par caractère, puis message de succès, footer stats et badges. Fond encre, accent terracotta.",
+    "description_en": "Agentic IDE mockup: macOS window, file explorer, user prompt and a code block typed live character by character, then a success message, footer stats and badges. Ink background, terracotta accent.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "announcement-banner",
     "category": "marketing",
     "categorySlug": "banner-sections",
     "subcategory": "Banner Sections",
-    "component": "AnnouncementBanner",
+    "component": "announcementBannerComponent",
     "status": "stable",
     "tags": [
       "banner",
@@ -51,7 +77,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "ArchitectureDiagram",
+    "component": "architectureDiagramComponent",
     "status": "stable",
     "tags": [
       "architecture",
@@ -76,7 +102,7 @@
     "category": "marketing",
     "categorySlug": "content-listing-sections",
     "subcategory": "Content Listing Sections",
-    "component": "ArticleGrid",
+    "component": "articleGridComponent",
     "status": "stable",
     "tags": [
       "blog",
@@ -100,7 +126,7 @@
     "category": "marketing",
     "categorySlug": "manifesto-sections",
     "subcategory": "Manifesto Sections",
-    "component": "AsymmetricServices",
+    "component": "asymmetricServicesComponent",
     "status": "stable",
     "tags": [
       "manifesto",
@@ -120,11 +146,34 @@
     }
   },
   {
+    "id": "author-byline",
+    "category": "marketing",
+    "categorySlug": "team-sections",
+    "subcategory": "Team Sections",
+    "component": "authorBylineComponent",
+    "status": "stable",
+    "tags": [
+      "eeat",
+      "author",
+      "byline",
+      "article",
+      "team"
+    ],
+    "description_fr": "Ligne auteur compacte E-E-A-T sous un h1 d'article : avatar optionnel, nom, rôle, dates de publication et mise à jour, lien vers la page profil. Beaucoup plus léger qu'un hero auteur.",
+    "description_en": "Compact E-E-A-T author byline under an article h1: optional avatar, name, role, published and updated dates, link to the profile page. Far lighter than an author hero.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "bento-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "BentoGrid",
+    "component": "bentoGridComponent",
     "status": "stable",
     "tags": [
       "bento",
@@ -146,7 +195,7 @@
     "category": "marketing",
     "categorySlug": "contact-sections",
     "subcategory": "Contact Sections",
-    "component": "BookingEmbed",
+    "component": "bookingEmbedComponent",
     "status": "stable",
     "tags": [
       "contact",
@@ -171,7 +220,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "BrandedCallout",
+    "component": "brandedCalloutComponent",
     "status": "stable",
     "tags": [
       "callout",
@@ -189,11 +238,33 @@
     }
   },
   {
+    "id": "breadcrumb-bar",
+    "category": "marketing",
+    "categorySlug": "breadcrumb-sections",
+    "subcategory": "Breadcrumb Sections",
+    "component": "breadcrumbBarComponent",
+    "status": "stable",
+    "tags": [
+      "breadcrumb",
+      "navigation",
+      "classic",
+      "chrome"
+    ],
+    "description_fr": "Fil d'Ariane « classic » : barre de navigation standard (ol mono uppercase, séparateurs /), posée sous le header fixe. Modèle sobre de la catégorie breadcrumb, à côté du modèle éditorial masthead-bar. 100% DS-driven.",
+    "description_en": "Classic breadcrumb: standard navigation bar (uppercase monospace ol, / separators) under the fixed header. Plain model of the breadcrumb category, alongside the editorial masthead-bar model. Fully DS-driven.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "case-card-grid",
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "CaseCardGrid",
+    "component": "caseCardGridComponent",
     "status": "stable",
     "tags": [
       "case-study",
@@ -218,11 +289,34 @@
     }
   },
   {
+    "id": "case-featured-grid",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "caseFeaturedGridComponent",
+    "status": "stable",
+    "tags": [
+      "case-study",
+      "featured",
+      "grid",
+      "listing",
+      "proof"
+    ],
+    "description_fr": "Grille de cas clients « featured » : un cas mis en avant (colonne large, cover optionnelle) plus des cas secondaires en lignes numérotées, avec chip de provenance.",
+    "description_en": "Featured case-study grid: one highlighted case (wide column, optional cover) plus secondary cases as numbered rows, with provenance chip.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "case-split",
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "CaseSplit",
+    "component": "caseSplitComponent",
     "status": "stable",
     "tags": [
       "solutions",
@@ -245,7 +339,7 @@
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "CaseSpotlight",
+    "component": "caseSpotlightComponent",
     "status": "stable",
     "tags": [
       "case",
@@ -265,11 +359,35 @@
     }
   },
   {
+    "id": "challenges-grid",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "challengesGridComponent",
+    "status": "stable",
+    "tags": [
+      "challenges",
+      "problems",
+      "painpoint",
+      "grid",
+      "frictions",
+      "numbered"
+    ],
+    "description_fr": "Grille 2x2 de défis ou pain-points : numéro en coin, icône, titre et texte par carte, border-left accent et élévation au survol. Pose le problème avant la solution sur une landing.",
+    "description_en": "A 2x2 grid of challenges or pain-points: corner number, icon, title and copy per card, accent border-left and hover elevation. Frames the problem before the solution on a landing page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "code-showcase",
     "category": "marketing",
     "categorySlug": "terminal-sections",
     "subcategory": "Terminal Sections",
-    "component": "CodeShowcase",
+    "component": "codeShowcaseComponent",
     "status": "stable",
     "tags": [
       "code",
@@ -293,7 +411,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "ComingSoonPills",
+    "component": "comingSoonPillsComponent",
     "status": "stable",
     "tags": [
       "coming-soon",
@@ -317,7 +435,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureGrid",
+    "component": "commitmentsGridComponent",
     "status": "stable",
     "tags": [
       "commitments",
@@ -339,7 +457,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "ComparisonDuo",
+    "component": "comparisonDuoComponent",
     "status": "stable",
     "tags": [
       "comparison",
@@ -361,7 +479,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "ComparisonPricingCallout",
+    "component": "comparisonPricingCalloutComponent",
     "status": "stable",
     "tags": [
       "comparison",
@@ -384,7 +502,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "ComparisonTable",
+    "component": "comparisonTableComponent",
     "status": "stable",
     "tags": [
       "comparison",
@@ -404,7 +522,7 @@
     "category": "marketing",
     "categorySlug": "contact-sections",
     "subcategory": "Contact Sections",
-    "component": "ContactForm",
+    "component": "contactFormComponent",
     "status": "stable",
     "tags": [
       "contact",
@@ -428,7 +546,7 @@
     "category": "marketing",
     "categorySlug": "index-sections",
     "subcategory": "Index Sections",
-    "component": "CourseCatalogTable",
+    "component": "courseCatalogTableComponent",
     "status": "stable",
     "tags": [
       "catalog",
@@ -450,7 +568,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "CtaBandSection",
+    "component": "ctaBandComponent",
     "status": "stable",
     "tags": [
       "cta",
@@ -475,7 +593,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "CtaFinal",
+    "component": "ctaFinalComponent",
     "status": "stable",
     "tags": [
       "cta",
@@ -503,7 +621,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "CtaFormInline",
+    "component": "ctaFormInlineComponent",
     "status": "stable",
     "tags": [
       "cta",
@@ -528,7 +646,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "CtaBandSection",
+    "component": "ctaInlineComponent",
     "status": "stable",
     "tags": [
       "cta",
@@ -548,7 +666,7 @@
     "category": "marketing",
     "categorySlug": "newsletter-sections",
     "subcategory": "Newsletter Sections",
-    "component": "CtaNewsletterFooter",
+    "component": "ctaNewsletterFooterComponent",
     "status": "stable",
     "tags": [
       "newsletter",
@@ -571,7 +689,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "CtaSplitVisual",
+    "component": "ctaSplitVisualComponent",
     "status": "stable",
     "tags": [
       "cta",
@@ -593,7 +711,7 @@
     "category": "marketing",
     "categorySlug": "table-sections",
     "subcategory": "Table Sections",
-    "component": "DataTable",
+    "component": "dataTableComponent",
     "status": "stable",
     "tags": [
       "table",
@@ -617,7 +735,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "DecisionList",
+    "component": "decisionListComponent",
     "status": "stable",
     "tags": [
       "decision",
@@ -636,11 +754,34 @@
     }
   },
   {
+    "id": "definition-extract",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "component": "definitionExtractComponent",
+    "status": "stable",
+    "tags": [
+      "geo",
+      "definition",
+      "extractible",
+      "answer",
+      "eeat"
+    ],
+    "description_fr": "Bloc GEO « format extractible » : kicker mono, gros statement serif avec le terme défini en accent, rangée de pills, puis un bandeau de specs mono. Sobre, fond paper, pensé pour la citation par les moteurs génératifs.",
+    "description_en": "GEO « extractable format » block: mono kicker, large serif statement with the defined term accented, a row of pills, then a mono specs strip. Sober, paper background, designed to be cited by generative engines.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "deliverables-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureGrid",
+    "component": "deliverablesGridComponent",
     "status": "stable",
     "tags": [
       "deliverables",
@@ -662,7 +803,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "CtaFinal",
+    "component": "departmentCtaComponent",
     "status": "stable",
     "tags": [
       "solutions",
@@ -685,7 +826,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "EditorialTableBlock",
+    "component": "departmentStackComponent",
     "status": "stable",
     "tags": [
       "solutions",
@@ -708,7 +849,7 @@
     "category": "marketing",
     "categorySlug": "process-sections",
     "subcategory": "Process Sections",
-    "component": "DiagnosticStages",
+    "component": "diagnosticStagesComponent",
     "status": "stable",
     "tags": [
       "diagnostic",
@@ -727,11 +868,34 @@
     }
   },
   {
+    "id": "direct-answer",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "component": "directAnswerComponent",
+    "status": "stable",
+    "tags": [
+      "geo",
+      "definition",
+      "direct-answer",
+      "answer",
+      "content"
+    ],
+    "description_fr": "Bloc GEO « réponse directe » en tête de page : reformule une question implicite, définit éventuellement une entité, puis délivre une réponse directe de 2 à 4 phrases en colonne de lecture. Sobre, éditorial, fond alterné.",
+    "description_en": "GEO direct-answer block at the top of a page: restates an implicit question, optionally defines an entity, then delivers a 2 to 4 sentence direct answer in a reading column. Sober, editorial, alternating background.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "ecosystem-partners",
     "category": "marketing",
     "categorySlug": "logo-sections",
     "subcategory": "Logo Sections",
-    "component": "EcosystemPartners",
+    "component": "ecosystemPartnersComponent",
     "status": "stable",
     "tags": [
       "logos",
@@ -750,11 +914,83 @@
     }
   },
   {
+    "id": "editorial-callout",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "component": "editorialCalloutComponent",
+    "status": "stable",
+    "tags": [
+      "editorial",
+      "callout",
+      "quote",
+      "note",
+      "aside",
+      "content"
+    ],
+    "description_fr": "Encadré éditorial composant l'atome Callout (info, citation, note, avertissement, manifeste) : hairline accent, citation source optionnelle, tailles et alignements. Pour ponctuer une prose.",
+    "description_en": "Editorial aside composing the Callout atom (info, quote, note, warning, manifesto): accent hairline, optional cited source, sizes and alignments. To punctuate prose.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "editorial-dingbat-rule",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "component": "editorialDingbatRuleComponent",
+    "status": "stable",
+    "tags": [
+      "editorial",
+      "dingbat",
+      "separator",
+      "ornament",
+      "rule",
+      "content"
+    ],
+    "description_fr": "Séparateur ornemental éditorial composant l'atome Dingbat (fleuron, asterisme, fin d'article, règle) : transition entre chapitres avec légendes optionnelles au-dessus et en dessous.",
+    "description_en": "Editorial ornamental separator composing the Dingbat atom (fleuron, asterism, end-of-article, rule): a between-chapters transition with optional captions above and below.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "editorial-dropcap-prose",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "component": "editorialDropcapProseComponent",
+    "status": "stable",
+    "tags": [
+      "editorial",
+      "dropcap",
+      "prose",
+      "opening",
+      "article",
+      "content"
+    ],
+    "description_fr": "Ouverture d'article éditoriale composant l'atome DropCap : initiale magnifiée (serif, mono ou accent) sur un paragraphe d'accroche, suivie de paragraphes de prose. Pour entrer dans un long-form.",
+    "description_en": "Editorial article opening composing the DropCap atom: a magnified initial (serif, mono or accent) on a lead paragraph, followed by prose paragraphs. To enter a long-form piece.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "editorial-preview",
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "EditorialPreview",
+    "component": "editorialPreviewComponent",
     "status": "stable",
     "tags": [
       "editorial",
@@ -778,11 +1014,37 @@
     }
   },
   {
+    "id": "editorial-prose",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "component": "editorialProseComponent",
+    "status": "stable",
+    "tags": [
+      "prose",
+      "editorial",
+      "content",
+      "mdx",
+      "long-form",
+      "geo"
+    ],
+    "description_fr": "Wrapper de prose éditoriale tokenisé : colonne de lecture (largeur prose ou wide), fond alterné, héberge un contenu long via slot (corps MDX). Préserve la typographie du DS sans réécrire le texte.",
+    "description_en": "Tokenized editorial prose wrapper: a reading column (prose or wide width), alternating background, hosting long-form content via slot (MDX body). Preserves the DS typography without rewriting the text.",
+    "rendering": "live",
+    "consumers": [
+      "secteurs/[...slug]"
+    ],
+    "hasDemo": {
+      "fr": false,
+      "en": false
+    }
+  },
+  {
     "id": "editorial-split-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "EditorialSplitGrid",
+    "component": "editorialSplitGridComponent",
     "status": "stable",
     "tags": [
       "editorial",
@@ -807,7 +1069,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "EditorialTableBlock",
+    "component": "editorialTableBlockComponent",
     "status": "stable",
     "tags": [
       "comparison",
@@ -828,11 +1090,35 @@
     }
   },
   {
+    "id": "editorial-timeline",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timelines",
+    "component": "editorialTimelineComponent",
+    "status": "stable",
+    "tags": [
+      "editorial",
+      "timeline",
+      "method",
+      "phases",
+      "steps",
+      "dated"
+    ],
+    "description_fr": "Frise chronologique éditoriale composant l'atome Timeline : axe gauche, points, numéros, dates, titres et descriptions, vertical ou horizontal. Pour une méthode ou un parcours en N phases.",
+    "description_en": "Editorial timeline composing the Timeline atom: left axis, dots, numbers, dates, titles and descriptions, vertical or horizontal. For a method or journey in N phases.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "editorial-write-feed",
     "category": "marketing",
     "categorySlug": "table-sections",
     "subcategory": "Table Sections",
-    "component": "EditorialWriteFeed",
+    "component": "editorialWriteFeedComponent",
     "status": "stable",
     "tags": [
       "table",
@@ -852,11 +1138,35 @@
     }
   },
   {
+    "id": "eeat-panel",
+    "category": "marketing",
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
+    "component": "eeatPanelComponent",
+    "status": "stable",
+    "tags": [
+      "eeat",
+      "author",
+      "authority",
+      "trust",
+      "bento",
+      "dashboard"
+    ],
+    "description_fr": "Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.",
+    "description_en": "E-E-A-T author/authority panel with 4 variants (media, columns, light, hero): a bento dashboard or accent columns gathering author, milestones, sectors, articles, services, tool and commitments. Single-source content (EEAT_PACK), honest proof (commitments + solo-studio note, no testimonial). Ink/paper variants, reveal-stagger, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": false,
+      "en": false
+    }
+  },
+  {
     "id": "faq-accordion",
     "category": "marketing",
     "categorySlug": "faq-sections",
     "subcategory": "FAQ Sections",
-    "component": "FaqAccordion",
+    "component": "faqAccordionComponent",
     "status": "stable",
     "tags": [
       "faq",
@@ -879,7 +1189,7 @@
     "category": "marketing",
     "categorySlug": "faq-sections",
     "subcategory": "FAQ Sections",
-    "component": "FaqCtaAside",
+    "component": "faqCtaAsideComponent",
     "status": "stable",
     "tags": [
       "faq",
@@ -904,7 +1214,7 @@
     "category": "marketing",
     "categorySlug": "faq-sections",
     "subcategory": "FAQ Sections",
-    "component": "FaqTwoColumn",
+    "component": "faqTwoColumnComponent",
     "status": "stable",
     "tags": [
       "faq",
@@ -927,7 +1237,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureAccordion",
+    "component": "featureAccordionComponent",
     "status": "stable",
     "tags": [
       "feature",
@@ -950,7 +1260,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureComparisonGrid",
+    "component": "featureComparisonGridComponent",
     "status": "stable",
     "tags": [
       "feature",
@@ -973,7 +1283,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureGrid",
+    "component": "featureGridComponent",
     "status": "stable",
     "tags": [
       "features",
@@ -996,7 +1306,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureSplitMedia",
+    "component": "featureSplitMediaComponent",
     "status": "stable",
     "tags": [
       "feature",
@@ -1019,7 +1329,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureTabs",
+    "component": "featureTabsComponent",
     "status": "stable",
     "tags": [
       "feature",
@@ -1041,7 +1351,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureZigzag",
+    "component": "featureZigzagComponent",
     "status": "stable",
     "tags": [
       "feature",
@@ -1063,7 +1373,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "FitColumnsSection",
+    "component": "fitColumnsComponent",
     "status": "stable",
     "tags": [
       "fit",
@@ -1088,7 +1398,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "FooterCtaBand",
+    "component": "footerCtaBandComponent",
     "status": "stable",
     "tags": [
       "cta",
@@ -1111,7 +1421,7 @@
     "category": "marketing",
     "categorySlug": "gallery-sections",
     "subcategory": "Gallery Sections",
-    "component": "GalleryMasonry",
+    "component": "galleryMasonryComponent",
     "status": "stable",
     "tags": [
       "gallery",
@@ -1133,7 +1443,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "GuaranteeBlock",
+    "component": "guaranteeBlockComponent",
     "status": "stable",
     "tags": [
       "guarantee",
@@ -1154,7 +1464,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroAcademyHubComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1172,11 +1482,34 @@
     }
   },
   {
+    "id": "hero-asymmetric-grid",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroAsymmetricGridComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "asymmetric",
+      "grid",
+      "editorial",
+      "kpi"
+    ],
+    "description_fr": "Héro plein écran en grille multi-lignes asymétrique : titre serif pleine largeur, rangée 2 colonnes (label + lede + 2 CTA à gauche, label + puces fléchées à droite), puis bande de 4 KPI dont la dernière cellule est inversée en ink. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport asymmetric multi-row hero: full-width serif title, a 2-column row (label + lede + 2 CTAs on the left, label + arrow bullets on the right), then a 4-KPI band whose last cell is inverted in ink. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-atlas",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
-    "subcategory": "Hero Sections",
-    "component": "HeroAtlas",
+    "subcategory": "Hero Header Sections",
+    "component": "heroAtlasComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1201,7 +1534,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroSplit",
+    "component": "heroAuthorComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1221,11 +1554,80 @@
     }
   },
   {
+    "id": "hero-baseline-stats",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroBaselineStatsComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "stats",
+      "kpi",
+      "baseline",
+      "display"
+    ],
+    "description_fr": "Héro plein écran à impact typographique : kicker, titre serif géant et lede court en tête, rangée de 4 KPI poussée en baseline (séparée par une hairline forte). CTA optionnel, pas de média. Variante paper et ink, responsive (KPI 2 colonnes sur mobile).",
+    "description_en": "Full-viewport typographic hero: kicker, oversized serif title and short lede at the top, a row of 4 KPIs pushed to the baseline (split by a strong hairline). Optional CTA, no media. Paper and ink variants, responsive (KPIs in 2 columns on mobile).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-capability-band",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroCapabilityBandComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "capabilities",
+      "band",
+      "kpi"
+    ],
+    "description_fr": "Héro plein écran : titre serif accent et lede alignés à gauche (~70 % de large), puis une bande de capacités asymétrique pleine largeur de 5 cellules dont la 3e (large, accent) porte un KPI serif, les 4 autres des capacités mono. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport hero: left-aligned accented serif title and lede (~70% wide), then a full-width asymmetric capability band of 5 cells whose 3rd (wide, accent) carries a serif KPI and the other 4 mono capabilities. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-card-cover",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroCardCoverComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "card",
+      "cover",
+      "media",
+      "kpi",
+      "ink"
+    ],
+    "description_fr": "Héro plein écran en deux colonnes : discours éditorial (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte ink sombre (média line-art + mini-KPI) à droite. La carte reste sombre en mode paper. Variante paper et ink, responsive (1 colonne sur mobile).",
+    "description_en": "Full-viewport two-column hero: editorial discourse (kicker, serif title, lede, badge pills, 2 CTAs) on the left, dark ink card (line-art media + mini KPIs) on the right. The card stays dark in paper mode. Paper and ink variants, responsive (single column on mobile).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-case-study",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroCaseStudyComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1249,7 +1651,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroCenteredComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1266,11 +1668,34 @@
     }
   },
   {
+    "id": "hero-centered-band",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroCenteredBandComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "centered",
+      "band",
+      "capabilities",
+      "ink"
+    ],
+    "description_fr": "Héro plein écran centré (kicker, titre serif, lede, 2 CTA) suivi d'une bande de capacités ink pleine largeur : 4 cellules (label mono accent + description), sombre dans les deux modes. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport centered hero (kicker, serif title, lede, 2 CTAs) followed by a full-width ink capabilities band: 4 cells (mono accent label + description), dark in both modes. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-conversion-funnel",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroHubStats",
+    "component": "heroConversionFunnelComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1296,7 +1721,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroCourseComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1321,7 +1746,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroDetailMenuComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1341,11 +1766,56 @@
     }
   },
   {
+    "id": "hero-editorial-kpi",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroEditorialKpiComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "editorial",
+      "kpi",
+      "asymmetric"
+    ],
+    "description_fr": "Héro plein écran éditorial asymétrique (~65/35) : colonne dominante (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail léger à droite avec 3 KPI serif verticaux séparés par hairlines. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport asymmetric editorial hero (~65/35): dominant column (kicker, accented serif title, lede, 2 CTAs, sub-CTA), light right rail with 3 vertical serif KPIs separated by hairlines. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-editorial-masthead",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroEditorialMastheadComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "masthead",
+      "editorial",
+      "kpi",
+      "breadcrumb"
+    ],
+    "description_fr": "Héro plein écran éditorial : bande masthead mono 4 colonnes (fil d'Ariane + méta) sous le titre serif, puis rangée 2 colonnes (lede + 2 CTA à gauche, 4 KPI en micro-grille 2×2 à droite). Pas de média. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport editorial hero: a 4-column monospace masthead band (breadcrumb + meta) under the serif title, then a 2-column row (lede + 2 CTAs on the left, 4 KPIs in a 2×2 micro-grid on the right). No media. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-essay",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroEssayComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1369,7 +1839,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroFormInline",
+    "component": "heroFormInlineComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1393,7 +1863,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroFullBleed",
+    "component": "heroFullBleedComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1411,11 +1881,34 @@
     }
   },
   {
+    "id": "hero-grid-12",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroGrid12Component",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "grid",
+      "editorial",
+      "bullets",
+      "cta"
+    ],
+    "description_fr": "Héro plein écran en vraie grille 12 colonnes éditoriale : kicker et sigle en rangée 1, titre serif sur 9 colonnes, puis lede, puces et CTA empilés répartis librement sur la dernière rangée (hairlines entre les rangées). Variante paper et ink, responsive (1 colonne sur mobile).",
+    "description_en": "Full-viewport editorial hero built on a true 12-column grid: kicker and sigil in row 1, serif title across 9 columns, then lede, bullets and stacked CTAs freely placed on the last row (hairlines between rows). Paper and ink variants, responsive (single column on mobile).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-home",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroHome",
+    "component": "heroHomeComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1438,7 +1931,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroHubListingComponent",
     "status": "deprecated",
     "tags": [
       "hero",
@@ -1462,7 +1955,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroHubMastheadComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1486,7 +1979,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroHubStats",
+    "component": "heroHubStatsComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1511,7 +2004,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroLandingComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1533,7 +2026,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroSplit",
+    "component": "heroLeadMagnetComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1558,7 +2051,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroLiquid",
+    "component": "heroLiquidComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1577,11 +2070,101 @@
     }
   },
   {
+    "id": "hero-magazine-cover",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroMagazineCoverComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "magazine",
+      "cover",
+      "masthead",
+      "editorial"
+    ],
+    "description_fr": "Héro plein écran « couverture magazine » : bande masthead mono 4 colonnes en haut, titre serif géant centré dominant, fine règle accent, tagline display italic, un seul CTA centré. Variante paper et ink, responsive (masthead 2 colonnes sur mobile).",
+    "description_en": "Full-viewport \"magazine cover\" hero: 4-column mono masthead band at the top, dominant centered giant serif title, thin accent rule, italic display tagline, a single centered CTA. Paper and ink variants, responsive (2-column masthead on mobile).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-masthead-card",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroMastheadCardComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "masthead",
+      "media",
+      "kpi"
+    ],
+    "description_fr": "Héro plein écran asymétrique (~64/36) : colonne principale (kicker, titre serif accent, lede, badges pills mono, 2 CTA, sous-CTA), rail droit avec une carte média line-art ink réduite + 2 micro-KPI mono. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport asymmetric hero (~64/36): main column (kicker, accented serif title, lede, mono badge pills, 2 CTAs, sub-CTA), right rail with a reduced ink line-art media card + 2 mono micro-KPIs. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-media-medallion",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroMediaMedallionComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "media",
+      "medallion",
+      "kpi",
+      "cta"
+    ],
+    "description_fr": "Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, 2 CTA) à gauche, médaillon média line-art surmontant des KPI verticaux hairline à droite. Variante paper et ink, responsive (1 colonne sur mobile).",
+    "description_en": "Full-viewport two-column hero: text (kicker, serif title, lede, 2 CTAs) on the left, line-art media medallion above stacked hairline KPIs on the right. Paper and ink variants, responsive (single column on mobile).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-numeral-cover",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroNumeralCoverComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "numeral",
+      "cover",
+      "asymmetric"
+    ],
+    "description_fr": "Héro plein écran asymétrique (~60/40) : colonne principale (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec un grand numéral serif éditorial (caption + sous-stat mono) encadré de hairlines. Stat de couverture, pas un média. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport asymmetric hero (~60/40): main column (kicker, accented serif title, lede, 2 CTAs, sub-CTA), right rail with a large editorial serif numeral (caption + mono sub-stat) framed by hairlines. A cover stat, not a visual. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-offer-detail",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroOfferDetail",
+    "component": "heroOfferDetailComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1604,7 +2187,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroHubStats",
+    "component": "heroPillarHubComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1626,7 +2209,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroProblemIndexComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1645,11 +2228,33 @@
     }
   },
   {
+    "id": "hero-scope-minimap",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroScopeMinimapComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "minimap",
+      "scope",
+      "asymmetric"
+    ],
+    "description_fr": "Héro plein écran asymétrique (~60/40) : colonne dominante (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec une mini-map de 6 capacités en 2 colonnes (label mono accent + items), hairlines. Montre le périmètre, pas un média. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport asymmetric hero (~60/40): dominant column (kicker, accented serif title, lede, 2 CTAs, sub-CTA), right rail with a 6-capability mini-map in 2 columns (mono accent label + items), hairlines. Shows scope, not a visual. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-sector",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroOfferDetail",
+    "component": "heroSectorComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1671,7 +2276,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroServiceDetailComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1693,7 +2298,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroServiceMastheadComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1715,7 +2320,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroSocialProof",
+    "component": "heroSocialProofComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1739,7 +2344,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroSplit",
+    "component": "heroSplitComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1756,11 +2361,78 @@
     }
   },
   {
+    "id": "hero-split-media",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroSplitMediaComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "split",
+      "media",
+      "cta"
+    ],
+    "description_fr": "Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte média line-art à droite. Variante paper et ink, responsive (1 colonne sur mobile).",
+    "description_en": "Full-viewport two-column hero: text (kicker, serif title, lede, badge pills, 2 CTAs) on the left, line-art media card on the right. Paper and ink variants, responsive (single column on mobile).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-stack-rhythm",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroStackRhythmComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "stack",
+      "rhythm",
+      "breadcrumb",
+      "kpi"
+    ],
+    "description_fr": "Héro plein écran en une seule colonne resserrée, au rythme vertical généreux : fil d'Ariane, kicker, titre serif, lede, badges inline séparés par hairlines, 2 CTA, bande de 4 KPI. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport single narrow column with a generous vertical rhythm: breadcrumb, kicker, serif title, lede, inline badges split by hairlines, 2 CTAs, a 4-KPI band. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-summary-rail",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroSummaryRailComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "summary",
+      "magazine",
+      "asymmetric"
+    ],
+    "description_fr": "Héro plein écran asymétrique (~70/30) façon revue : colonne principale (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec un sommaire typographique de 3 entrées (label mono accent + titre serif court + sous-ligne). Zéro média. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport asymmetric magazine-style hero (~70/30): main column (kicker, accented serif title, lede, 2 CTAs, sub-CTA), right rail with a typographic table of contents of 3 entries (mono accent label + short serif title + subline). No visual. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-tech-layer",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroOfferDetail",
+    "component": "heroTechLayerComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1780,11 +2452,77 @@
     }
   },
   {
+    "id": "hero-tech-signature",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroTechSignatureComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "signature",
+      "kpi",
+      "asymmetric"
+    ],
+    "description_fr": "Héro plein écran asymétrique (~68/32) à signature dominante (trame éditoriale + sigil) : colonne principale (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec 2 grands numéraux serif. Variante paper et ink, responsive.",
+    "description_en": "Full-viewport asymmetric hero (~68/32) with a dominant signature (editorial grid + sigil): main column (kicker, accented serif title, lede, 2 CTAs, sub-CTA), right rail with 2 large serif numerals. Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-thin-media",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroThinMediaComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "media",
+      "thin",
+      "asymmetric"
+    ],
+    "description_fr": "Héro plein écran très asymétrique (~72/28) : colonne dominante (kicker, titre serif accent, lede, badges pills mono, 2 CTA), rail droit avec une bande média line-art verticale mince (currentColor, lisible paper et ink). Variante paper et ink, responsive.",
+    "description_en": "Full-viewport very asymmetric hero (~72/28): dominant column (kicker, accented serif title, lede, mono badge pills, 2 CTAs), right rail with a thin vertical line-art media strip (currentColor, readable on paper and ink). Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-trizone",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroTrizoneComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "trizone",
+      "minimap",
+      "kpi"
+    ],
+    "description_fr": "Héro plein écran multi-zones : titre serif accent pleine largeur, puis une rangée de 3 zones asymétriques séparées par hairlines (lede + 2 CTA · mini-map 6 capacités · 2 KPI serif). Variante paper et ink, responsive.",
+    "description_en": "Full-viewport multi-zone hero: full-width accented serif title, then a row of 3 asymmetric zones separated by hairlines (lede + 2 CTAs · 6-capability mini-map · 2 serif KPIs). Paper and ink variants, responsive.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "hero-tunnel-step",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroTunnelStep",
+    "component": "heroTunnelStepComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -1807,7 +2545,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroCentered",
+    "component": "heroUtilityMastheadComponent",
     "status": "deprecated",
     "tags": [
       "hero",
@@ -1827,11 +2565,82 @@
     }
   },
   {
+    "id": "horizontal-showcase",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "horizontalShowcaseComponent",
+    "status": "stable",
+    "tags": [
+      "horizontal",
+      "scroll",
+      "showcase",
+      "expertise",
+      "interactive"
+    ],
+    "description_fr": "Panneaux a defilement horizontal smooth (scroll-snap) avec index numerote cliquable.",
+    "description_en": "Smooth horizontal scrolling panels (scroll-snap) with a clickable numbered index.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hover-reveal-list",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "hoverRevealListComponent",
+    "status": "stable",
+    "tags": [
+      "hover",
+      "reveal",
+      "list",
+      "interactive",
+      "portfolio"
+    ],
+    "description_fr": "Liste editoriale qui revele l'image du projet au survol, dans un carre cadre (image qui suit le curseur ou centree).",
+    "description_en": "Editorial list that reveals the project image on hover, in a framed square (image follows the cursor or stays centred).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hover-reveal-words",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Narrative Sections",
+    "component": "hoverRevealWordsComponent",
+    "status": "stable",
+    "tags": [
+      "prose",
+      "editorial",
+      "hover",
+      "reveal",
+      "words",
+      "interactive",
+      "narrative"
+    ],
+    "description_fr": "Prose editoriale dont certains mots declencheurs revelent une vignette image au survol (desktop, suit le curseur) ou au tap (mobile, vignette inline). Accessible au clavier.",
+    "description_en": "Editorial prose where certain trigger words reveal an image thumbnail on hover (desktop, follows the cursor) or on tap (mobile, inline thumbnail). Keyboard accessible.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "how-we-ship",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
-    "component": "HowWeShip",
+    "subcategory": "Timelines",
+    "component": "howWeShipComponent",
     "status": "stable",
     "tags": [
       "process",
@@ -1855,7 +2664,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureGrid",
+    "component": "iconTrioComponent",
     "status": "stable",
     "tags": [
       "feature",
@@ -1877,7 +2686,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "InclusionsList",
+    "component": "inclusionsListComponent",
     "status": "stable",
     "tags": [
       "scope",
@@ -1899,7 +2708,7 @@
     "category": "marketing",
     "categorySlug": "logo-sections",
     "subcategory": "Logo Sections",
-    "component": "IntegrationsGrid",
+    "component": "integrationsGridComponent",
     "status": "stable",
     "tags": [
       "integrations",
@@ -1918,11 +2727,59 @@
     }
   },
   {
+    "id": "journey-steps",
+    "category": "marketing",
+    "categorySlug": "process-sections",
+    "subcategory": "Process Sections",
+    "component": "journeyStepsComponent",
+    "status": "stable",
+    "tags": [
+      "journey",
+      "steps",
+      "process",
+      "funnel",
+      "parcours",
+      "onboarding"
+    ],
+    "description_fr": "Parcours en 3 temps : icône cercle avec badge numéro, titre, description et pill highlight par étape, connecteur accent entre étapes. Horizontal desktop, vertical mobile. Idéal funnel ou onboarding.",
+    "description_en": "A three-step journey: circle icon with number badge, title, description and a highlight pill per step, accent connector between steps. Horizontal on desktop, vertical on mobile. Ideal for a funnel or onboarding.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "key-metric-grid",
+    "category": "marketing",
+    "categorySlug": "stats-sections",
+    "subcategory": "Stats Sections",
+    "component": "keyMetricGridComponent",
+    "status": "stable",
+    "tags": [
+      "stats",
+      "metrics",
+      "kpi",
+      "grid",
+      "editorial",
+      "key-metric"
+    ],
+    "description_fr": "Grille de métriques chiffrées magnifiées (style FT/Bloomberg) composant l'atome KeyMetric : chiffre dominant, label mono, delta optionnel. Axes size/align/variant et 2 à 4 colonnes, fond alterné.",
+    "description_en": "Grid of magnified key figures (FT/Bloomberg style) composing the KeyMetric atom: dominant value, mono label, optional delta. size/align/variant axes and 2 to 4 columns, alternating background.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "learning-path-list",
     "category": "marketing",
     "categorySlug": "index-sections",
     "subcategory": "Index Sections",
-    "component": "LearningPathList",
+    "component": "learningPathListComponent",
     "status": "stable",
     "tags": [
       "list",
@@ -1943,7 +2800,7 @@
     "category": "marketing",
     "categorySlug": "index-sections",
     "subcategory": "Index Sections",
-    "component": "ListIndexSection",
+    "component": "listIndexSectionComponent",
     "status": "stable",
     "tags": [
       "index",
@@ -1965,7 +2822,7 @@
     "category": "marketing",
     "categorySlug": "logo-sections",
     "subcategory": "Logo Sections",
-    "component": "LogoMarquee",
+    "component": "logoMarqueeComponent",
     "status": "stable",
     "tags": [
       "logos",
@@ -1988,7 +2845,7 @@
     "category": "marketing",
     "categorySlug": "logo-sections",
     "subcategory": "Logo Sections",
-    "component": "LogoWall",
+    "component": "logoWallComponent",
     "status": "stable",
     "tags": [
       "logos",
@@ -2010,7 +2867,7 @@
     "category": "marketing",
     "categorySlug": "manifesto-sections",
     "subcategory": "Manifesto Sections",
-    "component": "ManifestoAct",
+    "component": "manifestoActComponent",
     "status": "stable",
     "tags": [
       "manifesto",
@@ -2034,7 +2891,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "ManifestoBlock",
+    "component": "manifestoBlockComponent",
     "status": "stable",
     "tags": [
       "manifesto",
@@ -2057,7 +2914,7 @@
     "category": "marketing",
     "categorySlug": "manifesto-sections",
     "subcategory": "Manifesto Sections",
-    "component": "ManifestoStatement",
+    "component": "manifestoStatementComponent",
     "status": "stable",
     "tags": [
       "manifesto",
@@ -2081,7 +2938,7 @@
     "category": "marketing",
     "categorySlug": "logo-sections",
     "subcategory": "Logo Sections",
-    "component": "MarqueeBand",
+    "component": "marqueeBandComponent",
     "status": "stable",
     "tags": [
       "marquee",
@@ -2100,11 +2957,33 @@
     }
   },
   {
+    "id": "masthead-bar",
+    "category": "marketing",
+    "categorySlug": "breadcrumb-sections",
+    "subcategory": "Breadcrumb Sections",
+    "component": "mastheadBarComponent",
+    "status": "stable",
+    "tags": [
+      "masthead",
+      "breadcrumb",
+      "chrome",
+      "editorial"
+    ],
+    "description_fr": "Bande de chrome haut : fil d'Ariane intégré au masthead éditorial (méta lieu, édition, statut), posée sous le header fixe et au-dessus du hero. Composant autonome, universel (home incluse). Variante paper et ink.",
+    "description_en": "Top chrome band: breadcrumb integrated into the editorial masthead (location, edition, status meta), sitting under the fixed header and above the hero. Standalone, universal component (home included). Paper and ink variants.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "maturity-pyramid",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
-    "component": "MaturityPyramid",
+    "subcategory": "Timelines",
+    "component": "maturityPyramidComponent",
     "status": "stable",
     "tags": [
       "maturity",
@@ -2125,11 +3004,34 @@
     }
   },
   {
+    "id": "media-bento",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "mediaBentoComponent",
+    "status": "stable",
+    "tags": [
+      "bento",
+      "media",
+      "gallery",
+      "projects",
+      "hover"
+    ],
+    "description_fr": "Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).",
+    "description_en": "Asymmetric media bento: image tiles with a large overlaid title and hover zoom (feature-2, quad, mosaic layouts).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "media-block",
     "category": "marketing",
     "categorySlug": "gallery-sections",
     "subcategory": "Gallery Sections",
-    "component": "MediaBlock",
+    "component": "mediaBlockComponent",
     "status": "stable",
     "tags": [
       "media",
@@ -2147,11 +3049,57 @@
     }
   },
   {
+    "id": "media-swap-band",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "mediaSwapBandComponent",
+    "status": "stable",
+    "tags": [
+      "media",
+      "swap",
+      "band",
+      "crossfade",
+      "interactive"
+    ],
+    "description_fr": "Bande 2 ou 3 colonnes dont les images changent en fondu (auto ou au survol), avec CTA.",
+    "description_en": "Band of 2 or 3 columns whose images crossfade (auto or on hover), with a CTA.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "method-stepline",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Timelines",
+    "component": "methodSteplineComponent",
+    "status": "stable",
+    "tags": [
+      "method",
+      "timeline",
+      "process",
+      "steps",
+      "horizontal"
+    ],
+    "description_fr": "Timeline de méthode horizontale sur fond clair : ligne hairline traversée de nœuds accent, chaque nœud surmonté d'un numéro mono, d'un titre serif et d'un sous-label mono. En-tête kicker à gauche, durée à droite. Reveal-stagger, empilage en colonne en mobile.",
+    "description_en": "Horizontal method timeline on a light background: a hairline rail crossed by accent nodes, each node topped with a mono number, a serif title and a mono sub-label. Header kicker on the left, duration on the right. Reveal-stagger, stacks into a column on mobile.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "method-timeline",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
-    "component": "MethodTimeline",
+    "subcategory": "Timelines",
+    "component": "methodTimelineComponent",
     "status": "stable",
     "tags": [
       "method",
@@ -2175,7 +3123,7 @@
     "category": "marketing",
     "categorySlug": "stats-sections",
     "subcategory": "Stats Sections",
-    "component": "MetricCalloutBand",
+    "component": "metricCalloutBandComponent",
     "status": "stable",
     "tags": [
       "stats",
@@ -2198,7 +3146,7 @@
     "category": "marketing",
     "categorySlug": "stats-sections",
     "subcategory": "Stats Sections",
-    "component": "MetricShift",
+    "component": "metricShiftComponent",
     "status": "stable",
     "tags": [
       "proof",
@@ -2220,7 +3168,7 @@
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
-    "component": "NewsletterBand",
+    "component": "newsletterBandComponent",
     "status": "stable",
     "tags": [
       "newsletter",
@@ -2243,7 +3191,7 @@
     "category": "marketing",
     "categorySlug": "newsletter-sections",
     "subcategory": "Newsletter Sections",
-    "component": "NewsletterSignupSection",
+    "component": "newsletterSignupSectionComponent",
     "status": "stable",
     "tags": [
       "newsletter",
@@ -2267,7 +3215,7 @@
     "category": "marketing",
     "categorySlug": "faq-sections",
     "subcategory": "FAQ Sections",
-    "component": "ObjectionHandler",
+    "component": "objectionHandlerComponent",
     "status": "stable",
     "tags": [
       "objections",
@@ -2284,11 +3232,34 @@
     }
   },
   {
+    "id": "off-proof",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "offProofComponent",
+    "status": "stable",
+    "tags": [
+      "offres",
+      "proof",
+      "testimonial",
+      "metrics",
+      "quote"
+    ],
+    "description_fr": "Signal terrain : citation client (PullQuote) à gauche et grille de chiffres KeyMetric à droite, en asymétrie 5/7 avec séparateur Dingbat.",
+    "description_en": "Field signal: a client quote (PullQuote) on the left and a grid of KeyMetric figures on the right, in a 5/7 asymmetry with a Dingbat divider.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "offer-tier-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "OfferTierGrid",
+    "component": "offerTierGridComponent",
     "status": "stable",
     "tags": [
       "offers",
@@ -2313,7 +3284,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "OperatingLayer",
+    "component": "operatingLayerComponent",
     "status": "stable",
     "tags": [
       "platform",
@@ -2337,7 +3308,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "PainPoints",
+    "component": "painPointsComponent",
     "status": "stable",
     "tags": [
       "solutions",
@@ -2356,11 +3327,34 @@
     }
   },
   {
+    "id": "pain-severity-list",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "painSeverityListComponent",
+    "status": "stable",
+    "tags": [
+      "pain-points",
+      "severity",
+      "problems",
+      "ink",
+      "editorial"
+    ],
+    "description_fr": "Liste éditoriale de pain-points sur fond ink, classés par sévérité : chaque item porte un label severity vertical (mono) et un glyphe (◆▲●○), un titre serif, une description, et une ligne mono « → correctif ». Séparateurs hairline, reveal-stagger.",
+    "description_en": "Editorial list of pain-points on an ink background, ordered by severity: each item carries a vertical severity label (mono) and a glyph (◆▲●○), a serif title, a description, and a mono « → fix » line. Hairline separators, reveal-stagger.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "persona-attributes-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "PersonaAttributesGrid",
+    "component": "personaAttributesGridComponent",
     "status": "stable",
     "tags": [
       "persona",
@@ -2380,11 +3374,34 @@
     }
   },
   {
+    "id": "photo-cluster",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "photoClusterComponent",
+    "status": "stable",
+    "tags": [
+      "photo",
+      "cluster",
+      "editorial",
+      "team",
+      "gallery"
+    ],
+    "description_fr": "Composition editoriale : photo lead + grappe de photos decalees (layouts lead-cluster, scatter, duo).",
+    "description_en": "Editorial composition: lead photo plus a cluster of offset photos (lead-cluster, scatter, duo layouts).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "pricing-cards",
     "category": "marketing",
     "categorySlug": "pricing-sections",
     "subcategory": "Pricing Sections",
-    "component": "PricingCards",
+    "component": "pricingCardsComponent",
     "status": "stable",
     "tags": [
       "pricing",
@@ -2407,7 +3424,7 @@
     "category": "marketing",
     "categorySlug": "pricing-sections",
     "subcategory": "Pricing Sections",
-    "component": "ComparisonTable",
+    "component": "pricingComparisonMatrixComponent",
     "status": "stable",
     "tags": [
       "pricing",
@@ -2429,7 +3446,7 @@
     "category": "marketing",
     "categorySlug": "pricing-sections",
     "subcategory": "Pricing Sections",
-    "component": "PricingSingleHighlight",
+    "component": "pricingSingleHighlightComponent",
     "status": "stable",
     "tags": [
       "pricing",
@@ -2453,7 +3470,7 @@
     "category": "marketing",
     "categorySlug": "pricing-sections",
     "subcategory": "Pricing Sections",
-    "component": "PricingTable",
+    "component": "pricingTableComponent",
     "status": "stable",
     "tags": [
       "pricing",
@@ -2474,7 +3491,7 @@
     "category": "marketing",
     "categorySlug": "pricing-sections",
     "subcategory": "Pricing Sections",
-    "component": "PricingToggle",
+    "component": "pricingToggleComponent",
     "status": "stable",
     "tags": [
       "pricing",
@@ -2498,7 +3515,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "ProblemStatement",
+    "component": "problemStatementComponent",
     "status": "stable",
     "tags": [
       "problem",
@@ -2520,7 +3537,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "FeatureGrid",
+    "component": "problemsGridComponent",
     "status": "stable",
     "tags": [
       "problems",
@@ -2543,7 +3560,7 @@
     "category": "marketing",
     "categorySlug": "process-sections",
     "subcategory": "Process Sections",
-    "component": "ProcessSteps",
+    "component": "processStepsComponent",
     "status": "stable",
     "tags": [
       "process",
@@ -2563,11 +3580,36 @@
     }
   },
   {
+    "id": "product-reel",
+    "category": "marketing",
+    "categorySlug": "terminal-sections",
+    "subcategory": "Terminal Sections",
+    "component": "productReelComponent",
+    "status": "stable",
+    "tags": [
+      "scrollytelling",
+      "scroll-driven",
+      "terminal",
+      "product",
+      "showcase",
+      "sticky",
+      "interactive"
+    ],
+    "description_fr": "Reel produit scroll-driven : étapes à gauche pilotées au scroll, console terminal à droite dont le contenu change par écran. Viewport sticky.",
+    "description_en": "Scroll-driven product reel: steps on the left driven by scroll, terminal console on the right whose content changes per screen. Sticky viewport.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": false,
+      "en": false
+    }
+  },
+  {
     "id": "proof-bar",
     "category": "marketing",
     "categorySlug": "stats-sections",
     "subcategory": "Stats Sections",
-    "component": "StatBlock",
+    "component": "proofBarComponent",
     "status": "stable",
     "tags": [
       "proof",
@@ -2592,7 +3634,7 @@
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "PullQuoteBlock",
+    "component": "pullQuoteBlockComponent",
     "status": "stable",
     "tags": [
       "quote",
@@ -2614,7 +3656,7 @@
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "QuoteSpotlight",
+    "component": "quoteSpotlightComponent",
     "status": "stable",
     "tags": [
       "testimonial",
@@ -2636,7 +3678,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "RelatedCardsBand",
+    "component": "relatedCardsBandComponent",
     "status": "stable",
     "tags": [
       "related",
@@ -2658,7 +3700,7 @@
     "category": "marketing",
     "categorySlug": "content-listing-sections",
     "subcategory": "Content Listing Sections",
-    "component": "ResourceCardGrid",
+    "component": "resourceCardGridComponent",
     "status": "stable",
     "tags": [
       "resources",
@@ -2678,11 +3720,35 @@
     }
   },
   {
+    "id": "rich-text",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "component": "richTextComponent",
+    "status": "stable",
+    "tags": [
+      "richtext",
+      "markdown",
+      "prose",
+      "editorial",
+      "body",
+      "content"
+    ],
+    "description_fr": "Section de corps riche : un corps Markdown bilingue rendu en HTML au build avec les styles prose du design system. Edition de corps editorial in-context sans backend (le Markdown vit dans le document de page, versionne avec le code). Titres, listes, liens, gras/italique ; mesure de ligne bornee ; variante ink lisible.",
+    "description_en": "Rich text body section: a bilingual Markdown body rendered to HTML at build time with the design system prose styles. In-context editorial body editing without a backend (the Markdown lives in the page document, versioned with the code). Headings, lists, links, bold/italic; bounded line measure; readable ink variant.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "roi-band",
     "category": "marketing",
     "categorySlug": "stats-sections",
     "subcategory": "Stats Sections",
-    "component": "RoiBand",
+    "component": "roiBandComponent",
     "status": "stable",
     "tags": [
       "solutions",
@@ -2701,11 +3767,34 @@
     }
   },
   {
+    "id": "scroll-gallery",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "scrollGalleryComponent",
+    "status": "stable",
+    "tags": [
+      "scroll",
+      "sticky",
+      "gallery",
+      "interactive",
+      "feature"
+    ],
+    "description_fr": "Liste sticky a gauche, cadre media a droite dont l'image change en fondu au scroll. Ideal pour presenter des domaines d'expertise avec un visuel par item.",
+    "description_en": "Sticky list on the left, media frame on the right whose image crossfades on scroll. Ideal to present expertise areas with one visual per item.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "service-catalog-list",
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "ServiceCatalogList",
+    "component": "serviceCatalogListComponent",
     "status": "stable",
     "tags": [
       "services",
@@ -2730,7 +3819,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "ServicesGrid",
+    "component": "servicesGridComponent",
     "status": "stable",
     "tags": [
       "services",
@@ -2755,7 +3844,7 @@
     "category": "marketing",
     "categorySlug": "logo-sections",
     "subcategory": "Logo Sections",
-    "component": "SocialProof",
+    "component": "socialProofComponent",
     "status": "stable",
     "tags": [
       "logos",
@@ -2778,7 +3867,7 @@
     "category": "marketing",
     "categorySlug": "stats-sections",
     "subcategory": "Stats Sections",
-    "component": "SpecBar",
+    "component": "specBarComponent",
     "status": "stable",
     "tags": [
       "specs",
@@ -2797,11 +3886,35 @@
     }
   },
   {
+    "id": "stack-cards",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "stackCardsComponent",
+    "status": "stable",
+    "tags": [
+      "scroll",
+      "stack",
+      "sticky",
+      "cards",
+      "method",
+      "interactive"
+    ],
+    "description_fr": "Cartes numerotees qui se superposent en s'empilant au scroll (effet stack sticky, CSS pur). Ideal pour une methode en plusieurs temps.",
+    "description_en": "Numbered cards that stack and overlap as you scroll (sticky stack effect, pure CSS). Ideal for a multi-step method.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "stat-block",
     "category": "marketing",
     "categorySlug": "stats-sections",
     "subcategory": "Stats Sections",
-    "component": "StatBlock",
+    "component": "statBlockComponent",
     "status": "stable",
     "tags": [
       "stats",
@@ -2822,7 +3935,7 @@
     "category": "marketing",
     "categorySlug": "stats-sections",
     "subcategory": "Stats Sections",
-    "component": "StatCounter",
+    "component": "statCounterComponent",
     "status": "stable",
     "tags": [
       "stats",
@@ -2841,11 +3954,35 @@
     }
   },
   {
+    "id": "statement-orbit",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "statementOrbitComponent",
+    "status": "stable",
+    "tags": [
+      "statement",
+      "orbit",
+      "network",
+      "scroll-expand",
+      "ink",
+      "editorial"
+    ],
+    "description_fr": "Statement éditorial pleine largeur : carte ink qui s'étend de 80 % à 100 % au scroll, titre serif accent, lede, CTA, et un média globe filaire (réseau en orbite). Pose un concept sous un hero.",
+    "description_en": "Full-width editorial statement: an ink card expanding from 80% to 100% on scroll, accented serif title, lede, CTA, and a wireframe globe media (orbiting network). Sets a concept under a hero.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "stats-bento",
     "category": "marketing",
     "categorySlug": "stats-sections",
     "subcategory": "Stats Sections",
-    "component": "StatsBento",
+    "component": "statsBentoComponent",
     "status": "stable",
     "tags": [
       "stats",
@@ -2867,7 +4004,7 @@
     "category": "marketing",
     "categorySlug": "timelines",
     "subcategory": "Timelines",
-    "component": "StepsHorizontal",
+    "component": "stepsHorizontalComponent",
     "status": "stable",
     "tags": [
       "process",
@@ -2885,11 +4022,60 @@
     }
   },
   {
+    "id": "sticky-scroll-storytelling",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Narrative Sections",
+    "component": "stickyScrollStorytellingComponent",
+    "status": "stable",
+    "tags": [
+      "sticky",
+      "scroll",
+      "storytelling",
+      "narrative",
+      "method",
+      "steps",
+      "media"
+    ],
+    "description_fr": "Storytelling au scroll : rail de texte sticky dont l'etape active passe en accent, colonne media sticky dont l'image change en fondu. Mobile = stepper empile.",
+    "description_en": "Scroll storytelling: a sticky text rail whose active step turns accent, with a sticky media column that crossfades its image. Mobile becomes a stacked stepper.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "system-flow",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "systemFlowComponent",
+    "status": "stable",
+    "tags": [
+      "system",
+      "flow",
+      "architecture",
+      "steps",
+      "loop",
+      "ink"
+    ],
+    "description_fr": "Rangée horizontale de cartes d'étapes sur fond ink, reliées par des flèches accent, qui raconte le flux du système (site → lead → scoring → CRM → apprentissage). En-tête « Fig. N » + méta mono, grand titre serif avec dernier mot en accent, lede courte, puis une ligne « ↺ boucle d'amélioration continue ». Reveal-stagger, responsive (scroll horizontal / colonne empilée en mobile).",
+    "description_en": "Horizontal row of step cards on an ink background, linked by accent arrows, telling the system flow (site → lead → scoring → CRM → learning). « Fig. N » header + mono meta, large serif title with the last word accented, short lede, then a « ↺ continuous improvement loop » line. Reveal-stagger, responsive (horizontal scroll / stacked column on mobile).",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "team-bio-grid",
     "category": "marketing",
     "categorySlug": "team-sections",
     "subcategory": "Team Sections",
-    "component": "TeamBioGrid",
+    "component": "teamBioGridComponent",
     "status": "stable",
     "tags": [
       "team",
@@ -2912,7 +4098,7 @@
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "TeamCardGrid",
+    "component": "teamCardGridComponent",
     "status": "stable",
     "tags": [
       "team",
@@ -2936,7 +4122,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "TechCapabilitiesSpecs",
+    "component": "techCapabilitiesSpecsComponent",
     "status": "stable",
     "tags": [
       "technologies",
@@ -2961,7 +4147,7 @@
     "category": "marketing",
     "categorySlug": "timelines",
     "subcategory": "Timelines",
-    "component": "TechIntegrationFlow",
+    "component": "techIntegrationFlowComponent",
     "status": "stable",
     "tags": [
       "technologies",
@@ -2986,7 +4172,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "EditorialTableBlock",
+    "component": "techModelsTableComponent",
     "status": "stable",
     "tags": [
       "technologies",
@@ -3011,7 +4197,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "TechPositioningSplit",
+    "component": "techPositioningSplitComponent",
     "status": "stable",
     "tags": [
       "technologies",
@@ -3036,7 +4222,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "TechStackBand",
+    "component": "techStackBandComponent",
     "status": "stable",
     "tags": [
       "technology",
@@ -3058,7 +4244,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "TechWhenDual",
+    "component": "techWhenDualComponent",
     "status": "stable",
     "tags": [
       "technologies",
@@ -3081,7 +4267,7 @@
     "category": "marketing",
     "categorySlug": "terminal-sections",
     "subcategory": "Terminal Sections",
-    "component": "TerminalMetricsStrip",
+    "component": "terminalMetricsStripComponent",
     "status": "stable",
     "tags": [
       "terminal",
@@ -3105,7 +4291,7 @@
     "category": "marketing",
     "categorySlug": "terminal-sections",
     "subcategory": "Terminal Sections",
-    "component": "TerminalMockupSection",
+    "component": "terminalMockupComponent",
     "status": "stable",
     "tags": [
       "terminal",
@@ -3129,7 +4315,7 @@
     "category": "marketing",
     "categorySlug": "table-sections",
     "subcategory": "Table Sections",
-    "component": "TerminalTableSection",
+    "component": "terminalTableComponent",
     "status": "stable",
     "tags": [
       "table",
@@ -3153,7 +4339,7 @@
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "TestimonialBlock",
+    "component": "testimonialBlockComponent",
     "status": "stable",
     "tags": [
       "testimonial",
@@ -3174,7 +4360,7 @@
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "TestimonialLogoMetric",
+    "component": "testimonialLogoMetricComponent",
     "status": "stable",
     "tags": [
       "testimonial",
@@ -3197,7 +4383,7 @@
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "TestimonialMetrics",
+    "component": "testimonialMetricsComponent",
     "status": "stable",
     "tags": [
       "testimonial",
@@ -3220,7 +4406,7 @@
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
-    "component": "TestimonialSingleSpotlight",
+    "component": "testimonialSingleSpotlightComponent",
     "status": "stable",
     "tags": [
       "testimonial",
@@ -3242,8 +4428,8 @@
     "id": "tier-pyramid-svg",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
-    "subcategory": "Hero Sections",
-    "component": "TierPyramidSvg",
+    "subcategory": "Hero Header Sections",
+    "component": "tierPyramidSvgComponent",
     "status": "stable",
     "tags": [
       "offers",
@@ -3267,8 +4453,8 @@
     "id": "timeline-block",
     "category": "marketing",
     "categorySlug": "timelines",
-    "subcategory": "Timeline Sections",
-    "component": "TimelineBlock",
+    "subcategory": "Timelines",
+    "component": "timelineBlockComponent",
     "status": "stable",
     "tags": [
       "timeline",
@@ -3289,7 +4475,7 @@
     "category": "marketing",
     "categorySlug": "timelines",
     "subcategory": "Timelines",
-    "component": "TimelineHorizontal",
+    "component": "timelineHorizontalComponent",
     "status": "stable",
     "tags": [
       "timeline",
@@ -3313,7 +4499,7 @@
     "category": "marketing",
     "categorySlug": "trust-sections",
     "subcategory": "Trust Sections",
-    "component": "TrustBadgesBand",
+    "component": "trustBadgesBandComponent",
     "status": "stable",
     "tags": [
       "trust",
@@ -3336,7 +4522,7 @@
     "category": "marketing",
     "categorySlug": "trust-sections",
     "subcategory": "Trust Sections",
-    "component": "TrustLegalSection",
+    "component": "trustLegalSectionComponent",
     "status": "stable",
     "tags": [
       "trust",
@@ -3358,7 +4544,7 @@
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
-    "component": "HeroTunnelStep",
+    "component": "tunnelStepHeroComponent",
     "status": "stable",
     "tags": [
       "hero",
@@ -3380,9 +4566,9 @@
   {
     "id": "tunnel-step-nav",
     "category": "marketing",
-    "categorySlug": "call-to-action-sections",
-    "subcategory": "Call-to-Action Sections",
-    "component": "TunnelStepNav",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "tunnelStepNavComponent",
     "status": "stable",
     "tags": [
       "nav",
@@ -3407,7 +4593,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "UseCaseIndex",
+    "component": "useCaseIndexComponent",
     "status": "stable",
     "tags": [
       "use-case",
@@ -3432,7 +4618,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "VersusCompetitors",
+    "component": "versusCompetitorsComponent",
     "status": "stable",
     "tags": [
       "comparison",
@@ -3455,7 +4641,7 @@
     "category": "marketing",
     "categorySlug": "utility-sections",
     "subcategory": "Utility Sections",
-    "component": "WelcomeSection",
+    "component": "welcomeSectionComponent",
     "status": "stable",
     "tags": [
       "welcome",
@@ -3477,7 +4663,7 @@
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
-    "component": "WhyStalls",
+    "component": "whyStallsComponent",
     "status": "stable",
     "tags": [
       "why",
@@ -3500,7 +4686,7 @@
     "category": "marketing",
     "categorySlug": "comparison-sections",
     "subcategory": "Comparison Sections",
-    "component": "WorkflowTable",
+    "component": "workflowTableComponent",
     "status": "stable",
     "tags": [
       "solutions",

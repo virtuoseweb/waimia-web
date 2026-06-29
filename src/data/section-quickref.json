@@ -363,10 +363,6 @@
     "description_fr": "Diagramme d'architecture signature : N canaux d'entrée vers un système central et M sorties, avec boucle d'amélioration continue.",
     "requiredProps": [
       {
-        "name": "atomique",
-        "type": "unknown"
-      },
-      {
         "name": "caption_en",
         "type": "string"
       },
@@ -405,10 +401,6 @@
         "constraint": "min:2 max:8"
       },
       {
-        "name": "largeur",
-        "type": "unknown"
-      },
-      {
         "name": "loop_label_en",
         "type": "string"
       },
@@ -425,6 +417,10 @@
         "name": "outputs_fr",
         "type": "array",
         "constraint": "min:2 max:6"
+      },
+      {
+        "name": "placement",
+        "type": "unknown"
       },
       {
         "name": "spec_en",
@@ -803,10 +799,6 @@
     "description_fr": "Mosaique bento asymetrique de 5 cellules (1 grande 2x2 + 4 petites) pour valoriser les capacites cles avec une mise en page moderne.",
     "requiredProps": [
       {
-        "name": "bento",
-        "type": "unknown"
-      },
-      {
         "name": "cells",
         "type": "array",
         "constraint": "min:3 max:8"
@@ -820,35 +812,7 @@
         "type": "string"
       },
       {
-        "name": "mosaic",
-        "type": "unknown"
-      },
-      {
         "name": "placement",
-        "type": "unknown"
-      },
-      {
-        "name": "ratio",
-        "type": "unknown"
-      },
-      {
-        "name": "ratio",
-        "type": "unknown"
-      },
-      {
-        "name": "ratio",
-        "type": "unknown"
-      },
-      {
-        "name": "uniform",
-        "type": "unknown"
-      },
-      {
-        "name": "x2",
-        "type": "unknown"
-      },
-      {
-        "name": "x3",
         "type": "unknown"
       }
     ],
@@ -1116,14 +1080,6 @@
     "description_fr": "Table éditoriale de cas clients en six colonnes (index, client, secteur, stack, impact, flèche) façon compte rendu d'audit.",
     "requiredProps": [
       {
-        "name": "caseRefs",
-        "type": "unknown"
-      },
-      {
-        "name": "colRatio",
-        "type": "unknown"
-      },
-      {
         "name": "fig_num",
         "type": "string"
       },
@@ -1142,10 +1098,6 @@
       {
         "name": "h2_fr",
         "type": "string"
-      },
-      {
-        "name": "layout",
-        "type": "unknown"
       },
       {
         "name": "placement",
@@ -1249,7 +1201,7 @@
         "constraint": "auto | even | square | video"
       },
       {
-        "name": "list",
+        "name": "layout",
         "type": "enum",
         "constraint": "rows-divided | list | grid-uniform | grid-asym"
       },
@@ -1912,10 +1864,6 @@
     "description_fr": "Deux cartes cote a cote (Sans / Avec) pour mettre en evidence le contraste avant/apres ou nous-vs-eux, avec items a puces et glyphes differencies.",
     "requiredProps": [
       {
-        "name": "atomique",
-        "type": "unknown"
-      },
-      {
         "name": "h2_en",
         "type": "string"
       },
@@ -1924,7 +1872,7 @@
         "type": "string"
       },
       {
-        "name": "te",
+        "name": "placement",
         "type": "unknown"
       },
       {
@@ -3065,10 +3013,6 @@
     "description_fr": "Grille de livrables tangibles avec cards numérotées et tag format/durée, extraite des pages offre et détail.",
     "requiredProps": [
       {
-        "name": "divided",
-        "type": "unknown"
-      },
-      {
         "name": "items",
         "type": "array",
         "constraint": "min:2 max:8"
@@ -3080,10 +3024,6 @@
       {
         "name": "kicker_fr",
         "type": "string"
-      },
-      {
-        "name": "layout",
-        "type": "unknown"
       },
       {
         "name": "placement",
@@ -3127,12 +3067,12 @@
       {
         "name": "itemHeight",
         "type": "enum",
-        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
+        "constraint": "auto | even | square | video"
       },
       {
-        "name": "itemHeight",
+        "name": "layout",
         "type": "enum",
-        "constraint": "auto | even | square | video"
+        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
       },
       {
         "name": "lead_en",
@@ -3407,11 +3347,7 @@
     "description_fr": "Auto-diagnostic « Où en êtes-vous ? » : 4 à 6 stades de maturité en cards horizontales cliquables, le stade courant relevé en accent (« vous êtes ici »). Situe le visiteur et l’oriente vers l’étape suivante (conversion + qualification).",
     "requiredProps": [
       {
-        "name": "atomique",
-        "type": "unknown"
-      },
-      {
-        "name": "layout",
+        "name": "placement",
         "type": "unknown"
       },
       {
@@ -3425,6 +3361,11 @@
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
       },
       {
         "name": "contentAlign",
@@ -3464,11 +3405,6 @@
       {
         "name": "lede_fr",
         "type": "string"
-      },
-      {
-        "name": "steps",
-        "type": "enum",
-        "constraint": "auto | 2 | 3 | 4"
       }
     ],
     "hasDemo": true,
@@ -4365,15 +4301,40 @@
   {
     "type": "eeat-panel",
     "category": "marketing",
-    "categorySlug": "",
-    "subcategory": "",
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
     "status": "stable",
-    "description_fr": "",
+    "description_fr": "Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.",
     "requiredProps": [],
-    "optionalProps": [],
-    "hasDemo": false,
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "ink | paper"
+      },
+      {
+        "name": "eyebrow",
+        "type": "string"
+      },
+      {
+        "name": "lead",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "media | columns | light | hero",
+        "default": "media"
+      }
+    ],
+    "hasDemo": true,
     "demo": {
-      "type": "eeat-panel"
+      "type": "eeat-panel",
+      "variant": "media"
     }
   },
   {
@@ -4847,10 +4808,6 @@
       {
         "name": "h2_fr",
         "type": "string"
-      },
-      {
-        "name": "unique",
-        "type": "unknown"
       }
     ],
     "optionalProps": [
@@ -5177,18 +5134,6 @@
     "description_fr": "Lignes alternées visuel/texte (gauche-droite, droite-gauche) pour presenter les fonctionnalites cles d'une offre avec un rythme editorial fort.",
     "requiredProps": [
       {
-        "name": "actuel",
-        "type": "unknown"
-      },
-      {
-        "name": "alternate",
-        "type": "unknown"
-      },
-      {
-        "name": "atomique",
-        "type": "unknown"
-      },
-      {
         "name": "h2_en",
         "type": "string"
       },
@@ -5197,7 +5142,7 @@
         "type": "string"
       },
       {
-        "name": "in",
+        "name": "placement",
         "type": "unknown"
       },
       {
@@ -5235,6 +5180,11 @@
         "type": "string"
       },
       {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "alternate | stacked | inline-left | inline-right"
+      },
+      {
         "name": "lede_en",
         "type": "string"
       },
@@ -5251,11 +5201,6 @@
         "name": "proportion",
         "type": "enum",
         "constraint": "1-1 | 1-2 | 2-1 | 2-3 | 3-2"
-      },
-      {
-        "name": "stacked",
-        "type": "enum",
-        "constraint": "alternate | stacked | inline-left | inline-right"
       }
     ],
     "hasDemo": true,
@@ -5486,10 +5431,6 @@
       {
         "name": "h2_fr",
         "type": "string"
-      },
-      {
-        "name": "layout",
-        "type": "unknown"
       }
     ],
     "optionalProps": [
@@ -5512,11 +5453,6 @@
       {
         "name": "density",
         "type": "enum",
-        "constraint": "inline | stacked"
-      },
-      {
-        "name": "density",
-        "type": "enum",
         "constraint": "compact | base | ample"
       },
       {
@@ -5526,6 +5462,11 @@
       {
         "name": "kicker_fr",
         "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "inline | stacked"
       },
       {
         "name": "rounded",
@@ -6551,10 +6492,6 @@
     "status": "stable",
     "description_fr": "Hero magnétique flagship : kicker num + h1 monumental, lede, meta pills, benefits checklist, ligne preuve mono, double CTA et grille stats 4-col.",
     "requiredProps": [
-      {
-        "name": "col",
-        "type": "unknown"
-      },
       {
         "name": "cta_primary",
         "type": "object"
@@ -8629,15 +8566,99 @@
   {
     "type": "hero-social-proof",
     "category": "marketing",
-    "categorySlug": "",
-    "subcategory": "",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
     "status": "stable",
-    "description_fr": "",
-    "requiredProps": [],
-    "optionalProps": [],
-    "hasDemo": false,
+    "description_fr": "Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.",
+    "requiredProps": [
+      {
+        "name": "cta_primary",
+        "type": "object"
+      },
+      {
+        "name": "h1_en",
+        "type": "string"
+      },
+      {
+        "name": "h1_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "stats",
+        "type": "array",
+        "constraint": "min:2 max:4"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "cta_secondary",
+        "type": "object"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "rating_en",
+        "type": "string"
+      },
+      {
+        "name": "rating_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
     "demo": {
-      "type": "hero-social-proof"
+      "type": "hero-social-proof",
+      "h1_fr": "L'IA qui <i>livre</i>, pas qui promet.",
+      "h1_en": "The AI that <i>ships</i>, not just promises.",
+      "lede_fr": "Des systèmes d'activation déployés en production, mesurés sur le pipeline réel. Pas de démo, des résultats signés.",
+      "lede_en": "Activation systems deployed in production, measured on real pipeline. No demos, signed results.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit →",
+        "label_en": "Book an audit →",
+        "href": "/contact",
+        "variant": "primary"
+      },
+      "stats": [
+        {
+          "k": "5 jours",
+          "label_fr": "pour cibler le levier",
+          "label_en": "to pinpoint the lever"
+        },
+        {
+          "k": "4 sem.",
+          "label_fr": "au premier workflow en production",
+          "label_en": "to first workflow in production"
+        },
+        {
+          "k": "1",
+          "label_fr": "interlocuteur unique",
+          "label_en": "single point of contact"
+        },
+        {
+          "k": "Mesuré",
+          "label_fr": "ROI, jamais estimé",
+          "label_en": "ROI, never estimated"
+        }
+      ]
     }
   },
   {
@@ -10308,12 +10329,7 @@
     "subcategory": "Logo Sections",
     "status": "stable",
     "description_fr": "Bandeau de logos image à défilement infini (« ils nous font confiance »), marquee CSS, grayscale optionnel. Respecte prefers-reduced-motion. Distinct du marquee-band texte mono.",
-    "requiredProps": [
-      {
-        "name": "logoIds",
-        "type": "unknown"
-      }
-    ],
+    "requiredProps": [],
     "optionalProps": [
       {
         "name": "background",
@@ -10576,7 +10592,7 @@
     ],
     "optionalProps": [
       {
-        "name": "e",
+        "name": "pinned",
         "type": "boolean",
         "default": "false"
       },
@@ -10886,15 +10902,150 @@
   {
     "type": "media-bento",
     "category": "marketing",
-    "categorySlug": "",
-    "subcategory": "",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
     "status": "stable",
-    "description_fr": "",
-    "requiredProps": [],
-    "optionalProps": [],
-    "hasDemo": false,
+    "description_fr": "Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "placement",
+        "type": "unknown"
+      },
+      {
+        "name": "tiles",
+        "type": "array",
+        "constraint": "min:2 max:6"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
+      },
+      {
+        "name": "contentAlign",
+        "type": "enum",
+        "constraint": "start | center | end"
+      },
+      {
+        "name": "density",
+        "type": "enum",
+        "constraint": "compact | base | ample"
+      },
+      {
+        "name": "itemHeight",
+        "type": "enum",
+        "constraint": "auto | even | square | video"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "feature-2 | quad | mosaic | bento-feature | matrix-2x2 | matrix-3x3 | grid-uniform"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
     "demo": {
-      "type": "media-bento"
+      "type": "media-bento",
+      "h2_fr": "Le travail, <i>en images</i>",
+      "h2_en": "The work, <i>in pictures</i>",
+      "tiles": [
+        {
+          "title_fr": "Plateau",
+          "title_en": "Plateau",
+          "tag_fr": "Acquisition",
+          "tag_en": "Acquisition",
+          "media_src": "/images/cas/cas-plateau.webp",
+          "media_alt_fr": "Projet Plateau",
+          "media_alt_en": "Plateau project",
+          "span": "2",
+          "link_href": "/cas-clients"
+        },
+        {
+          "title_fr": "Halcyon",
+          "title_en": "Halcyon",
+          "tag_fr": "Productivité",
+          "tag_en": "Productivity",
+          "media_src": "/images/cas/cas-halcyon.webp",
+          "media_alt_fr": "Projet Halcyon",
+          "media_alt_en": "Halcyon project",
+          "span": "1",
+          "link_href": "/cas-clients"
+        },
+        {
+          "title_fr": "Northbound",
+          "title_en": "Northbound",
+          "tag_fr": "Pilotage",
+          "tag_en": "Steering",
+          "media_src": "/images/cas/cas-northbound.webp",
+          "media_alt_fr": "Projet Northbound",
+          "media_alt_en": "Northbound project",
+          "span": "1",
+          "link_href": "/cas-clients"
+        },
+        {
+          "title_fr": "Méridien",
+          "title_en": "Meridian",
+          "tag_fr": "Conversion",
+          "tag_en": "Conversion",
+          "media_src": "/images/themes/theme-acquisition.webp",
+          "media_alt_fr": "Projet Méridien",
+          "media_alt_en": "Meridian project",
+          "span": "1",
+          "link_href": "/cas-clients"
+        },
+        {
+          "title_fr": "Boréal",
+          "title_en": "Boreal",
+          "tag_fr": "Automatisation",
+          "tag_en": "Automation",
+          "media_src": "/images/themes/theme-productivite.webp",
+          "media_alt_fr": "Projet Boréal",
+          "media_alt_en": "Boreal project",
+          "span": "1",
+          "link_href": "/cas-clients"
+        },
+        {
+          "title_fr": "Sillage",
+          "title_en": "Wake",
+          "tag_fr": "Contenu",
+          "tag_en": "Content",
+          "media_src": "/images/themes/theme-contenu-seo.webp",
+          "media_alt_fr": "Projet Sillage",
+          "media_alt_en": "Wake project",
+          "span": "1",
+          "link_href": "/cas-clients"
+        }
+      ]
     }
   },
   {
@@ -11164,16 +11315,16 @@
     "description_fr": "Timeline méthodologique pour expliquer les étapes d'un accompagnement ou d'un processus.",
     "requiredProps": [
       {
-        "name": "atomique",
-        "type": "unknown"
-      },
-      {
         "name": "h2_en",
         "type": "string"
       },
       {
         "name": "h2_fr",
         "type": "string"
+      },
+      {
+        "name": "placement",
+        "type": "unknown"
       },
       {
         "name": "steps",
@@ -11186,6 +11337,11 @@
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "auto | 2 | 3 | 4"
       },
       {
         "name": "contentAlign",
@@ -11217,11 +11373,6 @@
       {
         "name": "lede_fr",
         "type": "string"
-      },
-      {
-        "name": "steps",
-        "type": "enum",
-        "constraint": "auto | 2 | 3 | 4"
       }
     ],
     "hasDemo": true,
@@ -12323,24 +12474,12 @@
     "description_fr": "Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.",
     "requiredProps": [
       {
-        "name": "actionsAlign",
-        "type": "unknown"
-      },
-      {
-        "name": "colRatio",
-        "type": "unknown"
-      },
-      {
         "name": "h2_en",
         "type": "string"
       },
       {
         "name": "h2_fr",
         "type": "string"
-      },
-      {
-        "name": "layout",
-        "type": "unknown"
       },
       {
         "name": "placement",
@@ -12384,11 +12523,6 @@
         "constraint": "compact | base | ample"
       },
       {
-        "name": "divided",
-        "type": "enum",
-        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
-      },
-      {
         "name": "footnote_en",
         "type": "string"
       },
@@ -12408,6 +12542,11 @@
       {
         "name": "kicker_fr",
         "type": "string"
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "grid-uniform | grid-auto | grid-asym | list | rows-divided | bento-feature | featured-split"
       },
       {
         "name": "lede_en",
@@ -13698,6 +13837,48 @@
     }
   },
   {
+    "type": "rich-text",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "status": "stable",
+    "description_fr": "Section de corps riche : un corps Markdown bilingue rendu en HTML au build avec les styles prose du design system. Edition de corps editorial in-context sans backend (le Markdown vit dans le document de page, versionne avec le code). Titres, listes, liens, gras/italique ; mesure de ligne bornee ; variante ink lisible.",
+    "requiredProps": [
+      {
+        "name": "body_md_en",
+        "type": "string"
+      },
+      {
+        "name": "body_md_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "title_en",
+        "type": "string"
+      },
+      {
+        "name": "title_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "rich-text",
+      "body_md_fr": "## Pourquoi un corps Markdown\n\nLe corps de cette section vit en **Markdown** dans le document de page. Il est rendu en\nHTML au build, avec les styles de prose du design system. Pas de CMS, pas de backend :\nle contenu se versionne avec le code.\n\n### Ce que vous pouvez écrire\n\n- des titres de niveau 2 et 3 ;\n- des listes à puces et numérotées ;\n- du texte en *italique* ou en **gras** ;\n- des [liens internes](/contact) vers le reste du site.\n\nLe rendu reste lisible : la mesure de ligne est bornée et la typographie suit les mêmes\ntokens que le reste des pages.",
+      "body_md_en": "## Why a Markdown body\n\nThis section body lives as **Markdown** inside the page document. It is rendered to HTML\nat build time, using the design system prose styles. No CMS, no backend: the content is\nversioned alongside the code.\n\n### What you can write\n\n- level 2 and level 3 headings;\n- bulleted and numbered lists;\n- *italic* or **bold** text;\n- [internal links](/contact) to the rest of the site.\n\nReading stays comfortable: the line measure is bounded and the typography follows the same\ntokens as the rest of the pages."
+    }
+  },
+  {
     "type": "roi-band",
     "category": "marketing",
     "categorySlug": "stats-sections",
@@ -14630,14 +14811,6 @@
     "description_fr": "Quatre KPI en grille bento de tailles inegales : une grande cellule avec chiffre geant et trois cellules secondaires, plus un bandeau bas pleine largeur.",
     "requiredProps": [
       {
-        "name": "bento",
-        "type": "unknown"
-      },
-      {
-        "name": "columns",
-        "type": "unknown"
-      },
-      {
         "name": "h2_en",
         "type": "string"
       },
@@ -14646,25 +14819,13 @@
         "type": "string"
       },
       {
-        "name": "list",
-        "type": "unknown"
-      },
-      {
         "name": "placement",
-        "type": "unknown"
-      },
-      {
-        "name": "ratio",
         "type": "unknown"
       },
       {
         "name": "stats",
         "type": "array",
         "constraint": "min:2 max:6"
-      },
-      {
-        "name": "x2",
-        "type": "unknown"
       }
     ],
     "optionalProps": [
@@ -15665,11 +15826,112 @@
     "subcategory": "Terminal Sections",
     "status": "stable",
     "description_fr": "Console terminal configurable (frame TerminalMockup) : copy optionnelle à gauche, lignes cmd/out/ok/comment et curseur clignotant, layout split ou pleine largeur.",
-    "requiredProps": [],
-    "optionalProps": [],
+    "requiredProps": [
+      {
+        "name": "lines",
+        "type": "array",
+        "constraint": "min:1 max:14"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | ink",
+        "default": "paper"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "intro_en",
+        "type": "string"
+      },
+      {
+        "name": "intro_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "layout",
+        "type": "enum",
+        "constraint": "split | full",
+        "default": "split"
+      },
+      {
+        "name": "show_cursor",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "tone",
+        "type": "enum",
+        "constraint": "ink | paper",
+        "default": "ink"
+      }
+    ],
     "hasDemo": true,
     "demo": {
-      "type": "terminal-mockup"
+      "type": "terminal-mockup",
+      "lines": [
+        {
+          "kind": "cmd",
+          "text_fr": "virtuose --version",
+          "text_en": "virtuose --version"
+        },
+        {
+          "kind": "out",
+          "text_fr": "VirtuoseOS 2.4.1 · locale fr-FR · kernel ok",
+          "text_en": "VirtuoseOS 2.4.1 · locale en-US · kernel ok"
+        },
+        {
+          "kind": "cmd",
+          "text_fr": "virtuose ship pipeline.agent",
+          "text_en": "virtuose ship pipeline.agent"
+        },
+        {
+          "kind": "out",
+          "text_fr": "→ hubspot.sync ok · 482 contacts",
+          "text_en": "→ hubspot.sync ok · 482 contacts"
+        },
+        {
+          "kind": "out",
+          "text_fr": "→ claude.triage ok · 14 handoffs",
+          "text_en": "→ claude.triage ok · 14 handoffs"
+        },
+        {
+          "kind": "ok",
+          "text_fr": "pipeline shipped · +19 540 € pipeline",
+          "text_en": "pipeline shipped · +€19,540 pipeline"
+        },
+        {
+          "kind": "comment",
+          "text_fr": "// audit trail signé · validation humaine requise",
+          "text_en": "// signed audit trail · human validation required"
+        }
+      ]
     }
   },
   {
@@ -15679,11 +15941,190 @@
     "subcategory": "Table Sections",
     "status": "stable",
     "description_fr": "Table terminal configurable (frame TerminalTable) : en-tête kicker/meta, titre, puis colonnes, headers et lignes cliquables avec rôle typographique par cellule.",
-    "requiredProps": [],
-    "optionalProps": [],
+    "requiredProps": [
+      {
+        "name": "cols",
+        "type": "string"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "headers",
+        "type": "array",
+        "constraint": "min:2 max:8"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "rows",
+        "type": "array",
+        "constraint": "min:2 max:8"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | ink",
+        "default": "paper"
+      },
+      {
+        "name": "intro_en",
+        "type": "string"
+      },
+      {
+        "name": "intro_fr",
+        "type": "string"
+      },
+      {
+        "name": "meta_en",
+        "type": "string"
+      },
+      {
+        "name": "meta_fr",
+        "type": "string"
+      }
+    ],
     "hasDemo": true,
     "demo": {
-      "type": "terminal-table"
+      "type": "terminal-table",
+      "kicker_fr": "[act.02] · la méthode",
+      "kicker_en": "[act.02] · the method",
+      "h2_fr": "Quatre services. Une <i class=\"acc\">seule</i> couche.",
+      "h2_en": "Four services. One <i class=\"acc\">continuous</i> layer.",
+      "cols": "60px 200px 1fr 120px",
+      "headers": [
+        {
+          "fr": "id",
+          "en": "id"
+        },
+        {
+          "fr": "service",
+          "en": "service"
+        },
+        {
+          "fr": "description",
+          "en": "description"
+        },
+        {
+          "fr": "status",
+          "en": "status"
+        }
+      ],
+      "rows": [
+        {
+          "href": "/contact",
+          "cells": [
+            {
+              "fr": "01",
+              "en": "01",
+              "role": "id"
+            },
+            {
+              "fr": "Acquisition",
+              "en": "Acquisition",
+              "role": "title"
+            },
+            {
+              "fr": "Campagnes pilotées par les signaux CRM, budget réalloué chaque semaine.",
+              "en": "Campaigns driven by CRM signals, budget reallocated weekly.",
+              "role": "body"
+            },
+            {
+              "fr": "◉ active",
+              "en": "◉ active",
+              "role": "status"
+            }
+          ]
+        },
+        {
+          "href": "/contact",
+          "cells": [
+            {
+              "fr": "02",
+              "en": "02",
+              "role": "id"
+            },
+            {
+              "fr": "Contenu",
+              "en": "Content",
+              "role": "title"
+            },
+            {
+              "fr": "Production éditoriale outillée IA, relue par un humain avant mise en ligne.",
+              "en": "AI-assisted editorial production, human-reviewed before publishing.",
+              "role": "body"
+            },
+            {
+              "fr": "◉ active",
+              "en": "◉ active",
+              "role": "status"
+            }
+          ]
+        },
+        {
+          "href": "/contact",
+          "cells": [
+            {
+              "fr": "03",
+              "en": "03",
+              "role": "id"
+            },
+            {
+              "fr": "CRM & sales ops",
+              "en": "CRM & sales ops",
+              "role": "title"
+            },
+            {
+              "fr": "Scoring, relances et handoffs câblés directement dans votre pipeline.",
+              "en": "Scoring, follow-ups and handoffs wired straight into your pipeline.",
+              "role": "body"
+            },
+            {
+              "fr": "◉ active",
+              "en": "◉ active",
+              "role": "status"
+            }
+          ]
+        },
+        {
+          "href": "/contact",
+          "cells": [
+            {
+              "fr": "04",
+              "en": "04",
+              "role": "id"
+            },
+            {
+              "fr": "Analytics",
+              "en": "Analytics",
+              "role": "title"
+            },
+            {
+              "fr": "Mesure unifiée : chaque action reliée au pipeline généré.",
+              "en": "Unified measurement: every action tied to generated pipeline.",
+              "role": "body"
+            },
+            {
+              "fr": "◉ active",
+              "en": "◉ active",
+              "role": "status"
+            }
+          ]
+        }
+      ]
     }
   },
   {

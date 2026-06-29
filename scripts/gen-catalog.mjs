@@ -1,10 +1,20 @@
 #!/usr/bin/env node
 // scripts/gen-catalog.mjs — export librairie « Relume-like » (waimia-web)
 //
-// Dérive `catalog.generated.json` (racine repo) depuis registry + manifest + demos,
-// par PARSING STATIQUE (texte + regex), SANS rien réécrire des sources.
+// Dérive `catalog.generated.json` (racine repo) depuis les modules co-localisés
+// + le manifest + le registry généré, par PARSING STATIQUE (texte + regex),
+// SANS rien réécrire des sources.
 //
-// Pour chaque type du registry, un objet :
+// Sources :
+//   - src/sections/<type>/meta.ts          : descripteur (category, categorySlug,
+//                                             subcategory, status, tags,
+//                                             description_fr/en) + liste des types
+//                                             (référence = présence d'index.ts)
+//   - src/sections/<type>/demo.ts          : hasDemo { fr, en } (présence + heuristique)
+//   - src/lib/section-registry.generated.ts : id → identifiant component importé
+//   - src/lib/library-manifest.ts          : rendering + consumers
+//
+// Pour chaque type, un objet :
 //   { id, category, categorySlug, component, status, tags,
 //     description_fr, description_en, subcategory,
 //     rendering: 'live'|'catalogue-only'|'unknown', consumers: string[],
@@ -12,12 +22,13 @@
 //
 // Champs introuvables → null (jamais de crash). Logge total + nombre `unknown` en fin.
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'catalog.generated.json');
+const SECTIONS_DIR = 'src/sections';
 
 function read(rel) {
   const p = join(ROOT, rel);
@@ -28,32 +39,10 @@ function read(rel) {
   return readFileSync(p, 'utf8');
 }
 
-const srcRegistry = read('src/lib/section-registry.ts');
-const srcDemos = read('src/lib/section-demos.ts');
+const srcRegistryGen = read('src/lib/section-registry.generated.ts');
 const srcManifest = read('src/lib/library-manifest.ts');
 
-// ── Utilitaire : isole le bloc `{ ... }` d'une clé d'objet par équilibrage d'accolades ──
-// Renvoie le contenu interne (entre la 1ʳᵉ `{` après la clé et son `}` apparié), ou null.
-function extractBlock(src, key) {
-  const keyRe = new RegExp(`^\\s*['"]${key.replace(/[-]/g, '\\$&')}['"]\\s*:\\s*\\{`, 'm');
-  const m = keyRe.exec(src);
-  if (!m) return null;
-  let i = src.indexOf('{', m.index);
-  if (i < 0) return null;
-  let depth = 0;
-  const start = i;
-  for (; i < src.length; i++) {
-    const c = src[i];
-    if (c === '{') depth++;
-    else if (c === '}') {
-      depth--;
-      if (depth === 0) return src.slice(start + 1, i);
-    }
-  }
-  return null;
-}
-
-// ── Extracteurs de champs sur un bloc registry ───────────────────────────────
+// ── Extracteurs de champs sur le corps d'un littéral meta ─────────────────────
 const strField = (block, name) => {
   // valeur string entre quotes (simple/double), tolère apostrophes échappées internes via [^] minimal
   const re = new RegExp(`${name}\\s*:\\s*(['"])((?:\\\\.|(?!\\1).)*)\\1`, 's');
@@ -67,10 +56,40 @@ const tagsField = (block) => {
   if (!inner) return [];
   return [...inner.matchAll(/['"]([^'"]+)['"]/g)].map((x) => x[1]);
 };
-const componentField = (block) => {
-  const mm = /component\s*:\s*([A-Za-z0-9_]+)/.exec(block);
-  return mm ? mm[1] : null;
-};
+// ── meta.ts : isole le corps de `export const meta = { ... }` (braces incluses) ──
+// Le littéral peut porter une annotation de type (`export const meta: SectionMeta = {`),
+// d'où le scan jusqu'au 1ᵉʳ `{` après la déclaration puis équilibrage d'accolades.
+function extractMetaLiteral(src) {
+  const m = /export\s+const\s+meta\b[^=]*=\s*\{/.exec(src);
+  if (!m) return null;
+  let i = src.indexOf('{', m.index);
+  if (i < 0) return null;
+  let depth = 0;
+  const start = i;
+  for (; i < src.length; i++) {
+    const c = src[i];
+    if (c === '{') depth++;
+    else if (c === '}') {
+      depth--;
+      if (depth === 0) return src.slice(start + 1, i); // corps interne (sans les braces englobantes)
+    }
+  }
+  return null;
+}
+
+// ── Registry généré : id → identifiant `component` importé ────────────────────
+// Chaque entrée de SECTIONS est `'<id>': { component: <ident>, ...<ident>Meta }`.
+// On mappe l'id vers le nom d'identifiant (ex. `heroSplitMediaComponent`). Introuvable → null.
+function buildComponentMap(src) {
+  const map = new Map();
+  for (const m of src.matchAll(
+    /['"]([a-z0-9-]+)['"]\s*:\s*\{\s*component\s*:\s*([A-Za-z0-9_$]+)/g,
+  )) {
+    map.set(m[1], m[2]);
+  }
+  return map;
+}
+const componentMap = buildComponentMap(srcRegistryGen);
 
 // ── Manifest : id → { rendering, consumers } ─────────────────────────────────
 // SECTION_USAGE = lignes `{ id: '<id>', consumers: [ ... ] }`.
@@ -102,48 +121,51 @@ for (const m of srcManifest.matchAll(
   usage[id] = { consumers, rendering: consumers.length > 0 ? 'live' : 'catalogue-only' };
 }
 
-// ── Demos : clés présentes + heuristique fr/en sur le sous-bloc ──────────────
-// Compromis documenté : `hasDemo.fr/en` = true si la clé existe dans SECTION_DEMOS
-// ET que son bloc contient au moins un champ suffixé `_fr` / `_en` (ou un sous-objet
-// `label_fr`/`label_en`). C'est une heuristique texte sur le sous-bloc isolé par
-// équilibrage d'accolades. Si le bloc ne peut être isolé proprement, on retombe sur
-// « clé présente » pour les deux langues (présence binaire) — cas non rencontré ici.
-const demoKeys = new Set(
-  [...srcDemos.matchAll(/^\s*['"]([a-z0-9-]+)['"]\s*:\s*\{/gm)].map((m) => m[1]),
-);
+// ── Demos co-localisés : présence du fichier + heuristique fr/en sur le contenu ─
+// `hasDemo.fr/en` = true si src/sections/<id>/demo.ts existe ET que son contenu
+// contient au moins un champ suffixé `_fr` / `_en` (heuristique texte sur le fichier
+// entier, identique à l'ancienne sur le sous-bloc). Fichier absent → { false, false }.
+// Certains demos sont volontairement non bilingues (sections à slot) → fr/en = false.
 function demoLangs(id) {
-  if (!demoKeys.has(id)) return { fr: false, en: false };
-  const block = extractBlock(srcDemos, id);
-  if (block == null) return { fr: true, en: true }; // compromis : clé présente, isolation impossible
-  return { fr: /_fr\b/.test(block), en: /_en\b/.test(block) };
+  const demoPath = join(ROOT, SECTIONS_DIR, id, 'demo.ts');
+  if (!existsSync(demoPath)) return { fr: false, en: false };
+  const src = readFileSync(demoPath, 'utf8');
+  return { fr: /_fr\b/.test(src), en: /_en\b/.test(src) };
 }
 
-// ── Référence = clés du registry ─────────────────────────────────────────────
-const registryKeys = [
-  ...new Set(
-    [...srcRegistry.matchAll(/^\s*['"]([a-z0-9-]+)['"]\s*:\s*\{/gm)].map((m) => m[1]),
-  ),
-];
-if (registryKeys.length === 0) {
-  console.error('✗ FATAL : 0 clé registry parsée — regex/fichier suspect.');
+// ── Référence = modules co-localisés (dossiers src/sections/<id>/ avec index.ts) ─
+const sectionsRoot = join(ROOT, SECTIONS_DIR);
+if (!existsSync(sectionsRoot)) {
+  console.error(`✗ FATAL : répertoire introuvable → ${SECTIONS_DIR}`);
+  process.exit(2);
+}
+const moduleIds = readdirSync(sectionsRoot, { withFileTypes: true })
+  .filter((d) => d.isDirectory())
+  .map((d) => d.name)
+  .filter((id) => existsSync(join(sectionsRoot, id, 'index.ts')));
+if (moduleIds.length === 0) {
+  console.error('✗ FATAL : 0 module co-localisé parsé — répertoire/structure suspect.');
   process.exit(2);
 }
 
 // ── Construction du catalogue ────────────────────────────────────────────────
-const catalog = registryKeys
+const catalog = moduleIds
   .map((id) => {
-    const block = extractBlock(srcRegistry, id) ?? '';
+    const metaPath = join(sectionsRoot, id, 'meta.ts');
+    const metaBody = existsSync(metaPath)
+      ? extractMetaLiteral(readFileSync(metaPath, 'utf8')) ?? ''
+      : '';
     const u = usage[id];
     return {
       id,
-      category: strField(block, 'category'),
-      categorySlug: strField(block, 'categorySlug'),
-      subcategory: strField(block, 'subcategory'),
-      component: componentField(block),
-      status: strField(block, 'status'),
-      tags: tagsField(block),
-      description_fr: strField(block, 'description_fr'),
-      description_en: strField(block, 'description_en'),
+      category: strField(metaBody, 'category'),
+      categorySlug: strField(metaBody, 'categorySlug'),
+      subcategory: strField(metaBody, 'subcategory'),
+      component: componentMap.get(id) ?? null,
+      status: strField(metaBody, 'status'),
+      tags: tagsField(metaBody),
+      description_fr: strField(metaBody, 'description_fr'),
+      description_en: strField(metaBody, 'description_en'),
       rendering: u ? u.rendering : 'unknown',
       consumers: u ? u.consumers : [],
       hasDemo: demoLangs(id),
