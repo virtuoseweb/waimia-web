@@ -828,6 +828,8 @@ a:not([class]):hover,
   letter-spacing: -0.01em;
   line-height: var(--leading-h3);
   font-weight: var(--fw-medium);
+  /* Noms de colonnes en accent (directive Simon 2026-06-29) — token existant. */
+  color: var(--accent-text);
 }
 .mega-col ul {
   list-style: none;
