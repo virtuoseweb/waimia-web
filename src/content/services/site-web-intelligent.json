@@ -289,6 +289,84 @@
       ]
     },
     {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce qu'on <i>dépose</i> chez vous",
+      "title_en": "What we <i>deliver</i> to you",
+      "lead_fr": "Vous gardez la stack quand on part. Pas de captivité.",
+      "lead_en": "You keep the stack when we leave. No lock-in.",
+      "items": [
+        {
+          "title_fr": "Site créé ou refondu",
+          "title_en": "Site built or rebuilt",
+          "body_fr": "Design, contenu et structure posés ou refondus, déployés en production dès le départ.",
+          "body_en": "Design, content and structure built or rebuilt, deployed to production from day one.",
+          "format_fr": "CODE + LIVE",
+          "format_en": "CODE + LIVE",
+          "illustration_src": "/images/line-art/swi-livrable-site.svg",
+          "illustration_alt_fr": "Un site déployé en production, structure et pages posées",
+          "illustration_alt_en": "A site deployed to production, structure and pages laid in"
+        },
+        {
+          "title_fr": "Connexion IA et données",
+          "title_en": "AI and data connection",
+          "body_fr": "Web app connectée à un LLM via des skills et routines, branchée à votre Search Console et votre Analytics pour optimiser le SEO en continu.",
+          "body_en": "Web app connected to an LLM via skills and routines, wired to your Search Console and your Analytics to optimise SEO continuously.",
+          "format_fr": "IA + DATA",
+          "format_en": "AI + DATA",
+          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
+          "illustration_alt_fr": "Une web app branchée à un LLM et à vos données d'acquisition",
+          "illustration_alt_en": "A web app wired to an LLM and your acquisition data"
+        },
+        {
+          "title_fr": "Quiz de routing et capture",
+          "title_en": "Routing quiz and capture",
+          "body_fr": "Lead magnet ou quiz qui route chaque visiteur en temps réel vers la page qui convertit, scoring et capture branchés au CRM.",
+          "body_en": "Lead magnet or quiz that routes every visitor in real time toward the converting page, scoring and capture wired to the CRM.",
+          "format_fr": "CRM",
+          "format_en": "CRM",
+          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
+          "illustration_alt_fr": "Un quiz de routing qui score et capture chaque visiteur vers le CRM",
+          "illustration_alt_en": "A routing quiz that scores and captures every visitor to the CRM"
+        },
+        {
+          "title_fr": "Landing pages par persona",
+          "title_en": "Landing pages per persona",
+          "body_fr": "Pages par cible, optimisées SEO et GEO, tracking complet, branchées au CRM.",
+          "body_en": "Pages per target, SEO and GEO optimized, full tracking, wired to the CRM.",
+          "format_fr": "CODE + LIVE",
+          "format_en": "CODE + LIVE",
+          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
+          "illustration_alt_fr": "Des landing pages par persona, optimisées et trackées",
+          "illustration_alt_en": "Landing pages per persona, optimised and tracked"
+        },
+        {
+          "title_fr": "Tableau de pilotage et alertes",
+          "title_en": "Management dashboard and alerts",
+          "body_fr": "KPI Search Console et Analytics lus par l'IA, acquisition, conversion et pipeline en temps réel, alertes sur les anomalies.",
+          "body_en": "Search Console and Analytics KPIs read by the AI, acquisition, conversion and pipeline in real time, alerts on anomalies.",
+          "format_fr": "TABLEAU",
+          "format_en": "DASHBOARD",
+          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
+          "illustration_alt_fr": "Un tableau de pilotage des KPI d'acquisition avec alertes",
+          "illustration_alt_en": "An acquisition KPI dashboard with alerts"
+        },
+        {
+          "title_fr": "Mode opératoire",
+          "title_en": "Operating manual",
+          "body_fr": "Documentation complète et formation : votre équipe est autonome à la livraison.",
+          "body_en": "Complete documentation and training: your team is autonomous at delivery.",
+          "format_fr": "NOTION + VIDÉO",
+          "format_en": "NOTION + VIDEO",
+          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
+          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome",
+          "illustration_alt_en": "A documented operating manual to make the team autonomous"
+        }
+      ]
+    },
+    {
       "type": "feature-zigzag",
       "anchor": "capacites",
       "background": "paper",
@@ -296,8 +374,8 @@
       "kicker_en": "§ The building blocks",
       "h2_fr": "Ce qui <i>compose</i> un site intelligent",
       "h2_en": "What <i>composes</i> an intelligent site",
-      "lede_fr": "Cinq briques assemblées sur une même base : une conception qui tient debout, une intégration qui branche vos données, un moteur de contenu qui rend visible, un CMS qu'on pilote sans chantier, et un tracking que l'IA lit pour vous. On active celles qui servent votre maturité.",
-      "lede_en": "Five blocks assembled on a single base: a design that holds up, an integration that wires your data, a content engine that makes you visible, a CMS you steer without a project, and tracking the AI reads for you. We activate the ones that fit your maturity.",
+      "lede_fr": "Trois briques de build sur une même base : une conception qui tient debout, une intégration qui branche vos données, un moteur de contenu qui rend visible. On active celles qui servent votre maturité.",
+      "lede_en": "Three build blocks on a single base: a design that holds up, an integration that wires your data, a content engine that makes you visible. We activate the ones that fit your maturity.",
       "rows": [
         {
           "kicker_fr": "Brique 01",
@@ -384,79 +462,58 @@
           "link_href": "/services/content-marketing-intelligent",
           "link_label_fr": "Voir le content marketing →",
           "link_label_en": "See content marketing →"
-        },
-        {
-          "kicker_fr": "Brique 04",
-          "kicker_en": "Block 04",
-          "h3_fr": "Réduction du temps CMS",
-          "h3_en": "Cut CMS time",
-          "body_fr": "Une édition pilotable sans dépendre d'un développeur : TinaCMS git-based, ou Strapi en add-on. Zéro chantier de plugins, les évolutions de contenu se font en minutes, versionnées dans le code et réversibles.",
-          "body_en": "Editing you can steer without depending on a developer: git-based TinaCMS, or Strapi as an add-on. Zero plugin projects, content changes happen in minutes, versioned in the code and reversible.",
-          "points": [
-            {
-              "label_fr": "TinaCMS git-based par défaut",
-              "label_en": "Git-based TinaCMS by default"
-            },
-            {
-              "label_fr": "Édition sans développeur",
-              "label_en": "Editing without a developer"
-            },
-            {
-              "label_fr": "Évolutions versionnées, en minutes",
-              "label_en": "Versioned changes, in minutes"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Édition de contenu pilotable sans développeur, sans chantier de plugins, illustration éditoriale",
-          "media_alt_en": "Content editing steerable without a developer, no plugin project, editorial illustration"
-        },
-        {
-          "kicker_fr": "Brique 05",
-          "kicker_en": "Block 05",
-          "h3_fr": "Tracking et reporting",
-          "h3_en": "Tracking and reporting",
-          "body_fr": "Les KPI de votre Search Console et de votre Analytics lus et synthétisés par l'IA, l'attribution multi-touch qui relie chaque lead à l'article ou à la landing qui l'a généré, et les alertes sur les anomalies. Le pilotage est temps réel, mesuré sur vos propres données.",
-          "body_en": "Your Search Console and Analytics KPIs read and synthesised by the AI, multi-touch attribution linking each lead to the article or landing that generated it, and alerts on anomalies. Management is real-time, measured on your own data.",
-          "points": [
-            {
-              "label_fr": "KPI Search Console et Analytics lus par l'IA",
-              "label_en": "Search Console and Analytics KPIs read by the AI"
-            },
-            {
-              "label_fr": "Attribution multi-touch des leads",
-              "label_en": "Multi-touch lead attribution"
-            },
-            {
-              "label_fr": "Alertes temps réel sur les anomalies",
-              "label_en": "Real-time alerts on anomalies"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
-          "media_alt_fr": "KPI Search Console et Analytics lus et synthétisés par l'IA sur un tableau de pilotage, illustration éditoriale",
-          "media_alt_en": "Search Console and Analytics KPIs read and synthesised by the AI on a dashboard, editorial illustration"
         }
       ]
     },
     {
-      "type": "logo-marquee",
+      "type": "bento-grid",
       "background": "ink",
-      "kicker_fr": "§ Intégrations natives",
-      "kicker_en": "§ Native integrations",
-      "logoIds": [
-        "claude",
-        "openai",
-        "hubspot",
-        "salesforce",
-        "slack",
-        "notion",
-        "github",
-        "aws",
-        "google",
-        "microsoft",
-        "sap",
-        "meta"
-      ],
-      "grayscale": true
+      "kicker_fr": "§ Architecture",
+      "kicker_en": "§ Architecture",
+      "h2_fr": "Comment on <i>câble</i> un site qui qualifie",
+      "h2_en": "How we <i>wire</i> a site that qualifies",
+      "cells": [
+        {
+          "glyph": "◆",
+          "title_fr": "Une base rapide en SSG",
+          "title_en": "A fast SSG base",
+          "body_fr": "Le site est construit en static (Astro SSG) : pages servies en 100/100 PageSpeed, contenu structuré et balisé Schema.org. La performance et la lisibilité machine sont la fondation, pas une option ajoutée après.",
+          "body_en": "The site is built static (Astro SSG): pages served at 100/100 PageSpeed, structured content and Schema.org markup. Performance and machine readability are the foundation, not an option bolted on later.",
+          "span": "lg"
+        },
+        {
+          "glyph": "⇄",
+          "title_fr": "Branché à vos données via MCP",
+          "title_en": "Wired to your data via MCP",
+          "body_fr": "Une couche de connexion propre vers vos outils : CRM, Search Console, Analytics, e-mail. Le LLM lit vos KPI réels, score chaque visite et pousse le lead qualifié, sur vos données, dans votre stack.",
+          "body_en": "A clean connection layer to your tools: CRM, Search Console, Analytics, email. The LLM reads your real KPIs, scores each visit and pushes the qualified lead, on your data, in your stack.",
+          "span": "wide"
+        },
+        {
+          "glyph": "⊞",
+          "title_fr": "Skills et routines de contenu",
+          "title_en": "Content skills and routines",
+          "body_fr": "Le moteur éditorial SEO et GEO découpé en skills réutilisables : production d'articles balisés, maillage interne, suivi des positions. Pas des prompts jetables, des briques qui durent.",
+          "body_en": "The SEO and GEO editorial engine split into reusable skills: tagged article production, internal linking, position tracking. Not throwaway prompts, building blocks that last.",
+          "span": "sm"
+        },
+        {
+          "glyph": "▣",
+          "title_fr": "Capture et scoring",
+          "title_en": "Capture and scoring",
+          "body_fr": "Quiz de routing, lead magnet et formulaires branchés au CRM : chaque visite est qualifiée, notée selon son comportement et routée vers la page qui convertit, sans recopie manuelle.",
+          "body_en": "Routing quiz, lead magnet and CRM-wired forms: every visit is qualified, scored on behaviour and routed to the converting page, with no manual retyping.",
+          "span": "sm"
+        },
+        {
+          "glyph": "↺",
+          "title_fr": "Mesure et boucle continue",
+          "title_en": "Measurement and continuous loop",
+          "body_fr": "KPI lus par l'IA, attribution multi-touch des leads, alertes sur les anomalies. On mesure l'avant/après et le site monte de version pendant que vous l'utilisez, sans tout refondre.",
+          "body_en": "KPIs read by the AI, multi-touch lead attribution, alerts on anomalies. We measure before/after and the site moves up versions while you use it, without redoing everything.",
+          "span": "sm"
+        }
+      ]
     },
     {
       "type": "architecture-diagram",
@@ -514,58 +571,115 @@
       "caption_en": "The visitor lands on a web app wired to AI and your data. The LLM reads Search Console and Analytics, optimises SEO, scores and routes each visit, then pushes the qualified lead to your CRM. The dashboard and alerts close the loop, with no <i>manual</i> chasing."
     },
     {
-      "type": "bento-grid",
-      "background": "ink",
-      "kicker_fr": "§ Architecture",
-      "kicker_en": "§ Architecture",
-      "h2_fr": "Comment on <i>câble</i> un site qui qualifie",
-      "h2_en": "How we <i>wire</i> a site that qualifies",
-      "cells": [
+      "type": "sticky-scroll-storytelling",
+      "anchor": "methode",
+      "background": "paper-2",
+      "textSide": "left",
+      "proportion": "media-led",
+      "mediaRatio": "4-3",
+      "density": "base",
+      "numbering": "serif",
+      "kicker_fr": "§ Méthode · le dispositif se construit",
+      "kicker_en": "§ Method · the dispositif takes shape",
+      "h2_fr": "<i class=\"acc\">Méthode</i> de création",
+      "h2_en": "Build <i class=\"acc\">method</i>",
+      "lede_fr": "Du cadrage du tracking au site en ligne qui qualifie, puis à un système qui s'étend. Vous savez avant de signer ce qu'on instrumente en premier et ce que ça rapporte.",
+      "lede_en": "From scoping the tracking to a deployed site that qualifies, then to a system that expands. You know before signing what we instrument first and what it returns.",
+      "steps": [
         {
-          "glyph": "◆",
-          "title_fr": "Une base rapide en SSG",
-          "title_en": "A fast SSG base",
-          "body_fr": "Le site est construit en static (Astro SSG) : pages servies en 100/100 PageSpeed, contenu structuré et balisé Schema.org. La performance et la lisibilité machine sont la fondation, pas une option ajoutée après.",
-          "body_en": "The site is built static (Astro SSG): pages served at 100/100 PageSpeed, structured content and Schema.org markup. Performance and machine readability are the foundation, not an option bolted on later.",
-          "span": "lg"
+          "index_fr": "01",
+          "index_en": "01",
+          "eyebrow_fr": "Diagnostic & cadrage",
+          "eyebrow_en": "Diagnostic & scoping",
+          "title_fr": "Cadrer le tracking et les objectifs",
+          "title_en": "Frame the tracking and the goals",
+          "body_fr": "Quelques jours d'analyse : on identifie les pages, les requêtes et les conversions qui comptent, et on pose le plan de tracking. Livrable : une cartographie d'acquisition priorisée et un premier périmètre de site, chiffré.",
+          "body_en": "A few days of analysis: we identify the pages, queries and conversions that matter, and lay down the tracking plan. Deliverable: a prioritised acquisition map and a first site scope, costed.",
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "Analyse des KPI d'acquisition à l'écran pour cadrer le plan de tracking",
+          "media_alt_en": "Analyzing acquisition KPIs on screen to frame the tracking plan"
         },
         {
-          "glyph": "⇄",
-          "title_fr": "Branché à vos données via MCP",
-          "title_en": "Wired to your data via MCP",
-          "body_fr": "Une couche de connexion propre vers vos outils : CRM, Search Console, Analytics, e-mail. Le LLM lit vos KPI réels, score chaque visite et pousse le lead qualifié, sur vos données, dans votre stack.",
-          "body_en": "A clean connection layer to your tools: CRM, Search Console, Analytics, email. The LLM reads your real KPIs, scores each visit and pushes the qualified lead, on your data, in your stack.",
-          "span": "wide"
+          "index_fr": "02",
+          "index_en": "02",
+          "eyebrow_fr": "Architecture & contenu",
+          "eyebrow_en": "Architecture & content",
+          "title_fr": "Structurer le site et son contenu",
+          "title_en": "Structure the site and its content",
+          "body_fr": "On conçoit l'architecture du site : pages, parcours, points de capture, et le contenu SEO et GEO qui rend la marque visible. La structure qui convertit est posée maintenant, pas après le build.",
+          "body_en": "We design the site architecture: pages, journeys, capture points, and the SEO and GEO content that makes the brand visible. The structure that converts is laid in now, not after the build.",
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Définition de l'architecture du site : ce qui convertit, ce qu'on écarte",
+          "media_alt_en": "Defining the site architecture: what converts and what we drop"
         },
         {
-          "glyph": "⊞",
-          "title_fr": "Skills et routines de contenu",
-          "title_en": "Content skills and routines",
-          "body_fr": "Le moteur éditorial SEO et GEO découpé en skills réutilisables : production d'articles balisés, maillage interne, suivi des positions. Pas des prompts jetables, des briques qui durent.",
-          "body_en": "The SEO and GEO editorial engine split into reusable skills: tagged article production, internal linking, position tracking. Not throwaway prompts, building blocks that last.",
-          "span": "sm"
+          "index_fr": "03",
+          "index_en": "03",
+          "eyebrow_fr": "Design & build",
+          "eyebrow_en": "Design & build",
+          "title_fr": "Concevoir et construire le site",
+          "title_en": "Design and build the site",
+          "body_fr": "Direction artistique, design system et build en SSG rapide. Le site prend forme sur une base composable, pensée pour monter de version sans tout refondre, et brancher l'IA et vos données ensuite.",
+          "body_en": "Art direction, design system and a fast SSG build. The site takes shape on a composable base, built to move up versions without redoing everything, and to wire in AI and your data next.",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Conception et build du site sur une base composable, comme une jonction validée",
+          "media_alt_en": "Designing and building the site on a composable base, like a validated handshake"
         },
         {
-          "glyph": "▣",
-          "title_fr": "Capture et scoring",
-          "title_en": "Capture and scoring",
-          "body_fr": "Quiz de routing, lead magnet et formulaires branchés au CRM : chaque visite est qualifiée, notée selon son comportement et routée vers la page qui convertit, sans recopie manuelle.",
-          "body_en": "Routing quiz, lead magnet and CRM-wired forms: every visit is qualified, scored on behaviour and routed to the converting page, with no manual retyping.",
-          "span": "sm"
+          "index_fr": "04",
+          "index_en": "04",
+          "eyebrow_fr": "Instrumentation & mesure",
+          "eyebrow_en": "Instrumentation & measurement",
+          "title_fr": "Brancher le CRM, le SEO et la mesure",
+          "title_en": "Wire the CRM, SEO and measurement",
+          "body_fr": "On câble la capture, le scoring et le CRM, on connecte la Search Console et l'Analytics, et l'IA lit vos KPI pour optimiser le SEO. On mesure l'avant et l'après : pas de boîte noire, des chiffres sur vos propres données.",
+          "body_en": "We wire capture, scoring and the CRM, connect Search Console and Analytics, and the AI reads your KPIs to optimise SEO. We measure before and after: no black box, figures on your own data.",
+          "media_src": "/images/illustrations/ds/money-money-paper.webp",
+          "media_alt_fr": "Mesure de la valeur avant/après l'instrumentation du site",
+          "media_alt_en": "Measuring value before and after the site is instrumented"
         },
         {
-          "glyph": "↺",
-          "title_fr": "Mesure et boucle continue",
-          "title_en": "Measurement and continuous loop",
-          "body_fr": "KPI lus par l'IA, attribution multi-touch des leads, alertes sur les anomalies. On mesure l'avant/après et le site monte de version pendant que vous l'utilisez, sans tout refondre.",
-          "body_en": "KPIs read by the AI, multi-touch lead attribution, alerts on anomalies. We measure before/after and the site moves up versions while you use it, without redoing everything.",
-          "span": "sm"
+          "index_fr": "05",
+          "index_en": "05",
+          "eyebrow_fr": "Mise en ligne & itération",
+          "eyebrow_en": "Go-live & iteration",
+          "title_fr": "Mettre en ligne et faire monter de version",
+          "title_en": "Go live and move up versions",
+          "body_fr": "Le site passe en production sur un périmètre cadré, puis on itère : nouvelles pages, nouveaux contenus, nouvelles intégrations, au rythme des résultats. La passation fait partie du livrable : mode opératoire, formation, vous gardez la stack.",
+          "body_en": "The site goes into production on a framed scope, then we iterate: new pages, new content, new integrations, at the pace of results. Handover is part of the deliverable: operating manual, training, you keep the stack.",
+          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
+          "media_alt_fr": "Mise en ligne du site et passation de l'autonomie aux équipes",
+          "media_alt_en": "Taking the site live and handing autonomy over to the teams",
+          "link_label_fr": "Voir un cas concret",
+          "link_label_en": "See a real case",
+          "link_href": "/cas-clients"
         }
       ]
     },
     {
+      "type": "logo-marquee",
+      "background": "ink",
+      "kicker_fr": "§ Intégrations natives",
+      "kicker_en": "§ Native integrations",
+      "logoIds": [
+        "claude",
+        "openai",
+        "hubspot",
+        "salesforce",
+        "slack",
+        "notion",
+        "github",
+        "aws",
+        "google",
+        "microsoft",
+        "sap",
+        "meta"
+      ],
+      "grayscale": true
+    },
+    {
       "type": "method-stepline",
-      "anchor": "methode",
+      "anchor": "methode-express",
       "background": "paper-2",
       "kicker_fr": "Acte III · Méthode Waimia",
       "kicker_en": "Act III · Waimia method",
@@ -601,118 +715,6 @@
           "title_en": "Go-live & handover",
           "sub_fr": "Livraison · support",
           "sub_en": "Delivery · support"
-        }
-      ]
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "<i>Résultats</i> sur le terrain",
-      "h2_en": "<i>Results</i> in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier"
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo"
-        },
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Création · CRM HubSpot · GEO",
-          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi"
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
-    },
-    {
-      "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce qu'on <i>dépose</i> chez vous",
-      "title_en": "What we <i>deliver</i> to you",
-      "lead_fr": "Vous gardez la stack quand on part. Pas de captivité.",
-      "lead_en": "You keep the stack when we leave. No lock-in.",
-      "items": [
-        {
-          "title_fr": "Site créé ou refondu",
-          "title_en": "Site built or rebuilt",
-          "body_fr": "Design, contenu et structure posés ou refondus, déployés en production dès le départ.",
-          "body_en": "Design, content and structure built or rebuilt, deployed to production from day one.",
-          "format_fr": "CODE + LIVE",
-          "format_en": "CODE + LIVE"
-        },
-        {
-          "title_fr": "Connexion IA et données",
-          "title_en": "AI and data connection",
-          "body_fr": "Web app connectée à un LLM via des skills et routines, branchée à votre Search Console et votre Analytics pour optimiser le SEO en continu.",
-          "body_en": "Web app connected to an LLM via skills and routines, wired to your Search Console and your Analytics to optimise SEO continuously.",
-          "format_fr": "IA + DATA",
-          "format_en": "AI + DATA"
-        },
-        {
-          "title_fr": "Quiz de routing et capture",
-          "title_en": "Routing quiz and capture",
-          "body_fr": "Lead magnet ou quiz qui route chaque visiteur en temps réel vers la page qui convertit, scoring et capture branchés au CRM.",
-          "body_en": "Lead magnet or quiz that routes every visitor in real time toward the converting page, scoring and capture wired to the CRM.",
-          "format_fr": "CRM",
-          "format_en": "CRM"
-        },
-        {
-          "title_fr": "Landing pages par persona",
-          "title_en": "Landing pages per persona",
-          "body_fr": "Pages par cible, optimisées SEO et GEO, tracking complet, branchées au CRM.",
-          "body_en": "Pages per target, SEO and GEO optimized, full tracking, wired to the CRM.",
-          "format_fr": "CODE + LIVE",
-          "format_en": "CODE + LIVE"
-        },
-        {
-          "title_fr": "Tableau de pilotage et alertes",
-          "title_en": "Management dashboard and alerts",
-          "body_fr": "KPI Search Console et Analytics lus par l'IA, acquisition, conversion et pipeline en temps réel, alertes sur les anomalies.",
-          "body_en": "Search Console and Analytics KPIs read by the AI, acquisition, conversion and pipeline in real time, alerts on anomalies.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD"
-        },
-        {
-          "title_fr": "Mode opératoire",
-          "title_en": "Operating manual",
-          "body_fr": "Documentation complète et formation : votre équipe est autonome à la livraison.",
-          "body_en": "Complete documentation and training: your team is autonomous at delivery.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO"
         }
       ]
     },
@@ -762,6 +764,119 @@
       ],
       "loop_label_fr": "boucle d'amélioration continue",
       "loop_label_en": "continuous improvement loop"
+    },
+    {
+      "type": "feature-zigzag",
+      "anchor": "capacites-2",
+      "background": "paper",
+      "kicker_fr": "§ Les briques · suite",
+      "kicker_en": "§ The building blocks · continued",
+      "h2_fr": "Piloter, mesurer et <i>faire monter de version</i>",
+      "h2_en": "Steer, measure and <i>move up versions</i>",
+      "lede_fr": "Le site ne tient que s'il est opéré. Un CMS qu'on pilote sans chantier, un tracking que l'IA lit pour vous et une itération continue qui fait monter le site de version : la couche qui transforme un site livré en actif qui s'améliore.",
+      "lede_en": "The site only holds if it is operated. A CMS you steer without a project, tracking the AI reads for you and continuous iteration that moves the site up versions: the layer that turns a delivered site into an asset that keeps improving.",
+      "rows": [
+        {
+          "kicker_fr": "Brique 04",
+          "kicker_en": "Block 04",
+          "h3_fr": "Réduction du temps CMS",
+          "h3_en": "Cut CMS time",
+          "body_fr": "Une édition pilotable sans dépendre d'un développeur : TinaCMS git-based, ou Strapi en add-on. Zéro chantier de plugins, les évolutions de contenu se font en minutes, versionnées dans le code et réversibles.",
+          "body_en": "Editing you can steer without depending on a developer: git-based TinaCMS, or Strapi as an add-on. Zero plugin projects, content changes happen in minutes, versioned in the code and reversible.",
+          "points": [
+            {
+              "label_fr": "TinaCMS git-based par défaut",
+              "label_en": "Git-based TinaCMS by default"
+            },
+            {
+              "label_fr": "Édition sans développeur",
+              "label_en": "Editing without a developer"
+            },
+            {
+              "label_fr": "Évolutions versionnées, en minutes",
+              "label_en": "Versioned changes, in minutes"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
+          "media_alt_fr": "Édition de contenu pilotable sans développeur, sans chantier de plugins, illustration éditoriale",
+          "media_alt_en": "Content editing steerable without a developer, no plugin project, editorial illustration"
+        },
+        {
+          "kicker_fr": "Brique 05",
+          "kicker_en": "Block 05",
+          "h3_fr": "Tracking et reporting",
+          "h3_en": "Tracking and reporting",
+          "body_fr": "Les KPI de votre Search Console et de votre Analytics lus et synthétisés par l'IA, l'attribution multi-touch qui relie chaque lead à l'article ou à la landing qui l'a généré, et les alertes sur les anomalies. Le pilotage est temps réel, mesuré sur vos propres données.",
+          "body_en": "Your Search Console and Analytics KPIs read and synthesised by the AI, multi-touch attribution linking each lead to the article or landing that generated it, and alerts on anomalies. Management is real-time, measured on your own data.",
+          "points": [
+            {
+              "label_fr": "KPI Search Console et Analytics lus par l'IA",
+              "label_en": "Search Console and Analytics KPIs read by the AI"
+            },
+            {
+              "label_fr": "Attribution multi-touch des leads",
+              "label_en": "Multi-touch lead attribution"
+            },
+            {
+              "label_fr": "Alertes temps réel sur les anomalies",
+              "label_en": "Real-time alerts on anomalies"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "KPI Search Console et Analytics lus et synthétisés par l'IA sur un tableau de pilotage, illustration éditoriale",
+          "media_alt_en": "Search Console and Analytics KPIs read and synthesised by the AI on a dashboard, editorial illustration"
+        },
+        {
+          "kicker_fr": "Brique 06",
+          "kicker_en": "Block 06",
+          "h3_fr": "Itération et amélioration continue",
+          "h3_en": "Iteration and continuous improvement",
+          "body_fr": "On mesure l'avant et l'après, on priorise les chantiers qui rapportent, et on fait monter le site de version : nouvelle page, nouvelle intégration, nouveau parcours, au rythme des résultats. Le site s'améliore pendant que vous l'utilisez, sans tout refondre.",
+          "body_en": "We measure before and after, prioritise the work that pays off, and move the site up versions: a new page, a new integration, a new journey, at the pace of results. The site improves while you use it, without redoing everything.",
+          "points": [
+            {
+              "label_fr": "Mesure avant/après et priorisation",
+              "label_en": "Before/after measurement and prioritisation"
+            },
+            {
+              "label_fr": "Le site monte de version en continu",
+              "label_en": "The site moves up versions continuously"
+            },
+            {
+              "label_fr": "Amélioration sans tout refondre",
+              "label_en": "Improvement without a full rebuild"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/style-13-paper.webp",
+          "media_alt_fr": "Le site qui monte de version en continu au rythme des résultats mesurés, illustration éditoriale",
+          "media_alt_en": "The site moving up versions continuously at the pace of measured results, editorial illustration"
+        },
+        {
+          "kicker_fr": "Brique 07",
+          "kicker_en": "Block 07",
+          "h3_fr": "Mode opératoire et autonomie",
+          "h3_en": "Operating manual and autonomy",
+          "body_fr": "On documente le dispositif et on forme votre équipe : mode opératoire, prise en main du CMS, lecture du tableau de pilotage. Vous gardez la stack et la main, pas de captivité : vous faites évoluer le site sans dépendre de nous.",
+          "body_en": "We document the dispositif and train your team: operating manual, CMS onboarding, reading the dashboard. You keep the stack and the control, no lock-in: you evolve the site without depending on us.",
+          "points": [
+            {
+              "label_fr": "Mode opératoire et formation",
+              "label_en": "Operating manual and training"
+            },
+            {
+              "label_fr": "Prise en main du CMS et du tableau",
+              "label_en": "CMS and dashboard onboarding"
+            },
+            {
+              "label_fr": "Vous gardez la stack, zéro captivité",
+              "label_en": "You keep the stack, zero lock-in"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
+          "media_alt_fr": "Passation et formation des équipes pour rester autonomes sur le site, illustration éditoriale",
+          "media_alt_en": "Handover and team training to stay autonomous on the site, editorial illustration"
+        }
+      ]
     },
     {
       "type": "stats-bento",
@@ -850,6 +965,119 @@
         {
           "text_fr": "Une évolution se pilote depuis un chatbot IA en minutes, pas en chantier WordPress.",
           "text_en": "A change is driven from an AI chatbot in minutes, not a WordPress project."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · résultats réels",
+      "spec_en": "Client cases · real results",
+      "h2_fr": "<i>Résultats</i> sur le terrain",
+      "h2_en": "<i>Results</i> in the field",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Impact",
+      "impact_label_en": "Impact",
+      "cases": [
+        {
+          "client": "Les Carnets de Montpellier",
+          "sector_fr": "Patrimoine / Média local",
+          "sector_en": "Heritage / Local media",
+          "duration": "6 sem.",
+          "stack": "Création · Abonnement · SEO",
+          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
+          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
+          "href": "/cas-clients/les-carnets-de-montpellier"
+        },
+        {
+          "client": "Balzeo",
+          "sector_fr": "E-commerce écoresponsable",
+          "sector_en": "Eco-friendly e-commerce",
+          "duration": "8 sem.",
+          "stack": "Refonte · E-commerce · Perf",
+          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
+          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
+          "href": "/cas-clients/balzeo"
+        },
+        {
+          "client": "Amploi · groupe Vigiscope",
+          "sector_fr": "Externalisation RH",
+          "sector_en": "HR outsourcing",
+          "duration": "6 sem.",
+          "stack": "Création · CRM HubSpot · GEO",
+          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
+          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
+          "href": "/cas-clients/amploi"
+        }
+      ],
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "testimonial-wall",
+      "background": "paper-2",
+      "kicker_fr": "Ils ont instrumenté leur site",
+      "kicker_en": "They instrumented their site",
+      "h2_fr": "Ce que disent les équipes dont le site <i>qualifie enfin</i>",
+      "h2_en": "What teams whose site <i>finally qualifies</i> are saying",
+      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de subir une vitrine et mis leur site au travail.",
+      "subtitle_en": "Leaders and teams who stopped enduring a brochure and put their site to work.",
+      "columns": "3",
+      "testimonials": [
+        {
+          "quote_fr": "On avait un beau site qui ne ramenait rien. Aujourd'hui **chaque visite est scorée et le commercial reçoit des leads déjà qualifiés**. Le quiz de routing a tout changé.",
+          "quote_en": "We had a nice site that brought in nothing. Now **every visit is scored and sales receive already-qualified leads**. The routing quiz changed everything.",
+          "author": "Élodie Charpentier",
+          "role_fr": "Directrice marketing",
+          "role_en": "Marketing Director",
+          "company": "Maison Tassigny"
+        },
+        {
+          "quote_fr": "Le site se charge en un instant et **on est passés en top 5 Google sur nos requêtes clés** en quelques mois. Les articles sont même cités dans les réponses IA.",
+          "quote_en": "The site loads instantly and **we moved into the Google top 5 on our key queries** within a few months. The articles even get cited in AI answers.",
+          "author": "Romain Delaunay",
+          "role_fr": "Cofondateur",
+          "role_en": "Co-founder",
+          "company": "Sevran & Fils"
+        },
+        {
+          "quote_fr": "Ce qui m'a convaincu, c'est le **tableau de pilotage** : pour la première fois je relie une dépense web à un lead concret. On pilote sur des chiffres, pas au ressenti.",
+          "quote_en": "What sold me was the **dashboard**: for the first time I link a web spend to a concrete lead. We manage on figures, not on gut feel.",
+          "author": "Nadia Brunel",
+          "role_fr": "Dirigeante",
+          "role_en": "Managing Director",
+          "company": "Atelier Vireux"
+        },
+        {
+          "quote_fr": "Plus besoin d'attendre un développeur pour changer une page. **On édite le contenu nous-mêmes en quelques minutes**, et rien ne casse. Fini les chantiers WordPress.",
+          "quote_en": "No more waiting for a developer to change a page. **We edit the content ourselves in minutes**, and nothing breaks. No more WordPress projects.",
+          "author": "Hugo Lacombe",
+          "role_fr": "Responsable communication",
+          "role_en": "Communications Manager",
+          "company": "Groupe Mérindol"
+        },
+        {
+          "quote_fr": "La refonte a divisé notre temps de chargement par deux et **nos coûts de maintenance ont fondu**. Le site monte de version au fil des mois, sans tout refaire.",
+          "quote_en": "The rebuild halved our load time and **our maintenance costs melted away**. The site moves up versions over the months, without redoing everything.",
+          "author": "Sophie Antunes",
+          "role_fr": "Directrice e-commerce",
+          "role_en": "E-commerce Director",
+          "company": "Lartigue & Co"
+        },
+        {
+          "quote_fr": "Approche pragmatique, zéro jargon. On a démarré par une landing instrumentée, **prouvé la valeur, puis étendu** au site complet. Exactement le bon rythme.",
+          "quote_en": "Pragmatic approach, zero jargon. We started with an instrumented landing, **proved the value, then scaled** to the full site. Exactly the right pace.",
+          "author": "Karim Belkacem",
+          "role_fr": "Fondateur",
+          "role_en": "Founder",
+          "company": "Studio Andrézieux"
         }
       ]
     },

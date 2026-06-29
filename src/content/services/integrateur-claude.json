@@ -651,9 +651,118 @@
       ]
     },
     {
+      "type": "logo-marquee",
+      "background": "ink",
+      "kicker_fr": "§ L'écosystème qu'on opère",
+      "kicker_en": "§ The ecosystem we operate",
+      "grayscale": true,
+      "logoIds": [
+        "claude",
+        "openai",
+        "hubspot",
+        "salesforce",
+        "slack",
+        "notion",
+        "github",
+        "aws",
+        "google",
+        "microsoft",
+        "sap",
+        "meta"
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "anchor": "methode-express",
+      "background": "paper-2",
+      "kicker_fr": "Acte III · Méthode Waimia",
+      "kicker_en": "Act III · Waimia method",
+      "duration_fr": "2 à 8 semaines",
+      "duration_en": "2 to 8 weeks",
+      "steps": [
+        {
+          "title_fr": "Diagnostic & cadrage",
+          "title_en": "Diagnosis & scoping",
+          "sub_fr": "Cartographie des cas d'usage",
+          "sub_en": "Use-case mapping"
+        },
+        {
+          "title_fr": "Architecture & gouvernance",
+          "title_en": "Architecture & governance",
+          "sub_fr": "Périmètre de l'agent",
+          "sub_en": "Agent scope"
+        },
+        {
+          "title_fr": "Connexion MCP",
+          "title_en": "MCP connection",
+          "sub_fr": "Branchement des outils",
+          "sub_en": "Tools wiring"
+        },
+        {
+          "title_fr": "Production & mesure",
+          "title_en": "Production & measurement",
+          "sub_fr": "Déploiement supervisé",
+          "sub_en": "Supervised deployment"
+        },
+        {
+          "title_fr": "Extension & passation",
+          "title_en": "Expansion & handover",
+          "sub_fr": "Référent IA formé",
+          "sub_en": "Trained AI lead"
+        }
+      ]
+    },
+    {
+      "type": "system-flow",
+      "background": "ink",
+      "fig_num": "Fig. 3.0",
+      "fig_title_fr": "Architecture du système",
+      "fig_title_en": "System architecture",
+      "meta_fr": "PowerLoop · v1",
+      "meta_en": "PowerLoop · v1",
+      "h2_fr": "Outils → agent → action → mesure → <i class=\"acc\">apprentissage</i>.",
+      "h2_en": "Tools → agent → action → measure → <i class=\"acc\">learning</i>.",
+      "lede_fr": "Chaque maillon fait passer l'agent de la conversation à l'action sur vos données réelles, puis renvoie la mesure pour ajuster le système.",
+      "lede_en": "Each link moves the agent from conversation to action on your real data, then feeds the measurement back to adjust the system.",
+      "steps": [
+        {
+          "title_fr": "Outils",
+          "title_en": "Tools",
+          "desc_fr": "CRM, e-mail, agenda, base de données, dépôt Git exposés via MCP.",
+          "desc_en": "CRM, email, calendar, database, Git repo exposed via MCP."
+        },
+        {
+          "title_fr": "Agent MCP",
+          "title_en": "MCP agent",
+          "desc_fr": "Claude lit, interroge et décide dans un périmètre cadré.",
+          "desc_en": "Claude reads, queries and decides within a framed scope."
+        },
+        {
+          "title_fr": "Action",
+          "title_en": "Action",
+          "desc_fr": "Tâche exécutée sur le travail réel, pas dans une fenêtre de chat.",
+          "desc_en": "Task executed on real work, not in a chat window."
+        },
+        {
+          "title_fr": "Mesure",
+          "title_en": "Measure",
+          "desc_fr": "Temps gagné, volume traité, qualité suivis et journalisés.",
+          "desc_en": "Time saved, volume processed, quality tracked and logged."
+        },
+        {
+          "title_fr": "Amélioration",
+          "title_en": "Improvement",
+          "desc_fr": "Mesure → supervision → ajustement. La boucle se referme.",
+          "desc_en": "Measure → supervision → adjustment. The loop closes."
+        }
+      ],
+      "loop_label_fr": "boucle de supervision et d'amélioration continue",
+      "loop_label_en": "continuous supervision and improvement loop"
+    },
+    {
       "type": "feature-zigzag",
       "anchor": "capacites-2",
-      "background": "paper-2",
+      "background": "paper",
       "kicker_fr": "§ Les briques · suite",
       "kicker_en": "§ The building blocks · continued",
       "h2_fr": "Déployer, former et <i>garder le contrôle</i>",
@@ -798,24 +907,188 @@
       ]
     },
     {
-      "type": "logo-marquee",
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Avant / après",
+      "kicker_en": "§ Before / after",
+      "h2_fr": "Du POC <i>qui dort</i> à l'agent <i>en production</i>",
+      "h2_en": "From a POC <i>asleep</i> to an agent <i>in production</i>",
+      "without_label_fr": "Sans",
+      "without_label_en": "Without",
+      "without_title_fr": "POC qui dort",
+      "without_title_en": "POC asleep",
+      "without_items": [
+        {
+          "text_fr": "La démo impressionne en réunion, puis dort dans un Notion six mois plus tard.",
+          "text_en": "The demo wows the meeting, then sleeps in a Notion six months later."
+        },
+        {
+          "text_fr": "Les outils restent cloisonnés et ne se parlent jamais entre eux.",
+          "text_en": "Tools stay siloed and never talk to one another."
+        },
+        {
+          "text_fr": "L'humain reste la couche d'intégration : il copie, relance et fait le pont à la main.",
+          "text_en": "People stay the integration layer: copying, chasing and bridging by hand."
+        },
+        {
+          "text_fr": "Aucune gouvernance : personne ne sait quel agent fait quoi, ni sur quelles données.",
+          "text_en": "No governance: no one knows which agent does what, or on which data."
+        },
+        {
+          "text_fr": "Chaque évolution dépend du prestataire, vous restez captif d'une boîte noire.",
+          "text_en": "Every change depends on the provider, you stay captive to a black box."
+        }
+      ],
+      "with_label_fr": "Avec",
+      "with_label_en": "With",
+      "with_title_fr": "Agent en production",
+      "with_title_en": "Agent in production",
+      "with_items": [
+        {
+          "text_fr": "L'agent passe en production sur un workflow réel, mesuré avant et après.",
+          "text_en": "The agent ships to production on a real workflow, measured before and after."
+        },
+        {
+          "text_fr": "Branché à vos outils via MCP : CRM, e-mail, base de données, dépôt Git.",
+          "text_en": "Wired to your tools via MCP: CRM, email, database, Git repo."
+        },
+        {
+          "text_fr": "Les actions sont exécutées et tracées, plus jamais recopiées à la main.",
+          "text_en": "Actions are executed and traced, never copied by hand again."
+        },
+        {
+          "text_fr": "Un référent IA formé fait évoluer le système : vous restez autonome et maître de la stack.",
+          "text_en": "A trained AI lead evolves the system: you stay autonomous and own the stack."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
       "background": "ink",
-      "kicker_fr": "§ L'écosystème qu'on opère",
-      "kicker_en": "§ The ecosystem we operate",
-      "grayscale": true,
-      "logoIds": [
-        "claude",
-        "openai",
-        "hubspot",
-        "salesforce",
-        "slack",
-        "notion",
-        "github",
-        "aws",
-        "google",
-        "microsoft",
-        "sap",
-        "meta"
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · systèmes en production",
+      "spec_en": "Client cases · systems in production",
+      "h2_fr": "<i>Résultats</i> sur le terrain",
+      "h2_en": "<i>Results</i> in the field",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Impact",
+      "impact_label_en": "Impact",
+      "cases": [
+        {
+          "client": "Amploi · groupe Vigiscope",
+          "sector_fr": "Externalisation RH",
+          "sector_en": "HR outsourcing",
+          "duration": "6 sem.",
+          "stack": "Site · CRM HubSpot · GEO",
+          "impact_fr": "Site créé avec formulaires branchés HubSpot pour l'attribution des leads et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
+          "impact_en": "Site built with HubSpot-connected forms for lead attribution and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
+          "href": "/cas-clients/amploi"
+        },
+        {
+          "client": "Les Carnets de Montpellier",
+          "sector_fr": "Patrimoine / Média local",
+          "sector_en": "Heritage / Local media",
+          "duration": "6 sem.",
+          "stack": "Création · Abonnement · SEO",
+          "impact_fr": "Plateforme créée de zéro avec pipeline éditorial assisté par IA : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
+          "impact_en": "Platform built from scratch with an AI-assisted editorial pipeline: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
+          "href": "/cas-clients/les-carnets-de-montpellier"
+        },
+        {
+          "client": "Balzeo",
+          "sector_fr": "E-commerce écoresponsable",
+          "sector_en": "Eco-friendly e-commerce",
+          "duration": "8 sem.",
+          "stack": "Refonte · E-commerce · Perf",
+          "impact_fr": "Refonte complète pilotable depuis un chatbot IA : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
+          "impact_en": "Full rebuild drivable from an AI chatbot: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
+          "href": "/cas-clients/balzeo"
+        }
+      ],
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "testimonial-wall",
+      "background": "paper-2",
+      "kicker_fr": "Ils ont branché Claude",
+      "kicker_en": "They wired Claude in",
+      "h2_fr": "Ce que disent les équipes qui sont <i>passées en production</i>",
+      "h2_en": "What teams who <i>shipped to production</i> are saying",
+      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de bricoler des prompts et mis un vrai agent au travail.",
+      "subtitle_en": "Leaders and teams who stopped tinkering with prompts and put a real agent to work.",
+      "columns": "3",
+      "testimonials": [
+        {
+          "quote_fr": "On pensait avoir besoin d'un projet à six mois. En fait, **le premier agent tournait en production en trois semaines**, branché sur notre CRM. Le périmètre était clair dès le départ.",
+          "quote_en": "We thought we needed a six-month project. The **first agent was running in production within three weeks**, wired to our CRM. The scope was clear from day one.",
+          "author": "Camille Reynaud",
+          "role_fr": "Directrice des opérations",
+          "role_en": "Head of Operations",
+          "company": "Atelier Norluz"
+        },
+        {
+          "quote_fr": "Ce qui m'a convaincu, c'est qu'on **garde la main** : chaque action sensible passe par une validation humaine. L'IA propose, on tranche. Rien d'opaque.",
+          "quote_en": "What sold me was that **we stay in control**: every sensitive action goes through a human check. The AI suggests, we decide. Nothing opaque.",
+          "author": "Thomas Vasseur",
+          "role_fr": "Cofondateur",
+          "role_en": "Co-founder",
+          "company": "Maison Calvet"
+        },
+        {
+          "quote_fr": "Le branchement MCP sur nos outils internes a été **plus propre que nos intégrations maison**. Pas de scripts fragiles qui cassent à la moindre mise à jour.",
+          "quote_en": "The MCP wiring onto our internal tools was **cleaner than our home-grown integrations**. No fragile scripts breaking on every update.",
+          "author": "Sarah Lemoine",
+          "role_fr": "Lead technique",
+          "role_en": "Tech Lead",
+          "company": "Kuvera"
+        },
+        {
+          "quote_fr": "On a formé un référent en interne, et **l'équipe est autonome aujourd'hui**. On n'est pas captifs d'un prestataire pour faire évoluer l'agent.",
+          "quote_en": "We trained an internal lead, and **the team is autonomous today**. We are not locked into a vendor to evolve the agent.",
+          "author": "Julien Mercier",
+          "role_fr": "Directeur général",
+          "role_en": "Managing Director",
+          "company": "Groupe Sévrier"
+        },
+        {
+          "quote_fr": "Les relances clients qui prenaient deux jours par semaine à une personne : **automatisées, sans perdre le ton**. Le gain de temps est réel et mesuré.",
+          "quote_en": "Client follow-ups that took one person two days a week: **automated, without losing the tone**. The time saved is real and measured.",
+          "author": "Inès Fabre",
+          "role_fr": "Responsable relation client",
+          "role_en": "Customer Success Manager",
+          "company": "Pollen & Co"
+        },
+        {
+          "quote_fr": "Le cadre de gouvernance posé dès le début nous a évité les dérapages. **On sait ce que l'agent a le droit de faire**, et tout est tracé.",
+          "quote_en": "The governance frame set up early kept us out of trouble. **We know what the agent is allowed to do**, and everything is logged.",
+          "author": "David Olivier",
+          "role_fr": "Directeur des systèmes d'information",
+          "role_en": "CIO",
+          "company": "Verdier Industrie"
+        },
+        {
+          "quote_fr": "Approche pragmatique, zéro jargon. On a commencé petit sur un cas d'usage qui faisait mal, **prouvé la valeur, puis étendu**. Exactement le bon rythme.",
+          "quote_en": "Pragmatic approach, zero jargon. We started small on a painful use case, **proved the value, then scaled**. Exactly the right pace.",
+          "author": "Laure Pichon",
+          "role_fr": "Fondatrice",
+          "role_en": "Founder",
+          "company": "Studio Hémera"
+        },
+        {
+          "quote_fr": "Je redoutais une usine à gaz. C'est l'inverse : **un agent ciblé, mesuré, qui fait une chose et la fait bien**. Et l'équipe Waimia reste joignable après la livraison.",
+          "quote_en": "I feared an over-engineered mess. It was the opposite: **a focused, measured agent that does one thing well**. And the Waimia team stays reachable after delivery.",
+          "author": "Marc Bonnet",
+          "role_fr": "Directeur commercial",
+          "role_en": "Sales Director",
+          "company": "Néroli Group"
+        }
       ]
     },
     {
@@ -903,141 +1176,12 @@
       "footnote_en": "No fixed catalogue: every engagement starts from the diagnostic, and scope is costed at scoping. No hidden subscription, no lock-in: at the end, you have agents in production, their documented architecture and teams trained to evolve them."
     },
     {
-      "type": "testimonial-wall",
-      "background": "paper-2",
-      "kicker_fr": "Ils ont branché Claude",
-      "kicker_en": "They wired Claude in",
-      "h2_fr": "Ce que disent les équipes qui sont <i>passées en production</i>",
-      "h2_en": "What teams who <i>shipped to production</i> are saying",
-      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de bricoler des prompts et mis un vrai agent au travail.",
-      "subtitle_en": "Leaders and teams who stopped tinkering with prompts and put a real agent to work.",
-      "columns": "3",
-      "testimonials": [
-        {
-          "quote_fr": "On pensait avoir besoin d'un projet à six mois. En fait, **le premier agent tournait en production en trois semaines**, branché sur notre CRM. Le périmètre était clair dès le départ.",
-          "quote_en": "We thought we needed a six-month project. The **first agent was running in production within three weeks**, wired to our CRM. The scope was clear from day one.",
-          "author": "Camille Reynaud",
-          "role_fr": "Directrice des opérations",
-          "role_en": "Head of Operations",
-          "company": "Atelier Norluz"
-        },
-        {
-          "quote_fr": "Ce qui m'a convaincu, c'est qu'on **garde la main** : chaque action sensible passe par une validation humaine. L'IA propose, on tranche. Rien d'opaque.",
-          "quote_en": "What sold me was that **we stay in control**: every sensitive action goes through a human check. The AI suggests, we decide. Nothing opaque.",
-          "author": "Thomas Vasseur",
-          "role_fr": "Cofondateur",
-          "role_en": "Co-founder",
-          "company": "Maison Calvet"
-        },
-        {
-          "quote_fr": "Le branchement MCP sur nos outils internes a été **plus propre que nos intégrations maison**. Pas de scripts fragiles qui cassent à la moindre mise à jour.",
-          "quote_en": "The MCP wiring onto our internal tools was **cleaner than our home-grown integrations**. No fragile scripts breaking on every update.",
-          "author": "Sarah Lemoine",
-          "role_fr": "Lead technique",
-          "role_en": "Tech Lead",
-          "company": "Kuvera"
-        },
-        {
-          "quote_fr": "On a formé un référent en interne, et **l'équipe est autonome aujourd'hui**. On n'est pas captifs d'un prestataire pour faire évoluer l'agent.",
-          "quote_en": "We trained an internal lead, and **the team is autonomous today**. We are not locked into a vendor to evolve the agent.",
-          "author": "Julien Mercier",
-          "role_fr": "Directeur général",
-          "role_en": "Managing Director",
-          "company": "Groupe Sévrier"
-        },
-        {
-          "quote_fr": "Les relances clients qui prenaient deux jours par semaine à une personne : **automatisées, sans perdre le ton**. Le gain de temps est réel et mesuré.",
-          "quote_en": "Client follow-ups that took one person two days a week: **automated, without losing the tone**. The time saved is real and measured.",
-          "author": "Inès Fabre",
-          "role_fr": "Responsable relation client",
-          "role_en": "Customer Success Manager",
-          "company": "Pollen & Co"
-        },
-        {
-          "quote_fr": "Le cadre de gouvernance posé dès le début nous a évité les dérapages. **On sait ce que l'agent a le droit de faire**, et tout est tracé.",
-          "quote_en": "The governance frame set up early kept us out of trouble. **We know what the agent is allowed to do**, and everything is logged.",
-          "author": "David Olivier",
-          "role_fr": "Directeur des systèmes d'information",
-          "role_en": "CIO",
-          "company": "Verdier Industrie"
-        },
-        {
-          "quote_fr": "Approche pragmatique, zéro jargon. On a commencé petit sur un cas d'usage qui faisait mal, **prouvé la valeur, puis étendu**. Exactement le bon rythme.",
-          "quote_en": "Pragmatic approach, zero jargon. We started small on a painful use case, **proved the value, then scaled**. Exactly the right pace.",
-          "author": "Laure Pichon",
-          "role_fr": "Fondatrice",
-          "role_en": "Founder",
-          "company": "Studio Hémera"
-        },
-        {
-          "quote_fr": "Je redoutais une usine à gaz. C'est l'inverse : **un agent ciblé, mesuré, qui fait une chose et la fait bien**. Et l'équipe Waimia reste joignable après la livraison.",
-          "quote_en": "I feared an over-engineered mess. It was the opposite: **a focused, measured agent that does one thing well**. And the Waimia team stays reachable after delivery.",
-          "author": "Marc Bonnet",
-          "role_fr": "Directeur commercial",
-          "role_en": "Sales Director",
-          "company": "Néroli Group"
-        }
-      ]
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · systèmes en production",
-      "spec_en": "Client cases · systems in production",
-      "h2_fr": "<i>Résultats</i> sur le terrain",
-      "h2_en": "<i>Results</i> in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Site · CRM HubSpot · GEO",
-          "impact_fr": "Site créé avec formulaires branchés HubSpot pour l'attribution des leads et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Site built with HubSpot-connected forms for lead attribution and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi"
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Plateforme créée de zéro avec pipeline éditorial assisté par IA : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Platform built from scratch with an AI-assisted editorial pipeline: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier"
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Refonte complète pilotable depuis un chatbot IA : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Full rebuild drivable from an AI chatbot: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo"
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
-    },
-    {
       "type": "eeat-panel",
       "variant": "media"
     },
     {
       "type": "faq-accordion",
-      "background": "paper",
+      "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",
       "h2_fr": "Ce que vous nous <i>demandez</i>",
@@ -1097,20 +1241,28 @@
     {
       "type": "footer-cta-band",
       "background": "ink",
-      "layout": "inline",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "Prêt à brancher Claude",
-      "kicker_en": "Ready to wire Claude in",
+      "kicker_fr": "§ Prêt à brancher Claude ?",
+      "kicker_en": "§ Ready to wire Claude in?",
       "h2_fr": "Mettez votre premier agent <i>en production</i> ce trimestre",
       "h2_en": "Ship your first agent <i>to production</i> this quarter",
       "subtitle_fr": "Un diagnostic de 45 min suffit pour cadrer le premier cas d'usage. Pilote livré et mesuré en quelques semaines, sans captivité ni dette technique.",
       "subtitle_en": "A 45-minute diagnostic is enough to frame the first use case. A pilot delivered and measured in a few weeks, no lock-in, no technical debt.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic",
-          "label_en": "Book a diagnostic",
+          "label_fr": "Réserver un diagnostic (45 min) →",
+          "label_en": "Book a diagnostic (45 min) →",
           "href": "/contact?offer=integrateur-claude&intent=discovery",
-          "variant": "accent"
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir les agents IA",
+          "label_en": "See the AI agents",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
         }
       ]
     }

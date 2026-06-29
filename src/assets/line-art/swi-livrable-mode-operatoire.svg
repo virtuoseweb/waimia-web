@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Livrable : mode operatoire -> livre/doc ouvert, transmission de savoir -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- reliure centrale -->
+    <path d="M32 16 L32 50"/>
+    <!-- page gauche -->
+    <path d="M32 16 C26 12 18 12 12 14 L12 46 C18 44 26 44 32 48"/>
+    <!-- page droite -->
+    <path d="M32 16 C38 12 46 12 52 14 L52 46 C46 44 38 44 32 48"/>
+    <!-- lignes de texte gauche -->
+    <path d="M17 22 L27 22" stroke-width="1.5" opacity="0.55"/>
+    <path d="M17 28 L27 28" stroke-width="1.5" opacity="0.55"/>
+    <path d="M17 34 L25 34" stroke-width="1.5" opacity="0.55"/>
+    <!-- lignes de texte droite -->
+    <path d="M37 22 L47 22" stroke-width="1.5" opacity="0.55"/>
+    <path d="M37 28 L47 28" stroke-width="1.5" opacity="0.55"/>
+  </g>
+  <!-- accent : signet / savoir transmis -->
+  <path d="M44 12 L44 26 L48 22 L52 26 L52 13" fill="var(--accent, #C94F2E)" stroke="none"/>
+</svg>

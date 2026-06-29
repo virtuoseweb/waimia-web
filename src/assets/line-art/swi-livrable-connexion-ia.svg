@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Livrable : connexion IA + donnees -> noeud central relie a des sources de donnees/outils -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- liens noeud -> sources -->
+    <path d="M32 32 L14 16"/>
+    <path d="M32 32 L50 16"/>
+    <path d="M32 32 L14 48"/>
+    <path d="M32 32 L50 48"/>
+    <!-- sources de donnees (cylindres / bases) -->
+    <ellipse cx="12" cy="14" rx="6" ry="2.6"/>
+    <path d="M6 14 L6 20 C6 21.4 8.7 22.6 12 22.6 C15.3 22.6 18 21.4 18 20 L18 14"/>
+    <ellipse cx="52" cy="14" rx="6" ry="2.6"/>
+    <path d="M46 14 L46 20 C46 21.4 48.7 22.6 52 22.6 C55.3 22.6 58 21.4 58 20 L58 14"/>
+    <!-- outils (modules) -->
+    <rect x="6" y="44" width="12" height="10" rx="2.5"/>
+    <rect x="46" y="44" width="12" height="10" rx="2.5"/>
+  </g>
+  <!-- accent : le noeud IA central -->
+  <circle cx="32" cy="32" r="6" fill="var(--accent, #C94F2E)"/>
+</svg>

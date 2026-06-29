@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="presentation">
+  <!-- Livrable : tableau de pilotage + alertes -> dashboard avec courbe et pastille d'alerte -->
+  <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- cadre du tableau -->
+    <rect x="8" y="12" width="48" height="40" rx="4"/>
+    <!-- barre de titre -->
+    <path d="M8 20 L56 20" stroke-width="1.4" opacity="0.7"/>
+    <!-- axes du graphe -->
+    <path d="M16 44 L16 26" stroke-width="1.4" opacity="0.6"/>
+    <path d="M16 44 L48 44" stroke-width="1.4" opacity="0.6"/>
+    <!-- courbe de suivi -->
+    <path d="M18 40 L26 35 L34 38 L46 28"/>
+  </g>
+  <!-- accent : pastille d'alerte -->
+  <circle cx="48" cy="16" r="3.4" fill="var(--accent, #C94F2E)" stroke="none"/>
+  <path d="M48 30 L48 36" stroke="var(--accent, #C94F2E)" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="48" cy="40" r="1.3" fill="var(--accent, #C94F2E)" stroke="none"/>
+</svg>
