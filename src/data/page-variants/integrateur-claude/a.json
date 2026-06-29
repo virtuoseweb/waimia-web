@@ -43,8 +43,16 @@
         "variant": "ghost"
       },
       "kpis": [
-        { "num": "Sem.", "cap_fr": "premier agent en production", "cap_en": "first agent in production" },
-        { "num": "0", "cap_fr": "captivité · stack transférée", "cap_en": "lock-in · stack handed over" }
+        {
+          "num": "Sem.",
+          "cap_fr": "premier agent en production",
+          "cap_en": "first agent in production"
+        },
+        {
+          "num": "0",
+          "cap_fr": "captivité · stack transférée",
+          "cap_en": "lock-in · stack handed over"
+        }
       ]
     },
     {
@@ -252,9 +260,18 @@
           "body_fr": "On déploie Claude pour vos équipes sur des cas d'usage métier concrets : rédaction, analyse, synthèse, préparation de dossiers. L'API et l'interface sont configurées pour votre contexte, avec les bons réflexes posés dès le départ, pas un accès ouvert sans cadre.",
           "body_en": "We deploy Claude for your teams on concrete business use cases: writing, analysis, summarising, preparing files. The API and interface are configured for your context, with the right reflexes laid in from the start, not open access with no frame.",
           "points": [
-            { "label_fr": "Cas d'usage métier cadrés", "label_en": "Framed business use cases" },
-            { "label_fr": "API et interface configurées", "label_en": "API and interface configured" },
-            { "label_fr": "Bons réflexes posés dès le départ", "label_en": "Right reflexes laid in from day one" }
+            {
+              "label_fr": "Cas d'usage métier cadrés",
+              "label_en": "Framed business use cases"
+            },
+            {
+              "label_fr": "API et interface configurées",
+              "label_en": "API and interface configured"
+            },
+            {
+              "label_fr": "Bons réflexes posés dès le départ",
+              "label_en": "Right reflexes laid in from day one"
+            }
           ]
         },
         {
@@ -265,9 +282,18 @@
           "body_fr": "Pour une équipe technique, on installe Claude Code dans vos dépôts et votre CI, avec les hooks et guardrails qui imposent vos conventions. La revue de code assistée et un workflow agentique cadré font monter la productivité dev en production, sans casse ni dette.",
           "body_en": "For a technical team, we set up Claude Code in your repos and CI, with the hooks and guardrails that enforce your conventions. Assisted code review and a framed agentic workflow raise dev productivity in production, without breakage or debt.",
           "points": [
-            { "label_fr": "Claude Code dans vos dépôts et CI", "label_en": "Claude Code in your repos and CI" },
-            { "label_fr": "Hooks et guardrails sur vos conventions", "label_en": "Hooks and guardrails on your conventions" },
-            { "label_fr": "Revue de code assistée", "label_en": "Assisted code review" }
+            {
+              "label_fr": "Claude Code dans vos dépôts et CI",
+              "label_en": "Claude Code in your repos and CI"
+            },
+            {
+              "label_fr": "Hooks et guardrails sur vos conventions",
+              "label_en": "Hooks and guardrails on your conventions"
+            },
+            {
+              "label_fr": "Revue de code assistée",
+              "label_en": "Assisted code review"
+            }
           ]
         },
         {
@@ -278,9 +304,18 @@
           "body_fr": "On branche la collaboration assistée dans les outils de travail que vos équipes utilisent déjà : des agents qui préparent, relancent et synthétisent là où le travail se fait, pas dans une fenêtre de chat à côté. L'IA passe de l'assistant isolé au collègue intégré.",
           "body_en": "We wire assisted collaboration into the work tools your teams already use: agents that prepare, chase and summarise where the work happens, not in a chat window on the side. AI moves from isolated assistant to integrated colleague.",
           "points": [
-            { "label_fr": "Agents dans vos outils quotidiens", "label_en": "Agents in your daily tools" },
-            { "label_fr": "Collaboration assistée, pas un chat isolé", "label_en": "Assisted collaboration, not an isolated chat" },
-            { "label_fr": "L'IA intégrée au travail réel", "label_en": "AI integrated into real work" }
+            {
+              "label_fr": "Agents dans vos outils quotidiens",
+              "label_en": "Agents in your daily tools"
+            },
+            {
+              "label_fr": "Collaboration assistée, pas un chat isolé",
+              "label_en": "Assisted collaboration, not an isolated chat"
+            },
+            {
+              "label_fr": "L'IA intégrée au travail réel",
+              "label_en": "AI integrated into real work"
+            }
           ]
         },
         {
@@ -291,9 +326,18 @@
           "body_fr": "On câble des serveurs MCP propres vers vos outils et vos données métier : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. C'est cette couche qui fait passer un assistant de la conversation à l'action, sur vos données réelles, dans votre stack.",
           "body_en": "We wire clean MCP servers to your tools and business data: CRM, email, calendar, database, Git repo, CI/CD. It's this layer that moves an assistant from conversation to action, on your real data, in your stack.",
           "points": [
-            { "label_fr": "Serveurs MCP propres et sécurisés", "label_en": "Clean, secured MCP servers" },
-            { "label_fr": "CRM, e-mail, base de données, Git", "label_en": "CRM, email, database, Git" },
-            { "label_fr": "De la conversation à l'action", "label_en": "From conversation to action" }
+            {
+              "label_fr": "Serveurs MCP propres et sécurisés",
+              "label_en": "Clean, secured MCP servers"
+            },
+            {
+              "label_fr": "CRM, e-mail, base de données, Git",
+              "label_en": "CRM, email, database, Git"
+            },
+            {
+              "label_fr": "De la conversation à l'action",
+              "label_en": "From conversation to action"
+            }
           ]
         }
       ]
@@ -453,9 +497,18 @@
           "body_fr": "On ne lâche pas tout d'un coup. On cadre le périmètre, on lance un pilote sur le workflow qui coûte le plus, on prouve la valeur, puis on monte en charge progressivement vers les autres usages. Vous savez avant de signer quel workflow on attaque en premier et ce qu'il rapporte.",
           "body_en": "We don't release everything at once. We frame the scope, launch a pilot on the costliest workflow, prove the value, then scale up progressively toward the other uses. You know before signing which workflow we tackle first and what it returns.",
           "points": [
-            { "label_fr": "Cadrage du périmètre", "label_en": "Scope framing" },
-            { "label_fr": "Pilote sur le workflow prioritaire", "label_en": "Pilot on the priority workflow" },
-            { "label_fr": "Montée en charge progressive", "label_en": "Progressive scale-up" }
+            {
+              "label_fr": "Cadrage du périmètre",
+              "label_en": "Scope framing"
+            },
+            {
+              "label_fr": "Pilote sur le workflow prioritaire",
+              "label_en": "Pilot on the priority workflow"
+            },
+            {
+              "label_fr": "Montée en charge progressive",
+              "label_en": "Progressive scale-up"
+            }
           ]
         },
         {
@@ -466,9 +519,18 @@
           "body_fr": "On forme et on outille une personne en interne pour devenir le point de contact IA de l'entreprise : cadrage des usages, diffusion des bonnes pratiques, réponse aux questions des équipes. La compétence reste chez vous, pas chez un prestataire, et les équipes deviennent autonomes.",
           "body_en": "We train and equip an in-house person to become the company's AI point of contact: framing uses, spreading good practices, answering the teams' questions. The skill stays with you, not with a provider, and the teams become autonomous.",
           "points": [
-            { "label_fr": "Un point de contact IA interne", "label_en": "An internal AI point of contact" },
-            { "label_fr": "Bonnes pratiques diffusées", "label_en": "Good practices spread" },
-            { "label_fr": "La compétence reste chez vous", "label_en": "The skill stays with you" }
+            {
+              "label_fr": "Un point de contact IA interne",
+              "label_en": "An internal AI point of contact"
+            },
+            {
+              "label_fr": "Bonnes pratiques diffusées",
+              "label_en": "Good practices spread"
+            },
+            {
+              "label_fr": "La compétence reste chez vous",
+              "label_en": "The skill stays with you"
+            }
           ]
         },
         {
@@ -479,9 +541,18 @@
           "body_fr": "Au-delà du référent, on acculture les équipes aux bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais dans un outil. L'adoption suit la compétence : un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité.",
           "body_en": "Beyond the lead, we skill up the teams on the right reflexes: phrasing a request, checking a response, spotting what you never paste into a tool. Adoption follows skill: a tool no one masters stays on the shelf, whatever its quality.",
           "points": [
-            { "label_fr": "Acculturation des équipes", "label_en": "Team skill-up" },
-            { "label_fr": "Bons réflexes ancrés", "label_en": "Right reflexes anchored" },
-            { "label_fr": "L'adoption suit la compétence", "label_en": "Adoption follows skill" }
+            {
+              "label_fr": "Acculturation des équipes",
+              "label_en": "Team skill-up"
+            },
+            {
+              "label_fr": "Bons réflexes ancrés",
+              "label_en": "Right reflexes anchored"
+            },
+            {
+              "label_fr": "L'adoption suit la compétence",
+              "label_en": "Adoption follows skill"
+            }
           ]
         },
         {
@@ -492,9 +563,18 @@
           "body_fr": "On pose le cadre qui laisse l'IA ouverte sans perdre le contrôle : politique d'usage opposable, sécurité des données, conformité RGPD et supervision des décisions. On cartographie ce qui circule, on qualifie chaque outil et on installe les points de contrôle. Vous déployez sous contrôle.",
           "body_en": "We lay the frame that keeps AI open without losing control: an enforceable usage policy, data security, GDPR compliance and decision oversight. We map what flows, qualify each tool and install the control points. You deploy under control.",
           "points": [
-            { "label_fr": "Politique d'usage opposable", "label_en": "Enforceable usage policy" },
-            { "label_fr": "Sécurité des données et RGPD", "label_en": "Data security and GDPR" },
-            { "label_fr": "Supervision et traçabilité", "label_en": "Oversight and traceability" }
+            {
+              "label_fr": "Politique d'usage opposable",
+              "label_en": "Enforceable usage policy"
+            },
+            {
+              "label_fr": "Sécurité des données et RGPD",
+              "label_en": "Data security and GDPR"
+            },
+            {
+              "label_fr": "Supervision et traçabilité",
+              "label_en": "Oversight and traceability"
+            }
           ]
         }
       ]
@@ -700,7 +780,7 @@
       "variant": "media"
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",

@@ -43,8 +43,16 @@
         "variant": "ghost"
       },
       "kpis": [
-        { "num": "Sem.", "cap_fr": "premier agent en production", "cap_en": "first agent in production" },
-        { "num": "1", "cap_fr": "agent · une mission cadrée", "cap_en": "agent · one framed mission" }
+        {
+          "num": "Sem.",
+          "cap_fr": "premier agent en production",
+          "cap_en": "first agent in production"
+        },
+        {
+          "num": "1",
+          "cap_fr": "agent · une mission cadrée",
+          "cap_en": "agent · one framed mission"
+        }
       ]
     },
     {
@@ -73,18 +81,48 @@
       "statement_fr": "Un <i class=\"acc\">agent IA</i> est un programme autonome branché à vos outils via MCP, qui exécute relances, tri, veille et reporting sous supervision humaine, sans saisie manuelle.",
       "statement_en": "An <i class=\"acc\">AI agent</i> is an autonomous program wired to your tools via MCP, running follow-ups, sorting, watch and reporting under human supervision, with no manual entry.",
       "pills": [
-        { "label_fr": "Une mission cadrée", "label_en": "One framed mission" },
-        { "label_fr": "Branché via MCP", "label_en": "Wired via MCP" },
-        { "label_fr": "Autonome sous supervision", "label_en": "Autonomous, supervised" },
-        { "label_fr": "Mesurable", "label_en": "Measurable" }
+        {
+          "label_fr": "Une mission cadrée",
+          "label_en": "One framed mission"
+        },
+        {
+          "label_fr": "Branché via MCP",
+          "label_en": "Wired via MCP"
+        },
+        {
+          "label_fr": "Autonome sous supervision",
+          "label_en": "Autonomous, supervised"
+        },
+        {
+          "label_fr": "Mesurable",
+          "label_en": "Measurable"
+        }
       ],
       "specs": [
-        { "label_fr": "Relances", "label_en": "Follow-ups" },
-        { "label_fr": "Tri et qualification", "label_en": "Sorting and qualifying" },
-        { "label_fr": "Veille continue", "label_en": "Continuous watch" },
-        { "label_fr": "Reporting", "label_en": "Reporting" },
-        { "label_fr": "CRM et e-mail", "label_en": "CRM and email" },
-        { "label_fr": "Supervision humaine", "label_en": "Human supervision" }
+        {
+          "label_fr": "Relances",
+          "label_en": "Follow-ups"
+        },
+        {
+          "label_fr": "Tri et qualification",
+          "label_en": "Sorting and qualifying"
+        },
+        {
+          "label_fr": "Veille continue",
+          "label_en": "Continuous watch"
+        },
+        {
+          "label_fr": "Reporting",
+          "label_en": "Reporting"
+        },
+        {
+          "label_fr": "CRM et e-mail",
+          "label_en": "CRM and email"
+        },
+        {
+          "label_fr": "Supervision humaine",
+          "label_en": "Human supervision"
+        }
       ]
     },
     {
@@ -132,9 +170,21 @@
       "h2_fr": "Tout faire à la main, un outil no-code ou un <i>agent</i> IA",
       "h2_en": "By hand, a no-code tool or an <i>AI</i> agent",
       "columns": [
-        { "name_fr": "Agent IA", "name_en": "AI agent", "featured": true },
-        { "name_fr": "Outil no-code (Zapier, Make)", "name_en": "No-code tool (Zapier, Make)", "featured": false },
-        { "name_fr": "À la main, en interne", "name_en": "By hand, in-house", "featured": false }
+        {
+          "name_fr": "Agent IA",
+          "name_en": "AI agent",
+          "featured": true
+        },
+        {
+          "name_fr": "Outil no-code (Zapier, Make)",
+          "name_en": "No-code tool (Zapier, Make)",
+          "featured": false
+        },
+        {
+          "name_fr": "À la main, en interne",
+          "name_en": "By hand, in-house",
+          "featured": false
+        }
       ],
       "rows": [
         {
@@ -142,36 +192,60 @@
           "group_en": "Decision",
           "feature_fr": "Comprend le contexte et adapte sa réponse, pas juste un déclencheur fixe",
           "feature_en": "Understands context and adapts its response, not just a fixed trigger",
-          "values": [true, false, "selon la personne"]
+          "values": [
+            true,
+            false,
+            "selon la personne"
+          ]
         },
         {
           "feature_fr": "Gère le cas particulier sans casser le flux",
           "feature_en": "Handles the edge case without breaking the flow",
-          "values": [true, "rarement", true]
+          "values": [
+            true,
+            "rarement",
+            true
+          ]
         },
         {
           "group_fr": "Volume",
           "group_en": "Volume",
           "feature_fr": "Tient le volume répétitif sans fatigue ni oubli",
           "feature_en": "Holds repetitive volume with no fatigue or oversight",
-          "values": [true, true, false]
+          "values": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "feature_fr": "Branché à vos outils via MCP, pas un connecteur figé",
           "feature_en": "Wired to your tools via MCP, not a rigid connector",
-          "values": [true, "limité", "vous-même"]
+          "values": [
+            true,
+            "limité",
+            "vous-même"
+          ]
         },
         {
           "group_fr": "Contrôle",
           "group_en": "Control",
           "feature_fr": "Supervision humaine et journaux sur les actions sensibles",
           "feature_en": "Human supervision and logs on sensitive actions",
-          "values": [true, "partiel", "selon l'équipe"]
+          "values": [
+            true,
+            "partiel",
+            "selon l'équipe"
+          ]
         },
         {
           "feature_fr": "Conçu et supervisé par un praticien, pas un scénario jetable",
           "feature_en": "Designed and supervised by a practitioner, not a throwaway scenario",
-          "values": [true, false, false]
+          "values": [
+            true,
+            false,
+            false
+          ]
         }
       ]
     },
@@ -279,9 +353,18 @@
           "media_alt_fr": "Un chatbot branché aux données réelles de l'entreprise",
           "media_alt_en": "A chatbot wired to the company's real data",
           "points": [
-            { "label_fr": "Branché à vos données réelles", "label_en": "Wired to your real data" },
-            { "label_fr": "Qualifie et route la demande", "label_en": "Qualifies and routes the request" },
-            { "label_fr": "Cadré, pas un bot fourre-tout", "label_en": "Framed, not a catch-all bot" }
+            {
+              "label_fr": "Branché à vos données réelles",
+              "label_en": "Wired to your real data"
+            },
+            {
+              "label_fr": "Qualifie et route la demande",
+              "label_en": "Qualifies and routes the request"
+            },
+            {
+              "label_fr": "Cadré, pas un bot fourre-tout",
+              "label_en": "Framed, not a catch-all bot"
+            }
           ]
         },
         {
@@ -292,9 +375,18 @@
           "body_fr": "Le protocole Model Context Protocol connecte l'agent à vos outils et vos données : CRM, e-mail, agenda, base de données. C'est cette couche qui fait passer un agent de la conversation à l'action. On câble des serveurs MCP propres, sécurisés et documentés, pas des scripts jetables, sous permissions explicites et serveurs cloisonnés.",
           "body_en": "The Model Context Protocol connects the agent to your tools and data: CRM, email, calendar, database. This layer is what moves an agent from conversation to action. We wire clean, secured and documented MCP servers, not throwaway scripts, under explicit permissions and compartmentalised servers.",
           "points": [
-            { "label_fr": "Serveurs MCP propres et cloisonnés", "label_en": "Clean, compartmentalised MCP servers" },
-            { "label_fr": "CRM, e-mail, agenda, base de données", "label_en": "CRM, email, calendar, database" },
-            { "label_fr": "De la conversation à l'action", "label_en": "From conversation to action" }
+            {
+              "label_fr": "Serveurs MCP propres et cloisonnés",
+              "label_en": "Clean, compartmentalised MCP servers"
+            },
+            {
+              "label_fr": "CRM, e-mail, agenda, base de données",
+              "label_en": "CRM, email, calendar, database"
+            },
+            {
+              "label_fr": "De la conversation à l'action",
+              "label_en": "From conversation to action"
+            }
           ],
           "link_href": "/services/integrateur-claude",
           "link_label_fr": "Voir l'intégrateur Claude →",
@@ -311,9 +403,18 @@
           "media_alt_fr": "Un workflow qui enchaîne des tâches multi-étapes",
           "media_alt_en": "A workflow chaining multi-step tasks",
           "points": [
-            { "label_fr": "Tâches multi-étapes enchaînées", "label_en": "Chained multi-step tasks" },
-            { "label_fr": "Étapes conditionnées et reprises", "label_en": "Conditioned steps and takeover" },
-            { "label_fr": "Un process automatisé bout en bout", "label_en": "An end-to-end automated process" }
+            {
+              "label_fr": "Tâches multi-étapes enchaînées",
+              "label_en": "Chained multi-step tasks"
+            },
+            {
+              "label_fr": "Étapes conditionnées et reprises",
+              "label_en": "Conditioned steps and takeover"
+            },
+            {
+              "label_fr": "Un process automatisé bout en bout",
+              "label_en": "An end-to-end automated process"
+            }
           ]
         },
         {
@@ -324,9 +425,18 @@
           "body_fr": "Des agents spécialisés par fonction, chacun cadré sur un métier : un agent support qui trie et répond au premier niveau, un agent sales qui relance et qualifie, un agent ops qui suit et alerte. Un agent égale une mission, pas un assistant qui fait tout à moitié. La spécialisation rend chaque agent fiable, mesurable et facile à superviser.",
           "body_en": "Agents specialised by function, each framed on a role: a support agent that sorts and answers first-line, a sales agent that follows up and qualifies, an ops agent that tracks and alerts. One agent equals one mission, not an assistant doing everything halfway. Specialisation makes each agent reliable, measurable and easy to supervise.",
           "points": [
-            { "label_fr": "Support, sales, ops par fonction", "label_en": "Support, sales, ops by function" },
-            { "label_fr": "Un agent, une mission cadrée", "label_en": "One agent, one framed mission" },
-            { "label_fr": "Fiable, mesurable, supervisable", "label_en": "Reliable, measurable, supervisable" }
+            {
+              "label_fr": "Support, sales, ops par fonction",
+              "label_en": "Support, sales, ops by function"
+            },
+            {
+              "label_fr": "Un agent, une mission cadrée",
+              "label_en": "One agent, one framed mission"
+            },
+            {
+              "label_fr": "Fiable, mesurable, supervisable",
+              "label_en": "Reliable, measurable, supervisable"
+            }
           ]
         }
       ]
@@ -486,9 +596,18 @@
           "body_fr": "L'agent est branché à ce que vous utilisez déjà : CRM, base de données, APIs internes. Les formulaires créent et mettent à jour des fiches sans recopie, l'agent lit et interroge vos données réelles, agit dans votre stack. Vos données restent chez vous, dans votre environnement, jamais exfiltrées vers un outil opaque.",
           "body_en": "The agent is wired to what you already use: CRM, database, internal APIs. Forms create and update records with no retyping, the agent reads and queries your real data, acts in your stack. Your data stays with you, in your environment, never exported to an opaque tool.",
           "points": [
-            { "label_fr": "CRM, base de données, APIs internes", "label_en": "CRM, database, internal APIs" },
-            { "label_fr": "Lit, interroge et agit sur vos données", "label_en": "Reads, queries and acts on your data" },
-            { "label_fr": "Vos données restent chez vous", "label_en": "Your data stays with you" }
+            {
+              "label_fr": "CRM, base de données, APIs internes",
+              "label_en": "CRM, database, internal APIs"
+            },
+            {
+              "label_fr": "Lit, interroge et agit sur vos données",
+              "label_en": "Reads, queries and acts on your data"
+            },
+            {
+              "label_fr": "Vos données restent chez vous",
+              "label_en": "Your data stays with you"
+            }
           ],
           "link_href": "/services/site-web-intelligent",
           "link_label_fr": "Voir le site web intelligent →",
@@ -502,9 +621,18 @@
           "body_fr": "On confie à l'agent la part répétitive et chronophage : relancer, trier, recopier, synthétiser, alerter. Ce qui était fait à la main, à intervalle régulier, devient fiable et tenu dans la durée. L'agent ne se fatigue pas, n'oublie pas, ne baisse pas en qualité le vendredi soir. Vos équipes récupèrent du temps pour ce qui demande du jugement.",
           "body_en": "We hand the agent the repetitive, time-consuming part: follow up, sort, copy, summarise, alert. What was done by hand, at regular intervals, becomes reliable and sustained over time. The agent doesn't tire, doesn't forget, doesn't drop in quality on a Friday evening. Your teams get time back for what requires judgement.",
           "points": [
-            { "label_fr": "Le répétitif délégué à l'agent", "label_en": "The repetitive handed to the agent" },
-            { "label_fr": "Fiable et tenu dans la durée", "label_en": "Reliable and sustained over time" },
-            { "label_fr": "Du temps rendu à vos équipes", "label_en": "Time given back to your teams" }
+            {
+              "label_fr": "Le répétitif délégué à l'agent",
+              "label_en": "The repetitive handed to the agent"
+            },
+            {
+              "label_fr": "Fiable et tenu dans la durée",
+              "label_en": "Reliable and sustained over time"
+            },
+            {
+              "label_fr": "Du temps rendu à vos équipes",
+              "label_en": "Time given back to your teams"
+            }
           ],
           "link_href": "/blog/agent-ia-vs-automatisation-classique-2026",
           "link_label_fr": "Agent IA ou automatisation classique →",
@@ -518,9 +646,18 @@
           "body_fr": "L'autonomie de l'agent est encadrée. Sur les actions sensibles, un humain valide avant exécution. Chaque décision est tracée, les journaux sont consultables, l'arrêt est possible à tout moment. Rien ne tourne en boîte noire : l'agent rend du temps, il ne retire pas le contrôle. La supervision est posée avant le déploiement, pas après le premier incident.",
           "body_en": "The agent's autonomy is framed. On sensitive actions, a human validates before execution. Every decision is traced, logs are readable, a stop is possible at any time. Nothing runs as a black box: the agent gives back time, it doesn't take away control. Supervision is laid in before deployment, not after the first incident.",
           "points": [
-            { "label_fr": "Validation humaine sur les actions à risque", "label_en": "Human validation on risky actions" },
-            { "label_fr": "Décisions tracées, journaux consultables", "label_en": "Traced decisions, readable logs" },
-            { "label_fr": "Arrêt possible, rien en boîte noire", "label_en": "Stop possible, nothing as a black box" }
+            {
+              "label_fr": "Validation humaine sur les actions à risque",
+              "label_en": "Human validation on risky actions"
+            },
+            {
+              "label_fr": "Décisions tracées, journaux consultables",
+              "label_en": "Traced decisions, readable logs"
+            },
+            {
+              "label_fr": "Arrêt possible, rien en boîte noire",
+              "label_en": "Stop possible, nothing as a black box"
+            }
           ]
         }
       ]
@@ -727,7 +864,7 @@
       "variant": "media"
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",

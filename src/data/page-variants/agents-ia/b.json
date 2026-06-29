@@ -43,8 +43,16 @@
         "variant": "ghost"
       },
       "kpis": [
-        { "num": "Sem.", "cap_fr": "premier agent en production", "cap_en": "first agent in production" },
-        { "num": "1", "cap_fr": "agent · une mission cadrée", "cap_en": "agent · one framed mission" }
+        {
+          "num": "Sem.",
+          "cap_fr": "premier agent en production",
+          "cap_en": "first agent in production"
+        },
+        {
+          "num": "1",
+          "cap_fr": "agent · une mission cadrée",
+          "cap_en": "agent · one framed mission"
+        }
       ]
     },
     {
@@ -152,9 +160,21 @@
       "h2_fr": "Tout faire à la main, un outil no-code ou un <i>agent</i> IA",
       "h2_en": "By hand, a no-code tool or an <i>AI</i> agent",
       "columns": [
-        { "name_fr": "Agent IA", "name_en": "AI agent", "featured": true },
-        { "name_fr": "Outil no-code (Zapier, Make)", "name_en": "No-code tool (Zapier, Make)", "featured": false },
-        { "name_fr": "À la main, en interne", "name_en": "By hand, in-house", "featured": false }
+        {
+          "name_fr": "Agent IA",
+          "name_en": "AI agent",
+          "featured": true
+        },
+        {
+          "name_fr": "Outil no-code (Zapier, Make)",
+          "name_en": "No-code tool (Zapier, Make)",
+          "featured": false
+        },
+        {
+          "name_fr": "À la main, en interne",
+          "name_en": "By hand, in-house",
+          "featured": false
+        }
       ],
       "rows": [
         {
@@ -162,36 +182,60 @@
           "group_en": "Decision",
           "feature_fr": "Comprend le contexte et adapte sa réponse, pas juste un déclencheur fixe",
           "feature_en": "Understands context and adapts its response, not just a fixed trigger",
-          "values": [true, false, "selon la personne"]
+          "values": [
+            true,
+            false,
+            "selon la personne"
+          ]
         },
         {
           "feature_fr": "Gère le cas particulier sans casser le flux",
           "feature_en": "Handles the edge case without breaking the flow",
-          "values": [true, "rarement", true]
+          "values": [
+            true,
+            "rarement",
+            true
+          ]
         },
         {
           "group_fr": "Volume",
           "group_en": "Volume",
           "feature_fr": "Tient le volume répétitif sans fatigue ni oubli",
           "feature_en": "Holds repetitive volume with no fatigue or oversight",
-          "values": [true, true, false]
+          "values": [
+            true,
+            true,
+            false
+          ]
         },
         {
           "feature_fr": "Branché à vos outils via MCP, pas un connecteur figé",
           "feature_en": "Wired to your tools via MCP, not a rigid connector",
-          "values": [true, "limité", "vous-même"]
+          "values": [
+            true,
+            "limité",
+            "vous-même"
+          ]
         },
         {
           "group_fr": "Contrôle",
           "group_en": "Control",
           "feature_fr": "Supervision humaine et journaux sur les actions sensibles",
           "feature_en": "Human supervision and logs on sensitive actions",
-          "values": [true, "partiel", "selon l'équipe"]
+          "values": [
+            true,
+            "partiel",
+            "selon l'équipe"
+          ]
         },
         {
           "feature_fr": "Conçu et supervisé par un praticien, pas un scénario jetable",
           "feature_en": "Designed and supervised by a practitioner, not a throwaway scenario",
-          "values": [true, false, false]
+          "values": [
+            true,
+            false,
+            false
+          ]
         }
       ]
     },
@@ -299,9 +343,18 @@
           "media_alt_fr": "Un chatbot branché aux données réelles de l'entreprise",
           "media_alt_en": "A chatbot wired to the company's real data",
           "points": [
-            { "label_fr": "Branché à vos données réelles", "label_en": "Wired to your real data" },
-            { "label_fr": "Qualifie et route la demande", "label_en": "Qualifies and routes the request" },
-            { "label_fr": "Cadré, pas un bot fourre-tout", "label_en": "Framed, not a catch-all bot" }
+            {
+              "label_fr": "Branché à vos données réelles",
+              "label_en": "Wired to your real data"
+            },
+            {
+              "label_fr": "Qualifie et route la demande",
+              "label_en": "Qualifies and routes the request"
+            },
+            {
+              "label_fr": "Cadré, pas un bot fourre-tout",
+              "label_en": "Framed, not a catch-all bot"
+            }
           ]
         },
         {
@@ -315,9 +368,18 @@
           "media_alt_fr": "Des serveurs MCP propres qui relient l'agent à vos outils",
           "media_alt_en": "Clean MCP servers linking the agent to your tools",
           "points": [
-            { "label_fr": "Serveurs MCP propres et cloisonnés", "label_en": "Clean, compartmentalised MCP servers" },
-            { "label_fr": "CRM, e-mail, agenda, base de données", "label_en": "CRM, email, calendar, database" },
-            { "label_fr": "De la conversation à l'action", "label_en": "From conversation to action" }
+            {
+              "label_fr": "Serveurs MCP propres et cloisonnés",
+              "label_en": "Clean, compartmentalised MCP servers"
+            },
+            {
+              "label_fr": "CRM, e-mail, agenda, base de données",
+              "label_en": "CRM, email, calendar, database"
+            },
+            {
+              "label_fr": "De la conversation à l'action",
+              "label_en": "From conversation to action"
+            }
           ],
           "link_href": "/services/integrateur-claude",
           "link_label_fr": "Voir l'intégrateur Claude →",
@@ -334,9 +396,18 @@
           "media_alt_fr": "Un workflow qui enchaîne des tâches multi-étapes",
           "media_alt_en": "A workflow chaining multi-step tasks",
           "points": [
-            { "label_fr": "Tâches multi-étapes enchaînées", "label_en": "Chained multi-step tasks" },
-            { "label_fr": "Étapes conditionnées et reprises", "label_en": "Conditioned steps and takeover" },
-            { "label_fr": "Un process automatisé bout en bout", "label_en": "An end-to-end automated process" }
+            {
+              "label_fr": "Tâches multi-étapes enchaînées",
+              "label_en": "Chained multi-step tasks"
+            },
+            {
+              "label_fr": "Étapes conditionnées et reprises",
+              "label_en": "Conditioned steps and takeover"
+            },
+            {
+              "label_fr": "Un process automatisé bout en bout",
+              "label_en": "An end-to-end automated process"
+            }
           ]
         },
         {
@@ -350,9 +421,18 @@
           "media_alt_fr": "Des agents métier spécialisés par fonction",
           "media_alt_en": "Business agents specialised by function",
           "points": [
-            { "label_fr": "Support, sales, ops par fonction", "label_en": "Support, sales, ops by function" },
-            { "label_fr": "Un agent, une mission cadrée", "label_en": "One agent, one framed mission" },
-            { "label_fr": "Fiable, mesurable, supervisable", "label_en": "Reliable, measurable, supervisable" }
+            {
+              "label_fr": "Support, sales, ops par fonction",
+              "label_en": "Support, sales, ops by function"
+            },
+            {
+              "label_fr": "Un agent, une mission cadrée",
+              "label_en": "One agent, one framed mission"
+            },
+            {
+              "label_fr": "Fiable, mesurable, supervisable",
+              "label_en": "Reliable, measurable, supervisable"
+            }
           ]
         }
       ]
@@ -521,9 +601,18 @@
           "media_alt_fr": "L'agent branché aux outils internes de l'entreprise",
           "media_alt_en": "The agent wired to the company's internal tools",
           "points": [
-            { "label_fr": "CRM, base de données, APIs internes", "label_en": "CRM, database, internal APIs" },
-            { "label_fr": "Lit, interroge et agit sur vos données", "label_en": "Reads, queries and acts on your data" },
-            { "label_fr": "Vos données restent chez vous", "label_en": "Your data stays with you" }
+            {
+              "label_fr": "CRM, base de données, APIs internes",
+              "label_en": "CRM, database, internal APIs"
+            },
+            {
+              "label_fr": "Lit, interroge et agit sur vos données",
+              "label_en": "Reads, queries and acts on your data"
+            },
+            {
+              "label_fr": "Vos données restent chez vous",
+              "label_en": "Your data stays with you"
+            }
           ],
           "link_href": "/services/site-web-intelligent",
           "link_label_fr": "Voir le site web intelligent →",
@@ -540,9 +629,18 @@
           "media_alt_fr": "Le travail répétitif délégué à l'agent, du temps rendu aux équipes",
           "media_alt_en": "Repetitive work handed to the agent, time given back to teams",
           "points": [
-            { "label_fr": "Le répétitif délégué à l'agent", "label_en": "The repetitive handed to the agent" },
-            { "label_fr": "Fiable et tenu dans la durée", "label_en": "Reliable and sustained over time" },
-            { "label_fr": "Du temps rendu à vos équipes", "label_en": "Time given back to your teams" }
+            {
+              "label_fr": "Le répétitif délégué à l'agent",
+              "label_en": "The repetitive handed to the agent"
+            },
+            {
+              "label_fr": "Fiable et tenu dans la durée",
+              "label_en": "Reliable and sustained over time"
+            },
+            {
+              "label_fr": "Du temps rendu à vos équipes",
+              "label_en": "Time given back to your teams"
+            }
           ],
           "link_href": "/blog/agent-ia-vs-automatisation-classique-2026",
           "link_label_fr": "Agent IA ou automatisation classique →",
@@ -559,9 +657,18 @@
           "media_alt_fr": "Un humain valide les actions sensibles avant exécution",
           "media_alt_en": "A human validates sensitive actions before execution",
           "points": [
-            { "label_fr": "Validation humaine sur les actions à risque", "label_en": "Human validation on risky actions" },
-            { "label_fr": "Décisions tracées, journaux consultables", "label_en": "Traced decisions, readable logs" },
-            { "label_fr": "Arrêt possible, rien en boîte noire", "label_en": "Stop possible, nothing as a black box" }
+            {
+              "label_fr": "Validation humaine sur les actions à risque",
+              "label_en": "Human validation on risky actions"
+            },
+            {
+              "label_fr": "Décisions tracées, journaux consultables",
+              "label_en": "Traced decisions, readable logs"
+            },
+            {
+              "label_fr": "Arrêt possible, rien en boîte noire",
+              "label_en": "Stop possible, nothing as a black box"
+            }
           ]
         }
       ]
@@ -768,7 +875,7 @@
       "variant": "media"
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",

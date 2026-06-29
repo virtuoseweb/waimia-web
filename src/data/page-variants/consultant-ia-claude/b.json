@@ -44,8 +44,16 @@
         "variant": "ghost"
       },
       "kpis": [
-        { "num": "Décision", "cap_fr": "le livrable, pas une étude qui dort", "cap_en": "the output, not a study that sleeps" },
-        { "num": "0", "cap_fr": "captivité · trajectoire et décisions à vous", "cap_en": "lock-in · trajectory and decisions yours" }
+        {
+          "num": "Décision",
+          "cap_fr": "le livrable, pas une étude qui dort",
+          "cap_en": "the output, not a study that sleeps"
+        },
+        {
+          "num": "0",
+          "cap_fr": "captivité · trajectoire et décisions à vous",
+          "cap_en": "lock-in · trajectory and decisions yours"
+        }
       ]
     },
     {
@@ -182,36 +190,60 @@
           "group_en": "Expertise",
           "feature_fr": "Pratique réelle de Claude, Claude Code et MCP en production",
           "feature_en": "Real practice of Claude, Claude Code and MCP in production",
-          "values": [true, "partielle", false]
+          "values": [
+            true,
+            "partielle",
+            false
+          ]
         },
         {
           "feature_fr": "Conseil adossé à l'usage, pas à un argumentaire",
           "feature_en": "Advice grounded in use, not in a pitch",
-          "values": [true, false, "selon l'équipe"]
+          "values": [
+            true,
+            false,
+            "selon l'équipe"
+          ]
         },
         {
           "group_fr": "Livrable",
           "group_en": "Output",
           "feature_fr": "Feuille de route priorisée et chiffrée, pas une étude qui dort",
           "feature_en": "Prioritised, costed roadmap, not a study that sleeps",
-          "values": [true, "parfois", "rarement"]
+          "values": [
+            true,
+            "parfois",
+            "rarement"
+          ]
         },
         {
           "feature_fr": "Décisions tranchées par la preuve, pas un catalogue d'options",
           "feature_en": "Decisions made by proof, not a catalogue of options",
-          "values": [true, "rarement", false]
+          "values": [
+            true,
+            "rarement",
+            false
+          ]
         },
         {
           "group_fr": "Suite",
           "group_en": "After",
           "feature_fr": "Accompagnement et montée en compétence des équipes",
           "feature_en": "Support and team skill-up",
-          "values": [true, "limité", "vous-même"]
+          "values": [
+            true,
+            "limité",
+            "vous-même"
+          ]
         },
         {
           "feature_fr": "Interlocuteur unique qui cadre et accompagne lui-même",
           "feature_en": "Single contact who frames and supports themselves",
-          "values": [true, false, "vous-même"]
+          "values": [
+            true,
+            false,
+            "vous-même"
+          ]
         }
       ]
     },
@@ -357,9 +389,18 @@
           "media_alt_fr": "Lecture du métier et des process pour repérer les poches de valeur",
           "media_alt_en": "Reading the business and processes to spot value pockets",
           "points": [
-            { "label_fr": "Lecture du métier et des process", "label_en": "Read of business and processes" },
-            { "label_fr": "Repérage des poches de valeur", "label_en": "Spotting value pockets" },
-            { "label_fr": "Niveau de maturité IA situé", "label_en": "AI maturity level placed" }
+            {
+              "label_fr": "Lecture du métier et des process",
+              "label_en": "Read of business and processes"
+            },
+            {
+              "label_fr": "Repérage des poches de valeur",
+              "label_en": "Spotting value pockets"
+            },
+            {
+              "label_fr": "Niveau de maturité IA situé",
+              "label_en": "AI maturity level placed"
+            }
           ]
         },
         {
@@ -373,9 +414,18 @@
           "media_alt_fr": "Cadrer une idée floue en un cas d'usage qu'on peut juger",
           "media_alt_en": "Framing a fuzzy idea into a use case one can judge",
           "points": [
-            { "label_fr": "Périmètre et contraintes posés", "label_en": "Scope and constraints set" },
-            { "label_fr": "Critères de succès définis", "label_en": "Success criteria defined" },
-            { "label_fr": "Cas d'usage prêt à arbitrer", "label_en": "Use case ready to arbitrate" }
+            {
+              "label_fr": "Périmètre et contraintes posés",
+              "label_en": "Scope and constraints set"
+            },
+            {
+              "label_fr": "Critères de succès définis",
+              "label_en": "Success criteria defined"
+            },
+            {
+              "label_fr": "Cas d'usage prêt à arbitrer",
+              "label_en": "Use case ready to arbitrate"
+            }
           ]
         },
         {
@@ -389,9 +439,18 @@
           "media_alt_fr": "Trancher : écarter les chantiers sans valeur, retenir ceux qui rapportent",
           "media_alt_en": "Deciding: dropping value-free projects, keeping the ones that pay off",
           "points": [
-            { "label_fr": "Classement impact / effort", "label_en": "Impact / effort ranking" },
-            { "label_fr": "Budget concentré sur le gain réel", "label_en": "Budget focused on real gain" },
-            { "label_fr": "Chantiers sans valeur écartés", "label_en": "Value-free projects dropped" }
+            {
+              "label_fr": "Classement impact / effort",
+              "label_en": "Impact / effort ranking"
+            },
+            {
+              "label_fr": "Budget concentré sur le gain réel",
+              "label_en": "Budget focused on real gain"
+            },
+            {
+              "label_fr": "Chantiers sans valeur écartés",
+              "label_en": "Value-free projects dropped"
+            }
           ]
         },
         {
@@ -405,9 +464,18 @@
           "media_alt_fr": "Une trajectoire actionnable que vous pouvez lancer",
           "media_alt_en": "An actionable trajectory you can launch",
           "points": [
-            { "label_fr": "Plan d'adoption par phases", "label_en": "Phased adoption plan" },
-            { "label_fr": "Chiffrage et séquencement", "label_en": "Costing and sequencing" },
-            { "label_fr": "Premier chantier prêt à l'intégration", "label_en": "First project ready for integration" }
+            {
+              "label_fr": "Plan d'adoption par phases",
+              "label_en": "Phased adoption plan"
+            },
+            {
+              "label_fr": "Chiffrage et séquencement",
+              "label_en": "Costing and sequencing"
+            },
+            {
+              "label_fr": "Premier chantier prêt à l'intégration",
+              "label_en": "First project ready for integration"
+            }
           ],
           "link_href": "/services/integrateur-claude",
           "link_label_fr": "Voir l'intégrateur Claude →",
@@ -441,9 +509,18 @@
           "media_alt_fr": "Une présence terrain auprès des équipes qui portent les chantiers",
           "media_alt_en": "A field presence alongside the teams carrying the projects",
           "points": [
-            { "label_fr": "Pilotage et comités réguliers", "label_en": "Steering and regular reviews" },
-            { "label_fr": "Arbitrages au fil de l'eau", "label_en": "Arbitration along the way" },
-            { "label_fr": "Trajectoire ajustée, pas figée", "label_en": "Trajectory adjusted, not frozen" }
+            {
+              "label_fr": "Pilotage et comités réguliers",
+              "label_en": "Steering and regular reviews"
+            },
+            {
+              "label_fr": "Arbitrages au fil de l'eau",
+              "label_en": "Arbitration along the way"
+            },
+            {
+              "label_fr": "Trajectoire ajustée, pas figée",
+              "label_en": "Trajectory adjusted, not frozen"
+            }
           ]
         },
         {
@@ -457,9 +534,18 @@
           "media_alt_fr": "Acculturation et montée en compétence des équipes",
           "media_alt_en": "Acculturation and skill-up of the teams",
           "points": [
-            { "label_fr": "Acculturation des équipes", "label_en": "Team acculturation" },
-            { "label_fr": "Montée en compétence ciblée", "label_en": "Targeted skill-up" },
-            { "label_fr": "Autonomie visée, pas dépendance", "label_en": "Autonomy aimed at, not dependence" }
+            {
+              "label_fr": "Acculturation des équipes",
+              "label_en": "Team acculturation"
+            },
+            {
+              "label_fr": "Montée en compétence ciblée",
+              "label_en": "Targeted skill-up"
+            },
+            {
+              "label_fr": "Autonomie visée, pas dépendance",
+              "label_en": "Autonomy aimed at, not dependence"
+            }
           ]
         },
         {
@@ -473,9 +559,18 @@
           "media_alt_fr": "Un cadre d'usage posé avant le premier déploiement",
           "media_alt_en": "A usage frame laid before the first deployment",
           "points": [
-            { "label_fr": "Périmètre et règles d'usage", "label_en": "Scope and usage rules" },
-            { "label_fr": "Sécurité et conformité", "label_en": "Security and compliance" },
-            { "label_fr": "Points de validation décidés", "label_en": "Validation points decided" }
+            {
+              "label_fr": "Périmètre et règles d'usage",
+              "label_en": "Scope and usage rules"
+            },
+            {
+              "label_fr": "Sécurité et conformité",
+              "label_en": "Security and compliance"
+            },
+            {
+              "label_fr": "Points de validation décidés",
+              "label_en": "Validation points decided"
+            }
           ]
         },
         {
@@ -489,9 +584,18 @@
           "media_alt_fr": "Faire entrer l'IA dans les habitudes et mesurer l'usage réel",
           "media_alt_en": "Get AI into the habits and measure real usage",
           "points": [
-            { "label_fr": "Usage réel mesuré", "label_en": "Real usage measured" },
-            { "label_fr": "Frictions levées au fil de l'eau", "label_en": "Frictions lifted along the way" },
-            { "label_fr": "Outil ancré dans le quotidien", "label_en": "Tool anchored in daily work" }
+            {
+              "label_fr": "Usage réel mesuré",
+              "label_en": "Real usage measured"
+            },
+            {
+              "label_fr": "Frictions levées au fil de l'eau",
+              "label_en": "Frictions lifted along the way"
+            },
+            {
+              "label_fr": "Outil ancré dans le quotidien",
+              "label_en": "Tool anchored in daily work"
+            }
           ]
         }
       ]
@@ -836,7 +940,7 @@
       "variant": "media"
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",

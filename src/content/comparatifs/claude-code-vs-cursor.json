@@ -144,58 +144,96 @@
       "background": "paper",
       "h2_fr": "Claude Code <i>face à</i> Cursor, capacité par capacité",
       "h2_en": "Claude Code <i>against</i> Cursor, capability by capability",
-      "column_headers_fr": ["Capacité", "Claude Code", "Cursor"],
-      "column_headers_en": ["Capability", "Claude Code", "Cursor"],
+      "column_headers_fr": [
+        "Capacité",
+        "Claude Code",
+        "Cursor"
+      ],
+      "column_headers_en": [
+        "Capability",
+        "Claude Code",
+        "Cursor"
+      ],
       "rows": [
         {
           "feature_fr": "Posture du produit",
           "feature_en": "Product stance",
-          "values": ["Agent terminal", "Éditeur augmenté"]
+          "values": [
+            "Agent terminal",
+            "Éditeur augmenté"
+          ]
         },
         {
           "feature_fr": "Autocomplétion en frappe",
           "feature_en": "Inline autocomplete",
-          "values": ["bon", "excellent"]
+          "values": [
+            "bon",
+            "excellent"
+          ]
         },
         {
           "feature_fr": "Tâche menée de bout en bout",
           "feature_en": "End-to-end task execution",
-          "values": [true, "partiel"]
+          "values": [
+            true,
+            "partiel"
+          ]
         },
         {
           "feature_fr": "Orchestration multi-agents",
           "feature_en": "Multi-agent orchestration",
-          "values": [true, false]
+          "values": [
+            true,
+            false
+          ]
         },
         {
           "feature_fr": "Exécution en arrière-plan, scriptable",
           "feature_en": "Background, scriptable runs",
-          "values": [true, false]
+          "values": [
+            true,
+            false
+          ]
         },
         {
           "feature_fr": "Édition multi-fichiers autonome",
           "feature_en": "Autonomous multi-file edits",
-          "values": [true, true]
+          "values": [
+            true,
+            true
+          ]
         },
         {
           "feature_fr": "Lancement des tests et itération seul",
           "feature_en": "Runs tests and iterates alone",
-          "values": [true, "partiel"]
+          "values": [
+            true,
+            "partiel"
+          ]
         },
         {
           "feature_fr": "Contrôle ligne à ligne",
           "feature_en": "Line-by-line control",
-          "values": ["via diff", true]
+          "values": [
+            "via diff",
+            true
+          ]
         },
         {
           "feature_fr": "Courbe d'apprentissage",
           "feature_en": "Learning curve",
-          "values": ["moyenne", "douce"]
+          "values": [
+            "moyenne",
+            "douce"
+          ]
         },
         {
           "feature_fr": "Choix du modèle",
           "feature_en": "Model choice",
-          "values": ["Claude · contexte large", "multi-modèles"]
+          "values": [
+            "Claude · contexte large",
+            "multi-modèles"
+          ]
         }
       ]
     },
@@ -369,7 +407,7 @@
       ]
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",

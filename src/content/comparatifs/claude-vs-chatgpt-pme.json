@@ -144,48 +144,80 @@
       "background": "paper",
       "h2_fr": "Claude vs ChatGPT, <i>point par point</i>",
       "h2_en": "Claude vs ChatGPT, <i>point by point</i>",
-      "column_headers_fr": ["Critère", "Claude", "ChatGPT"],
-      "column_headers_en": ["Criterion", "Claude", "ChatGPT"],
+      "column_headers_fr": [
+        "Critère",
+        "Claude",
+        "ChatGPT"
+      ],
+      "column_headers_en": [
+        "Criterion",
+        "Claude",
+        "ChatGPT"
+      ],
       "rows": [
         {
           "feature_fr": "Raisonnement sur documents longs",
           "feature_en": "Reasoning over long documents",
-          "values": ["excellent", "très bon"]
+          "values": [
+            "excellent",
+            "très bon"
+          ]
         },
         {
           "feature_fr": "Génération d'images et de voix",
           "feature_en": "Image and voice generation",
-          "values": [false, true]
+          "values": [
+            false,
+            true
+          ]
         },
         {
           "feature_fr": "Intégration native aux outils (MCP)",
           "feature_en": "Native tool integration (MCP)",
-          "values": [true, false]
+          "values": [
+            true,
+            false
+          ]
         },
         {
           "feature_fr": "Écosystème de plugins grand public",
           "feature_en": "Mainstream plugin ecosystem",
-          "values": ["ciblé", "très large"]
+          "values": [
+            "ciblé",
+            "très large"
+          ]
         },
         {
           "feature_fr": "Code complexe et refactor",
           "feature_en": "Complex code and refactoring",
-          "values": ["référence", "solide"]
+          "values": [
+            "référence",
+            "solide"
+          ]
         },
         {
           "feature_fr": "Sécurité et alignement au cœur",
           "feature_en": "Safety and alignment at the core",
-          "values": [true, true]
+          "values": [
+            true,
+            true
+          ]
         },
         {
           "feature_fr": "Pas d'entraînement sur vos données (offre pro)",
           "feature_en": "No training on your data (pro plan)",
-          "values": [true, true]
+          "values": [
+            true,
+            true
+          ]
         },
         {
           "feature_fr": "Prix indicatif par utilisateur / mois",
           "feature_en": "Indicative price per user / month",
-          "values": ["20-30 €", "20-30 €"]
+          "values": [
+            "20-30 €",
+            "20-30 €"
+          ]
         }
       ]
     },
@@ -337,7 +369,7 @@
       ]
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",

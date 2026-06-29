@@ -43,8 +43,16 @@
         "variant": "ghost"
       },
       "kpis": [
-        { "num": "Décision", "cap_fr": "le livrable, pas une étude qui dort", "cap_en": "the output, not a study that sleeps" },
-        { "num": "0", "cap_fr": "captivité · trajectoire et décisions à vous", "cap_en": "lock-in · trajectory and decisions yours" }
+        {
+          "num": "Décision",
+          "cap_fr": "le livrable, pas une étude qui dort",
+          "cap_en": "the output, not a study that sleeps"
+        },
+        {
+          "num": "0",
+          "cap_fr": "captivité · trajectoire et décisions à vous",
+          "cap_en": "lock-in · trajectory and decisions yours"
+        }
       ]
     },
     {
@@ -73,17 +81,44 @@
       "statement_fr": "Un <i class=\"acc\">consultant IA</i> cadre où l'IA crée de la valeur, priorise la feuille de route et pose la gouvernance, pour que vos chantiers partent dans le bon ordre, avant la moindre ligne de code.",
       "statement_en": "An <i class=\"acc\">AI consultant</i> frames where AI creates value, prioritises the roadmap and sets the governance, so your projects start in the right order, before a single line of code.",
       "pills": [
-        { "label_fr": "Diagnostic de valeur", "label_en": "Value diagnostic" },
-        { "label_fr": "Feuille de route priorisée", "label_en": "Prioritised roadmap" },
-        { "label_fr": "Gouvernance", "label_en": "Governance" },
-        { "label_fr": "Montée en compétence", "label_en": "Team skill-up" }
+        {
+          "label_fr": "Diagnostic de valeur",
+          "label_en": "Value diagnostic"
+        },
+        {
+          "label_fr": "Feuille de route priorisée",
+          "label_en": "Prioritised roadmap"
+        },
+        {
+          "label_fr": "Gouvernance",
+          "label_en": "Governance"
+        },
+        {
+          "label_fr": "Montée en compétence",
+          "label_en": "Team skill-up"
+        }
       ],
       "specs": [
-        { "label_fr": "Cartographie de valeur", "label_en": "Value map" },
-        { "label_fr": "Roadmap chiffrée", "label_en": "Costed roadmap" },
-        { "label_fr": "Règles d'usage", "label_en": "Usage rules" },
-        { "label_fr": "Conduite du changement", "label_en": "Change management" },
-        { "label_fr": "Indépendant des outils", "label_en": "Tool-agnostic" }
+        {
+          "label_fr": "Cartographie de valeur",
+          "label_en": "Value map"
+        },
+        {
+          "label_fr": "Roadmap chiffrée",
+          "label_en": "Costed roadmap"
+        },
+        {
+          "label_fr": "Règles d'usage",
+          "label_en": "Usage rules"
+        },
+        {
+          "label_fr": "Conduite du changement",
+          "label_en": "Change management"
+        },
+        {
+          "label_fr": "Indépendant des outils",
+          "label_en": "Tool-agnostic"
+        }
       ]
     },
     {
@@ -153,36 +188,60 @@
           "group_en": "Expertise",
           "feature_fr": "Pratique réelle de Claude, Claude Code et MCP en production",
           "feature_en": "Real practice of Claude, Claude Code and MCP in production",
-          "values": [true, "partielle", false]
+          "values": [
+            true,
+            "partielle",
+            false
+          ]
         },
         {
           "feature_fr": "Conseil adossé à l'usage, pas à un argumentaire",
           "feature_en": "Advice grounded in use, not in a pitch",
-          "values": [true, false, "selon l'équipe"]
+          "values": [
+            true,
+            false,
+            "selon l'équipe"
+          ]
         },
         {
           "group_fr": "Livrable",
           "group_en": "Output",
           "feature_fr": "Feuille de route priorisée et chiffrée, pas une étude qui dort",
           "feature_en": "Prioritised, costed roadmap, not a study that sleeps",
-          "values": [true, "parfois", "rarement"]
+          "values": [
+            true,
+            "parfois",
+            "rarement"
+          ]
         },
         {
           "feature_fr": "Décisions tranchées par la preuve, pas un catalogue d'options",
           "feature_en": "Decisions made by proof, not a catalogue of options",
-          "values": [true, "rarement", false]
+          "values": [
+            true,
+            "rarement",
+            false
+          ]
         },
         {
           "group_fr": "Suite",
           "group_en": "After",
           "feature_fr": "Accompagnement et montée en compétence des équipes",
           "feature_en": "Support and team skill-up",
-          "values": [true, "limité", "vous-même"]
+          "values": [
+            true,
+            "limité",
+            "vous-même"
+          ]
         },
         {
           "feature_fr": "Interlocuteur unique qui cadre et accompagne lui-même",
           "feature_en": "Single contact who frames and supports themselves",
-          "values": [true, false, "vous-même"]
+          "values": [
+            true,
+            false,
+            "vous-même"
+          ]
         }
       ]
     },
@@ -326,9 +385,18 @@
           "media_alt_fr": "Lecture du métier et des process pour repérer les poches de valeur",
           "media_alt_en": "Reading the business and processes to spot value pockets",
           "points": [
-            { "label_fr": "Lecture du métier et des process", "label_en": "Read of business and processes" },
-            { "label_fr": "Repérage des poches de valeur", "label_en": "Spotting value pockets" },
-            { "label_fr": "Niveau de maturité IA situé", "label_en": "AI maturity level placed" }
+            {
+              "label_fr": "Lecture du métier et des process",
+              "label_en": "Read of business and processes"
+            },
+            {
+              "label_fr": "Repérage des poches de valeur",
+              "label_en": "Spotting value pockets"
+            },
+            {
+              "label_fr": "Niveau de maturité IA situé",
+              "label_en": "AI maturity level placed"
+            }
           ]
         },
         {
@@ -339,9 +407,18 @@
           "body_fr": "Chaque chantier candidat est défini précisément : périmètre, données concernées, contraintes et critères de succès. On transforme une idée floue en un cas d'usage qu'on peut juger, chiffrer et, plus tard, exécuter.",
           "body_en": "Each candidate project is defined precisely: scope, data involved, constraints and success criteria. We turn a fuzzy idea into a use case that can be judged, costed and, later, executed.",
           "points": [
-            { "label_fr": "Périmètre et contraintes posés", "label_en": "Scope and constraints set" },
-            { "label_fr": "Critères de succès définis", "label_en": "Success criteria defined" },
-            { "label_fr": "Cas d'usage prêt à arbitrer", "label_en": "Use case ready to arbitrate" }
+            {
+              "label_fr": "Périmètre et contraintes posés",
+              "label_en": "Scope and constraints set"
+            },
+            {
+              "label_fr": "Critères de succès définis",
+              "label_en": "Success criteria defined"
+            },
+            {
+              "label_fr": "Cas d'usage prêt à arbitrer",
+              "label_en": "Use case ready to arbitrate"
+            }
           ]
         },
         {
@@ -355,9 +432,18 @@
           "media_alt_fr": "Trancher : écarter les chantiers sans valeur, retenir ceux qui rapportent",
           "media_alt_en": "Deciding: dropping value-free projects, keeping the ones that pay off",
           "points": [
-            { "label_fr": "Classement impact / effort", "label_en": "Impact / effort ranking" },
-            { "label_fr": "Budget concentré sur le gain réel", "label_en": "Budget focused on real gain" },
-            { "label_fr": "Chantiers sans valeur écartés", "label_en": "Value-free projects dropped" }
+            {
+              "label_fr": "Classement impact / effort",
+              "label_en": "Impact / effort ranking"
+            },
+            {
+              "label_fr": "Budget concentré sur le gain réel",
+              "label_en": "Budget focused on real gain"
+            },
+            {
+              "label_fr": "Chantiers sans valeur écartés",
+              "label_en": "Value-free projects dropped"
+            }
           ]
         },
         {
@@ -368,9 +454,18 @@
           "body_fr": "Un plan d'adoption par phases, chiffré et séquencé : par quoi commencer, ce que ça rapporte, ce qui attend. Une trajectoire actionnable que vous pouvez lancer, pas une étude épaisse qui dort sur une étagère.",
           "body_en": "A phased adoption plan, costed and sequenced: where to start, what it returns, what waits. An actionable trajectory you can launch, not a thick study that sleeps on a shelf.",
           "points": [
-            { "label_fr": "Plan d'adoption par phases", "label_en": "Phased adoption plan" },
-            { "label_fr": "Chiffrage et séquencement", "label_en": "Costing and sequencing" },
-            { "label_fr": "Premier chantier prêt à l'intégration", "label_en": "First project ready for integration" }
+            {
+              "label_fr": "Plan d'adoption par phases",
+              "label_en": "Phased adoption plan"
+            },
+            {
+              "label_fr": "Chiffrage et séquencement",
+              "label_en": "Costing and sequencing"
+            },
+            {
+              "label_fr": "Premier chantier prêt à l'intégration",
+              "label_en": "First project ready for integration"
+            }
           ],
           "link_href": "/services/integrateur-claude",
           "link_label_fr": "Voir l'intégrateur Claude →",
@@ -397,9 +492,18 @@
           "body_fr": "Une présence terrain auprès des équipes qui portent les chantiers : pilotage, comités réguliers, arbitrages au fil de l'eau. La trajectoire reste vivante et ajustée, pas figée le jour de la livraison.",
           "body_en": "A field presence alongside the teams carrying the projects: steering, regular reviews, arbitration along the way. The trajectory stays alive and adjusted, not frozen on delivery day.",
           "points": [
-            { "label_fr": "Pilotage et comités réguliers", "label_en": "Steering and regular reviews" },
-            { "label_fr": "Arbitrages au fil de l'eau", "label_en": "Arbitration along the way" },
-            { "label_fr": "Trajectoire ajustée, pas figée", "label_en": "Trajectory adjusted, not frozen" }
+            {
+              "label_fr": "Pilotage et comités réguliers",
+              "label_en": "Steering and regular reviews"
+            },
+            {
+              "label_fr": "Arbitrages au fil de l'eau",
+              "label_en": "Arbitration along the way"
+            },
+            {
+              "label_fr": "Trajectoire ajustée, pas figée",
+              "label_en": "Trajectory adjusted, not frozen"
+            }
           ]
         },
         {
@@ -410,9 +514,18 @@
           "body_fr": "L'acculturation et la montée en compétence des équipes pour qu'elles maîtrisent l'IA introduite, plutôt que de la subir. On vise l'autonomie : des collaborateurs qui comprennent l'outil, pas qui le redoutent.",
           "body_en": "Acculturation and skill-up so teams master the AI introduced rather than endure it. We aim for autonomy: people who understand the tool, not who fear it.",
           "points": [
-            { "label_fr": "Acculturation des équipes", "label_en": "Team acculturation" },
-            { "label_fr": "Montée en compétence ciblée", "label_en": "Targeted skill-up" },
-            { "label_fr": "Autonomie visée, pas dépendance", "label_en": "Autonomy aimed at, not dependence" }
+            {
+              "label_fr": "Acculturation des équipes",
+              "label_en": "Team acculturation"
+            },
+            {
+              "label_fr": "Montée en compétence ciblée",
+              "label_en": "Targeted skill-up"
+            },
+            {
+              "label_fr": "Autonomie visée, pas dépendance",
+              "label_en": "Autonomy aimed at, not dependence"
+            }
           ]
         },
         {
@@ -423,9 +536,18 @@
           "body_fr": "Le cadre d'usage de l'IA au niveau conseil : périmètre, règles, sécurité et conformité, points de validation. Posé avant le premier déploiement, pas plaqué après le premier incident. L'IA reste sous contrôle de la direction.",
           "body_en": "The AI usage frame at advisory level: scope, rules, security and compliance, validation points. Laid before the first deployment, not bolted on after the first incident. AI stays under management control.",
           "points": [
-            { "label_fr": "Périmètre et règles d'usage", "label_en": "Scope and usage rules" },
-            { "label_fr": "Sécurité et conformité", "label_en": "Security and compliance" },
-            { "label_fr": "Points de validation décidés", "label_en": "Validation points decided" }
+            {
+              "label_fr": "Périmètre et règles d'usage",
+              "label_en": "Scope and usage rules"
+            },
+            {
+              "label_fr": "Sécurité et conformité",
+              "label_en": "Security and compliance"
+            },
+            {
+              "label_fr": "Points de validation décidés",
+              "label_en": "Validation points decided"
+            }
           ]
         },
         {
@@ -436,9 +558,18 @@
           "body_fr": "Faire entrer l'IA dans les habitudes et mesurer l'usage réel : sans adoption interne, la meilleure feuille de route reste sur l'étagère. On suit qui utilise quoi, on lève les frictions et on ancre l'outil dans le quotidien.",
           "body_en": "Get AI into the habits and measure real usage: without internal adoption, the best roadmap stays on the shelf. We track who uses what, lift the frictions and anchor the tool into daily work.",
           "points": [
-            { "label_fr": "Usage réel mesuré", "label_en": "Real usage measured" },
-            { "label_fr": "Frictions levées au fil de l'eau", "label_en": "Frictions lifted along the way" },
-            { "label_fr": "Outil ancré dans le quotidien", "label_en": "Tool anchored in daily work" }
+            {
+              "label_fr": "Usage réel mesuré",
+              "label_en": "Real usage measured"
+            },
+            {
+              "label_fr": "Frictions levées au fil de l'eau",
+              "label_en": "Frictions lifted along the way"
+            },
+            {
+              "label_fr": "Outil ancré dans le quotidien",
+              "label_en": "Tool anchored in daily work"
+            }
           ]
         }
       ]
@@ -781,7 +912,7 @@
       "variant": "media"
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",

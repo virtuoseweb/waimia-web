@@ -173,7 +173,7 @@ const ctaInlineData = {
 } satisfies SectionByType<'cta-band'>;
 
 // FAQ PME-first · 8 questions scannables (contenu transcrit du faq-two-column de la variante C).
-const faqItems = (cByType('faq-two-column').items as any[]).map((it) => ({
+const faqItems = (cByType('faq-accordion').items as any[]).map((it) => ({
   q: it.q_fr,
   a: it.a_fr,
 }));

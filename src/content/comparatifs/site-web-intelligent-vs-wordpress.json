@@ -152,53 +152,88 @@
       "background": "paper",
       "h2_fr": "Le face-à-face, <i>critère par critère</i>",
       "h2_en": "The head-to-head, <i>criterion by criterion</i>",
-      "column_headers_fr": ["Critère", "WordPress", "Site Web Intelligent"],
-      "column_headers_en": ["Criterion", "WordPress", "Intelligent Website"],
+      "column_headers_fr": [
+        "Critère",
+        "WordPress",
+        "Site Web Intelligent"
+      ],
+      "column_headers_en": [
+        "Criterion",
+        "WordPress",
+        "Intelligent Website"
+      ],
       "rows": [
         {
           "feature_fr": "Performance (PageSpeed mobile)",
           "feature_en": "Performance (mobile PageSpeed)",
-          "values": ["souvent < 50", "100/100 visé"]
+          "values": [
+            "souvent < 50",
+            "100/100 visé"
+          ]
         },
         {
           "feature_fr": "Rendu des pages",
           "feature_en": "Page rendering",
-          "values": ["à la volée + base de données", "statique pré-calculé"]
+          "values": [
+            "à la volée + base de données",
+            "statique pré-calculé"
+          ]
         },
         {
           "feature_fr": "SEO + GEO natif (citable par les IA)",
           "feature_en": "Native SEO + GEO (AI-citable)",
-          "values": [false, true]
+          "values": [
+            false,
+            true
+          ]
         },
         {
           "feature_fr": "Maintenance récurrente",
           "feature_en": "Recurring maintenance",
-          "values": ["plugins à surveiller", "quasi nulle"]
+          "values": [
+            "plugins à surveiller",
+            "quasi nulle"
+          ]
         },
         {
           "feature_fr": "Surface d'attaque",
           "feature_en": "Attack surface",
-          "values": ["admin + plugins exposés", "réduite par conception"]
+          "values": [
+            "admin + plugins exposés",
+            "réduite par conception"
+          ]
         },
         {
           "feature_fr": "Connexion IA, données et CRM",
           "feature_en": "AI, data and CRM connection",
-          "values": [false, true]
+          "values": [
+            false,
+            true
+          ]
         },
         {
           "feature_fr": "Édition versionnée, réversible",
           "feature_en": "Versioned, reversible editing",
-          "values": [false, true]
+          "values": [
+            false,
+            true
+          ]
         },
         {
           "feature_fr": "Coût total sur 3 ans",
           "feature_en": "Total cost over 3 years",
-          "values": ["faible à l'achat, lourd à porter", "posé une fois, léger ensuite"]
+          "values": [
+            "faible à l'achat, lourd à porter",
+            "posé une fois, léger ensuite"
+          ]
         },
         {
           "feature_fr": "Évolution sans refonte",
           "feature_en": "Evolution without rebuild",
-          "values": ["dépendances empilées", "architecture composable"]
+          "values": [
+            "dépendances empilées",
+            "architecture composable"
+          ]
         }
       ]
     },
@@ -446,7 +481,7 @@
       ]
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",
