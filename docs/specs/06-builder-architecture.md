@@ -160,3 +160,45 @@ boilerplate sans les plugins, activation à la carte, upsell/abo. **Critère d'a
 - Aucun build du builder, aucun refacto moteur, aucune création d'endpoint/scaffolder **maintenant**.
 - La priorité d'exécution reste **le site waimia** (closeout P0, habillage/maillage/cleanup/GF-1/merge), à partir de l'existant, sans refacto.
 - Le chantier build du builder démarre sur **décision explicite de Simon**, en réutilisant ce doc comme contrat de référence.
+
+---
+
+## 13. Kickoff Φ0 — prêt-à-démarrer (préparé 2026-06-30)
+
+> But de cette section : rendre le **premier chantier (Φ0 — stabilisation du moteur) lançable d'un coup**
+> à la prochaine session, sans refaire l'analyse. Φ0 est **sans UI neuve**, peu coûteux, et débloque tout
+> le reste (Builder/Chat/Studio consomment un moteur complet). Reste de la **planification** : aucun build
+> n'est autorisé tant que Simon ne dit pas « go builder ». Quand il le dit → suivre les bricks ci-dessous.
+
+### Pourquoi Φ0 d'abord
+Les couches A–C (artefacts git-as-DB · moteur ds-kernel/MCP/render) sont le socle stable que toutes les
+surfaces (E) consomment. Aujourd'hui 3 trous (`⛏` au §5/§6) empêchent un moteur « complet » : pas de
+`ds-presets.json`/`themes.css`, pas d'endpoint `/api/ds/compose` ni `/api/ds/preset`, legacy non canonisé.
+Combler ces trous = 0 UI, 100 % contrats prouvables par GF-1 fonctionnel → risque minimal, valeur maximale.
+
+### Bricks Φ0 (ordonnés ; chaque brick finit par une preuve GF-1, commit isolé)
+| Brick | Livrable | Fichiers (réf) | GF-1 (preuve fonctionnelle) |
+|---|---|---|---|
+| **Φ0.1** | Canoniser co-location ds-kernel (neutraliser legacy `src/schemas/sections.ts`, `src/lib/section-demos.ts`, `catalog.generated.json`) → tout dérive de `packages/ds-kernel/src/sections/<type>/` + `gen-section-aggregate.mjs` | inventaire §4 + gates `check:section-aggregate`/`check:section-modules` | build vert + `git grep` montre 0 import legacy résiduel + aggregate régénéré identique |
+| **Φ0.2** | Presets en git-as-DB : créer `src/data/ds-presets.json` (extraire de `section-presets.ts`) | contrat §6 Preset | lire le JSON via le moteur → preset appliqué (merge shallow) prouvé en preview, 0 nouveau type |
+| **Φ0.3** | `themes.css` `[data-theme]` (16 colorschemes) branché sur tokens DS | contrat §6 ColorScheme | toggle `[data-theme]` change `var(--surface)` (getComputedStyle), 0 token DS nouveau |
+| **Φ0.4** | Endpoint `POST /api/ds/compose` (écrit `sections:` dans `content/**` ou `page-variants/**`) — clone de `ds-save-dev.mjs` | contrat §6 endpoints, pattern `src/integrations/ds-save-dev.mjs` | appel réel → **write→read git** (commit existe + fichier relu + build passe) + cas limite (refus `main`, keyword KO, Zod KO) |
+| **Φ0.5** | Endpoint `POST /api/ds/preset` (écrit `ds-presets.json` + bloc `themes.css`) | idem | même batterie write→read git + erreurs |
+| **Φ0.6** | Exposer au MCP les facets i18n + presets concrets (`catalogue_get_preset`) | `mcp/waimia-catalogue-server.mjs` | tool appelé réellement → renvoie presets validés ; happy + erreur |
+
+### Pré-requis avant de lancer (à vérifier en début de chantier)
+- Trancher les **décisions ouvertes §11** qui touchent Φ0 : stockage presets (Φ0.2 confirme TS→JSON), enrichissement MCP metadata (Φ0.6). Les 2 autres (périmètre Φ5, hooks SaaS) sont hors Φ0.
+- Réconcilier avec le **board** : Φ0 recouvre P2.3 (`@theme inline`), P2.7 (système de variation), P2.9 (presets en masse) — créer/mettre à jour ces tâches dans `docs/state/02` au lancement.
+- Décider **orchestration** : Φ0 est mécanique-à-modéré → workers Sonnet spec'd par brick (endpoints = clones de `ds-save-dev`), Opus pour l'arbitrage des contrats. Worktree isolé si bricks parallèles touchent des fichiers partagés.
+
+### Instructions d'entrée prochaine session (copier tel quel dans le prompt de relance)
+> « Lance le chantier **builder Φ0 (stabilisation moteur)**. Lis `docs/specs/06-builder-architecture.md` §4–§7 + §13
+> (contrat + bricks), puis `docs/specs/05` §Cadrage pour la vision. Exécute les bricks Φ0.1→Φ0.6 dans l'ordre,
+> 1 commit + GF-1 fonctionnel (write→read git) par brick, en réutilisant `src/integrations/ds-save-dev.mjs`
+> comme patron des endpoints. Ne touche AUCUNE UI (couches E) tant que Φ0 n'est pas vert. Mets à jour le board
+> (P2.3/2.7/2.9) au fil de l'eau. »
+
+### Ce que Φ0 NE fait PAS
+- 0 UI builder/studio/chat (couches E = Φ1+). 0 refonte de présentation des hubs library.
+- 0 self-serve, 0 multi-tenant, 0 marketplace (§3 OUT).
+- Ne casse aucun rendu du site waimia en prod (le moteur sert déjà les pages composables ; Φ0 étend, ne régresse pas — GF-1 sweep des `/preview/*` + pages composables avant merge).
