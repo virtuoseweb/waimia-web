@@ -28,4 +28,5 @@ export const schema = z.object({
   intro_desc_en: z.string().optional(),
   intro_media: z.string().optional(), // image de la ligne d'intro (placeholder editorial, CMS)
   features: z.array(featureItemSchema).min(3).max(8),
+  fillMedia: z.string().optional(),
 });

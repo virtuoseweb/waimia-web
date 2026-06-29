@@ -166,7 +166,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "definition-extract": {
-    "count": 9,
+    "count": 10,
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
@@ -174,6 +174,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integrateur-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
+      "/services/site-web-intelligent",
       "/services/site-web-intelligent/sur-mesure",
       "/services/site-web-intelligent/webflow",
       "/services/site-web-intelligent/wordpress"
@@ -578,13 +579,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "logo-marquee": {
-    "count": 5,
+    "count": 6,
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/integrateur-claude",
       "/services/landing-page-scoring",
-      "/services/maintenance-growth"
+      "/services/maintenance-growth",
+      "/services/site-web-intelligent"
     ]
   },
   "maturity-pyramid": {
@@ -809,7 +811,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "statement-orbit": {
-    "count": 8,
+    "count": 9,
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
@@ -818,6 +820,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
+      "/services/site-web-intelligent",
       "/services/systeme-complet"
     ]
   },

@@ -27,7 +27,7 @@ const steps = data.steps.map((s) => ({
   sub: isFr ? s.sub_fr : s.sub_en,
 }));
 // Numéro DÉRIVÉ de l'index (00, 01…), jamais stocké.
-const num = (i: number) => String(i).padStart(2, '0');
+const num = (i: number) => String(i + 1).padStart(2, '0');
 
 // ── Vague C · Batch 5. Résolution raccourci↔placement : UN data-attr effectif par région.
 // Défaut absent = rail horizontal actuel. grid-steps lit data-columns ('auto' = count-adaptive).
@@ -322,6 +322,19 @@ const msGridCols = msLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefi
     .ms[data-layout='grid-steps'] .ms-line[data-columns='3'],
     .ms[data-layout='grid-steps'] .ms-line[data-columns='4'] { grid-template-columns: 1fr; }
   }
+
+  /* ── Alternance des fonds (idiome DS data-bg). Défaut absent = transparent (paper) = rendu actuel. ── */
+  .ms[data-bg='paper-2'] { background: var(--paper-2); }
+  .ms[data-bg='paper-3'] { background: var(--paper-3); }
+  .ms[data-bg='ink'] { background: var(--ink); }
+  /* L'anneau du nœud masque le fil : il doit suivre le FOND de section (sinon halo clair sur teinte/ink). */
+  .ms[data-bg='paper-2'] .ms-node__dot { box-shadow: 0 0 0 var(--space-1) var(--paper-2); }
+  .ms[data-bg='paper-3'] .ms-node__dot { box-shadow: 0 0 0 var(--space-1) var(--paper-3); }
+  .ms[data-bg='ink'] .ms-node__dot { box-shadow: 0 0 0 var(--space-1) var(--ink); }
+  /* Variante ink : titres lisibles (le global [data-bg='ink'] gère déjà kicker/sub/lede/hairline via --muted/--accent-text). */
+  .ms[data-bg='ink'] :is(.ms-title, .ms-node__title) { color: var(--paper); }
+  .ms[data-bg='ink'] .ms-title :global(i.acc),
+  .ms[data-bg='ink'] .ms-title :global(.acc) { color: var(--accent-sur-sombre, var(--accent)); }
 
   @media (prefers-reduced-motion: reduce) {
     .reveal-stagger > * { transition: none; }

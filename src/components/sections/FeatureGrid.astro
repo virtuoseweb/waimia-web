@@ -113,6 +113,7 @@ const fgShowCardMeta = fgCardContent === 'title-desc-meta';
 const fgShowCardMedia =
   fgCardMedia === 'image' || fgCardContent === 'media-title-desc';
 const fgCardImageBg = fgCardMedia === 'image-bg';
+const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
 ---
 
 {data.type === 'problems-grid' ? (
@@ -325,6 +326,11 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
         </li>
         );
       })}
+      {fgFillArt && (
+        <li class="feature-grid__item feature-grid__fill" aria-hidden="true">
+          <span class="feature-grid__fill-art" set:html={fgFillArt} />
+        </li>
+      )}
     </ul>
     </div>
   </section>
@@ -509,6 +515,27 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
   .feature-grid[data-bg='ink'] :is(.sec-base-h2, .feature-grid__header :is(h2, h3, p)) { color: var(--paper); }
   .feature-grid[data-bg='ink'] .feature-grid__item:not([data-cell-bg]) :is(h3, strong, h2),
   .feature-grid[data-bg='ink'] .feature-grid__item:not([data-cell-bg]) p { color: var(--paper); }
+
+  /* ── Tuile de remplissage (fillMedia) — occupe une cellule de grille, SVG centré, pas de fond propre ── */
+  .feature-grid__fill {
+    align-items: center;
+    justify-content: center;
+  }
+  .feature-grid__fill-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: var(--ink);
+  }
+  .feature-grid[data-bg='ink'] .feature-grid__fill-art { color: var(--paper); }
+  .feature-grid__fill-art :global(svg) {
+    width: 78%;
+    max-width: var(--space-12);
+    height: auto;
+    max-height: var(--space-12);
+    display: block;
+  }
 
   /* ───── problems-grid (preset) — CSS VERBATIM ProblemsGrid.astro, `.wrap-wide` scopé
      qualifié `.wrap-wide:where(.problems-grid)` (spécificité inchangée) ───── */
