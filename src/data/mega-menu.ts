@@ -466,13 +466,11 @@ const AGENCE: MegaMenuSection = {
         },
         {
           label: { fr: 'Process Intelligence', en: 'Process Intelligence' },
-          href: '/methode/process-intelligence',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
-        },
-        {
-          label: { fr: 'Notre approche', en: 'Our approach' },
           href: '/agence/methode',
+          description: {
+            fr: 'Cartographie, priorisation, câblage : la méthode anti-théâtre.',
+            en: 'Mapping, prioritisation, wiring: the anti-theatre method.',
+          },
         },
       ],
     },
@@ -483,14 +481,18 @@ const AGENCE: MegaMenuSection = {
         {
           label: { fr: 'Partenaires technologiques', en: 'Technology partners' },
           href: '/partenaires',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: {
+            fr: 'L\'écosystème que nous intégrons, sans vous enfermer.',
+            en: 'The ecosystem we integrate, without lock-in.',
+          },
         },
         {
           label: { fr: 'Stack & technologies', en: 'Stack & technologies' },
           href: '/technologies',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          description: {
+            fr: 'Claude, Astro, Vercel, vos outils métier : la stack par couche.',
+            en: 'Claude, Astro, Vercel, your business tools: the stack by layer.',
+          },
         },
         {
           label: { fr: 'Expertise Claude', en: 'Claude expertise' },
@@ -509,20 +511,14 @@ const AGENCE: MegaMenuSection = {
         {
           label: { fr: 'Montpellier', en: 'Montpellier' },
           href: '/implantations/montpellier',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'France entière', en: 'All of France' },
           href: '/implantations',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Bordeaux', en: 'Bordeaux' },
           href: '/implantations/bordeaux',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       footer: {

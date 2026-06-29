@@ -1,0 +1,295 @@
+---
+// Page · /partenaires · Partenaires technologiques (écosystème intégré)
+export const prerender = true;
+
+import UtilityTemplate from '../components/templates/UtilityTemplate.astro';
+import Kicker from '../components/ui/atoms/Kicker.astro';
+
+// ── Cadrage honnête : écosystème technologique que Waimia maîtrise et intègre.
+// Aucune relation contractuelle inventée, aucun statut « certifié / officiel ».
+const partnersLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: "Partenaires technologiques · L'écosystème que Waimia intègre",
+  description: "Les briques technologiques sur lesquelles Waimia construit et qu'il intègre : Claude, Vercel, les CMS git-based et classiques, les outils CRM et growth, et la stack Google. Pas de partenariat de façade : des outils que nous maîtrisons au quotidien.",
+  url: `https://waimia.com${Astro.url.pathname}`,
+};
+
+// ── Écosystème par strate (le contenu pilote la composition, 0 logo cassé).
+const layers = [
+  {
+    n: '01',
+    cat_fr: 'Le moteur IA',
+    cat_en: 'The AI engine',
+    lede_fr: "Tout part du bon modèle pour la bonne tâche. Pas un assistant générique : un raisonnement câblé là où il compte.",
+    items: [
+      {
+        name: 'Anthropic · Claude',
+        role_fr: "Le moteur de raisonnement de chaque agent. Un modèle par tâche : Opus pour la conception, Sonnet pour l'exécution, Haiku pour la vérification.",
+        href: '/services/integrateur-claude',
+      },
+    ],
+  },
+  {
+    n: '02',
+    cat_fr: 'Hébergement & déploiement',
+    cat_en: 'Hosting & deployment',
+    lede_fr: "Les sites et systèmes que nous livrons tournent sur une infrastructure mesurée, rapide, reproductible.",
+    items: [
+      {
+        name: 'Vercel',
+        role_fr: "Hébergement et déploiement continu des sites. Previews à chaque modification, mise en production tracée, performance par défaut.",
+      },
+    ],
+  },
+  {
+    n: '03',
+    cat_fr: 'Écosystème CMS',
+    cat_en: 'CMS ecosystem',
+    lede_fr: "On branche le bon gestionnaire de contenu selon le besoin : git-based pour la rigueur, classique pour les équipes éditoriales.",
+    items: [
+      { name: 'TinaCMS', role_fr: "Édition visuelle git-based, contenu versionné dans le dépôt." },
+      { name: 'Keystatic', role_fr: "CMS git-based léger, idéal pour les sites de contenu structurés." },
+      { name: 'Decap', role_fr: "Gestion de contenu git-based, sans base de données à maintenir." },
+      { name: 'Contentful', role_fr: "Headless CMS d'entreprise, API-first, multi-équipes." },
+      { name: 'Sanity', role_fr: "Contenu structuré temps réel, schémas sur-mesure." },
+      { name: 'Strapi', role_fr: "Headless CMS auto-hébergeable, contrôle total des données." },
+      { name: 'Prismic', role_fr: "Page builder headless orienté marketing et slices." },
+    ],
+  },
+  {
+    n: '04',
+    cat_fr: 'CRM & growth',
+    cat_en: 'CRM & growth',
+    lede_fr: "L'acquisition et le pilotage commercial s'appuient sur des outils que l'on connecte à vos agents, sans migration forcée.",
+    items: [
+      { name: 'HubSpot', role_fr: "CRM et marketing automation, pivot du pilotage commercial." },
+      { name: 'Lemlist', role_fr: "Séquences d'emails sortants personnalisées à l'échelle." },
+      { name: 'Instantly', role_fr: "Délivrabilité et volume sur les campagnes de prospection." },
+      { name: 'Apollo', role_fr: "Base de prospects et enrichissement de données B2B." },
+      { name: 'Pharow', role_fr: "Ciblage et sourcing de prospects sur le marché français." },
+      { name: 'MailerLite', role_fr: "Newsletters et automatisations email pour l'audience." },
+    ],
+  },
+  {
+    n: '05',
+    cat_fr: 'Visibilité Google',
+    cat_en: 'Google visibility',
+    lede_fr: "La présence locale et la mesure passent par la stack Google, lue et exploitée, pas seulement installée.",
+    items: [
+      { name: 'Google Business Profile', role_fr: "Présence locale, avis et fiche établissement optimisés." },
+      { name: 'Google Analytics 4', role_fr: "Mesure d'audience et de conversion, branchée aux décisions." },
+      { name: 'Google Search Console', role_fr: "Suivi d'indexation et de performance dans la recherche." },
+    ],
+  },
+];
+---
+<UtilityTemplate
+  title="Partenaires technologiques · L'écosystème que Waimia intègre"
+  description="Les briques technologiques sur lesquelles Waimia construit : Claude, Vercel, l'écosystème CMS, les outils CRM et growth, la stack Google. Des technologies que nous maîtrisons et intégrons, pas des partenariats de façade."
+  jsonLd={partnersLd}
+  kicker="§ Partenaires technologiques"
+  align="left"
+  headlineFr="L'<i>écosystème</i> que nous intégrons."
+  headlineEn="The <i>ecosystem</i> we integrate."
+  ledeFr="Waimia ne vend pas une marque partenaire. On construit avec des briques solides, choisies pour ce qu'elles font, branchées à vos outils existants."
+  ledeEn="Waimia does not resell a partner badge. We build on solid bricks, chosen for what they do, wired into the tools you already use."
+>
+  <Fragment slot="body">
+
+    {/* ── CADRAGE HONNÊTE ── */}
+    <div class="part-intro reveal">
+      <p class="part-intro-lede">
+        Cette page liste l'<i>écosystème technologique</i> sur lequel le studio s'appuie. Ce sont des outils que nous maîtrisons et que nous <i>intégrons</i> dans vos systèmes, pas des partenariats commerciaux ni des labels de revendeur.
+      </p>
+      <p class="part-intro-note">
+        La règle est simple&nbsp;: on choisit la brique pour ce qu'elle fait, on la connecte à ce qui marche déjà chez vous, et on reste responsable de l'ensemble. Pas de dépendance propriétaire imposée.
+      </p>
+    </div>
+
+    {/* ── STRATES DE L'ÉCOSYSTÈME ── */}
+    <div class="part-layers reveal-stagger">
+      {layers.map((layer) => (
+        <section class="part-layer">
+          <header class="part-layer-head">
+            <span class="part-layer-n">{layer.n}</span>
+            <div class="part-layer-titles">
+              <Kicker tone="accent" class="part-layer-kicker">{layer.cat_fr}</Kicker>
+              <p class="part-layer-lede">{layer.lede_fr}</p>
+            </div>
+          </header>
+          <ul class="part-grid">
+            {layer.items.map((item) => (
+              <li class="part-card">
+                {item.href ? (
+                  <a class="part-card-name part-card-name--link" href={item.href}>
+                    {item.name}
+                    <span class="part-card-arrow" aria-hidden="true">→</span>
+                  </a>
+                ) : (
+                  <span class="part-card-name">{item.name}</span>
+                )}
+                <p class="part-card-role">{item.role_fr}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    {/* ── PRINCIPE D'INTÉGRATION · encart INK (rythme + réassurance) ── */}
+    <div class="part-principle reveal">
+      <Kicker tone="dim" class="part-principle-kicker">§ Notre principe</Kicker>
+      <h2 class="part-principle-h2">On intègre des outils. On ne vous <i>enferme</i> dans aucun.</h2>
+      <p class="part-principle-body">
+        Chaque brique de cet écosystème reste remplaçable. Les agents tournent sur vos comptes, vos accès, vos données. Si vous changez de CRM ou de CMS demain, le système suit. C'est la condition pour qu'un studio solo reste digne de confiance&nbsp;: vous pouvez nous virer sans tout perdre.
+      </p>
+    </div>
+
+  </Fragment>
+</UtilityTemplate>
+
+<style>
+  /* ── Cadrage honnête ── */
+  .part-intro {
+    max-width: var(--wrap-prose);
+    margin-bottom: var(--space-10);
+  }
+  .part-intro-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-prose);
+    color: var(--ink-2);
+    margin: 0 0 var(--space-5);
+    text-wrap: pretty;
+  }
+  .part-intro-lede i,
+  .part-intro-note i { font-style: italic; color: var(--accent-text); }
+  .part-intro-note {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-prose);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── Strates ── */
+  .part-layers {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-11);
+  }
+  .part-layer-head {
+    display: grid;
+    grid-template-columns: minmax(56px, auto) 1fr;
+    column-gap: var(--space-6);
+    align-items: baseline;
+    margin-bottom: var(--space-7);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .part-layer-n {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-numeral-md);
+    line-height: 0.85;
+    letter-spacing: var(--tracking-display);
+    color: var(--accent-text);
+  }
+  :global(.part-layer-kicker) { display: block; margin-bottom: var(--space-3); }
+  .part-layer-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-prose);
+    color: var(--muted);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  /* ── Grille de cards (texte, 0 logo) ── */
+  .part-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .part-card {
+    background: var(--paper);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .part-card-name {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .part-card-name--link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .part-card-name--link:hover { color: var(--accent-text); }
+  .part-card-arrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+  }
+  .part-card-role {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── Principe · encart INK ── */
+  .part-principle {
+    background: var(--ink);
+    color: var(--paper);
+    padding: var(--space-10) var(--space-8);
+    margin-top: var(--space-12);
+    border-left: 3px solid var(--accent);
+  }
+  :global(.part-principle-kicker) { display: block; margin-bottom: var(--space-5); }
+  .part-principle-h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-regular);
+    text-wrap: balance;
+    margin: 0 0 var(--space-5);
+    color: var(--paper);
+    max-width: 24ch;
+  }
+  .part-principle-h2 i { font-style: italic; color: var(--accent-text); }
+  .part-principle-body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-prose);
+    color: rgba(var(--paper-rgb), 0.82);
+    margin: 0;
+    max-width: 70ch;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .part-layer-head {
+      grid-template-columns: 1fr;
+      row-gap: var(--space-3);
+    }
+    .part-grid { grid-template-columns: 1fr; }
+    .part-principle { padding: var(--space-8) var(--space-6); }
+  }
+</style>
