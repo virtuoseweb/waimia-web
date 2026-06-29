@@ -21,7 +21,7 @@ const isFr = lang === 'fr';
           {isFr ? data.kicker_fr : data.kicker_en}
         </Kicker>
       )}
-      <h2 class="reveal-mask-up sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="reveal-mask-up sec-base-h2 u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.body_fr : data.body_en) && (
         <p class="cta-split__body reveal reveal-fade">
           {isFr ? data.body_fr : data.body_en}

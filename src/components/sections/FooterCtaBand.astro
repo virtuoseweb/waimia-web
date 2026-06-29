@@ -46,7 +46,7 @@ const actionsHide = pl?.actions?.hideOn;
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
-      <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
+      <h2 class="u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.subtitle_fr : data.subtitle_en) && (
         <p class="footer-cta__subtitle">{isFr ? data.subtitle_fr : data.subtitle_en}</p>
       )}
