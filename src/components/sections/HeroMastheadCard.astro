@@ -83,25 +83,27 @@ const svgInline = isSvgMedia ? inlineLineArt(data.media_src) : undefined;
         {ctaSub && <p class="hmc__cta-sub" set:html={ctaSub} />}
       </div>
 
-      <aside class="hmc__rail">
-        {data.media_src && (
-          <figure class="hmc__media">
-            {svgInline
-              ? <div class="hmc__media-svg" role="img" aria-label={mediaAlt ?? ''} set:html={svgInline}></div>
-              : <img src={data.media_src} alt={mediaAlt ?? ''} loading="eager" decoding="async" />}
-          </figure>
-        )}
-        {kpis.length > 0 && (
-          <ul class="hmc__kpis" aria-label={isFr ? 'Résultats' : 'Results'}>
-            {kpis.map((k) => (
-              <li class="hmc__kpi">
-                <span class="hmc__kpi-num">{k.num}</span>
-                <span class="hmc__kpi-label">{isFr ? k.cap_fr : k.cap_en}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </aside>
+      {(data.media_src || kpis.length > 0) && (
+        <aside class="hmc__rail">
+          {data.media_src && (
+            <figure class="hmc__media">
+              {svgInline
+                ? <div class="hmc__media-svg" role="img" aria-label={mediaAlt ?? ''} set:html={svgInline}></div>
+                : <img src={data.media_src} alt={mediaAlt ?? ''} loading="eager" decoding="async" />}
+            </figure>
+          )}
+          {kpis.length > 0 && (
+            <ul class="hmc__kpis" aria-label={isFr ? 'Résultats' : 'Results'}>
+              {kpis.map((k) => (
+                <li class="hmc__kpi">
+                  <span class="hmc__kpi-num">{k.num}</span>
+                  <span class="hmc__kpi-label">{isFr ? k.cap_fr : k.cap_en}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </aside>
+      )}
     </div>
   </div>
 
@@ -131,6 +133,9 @@ const svgInline = isSvgMedia ? inlineLineArt(data.media_src) : undefined;
       gap: var(--space-10);
       align-items: center;
     }
+    /* Variante sans rail (ni média ni KPI, ex. masthead secteur) : 1 colonne éditoriale. */
+    .hmc__grid:not(:has(.hmc__rail)) { grid-template-columns: 1fr; }
+    .hmc__grid:not(:has(.hmc__rail)) .hmc__title { max-width: 20ch; }
     .hmc__main { display: flex; flex-direction: column; }
 
     :global(.hmc__fig) { margin-bottom: var(--space-4); }

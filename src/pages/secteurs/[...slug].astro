@@ -174,23 +174,35 @@ const hasWorkflows = workflowRows.length >= 2;
 // ════════════════════════════════════════════════════════════════════════════════
 const sectionsBeforeProse: SectionData[] = [];
 
-// 1 · hero-sector (paper) · accroche métier
+// 1 · hero-masthead-card (paper) · masthead editorial secteur, variante sans media
+// (variante du hero service, directive Simon 2026-06-29). Badges = leviers metier (kpis_fr),
+// rail KPI replie => 1 colonne. Stats marche restent dans metric-callout-band plus bas.
 sectionsBeforeProse.push({
-  type: 'hero-sector',
+  type: 'hero-masthead-card',
   background: 'paper',
-  dept_fr: d.icp_fr,
-  dept_en: d.icp_en,
+  kicker_fr: '§ Secteur',
+  kicker_en: '§ Sector',
   h1_fr: d.title_fr,
   h1_en: d.title_en,
-  lead_fr: d.description_fr,
-  lead_en: d.description_en,
-  cta: {
+  lede_fr: d.description_fr,
+  lede_en: d.description_en,
+  badges: (d.kpis_fr ?? []).slice(0, 3).map((label, i) => ({
+    label_fr: label,
+    label_en: (d.kpis_en ?? [])[i] ?? label,
+  })),
+  cta_primary: {
     label_fr: d.ctaPrimary_fr,
     label_en: d.ctaPrimary_en,
     href: localizeHref('/contact', lang),
     variant: 'primary',
   },
-} satisfies SectionByType<'hero-sector'>);
+  cta_secondary: {
+    label_fr: 'Voir les cas clients',
+    label_en: 'See case studies',
+    href: localizeHref('/cas-clients', lang),
+    variant: 'ghost',
+  },
+} satisfies SectionByType<'hero-masthead-card'>);
 
 // 2 · pain-severity-list (ink) · friction, bascule contraste tôt
 sectionsBeforeProse.push({

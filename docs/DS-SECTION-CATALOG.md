@@ -3516,7 +3516,7 @@
 | `lede_fr` | string | oui |  |  |
 | `media_alt_en` | string | non |  |  |
 | `media_alt_fr` | string | non |  |  |
-| `media_src` | string | oui |  |  |
+| `media_src` | string | non |  |  |
 
 **Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--paper` `--paper-2` `--radius-lg` `--radius-pill` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-h1` `--text-lede` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
 
