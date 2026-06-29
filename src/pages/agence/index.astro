@@ -84,23 +84,33 @@ export const agenceSections: SectionData[] = [
     ],
   },
 
-  // 5 · COMMENT ON TRAVAILLE (paper, carte ink) — méthode, pas de cas client inventé
+  // 5 · COMMENT ON TRAVAILLE (paper-3, image éditoriale réelle) : méthode, pas de
+  // cas client inventé. case-spotlight = bloc composé qui porte une vraie image au bon
+  // endroit (directive awwwards §6) : image howweworkwithai (public/images/editorial,
+  // vérifiée), citation = posture méthode, 3 métriques de cadrage, CTA conservé.
   {
-    type: 'case-split',
+    type: 'case-spotlight',
+    background: 'paper-3',
+    variant: 'media-right',
     kicker_fr: 'Notre méthode · de bout en bout',
     kicker_en: 'Our method · end to end',
     title_fr: 'On part du <i>process cassé</i>, on câble au bon endroit, on mesure.',
     title_en: 'We start from the <i>broken process</i>, wire at the right point, and measure.',
-    body_fr: "On ne vend pas de l'IA pour faire de l'IA. On trace le workflow, on pose l'automatisation là où elle compte (HubSpot, Stripe, dbt, vos outils existants), et on mesure l'avant/après. Pas de refonte si un connecteur suffit.",
-    body_en: "We don't sell AI for AI's sake. We trace the workflow, place automation where it matters (HubSpot, Stripe, dbt, your existing tools), and measure before/after. No rebuild when a connector is enough.",
+    media_src: '/images/editorial/image-style-howweworkwithai.webp',
+    media_alt: "Illustration éditoriale : la façon dont le studio câble l'IA dans les outils existants.",
+    media_caption: 'Process Intelligence · du diagnostic à la mesure',
+    quote_fr: "On ne vend pas de l'IA pour faire de l'IA. On trace le workflow, on pose l'automatisation là où elle compte (HubSpot, Stripe, dbt, vos outils existants), et on mesure l'avant/après. Pas de refonte si un connecteur suffit.",
+    quote_en: "We don't sell AI for AI's sake. We trace the workflow, place automation where it matters (HubSpot, Stripe, dbt, your existing tools), and measure before/after. No rebuild when a connector is enough.",
+    attribution_fr: 'Waimia · studio solo · Montpellier',
+    attribution_en: 'Waimia · solo studio · Montpellier',
+    metrics: [
+      { k: '5 j', label_fr: 'pour cibler le levier', label_en: 'to pinpoint the lever' },
+      { k: '4 sem.', label_fr: 'au premier workflow', label_en: 'to first workflow' },
+      { k: '1', label_fr: 'interlocuteur unique', label_en: 'single point of contact' },
+    ],
     cta_label_fr: 'Parler de votre projet →',
     cta_label_en: 'Discuss your project →',
     cta_href: '/contact',
-    results: [
-      { value: '5 j', label_fr: 'pour cibler\nle levier', label_en: 'to pinpoint\nthe lever' },
-      { value: '4 sem.', label_fr: 'au premier\nworkflow', label_en: 'to first\nworkflow' },
-      { value: '1', label_fr: 'interlocuteur\nunique', label_en: 'single point\nof contact' },
-    ],
   },
 
   // 6 · STACK (paper-2) — écosystème Anthropic + outils
@@ -140,32 +150,34 @@ export const agenceSections: SectionData[] = [
     ],
   },
 
-  // 8 · FONDATEUR / ORIGINE (paper-2) — narratif sobre + jalons (faits seulement)
+  // 8 · FONDATEUR / ORIGINE (paper-2, image editoriale reelle) : narratif sobre +
+  // jalons (faits seulement). feature-split-media = bloc compose portant une vraie
+  // image au bon endroit (directive awwwards section 6). Image gentlemanhandcrafter
+  // (public/images/editorial, verifiee) = posture artisan solo. Paragraphes = body,
+  // jalons = points (label seul, annee repliee dans le libelle).
   {
-    type: 'about-story-split',
+    type: 'feature-split-media',
     background: 'paper-2',
+    reversed: true,
+    proportion: '2-1',
+    media_sticky: true,
     kicker_fr: '§ Origine & posture',
     kicker_en: '§ Origin & posture',
     h2_fr: "Née d'une <i>frustration</i> de chantier",
     h2_en: 'Born from a <i>delivery</i> frustration',
-    paragraphs_fr: [
-      "Waimia part d'une observation répétée : un POC passe en comité, brille en showroom, puis cale en juin. Le studio prend le problème par l'autre bout.",
-      "Simon Beros câble et pilote chaque mission lui-même. Pas d'agence relai, pas d'account manager rotatif : vous parlez à celui qui livre.",
-      'Ce que le studio refuse : le théâtre IA, les ateliers de cadrage sans livrable signé, les agents non auditables qui transforment le logiciel en boîte noire.',
+    body_fr: "Waimia part d'une observation répétée : un POC passe en comité, brille en showroom, puis cale en juin. Le studio prend le problème par l'autre bout. Simon Beros câble et pilote chaque mission lui-même : pas d'agence relai, pas d'account manager rotatif, vous parlez à celui qui livre. Ce que le studio refuse : le théâtre IA, les ateliers de cadrage sans livrable signé, les agents non auditables qui transforment le logiciel en boîte noire.",
+    body_en: 'Waimia starts from a recurring observation: a POC clears committee, shines in the showroom, then stalls in June. The studio takes the problem from the other end. Simon Beros wires and runs every engagement himself: no relay agency, no rotating account manager, you talk to the person who ships. What the studio refuses: AI theatre, framing workshops with no signed deliverable, non-auditable agents that turn software into a black box.',
+    points: [
+      { label_fr: 'Studio · praticien solo, Simon Beros', label_en: 'Studio · solo practitioner, Simon Beros' },
+      { label_fr: 'Montpellier · ancrage France, à distance partout', label_en: 'Montpellier · based in France, remote everywhere' },
+      { label_fr: 'Anthropic · partenaire, parcours expert francophone', label_en: 'Anthropic · partner, francophone expert track' },
+      { label_fr: 'France Num · activateur, expert IA & numérique', label_en: 'France Num · activator, AI & digital expert' },
     ],
-    paragraphs_en: [
-      'Waimia starts from a recurring observation: a POC clears committee, shines in the showroom, then stalls in June. The studio takes the problem from the other end.',
-      'Simon Beros wires and runs every engagement himself. No relay agency, no rotating account manager: you talk to the person who ships.',
-      'What the studio refuses: AI theatre, framing workshops with no signed deliverable, non-auditable agents that turn software into a black box.',
-    ],
-    aside_title_fr: 'Repères',
-    aside_title_en: 'Markers',
-    milestones: [
-      { year: 'Studio', label_fr: 'Praticien solo · Simon Beros', label_en: 'Solo practitioner · Simon Beros' },
-      { year: 'Montpellier', label_fr: 'Ancrage France · à distance partout', label_en: 'Based in France · remote everywhere' },
-      { year: 'Anthropic', label_fr: 'Partenaire · parcours expert francophone', label_en: 'Partner · francophone expert track' },
-      { year: 'France Num', label_fr: 'Activateur · expert IA & numérique', label_en: 'Activator · AI & digital expert' },
-    ],
+    media_src: '/images/editorial/gentlemanhandcraftergoworknow.webp',
+    media_alt_fr: "Illustration éditoriale : l'artisan solo au travail, posture du studio.",
+    media_alt_en: 'Editorial illustration: the solo craftsman at work, the studio posture.',
+    media_caption_fr: 'Studio solo · un seul interlocuteur',
+    media_caption_en: 'Solo studio · a single point of contact',
   },
 
   // 9 · CTA FINAL (INK)

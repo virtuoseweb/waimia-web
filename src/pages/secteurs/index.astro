@@ -9,6 +9,7 @@ import { getCollection } from 'astro:content';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 import type { SectionByType } from '@waimia/ds-kernel';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
+import CaseSpotlight from '../../components/sections/CaseSpotlight.astro';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -55,6 +56,31 @@ const ctaData = {
   background: 'ink' as const,
 } satisfies SectionByType<'cta-final'>;
 
+// Bande éditoriale ink (case-spotlight) : respiration visuelle entre la grille de
+// secteurs et le CTA, comme le pilote cas-clients. Image éditoriale réelle du repo
+// (public/images/editorial/menonhand.webp, vérifiée existante). Aucune métrique
+// inventée (pas de chiffre secteur réel) : message de positionnement factuel.
+const spotlightData = {
+  type: 'case-spotlight' as const,
+  background: 'ink' as const,
+  variant: 'media-right' as const,
+  kicker_fr: '§ La méthode, pas le secteur',
+  kicker_en: '§ The method, not the sector',
+  title_fr: 'On part de votre terrain, jamais d’un template',
+  title_en: 'We start from your field, never from a template',
+  media_src: '/images/editorial/menonhand.webp',
+  media_alt: isFr
+    ? 'Illustration éditoriale : des équipes métier qui se relaient autour d’un même outil.'
+    : 'Editorial illustration: operational teams working hand in hand around one tool.',
+  quote_fr: 'Chaque métier a ses goulots et ses leviers. On les lit sur vos données réelles avant d’écrire la moindre ligne.',
+  quote_en: 'Every trade has its bottlenecks and its levers. We read them on your real data before writing a single line.',
+  attribution_fr: 'Méthode Waimia · diagnostic terrain avant exécution',
+  attribution_en: 'Waimia method · field diagnosis before execution',
+  cta_href: localizeHref('/contact', lang),
+  cta_label_fr: 'Parler de votre métier →',
+  cta_label_en: 'Discuss your trade →',
+} satisfies SectionByType<'case-spotlight'>;
+
 const mastheadData = {
   type: 'hero-hub-masthead' as const,
   variant: 'hub' as const,
@@ -88,6 +114,8 @@ const mastheadData = {
       ))}
     </div>
   </section>
+
+  <CaseSpotlight data={spotlightData} lang={lang} />
 
   <CtaFinal data={ctaData} lang={lang} />
 </Base>

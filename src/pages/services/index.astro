@@ -8,6 +8,7 @@ import CtaFinal from '../../components/sections/CtaFinal.astro';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
 import OfferTierGrid from '../../components/sections/OfferTierGrid.astro';
 import RelatedCardsBand from '../../components/sections/RelatedCardsBand.astro';
+import FeatureSplitMedia from '../../components/sections/FeatureSplitMedia.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 
 const solutionsJsonLd = {
@@ -33,6 +34,34 @@ const heroData = {
   decoration: false as const,
   align: 'left' as const,
 } satisfies SectionByType<'hero-hub-masthead'>;
+
+// Bande média éditoriale qui ouvre l'offre I (habillage awwwards : texte étroit + visuel large,
+// fond paper pour contraster avec l'OfferTierGrid ink qui suit). Image réelle du catalogue thèmes.
+const offerWebMediaData = {
+  type: 'feature-split-media' as const,
+  background: 'paper' as const,
+  proportion: '2-3' as const,
+  mediaSide: 'right' as const,
+  kicker_fr: 'I · SITE WEB INTELLIGENT',
+  kicker_en: 'I · SMART WEBSITE',
+  h2_fr: 'Un site qui <i>acquiert</i>, pas une vitrine.',
+  h2_en: 'A site that <i>acquires</i>, not a brochure.',
+  body_fr: 'Une web app pilotée par l\'IA : SEO, analytics et CRM branchés. Chaque visite est qualifiée, scorée et routée vers ce qui convertit.',
+  body_en: 'An AI-driven web app: SEO, analytics and CRM wired in. Every visit is qualified, scored and routed toward what converts.',
+  points: [
+    { label_fr: 'SEO et analytics branchés dès la mise en ligne', label_en: 'SEO and analytics wired from launch' },
+    { label_fr: 'Scoring des leads avant le premier contact', label_en: 'Lead scoring before the first contact' },
+    { label_fr: 'Tunnel de qualification mesuré, pas supposé', label_en: 'Qualification funnel measured, not assumed' },
+  ],
+  media_src: '/images/themes/theme-acquisition.webp',
+  media_alt_fr: 'Illustration éditoriale : un site pensé comme un système d\'acquisition.',
+  media_alt_en: 'Editorial illustration: a site built as an acquisition system.',
+  media_caption_fr: 'Acquisition · le site comme système, pas comme vitrine',
+  media_caption_en: 'Acquisition · the site as a system, not a brochure',
+  cta_label_fr: 'Découvrir l\'offre →',
+  cta_label_en: 'Explore the offer →',
+  cta_href: '/services/site-web-intelligent',
+} satisfies SectionByType<'feature-split-media'>;
 
 const offerWebData = {
   type: 'offer-tier-grid' as const,
@@ -83,6 +112,35 @@ const offerWebData = {
     },
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
+
+// Bande média éditoriale qui ouvre l'offre II (média à gauche pour alterner le rythme avec
+// la bande de l'offre I, anti-monotonie). Image réelle du catalogue thèmes (productivité).
+const offerClaudeMediaData = {
+  type: 'feature-split-media' as const,
+  background: 'paper' as const,
+  proportion: '3-2' as const,
+  mediaSide: 'left' as const,
+  reversed: true,
+  kicker_fr: 'II · INTÉGRATION CLAUDE',
+  kicker_en: 'II · CLAUDE INTEGRATION',
+  h2_fr: 'Claude en <i>production</i>, pas en démo.',
+  h2_en: 'Claude in <i>production</i>, not in a demo.',
+  body_fr: 'Claude branché à vos outils : gouvernance, formation et agents en production. On câble, on forme, on mesure.',
+  body_en: 'Claude wired to your tools: governance, training and agents in production. We wire, we train, we measure.',
+  points: [
+    { label_fr: 'Cas d\'usage cadrés, priorisés, adoptés', label_en: 'Use cases framed, prioritised, adopted' },
+    { label_fr: 'Agents branchés à vos outils via MCP', label_en: 'Agents wired to your tools via MCP' },
+    { label_fr: 'Gouvernance et formation, mesurées sur le terrain', label_en: 'Governance and training, measured in the field' },
+  ],
+  media_src: '/images/themes/theme-productivite.webp',
+  media_alt_fr: 'Illustration éditoriale : Claude branché aux outils de l\'entreprise.',
+  media_alt_en: 'Editorial illustration: Claude wired to the company tools.',
+  media_caption_fr: 'Productivité · standardiser, gagner du temps, exploiter le savoir',
+  media_caption_en: 'Productivity · standardize, save time, leverage knowledge',
+  cta_label_fr: 'Voir le service →',
+  cta_label_en: 'See the service →',
+  cta_href: '/services/integrateur-claude',
+} satisfies SectionByType<'feature-split-media'>;
 
 const offerClaudeData = {
   type: 'offer-tier-grid' as const,
@@ -194,11 +252,17 @@ const ctaData = {
   <HeroCentered data={heroData} lang="fr" />
 
   <!-- 2. OFFRE I · SITE WEB INTELLIGENT (dominante) -->
+  <!-- 2a. Bande média éditoriale (habillage) -->
+  <FeatureSplitMedia data={offerWebMediaData} lang="fr" />
+  <!-- 2b. Grille de l'offre -->
   <div class="offer-rhythm-base">
     <OfferTierGrid data={offerWebData} lang="fr" />
   </div>
 
   <!-- 3. OFFRE II · INTÉGRATION CLAUDE -->
+  <!-- 3a. Bande média éditoriale (habillage, média à gauche) -->
+  <FeatureSplitMedia data={offerClaudeMediaData} lang="fr" />
+  <!-- 3b. Grille de l'offre -->
   <div class="offer-rhythm-base">
     <OfferTierGrid data={offerClaudeData} lang="fr" />
   </div>
