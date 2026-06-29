@@ -26,6 +26,8 @@ import type {
   SectionInstance,
   VariationOption,
 } from '@waimia/builder/types';
+import { getCollection } from 'astro:content';
+import type { BuilderPage } from '@waimia/builder/types';
 import { listSections, listCategories } from '../../../lib/section-registry';
 import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
 import { resolvePreset } from '@waimia/ds-kernel/lib/page-document';
@@ -82,6 +84,46 @@ const colorSchemes: BuilderColorScheme[] = COLOR_SCHEMES.map((s) => {
 const sectionCount = items.length;
 const presetCount = items.reduce((n, it) => n + it.presets.length, 0);
 
+// ── Pages composables RÉELLES exposées au sélecteur « Charger une page » du builder ──────────────
+// On scanne les collections qui portent un array `sections:` ET dont la route publique est
+// déterministe (préfixe → /route/<id>). Pour chaque entrée non vide, on expose { collection,
+// slug, label, route, sections } : `sections` est le tableau BRUT de la page (instances concrètes
+// déjà déclinées), chargé tel quel dans le canvas. Source de vérité = le contenu, pas un fork.
+const PAGE_ROUTE_PREFIX: Record<string, string> = {
+  services: '/services',
+  'cas-usages': '/cas-usages',
+  secteurs: '/secteurs',
+  cases: '/cas-clients',
+  lp: '/lp',
+  implantations: '/implantations',
+  demonstrations: '/demonstrations',
+  guides: '/ressources/guides',
+  diagnostics: '/ressources/diagnostics',
+  comparatifs: '/ressources/comparatifs',
+};
+
+const pageGroups = await Promise.all(
+  Object.entries(PAGE_ROUTE_PREFIX).map(async ([collection, prefix]) => {
+    const entries = await getCollection(collection as Parameters<typeof getCollection>[0]);
+    return entries
+      .filter((entry) => Array.isArray((entry.data as any).sections) && (entry.data as any).sections.length > 0)
+      .map((entry): BuilderPage => {
+        const data = entry.data as any;
+        return {
+          collection,
+          slug: entry.id,
+          label: (data.title_fr as string) ?? entry.id,
+          route: `${prefix}/${entry.id}`,
+          sections: data.sections as BuilderPage['sections'],
+        };
+      });
+  }),
+);
+// Aplati + trié par route lisible (regroupe visuellement les pages d'une même collection).
+const pages: BuilderPage[] = pageGroups
+  .flat()
+  .sort((a, b) => a.route.localeCompare(b.route));
+
 const defaultMeta = {
   collection: 'offres',
   slug: 'brouillon',
@@ -105,10 +147,11 @@ const defaultMeta = {
       <Kicker class="bld-kicker">§ Atelier Design System · Builder visuel</Kicker>
       <h1 class="bld-h1">Compose, <i>ne code pas</i>.</h1>
       <p class="bld-lede">
-        Pioche des sections dans le catalogue à gauche, ordonne-les dans le canvas, décline chaque
-        section (preset et schéma de couleur) à droite, et vois le rendu en direct. Le document est
-        un PageDocument typé, exportable en JSON. {sectionCount} sections composables, {presetCount}
-        déclinaisons.
+        Charge une page existante depuis la barre pour la retrouver en wireframe, ou pioche des
+        sections dans le catalogue à gauche. Ordonne-les dans le canvas, décline chaque section
+        (preset et schéma de couleur) à droite, et vois le rendu en direct. Le document est un
+        PageDocument typé, exportable en JSON. {sectionCount} sections composables, {presetCount}
+        déclinaisons, {pages.length} pages chargeables.
       </p>
     </div>
   </section>
@@ -120,6 +163,7 @@ const defaultMeta = {
       colorSchemes={colorSchemes}
       defaultMeta={defaultMeta}
       collections={[...PAGE_COLLECTIONS]}
+      pages={pages}
       renderPath="/library/builder/render"
     />
   </section>

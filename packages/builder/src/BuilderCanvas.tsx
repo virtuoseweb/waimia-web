@@ -47,6 +47,7 @@ import type {
   BuilderCatalogueItem,
   BuilderColorScheme,
   BuilderMeta,
+  BuilderPage,
   BuilderSlot,
   SectionInstance,
 } from './types';
@@ -107,6 +108,7 @@ export default function BuilderCanvas({
   colorSchemes,
   defaultMeta,
   collections,
+  pages = [],
   renderPath,
 }: BuilderCanvasProps) {
   // Index type → entrée catalogue (lookup O(1) pour presets/slots/demo).
@@ -121,6 +123,13 @@ export default function BuilderCanvas({
     for (const s of colorSchemes) m.set(s.id, s);
     return m;
   }, [colorSchemes]);
+
+  // Index "collection/slug" → page composable réelle (lookup O(1) pour le sélecteur de chargement).
+  const pageByKey = useMemo(() => {
+    const m = new Map<string, BuilderPage>();
+    for (const p of pages) m.set(`${p.collection}/${p.slug}`, p);
+    return m;
+  }, [pages]);
 
   // ── État document ──────────────────────────────────────────────────────────────────────────
   const [meta, setMeta] = useState<BuilderMeta>(defaultMeta);
@@ -197,6 +206,36 @@ export default function BuilderCanvas({
       setSelectedUid(uid);
     },
     [itemByType],
+  );
+
+  // ── Charger une page composable réelle dans le canvas (wireframe ouvrable) ────────────────────
+  // Remplace le canvas courant par les sections de la page. On charge les instances BRUTES (props
+  // concrètes déjà déclinées sur la page) : même forme que addSection { uid, data, '', '' }, mais
+  // data = la section réelle clonée, pas la démo de base. On NE rejoue PAS preset/scheme (sinon la
+  // démo écraserait le contenu réel) ; les <select> du panneau restent donc sur "défaut", ce qui
+  // est honnête : l'instance chargée a ses propres valeurs, sans id de preset/scheme à inverser.
+  const loadPage = useCallback(
+    (key: string) => {
+      const page = pageByKey.get(key);
+      if (!page) return;
+      const loaded: CanvasSection[] = page.sections.map((data) => ({
+        uid: nextUid(),
+        data: { ...data },
+        presetId: '',
+        schemeId: '',
+      }));
+      setSections(loaded);
+      setSelectedUid(loaded.length > 0 ? loaded[0].uid : null);
+      // Aligne la meta du document sur la page chargée (collection + slug + titre), pour que
+      // l'export reflète sa cible. La langue d'édition courante est conservée.
+      setMeta((m) => ({
+        ...m,
+        collection: collections.includes(page.collection) ? page.collection : m.collection,
+        slug: page.slug,
+        title_fr: page.label,
+      }));
+    },
+    [pageByKey, collections],
   );
 
   const removeSection = useCallback(
@@ -339,6 +378,37 @@ export default function BuilderCanvas({
       {/* ── BARRE ── */}
       <div className="bld-bar">
         <div className="bld-bar-meta">
+          {pages.length > 0 && (
+            <label className="bld-field">
+              <span className="bld-field-label">Charger une page</span>
+              <select
+                className="bld-select"
+                value=""
+                onChange={(e) => {
+                  const key = e.target.value;
+                  if (!key) return;
+                  // Remplace le canvas : confirmation seulement si du travail non vide est en cours.
+                  if (
+                    sections.length > 0 &&
+                    !window.confirm(
+                      'Charger cette page remplacera les sections du canvas. Continuer ?',
+                    )
+                  ) {
+                    return;
+                  }
+                  loadPage(key);
+                }}
+                aria-label="Charger une page composable existante dans le canvas"
+              >
+                <option value="">Page vierge…</option>
+                {pages.map((p) => (
+                  <option key={`${p.collection}/${p.slug}`} value={`${p.collection}/${p.slug}`}>
+                    {p.label} · {p.route}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
           <label className="bld-field">
             <span className="bld-field-label">Collection</span>
             <select

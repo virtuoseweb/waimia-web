@@ -69,6 +69,25 @@ export interface BuilderMeta {
   title_en?: string;
 }
 
+/**
+ * Une page composable RÉELLE du site (collection avec un array `sections:`), exposée au
+ * sélecteur « Charger une page » du builder. Les `sections` sont le tableau BRUT de la page
+ * (instances concrètes, déjà déclinées) : on les charge tel quel dans le canvas, sans rejouer
+ * preset/scheme (sinon on écraserait le contenu réel par la démo de base).
+ */
+export interface BuilderPage {
+  /** collection d'origine (clé exacte des collections, ex. `services`, `cas-usages`). */
+  collection: string;
+  /** id/slug de la page dans sa collection. */
+  slug: string;
+  /** libellé lisible (titre FR de la page). */
+  label: string;
+  /** route publique reconstituée (ex. `/services/site-web-intelligent`). */
+  route: string;
+  /** instances de section brutes de la page (1 entrée = 1 section, props concrètes). */
+  sections: SectionInstance[];
+}
+
 /** Props passées par la page hôte Astro à l'île `BuilderCanvas`. */
 export interface BuilderCanvasProps {
   /** Catalogue complet (1 entrée par type), trié pour le picker. */
@@ -79,6 +98,11 @@ export interface BuilderCanvasProps {
   defaultMeta: BuilderMeta;
   /** Collections de page autorisées (pour le sélecteur de meta.collection). */
   collections: string[];
+  /**
+   * Pages composables réelles du site (wireframes ouvrables dans le canvas). Facultatif :
+   * un builder sans pages reste un canvas vierge. Triées pour le sélecteur « Charger une page ».
+   */
+  pages?: BuilderPage[];
   /** Chemin de la route de rendu chrome-less (aperçu live). */
   renderPath: string;
 }
