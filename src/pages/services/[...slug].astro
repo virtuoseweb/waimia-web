@@ -5,12 +5,10 @@ export const prerender = true;
 // MDX sans `sections:` = erreur de build volontaire (anti-orphelin).
 
 import { getCollection } from 'astro:content';
-import type { SectionData } from '@waimia/ds-kernel';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildService, buildFAQPage } from '../../lib/seo/schema-builder';
-import { meshForServiceCasUsages } from '../../lib/internal-mesh';
 
 export async function getStaticPaths() {
   const entries = await getCollection('services');
@@ -41,29 +39,8 @@ const serviceLd = buildService({
   priceMin: data.seo?.priceMin,
   priceMax: data.seo?.priceMax,
 });
-const faqLd = buildFAQPage(lang === 'en' ? (data as any).faq_en : (data as any).faq_fr);
+const faqLd = buildFAQPage(lang === 'en' ? data.faq_en : data.faq_fr);
 const pageLd = faqLd ? [serviceLd, faqLd] : [serviceLd];
-
-// Maillage interne SERVICE -> CAS-USAGES (strat 11, GLOBAL via helper · source unique
-// internal-mesh.ts). Comble le seul trou du maillage service (le related-cards-band
-// existant ne pointe que service->service). On insere la section cataloguee
-// `related-links` juste AVANT le climax de fin (footer-cta-band, sinon faq-accordion,
-// sinon cta-band/cta-final ; defaut avant-derniere position). 0 lien hardcode.
-const baseSections = data.sections as SectionData[];
-const meshData = meshForServiceCasUsages(lang);
-const meshSection = { ...meshData, background: 'paper-3' as const } as unknown as SectionData;
-const endTypes = ['footer-cta-band', 'faq-accordion', 'cta-band', 'cta-final'];
-let insertAt = -1;
-for (const t of endTypes) {
-  insertAt = baseSections.findIndex((s) => s.type === t);
-  if (insertAt !== -1) break;
-}
-if (insertAt === -1) insertAt = baseSections.length <= 1 ? baseSections.length : baseSections.length - 1;
-const sections: SectionData[] = [
-  ...baseSections.slice(0, insertAt),
-  meshSection,
-  ...baseSections.slice(insertAt),
-];
 ---
 
 <Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
@@ -75,5 +52,5 @@ const sections: SectionData[] = [
       { label: title.split(' · ')[0] },
     ]}
   />
-  <SectionsRenderer sections={sections} lang={lang} />
+  <SectionsRenderer sections={data.sections!} lang={lang} />
 </Base>

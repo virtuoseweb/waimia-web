@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" fill="none" aria-hidden="true" role="presentation">
+  <!-- Grammaire line-art DS Waimia : trait currentColor (inversion gratuite ink/paper),
+       accents terracotta = les noeuds qui se rattachent a la dorsale.
+       Theme : « la couche continue qui relie les six services ».
+       DISTINCT de l'architecture-diagram (pas de schema entrees->systeme->sorties fleche) :
+       composition horizontale textuale, une dorsale ondulante traversee par 6 services. -->
+  <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ===== dorsale continue : la « couche » qui traverse tout le visuel ===== -->
+    <path d="M40 205 C 180 150, 220 150, 320 205 S 460 260, 560 205 S 740 150, 800 205 S 900 240, 920 205"
+          stroke-width="2.2"/>
+    <!-- echo translucide de la dorsale (epaisseur de la couche) -->
+    <path d="M40 225 C 180 170, 220 170, 320 225 S 460 280, 560 225 S 740 170, 800 225 S 900 260, 920 225"
+          stroke-width="1.2" opacity="0.3"/>
+
+    <!-- ===== 6 services rattaches a la dorsale ===== -->
+    <!-- chaque service = un petit cadre/glyphe + une tige verticale vers la dorsale -->
+
+    <!-- service 1 (haut) -->
+    <rect x="92" y="64" width="64" height="44" rx="5"/>
+    <path d="M108 80 L140 80" stroke-width="1.4" opacity="0.55"/>
+    <path d="M108 92 L132 92" stroke-width="1.4" opacity="0.55"/>
+    <path d="M124 108 L124 175" stroke-width="1.5"/>
+
+    <!-- service 2 (bas) -->
+    <rect x="232" y="300" width="64" height="44" rx="5"/>
+    <path d="M248 316 L280 316" stroke-width="1.4" opacity="0.55"/>
+    <path d="M248 328 L272 328" stroke-width="1.4" opacity="0.55"/>
+    <path d="M264 300 L264 236" stroke-width="1.5"/>
+
+    <!-- service 3 (haut) -->
+    <circle cx="424" cy="86" r="24"/>
+    <path d="M412 86 L436 86" stroke-width="1.4" opacity="0.55"/>
+    <path d="M424 110 L424 178" stroke-width="1.5"/>
+
+    <!-- service 4 (bas) -->
+    <rect x="528" y="300" width="64" height="44" rx="5"/>
+    <path d="M544 316 L576 316" stroke-width="1.4" opacity="0.55"/>
+    <path d="M544 328 L568 328" stroke-width="1.4" opacity="0.55"/>
+    <path d="M560 300 L560 232" stroke-width="1.5"/>
+
+    <!-- service 5 (haut) -->
+    <rect x="704" y="64" width="64" height="44" rx="5"/>
+    <path d="M720 80 L752 80" stroke-width="1.4" opacity="0.55"/>
+    <path d="M720 92 L744 92" stroke-width="1.4" opacity="0.55"/>
+    <path d="M736 108 L736 175" stroke-width="1.5"/>
+
+    <!-- service 6 (bas) -->
+    <circle cx="864" cy="324" r="24"/>
+    <path d="M852 324 L876 324" stroke-width="1.4" opacity="0.55"/>
+    <path d="M864 300 L864 232" stroke-width="1.5"/>
+
+  </g>
+
+  <!-- noeuds d'ancrage sur la dorsale : accent terracotta (les 6 points de raccord) -->
+  <g fill="var(--accent, #C94F2E)" stroke="none">
+    <circle cx="124" cy="178" r="5.5"/>
+    <circle cx="264" cy="233" r="5.5"/>
+    <circle cx="424" cy="181" r="5.5"/>
+    <circle cx="560" cy="229" r="5.5"/>
+    <circle cx="736" cy="178" r="5.5"/>
+    <circle cx="864" cy="229" r="5.5"/>
+  </g>
+</svg>

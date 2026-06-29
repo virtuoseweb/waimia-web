@@ -47,4 +47,14 @@ export const schema = z.object({
     )
     .max(3)
     .optional(),
+  /** Tuile illustration optionnelle comblant le vide de la grille (bento complet). Basename d'un SVG de src/assets/line-art/. */
+  illustration: z
+    .object({
+      src: z.string(),
+      alt_fr: z.string(),
+      alt_en: z.string(),
+      caption_fr: z.string().optional(),
+      caption_en: z.string().optional(),
+    })
+    .optional(),
 });

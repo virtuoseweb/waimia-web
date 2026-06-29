@@ -3,12 +3,33 @@
 // Grille de 6 services (3×2) avec metric, body, connectors. Source : `SixServices.astro` (Acte II).
 import type { SectionByType } from '@waimia/ds-kernel';
 
+// Line-art DS inliné au build via ?raw : le SVG vit dans le DOM →
+// `stroke="currentColor"` suit le `color` du conteneur. Idiome commun du
+// catalogue (HeroMastheadCard). Clé = basename.
+const lineArtRaw = import.meta.glob<string>('../../assets/line-art/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const lineArt: Record<string, string> = {};
+for (const [path, svg] of Object.entries(lineArtRaw)) {
+  lineArt[path.split('/').pop()!] = svg;
+}
+const inlineLineArt = (src?: string): string | undefined =>
+  src ? lineArt[src.split('/').pop()!] : undefined;
+
 interface Props {
   data: SectionByType<'services-grid'>;
   lang: 'fr' | 'en';
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+
+// Tuile illustration optionnelle (comble le vide de la 2e rangée → bento complet).
+const illus = data.illustration;
+const illusSvg = inlineLineArt(illus?.src);
+const illusAlt = isFr ? illus?.alt_fr : (illus?.alt_en ?? illus?.alt_fr);
+const illusCaption = isFr ? illus?.caption_fr : (illus?.caption_en ?? illus?.caption_fr);
 ---
 
 <section class="services-grid" data-bg={data.background} aria-labelledby="services-grid-h2">
@@ -25,7 +46,7 @@ const isFr = lang === 'fr';
 
     <h2 id="services-grid-h2" class="services-grid__h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
 
-    <div class="services-grid__grid qgrid reveal-stagger">
+    <div class="services-grid__grid qgrid reveal-stagger" data-bento={data.illustration ? '' : undefined}>
       {data.services.map((s) => (
         <article class="services-grid__cell">
           <header class="services-grid__cell-head">
@@ -45,6 +66,12 @@ const isFr = lang === 'fr';
           <span class="services-grid__cell-arr" aria-hidden>→</span>
         </article>
       ))}
+      {illusSvg && (
+        <figure class="services-grid__illus">
+          <div class="services-grid__illus-art" role="img" aria-label={illusAlt ?? ''} set:html={illusSvg} />
+          {illusCaption && <figcaption class="services-grid__illus-cap">{illusCaption}</figcaption>}
+        </figure>
+      )}
     </div>
     {data.foot_links && data.foot_links.length > 0 && (
       <footer class="services-grid__foot">
@@ -271,4 +298,40 @@ const isFr = lang === 'fr';
     background: rgba(var(--paper-rgb), 0.05);
     border-color: var(--accent-text);
   }
+  /* ── Tuile illustration · bento complet ─────────────────────────────────
+     Sans illustration : data-bento absent → grille .qgrid inchangée (régression nulle).
+     Avec illustration : grille déterministe + la tuile comble le vide de la 2e rangée. */
+  @media (min-width: 1024px) {
+    .services-grid__grid[data-bento] { grid-template-columns: repeat(5, 1fr); }
+    .services-grid__grid[data-bento] > .services-grid__illus { grid-column: 2 / -1; grid-row: 2; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .services-grid__grid[data-bento] { grid-template-columns: repeat(3, 1fr); }
+    .services-grid__grid[data-bento] > .services-grid__illus { grid-column: 1 / -1; }
+  }
+  .services-grid__illus {
+    margin: 0 -1px -1px 0;
+    border-right: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--spacing-block) var(--space-6);
+    min-height: 300px;
+    background: rgba(var(--accent-rgb), 0.03);
+  }
+  .services-grid__illus-art { width: 100%; max-width: 760px; color: var(--ink-2); }
+  .services-grid__illus-art :global(svg) { width: 100%; height: auto; display: block; }
+  .services-grid__illus-cap {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+  /* Variante ink : la couche line-art reste lisible (color clair). */
+  .services-grid[data-bg='ink'] .services-grid__illus-art { color: var(--paper); }
 </style>

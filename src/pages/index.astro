@@ -14,7 +14,7 @@ export const prerender = true;
  *   01 Hero (live, paper, mobile amélioré)
  *   02 logo-marquee (C, paper-2) · 03 feature-zigzag « offres » (C, paper)
  *   04 ArchitectureDiagram (live, ink) · 05 ServicesGrid 6 services (live, paper)
- *   06 sticky-scroll (C, paper-2) · 07 pain-severity (C, ink) · 08 feature-split-media dashboard (paper)
+ *   06 sticky-scroll (C, paper-2) · 07 pain-severity (C, ink)
  *   09 case-card-grid (C, ink) · 10 stats-bento climax (C, paper-2 recoloré)
  *   11 CtaBand (live, accent) · 12 pricing-cards (C, paper)
  *   13 FaqAccordion (live, contenu C, paper-2) · 14 BookSession (live, ink, épuré) · 15 FooterMarquee
@@ -64,31 +64,6 @@ const statsBentoClimaxC = {
   background: 'paper-2',
 } as SectionData;
 const pricingCardsC = { ...cByType('pricing-cards'), background: 'paper' } as SectionData;        // 12
-
-// 08 · feature-split-media NOUVELLE · pilotage par tableaux de bord temps réel · paper.
-// Image réelle catalogue (dashboard tunnel de conversion, fond clair → paper).
-const dashboardMediaData = {
-  type: 'feature-split-media' as const,
-  background: 'paper' as const,
-  proportion: '2-3' as const,
-  mediaSide: 'right' as const,
-  kicker_fr: '§ Pilotage · temps réel',
-  kicker_en: '§ Steering · real time',
-  h2_fr: 'Vos données lues en <i>tableaux de bord</i>',
-  h2_en: 'Your data read as <i>dashboards</i>',
-  body_fr: "GA4, Search Console et CRM réunis en un tableau de bord temps réel. Vous décidez sur des chiffres, en deux minutes, pas en réunion : où le trafic se perd, quel lead rappeler, ce qui convertit vraiment.",
-  body_en: 'GA4, Search Console and CRM brought together into a real-time dashboard. You decide on figures, in two minutes, not in a meeting: where traffic leaks, which lead to call back, what really converts.',
-  points: [
-    { label_fr: 'GA4, Search Console et CRM dans une seule vue', label_en: 'GA4, Search Console and CRM in a single view' },
-    { label_fr: 'Tunnel de conversion suivi étape par étape', label_en: 'Conversion funnel tracked step by step' },
-    { label_fr: 'Décider en deux minutes, pas en réunion', label_en: 'Decide in two minutes, not in a meeting' },
-  ],
-  media_src: '/images/dashboards/dashboard-funnel-conversion.svg',
-  media_alt_fr: 'Tableau de bord du tunnel de conversion : étapes, taux et fuites mesurés en temps réel.',
-  media_alt_en: 'Conversion funnel dashboard: stages, rates and leaks measured in real time.',
-  media_caption_fr: 'Tableau de bord · le tunnel de conversion suivi en temps réel',
-  media_caption_en: 'Dashboard · the conversion funnel tracked in real time',
-} satisfies SectionByType<'feature-split-media'>;
 
 // ── Acte II · FIG 2.0 Le système (absorbe le rôle de FeatureGrid) ──────────────
 // Exemples par canal dérivés du copy existant (hero mini-map + SIX_SERVICES) : 0 invention.
@@ -160,6 +135,13 @@ const servicesGridData = {
     { label_fr: 'Toutes les solutions →', label_en: 'All solutions →', href: localizeHref('/services', 'fr') },
     { label_fr: 'Nos cas clients →', label_en: 'Our case studies →', href: localizeHref('/cas-clients', 'fr') },
   ],
+  illustration: {
+    src: 'services-layer.svg',
+    alt_fr: 'Six services reliés par une même couche continue : une dorsale traverse et connecte chaque service.',
+    alt_en: 'Six services linked by one continuous layer: a backbone runs through and connects each service.',
+    caption_fr: 'Une seule couche continue relie les six services',
+    caption_en: 'One continuous layer links the six services',
+  },
 } satisfies SectionByType<'services-grid'>;
 
 // CTA intermédiaire (docs/39 P1-8 : jamais > 3 500 px sans porte de sortie) ·
@@ -212,8 +194,8 @@ const faqItems = (cByType('faq-accordion').items as any[]).map((it) => ({
     {/* 11 · CtaBand · porte de sortie au moment-prix · frame accent qui casse le run clair */}
     <CtaBandSection data={ctaInlineData} lang="fr" />
 
-    {/* 12 · pricing-cards · points d'entrée (paper) · 12bis feature-split-media « tableau de bord média » juste avant la FAQ (directive Simon 2026-06-29) */}
-    <SectionsRenderer sections={[pricingCardsC, dashboardMediaData]} lang="fr" />
+    {/* 12 · pricing-cards · points d'entrée (paper) */}
+    <SectionsRenderer sections={[pricingCardsC]} lang="fr" />
 
     {/* 13 · FaqAccordion · 8 questions PME-first · Q.01 ouverte (contenu transcrit de C) */}
     <FaqAccordion

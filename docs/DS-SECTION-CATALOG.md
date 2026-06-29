@@ -2292,17 +2292,18 @@
 | `foot_links` | array | non |  | max:3 |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
+| `illustration` | string | non |  |  |
 | `services` | array | oui |  | min:3 max:6 |
 | `spec_en` | string | oui |  |  |
 | `spec_fr` | string | oui |  |  |
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .css .qgrid .services-grid .services-grid__cell .services-grid__cell-arr .services-grid__cell-body .services-grid__cell-fig .services-grid__cell-foot .services-grid__cell-foot-key .services-grid__cell-foot-val .services-grid__cell-head .services-grid__cell-metric .services-grid__cell-rule .services-grid__cell-title .services-grid__cell-uc .services-grid__chapter .services-grid__dot .services-grid__foot .services-grid__foot-link .services-grid__grid .services-grid__h2 .services-grid__hd .services-grid__num .services-grid__sep .services-grid__spec
+**Classes scoped** : .css .qgrid .services-grid .services-grid__cell .services-grid__cell-arr .services-grid__cell-body .services-grid__cell-fig .services-grid__cell-foot .services-grid__cell-foot-key .services-grid__cell-foot-val .services-grid__cell-head .services-grid__cell-metric .services-grid__cell-rule .services-grid__cell-title .services-grid__cell-uc .services-grid__chapter .services-grid__dot .services-grid__foot .services-grid__foot-link .services-grid__grid .services-grid__h2 .services-grid__hd .services-grid__illus .services-grid__illus-art .services-grid__illus-cap .services-grid__num .services-grid__sep .services-grid__spec
 
-**Dette hardcode** : 22 valeur(s) — -0.02em, -1px, -2px, 0.04em, 0.14em, 0.1em, 10px, 14px
+**Dette hardcode** : 26 valeur(s) — -0.02em, -1px, -2px, 0.04em, 0.14em, 0.1em, 100%, 1023px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 22 litteral(s) hardcode(s) (-0.02em, -1px, -2px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 26 litteral(s) hardcode(s) (-0.02em, -1px, -2px).
 
 ---
 

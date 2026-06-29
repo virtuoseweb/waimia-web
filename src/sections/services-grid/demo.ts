@@ -22,4 +22,11 @@ export const demo: DemoData = {
       { fig: '2.05', metric_fr: '+12h / sem', metric_en: '+12h / week', label_fr: 'Tâches répétitives éliminées', label_en: 'Repetitive tasks removed', body_fr: 'Workflows qui tournent sans vous.', body_en: 'Workflows that run without you.', connectors_fr: 'Workflows · Agents IA · Excel · Office', connectors_en: 'Workflows · AI agents · Excel · Office' },
       { fig: '2.06', metric_fr: 'Souverain', metric_en: 'Sovereign', label_fr: 'Sur-mesure ETI', label_en: 'Enterprise custom build', body_fr: "Architecture souveraine, quand les outils du marché butent sur votre périmètre.", body_en: 'Sovereign architecture, when the market stack hits your perimeter limits.', connectors_fr: 'Trust Center · Design System · Governance · VirtuoseOS', connectors_en: 'Trust Center · Design System · Governance · VirtuoseOS' },
     ],
+    illustration: {
+      src: 'services-layer.svg',
+      alt_fr: 'Six services reliés par une même couche continue : une dorsale traverse et connecte chaque service.',
+      alt_en: 'Six services linked by one continuous layer: a backbone runs through and connects each service.',
+      caption_fr: 'La couche continue qui relie les six services',
+      caption_en: 'The continuous layer connecting the six services',
+    },
   };
