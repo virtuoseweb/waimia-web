@@ -17,10 +17,9 @@ export interface SectionUsageStat {
 
 export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "architecture-diagram": {
-    "count": 5,
+    "count": 4,
     "pages": [
       "/services/integrateur-claude",
-      "/services/site-web-intelligent",
       "/services/systeme-complet",
       "src/pages/en/index.astro",
       "src/pages/index.astro"
@@ -37,7 +36,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "bento-grid": {
-    "count": 11,
+    "count": 10,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
@@ -48,8 +47,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/consultant-ia-claude",
       "/services/integrateur-claude",
       "/services/landing-page-scoring",
-      "/services/maintenance-growth",
-      "/services/site-web-intelligent"
+      "/services/maintenance-growth"
     ]
   },
   "case-card-grid": {
@@ -168,7 +166,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "definition-extract": {
-    "count": 10,
+    "count": 9,
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
@@ -176,7 +174,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integrateur-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
       "/services/site-web-intelligent/sur-mesure",
       "/services/site-web-intelligent/webflow",
       "/services/site-web-intelligent/wordpress"
@@ -338,8 +335,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 2,
+    "count": 3,
     "pages": [
+      "/services/site-web-intelligent",
       "src/pages/en/index.astro",
       "src/pages/index.astro"
     ]
@@ -361,7 +359,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-zigzag": {
-    "count": 36,
+    "count": 35,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -580,14 +578,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "logo-marquee": {
-    "count": 6,
+    "count": 5,
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/integrateur-claude",
       "/services/landing-page-scoring",
-      "/services/maintenance-growth",
-      "/services/site-web-intelligent"
+      "/services/maintenance-growth"
     ]
   },
   "maturity-pyramid": {
@@ -812,7 +809,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "statement-orbit": {
-    "count": 9,
+    "count": 8,
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
@@ -821,12 +818,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
       "/services/systeme-complet"
     ]
   },
   "stats-bento": {
-    "count": 11,
+    "count": 10,
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
@@ -835,7 +831,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
       "/services/site-web-intelligent/sur-mesure",
       "/services/systeme-complet",
       "/services/template-service-ref"
