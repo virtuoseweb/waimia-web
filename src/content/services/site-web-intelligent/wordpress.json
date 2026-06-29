@@ -1,0 +1,522 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Site web intelligent vs WordPress · migration et instrumentation",
+  "title_en": "Intelligent website vs WordPress · migration and instrumentation",
+  "description_fr": "Vous venez de WordPress ? Waimia migre vers une stack composable (perf SSG, sécurité, CMS git) ou instrumente l'existant. Audit d'abord, on ne casse rien.",
+  "description_en": "Coming from WordPress? Waimia migrates to a composable stack (SSG perf, security, git CMS) or instruments your existing site. Audit first, we break nothing.",
+  "slug": "wordpress",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "category": "acquisition",
+  "tags": [
+    "site-web-intelligent",
+    "wordpress",
+    "migration",
+    "performance-web",
+    "seo-geo",
+    "cout-total-possession"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Migration WordPress vers un site web intelligent et instrumentation",
+    "priceRange": "2000-10000€",
+    "priceMin": 2000,
+    "priceMax": 10000
+  },
+  "faq_fr": [
+    {
+      "q": "Vous m'obligez à quitter WordPress ?",
+      "a": "Non. On commence toujours par un audit. Si votre WordPress tient la route, on l'instrumente sans le refondre : tracking, capture, connexion CRM et IA viennent par-dessus l'existant. La migration n'est qu'une option, recommandée quand la pile coûte plus qu'elle ne rapporte."
+    },
+    {
+      "q": "Pourquoi un site composable est-il plus rapide qu'un WordPress ?",
+      "a": "Le site est généré en statique : les pages sont pré-calculées et servies telles quelles, sans base de données interrogée à chaque visite. WordPress recompose la page à la volée, charge un thème et une dizaine de plugins, puis interroge MySQL. Le premier vise 100/100 PageSpeed, le second se traîne souvent sous 50 sur mobile."
+    },
+    {
+      "q": "Migrer depuis WordPress, c'est tout casser et perdre mon SEO ?",
+      "a": "Non. On récupère le contenu existant, on conserve les URL qui rankent avec des redirections propres, et on rebâtit sur une base composable. Le SEO acquis n'est pas perdu, il est transféré. On garde l'ancien site en ligne tant que le nouveau n'est pas validé : aucune chute de trafic."
+    },
+    {
+      "q": "Le coût total est-il vraiment plus bas qu'un WordPress ?",
+      "a": "À l'achat, un WordPress monté vite paraît moins cher. Sur trois ans le calcul s'inverse : hébergement musclé, licences de plugins premium, maintenance, correctifs de sécurité et refonte quand la pile devient ingérable. Le site composable coûte plus à poser, beaucoup moins à porter. Un actif qui s'amortit, pas une dette qui s'accumule."
+    },
+    {
+      "q": "Et la sécurité, WordPress est-il vraiment risqué ?",
+      "a": "WordPress équipe une part énorme du web, donc concentre une part énorme des attaques. Chaque plugin tiers est une porte d'entrée, et une mise à jour oubliée suffit. Le site composable n'expose ni admin ni base de données en frontal : il n'y a quasiment rien à pirater côté serveur. Surface d'attaque réduite par conception, pas par rustines."
+    },
+    {
+      "q": "Qui édite le contenu une fois migré ?",
+      "a": "Vous, sans dépendre d'un développeur. L'édition passe par un CMS git-based comme TinaCMS, ou se pilote par un chatbot IA pour les évolutions courantes. Pas de chantier de plugins ni de thème à dompter. Chaque changement est versionné dans le code, donc réversible."
+    },
+    {
+      "q": "Combien de temps prend la migration ?",
+      "a": "Un site exploitable est livré en 4 à 8 semaines selon le volume de pages et la complexité des intégrations. Le contenu et les redirections se préparent au cadrage pour que la bascule soit transparente côté trafic."
+    },
+    {
+      "q": "Vous travaillez sur quels CRM et e-commerce après migration ?",
+      "a": "CRM : HubSpot, Salesforce et Pipedrive en priorité, en intégration native. L'e-commerce (Shopify, Stripe, WooCommerce) et un second CMS (Strapi) sont des add-ons activables. Pour un autre outil, on évalue la faisabilité au cadrage."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Are you forcing me off WordPress?",
+      "a": "No. We always start with an audit. If your WordPress holds up, we instrument it without rebuilding: tracking, capture, CRM and AI connection come on top of the existing site. Migration is only an option, recommended when the stack costs more than it returns."
+    },
+    {
+      "q": "Why is a composable site faster than WordPress?",
+      "a": "The site is generated as static: pages are pre-computed and served as-is, with no database queried on each visit. WordPress recomposes the page on the fly, loads a theme and a dozen plugins, then queries MySQL. The first aims for 100/100 PageSpeed, the second often crawls below 50 on mobile."
+    },
+    {
+      "q": "Does migrating from WordPress break everything and lose my SEO?",
+      "a": "No. We recover the existing content, keep the ranking URLs with clean redirects, and rebuild on a composable base. The SEO you've earned isn't lost, it's transferred. We keep the old site live until the new one is validated: no traffic drop."
+    },
+    {
+      "q": "Is the total cost really lower than WordPress?",
+      "a": "Upfront, a quickly built WordPress looks cheaper. Over three years the maths flips: beefy hosting, premium plugin licences, maintenance, security fixes and a rebuild when the stack becomes unmanageable. The composable site costs more to lay down, far less to carry. An asset that amortises, not a debt that accumulates."
+    },
+    {
+      "q": "What about security, is WordPress really risky?",
+      "a": "WordPress powers a huge share of the web, so it draws a huge share of the attacks. Every third-party plugin is an entry door, and one forgotten update is enough. The composable site exposes neither admin nor front-facing database: there is almost nothing to hack on the server side. Attack surface reduced by design, not by patches."
+    },
+    {
+      "q": "Who edits the content once migrated?",
+      "a": "You do, without depending on a developer. Editing goes through a git-based CMS like TinaCMS, or is steered by an AI chatbot for routine changes. No plugin project or theme to tame. Every change is versioned in the code, so reversible."
+    },
+    {
+      "q": "How long does the migration take?",
+      "a": "A usable site is delivered in 4 to 8 weeks depending on page volume and integration complexity. Content and redirects are prepared at scoping so the switch is transparent on the traffic side."
+    },
+    {
+      "q": "Which CRM and e-commerce do you work with after migration?",
+      "a": "CRM: HubSpot, Salesforce and Pipedrive first, native integration. E-commerce (Shopify, Stripe, WooCommerce) and a second CMS (Strapi) are activable add-ons. For another tool, we assess feasibility at scoping."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Site web intelligent vs WordPress",
+      "kicker_en": "§ Intelligent website vs WordPress",
+      "h1_fr": "Quitter WordPress, ou l'<i class=\"acc\">instrumenter</i> ?",
+      "h1_en": "Leave WordPress, or <i class=\"acc\">instrument</i> it?",
+      "lede_fr": "WordPress est familier et son écosystème immense. Mais la maintenance, la perf et la sécurité finissent par coûter. Waimia migre vers une stack composable, ou instrumente votre existant. On commence par un audit, on ne casse pas ce qui marche.",
+      "lede_en": "WordPress is familiar and its ecosystem huge. But maintenance, performance and security end up costing. Waimia migrates to a composable stack, or instruments your existing site. We start with an audit, we don't break what works.",
+      "badges": [
+        {
+          "label_fr": "Perf SSG",
+          "label_en": "SSG perf"
+        },
+        {
+          "label_fr": "Sécurité",
+          "label_en": "Security"
+        },
+        {
+          "label_fr": "CMS git-based",
+          "label_en": "Git-based CMS"
+        },
+        {
+          "label_fr": "SEO transféré",
+          "label_en": "SEO transferred"
+        }
+      ],
+      "cta_sub_fr": "Audit de 45 min, gratuit et sans engagement : on part de votre WordPress réel.",
+      "cta_sub_en": "45-min audit, free and no commitment: we start from your real WordPress.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit (45 min) →",
+        "label_en": "Book an audit (45 min) →",
+        "href": "/contact?offer=wordpress&intent=discovery",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les écarts",
+        "label_en": "See the gaps",
+        "href": "#ecarts",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : d'un côté une pile WordPress lourde de plugins, de l'autre un site statique rapide branché à l'IA et aux données.",
+      "media_alt_en": "Diagram: on one side a heavy WordPress plugin stack, on the other a fast static site wired to AI and data.",
+      "kpis": [
+        {
+          "num": "4–8 sem.",
+          "cap_fr": "migration livrée",
+          "cap_en": "migration delivered"
+        },
+        {
+          "num": "100/100",
+          "cap_fr": "PageSpeed en SSG",
+          "cap_en": "PageSpeed in SSG"
+        }
+      ]
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ At a glance",
+      "metrics": [
+        {
+          "value": "2–10 k€",
+          "label_fr": "budget HT indicatif (sur mesure au-delà)",
+          "label_en": "indicative ex-VAT budget (bespoke beyond)",
+          "emphasis": true
+        },
+        {
+          "value": "Audit d'abord",
+          "label_fr": "on instrumente avant de refondre",
+          "label_en": "we instrument before rebuilding"
+        },
+        {
+          "value": "SEO transféré",
+          "label_fr": "URL préservées, redirections propres",
+          "label_en": "URLs preserved, clean redirects"
+        },
+        {
+          "value": "100/100",
+          "label_fr": "PageSpeed en SSG, base GEO",
+          "label_en": "PageSpeed in SSG, GEO base"
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition · format extractible",
+      "kicker_en": "§ Definition · extractable format",
+      "statement_fr": "Migrer de <i class=\"acc\">WordPress</i> vers un site web intelligent, c'est passer d'un CMS de publication assemblé à la volée à un site statique pré-calculé, sécurisé par conception, branché à l'IA et au CRM : on récupère le contenu, on transfère le SEO, on supprime la dette de plugins.",
+      "statement_en": "Migrating from <i class=\"acc\">WordPress</i> to an intelligent website means moving from a publishing CMS assembled on the fly to a pre-computed static site, secure by design, wired to AI and CRM: we recover the content, transfer the SEO, remove the plugin debt.",
+      "pills": [
+        {
+          "label_fr": "Audit d'abord",
+          "label_en": "Audit first"
+        },
+        {
+          "label_fr": "Contenu récupéré",
+          "label_en": "Content recovered"
+        },
+        {
+          "label_fr": "SEO transféré",
+          "label_en": "SEO transferred"
+        },
+        {
+          "label_fr": "Zéro captivité",
+          "label_en": "No lock-in"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Rendu statique (SSG)",
+          "label_en": "Static rendering (SSG)"
+        },
+        {
+          "label_fr": "100/100 Lighthouse",
+          "label_en": "100/100 Lighthouse"
+        },
+        {
+          "label_fr": "Pas d'admin exposée",
+          "label_en": "No exposed admin"
+        },
+        {
+          "label_fr": "CMS git-based",
+          "label_en": "Git-based CMS"
+        },
+        {
+          "label_fr": "Redirections propres",
+          "label_en": "Clean redirects"
+        },
+        {
+          "label_fr": "RGPD propre",
+          "label_en": "Clean GDPR"
+        }
+      ]
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "Pain points WordPress · par sévérité",
+      "kicker_en": "WordPress pain points · by severity",
+      "h2_fr": "Là où WordPress <i class=\"acc\">coûte</i>.",
+      "h2_en": "Where WordPress <i class=\"acc\">costs</i>.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Une faille de plugin qui fait tomber le site",
+          "title_en": "A plugin flaw that takes the site down",
+          "desc_fr": "Chaque extension tierce est une porte d'entrée. Une mise à jour oubliée suffit, et le site tombe un matin sans prévenir.",
+          "desc_en": "Every third-party extension is an entry door. One forgotten update is enough, and the site goes down one morning without warning.",
+          "fix_fr": "Pas d'admin ni de base exposée.",
+          "fix_en": "No exposed admin or database."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Une perf qui plafonne sous 50 sur mobile",
+          "title_en": "Performance plateauing under 50 on mobile",
+          "desc_fr": "Thème, dizaine de plugins et base interrogée à chaque visite : la page se recompose à la volée et chaque seconde coûte des conversions.",
+          "desc_en": "Theme, a dozen plugins and a database queried on each visit: the page recomposes on the fly and every second costs conversions.",
+          "fix_fr": "Pages statiques pré-calculées, 100/100 visé.",
+          "fix_en": "Pre-computed static pages, 100/100 targeted."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Une maintenance qui mange le budget",
+          "title_en": "Maintenance that eats the budget",
+          "desc_fr": "Cœur, thème et extensions vivent sous perfusion de mises à jour, chacune pouvant casser les autres. Le temps passé à maintenir n'est pas passé à vendre.",
+          "desc_en": "Core, theme and extensions live on a drip of updates, each able to break the others. Time spent maintaining isn't time spent selling.",
+          "fix_fr": "Pile supprimée, édition versionnée en minutes.",
+          "fix_en": "Stack removed, editing versioned in minutes."
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "anchor": "ecarts",
+      "background": "paper",
+      "kicker_fr": "§ Deux chemins, un objectif",
+      "kicker_en": "§ Two paths, one goal",
+      "h2_fr": "Ce qu'on <i>change</i> en partant de WordPress",
+      "h2_en": "What we <i>change</i> coming from WordPress",
+      "lede_fr": "Selon l'état de votre WordPress, on migre vers une stack composable ou on instrumente l'existant. Dans les deux cas, l'objectif est le même : un site rapide, citable par les IA, branché à vos données, sans la dette de plugins.",
+      "lede_en": "Depending on the state of your WordPress, we migrate to a composable stack or instrument the existing site. Either way, the goal is the same: a fast site, citable by AIs, wired to your data, without the plugin debt.",
+      "rows": [
+        {
+          "kicker_fr": "Chemin 01",
+          "kicker_en": "Path 01",
+          "h3_fr": "Migration vers une stack composable",
+          "h3_en": "Migration to a composable stack",
+          "body_fr": "Quand la pile WordPress coûte plus qu'elle ne rapporte, on rebâtit sur une base statique. On récupère le contenu, on conserve les URL qui rankent avec des redirections propres et on garde l'ancien site en ligne tant que le nouveau n'est pas validé. Le SEO acquis est transféré, pas perdu.",
+          "body_en": "When the WordPress stack costs more than it returns, we rebuild on a static base. We recover the content, keep the ranking URLs with clean redirects and keep the old site live until the new one is validated. The SEO you've earned is transferred, not lost.",
+          "points": [
+            {
+              "label_fr": "Contenu récupéré, URL préservées",
+              "label_en": "Content recovered, URLs preserved"
+            },
+            {
+              "label_fr": "Redirections propres, zéro chute de trafic",
+              "label_en": "Clean redirects, zero traffic drop"
+            },
+            {
+              "label_fr": "Ancien site gardé jusqu'à validation",
+              "label_en": "Old site kept until validation"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Chemin 02",
+          "kicker_en": "Path 02",
+          "h3_fr": "Instrumentation de l'existant",
+          "h3_en": "Instrumenting the existing site",
+          "body_fr": "Si votre WordPress tient la route, on ne le refond pas. On l'instrumente : tracking first-party, capture et scoring, connexion au CRM et à l'IA viennent par-dessus l'existant. On ne casse pas ce qui marche, on le rend mesurable et capable de qualifier vos visiteurs.",
+          "body_en": "If your WordPress holds up, we don't rebuild it. We instrument it: first-party tracking, capture and scoring, CRM and AI connection come on top of the existing site. We don't break what works, we make it measurable and able to qualify your visitors.",
+          "points": [
+            {
+              "label_fr": "Tracking et reporting first-party",
+              "label_en": "First-party tracking and reporting"
+            },
+            {
+              "label_fr": "Capture, scoring et routage CRM",
+              "label_en": "Capture, scoring and CRM routing"
+            },
+            {
+              "label_fr": "Connexion IA sans toucher au thème",
+              "label_en": "AI connection without touching the theme"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Chemin 03",
+          "kicker_en": "Path 03",
+          "h3_fr": "SEO, GEO et temps CMS",
+          "h3_en": "SEO, GEO and CMS time",
+          "body_fr": "Le balisage Schema.org, le format extractible et le maillage interne sont posés dès la conception, pensés pour être cités par Google et les moteurs génératifs. L'édition passe par un CMS git-based ou un chatbot IA : les évolutions se font en minutes, versionnées et réversibles, sans chantier de plugins.",
+          "body_en": "Schema.org markup, extractable format and internal linking are laid from design, built to be cited by Google and generative engines. Editing goes through a git-based CMS or an AI chatbot: changes happen in minutes, versioned and reversible, with no plugin project.",
+          "points": [
+            {
+              "label_fr": "Balisage et structure dès la conception",
+              "label_en": "Markup and structure from design"
+            },
+            {
+              "label_fr": "Citable par ChatGPT, Perplexity, Claude",
+              "label_en": "Citable by ChatGPT, Perplexity, Claude"
+            },
+            {
+              "label_fr": "Édition en minutes, versionnée",
+              "label_en": "Editing in minutes, versioned"
+            }
+          ],
+          "link_href": "/services/content-marketing-intelligent",
+          "link_label_fr": "Voir le content marketing →",
+          "link_label_en": "See content marketing →"
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ WordPress classique vs approche Waimia",
+      "kicker_en": "§ Classic WordPress vs Waimia approach",
+      "h2_fr": "La même PME, deux <i>trajectoires</i>",
+      "h2_en": "The same SMB, two <i>trajectories</i>",
+      "without_label_fr": "Avec",
+      "without_label_en": "With",
+      "without_title_fr": "WordPress classique",
+      "without_title_en": "Classic WordPress",
+      "without_items": [
+        {
+          "text_fr": "Le site rame sur mobile et le PageSpeed reste sous 50 malgré les plugins de cache.",
+          "text_en": "The site lags on mobile and PageSpeed stays under 50 despite cache plugins."
+        },
+        {
+          "text_fr": "Chaque évolution passe par un prestataire ou un chantier de plugins à risque.",
+          "text_en": "Every change goes through a vendor or a risky plugin project."
+        },
+        {
+          "text_fr": "Une faille non corrigée ouvre la porte et le site tombe un matin sans prévenir.",
+          "text_en": "An unpatched flaw opens the door and the site goes down one morning without warning."
+        },
+        {
+          "text_fr": "Au bout de deux ans, la pile est ingérable et on parle déjà de tout refaire.",
+          "text_en": "After two years the stack is unmanageable and a full rebuild is already on the table."
+        }
+      ],
+      "with_label_fr": "Avec",
+      "with_label_en": "With",
+      "with_title_fr": "Approche Waimia",
+      "with_title_en": "Waimia approach",
+      "with_items": [
+        {
+          "text_fr": "Les pages s'affichent instantanément et le 100/100 tient même en pic de trafic.",
+          "text_en": "Pages render instantly and the 100/100 holds even at traffic peaks."
+        },
+        {
+          "text_fr": "Le contenu s'édite en minutes, versionné, sans toucher à un développeur.",
+          "text_en": "Content is edited in minutes, versioned, without touching a developer."
+        },
+        {
+          "text_fr": "Sans admin ni base exposée, il n'y a quasiment rien à pirater côté serveur.",
+          "text_en": "With no exposed admin or database, there is almost nothing to hack server-side."
+        },
+        {
+          "text_fr": "On ajoute une brique quand le besoin vient : le site monte de version, jamais à refaire.",
+          "text_en": "A block is added when the need comes: the site moves up versions, never to redo."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Offre",
+          "kicker_en": "Offer",
+          "title_fr": "Site web intelligent",
+          "title_en": "Intelligent website",
+          "lead_fr": "L'offre complète : création ou refonte, instrumentation, SEO/GEO et CRM, à partir de 2 000 €.",
+          "lead_en": "The full offer: build or rebuild, instrumentation, SEO/GEO and CRM, from 2,000 €.",
+          "href": "/services/site-web-intelligent"
+        },
+        {
+          "kicker_fr": "Variante",
+          "kicker_en": "Variant",
+          "title_fr": "Webflow",
+          "title_en": "Webflow",
+          "lead_fr": "Vous venez de Webflow ? Le même chemin de migration et d'instrumentation, depuis le no-code.",
+          "lead_en": "Coming from Webflow? The same migration and instrumentation path, from no-code.",
+          "href": "/services/webflow"
+        },
+        {
+          "kicker_fr": "Variante",
+          "kicker_en": "Variant",
+          "title_fr": "Sur mesure",
+          "title_en": "Bespoke",
+          "lead_fr": "Besoin spécifique, app dédiée ou multi-sites : un site web intelligent conçu sur mesure.",
+          "lead_en": "Specific need, dedicated app or multi-site: an intelligent website built bespoke.",
+          "href": "/services/sur-mesure-headless"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Vous m'obligez à quitter WordPress ?",
+          "q_en": "Are you forcing me off WordPress?",
+          "a_fr": "Non. On commence toujours par un audit. Si votre WordPress tient la route, on l'instrumente sans le refondre : tracking, capture, connexion CRM et IA viennent par-dessus l'existant. La migration n'est qu'une option, recommandée quand la pile coûte plus qu'elle ne rapporte.",
+          "a_en": "No. We always start with an audit. If your WordPress holds up, we instrument it without rebuilding: tracking, capture, CRM and AI connection come on top of the existing site. Migration is only an option, recommended when the stack costs more than it returns."
+        },
+        {
+          "q_fr": "Pourquoi un site composable est-il plus rapide qu'un WordPress ?",
+          "q_en": "Why is a composable site faster than WordPress?",
+          "a_fr": "Le site est généré en statique : les pages sont pré-calculées et servies telles quelles, sans base de données interrogée à chaque visite. WordPress recompose la page à la volée, charge un thème et une dizaine de plugins, puis interroge MySQL. Le premier vise 100/100 PageSpeed, le second se traîne souvent sous 50 sur mobile.",
+          "a_en": "The site is generated as static: pages are pre-computed and served as-is, with no database queried on each visit. WordPress recomposes the page on the fly, loads a theme and a dozen plugins, then queries MySQL. The first aims for 100/100 PageSpeed, the second often crawls below 50 on mobile."
+        },
+        {
+          "q_fr": "Migrer depuis WordPress, c'est tout casser et perdre mon SEO ?",
+          "q_en": "Does migrating from WordPress break everything and lose my SEO?",
+          "a_fr": "Non. On récupère le contenu existant, on conserve les URL qui rankent avec des redirections propres, et on rebâtit sur une base composable. Le SEO acquis n'est pas perdu, il est transféré. On garde l'ancien site en ligne tant que le nouveau n'est pas validé : aucune chute de trafic.",
+          "a_en": "No. We recover the existing content, keep the ranking URLs with clean redirects, and rebuild on a composable base. The SEO you've earned isn't lost, it's transferred. We keep the old site live until the new one is validated: no traffic drop."
+        },
+        {
+          "q_fr": "Le coût total est-il vraiment plus bas qu'un WordPress ?",
+          "q_en": "Is the total cost really lower than WordPress?",
+          "a_fr": "À l'achat, un WordPress monté vite paraît moins cher. Sur trois ans le calcul s'inverse : hébergement musclé, licences de plugins premium, maintenance, correctifs de sécurité et refonte quand la pile devient ingérable. Le site composable coûte plus à poser, beaucoup moins à porter. Un actif qui s'amortit, pas une dette qui s'accumule.",
+          "a_en": "Upfront, a quickly built WordPress looks cheaper. Over three years the maths flips: beefy hosting, premium plugin licences, maintenance, security fixes and a rebuild when the stack becomes unmanageable. The composable site costs more to lay down, far less to carry. An asset that amortises, not a debt that accumulates."
+        },
+        {
+          "q_fr": "Et la sécurité, WordPress est-il vraiment risqué ?",
+          "q_en": "What about security, is WordPress really risky?",
+          "a_fr": "WordPress équipe une part énorme du web, donc concentre une part énorme des attaques. Chaque plugin tiers est une porte d'entrée, et une mise à jour oubliée suffit. Le site composable n'expose ni admin ni base de données en frontal : il n'y a quasiment rien à pirater côté serveur. Surface d'attaque réduite par conception, pas par rustines.",
+          "a_en": "WordPress powers a huge share of the web, so it draws a huge share of the attacks. Every third-party plugin is an entry door, and one forgotten update is enough. The composable site exposes neither admin nor front-facing database: there is almost nothing to hack on the server side. Attack surface reduced by design, not by patches."
+        },
+        {
+          "q_fr": "Qui édite le contenu une fois migré ?",
+          "q_en": "Who edits the content once migrated?",
+          "a_fr": "Vous, sans dépendre d'un développeur. L'édition passe par un CMS git-based comme TinaCMS, ou se pilote par un chatbot IA pour les évolutions courantes. Pas de chantier de plugins ni de thème à dompter. Chaque changement est versionné dans le code, donc réversible.",
+          "a_en": "You do, without depending on a developer. Editing goes through a git-based CMS like TinaCMS, or is steered by an AI chatbot for routine changes. No plugin project or theme to tame. Every change is versioned in the code, so reversible."
+        },
+        {
+          "q_fr": "Combien de temps prend la migration ?",
+          "q_en": "How long does the migration take?",
+          "a_fr": "Un site exploitable est livré en 4 à 8 semaines selon le volume de pages et la complexité des intégrations. Le contenu et les redirections se préparent au cadrage pour que la bascule soit transparente côté trafic.",
+          "a_en": "A usable site is delivered in 4 to 8 weeks depending on page volume and integration complexity. Content and redirects are prepared at scoping so the switch is transparent on the traffic side."
+        },
+        {
+          "q_fr": "Vous travaillez sur quels CRM et e-commerce après migration ?",
+          "q_en": "Which CRM and e-commerce do you work with after migration?",
+          "a_fr": "CRM : HubSpot, Salesforce et Pipedrive en priorité, en intégration native. L'e-commerce (Shopify, Stripe, WooCommerce) et un second CMS (Strapi) sont des add-ons activables. Pour un autre outil, on évalue la faisabilité au cadrage.",
+          "a_en": "CRM: HubSpot, Salesforce and Pipedrive first, native integration. E-commerce (Shopify, Stripe, WooCommerce) and a second CMS (Strapi) are activable add-ons. For another tool, we assess feasibility at scoping."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à quitter la dette ?",
+      "kicker_en": "§ Ready to leave the debt?",
+      "h2_fr": "Sortez votre site de la <i>maintenance</i> WordPress.",
+      "h2_en": "Pull your site out of WordPress <i>maintenance</i>.",
+      "subtitle_fr": "Un audit de 45 min, gratuit et sans engagement : on part de votre WordPress réel, on chiffre le gain d'une migration ou d'une instrumentation, et on trace le chemin. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
+      "subtitle_en": "A 45-min audit, free and with no commitment: we start from your real WordPress, size the gain of a migration or instrumentation, and map the path. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit (45 min) →",
+          "label_en": "Book an audit (45 min) →",
+          "href": "/contact?offer=wordpress&intent=discovery",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le site web intelligent",
+          "label_en": "See the intelligent website",
+          "href": "/services/site-web-intelligent",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

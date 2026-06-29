@@ -1,0 +1,607 @@
+{
+  "$schema": "../../schemas/generated/services.page.schema.json",
+  "title_fr": "Machine outbound · prospection multicanale automatisée et CRM",
+  "title_en": "Outbound machine · automated multichannel prospecting and CRM",
+  "description_fr": "Machine outbound : prospection multicanale automatisée, ciblage ICP serré, séquences email et LinkedIn personnalisées, voix et SMS, branchées à votre CRM. Studio à Montpellier.",
+  "description_en": "Outbound machine: automated multichannel prospecting, tight ICP targeting, personalised email and LinkedIn sequences, voice and SMS, wired to your CRM. Studio in Montpellier.",
+  "slug": "machine-outbound",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "category": "acquisition",
+  "tags": [
+    "machine-outbound",
+    "prospection-multicanale",
+    "outbound-b2b",
+    "crm-scoring",
+    "sequences-email-linkedin"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Mise en place d'une machine de prospection outbound multicanale",
+    "priceRange": "2000-12000€",
+    "priceMin": 2000,
+    "priceMax": 12000
+  },
+  "faq_fr": [
+    {
+      "q": "Outbound automatisé, ce n'est pas du spam ?",
+      "a": "Non, et c'est précisément le sujet. On cible serré sur votre ICP, on personnalise chaque message et on respecte la conformité (opt-out, RGPD, limites de volume). Une machine outbound honnête envoie moins de messages, mieux ciblés, pas plus."
+    },
+    {
+      "q": "Vous fournissez les contacts ou je dois les apporter ?",
+      "a": "On construit le ciblage avec vous : définition de l'ICP, puis enrichissement via Apollo et Pharow pour sortir des listes propres, dédoublonnées et qualifiées. Vous gardez la donnée, elle reste chez vous."
+    },
+    {
+      "q": "Sur quels canaux la séquence tourne-t-elle ?",
+      "a": "Email et LinkedIn en cœur de séquence (Lemlist, Instantly), voix et SMS en relance ciblée (Twilio). On active les canaux qui correspondent à votre cible et à votre offre, pas tous par défaut."
+    },
+    {
+      "q": "Ça se branche à mon CRM existant ?",
+      "a": "Oui : HubSpot et Pipedrive en priorité, en intégration native. Chaque réponse crée ou met à jour une fiche, le scoring se met à jour, et l'alerte commerciale se déclenche au bon moment. Pour un autre CRM, on évalue la faisabilité au cadrage."
+    },
+    {
+      "q": "Combien de temps avant les premiers rendez-vous ?",
+      "a": "Ciblage et première séquence en quelques semaines. Les premiers rendez-vous arrivent une fois la séquence rodée et les messages itérés sur les réponses. On cadre des attentes réalistes avant de signer."
+    },
+    {
+      "q": "Quelle différence avec un SDR ou une agence de prospection classique ?",
+      "a": "On ne facture pas du volume de messages : on installe un système que vous gardez. Le ciblage, les séquences, le scoring et le branchement CRM restent chez vous, lisibles et modifiables. Pas de boîte noire, pas de captivité."
+    },
+    {
+      "q": "Et si je fais déjà de l'inbound ?",
+      "a": "L'outbound est le pendant sortant : vous allez chercher les comptes ICP au lieu de les attendre. Les deux se complètent et alimentent le même CRM. La landing page de scoring capte l'inbound, la machine outbound ouvre les comptes ciblés."
+    },
+    {
+      "q": "Comment vous gérez la conformité et la délivrabilité ?",
+      "a": "Réchauffe des domaines d'envoi, limites de volume, opt-out propre, suivi de la délivrabilité et conformité RGPD. Une boîte qui finit en spam ne convertit pas : la rigueur technique fait partie du système."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Isn't automated outbound just spam?",
+      "a": "No, and that's exactly the point. We target tightly on your ICP, personalise every message and respect compliance (opt-out, GDPR, volume limits). An honest outbound machine sends fewer, better-targeted messages, not more."
+    },
+    {
+      "q": "Do you provide the contacts or do I bring them?",
+      "a": "We build the targeting with you: ICP definition, then enrichment via Apollo and Pharow to produce clean, deduplicated, qualified lists. You keep the data, it stays with you."
+    },
+    {
+      "q": "Which channels does the sequence run on?",
+      "a": "Email and LinkedIn at the core of the sequence (Lemlist, Instantly), voice and SMS for targeted follow-up (Twilio). We activate the channels that match your target and offer, not all by default."
+    },
+    {
+      "q": "Does it connect to my existing CRM?",
+      "a": "Yes: HubSpot and Pipedrive first, native integration. Every reply creates or updates a record, the scoring updates, and the sales alert fires at the right moment. For another CRM, we assess feasibility at scoping."
+    },
+    {
+      "q": "How long before the first meetings?",
+      "a": "Targeting and a first sequence within a few weeks. The first meetings come once the sequence is dialled in and the messages iterated on replies. We set realistic expectations before signing."
+    },
+    {
+      "q": "How is this different from an SDR or a classic prospecting agency?",
+      "a": "We don't bill message volume: we install a system you keep. Targeting, sequences, scoring and CRM wiring stay with you, readable and editable. No black box, no lock-in."
+    },
+    {
+      "q": "What if I already do inbound?",
+      "a": "Outbound is the outgoing counterpart: you go after the ICP accounts instead of waiting for them. The two complement each other and feed the same CRM. The scoring landing page captures inbound, the outbound machine opens targeted accounts."
+    },
+    {
+      "q": "How do you handle compliance and deliverability?",
+      "a": "Sending-domain warm-up, volume limits, clean opt-out, deliverability monitoring and GDPR compliance. A mailbox that lands in spam doesn't convert: technical rigour is part of the system."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Machine outbound",
+      "kicker_en": "§ Outbound machine",
+      "h1_fr": "Une machine <i class=\"acc\">outbound</i> qui va chercher vos clients.",
+      "h1_en": "An <i class=\"acc\">outbound</i> machine that goes after your clients.",
+      "lede_fr": "Waimia installe la prospection sortante automatisée : ciblage ICP serré, séquences multicanal personnalisées, voix et SMS, le tout branché à votre CRM. Le pendant de l'inbound, en plus direct.",
+      "lede_en": "Waimia installs automated outbound prospecting: tight ICP targeting, personalised multichannel sequences, voice and SMS, all wired to your CRM. The counterpart of inbound, more direct.",
+      "badges": [
+        {
+          "label_fr": "Ciblage serré",
+          "label_en": "Tight targeting"
+        },
+        {
+          "label_fr": "Email + LinkedIn",
+          "label_en": "Email + LinkedIn"
+        },
+        {
+          "label_fr": "Branché au CRM",
+          "label_en": "CRM-connected"
+        },
+        {
+          "label_fr": "Conforme RGPD",
+          "label_en": "GDPR-compliant"
+        }
+      ],
+      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
+      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_primary": {
+        "label_fr": "Réserver un diagnostic (45 min) →",
+        "label_en": "Book a diagnostic (45 min) →",
+        "href": "/contact?offer=machine-outbound&intent=discovery",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir le dispositif",
+        "label_en": "See the system",
+        "href": "#dispositif",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma du dispositif : une cible ICP est enrichie, entre dans une séquence multicanal, répond, puis la donnée remonte au CRM qui déclenche un rendez-vous.",
+      "media_alt_en": "Device diagram: an ICP target is enriched, enters a multichannel sequence, replies, then the data flows up to the CRM that triggers a meeting.",
+      "kpis": [
+        {
+          "num": "2–4 sem.",
+          "cap_fr": "première séquence en route",
+          "cap_en": "first sequence live"
+        },
+        {
+          "num": "Multicanal",
+          "cap_fr": "email, LinkedIn, voix, SMS",
+          "cap_en": "email, LinkedIn, voice, SMS"
+        }
+      ]
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ At a glance",
+      "metrics": [
+        {
+          "value": "2–12 k€",
+          "label_fr": "budget HT indicatif (sur mesure au-delà)",
+          "label_en": "indicative ex-VAT budget (bespoke beyond)",
+          "emphasis": true
+        },
+        {
+          "value": "2–4 sem.",
+          "label_fr": "première séquence en route",
+          "label_en": "first sequence live"
+        },
+        {
+          "value": "ICP serré",
+          "label_fr": "listes enrichies, dédoublonnées",
+          "label_en": "enriched, deduplicated lists"
+        },
+        {
+          "value": "100 %",
+          "label_fr": "système transféré, zéro captivité",
+          "label_en": "system handed over, no lock-in"
+        }
+      ]
+    },
+    {
+      "type": "statement-orbit",
+      "kicker_fr": "FIG 2.1 · Réseau de prospection",
+      "kicker_en": "FIG 2.1 · Prospecting network",
+      "h2_fr": "Chaque compte ciblé rejoint un <i class=\"acc\">réseau</i> qui enrichit, relance et qualifie.",
+      "h2_en": "Every targeted account joins a <i class=\"acc\">network</i> that enriches, follows up and qualifies.",
+      "lede_fr": "D'une liste froide à un pipeline lisible, la prospection devient un système qui tourne, pas une campagne ponctuelle qu'on relance à la main.",
+      "lede_en": "From a cold list to a readable pipeline, prospecting becomes a system that runs, not a one-off campaign chased by hand.",
+      "cta": {
+        "label_fr": "Explorer le dispositif →",
+        "label_en": "Explore the system →",
+        "href": "#dispositif",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/orbit-network.svg",
+      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs en orbite : chaque compte ciblé rejoint un réseau qui enrichit et relance.",
+      "media_alt_en": "Wireframe globe with nodes linked by orbiting arcs: each targeted account joins a network that enriches and follows up."
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "Pain points · par sévérité",
+      "kicker_en": "Pain points · by severity",
+      "h2_fr": "Là où la prospection <i class=\"acc\">cale</i>.",
+      "h2_en": "Where prospecting <i class=\"acc\">stalls</i>.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Une prospection manuelle qui ne scale pas",
+          "title_en": "Manual prospecting that doesn't scale",
+          "desc_fr": "Tout repose sur le temps d'une personne : dès qu'elle arrête, le pipeline s'assèche.",
+          "desc_en": "Everything rests on one person's time: the moment they stop, the pipeline dries up.",
+          "fix_fr": "Séquences multicanal automatisées.",
+          "fix_en": "Automated multichannel sequences."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Aucun suivi des relances",
+          "title_en": "No follow-up tracking",
+          "desc_fr": "Les messages partent sans cadence ni mémoire : on relance trop, trop peu, ou jamais.",
+          "desc_en": "Messages go out with no cadence or memory: follow-up is too much, too little, or never.",
+          "fix_fr": "Cadence et scoring branchés au CRM.",
+          "fix_en": "Cadence and scoring wired to the CRM."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Un CRM mort qui ne reflète rien",
+          "title_en": "A dead CRM that reflects nothing",
+          "desc_fr": "Les fiches ne sont jamais à jour : impossible de savoir qui a répondu, où en est chaque compte.",
+          "desc_en": "Records are never up to date: impossible to know who replied or where each account stands.",
+          "fix_fr": "Fiches enrichies et synchronisées en continu.",
+          "fix_en": "Records enriched and synced continuously."
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "anchor": "dispositif",
+      "background": "paper",
+      "kicker_fr": "§ Les briques",
+      "kicker_en": "§ The building blocks",
+      "h2_fr": "Ce qui <i>compose</i> la machine outbound",
+      "h2_en": "What <i>composes</i> the outbound machine",
+      "lede_fr": "Quatre briques assemblées sur une même base : un ciblage qui sort des listes propres, des séquences qui parlent à la bonne personne, des relances voix et SMS quand l'écrit ne suffit pas, et un CRM qui note et route chaque réponse. On active celles qui servent votre cible.",
+      "lede_en": "Four blocks assembled on a single base: targeting that produces clean lists, sequences that speak to the right person, voice and SMS follow-up when text isn't enough, and a CRM that scores and routes every reply. We activate the ones that fit your target.",
+      "alternate_blocks": true,
+      "rows": [
+        {
+          "kicker_fr": "Brique 01",
+          "kicker_en": "Block 01",
+          "h3_fr": "Ciblage et enrichissement",
+          "h3_en": "Targeting and enrichment",
+          "body_fr": "Avant le premier message, la liste : définition de l'ICP, puis enrichissement via Apollo et Pharow pour sortir des comptes propres, dédoublonnés et qualifiés. On vise serré plutôt que large, parce qu'un ciblage précis vaut mieux qu'un volume gaspillé.",
+          "body_en": "Before the first message, the list: ICP definition, then enrichment via Apollo and Pharow to produce clean, deduplicated, qualified accounts. We aim tight rather than broad, because precise targeting beats wasted volume.",
+          "points": [
+            {
+              "label_fr": "Définition de l'ICP et des signaux",
+              "label_en": "ICP and signal definition"
+            },
+            {
+              "label_fr": "Enrichissement Apollo et Pharow",
+              "label_en": "Apollo and Pharow enrichment"
+            },
+            {
+              "label_fr": "Listes propres, dédoublonnées, vérifiées",
+              "label_en": "Clean, deduplicated, verified lists"
+            }
+          ],
+          "media_src": "/images/line-art/livrable-tableau-mesure.svg",
+          "media_alt_fr": "Schéma line-art : ciblage et enrichissement de comptes",
+          "media_alt_en": "Line-art diagram: account targeting and enrichment"
+        },
+        {
+          "kicker_fr": "Brique 02",
+          "kicker_en": "Block 02",
+          "h3_fr": "Séquences multicanal",
+          "h3_en": "Multichannel sequences",
+          "body_fr": "Des séquences email et LinkedIn personnalisées qui tournent sans relance manuelle, via Lemlist et Instantly. Chaque message est écrit pour un segment précis, la cadence est calée, la délivrabilité surveillée. On itère sur les réponses plutôt que d'envoyer en masse.",
+          "body_en": "Personalised email and LinkedIn sequences that run without manual chasing, via Lemlist and Instantly. Each message is written for a precise segment, the cadence is set, deliverability monitored. We iterate on replies rather than blasting at scale.",
+          "points": [
+            {
+              "label_fr": "Email et LinkedIn (Lemlist, Instantly)",
+              "label_en": "Email and LinkedIn (Lemlist, Instantly)"
+            },
+            {
+              "label_fr": "Messages personnalisés par segment",
+              "label_en": "Messages personalised per segment"
+            },
+            {
+              "label_fr": "Délivrabilité et cadence surveillées",
+              "label_en": "Deliverability and cadence monitored"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/chess-ink.webp",
+          "media_alt_fr": "Illustration : séquences multicanal coordonnées",
+          "media_alt_en": "Illustration: coordinated multichannel sequences"
+        },
+        {
+          "kicker_fr": "Brique 03",
+          "kicker_en": "Block 03",
+          "h3_fr": "Voix et SMS",
+          "h3_en": "Voice and SMS",
+          "body_fr": "Quand l'écrit ne suffit pas, la relance passe par la voix et le SMS via Twilio : un canal direct, déclenché sur les comptes chauds repérés par le scoring. La voix ouvre les comptes que l'email seul laisse dormir, sans noyer la cible.",
+          "body_en": "When text isn't enough, follow-up moves to voice and SMS via Twilio: a direct channel, triggered on the hot accounts flagged by scoring. Voice opens accounts that email alone leaves dormant, without flooding the target.",
+          "points": [
+            {
+              "label_fr": "Voix et SMS via Twilio",
+              "label_en": "Voice and SMS via Twilio"
+            },
+            {
+              "label_fr": "Déclenché sur les comptes chauds",
+              "label_en": "Triggered on hot accounts"
+            },
+            {
+              "label_fr": "Relance directe, sans saturer la cible",
+              "label_en": "Direct follow-up, no target overload"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
+          "media_alt_fr": "Illustration : relance voix et SMS sur les comptes chauds",
+          "media_alt_en": "Illustration: voice and SMS follow-up on hot accounts"
+        },
+        {
+          "kicker_fr": "Brique 04",
+          "kicker_en": "Block 04",
+          "h3_fr": "CRM branché et scoring",
+          "h3_en": "Wired CRM and scoring",
+          "body_fr": "Chaque réponse crée ou met à jour une fiche dans HubSpot ou Pipedrive, le scoring note l'intention et l'alerte commerciale se déclenche au bon moment. Le pipeline est lisible, le suivi automatique, et le commercial ne traite que des comptes déjà qualifiés.",
+          "body_en": "Every reply creates or updates a record in HubSpot or Pipedrive, scoring rates intent and the sales alert fires at the right time. The pipeline is readable, follow-up automatic, and sales only handle already-qualified accounts.",
+          "points": [
+            {
+              "label_fr": "HubSpot ou Pipedrive en natif",
+              "label_en": "HubSpot or Pipedrive natively"
+            },
+            {
+              "label_fr": "Scoring d'intention sur le comportement",
+              "label_en": "Intent scoring on behaviour"
+            },
+            {
+              "label_fr": "Alerte commerciale au bon moment",
+              "label_en": "Sales alert at the right moment"
+            }
+          ],
+          "link_href": "/services/landing-page-scoring",
+          "link_label_fr": "Voir la landing page de scoring →",
+          "link_label_en": "See the scoring landing page →",
+          "media_src": "/images/line-art/dispositif-flow.svg",
+          "media_alt_fr": "Schéma line-art : flux de scoring et routage CRM",
+          "media_alt_en": "Line-art diagram: scoring and CRM routing flow"
+        }
+      ]
+    },
+    {
+      "type": "system-flow",
+      "background": "ink",
+      "fig_num": "Fig. 3.0",
+      "fig_title_fr": "Architecture du système",
+      "fig_title_en": "System architecture",
+      "meta_fr": "OutboundLoop · v1",
+      "meta_en": "OutboundLoop · v1",
+      "h2_fr": "Cible → enrichissement → séquence → réponse → CRM → <i class=\"acc\">rendez-vous</i>.",
+      "h2_en": "Target → enrichment → sequence → reply → CRM → <i class=\"acc\">meeting</i>.",
+      "lede_fr": "Chaque maillon transforme un compte froid en signal exploitable, puis renvoie la donnée vers le ciblage pour l'affiner.",
+      "lede_en": "Each link turns a cold account into a usable signal, then feeds the data back to the targeting to sharpen it.",
+      "steps": [
+        {
+          "title_fr": "Cible",
+          "title_en": "Target",
+          "desc_fr": "ICP défini, comptes prioritaires identifiés sur des signaux clairs.",
+          "desc_en": "ICP defined, priority accounts identified on clear signals."
+        },
+        {
+          "title_fr": "Enrichissement",
+          "title_en": "Enrichment",
+          "desc_fr": "Apollo et Pharow sortent des fiches propres et qualifiées.",
+          "desc_en": "Apollo and Pharow produce clean, qualified records."
+        },
+        {
+          "title_fr": "Séquence",
+          "title_en": "Sequence",
+          "desc_fr": "Email, LinkedIn, voix et SMS personnalisés, sans relance manuelle.",
+          "desc_en": "Personalised email, LinkedIn, voice and SMS, with no manual chasing."
+        },
+        {
+          "title_fr": "Réponse · CRM",
+          "title_en": "Reply · CRM",
+          "desc_fr": "Réponse captée, fiche enrichie, intention scorée, commercial alerté.",
+          "desc_en": "Reply captured, record enriched, intent scored, sales alerted."
+        },
+        {
+          "title_fr": "Rendez-vous",
+          "title_en": "Meeting",
+          "desc_fr": "RDV pris ou passé au SDR. La donnée affine le ciblage suivant.",
+          "desc_en": "Meeting booked or handed to the SDR. The data sharpens the next targeting."
+        }
+      ],
+      "loop_label_fr": "boucle d'affinage continu du ciblage",
+      "loop_label_en": "continuous targeting refinement loop"
+    },
+    {
+      "type": "stats-bento",
+      "background": "ink",
+      "kicker_fr": "§ Ce que dit le marché",
+      "kicker_en": "§ What the market shows",
+      "h2_fr": "Pourquoi une prospection <i>instrumentée</i> change l'équation",
+      "h2_en": "Why <i>instrumented</i> prospecting changes the equation",
+      "stats": [
+        {
+          "value": "×3",
+          "delta": "multicanal",
+          "label_fr": "une séquence qui combine email, LinkedIn et voix touche bien plus qu'un canal isolé",
+          "label_en": "a sequence combining email, LinkedIn and voice reaches far more than a single channel"
+        },
+        {
+          "value": "ICP serré",
+          "delta": "ciblage",
+          "label_fr": "un ciblage précis convertit mieux qu'un volume large envoyé à l'aveugle",
+          "label_en": "precise targeting converts better than broad volume sent blind"
+        },
+        {
+          "value": "Temps réel",
+          "delta": "scoring",
+          "label_fr": "le scoring d'intention fait remonter les comptes chauds avant la relance manuelle",
+          "label_en": "intent scoring surfaces hot accounts before any manual follow-up"
+        },
+        {
+          "value": "100 %",
+          "delta": "zéro captivité",
+          "label_fr": "ciblage, séquences et CRM transférés à la livraison, vous gardez le système",
+          "label_en": "targeting, sequences and CRM handed over at delivery, you keep the system"
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Avant / après",
+      "kicker_en": "§ Before / after",
+      "h2_fr": "De l'outbound <i>artisanal</i> à la machine qui <i>tourne</i>",
+      "h2_en": "From <i>handcrafted</i> outbound to a machine that <i>runs</i>",
+      "without_label_fr": "Sans",
+      "without_label_en": "Without",
+      "without_title_fr": "Outbound artisanal",
+      "without_title_en": "Handcrafted outbound",
+      "without_items": [
+        {
+          "text_fr": "Tout repose sur le temps d'une personne : dès qu'elle s'arrête, le pipeline s'assèche.",
+          "text_en": "Everything rests on one person's time: the moment they stop, the pipeline dries up."
+        },
+        {
+          "text_fr": "Les listes sont sales, pleines de doublons et de contacts qui ne répondent jamais.",
+          "text_en": "Lists are dirty, full of duplicates and contacts that never reply."
+        },
+        {
+          "text_fr": "Les relances partent sans cadence ni mémoire, on relance trop ou jamais.",
+          "text_en": "Follow-ups go out with no cadence or memory, chased too much or never."
+        },
+        {
+          "text_fr": "Le CRM est mort : impossible de savoir qui a répondu ni où en est chaque compte.",
+          "text_en": "The CRM is dead: impossible to know who replied or where each account stands."
+        },
+        {
+          "text_fr": "Un seul canal, l'email, et la cible cesse de répondre dès qu'il sature.",
+          "text_en": "A single channel, email, and the target stops replying as soon as it saturates."
+        }
+      ],
+      "with_label_fr": "Avec",
+      "with_label_en": "With",
+      "with_title_fr": "Machine outbound",
+      "with_title_en": "Outbound machine",
+      "with_items": [
+        {
+          "text_fr": "Les séquences tournent en continu, le pipeline ne dépend plus d'une seule personne.",
+          "text_en": "Sequences run continuously, the pipeline no longer depends on one person."
+        },
+        {
+          "text_fr": "Les listes sont enrichies, dédoublonnées et qualifiées avant le premier message.",
+          "text_en": "Lists are enriched, deduplicated and qualified before the first message."
+        },
+        {
+          "text_fr": "La cadence multicanal est calée et la délivrabilité surveillée.",
+          "text_en": "The multichannel cadence is set and deliverability monitored."
+        },
+        {
+          "text_fr": "Le CRM reflète chaque réponse, le scoring fait remonter les comptes chauds.",
+          "text_en": "The CRM reflects every reply, scoring surfaces hot accounts."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Connexes",
+      "kicker_en": "§ Related",
+      "cards": [
+        {
+          "kicker_fr": "SERVICE 01",
+          "kicker_en": "SERVICE 01",
+          "title_fr": "Landing page de scoring",
+          "title_en": "Scoring landing page",
+          "lead_fr": "La page qui capte l'inbound, score chaque visiteur et le route au CRM.",
+          "lead_en": "The page that captures inbound, scores each visitor and routes them to the CRM.",
+          "href": "/services/landing-page-scoring"
+        },
+        {
+          "kicker_fr": "SYSTÈME 02",
+          "kicker_en": "SYSTEM 02",
+          "title_fr": "Système complet",
+          "title_en": "Complete system",
+          "lead_fr": "Acquisition, contenu, CRM et outbound câblés en un seul dispositif.",
+          "lead_en": "Acquisition, content, CRM and outbound wired into a single system.",
+          "href": "/services/systeme-complet"
+        },
+        {
+          "kicker_fr": "SERVICE 03",
+          "kicker_en": "SERVICE 03",
+          "title_fr": "Content marketing intelligent",
+          "title_en": "Intelligent content marketing",
+          "lead_fr": "Le moteur inbound qui rend la marque visible et citable par les IA.",
+          "lead_en": "The inbound engine that makes the brand visible and citable by AIs.",
+          "href": "/services/content-marketing-intelligent"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Outbound automatisé, ce n'est pas du spam ?",
+          "q_en": "Isn't automated outbound just spam?",
+          "a_fr": "Non, et c'est précisément le sujet. On cible serré sur votre ICP, on personnalise chaque message et on respecte la conformité (opt-out, RGPD, limites de volume). Une machine outbound honnête envoie moins de messages, mieux ciblés, pas plus.",
+          "a_en": "No, and that's exactly the point. We target tightly on your ICP, personalise every message and respect compliance (opt-out, GDPR, volume limits). An honest outbound machine sends fewer, better-targeted messages, not more."
+        },
+        {
+          "q_fr": "Vous fournissez les contacts ou je dois les apporter ?",
+          "q_en": "Do you provide the contacts or do I bring them?",
+          "a_fr": "On construit le ciblage avec vous : définition de l'ICP, puis enrichissement via Apollo et Pharow pour sortir des listes propres, dédoublonnées et qualifiées. Vous gardez la donnée, elle reste chez vous.",
+          "a_en": "We build the targeting with you: ICP definition, then enrichment via Apollo and Pharow to produce clean, deduplicated, qualified lists. You keep the data, it stays with you."
+        },
+        {
+          "q_fr": "Sur quels canaux la séquence tourne-t-elle ?",
+          "q_en": "Which channels does the sequence run on?",
+          "a_fr": "Email et LinkedIn en cœur de séquence (Lemlist, Instantly), voix et SMS en relance ciblée (Twilio). On active les canaux qui correspondent à votre cible et à votre offre, pas tous par défaut.",
+          "a_en": "Email and LinkedIn at the core of the sequence (Lemlist, Instantly), voice and SMS for targeted follow-up (Twilio). We activate the channels that match your target and offer, not all by default."
+        },
+        {
+          "q_fr": "Ça se branche à mon CRM existant ?",
+          "q_en": "Does it connect to my existing CRM?",
+          "a_fr": "Oui : HubSpot et Pipedrive en priorité, en intégration native. Chaque réponse crée ou met à jour une fiche, le scoring se met à jour, et l'alerte commerciale se déclenche au bon moment. Pour un autre CRM, on évalue la faisabilité au cadrage.",
+          "a_en": "Yes: HubSpot and Pipedrive first, native integration. Every reply creates or updates a record, the scoring updates, and the sales alert fires at the right moment. For another CRM, we assess feasibility at scoping."
+        },
+        {
+          "q_fr": "Combien de temps avant les premiers rendez-vous ?",
+          "q_en": "How long before the first meetings?",
+          "a_fr": "Ciblage et première séquence en quelques semaines. Les premiers rendez-vous arrivent une fois la séquence rodée et les messages itérés sur les réponses. On cadre des attentes réalistes avant de signer.",
+          "a_en": "Targeting and a first sequence within a few weeks. The first meetings come once the sequence is dialled in and the messages iterated on replies. We set realistic expectations before signing."
+        },
+        {
+          "q_fr": "Quelle différence avec un SDR ou une agence de prospection classique ?",
+          "q_en": "How is this different from an SDR or a classic prospecting agency?",
+          "a_fr": "On ne facture pas du volume de messages : on installe un système que vous gardez. Le ciblage, les séquences, le scoring et le branchement CRM restent chez vous, lisibles et modifiables. Pas de boîte noire, pas de captivité.",
+          "a_en": "We don't bill message volume: we install a system you keep. Targeting, sequences, scoring and CRM wiring stay with you, readable and editable. No black box, no lock-in."
+        },
+        {
+          "q_fr": "Et si je fais déjà de l'inbound ?",
+          "q_en": "What if I already do inbound?",
+          "a_fr": "L'outbound est le pendant sortant : vous allez chercher les comptes ICP au lieu de les attendre. Les deux se complètent et alimentent le même CRM. La landing page de scoring capte l'inbound, la machine outbound ouvre les comptes ciblés.",
+          "a_en": "Outbound is the outgoing counterpart: you go after the ICP accounts instead of waiting for them. The two complement each other and feed the same CRM. The scoring landing page captures inbound, the outbound machine opens targeted accounts."
+        },
+        {
+          "q_fr": "Comment vous gérez la conformité et la délivrabilité ?",
+          "q_en": "How do you handle compliance and deliverability?",
+          "a_fr": "Réchauffe des domaines d'envoi, limites de volume, opt-out propre, suivi de la délivrabilité et conformité RGPD. Une boîte qui finit en spam ne convertit pas : la rigueur technique fait partie du système.",
+          "a_en": "Sending-domain warm-up, volume limits, clean opt-out, deliverability monitoring and GDPR compliance. A mailbox that lands in spam doesn't convert: technical rigour is part of the system."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à prospecter ?",
+      "kicker_en": "§ Ready to prospect?",
+      "h2_fr": "Transformez votre prospection en machine à <i>rendez-vous</i>.",
+      "h2_en": "Turn your prospecting into a <i>meeting</i> machine.",
+      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec un plan de prospection clair, qu'on travaille ensemble ou non. En face, un interlocuteur unique, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
+      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with a clear prospecting plan, whether we work together or not. Across the table, a single contact, the founder who designs and ships, not a pool of subcontractors.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un diagnostic (45 min) →",
+          "label_en": "Book a diagnostic (45 min) →",
+          "href": "/contact?offer=machine-outbound&intent=discovery",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir la landing page de scoring",
+          "label_en": "See the scoring landing page",
+          "href": "/services/landing-page-scoring",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,577 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Site sur mesure & CMS headless · architecture composable",
+  "title_en": "Bespoke site & headless CMS · composable architecture",
+  "description_fr": "Site sur mesure headless : front découplé, CMS headless au choix (Tina, Strapi, Sanity), perf SSG 100/100 et zéro captivité. Studio à Montpellier.",
+  "description_en": "Bespoke headless site: a decoupled front, your choice of headless CMS (Tina, Strapi, Sanity), 100/100 SSG performance and zero lock-in. Studio in Montpellier.",
+  "slug": "sur-mesure-headless",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "category": "acquisition",
+  "tags": [
+    "site-sur-mesure",
+    "cms-headless",
+    "jamstack",
+    "architecture-composable",
+    "site-web-intelligent"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Création de site sur mesure et CMS headless",
+    "priceRange": "3000-15000€",
+    "priceMin": 3000,
+    "priceMax": 15000
+  },
+  "faq_fr": [
+    {
+      "q": "Quel CMS headless choisir pour mon cas ?",
+      "a": "On tranche au cadrage selon quatre critères : volume de contenu, taille de l'équipe éditoriale, budget et exigence de réversibilité. Pour une PME, on recommande par défaut un CMS git-based (TinaCMS, Keystatic, Decap) : édition versionnée, zéro base de données, réversible. Pour de gros volumes ou une équipe éditoriale, on bascule sur du headless classique (Contentful, Strapi, Sanity, Prismic)."
+    },
+    {
+      "q": "Headless, c'est quoi la différence avec WordPress ?",
+      "a": "Headless sépare le contenu (le CMS) de l'affichage (le front). Le front est un site statique généré (SSG), rapide et sécurisé, qui consomme le contenu via une API ou des fichiers git. WordPress couple les deux : un même serveur PHP rend les pages à chaque visite, ce qui pèse sur la perf et la surface d'attaque."
+    },
+    {
+      "q": "Pourquoi un site sur mesure plutôt que Webflow ou WordPress ?",
+      "a": "Le clé-en-main (Webflow, WordPress) couvre 80 % des besoins, vite et bien. Le sur-mesure se justifie quand l'architecture composable, des intégrations métier lourdes, un design system propre ou une scalabilité forte deviennent décisifs. On vous oriente vers le clé-en-main si c'est le bon choix : on ne vend pas du sur-mesure par défaut."
+    },
+    {
+      "q": "Un site headless, ça reste éditable sans développeur ?",
+      "a": "Oui. Le CMS headless offre une interface d'édition à votre équipe : on rédige, on publie, on réorganise les pages sans toucher au code. Avec un CMS git-based, chaque modification est versionnée et réversible, comme un historique de sauvegardes."
+    },
+    {
+      "q": "Suis-je captif de votre stack à la fin ?",
+      "a": "Non. Le code, le contenu et la documentation sont transférés à la livraison. L'architecture repose sur des standards ouverts (Astro, git, CMS open-source), pas sur une plateforme propriétaire. Vous gardez la stack et pouvez la reprendre en interne ou avec un autre prestataire."
+    },
+    {
+      "q": "Combien de temps pour un site sur mesure headless ?",
+      "a": "Comptez 6 à 12 semaines selon le périmètre : architecture, design system, intégration du CMS et des outils métier, build et mise en ligne. On cadre un planning réaliste et des jalons mesurables avant de signer."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Which headless CMS should I choose for my case?",
+      "a": "We decide at scoping on four criteria: content volume, editorial team size, budget and reversibility needs. For an SME, we recommend a git-based CMS by default (TinaCMS, Keystatic, Decap): versioned editing, no database, reversible. For high volumes or an editorial team, we switch to classic headless (Contentful, Strapi, Sanity, Prismic)."
+    },
+    {
+      "q": "Headless, what's the difference with WordPress?",
+      "a": "Headless separates content (the CMS) from display (the front). The front is a generated static site (SSG), fast and secure, consuming content through an API or git files. WordPress couples both: one PHP server renders pages on each visit, which weighs on performance and attack surface."
+    },
+    {
+      "q": "Why a bespoke site rather than Webflow or WordPress?",
+      "a": "Turnkey (Webflow, WordPress) covers 80 % of needs, fast and well. Bespoke is justified when composable architecture, heavy business integrations, a clean design system or strong scalability become decisive. We point you to turnkey when it's the right call: we don't sell bespoke by default."
+    },
+    {
+      "q": "Is a headless site still editable without a developer?",
+      "a": "Yes. The headless CMS gives your team an editing interface: you write, publish and reorganise pages without touching the code. With a git-based CMS, every change is versioned and reversible, like a history of backups."
+    },
+    {
+      "q": "Am I locked into your stack at the end?",
+      "a": "No. Code, content and documentation are handed over at delivery. The architecture rests on open standards (Astro, git, open-source CMS), not a proprietary platform. You keep the stack and can take it over in-house or with another provider."
+    },
+    {
+      "q": "How long for a bespoke headless site?",
+      "a": "Count 6 to 12 weeks depending on scope: architecture, design system, CMS and business-tool integration, build and go-live. We frame a realistic schedule and measurable milestones before signing."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Sur mesure · CMS headless",
+      "kicker_en": "§ Bespoke · Headless CMS",
+      "h1_fr": "Site <i class=\"acc\">sur mesure</i> & CMS headless.",
+      "h1_en": "A <i class=\"acc\">bespoke</i> site & headless CMS.",
+      "lede_fr": "Quand le clé-en-main ne suffit plus : un front découplé, un CMS headless choisi pour votre cas, et une architecture composable qui monte de version sans tout refondre.",
+      "lede_en": "When turnkey isn't enough: a decoupled front, a headless CMS chosen for your case, and a composable architecture that moves up versions without redoing everything.",
+      "badges": [
+        {
+          "label_fr": "Front découplé",
+          "label_en": "Decoupled front"
+        },
+        {
+          "label_fr": "CMS headless",
+          "label_en": "Headless CMS"
+        },
+        {
+          "label_fr": "SSG 100/100",
+          "label_en": "SSG 100/100"
+        },
+        {
+          "label_fr": "Zéro captivité",
+          "label_en": "Zero lock-in"
+        }
+      ],
+      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
+      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_primary": {
+        "label_fr": "Réserver un diagnostic (45 min) →",
+        "label_en": "Book a diagnostic (45 min) →",
+        "href": "/contact?offer=sur-mesure-headless&intent=discovery",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les briques",
+        "label_en": "See the building blocks",
+        "href": "#briques",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma de l'architecture découplée : le contenu vit dans un CMS headless, le front statique le consomme et se déploie, indépendant et rapide.",
+      "media_alt_en": "Decoupled architecture diagram: content lives in a headless CMS, the static front consumes it and deploys, independent and fast.",
+      "kpis": [
+        {
+          "num": "6–12 sem.",
+          "cap_fr": "site sur mesure livré",
+          "cap_en": "bespoke site delivered"
+        },
+        {
+          "num": "100/100",
+          "cap_fr": "PageSpeed en SSG",
+          "cap_en": "PageSpeed in SSG"
+        }
+      ]
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ At a glance",
+      "metrics": [
+        {
+          "value": "3–15 k€",
+          "label_fr": "budget HT indicatif (sur devis au-delà)",
+          "label_en": "indicative ex-VAT budget (on quote beyond)",
+          "emphasis": true
+        },
+        {
+          "value": "6–12 sem.",
+          "label_fr": "site sur mesure livré",
+          "label_en": "bespoke site delivered"
+        },
+        {
+          "value": "Découplé",
+          "label_fr": "front statique + CMS headless",
+          "label_en": "static front + headless CMS"
+        },
+        {
+          "value": "0 captivité",
+          "label_fr": "code, contenu et docs transférés",
+          "label_en": "code, content and docs handed over"
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition · format extractible",
+      "kicker_en": "§ Definition · extractable format",
+      "statement_fr": "Un <i class=\"acc\">site sur mesure headless</i> sépare le contenu et l'affichage : un CMS headless gère le contenu, un front statique découplé le rend vite et en sécurité. Résultat : performance, scalabilité et zéro captivité, là où une plateforme tout-en-un atteint ses limites.",
+      "statement_en": "A <i class=\"acc\">bespoke headless site</i> separates content and display: a headless CMS handles content, a decoupled static front renders it fast and securely. The result: performance, scalability and zero lock-in, where an all-in-one platform hits its limits.",
+      "pills": [
+        {
+          "label_fr": "Front découplé",
+          "label_en": "Decoupled front"
+        },
+        {
+          "label_fr": "CMS headless",
+          "label_en": "Headless CMS"
+        },
+        {
+          "label_fr": "Jamstack",
+          "label_en": "Jamstack"
+        },
+        {
+          "label_fr": "Composable",
+          "label_en": "Composable"
+        },
+        {
+          "label_fr": "Réversible",
+          "label_en": "Reversible"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Astro SSG",
+          "label_en": "Astro SSG"
+        },
+        {
+          "label_fr": "100/100 Lighthouse",
+          "label_en": "100/100 Lighthouse"
+        },
+        {
+          "label_fr": "API ou git-based",
+          "label_en": "API or git-based"
+        },
+        {
+          "label_fr": "Standards ouverts",
+          "label_en": "Open standards"
+        },
+        {
+          "label_fr": "Design system propre",
+          "label_en": "Own design system"
+        },
+        {
+          "label_fr": "Sécurité réduite",
+          "label_en": "Reduced surface"
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "anchor": "briques",
+      "background": "paper",
+      "kicker_fr": "§ Les briques du sur-mesure",
+      "kicker_en": "§ The bespoke building blocks",
+      "h2_fr": "Ce qui <i>distingue</i> un site sur mesure",
+      "h2_en": "What <i>sets apart</i> a bespoke site",
+      "lede_fr": "Trois fondations qui justifient le sur-mesure : une architecture composable qui se modifie brique par brique, une performance et une sécurité tenues par le SSG, et une scalabilité sans captivité. Vous gardez la main, la stack et le contenu.",
+      "lede_en": "Three foundations that justify going bespoke: a composable architecture changed block by block, performance and security held by SSG, and scalability without lock-in. You keep control, the stack and the content.",
+      "rows": [
+        {
+          "kicker_fr": "Fondation 01",
+          "kicker_en": "Foundation 01",
+          "h3_fr": "Architecture composable",
+          "h3_en": "Composable architecture",
+          "body_fr": "Le site est un assemblage de sections cataloguées, pas une page monolithique. On ajoute, déplace ou remplace une brique sans toucher au reste, et le design system garantit la cohérence partout. L'architecture monte de version pendant que vous l'utilisez, sans refonte.",
+          "body_en": "The site is an assembly of catalogued sections, not a monolithic page. You add, move or replace a block without touching the rest, and the design system keeps consistency everywhere. The architecture moves up versions while you use it, with no rebuild.",
+          "points": [
+            {
+              "label_fr": "Sections composables réutilisables",
+              "label_en": "Reusable composable sections"
+            },
+            {
+              "label_fr": "Design system propre, cohérent partout",
+              "label_en": "Own design system, consistent everywhere"
+            },
+            {
+              "label_fr": "Évolution brique par brique, sans refonte",
+              "label_en": "Block-by-block evolution, no rebuild"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Fondation 02",
+          "kicker_en": "Foundation 02",
+          "h3_fr": "Performance SSG et sécurité",
+          "h3_en": "SSG performance and security",
+          "body_fr": "Le front est pré-généré en pages statiques : pas de serveur applicatif à chaque visite, donc une vitesse 100/100 et une surface d'attaque réduite. Pas de base de données exposée, pas de plugins à patcher en urgence. Le contenu reste dans le CMS, l'affichage reste rapide.",
+          "body_en": "The front is pre-generated as static pages: no application server on each visit, so a 100/100 speed and a reduced attack surface. No exposed database, no plugins to patch in a hurry. Content stays in the CMS, display stays fast.",
+          "points": [
+            {
+              "label_fr": "PageSpeed 100/100 en SSG",
+              "label_en": "100/100 PageSpeed in SSG"
+            },
+            {
+              "label_fr": "Surface d'attaque réduite, 0 base exposée",
+              "label_en": "Reduced attack surface, no exposed database"
+            },
+            {
+              "label_fr": "Pas de plugins à patcher en urgence",
+              "label_en": "No plugins to patch in a hurry"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Fondation 03",
+          "kicker_en": "Foundation 03",
+          "h3_fr": "Scalabilité et zéro captivité",
+          "h3_en": "Scalability and zero lock-in",
+          "body_fr": "L'architecture absorbe la croissance : plus de pages, plus de trafic, plus d'intégrations métier, sans réécrire les fondations. Et à la fin, vous gardez tout : code, contenu et docs transférés, standards ouverts. Vous pouvez reprendre la stack en interne ou la confier à un autre prestataire.",
+          "body_en": "The architecture absorbs growth: more pages, more traffic, more business integrations, without rewriting the foundations. And at the end, you keep everything: code, content and docs handed over, open standards. You can take the stack in-house or pass it to another provider.",
+          "points": [
+            {
+              "label_fr": "Croissance absorbée sans réécrire",
+              "label_en": "Growth absorbed without rewriting"
+            },
+            {
+              "label_fr": "Intégrations métier sur mesure",
+              "label_en": "Bespoke business integrations"
+            },
+            {
+              "label_fr": "Code et contenu transférés, standards ouverts",
+              "label_en": "Code and content handed over, open standards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper-2",
+      "kicker_fr": "§ Choisir son CMS headless",
+      "kicker_en": "§ Choosing your headless CMS",
+      "h2_fr": "Quel <i>CMS headless</i> pour vous",
+      "h2_en": "Which <i>headless CMS</i> for you",
+      "lede_fr": "Le bon CMS dépend de votre cas, pas d'une mode. Deux grandes familles couvrent l'essentiel : les CMS git-based, recommandés par défaut pour une PME, et les CMS headless classiques pour les gros volumes. On tranche ensemble au cadrage, sur des critères concrets.",
+      "lede_en": "The right CMS depends on your case, not on a trend. Two main families cover the essentials: git-based CMS, recommended by default for an SME, and classic headless CMS for high volumes. We decide together at scoping, on concrete criteria.",
+      "rows": [
+        {
+          "kicker_fr": "Famille 01",
+          "kicker_en": "Family 01",
+          "h3_fr": "CMS git-based (Jamstack)",
+          "h3_en": "Git-based CMS (Jamstack)",
+          "body_fr": "Le contenu vit dans des fichiers versionnés dans git, sans base de données. Chaque modification est tracée, datée et réversible, comme un historique de sauvegardes. Léger, robuste et économe : c'est notre recommandation par défaut pour une PME, l'édition reste simple et la stack reste la vôtre.",
+          "body_en": "Content lives in versioned files in git, with no database. Every change is traced, dated and reversible, like a history of backups. Light, robust and lean: it's our default recommendation for an SME, editing stays simple and the stack stays yours.",
+          "points": [
+            {
+              "label_fr": "TinaCMS · édition visuelle git-based",
+              "label_en": "TinaCMS · git-based visual editing"
+            },
+            {
+              "label_fr": "Keystatic · léger, fichiers versionnés",
+              "label_en": "Keystatic · light, versioned files"
+            },
+            {
+              "label_fr": "Decap CMS · ex-Netlify CMS, écosystème Jamstack",
+              "label_en": "Decap CMS · ex-Netlify CMS, Jamstack ecosystem"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Famille 02",
+          "kicker_en": "Family 02",
+          "h3_fr": "CMS headless classiques (API/SaaS)",
+          "h3_en": "Classic headless CMS (API/SaaS)",
+          "body_fr": "Le contenu vit dans une base servie par une API. Cette famille brille sur les gros volumes, les équipes éditoriales nombreuses et le multi-canal (site, app, écrans). Interface d'administration riche, gestion fine des rôles et des workflows de publication, au prix d'un peu plus d'infrastructure.",
+          "body_en": "Content lives in a database served by an API. This family shines on high volumes, large editorial teams and multi-channel (site, app, screens). A rich admin interface, fine-grained role and publishing-workflow management, at the cost of a bit more infrastructure.",
+          "points": [
+            {
+              "label_fr": "Contentful · SaaS, multi-canal, gros volumes",
+              "label_en": "Contentful · SaaS, multi-channel, high volumes"
+            },
+            {
+              "label_fr": "Strapi · open-source, auto-hébergeable",
+              "label_en": "Strapi · open-source, self-hostable"
+            },
+            {
+              "label_fr": "Sanity · contenu structuré, temps réel",
+              "label_en": "Sanity · structured content, real-time"
+            },
+            {
+              "label_fr": "Prismic · slices, équipes éditoriales",
+              "label_en": "Prismic · slices, editorial teams"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Famille 03",
+          "kicker_en": "Family 03",
+          "h3_fr": "Comment on tranche",
+          "h3_en": "How we decide",
+          "body_fr": "Pas de dogme : quatre critères décident. Le volume de contenu et son rythme de publication, la taille de l'équipe éditoriale et ses besoins de workflow, le budget d'infrastructure, et l'exigence de réversibilité. Une PME au contenu maîtrisé part en git-based ; une rédaction nombreuse au multi-canal part en headless classique.",
+          "body_en": "No dogma: four criteria decide. Content volume and its publishing pace, the editorial team size and its workflow needs, the infrastructure budget, and the reversibility requirement. An SME with controlled content goes git-based; a large multi-channel newsroom goes classic headless.",
+          "points": [
+            {
+              "label_fr": "Volume et rythme de publication",
+              "label_en": "Volume and publishing pace"
+            },
+            {
+              "label_fr": "Taille de l'équipe et workflows",
+              "label_en": "Team size and workflows"
+            },
+            {
+              "label_fr": "Budget d'infrastructure",
+              "label_en": "Infrastructure budget"
+            },
+            {
+              "label_fr": "Exigence de réversibilité",
+              "label_en": "Reversibility requirement"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Clé-en-main / Sur-mesure",
+      "kicker_en": "§ Turnkey / Bespoke",
+      "h2_fr": "Quand passer du <i>clé-en-main</i> au <i>sur-mesure</i>",
+      "h2_en": "When to move from <i>turnkey</i> to <i>bespoke</i>",
+      "without_label_fr": "Clé-en-main",
+      "without_label_en": "Turnkey",
+      "without_title_fr": "Webflow / WordPress",
+      "without_title_en": "Webflow / WordPress",
+      "without_items": [
+        {
+          "text_fr": "Mise en ligne rapide, idéal pour 80 % des sites vitrines et landing.",
+          "text_en": "Fast go-live, ideal for 80 % of brochure sites and landings."
+        },
+        {
+          "text_fr": "Personnalisation bornée par les limites de la plateforme.",
+          "text_en": "Customisation bounded by the platform's limits."
+        },
+        {
+          "text_fr": "La perf et la sécurité dépendent du moteur et des plugins.",
+          "text_en": "Performance and security depend on the engine and plugins."
+        },
+        {
+          "text_fr": "Abonnement et écosystème propriétaire : une part de captivité.",
+          "text_en": "Subscription and proprietary ecosystem: a degree of lock-in."
+        }
+      ],
+      "with_label_fr": "Sur-mesure",
+      "with_label_en": "Bespoke",
+      "with_title_fr": "Headless composable",
+      "with_title_en": "Composable headless",
+      "with_items": [
+        {
+          "text_fr": "Architecture composable libre, modifiée brique par brique.",
+          "text_en": "Free composable architecture, changed block by block."
+        },
+        {
+          "text_fr": "Perf 100/100 en SSG et surface d'attaque réduite par construction.",
+          "text_en": "100/100 SSG performance and a reduced attack surface by design."
+        },
+        {
+          "text_fr": "Intégrations métier lourdes et scalabilité sans réécrire les fondations.",
+          "text_en": "Heavy business integrations and scalability without rewriting foundations."
+        },
+        {
+          "text_fr": "Standards ouverts, code et contenu transférés : zéro captivité.",
+          "text_en": "Open standards, code and content handed over: zero lock-in."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Dans la même offre",
+      "kicker_en": "§ In the same offer",
+      "cards": [
+        {
+          "kicker_fr": "OFFRE MÈRE",
+          "kicker_en": "PARENT OFFER",
+          "title_fr": "Site web intelligent",
+          "title_en": "Intelligent website",
+          "lead_fr": "Le pilier complet : acquisition, CRM et contenu câblés sur une même base.",
+          "lead_en": "The full pillar: acquisition, CRM and content wired on a single base.",
+          "href": "/services/site-web-intelligent"
+        },
+        {
+          "kicker_fr": "CLÉ-EN-MAIN",
+          "kicker_en": "TURNKEY",
+          "title_fr": "Site Webflow",
+          "title_en": "Webflow site",
+          "lead_fr": "Le no-code premium quand la vitesse de mise en ligne prime.",
+          "lead_en": "Premium no-code when go-live speed comes first.",
+          "href": "/services/webflow"
+        },
+        {
+          "kicker_fr": "CLÉ-EN-MAIN",
+          "kicker_en": "TURNKEY",
+          "title_fr": "Site WordPress",
+          "title_en": "WordPress site",
+          "lead_fr": "Le CMS le plus répandu, instrumenté proprement pour l'acquisition.",
+          "lead_en": "The most widespread CMS, cleanly instrumented for acquisition.",
+          "href": "/services/wordpress"
+        }
+      ]
+    },
+    {
+      "type": "stats-bento",
+      "background": "ink",
+      "kicker_fr": "§ Ce que dit le marché",
+      "kicker_en": "§ What the market shows",
+      "h2_fr": "Pourquoi le <i>headless</i> s'impose",
+      "h2_en": "Why <i>headless</i> is taking over",
+      "stats": [
+        {
+          "value": "100/100",
+          "delta": "Lighthouse",
+          "label_fr": "score de performance atteignable en SSG, là où un CMS couplé peine à dépasser 60",
+          "label_en": "performance score reachable in SSG, where a coupled CMS struggles to pass 60"
+        },
+        {
+          "value": "0",
+          "delta": "base exposée",
+          "label_fr": "surface d'attaque côté front : pas de serveur applicatif ni de base de données publique",
+          "label_en": "exposed front surface: no application server nor public database"
+        },
+        {
+          "value": "Git",
+          "delta": "réversible",
+          "label_fr": "chaque modification de contenu est versionnée, datée et restaurable avec un CMS git-based",
+          "label_en": "every content change is versioned, dated and restorable with a git-based CMS"
+        },
+        {
+          "value": "100 %",
+          "delta": "zéro captivité",
+          "label_fr": "code, contenu et docs transférés à la livraison, sur des standards ouverts",
+          "label_en": "code, content and docs handed over at delivery, on open standards"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Quel CMS headless choisir pour mon cas ?",
+          "q_en": "Which headless CMS should I choose for my case?",
+          "a_fr": "On tranche au cadrage selon quatre critères : volume de contenu, taille de l'équipe éditoriale, budget et exigence de réversibilité. Pour une PME, on recommande par défaut un CMS git-based (TinaCMS, Keystatic, Decap) : édition versionnée, zéro base de données, réversible. Pour de gros volumes ou une équipe éditoriale, on bascule sur du headless classique (Contentful, Strapi, Sanity, Prismic).",
+          "a_en": "We decide at scoping on four criteria: content volume, editorial team size, budget and reversibility needs. For an SME, we recommend a git-based CMS by default (TinaCMS, Keystatic, Decap): versioned editing, no database, reversible. For high volumes or an editorial team, we switch to classic headless (Contentful, Strapi, Sanity, Prismic)."
+        },
+        {
+          "q_fr": "Headless, c'est quoi la différence avec WordPress ?",
+          "q_en": "Headless, what's the difference with WordPress?",
+          "a_fr": "Headless sépare le contenu (le CMS) de l'affichage (le front). Le front est un site statique généré (SSG), rapide et sécurisé, qui consomme le contenu via une API ou des fichiers git. WordPress couple les deux : un même serveur PHP rend les pages à chaque visite, ce qui pèse sur la perf et la surface d'attaque.",
+          "a_en": "Headless separates content (the CMS) from display (the front). The front is a generated static site (SSG), fast and secure, consuming content through an API or git files. WordPress couples both: one PHP server renders pages on each visit, which weighs on performance and attack surface."
+        },
+        {
+          "q_fr": "Pourquoi un site sur mesure plutôt que Webflow ou WordPress ?",
+          "q_en": "Why a bespoke site rather than Webflow or WordPress?",
+          "a_fr": "Le clé-en-main (Webflow, WordPress) couvre 80 % des besoins, vite et bien. Le sur-mesure se justifie quand l'architecture composable, des intégrations métier lourdes, un design system propre ou une scalabilité forte deviennent décisifs. On vous oriente vers le clé-en-main si c'est le bon choix : on ne vend pas du sur-mesure par défaut.",
+          "a_en": "Turnkey (Webflow, WordPress) covers 80 % of needs, fast and well. Bespoke is justified when composable architecture, heavy business integrations, a clean design system or strong scalability become decisive. We point you to turnkey when it's the right call: we don't sell bespoke by default."
+        },
+        {
+          "q_fr": "Un site headless, ça reste éditable sans développeur ?",
+          "q_en": "Is a headless site still editable without a developer?",
+          "a_fr": "Oui. Le CMS headless offre une interface d'édition à votre équipe : on rédige, on publie, on réorganise les pages sans toucher au code. Avec un CMS git-based, chaque modification est versionnée et réversible, comme un historique de sauvegardes.",
+          "a_en": "Yes. The headless CMS gives your team an editing interface: you write, publish and reorganise pages without touching the code. With a git-based CMS, every change is versioned and reversible, like a history of backups."
+        },
+        {
+          "q_fr": "Suis-je captif de votre stack à la fin ?",
+          "q_en": "Am I locked into your stack at the end?",
+          "a_fr": "Non. Le code, le contenu et la documentation sont transférés à la livraison. L'architecture repose sur des standards ouverts (Astro, git, CMS open-source), pas sur une plateforme propriétaire. Vous gardez la stack et pouvez la reprendre en interne ou avec un autre prestataire.",
+          "a_en": "No. Code, content and documentation are handed over at delivery. The architecture rests on open standards (Astro, git, open-source CMS), not a proprietary platform. You keep the stack and can take it over in-house or with another provider."
+        },
+        {
+          "q_fr": "Combien de temps pour un site sur mesure headless ?",
+          "q_en": "How long for a bespoke headless site?",
+          "a_fr": "Comptez 6 à 12 semaines selon le périmètre : architecture, design system, intégration du CMS et des outils métier, build et mise en ligne. On cadre un planning réaliste et des jalons mesurables avant de signer.",
+          "a_en": "Count 6 to 12 weeks depending on scope: architecture, design system, CMS and business-tool integration, build and go-live. We frame a realistic schedule and measurable milestones before signing."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à composer ?",
+      "kicker_en": "§ Ready to compose?",
+      "h2_fr": "Un site qui se modifie <i>brique par brique</i>.",
+      "h2_en": "A site changed <i>block by block</i>.",
+      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on cadre votre architecture, on choisit le bon CMS headless et on chiffre le sur-mesure. En face, un interlocuteur unique, le fondateur qui conçoit et livre.",
+      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we frame your architecture, choose the right headless CMS and price the bespoke work. Across the table, a single contact, the founder who designs and ships.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un diagnostic (45 min) →",
+          "label_en": "Book a diagnostic (45 min) →",
+          "href": "/contact?offer=sur-mesure-headless&intent=discovery",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Revenir au site web intelligent",
+          "label_en": "Back to the intelligent website",
+          "href": "/services/site-web-intelligent",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

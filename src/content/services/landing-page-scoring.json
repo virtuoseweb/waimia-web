@@ -52,6 +52,18 @@
       "a": "Non. On instrumente ce que vous avez, palier par palier. On ajoute la landing, le lead magnet, le scoring et les relances là où la valeur fuit, sans casser ce qui marche déjà. Si une base de données exploitable existe, le scoring démarre dessus ; sinon on commence par des règles métier explicites et on bascule vers un modèle prédictif quand le volume le permet."
     },
     {
+      "q": "Gérez-vous aussi le paramétrage des publicités Google Ads et Meta ?",
+      "a": "On câble la mesure côté ads, et on peut piloter les campagnes selon votre cadrage. Le pixel Meta, la Conversions API et les balises Google Ads sont posés sur les vrais événements de valeur (lead qualifié, pas simple clic), via Tag Manager et déduplication, pour que les régies optimisent sur ce qui rapporte vraiment. Chaque campagne atterrit sur la landing accordée à son audience, et l'attribution relie chaque lead à la campagne qui l'a généré. L'objectif n'est pas de dépenser plus en ads, mais de faire convertir le trafic que vous payez déjà."
+    },
+    {
+      "q": "Comment fonctionne le tracking, et résiste-t-il aux bloqueurs ?",
+      "a": "On part d'un plan de mesure GA4 centré sur les événements qui comptent (lead magnet ouvert, formulaire soumis, devis demandé), posé via Google Tag Manager. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side (Conversions API Meta, GA4 server-side) et une approche first-party : le signal part de votre serveur, plus fiable et plus durable. Le tout en mode consenti et conforme RGPD, pour que la donnée qui nourrit le scoring soit complète, attribuée et collectée dans les règles."
+    },
+    {
+      "q": "La séquence email s'adapte-t-elle vraiment au comportement du lead ?",
+      "a": "Oui. La séquence ne suit pas un calendrier figé : elle se déclenche et se ramifie selon le score et les interactions (ouverture, clic, page revisitée). Un lead chaud reçoit un message qui accélère vers le rendez-vous, un lead tiède un autre angle pour l'éduquer, un lead froid est mis en veille puis réveillé au bon moment. Quand un seuil de score est franchi, une alerte part au commercial. La relance n'est plus à l'aveugle : elle suit ce que le contact fait réellement."
+    },
+    {
       "q": "Vous êtes basés où, et faut-il être à Montpellier ?",
       "a": "Le studio est à Montpellier et accompagne des PME en local comme à distance. Le cadrage des landing pages, du modèle de scoring et le branchement au CRM se font en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers et la lecture de votre pipeline, mais elle n'est pas une condition."
     }
@@ -84,6 +96,18 @@
     {
       "q": "Do we need to rebuild our whole existing setup?",
       "a": "No. We instrument what you have, stage by stage. We add the landing, the lead magnet, the scoring and the follow-ups where value leaks, without breaking what already works. If a usable database exists, scoring starts on it; otherwise we begin with explicit business rules and move to a predictive model once volume allows."
+    },
+    {
+      "q": "Do you also handle Google Ads and Meta ad setup?",
+      "a": "We wire the measurement on the ads side, and we can drive the campaigns depending on your scope. The Meta pixel, the Conversions API and the Google Ads tags are set on real value events (qualified lead, not a mere click), through Tag Manager and deduplication, so the platforms optimise on what truly returns. Each campaign lands on the landing matched to its audience, and attribution links each lead to the campaign that generated it. The goal isn't to spend more on ads, but to convert the traffic you already pay for."
+    },
+    {
+      "q": "How does tracking work, and does it resist blockers?",
+      "a": "We start from a GA4 measurement plan centred on the events that matter (lead magnet opened, form submitted, quote requested), set through Google Tag Manager. To resist blockers and the end of third-party cookies, we route through server-side tracking (Meta Conversions API, GA4 server-side) and a first-party approach: the signal leaves your server, more reliable and more durable. All in consent mode and GDPR-compliant, so the data that feeds scoring is complete, attributed and collected by the rules."
+    },
+    {
+      "q": "Does the email sequence really adapt to the lead's behaviour?",
+      "a": "Yes. The sequence doesn't follow a fixed calendar: it triggers and branches on score and interactions (open, click, page revisited). A hot lead gets a message that accelerates toward booking, a lukewarm lead a different angle to educate them, a cold lead is paused then woken at the right time. When a score threshold is crossed, an alert goes to sales. Follow-up is no longer blind: it tracks what the contact actually does."
     },
     {
       "q": "Where are you based, and do we need to be in Montpellier?",
@@ -269,6 +293,62 @@
       ]
     },
     {
+      "type": "feature-tabs",
+      "background": "paper-2",
+      "kicker_fr": "§ Tracking · l'instrumentation",
+      "kicker_en": "§ Tracking · the instrumentation",
+      "h2_fr": "Sans <i>mesure propre</i>, pas de scoring",
+      "h2_en": "No clean <i>measurement</i>, no scoring",
+      "intro_fr": "Le scoring ne vaut que par la qualité du signal qui le nourrit. On pose d'abord un tracking propre, conforme et résistant aux bloqueurs, pour que chaque visite produise une donnée fiable, attribuée à sa source.",
+      "intro_en": "Scoring is only as good as the signal that feeds it. We first lay a clean, compliant, blocker-resistant tracking layer, so every visit produces reliable data, attributed to its source.",
+      "tabs": [
+        {
+          "icon": "◎",
+          "label_fr": "GA4 et plan de mesure",
+          "label_en": "GA4 and measurement plan",
+          "title_fr": "Un <i>plan de mesure</i> avant les balises",
+          "title_en": "A <i>measurement plan</i> before the tags",
+          "body_fr": "On part des événements qui comptent pour vous (vue de page clé, lead magnet ouvert, formulaire soumis, devis demandé), pas d'un GA4 par défaut qui mesure tout et ne dit rien. Chaque palier du tunnel devient un événement nommé, posé via Google Tag Manager, prêt à alimenter le scoring et l'attribution.",
+          "body_en": "We start from the events that matter to you (key page view, lead magnet opened, form submitted, quote requested), not a default GA4 that measures everything and says nothing. Each funnel stage becomes a named event, set through Google Tag Manager, ready to feed scoring and attribution.",
+          "visual_label_fr": "Plan d'événements GA4",
+          "visual_label_en": "GA4 event plan"
+        },
+        {
+          "icon": "⊞",
+          "label_fr": "Pixels publicitaires",
+          "label_en": "Advertising pixels",
+          "title_fr": "Pixels Google Ads et Meta <i>bien posés</i>",
+          "title_en": "Google Ads and Meta pixels <i>set right</i>",
+          "body_fr": "Les conversions remontent aux régies pour qu'elles optimisent sur les bons signaux, pas sur des clics creux. Le pixel Meta et les balises Google Ads sont câblés sur les vrais événements de valeur (lead qualifié, pas simple visite), via GTM et déduplication, pour que chaque euro d'ads soit jugé sur ce qu'il rapporte vraiment.",
+          "body_en": "Conversions are sent back to the ad platforms so they optimise on the right signals, not hollow clicks. The Meta pixel and Google Ads tags are wired to real value events (qualified lead, not mere visit), through GTM and deduplication, so every ad euro is judged on what it truly returns.",
+          "visual_label_fr": "Conversions remontées aux régies",
+          "visual_label_en": "Conversions sent to ad platforms"
+        },
+        {
+          "icon": "→",
+          "label_fr": "Tracking server-side",
+          "label_en": "Server-side tracking",
+          "title_fr": "Un signal qui <i>résiste</i> aux bloqueurs",
+          "title_en": "A signal that <i>resists</i> blockers",
+          "body_fr": "Côté client, les bloqueurs de pub et la fin des cookies tiers grignotent la mesure. On passe par un tracking server-side (Conversions API Meta, GA4 server-side) et une approche first-party : le signal de conversion part de votre serveur, plus fiable et plus durable. Conséquence directe : un scoring nourri de données complètes, pas trouées.",
+          "body_en": "Client-side, ad blockers and the end of third-party cookies erode measurement. We route through server-side tracking (Meta Conversions API, GA4 server-side) and a first-party approach: the conversion signal leaves your server, more reliable and more durable. Direct consequence: a scoring fed by complete data, not gappy data.",
+          "visual_label_fr": "Flux server-side first-party",
+          "visual_label_en": "First-party server-side flow"
+        },
+        {
+          "icon": "▣",
+          "label_fr": "Consentement et RGPD",
+          "label_en": "Consent and GDPR",
+          "title_fr": "Mesurer <i>proprement</i>, sans risque",
+          "title_en": "Measure <i>cleanly</i>, without risk",
+          "body_fr": "Bandeau de consentement, mode consenti Google et conservation maîtrisée : on mesure ce qui est permis, là où c'est permis. La donnée qui nourrit le scoring est collectée dans les règles, attribuée à sa source, et reste chez vous. La conformité n'est pas une option ajoutée après coup, elle est posée avec le plan de mesure.",
+          "body_en": "Consent banner, Google consent mode and controlled retention: we measure what is allowed, where it is allowed. The data that feeds scoring is collected by the rules, attributed to its source, and stays with you. Compliance isn't an option bolted on afterwards, it is laid in with the measurement plan.",
+          "visual_label_fr": "Mode consenti et first-party",
+          "visual_label_en": "Consent mode and first-party"
+        }
+      ]
+    },
+    {
       "type": "method-timeline",
       "anchor": "methode",
       "background": "paper-2",
@@ -353,22 +433,22 @@
         {
           "kicker_fr": "Brique 02",
           "kicker_en": "Block 02",
-          "h3_fr": "Landing pages à paliers par persona",
-          "h3_en": "Tiered landing pages per persona",
-          "body_fr": "Des pages structurées par cible et par palier de prix, optimisées SEO et GEO, qui parlent à chaque persona dans sa langue plutôt qu'à tout le monde à la fois. Chaque visiteur est routé vers la page qui convertit le mieux pour son profil, tracking complet à l'appui.",
-          "body_en": "Pages structured per target and per pricing tier, SEO and GEO optimised, that speak to each persona in their language rather than to everyone at once. Each visitor is routed toward the page that converts best for their profile, with full tracking behind it.",
+          "h3_fr": "Landing pages à paliers, branchées aux ads",
+          "h3_en": "Tiered landing pages, wired to ads",
+          "body_fr": "Des pages structurées par cible et par palier de prix, optimisées SEO et GEO, qui parlent à chaque persona dans sa langue plutôt qu'à tout le monde à la fois. Chaque campagne Google Ads ou Meta atterrit sur la landing accordée à son audience et à son mot-clé, le visiteur est routé vers la page qui convertit le mieux pour son profil, et le tracking relie chaque conversion à la campagne qui l'a générée.",
+          "body_en": "Pages structured per target and per pricing tier, SEO and GEO optimised, that speak to each persona in their language rather than to everyone at once. Each Google Ads or Meta campaign lands on the landing matched to its audience and keyword, the visitor is routed toward the page that converts best for their profile, and tracking links each conversion to the campaign that generated it.",
           "points": [
             {
-              "label_fr": "Pages par persona et par palier",
-              "label_en": "Pages per persona and tier"
+              "label_fr": "Pages par persona, accordées aux campagnes",
+              "label_en": "Pages per persona, matched to campaigns"
             },
             {
-              "label_fr": "Optimisées SEO et GEO",
-              "label_en": "SEO and GEO optimised"
+              "label_fr": "Optimisées SEO, GEO et message ads",
+              "label_en": "SEO, GEO and ad-message optimised"
             },
             {
-              "label_fr": "Routage vers la page qui convertit",
-              "label_en": "Routing to the converting page"
+              "label_fr": "Conversion attribuée à la campagne",
+              "label_en": "Conversion attributed to the campaign"
             }
           ]
         },
@@ -419,10 +499,10 @@
         {
           "kicker_fr": "Brique 05",
           "kicker_en": "Block 05",
-          "h3_fr": "A/B testing décidé sur données",
-          "h3_en": "A/B testing decided on data",
-          "body_fr": "Plutôt que de débattre du meilleur titre, on teste. Des variantes de landing, d'accroche et d'appel à l'action sont mises en concurrence sur de vrais visiteurs, et la version qui convertit le plus l'emporte. Les décisions de page se prennent sur des chiffres, pas sur des intuitions.",
-          "body_en": "Rather than debating the best headline, we test it. Landing, hook and call-to-action variants are pitted against each other on real visitors, and the version that converts most wins. Page decisions are made on figures, not hunches.",
+          "h3_fr": "CRO et A/B testing sur données",
+          "h3_en": "CRO and A/B testing on data",
+          "body_fr": "L'optimisation du taux de conversion est un travail continu, pas un coup de chance. Plutôt que de débattre du meilleur titre, on teste : variantes de landing, d'accroche, de formulaire et d'appel à l'action mises en concurrence sur de vrais visiteurs, version gagnante retenue, puis on recommence sur le palier suivant. Les décisions de page se prennent sur le taux de conversion, pas sur des intuitions.",
+          "body_en": "Conversion rate optimisation is continuous work, not a lucky break. Rather than debating the best headline, we test: landing, hook, form and call-to-action variants pitted against each other on real visitors, winning version kept, then we start again on the next stage. Page decisions are made on conversion rate, not hunches.",
           "points": [
             {
               "label_fr": "Variantes testées sur vrais visiteurs",
@@ -433,10 +513,56 @@
               "label_en": "Decision on conversion rate"
             },
             {
-              "label_fr": "Fin des arbitrages à l'intuition",
-              "label_en": "End of intuition-based arbitration"
+              "label_fr": "Optimisation continue, palier par palier",
+              "label_en": "Continuous optimisation, stage by stage"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "journey-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Le quiz interactif · parcours d'entrée",
+      "kicker_en": "§ The interactive quiz · entry journey",
+      "h2_fr": "Un <i class=\"acc\">quiz</i> qui capte, qualifie et route",
+      "h2_en": "A <i class=\"acc\">quiz</i> that captures, qualifies and routes",
+      "steps": [
+        {
+          "icon": "◇",
+          "title_fr": "Le visiteur entre",
+          "title_en": "The visitor enters",
+          "body_fr": "Plutôt qu'un formulaire qui rebute, un quiz court et utile : trois à cinq questions qui aident le visiteur à se situer pendant qu'elles le qualifient. La friction baisse, le taux de complétion monte.",
+          "body_en": "Rather than a form that deters, a short and useful quiz: three to five questions that help the visitor place themselves while qualifying them. Friction drops, completion rate rises.",
+          "highlight_fr": "Capture",
+          "highlight_en": "Capture"
+        },
+        {
+          "icon": "▣",
+          "title_fr": "Chaque réponse score",
+          "title_en": "Each answer scores",
+          "body_fr": "Budget, timing, périmètre, maturité : chaque réponse pèse sur l'intention. Le lead n'arrive pas anonyme, il arrive déjà noté, et le commercial sait à qui il a affaire avant même le premier appel.",
+          "body_en": "Budget, timing, scope, maturity: each answer weighs on intent. The lead doesn't arrive anonymous, it arrives already scored, and sales know who they're dealing with before the first call.",
+          "highlight_fr": "Qualification",
+          "highlight_en": "Qualification"
+        },
+        {
+          "icon": "→",
+          "title_fr": "Le visiteur est routé",
+          "title_en": "The visitor is routed",
+          "body_fr": "Selon ses réponses, le quiz l'oriente vers la page, le palier ou la ressource qui convertit le mieux pour son profil. Un lead chaud va vers la prise de rendez-vous, un lead à éduquer vers le contenu et la séquence email.",
+          "body_en": "Based on their answers, the quiz routes them to the page, tier or resource that converts best for their profile. A hot lead goes to booking, a lead to educate goes to content and the email sequence.",
+          "highlight_fr": "Routing",
+          "highlight_en": "Routing"
+        },
+        {
+          "icon": "↗",
+          "title_fr": "Le score part au CRM",
+          "title_en": "The score goes to the CRM",
+          "body_fr": "Réponses, score d'entrée et source remontent sur la fiche du lead dans votre CRM, et déclenchent la suite : alerte commerciale si le seuil est franchi, séquence email conditionnelle sinon. Le quiz ouvre le tunnel, le scoring le pilote.",
+          "body_en": "Answers, entry score and source land on the lead's record in your CRM, and trigger what follows: a sales alert if the threshold is crossed, a conditional email sequence otherwise. The quiz opens the funnel, scoring drives it.",
+          "highlight_fr": "Branchement",
+          "highlight_en": "Wiring"
         }
       ]
     },
@@ -578,6 +704,49 @@
       ]
     },
     {
+      "type": "integrations-grid",
+      "background": "paper",
+      "kicker_fr": "§ Acquisition et mesure",
+      "kicker_en": "§ Acquisition and measurement",
+      "h2_fr": "On câble votre <i>chaîne d'acquisition</i>",
+      "h2_en": "We wire your <i>acquisition chain</i>",
+      "lede_fr": "Régies, mesure et relance : on branche le scoring sur les outils que vous utilisez déjà, sans imposer une stack neuve. Les conversions remontent aux ads, la donnée nourrit la note, la séquence email s'enclenche.",
+      "lede_en": "Ad platforms, measurement and follow-up: we wire scoring onto the tools you already use, without imposing a new stack. Conversions flow back to ads, data feeds the score, the email sequence kicks in.",
+      "groups": [
+        {
+          "group_fr": "Régies publicitaires",
+          "group_en": "Advertising platforms",
+          "items": [
+            { "name": "Google Ads" },
+            { "name": "Meta Ads" },
+            { "name": "LinkedIn Ads" },
+            { "name": "Microsoft Ads" }
+          ]
+        },
+        {
+          "group_fr": "Mesure et tracking",
+          "group_en": "Measurement and tracking",
+          "items": [
+            { "name": "GA4" },
+            { "name": "Google Tag Manager" },
+            { "name": "Meta Pixel" },
+            { "name": "Conversions API" },
+            { "name": "Search Console" }
+          ]
+        },
+        {
+          "group_fr": "CRM et relance",
+          "group_en": "CRM and follow-up",
+          "items": [
+            { "name": "HubSpot" },
+            { "name": "Salesforce" },
+            { "name": "Pipedrive" },
+            { "name": "Brevo" }
+          ]
+        }
+      ]
+    },
+    {
       "type": "deliverables-grid",
       "background": "paper",
       "kicker_fr": "§ Livrables",
@@ -626,6 +795,14 @@
           "body_en": "Email sequence that triggers and adapts on interactions and score. Dormant contact wake-up included.",
           "format_fr": "AUTOMATION",
           "format_en": "AUTOMATION"
+        },
+        {
+          "title_fr": "Tracking et pixels posés",
+          "title_en": "Tracking and pixels set",
+          "body_fr": "Plan de mesure GA4, Tag Manager, pixel Meta et balises Google Ads câblés sur les vrais événements de valeur, tracking server-side et consentement RGPD inclus.",
+          "body_en": "GA4 measurement plan, Tag Manager, Meta pixel and Google Ads tags wired to real value events, server-side tracking and GDPR consent included.",
+          "format_fr": "TRACKING",
+          "format_en": "TRACKING"
         },
         {
           "title_fr": "Tableau de mesure du tunnel",
@@ -1008,6 +1185,24 @@
           "q_en": "Do we need to rebuild our whole existing setup?",
           "a_fr": "Non. On instrumente ce que vous avez, palier par palier. On ajoute la landing, le lead magnet, le scoring et les relances là où la valeur fuit, sans casser ce qui marche déjà. Si une base de données exploitable existe, le scoring démarre dessus ; sinon on commence par des règles métier explicites et on bascule vers un modèle prédictif quand le volume le permet.",
           "a_en": "No. We instrument what you have, stage by stage. We add the landing, the lead magnet, the scoring and the follow-ups where value leaks, without breaking what already works. If a usable database exists, scoring starts on it; otherwise we begin with explicit business rules and move to a predictive model once volume allows."
+        },
+        {
+          "q_fr": "Gérez-vous aussi le paramétrage des publicités Google Ads et Meta ?",
+          "q_en": "Do you also handle Google Ads and Meta ad setup?",
+          "a_fr": "On câble la mesure côté ads, et on peut piloter les campagnes selon votre cadrage. Le pixel Meta, la Conversions API et les balises Google Ads sont posés sur les vrais événements de valeur (lead qualifié, pas simple clic), via Tag Manager et déduplication, pour que les régies optimisent sur ce qui rapporte vraiment. Chaque campagne atterrit sur la landing accordée à son audience, et l'attribution relie chaque lead à la campagne qui l'a généré. L'objectif n'est pas de dépenser plus en ads, mais de faire convertir le trafic que vous payez déjà.",
+          "a_en": "We wire the measurement on the ads side, and we can drive the campaigns depending on your scope. The Meta pixel, the Conversions API and the Google Ads tags are set on real value events (qualified lead, not a mere click), through Tag Manager and deduplication, so the platforms optimise on what truly returns. Each campaign lands on the landing matched to its audience, and attribution links each lead to the campaign that generated it. The goal isn't to spend more on ads, but to convert the traffic you already pay for."
+        },
+        {
+          "q_fr": "Comment fonctionne le tracking, et résiste-t-il aux bloqueurs ?",
+          "q_en": "How does tracking work, and does it resist blockers?",
+          "a_fr": "On part d'un plan de mesure GA4 centré sur les événements qui comptent (lead magnet ouvert, formulaire soumis, devis demandé), posé via Google Tag Manager. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side (Conversions API Meta, GA4 server-side) et une approche first-party : le signal part de votre serveur, plus fiable et plus durable. Le tout en mode consenti et conforme RGPD, pour que la donnée qui nourrit le scoring soit complète, attribuée et collectée dans les règles.",
+          "a_en": "We start from a GA4 measurement plan centred on the events that matter (lead magnet opened, form submitted, quote requested), set through Google Tag Manager. To resist blockers and the end of third-party cookies, we route through server-side tracking (Meta Conversions API, GA4 server-side) and a first-party approach: the signal leaves your server, more reliable and more durable. All in consent mode and GDPR-compliant, so the data that feeds scoring is complete, attributed and collected by the rules."
+        },
+        {
+          "q_fr": "La séquence email s'adapte-t-elle vraiment au comportement du lead ?",
+          "q_en": "Does the email sequence really adapt to the lead's behaviour?",
+          "a_fr": "Oui. La séquence ne suit pas un calendrier figé : elle se déclenche et se ramifie selon le score et les interactions (ouverture, clic, page revisitée). Un lead chaud reçoit un message qui accélère vers le rendez-vous, un lead tiède un autre angle pour l'éduquer, un lead froid est mis en veille puis réveillé au bon moment. Quand un seuil de score est franchi, une alerte part au commercial. La relance n'est plus à l'aveugle : elle suit ce que le contact fait réellement.",
+          "a_en": "Yes. The sequence doesn't follow a fixed calendar: it triggers and branches on score and interactions (open, click, page revisited). A hot lead gets a message that accelerates toward booking, a lukewarm lead a different angle to educate them, a cold lead is paused then woken at the right time. When a score threshold is crossed, an alert goes to sales. Follow-up is no longer blind: it tracks what the contact actually does."
         },
         {
           "q_fr": "Vous êtes basés où, et faut-il être à Montpellier ?",
