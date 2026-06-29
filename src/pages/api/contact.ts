@@ -62,6 +62,7 @@ const ContactSchema = z.object({
   company: z.string().max(100).optional(),
   role: z.string().max(100).optional(),
   lang: z.enum(["fr", "en"]).optional().default("fr"),
+  website: z.string().optional(),
 });
 
 // Bug @astrojs/vercel@10 adapter : `export const POST` exclu du bundle SSR
@@ -100,7 +101,11 @@ export const ALL: APIRoute = async ({ request }) => {
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang, name, brief, company, role } = parsed.data;
+  const { email, lang, name, brief, company, role, website } = parsed.data;
+  // Honeypot : un bot a rempli le champ caché → faux succès silencieux
+  if (website) {
+    return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
+  }
   const firstName = name?.split(" ")[0] ?? undefined;
   try {
     await Promise.all([

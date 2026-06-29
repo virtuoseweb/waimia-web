@@ -74,6 +74,7 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
       <div class="form-row acad-email">
         <label for="email"><span>Email pro</span><span aria-hidden>*</span></label>
         <input id="email" name="email" type="email" required autocomplete="email" placeholder="prénom@entreprise.com" />
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" />
       </div>
       <p class="form-error-global" role="alert" aria-live="assertive" hidden data-academy-error></p>
       <div class="acad-cta">

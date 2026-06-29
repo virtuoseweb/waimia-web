@@ -62,6 +62,7 @@ const LeadMagnetSchema = z.object({
   role: z.string().max(100).optional(),
   firstName: z.string().max(100).optional(),
   lang: z.enum(["fr", "en"]).optional().default("fr"),
+  website: z.string().optional(),
 });
 
 // Workaround bug @astrojs/vercel@10 (POST exclu du bundle). Cf known-issues #1.
@@ -106,7 +107,11 @@ export const ALL: APIRoute = async ({ request }) => {
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang, slug, company, role, firstName } = parsed.data;
+  const { email, lang, slug, company, role, firstName, website } = parsed.data;
+  // Honeypot : un bot a rempli le champ caché → faux succès silencieux
+  if (website) {
+    return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
+  }
   const magnet = MAGNETS[slug];
   if (!magnet) {
     return Response.json(

@@ -30,6 +30,7 @@ const consent = isFr ? data.consent_fr : data.consent_en;
 
     <div class="cta-newsletter__form-col">
       <form class="cta-newsletter__form" method="post" action={data.action ?? '#'}>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
         <label for="cta-nl-email" class="sr-only">Email</label>
         <input
           id="cta-nl-email"

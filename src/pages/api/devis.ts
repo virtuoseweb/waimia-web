@@ -63,6 +63,7 @@ const DevisSchema = z.object({
   firstName: z.string().max(100).optional(),
   budget: z.string().max(50).optional(),
   lang: z.enum(["fr", "en"]).optional().default("fr"),
+  website: z.string().optional(),
 });
 
 const OFFERS: Record<string, string> = {
@@ -107,7 +108,11 @@ export const ALL: APIRoute = async ({ request }) => {
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang, slug, brief, company, firstName } = parsed.data;
+  const { email, lang, slug, brief, company, firstName, website } = parsed.data;
+  // Honeypot : un bot a rempli le champ caché → faux succès silencieux
+  if (website) {
+    return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
+  }
   const budget = (parsed.data.budget ?? "starter") as "starter" | "standard" | "custom";
   const offerLabel = OFFERS[slug] ?? `Offre ${slug}`;
 

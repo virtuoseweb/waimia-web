@@ -60,6 +60,7 @@ const AcademySchema = z.object({
   email: z.string().email(),
   name: z.string().min(1).max(100).optional(),
   lang: z.enum(["fr", "en"]).optional().default("fr"),
+  website: z.string().optional(),
 });
 
 function categorize(score: number): "discovery" | "building" | "mature" {
@@ -152,7 +153,11 @@ export const ALL: APIRoute = async ({ request }) => {
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang } = parsed.data;
+  const { email, lang, website } = parsed.data;
+  // Honeypot : un bot a rempli le champ caché → faux succès silencieux
+  if (website) {
+    return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
+  }
   const { firstName, company, role } = rawPayload as Record<string, string>;
 
   // 6 questions q1-q6 attendues, scores 0-3 chacune (max 18)
