@@ -73,23 +73,38 @@ const bodyJustify = pl?.body?.justify;
 
 <script>
   // Scroll-reveal : IntersectionObserver bascule .is-visible
-  const targets = document.querySelectorAll<HTMLElement>('.reveal, .reveal-stagger');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    targets.forEach((el) => io.observe(el));
-  } else {
-    // Fallback : tout visible si pas d'IO
-    targets.forEach((el) => el.classList.add('is-visible'));
+  function initBentoReveal() {
+    const targets = document.querySelectorAll<HTMLElement>('.reveal, .reveal-stagger');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      targets.forEach((el) => {
+        if (el.dataset.bentoRevealBound === '1') return;
+        el.dataset.bentoRevealBound = '1';
+        io.observe(el);
+      });
+    } else {
+      // Fallback : tout visible si pas d'IO
+      targets.forEach((el) => el.classList.add('is-visible'));
+    }
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBentoReveal);
+    } else {
+      initBentoReveal();
+    }
+    document.addEventListener('astro:page-load', initBentoReveal);
   }
 </script>
 

@@ -348,14 +348,16 @@ const isFr = lang === 'fr';
 </style>
 
 <script>
-  (() => {
+  function initHorizontalShowcase() {
     const showcases = document.querySelectorAll<HTMLElement>('.hsh');
 
     showcases.forEach((showcase) => {
+      if (showcase.dataset.hshBound === '1') return;
       const track = showcase.querySelector<HTMLElement>('.hsh__track');
       const panels = Array.from(showcase.querySelectorAll<HTMLElement>('.hsh__panel'));
       const buttons = Array.from(showcase.querySelectorAll<HTMLElement>('.hsh__index-btn'));
       if (!track || panels.length === 0) return;
+      showcase.dataset.hshBound = '1';
 
       const setActive = (idx: number) => {
         panels.forEach((el) => {
@@ -396,5 +398,14 @@ const isFr = lang === 'fr';
       // Index 0 actif au depart.
       setActive(0);
     });
-  })();
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHorizontalShowcase);
+    } else {
+      initHorizontalShowcase();
+    }
+    document.addEventListener('astro:page-load', initHorizontalShowcase);
+  }
 </script>

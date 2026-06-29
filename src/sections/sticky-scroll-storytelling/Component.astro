@@ -254,6 +254,7 @@ const numbering = data.numbering ?? 'serif';
     }
     /* Proportions §H.4 (texte / média). Le rail est toujours posé en 1ʳᵉ piste du DOM ;
        data-text-side bascule l'ordre visuel. data-proportion fixe les fractions. */
+    .sss[data-proportion='balanced'] .sss__grid { grid-template-columns: 1fr 1fr; }
     .sss[data-proportion='text-led'] .sss__grid { grid-template-columns: 62fr 38fr; }
     .sss[data-proportion='media-led'] .sss__grid { grid-template-columns: 38fr 62fr; }
     .sss[data-proportion='media-wide'] .sss__grid { grid-template-columns: 34fr 66fr; }
@@ -369,15 +370,17 @@ const numbering = data.numbering ?? 'serif';
 </style>
 
 <script>
-  (() => {
+  function initStickyScroll() {
     if (!('IntersectionObserver' in window)) return;
 
     const sections = document.querySelectorAll<HTMLElement>('.sss');
 
     sections.forEach((section) => {
+      if (section.dataset.sssBound === '1') return;
       const steps = Array.from(section.querySelectorAll<HTMLElement>('.sss__step'));
       const figs = Array.from(section.querySelectorAll<HTMLElement>('.sss__fig'));
       if (steps.length === 0) return;
+      section.dataset.sssBound = '1';
 
       const setActive = (idx: number) => {
         steps.forEach((el) => {
@@ -402,5 +405,14 @@ const numbering = data.numbering ?? 'serif';
 
       steps.forEach((el) => observer.observe(el));
     });
-  })();
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initStickyScroll);
+    } else {
+      initStickyScroll();
+    }
+    document.addEventListener('astro:page-load', initStickyScroll);
+  }
 </script>

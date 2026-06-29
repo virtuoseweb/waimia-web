@@ -283,15 +283,17 @@ const mediaSide = data.media_side ?? 'right';
 </style>
 
 <script>
-  (() => {
+  function initScrollGallery() {
     if (!('IntersectionObserver' in window)) return;
 
     const galleries = document.querySelectorAll<HTMLElement>('.sgal');
 
     galleries.forEach((gallery) => {
+      if (gallery.dataset.sgalBound === '1') return;
       const items = Array.from(gallery.querySelectorAll<HTMLElement>('.sgal__item'));
       const figs = Array.from(gallery.querySelectorAll<HTMLElement>('.sgal__fig'));
       if (items.length === 0) return;
+      gallery.dataset.sgalBound = '1';
 
       const setActive = (idx: number) => {
         items.forEach((el) => {
@@ -316,5 +318,14 @@ const mediaSide = data.media_side ?? 'right';
 
       items.forEach((el) => observer.observe(el));
     });
-  })();
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollGallery);
+    } else {
+      initScrollGallery();
+    }
+    document.addEventListener('astro:page-load', initScrollGallery);
+  }
 </script>
