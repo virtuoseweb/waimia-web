@@ -51,6 +51,8 @@ export interface CatalogueItem {
   contentMode: string;
   // Usage live : true si la section est en prod sur waimia (>= 1 consommateur live).
   onSite: boolean;
+  // Usage RÉEL : nombre d'instances posées dans les pages composables (0 = catalogue seul).
+  consumerCount?: number;
 }
 
 interface FacetOption {
@@ -91,6 +93,21 @@ const STATUS_LABELS_FR: Record<CatalogueItem['status'], string> = {
   wip: 'WIP',
   deprecated: 'Déprécié',
 };
+
+// Libellés FR du modèle de contenu (miroir de CONTENT_MODE_LABELS_FR / ds-kernel).
+// `short` = libellé compact pour le badge de carte ; le titre porte le libellé complet.
+const CONTENT_MODE_BADGE: Record<string, { short: string; full: string }> = {
+  instance: { short: 'Instance', full: 'Contenu inline (instance)' },
+  'global-ref': { short: 'Global', full: 'Source partagée (global)' },
+  hybrid: { short: 'Mixte', full: 'Mixte (inline ou partagé)' },
+};
+
+/** Libellé d'usage réel d'une carte : « N instances » / « 1 instance » / « Catalogue seul ». */
+function usageLabel(count: number | undefined): string {
+  const n = count ?? 0;
+  if (n <= 0) return 'Catalogue seul';
+  return `${n} instance${n > 1 ? 's' : ''}`;
+}
 
 const STATUS_OPTIONS = [
   { value: 'all', label: 'Tous statuts' },
@@ -1485,6 +1502,21 @@ export default function CatalogueExplorer({
                     <span className="cx-card-top">
                       <code className="cx-type-code">{it.type}</code>
                       <span className="cx-card-count">{STATUS_LABELS_FR[it.status]}</span>
+                    </span>
+                    {/* Méta d'usage : badge modèle de contenu (instance / global / mixte) +
+                        compteur d'instances réelles. Réutilise .cx-card-kind/.cx-card-stable
+                        (mono micro), 0 nouveau token. */}
+                    <span className="cx-card-meta">
+                      {CONTENT_MODE_BADGE[it.contentMode] && (
+                        <span
+                          className="cx-card-mode"
+                          data-mode={it.contentMode}
+                          title={CONTENT_MODE_BADGE[it.contentMode].full}
+                        >
+                          {CONTENT_MODE_BADGE[it.contentMode].short}
+                        </span>
+                      )}
+                      <span className="cx-card-stable">{usageLabel(it.consumerCount)}</span>
                     </span>
                     <span className="cx-card-foot">
                       <span className="cx-card-kind">

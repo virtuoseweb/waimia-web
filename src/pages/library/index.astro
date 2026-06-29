@@ -23,6 +23,7 @@ import CatalogueExplorer, { type CatalogueItem } from '@waimia/catalogue-ui/Cata
 import { listCategories, listSections, listFacetCounts } from '../../lib/section-registry';
 import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
 import { getUsage } from '../../lib/library-manifest';
+import { getRealUsage } from '../../lib/section-usage.generated';
 import {
   FACET_LABELS_FR,
   INTENT_LABELS_FR,
@@ -59,6 +60,9 @@ const items: CatalogueItem[] = sections.map((section) => ({
   // Modèle de contenu (registry) + usage live (manifest : 'site' = >= 1 consommateur).
   contentMode: section.contentMode,
   onSite: getUsage(section.type) === 'site',
+  // Usage RÉEL (section-usage.generated.ts, dérivé des pages composables) : nombre
+  // d'instances réellement posées dans le site (0 = jamais utilisée hors catalogue).
+  consumerCount: getRealUsage(section.type).count,
 }));
 
 // Facettes orthogonales (effets/interactions/éléments/layout) : effectifs + libellés FR pour les
@@ -629,6 +633,33 @@ const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({
           font-size: var(--text-micro);
           color: var(--accent-text);
           white-space: nowrap;
+        }
+
+        /* ── Méta d'usage de carte-type (modèle de contenu + compteur d'instances) ── */
+        /* Réutilise le langage mono micro des autres métadonnées de carte ; 0 nouveau token. */
+        .cx-card-meta {
+          display: flex;
+          align-items: center;
+          gap: var(--space-2);
+          flex-wrap: wrap;
+        }
+        .cx-card-mode {
+          display: inline-flex;
+          align-items: center;
+          border: 1px solid var(--hairline-strong);
+          border-radius: var(--radius-sm);
+          padding: 0 var(--space-2);
+          font-family: var(--font-mono);
+          font-size: var(--text-micro);
+          letter-spacing: var(--tracking-mono);
+          text-transform: uppercase;
+          color: var(--muted);
+          white-space: nowrap;
+        }
+        /* Sections « globales » (source partagée) : accentuées pour les repérer d'un coup d'œil. */
+        .cx-card-mode[data-mode='global-ref'] {
+          border-color: var(--accent-text);
+          color: var(--accent-text);
         }
 
         /* ── Chips (facettes multi-select + raccourcis) ── */

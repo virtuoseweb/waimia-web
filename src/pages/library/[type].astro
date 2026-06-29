@@ -41,7 +41,8 @@ import {
 } from '@waimia/ds-kernel/lib/section-facets';
 import { getSlots, type SectionSlot } from '@waimia/ds-kernel/lib/section-slots';
 import { SECTION_DEMOS } from '../../lib/section-demos';
-import { getUsage, getConsumers } from '../../lib/library-manifest';
+import { getUsage } from '../../lib/library-manifest';
+import { getRealUsage } from '../../lib/section-usage.generated';
 import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
 
 export function getStaticPaths() {
@@ -73,7 +74,19 @@ const thesis = section.intent.map((t) => INTENT_LABELS_FR[t]).join(', ');
 
 // Étiquetage catalogue (docs/40 §3) : usage 'site' | 'library'.
 const usage = getUsage(section.type);
-const consumerCount = getConsumers(section.type).length;
+// Usage RÉEL (section-usage.generated.ts) : compteur d'instances + pages réelles qui
+// posent cette section (routes publiques quand connues). Source = pages composables.
+const realUsage = getRealUsage(section.type);
+const consumerCount = realUsage.count;
+const usagePages = realUsage.pages;
+
+// Lien cliquable depuis un libellé de page : les routes publiques commencent par '/'
+// (cliquables) ; les chemins de fichier source restent en texte (non navigables).
+const pageHref = (page: string): string | null => (page.startsWith('/') ? page : null);
+
+// Badge modèle de contenu (FOSSÉ 4) : instance / global-ref / hybrid -> libellé FR + clé.
+const contentMode = section.contentMode;
+const contentModeLabel = CONTENT_MODE_LABELS_FR[contentMode];
 
 // Datasheet : contrat de slots dérivé du Zod (présentation/contenu, type, requis, bilingue, bornes/enum).
 const slots: SectionSlot[] = getSlots(section.type);
@@ -148,6 +161,11 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
           ) : (
             <span class="component-usage component-usage--library">Bibliothèque</span>
           )}
+          {/* Badge modèle de contenu (FOSSÉ 4) : repère « global » (source partagée) vs
+              « instance » (contenu par page) d'un coup d'œil. */}
+          <span class={`component-mode component-mode--${contentMode}`} title={contentModeLabel}>
+            {contentModeLabel}
+          </span>
         </div>
         {thesis && <p class="component-thesis">{thesis}</p>}
         <p class="component-lede">{section.description_fr}</p>
@@ -158,6 +176,30 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
             ))}
           </div>
         )}
+
+        {/* Pages réelles qui posent cette section (FOSSÉ 1) : routes cliquables quand
+            connues, sinon chemin source. « Catalogue uniquement » si aucune instance. */}
+        <div class="component-usage-pages">
+          <p class="component-meta-label">Sur waimia</p>
+          {usagePages.length > 0 ? (
+            <ul class="component-usage-list" aria-label={`Pages utilisant ${section.type}`}>
+              {usagePages.map((page) => {
+                const href = pageHref(page);
+                return (
+                  <li class="component-usage-item">
+                    {href ? (
+                      <a class="component-usage-link" href={href}>{page}</a>
+                    ) : (
+                      <code class="component-usage-path">{page}</code>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <p class="component-meta-note">Catalogue uniquement (aucune instance en page).</p>
+          )}
+        </div>
       </header>
 
       <section class="component-block" aria-label="Aperçu live">
@@ -430,6 +472,51 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
   }
   .component-usage--library {
     border-color: var(--hairline-strong);
+    color: var(--muted);
+  }
+  /* Badge modèle de contenu (instance / global-ref / hybrid). Même langage mono que
+     status/usage ; « global » accentué pour le repérage rapide. 0 nouveau token. */
+  .component-mode {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    white-space: nowrap;
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+  }
+  .component-mode--global-ref {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  /* Liste des pages réelles qui posent la section (datasheet usage). */
+  .component-usage-pages {
+    margin-top: var(--space-5);
+  }
+  .component-usage-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .component-usage-link,
+  .component-usage-path {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-usage-link {
+    color: var(--accent-text);
+    text-decoration: none;
+  }
+  .component-usage-link:hover {
+    text-decoration: underline;
+  }
+  .component-usage-path {
     color: var(--muted);
   }
   .component-thesis {
