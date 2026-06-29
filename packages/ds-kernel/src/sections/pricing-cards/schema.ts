@@ -36,10 +36,12 @@ export const schema = z.object({
   contentAlign: z.enum(['start', 'center', 'end']).optional(),
   //  - actionsAlign : justify du CTA dans la carte, indépendant du contenu (start|center|end|spread).
   actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
-  //  - columns : 'auto' = auto-fit count-adaptive (s'adapte au nombre de tiers, jamais
-  //    de colonne vide) ; '2'..'6' = nombre fixe desktop. Absent → comportement
-  //    historique (1 colonne par tier via --col-count). Honoré par grid-uniform/grid-auto.
-  columns: z.enum(['auto', '2', '3', '4', '5', '6']).optional(),
+  //  - columns : 'auto' = auto-fit count-adaptive anti-orphelin (s'adapte au nombre de
+  //    tiers, jamais de colonne étriquée ni vide) ; '2'..'6' = nombre fixe desktop.
+  //    DÉFAUT = 'auto' (R2/R3 grille adaptative) : la grille par défaut wrappe
+  //    gracieusement quel que soit le nombre de tiers (2/3/4+), au lieu de poser
+  //    rigidement 1 colonne par tier. Honoré par grid-uniform/grid-auto ET le mode défaut.
+  columns: z.enum(['auto', '2', '3', '4', '5', '6']).default('auto'),
   //  - colRatio : largeurs de colonnes, UNIQUEMENT pour layout='grid-asym'. Ignoré ailleurs.
   colRatio: z.enum(['equal', '1-2', '2-1', '1-1-2', '2-3']).optional(),
   //  - itemHeight : hauteur des cartes (auto|even|square|video). Défaut = align-items:start (actuel).

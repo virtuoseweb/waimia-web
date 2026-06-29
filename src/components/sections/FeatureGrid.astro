@@ -352,10 +352,37 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     margin: 0;
     padding: 0;
     display: grid;
+    /* R1/R5 : pistes en stretch égal (jamais 1fr nu) + cartes hauteur égale.
+       minmax(0,1fr) confine chaque colonne → passer de 4 à 2 colonnes élargit
+       chaque carte sans débordement ni piste qui déborde. */
+    align-items: stretch;
   }
-  .feature-grid__list[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
-  .feature-grid__list[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
-  .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+  /* R1 : data-cols 2/3/4 = N colonnes en minmax(0,1fr) (pas de débordement de piste). */
+  .feature-grid__list[data-cols="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature-grid__list[data-cols="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* R2/R3 : prop `columns` du mixin (data-columns) honorée en mode DÉFAUT (sans data-layout).
+     '1'..'6' = nombre fixe en minmax(0,1fr) ; 'auto' = auto-fit anti-orphelin centré
+     (technique prouvée section-layouts.css:92/99). data-columns surcharge data-cols quand
+     les deux sont présents (le mixin `columns` est plus explicite que l'ancien `cols`). */
+  .feature-grid__list[data-columns="1"] { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .feature-grid__list[data-columns="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature-grid__list[data-columns="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .feature-grid__list[data-columns="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .feature-grid__list[data-columns="5"] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .feature-grid__list[data-columns="6"] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .feature-grid__list[data-columns="auto"] {
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--sec-col-min, 16rem), 100%), 1fr));
+    justify-content: center;
+  }
+  /* R3 : ajuste --sec-col-min selon le compte exact d'items (calque section-layouts.css:552-566)
+     pour que la dernière rangée incomplète soit centrée (auto-fit + justify-content:center) au
+     lieu de laisser un item esseulé. Inerte hors mode 'auto'. */
+  @supports selector(:has(*)) {
+    .feature-grid__list[data-columns="auto"]:has(> .feature-grid__item:nth-child(2):last-child) { --sec-col-min: 22rem; }
+    .feature-grid__list[data-columns="auto"]:has(> .feature-grid__item:nth-child(4):last-child) { --sec-col-min: 18rem; }
+    .feature-grid__list[data-columns="auto"]:has(> .feature-grid__item:nth-child(6):last-child) { --sec-col-min: 15rem; }
+  }
   /* Item du mode hairline : bordure + chevauchement -1px. En mode `layout`, le moteur
      fournit la grille/gap ; la carte garde sa pile flex + son padding (skin du composant). */
   .feature-grid__item {
@@ -363,6 +390,10 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
+    /* R4/R5 : la carte ne déborde jamais sa piste (min-width:0) et remplit la hauteur
+       de la rangée (égalise les hauteurs à 2 colonnes → pas d'« effet pas fini »). */
+    min-width: 0;
+    height: 100%;
   }
   .feature-grid:not([data-layout]) .feature-grid__item {
     border: 1px solid var(--hairline);
@@ -375,6 +406,8 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     font-weight: var(--fw-medium);
     color: var(--ink);
     line-height: 1.2;
+    /* R4 : un h3 long (mot ininterrompu, URL) ne déborde jamais sa carte. */
+    overflow-wrap: anywhere;
   }
   .feature-grid__item p {
     font-family: var(--font-sans);
@@ -441,10 +474,28 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
      inchangé. ── */
   .feature-grid__item[data-cell-bg]:not([data-cell-bg='none']) .feature-grid__title { color: inherit; }
   .feature-grid__item[data-cell-bg]:not([data-cell-bg='none']) p { color: var(--muted); }
+  /* R6 : échelle responsive standardisée (768px = palier réduit, 480px = 1 colonne).
+     Ordre DOM = ordre visuel (aucun `order` ici). data-cols ET data-columns convergent. */
   @media (max-width: 768px) {
     .feature-grid__list[data-cols="3"],
-    .feature-grid__list[data-cols="4"] { grid-template-columns: repeat(2, 1fr); }
-    .feature-grid__list[data-cols="2"] { grid-template-columns: 1fr; }
+    .feature-grid__list[data-cols="4"],
+    .feature-grid__list[data-columns="3"],
+    .feature-grid__list[data-columns="4"],
+    .feature-grid__list[data-columns="5"],
+    .feature-grid__list[data-columns="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .feature-grid__list[data-cols="2"],
+    .feature-grid__list[data-columns="2"] { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .feature-grid__list[data-cols="2"],
+    .feature-grid__list[data-cols="3"],
+    .feature-grid__list[data-cols="4"],
+    .feature-grid__list[data-columns="2"],
+    .feature-grid__list[data-columns="3"],
+    .feature-grid__list[data-columns="4"],
+    .feature-grid__list[data-columns="5"],
+    .feature-grid__list[data-columns="6"],
+    .feature-grid__list[data-columns="auto"] { grid-template-columns: 1fr; }
   }
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .feature-grid[data-bg='paper-2'] { background: var(--paper-2); }
@@ -602,7 +653,8 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     font-size: var(--text-body);
     line-height: var(--leading-body);
     color: var(--muted);
-    max-width: 680px;
+    /* R7 (rule 60) : colonne de lecture = token DS (ex-680px en dur). */
+    max-width: var(--wrap-prose);
     margin: var(--space-5) 0 0;
   }
   .deliverables-grid__grid {
@@ -613,7 +665,8 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
        par carte) est préservé : seule la répartition des colonnes change selon le nombre.
        Axe `columns` (data-columns) : 'auto' (défaut) = count-adaptive :has() ci-dessous ;
        '2'|'3'|'4' = nombre fixe desktop (dégrade en auto-fit sous 900/640px). */
-    grid-template-columns: repeat(3, 1fr);
+    /* R1 : minmax(0,1fr) (jamais 1fr nu) → pas de débordement de piste si un titre est long. */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--deliverables-grid-col-gap, 0);
   }
   /* Colonnes fixes (opt-in) : surcharge le count-adaptive. minmax garde la lisibilité. */
@@ -623,15 +676,24 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
   @supports selector(:has(*)) {
     /* Count-adaptive : UNIQUEMENT en mode 'auto' (défaut). Exactement 4 cartes → 2×2. */
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(4):last-child) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     /* Exactement 5 cartes → 6 sous-colonnes : 3 en haut (span 2), 2 centrées en bas. */
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(6, minmax(0, 1fr));
     }
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > * { grid-column: span 2; }
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > :nth-child(4) { grid-column: 2 / span 2; }
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > :nth-child(5) { grid-column: 4 / span 2; }
+    /* R2/R3 : à partir de 7 items (7, 8, 9…), bascule en auto-fit centré (technique prouvée
+       section-layouts.css:99) au lieu de retomber sur repeat(3) nu → la dernière rangée
+       incomplète (7→3+3+1, 8→3+3+2) est centrée, jamais un item esseulé à gauche.
+       ANTI-RÉGRESSION : 6 items pile (cas nominal courant) RESTENT sur le repeat(3) de base
+       (3×2 déterministe, rendu actuel inchangé) : on ne touche qu'à PARTIR du 7ᵉ item. */
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(7)) {
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min, 15rem), 100%), 1fr));
+      justify-content: center;
+    }
   }
   .deliverables-grid__card {
     position: relative;
@@ -639,6 +701,8 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     padding: var(--space-7) var(--space-6) var(--space-6) 0;
     border-top: 1px solid var(--hairline-strong);
     background: transparent;
+    /* R4 : la carte ne déborde jamais sa piste de grille (titre/tag longs confinés). */
+    min-width: 0;
     transition: transform var(--dur-trim) var(--ease), border-top-color var(--dur-trim) var(--ease), background var(--dur-trim) var(--ease);
   }
   .deliverables-grid__card::before {
@@ -694,6 +758,8 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     font-weight: var(--fw-medium);
     color: var(--ink);
     text-wrap: balance;
+    /* R4 : un titre long (mot ininterrompu, URL) ne déborde jamais la carte. */
+    overflow-wrap: anywhere;
     transition: transform var(--dur-trim) var(--ease);
   }
   .deliverables-grid__card p {
@@ -702,6 +768,8 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     line-height: var(--leading-body);
     color: var(--ink-2);
     margin: 0;
+    /* R7 : 38ch = mesure de lecture STRUCTURELLE (unité typographique liée au contenu,
+       pas un px magique) ; pas de token DS en `ch`, littéral toléré par rule 60 §exception. */
     max-width: 38ch;
     transition: transform var(--dur-trim) var(--ease);
   }
@@ -715,8 +783,10 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     .deliverables-grid__grid[data-columns='3'],
     .deliverables-grid__grid[data-columns='4'],
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(4):last-child),
-    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) {
-      grid-template-columns: repeat(2, 1fr);
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child),
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(7)) {
+      /* R6 : 7+ items convergent en 2 colonnes au palier intermédiaire (annule l'auto-fit). */
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > *,
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) > :nth-child(4),
@@ -728,7 +798,9 @@ const fgCardImageBg = fgCardMedia === 'image-bg';
     .deliverables-grid__grid[data-columns='3'],
     .deliverables-grid__grid[data-columns='4'],
     .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(4):last-child),
-    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child) {
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(5):last-child),
+    .deliverables-grid__grid[data-columns='auto']:has(> :nth-child(7)) {
+      /* R6 : 1 colonne sous 640px (ordre DOM = ordre visuel). */
       grid-template-columns: 1fr;
     }
     .deliverables-grid__card {

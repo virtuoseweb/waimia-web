@@ -114,14 +114,34 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
   .pricing-cards__grid {
     display: grid;
     gap: var(--pricing-cards-gap, var(--space-5));
-    align-items: start;
+    /* R5 · cartes à hauteur égale : la grille étire les items (pas d'escalier à 2 colonnes). */
+    align-items: stretch;
   }
-  /* Défaut peu spécifique, gaté hors data-columns : le moteur .sec-grid[data-columns] pilote
-     les colonnes quand l'attribut est posé ; les recettes layout du moteur (.sec-collection
-     [data-layout] .sec-grid, 0,3,0+) surchargent par spécificité ; ce défaut sert de fallback
-     pour le mode défaut (instances live) et les layouts opaques sans recette moteur. */
+  /* R1/R3 · grille adaptative anti-orphelin. La prop columns vaut 'auto' par défaut (schéma),
+     donc data-columns est toujours posé : le moteur .sec-grid[data-columns] (section-layouts.css)
+     pilote les colonnes. On COMPLÈTE ici le mode 'auto' (le moteur l.92 ne pose ni
+     justify-content:center ni les paliers count-adaptive hors data-layout='grid-auto') :
+     dernière rangée incomplète centrée, jamais une carte esseulée à gauche.
+     Paliers count-adaptive calqués sur section-layouts.css:552-566 (on ne pilote que
+     --sec-col-min, le minmax du moteur reste le même). */
+  .pricing-cards__grid[data-columns='auto'] {
+    justify-content: center;
+  }
+  .pricing-cards__grid[data-columns='auto']:has(> .sec-item:nth-child(2):last-child) {
+    --sec-col-min: 22rem; /* 2 tiers : colonnes larges (évite 2 colonnes étriquées) */
+  }
+  .pricing-cards__grid[data-columns='auto']:has(> .sec-item:nth-child(4):last-child) {
+    --sec-col-min: 18rem; /* 4 tiers : favorise un 2x2 propre plutôt qu'un 1x4 étiré */
+  }
+  .pricing-cards__grid[data-columns='auto']:has(> .sec-item:nth-child(6):last-child) {
+    --sec-col-min: 15rem; /* 6 tiers (théorique) : colonnes plus serrées (3x2 cohérent) */
+  }
+  /* R1 · fallback défensif si data-columns est absent (instance sans prop columns, schéma
+     contourné) : on ne pose JAMAIS 1 colonne par tier sans plafond. On bascule sur l'auto-fit
+     anti-orphelin (mêmes pistes minmax(0,1fr) implicites via minmax min(col-min,100%)). */
   .pricing-cards__grid:not([data-columns]) {
-    grid-template-columns: repeat(var(--col-count, 3), 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--sec-col-min, 16rem), 100%), 1fr));
+    justify-content: center;
   }
   .pricing-cards__card {
     position: relative;
@@ -132,6 +152,11 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
+    /* R4 · le contenu ne déborde jamais sa piste de grille (titre/prix longs). */
+    min-width: 0;
+    /* R5 · carte à pleine hauteur de cellule : alignement bas même avec un nombre de
+       features différent d'une carte à l'autre (CTA en pied de carte, 0 escalier). */
+    height: 100%;
     transition: border-color var(--dur-trim) var(--ease), transform var(--dur-hover) var(--ease);
   }
   .pricing-cards__card:hover {
@@ -176,6 +201,9 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     text-transform: uppercase;
     color: var(--muted);
     font-weight: var(--fw-regular);
+    /* R4 · nom de plan de longueur variable : ne casse jamais la piste. */
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
   }
   .pricing-cards__card.is-featured .pricing-cards__name { color: var(--accent-text); }
   .pricing-cards__price {
@@ -216,6 +244,9 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--ink-2);
+    /* R4 · feature de longueur variable : ne déborde jamais (mot long / URL). */
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
   }
   /* Marqueur de feature (▸) porté par la primitive générique [data-list='check']
      (section-layouts.css) : ::before sur chaque <li>, plus de markup inline. */
@@ -272,9 +303,9 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
   .pricing-cards__card[data-actions-justify='end'] .pricing-cards__btn { align-self: flex-end; }
   .pricing-cards__card[data-actions-justify='between'] .pricing-cards__btn { align-self: stretch; width: 100%; }
 
-  /* ── VOCABULAIRE DE LAYOUT (Batch 2) · recettes nommées sur data-layout. Défaut (absent)
-     = grille --col-count (rendu actuel). 100% tokens DS ; structurel = 768px/900px,
-     aspect-ratio, minmax en rem, order. ── */
+  /* ── VOCABULAIRE DE LAYOUT (Batch 2) · recettes nommées sur data-layout. Défaut (data-layout
+     absent) = grille adaptative auto-fit anti-orphelin (columns='auto' par défaut, R1/R3).
+     100% tokens DS ; structurel = 768px, aspect-ratio, minmax en rem, order. ── */
 
   /* grid-uniform / grid-auto / grid-asym : colonnes déléguées au moteur générique
      (.sec-collection .sec-grid + data-layout/data-columns/data-col-ratio, section-layouts.css).
@@ -329,11 +360,10 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     .pricing-cards[data-layout='rows-divided'] .pricing-cards__card { grid-template-columns: 1fr; row-gap: var(--space-4); }
     .pricing-cards[data-layout] .pricing-cards__grid[data-item-height='square'] .pricing-cards__card,
     .pricing-cards[data-layout] .pricing-cards__grid[data-item-height='video'] .pricing-cards__card { aspect-ratio: auto; }
-  }
-
-  @media (max-width: 900px) {
-    /* Défaut sans layout/columns : 1 colonne. Les recettes layout (grid-uniform/auto/asym)
-       sont gérées par section-layouts.css qui inclut leur responsive. */
+    /* R6 · breakpoint 768px standardisé (ex-bespoke 900px supprimé). Mode défaut :
+       le moteur (section-layouts.css:457-462) ramène déjà .sec-grid[data-columns='1'..'6']
+       à 1 colonne ; data-columns='auto' (défaut) et le fallback :not([data-columns])
+       collapsent intrinsèquement via l'auto-fit. Filet pour l'instance sans data-columns. */
     .pricing-cards__grid:not([data-columns]) { grid-template-columns: 1fr; }
   }
   /* Mobile : densification (espacement/typo tokenisee, sans perte d'info) */
