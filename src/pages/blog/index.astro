@@ -1,13 +1,13 @@
 ---
-// Page · /ressources/blog · Index notes & essais
+// Page · /blog · Index notes & essais
 export const prerender = true;
 
 import { getCollection } from 'astro:content';
-import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro';
-import EditorialWriteRow from '../../../components/ui/molecules/EditorialWriteRow.astro';
-import { langFromPath } from '../../../lib/i18n';
-import { blogEntryHref } from '../../../lib/blog-routing';
-import { buildCollectionPage } from '../../../lib/seo/schema-builder';
+import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
+import EditorialWriteRow from '../../components/ui/molecules/EditorialWriteRow.astro';
+import { langFromPath } from '../../lib/i18n';
+import { blogEntryHref } from '../../lib/blog-routing';
+import { buildCollectionPage } from '../../lib/seo/schema-builder';
 
 const lang = langFromPath(Astro.url.pathname);
 

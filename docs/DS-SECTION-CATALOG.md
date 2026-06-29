@@ -1295,13 +1295,13 @@
 | `layout` | enum | non |  | bento | bento-feature | mosaic | matrix-2x2 | matrix-3x3 | grid-uniform |
 | `placement` | unknown | oui |  |  |
 
-**Tokens** : `--accent-text` `--bento-grid-gap` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--shadow-card-hover` `--space-1` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-h3` `--text-small` `--tile-min`
+**Tokens** : `--accent-text` `--bento-grid-gap` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--shadow-card-hover` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-h2` `--text-h3` `--text-small` `--tile-min`
 
 **Classes scoped** : .align .bento-fluid .bento-grid .bento-grid__body .bento-grid__cell .bento-grid__glyph .bento-grid__header .bento-grid__mosaic .bento-grid__title .css .header .N .span- .span-lg .span-sm .span-wide .wrap-wide
 
-**Dette hardcode** : 7 valeur(s) — -2px, 100%, 15rem, 1px, 673px, 768px, 880px
+**Dette hardcode** : 8 valeur(s) — -2px, 100%, 1024px, 15rem, 1px, 673px, 768px, 880px
 
-**Agent** : Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-2px, 100%, 15rem).
+**Agent** : Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-2px, 100%, 1024px).
 
 ---
 
@@ -4392,9 +4392,9 @@
 
 **Classes scoped** : .logo-marquee .logo-marquee__item .logo-marquee__kicker .logo-marquee__track .logo-marquee__viewport
 
-**Dette hardcode** : 6 valeur(s) — -50%, 100%, 32px, 40px, 8%, 92%
+**Dette hardcode** : 8 valeur(s) — -50%, #6B6560, 100%, 132px, 32px, 40px, 8%, 92%
 
-**Agent** : Layout : `background`, `speed` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-7. Couleur : --ink --paper --paper-2. Dette : 6 litteral(s) hardcode(s) (-50%, 100%, 32px).
+**Agent** : Layout : `background`, `speed` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-7. Couleur : --ink --paper --paper-2. Dette : 8 litteral(s) hardcode(s) (-50%, #6B6560, 100%).
 
 ---
 

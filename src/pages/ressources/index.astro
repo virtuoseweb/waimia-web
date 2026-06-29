@@ -82,7 +82,7 @@ const categories = [
     desc_fr: 'Essais, notes et avis. Publiés quand on a vraiment quelque chose à dire.',
     desc_en: 'Essays, notes and reviews. Published when we genuinely have something to say.',
     format: `${nBlog} ${nBlog > 1 ? 'articles' : 'article'}`,
-    href: '/ressources/blog',
+    href: '/blog',
     cta_label_fr: 'Lire les articles', cta_label_en: 'Read the articles',
   },
   nOutils > 0 && {
@@ -138,7 +138,7 @@ const featuredArticleData = _featArticle
       media_caption_en: `${_featArticle.data.readingTime ? `${_featArticle.data.readingTime} min read · ` : ''}${_featArticle.data.publishedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`,
       cta_label_fr: 'Lire l\'article →',
       cta_label_en: 'Read the article →',
-      cta_href: `/ressources/blog/${_featArticle.id}`,
+      cta_href: `/blog/${_featArticle.id}`,
     } satisfies SectionByType<'feature-split-media'>)
   : null;
 
@@ -161,7 +161,7 @@ const articleGridData = {
     date: b.data.publishedAt.toISOString().slice(0, 10),
     read_time_fr: b.data.readingTime ? `${b.data.readingTime} min` : undefined,
     read_time_en: b.data.readingTime ? `${b.data.readingTime} min` : undefined,
-    href: `/ressources/blog/${b.id}`,
+    href: `/blog/${b.id}`,
   })),
 } satisfies SectionByType<'article-grid'>;
 
@@ -191,7 +191,7 @@ const splitData = {
     lede_fr: 'Pas de calendrier éditorial. On publie quand on a vraiment quelque chose à dire.',
     lede_en: 'No editorial calendar. We publish when we genuinely have something to say.',
     cards: blogCards,
-    cta: { label_fr: 'Tous les articles →', label_en: 'All articles →', href: '/ressources/blog', variant: 'ghost' as const },
+    cta: { label_fr: 'Tous les articles →', label_en: 'All articles →', href: '/blog', variant: 'ghost' as const },
   },
   right: {
     slot: 'right' as const,

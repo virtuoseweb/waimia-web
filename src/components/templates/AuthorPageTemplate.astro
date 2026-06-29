@@ -271,7 +271,7 @@ const curriculumEvents = [
 const resourceGroups = [
   {
     label: t({ fr: 'Notes', en: 'Notes' }, lang),
-    hrefBase: '/ressources/blog',
+    hrefBase: '/blog',
     items: shortPosts,
   },
   {
@@ -366,7 +366,7 @@ const socialItems = [
                 {formatDate(essay.data.publishedAt)}
               </time>
               <div>
-                <a href={hrefFor('/ressources/blog', essay.id)} class="essay-link">
+                <a href={hrefFor('/blog', essay.id)} class="essay-link">
                   <h3 class="essay-title">{titleFor(essay)}</h3>
                 </a>
                 {excerptFor(essay) && <p class="essay-excerpt">{excerptFor(essay)}</p>}

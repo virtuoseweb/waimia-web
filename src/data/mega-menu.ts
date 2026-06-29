@@ -103,7 +103,7 @@ const RESSOURCES: MegaMenuSection = {
       links: [
         {
           label: { fr: 'Blog', en: 'Blog' },
-          href: '/ressources/blog',
+          href: '/blog',
           description: {
             fr: 'Insights business pour PME B2B.',
             en: 'Business insights for B2B SMEs.',

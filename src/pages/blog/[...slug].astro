@@ -2,9 +2,9 @@
 export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
-import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
-import { computeReadingTime } from '../../../lib/seo/reading-time';
-import { isLegacyRoutedType } from '../../../lib/blog-routing';
+import EssayTemplate from '../../components/templates/EssayTemplate.astro';
+import { computeReadingTime } from '../../lib/seo/reading-time';
+import { isLegacyRoutedType } from '../../lib/blog-routing';
 
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
@@ -83,7 +83,7 @@ const relatedCards = d.relatedPosts.length > 0
         title_en: c!.data.title_en,
         lead_fr: c!.data.description_fr,
         lead_en: c!.data.description_en,
-        href: `/ressources/blog/${c!.id}`,
+        href: `/blog/${c!.id}`,
       }))
   : [];
 ---
@@ -102,7 +102,7 @@ const relatedCards = d.relatedPosts.length > 0
   lang="fr"
   breadcrumbItems={[
     { label: 'Accueil', href: '/' },
-    { label: 'Blog', href: '/ressources/blog' },
+    { label: 'Blog', href: '/blog' },
     { label: d.title_fr },
   ]}
   relatedCasesData={relatedCasesData}

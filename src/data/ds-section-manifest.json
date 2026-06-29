@@ -1664,10 +1664,6 @@
         "value": "0 0 0 1px var(--hairline-strong), 0 8px 24px -16px rgba(var(--ink-rgb), 0.1)"
       },
       {
-        "name": "--space-1",
-        "value": "0.25rem"
-      },
-      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -1704,6 +1700,10 @@
         "value": "clamp(28px, 3vw, 48px)"
       },
       {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
       },
@@ -1718,10 +1718,11 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 7,
+      "count": 8,
       "samples": [
         "-2px",
         "100%",
+        "1024px",
         "15rem",
         "1px",
         "673px",
@@ -1729,7 +1730,7 @@
         "880px"
       ]
     },
-    "agentGuide": "Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-2px, 100%, 15rem)."
+    "agentGuide": "Layout : `background`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-2px, 100%, 1024px)."
   },
   {
     "id": "booking-embed",
@@ -5423,7 +5424,6 @@
     "consumers": [
       "src/components/templates/CaseStudyTemplate.astro",
       "src/components/templates/ConversionFunnelTemplate.astro",
-      "src/components/templates/DetailMenuTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro"
@@ -16898,10 +16898,8 @@
       "name": "HeroCentered",
       "path": "src/components/sections/HeroCentered.astro"
     },
-    "usage": "site",
-    "consumers": [
-      "src/components/templates/DetailMenuTemplate.astro"
-    ],
+    "usage": "library",
+    "consumers": [],
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
@@ -19861,7 +19859,9 @@
     },
     "usage": "site",
     "consumers": [
-      "src/content/offres/conseil.mdx"
+      "src/pages/agence-web-montpellier.astro",
+      "src/pages/agence/index.astro",
+      "src/pages/expertise-claude.astro"
     ],
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -29694,17 +29694,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 8,
       "samples": [
         "-50%",
+        "#6B6560",
         "100%",
+        "132px",
         "32px",
         "40px",
         "8%",
         "92%"
       ]
     },
-    "agentGuide": "Layout : `background`, `speed` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-7. Couleur : --ink --paper --paper-2. Dette : 6 litteral(s) hardcode(s) (-50%, 100%, 32px)."
+    "agentGuide": "Layout : `background`, `speed` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-7. Couleur : --ink --paper --paper-2. Dette : 8 litteral(s) hardcode(s) (-50%, #6B6560, 100%)."
   },
   {
     "id": "logo-wall",
@@ -31583,8 +31585,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro",
-      "src/components/templates/DetailMenuTemplate.astro"
+      "src/components/templates/CaseStudyTemplate.astro"
     ],
     "category": "marketing",
     "categorySlug": "timelines",
@@ -36301,7 +36302,6 @@
     },
     "usage": "site",
     "consumers": [
-      "src/components/templates/DetailMenuTemplate.astro",
       "src/pages/en/index.astro",
       "src/pages/index.astro"
     ],

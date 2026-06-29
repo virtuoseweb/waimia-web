@@ -90,6 +90,13 @@ export default defineConfig({
     // (seo.noindex) → redirigés vers l'URL canonique pour résorber le duplicate content.
     '/ressources/blog/migrated-veille-gpt-4o-vision-update': '/ressources/veille-ia/gpt-4o-vision-update',
     '/ressources/blog/migrated-fieldnote-composable-adoption': '/ressources/field-notes/composable-adoption',
+    // 2026-06-29 · Migration URL : blog plat /ressources/blog/* → /blog/* (continuité SEO).
+    // Le hub et tous les articles passent en URL plate ; 301 pour préserver le ranking
+    // des anciennes URLs indexées. L'entrée [...slug] couvre tous les articles ; Astro
+    // substitue le param du source dans la destination (doc redirects). Placées APRÈS les
+    // 2 redirects migrated-* spécifiques ci-dessus (cibles veille-ia/field-notes distinctes).
+    '/ressources/blog': '/blog',
+    '/ressources/blog/[...slug]': '/blog/[...slug]',
     // 2026-06-16 · Cutover atelier DS → /library/* (décision docs/design-system/03 §11.2,
     // sign-off Simon 2026-06-15). Le catalogue/Studio/Hero Lab vivent désormais sous
     // /library/* (public mais non référencé : footer + noindex + redirects). Les pages

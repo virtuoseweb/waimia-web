@@ -197,8 +197,8 @@ export const MM_RESOURCES: MegaMenu = {
       kicker: { en: 'BUSINESS INSIGHTS', fr: 'INSIGHTS BUSINESS' },
       label: { en: 'SMB/SME applied AI', fr: 'IA appliquée PME/ETI' },
       items: [
-        { href: '/ressources/blog', label: { en: 'Blog · business insights', fr: 'Blog · insights business' }, featured: true },
-        { href: '/ressources/blog/brain-circuit', label: { en: 'Essay · Brain circuit', fr: 'Essai · Brain circuit' }, lead: { en: 'How operational AI rewires the company.', fr: "Comment l'IA opérationnelle recâble l'entreprise." } },
+        { href: '/blog', label: { en: 'Blog · business insights', fr: 'Blog · insights business' }, featured: true },
+        { href: '/blog/brain-circuit', label: { en: 'Essay · Brain circuit', fr: 'Essai · Brain circuit' }, lead: { en: 'How operational AI rewires the company.', fr: "Comment l'IA opérationnelle recâble l'entreprise." } },
       ],
     },
     {
@@ -216,7 +216,7 @@ export const MM_RESOURCES: MegaMenu = {
     label: { en: 'Business insights for B2B SMBs', fr: 'Insights business pour PME B2B' },
     body: { en: 'Signed essays and notes on AI-native websites, GEO and acquisition. Published when we genuinely have something to say.', fr: "Essais et notes signés sur les sites IA-native, le GEO et l'acquisition. Publiés quand on a vraiment quelque chose à dire." },
     cta: { en: 'Read the blog →', fr: 'Lire le blog →' },
-    href: '/ressources/blog',
+    href: '/blog',
   },
 };
 
@@ -363,7 +363,7 @@ export const FOOTER_COLS: FooterCol[] = [
     heading: { en: 'Resources', fr: 'Ressources' },
     items: [
       {
-        href: '/ressources/blog',
+        href: '/blog',
         label: { en: 'Blog', fr: 'Blog' },
       },
       {

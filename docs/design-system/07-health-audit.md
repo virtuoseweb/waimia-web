@@ -110,7 +110,7 @@ L'échelle réelle (vérifiée `tokens.css`) a des **trous** que ces hits expose
 | `ListIndexTemplate` | 93 | ~40 | HeroCentered ∈ registry | **Facile** | HeroCentered + CtaBand suffisent |
 | `UtilityTemplate` | 151 | ~60 | HeroCentered | Facile | léger |
 | `WelcomeTemplate` | 197 | ~80 | (slot) WelcomeSection ∈ registry | Facile | slot-based |
-| `DetailMenuTemplate` | 285 | ~110 | HeroCentered | Moyenne | ProofBar/MethodTimeline ∈ sections/ |
+| ~~`DetailMenuTemplate`~~ | 285 | ~110 | HeroCentered | 🗑️ supprimé 2026-06-29 (template mort) | ProofBar/MethodTimeline ∈ sections/ |
 | `EcoleHubTemplate` | 286 | ~100 | HeroCentered | Moyenne | body minimal + couleurs `#3a7d44/#7b4ea6` |
 | `HubTemplate` | 307 | ~110 | HeroHubStats | Moyenne | body inline |
 | `ServiceDetailTemplate` | 312 | ~100 | HeroServiceDetail | Moyenne | ProofBand/MethodTimeline/CtaFinal ∈ sections/ |
@@ -320,7 +320,7 @@ PHASE 2 — Décision DS (arbitrage Simon, DS figé)
 PHASE 3 — Adoption registry (le vrai déblocage builder, risque GF-1 élevé)
   C. Migration templates → SectionsRenderer                                   [XL, élevé]
        ordre : TrustLegal → ListIndex → Utility → Welcome   (P1, slot/léger)
-            → DetailMenu → EcoleHub → Hub → Service → Essay  (P2, body décomposable)
+            → EcoleHub → Hub → Service → Essay  (P2, body décomposable ; DetailMenu supprimé 2026-06-29)
             → Tech → Solutions → Offres                      (P3, nouveaux types requis)
        └─ DÉPEND de B (manifest = contrat de chaque section à composer)
        └─ DÉPEND des nouveaux types (P3) : positionnement/capabilities/models,

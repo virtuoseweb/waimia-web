@@ -75,7 +75,7 @@ const footerGroups: PlanGroup[] = FOOTER_COLS.map((col) => ({
 }));
 
 // ─── Index exhaustif : pages individuelles générées par les collections ───
-// La navigation curée ne liste que les hubs (/cas-clients, /ressources/blog, …).
+// La navigation curée ne liste que les hubs (/cas-clients, /blog, …).
 // Ces groupes ajoutent CHAQUE page réelle des collections, dérivées avec la MÊME
 // route + le MÊME filtre que les getStaticPaths correspondants (single source of
 // truth : src/pages/<collection>/[...slug].astro). Aucun href inventé.
@@ -112,10 +112,10 @@ const allSecteurs = (await getCollection('secteurs'))
     return { href: `/secteurs/${slug}`, label: { fr: name, en: name } };
   });
 
-// blog → /ressources/blog/<entry.id> · filtre !seo.noindex && !legacyRoutedType (cf blog/[...slug].astro)
+// blog → /blog/<entry.id> · filtre !seo.noindex && !legacyRoutedType (cf blog/[...slug].astro)
 const allBlog = (await getCollection('blog'))
   .filter((e) => !e.data.seo?.noindex && !isLegacyRoutedType(e))
-  .map((e) => ({ href: `/ressources/blog/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
+  .map((e) => ({ href: `/blog/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
 // outils → /ressources/outils/<entry.id> · filtre !seo.noindex (cf outils/[...slug].astro)
 const allOutils = (await getCollection('outils'))

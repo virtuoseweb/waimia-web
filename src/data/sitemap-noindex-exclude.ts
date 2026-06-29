@@ -11,7 +11,7 @@
 // R6 2026-06-10 · liste réduite aux SEULS stubs encore générés par le catch-all
 // (purge des 65 stubs orphelins : leurs entrées étaient devenues des no-ops).
 export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
-  "/en/ressources/blog",
+  "/en/blog",
   "/en/ressources/cas",
   "/en/ressources/cookbooks",
   // Stubs /technologies/* retirés (SEO état final §0ter) : route tree supprimé du

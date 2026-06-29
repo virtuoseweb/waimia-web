@@ -570,7 +570,7 @@ export function buildSchemaForPage(
           },
           {
             name: 'Blog',
-            url: `${SITE_URL}/ressources/blog`,
+            url: `${SITE_URL}/blog`,
           },
           { name: d.title_fr },
         ]),

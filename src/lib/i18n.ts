@@ -50,7 +50,7 @@ const FR_ONLY_STATIC = new Set([
   // aucun /en/* 404 émis.
   '/agence/ds-studio', '/agence/hero-lab',
   '/library', '/library/studio', '/library/hero-lab',
-  '/ressources/blog', '/ressources/blog/brain-circuit', '/ressources/academy',
+  '/blog', '/blog/brain-circuit', '/ressources/academy',
   '/ressources/changelog',
   '/ressources/cookbooks', '/ressources/cookbooks/claude-cowork-rollout',
   '/ressources/cookbooks/claude-skills-tutorial', '/ressources/cookbooks/mcp-server-deploy',

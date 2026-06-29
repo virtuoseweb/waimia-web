@@ -6,7 +6,7 @@
 // => AUCUN témoignage client inventé. Le bloc « avis/review » = ENGAGEMENTS/GARANTIES + note honnête.
 //
 // Sources réelles : src/content/authors/simon-beros.mdx, src/content/secteurs/*, src/content/blog/*,
-// src/content/outils/*, src/content/services/*. Routes : /secteurs/<slug>, /ressources/blog/<slug>,
+// src/content/outils/*, src/content/services/*. Routes : /secteurs/<slug>, /blog/<slug>,
 // /ressources/outils/<slug>, /services/<slug>, /equipe/simon-beros.
 
 export interface EeatLink {
@@ -82,31 +82,31 @@ export const EEAT_PACK: EeatPack = {
   articles: [
     {
       label: 'SEO & GEO : être cité par les IA génératives',
-      href: '/ressources/blog/seo-geo-etre-cite-par-les-ia-generatives',
+      href: '/blog/seo-geo-etre-cite-par-les-ia-generatives',
       kicker: 'Article',
       lead: 'Baliser un site pour que Google et les moteurs génératifs citent votre marque.',
     },
     {
       label: "L'IA pour les PME en 2026",
-      href: '/ressources/blog/essai-pillar-ia-pme-2026',
+      href: '/blog/essai-pillar-ia-pme-2026',
       kicker: 'Essai',
       lead: 'Le tour d\'horizon : où l\'IA crée vraiment de la valeur pour une PME.',
     },
     {
       label: 'Câbler son CRM en 10 jours',
-      href: '/ressources/blog/cabler-son-crm-en-10-jours',
+      href: '/blog/cabler-son-crm-en-10-jours',
       kicker: 'Guide',
       lead: 'La méthode pour brancher un CRM utile, scoring compris, en deux semaines.',
     },
     {
       label: 'n8n vs Zapier en 2026',
-      href: '/ressources/blog/avis-n8n-vs-zapier-2026',
+      href: '/blog/avis-n8n-vs-zapier-2026',
       kicker: 'Comparatif',
       lead: 'Quel orchestrateur d\'automatisations selon votre stack et votre budget.',
     },
     {
       label: 'Automatiser les relances B2B sans SDR',
-      href: '/ressources/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil',
+      href: '/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil',
       kicker: 'Guide',
       lead: 'Relancer chaque lead au bon moment sans recruter un commercial dédié.',
     },

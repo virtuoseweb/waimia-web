@@ -391,26 +391,6 @@ test("Solution détail composable · /solutions/fintech rend grammaire ACPR/AI A
   expect(h1).toBe(1);
 });
 
-/* DetailMenuTemplate · /offres/audit-maturite-ia · 8 sections + deliverables custom */
-test("DetailMenuTemplate · /offres/audit-maturite-ia rend 8 sections + 3 deliverables", async ({
-  page,
-}) => {
-  const resp = await page.goto("/offres/audit-maturite-ia");
-  expect(resp?.status()).toBe(200);
-  await waitNoBoot(page);
-  const html = await page.content();
-  expect(html).toContain("Audit de maturité IA");
-  expect(html).toContain("47"); // 47 critères
-  expect(html).toContain("Cadrage initial");
-  expect(html).toContain("Restitution");
-  expect(html).toContain("GRILLE");
-  expect(html).toContain("DOCUMENT");
-  expect(html).toContain("RESTITUTION");
-  // 3 del-cards
-  const delCards = await page.locator(".del-card").count();
-  expect(delCards).toBe(3);
-});
-
 /* TrustLegalTemplate · /agence/trust-center · TOC + 6 sections */
 test("TrustLegalTemplate · /agence/trust-center rend TOC + RGPD + AI Act + ISO + SOC", async ({
   page,

@@ -21,7 +21,7 @@
    - FAQ canonique = **`faq-two-column`** (mais 0 sur les 3 piliers, FAQ growth-system orpheline non rendue, audit aucune).
    - CTA canonique = **`CtaFinal`** (dupliqué inline : `.cas-cta` cas-clients, `.sectors-cta` secteurs, `.meth-cta` methode, manifesto Acte V).
    - Cards de cas = **3 langages** (hub featured/row, `CaseCardGrid` table, related grid inline) → unifier sur `CaseCardGrid` + `RelatedCardsBand`.
-   - `audit-maturite-ia` = **template legacy hand-built** (`DetailMenuTemplate`) avec markup orphelin + font-sizes inline hardcodées (viol. rule 60) → migrer en composable.
+   - `audit-maturite-ia` = **template legacy hand-built** (`DetailMenuTemplate` supprimé 2026-06-29 ; page migrée/redirigée) avec markup orphelin + font-sizes inline hardcodées (viol. rule 60) → migrer en composable.
 5. **Définition manquante** — bloc `§ Définition` (pattern `problem-statement` dropcap) présent sur **1 service/5** et **0 pilier/3**. → généraliser (composition MDX, 0 nouveau composant).
 6. **SEO/GEO dead code** — `FAQPage` JSON-LD jamais émis (`buildSchemaForPage` sans appelant + sans `case 'services'`). Perte directe vs positionnement « citable par IA ».
 7. **Responsive / conversion** — overflow-X mobile mega-menu (`Header.astro`, visible `/agence`) ; `/contact` H1 centré 115px mange le fold (form sous le fold) ; cookie banner recouvre la featured card ; titres secteurs tous « Site web et IA pour… » (répétition).

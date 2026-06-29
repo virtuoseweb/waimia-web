@@ -9,7 +9,7 @@ export const demo: DemoData = {
     text_en: 'VirtuoseOS 2.4 is here: signed audit trail on every agent action.',
     link_label_fr: 'Voir les nouveautés',
     link_label_en: 'See what is new',
-    href: '/ressources/blog',
+    href: '/blog',
     badge_fr: 'Nouveau',
     badge_en: 'New',
     tone: 'accent',

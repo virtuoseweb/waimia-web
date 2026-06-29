@@ -14,7 +14,7 @@ export const demo: DemoData = {
     lede_fr: "VirtuoseOS est le kernel qui se trouve sous chaque intervention Waimia : workspaces, agents, trace auditable des commandes, UI française d'abord.",
     lede_en: 'VirtuoseOS is the kernel that sits under every Waimia engagement: workspaces, agents, auditable command trails, a French-first UI.',
     cta_primary: { label_fr: 'Visite produit →', label_en: 'See product tour →', href: '/expertise-claude', variant: 'accent' },
-    cta_secondary: { label_fr: 'Voir le changelog', label_en: 'Read changelog', href: '/ressources/blog', variant: 'ghost' },
+    cta_secondary: { label_fr: 'Voir le changelog', label_en: 'Read changelog', href: '/blog', variant: 'ghost' },
     terminal_label: 'waimia · workspace/demo',
     console_lines: [
       { k: '[kernel]', v: 'multi-workspace/init ok' },

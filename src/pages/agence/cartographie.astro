@@ -56,7 +56,7 @@ function inSitemapExclude(url: string): boolean {
 // secteurs → /secteurs/<slug ?? id> · SectionsRenderer (secteurs/[...slug].astro:13,231)
 // services → /services/<id> · SectionsRenderer (services/[...slug].astro:9,44)
 // offres → collection RETIRÉE (refonte v7) : audit-maturite-ia migré en page /audit-maturite-ia
-// blog → /ressources/blog/<id> · EssayTemplate (ressources/blog/[...slug].astro:5,97)
+// blog → /blog/<id> · EssayTemplate (blog/[...slug].astro:5,97)
 // outils → /ressources/outils/<id> · EssayTemplate (ressources/outils/[...slug].astro:5,26)
 // authors → /equipe/<id> · AuthorPageTemplate (equipe/[...slug].astro:13)
 const cases = await getCollection('cases');
@@ -102,8 +102,8 @@ const staticPublic: Row[] = [
   { url: '/cas-clients', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'cas-clients/index.astro' },
   { url: '/expertise-claude', collection: { fr: 'page statique', en: 'static page' }, template: 'expertise-claude.astro' },
   { url: '/ressources', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/index.astro' },
-  { url: '/ressources/blog', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/blog/index.astro' },
-  { url: '/ressources/blog/brain-circuit', collection: { fr: 'page statique', en: 'static page' }, template: 'ressources/blog/brain-circuit.astro' },
+  { url: '/blog', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'blog/index.astro' },
+  { url: '/blog/brain-circuit', collection: { fr: 'page statique', en: 'static page' }, template: 'blog/brain-circuit.astro' },
   { url: '/ressources/outils', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/outils/index.astro' },
   { url: '/ressources/academy', collection: { fr: 'page statique', en: 'static page' }, template: 'ressources/academy.astro' },
   { url: '/secteurs', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'secteurs/index.astro' },
@@ -132,7 +132,7 @@ const serviceRows = services.map((e: CollectionEntry<'services'>) =>
   collRow(`/services/${e.id}`, { fr: 'services', en: 'services' }, 'SectionsRenderer', fmNoindex(e)),
 );
 const blogRows = blog.map((e: CollectionEntry<'blog'>) =>
-  collRow(`/ressources/blog/${e.id}`, { fr: 'blog', en: 'blog' }, 'EssayTemplate', fmNoindex(e)),
+  collRow(`/blog/${e.id}`, { fr: 'blog', en: 'blog' }, 'EssayTemplate', fmNoindex(e)),
 );
 const outilRows = outils.map((e: CollectionEntry<'outils'>) =>
   collRow(`/ressources/outils/${e.id}`, { fr: 'outils', en: 'outils' }, 'EssayTemplate', fmNoindex(e)),

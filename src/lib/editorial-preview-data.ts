@@ -28,10 +28,10 @@ export function editorialPreviewData(
       tag_en: n.tag.en,
       label_fr: n.text.fr,
       label_en: n.text.en,
-      href: localizeHref('/ressources/blog', lang),
+      href: localizeHref('/blog', lang),
     })),
     all_label_fr: 'Tout le blog →',
     all_label_en: 'See the full blog →',
-    all_href: localizeHref('/ressources/blog', lang),
+    all_href: localizeHref('/blog', lang),
   };
 }

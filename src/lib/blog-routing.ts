@@ -3,7 +3,7 @@
  *
  * Les entrées blog `type: 'field-note'` et `type: 'veille-ia'` sont servies par les
  * routes héritées /ressources/field-notes/[slug] et /ressources/veille-ia/[...slug]
- * (URLs préservées, 0 redirection). La route /ressources/blog/[...slug] les EXCLUT
+ * (URLs préservées, 0 redirection). La route /blog/[...slug] les EXCLUT
  * de son getStaticPaths : chaque contenu n'existe qu'à UNE URL (anti duplicate content).
  * Toute surface qui liste la collection blog doit construire ses hrefs via blogEntryHref().
  */
@@ -11,7 +11,7 @@ import type { CollectionEntry } from 'astro:content';
 
 type BlogEntry = CollectionEntry<'blog'>;
 
-/** Types blog servis par les routes héritées (hors /ressources/blog/[slug]). */
+/** Types blog servis par les routes héritées (hors /blog/[slug]). */
 export function isLegacyRoutedType(entry: BlogEntry): boolean {
   return entry.data.type === 'field-note' || entry.data.type === 'veille-ia';
 }
@@ -20,7 +20,7 @@ export function isLegacyRoutedType(entry: BlogEntry): boolean {
 export function blogEntryHref(entry: BlogEntry): string {
   if (entry.data.type === 'field-note') return `/ressources/field-notes/${entry.id}`;
   if (entry.data.type === 'veille-ia') return `/ressources/veille-ia/${entry.id}`;
-  return `/ressources/blog/${entry.id}`;
+  return `/blog/${entry.id}`;
 }
 
 /** Label de type court pour les listings agrégateurs (silo/tag/categorie). */

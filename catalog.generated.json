@@ -606,7 +606,6 @@
     "consumers": [
       "src/components/templates/ConversionFunnelTemplate.astro",
       "src/components/templates/CaseStudyTemplate.astro",
-      "src/components/templates/DetailMenuTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro"
@@ -1080,10 +1079,8 @@
     ],
     "description_fr": "Comparateur éditorial : en-tête kicker mono et titre display, puis tableau EditorialTable bilingue (colonnes, lignes, caption).",
     "description_en": "Editorial comparator: a mono kicker plus display heading header, then a bilingual EditorialTable (columns, rows, caption).",
-    "rendering": "live",
-    "consumers": [
-      "src/content/offres/conseil.mdx"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1384,10 +1381,8 @@
     ],
     "description_fr": "Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.",
     "description_en": "Fit/no-fit qualification section on an ink background: kicker, display heading, intro callout, and two yes/no item columns.",
-    "rendering": "live",
-    "consumers": [
-      "src/content/offres/conseil.mdx"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1756,10 +1751,8 @@
     ],
     "description_fr": "Hero d'entrée de menu détail : kicker parent + numéro § accent + h1 + lede sobre, idéal pour sous-pages catalogue.",
     "description_en": "Detail-menu entry hero: parent kicker + accent § number + h1 + plain lede, ideal for sub-catalogue pages.",
-    "rendering": "live",
-    "consumers": [
-      "src/components/templates/DetailMenuTemplate.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -1992,7 +1985,9 @@
     "description_en": "Hub hero with stats: dual meta kicker + accent § number + maximal h1, lede, 4-col KeyMetric grid at the foot with accent.",
     "rendering": "live",
     "consumers": [
-      "src/content/offres/conseil.mdx"
+      "src/pages/agence-web-montpellier.astro",
+      "src/pages/expertise-claude.astro",
+      "src/pages/agence/index.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -3110,8 +3105,7 @@
     "description_en": "Method timeline for explaining the steps of a service process or engagement.",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro",
-      "src/components/templates/DetailMenuTemplate.astro"
+      "src/components/templates/CaseStudyTemplate.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -3271,8 +3265,8 @@
     "description_en": "Offer-tier section with eyebrow, headline, lede, card grid, and optional dark featured hero variant.",
     "rendering": "live",
     "consumers": [
-      "src/pages/offres/index.astro",
-      "src/pages/en/offres/index.astro"
+      "src/content/services/systeme-complet.json",
+      "src/pages/services/index.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -3620,7 +3614,6 @@
     "description_en": "Compact proof bar for displaying key metrics and reinforcing credibility.",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/DetailMenuTemplate.astro",
       "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
@@ -3805,10 +3798,8 @@
     ],
     "description_fr": "Liste-catalogue éditoriale de services en lignes (§ numéro, titre display, description, méta durée, flèche) avec footer CTA optionnel.",
     "description_en": "Editorial service catalogue as rows (§ number, display title, description, duration meta, arrow) with an optional footer CTA.",
-    "rendering": "live",
-    "consumers": [
-      "src/content/offres/conseil.mdx"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -4439,11 +4430,8 @@
     ],
     "description_fr": "Pyramide SVG isocèle à trois niveaux pour visualiser la progression Découverte · Transformation · Partenariat.",
     "description_en": "Three-tier isosceles SVG pyramid showing the Discovery · Transformation · Partnership offer progression.",
-    "rendering": "live",
-    "consumers": [
-      "src/pages/offres/index.astro",
-      "src/pages/en/offres/index.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
