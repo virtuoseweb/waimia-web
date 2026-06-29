@@ -186,7 +186,10 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
     gap: 0;
   }
   .proof-bar[data-layout="horizontal"] .proof-bar__list {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    /* R7 : largeur mini d'une tuile de métrique. Aucun token DS ne couvre ce rôle
+       (--tile-min=14rem / --sec-col-min=16rem sont des cartes, trop larges pour un
+       strip de stats compact) → rem structurel commenté (= ex-140px), pas de px nu. */
+    grid-template-columns: repeat(auto-fit, minmax(8.75rem, 1fr));
   }
   .proof-bar[data-layout="vertical-stack"] .proof-bar__list { grid-template-columns: 1fr; }
   .proof-bar__item {
@@ -195,6 +198,9 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
     display: flex;
     flex-direction: column;
     gap: 6px;
+    /* R4 : cellule de grille → min-width:0 pour qu'une valeur/label long ne
+       déborde jamais la piste (auto-fit garde des colonnes saines). */
+    min-width: 0;
   }
   .proof-bar__item:last-child { border-right: none; }
   .proof-bar[data-layout="vertical-stack"] .proof-bar__item {

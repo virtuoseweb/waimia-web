@@ -190,6 +190,11 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
     max-width: 640px;
   }
 
+  .fz__header h2 {
+    /* R4 : titre de header → casse un mot trop long, jamais de débordement. */
+    overflow-wrap: anywhere;
+  }
+
   .fz__header h2 :global(i) {
     font-style: italic;
   }
@@ -311,6 +316,9 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
 
   .fz__visual {
     position: relative;
+    /* R4 : colonne de grille → min-width:0 (sinon min-content du média peut
+       déborder la piste quand on passe de 2 à 1 colonne ou en split asymétrique). */
+    min-width: 0;
     border-radius: var(--radius-lg, var(--radius-md, 8px));
     overflow: hidden;
     border: 1px solid var(--hairline);
@@ -373,6 +381,9 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+    /* R4 : colonne de grille → min-width:0 pour autoriser le rétrécissement
+       (un titre/paragraphe long ne déborde plus la piste ni la page). */
+    min-width: 0;
   }
 
   .fz__text h3 {
@@ -382,6 +393,8 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
     color: var(--ink);
     line-height: 1.22;
     margin: 0;
+    /* R4 : casse un mot/URL trop long pour qu'il ne déborde jamais la colonne. */
+    overflow-wrap: anywhere;
   }
 
   .fz__text p {

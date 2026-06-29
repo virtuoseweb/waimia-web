@@ -126,23 +126,29 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
 <style>
   /* V6 densification · "1 viewport par section majeure" */
   #act-4{padding:var(--section-base) 0}
-  .cases-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-6);padding-bottom:14px;border-bottom:1px solid var(--hairline);flex-wrap:wrap;gap:10px}
+  .cases-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-6);padding-bottom:0.875rem;border-bottom:1px solid var(--hairline);flex-wrap:wrap;gap:0.625rem}/* 14px / 10px : micro-espacements structurels d'en-tête, hors échelle DS (entre --space-3 12px et --space-4 16px), conservés en rem pour parité visuelle */
   .cases-spec{font-family:var(--font-mono);font-size:var(--text-small);color:var(--muted);letter-spacing:.1em}
   /* H2 = masse → Instrument Sans medium ; <i> reste relevé serif italic accent */
-  .cases-h2{font-family:var(--font-sans);font-size:var(--text-h2);line-height:var(--leading-h2);letter-spacing:-0.015em;max-width:1080px;margin-bottom:var(--space-7);font-weight:var(--fw-medium);text-wrap:balance}
+  .cases-h2{font-family:var(--font-sans);font-size:var(--text-h2);line-height:var(--leading-h2);letter-spacing:-0.015em;max-width:67.5rem;margin-bottom:var(--space-7);font-weight:var(--fw-medium);text-wrap:balance;overflow-wrap:anywhere}/* 67.5rem (≈1080px) : largeur de titre structurelle, aucun token de rôle exact (--wrap-tight=1120px change l'allure) → rem commenté (rule 60) */
 
   .cases-tbl{}
-  .cases-row{display:grid;grid-template-columns:90px 2fr 1.1fr 1.5fr 1.4fr 32px;gap:var(--space-5);padding:var(--space-7) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-trim) var(--ease),translate var(--dur-hover) var(--ease)}
+  /* R7 · 5.625rem (≈90px) = largeur de colonne d'index « CAS 0N » (structurelle, aucun token
+     de rôle) → rem commenté ; 32px = --space-6 (2rem, colonne arrow). Les pistes de contenu
+     2fr/1.1fr/1.5fr/1.4fr sont en fr (fractionnaires) → s'élargissent proprement de 6→2 colonnes. */
+  .cases-row{display:grid;grid-template-columns:5.625rem 2fr 1.1fr 1.5fr 1.4fr var(--space-6);gap:var(--space-5);padding:var(--space-7) 0;border-top:1px solid var(--hairline);align-items:baseline;color:inherit;transition:background var(--dur-trim) var(--ease),translate var(--dur-hover) var(--ease)}
   .cases-row:hover{background:var(--paper-2);translate:12px 0}
   .cases-row:hover .cases-arr{color:var(--accent-text);transform:translateX(4px) translateY(-2px)}
   .cases-row:hover .cases-client{color:var(--accent-text);transition:color var(--dur-fast) var(--ease)}
 
   .cases-idx{font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
-  /* Cases client titre · réutilise H2-tight token (entre row et h2 standard) */
-  .cases-client{font-family:var(--font-sans);font-size:var(--text-h2);line-height:var(--leading-h2);letter-spacing:-0.015em;font-weight:var(--fw-medium);font-style:normal}
-  .cases-col{display:flex;flex-direction:column;gap:var(--space-1)}
-  .cases-col-k{font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--muted)}
-  .cases-col-v{font-size:var(--text-small);color:var(--muted);line-height:var(--leading-lede)}
+  /* Cases client titre · réutilise H2-tight token (entre row et h2 standard).
+     R4 · min-width:0 (la cellule ne refuse jamais de rétrécir) + overflow-wrap:anywhere
+     (un nom de client long se coupe au lieu de déborder/casser la colonne). */
+  .cases-client{font-family:var(--font-sans);font-size:var(--text-h2);line-height:var(--leading-h2);letter-spacing:-0.015em;font-weight:var(--fw-medium);font-style:normal;min-width:0;overflow-wrap:anywhere;text-wrap:balance}
+  /* R4 · chaque cellule de contenu (secteur/stack/impact) accepte de rétrécir → 0 débordement. */
+  .cases-col{display:flex;flex-direction:column;gap:var(--space-1);min-width:0}
+  .cases-col-k{font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--muted);overflow-wrap:anywhere}
+  .cases-col-v{font-size:var(--text-small);color:var(--muted);line-height:var(--leading-lede);overflow-wrap:anywhere}
   .cases-impact{color:var(--ink);font-weight:var(--fw-medium);font-size:var(--text-body)}
   .cases-arr{font-family:var(--font-mono);font-size:var(--text-glyph);color:var(--muted);text-align:right;transition:color var(--dur-trim) var(--ease),transform var(--dur-hover) var(--ease)}
 
@@ -153,10 +159,15 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
      .sector-cases-empty de SecteurHubTemplate). */
   .cases-empty{border-top:1px solid var(--hairline);padding-top:var(--space-7)}
   :global(.cases-empty__kicker){margin-bottom:var(--space-3)}
-  .cases-empty__body{font-size:var(--text-h3);line-height:1.6;color:var(--muted);margin:0;max-width:820px;text-wrap:pretty}
+  .cases-empty__body{font-size:var(--text-h3);line-height:1.6;color:var(--muted);margin:0;max-width:51.25rem;text-wrap:pretty;overflow-wrap:anywhere}/* 51.25rem (≈820px) : mesure de lecture de l'encart vide, aucun token exact (--wrap-read=900px / --wrap-prose=720px changent l'allure) → rem commenté (rule 60) */
 
+  /* R6 · paliers responsive du mode TABLE (déclinaison propre à cette table dense 6 colonnes,
+     conservés tels quels pour ne pas décaler le rendu nominal sur tablette) : à 1100px la table
+     repasse en 2 colonnes (idx + client pleine largeur, le reste sur 2 pistes), puis 1 colonne à
+     600px. Ordre DOM = ordre visuel (aucun order/direction n'inverse la lecture). row-gap 6px =
+     micro-espacement structurel (entre --space-2 8px et --space-1 4px) → rem commenté. */
   @media (max-width:1100px){
-    .cases-row{grid-template-columns:1fr 1fr;row-gap:6px;padding:var(--space-5) 0}
+    .cases-row{grid-template-columns:1fr 1fr;row-gap:0.375rem;padding:var(--space-5) 0}
     .cases-idx{grid-column:1/-1}
     .cases-client{grid-column:1/-1;font-size:var(--text-h2)}
     .cases-arr{display:none}
@@ -238,7 +249,10 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
   #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='1-1-2']{grid-template-columns:1fr 1fr 2fr}
   #act-4[data-layout='grid-asym'] .cases-tbl[data-col-ratio='2-3']{grid-template-columns:2fr 3fr}
 
-  /* Carte (mode grille) : la ligne 6-col se replie en pile ; bordure + padding de carte. */
+  /* Carte (mode grille) : la ligne 6-col se replie en pile ; bordure + padding de carte.
+     R5 · height:100% → la carte remplit la piste étirée (align-items:stretch sur .cases-tbl) :
+     à 2 colonnes avec des contenus de longueurs inégales, les cartes restent à hauteur égale
+     (pas d'effet « escalier / pas fini »). min-width:0 → 0 débordement de piste. */
   #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-row{
     grid-template-columns:1fr;
     gap:var(--space-3);
@@ -246,6 +260,8 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     border:1px solid var(--hairline);
     border-radius:var(--radius-xs);
     align-content:start;
+    height:100%;
+    min-width:0;
   }
   #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-row:hover{translate:0 -2px}
   #act-4:is([data-layout='grid-uniform'],[data-layout='grid-asym']) .cases-arr{display:inline;text-align:left}
