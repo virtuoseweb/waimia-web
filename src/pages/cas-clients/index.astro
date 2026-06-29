@@ -2,15 +2,16 @@
 // Page · /cas-clients · Hub cas clients Waimia
 export const prerender = true;
 
-// Route principale de la nav — liste des 4 cas business.
+// Route principale de la nav : liste des cas business.
 
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 import type { SectionByType } from '@waimia/ds-kernel';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
+import CaseFeaturedGrid from '../../components/sections/CaseFeaturedGrid.astro';
+import CaseSpotlight from '../../components/sections/CaseSpotlight.astro';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
-import imageManifest from '../../data/image-manifest.json';
 import { buildCollectionPage, buildBreadcrumbList } from '../../lib/seo/schema-builder';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -25,32 +26,60 @@ const caseEntries = (await getCollection('cases'))
   .filter((e) => e.data.card)
   .sort((a, b) => (a.data.card!.order) - (b.data.card!.order));
 
-// Alt de la cover = source unique image-manifest.json (slug image = `cas-<slug cas>`)
-const coverAlt = (slug: string) => {
-  const entry = imageManifest.images.find((i) => i.slug === `cas-${slug}`);
-  return entry ? (lang === 'fr' ? entry.alt.fr : entry.alt.en) : '';
+// Habillage visuel : chaque cas reçoit une cover réelle issue du catalogue éditorial
+// (public/images/editorial/*, fichiers vérifiés existants). Mappée par slug au registre
+// surréaliste duotone selon le secteur du cas. Alt bilingue de contenu (WCAG 1.1.1).
+const caseCovers: Record<string, { src: string; alt_fr: string; alt_en: string }> = {
+  'les-carnets-de-montpellier': {
+    src: '/images/editorial/bandshowingtv.webp',
+    alt_fr: 'Illustration éditoriale : un média local qui prend la parole.',
+    alt_en: 'Editorial illustration: a local media outlet finding its voice.',
+  },
+  balzeo: {
+    src: '/images/editorial/carontheroad.webp',
+    alt_fr: 'Illustration éditoriale : la vitesse retrouvée, un site deux fois plus rapide.',
+    alt_en: 'Editorial illustration: speed regained, a site twice as fast.',
+  },
+  amploi: {
+    src: '/images/editorial/womancomputer17.webp',
+    alt_fr: "Illustration éditoriale : un site marketing augmenté par l'IA.",
+    alt_en: 'Editorial illustration: an AI-augmented marketing site.',
+  },
+  'desangles-peinture': {
+    src: '/images/editorial/gentlemanhandcraftergoworknow.webp',
+    alt_fr: "Illustration éditoriale : l'artisan visible en référencement local.",
+    alt_en: 'Editorial illustration: the craftsman made visible in local search.',
+  },
+  'isabelle-diaz-naturopathe': {
+    src: '/images/editorial/image-computer-health.webp',
+    alt_fr: 'Illustration éditoriale : une présence en ligne crédible pour la santé.',
+    alt_en: 'Editorial illustration: a credible online presence for health.',
+  },
 };
 
-const featuredCases = caseEntries.map((e) => ({
-  slug: e.data.slug ?? e.id,
-  caseNum: String(e.data.card!.order).padStart(2, '0'),
-  sector: lang === 'fr' ? e.data.card!.sector_fr : e.data.card!.sector_en,
-  title: lang === 'fr' ? e.data.card!.title_fr : e.data.card!.title_en,
-  headline: lang === 'fr' ? e.data.card!.headline_fr : e.data.card!.headline_en,
-  duration: lang === 'fr' ? e.data.card!.duration_fr : e.data.card!.duration_en,
-  cover: e.data.heroImage,
-  coverAlt: coverAlt(e.data.slug ?? e.id),
-  firstParty: e.data.provenance !== 'second-party',
-}));
-
-// Double-label (docs/strategy/03 §5) : chip discret sur les cartes, libellé selon la famille.
-// Réutilise le style kicker (font-mono / --text-small / --accent-text).
-const provenanceChipLabels = {
-  firstParty: { fr: 'Projet réalisé · Waimia', en: 'Completed project · Waimia' },
-  secondParty: { fr: 'Étude · sources tierces', en: 'Study · third-party sources' },
-};
-
-const [featured, ...rest] = featuredCases;
+const featuredCases = caseEntries.map((e) => {
+  const slug = e.data.slug ?? e.id;
+  const cover = caseCovers[slug];
+  return {
+    slug,
+    href: `/cas-clients/${slug}`,
+    case_num: String(e.data.card!.order).padStart(2, '0'),
+    sector_fr: e.data.card!.sector_fr,
+    sector_en: e.data.card!.sector_en,
+    title_fr: e.data.card!.title_fr,
+    title_en: e.data.card!.title_en,
+    headline_fr: e.data.card!.headline_fr,
+    headline_en: e.data.card!.headline_en,
+    duration_fr: e.data.card!.duration_fr,
+    duration_en: e.data.card!.duration_en,
+    cover: cover?.src,
+    cover_alt_fr: cover?.alt_fr,
+    cover_alt_en: cover?.alt_en,
+    provenance: (e.data.provenance === 'second-party' ? 'second-party' : 'first-party') as
+      | 'first-party'
+      | 'second-party',
+  };
+});
 
 const caseItems = caseEntries.map((e) => `https://waimia.com/cas-clients/${e.data.slug ?? e.id}`);
 const collectionLd = buildCollectionPage(
@@ -80,6 +109,41 @@ const ctaData = {
   background: 'ink' as const,
 } satisfies SectionByType<'cta-final'>;
 
+// Section cataloguée case-featured-grid : remplace le markup orphelin .cas-card
+// précédemment inliné ici (le composant en a été extrait VERBATIM, source de vérité).
+const featuredGridData = {
+  type: 'case-featured-grid' as const,
+  cases: featuredCases,
+} satisfies SectionByType<'case-featured-grid'>;
+
+// Bande éditoriale « un cas concret » (case-spotlight, fond ink) : climax visuel + preuve
+// chiffrée réelle (Les Carnets de Montpellier, contextStats de la fiche). Image éditoriale réelle.
+const spotlightData = {
+  type: 'case-spotlight' as const,
+  background: 'ink' as const,
+  variant: 'media-right' as const,
+  kicker_fr: '§ Un cas concret',
+  kicker_en: '§ A concrete case',
+  title_fr: 'De zéro présence en ligne à une communauté payante',
+  title_en: 'From no online presence to a paying community',
+  media_src: '/images/editorial/bandshowingtv.webp',
+  media_alt: lang === 'fr'
+    ? 'Les Carnets de Montpellier : un média local qui prend la parole.'
+    : 'Les Carnets de Montpellier: a local media outlet finding its voice.',
+  quote_fr: 'Six semaines pour passer de l’idée à un site monétisé, avec une vraie communauté.',
+  quote_en: 'Six weeks to go from idea to a monetized site, with a real community.',
+  attribution_fr: 'Les Carnets de Montpellier · patrimoine et média local',
+  attribution_en: 'Les Carnets de Montpellier · heritage and local media',
+  metrics: [
+    { k: '40+', label_fr: 'Articles publiés', label_en: 'Articles published' },
+    { k: '150+', label_fr: 'Membres de la communauté', label_en: 'Community members' },
+    { k: '35+', label_fr: 'Abonnés payants en 3 mois', label_en: 'Paying subscribers in 3 months' },
+  ],
+  cta_href: '/cas-clients/les-carnets-de-montpellier',
+  cta_label_fr: 'Lire le cas →',
+  cta_label_en: 'Read case →',
+} satisfies SectionByType<'case-spotlight'>;
+
 const mastheadData = {
   type: 'hero-hub-masthead' as const,
   variant: 'hub' as const,
@@ -101,51 +165,11 @@ const mastheadData = {
 >
   <HeroCentered data={mastheadData} lang={lang} />
 
-  {featured ? (
-    <section class="cas-grid-outer wrap-wide">
-      <div class="cas-grid reveal-stagger">
-        <a href={`/cas-clients/${featured.slug}`} class="cas-card cas-card--featured" transition:name={`card-${transitionIdFromHref(`/cas-clients/${featured.slug}`)}`}>
-          <div class="cas-card-kicker">§ {lang === 'fr' ? 'Cas' : 'Case'} {featured.caseNum} · {featured.sector} · {featured.duration}</div>
-          <span class="cas-card-provenance">
-            {featured.firstParty
-              ? provenanceChipLabels.firstParty[lang]
-              : provenanceChipLabels.secondParty[lang]}
-          </span>
-          <h2 class="cas-card-title">{featured.title}</h2>
-          <p class="cas-card-headline">{featured.headline}</p>
-          {featured.cover && (
-            <img
-              class="cas-card-img"
-              src={featured.cover}
-              alt={featured.coverAlt}
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-            />
-          )}
-          <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
-        </a>
-        <div class="cas-secondary">
-          {rest.map((c) => (
-            <a href={`/cas-clients/${c.slug}`} class="cas-card cas-card--row" transition:name={`card-${transitionIdFromHref(`/cas-clients/${c.slug}`)}`}>
-              <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
-              <div class="cas-card-body">
-                <div class="cas-card-kicker">§ {c.sector} · {c.duration}</div>
-                <span class="cas-card-provenance">
-                  {c.firstParty
-                    ? provenanceChipLabels.firstParty[lang]
-                    : provenanceChipLabels.secondParty[lang]}
-                </span>
-                <h2 class="cas-card-title">{c.title}</h2>
-                <p class="cas-card-headline">{c.headline}</p>
-                <span class="cas-card-cta">{lang === 'fr' ? 'Lire le cas →' : 'Read case →'}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+  {featuredCases.length > 0 ? (
+    <>
+      <CaseFeaturedGrid data={featuredGridData} lang={lang} />
+      <CaseSpotlight data={spotlightData} lang={lang} />
+    </>
   ) : (
     <section class="cas-grid-outer wrap-wide">
       <div class="cas-empty reveal">
@@ -163,6 +187,9 @@ const mastheadData = {
 </Base>
 
 <style>
+  /* La grille de cas + ses cartes vivent désormais dans la section cataloguée
+     CaseFeaturedGrid (markup + CSS extraits là, source de vérité). Ici ne restent
+     que les styles de l'état vide (cas-empty), spécifique à cette page. */
   .cas-grid-outer { margin: 0 auto; padding: 0 var(--space-6); }
   .cas-empty {
     margin: var(--space-7) 0 var(--space-10);
@@ -184,155 +211,5 @@ const mastheadData = {
     color: var(--muted);
     margin: 0;
     text-wrap: pretty;
-  }
-  .cas-grid {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: 1px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-    margin: var(--space-7) 0 var(--space-10);
-  }
-  .cas-secondary {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--hairline);
-  }
-  .cas-card {
-    display: flex;
-    flex-direction: column;
-    padding: 36px var(--space-6) var(--space-6);
-    background: var(--paper);
-    border-top: 1px solid transparent;
-    text-decoration: none;
-    color: inherit;
-    transition:
-      background 180ms var(--ease),
-      border-top-color var(--dur-trim) var(--ease),
-      box-shadow var(--dur-trim) var(--ease),
-      transform var(--dur-trim) var(--ease);
-    gap: 10px;
-    height: 100%;
-    box-sizing: border-box;
-  }
-  .cas-card:hover {
-    background: var(--paper-2);
-    border-top-color: var(--accent-text);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.06);
-  }
-  .cas-card--featured {
-    /* Cookie-aware : quand le bandeau cookies (fixed bottom) est visible, on ajoute
-       sa hauteur au padding bas pour que le CTA de la card ne passe pas dessous
-       (token DS existant, 0 hauteur quand consent acquis). */
-    padding: 56px var(--space-8) calc(var(--space-8) + var(--cookie-banner-height, 0px));
-  }
-  .cas-card--featured .cas-card-title {
-    font-size: var(--text-h2);
-    margin-top: var(--space-3);
-  }
-  .cas-card--featured .cas-card-headline {
-    font-size: var(--text-small);
-    max-width: 480px;
-    margin-top: var(--space-2);
-  }
-  .cas-card--row {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: var(--space-5);
-  }
-  .cas-card-index {
-    font-family: var(--font-display);
-    font-weight: var(--fw-regular);
-    font-size: var(--text-h1);
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-    color: var(--muted);
-    flex: none;
-    font-feature-settings: 'lnum' 1, 'tnum' 1;
-    transition: color var(--dur-trim) var(--ease);
-  }
-  .cas-card:hover .cas-card-index { color: var(--accent-text); }
-  .cas-card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-    min-width: 0;
-    border-left: 1px solid var(--hairline);
-    padding-left: var(--space-5);
-  }
-  .cas-card-body .cas-card-headline { flex: 0 1 auto; }
-  .cas-card-kicker {
-    font-family: var(--font-mono, monospace);
-    font-size: var(--text-small);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .cas-card-provenance {
-    font-family: var(--font-mono, monospace);
-    font-size: var(--text-small);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent-text);
-  }
-  .cas-card-title {
-    font-family: var(--font-display);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.015em;
-    line-height: 1.05;
-    margin: var(--space-1) 0 0;
-    text-wrap: balance;
-    transition: transform var(--dur-trim) var(--ease);
-  }
-  .cas-card-headline {
-    font-size: var(--text-small);
-    color: var(--muted);
-    margin: 0;
-    line-height: var(--leading-body);
-    flex: 1;
-    transition: transform var(--dur-trim) var(--ease);
-  }
-  .cas-card-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: 1px solid var(--hairline);
-    margin-top: var(--space-4);
-  }
-  .cas-card-cta {
-    font-size: var(--text-small);
-    color: var(--accent-text);
-    font-family: var(--font-mono, monospace);
-    letter-spacing: 0.04em;
-    margin-top: var(--space-4);
-    transition: transform var(--dur-trim) var(--ease);
-  }
-  .cas-card:hover .cas-card-title,
-  .cas-card:hover .cas-card-headline,
-  .cas-card:hover .cas-card-cta {
-    transform: translateX(1px);
-  }
-
-  @media (max-width: 800px) {
-    .cas-grid { grid-template-columns: 1fr; }
-    .cas-card--featured { padding: 36px 28px 28px; }
-    .cas-card--row { gap: var(--space-4); }
-    .cas-card-body { padding-left: var(--space-4); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .cas-card,
-    .cas-card-title,
-    .cas-card-headline,
-    .cas-card-cta,
-    .cas-card-index {
-      transition: none !important;
-      transform: none !important;
-      box-shadow: none !important;
-    }
   }
 </style>
