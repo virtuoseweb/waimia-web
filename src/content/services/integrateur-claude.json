@@ -132,8 +132,16 @@
         "variant": "ghost"
       },
       "kpis": [
-        { "num": "2–8 sem.", "cap_fr": "premier agent en production", "cap_en": "first agent in production" },
-        { "num": "0 captivité", "cap_fr": "code et architecture transférés", "cap_en": "code and architecture handed over" }
+        {
+          "num": "2–8 sem.",
+          "cap_fr": "premier agent en production",
+          "cap_en": "first agent in production"
+        },
+        {
+          "num": "0 captivité",
+          "cap_fr": "code et architecture transférés",
+          "cap_en": "code and architecture handed over"
+        }
       ]
     },
     {
@@ -142,10 +150,27 @@
       "kicker_fr": "§ En bref",
       "kicker_en": "§ At a glance",
       "metrics": [
-        { "value": "Sur devis", "label_fr": "chiffré au cadrage, pas de catalogue figé", "label_en": "costed at scoping, no fixed catalogue", "emphasis": true },
-        { "value": "2–8 sem.", "label_fr": "premier agent en production", "label_en": "first agent in production" },
-        { "value": "MCP", "label_fr": "agents branchés à vos outils réels", "label_en": "agents wired to your real tools" },
-        { "value": "Démo → prod", "label_fr": "la valeur est en production, pas dans le POC", "label_en": "value is in production, not the POC" }
+        {
+          "value": "Sur devis",
+          "label_fr": "chiffré au cadrage, pas de catalogue figé",
+          "label_en": "costed at scoping, no fixed catalogue",
+          "emphasis": true
+        },
+        {
+          "value": "2–8 sem.",
+          "label_fr": "premier agent en production",
+          "label_en": "first agent in production"
+        },
+        {
+          "value": "MCP",
+          "label_fr": "agents branchés à vos outils réels",
+          "label_en": "agents wired to your real tools"
+        },
+        {
+          "value": "Démo → prod",
+          "label_fr": "la valeur est en production, pas dans le POC",
+          "label_en": "value is in production, not the POC"
+        }
       ]
     },
     {
@@ -364,7 +389,10 @@
               "label_fr": "Bons réflexes posés dès le départ",
               "label_en": "Right reflexes laid in from day one"
             }
-          ]
+          ],
+          "media_src": "livrable-agents-production.svg",
+          "media_alt_fr": "Claude déployé pour les équipes de l'entreprise, schéma line-art",
+          "media_alt_en": "Claude deployed for the company teams, line-art diagram"
         },
         {
           "kicker_fr": "Brique 02",
@@ -386,7 +414,10 @@
               "label_fr": "Revue de code assistée",
               "label_en": "Assisted code review"
             }
-          ]
+          ],
+          "media_src": "livrable-skills-orchestration.svg",
+          "media_alt_fr": "Claude Code et workflow agentique dans le dépôt, schéma de modules",
+          "media_alt_en": "Claude Code and agentic workflow in the repo, modules diagram"
         },
         {
           "kicker_fr": "Brique 03",
@@ -408,7 +439,10 @@
               "label_fr": "L'IA intégrée au travail réel",
               "label_en": "AI integrated into real work"
             }
-          ]
+          ],
+          "media_src": "orbit-network.svg",
+          "media_alt_fr": "Collaboration assistée intégrée dans l'écosystème d'outils, schéma en réseau",
+          "media_alt_en": "Assisted collaboration integrated into the tools ecosystem, network diagram"
         },
         {
           "kicker_fr": "Brique 04",
@@ -430,7 +464,10 @@
               "label_fr": "De la conversation à l'action",
               "label_en": "From conversation to action"
             }
-          ]
+          ],
+          "media_src": "livrable-connecteurs-mcp.svg",
+          "media_alt_fr": "Serveurs MCP connectés aux outils internes, schéma de connecteurs",
+          "media_alt_en": "MCP servers connected to internal tools, connectors diagram"
         }
       ]
     },
@@ -494,8 +531,18 @@
       "spec_en": "TOOLS · MCP · CLAUDE · AGENTS · GOVERNANCE",
       "h2_fr": "Un agent MCP, <i class=\"acc\">pas un POC</i>",
       "h2_en": "An MCP agent, <i class=\"acc\">not a POC</i>",
-      "inputs_fr": ["Vos outils", "Vos données", "Vos process", "Vos équipes"],
-      "inputs_en": ["Your tools", "Your data", "Your processes", "Your teams"],
+      "inputs_fr": [
+        "Vos outils",
+        "Vos données",
+        "Vos process",
+        "Vos équipes"
+      ],
+      "inputs_en": [
+        "Your tools",
+        "Your data",
+        "Your processes",
+        "Your teams"
+      ],
       "input_examples_fr": [
         "CRM, e-mail, agenda, Git, bases de données",
         "Documents, historiques, tickets, fichiers",
@@ -646,7 +693,10 @@
               "label_fr": "Montée en charge progressive",
               "label_en": "Progressive scale-up"
             }
-          ]
+          ],
+          "media_src": "dispositif-flow.svg",
+          "media_alt_fr": "Méthode de déploiement progressive du pilote à la production, schéma de flux",
+          "media_alt_en": "Progressive deployment method from pilot to production, flow diagram"
         },
         {
           "kicker_fr": "Brique 06",
@@ -668,7 +718,10 @@
               "label_fr": "La compétence reste chez vous",
               "label_en": "The skill stays with you"
             }
-          ]
+          ],
+          "media_src": "livrable-passation-formation.svg",
+          "media_alt_fr": "Formation d'un référent IA interne, schéma de transmission",
+          "media_alt_en": "Training an internal AI lead, transmission diagram"
         },
         {
           "kicker_fr": "Brique 07",
@@ -690,7 +743,10 @@
               "label_fr": "L'adoption suit la compétence",
               "label_en": "Adoption follows skill"
             }
-          ]
+          ],
+          "media_src": "livrable-tableau-mesure.svg",
+          "media_alt_fr": "Montée en compétence et suivi de l'adoption des équipes, tableau de bord line-art",
+          "media_alt_en": "Team skill-up and adoption tracking, line-art dashboard"
         },
         {
           "kicker_fr": "Brique 08",
@@ -712,7 +768,10 @@
               "label_fr": "Supervision et traçabilité",
               "label_en": "Oversight and traceability"
             }
-          ]
+          ],
+          "media_src": "livrable-gouvernance.svg",
+          "media_alt_fr": "Cadre de gouvernance IA et points de contrôle, schéma en bouclier",
+          "media_alt_en": "AI governance frame and control points, shield diagram"
         }
       ]
     },
