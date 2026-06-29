@@ -70,18 +70,19 @@ export default defineConfig({
     '/archive': '/',
     // /agence/hero-lab restauré 2026-06-11 (lab de comparaison des heros du catalogue) :
     // le 301 vers /agence/design-system est levé, la page répond 200 (noindex, outil interne).
-    // A4 cleanup 2026-05-10 · /ressources/cas/* → /realisations/* (canonical) — doublon SEO supprimé
-    '/ressources/cas': '/realisations',
-    // 2026-06-15 · plateau/halcyon/northbound/caserne etaient des slugs de cas
-    // FICTIFS, supprimes lors de la recreation des vrais cas (#18 : amploi, balzeo,
-    // les-carnets-de-montpellier). Ces 4 vieilles URLs indexees pointaient vers des
-    // /realisations/<slug> 404 → re-ciblees sur l'index vivant (evite un 301-vers-404).
-    '/ressources/cas/plateau': '/realisations',
-    '/ressources/cas/halcyon': '/realisations',
-    '/ressources/cas/northbound': '/realisations',
-    '/ressources/cas/caserne': '/realisations',
-    // Renommage 2026-06-15 · /cas → /realisations (route hub cas clients)
-    '/cas': '/realisations',
+    // 2026-06-29 · cibles /realisations corrigées → /cas-clients (hub réel). La route
+    // /realisations N'EXISTE PAS (301-vers-404) ; le hub cas clients vit en /cas-clients
+    // (strat 10 §3.5/§5). Re-ciblage des doublons SEO et des anciens slugs fictifs.
+    '/ressources/cas': '/cas-clients',
+    // plateau/halcyon/northbound/caserne = slugs de cas FICTIFS supprimés lors de la
+    // recréation des vrais cas (#18 : amploi, balzeo, les-carnets-de-montpellier) →
+    // re-ciblés sur l'index vivant /cas-clients (évite un 301-vers-404).
+    '/ressources/cas/plateau': '/cas-clients',
+    '/ressources/cas/halcyon': '/cas-clients',
+    '/ressources/cas/northbound': '/cas-clients',
+    '/ressources/cas/caserne': '/cas-clients',
+    // /cas → /cas-clients (route hub cas clients)
+    '/cas': '/cas-clients',
     // V-F1 2026-06-11 · pointait vers /archive (supprimé) : re-ciblé directement
     // vers la destination finale pour éviter une chaîne de 301.
     '/ressources/cas/virtuoseos': { status: 301, destination: '/' },

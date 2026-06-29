@@ -114,15 +114,16 @@ const architectureDiagramData = {
 // Métriques = capacités/engagements VÉRIFIABLES (source UNIQUE = SIX_SERVICES dans
 // sitemap.ts), registre du hero : audit 5j, pipeline connecté, CRM relié, temps réel,
 // workflows, souverain. Honnêteté (studio solo, 0 cas mesuré) : aucun chiffre de ROI inventé.
-// SEO état final : pages /solutions/* supprimées (anti-dilution). Les cas d'usage
-// Acquérir vivent désormais en ancres du hub /acquerir (publicité/agent « à venir »).
+// SEO état final : pages /solutions/* supprimées (anti-dilution). Archi v7 : les piliers
+// Acquérir/Piloter/Opérer sont neutralisés → maillage re-ciblé vers les cas-usages réels
+// (strat 10 §3.5/§7 discipline de maillage : 0 lien depuis l'indexable vers du déprécié).
 const SERVICE_USECASES: Record<string, string> = {
   '02': 'publicite-en-ligne',
   '03': 'agent-marketing-commercial',
 };
 const USECASE_ANCHOR: Record<string, string> = {
-  'publicite-en-ligne': '/acquerir#publicite',
-  'agent-marketing-commercial': '/acquerir#agent-marketing',
+  'publicite-en-ligne': '/cas-usages/generer-plus-de-leads',
+  'agent-marketing-commercial': '/cas-usages/generer-plus-de-leads',
 };
 const usecaseBySlug = (slug: string) => DEPARTMENTS_GRID.find((d) => d.slug === slug);
 const servicesGridData = {
@@ -153,16 +154,17 @@ const servicesGridData = {
         ? {
             usecase_label_fr: `Cas d'usage · ${uc.label.fr} →`,
             usecase_label_en: `Use case · ${uc.label.en} →`,
-            usecase_href: localizeHref(USECASE_ANCHOR[ucSlug] ?? '/acquerir', 'fr'),
+            usecase_href: localizeHref(USECASE_ANCHOR[ucSlug] ?? '/cas-usages/generer-plus-de-leads', 'fr'),
           }
         : {}),
     };
   }),
-  // 3 piliers à parité (Acquérir / Piloter / Opérer) + cas clients : la home ne sur-met plus Acquérir.
+  // Archi v7 : 2 offres réelles (Site Web Intelligent · Intégration Claude) + cas clients.
+  // Piliers Acquérir/Piloter/Opérer retirés du maillage home (neutralisés noindex).
   foot_links: [
-    { label_fr: 'Acquérir →', label_en: 'Acquire →', href: localizeHref('/acquerir', 'fr') },
-    { label_fr: 'Piloter →', label_en: 'Steer →', href: localizeHref('/piloter', 'fr') },
-    { label_fr: 'Opérer →', label_en: 'Operate →', href: localizeHref('/operer', 'fr') },
+    { label_fr: 'Site web intelligent →', label_en: 'Smart website →', href: localizeHref('/services/site-web-intelligent', 'fr') },
+    { label_fr: 'Intégration Claude →', label_en: 'Claude integration →', href: localizeHref('/services/integrateur-claude', 'fr') },
+    { label_fr: "Cas d'usage →", label_en: 'Use cases →', href: localizeHref('/cas-usages/generer-plus-de-leads', 'fr') },
     { label_fr: 'Nos cas clients →', label_en: 'Our case studies →', href: localizeHref('/cas-clients', 'fr') },
   ],
 } satisfies SectionByType<'services-grid'>;

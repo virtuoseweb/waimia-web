@@ -302,14 +302,19 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/contact', label: { en: 'Contact', fr: 'Nous contacter' } },
     ],
   },
-  // Col 2 — Solutions (SEO état final : /solutions/* + /secteurs supprimés →
-  // pages service réelles + piliers à ancres /acquerir, /piloter, /operer)
+  // Col 2 — Solutions (archi v7 : 2 offres réelles = Site Web Intelligent +
+  // Intégration Claude, matérialisées en pages service. Piliers Acquérir/Piloter/
+  // Opérer retirés du footer — neutralisés noindex, strat 10 §3.5/§4 + 11 §2).
   {
     heading: { en: 'Solutions', fr: 'Solutions' },
     items: [
       {
         href: '/services/site-web-intelligent',
         label: { en: 'Smart website', fr: 'Site web intelligent' },
+      },
+      {
+        href: '/services/integrateur-claude',
+        label: { en: 'Claude integration', fr: 'Intégration Claude' },
       },
       {
         href: '/services/content-marketing-intelligent',
@@ -319,28 +324,32 @@ export const FOOTER_COLS: FooterCol[] = [
         href: '/services/landing-page-scoring',
         label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' },
       },
-      { href: '/acquerir', label: { en: 'Acquire →', fr: 'Acquérir →' } },
-      { href: '/piloter', label: { en: 'Steer →', fr: 'Piloter →' } },
-      { href: '/operer', label: { en: 'Operate →', fr: 'Opérer →' } },
     ],
   },
-  // Col 3 — Offres (méga-menu V1 : ancien label « Site web IA » retiré, doublon
-  // de la col Solutions /services/site-web-intelligent → remplacé par le hub
-  // Acquérir pour éviter le double lien vers la même page).
+  // Col 3 — Audits & diagnostics (footer cible strat 10 §4 : 2 audits transactionnels
+  // + 2 diagnostics + réserver un audit → /contact gratuit).
   {
-    heading: { en: 'Services', fr: 'Offres' },
+    heading: { en: 'Audits & diagnostics', fr: 'Audits & diagnostics' },
     items: [
       {
-        href: '/offres/growth-system-ia',
-        label: { en: 'AI Growth System', fr: 'Growth System IA' },
+        href: '/audit-ia-pme',
+        label: { en: 'AI audit for SMBs', fr: 'Audit IA PME' },
       },
       {
-        href: '/acquerir',
-        label: { en: 'Acquire hub', fr: 'Le hub Acquérir' },
+        href: '/audit-site-web-intelligent',
+        label: { en: 'Smart website audit', fr: 'Audit Site Web Intelligent' },
       },
       {
-        href: '/offres/audit-maturite-ia',
-        label: { en: 'AI Maturity Audit', fr: 'Audit Maturité IA' },
+        href: '/ressources/diagnostics/maturite-ia',
+        label: { en: 'AI maturity diagnostic', fr: 'Diagnostic maturité IA' },
+      },
+      {
+        href: '/ressources/diagnostics/site-web-intelligent',
+        label: { en: 'Smart website diagnostic', fr: 'Diagnostic Site Web Intelligent' },
+      },
+      {
+        href: '/contact',
+        label: { en: 'Book an audit', fr: 'Réserver un audit' },
       },
     ],
   },

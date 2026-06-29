@@ -7,7 +7,8 @@
 // (#seo-geo, #publicite, #agent-marketing). Les 3 services sont des LIENS, les 3 sous-sujets
 // différés sont des ANCRES.
 // Rendu 100 % composable : tableau `sections` typé SectionData → SectionsRenderer (registry).
-// AUCUN markup inline (règle anti-orphelin CLAUDE.md). Indexable (pas de noindex). Le miroir
+// AUCUN markup inline (règle anti-orphelin CLAUDE.md). NOINDEX (pilier 3-archi abandonnée,
+// strat 10 §3.5 ; neutralisé + hors sitemap 2026-06-29, contenu conservé réversible). Le miroir
 // EN potentiel réutilise ce même tableau. Accent « intelligent / système » en vedette ;
 // « IA » = le comment, sauf dans le nom de marque « Growth System IA » (doctrine §4 / ADR-003).
 export const prerender = true;
@@ -359,6 +360,7 @@ const serviceLd = {
   title="Acquérir · Growth System IA · Waimia"
   description="Acquérir plus de clients : un système marketing intelligent qui capte, qualifie, convertit et mesure, dans un seul pipeline. Waimia, studio IA pour PME."
   jsonLd={serviceLd}
+  noindex
 >
   <MastheadBar lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },

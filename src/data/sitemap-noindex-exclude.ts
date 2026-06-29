@@ -41,9 +41,9 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // Cartographie d'audit interne (toutes les pages réelles + statut SEO, outil de
   // décision garder/supprimer) : noindex (prop Base) → hors sitemap pour cohérence.
   "/agence/cartographie",
-  // Page service DÉMO (placeholders cas/avis/prix balisés) : seo.noindex tant que le contenu
-  // réel n'est pas posé (fiche décision 0004) → hors sitemap pour cohérence (2026-06-14).
-  "/services/site-web-intelligent",
+  // (P1.3 2026-06-29) `/services/site-web-intelligent` RETIRÉ de l'exclusion : le contenu réel
+  // est posé (seo.noindex:false, 0 placeholder vérifié) → money page #2 indexable + dans le
+  // sitemap. Le commentaire « DÉMO placeholders / fiche 0004 » était stale.
   // Page locale Montpellier : seo.noindex tant que le NAP/GBP/avis réels ne sont pas posés
   // (placeholder balisé) → hors sitemap pour cohérence noindex↔crawl. Retirer cette entrée
   // ET le noindex de la page quand les vraies coordonnées Montpellier seront fournies (2026-06-14).
@@ -56,4 +56,10 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // maturite-ia, site-web-intelligent) → hors sitemap pour cohérence. Retirer quand le hub
   // listera ≥ 3-5 diagnostics complets (politique index-on-quality, strategy/10 §3).
   "/ressources/diagnostics",
+  // Piliers Acquérir/Piloter/Opérer (archi 3-piliers abandonnée, strat 10 §3.5) : neutralisés
+  // noindex (prop Base) + retirés du menu/footer/home → hors sitemap pour cohérence noindex↔crawl.
+  // Contenu conservé (réversible), pas supprimé.
+  "/acquerir",
+  "/piloter",
+  "/operer",
 ]);
