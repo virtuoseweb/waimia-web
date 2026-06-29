@@ -17,7 +17,8 @@ import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import EditorialProse from '../../components/sections/EditorialProse.astro';
 import { localizeHref } from '../../lib/i18n';
 import { sectorCaseGridData } from '../../lib/sector-cases';
-import { buildArticle } from '../../lib/seo/schema-builder';
+import { buildArticle, buildFAQPage } from '../../lib/seo/schema-builder';
+import { meshForSecteur } from '../../lib/internal-mesh';
 import type { SectionData, SectionByType } from '@waimia/ds-kernel';
 
 export async function getStaticPaths() {
@@ -53,10 +54,11 @@ const sectorLd = buildArticle({
   },
   mainEntityOfPage: sectorUrl,
 });
-// La route émet l'Article JSON-LD (GEO/AIO). La séquence composable ne rend plus la
-// section `faq-accordion` (hors doctrine awwwards) : `d.faq_fr` reste dans le frontmatter
-// mais n'est pas rendu ici (cf rapport : arbitrage FAQ/SEO à valider par l'orchestrateur).
-const sectorJsonLd = sectorLd;
+// La route émet l'Article JSON-LD (GEO/AIO) ET, quand le secteur porte au moins 2
+// questions, un FAQPage JSON-LD aligné sur la section `faq-accordion` rendue plus bas.
+// `buildFAQPage` lit directement `d.faq_fr` (shape { q, a }). Base accepte un tableau.
+const faqLd = d.faq_fr && d.faq_fr.length >= 2 ? buildFAQPage(d.faq_fr) : null;
+const sectorJsonLd = [sectorLd, faqLd].filter(Boolean) as Array<Record<string, unknown>>;
 
 // ── Grille de cas INJECTÉE (sector-cases.ts, inchangé). GAP-B (état vide < 2 cas)
 //    désormais porté DANS le composant catalogue CaseCardGrid → propage partout. ──
@@ -270,9 +272,38 @@ const proseSection: SectionByType<'editorial-prose'> = {
   maxWidth: 'prose',
 };
 
-// ── Après la prose · climax conversion (ink) + réassurance finale (paper-3) ──
+// ── Maillage interne dérivé (§17) · source unique internal-mesh (routes réelles,
+//    self-link exclu, grille de cas non dupliquée). Le helper porte les 2 langues. ──
+const meshData = meshForSecteur(slug, lang);
+
+// ── FAQ rendue (faq-accordion) seulement si le secteur porte au moins 2 questions
+//    (le schéma exige min 2 items). Items mappés depuis le frontmatter { q, a }. ──
+const hasFaq = Array.isArray(d.faq_fr) && d.faq_fr.length >= 2;
+
+// ── Après la prose · FAQ (paper-2) · maillage (paper-3) · climax conversion (ink)
+//    · réassurance finale (paper-3). ──
 const sectionsAfterProse: SectionData[] = [
-  // 9 · footer-cta-band (ink) · climax conversion · h2 avec fragment <i> (coloré accent)
+  // 8 · faq-accordion (paper-2) · questions fréquentes · conditionnel (>= 2 items)
+  ...(hasFaq
+    ? [{
+        type: 'faq-accordion',
+        background: 'paper-2',
+        kicker_fr: '§ Questions fréquentes',
+        kicker_en: '§ Frequently asked',
+        h2_fr: 'Ce que les dirigeants nous <i>demandent</i>.',
+        h2_en: 'What leaders <i>ask us</i>.',
+        open_first: true,
+        items: ((d as any).faq_fr ?? []).map((f: any, i: number) => ({
+          q_fr: f.q,
+          q_en: ((d as any).faq_en ?? [])[i]?.q ?? f.q,
+          a_fr: f.a,
+          a_en: ((d as any).faq_en ?? [])[i]?.a ?? f.a,
+        })),
+      } satisfies SectionByType<'faq-accordion'>]
+    : []),
+  // 9 · related-links (paper-3) · maillage interne · prépare le climax CTA
+  { ...meshData, background: 'paper-3' },
+  // 10 · footer-cta-band (ink) · climax conversion · h2 avec fragment <i> (coloré accent)
   {
     type: 'footer-cta-band',
     background: 'ink',

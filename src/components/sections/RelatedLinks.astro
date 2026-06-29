@@ -1,0 +1,158 @@
+---
+// Section W6 · related-links (index-sections)
+// Maillage interne compact (strat 11) : groupes de liens internes contextuels.
+// Colonnes de liens compacts avec petit label de groupe, pas des cards lourdes.
+// 100 % tokens DS, 0 token créé, 0 hardcode couleur/espacement. Variante ink remap scopé.
+import type { SectionByType } from '@waimia/ds-kernel';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'related-links'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+
+const groups = data.groups.map((g) => ({
+  label: isFr ? g.label_fr : g.label_en,
+  links: g.links.map((l) => ({
+    label: isFr ? l.label_fr : l.label_en,
+    href: l.href,
+    desc: isFr ? l.desc_fr : l.desc_en,
+  })),
+}));
+---
+
+<section class="related-links" data-bg={data.background}>
+  <div class="wrap-wide related-links__inner">
+    {(kicker || h2) && (
+      <header class="related-links__head reveal">
+        {kicker && <Kicker tone="accent" class="related-links__kicker">{kicker}</Kicker>}
+        {h2 && <h2 class="u-serif-accent related-links__h2" set:html={h2} />}
+      </header>
+    )}
+    <div class="related-links__grid reveal-stagger">
+      {groups.map((g) => (
+        <div class="related-links__group">
+          <Kicker as="span" tone="muted" class="related-links__group-label">{g.label}</Kicker>
+          <ul class="related-links__list">
+            {g.links.map((l) => (
+              <li class="related-links__item">
+                <a class="related-links__link" href={l.href}>
+                  <span class="related-links__link-label">{l.label}</span>
+                  {l.desc && <span class="related-links__link-desc">{l.desc}</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .related-links {
+    padding-block: var(--section-loose);
+  }
+  .related-links__head {
+    margin-bottom: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  :global(.related-links__kicker) {
+    display: block;
+  }
+  .related-links__h2 {
+    font-family: var(--font-display);
+    font-weight: var(--fw-medium);
+    font-size: var(--text-h3);
+    line-height: var(--leading-h2);
+    color: var(--ink);
+    margin: 0;
+    max-width: 28ch;
+  }
+
+  /* Grille de groupes auto-fit : se replie proprement sur mobile, 0 overflow. */
+  .related-links__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: clamp(var(--space-6), 4vw, var(--space-10)) var(--space-8);
+  }
+  .related-links__group {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  :global(.related-links__group-label) {
+    display: block;
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .related-links__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .related-links__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-block: var(--space-2);
+    color: var(--ink);
+    text-decoration: none;
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .related-links__link-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color var(--dur-trim) var(--ease);
+  }
+  .related-links__link-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--muted);
+  }
+  .related-links__link:hover {
+    color: var(--accent-text);
+  }
+  .related-links__link:hover .related-links__link-label {
+    text-decoration-color: currentColor;
+  }
+  .related-links__link:hover .related-links__link-desc {
+    color: var(--muted);
+  }
+  .related-links__link:focus-visible {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  /* ── Alternance des fonds · defaut paper = rendu inchange ── */
+  .related-links[data-bg='paper-2'] { background: var(--paper-2); }
+  .related-links[data-bg='paper-3'] { background: var(--paper-3); }
+
+  /* ── Idiome dark (ink) · remap scope aux enfants, contraste AA (pattern FooterCtaBand) ── */
+  .related-links[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --muted: rgba(var(--paper-rgb), 0.66);
+  }
+  .related-links[data-bg='ink'] .related-links__h2 { color: var(--paper); }
+  .related-links[data-bg='ink'] :global(.related-links__group-label) { border-bottom-color: var(--hairline-strong); }
+  .related-links[data-bg='ink'] .related-links__link { color: var(--paper); }
+  .related-links[data-bg='ink'] .related-links__link:hover { color: var(--accent-text); }
+</style>

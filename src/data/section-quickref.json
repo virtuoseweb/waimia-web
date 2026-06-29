@@ -587,6 +587,8 @@
       "type": "article-grid",
       "articles": [
         {
+          "image": "/images/illustrations/ds/money-money-paper.webp",
+          "tint": 30,
           "tag_fr": "Acquisition",
           "tag_en": "Acquisition",
           "title_fr": "Réallouer un budget média chaque semaine sans casser le pipeline",
@@ -600,6 +602,8 @@
           "href": "/blog"
         },
         {
+          "image": "/images/illustrations/ds/band-showing-tv-paper.webp",
+          "tint": 220,
           "tag_fr": "Contenu",
           "tag_en": "Content",
           "title_fr": "Un humain relit chaque ligne : pourquoi la relecture reste le goulot",
@@ -13753,6 +13757,117 @@
     }
   },
   {
+    "type": "related-links",
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "status": "stable",
+    "description_fr": "Bloc compact de maillage interne : groupes de liens internes contextuels en colonnes, avec petit label de groupe et description optionnelle. Renforce le SEO et oriente la navigation en fin de page.",
+    "requiredProps": [
+      {
+        "name": "groups",
+        "type": "array",
+        "constraint": "min:1 max:6"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "related-links",
+      "groups": [
+        {
+          "label_fr": "Nos offres",
+          "label_en": "Our offers",
+          "links": [
+            {
+              "label_fr": "Site Web Intelligent",
+              "label_en": "Intelligent Website",
+              "href": "/services/site-web-intelligent",
+              "desc_fr": "Un site qui convertit, mesuré et outillé IA.",
+              "desc_en": "A site that converts, measured and AI-tooled."
+            },
+            {
+              "label_fr": "Intégrateur Claude",
+              "label_en": "Claude Integrator",
+              "href": "/services/integrateur-claude",
+              "desc_fr": "Vos processus câblés à Claude, de bout en bout.",
+              "desc_en": "Your processes wired to Claude, end to end."
+            },
+            {
+              "label_fr": "Agents IA",
+              "label_en": "AI Agents",
+              "href": "/services/agents-ia"
+            }
+          ]
+        },
+        {
+          "label_fr": "Cas d'usage",
+          "label_en": "Use cases",
+          "links": [
+            {
+              "label_fr": "Générer plus de leads",
+              "label_en": "Generate more leads",
+              "href": "/cas-usages/generer-plus-de-leads"
+            },
+            {
+              "label_fr": "Standardiser les processus",
+              "label_en": "Standardize processes",
+              "href": "/cas-usages/standardiser-processus"
+            },
+            {
+              "label_fr": "Centraliser les données",
+              "label_en": "Centralize data",
+              "href": "/cas-usages/centraliser-donnees"
+            }
+          ]
+        },
+        {
+          "label_fr": "À lire",
+          "label_en": "Worth reading",
+          "links": [
+            {
+              "label_fr": "L'IA pilier pour les PME en 2026",
+              "label_en": "AI as a pillar for SMBs in 2026",
+              "href": "/blog/essai-pillar-ia-pme-2026"
+            },
+            {
+              "label_fr": "Agent IA contre automatisation classique",
+              "label_en": "AI agent versus classic automation",
+              "href": "/blog/agent-ia-vs-automatisation-classique-2026"
+            },
+            {
+              "label_fr": "Calculateur de ROI IA",
+              "label_en": "AI ROI calculator",
+              "href": "/ressources/outils/calculateur-roi-ia"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "type": "resource-card-grid",
     "category": "marketing",
     "categorySlug": "content-listing-sections",
@@ -16444,6 +16559,154 @@
       "author": "Camille Rousseau",
       "role_fr": "Directrice des opérations",
       "role_en": "Head of Operations"
+    }
+  },
+  {
+    "type": "testimonial-wall",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "status": "stable",
+    "description_fr": "Mur d'avis masonry : citations clients surlignées, note moyenne et profils LinkedIn pour une preuve sociale dense.",
+    "requiredProps": [
+      {
+        "name": "testimonials",
+        "type": "array",
+        "constraint": "min:3 max:12"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink",
+        "default": "paper-2"
+      },
+      {
+        "name": "columns",
+        "type": "enum",
+        "constraint": "2 | 3 | 4",
+        "default": "3"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "rating",
+        "type": "number"
+      },
+      {
+        "name": "rating_count",
+        "type": "number"
+      },
+      {
+        "name": "rating_label_en",
+        "type": "string"
+      },
+      {
+        "name": "rating_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "rating_max",
+        "type": "number"
+      },
+      {
+        "name": "subtitle_en",
+        "type": "string"
+      },
+      {
+        "name": "subtitle_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "testimonial-wall",
+      "testimonials": [
+        {
+          "quote_fr": "En cinq jours, on a câblé l'IA dans nos workflows. **Premier ROI à six semaines**, mesuré.",
+          "quote_en": "In five days we wired AI into our workflows. **First ROI at six weeks**, measured.",
+          "author": "Marie Lefèvre",
+          "role_fr": "Directrice des opérations",
+          "role_en": "COO",
+          "company": "Atelier B2B Services",
+          "linkedin": "https://www.linkedin.com/in/exemple-marie-lefevre"
+        },
+        {
+          "quote_fr": "Méthodologie carrée. Mesure avant et après. **On a su exactement ce qui marchait** et ce qu'il fallait couper.",
+          "quote_en": "Solid methodology. Before and after measurement. **We knew exactly what worked** and what to cut.",
+          "author": "Thomas Renard",
+          "role_fr": "Directeur financier",
+          "role_en": "CFO",
+          "company": "Groupe Industrie Nord",
+          "linkedin": "https://www.linkedin.com/in/exemple-thomas-renard"
+        },
+        {
+          "quote_fr": "Notre service client traite **deux fois plus de demandes** sans recruter. L'équipe se concentre sur les cas à valeur.",
+          "quote_en": "Our support team handles **twice the volume** without new hires. The team focuses on high-value cases.",
+          "author": "Camille Dubois",
+          "role_fr": "Responsable e-commerce",
+          "role_en": "Head of e-commerce",
+          "company": "Maison Lumen"
+        },
+        {
+          "quote_fr": "On cherchait un partenaire qui comprend la donnée ET le terrain. **Waimia coche les deux cases.**",
+          "quote_en": "We wanted a partner who gets the data AND the floor. **Waimia ticks both boxes.**",
+          "author": "Julien Marchand",
+          "role_fr": "Fondateur",
+          "role_en": "Founder",
+          "company": "SaaS Pilote",
+          "linkedin": "https://www.linkedin.com/in/exemple-julien-marchand"
+        },
+        {
+          "quote_fr": "Zéro jargon, que des résultats. **Trois processus automatisés** le premier trimestre.",
+          "quote_en": "Zero jargon, just results. **Three processes automated** in the first quarter.",
+          "author": "Sophie Bertin",
+          "role_fr": "Directrice générale",
+          "role_en": "Managing Director",
+          "company": "Cabinet Conseil Aria"
+        },
+        {
+          "quote_fr": "Le suivi est rigoureux. Chaque décision est documentée, **on garde la main** sur nos outils.",
+          "quote_en": "The follow-through is rigorous. Every decision is documented, **we stay in control** of our tools.",
+          "author": "Antoine Girard",
+          "role_fr": "Responsable production",
+          "role_en": "Operations Lead",
+          "company": "Fabrique Sereine",
+          "linkedin": "https://www.linkedin.com/in/exemple-antoine-girard"
+        },
+        {
+          "quote_fr": "Accompagnement humain et concret. **On a formé nos équipes** en même temps qu'on déployait.",
+          "quote_en": "Hands-on, concrete support. **We trained our teams** while we deployed.",
+          "author": "Nadia Khelifi",
+          "role_fr": "Directrice des ressources humaines",
+          "role_en": "HR Director",
+          "company": "Réseau Horizon"
+        },
+        {
+          "quote_fr": "Un cadre clair du diagnostic à la mise en prod. **Plus de visibilité** sur ce qui compte vraiment.",
+          "quote_en": "A clear frame from diagnosis to production. **More visibility** on what truly matters.",
+          "author": "Pierre Vasseur",
+          "role_fr": "Directeur commercial",
+          "role_en": "Sales Director",
+          "company": "Distribution Vallée",
+          "linkedin": "https://www.linkedin.com/in/exemple-pierre-vasseur"
+        }
+      ]
     }
   },
   {

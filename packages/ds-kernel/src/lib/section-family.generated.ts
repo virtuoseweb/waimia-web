@@ -165,6 +165,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'pull-quote-block': 'quote',
   'quote-spotlight': 'quote',
   'related-cards-band': 'card-grid',
+  'related-links': 'list',
   'resource-card-grid': 'card-grid',
   'rich-text': 'prose',
   'roi-band': 'band',

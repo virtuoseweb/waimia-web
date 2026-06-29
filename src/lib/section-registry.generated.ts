@@ -125,6 +125,7 @@ import { Component as specBarComponent, meta as specBarMeta } from '../sections/
 import { Component as deliverablesGridComponent, meta as deliverablesGridMeta } from '../sections/deliverables-grid';
 import { Component as techStackBandComponent, meta as techStackBandMeta } from '../sections/tech-stack-band';
 import { Component as relatedCardsBandComponent, meta as relatedCardsBandMeta } from '../sections/related-cards-band';
+import { Component as relatedLinksComponent, meta as relatedLinksMeta } from '../sections/related-links';
 import { Component as pullQuoteBlockComponent, meta as pullQuoteBlockMeta } from '../sections/pull-quote-block';
 import { Component as inclusionsListComponent, meta as inclusionsListMeta } from '../sections/inclusions-list';
 import { Component as problemStatementComponent, meta as problemStatementMeta } from '../sections/problem-statement';
@@ -689,6 +690,10 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'related-cards-band': {
     component: relatedCardsBandComponent,
     ...relatedCardsBandMeta,
+  },
+  'related-links': {
+    component: relatedLinksComponent,
+    ...relatedLinksMeta,
   },
   'pull-quote-block': {
     component: pullQuoteBlockComponent,

@@ -294,6 +294,9 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // #80 : 2 familles narratives awwwards (catalogue-only a leur creation).
   { id: 'sticky-scroll-storytelling', consumers: [] },
   { id: 'hover-reveal-words',         consumers: [] },
+  // #37 / maillage : mur d'avis brandé + section de liens internes groupés (catalogue-only a leur creation).
+  { id: 'testimonial-wall',           consumers: [] },
+  { id: 'related-links',              consumers: [] },
   // <<< [t5-touchpoint-sync] end
 ];
 

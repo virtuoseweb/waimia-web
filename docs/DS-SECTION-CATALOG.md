@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 203
+> Sections : 204
 
 ---
 
@@ -4306,6 +4306,27 @@
 **Dette hardcode** : 4 valeur(s) — -0.03em, 140px, 1px, 760px
 
 **Agent** : Espacement : --space-3 --space-4 --space-5. Couleur : --ink --ink-2 --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.03em, 140px, 1px).
+
+---
+
+### `related-links`
+
+> Bloc compact de maillage interne : groupes de liens internes contextuels en colonnes, avec petit label de groupe et description optionnelle. Renforce le SEO et oriente la navigation en fin de page.
+> RelatedLinks · src/sections/related-links/Component.astro · marketing/index-sections
+> status : stable · tags : compact, explorer, liens internes, maillage, navigation, seo
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
+| `groups` | array | oui |  | min:1 max:6 |
+| `h2_en` | string | non |  |  |
+| `h2_fr` | string | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+
+**Agent** : Layout : `background` (schema, 0 CSS).
 
 ---
 

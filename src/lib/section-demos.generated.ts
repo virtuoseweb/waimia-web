@@ -125,6 +125,7 @@ import { demo as specBarDemo } from '../sections/spec-bar/demo';
 import { demo as deliverablesGridDemo } from '../sections/deliverables-grid/demo';
 import { demo as techStackBandDemo } from '../sections/tech-stack-band/demo';
 import { demo as relatedCardsBandDemo } from '../sections/related-cards-band/demo';
+import { demo as relatedLinksDemo } from '../sections/related-links/demo';
 import { demo as pullQuoteBlockDemo } from '../sections/pull-quote-block/demo';
 import { demo as inclusionsListDemo } from '../sections/inclusions-list/demo';
 import { demo as problemStatementDemo } from '../sections/problem-statement/demo';
@@ -330,6 +331,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'deliverables-grid': deliverablesGridDemo,
   'tech-stack-band': techStackBandDemo,
   'related-cards-band': relatedCardsBandDemo,
+  'related-links': relatedLinksDemo,
   'pull-quote-block': pullQuoteBlockDemo,
   'inclusions-list': inclusionsListDemo,
   'problem-statement': problemStatementDemo,

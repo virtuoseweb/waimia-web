@@ -36931,6 +36931,71 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6. Couleur : --accent-text --ink --muted. Dette : 2 litteral(s) hardcode(s) (-2px, 1px)."
   },
   {
+    "id": "related-links",
+    "component": {
+      "name": "RelatedLinks",
+      "path": "src/sections/related-links/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "tags": [
+      "compact",
+      "explorer",
+      "liens internes",
+      "maillage",
+      "navigation",
+      "seo"
+    ],
+    "status": "stable",
+    "description_fr": "Bloc compact de maillage interne : groupes de liens internes contextuels en colonnes, avec petit label de groupe et description optionnelle. Renforce le SEO et oriente la navigation en fin de page.",
+    "description_en": "Compact internal-linking block: contextual internal links grouped in columns, with a small group label and an optional description. Strengthens SEO and guides navigation at the end of a page.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "groups",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "scopedClasses": [],
+    "tokensUsed": [],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 0,
+      "samples": []
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS)."
+  },
+  {
     "id": "resource-card-grid",
     "component": {
       "name": "ResourceCardGrid",

@@ -164,6 +164,7 @@ import { schema as proofBarSchema } from '../sections/proof-bar/schema';
 import { schema as pullQuoteBlockSchema } from '../sections/pull-quote-block/schema';
 import { schema as quoteSpotlightSchema } from '../sections/quote-spotlight/schema';
 import { schema as relatedCardsBandSchema } from '../sections/related-cards-band/schema';
+import { schema as relatedLinksSchema } from '../sections/related-links/schema';
 import { schema as resourceCardGridSchema } from '../sections/resource-card-grid/schema';
 import { schema as richTextSchema } from '../sections/rich-text/schema';
 import { schema as roiBandSchema } from '../sections/roi-band/schema';
@@ -369,6 +370,7 @@ export {
   pullQuoteBlockSchema,
   quoteSpotlightSchema,
   relatedCardsBandSchema,
+  relatedLinksSchema,
   resourceCardGridSchema,
   richTextSchema,
   roiBandSchema,
@@ -575,6 +577,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   pullQuoteBlockSchema,
   quoteSpotlightSchema,
   relatedCardsBandSchema,
+  relatedLinksSchema,
   resourceCardGridSchema,
   richTextSchema,
   roiBandSchema,
