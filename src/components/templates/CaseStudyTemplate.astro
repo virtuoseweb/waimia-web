@@ -9,7 +9,7 @@
 //             + Tech stack + Related + CTA final
 //
 // Composé de · Bi, Kicker, ChapterLabel atoms · ProcessSteps, ProofBand,
-//              TechPillRow, RelatedCards molecules · CtaFinal section.
+//              TechPillRow, RelatedCards molecules · FooterCtaBand section (CTA final, ink).
 
 import Base from '../../layouts/Base.astro';
 import Bi from '../ui/atoms/Bi.astro';
@@ -24,7 +24,7 @@ import MetricShift from '../sections/MetricShift.astro';
 import StatBlock from '../sections/StatBlock.astro';
 import PullQuoteBlock from '../sections/PullQuoteBlock.astro';
 import TechPillRow from '../ui/molecules/TechPillRow.astro';
-import CtaFinal from '../sections/CtaFinal.astro';
+import FooterCtaBand from '../sections/FooterCtaBand.astro';
 import RelatedCardsBand from '../sections/RelatedCardsBand.astro';
 import KeyMetric from '../editorial/KeyMetric.astro';
 import MastheadBar from '../sections/MastheadBar.astro';
@@ -190,26 +190,28 @@ const heroData = {
   specs: specs.map((s) => ({ label_fr: s.label_fr, label_en: s.label_en, value: s.value })),
 } satisfies SectionByType<'hero-case-study'>;
 const caseLabel = caseTitle ?? title.split(' · ')[0];
+// CTA final · footer-cta-band catalogué (ink), climax avant le footer global.
+// Directive Simon : tout CTA de fin de template passe par footer-cta-band, copie
+// adaptée. Copie générique premium (le template sert 5 cas) ; le contexte du cas
+// est rappelé via le sous-titre dérivé de `caseLabel` (prop déjà reçue).
 const ctaData = {
-  type: 'cta-final',
-  h2_fr: 'Votre prochain <i>cas</i> doit produire quoi ?',
-  h2_en: 'What should your next <i>case</i> actually produce?',
-  body_fr: `Si ${caseLabel} ressemble à votre contexte, on cadre le vôtre en 45 minutes et on vous dit vite si le terrain est opérable.`,
-  body_en: `If ${caseLabel} looks like your context, we can frame yours in 45 minutes and tell you quickly whether the field is operationally viable.`,
-  cta_primary: {
-    label_fr: 'Réserver un audit →',
-    label_en: 'Book an audit →',
-    href: localizeHref('/contact', lang),
-    variant: 'primary',
-  },
-  cta_secondary: {
-    label_fr: 'Voir les offres →',
-    label_en: 'See services →',
-    href: localizeHref('/services', lang),
-    variant: 'ghost',
-  },
-  background: 'paper',
-} satisfies SectionByType<'cta-final'>;
+  type: 'footer-cta-band',
+  background: 'ink',
+  kicker_fr: '§ Travaillons ensemble',
+  kicker_en: '§ Work with us',
+  h2_fr: 'Votre prochain chantier doit produire des <i>résultats</i>.',
+  h2_en: 'Your next project should produce <i>results</i>.',
+  subtitle_fr: `Si ${caseLabel} ressemble à votre contexte, on cadre le vôtre en 45 minutes et on vous dit vite si le terrain est opérable.`,
+  subtitle_en: `If ${caseLabel} looks like your context, we frame yours in 45 minutes and tell you quickly whether the field is operationally viable.`,
+  buttons: [
+    {
+      label_fr: 'Démarrer un projet',
+      label_en: 'Start a project',
+      href: localizeHref('/contact', lang),
+      variant: 'primary',
+    },
+  ],
+} satisfies SectionByType<'footer-cta-band'>;
 
 // ── Composition éditoriale (docs/25) : data des sections cataloguées, construites
 //    seulement si la donnée frontmatter est présente (sinon rendu legacy conditionnel).
@@ -262,7 +264,10 @@ const metricShiftData = shifts && shifts.length >= 2
       kicker_fr: '§ Avant → après',
       kicker_en: '§ Before → after',
       shifts,
-      background: 'paper',
+      // Rythme ink (HAB-6) : section-climax des résultats en fond ink pour rompre
+      // le tout-paper. MetricShift.astro porte déjà son remap on-ink (tokens DS,
+      // accent coral conservé sur les deltas) → 0 CSS à ajouter ici (rule 60).
+      background: 'ink',
     } satisfies SectionByType<'metric-shift'>)
   : null;
 
@@ -490,7 +495,7 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
   {/* RELATED → related-cards-band catalogué (source de vérité du markup/CSS) */}
   {relatedBandData && <RelatedCardsBand data={relatedBandData} lang={lang} />}
 
-  <CtaFinal data={ctaData} lang={lang} />
+  <FooterCtaBand data={ctaData} lang={lang} />
   <slot name="body-end" />
 </Base>
 
