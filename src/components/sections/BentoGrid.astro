@@ -116,17 +116,31 @@ const bodyJustify = pl?.body?.justify;
   }
   /* Tuile vedette = 1ʳᵉ cellule, placement imposé (2 colonnes × 2 lignes) indépendamment
      de son .span-* content-driven → vedette fiable, calque la recette bento-feature. */
+  /* Carte de tête = 2 colonnes × 1 rangée (jamais 2 rangées) : une vedette 2×2 dont
+     le contenu est court devient bien plus haute que son contenu (piste gonflée) →
+     vide béant. En 1 rangée, sa hauteur = celle de sa rangée (contenu), comme les
+     autres cartes → grille à hauteurs de rangée égales, bien formée, adaptative. */
   .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.bento-grid__cell:first-child),
   .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.bento-grid__cell:first-child) {
     grid-column: span 2;
-    grid-row: span 2;
+    grid-row: span 1;
+  }
+  /* Toutes les cellules du chemin par défaut remplissent leur piste (align-self:
+     stretch) → hauteurs de rangée égales, 0 vide résiduel. Le span 2×2 de la
+     vedette gonfle les pistes ; sans ce stretch, chaque tuile gardait 30-54px de
+     vide (align-self:start global l.~173) → « cases trop grandes / mal formées ». */
+  .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.bento-grid__cell),
+  .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.bento-grid__cell) {
+    align-self: stretch;
   }
   /* Spans content-driven clampés à la grille 3 colonnes : wide tient sur 2 (jamais de
      débordement) ; un lg NON-vedette est ramené à l'unité pour éviter un 2ᵉ bloc 2×2 qui
      rouvrirait des trous ; sm reste unitaire. dense recompacte le reste sans orphelin. */
+  /* Dans le chemin par défaut (lead + uniforme), une .span-wide reste 1 colonne :
+     sinon lead(2) + wide(2) + sm rouvrent un orphelin de fin de rangée. */
   .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.span-wide),
   .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.span-wide) {
-    grid-column: span 2;
+    grid-column: span 1;
     grid-row: span 1;
   }
   .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.bento-grid__cell:not(:first-child).span-lg),
@@ -188,13 +202,15 @@ const bodyJustify = pl?.body?.justify;
     box-shadow: var(--shadow-card-hover);
   }
 
+  /* Glyph = icône de tuile : présence visuelle (≈ taille titre h2), pas un
+     micro-symbole. Espacé du titre pour respirer (mal équilibré sinon). */
   .bento-grid__glyph {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: var(--text-small);
+    font-size: var(--text-h2);
     color: var(--accent-text);
     line-height: 1;
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-4);
   }
 
   .bento-grid__title {
