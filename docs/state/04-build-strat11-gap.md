@@ -37,3 +37,10 @@
 - 0 U+2014 dans le copy (rule 58, gate check-no-emdash). CTA réservation = audit/diagnostic gratuit.
 - GF-1 empirique (Playwright desktop+mobile, getComputedStyle, reveals, 0 image cassée, 0 overflow) avant tout « livré ». Prod (`main`) intacte : tout vit en preview/branche jusqu'au GO Simon.
 - Indexation strat §25 : services/audits/secteurs/cas-usages/études/démonstrations/ressources/articles/locales/implantations = index ; lp/* = noindex+canonical+hors sitemap.
+
+---
+## Addendum 2026-06-29 (clôture) — S11-B/C FAITS, /offres supprimé, pricing livré
+- **S11-A** ✅ 5 landings (ce1ace90). **S11-B** ✅ 6 secteurs (c743c034). **S11-C** ✅ : C1 diagnostics+outil (d100b1d6) + C2 11 contenus comparatifs/guides/démonstrations/implantations (0a5a6d60, sweep 16/16).
+- **Correction nav majeure (directive Simon)** : colonne « Solutions » → `/services` (hub créé, 9f589b09), **`/offres` SUPPRIMÉ** (20662bd7, Phase 2, Option A : audit-maturite-ia→/audit-maturite-ia indexée, growth-system-ia→301, 11 redirects).
+- **Pricing** : Maintenance & Growth (régie 100€/h + base 100€/mois, 4 forfaits) + landing SWI (GA4/Search Console/HubSpot) — livrés.
+- **Reste prioritaire** = `docs/state/05-cloture-session-2026-06-29.md` §3 : **P0 habillage variantes EN PROD** (non commencé), P1 solde 3-piliers + gates CI offres. S11-D (#16) : /offres fait, 3-piliers restant.
