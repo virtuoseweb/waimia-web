@@ -289,27 +289,6 @@
       ]
     },
     {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Intégrations natives",
-      "kicker_en": "§ Native integrations",
-      "logoIds": [
-        "claude",
-        "openai",
-        "hubspot",
-        "salesforce",
-        "slack",
-        "notion",
-        "github",
-        "aws",
-        "google",
-        "microsoft",
-        "sap",
-        "meta"
-      ],
-      "grayscale": true
-    },
-    {
       "type": "feature-zigzag",
       "anchor": "capacites",
       "background": "paper",
@@ -344,7 +323,10 @@
               "label_fr": "Accessibilité et performance soignées",
               "label_en": "Accessibility and performance cared for"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/style-8-paper.webp",
+          "media_alt_fr": "Direction artistique et design system posés avant le build, illustration éditoriale",
+          "media_alt_en": "Art direction and design system laid before the build, editorial illustration"
         },
         {
           "kicker_fr": "Brique 02",
@@ -370,7 +352,10 @@
               "label_fr": "Gouvernance · vos données restent chez vous",
               "label_en": "Governance · your data stays with you"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/its-x-paper.webp",
+          "media_alt_fr": "CRM et outils métier branchés au site via le protocole MCP, illustration éditoriale",
+          "media_alt_en": "CRM and business tools wired to the site via the MCP protocol, editorial illustration"
         },
         {
           "kicker_fr": "Brique 03",
@@ -393,6 +378,9 @@
               "label_en": "Automatic internal linking"
             }
           ],
+          "media_src": "/images/illustrations/ds/style-11-paper.webp",
+          "media_alt_fr": "Moteur éditorial SEO et GEO qui rend la marque citable par les IA, illustration éditoriale",
+          "media_alt_en": "SEO and GEO editorial engine making the brand citable by AIs, editorial illustration",
           "link_href": "/services/content-marketing-intelligent",
           "link_label_fr": "Voir le content marketing →",
           "link_label_en": "See content marketing →"
@@ -417,7 +405,10 @@
               "label_fr": "Évolutions versionnées, en minutes",
               "label_en": "Versioned changes, in minutes"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
+          "media_alt_fr": "Édition de contenu pilotable sans développeur, sans chantier de plugins, illustration éditoriale",
+          "media_alt_en": "Content editing steerable without a developer, no plugin project, editorial illustration"
         },
         {
           "kicker_fr": "Brique 05",
@@ -439,9 +430,33 @@
               "label_fr": "Alertes temps réel sur les anomalies",
               "label_en": "Real-time alerts on anomalies"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "KPI Search Console et Analytics lus et synthétisés par l'IA sur un tableau de pilotage, illustration éditoriale",
+          "media_alt_en": "Search Console and Analytics KPIs read and synthesised by the AI on a dashboard, editorial illustration"
         }
       ]
+    },
+    {
+      "type": "logo-marquee",
+      "background": "ink",
+      "kicker_fr": "§ Intégrations natives",
+      "kicker_en": "§ Native integrations",
+      "logoIds": [
+        "claude",
+        "openai",
+        "hubspot",
+        "salesforce",
+        "slack",
+        "notion",
+        "github",
+        "aws",
+        "google",
+        "microsoft",
+        "sap",
+        "meta"
+      ],
+      "grayscale": true
     },
     {
       "type": "architecture-diagram",
@@ -497,6 +512,56 @@
       "loop_label_en": "CONTINUOUS OPTIMISATION LOOP",
       "caption_fr": "Le visiteur arrive sur une web app branchée à l'IA et à vos données. Le LLM lit la Search Console et l'Analytics, optimise le SEO, score et route chaque visite, puis pousse le lead qualifié vers votre CRM. Le tableau de pilotage et les alertes ferment la boucle, sans relance <i>manuelle</i>.",
       "caption_en": "The visitor lands on a web app wired to AI and your data. The LLM reads Search Console and Analytics, optimises SEO, scores and routes each visit, then pushes the qualified lead to your CRM. The dashboard and alerts close the loop, with no <i>manual</i> chasing."
+    },
+    {
+      "type": "bento-grid",
+      "background": "ink",
+      "kicker_fr": "§ Architecture",
+      "kicker_en": "§ Architecture",
+      "h2_fr": "Comment on <i>câble</i> un site qui qualifie",
+      "h2_en": "How we <i>wire</i> a site that qualifies",
+      "cells": [
+        {
+          "glyph": "◆",
+          "title_fr": "Une base rapide en SSG",
+          "title_en": "A fast SSG base",
+          "body_fr": "Le site est construit en static (Astro SSG) : pages servies en 100/100 PageSpeed, contenu structuré et balisé Schema.org. La performance et la lisibilité machine sont la fondation, pas une option ajoutée après.",
+          "body_en": "The site is built static (Astro SSG): pages served at 100/100 PageSpeed, structured content and Schema.org markup. Performance and machine readability are the foundation, not an option bolted on later.",
+          "span": "lg"
+        },
+        {
+          "glyph": "⇄",
+          "title_fr": "Branché à vos données via MCP",
+          "title_en": "Wired to your data via MCP",
+          "body_fr": "Une couche de connexion propre vers vos outils : CRM, Search Console, Analytics, e-mail. Le LLM lit vos KPI réels, score chaque visite et pousse le lead qualifié, sur vos données, dans votre stack.",
+          "body_en": "A clean connection layer to your tools: CRM, Search Console, Analytics, email. The LLM reads your real KPIs, scores each visit and pushes the qualified lead, on your data, in your stack.",
+          "span": "wide"
+        },
+        {
+          "glyph": "⊞",
+          "title_fr": "Skills et routines de contenu",
+          "title_en": "Content skills and routines",
+          "body_fr": "Le moteur éditorial SEO et GEO découpé en skills réutilisables : production d'articles balisés, maillage interne, suivi des positions. Pas des prompts jetables, des briques qui durent.",
+          "body_en": "The SEO and GEO editorial engine split into reusable skills: tagged article production, internal linking, position tracking. Not throwaway prompts, building blocks that last.",
+          "span": "sm"
+        },
+        {
+          "glyph": "▣",
+          "title_fr": "Capture et scoring",
+          "title_en": "Capture and scoring",
+          "body_fr": "Quiz de routing, lead magnet et formulaires branchés au CRM : chaque visite est qualifiée, notée selon son comportement et routée vers la page qui convertit, sans recopie manuelle.",
+          "body_en": "Routing quiz, lead magnet and CRM-wired forms: every visit is qualified, scored on behaviour and routed to the converting page, with no manual retyping.",
+          "span": "sm"
+        },
+        {
+          "glyph": "↺",
+          "title_fr": "Mesure et boucle continue",
+          "title_en": "Measurement and continuous loop",
+          "body_fr": "KPI lus par l'IA, attribution multi-touch des leads, alertes sur les anomalies. On mesure l'avant/après et le site monte de version pendant que vous l'utilisez, sans tout refondre.",
+          "body_en": "KPIs read by the AI, multi-touch lead attribution, alerts on anomalies. We measure before/after and the site moves up versions while you use it, without redoing everything.",
+          "span": "sm"
+        }
+      ]
     },
     {
       "type": "method-stepline",
@@ -700,7 +765,7 @@
     },
     {
       "type": "stats-bento",
-      "background": "ink",
+      "background": "paper",
       "kicker_fr": "§ Ce que dit le marché",
       "kicker_en": "§ What the market shows",
       "h2_fr": "Pourquoi un site <i>instrumenté</i> change l'équation",
@@ -970,6 +1035,9 @@
     {
       "type": "footer-cta-band",
       "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
       "rounded": true,
       "kicker_fr": "§ Prêt à câbler ?",
       "kicker_en": "§ Ready to wire?",
