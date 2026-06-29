@@ -1,0 +1,74 @@
+---
+export const prerender = true;
+
+// Page SSG noindex · /preview-v/[service]/[v] · aperçu interne des variantes de
+// composition d'une page service. Généralise /preview-swi/[v] aux pages 2→7 en
+// ajoutant le segment `service` (nom de dossier sous src/data/page-variants/).
+//
+// Convention : src/data/page-variants/<service>/<v>.json, forme
+// { variant, label, sections: [...] }. Le path /preview-v/<service>/<v> est émis
+// pour CHAQUE fichier JSON existant : donc au pilote, seul
+// integrateur-claude/c.json existe → seule /preview-v/integrateur-claude/c est
+// générée. Ajouter a.json / b.json (ou un autre service) générera les paths
+// correspondants sans retoucher ce fichier. Le rendu réutilise le pipeline
+// composable de /offres/[slug] : <SectionsRenderer sections={...} />.
+//
+// Note profondeur : la route est à 2 niveaux (preview-v/[service]/[v]) → le glob
+// remonte de ../../../ vers src/data/page-variants.
+
+import Base from '../../../layouts/Base.astro';
+import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+
+type Variant = { variant?: string; label?: string; sections: unknown[] };
+
+// eager: import statique de tous les variants au build. Le chemin
+// `…/page-variants/<service>/<v>.json` se partitionne en params { service, v }.
+const modules = import.meta.glob<{ default: Variant }>(
+  '../../../data/page-variants/*/*.json',
+  { eager: true },
+);
+
+const variants = new Map<string, Variant>();
+for (const [path, mod] of Object.entries(modules)) {
+  const match = path.match(/\/page-variants\/([^/]+)\/([^/]+)\.json$/i);
+  if (!match) continue;
+  const [, service, v] = match;
+  variants.set(`${service.toLowerCase()}/${v.toLowerCase()}`, mod.default);
+}
+
+export async function getStaticPaths() {
+  const all = import.meta.glob<{ default: Variant }>(
+    '../../../data/page-variants/*/*.json',
+    { eager: true },
+  );
+  const paths: { params: { service: string; v: string } }[] = [];
+  for (const path of Object.keys(all)) {
+    const match = path.match(/\/page-variants\/([^/]+)\/([^/]+)\.json$/i);
+    if (match) {
+      paths.push({
+        params: { service: match[1].toLowerCase(), v: match[2].toLowerCase() },
+      });
+    }
+  }
+  return paths;
+}
+
+const { service, v } = Astro.params as { service: string; v: string };
+const data = variants.get(`${service}/${v}`);
+
+if (!data || !Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error(
+    `preview-v/${service}/${v} : variante introuvable ou \`sections\` vide`,
+  );
+}
+
+const lang = 'fr' as const;
+const label = data.label ?? `variante ${v}`;
+---
+<Base
+  title={`Aperçu ${service} · ${label}`}
+  description="Revue interne composition."
+  noindex={true}
+>
+  <SectionsRenderer sections={data.sections as any} lang={lang} />
+</Base>
