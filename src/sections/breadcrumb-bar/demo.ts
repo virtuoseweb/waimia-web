@@ -7,7 +7,7 @@ export const demo: DemoData = {
     type: 'breadcrumb-bar',
     breadcrumb: [
       { label_fr: 'Accueil', label_en: 'Home', href: '/' },
-      { label_fr: 'Services', label_en: 'Services', href: '/services' },
+      { label_fr: 'Solutions', label_en: 'Solutions', href: '/offres' },
       { label_fr: 'Intégrateur Claude Code', label_en: 'Claude Code integrator' },
     ],
   };
