@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `212769f` - 40/85 tâches done (47%).
+État : HEAD `74102e80` - 40/85 tâches done (47%).
 
 ## Avancement par phase
 
@@ -18,16 +18,16 @@
 
 | Chantier | Phase | done/total | % | Derniers commits (cappé 3) |
 | --- | --- | --- | --- | --- |
-| P0.0 — Reliquats documentaires & hygiène repo | P0 | 2/5 | 40% | 417eff6 docs(p0.0b): arch/03 — corriger config Astro (output static réel, retrait narratif SSR/edge périmé + cas fictif plateau) ; 7f286ab docs(night): P0.2-J résolu (no-op GF-4) + P0.0-e hygiène git (70→6 branches) + P0.8 livré |
-| P0.1 — Réparations de liens (pré-purge, anti-casse) | P0 | 3/3 | 100% | 0113bb1 Merge P0.1 — réparation liens 404 (anti-casse pré-purge) ; 0113bb1 Merge P0.1 — réparation liens 404 (anti-casse pré-purge) ; 0113bb1 Merge P0.1 — réparation liens 404 (anti-casse pré-purge) |
+| P0.0 — Reliquats documentaires & hygiène repo | P0 | 2/5 | 40% | 417eff62 docs(p0.0b): arch/03 — corriger config Astro (output static réel, retrait narratif SSR/edge périmé + cas fictif plateau) ; 7f286ab9 docs(night): P0.2-J résolu (no-op GF-4) + P0.0-e hygiène git (70→6 branches) + P0.8 livré |
+| P0.1 — Réparations de liens (pré-purge, anti-casse) | P0 | 3/3 | 100% | 0113bb1a Merge P0.1 — réparation liens 404 (anti-casse pré-purge) ; 0113bb1a Merge P0.1 — réparation liens 404 (anti-casse pré-purge) ; 0113bb1a Merge P0.1 — réparation liens 404 (anti-casse pré-purge) |
 | P0.10 — Vérification finale P0 (gate de phase) | P0 | 0/1 | 0% | - |
-| P0.2 — Assainissement du site (purge fictif/thin A→I) | P0 | 8/12 | 67% | 7f286ab docs(night): P0.2-J résolu (no-op GF-4) + P0.0-e hygiène git (70→6 branches) + P0.8 livré ; 66ec505 Merge P0.2-K vague1 Piloter — retire faux cas clients + métriques fabriquées (5 pages) ; 4fdd6a4 docs(night): preuve GF-1 visuel vague 2 home above-fold (domaines d'intervention honnêtes) |
-| P0.3 — Silo Acquérir ouvert + piliers Piloter/Opérer (ADR-003) | P0 | 10/12 | 83% | c1d07a8 feat(services): 3 pages service silo Acquérir (P0.3-c/d/e, ADR-003) ; eb14387 feat(piliers): vitrines Piloter + Operer (P0.3-f/g, ADR-003) ; eb14387 feat(piliers): vitrines Piloter + Operer (P0.3-f/g, ADR-003) |
+| P0.2 — Assainissement du site (purge fictif/thin A→I) | P0 | 8/12 | 67% | 7f286ab9 docs(night): P0.2-J résolu (no-op GF-4) + P0.0-e hygiène git (70→6 branches) + P0.8 livré ; 66ec5057 Merge P0.2-K vague1 Piloter — retire faux cas clients + métriques fabriquées (5 pages) ; 4fdd6a41 docs(night): preuve GF-1 visuel vague 2 home above-fold (domaines d'intervention honnêtes) |
+| P0.3 — Silo Acquérir ouvert + piliers Piloter/Opérer (ADR-003) | P0 | 10/12 | 83% | c1d07a8e feat(services): 3 pages service silo Acquérir (P0.3-c/d/e, ADR-003) ; eb143874 feat(piliers): vitrines Piloter + Operer (P0.3-f/g, ADR-003) ; eb143874 feat(piliers): vitrines Piloter + Operer (P0.3-f/g, ADR-003) |
 | P0.4 — Cannibalisation « site web IA » + maillage silo (ADR-003) | P0 | 0/2 | 0% | - |
 | P0.5 — Méga-menu & Footer resserrés (ancres + whitelist) | P0 | 0/3 | 0% | - |
-| P0.6 — Assainissement véridique (fin du décor d'agence) | P0 | 2/3 | 67% | c19a2b4 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) ; c19a2b4 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) |
-| P0.7 — Pages légales (conformité, BLOQUANT) | P0 | 2/2 | 100% | b2e9a7d feat(legal): pages mentions-legales, cgv, politique-confidentialite + liens footer ; b2e9a7d feat(legal): pages mentions-legales, cgv, politique-confidentialite + liens footer |
-| P0.8 — Pricing (offer ladder) — SUPERSEDED par P0.A | P0 | 1/1 | 100% | 8643949 Merge P0.8 — pricing money page 3000€ HT plancher (offer ladder) + métriques honnêtes |
+| P0.6 — Assainissement véridique (fin du décor d'agence) | P0 | 2/3 | 67% | c19a2b48 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) ; c19a2b48 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) |
+| P0.7 — Pages légales (conformité, BLOQUANT) | P0 | 2/2 | 100% | b2e9a7db feat(legal): pages mentions-legales, cgv, politique-confidentialite + liens footer ; b2e9a7db feat(legal): pages mentions-legales, cgv, politique-confidentialite + liens footer |
+| P0.8 — Pricing (offer ladder) — SUPERSEDED par P0.A | P0 | 1/1 | 100% | 8643949b Merge P0.8 — pricing money page 3000€ HT plancher (offer ladder) + métriques honnêtes |
 | P0.9 — Fondations d'acquisition (hors-repo, cash-first) | P0 | 0/4 | 0% | - |
 | P1.1 — Recherche keyword gratuite → figer les H1 | P1 | 0/2 | 0% | - |
 | P1.2 — Cluster blog silo « Site web IA » | P1 | 0/1 | 0% | - |
@@ -35,12 +35,12 @@
 | P2.0 — Reconstituer l'état réel du design (ghost, AVANT de toucher) | P2 | 0/1 | 0% | - |
 | P2.1 — Couverture & maintenance des captures (NE SE FERME JAMAIS) | P2 | 0/4 | 0% | - |
 | P2.10 — Passe finale Claude Design | P2 | 0/1 | 0% | - |
-| P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 5/7 | 71% | f8ce276 chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow ; 331b7c2 fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 81408f0 feat(ds): P2.11 — 33 font-size bruts → tokens de rôle DS (sync DS Studio prouvée) |
+| P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 5/7 | 71% | f8ce276e chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow ; 331b7c2a fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 81408f05 feat(ds): P2.11 — 33 font-size bruts → tokens de rôle DS (sync DS Studio prouvée) |
 | P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu) | P2 | 0/1 | 0% | - |
 | P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 0/1 | 0% | - |
-| P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 4/5 | 80% | c6b87a2 feat(ds): P2.4-d accent-sur-sombre #D96A47, role var --accent-text (AA petit-texte sur fond sombre) ; 8391ea7 feat(ds): petit-texte-accent AA sur fond clair (--accent-text defaut accent-sur-clair #A83D20) ; 137632c docs(plan): P2.4-e done (accent-text AA sur clair, commit 8391ea7) |
-| P2.5 — V-TYPO transverse (directive 01, jamais exécutée en transverse) | P2 | 2/2 | 100% | 5d975da fix(typo): harmoniser heros/headers serif-full -> base sans + accent serif (P2.5, directive 01) ; cf302b9 fix(typo): raccourcir accent serif hero-landing a un mot (P2.5-b) |
-| P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 1/2 | 50% | 53ed1c3 fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) |
+| P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 4/5 | 80% | c6b87a28 feat(ds): P2.4-d accent-sur-sombre #D96A47, role var --accent-text (AA petit-texte sur fond sombre) ; 8391ea7f feat(ds): petit-texte-accent AA sur fond clair (--accent-text defaut accent-sur-clair #A83D20) ; 137632cb docs(plan): P2.4-e done (accent-text AA sur clair, commit 8391ea7) |
+| P2.5 — V-TYPO transverse (directive 01, jamais exécutée en transverse) | P2 | 2/2 | 100% | 5d975da2 fix(typo): harmoniser heros/headers serif-full -> base sans + accent serif (P2.5, directive 01) ; cf302b92 fix(typo): raccourcir accent serif hero-landing a un mot (P2.5-b) |
+| P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 1/2 | 50% | 53ed1c3b fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) |
 | P2.7 — Système de variation (#14 Phase B) | P2 | 0/1 | 0% | - |
 | P2.8 — DS Studio créatif (#14 Phase C) | P2 | 0/1 | 0% | - |
 | P2.9 — Production presets en masse (#14 Phase D-E) | P2 | 0/1 | 0% | - |
