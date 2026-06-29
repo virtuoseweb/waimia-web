@@ -80,19 +80,31 @@ const grayscale = data.grayscale ?? true;
   }
   .logo-marquee__item img {
     height: 32px;
+    /* Normalisation du poids optique : un logo très large (claude 4.6:1) ne doit
+       pas écraser un logo carré (notion 1:1). On plafonne la largeur (px structurel,
+       pas un token) et on garde object-fit:contain → densité visuelle homogène. */
     width: auto;
+    max-width: 132px;
     object-fit: contain;
     transition: filter var(--dur-hover) ease, opacity var(--dur-hover) ease;
   }
+  /* Fond clair : silhouette MONOCHROME unie (grayscale + brightness(0) = noir plat,
+     supprime les luminances intrinsèques inégales des logos couleur). L'opacité cale
+     le ton sur le « muted » du DS (#6B6560 ≈ silhouette noire à ~.55 sur paper) →
+     un mur de logos d'UNE seule tonalité, lisible et sobre (pattern « trusted by »).
+     Hover → logo d'origine en couleur (récompense d'interaction sur une grille sobre). */
   .logo-marquee[data-grayscale='true'] .logo-marquee__item img {
-    filter: grayscale(1);
-    opacity: .62;
+    filter: grayscale(1) brightness(0);
+    opacity: .55;
   }
   .logo-marquee[data-grayscale='true'] .logo-marquee__item:hover img {
-    filter: grayscale(0);
+    filter: grayscale(0) brightness(1);
     opacity: 1;
   }
-  .logo-marquee[data-bg='ink'] .logo-marquee__item img { filter: brightness(0) invert(1); opacity: .8; }
+  /* Fond ink : brightness(0) aplatit chaque logo en noir, invert(1) → silhouette
+     blanche uniforme (vaut pour png/webp alpha ET svg currentColor, qui résout noir
+     en <img> puis est inversé blanc). Tonalité unique, bon contraste sur ink. */
+  .logo-marquee[data-bg='ink'] .logo-marquee__item img { filter: brightness(0) invert(1); opacity: .85; }
   .logo-marquee[data-bg='ink'] .logo-marquee__item:hover img { opacity: 1; }
   .logo-marquee[data-bg='ink'][data-grayscale='false'] .logo-marquee__item img { filter: none; }
 

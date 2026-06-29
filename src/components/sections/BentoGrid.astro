@@ -99,6 +99,42 @@ const bodyJustify = pl?.body?.justify;
     gap: var(--bento-grid-gap, var(--gut));
   }
 
+  /* ══ CHEMIN PAR DÉFAUT (layout absent + colonnes non fixées) ══════════════════
+     PROBLÈME corrigé : .bento-fluid (grid.css) utilise auto-fill minmax(--tile-min,1fr).
+     Le nombre de colonnes varie alors avec la largeur (3 → 4 → 5 selon le viewport) ;
+     combiné aux spans content-driven (lg 2×2 / wide 2×1 / sm), le placement dense devient
+     imprévisible → tuiles orphelines, trous verticaux sous la tuile vedette, « mal formé »
+     à plusieurs endroits (17/24 usages sans `layout`). SOLUTION : grille DÉTERMINISTE à
+     nombre de colonnes borné (3 → 2 → 1) avec une 1ʳᵉ cellule vedette fiable, sans toucher
+     aux recettes nommées ([data-layout]) ni aux colonnes fixes ([data-columns='2|3|4']).
+     On override .bento-fluid uniquement quand data-layout ET data-columns fixes sont absents
+     (data-columns absent OU 'auto'). 100% tokens DS ; structurel = minmax(0,1fr), 1024/768px. ── */
+  .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]),
+  .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+  }
+  /* Tuile vedette = 1ʳᵉ cellule, placement imposé (2 colonnes × 2 lignes) indépendamment
+     de son .span-* content-driven → vedette fiable, calque la recette bento-feature. */
+  .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.bento-grid__cell:first-child),
+  .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.bento-grid__cell:first-child) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  /* Spans content-driven clampés à la grille 3 colonnes : wide tient sur 2 (jamais de
+     débordement) ; un lg NON-vedette est ramené à l'unité pour éviter un 2ᵉ bloc 2×2 qui
+     rouvrirait des trous ; sm reste unitaire. dense recompacte le reste sans orphelin. */
+  .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.span-wide),
+  .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.span-wide) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.bento-grid__cell:not(:first-child).span-lg),
+  .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.bento-grid__cell:not(:first-child).span-lg) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
   /* ── Axe COLUMNS (data-columns) : nombre de colonnes de la mosaïque. Défaut (absent) =
      auto-fill content-driven (.bento-fluid). '2'|'3'|'4' = nombre fixe ; les spans lg/wide
      (2 colonnes) sont clampés au nb réel de colonnes pour 'auto' et '2' (jamais de débordement). ── */
@@ -273,6 +309,22 @@ const bodyJustify = pl?.body?.justify;
   .bento-grid__header[data-header-hide='desktop'],
   .bento-grid__mosaic[data-body-hide='desktop'] { display: none; }
 
+  /* Tablette (≤1024px) · le chemin par défaut passe de 3 → 2 colonnes. La vedette
+     occupe la pleine largeur (2 colonnes) sur 1 ligne, les autres remplissent en dense :
+     aucune tuile orpheline, dégradé propre avant l'empilement mobile. Recettes nommées
+     et colonnes fixes non touchées (elles ont leur propre cascade). 1024px = structurel. */
+  @media (max-width: 1024px) {
+    .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]),
+    .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.bento-grid__cell:first-child),
+    .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.bento-grid__cell:first-child) {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+  }
+
   /* Responsive : géré par .bento-fluid (grid.css). auto-fill descend les
      pistes selon la largeur dispo, et < 768px tout s'empile en 1 colonne avec
      les spans neutralisés. On neutralise aussi les colonnes fixes (data-columns)
@@ -282,6 +334,19 @@ const bodyJustify = pl?.body?.justify;
     .bento-grid__mosaic[data-columns='2'],
     .bento-grid__mosaic[data-columns='3'],
     .bento-grid__mosaic[data-columns='4'] { grid-template-columns: 1fr; }
+    /* Chemin par défaut : pleine largeur 1 colonne, vedette et spans neutralisés. */
+    .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]),
+    .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+    }
+    .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.bento-grid__cell:first-child),
+    .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.bento-grid__cell:first-child),
+    .bento-grid:not([data-layout]) .bento-grid__mosaic:not([data-columns]) :global(.span-wide),
+    .bento-grid:not([data-layout]) .bento-grid__mosaic[data-columns='auto'] :global(.span-wide) {
+      grid-column: auto;
+      grid-row: auto;
+    }
     /* Toute recette en grille converge en 1 colonne ; spans/aspect-ratio relâchés. */
     .bento-grid[data-layout='bento'] .bento-grid__mosaic,
     .bento-grid[data-layout='bento-feature'] .bento-grid__mosaic,
