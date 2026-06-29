@@ -14,7 +14,7 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const ctaHref = data.cta_href ?? (isFr ? '/contact' : '/en/contact');
-const offerHref = data.offer_href ?? (isFr ? '/offres/growth-system-ia' : '/en/offres/growth-system-ia');
+const offerHref = data.offer_href ?? (isFr ? '/services' : '/en/services');
 ---
 <section class="hero-home" aria-labelledby="hero-home-heading">
   <div class="signature-grid"></div>

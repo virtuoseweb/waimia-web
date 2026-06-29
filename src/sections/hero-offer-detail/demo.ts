@@ -7,7 +7,7 @@ export const demo: DemoData = {
     type: 'hero-offer-detail',
     breadcrumb_label_fr: 'Offres',
     breadcrumb_label_en: 'Services',
-    breadcrumb_href: '/offres',
+    breadcrumb_href: '/services',
     tier_fr: 'TIER II · TRANSFORMATION',
     tier_en: 'TIER II · TRANSFORMATION',
     h1_fr: 'Growth System IA. <i class="acc">Câbler</i> l\'IA dans votre delivery.',

@@ -39,10 +39,9 @@ export const HREFLANG: Record<Lang, string> = { fr: 'fr-FR', en: 'en-US' };
 
 // Pages statiques FR qui n'ont pas de miroir EN (→ pas de hreflang en-US à émettre).
 const FR_ONLY_STATIC = new Set([
-  // /offres/conseil retiré 2026-06-10 (R3 nav) : la page EN /en/offres/conseil
-  // existe (200) — l'entrée FR-only était périmée (faussait hreflang + localisation nav).
-  '/offres/revops',
-  '/offres/audit-maturite-ia',
+  // Refonte v7 2026-06-29 · hub /offres supprimé. L'audit de maturité migre en
+  // page top-level FR-only /audit-maturite-ia (pas de miroir /en).
+  '/audit-maturite-ia',
   // DS Studio / Hero Lab (anciens chemins /agence/*) et leur nouvelle destination /library/* :
   // outils internes FR-only (pas de miroir /en/agence/ds-studio ni /en/library/studio etc.
   // → sinon le switcher de langue du Header pointait vers un 404, SR-42 §3).

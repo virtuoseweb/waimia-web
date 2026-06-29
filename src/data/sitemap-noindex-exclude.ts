@@ -11,17 +11,14 @@
 // R6 2026-06-10 · liste réduite aux SEULS stubs encore générés par le catch-all
 // (purge des 65 stubs orphelins : leurs entrées étaient devenues des no-ops).
 export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
-  "/en/offres/agents-metiers",
-  "/en/offres/audit-process-intelligence",
-  "/en/offres/mcp-connectors",
   "/en/ressources/blog",
   "/en/ressources/cas",
   "/en/ressources/cookbooks",
   // Stubs /technologies/* retirés (SEO état final §0ter) : route tree supprimé du
   // catch-all, expertise migrée vers /expertise-claude (indexable). Entrées no-op retirées.
-  "/offres/agents-metiers",
-  "/offres/audit-process-intelligence",
-  "/offres/mcp-connectors",
+  // Refonte v7 2026-06-29 · hub /offres supprimé + arbo 3-piliers (/offres/agents-metiers,
+  // /offres/audit-process-intelligence, /offres/mcp-connectors + miroirs /en) : ces stubs
+  // sont désormais des 301 (astro.config.mjs redirects), plus servis par le catch-all → no-op retirés.
   // Page de référence interne (P0.3-b, ADR-003) : démontre la séquence canonique d'une
   // page de service (servie sous /services). noindex (frontmatter seo.noindex) → hors
   // sitemap pour cohérence crawl.

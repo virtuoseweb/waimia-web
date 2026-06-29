@@ -221,83 +221,12 @@ const cases = defineCollection({
   }),
 });
 
-// ─── Offres (étendu V2) ───
-const offres = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/offres' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    // Legacy v1 (rétrocompat)
-    tier: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional(),
-    category_fr: z.string().optional(),
-    category_en: z.string().optional(),
-    priceFrom: z.string().optional(),
-    duration: z.string().optional(),
-    deliverables_fr: z.array(z.string()).optional(),
-    deliverables_en: z.array(z.string()).optional(),
-    relatedTechnologies: z.array(z.string()).default([]),
-    caseStudies: z.array(z.string()).default([]),
-    // V2 (extension pour migration hardcoded → MDX)
-    tier_fr: z.string().optional(),
-    tier_en: z.string().optional(),
-    tier_label_fr: z.string().optional(),
-    tier_label_en: z.string().optional(),
-    hero_title_html_fr: z.string().optional(),
-    hero_title_html_en: z.string().optional(),
-    meta_fr: z.string().optional(),
-    meta_en: z.string().optional(),
-    price_from_eur: z.number().int().nonnegative().optional(),
-    price_to_eur: z.number().int().nonnegative().optional(),
-    duration_min_weeks: z.number().int().positive().optional(),
-    duration_max_weeks: z.number().int().positive().optional(),
-    cta_label_fr: z.string().optional(),
-    cta_label_en: z.string().optional(),
-    cta_href: z.string().optional(),
-    lead_fr: z.string().optional(),
-    lead_en: z.string().optional(),
-    problem_statement_fr: z.string().optional(),
-    problem_statement_en: z.string().optional(),
-    problem_annotations: z
-      .array(
-        z.object({
-          value: z.string(),
-          label_fr: z.string(),
-          label_en: z.string(),
-        }),
-      )
-      .default([]),
-    method_aside_fr: z.string().optional(),
-    method_aside_en: z.string().optional(),
-    method_steps: z.array(methodStep).default([]),
-    deliverables_aside_fr: z.string().optional(),
-    deliverables_aside_en: z.string().optional(),
-    deliverable_items: z.array(deliverableItem).default([]),
-    proof: proofBlock.optional(),
-    cta_title_fr: z.string().optional(),
-    cta_title_en: z.string().optional(),
-    cta_body_fr: z.string().optional(),
-    cta_body_en: z.string().optional(),
-    inclusions_fr: z.array(z.string()).default([]),
-    inclusions_en: z.array(z.string()).default([]),
-    pricing_table: z
-      .array(
-        z.object({
-          formula_fr: z.string(),
-          formula_en: z.string(),
-          included_fr: z.string(),
-          included_en: z.string(),
-          delay_fr: z.string(),
-          delay_en: z.string(),
-          price: z.string(),
-        }),
-      )
-      .default([]),
-    has_tunnel: z.boolean().default(false),
-    // Composable V2 (D.7) : sections data-driven optionnelles · cf docs/19-DESIGN-SYSTEM-CLOSED.md §B.7
-    // Si présent → /offres/[slug].astro utilise SectionsRenderer au lieu de OffresDetailTemplate
-    sections: sectionsArraySchema.optional(),
-  }),
-});
+// ─── Offres : collection RETIRÉE (refonte v7, 2026-06-29) ───
+// L'ancien hub /offres (3-piliers / pyramide) est supprimé : l'architecture v7
+// repose sur 2 offres sous /services. Le seul contenu indexé survivant
+// (audit-maturite-ia) a migré vers la collection `audits` (/audit-maturite-ia) ;
+// growth-system-ia est supprimé (301 → /services). Toutes les anciennes URLs
+// /offres/* sont redirigées (301) via astro.config.mjs `redirects:`.
 
 // ─── Solutions : collection supprimée (SEO état final, §0ter / §2-C) :
 // aucune page /solutions/* séparée · contenu fusionné en sections ancrées des
@@ -741,7 +670,6 @@ const courses = defineCollection({
 export const collections = {
   // V1 existantes
   cases,
-  offres,
   blog,
   secteurs,
   outils,

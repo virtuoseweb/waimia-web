@@ -24,7 +24,7 @@ export const demo: DemoData = {
       lead_en: 'Website, CRM, follow-ups, dashboards, connected and measured. Tuesday we wire. Friday we measure.',
       cta_fr: 'Activer →',
       cta_en: 'Activate →',
-      href: '/offres/growth-system-ia',
+      href: '/services',
     },
     offers: [
       {
@@ -36,7 +36,7 @@ export const demo: DemoData = {
         lead_en: 'Sales and operational KPIs in real time. Clear numbers before the meeting.',
         cta_fr: "Voir l'offre →",
         cta_en: 'View offer →',
-        href: '/offres/growth-system-ia',
+        href: '/services',
       },
       {
         price_fr: '6 À 25 K€',
@@ -47,7 +47,7 @@ export const demo: DemoData = {
         lead_en: 'Augmented Excel, connected Office, internal workflows that run without human reminders.',
         cta_fr: "Voir l'offre →",
         cta_en: 'View offer →',
-        href: '/offres/growth-system-ia',
+        href: '/services',
       },
       {
         price_fr: 'SITE WEB',

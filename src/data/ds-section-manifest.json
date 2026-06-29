@@ -27827,6 +27827,183 @@
     "agentGuide": "Layout : `background`, `reveal_mode` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (-50%, 100%, 1px)."
   },
   {
+    "id": "hover-reveal-words",
+    "component": {
+      "name": "HoverRevealWords",
+      "path": "src/sections/hover-reveal-words/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Narrative Sections",
+    "tags": [
+      "editorial",
+      "hover",
+      "interactive",
+      "narrative",
+      "prose",
+      "reveal",
+      "words"
+    ],
+    "status": "stable",
+    "description_fr": "Prose editoriale dont certains mots declencheurs revelent une vignette image au survol (desktop, suit le curseur) ou au tap (mobile, vignette inline). Accessible au clavier.",
+    "description_en": "Editorial prose where certain trigger words reveal an image thumbnail on hover (desktop, follows the cursor) or on tap (mobile, inline thumbnail). Keyboard accessible.",
+    "schemaFields": [],
+    "scopedClasses": [
+      "hrw",
+      "hrw__cursor-img",
+      "hrw__cursor-thumb",
+      "hrw__inner",
+      "hrw__prose",
+      "hrw__thumb",
+      "hrw__thumbs",
+      "hrw__word",
+      "wrap-wide"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-rgb",
+        "value": "201, 79, 46"
+      },
+      {
+        "name": "--accent-sur-sombre",
+        "value": "#D96A47"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-fast",
+        "value": "200ms"
+      },
+      {
+        "name": "--dur-hover",
+        "value": "300ms"
+      },
+      {
+        "name": "--dur-trim",
+        "value": "220ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-prose",
+        "value": "1.65"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--radius-xs",
+        "value": "2px"
+      },
+      {
+        "name": "--shadow-lift",
+        "value": "0 12px 40px rgba(var(--ink-rgb), 0.08)"
+      },
+      {
+        "name": "--shadow-paper-lift",
+        "value": "0 1px 0 var(--hairline), 0 12px 28px -16px rgba(var(--ink-rgb), 0.07)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--token",
+        "value": ""
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
+      },
+      {
+        "name": "--wrap-tight",
+        "value": "1120px"
+      },
+      {
+        "name": "--z-sticky",
+        "value": "10"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 9,
+      "samples": [
+        "-50%",
+        "100%",
+        "14rem",
+        "17rem",
+        "1px",
+        "22rem",
+        "2px",
+        "3px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-2 --space-4 --space-6. Couleur : --accent --accent-rgb --accent-sur-sombre. Typographie : --font-sans --leading-lede. Dette : 9 litteral(s) hardcode(s) (-50%, 100%, 14rem)."
+  },
+  {
     "id": "how-we-ship",
     "component": {
       "name": "HowWeShip",
@@ -39513,6 +39690,208 @@
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --accent-ink --ink. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 40px, 760px)."
+  },
+  {
+    "id": "sticky-scroll-storytelling",
+    "component": {
+      "name": "StickyScrollStorytelling",
+      "path": "src/sections/sticky-scroll-storytelling/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Narrative Sections",
+    "tags": [
+      "media",
+      "method",
+      "narrative",
+      "scroll",
+      "steps",
+      "sticky",
+      "storytelling"
+    ],
+    "status": "stable",
+    "description_fr": "Storytelling au scroll : rail de texte sticky dont l'etape active passe en accent, colonne media sticky dont l'image change en fondu. Mobile = stepper empile.",
+    "description_en": "Scroll storytelling: a sticky text rail whose active step turns accent, with a sticky media column that crossfades its image. Mobile becomes a stacked stepper.",
+    "schemaFields": [],
+    "scopedClasses": [
+      "sss",
+      "sss__body",
+      "sss__eyebrow",
+      "sss__fig",
+      "sss__frame",
+      "sss__grid",
+      "sss__header",
+      "sss__inline-img",
+      "sss__lede",
+      "sss__link",
+      "sss__media",
+      "sss__num",
+      "sss__rail",
+      "sss__step",
+      "sss__step-head",
+      "sss__step-titles",
+      "sss__title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-reveal",
+        "value": "1100ms"
+      },
+      {
+        "name": "--dur-slow",
+        "value": "1400ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--shadow-lift",
+        "value": "0 12px 40px rgba(var(--ink-rgb), 0.08)"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-11",
+        "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
+      },
+      {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
+        "name": "--space-15",
+        "value": "clamp(calc(16rem * var(--fl-space-shrink)), calc((16rem * var(--fl-space-shrink)) + (16rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 16rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-kicker",
+        "value": "11px"
+      },
+      {
+        "name": "--text-numeral",
+        "value": "96px"
+      },
+      {
+        "name": "--text-numeral-md",
+        "value": "52px"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--token",
+        "value": ""
+      },
+      {
+        "name": "--tracking-kicker",
+        "value": "0.14em"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 5,
+      "samples": [
+        "100%",
+        "1px",
+        "3px",
+        "720px",
+        "860px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-10 --space-11 --space-13. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px)."
   },
   {
     "id": "system-flow",

@@ -690,7 +690,7 @@ export function buildSchemaForPage(
           { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
           {
             name: lang === 'fr' ? 'Offres' : 'Services',
-            url: `${SITE_URL}/offres`,
+            url: `${SITE_URL}/services`,
           },
           { name: d.title_fr },
         ]),

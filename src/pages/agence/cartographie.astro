@@ -55,14 +55,13 @@ function inSitemapExclude(url: string): boolean {
 // cases → /cas-clients/<id> · CaseStudyTemplate (cas-clients/[...slug].astro:5,123)
 // secteurs → /secteurs/<slug ?? id> · SectionsRenderer (secteurs/[...slug].astro:13,231)
 // services → /services/<id> · SectionsRenderer (services/[...slug].astro:9,44)
-// offres → /offres/<id> · SectionsRenderer (offres/[...slug].astro:13,84 · template legacy éteint R6)
+// offres → collection RETIRÉE (refonte v7) : audit-maturite-ia migré en page /audit-maturite-ia
 // blog → /ressources/blog/<id> · EssayTemplate (ressources/blog/[...slug].astro:5,97)
 // outils → /ressources/outils/<id> · EssayTemplate (ressources/outils/[...slug].astro:5,26)
 // authors → /equipe/<id> · AuthorPageTemplate (equipe/[...slug].astro:13)
 const cases = await getCollection('cases');
 const secteurs = await getCollection('secteurs');
 const services = await getCollection('services');
-const offres = await getCollection('offres');
 const blog = await getCollection('blog');
 const outils = await getCollection('outils');
 const authors = await getCollection('authors');
@@ -102,8 +101,7 @@ const staticPublic: Row[] = [
   { url: '/acquerir', collection: { fr: 'page statique', en: 'static page' }, template: 'acquerir.astro' },
   { url: '/piloter', collection: { fr: 'page statique', en: 'static page' }, template: 'piloter.astro' },
   { url: '/operer', collection: { fr: 'page statique', en: 'static page' }, template: 'operer.astro' },
-  { url: '/offres', collection: { fr: 'page statique', en: 'static page' }, template: 'offres/index.astro' },
-  { url: '/offres/audit-maturite-ia', collection: { fr: 'page statique', en: 'static page' }, template: 'offres/audit-maturite-ia.astro' },
+  { url: '/audit-maturite-ia', collection: { fr: 'page statique', en: 'static page' }, template: 'audit-maturite-ia.astro' },
   { url: '/cas-clients', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'cas-clients/index.astro' },
   { url: '/expertise-claude', collection: { fr: 'page statique', en: 'static page' }, template: 'expertise-claude.astro' },
   { url: '/ressources', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/index.astro' },
@@ -136,9 +134,6 @@ const secteurRows = secteurs
 const serviceRows = services.map((e: CollectionEntry<'services'>) =>
   collRow(`/services/${e.id}`, { fr: 'services', en: 'services' }, 'SectionsRenderer', fmNoindex(e)),
 );
-const offreRows = offres.map((e: CollectionEntry<'offres'>) =>
-  collRow(`/offres/${e.id}`, { fr: 'offres', en: 'offres' }, 'SectionsRenderer', fmNoindex(e)),
-);
 const blogRows = blog.map((e: CollectionEntry<'blog'>) =>
   collRow(`/ressources/blog/${e.id}`, { fr: 'blog', en: 'blog' }, 'EssayTemplate', fmNoindex(e)),
 );
@@ -155,7 +150,6 @@ const allCollAndStatic = [
   ...caseRows,
   ...secteurRows,
   ...serviceRows,
-  ...offreRows,
   ...blogRows,
   ...outilRows,
   ...authorRows,

@@ -126,9 +126,11 @@ const allOutils = (await getCollection('outils'))
 const allServices = (await getCollection('services'))
   .map((e) => ({ href: `/services/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
-// offres → /offres/<entry.id> · pas de filtre (cf offres/[...slug].astro mappe tout)
-const allOffres = (await getCollection('offres'))
-  .map((e) => ({ href: `/offres/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
+// Collection `offres` retirée (refonte v7) : le seul contenu indexé survivant est
+// l'audit de maturité, désormais page top-level /audit-maturite-ia.
+const allOffres = [
+  { href: '/audit-maturite-ia', label: { fr: 'Audit Maturité IA', en: 'AI Maturity Audit' } },
+];
 
 // authors → /equipe/<entry.id> · filtre !seo.noindex (cf equipe/[...slug].astro)
 const allAuthors = (await getCollection('authors'))

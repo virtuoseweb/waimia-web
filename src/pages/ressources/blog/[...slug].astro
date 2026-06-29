@@ -60,7 +60,6 @@ const readingTime = `${computedMinutes} min de lecture`;
 
 const allBlog = await getCollection('blog');
 const allCases = await getCollection('cases');
-const allOffres = await getCollection('offres');
 
 const relatedCasesData = (d.relatedCases ?? [])
   .map((id) => allCases.find((c) => c.id === id))
@@ -71,14 +70,8 @@ const relatedCasesData = (d.relatedCases ?? [])
     href: `/cas-clients/${c!.id}`,
   }));
 
-const relatedOffresData = (d.relatedOffres ?? [])
-  .map((id) => allOffres.find((o) => o.id === id))
-  .filter(Boolean)
-  .map((o) => ({
-    id: o!.id,
-    title: o!.data.title_fr,
-    href: `/offres/${o!.id}`,
-  }));
+// Collection `offres` retirée (refonte v7) : la bande related-offres est vide.
+const relatedOffresData: { id: string; title: string; href: string }[] = [];
 
 const relatedCards = d.relatedPosts.length > 0
   ? d.relatedPosts

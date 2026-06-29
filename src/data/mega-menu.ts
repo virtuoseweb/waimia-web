@@ -67,9 +67,8 @@ export interface MegaMenuSection {
   parentHref?: string;
   /**
    * Préfixes d'URL additionnels qui marquent cette section comme active
-   * (aria-current). Ex. Solutions absorbe les pages `/offres/*` depuis la
-   * fusion R3 : sans ça, naviguer dans `/offres/*` ne surlignerait plus aucun
-   * trigger top-level (le hub `/offres` n'est plus une entrée).
+   * (aria-current). Refonte v7 : le hub /offres et l'arbo 3-piliers
+   * (/acquerir, /piloter, /operer) sont supprimés ; Solutions = /services.
    */
   matchPrefixes?: string[];
   lead?: BiText;
@@ -233,7 +232,7 @@ const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
   parentHref: '/services',
-  matchPrefixes: ['/services', '/offres', '/acquerir', '/piloter', '/operer'],
+  matchPrefixes: ['/services'],
   lead: {
     fr: 'Deux offres porteuses, les services qui les composent, et l\'audit pour savoir par où commencer.',
     en: 'Two flagship offers, the services that compose them, and the audit to know where to start.',

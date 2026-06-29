@@ -17,7 +17,7 @@ export const demo: DemoData = {
     ],
     cta_label_fr: 'Voir nos offres',
     cta_label_en: 'See our pricing',
-    cta_href: '/offres',
+    cta_href: '/services',
     cta_note_fr: 'À partir d’un pilote forfaitaire, satisfait ou remboursé sous 30 jours.',
     cta_note_en: 'Starting from a flat-rate pilot, satisfied or refunded within 30 days.',
   };

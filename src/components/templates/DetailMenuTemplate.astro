@@ -85,7 +85,7 @@ const collectionHref = Astro.url.pathname.includes('/technologies/')
   ? localizeHref('/technologies', lang)
   : Astro.url.pathname.includes('/solutions/')
   ? localizeHref('/solutions', lang)
-  : localizeHref('/offres', lang);
+  : localizeHref('/services', lang);
 const collectionLabelFr = Astro.url.pathname.includes('/technologies/')
   ? 'Voir les technologies →'
   : Astro.url.pathname.includes('/solutions/')

@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 200
+> Sections : 202
 
 ---
 
@@ -743,6 +743,22 @@
 **Dette hardcode** : 3 valeur(s) — -0.018em, 1px, 2px
 
 **Agent** : Layout : `background`, `maxWidth` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 3 litteral(s) hardcode(s) (-0.018em, 1px, 2px).
+
+---
+
+### `hover-reveal-words`
+
+> Prose editoriale dont certains mots declencheurs revelent une vignette image au survol (desktop, suit le curseur) ou au tap (mobile, vignette inline). Accessible au clavier.
+> HoverRevealWords · src/sections/hover-reveal-words/Component.astro · marketing/content-sections
+> status : stable · tags : editorial, hover, interactive, narrative, prose, reveal, words
+
+**Tokens** : `--accent` `--accent-rgb` `--accent-sur-sombre` `--accent-text` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-sans` `--hairline` `--ink` `--leading-lede` `--leading-prose` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-xs` `--shadow-lift` `--shadow-paper-lift` `--space-2` `--space-4` `--space-6` `--text-body` `--text-h3` `--token` `--wrap-prose` `--wrap-read` `--wrap-tight` `--z-sticky`
+
+**Classes scoped** : .hrw .hrw__cursor-img .hrw__cursor-thumb .hrw__inner .hrw__prose .hrw__thumb .hrw__thumbs .hrw__word .wrap-wide
+
+**Dette hardcode** : 9 valeur(s) — -50%, 100%, 14rem, 17rem, 1px, 22rem, 2px, 3px
+
+**Agent** : Espacement : --space-2 --space-4 --space-6. Couleur : --accent --accent-rgb --accent-sur-sombre. Typographie : --font-sans --leading-lede. Dette : 9 litteral(s) hardcode(s) (-50%, 100%, 14rem).
 
 ---
 
@@ -2347,6 +2363,22 @@
 **Dette hardcode** : 7 valeur(s) — 100%, 22rem, 26rem, 38%, 768px, 8%, 80%
 
 **Agent** : Espacement : --space-10 --space-11 --space-12. Couleur : --accent-text --ink --paper. Typographie : --font-display --font-sans. Dette : 7 litteral(s) hardcode(s) (100%, 22rem, 26rem).
+
+---
+
+### `sticky-scroll-storytelling`
+
+> Storytelling au scroll : rail de texte sticky dont l'etape active passe en accent, colonne media sticky dont l'image change en fondu. Mobile = stepper empile.
+> StickyScrollStorytelling · src/sections/sticky-scroll-storytelling/Component.astro · marketing/feature-sections
+> status : stable · tags : media, method, narrative, scroll, steps, sticky, storytelling
+
+**Tokens** : `--accent-text` `--dur-reveal` `--dur-slow` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--shadow-lift` `--space-10` `--space-11` `--space-13` `--space-15` `--space-2` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-kicker` `--text-numeral` `--text-numeral-md` `--text-small` `--token` `--tracking-kicker`
+
+**Classes scoped** : .sss .sss__body .sss__eyebrow .sss__fig .sss__frame .sss__grid .sss__header .sss__inline-img .sss__lede .sss__link .sss__media .sss__num .sss__rail .sss__step .sss__step-head .sss__step-titles .sss__title
+
+**Dette hardcode** : 5 valeur(s) — 100%, 1px, 3px, 720px, 860px
+
+**Agent** : Espacement : --space-10 --space-11 --space-13. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px).
 
 ---
 

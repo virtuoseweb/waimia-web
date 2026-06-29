@@ -14,6 +14,6 @@ export const demo: DemoData = {
     subtitle_en: 'A scoped pilot, delivered and measured in a few weeks. No long commitment, no technical debt.',
     buttons: [
       { label_fr: 'Réserver un échange', label_en: 'Book a call', href: '/contact', variant: 'accent' },
-      { label_fr: 'Voir les offres', label_en: 'See pricing', href: '/offres', variant: 'ghost' },
+      { label_fr: 'Voir les offres', label_en: 'See pricing', href: '/services', variant: 'ghost' },
     ],
   };

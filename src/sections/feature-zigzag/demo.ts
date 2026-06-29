@@ -24,7 +24,7 @@ export const demo: DemoData = {
         body_en: 'We map your flows, tools, and blind spots. The result: a prioritised action plan with quick wins and structural projects.',
         link_label_fr: 'Voir le processus',
         link_label_en: 'See the process',
-        link_href: '/offres',
+        link_href: '/services',
         points: [
           { label_fr: 'Cartographie des flux et des outils', label_en: 'Flow and tooling mapping' },
           { label_fr: 'Identification des angles morts', label_en: 'Blind-spot identification' },
@@ -78,7 +78,7 @@ export const demo: DemoData = {
         body_en: 'Live dashboards and automatic alerts. You see what works, what slips, and where to act, without waiting for the monthly meeting.',
         link_label_fr: 'Voir un tableau de bord',
         link_label_en: 'See a dashboard',
-        link_href: '/offres',
+        link_href: '/services',
         points: [
           { label_fr: 'Tableaux de bord temps réel', label_en: 'Real-time dashboards' },
           { label_fr: 'Alertes automatiques sur dérive', label_en: 'Automatic drift alerts' },

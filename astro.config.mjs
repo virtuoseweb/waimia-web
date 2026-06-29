@@ -121,6 +121,21 @@ export default defineConfig({
     '/library/family/manifesto': '/library/family/prose',
     '/library/family/pain': '/library/family/prose',
     '/library/family/flow': '/library/family/process-steps',
+    // Refonte v7 2026-06-29 · suppression du hub /offres (3-piliers / pyramide).
+    // L'architecture v7 = 2 offres sous /services. audit-maturite-ia migré en page
+    // top-level /audit-maturite-ia ; growth-system-ia supprimé (301 → /services).
+    // Anciennes URLs /offres/* (et vestiges de l'arbo 3-piliers) redirigées 301.
+    '/offres': '/services',
+    '/offres/audit-maturite-ia': '/audit-maturite-ia',
+    '/offres/growth-system-ia': '/services',
+    '/offres/site-web-ia': '/services/site-web-intelligent',
+    '/offres/site-web-ia-landing': '/services/site-web-intelligent',
+    '/offres/growth-intelligence': '/services',
+    '/offres/revops': '/services',
+    '/offres/conseil': '/services',
+    '/offres/mcp-connectors': '/services',
+    '/offres/agents-metiers': '/services',
+    '/offres/audit-process-intelligence': '/services',
   },
   integrations: [
     react(),

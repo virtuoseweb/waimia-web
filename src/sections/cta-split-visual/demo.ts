@@ -12,6 +12,6 @@ export const demo: DemoData = {
     body_fr: 'Un audit offert, un plan d\'action concret et un premier workflow livré avant la fin de la semaine.',
     body_en: 'A free audit, a concrete action plan and a first workflow delivered before the end of the week.',
     cta_primary: { label_fr: 'Reserver mon audit', label_en: 'Book my audit', href: '/contact', variant: 'primary', mag: 0.16 },
-    cta_secondary: { label_fr: 'Voir les offres', label_en: 'View offers', href: '/offres', variant: 'ghost' },
+    cta_secondary: { label_fr: 'Voir les offres', label_en: 'View offers', href: '/services', variant: 'ghost' },
     background: 'paper-2',
   };

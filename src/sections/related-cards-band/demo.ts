@@ -24,7 +24,7 @@ export const demo: DemoData = {
         title_en: 'AI Growth System',
         lead_fr: '8 à 12 semaines pour câbler acquisition, CRM et contenu.',
         lead_en: '8 to 12 weeks to wire acquisition, CRM, and content.',
-        href: '/offres/growth-system-ia',
+        href: '/services',
       },
       {
         kicker_fr: 'GUIDE',

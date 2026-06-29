@@ -88,7 +88,7 @@ export const MM_SOLUTIONS: MegaMenu = MM_SOLUTIONS_NEW;
 export const MM_OFFRES_NEW: MegaMenu = {
   key: 'offres',
   label: { en: 'Services', fr: 'Offres' },
-  href: '/offres',
+  href: '/services',
   lead: {
     en: 'Three systems for the business levers: a starter format to activate quickly, an enterprise format for larger ambitions.',
     fr: "Trois systèmes pour adresser les leviers business : un format starter pour activer rapidement, un format ETI quand l'ambition est plus forte.",
@@ -99,9 +99,9 @@ export const MM_OFFRES_NEW: MegaMenu = {
       label: { en: 'Business systems', fr: 'Systèmes business' },
       tint: '#C94F2E',
       items: [
-        { href: '/offres/growth-system-ia', label: { en: 'AI Growth System', fr: 'Growth System IA' }, lead: { en: 'Automated acquisition and conversion system. Site, CRM, follow-ups, dashboards: all connected.', fr: "Système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux : tout connecté." }, featured: true },
+        { href: '/services', label: { en: 'AI Growth System', fr: 'Growth System IA' }, lead: { en: 'Automated acquisition and conversion system. Site, CRM, follow-ups, dashboards: all connected.', fr: "Système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux : tout connecté." }, featured: true },
         { href: '/services/site-web-intelligent', label: { en: 'AI website', fr: 'Site web IA' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
-        { href: '/offres/audit-maturite-ia', label: { en: 'AI Maturity Audit', fr: 'Audit Maturité IA' }, lead: { en: 'Process mapping, priority AI levers, costed roadmap.', fr: 'Cartographie des process, leviers IA prioritaires, feuille de route chiffrée.' } },
+        { href: '/audit-maturite-ia', label: { en: 'AI Maturity Audit', fr: 'Audit Maturité IA' }, lead: { en: 'Process mapping, priority AI levers, costed roadmap.', fr: 'Cartographie des process, leviers IA prioritaires, feuille de route chiffrée.' } },
       ],
     },
   ],
@@ -113,7 +113,7 @@ export const MM_OFFRES_NEW: MegaMenu = {
       fr: "Un système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux, connectés et pilotés par l'IA. Dès 7 000 €.",
     },
     cta: { en: 'See the system →', fr: 'Découvrir le système →' },
-    href: '/offres/growth-system-ia',
+    href: '/services',
   },
 };
 
@@ -458,7 +458,7 @@ export const PYRAMID_TIERS = [
     label: { en: 'Fast activation', fr: 'Activation rapide' },
     lead: { en: 'One week to identify the lever, train the team, and ship the first workflow in production.', fr: "Une semaine pour identifier le levier, former l'équipe et livrer un premier workflow en production." },
     items: ['Audit process · 5j', 'Formation équipe · 1 sem', 'Gain rapide Excel'],
-    href: '/offres#tier-1',
+    href: '/services',
   },
   {
     n: 'II',
@@ -466,7 +466,7 @@ export const PYRAMID_TIERS = [
     label: { en: 'Operational productivity', fr: 'Productivité opérationnelle' },
     lead: { en: 'Remove recurring tasks and make internal workflows run without daily chasing.', fr: 'Supprimer les tâches récurrentes et fluidifier les workflows internes.' },
     items: ['Workflows métiers', 'Tâches répétitives', 'Support client'],
-    href: '/offres#tier-2',
+    href: '/services',
   },
   {
     n: 'III',
@@ -474,7 +474,7 @@ export const PYRAMID_TIERS = [
     label: { en: 'Acquisition & intelligence', fr: 'Acquisition & pilotage' },
     lead: { en: 'Connect site, CRM, follow-ups, content, and business visibility into one growth system.', fr: 'Connecter site, CRM, relances, contenu et pilotage dans un même système.' },
     items: ["Système d'acquisition", 'Pipeline commercial', 'Tableaux de pilotage', 'Contenu SEO/GEO'],
-    href: '/offres#tier-3',
+    href: '/services',
   },
   {
     n: 'IV',
@@ -482,7 +482,7 @@ export const PYRAMID_TIERS = [
     label: { en: 'Enterprise infrastructure', fr: 'Infrastructure ETI' },
     lead: { en: 'Connected systems for larger teams, stricter governance, and multi-site operations.', fr: 'Systèmes connectés pour équipes élargies, gouvernance stricte et opérations multi-sites.' },
     items: ['Architecture connectée', 'Sécurité & gouvernance', 'Multi-équipes & multi-sites'],
-    href: '/offres#tier-4',
+    href: '/services',
   },
 ];
 

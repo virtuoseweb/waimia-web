@@ -22,7 +22,7 @@ import Button from '../atoms/Button.astro';
 
 const lang = langFromPath(Astro.url.pathname);
 const ctaHref = localizeHref('/contact', lang);
-const offerHref = localizeHref('/offres/growth-system-ia', lang);
+const offerHref = localizeHref('/services', lang);
 const pageTransitionId = Astro.url.pathname
   .replace(/^\/(?:en\/)?/, '')
   .replace(/\/$/, '')
