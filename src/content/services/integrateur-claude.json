@@ -130,19 +130,7 @@
         "label_en": "See the capabilities",
         "href": "#capacites",
         "variant": "ghost"
-      },
-      "kpis": [
-        {
-          "num": "2–8 sem.",
-          "cap_fr": "premier agent en production",
-          "cap_en": "first agent in production"
-        },
-        {
-          "num": "0 captivité",
-          "cap_fr": "code et architecture transférés",
-          "cap_en": "code and architecture handed over"
-        }
-      ]
+      }
     },
     {
       "type": "proof-bar",
@@ -971,7 +959,7 @@
       "variant": "media"
     },
     {
-      "type": "faq-two-column",
+      "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",
@@ -1026,32 +1014,20 @@
           "a_fr": "Le studio est à Montpellier et travaille avec des PME en local comme à distance. Le diagnostic et le cadrage se font en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition.",
           "a_en": "The studio is in Montpellier and works with SMBs locally and remotely. The diagnostic and scoping happen by video or on site depending on your preference. Proximity helps for the first workshops, but it is not a condition."
         }
-      ]
+      ],
+      "open_first": true
     },
     {
-      "type": "footer-cta-band",
-      "background": "ink",
-      "rounded": true,
-      "kicker_fr": "§ Prêt à brancher l'IA ?",
-      "kicker_en": "§ Ready to wire AI in?",
-      "h2_fr": "Sortez l'IA de la démo, mettez-la en <i>production</i>.",
-      "h2_en": "Take AI out of the demo, put it into <i>production</i>.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec une cartographie de vos cas d'usage et un premier agent ciblé, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit, câble et supervise lui-même, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with a map of your use cases and a first targeted agent, whether we work together or not. Across the table, the founder who designs, wires and supervises himself, not a pool of subcontractors.",
-      "buttons": [
-        {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=integrateur-claude&intent=discovery",
-          "variant": "primary"
-        },
-        {
-          "label_fr": "Voir le site web intelligent",
-          "label_en": "See the intelligent website",
-          "href": "/services/site-web-intelligent",
-          "variant": "ghost"
-        }
-      ]
+      "type": "cta-band",
+      "text_fr": "Pas sûr du premier agent à brancher ? Un diagnostic de 45 min suffit pour le cadrer.",
+      "text_en": "Not sure which first agent to wire in? A 45-min diagnostic is enough to frame it.",
+      "cta": {
+        "label_fr": "Réserver un diagnostic →",
+        "label_en": "Book a diagnostic →",
+        "href": "/contact?offer=integrateur-claude&intent=discovery",
+        "variant": "primary"
+      },
+      "background": "accent"
     }
   ]
 }
