@@ -1,9 +1,12 @@
 ---
 // Route · /secteurs/<slug> · hub sectoriel Waimia · rendu 100 % composable (registry).
-// Refonte data-driven (ADR composable, modèle services/offres) : la séquence de sections
-// est DÉRIVÉE du frontmatter sémantique (pains_fr, metricsHero, faq_fr, methodSteps,
-// ctaPrimary) + INJECTE la grille de cas (sectorCaseGridData). La prose MDX longue (cœur
-// GEO) est wrappée par la section catalogue `editorial-prose` (slot `<Content />`).
+// Composition RICHE (modèle finance-compta, awwwards) : séquence DÉRIVÉE du frontmatter
+// sémantique (icp, pains_fr, workflowsCible, metricsHero, ctaPrimary) + INJECTE la grille
+// de cas (sectorCaseGridData) + DÉFAUTS PARTAGÉS (diagnostic 5 stades, stack, trust badges).
+// Séquence : hero-sector · pain-severity-list · feature-zigzag (workflows, cond.) ·
+// metric-callout-band (cond.) · grille de cas · diagnostic-stages · tech-stack-band ·
+// editorial-prose (<Content/>) · footer-cta-band · trust-badges-band.
+// La prose MDX longue (cœur GEO) est wrappée par la section `editorial-prose` (slot).
 // Le frontmatter `sections:` du MDX, s'il existe, prend le pas (override total).
 export const prerender = true;
 
@@ -50,59 +53,126 @@ const sectorLd = buildArticle({
   },
   mainEntityOfPage: sectorUrl,
 });
-// FAQPage JSON-LD émis par la section `faq-accordion` (self-describing, GEO/AIO).
-// La route n'émet QUE l'Article pour éviter un doublon FAQPage (1 seule source).
+// La route émet l'Article JSON-LD (GEO/AIO). La séquence composable ne rend plus la
+// section `faq-accordion` (hors doctrine awwwards) : `d.faq_fr` reste dans le frontmatter
+// mais n'est pas rendu ici (cf rapport : arbitrage FAQ/SEO à valider par l'orchestrateur).
 const sectorJsonLd = sectorLd;
 
 // ── Grille de cas INJECTÉE (sector-cases.ts, inchangé). GAP-B (état vide < 2 cas)
 //    désormais porté DANS le composant catalogue CaseCardGrid → propage partout. ──
 const caseGridData = await sectorCaseGridData(slug, lang);
 
-// ── Étapes de méthode : frontmatter `methodSteps` si présent, sinon défaut partagé
-//    (préserve le TEXTE générique migré depuis l'ancien SecteurHubTemplate). ──
-const defaultMethodSteps = [
-  {
-    num: '01',
-    label_fr: 'Cadrage du terrain',
-    label_en: 'Field framing',
-    body_fr: "On part de vos workflows réels, pas d'un template. On identifie où le temps et les leads se perdent, chiffres à l'appui.",
-    body_en: 'We start from your real workflows, not a template. We pinpoint where time and leads are lost, with numbers to back it.',
-    meta_fr: 'Semaine 1',
-    meta_en: 'Week 1',
-  },
-  {
-    num: '02',
-    label_fr: 'Déploiement opérable',
-    label_en: 'Operable deployment',
-    body_fr: `On câble ce qui compte pour votre métier : ${d.workflowsCible.slice(0, 3).join(', ') || 'site, acquisition, pilotage'}.`,
-    body_en: `We wire what matters for your trade: ${d.workflowsCible.slice(0, 3).join(', ') || 'site, acquisition, steering'}.`,
-    meta_fr: 'Semaines 2 à 6',
-    meta_en: 'Weeks 2 to 6',
-  },
-  {
-    num: '03',
-    label_fr: 'Mesure et itération',
-    label_en: 'Measurement and iteration',
-    body_fr: d.kpis_fr.length > 0
-      ? `On suit les indicateurs qui comptent : ${d.kpis_fr.slice(0, 3).join(', ')}.`
-      : "On suit les indicateurs qui comptent et on ajuste sur la donnée, pas sur l'intuition.",
-    body_en: d.kpis_en.length > 0
-      ? `We track the indicators that matter: ${d.kpis_en.slice(0, 3).join(', ')}.`
-      : 'We track the indicators that matter and adjust on data, not intuition.',
-    meta_fr: 'En continu',
-    meta_en: 'Ongoing',
-  },
-];
-const methodSteps = d.methodSteps && d.methodSteps.length >= 2 ? d.methodSteps : defaultMethodSteps;
-
-// ── Provenance fusionnée dans le contexte du metric-callout-band (GAP-A) : plus de
-//    chip orphelin. Étiquette « Étude · sources tierces » (cohérence CaseStudyTemplate). ──
+// ── Provenance fusionnée dans le contexte du metric-callout-band : plus de chip
+//    orphelin. Étiquette « Étude · sources tierces » (cohérence CaseStudyTemplate). ──
 const marketProvenance = 'Étude · sources tierces';
 const hasMarketData = d.metricsHero.length > 0;
 
-// ── Séquence dérivée · sections AVANT la prose (hero → pains → marché → cas → méthode → faq) ──
+// ── Sévérité dérivée par position (le frontmatter secteur ne porte pas de sévérité) :
+//    le 1er pain = friction la plus structurante, dégradé ensuite. CMS-safe (3 à 6 items). ──
+const SEVERITY_BY_INDEX = ['critical', 'high', 'high', 'medium', 'medium', 'low'] as const;
+
+// ── Mapping workflow → illustration duotone réelle (variante -paper, fond clair).
+//    Pool content-matched, assigné par index → 0 répétition dans une page (max 4 rangées).
+//    Pas de placeholder générique : si moins d'images que de workflows, on tronque à 4. ──
+const WORKFLOW_ILLUSTRATIONS = [
+  { src: '/images/illustrations/ds/woman-computer-paper.webp', alt_fr: 'Illustration : poste de travail outillé', alt_en: 'Illustration: an equipped workstation' },
+  { src: '/images/illustrations/ds/money-money-paper.webp', alt_fr: 'Illustration : flux de revenus', alt_en: 'Illustration: revenue flow' },
+  { src: '/images/illustrations/ds/men-on-hand-paper.webp', alt_fr: 'Illustration : transmission entre équipes', alt_en: 'Illustration: handover between teams' },
+  { src: '/images/illustrations/ds/chess-paper.webp', alt_fr: 'Illustration : pièces d\'échecs, stratégie', alt_en: 'Illustration: chess pieces, strategy' },
+] as const;
+
+// ── DÉFAUT PARTAGÉ · 5 stades de maturité IA (génériques, crédibles, sentence case).
+//    S'affiche toujours (jamais de fausse donnée client chiffrée). ──
+const defaultDiagnosticStages = [
+  {
+    title_fr: 'Exploration',
+    title_en: 'Exploration',
+    body_fr: "Curiosité sans passage à l'action. Aucun outil IA en routine, données peu structurées. On se demande encore ce que l'IA pourrait changer concrètement.",
+    body_en: 'Curiosity without action. No AI tool in routine use, loosely structured data. You are still wondering what AI could concretely change.',
+    phase_fr: 'Niveau 1',
+    phase_en: 'Level 1',
+  },
+  {
+    title_fr: 'Expérimentation',
+    title_en: 'Experimentation',
+    body_fr: "Quelques personnes utilisent un assistant, sans cadre ni objectif partagé. Des essais isolés, aucun cas d'usage encore tenu en production.",
+    body_en: 'A few people use an assistant, with no shared frame or goal. Isolated trials, no use case held in production yet.',
+    phase_fr: 'Niveau 2',
+    phase_en: 'Level 2',
+  },
+  {
+    title_fr: 'Adoption',
+    title_en: 'Adoption',
+    body_fr: "Un à trois workflows actifs, avec des résultats mesurés. Premières formations, données en partie structurées. L'IA produit de la valeur sur un périmètre cadré.",
+    body_en: 'One to three active workflows, with measured results. First training, partly structured data. AI produces value on a framed scope.',
+    phase_fr: 'Niveau 3',
+    phase_en: 'Level 3',
+  },
+  {
+    title_fr: 'Intégration',
+    title_en: 'Integration',
+    body_fr: "L'IA est branchée sur vos process principaux. Gouvernance posée, équipes formées, mesure systématique. Le déploiement passe à l'échelle.",
+    body_en: 'AI is wired into your main processes. Governance in place, trained teams, systematic measurement. Deployment scales up.',
+    phase_fr: 'Niveau 4',
+    phase_en: 'Level 4',
+  },
+  {
+    title_fr: 'Transformation',
+    title_en: 'Transformation',
+    body_fr: "L'IA est au cœur du métier et procure un avantage durable. Stack complète, itération continue. Le très petit nombre d'entreprises au sommet.",
+    body_en: 'AI sits at the heart of the trade and gives a lasting edge. Full stack, continuous iteration. The very few companies at the top.',
+    phase_fr: 'Niveau 5',
+    phase_en: 'Level 5',
+  },
+];
+
+// ── DÉFAUT PARTAGÉ · stack Waimia (2 groupes : modèles Claude + intégration/infra).
+//    Génériques, vrais composants de la stack, jamais de claim client chiffré. ──
+const defaultStackPills = [
+  { label_fr: 'Claude Opus', label_en: 'Claude Opus', kind: 'primary' as const },
+  { label_fr: 'Claude Sonnet', label_en: 'Claude Sonnet', kind: 'primary' as const },
+  { label_fr: 'Connecteurs MCP', label_en: 'MCP connectors', kind: 'open' as const },
+  { label_fr: 'CRM et e-mail', label_en: 'CRM and email', kind: 'neutral' as const },
+  { label_fr: 'PostgreSQL', label_en: 'PostgreSQL', kind: 'open' as const },
+  { label_fr: 'Vercel', label_en: 'Vercel', kind: 'neutral' as const },
+  { label_fr: 'Journal d\'audit', label_en: 'Audit trail', kind: 'open' as const },
+];
+
+// ── DÉFAUT PARTAGÉ · badges de réassurance finale (génériques, pas de claim non détenu). ──
+const defaultTrustBadges = [
+  { glyph: '◉', label_fr: 'Partenaire Anthropic', label_en: 'Anthropic partner' },
+  { glyph: '✓', label_fr: 'Claude certified', label_en: 'Claude certified' },
+  { glyph: '⚖', label_fr: 'AI Act ready', label_en: 'AI Act ready' },
+  { glyph: '⚿', label_fr: 'RGPD', label_en: 'GDPR' },
+  { glyph: '⛨', label_fr: 'ISO 27001', label_en: 'ISO 27001' },
+];
+
+// ── Workflows câblés (feature-zigzag) : 1 rangée par workflow cible (max 4), média réel.
+//    Le frontmatter ne porte que le libellé du workflow ; le corps décrit l'approche
+//    Waimia (générique, crédible, jamais de chiffre client inventé). ──
+const workflowRows = d.workflowsCible.slice(0, 4).map((wf, i) => {
+  const img = WORKFLOW_ILLUSTRATIONS[i % WORKFLOW_ILLUSTRATIONS.length];
+  return {
+    kicker_fr: String(i + 1).padStart(2, '0'),
+    kicker_en: String(i + 1).padStart(2, '0'),
+    h3_fr: wf.charAt(0).toUpperCase() + wf.slice(1),
+    h3_en: wf.charAt(0).toUpperCase() + wf.slice(1),
+    body_fr: "On câble ce workflow sur vos outils existants, avec votre équipe. Tout reste lisible et modifiable : pas de boîte noire, vous gardez la main.",
+    body_en: 'We wire this workflow onto your existing tools, with your team. Everything stays readable and editable: no black box, you keep control.',
+    media_src: img.src,
+    media_alt_fr: img.alt_fr,
+    media_alt_en: img.alt_en,
+  };
+});
+const hasWorkflows = workflowRows.length >= 2;
+
+// ════════════════════════════════════════════════════════════════════════════════
+// Séquence composable RICHE (modèle finance-compta, awwwards). Rythme de fonds :
+// paper → ink → paper → paper-2 → paper → paper-2 → paper → [prose paper] → ink → paper-3.
+// ════════════════════════════════════════════════════════════════════════════════
 const sectionsBeforeProse: SectionData[] = [];
 
+// 1 · hero-sector (paper) · accroche métier
 sectionsBeforeProse.push({
   type: 'hero-sector',
   background: 'paper',
@@ -120,26 +190,43 @@ sectionsBeforeProse.push({
   },
 } satisfies SectionByType<'hero-sector'>);
 
+// 2 · pain-severity-list (ink) · friction, bascule contraste tôt
 sectionsBeforeProse.push({
-  type: 'pain-points',
-  background: 'paper-2',
-  eyebrow_fr: '§ Friction',
-  eyebrow_en: '§ Friction',
+  type: 'pain-severity-list',
+  background: 'ink',
+  kicker_fr: '§ Friction',
+  kicker_en: '§ Friction',
   h2_fr: 'Là où ça <i>bloque</i>.',
   h2_en: 'Where it <i>stalls</i>.',
-  items: d.pains_fr.map((p, i) => ({
-    num: String(i + 1).padStart(2, '0'),
+  items: d.pains_fr.slice(0, 6).map((p, i) => ({
+    severity: SEVERITY_BY_INDEX[i] ?? 'medium',
     title_fr: p.title,
     title_en: d.pains_en[i]?.title ?? p.title,
-    body_fr: p.body,
-    body_en: d.pains_en[i]?.body ?? p.body,
+    desc_fr: p.body,
+    desc_en: d.pains_en[i]?.body ?? p.body,
   })),
-} satisfies SectionByType<'pain-points'>);
+} satisfies SectionByType<'pain-severity-list'>);
 
+// 3 · feature-zigzag (paper) · ce que Waimia câble · CONDITIONNEL (>= 2 workflows)
+if (hasWorkflows) {
+  sectionsBeforeProse.push({
+    type: 'feature-zigzag',
+    background: 'paper',
+    kicker_fr: '§ Ce qu\'on câble',
+    kicker_en: '§ What we wire',
+    h2_fr: 'Des workflows, pas des <i>slides</i>.',
+    h2_en: 'Workflows, not <i>slides</i>.',
+    lede_fr: 'On déploie ce qui compte pour votre métier, branché sur vos outils, transféré à votre équipe.',
+    lede_en: 'We deploy what matters for your trade, wired to your tools, handed over to your team.',
+    rows: workflowRows,
+  } satisfies SectionByType<'feature-zigzag'>);
+}
+
+// 4 · metric-callout-band (paper-2) · preuve marché chiffrée · CONDITIONNEL
 if (hasMarketData) {
   sectionsBeforeProse.push({
     type: 'metric-callout-band',
-    background: 'ink',
+    background: 'paper-2',
     context_fr: `${marketProvenance}. Chiffres de marché reportés (détail et sources nommées plus bas), pas nos résultats client.`,
     context_en: 'Study · third-party sources. Reported market figures (details and named sources below), not our own client results.',
     metrics: d.metricsHero.slice(0, 3).map((m) => ({
@@ -150,34 +237,32 @@ if (hasMarketData) {
   } satisfies SectionByType<'metric-callout-band'>);
 }
 
+// 5 · grille de cas injectée (paper) · preuve client (état vide géré dans le composant)
 sectionsBeforeProse.push({ ...caseGridData, background: 'paper' });
 
+// 6 · diagnostic-stages (paper-2) · orientation « où en êtes-vous » · défaut partagé
 sectionsBeforeProse.push({
-  type: 'method-timeline',
+  type: 'diagnostic-stages',
   background: 'paper-2',
-  kicker_fr: '§ La méthode',
-  kicker_en: '§ The method',
-  h2_fr: 'Audit, déploiement, mesure.',
-  h2_en: 'Audit, deployment, measurement.',
-  steps: methodSteps,
-} satisfies SectionByType<'method-timeline'>);
+  kicker_fr: '§ Les 5 niveaux',
+  kicker_en: '§ The 5 levels',
+  h2_fr: 'Où en est <i>votre entreprise</i> ?',
+  h2_en: 'Where does <i>your company</i> stand?',
+  lede_fr: 'Les référentiels convergent vers cinq niveaux. La plupart des PME se situent aux deux premiers, plus souvent qu\'elles ne le croient. Situez-vous franchement : surestimer son niveau nuit à la suite.',
+  lede_en: 'Frameworks converge on five levels. Most SMBs sit at the first two, more often than they think. Place yourself honestly: overestimating your level harms what follows.',
+  stages: defaultDiagnosticStages,
+} satisfies SectionByType<'diagnostic-stages'>);
 
-if ((d.faq_fr ?? []).length >= 2) {
-  sectionsBeforeProse.push({
-    type: 'faq-accordion',
-    background: 'paper',
-    kicker_fr: '§ Questions fréquentes',
-    kicker_en: '§ FAQ',
-    h2_fr: 'Ce qu\'on nous demande <i>souvent</i>.',
-    h2_en: 'What we\'re <i>often</i> asked.',
-    items: (d.faq_fr ?? []).map((f) => ({
-      q_fr: f.q,
-      q_en: f.q,
-      a_fr: f.a,
-      a_en: f.a,
-    })),
-  } satisfies SectionByType<'faq-accordion'>);
-}
+// 7 · tech-stack-band (paper) · réassurance technique · défaut partagé
+sectionsBeforeProse.push({
+  type: 'tech-stack-band',
+  background: 'paper',
+  kicker_fr: '§ La stack',
+  kicker_en: '§ The stack',
+  lead_fr: 'Une stack courte et auditable : des modèles Claude branchés à vos outils existants par connecteurs. Pas de refonte quand un connecteur suffit.',
+  lead_en: 'A short, auditable stack: Claude models wired to your existing tools through connectors. No rebuild when a connector is enough.',
+  pills: defaultStackPills,
+} satisfies SectionByType<'tech-stack-band'>);
 
 const proseSection: SectionByType<'editorial-prose'> = {
   type: 'editorial-prose',
@@ -185,28 +270,36 @@ const proseSection: SectionByType<'editorial-prose'> = {
   maxWidth: 'prose',
 };
 
-// ── CTA final ──
+// ── Après la prose · climax conversion (ink) + réassurance finale (paper-3) ──
 const sectionsAfterProse: SectionData[] = [
+  // 9 · footer-cta-band (ink) · climax conversion · h2 avec fragment <i> (coloré accent)
   {
-    type: 'cta-final',
+    type: 'footer-cta-band',
     background: 'ink',
-    h2_fr: 'Votre secteur, votre <i>terrain</i>.',
-    h2_en: 'Your industry, your <i>field</i>.',
-    body_fr: "On cadre votre contexte en 45 minutes et on vous dit vite si le terrain est opérable, sans promesse en l'air.",
-    body_en: 'We frame your context in 45 minutes and tell you quickly whether the field is operationally viable, with no empty promises.',
-    cta_primary: {
-      label_fr: d.ctaPrimary_fr,
-      label_en: d.ctaPrimary_en,
-      href: localizeHref('/contact', lang),
-      variant: 'primary',
-    },
-    cta_secondary: {
-      label_fr: 'Tous les cas clients →',
-      label_en: 'All case studies →',
-      href: localizeHref('/cas-clients', lang),
-      variant: 'ghost',
-    },
-  } satisfies SectionByType<'cta-final'>,
+    kicker_fr: '§ Votre terrain',
+    kicker_en: '§ Your field',
+    h2_fr: `${d.icp_fr} : on cadre votre <i>terrain</i>.`,
+    h2_en: `${d.icp_en}: we frame your <i>field</i>.`,
+    subtitle_fr: "On regarde votre contexte en 45 minutes et on vous dit vite si le terrain est opérable, sans promesse en l'air.",
+    subtitle_en: 'We look at your context in 45 minutes and tell you quickly whether the field is operationally viable, with no empty promises.',
+    buttons: [
+      {
+        label_fr: d.ctaPrimary_fr,
+        label_en: d.ctaPrimary_en,
+        href: localizeHref('/contact', lang),
+        variant: 'accent',
+      },
+    ],
+  } satisfies SectionByType<'footer-cta-band'>,
+  // 10 · trust-badges-band (paper-3) · réassurance finale · défaut partagé
+  {
+    type: 'trust-badges-band',
+    background: 'paper-3',
+    variant: 'strip',
+    kicker_fr: 'Réassurance',
+    kicker_en: 'Reassurance',
+    badges: defaultTrustBadges,
+  } satisfies SectionByType<'trust-badges-band'>,
 ];
 
 // Override total : un MDX qui renseigne `sections:` pilote lui-même tout le rendu.
