@@ -1,0 +1,323 @@
+---
+// testimonial-wall (testimonial-sections) : mur d'avis masonry (wall-of-love a la charte Waimia).
+// En-tete optionnel (kicker + h2 + sous-titre + note etoiles), cartes en colonnes CSS
+// (break-inside: avoid), surlignage **...** -> <mark>. Dark natif (data-bg='ink'). 100% tokens DS.
+import type { SectionByType } from '@waimia/ds-kernel';
+import Kicker from '../ui/atoms/Kicker.astro';
+
+interface Props {
+  data: SectionByType<'testimonial-wall'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+// Initiales de secours quand aucun avatar n'est fourni (calque TeamBioGrid).
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('');
+
+// Echappe le HTML puis convertit **...** en <mark>. Le contenu vient du schema (contenu
+// editorial controle) : on echappe d'abord pour neutraliser tout caractere actif, puis on
+// reintroduit uniquement la balise <mark> sur les segments **emphase**.
+const escapeHtml = (s: string) =>
+  s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+const highlight = (str: string) =>
+  escapeHtml(str).replace(/\*\*(.+?)\*\*/g, '<mark class="tw__hl">$1</mark>');
+
+// Note moyenne -> etoiles pleines (arrondi). 0 etoile si rating absent.
+const stars = data.rating != null ? Math.round(data.rating) : 0;
+const ratingMax = data.rating_max ?? 5;
+const showRating = data.rating != null;
+const headerHasContent =
+  (isFr ? data.kicker_fr : data.kicker_en) ||
+  (isFr ? data.h2_fr : data.h2_en) ||
+  (isFr ? data.subtitle_fr : data.subtitle_en) ||
+  showRating;
+---
+
+<section class="tw sec-base" data-bg={data.background} aria-labelledby="tw-h2">
+  <div class="wrap-wide">
+    {headerHasContent && (
+      <div class="tw__header reveal">
+        {(isFr ? data.kicker_fr : data.kicker_en) && (
+          <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+        )}
+        {(isFr ? data.h2_fr : data.h2_en) && (
+          <h2 id="tw-h2" class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
+        )}
+        {(isFr ? data.subtitle_fr : data.subtitle_en) && (
+          <p class="tw__subtitle">{isFr ? data.subtitle_fr : data.subtitle_en}</p>
+        )}
+        {showRating && (
+          <div class="tw__rating">
+            <span class="tw__stars" aria-hidden="true">
+              {Array.from({ length: ratingMax }).map((_, i) => (
+                <span class={`tw__star${i < stars ? ' is-on' : ''}`}>★</span>
+              ))}
+            </span>
+            <span class="tw__rating-num">
+              {data.rating}<span class="tw__rating-max">/{ratingMax}</span>
+            </span>
+            {data.rating_count != null && (
+              <span class="tw__rating-count">
+                {data.rating_count}{' '}
+                {isFr ? data.rating_label_fr : data.rating_label_en}
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+    )}
+
+    <div class="tw__wall reveal-stagger" data-columns={data.columns}>
+      {data.testimonials.map((t: (typeof data.testimonials)[number]) => (
+        <figure class="tw__card">
+          <blockquote class="tw__quote" set:html={highlight(isFr ? t.quote_fr : t.quote_en)} />
+          <figcaption class="tw__author">
+            <span class="tw__avatar" aria-hidden="true">
+              {t.avatar ? (
+                <img src={t.avatar} alt="" loading="lazy" decoding="async" />
+              ) : (
+                <span class="tw__initials">{initials(t.author)}</span>
+              )}
+            </span>
+            <span class="tw__meta">
+              <strong class="tw__name">{t.author}</strong>
+              <span class="tw__role">
+                {isFr ? t.role_fr : t.role_en}{t.company ? ` · ${t.company}` : ''}
+              </span>
+            </span>
+            {t.linkedin && (
+              <a
+                class="tw__linkedin"
+                href={t.linkedin}
+                target="_blank"
+                rel="noopener"
+                aria-label={`LinkedIn · ${t.author}`}
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                  <path
+                    fill="currentColor"
+                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"
+                  />
+                </svg>
+              </a>
+            )}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tw__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+    margin-bottom: var(--spacing-block);
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tw__subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--muted);
+    line-height: var(--leading-lede);
+    margin: 0;
+  }
+
+  /* Note moyenne */
+  .tw__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-1);
+  }
+  .tw__stars {
+    display: inline-flex;
+    gap: var(--space-1);
+    line-height: 1;
+  }
+  .tw__star {
+    color: var(--hairline-strong);
+    font-size: var(--text-body);
+  }
+  .tw__star.is-on { color: var(--accent); }
+  .tw__rating-num {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+  }
+  .tw__rating-max {
+    color: var(--muted);
+    font-weight: var(--fw-regular);
+  }
+  .tw__rating-count {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+  }
+
+  /* Mur masonry via CSS columns (robuste, sans JS). Colonnes pilotees par data-columns. */
+  .tw__wall {
+    column-gap: var(--space-5);
+  }
+  .tw__wall[data-columns='2'] { columns: 2; }
+  .tw__wall[data-columns='3'] { columns: 3; }
+  .tw__wall[data-columns='4'] { columns: 4; }
+
+  .tw__card {
+    break-inside: avoid;
+    margin: 0 0 var(--space-5) 0;
+    padding: var(--space-7);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--paper);
+    box-shadow: var(--shadow-card-rest);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .tw__card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .tw__quote {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+    margin: 0;
+  }
+  .tw__quote :global(mark.tw__hl) {
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    color: inherit;
+    padding: 0 var(--space-1);
+    border-radius: var(--radius-xs);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .tw__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .tw__avatar {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper-2);
+    display: grid;
+    place-items: center;
+  }
+  .tw__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .tw__initials {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .tw__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+  }
+  .tw__name {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .tw__role {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    line-height: 1.3;
+  }
+  .tw__linkedin {
+    flex: none;
+    margin-left: auto;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-xs);
+    color: var(--muted);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .tw__linkedin:hover { color: var(--accent-text); }
+
+  /* Responsive : 3/4 -> 2 colonnes -> 1 colonne */
+  @media (max-width: 880px) {
+    .tw__wall[data-columns='3'],
+    .tw__wall[data-columns='4'] { columns: 2; }
+  }
+  @media (max-width: 540px) {
+    .tw__wall[data-columns='2'],
+    .tw__wall[data-columns='3'],
+    .tw__wall[data-columns='4'] { columns: 1; }
+  }
+
+  /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
+  .tw[data-bg='paper-2'] { background: var(--paper-2); }
+  .tw[data-bg='paper-3'] { background: var(--paper-3); }
+  .tw[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .tw[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  /* Cartes en contexte ink : fond sombre eleve + hairline clair (idiome BentoGrid). */
+  .tw[data-bg='ink'] .tw__card {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.14);
+    box-shadow: none;
+  }
+  .tw[data-bg='ink'] .tw__quote { color: var(--paper); }
+  .tw[data-bg='ink'] .tw__name { color: var(--paper); }
+  .tw[data-bg='ink'] .tw__role,
+  .tw[data-bg='ink'] .tw__rating-count { color: rgba(var(--paper-rgb), 0.72); }
+  .tw[data-bg='ink'] .tw__rating-num { color: var(--paper); }
+  .tw[data-bg='ink'] .tw__rating-max { color: rgba(var(--paper-rgb), 0.72); }
+  .tw[data-bg='ink'] .tw__avatar {
+    background: rgba(var(--paper-rgb), 0.06);
+    border-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .tw[data-bg='ink'] .tw__quote :global(mark.tw__hl) {
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
+    color: var(--paper);
+  }
+</style>

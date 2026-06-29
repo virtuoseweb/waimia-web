@@ -195,6 +195,7 @@ import { schema as testimonialBlockSchema } from '../sections/testimonial-block/
 import { schema as testimonialLogoMetricSchema } from '../sections/testimonial-logo-metric/schema';
 import { schema as testimonialMetricsSchema } from '../sections/testimonial-metrics/schema';
 import { schema as testimonialSingleSpotlightSchema } from '../sections/testimonial-single-spotlight/schema';
+import { schema as testimonialWallSchema } from '../sections/testimonial-wall/schema';
 import { schema as tierPyramidSvgSchema } from '../sections/tier-pyramid-svg/schema';
 import { schema as timelineBlockSchema } from '../sections/timeline-block/schema';
 import { schema as timelineHorizontalSchema } from '../sections/timeline-horizontal/schema';
@@ -399,6 +400,7 @@ export {
   testimonialLogoMetricSchema,
   testimonialMetricsSchema,
   testimonialSingleSpotlightSchema,
+  testimonialWallSchema,
   tierPyramidSvgSchema,
   timelineBlockSchema,
   timelineHorizontalSchema,
@@ -604,6 +606,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   testimonialLogoMetricSchema,
   testimonialMetricsSchema,
   testimonialSingleSpotlightSchema,
+  testimonialWallSchema,
   tierPyramidSvgSchema,
   timelineBlockSchema,
   timelineHorizontalSchema,

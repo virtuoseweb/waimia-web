@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 202
+> Sections : 203
 
 ---
 
@@ -5874,6 +5874,35 @@
 **Dette hardcode** : 7 valeur(s) — 100%, 1px, 22px, 860px, 88px, clamp(var(--space-5), clamp(var(--space-8)
 
 **Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (100%, 1px, 22px).
+
+---
+
+### `testimonial-wall`
+
+> Mur d'avis masonry : citations clients surlignées, note moyenne et profils LinkedIn pour une preuve sociale dense.
+> TestimonialWall · src/sections/testimonial-wall/Component.astro · marketing/testimonial-sections
+> status : stable · tags : masonry, social-proof, testimonials, wall
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non | paper-2 | paper | paper-2 | paper-3 | ink |
+| `columns` | enum | non | 3 | 2 | 3 | 4 |
+| `h2_en` | string | non |  |  |
+| `h2_fr` | string | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `rating` | number | non |  |  |
+| `rating_count` | number | non |  |  |
+| `rating_label_en` | string | non |  |  |
+| `rating_label_fr` | string | non |  |  |
+| `rating_max` | number | non |  |  |
+| `subtitle_en` | string | non |  |  |
+| `subtitle_fr` | string | non |  |  |
+| `testimonials` | array | oui |  | min:3 max:12 |
+
+**Agent** : Layout : `background`, `columns` (schema, 0 CSS).
 
 ---
 

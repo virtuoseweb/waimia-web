@@ -102,6 +102,7 @@ import { Component as ctaFinalComponent, meta as ctaFinalMeta } from '../section
 import { Component as ctaBandComponent, meta as ctaBandMeta } from '../sections/cta-band';
 import { Component as ctaInlineComponent, meta as ctaInlineMeta } from '../sections/cta-inline';
 import { Component as testimonialBlockComponent, meta as testimonialBlockMeta } from '../sections/testimonial-block';
+import { Component as testimonialWallComponent, meta as testimonialWallMeta } from '../sections/testimonial-wall';
 import { Component as guaranteeBlockComponent, meta as guaranteeBlockMeta } from '../sections/guarantee-block';
 import { Component as architectureDiagramComponent, meta as architectureDiagramMeta } from '../sections/architecture-diagram';
 import { Component as servicesGridComponent, meta as servicesGridMeta } from '../sections/services-grid';
@@ -596,6 +597,10 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'testimonial-block': {
     component: testimonialBlockComponent,
     ...testimonialBlockMeta,
+  },
+  'testimonial-wall': {
+    component: testimonialWallComponent,
+    ...testimonialWallMeta,
   },
   'guarantee-block': {
     component: guaranteeBlockComponent,

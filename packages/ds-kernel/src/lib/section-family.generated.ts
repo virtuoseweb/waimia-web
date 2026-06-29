@@ -196,6 +196,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'testimonial-logo-metric': 'quote',
   'testimonial-metrics': 'stat-grid',
   'testimonial-single-spotlight': 'quote',
+  'testimonial-wall': 'card-grid',
   'tier-pyramid-svg': 'pyramid',
   'timeline-block': 'timeline',
   'timeline-horizontal': 'timeline',

@@ -102,6 +102,7 @@ import { demo as ctaFinalDemo } from '../sections/cta-final/demo';
 import { demo as ctaBandDemo } from '../sections/cta-band/demo';
 import { demo as ctaInlineDemo } from '../sections/cta-inline/demo';
 import { demo as testimonialBlockDemo } from '../sections/testimonial-block/demo';
+import { demo as testimonialWallDemo } from '../sections/testimonial-wall/demo';
 import { demo as guaranteeBlockDemo } from '../sections/guarantee-block/demo';
 import { demo as architectureDiagramDemo } from '../sections/architecture-diagram/demo';
 import { demo as servicesGridDemo } from '../sections/services-grid/demo';
@@ -306,6 +307,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'cta-band': ctaBandDemo,
   'cta-inline': ctaInlineDemo,
   'testimonial-block': testimonialBlockDemo,
+  'testimonial-wall': testimonialWallDemo,
   'guarantee-block': guaranteeBlockDemo,
   'architecture-diagram': architectureDiagramDemo,
   'services-grid': servicesGridDemo,
