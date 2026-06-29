@@ -24,7 +24,10 @@
 ## Work queue phasée (tâches natives #13-16)
 - **S11-A — Landing pages (5)** *(en cours, Workflow `build-landings-strat11`)* : audit-ia-pme, audit-site-web-intelligent, integrateur-claude, diagnostic-maturite-ia, diagnostic-site-web-intelligent. Structure lp §32 (7 types section lp), noindex+canonical, copy awwwards bilingue. Build central + GF-1 sweep après.
 - **S11-B — Secteurs (6 canoniques)** : conseil/comptabilité/agence/industrie/formation/esn per §17. Résout 6 liens nav morts. ⚖️ **Décision Simon** : sort des 6 secteurs divergents existants (verticales additionnelles OU redirect 301). Ne PAS supprimer sans son arbitrage (destructif).
-- **S11-C — Collections vides** : comparatifs 4, démonstrations 3, diagnostics +2, outils +2, guides 2, implantations 3. Per templates §20/§21/§24. Résout le reste des liens nav morts.
+- **S11-C — Collections vides** : comparatifs 4, démonstrations 3, diagnostics +2, outils +1, guides 2, implantations 3. Per templates §20/§21/§24. Résout le reste des liens nav morts.
+  - **C1 (route existante, mirror facile, EN COURS Workflow `build-diag-outils`)** : diagnostics claude-pme + referent-ia (route `/ressources/diagnostics/[...slug]` OK), outils score-maturite-ia (route OK). calculateur-roi-ia existe déjà.
+  - **C2 (route MANQUANTE → chunk lourd)** : comparatifs (4 + hub), guides (2), demonstrations (3), implantations (3) n'ont PAS de route `.astro` → créer la route (mirror `ressources/diagnostics/[...slug].astro`) + hub index + contenu.
+  - ⚠️ **Insight** : toutes les collections ressources = **rendu composable** → le contenu DOIT porter un tableau `sections:` de sections catalogue valides (la route throw sinon, anti-orphelin). Donc remplir = composer des sections (travail awwwards), pas juste du frontmatter. Embarquer les bornes Zod dans chaque brief (leçon : description 40-180, sections schema-valides).
 - **S11-D — Nettoyage** : retirer/rediriger 3-piliers (/acquerir,/operer,/piloter) + arbitrer /offres + corriger /etudes-de-cas→/cas-clients + sweep liens morts + 301 pour URL indexées supprimées.
 - **S11-E (à créer)** : passe habillage awwwards + variantes sur les page-types nouvellement construits (méthode docs/directives/03-awwwards + dosages A/C/B comme service/home).
 

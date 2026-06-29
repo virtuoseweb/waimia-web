@@ -1,0 +1,505 @@
+{
+  "$schema": "../../schemas/generated/diagnostics.page.schema.json",
+  "title_fr": "Diagnostic Claude PME · votre entreprise est-elle prête à déployer Claude ?",
+  "title_en": "Claude SMB diagnostic · is your company ready to deploy Claude?",
+  "description_fr": "Diagnostic Claude PME : votre entreprise est-elle prête à déployer Claude ? Les 5 dimensions à évaluer, la grille de niveaux et les questions clés avant de vous lancer.",
+  "description_en": "Claude SMB diagnostic: is your company ready to deploy Claude? The 5 dimensions to assess, the readiness grid and the key questions to ask before you commit.",
+  "slug": "claude-pme",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-06-29T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "claude-pme",
+    "diagnostic-ia",
+    "integrateur-claude",
+    "deploiement-claude",
+    "productivite"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un déploiement de Claude réussi en PME ?",
+      "a": "C'est Claude branché à vos outils et à vos données, utilisé chaque jour par les équipes sur des cas concrets, avec un cadre de gouvernance clair. Ce n'est pas un compte ouvert que personne n'utilise, ni un assistant générique sans accès à votre contexte métier. La réussite tient à cinq fondations : données, process, compétences, gouvernance et cas d'usage."
+    },
+    {
+      "q": "Ma PME a-t-elle besoin d'être mûre pour déployer Claude ?",
+      "a": "Pas au sommet, mais lucide. Si vos données sont éparpillées et vos process implicites, mieux vaut poser ces fondations avant de connecter Claude à tout. Brancher un assistant puissant sur un terrain flou ne fait qu'accélérer le désordre. Le diagnostic vous dit quelles marches franchir d'abord."
+    },
+    {
+      "q": "Quelle est la différence entre Claude et ChatGPT pour une PME ?",
+      "a": "Utiliser ChatGPT dans un onglet reste de l'expérimentation individuelle. Déployer Claude, via le protocole MCP, c'est le connecter à vos outils, vos données et vos process pour des agents fiables et mesurés. Le saut n'est pas l'outil : c'est l'intégration au système de l'entreprise et le cadre qui l'entoure."
+    },
+    {
+      "q": "Le diagnostic me donne-t-il un score chiffré ?",
+      "a": "L'échange vous situe sur une grille de niveaux de préparation à partir de vos réponses sur les cinq dimensions. L'important n'est pas le score mais ce qu'il implique : quelle fondation poser en priorité, quel premier cas d'usage est mûr, et ce qu'il faut cadrer avant de déployer."
+    },
+    {
+      "q": "Quels sont les risques d'un déploiement mal préparé ?",
+      "a": "Deux surtout. Le risque de gouvernance : des données sensibles qui circulent par des comptes personnels, sans politique d'usage ni conformité. Et le risque d'adoption : un déploiement lancé sans cas d'usage cadré ni équipe formée, qui dort six mois plus tard. Préparer le terrain évite les deux."
+    },
+    {
+      "q": "Quelle est la différence avec un audit IA ?",
+      "a": "Le diagnostic Claude PME vous situe sur une grille de préparation et éclaire les fondations à poser. L'audit IA va plus loin et concret : il identifie un process précis à confier à Claude, chiffre le gain et pose un premier chantier. Le diagnostic répond au suis-je prêt, l'audit au par où je commence."
+    },
+    {
+      "q": "Combien de temps pour préparer un déploiement de Claude ?",
+      "a": "Cela dépend de l'état de vos fondations et de l'engagement de la direction. Si les données et les process sont sains, un premier cas d'usage cadré peut démarrer en quelques semaines. S'il faut d'abord structurer le terrain, comptez plus, mais ce temps évite un déploiement qui s'arrête au pilote."
+    },
+    {
+      "q": "Ce diagnostic engage-t-il à quelque chose ?",
+      "a": "Non. C'est un contenu pour vous repérer, librement. Si vous voulez transformer ce repérage en plan concret, l'audit IA gratuit de 45 min est la suite logique : on part de votre niveau de préparation réel pour cadrer le premier déploiement de Claude qui ait du sens chez vous."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What does a successful Claude deployment look like in an SMB?",
+      "a": "It's Claude wired to your tools and data, used daily by teams on concrete cases, with a clear governance frame. It isn't an open account no one uses, nor a generic assistant with no access to your business context. Success rests on five foundations: data, processes, skills, governance and use cases."
+    },
+    {
+      "q": "Does my SMB need to be mature to deploy Claude?",
+      "a": "Not at the top, but lucid. If your data is scattered and your processes implicit, better lay those foundations before connecting Claude to everything. Wiring a powerful assistant to fuzzy ground only accelerates the mess. The diagnostic tells you which steps to take first."
+    },
+    {
+      "q": "What's the difference between Claude and ChatGPT for an SMB?",
+      "a": "Using ChatGPT in a tab stays individual experimentation. Deploying Claude, via the MCP protocol, means connecting it to your tools, data and processes for reliable, measured agents. The leap isn't the tool: it's integration into the company's system and the frame around it."
+    },
+    {
+      "q": "Does the diagnostic give me a numeric score?",
+      "a": "The conversation places you on a readiness grid from your answers across the five dimensions. What matters isn't the score but what it implies: which foundation to lay first, which first use case is ripe, and what to frame before deploying."
+    },
+    {
+      "q": "What are the risks of a poorly prepared deployment?",
+      "a": "Two mainly. The governance risk: sensitive data flowing through personal accounts, with no usage policy or compliance. And the adoption risk: a deployment launched with no framed use case or trained team, that sleeps six months later. Preparing the ground avoids both."
+    },
+    {
+      "q": "What's the difference with an AI audit?",
+      "a": "The Claude SMB diagnostic places you on a readiness grid and clarifies the foundations to lay. The AI audit goes further and more concrete: it identifies a specific process to hand to Claude, sizes the gain and lays out a first project. The diagnostic answers am I ready, the audit answers where do I start."
+    },
+    {
+      "q": "How long to prepare a Claude deployment?",
+      "a": "It depends on the state of your foundations and leadership commitment. If data and processes are sound, a first framed use case can start in a few weeks. If the ground must be structured first, count more, but that time avoids a deployment that stops at the pilot."
+    },
+    {
+      "q": "Does this diagnostic commit me to anything?",
+      "a": "No. It's content to place yourself, freely. If you want to turn that placement into a concrete plan, the free 45-min AI audit is the logical next step: we start from your real readiness level to frame the first Claude deployment that makes sense for you."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : Claude connecté aux outils et données d'une PME via le protocole MCP",
+      "media_alt_en": "Diagram: Claude connected to an SMB's tools and data via the MCP protocol",
+      "kicker_fr": "§ Diagnostic Claude PME",
+      "kicker_en": "§ Claude SMB diagnostic",
+      "h1_fr": "Votre PME est-elle prête à déployer <i class=\"acc\">Claude</i> ?",
+      "h1_en": "Is your SMB ready to deploy <i class=\"acc\">Claude</i>?",
+      "definition_kicker_fr": "Qu'est-ce qu'un déploiement réussi ?",
+      "definition_kicker_en": "What is a successful deployment?",
+      "lede_fr": "Déployer Claude en PME, ce n'est pas ouvrir un compte : c'est le <i>brancher</i> à vos outils, vos données et vos process, dans un cadre clair. Ce diagnostic évalue votre préparation sur cinq dimensions et vous dit quelles fondations poser avant de vous lancer.",
+      "lede_en": "Deploying Claude in an SMB isn't opening an account: it's <i>wiring</i> it to your tools, data and processes, within a clear frame. This diagnostic assesses your readiness across five dimensions and tells you which foundations to lay before you start.",
+      "badges": [
+        {
+          "label_fr": "5 dimensions de préparation",
+          "label_en": "5 readiness dimensions"
+        },
+        {
+          "label_fr": "Repérage honnête, sans jargon",
+          "label_en": "Honest placement, no jargon"
+        },
+        {
+          "label_fr": "Fondations avant déploiement",
+          "label_en": "Foundations before deployment"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit IA (45 min) →",
+        "label_en": "Book the AI audit (45 min) →",
+        "href": "/contact?offer=claude-pme&intent=diagnostic",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les 5 dimensions",
+        "label_en": "See the 5 dimensions",
+        "href": "#dimensions",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment savoir si sa PME est prête à déployer Claude ?",
+      "question_en": "How do you know if your SMB is ready to deploy Claude?",
+      "term_fr": "Préparation au déploiement de Claude",
+      "term_en": "Readiness to deploy Claude",
+      "answer_fr": "On évalue la préparation en situant l'entreprise sur une grille de niveaux, du compte simplement ouvert au déploiement intégré, à partir de cinq dimensions : la qualité des données, la clarté des process, la compétence des équipes, la gouvernance et la maturité des cas d'usage. Brancher Claude à un terrain flou ne fait qu'accélérer le désordre. Un seul axe faible suffit à faire échouer un déploiement, c'est pourquoi le diagnostic les regarde ensemble plutôt qu'isolément.",
+      "answer_en": "You assess readiness by placing the company on a grid of levels, from a merely open account to an integrated deployment, based on five dimensions: data quality, process clarity, team skill, governance and use-case maturity. Wiring Claude to fuzzy ground only accelerates the mess. A single weak axis is enough to make a deployment fail, which is why the diagnostic looks at them together rather than in isolation."
+    },
+    {
+      "type": "diagnostic-stages",
+      "background": "paper",
+      "kicker_fr": "§ Les niveaux de préparation",
+      "kicker_en": "§ The readiness levels",
+      "h2_fr": "Où en est <i>votre entreprise</i> ?",
+      "h2_en": "Where does <i>your company</i> stand?",
+      "lede_fr": "Cinq niveaux, du compte ouvert au déploiement intégré. La plupart des PME se situent aux deux premiers, plus souvent qu'elles ne le croient. Situez-vous franchement : surestimer sa préparation nuit à la suite.",
+      "lede_en": "Five levels, from an open account to an integrated deployment. Most SMBs sit at the first two, more often than they think. Place yourself honestly: overestimating your readiness harms what follows.",
+      "stages": [
+        {
+          "title_fr": "Curiosité",
+          "title_en": "Curiosity",
+          "body_fr": "On a entendu parler de Claude sans l'utiliser. Aucun compte, données non structurées. On s'interroge sur ce qu'un assistant pourrait changer au quotidien.",
+          "body_en": "You've heard of Claude without using it. No account, unstructured data. You wonder what an assistant could change day to day.",
+          "phase_fr": "Niveau 1",
+          "phase_en": "Level 1"
+        },
+        {
+          "title_fr": "Usage individuel",
+          "title_en": "Individual use",
+          "body_fr": "Quelques collaborateurs utilisent Claude ou ChatGPT dans un onglet, sans cadre ni accès à vos données. Des essais isolés, aucun cas d'usage en production.",
+          "body_en": "A few employees use Claude or ChatGPT in a tab, with no frame or access to your data. Isolated trials, no use case in production.",
+          "phase_fr": "Niveau 2",
+          "phase_en": "Level 2",
+          "current": true
+        },
+        {
+          "title_fr": "Premier cas branché",
+          "title_en": "First wired case",
+          "body_fr": "Claude est connecté à un outil ou un jeu de données via MCP, sur un cas d'usage cadré et mesuré. Premières règles d'usage, équipe sensibilisée. La valeur devient tangible.",
+          "body_en": "Claude is connected to a tool or dataset via MCP, on a framed and measured use case. First usage rules, an aware team. Value becomes tangible.",
+          "phase_fr": "Niveau 3",
+          "phase_en": "Level 3"
+        },
+        {
+          "title_fr": "Déploiement intégré",
+          "title_en": "Integrated deployment",
+          "body_fr": "Claude et ses agents sont branchés aux process métier principaux. Gouvernance en place, équipes formées, résultats mesurés. Le déploiement passe à l'échelle.",
+          "body_en": "Claude and its agents are wired to the main business processes. Governance in place, trained teams, measured results. The deployment scales up.",
+          "phase_fr": "Niveau 4",
+          "phase_en": "Level 4"
+        },
+        {
+          "title_fr": "Avantage durable",
+          "title_en": "Lasting edge",
+          "body_fr": "Claude est au cœur du fonctionnement et procure un avantage concurrentiel. Agents multiples, référent IA interne, amélioration continue. Le très petit nombre de PME au sommet.",
+          "body_en": "Claude is at the core of operations and provides a competitive edge. Multiple agents, an internal AI lead, continuous improvement. The very few SMBs at the top.",
+          "phase_fr": "Niveau 5",
+          "phase_en": "Level 5"
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper-2",
+      "kicker_fr": "§ Les 5 dimensions",
+      "kicker_en": "§ The 5 dimensions",
+      "h2_fr": "Ce qui <i>détermine</i> votre préparation",
+      "h2_en": "What <i>determines</i> your readiness",
+      "lede_fr": "La préparation ne se mesure pas à l'envie de se lancer. Elle tient à cinq dimensions interdépendantes : être faible sur une seule suffit à bloquer le déploiement. Le diagnostic les regarde ensemble.",
+      "lede_en": "Readiness isn't measured by the urge to start. It rests on five interdependent dimensions: being weak on a single one is enough to block the deployment. The diagnostic looks at them together.",
+      "rows": [
+        {
+          "kicker_fr": "Dimension 01",
+          "kicker_en": "Dimension 01",
+          "h3_fr": "Données",
+          "h3_en": "Data",
+          "body_fr": "Vos données sont-elles centralisées, à jour et accessibles, ou éparpillées entre outils avec doublons et erreurs ? Claude n'est utile que branché à un contexte sain : des données floues produisent des réponses floues, aussi puissant soit l'assistant.",
+          "body_en": "Is your data centralised, up to date and accessible, or scattered across tools with duplicates and errors? Claude is only useful wired to sound context: fuzzy data produces fuzzy answers, however powerful the assistant.",
+          "points": [
+            {
+              "label_fr": "Centralisées ou éparpillées",
+              "label_en": "Centralised or scattered"
+            },
+            {
+              "label_fr": "À jour, dédoublonnées",
+              "label_en": "Up to date, deduplicated"
+            },
+            {
+              "label_fr": "Connectables via MCP",
+              "label_en": "Connectable via MCP"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Dimension 02",
+          "kicker_en": "Dimension 02",
+          "h3_fr": "Process",
+          "h3_en": "Processes",
+          "body_fr": "Vos process sont-ils clairs et documentés, ou implicites dans la tête des gens ? Confier un process flou à Claude ne fait que l'accélérer. La bonne approche optimise le process d'abord, le confie à un agent ensuite.",
+          "body_en": "Are your processes clear and documented, or implicit in people's heads? Handing a fuzzy process to Claude only accelerates it. The right approach optimises the process first, hands it to an agent second.",
+          "points": [
+            {
+              "label_fr": "Clairs et documentés",
+              "label_en": "Clear and documented"
+            },
+            {
+              "label_fr": "Récurrents, donc délégables",
+              "label_en": "Recurring, so delegable"
+            },
+            {
+              "label_fr": "Optimisés avant l'agent",
+              "label_en": "Optimised before the agent"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Dimension 03",
+          "kicker_en": "Dimension 03",
+          "h3_fr": "Compétences",
+          "h3_en": "Skills",
+          "body_fr": "Vos équipes savent-elles formuler une demande, vérifier une réponse et repérer ce qu'on ne confie jamais à un agent ? L'adoption suit la compétence : un Claude que personne ne sait piloter reste un compte dormant, quelle que soit sa puissance.",
+          "body_en": "Do your teams know how to phrase a request, check a response and spot what you never hand to an agent? Adoption follows skill: a Claude no one can pilot stays a dormant account, whatever its power.",
+          "points": [
+            {
+              "label_fr": "Formuler et vérifier",
+              "label_en": "Phrase and check"
+            },
+            {
+              "label_fr": "Bons réflexes ancrés",
+              "label_en": "Right reflexes anchored"
+            },
+            {
+              "label_fr": "Un référent Claude interne",
+              "label_en": "An internal Claude lead"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Dimension 04",
+          "kicker_en": "Dimension 04",
+          "h3_fr": "Gouvernance",
+          "h3_en": "Governance",
+          "body_fr": "Savez-vous quelles données peuvent passer dans Claude et lesquelles non ? Sans politique d'usage ni cadre de conformité, des données sensibles circulent par des comptes personnels et le risque grandit en silence. La gouvernance n'est pas un frein, c'est ce qui permet de déployer sereinement.",
+          "body_en": "Do you know which data can go into Claude and which can't? Without a usage policy or compliance frame, sensitive data flows through personal accounts and risk grows silently. Governance isn't a brake, it's what lets you deploy with peace of mind.",
+          "points": [
+            {
+              "label_fr": "Politique d'usage claire",
+              "label_en": "Clear usage policy"
+            },
+            {
+              "label_fr": "Conformité RGPD",
+              "label_en": "GDPR compliance"
+            },
+            {
+              "label_fr": "Données sensibles cadrées",
+              "label_en": "Sensitive data framed"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Dimension 05",
+          "kicker_en": "Dimension 05",
+          "h3_fr": "Cas d'usage",
+          "h3_en": "Use cases",
+          "body_fr": "Avez-vous identifié un cas d'usage précis, récurrent et mesurable où Claude apporterait une valeur nette ? Déployer sans cible, c'est ouvrir un compte que personne n'utilise. Un premier cas bien choisi est ce qui transforme l'essai en habitude.",
+          "body_en": "Have you identified a precise, recurring and measurable use case where Claude would bring net value? Deploying with no target means opening an account no one uses. A well-chosen first case is what turns the trial into a habit.",
+          "points": [
+            {
+              "label_fr": "Précis et récurrent",
+              "label_en": "Precise and recurring"
+            },
+            {
+              "label_fr": "Gain mesurable",
+              "label_en": "Measurable gain"
+            },
+            {
+              "label_fr": "Un premier chantier ciblé",
+              "label_en": "A targeted first project"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Questions clés",
+      "kicker_en": "§ Key questions",
+      "heading_fr": "Six questions pour <i>vous situer</i>",
+      "heading_en": "Six questions to <i>place yourself</i>",
+      "items": [
+        {
+          "label_fr": "Vos données métier sont-elles centralisées et à jour, ou dispersées entre plusieurs outils ?",
+          "label_en": "Is your business data centralised and up to date, or scattered across several tools?"
+        },
+        {
+          "label_fr": "Avez-vous identifié un cas d'usage précis et récurrent où Claude apporterait un gain net ?",
+          "label_en": "Have you identified a precise, recurring use case where Claude would bring a net gain?"
+        },
+        {
+          "label_fr": "Vos process récurrents sont-ils documentés, ou implicites dans la tête des équipes ?",
+          "label_en": "Are your recurring processes documented, or implicit in your teams' heads?"
+        },
+        {
+          "label_fr": "Vos équipes savent-elles vérifier une réponse de Claude et repérer ce qu'on n'y confie jamais ?",
+          "label_en": "Do your teams know how to check a Claude answer and spot what you never hand to it?"
+        },
+        {
+          "label_fr": "Existe-t-il une politique d'usage qui dit quelles données peuvent passer par Claude ?",
+          "label_en": "Is there a usage policy stating which data can go through Claude?"
+        },
+        {
+          "label_fr": "La direction a-t-elle un cap clair et un budget, ou attend-elle un résultat sans cadrage ?",
+          "label_en": "Does leadership have a clear bearing and a budget, or does it expect a result without scoping?"
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Prochaines étapes",
+      "kicker_en": "§ Next steps",
+      "h2_fr": "Ce qu'on fait <i>selon votre niveau</i>",
+      "h2_en": "What we do <i>depending on your level</i>",
+      "intro_fr": "Le bon prochain pas dépend d'où vous partez. Inutile de viser un déploiement complet quand les fondations ne sont pas posées.",
+      "intro_en": "The right next step depends on where you start. No point aiming for a full deployment when the foundations aren't laid.",
+      "steps": [
+        {
+          "title_fr": "Niveaux 1 et 2 : poser les fondations",
+          "title_en": "Levels 1 and 2: lay the foundations",
+          "body_fr": "Si vous explorez ou utilisez Claude dans un onglet, la priorité est de structurer les données et les process, et d'acculturer les équipes. Mieux vaut un terrain sain qu'un déploiement lancé dans le vide qui dort six mois plus tard.",
+          "body_en": "If you're exploring or using Claude in a tab, the priority is to structure data and processes, and to skill up the teams. Better sound ground than a deployment launched into a void that sleeps six months later.",
+          "meta_fr": "Fondations",
+          "meta_en": "Foundations"
+        },
+        {
+          "title_fr": "Niveau 3 : un premier agent branché",
+          "title_en": "Level 3: a first wired agent",
+          "body_fr": "Si vous avez les bases, le moment est venu de connecter Claude à un outil via MCP sur un cas d'usage cadré et mesuré. C'est exactement ce que l'audit IA gratuit identifie : le process le plus rentable à confier à un agent.",
+          "body_en": "If you have the basics, it's time to connect Claude to a tool via MCP on a framed and measured use case. That's exactly what the free AI audit identifies: the most rewarding process to hand to an agent.",
+          "meta_fr": "Premier chantier",
+          "meta_en": "First project"
+        },
+        {
+          "title_fr": "Niveaux 4 et 5 : étendre et gouverner",
+          "title_en": "Levels 4 and 5: expand and govern",
+          "body_fr": "Si Claude est déjà branché, on étend à d'autres workflows, on renforce la gouvernance et on forme un référent Claude interne pour que la compétence reste chez vous. L'objectif est l'autonomie, pas la captivité.",
+          "body_en": "If Claude is already wired in, we expand to other workflows, reinforce governance and train an internal Claude lead so the skill stays with you. The goal is autonomy, not lock-in.",
+          "meta_fr": "Extension",
+          "meta_en": "Expansion"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Audit gratuit",
+          "kicker_en": "Free audit",
+          "title_fr": "Audit IA pour PME",
+          "title_en": "AI audit for SMBs",
+          "lead_fr": "La suite concrète du diagnostic : 45 min pour transformer votre niveau de préparation en plan d'action et cadrer le premier déploiement de Claude.",
+          "lead_en": "The concrete follow-up to the diagnostic: 45 min to turn your readiness level into an action plan and frame the first Claude deployment.",
+          "href": "/audit-ia-pme"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégrateur Claude",
+          "title_en": "Claude integrator",
+          "lead_fr": "Quand les fondations sont là : déployer Claude et ses agents dans votre entreprise, branchés à vos outils via le protocole MCP.",
+          "lead_en": "When the foundations are there: deploying Claude and its agents in your company, wired to your tools via the MCP protocol.",
+          "href": "/services/integrateur-claude"
+        },
+        {
+          "kicker_fr": "Diagnostic",
+          "kicker_en": "Diagnostic",
+          "title_fr": "Diagnostic de maturité IA",
+          "title_en": "AI maturity diagnostic",
+          "lead_fr": "La vue d'ensemble : situer la maturité IA globale de votre entreprise sur cinq niveaux, au-delà du seul déploiement de Claude.",
+          "lead_en": "The big picture: placing your company's overall AI maturity on five levels, beyond Claude deployment alone.",
+          "href": "/ressources/diagnostics/maturite-ia"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un déploiement de Claude réussi en PME ?",
+          "q_en": "What does a successful Claude deployment look like in an SMB?",
+          "a_fr": "C'est Claude branché à vos outils et à vos données, utilisé chaque jour par les équipes sur des cas concrets, avec un cadre de gouvernance clair. Ce n'est pas un compte ouvert que personne n'utilise, ni un assistant générique sans accès à votre contexte métier. La réussite tient à cinq fondations : données, process, compétences, gouvernance et cas d'usage.",
+          "a_en": "It's Claude wired to your tools and data, used daily by teams on concrete cases, with a clear governance frame. It isn't an open account no one uses, nor a generic assistant with no access to your business context. Success rests on five foundations: data, processes, skills, governance and use cases."
+        },
+        {
+          "q_fr": "Ma PME a-t-elle besoin d'être mûre pour déployer Claude ?",
+          "q_en": "Does my SMB need to be mature to deploy Claude?",
+          "a_fr": "Pas au sommet, mais lucide. Si vos données sont éparpillées et vos process implicites, mieux vaut poser ces fondations avant de connecter Claude à tout. Brancher un assistant puissant sur un terrain flou ne fait qu'accélérer le désordre. Le diagnostic vous dit quelles marches franchir d'abord.",
+          "a_en": "Not at the top, but lucid. If your data is scattered and your processes implicit, better lay those foundations before connecting Claude to everything. Wiring a powerful assistant to fuzzy ground only accelerates the mess. The diagnostic tells you which steps to take first."
+        },
+        {
+          "q_fr": "Quelle est la différence entre Claude et ChatGPT pour une PME ?",
+          "q_en": "What's the difference between Claude and ChatGPT for an SMB?",
+          "a_fr": "Utiliser ChatGPT dans un onglet reste de l'expérimentation individuelle. Déployer Claude, via le protocole MCP, c'est le connecter à vos outils, vos données et vos process pour des agents fiables et mesurés. Le saut n'est pas l'outil : c'est l'intégration au système de l'entreprise et le cadre qui l'entoure.",
+          "a_en": "Using ChatGPT in a tab stays individual experimentation. Deploying Claude, via the MCP protocol, means connecting it to your tools, data and processes for reliable, measured agents. The leap isn't the tool: it's integration into the company's system and the frame around it."
+        },
+        {
+          "q_fr": "Le diagnostic me donne-t-il un score chiffré ?",
+          "q_en": "Does the diagnostic give me a numeric score?",
+          "a_fr": "L'échange vous situe sur une grille de niveaux de préparation à partir de vos réponses sur les cinq dimensions. L'important n'est pas le score mais ce qu'il implique : quelle fondation poser en priorité, quel premier cas d'usage est mûr, et ce qu'il faut cadrer avant de déployer.",
+          "a_en": "The conversation places you on a readiness grid from your answers across the five dimensions. What matters isn't the score but what it implies: which foundation to lay first, which first use case is ripe, and what to frame before deploying."
+        },
+        {
+          "q_fr": "Quels sont les risques d'un déploiement mal préparé ?",
+          "q_en": "What are the risks of a poorly prepared deployment?",
+          "a_fr": "Deux surtout. Le risque de gouvernance : des données sensibles qui circulent par des comptes personnels, sans politique d'usage ni conformité. Et le risque d'adoption : un déploiement lancé sans cas d'usage cadré ni équipe formée, qui dort six mois plus tard. Préparer le terrain évite les deux.",
+          "a_en": "Two mainly. The governance risk: sensitive data flowing through personal accounts, with no usage policy or compliance. And the adoption risk: a deployment launched with no framed use case or trained team, that sleeps six months later. Preparing the ground avoids both."
+        },
+        {
+          "q_fr": "Quelle est la différence avec un audit IA ?",
+          "q_en": "What's the difference with an AI audit?",
+          "a_fr": "Le diagnostic Claude PME vous situe sur une grille de préparation et éclaire les fondations à poser. L'audit IA va plus loin et concret : il identifie un process précis à confier à Claude, chiffre le gain et pose un premier chantier. Le diagnostic répond au suis-je prêt, l'audit au par où je commence.",
+          "a_en": "The Claude SMB diagnostic places you on a readiness grid and clarifies the foundations to lay. The AI audit goes further and more concrete: it identifies a specific process to hand to Claude, sizes the gain and lays out a first project. The diagnostic answers am I ready, the audit answers where do I start."
+        },
+        {
+          "q_fr": "Combien de temps pour préparer un déploiement de Claude ?",
+          "q_en": "How long to prepare a Claude deployment?",
+          "a_fr": "Cela dépend de l'état de vos fondations et de l'engagement de la direction. Si les données et les process sont sains, un premier cas d'usage cadré peut démarrer en quelques semaines. S'il faut d'abord structurer le terrain, comptez plus, mais ce temps évite un déploiement qui s'arrête au pilote.",
+          "a_en": "It depends on the state of your foundations and leadership commitment. If data and processes are sound, a first framed use case can start in a few weeks. If the ground must be structured first, count more, but that time avoids a deployment that stops at the pilot."
+        },
+        {
+          "q_fr": "Ce diagnostic engage-t-il à quelque chose ?",
+          "q_en": "Does this diagnostic commit me to anything?",
+          "a_fr": "Non. C'est un contenu pour vous repérer, librement. Si vous voulez transformer ce repérage en plan concret, l'audit IA gratuit de 45 min est la suite logique : on part de votre niveau de préparation réel pour cadrer le premier déploiement de Claude qui ait du sens chez vous.",
+          "a_en": "No. It's content to place yourself, freely. If you want to turn that placement into a concrete plan, the free 45-min AI audit is the logical next step: we start from your real readiness level to frame the first Claude deployment that makes sense for you."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à passer du repérage au plan ?",
+      "kicker_en": "§ Ready to go from placement to plan?",
+      "h2_fr": "Vous savez où vous en êtes. <i>Passons</i> au prochain pas.",
+      "h2_en": "You know where you stand. <i>Let's</i> take the next step.",
+      "subtitle_fr": "L'audit IA gratuit de 45 min transforme votre niveau de préparation en plan d'action concret : on part de votre réalité pour cadrer le premier déploiement de Claude qui ait du sens. Sans engagement.",
+      "subtitle_en": "The free 45-min AI audit turns your readiness level into a concrete action plan: we start from your reality to frame the first Claude deployment that makes sense. No commitment.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit IA (45 min) →",
+          "label_en": "Book the AI audit (45 min) →",
+          "href": "/contact?offer=claude-pme&intent=diagnostic",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'intégrateur Claude",
+          "label_en": "See the Claude integrator",
+          "href": "/services/integrateur-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

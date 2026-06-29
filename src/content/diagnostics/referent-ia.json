@@ -1,0 +1,505 @@
+{
+  "$schema": "../../schemas/generated/diagnostics.page.schema.json",
+  "title_fr": "Diagnostic référent IA · en avez-vous besoin, et les moyens ?",
+  "title_en": "AI lead diagnostic · do you need one, and the means for it?",
+  "description_fr": "Diagnostic référent IA pour PME : le rôle, les missions, le profil et les signaux qui montrent qu'il vous faut un référent interne, et comment le faire monter en compétence.",
+  "description_en": "AI lead diagnostic for SMBs: the role, the missions, the profile and the signals showing you need an internal lead, and how to skill them up over time.",
+  "slug": "referent-ia",
+  "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-06-29T00:00:00.000Z",
+  "category": "gouvernance",
+  "tags": [
+    "referent-ia",
+    "diagnostic-ia",
+    "integrateur-claude",
+    "gouvernance-ia",
+    "competences-ia"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un référent IA en entreprise ?",
+      "a": "C'est la personne interne qui porte le sujet IA au quotidien : elle cadre les usages, forme les collègues, choisit les outils avec la direction et fait le lien avec les intégrateurs externes. Ce n'est pas forcément un profil technique, mais quelqu'un de curieux, rigoureux et écouté, capable de transformer un outil en pratique réelle dans les équipes."
+    },
+    {
+      "q": "Faut-il vraiment un référent IA dans une PME ?",
+      "a": "Dès qu'il y a plus de deux ou trois usages actifs, oui. Sans référent, l'IA reste un patchwork d'initiatives isolées qui ne se diffusent pas et qui posent des risques de conformité. Le référent est ce qui transforme des essais individuels en une compétence d'entreprise qui dure. En dessous de cette taille, un référent à temps partiel suffit souvent."
+    },
+    {
+      "q": "Le référent IA doit-il être un développeur ?",
+      "a": "Non, et c'est une idée fausse répandue. Le bon profil combine compréhension métier, curiosité technologique et capacité à embarquer les équipes. Un chef de projet, un responsable des opérations ou un dirigeant motivé fait souvent un meilleur référent qu'un développeur isolé du terrain. La compétence technique s'acquiert ou se sous-traite, pas la légitimité interne."
+    },
+    {
+      "q": "Combien de temps un référent IA doit-il y consacrer ?",
+      "a": "Au démarrage, comptez une demi-journée à une journée par semaine pour cadrer les usages, former et suivre les premiers cas. Ce n'est pas un poste à temps plein dans une PME, c'est une mission ajoutée à un rôle existant. L'erreur fréquente est de désigner quelqu'un sans lui dégager le temps réel pour agir."
+    },
+    {
+      "q": "Comment faire monter mon référent en compétence ?",
+      "a": "Par la pratique encadrée plutôt que par la théorie. On l'accompagne sur un premier cas d'usage concret, on lui transmet les bons réflexes de cadrage et de vérification, puis on l'autonomise progressivement. L'objectif d'un bon intégrateur est de partir : que la compétence reste chez vous, pas de vous rendre dépendant."
+    },
+    {
+      "q": "Que se passe-t-il si personne ne porte le sujet IA ?",
+      "a": "Les usages se dispersent, des données sensibles circulent par des comptes personnels et les bons outils restent sur l'étagère faute d'adoption. Sans référent, chaque projet IA repart de zéro et la valeur ne s'accumule pas. C'est le scénario le plus coûteux à terme : beaucoup d'essais, peu de résultats durables."
+    },
+    {
+      "q": "Référent IA interne ou prestataire externe ?",
+      "a": "Les deux, à des moments différents. Un intégrateur externe accélère le démarrage et transmet les méthodes ; le référent interne assure l'ancrage et la continuité dans le temps. Le bon montage forme votre référent pendant le projet pour qu'il prenne le relais. Tout externaliser sans relais interne crée une dépendance fragile."
+    },
+    {
+      "q": "Ce diagnostic engage-t-il à quelque chose ?",
+      "a": "Non. C'est un contenu pour clarifier votre besoin, librement. Si vous voulez aller plus loin, l'audit IA gratuit de 45 min identifie le premier cas d'usage et le rôle que votre référent peut y jouer. On part de votre réalité, pas d'un modèle théorique."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is an AI lead in a company?",
+      "a": "It's the internal person who carries the AI topic day to day: they frame the uses, train colleagues, pick tools with leadership and bridge with external integrators. It isn't necessarily a technical profile, but someone curious, rigorous and listened to, able to turn a tool into real practice within the teams."
+    },
+    {
+      "q": "Does an SMB really need an AI lead?",
+      "a": "As soon as there are more than two or three active uses, yes. Without a lead, AI stays a patchwork of isolated initiatives that don't spread and that raise compliance risks. The lead is what turns individual trials into a lasting company skill. Below that size, a part-time lead is often enough."
+    },
+    {
+      "q": "Does the AI lead have to be a developer?",
+      "a": "No, and that's a widespread misconception. The right profile combines business understanding, technological curiosity and the ability to bring teams along. A project manager, an operations head or a motivated leader often makes a better lead than a developer cut off from the field. Technical skill can be acquired or outsourced, internal legitimacy can't."
+    },
+    {
+      "q": "How much time should an AI lead devote to it?",
+      "a": "At the start, count half a day to a day a week to frame uses, train and follow the first cases. It isn't a full-time role in an SMB, it's a mission added to an existing role. The common mistake is naming someone without freeing up the real time for them to act."
+    },
+    {
+      "q": "How do I skill up my lead?",
+      "a": "Through guided practice rather than theory. We support them on a first concrete use case, pass on the right framing and checking reflexes, then make them autonomous step by step. A good integrator's goal is to leave: the skill stays with you, you don't become dependent."
+    },
+    {
+      "q": "What happens if no one carries the AI topic?",
+      "a": "Uses scatter, sensitive data flows through personal accounts and good tools stay on the shelf for lack of adoption. Without a lead, every AI project restarts from scratch and value doesn't accumulate. It's the most expensive scenario in the end: many trials, few lasting results."
+    },
+    {
+      "q": "Internal AI lead or external provider?",
+      "a": "Both, at different moments. An external integrator speeds up the start and passes on the methods; the internal lead ensures anchoring and continuity over time. The right setup trains your lead during the project so they take over. Outsourcing everything with no internal relay creates fragile dependency."
+    },
+    {
+      "q": "Does this diagnostic commit me to anything?",
+      "a": "No. It's content to clarify your need, freely. If you want to go further, the free 45-min AI audit identifies the first use case and the role your lead can play in it. We start from your reality, not from a theoretical model."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : un référent IA interne au centre, reliant la direction, les équipes et les outils",
+      "media_alt_en": "Diagram: an internal AI lead at the center, linking leadership, teams and tools",
+      "kicker_fr": "§ Diagnostic référent IA",
+      "kicker_en": "§ AI lead diagnostic",
+      "h1_fr": "Diagnostic <i class=\"acc\">référent IA</i>.",
+      "h1_en": "AI <i class=\"acc\">lead</i> diagnostic.",
+      "definition_kicker_fr": "Qu'est-ce qu'un référent IA ?",
+      "definition_kicker_en": "What is an AI lead?",
+      "lede_fr": "Le référent IA est la personne interne qui <i>porte le sujet</i> au quotidien : cadrer les usages, former les équipes, faire le lien avec les outils et la direction. Ce diagnostic clarifie son rôle, le profil à viser et les signaux qui montrent qu'il vous en faut un.",
+      "lede_en": "The AI lead is the internal person who <i>carries the topic</i> day to day: framing uses, training teams, bridging tools and leadership. This diagnostic clarifies their role, the profile to aim for and the signals showing you need one.",
+      "badges": [
+        {
+          "label_fr": "Rôle · profil · signaux",
+          "label_en": "Role · profile · signals"
+        },
+        {
+          "label_fr": "Pas forcément un profil tech",
+          "label_en": "Not necessarily a tech profile"
+        },
+        {
+          "label_fr": "La compétence reste chez vous",
+          "label_en": "The skill stays with you"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit IA (45 min) →",
+        "label_en": "Book the AI audit (45 min) →",
+        "href": "/contact?offer=referent-ia&intent=diagnostic",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Les signaux qu'il en faut un",
+        "label_en": "The signals you need one",
+        "href": "#signaux",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Faut-il un référent IA interne dans votre entreprise ?",
+      "question_en": "Do you need an internal AI lead in your company?",
+      "term_fr": "Référent IA",
+      "term_en": "AI lead",
+      "answer_fr": "Un référent IA devient nécessaire dès que les usages se multiplient au-delà de deux ou trois initiatives isolées. C'est la personne interne qui cadre les pratiques, forme les collègues, choisit les outils avec la direction et fait le lien avec les intégrateurs externes. Le bon profil n'est pas forcément technique : il combine compréhension métier, curiosité et légitimité auprès des équipes. Sans ce relais interne, l'IA reste un patchwork d'essais qui ne se diffuse pas et qui pose des risques de conformité. Avec lui, des usages individuels deviennent une compétence d'entreprise qui dure.",
+      "answer_en": "An AI lead becomes necessary as soon as uses multiply beyond two or three isolated initiatives. It's the internal person who frames practices, trains colleagues, picks tools with leadership and bridges with external integrators. The right profile isn't necessarily technical: it combines business understanding, curiosity and legitimacy with the teams. Without this internal relay, AI stays a patchwork of trials that doesn't spread and that raises compliance risks. With it, individual uses become a lasting company skill."
+    },
+    {
+      "type": "diagnostic-stages",
+      "background": "paper",
+      "kicker_fr": "§ Les signaux",
+      "kicker_en": "§ The signals",
+      "h2_fr": "Quand un référent <i>devient nécessaire</i>",
+      "h2_en": "When a lead <i>becomes necessary</i>",
+      "lede_fr": "Le besoin d'un référent n'arrive pas d'un coup, il se signale. Plus vous cochez de marches ci-dessous, plus l'absence de référent vous coûte. Repérez où vous en êtes.",
+      "lede_en": "The need for a lead doesn't arrive all at once, it signals itself. The more steps below you tick, the more the absence of a lead costs you. Spot where you stand.",
+      "stages": [
+        {
+          "title_fr": "Usages dispersés",
+          "title_en": "Scattered uses",
+          "body_fr": "Plusieurs collègues utilisent l'IA chacun dans son coin, sans partage ni méthode commune. Les bonnes idées ne circulent pas et chacun réinvente la roue.",
+          "body_en": "Several colleagues use AI each on their own, with no sharing or common method. Good ideas don't circulate and everyone reinvents the wheel.",
+          "phase_fr": "Signal 1",
+          "phase_en": "Signal 1"
+        },
+        {
+          "title_fr": "Questions sans réponse",
+          "title_en": "Unanswered questions",
+          "body_fr": "Les équipes posent des questions sur les outils, les bonnes pratiques, ce qu'on peut y mettre, et personne n'a le mandat d'y répondre. Le sujet flotte.",
+          "body_en": "Teams ask questions about tools, best practices, what can be put in, and no one has the mandate to answer. The topic floats.",
+          "phase_fr": "Signal 2",
+          "phase_en": "Signal 2",
+          "current": true
+        },
+        {
+          "title_fr": "Risques qui montent",
+          "title_en": "Rising risks",
+          "body_fr": "Des données sensibles passent par des comptes personnels, sans politique d'usage. Le risque de conformité grandit en silence, faute de cadre interne.",
+          "body_en": "Sensitive data goes through personal accounts, with no usage policy. Compliance risk grows silently, for lack of an internal frame.",
+          "phase_fr": "Signal 3",
+          "phase_en": "Signal 3"
+        },
+        {
+          "title_fr": "Projets qui s'enlisent",
+          "title_en": "Projects stalling",
+          "body_fr": "Des pilotes sont lancés mais ne passent jamais en production. Sans personne pour les porter, les suivre et les diffuser, ils s'éteignent en silence.",
+          "body_en": "Pilots are launched but never reach production. With no one to carry, follow and spread them, they fade out silently.",
+          "phase_fr": "Signal 4",
+          "phase_en": "Signal 4"
+        },
+        {
+          "title_fr": "Besoin d'échelle",
+          "title_en": "Need to scale",
+          "body_fr": "L'IA produit déjà de la valeur sur un périmètre et la direction veut l'étendre. Sans référent pour structurer et gouverner, le passage à l'échelle cale.",
+          "body_en": "AI already produces value on a scope and leadership wants to extend it. Without a lead to structure and govern, scaling up stalls.",
+          "phase_fr": "Signal 5",
+          "phase_en": "Signal 5"
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper-2",
+      "kicker_fr": "§ Les 5 missions",
+      "kicker_en": "§ The 5 missions",
+      "h2_fr": "Ce que <i>fait</i> concrètement un référent",
+      "h2_en": "What a lead <i>actually does</i>",
+      "lede_fr": "Le rôle n'est ni flou ni honorifique. Il tient à cinq missions concrètes, complémentaires : un référent qui n'en couvre qu'une seule reste un gadget. Le diagnostic les regarde ensemble.",
+      "lede_en": "The role is neither fuzzy nor honorary. It rests on five concrete, complementary missions: a lead covering only one of them stays a gadget. The diagnostic looks at them together.",
+      "rows": [
+        {
+          "kicker_fr": "Mission 01",
+          "kicker_en": "Mission 01",
+          "h3_fr": "Cadrer les usages",
+          "h3_en": "Frame the uses",
+          "body_fr": "Décider quels cas d'usage méritent un effort, lesquels attendre, et sur quel périmètre commencer. Le référent évite la dispersion et concentre l'énergie là où la valeur est mesurable, plutôt que de courir après chaque nouveauté.",
+          "body_en": "Decide which use cases deserve effort, which to hold off, and on what scope to start. The lead avoids dispersion and concentrates energy where value is measurable, rather than chasing every novelty.",
+          "points": [
+            {
+              "label_fr": "Prioriser les cas d'usage",
+              "label_en": "Prioritise use cases"
+            },
+            {
+              "label_fr": "Définir le périmètre",
+              "label_en": "Define the scope"
+            },
+            {
+              "label_fr": "Mesurer le résultat",
+              "label_en": "Measure the result"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Mission 02",
+          "kicker_en": "Mission 02",
+          "h3_fr": "Former les équipes",
+          "h3_en": "Train the teams",
+          "body_fr": "Transmettre les bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais dans un outil. L'adoption suit la compétence : un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité.",
+          "body_en": "Pass on the right reflexes: phrasing a request, checking a response, spotting what you never paste into a tool. Adoption follows skill: a tool no one masters stays on the shelf, whatever its quality.",
+          "points": [
+            {
+              "label_fr": "Bons réflexes ancrés",
+              "label_en": "Right reflexes anchored"
+            },
+            {
+              "label_fr": "Formation par la pratique",
+              "label_en": "Training by practice"
+            },
+            {
+              "label_fr": "Diffuser dans les équipes",
+              "label_en": "Spread across teams"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Mission 03",
+          "kicker_en": "Mission 03",
+          "h3_fr": "Choisir les outils",
+          "h3_en": "Pick the tools",
+          "body_fr": "Évaluer les outils avec la direction, éviter l'empilement de licences inutiles et tenir une stack cohérente. Le référent tranche entre l'effet de mode et le besoin réel, et garde un œil sur le coût total face à la valeur produite.",
+          "body_en": "Evaluate tools with leadership, avoid stacking useless licences and keep a coherent stack. The lead arbitrates between fad and real need, and keeps an eye on total cost against the value produced.",
+          "points": [
+            {
+              "label_fr": "Évaluer face au besoin réel",
+              "label_en": "Evaluate against real need"
+            },
+            {
+              "label_fr": "Stack cohérente",
+              "label_en": "Coherent stack"
+            },
+            {
+              "label_fr": "Coût face à la valeur",
+              "label_en": "Cost against value"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Mission 04",
+          "kicker_en": "Mission 04",
+          "h3_fr": "Tenir la gouvernance",
+          "h3_en": "Hold governance",
+          "body_fr": "Poser et faire vivre une politique d'usage : quelles données peuvent passer dans un outil, lesquelles non, et comment rester conforme au RGPD. La gouvernance n'est pas un frein, c'est ce qui permet de déployer sereinement et de dormir tranquille.",
+          "body_en": "Set and maintain a usage policy: which data can go into a tool, which can't, and how to stay GDPR-compliant. Governance isn't a brake, it's what lets you deploy with peace of mind and sleep soundly.",
+          "points": [
+            {
+              "label_fr": "Politique d'usage claire",
+              "label_en": "Clear usage policy"
+            },
+            {
+              "label_fr": "Conformité RGPD",
+              "label_en": "GDPR compliance"
+            },
+            {
+              "label_fr": "Données sensibles cadrées",
+              "label_en": "Sensitive data framed"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Mission 05",
+          "kicker_en": "Mission 05",
+          "h3_fr": "Faire le lien externe",
+          "h3_en": "Bridge externally",
+          "body_fr": "Servir d'interlocuteur unique avec les intégrateurs et prestataires : traduire le besoin métier, suivre les projets et récupérer la compétence en interne. Le référent est ce qui garantit que le savoir reste chez vous quand le prestataire part.",
+          "body_en": "Act as the single contact with integrators and providers: translate the business need, follow projects and bring the skill back in-house. The lead is what guarantees the knowledge stays with you when the provider leaves.",
+          "points": [
+            {
+              "label_fr": "Interlocuteur unique",
+              "label_en": "Single point of contact"
+            },
+            {
+              "label_fr": "Traduire le besoin métier",
+              "label_en": "Translate the business need"
+            },
+            {
+              "label_fr": "Récupérer la compétence",
+              "label_en": "Bring the skill in-house"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Questions clés",
+      "kicker_en": "§ Key questions",
+      "heading_fr": "Six questions pour <i>trancher</i>",
+      "heading_en": "Six questions to <i>decide</i>",
+      "items": [
+        {
+          "label_fr": "Avez-vous plus de deux ou trois usages IA actifs, chacun porté dans son coin ?",
+          "label_en": "Do you have more than two or three active AI uses, each carried in isolation?"
+        },
+        {
+          "label_fr": "Quand une équipe a une question sur l'IA, sait-elle clairement à qui s'adresser en interne ?",
+          "label_en": "When a team has an AI question, do they clearly know who to ask internally?"
+        },
+        {
+          "label_fr": "Existe-t-il une politique d'usage qui dit quelles données peuvent passer par l'IA ?",
+          "label_en": "Is there a usage policy stating which data can go through AI?"
+        },
+        {
+          "label_fr": "Avez-vous un profil curieux, rigoureux et écouté, prêt à porter le sujet à temps partiel ?",
+          "label_en": "Do you have a curious, rigorous and listened-to profile ready to carry the topic part-time?"
+        },
+        {
+          "label_fr": "Vos pilotes IA passent-ils en production, ou s'éteignent-ils faute de quelqu'un pour les suivre ?",
+          "label_en": "Do your AI pilots reach production, or fade out for lack of someone to follow them?"
+        },
+        {
+          "label_fr": "La direction est-elle prête à dégager du temps réel au référent, pas seulement un titre ?",
+          "label_en": "Is leadership ready to free up real time for the lead, not just a title?"
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le faire monter en compétence",
+      "kicker_en": "§ Skilling them up",
+      "h2_fr": "Comment on <i>forme votre référent</i>",
+      "h2_en": "How we <i>train your lead</i>",
+      "intro_fr": "Désigner un référent ne suffit pas : il faut l'outiller. La montée en compétence passe par la pratique encadrée, pas par la théorie. L'objectif est l'autonomie.",
+      "intro_en": "Naming a lead isn't enough: you have to equip them. Skilling up goes through guided practice, not theory. The goal is autonomy.",
+      "steps": [
+        {
+          "title_fr": "Choisir le bon profil",
+          "title_en": "Pick the right profile",
+          "body_fr": "On vise la compréhension métier et la légitimité interne plutôt que le bagage technique. Un chef de projet ou un responsable des opérations motivé fait souvent un meilleur référent qu'un développeur isolé du terrain.",
+          "body_en": "We aim for business understanding and internal legitimacy rather than technical background. A motivated project manager or operations head often makes a better lead than a developer cut off from the field.",
+          "meta_fr": "Profil",
+          "meta_en": "Profile"
+        },
+        {
+          "title_fr": "Apprendre sur un cas réel",
+          "title_en": "Learn on a real case",
+          "body_fr": "On accompagne le référent sur un premier cas d'usage concret en production : il apprend les réflexes de cadrage et de vérification en faisant, sur un périmètre limité et mesuré, plutôt qu'en suivant une formation hors-sol.",
+          "body_en": "We support the lead on a first concrete use case in production: they learn the framing and checking reflexes by doing, on a limited and measured scope, rather than following an abstract course.",
+          "meta_fr": "Pratique",
+          "meta_en": "Practice"
+        },
+        {
+          "title_fr": "L'autonomiser, puis partir",
+          "title_en": "Make them autonomous, then leave",
+          "body_fr": "On transmet les méthodes et on s'efface progressivement pour que la compétence reste chez vous. Un bon intégrateur a réussi quand il n'est plus indispensable : l'objectif est l'autonomie, pas la dépendance.",
+          "body_en": "We pass on the methods and step back gradually so the skill stays with you. A good integrator has succeeded when they're no longer indispensable: the goal is autonomy, not dependency.",
+          "meta_fr": "Autonomie",
+          "meta_en": "Autonomy"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Audit gratuit",
+          "kicker_en": "Free audit",
+          "title_fr": "Audit IA pour PME",
+          "title_en": "AI audit for SMBs",
+          "lead_fr": "La suite concrète : 45 min pour identifier le premier cas d'usage et le rôle que votre référent peut y jouer dès le départ.",
+          "lead_en": "The concrete follow-up: 45 min to identify the first use case and the role your lead can play in it from the start.",
+          "href": "/audit-ia-pme"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégrateur Claude",
+          "title_en": "Claude integrator",
+          "lead_fr": "Déployer Claude et ses agents dans votre entreprise, en formant votre référent pour qu'il prenne le relais une fois le projet livré.",
+          "lead_en": "Deploying Claude and its agents in your company, training your lead so they take over once the project ships.",
+          "href": "/services/integrateur-claude"
+        },
+        {
+          "kicker_fr": "Diagnostic",
+          "kicker_en": "Diagnostic",
+          "title_fr": "Diagnostic de maturité IA",
+          "title_en": "AI maturity diagnostic",
+          "lead_fr": "Avant de désigner un référent, situez votre niveau : la grille des cinq niveaux et les dimensions qui comptent vraiment.",
+          "lead_en": "Before naming a lead, place your level: the five-level grid and the dimensions that really matter.",
+          "href": "/ressources/diagnostics/maturite-ia"
+        }
+      ]
+    },
+    {
+      "type": "faq-two-column",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous <i>demandez</i>",
+      "h2_en": "What you <i>ask</i> us",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un référent IA en entreprise ?",
+          "q_en": "What is an AI lead in a company?",
+          "a_fr": "C'est la personne interne qui porte le sujet IA au quotidien : elle cadre les usages, forme les collègues, choisit les outils avec la direction et fait le lien avec les intégrateurs externes. Ce n'est pas forcément un profil technique, mais quelqu'un de curieux, rigoureux et écouté, capable de transformer un outil en pratique réelle dans les équipes.",
+          "a_en": "It's the internal person who carries the AI topic day to day: they frame the uses, train colleagues, pick tools with leadership and bridge with external integrators. It isn't necessarily a technical profile, but someone curious, rigorous and listened to, able to turn a tool into real practice within the teams."
+        },
+        {
+          "q_fr": "Faut-il vraiment un référent IA dans une PME ?",
+          "q_en": "Does an SMB really need an AI lead?",
+          "a_fr": "Dès qu'il y a plus de deux ou trois usages actifs, oui. Sans référent, l'IA reste un patchwork d'initiatives isolées qui ne se diffusent pas et qui posent des risques de conformité. Le référent est ce qui transforme des essais individuels en une compétence d'entreprise qui dure. En dessous de cette taille, un référent à temps partiel suffit souvent.",
+          "a_en": "As soon as there are more than two or three active uses, yes. Without a lead, AI stays a patchwork of isolated initiatives that don't spread and that raise compliance risks. The lead is what turns individual trials into a lasting company skill. Below that size, a part-time lead is often enough."
+        },
+        {
+          "q_fr": "Le référent IA doit-il être un développeur ?",
+          "q_en": "Does the AI lead have to be a developer?",
+          "a_fr": "Non, et c'est une idée fausse répandue. Le bon profil combine compréhension métier, curiosité technologique et capacité à embarquer les équipes. Un chef de projet, un responsable des opérations ou un dirigeant motivé fait souvent un meilleur référent qu'un développeur isolé du terrain. La compétence technique s'acquiert ou se sous-traite, pas la légitimité interne.",
+          "a_en": "No, and that's a widespread misconception. The right profile combines business understanding, technological curiosity and the ability to bring teams along. A project manager, an operations head or a motivated leader often makes a better lead than a developer cut off from the field. Technical skill can be acquired or outsourced, internal legitimacy can't."
+        },
+        {
+          "q_fr": "Combien de temps un référent IA doit-il y consacrer ?",
+          "q_en": "How much time should an AI lead devote to it?",
+          "a_fr": "Au démarrage, comptez une demi-journée à une journée par semaine pour cadrer les usages, former et suivre les premiers cas. Ce n'est pas un poste à temps plein dans une PME, c'est une mission ajoutée à un rôle existant. L'erreur fréquente est de désigner quelqu'un sans lui dégager le temps réel pour agir.",
+          "a_en": "At the start, count half a day to a day a week to frame uses, train and follow the first cases. It isn't a full-time role in an SMB, it's a mission added to an existing role. The common mistake is naming someone without freeing up the real time for them to act."
+        },
+        {
+          "q_fr": "Comment faire monter mon référent en compétence ?",
+          "q_en": "How do I skill up my lead?",
+          "a_fr": "Par la pratique encadrée plutôt que par la théorie. On l'accompagne sur un premier cas d'usage concret, on lui transmet les bons réflexes de cadrage et de vérification, puis on l'autonomise progressivement. L'objectif d'un bon intégrateur est de partir : que la compétence reste chez vous, pas de vous rendre dépendant.",
+          "a_en": "Through guided practice rather than theory. We support them on a first concrete use case, pass on the right framing and checking reflexes, then make them autonomous step by step. A good integrator's goal is to leave: the skill stays with you, you don't become dependent."
+        },
+        {
+          "q_fr": "Que se passe-t-il si personne ne porte le sujet IA ?",
+          "q_en": "What happens if no one carries the AI topic?",
+          "a_fr": "Les usages se dispersent, des données sensibles circulent par des comptes personnels et les bons outils restent sur l'étagère faute d'adoption. Sans référent, chaque projet IA repart de zéro et la valeur ne s'accumule pas. C'est le scénario le plus coûteux à terme : beaucoup d'essais, peu de résultats durables.",
+          "a_en": "Uses scatter, sensitive data flows through personal accounts and good tools stay on the shelf for lack of adoption. Without a lead, every AI project restarts from scratch and value doesn't accumulate. It's the most expensive scenario in the end: many trials, few lasting results."
+        },
+        {
+          "q_fr": "Référent IA interne ou prestataire externe ?",
+          "q_en": "Internal AI lead or external provider?",
+          "a_fr": "Les deux, à des moments différents. Un intégrateur externe accélère le démarrage et transmet les méthodes ; le référent interne assure l'ancrage et la continuité dans le temps. Le bon montage forme votre référent pendant le projet pour qu'il prenne le relais. Tout externaliser sans relais interne crée une dépendance fragile.",
+          "a_en": "Both, at different moments. An external integrator speeds up the start and passes on the methods; the internal lead ensures anchoring and continuity over time. The right setup trains your lead during the project so they take over. Outsourcing everything with no internal relay creates fragile dependency."
+        },
+        {
+          "q_fr": "Ce diagnostic engage-t-il à quelque chose ?",
+          "q_en": "Does this diagnostic commit me to anything?",
+          "a_fr": "Non. C'est un contenu pour clarifier votre besoin, librement. Si vous voulez aller plus loin, l'audit IA gratuit de 45 min identifie le premier cas d'usage et le rôle que votre référent peut y jouer. On part de votre réalité, pas d'un modèle théorique.",
+          "a_en": "No. It's content to clarify your need, freely. If you want to go further, the free 45-min AI audit identifies the first use case and the role your lead can play in it. We start from your reality, not from a theoretical model."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à structurer votre IA en interne ?",
+      "kicker_en": "§ Ready to structure your AI in-house?",
+      "h2_fr": "Vous savez s'il vous faut un référent. <i>Passons</i> au prochain pas.",
+      "h2_en": "You know whether you need a lead. <i>Let's</i> take the next step.",
+      "subtitle_fr": "L'audit IA gratuit de 45 min identifie votre premier cas d'usage et le rôle que votre référent peut y jouer dès le départ. On part de votre réalité et on forme votre relais interne. Sans engagement.",
+      "subtitle_en": "The free 45-min AI audit identifies your first use case and the role your lead can play in it from the start. We start from your reality and train your internal relay. No commitment.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit IA (45 min) →",
+          "label_en": "Book the AI audit (45 min) →",
+          "href": "/contact?offer=referent-ia&intent=diagnostic",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'intégrateur Claude",
+          "label_en": "See the Claude integrator",
+          "href": "/services/integrateur-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

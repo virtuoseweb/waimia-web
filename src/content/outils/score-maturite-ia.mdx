@@ -1,0 +1,86 @@
+---
+title_fr: "Score de maturité IA"
+title_en: "AI Maturity Score"
+description_fr: "Situez la maturité IA de votre PME B2B sur les 5 niveaux en répondant à quelques questions sur vos pratiques, vos outils et vos données actuels."
+description_en: "Place your B2B SMB's AI maturity on the 5 levels by answering a few questions about your current practices, tools and data."
+slug: "score-maturite-ia"
+publishedAt: 2026-05-14
+type: "calculator"
+inputs:
+  - key: "outilsIa"
+    label_fr: "Outils IA déjà utilisés en interne"
+    label_en: "AI tools already used internally"
+    type: "select"
+    defaultValue: "1"
+    options:
+      - value: "0"
+        label_fr: "Aucun outil IA utilisé"
+        label_en: "No AI tool in use"
+      - value: "1"
+        label_fr: "Quelques essais ponctuels (ChatGPT, etc.)"
+        label_en: "A few ad hoc trials (ChatGPT, etc.)"
+      - value: "2"
+        label_fr: "Outils IA intégrés à un ou deux process"
+        label_en: "AI tools embedded in one or two processes"
+      - value: "3"
+        label_fr: "IA déployée sur plusieurs métiers"
+        label_en: "AI deployed across several functions"
+  - key: "donnees"
+    label_fr: "État de vos données opérationnelles"
+    label_en: "State of your operational data"
+    type: "select"
+    defaultValue: "1"
+    options:
+      - value: "0"
+        label_fr: "Données dispersées, peu structurées"
+        label_en: "Scattered, weakly structured data"
+      - value: "1"
+        label_fr: "Données centralisées mais peu exploitées"
+        label_en: "Centralized but underused data"
+      - value: "2"
+        label_fr: "Données propres et exploitables"
+        label_en: "Clean, usable data"
+      - value: "3"
+        label_fr: "Données exploitées par des outils automatisés"
+        label_en: "Data leveraged by automated tools"
+  - key: "equipe"
+    label_fr: "Acculturation des équipes à l'IA"
+    label_en: "Team familiarity with AI"
+    type: "select"
+    defaultValue: "1"
+    options:
+      - value: "0"
+        label_fr: "Aucune compétence IA en interne"
+        label_en: "No internal AI skills"
+      - value: "1"
+        label_fr: "Une ou deux personnes curieuses"
+        label_en: "One or two curious people"
+      - value: "2"
+        label_fr: "Plusieurs équipes formées aux usages IA"
+        label_en: "Several teams trained on AI use"
+      - value: "3"
+        label_fr: "Référent IA et bonnes pratiques diffusées"
+        label_en: "AI lead and shared best practices"
+outputs:
+  - key: "scoreMaturite"
+    formula: "outilsIa + donnees + equipe"
+    label_fr: "Niveau de maturité IA estimé (sur 9)"
+    label_en: "Estimated AI maturity level (out of 9)"
+    unit: "pts"
+    format: "integer"
+captureEmail: false
+apiSlug: "score-maturite-ia"
+relatedPages: []
+category_fr: "Stratégie"
+category_en: "Strategy"
+---
+
+## Comment utiliser ce score
+
+Répondez à trois questions sur vos outils IA actuels, l'état de vos données opérationnelles et l'acculturation de vos équipes. Le score additionne ces trois dimensions et situe votre PME sur l'un des 5 niveaux de maturité IA.
+
+Plus le total est élevé, plus votre organisation est prête à industrialiser des cas d'usage IA à fort impact.
+
+## Limites
+
+Ce score est une première lecture indicative. Une évaluation précise passe par le diagnostic maturité IA, qui analyse vos process, vos contraintes métier et vos priorités avant toute recommandation de déploiement.
