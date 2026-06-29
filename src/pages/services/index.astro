@@ -1,0 +1,228 @@
+---
+// Page · /services · Hub Solutions (architecture v7 : 2 offres porteuses)
+export const prerender = true;
+
+import Base from '../../layouts/Base.astro';
+import type { SectionByType } from '@waimia/ds-kernel';
+import CtaFinal from '../../components/sections/CtaFinal.astro';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
+import OfferTierGrid from '../../components/sections/OfferTierGrid.astro';
+import RelatedCardsBand from '../../components/sections/RelatedCardsBand.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
+
+const solutionsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Solutions Waimia : Site Web Intelligent et Intégration Claude',
+  description: 'Deux offres porteuses pour les PME : un site web intelligent qui acquiert, une intégration Claude qui standardise.',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Site Web Intelligent', url: 'https://waimia.com/services/site-web-intelligent' },
+    { '@type': 'ListItem', position: 2, name: 'Intégration Claude', url: 'https://waimia.com/services/integrateur-claude' },
+  ],
+};
+
+const heroData = {
+  type: 'hero-hub-masthead' as const,
+  variant: 'hub' as const,
+  kicker_fr: '§ Solutions · Waimia',
+  kicker_en: '§ Solutions · Waimia',
+  h1_fr: 'Deux <i>offres</i>.<br/>Un seul <i>système</i>.',
+  h1_en: 'Two <i>offers</i>.<br/>One <i>system</i>.',
+  lede_fr: 'Deux offres porteuses, les services qui les composent, et l\'audit pour savoir par où commencer.',
+  lede_en: 'Two flagship offers, the services that compose them, and the audit to know where to start.',
+  decoration: false as const,
+  align: 'left' as const,
+} satisfies SectionByType<'hero-hub-masthead'>;
+
+const offerWebData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'featured' as const,
+  background: 'ink' as const,
+  wrap: false,
+  eyebrow_fr: 'I · SITE WEB INTELLIGENT',
+  eyebrow_en: 'I · SMART WEBSITE',
+  h2_fr: 'Générer plus de leads, alléger le marketing.',
+  h2_en: 'Generate more leads, lighten marketing.',
+  lede_fr: 'Une web app pilotée par l\'IA : SEO, analytics et CRM branchés, pensée pour convertir et mesurer.',
+  lede_en: 'An AI-driven web app: SEO, analytics and CRM wired in, built to convert and measure.',
+  featured_card: {
+    eyebrow_fr: 'OFFRE PHARE',
+    eyebrow_en: 'FLAGSHIP OFFER',
+    title_fr: 'Site web intelligent',
+    title_en: 'Smart website',
+    sub_fr: 'Pas une vitrine. Un système d\'acquisition.',
+    sub_en: 'Not a brochure. An acquisition system.',
+    lead_fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés. Chaque visite est qualifiée, scorée et routée vers ce qui convertit.',
+    lead_en: 'AI-driven web app: SEO, analytics and CRM wired in. Every visit is qualified, scored and routed toward what converts.',
+    cta_fr: 'Découvrir l\'offre →',
+    cta_en: 'Explore the offer →',
+    href: '/services/site-web-intelligent',
+  },
+  offers: [
+    {
+      price_fr: 'QUALIFICATION',
+      price_en: 'QUALIFICATION',
+      title_fr: 'Tunnel de qualification intelligent',
+      title_en: 'Smart qualification funnel',
+      lead_fr: 'Landing pages qui convertissent et scoring qui priorise vos leads avant le premier contact.',
+      lead_en: 'Landing pages that convert and scoring that prioritises your leads before the first contact.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/landing-page-scoring',
+    },
+    {
+      price_fr: 'AU FORFAIT',
+      price_en: 'ON RETAINER',
+      title_fr: 'Maintenance & growth',
+      title_en: 'Maintenance & growth',
+      lead_fr: 'Faire vivre et croître le site après la mise en ligne, au forfait, sur vos propres données.',
+      lead_en: 'Keep the site alive and growing after launch, on a retainer, on your own data.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/maintenance-growth',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
+
+const offerClaudeData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'standard' as const,
+  wrap: true,
+  eyebrow_fr: 'II · INTÉGRATION CLAUDE',
+  eyebrow_en: 'II · CLAUDE INTEGRATION',
+  h2_fr: 'Standardiser, gagner du temps, exploiter le savoir.',
+  h2_en: 'Standardize, save time, leverage knowledge.',
+  lede_fr: 'Claude en production dans votre entreprise : gouvernance, formation et agents branchés à vos outils.',
+  lede_en: 'Claude in production in your company: governance, training and agents wired to your tools.',
+  featured_card: {
+    eyebrow_fr: 'OFFRE PHARE',
+    eyebrow_en: 'FLAGSHIP OFFER',
+    title_fr: 'Intégrateur Claude',
+    title_en: 'Claude integrator',
+    sub_fr: 'Claude en entreprise, pas en démo.',
+    sub_en: 'Claude in the enterprise, not in a demo.',
+    lead_fr: 'Claude en entreprise, Claude Code, gouvernance et formation, en production. On câble, on forme, on mesure.',
+    lead_en: 'Claude in the enterprise, Claude Code, governance and training, in production. We wire, we train, we measure.',
+    cta_fr: 'Voir le service →',
+    cta_en: 'See the service →',
+    href: '/services/integrateur-claude',
+  },
+  offers: [
+    {
+      price_fr: 'CADRAGE',
+      price_en: 'SCOPING',
+      title_fr: 'Consultant IA Claude',
+      title_en: 'Claude AI consultant',
+      lead_fr: 'Auditer, cadrer et prioriser vos cas d\'usage IA, puis les faire adopter par vos équipes.',
+      lead_en: 'Audit, frame and prioritise your AI use cases, then drive adoption by your teams.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/consultant-ia-claude',
+    },
+    {
+      price_fr: 'AUTONOMIE',
+      price_en: 'AUTONOMY',
+      title_fr: 'Agents IA',
+      title_en: 'AI agents',
+      lead_fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision, mesurés sur le terrain.',
+      lead_en: 'Autonomous agents wired to your tools via MCP, under supervision, measured in the field.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/agents-ia',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
+
+const relatedProblemsData = {
+  type: 'related-cards-band' as const,
+  background: 'paper-2' as const,
+  kicker_fr: '§ Résoudre un problème',
+  kicker_en: '§ Solve a problem',
+  cards: [
+    {
+      kicker_fr: 'PROBLÈME · ACQUISITION',
+      kicker_en: 'PROBLEM · ACQUISITION',
+      title_fr: 'Générer plus de leads',
+      title_en: 'Generate more leads',
+      lead_fr: 'Un site qui capte, score et route chaque visite vers une conversation commerciale.',
+      lead_en: 'A site that captures, scores and routes every visit toward a sales conversation.',
+      href: '/cas-usages/generer-plus-de-leads',
+    },
+    {
+      kicker_fr: 'PROBLÈME · PRODUCTIVITÉ',
+      kicker_en: 'PROBLEM · PRODUCTIVITY',
+      title_fr: 'Réduire le temps dans le CMS',
+      title_en: 'Cut time in the CMS',
+      lead_fr: 'Une édition pilotable sans développeur, versionnée, qui se fait en minutes.',
+      lead_en: 'Editing you can steer without a developer, versioned, done in minutes.',
+      href: '/cas-usages/reduire-temps-cms',
+    },
+    {
+      kicker_fr: 'PROBLÈME · GOUVERNANCE',
+      kicker_en: 'PROBLEM · GOVERNANCE',
+      title_fr: 'Standardiser les processus',
+      title_en: 'Standardize processes',
+      lead_fr: 'Claude branché à vos outils pour cadrer, documenter et industrialiser vos process.',
+      lead_en: 'Claude wired to your tools to frame, document and industrialise your processes.',
+      href: '/cas-usages/standardiser-processus',
+    },
+  ],
+} satisfies SectionByType<'related-cards-band'>;
+
+const ctaData = {
+  type: 'cta-final' as const,
+  h2_fr: 'Par où <em>commencer</em> ?<br />Un audit gratuit le dit.',
+  h2_en: 'Where to <em>start</em>?<br />A free audit tells you.',
+  body_fr: '45 min, gratuit. Vous repartez avec la réponse sur votre site et votre système d\'acquisition, un plan d\'action pour votre objectif, et au moins 2 process à automatiser.',
+  body_en: '45 min, free. You leave with the answer on your site and acquisition system, an action plan for your goal, and at least 2 processes to automate.',
+  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact', variant: 'primary' as const },
+  cta_secondary: { label_fr: 'Voir les cas clients →', label_en: 'See case studies →', href: '/cas-clients', variant: 'ghost' as const },
+  background: 'ink' as const,
+} satisfies SectionByType<'cta-final'>;
+---
+<Base
+  title="Solutions · Waimia"
+  description="Deux offres porteuses pour les PME : un site web intelligent qui acquiert, une intégration Claude qui standardise. Et l'audit pour savoir par où commencer."
+  jsonLd={solutionsJsonLd}
+>
+
+  <div class="wrap-wide" style="padding-top: 24px;">
+    <MastheadBar items={[{label:'Accueil', href:'/'}, {label:'Solutions'}]} />
+  </div>
+
+  <!-- 1. HERO éditorial -->
+  <HeroCentered data={heroData} lang="fr" />
+
+  <!-- 2. OFFRE I · SITE WEB INTELLIGENT (dominante) -->
+  <div class="offer-rhythm-base">
+    <OfferTierGrid data={offerWebData} lang="fr" />
+  </div>
+
+  <!-- 3. OFFRE II · INTÉGRATION CLAUDE -->
+  <div class="offer-rhythm-base">
+    <OfferTierGrid data={offerClaudeData} lang="fr" />
+  </div>
+
+  <!-- 4. RÉSOUDRE UN PROBLÈME -->
+  <div class="related-rhythm-base">
+    <RelatedCardsBand data={relatedProblemsData} lang="fr" />
+  </div>
+
+  <!-- 5. CTA BAND · AUDIT GRATUIT -->
+  <CtaFinal data={ctaData} lang="fr" />
+</Base>
+
+<style>
+  /* ── Resserrer le rythme des deux offres consécutives (suppression bandes mortes) ──
+     Chaque .tier-section embarque --section-loose en haut ET en bas : entre deux
+     offres cela empile du vide non intentionnel. On retombe sur --section-base
+     (même famille de rythme, 0 nouveau token) pour que chaque offre reste dense. */
+  .offer-rhythm-base :global(.tier-section) {
+    padding-top: var(--section-base);
+    padding-bottom: var(--section-base);
+  }
+  /* La bande Problèmes consomme un knob dédié du composant (fallback loose). */
+  .related-rhythm-base {
+    --related-cards-band-pad: var(--section-base);
+  }
+</style>

@@ -232,7 +232,7 @@ const RESSOURCES: MegaMenuSection = {
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
-  parentHref: '/offres',
+  parentHref: '/services',
   matchPrefixes: ['/services', '/offres', '/acquerir', '/piloter', '/operer'],
   lead: {
     fr: 'Deux offres porteuses, les services qui les composent, et l\'audit pour savoir par où commencer.',
