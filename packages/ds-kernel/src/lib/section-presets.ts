@@ -262,23 +262,23 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
   // La carte interne reste toujours ink (signature) ; `background` agit sur la zone externe.
   'statement-orbit': [
     // Défaut (split 52/48) + palette externe
-    { id: 'statement-orbit--paper', type: 'statement-orbit', label: 'Statement orbite · split · papier', family: 'manifesto', era: '2021', props: { background: 'paper' } },
-    { id: 'statement-orbit--paper-2', type: 'statement-orbit', label: 'Statement orbite · split · papier 2', family: 'manifesto', era: '2023', props: { background: 'paper-2' } },
-    { id: 'statement-orbit--ink', type: 'statement-orbit', label: 'Statement orbite · split · encre', family: 'manifesto', era: '2026', props: { background: 'ink' } },
+    { id: 'statement-orbit--paper', type: 'statement-orbit', label: 'Statement orbite · split · papier', family: 'prose', era: '2021', props: { background: 'paper' } },
+    { id: 'statement-orbit--paper-2', type: 'statement-orbit', label: 'Statement orbite · split · papier 2', family: 'prose', era: '2023', props: { background: 'paper-2' } },
+    { id: 'statement-orbit--ink', type: 'statement-orbit', label: 'Statement orbite · split · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
     // Layout : prose (1 colonne centrée, média contenu dessous)
-    { id: 'statement-orbit--prose', type: 'statement-orbit', label: 'Statement orbite · prose centrée', family: 'manifesto', era: '2024', props: { layout: 'prose' } },
-    { id: 'statement-orbit--prose-ample', type: 'statement-orbit', label: 'Statement orbite · prose · ample', family: 'manifesto', era: '2025', props: { layout: 'prose', density: 'ample' } },
+    { id: 'statement-orbit--prose', type: 'statement-orbit', label: 'Statement orbite · prose centrée', family: 'prose', era: '2024', props: { layout: 'prose' } },
+    { id: 'statement-orbit--prose-ample', type: 'statement-orbit', label: 'Statement orbite · prose · ample', family: 'prose', era: '2025', props: { layout: 'prose', density: 'ample' } },
     // Layout : lead-aside (texte 2fr + média aparté 1fr)
-    { id: 'statement-orbit--lead-aside', type: 'statement-orbit', label: 'Statement orbite · texte dominant + média aparté', family: 'manifesto', era: '2023', props: { layout: 'lead-aside' } },
-    { id: 'statement-orbit--lead-aside-compact', type: 'statement-orbit', label: 'Statement orbite · lead-aside · compact', family: 'manifesto', era: '2024', props: { layout: 'lead-aside', density: 'compact' } },
+    { id: 'statement-orbit--lead-aside', type: 'statement-orbit', label: 'Statement orbite · texte dominant + média aparté', family: 'prose', era: '2023', props: { layout: 'lead-aside' } },
+    { id: 'statement-orbit--lead-aside-compact', type: 'statement-orbit', label: 'Statement orbite · lead-aside · compact', family: 'prose', era: '2024', props: { layout: 'lead-aside', density: 'compact' } },
     // Layout : two-col (lede en 2 colonnes de texte sous le titre)
-    { id: 'statement-orbit--two-col', type: 'statement-orbit', label: 'Statement orbite · lede en deux colonnes', family: 'manifesto', era: '2022', props: { layout: 'two-col' } },
+    { id: 'statement-orbit--two-col', type: 'statement-orbit', label: 'Statement orbite · lede en deux colonnes', family: 'prose', era: '2022', props: { layout: 'two-col' } },
     // Axe : contentAlign centré (split, titre + lede centrés)
-    { id: 'statement-orbit--center', type: 'statement-orbit', label: 'Statement orbite · contenu centré', family: 'manifesto', era: '2025', props: { contentAlign: 'center' } },
+    { id: 'statement-orbit--center', type: 'statement-orbit', label: 'Statement orbite · contenu centré', family: 'prose', era: '2025', props: { contentAlign: 'center' } },
     // Atomique : CTA centré sans décaler le titre (actions justify indépendant du header)
-    { id: 'statement-orbit--atomic-cta-center', type: 'statement-orbit', label: 'Statement orbite · CTA centré (titre à gauche)', family: 'manifesto', era: '2026', props: { layout: 'prose', placement: { header: { align: 'start' }, actions: { justify: 'center' } } } },
+    { id: 'statement-orbit--atomic-cta-center', type: 'statement-orbit', label: 'Statement orbite · CTA centré (titre à gauche)', family: 'prose', era: '2026', props: { layout: 'prose', placement: { header: { align: 'start' }, actions: { justify: 'center' } } } },
     // Atomique : média en premier (inversion ordre média↔texte)
-    { id: 'statement-orbit--atomic-media-first', type: 'statement-orbit', label: 'Statement orbite · média en premier', family: 'manifesto', era: '2026', props: { placement: { media: { order: 0 }, header: { order: 1 } } } },
+    { id: 'statement-orbit--atomic-media-first', type: 'statement-orbit', label: 'Statement orbite · média en premier', family: 'prose', era: '2026', props: { placement: { media: { order: 0 }, header: { order: 1 } } } },
   ],
 
   // definition-extract (famille prose) · Batch 6 · 3 couches :
@@ -307,22 +307,22 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
   // layout list|rows-divided|two-col|grid + columns/density/contentAlign + placement atomique.
   'pain-severity-list': [
     // Défaut (list ink) + palette
-    { id: 'pain-severity-list--ink', type: 'pain-severity-list', label: 'Liste sévérité · list · encre', family: 'pain', era: '2026', props: { background: 'ink' } },
-    { id: 'pain-severity-list--paper', type: 'pain-severity-list', label: 'Liste sévérité · list · papier', family: 'pain', era: '2023', props: { background: 'paper' } },
-    { id: 'pain-severity-list--paper-2', type: 'pain-severity-list', label: 'Liste sévérité · list · papier 2', family: 'pain', era: '2024', props: { background: 'paper-2' } },
+    { id: 'pain-severity-list--ink', type: 'pain-severity-list', label: 'Liste sévérité · list · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+    { id: 'pain-severity-list--paper', type: 'pain-severity-list', label: 'Liste sévérité · list · papier', family: 'prose', era: '2023', props: { background: 'paper' } },
+    { id: 'pain-severity-list--paper-2', type: 'pain-severity-list', label: 'Liste sévérité · list · papier 2', family: 'prose', era: '2024', props: { background: 'paper-2' } },
     // Layout : rows-divided (alias explicite des rows à filets)
-    { id: 'pain-severity-list--rows-divided', type: 'pain-severity-list', label: 'Liste sévérité · rows à filets', family: 'pain', era: '2024', props: { layout: 'rows-divided' } },
+    { id: 'pain-severity-list--rows-divided', type: 'pain-severity-list', label: 'Liste sévérité · rows à filets', family: 'prose', era: '2024', props: { layout: 'rows-divided' } },
     // Layout : two-col (deux colonnes d'items, severity en rang horizontal)
-    { id: 'pain-severity-list--two-col', type: 'pain-severity-list', label: 'Liste sévérité · deux colonnes', family: 'pain', era: '2025', props: { layout: 'two-col' } },
-    { id: 'pain-severity-list--two-col-paper', type: 'pain-severity-list', label: 'Liste sévérité · deux colonnes · papier', family: 'pain', era: '2025', props: { layout: 'two-col', background: 'paper' } },
+    { id: 'pain-severity-list--two-col', type: 'pain-severity-list', label: 'Liste sévérité · deux colonnes', family: 'prose', era: '2025', props: { layout: 'two-col' } },
+    { id: 'pain-severity-list--two-col-paper', type: 'pain-severity-list', label: 'Liste sévérité · deux colonnes · papier', family: 'prose', era: '2025', props: { layout: 'two-col', background: 'paper' } },
     // Layout : grid count-adaptive (auto-fit) + refiner columns
-    { id: 'pain-severity-list--grid-auto', type: 'pain-severity-list', label: 'Liste sévérité · grille adaptative', family: 'pain', era: '2026', props: { layout: 'grid', columns: 'auto' } },
-    { id: 'pain-severity-list--grid-3', type: 'pain-severity-list', label: 'Liste sévérité · grille 3 colonnes', family: 'pain', era: '2026', props: { layout: 'grid', columns: '3' } },
+    { id: 'pain-severity-list--grid-auto', type: 'pain-severity-list', label: 'Liste sévérité · grille adaptative', family: 'prose', era: '2026', props: { layout: 'grid', columns: 'auto' } },
+    { id: 'pain-severity-list--grid-3', type: 'pain-severity-list', label: 'Liste sévérité · grille 3 colonnes', family: 'prose', era: '2026', props: { layout: 'grid', columns: '3' } },
     // Axe : density
-    { id: 'pain-severity-list--list-compact', type: 'pain-severity-list', label: 'Liste sévérité · list · compact', family: 'pain', era: '2025', props: { density: 'compact' } },
-    { id: 'pain-severity-list--list-ample', type: 'pain-severity-list', label: 'Liste sévérité · list · ample', family: 'pain', era: '2024', props: { density: 'ample' } },
+    { id: 'pain-severity-list--list-compact', type: 'pain-severity-list', label: 'Liste sévérité · list · compact', family: 'prose', era: '2025', props: { density: 'compact' } },
+    { id: 'pain-severity-list--list-ample', type: 'pain-severity-list', label: 'Liste sévérité · list · ample', family: 'prose', era: '2024', props: { density: 'ample' } },
     // Atomique : header centré + grille (titre centré, items en grille à gauche)
-    { id: 'pain-severity-list--atomic-head-center', type: 'pain-severity-list', label: 'Liste sévérité · titre centré + grille', family: 'pain', era: '2026', props: { layout: 'grid', columns: '2', placement: { header: { align: 'center' } } } },
+    { id: 'pain-severity-list--atomic-head-center', type: 'pain-severity-list', label: 'Liste sévérité · titre centré + grille', family: 'prose', era: '2026', props: { layout: 'grid', columns: '2', placement: { header: { align: 'center' } } } },
   ],
 
   // versus-competitors (famille table) :comparatif ; axe sûr = background.
@@ -530,10 +530,10 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
 
   // eeat-panel (famille eeat) :variant (media|columns|light|hero) + background (ink|paper SEULEMENT).
   'eeat-panel': [
-    { id: 'eeat-panel--media-ink', type: 'eeat-panel', label: 'E-E-A-T · média · encre', family: 'eeat', era: '2025', props: { variant: 'media', background: 'ink' } },
-    { id: 'eeat-panel--columns-ink', type: 'eeat-panel', label: 'E-E-A-T · colonnes · encre', family: 'eeat', era: '2025', props: { variant: 'columns', background: 'ink' } },
-    { id: 'eeat-panel--light-paper', type: 'eeat-panel', label: 'E-E-A-T · claire · papier', family: 'eeat', era: '2026', props: { variant: 'light', background: 'paper' } },
-    { id: 'eeat-panel--hero-ink', type: 'eeat-panel', label: 'E-E-A-T · vedette · encre', family: 'eeat', era: '2026', props: { variant: 'hero', background: 'ink' } },
+    { id: 'eeat-panel--media-ink', type: 'eeat-panel', label: 'E-E-A-T · média · encre', family: 'prose', era: '2025', props: { variant: 'media', background: 'ink' } },
+    { id: 'eeat-panel--columns-ink', type: 'eeat-panel', label: 'E-E-A-T · colonnes · encre', family: 'prose', era: '2025', props: { variant: 'columns', background: 'ink' } },
+    { id: 'eeat-panel--light-paper', type: 'eeat-panel', label: 'E-E-A-T · claire · papier', family: 'prose', era: '2026', props: { variant: 'light', background: 'paper' } },
+    { id: 'eeat-panel--hero-ink', type: 'eeat-panel', label: 'E-E-A-T · vedette · encre', family: 'prose', era: '2026', props: { variant: 'hero', background: 'ink' } },
   ],
 
   // faq-two-column (famille accordion) :FAQ statique 2 colonnes ; axe sûr = background.
@@ -673,15 +673,15 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
   // system-flow (famille flow) · Vague C Batch 5 : recettes layout (diagram défaut / horizontal /
   // vertical-stack) + density + contentAlign + placement. Flèches/boucle alignées dans chaque recette.
   'system-flow': [
-    { id: 'system-flow--ink', type: 'system-flow', label: 'Flux système · encre', family: 'flow', era: '2026', props: { background: 'ink' } },
-    { id: 'system-flow--diagram', type: 'system-flow', label: 'Flux système · diagramme horizontal', family: 'flow', era: '2024', props: { layout: 'diagram' } },
-    { id: 'system-flow--horizontal', type: 'system-flow', label: 'Flux système · rail scrollable', family: 'flow', era: '2025', props: { layout: 'horizontal' } },
-    { id: 'system-flow--vertical-stack', type: 'system-flow', label: 'Flux système · étapes empilées', family: 'flow', era: '2025', props: { layout: 'vertical-stack' } },
-    { id: 'system-flow--vertical-stack-ample', type: 'system-flow', label: 'Flux système · empilé · aéré', family: 'flow', era: '2026', props: { layout: 'vertical-stack', density: 'ample' } },
-    { id: 'system-flow--diagram-compact', type: 'system-flow', label: 'Flux système · diagramme · compact', family: 'flow', era: '2026', props: { layout: 'diagram', density: 'compact' } },
-    { id: 'system-flow--head-center', type: 'system-flow', label: 'Flux système · header centré', family: 'flow', era: '2026', props: { layout: 'horizontal', contentAlign: 'center' } },
-    { id: 'system-flow--head-end', type: 'system-flow', label: 'Flux système · en-tête aligné à droite', family: 'flow', era: '2026', props: { layout: 'diagram', placement: { header: { align: 'end' } } } },
-    { id: 'system-flow--atomic-flow-hide-mobile', type: 'system-flow', label: 'Flux système · cartes masquées mobile (atomique)', family: 'flow', era: '2026', props: { layout: 'horizontal', placement: { body: { hideOn: 'mobile' } } } },
+    { id: 'system-flow--ink', type: 'system-flow', label: 'Flux système · encre', family: 'process-steps', era: '2026', props: { background: 'ink' } },
+    { id: 'system-flow--diagram', type: 'system-flow', label: 'Flux système · diagramme horizontal', family: 'process-steps', era: '2024', props: { layout: 'diagram' } },
+    { id: 'system-flow--horizontal', type: 'system-flow', label: 'Flux système · rail scrollable', family: 'process-steps', era: '2025', props: { layout: 'horizontal' } },
+    { id: 'system-flow--vertical-stack', type: 'system-flow', label: 'Flux système · étapes empilées', family: 'process-steps', era: '2025', props: { layout: 'vertical-stack' } },
+    { id: 'system-flow--vertical-stack-ample', type: 'system-flow', label: 'Flux système · empilé · aéré', family: 'process-steps', era: '2026', props: { layout: 'vertical-stack', density: 'ample' } },
+    { id: 'system-flow--diagram-compact', type: 'system-flow', label: 'Flux système · diagramme · compact', family: 'process-steps', era: '2026', props: { layout: 'diagram', density: 'compact' } },
+    { id: 'system-flow--head-center', type: 'system-flow', label: 'Flux système · header centré', family: 'process-steps', era: '2026', props: { layout: 'horizontal', contentAlign: 'center' } },
+    { id: 'system-flow--head-end', type: 'system-flow', label: 'Flux système · en-tête aligné à droite', family: 'process-steps', era: '2026', props: { layout: 'diagram', placement: { header: { align: 'end' } } } },
+    { id: 'system-flow--atomic-flow-hide-mobile', type: 'system-flow', label: 'Flux système · cartes masquées mobile (atomique)', family: 'process-steps', era: '2026', props: { layout: 'horizontal', placement: { body: { hideOn: 'mobile' } } } },
   ],
 
   // (system-flow presets consolidés plus haut · Vague C Batch 5)
